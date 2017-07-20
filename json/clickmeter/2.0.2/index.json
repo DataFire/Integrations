@@ -1,0 +1,6351 @@
+{
+  "id": "clickmeter",
+  "title": "ClickMeter",
+  "description": "Api dashboard for ClickMeter API",
+  "security": {
+    "clickmeter": {
+      "integration": "clickmeter",
+      "fields": {
+        "api_key": "API Key Authentication"
+      }
+    }
+  },
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/clickmeter.svg"
+  },
+  "tags": [
+    "marketing"
+  ],
+  "definitions": {
+    "Api.Core.Dto.Accounting.ConversionOptions": {
+      "properties": {
+        "hideComCost": {
+          "type": "boolean"
+        },
+        "hideCost": {
+          "type": "boolean"
+        },
+        "hideCount": {
+          "type": "boolean"
+        },
+        "hideParams": {
+          "type": "boolean"
+        },
+        "hideValue": {
+          "type": "boolean"
+        },
+        "percentCommission": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "percentValue": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "Api.Core.Dto.Accounting.DomainWhitelistEntry": {
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Api.Core.Dto.Accounting.ExtendedGrants": {
+      "properties": {
+        "allowAllGrants": {
+          "type": "boolean"
+        },
+        "allowGroupCreation": {
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "Api.Core.Dto.Accounting.Guest": {
+      "properties": {
+        "apiKey": {
+          "type": "string"
+        },
+        "conversionOptions": {
+          "$ref": "#/definitions/Api.Core.Dto.Accounting.ConversionOptions"
+        },
+        "creationDate": {
+          "description": " (A date in \"YmdHis\" format)",
+          "example": "20120203120530",
+          "type": "string"
+        },
+        "currentGrant": {
+          "$ref": "#/definitions/Api.Core.Dto.Grants.Grant"
+        },
+        "dateFormat": {
+          "type": "string"
+        },
+        "decimalSeparator": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "extendedGrants": {
+          "$ref": "#/definitions/Api.Core.Dto.Accounting.ExtendedGrants"
+        },
+        "groupGrants": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "hitOptions": {
+          "$ref": "#/definitions/Api.Core.Dto.Accounting.HitOptions"
+        },
+        "id": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "key": {
+          "type": "string"
+        },
+        "language": {
+          "type": "string"
+        },
+        "loginCount": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "notes": {
+          "type": "string"
+        },
+        "numberGroupSeparator": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        },
+        "timeFormat": {
+          "enum": [
+            "AmPm",
+            "H24"
+          ],
+          "type": "string"
+        },
+        "timeZone": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "timeframeMinDate": {
+          "description": " (A date in \"YmdHis\" format)",
+          "example": "20120203120530",
+          "type": "string"
+        },
+        "timezonename": {
+          "type": "string"
+        },
+        "tlGrants": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "tpGrants": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "userName": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Api.Core.Dto.Accounting.HitOptions": {
+      "properties": {
+        "hideReferrer": {
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "Api.Core.Dto.Accounting.IpBlacklistEntry": {
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "ip": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Api.Core.Dto.Accounting.Plan": {
+      "properties": {
+        "allowedPersonalDomains": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "allowedPersonalUrls": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "billingPeriodEnd": {
+          "description": " (A date in \"YmdHis\" format)",
+          "example": "20120203120530",
+          "type": "string"
+        },
+        "billingPeriodStart": {
+          "description": " (A date in \"YmdHis\" format)",
+          "example": "20120203120530",
+          "type": "string"
+        },
+        "bonusMonthlyEvents": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "maximumDatapoints": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "maximumGuests": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "monthlyEvents": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "price": {
+          "format": "double",
+          "type": "number"
+        },
+        "profileId": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "recurring": {
+          "type": "boolean"
+        },
+        "recurringPeriod": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "usedDatapoints": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "usedMonthlyEvents": {
+          "format": "int64",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "Api.Core.Dto.Accounting.User": {
+      "properties": {
+        "boGoVal": {
+          "type": "string"
+        },
+        "bonusClicks": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "companyName": {
+          "type": "string"
+        },
+        "companyRole": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "redirectOnly": {
+          "type": "boolean"
+        },
+        "registrationDate": {
+          "description": " (A date in \"YmdHis\" format)",
+          "example": "20120203120530",
+          "type": "string"
+        },
+        "timeframeMinDate": {
+          "description": " (A date in \"YmdHis\" format)",
+          "example": "20120203120530",
+          "type": "string"
+        },
+        "timezone": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "timezonename": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Api.Core.Dto.Aggregated.AggregatedResult": {
+      "properties": {
+        "activityDay": {
+          "description": " (A date in \"YmdHis\" format)",
+          "example": "20120203120530",
+          "type": "string"
+        },
+        "commissionsCost": {
+          "format": "double",
+          "type": "number"
+        },
+        "conversionsCost": {
+          "format": "double",
+          "type": "number"
+        },
+        "conversionsValue": {
+          "format": "double",
+          "type": "number"
+        },
+        "convertedClicks": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "entityData": {
+          "$ref": "#/definitions/System.Object"
+        },
+        "entityId": {
+          "type": "string"
+        },
+        "fromDay": {
+          "description": " (A date in \"YmdHis\" format)",
+          "example": "20120203120530",
+          "type": "string"
+        },
+        "hourlyBreakDown": {
+          "additionalProperties": {
+            "$ref": "#/definitions/Api.Core.Dto.Aggregated.AggregatedResult"
+          },
+          "type": "object"
+        },
+        "lastHitDate": {
+          "description": " (A date in \"YmdHis\" format)",
+          "example": "20120203120530",
+          "type": "string"
+        },
+        "spiderHitsCount": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "toDay": {
+          "description": " (A date in \"YmdHis\" format)",
+          "example": "20120203120530",
+          "type": "string"
+        },
+        "totalClicks": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "totalViews": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "uniqueClicks": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "uniqueConversions": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "uniqueViews": {
+          "format": "int64",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "Api.Core.Dto.Aggregated.AggregatedSummaryResult": {
+      "properties": {
+        "count": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "limit": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "offset": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "result": {
+          "items": {
+            "$ref": "#/definitions/Api.Core.Dto.Aggregated.AggregatedResult"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "Api.Core.Dto.ClickStream.Hit": {
+      "properties": {
+        "accessTime": {
+          "description": " (A date in \"YmdHis\" format)",
+          "example": "20120203120530",
+          "type": "string"
+        },
+        "browser": {
+          "$ref": "#/definitions/Api.Core.Dto.ClickStream.HitBrowserInfo"
+        },
+        "clientLanguage": {
+          "type": "string"
+        },
+        "conversion1": {
+          "$ref": "#/definitions/Api.Core.Dto.ClickStream.HitConversionInfo"
+        },
+        "conversion2": {
+          "$ref": "#/definitions/Api.Core.Dto.ClickStream.HitConversionInfo"
+        },
+        "conversion3": {
+          "$ref": "#/definitions/Api.Core.Dto.ClickStream.HitConversionInfo"
+        },
+        "conversion4": {
+          "$ref": "#/definitions/Api.Core.Dto.ClickStream.HitConversionInfo"
+        },
+        "conversion5": {
+          "$ref": "#/definitions/Api.Core.Dto.ClickStream.HitConversionInfo"
+        },
+        "conversions": {
+          "items": {
+            "$ref": "#/definitions/Api.Core.Dto.ClickStream.HitConversionInfo"
+          },
+          "type": "array"
+        },
+        "entity": {
+          "$ref": "#/definitions/Api.Core.Dto.ClickStream.HitDatapointInfo"
+        },
+        "ip": {
+          "type": "string"
+        },
+        "isProxy": {
+          "type": "string"
+        },
+        "isSpider": {
+          "type": "string"
+        },
+        "isUnique": {
+          "type": "string"
+        },
+        "location": {
+          "$ref": "#/definitions/Api.Core.Dto.ClickStream.HitLocationInfo"
+        },
+        "org": {
+          "type": "string"
+        },
+        "os": {
+          "$ref": "#/definitions/Api.Core.Dto.ClickStream.HitOsInfo"
+        },
+        "queryParams": {
+          "type": "string"
+        },
+        "realDestinationUrl": {
+          "type": "string"
+        },
+        "referer": {
+          "type": "string"
+        },
+        "source": {
+          "$ref": "#/definitions/Api.Core.Dto.ClickStream.HitSource"
+        },
+        "type": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Api.Core.Dto.ClickStream.HitBrowserInfo": {
+      "properties": {
+        "browserType": {
+          "type": "string"
+        },
+        "familyId": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "familyName": {
+          "type": "string"
+        },
+        "id": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Api.Core.Dto.ClickStream.HitConversionInfo": {
+      "properties": {
+        "accessTime": {
+          "description": " (A date in \"YmdHis\" format)",
+          "example": "20120203120530",
+          "type": "string"
+        },
+        "comcost": {
+          "format": "double",
+          "type": "number"
+        },
+        "cost": {
+          "format": "double",
+          "type": "number"
+        },
+        "date": {
+          "description": " (A date in \"YmdHis\" format)",
+          "example": "20120203120530",
+          "type": "string"
+        },
+        "deleted": {
+          "type": "boolean"
+        },
+        "id": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "parameter": {
+          "type": "string"
+        },
+        "value": {
+          "format": "double",
+          "type": "number"
+        }
+      },
+      "type": "object"
+    },
+    "Api.Core.Dto.ClickStream.HitDatapointInfo": {
+      "properties": {
+        "creationDate": {
+          "description": " (A date in \"YmdHis\" format)",
+          "example": "20120203120530",
+          "type": "string"
+        },
+        "datapointFavourite": {
+          "type": "boolean"
+        },
+        "datapointId": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "datapointName": {
+          "type": "string"
+        },
+        "datapointTitle": {
+          "type": "string"
+        },
+        "datapointType": {
+          "type": "string"
+        },
+        "destinationUrl": {
+          "type": "string"
+        },
+        "groupId": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "groupName": {
+          "type": "string"
+        },
+        "isABTest": {
+          "type": "boolean"
+        },
+        "isPrivateShared": {
+          "type": "boolean"
+        },
+        "isPublic": {
+          "type": "boolean"
+        },
+        "notes": {
+          "type": "string"
+        },
+        "status": {
+          "enum": [
+            "Active",
+            "Paused",
+            "Abuse",
+            "Deleted"
+          ],
+          "type": "string"
+        },
+        "tags": {
+          "items": {
+            "$ref": "#/definitions/Api.Core.Dto.Tags.Tag"
+          },
+          "type": "array"
+        },
+        "trackingCode": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Api.Core.Dto.ClickStream.HitListPage": {
+      "properties": {
+        "hits": {
+          "items": {
+            "$ref": "#/definitions/Api.Core.Dto.ClickStream.Hit"
+          },
+          "type": "array"
+        },
+        "lastKey": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Api.Core.Dto.ClickStream.HitLocationInfo": {
+      "properties": {
+        "areacode": {
+          "type": "string"
+        },
+        "city": {
+          "type": "string"
+        },
+        "country": {
+          "type": "string"
+        },
+        "latitude": {
+          "format": "double",
+          "type": "number"
+        },
+        "longitude": {
+          "format": "double",
+          "type": "number"
+        },
+        "metrocode": {
+          "type": "string"
+        },
+        "organization": {
+          "type": "string"
+        },
+        "postalcode": {
+          "type": "string"
+        },
+        "region": {
+          "type": "string"
+        },
+        "regionName": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Api.Core.Dto.ClickStream.HitOsInfo": {
+      "properties": {
+        "familyId": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "familyName": {
+          "type": "string"
+        },
+        "id": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Api.Core.Dto.ClickStream.HitSource": {
+      "properties": {
+        "id": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "param": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Api.Core.Dto.Conversions.Conversion": {
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "creationDate": {
+          "description": " (A date in \"YmdHis\" format)",
+          "example": "20120203120530",
+          "type": "string"
+        },
+        "deleted": {
+          "type": "boolean"
+        },
+        "description": {
+          "type": "string"
+        },
+        "id": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "protocol": {
+          "enum": [
+            "Http",
+            "Https"
+          ],
+          "type": "string"
+        },
+        "value": {
+          "format": "double",
+          "type": "number"
+        }
+      },
+      "type": "object"
+    },
+    "Api.Core.Dto.Datapoints.BrowserBaseDestinationItem": {
+      "properties": {
+        "emailDestinationUrl": {
+          "type": "string"
+        },
+        "mobileDestinationUrl": {
+          "type": "string"
+        },
+        "spidersDestinationUrl": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Api.Core.Dto.Datapoints.Datapoint": {
+      "properties": {
+        "creationDate": {
+          "description": " (A date in \"YmdHis\" format)",
+          "example": "20120203120530",
+          "type": "string"
+        },
+        "encodeIp": {
+          "type": "boolean"
+        },
+        "fifthConversionId": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "fifthConversionName": {
+          "type": "string"
+        },
+        "firstConversionId": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "firstConversionName": {
+          "type": "string"
+        },
+        "fourthConversionId": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "fourthConversionName": {
+          "type": "string"
+        },
+        "groupId": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "groupName": {
+          "type": "string"
+        },
+        "id": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "isPublic": {
+          "type": "boolean"
+        },
+        "isSecured": {
+          "type": "boolean"
+        },
+        "lightTracking": {
+          "type": "boolean"
+        },
+        "name": {
+          "type": "string"
+        },
+        "notes": {
+          "type": "string"
+        },
+        "preferred": {
+          "type": "boolean"
+        },
+        "redirectOnly": {
+          "type": "boolean"
+        },
+        "secondConversionId": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "secondConversionName": {
+          "type": "string"
+        },
+        "status": {
+          "enum": [
+            "Active",
+            "Paused",
+            "Abuse",
+            "Deleted"
+          ],
+          "type": "string"
+        },
+        "tags": {
+          "items": {
+            "$ref": "#/definitions/Api.Core.Dto.Tags.Tag"
+          },
+          "type": "array"
+        },
+        "thirdConversionId": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "thirdConversionName": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "trackingCode": {
+          "type": "string"
+        },
+        "type": {
+          "enum": [
+            "TrackingLink",
+            "TrackingPixel"
+          ],
+          "type": "string"
+        },
+        "typeTL": {
+          "$ref": "#/definitions/Api.Core.Dto.Datapoints.TrackingLinkSpecifics"
+        },
+        "typeTP": {
+          "$ref": "#/definitions/Api.Core.Dto.Datapoints.TrackingPixelSpecifics"
+        },
+        "writePermited": {
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "Api.Core.Dto.Datapoints.DatapointRetargetingInfo": {
+      "properties": {
+        "id": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Api.Core.Dto.Datapoints.MultipleDestinationItem": {
+      "properties": {
+        "url": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Api.Core.Dto.Datapoints.TrackingLinkSpecifics": {
+      "properties": {
+        "appendQuery": {
+          "type": "boolean"
+        },
+        "browserDestinationItem": {
+          "$ref": "#/definitions/Api.Core.Dto.Datapoints.BrowserBaseDestinationItem"
+        },
+        "destinationMode": {
+          "enum": [
+            "Simple",
+            "RandomDestination",
+            "DestinationByLanguage",
+            "SpilloverDestination",
+            "DynamicUrl",
+            "BrowserDestination",
+            "DestinationByNation",
+            "UniqueDestination",
+            "SequentialDestination",
+            "WeightedDestination"
+          ],
+          "type": "string"
+        },
+        "domainId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "encodeUrl": {
+          "type": "boolean"
+        },
+        "expirationClicks": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "expirationDate": {
+          "description": " (A date in \"YmdHis\" format)",
+          "example": "20120203120530",
+          "type": "string"
+        },
+        "firstUrl": {
+          "type": "string"
+        },
+        "goDomainId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "hideUrl": {
+          "type": "boolean"
+        },
+        "hideUrlTitle": {
+          "type": "string"
+        },
+        "isABTest": {
+          "type": "boolean"
+        },
+        "password": {
+          "type": "string"
+        },
+        "pauseAfterClicksExpiration": {
+          "type": "boolean"
+        },
+        "pauseAfterDateExpiration": {
+          "type": "boolean"
+        },
+        "randomDestinationItems": {
+          "items": {
+            "$ref": "#/definitions/Api.Core.Dto.Datapoints.MultipleDestinationItem"
+          },
+          "type": "array"
+        },
+        "redirectType": {
+          "enum": [
+            "PermanentRedirect",
+            "TemporaryRedirect"
+          ],
+          "type": "string"
+        },
+        "referrerClean": {
+          "enum": [
+            "None",
+            "Clean",
+            "Myself"
+          ],
+          "type": "string"
+        },
+        "scripts": {
+          "items": {
+            "$ref": "#/definitions/Api.Core.Dto.Datapoints.DatapointRetargetingInfo"
+          },
+          "type": "array"
+        },
+        "sequentialDestinationItems": {
+          "items": {
+            "$ref": "#/definitions/Api.Core.Dto.Datapoints.MultipleDestinationItem"
+          },
+          "type": "array"
+        },
+        "spilloverDestinationItems": {
+          "items": {
+            "$ref": "#/definitions/Api.Core.Dto.Datapoints.MultipleDestinationItem"
+          },
+          "type": "array"
+        },
+        "uniqueDestinationItem": {
+          "$ref": "#/definitions/Api.Core.Dto.Datapoints.UniqueDestinationItem"
+        },
+        "url": {
+          "type": "string"
+        },
+        "urlAfterClicksExpiration": {
+          "type": "string"
+        },
+        "urlAfterDateExpiration": {
+          "type": "string"
+        },
+        "urlsByLanguage": {
+          "items": {
+            "$ref": "#/definitions/Api.Core.Dto.Datapoints.UrlByLanguageItem"
+          },
+          "type": "array"
+        },
+        "urlsByNation": {
+          "items": {
+            "$ref": "#/definitions/Api.Core.Dto.Datapoints.UrlByNationItem"
+          },
+          "type": "array"
+        },
+        "weightedDestinationItems": {
+          "items": {
+            "$ref": "#/definitions/Api.Core.Dto.Datapoints.WeightedDestinationItem"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "Api.Core.Dto.Datapoints.TrackingPixelSpecifics": {
+      "properties": {
+        "parameterNote": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Api.Core.Dto.Datapoints.UniqueDestinationItem": {
+      "properties": {
+        "firstDestinationUrl": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Api.Core.Dto.Datapoints.UrlByLanguageItem": {
+      "properties": {
+        "languageCode": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Api.Core.Dto.Datapoints.UrlByNationItem": {
+      "properties": {
+        "nation": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Api.Core.Dto.Datapoints.WeightedDestinationItem": {
+      "properties": {
+        "url": {
+          "type": "string"
+        },
+        "weight": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "Api.Core.Dto.Domains.Domain": {
+      "properties": {
+        "custom404": {
+          "type": "string"
+        },
+        "customHomepage": {
+          "type": "string"
+        },
+        "id": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "type": {
+          "enum": [
+            "System",
+            "Go",
+            "Dedicated",
+            "Personal"
+          ],
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Api.Core.Dto.EntityUriLong": {
+      "properties": {
+        "id": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "uri": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Api.Core.Dto.Grants.Grant": {
+      "properties": {
+        "DatapointType": {
+          "type": "string"
+        },
+        "Entity": {
+          "$ref": "#/definitions/Api.Core.Responses.EntityUri[System.Int64]"
+        },
+        "EntityName": {
+          "type": "string"
+        },
+        "EntityType": {
+          "type": "string"
+        },
+        "Type": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Api.Core.Dto.Groups.Group": {
+      "properties": {
+        "creationDate": {
+          "description": " (A date in \"YmdHis\" format)",
+          "example": "20120203120530",
+          "type": "string"
+        },
+        "deleted": {
+          "type": "boolean"
+        },
+        "id": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "isPublic": {
+          "type": "boolean"
+        },
+        "name": {
+          "type": "string"
+        },
+        "notes": {
+          "type": "string"
+        },
+        "preferred": {
+          "type": "boolean"
+        },
+        "redirectOnly": {
+          "type": "boolean"
+        },
+        "tags": {
+          "items": {
+            "$ref": "#/definitions/Api.Core.Dto.Tags.Tag"
+          },
+          "type": "array"
+        },
+        "writePermited": {
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "Api.Core.Dto.Retargeting.RetargetingScript": {
+      "properties": {
+        "id": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "script": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Api.Core.Dto.Tags.Tag": {
+      "properties": {
+        "datapoints": {
+          "items": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "type": "array"
+        },
+        "groups": {
+          "items": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "type": "array"
+        },
+        "id": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Api.Core.Dto.Tops.Top": {
+      "properties": {
+        "createdAt": {
+          "description": " (A date in \"YmdHis\" format)",
+          "example": "20120203120530",
+          "type": "string"
+        },
+        "data": {
+          "items": {
+            "$ref": "#/definitions/Api.Core.Dto.Tops.TopItem"
+          },
+          "type": "array"
+        },
+        "key": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Api.Core.Dto.Tops.TopItem": {
+      "properties": {
+        "entityData": {
+          "$ref": "#/definitions/System.Object"
+        },
+        "id": {
+          "type": "string"
+        },
+        "lastHitDate": {
+          "description": " (A date in \"YmdHis\" format)",
+          "example": "20120203120530",
+          "type": "string"
+        },
+        "spiderClicks": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "spiderHits": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "spiderViews": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "totalClicks": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "totalCommissionsCost": {
+          "format": "double",
+          "type": "number"
+        },
+        "totalConversions": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "totalConversionsCost": {
+          "format": "double",
+          "type": "number"
+        },
+        "totalConversionsValue": {
+          "format": "double",
+          "type": "number"
+        },
+        "totalHits": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "totalViews": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "uniqueClicks": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "uniqueHits": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "uniqueViews": {
+          "format": "int64",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "Api.Core.Requests.ConversionPatchBody": {
+      "properties": {
+        "Action": {
+          "type": "string"
+        },
+        "Id": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "ReplaceId": {
+          "format": "int64",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "Api.Core.Requests.DatapointsBatch": {
+      "properties": {
+        "List": {
+          "items": {
+            "$ref": "#/definitions/Api.Core.Dto.Datapoints.Datapoint"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "Api.Core.Requests.DeleteBatch": {
+      "properties": {
+        "Entities": {
+          "items": {
+            "$ref": "#/definitions/Api.Core.Dto.EntityUriLong"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "Api.Core.Requests.GenericTextPatch": {
+      "properties": {
+        "Text": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Api.Core.Requests.PatchBody": {
+      "properties": {
+        "Action": {
+          "type": "string"
+        },
+        "Id": {
+          "format": "int64",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "Api.Core.Requests.PatchBodyBatch": {
+      "properties": {
+        "PatchRequests": {
+          "items": {
+            "$ref": "#/definitions/Api.Core.Requests.PatchBody"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "Api.Core.Requests.PermissionPatchRequest": {
+      "properties": {
+        "Action": {
+          "type": "string"
+        },
+        "Id": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "Verb": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Api.Core.Responses.CountResponce": {
+      "properties": {
+        "count": {
+          "format": "int64",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "Api.Core.Responses.EntitiesResponse[Api.Core.Dto.Accounting.DomainWhitelistEntry]": {
+      "properties": {
+        "entities": {
+          "items": {
+            "$ref": "#/definitions/Api.Core.Dto.Accounting.DomainWhitelistEntry"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "Api.Core.Responses.EntitiesResponse[Api.Core.Dto.Accounting.IpBlacklistEntry]": {
+      "properties": {
+        "entities": {
+          "items": {
+            "$ref": "#/definitions/Api.Core.Dto.Accounting.IpBlacklistEntry"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "Api.Core.Responses.EntitiesResponse[Api.Core.Dto.Aggregated.AggregatedResult]": {
+      "properties": {
+        "entities": {
+          "items": {
+            "$ref": "#/definitions/Api.Core.Dto.Aggregated.AggregatedResult"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "Api.Core.Responses.EntitiesResponse[Api.Core.Dto.ClickStream.Hit]": {
+      "properties": {
+        "entities": {
+          "items": {
+            "$ref": "#/definitions/Api.Core.Dto.ClickStream.Hit"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "Api.Core.Responses.EntitiesResponse[Api.Core.Dto.Grants.Grant]": {
+      "properties": {
+        "entities": {
+          "items": {
+            "$ref": "#/definitions/Api.Core.Dto.Grants.Grant"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "Api.Core.Responses.EntitiesResponse[Api.Core.Responses.EntityUri[System.Int64]]": {
+      "properties": {
+        "entities": {
+          "items": {
+            "$ref": "#/definitions/Api.Core.Responses.EntityUri[System.Int64]"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "Api.Core.Responses.EntityUri[System.Int64]": {
+      "properties": {
+        "id": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "uri": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Api.Core.Responses.ModifyBatchItemResponce[Api.Core.Dto.Datapoints.Datapoint,System.Int64]": {
+      "properties": {
+        "entityData": {
+          "$ref": "#/definitions/Api.Core.Dto.Datapoints.Datapoint"
+        },
+        "errors": {
+          "items": {
+            "$ref": "#/definitions/ClickMeter.Infrastructure.Validation.ValidationFailure"
+          },
+          "type": "array"
+        },
+        "result": {
+          "$ref": "#/definitions/Api.Core.Responses.EntityUri[System.Int64]"
+        },
+        "status": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "ClickMeter.Infrastructure.Validation.ValidationFailure": {
+      "properties": {
+        "code": {
+          "$ref": "#/definitions/System.Object"
+        },
+        "errorMessage": {
+          "type": "string"
+        },
+        "errorValue": {
+          "$ref": "#/definitions/System.Object"
+        },
+        "property": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "System.Object": {
+      "properties": {},
+      "type": "object"
+    }
+  },
+  "actions": [
+    {
+      "id": "account.get",
+      "title": "account.get",
+      "description": "Retrieve current account data",
+      "inputSchema": {},
+      "outputSchema": {
+        "$ref": "#/definitions/Api.Core.Dto.Accounting.User"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
+      }
+    },
+    {
+      "id": "account.post",
+      "title": "account.post",
+      "description": "Update current account data",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "value": {
+            "$ref": "#/definitions/Api.Core.Dto.Accounting.User"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "value"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Api.Core.Dto.Accounting.User"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
+      }
+    },
+    {
+      "id": "account.domainwhitelist.get",
+      "title": "account.domainwhitelist.get",
+      "description": "Retrieve list of a domains allowed to redirect in DDU mode",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Offset where to start from"
+          },
+          "limit": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Limit results to this number"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Api.Core.Responses.EntitiesResponse[Api.Core.Dto.Accounting.DomainWhitelistEntry]"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
+      }
+    },
+    {
+      "id": "account.domainwhitelist.post",
+      "title": "account.domainwhitelist.post",
+      "description": "Create an domain entry",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "value": {
+            "$ref": "#/definitions/Api.Core.Dto.Accounting.DomainWhitelistEntry"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "value"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Api.Core.Dto.Accounting.DomainWhitelistEntry"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
+      }
+    },
+    {
+      "id": "account.domainwhitelist.whitelistId.delete",
+      "title": "account.domainwhitelist.whitelistId.delete",
+      "description": "Delete an domain entry",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "whitelistId": {
+            "type": "string",
+            "description": "The id of the domain to delete"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "whitelistId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Api.Core.Dto.Accounting.DomainWhitelistEntry"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
+      }
+    },
+    {
+      "id": "account.guests.get",
+      "title": "account.guests.get",
+      "description": "Retrieve list of a guest",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Offset where to start from"
+          },
+          "limit": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Limit results to this number"
+          },
+          "sortBy": {
+            "type": "string",
+            "description": "Field to sort by"
+          },
+          "sortDirection": {
+            "type": "string",
+            "description": "Direction of sort \"asc\" or \"desc\"",
+            "enum": [
+              "asc",
+              "desc"
+            ]
+          },
+          "textSearch": {
+            "type": "string",
+            "description": "Filter fields by this pattern"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Api.Core.Responses.EntitiesResponse[Api.Core.Responses.EntityUri[System.Int64]]"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
+      }
+    },
+    {
+      "id": "account.guests.post",
+      "title": "account.guests.post",
+      "description": "Create a guest",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "value": {
+            "$ref": "#/definitions/Api.Core.Dto.Accounting.Guest"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "value"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Api.Core.Dto.Accounting.Guest"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
+      }
+    },
+    {
+      "id": "account.guests.count.get",
+      "title": "account.guests.count.get",
+      "description": "Retrieve count of guests",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "textSearch": {
+            "type": "string",
+            "description": "Filter fields by this pattern"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Api.Core.Responses.CountResponce"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
+      }
+    },
+    {
+      "id": "account.guests.guestId.delete",
+      "title": "account.guests.guestId.delete",
+      "description": "Delete a guest",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "guestId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Id of the guest"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "guestId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Api.Core.Responses.EntityUri[System.Int64]"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
+      }
+    },
+    {
+      "id": "account.guests.guestId.get",
+      "title": "account.guests.guestId.get",
+      "description": "Retrieve a guest",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "guestId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Id of the guest"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "guestId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Api.Core.Dto.Accounting.Guest"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
+      }
+    },
+    {
+      "id": "account.guests.guestId.post",
+      "title": "account.guests.guestId.post",
+      "description": "Update a guest",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "guestId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Id of the guest"
+          },
+          "value": {
+            "$ref": "#/definitions/Api.Core.Dto.Accounting.Guest"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "guestId",
+          "value"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Api.Core.Dto.Accounting.Guest"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
+      }
+    },
+    {
+      "id": "account.guests.guestId.permissions.get",
+      "title": "account.guests.guestId.permissions.get",
+      "description": "Retrieve permissions for a guest",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "guestId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Id of the guest"
+          },
+          "entityType": {
+            "type": "string",
+            "description": "Can be \"datapoint\" or \"group\"",
+            "enum": [
+              "datapoint",
+              "group"
+            ]
+          },
+          "offset": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Offset where to start from"
+          },
+          "limit": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Limit results to this number"
+          },
+          "type": {
+            "type": "string",
+            "description": "Can be \"w\" or \"r\"",
+            "enum": [
+              "r",
+              "w"
+            ]
+          },
+          "entityId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Optional id of the datapoint/group entity to filter by"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "guestId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Api.Core.Responses.EntitiesResponse[Api.Core.Dto.Grants.Grant]"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
+      }
+    },
+    {
+      "id": "account.guests.guestId.permissions.count.get",
+      "title": "account.guests.guestId.permissions.count.get",
+      "description": "Retrieve count of the permissions for a guest",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "guestId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Id of the guest"
+          },
+          "entityType": {
+            "type": "string",
+            "description": "Can be \"datapoint\" or \"group\"",
+            "enum": [
+              "datapoint",
+              "group"
+            ]
+          },
+          "type": {
+            "type": "string",
+            "description": "Can be \"w\" or \"r\"",
+            "enum": [
+              "r",
+              "w"
+            ]
+          },
+          "entityId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Optional id of the datapoint/group entity to filter by"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "guestId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Api.Core.Responses.CountResponce"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
+      }
+    },
+    {
+      "id": "account.guests.guestId.type.permissions.patch.post",
+      "title": "account.guests.guestId.type.permissions.patch.post",
+      "description": "Change the permission on a shared object",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "guestId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Id of the guest"
+          },
+          "type": {
+            "type": "string",
+            "description": "Can be \"datapoint\" or \"group\"",
+            "enum": [
+              "datapoint",
+              "group"
+            ]
+          },
+          "body": {
+            "$ref": "#/definitions/Api.Core.Requests.PermissionPatchRequest"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "guestId",
+          "type",
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Api.Core.Responses.EntityUri[System.Int64]"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
+      }
+    },
+    {
+      "id": "account.guests.guestId.type.permissions.patch.put",
+      "title": "account.guests.guestId.type.permissions.patch.put",
+      "description": "Change the permission on a shared object",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "guestId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Id of the guest"
+          },
+          "type": {
+            "type": "string",
+            "description": "Can be \"datapoint\" or \"group\"",
+            "enum": [
+              "datapoint",
+              "group"
+            ]
+          },
+          "body": {
+            "$ref": "#/definitions/Api.Core.Requests.PermissionPatchRequest"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "guestId",
+          "type",
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Api.Core.Responses.EntityUri[System.Int64]"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
+      }
+    },
+    {
+      "id": "account.ipblacklist.get",
+      "title": "account.ipblacklist.get",
+      "description": "Retrieve list of a ip to exclude from event tracking",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Offset where to start from"
+          },
+          "limit": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Limit results to this number"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Api.Core.Responses.EntitiesResponse[Api.Core.Dto.Accounting.IpBlacklistEntry]"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
+      }
+    },
+    {
+      "id": "account.ipblacklist.post",
+      "title": "account.ipblacklist.post",
+      "description": "Create an ip blacklist entry",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "value": {
+            "$ref": "#/definitions/Api.Core.Dto.Accounting.IpBlacklistEntry"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "value"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Api.Core.Dto.Accounting.IpBlacklistEntry"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
+      }
+    },
+    {
+      "id": "account.ipblacklist.blacklistId.delete",
+      "title": "account.ipblacklist.blacklistId.delete",
+      "description": "Delete an ip blacklist entry",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "blacklistId": {
+            "type": "string",
+            "description": "The id of the ip to delete"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "blacklistId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Api.Core.Dto.Accounting.IpBlacklistEntry"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
+      }
+    },
+    {
+      "id": "account.plan.get",
+      "title": "account.plan.get",
+      "description": "Retrieve current account plan",
+      "inputSchema": {},
+      "outputSchema": {
+        "$ref": "#/definitions/Api.Core.Dto.Accounting.Plan"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
+      }
+    },
+    {
+      "id": "aggregated.get",
+      "title": "aggregated.get",
+      "description": "Retrieve statistics about this customer for a timeframe",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "timeFrame": {
+            "type": "string",
+            "description": "Timeframe of the request. See list at $timeframeList",
+            "enum": [
+              "today",
+              "yesterday",
+              "last7",
+              "last30",
+              "lastmonth",
+              "currentmonth",
+              "previousmonth",
+              "last90",
+              "last120",
+              "last180",
+              "last12months",
+              "lastyear",
+              "currentyear",
+              "beginning",
+              "custom"
+            ]
+          },
+          "fromDay": {
+            "type": "string",
+            "description": "If using a \"custom\" timeFrame you can specify the starting day (YYYYMMDD)"
+          },
+          "toDay": {
+            "type": "string",
+            "description": "If using a \"custom\" timeFrame you can specify the ending day (YYYYMMDD)"
+          },
+          "hourly": {
+            "type": "boolean",
+            "description": "If using \"yesterday\" or \"today\" timeframe you can ask for the hourly detail"
+          },
+          "onlyFavorites": {
+            "type": "string",
+            "description": ""
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "timeFrame"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Api.Core.Dto.Aggregated.AggregatedResult"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
+      }
+    },
+    {
+      "id": "aggregated.list.get",
+      "title": "aggregated.list.get",
+      "description": "Retrieve statistics about this customer for a timeframe grouped by some temporal entity (day/week/month)",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "timeFrame": {
+            "type": "string",
+            "description": "Timeframe of the request. See list at $timeframeList",
+            "enum": [
+              "today",
+              "yesterday",
+              "last7",
+              "last30",
+              "lastmonth",
+              "currentmonth",
+              "previousmonth",
+              "last90",
+              "last120",
+              "last180",
+              "last12months",
+              "lastyear",
+              "currentyear",
+              "beginning",
+              "custom"
+            ]
+          },
+          "fromDay": {
+            "type": "string",
+            "description": "If using a \"custom\" timeFrame you can specify the starting day (YYYYMMDD)"
+          },
+          "toDay": {
+            "type": "string",
+            "description": "If using a \"custom\" timeFrame you can specify the ending day (YYYYMMDD)"
+          },
+          "groupBy": {
+            "type": "string",
+            "description": "The temporal entity you want to group by (\"week\"/\"month\"). If unspecified is \"day\".",
+            "enum": [
+              "week",
+              "month"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "timeFrame"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Api.Core.Responses.EntitiesResponse[Api.Core.Dto.Aggregated.AggregatedResult]"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
+      }
+    },
+    {
+      "id": "aggregated.summary.conversions.get",
+      "title": "aggregated.summary.conversions.get",
+      "description": "Retrieve statistics about a subset of conversions for a timeframe with conversions data",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "timeFrame": {
+            "type": "string",
+            "description": "Timeframe of the request. See list at $timeframeList",
+            "enum": [
+              "today",
+              "yesterday",
+              "last7",
+              "last30",
+              "lastmonth",
+              "currentmonth",
+              "previousmonth",
+              "last90",
+              "last120",
+              "last180",
+              "last12months",
+              "lastyear",
+              "currentyear",
+              "beginning",
+              "custom"
+            ]
+          },
+          "fromDay": {
+            "type": "string",
+            "description": "If using a \"custom\" timeFrame you can specify the starting day (YYYYMMDD)"
+          },
+          "toDay": {
+            "type": "string",
+            "description": "If using a \"custom\" timeFrame you can specify the ending day (YYYYMMDD)"
+          },
+          "status": {
+            "type": "string",
+            "description": "Status of conversion (\"deleted\"/\"active\")",
+            "enum": [
+              "deleted",
+              "active"
+            ]
+          },
+          "sortBy": {
+            "type": "string",
+            "description": "Field to sort by"
+          },
+          "sortDirection": {
+            "type": "string",
+            "description": "Direction of sort \"asc\" or \"desc\"",
+            "enum": [
+              "asc",
+              "desc"
+            ]
+          },
+          "offset": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Offset where to start from"
+          },
+          "limit": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Limit results to this number"
+          },
+          "textSearch": {
+            "type": "string",
+            "description": "Filter fields by this pattern"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "timeFrame"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Api.Core.Dto.Aggregated.AggregatedSummaryResult"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
+      }
+    },
+    {
+      "id": "aggregated.summary.datapoints.get",
+      "title": "aggregated.summary.datapoints.get",
+      "description": "Retrieve statistics about a subset of datapoints for a timeframe with datapoints data",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "timeFrame": {
+            "type": "string",
+            "description": "Timeframe of the request. See list at $timeframeList",
+            "enum": [
+              "today",
+              "yesterday",
+              "last7",
+              "last30",
+              "lastmonth",
+              "currentmonth",
+              "previousmonth",
+              "last90",
+              "last120",
+              "last180",
+              "last12months",
+              "lastyear",
+              "currentyear",
+              "beginning",
+              "custom"
+            ]
+          },
+          "type": {
+            "type": "string",
+            "description": "Type of datapoint (\"tl\"/\"tp\")",
+            "enum": [
+              "tp",
+              "tl"
+            ]
+          },
+          "fromDay": {
+            "type": "string",
+            "description": "If using a \"custom\" timeFrame you can specify the starting day (YYYYMMDD)"
+          },
+          "toDay": {
+            "type": "string",
+            "description": "If using a \"custom\" timeFrame you can specify the ending day (YYYYMMDD)"
+          },
+          "status": {
+            "type": "string",
+            "description": "Status of datapoint (\"deleted\"/\"active\"/\"paused\"/\"spam\")",
+            "enum": [
+              "deleted",
+              "active",
+              "paused",
+              "spam"
+            ]
+          },
+          "tag": {
+            "type": "string",
+            "description": "A comma separated list of tags you want to filter with."
+          },
+          "favourite": {
+            "type": "boolean",
+            "description": "Is the datapoint marked as favourite"
+          },
+          "sortBy": {
+            "type": "string",
+            "description": "Field to sort by"
+          },
+          "sortDirection": {
+            "type": "string",
+            "description": "Direction of sort \"asc\" or \"desc\"",
+            "enum": [
+              "asc",
+              "desc"
+            ]
+          },
+          "offset": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Offset where to start from"
+          },
+          "limit": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Limit results to this number"
+          },
+          "groupId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Filter by this group id"
+          },
+          "textSearch": {
+            "type": "string",
+            "description": "Filter fields by this pattern"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "timeFrame",
+          "type"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Api.Core.Dto.Aggregated.AggregatedSummaryResult"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
+      }
+    },
+    {
+      "id": "aggregated.summary.groups.get",
+      "title": "aggregated.summary.groups.get",
+      "description": "Retrieve statistics about a subset of groups for a timeframe with groups data",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "timeFrame": {
+            "type": "string",
+            "description": "Timeframe of the request. See list at $timeframeList",
+            "enum": [
+              "today",
+              "yesterday",
+              "last7",
+              "last30",
+              "lastmonth",
+              "currentmonth",
+              "previousmonth",
+              "last90",
+              "last120",
+              "last180",
+              "last12months",
+              "lastyear",
+              "currentyear",
+              "beginning",
+              "custom"
+            ]
+          },
+          "fromDay": {
+            "type": "string",
+            "description": "If using a \"custom\" timeFrame you can specify the starting day (YYYYMMDD)"
+          },
+          "toDay": {
+            "type": "string",
+            "description": "If using a \"custom\" timeFrame you can specify the ending day (YYYYMMDD)"
+          },
+          "status": {
+            "type": "string",
+            "description": "Status of group (\"deleted\"/\"active\")",
+            "enum": [
+              "deleted",
+              "active"
+            ]
+          },
+          "tag": {
+            "type": "string",
+            "description": "A comma separated list of tags you want to filter with."
+          },
+          "favourite": {
+            "type": "boolean",
+            "description": "Is the group marked as favourite"
+          },
+          "sortBy": {
+            "type": "string",
+            "description": "Field to sort by"
+          },
+          "sortDirection": {
+            "type": "string",
+            "description": "Direction of sort \"asc\" or \"desc\"",
+            "enum": [
+              "asc",
+              "desc"
+            ]
+          },
+          "offset": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Offset where to start from"
+          },
+          "limit": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Limit results to this number"
+          },
+          "textSearch": {
+            "type": "string",
+            "description": "Filter fields by this pattern"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "timeFrame"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Api.Core.Dto.Aggregated.AggregatedSummaryResult"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
+      }
+    },
+    {
+      "id": "clickstream.get",
+      "title": "clickstream.get",
+      "description": "Retrieve the latest list of events of this account. Limited to last 100.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "group": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Filter by this group id (mutually exclusive with \"datapoint\" and \"conversion\")"
+          },
+          "datapoint": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Filter by this datapoint id (mutually exclusive with \"group\" and \"conversion\")"
+          },
+          "conversion": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Filter by this conversion id (mutually exclusive with \"datapoint\" and \"group\")"
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Limit results to this number"
+          },
+          "filter": {
+            "type": "string",
+            "description": "Filter event type (\"spiders\"/\"uniques\"/\"nonuniques\"/\"conversions\")",
+            "enum": [
+              "",
+              "spiders",
+              "uniques",
+              "nonuniques",
+              "conversions"
+            ]
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Api.Core.Responses.EntitiesResponse[Api.Core.Dto.ClickStream.Hit]"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
+      }
+    },
+    {
+      "id": "conversions.get",
+      "title": "conversions.get",
+      "description": "Retrieve a list of conversions",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Offset where to start from"
+          },
+          "limit": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Limit results to this number"
+          },
+          "status": {
+            "type": "string",
+            "description": "Status of conversion (\"deleted\"/\"active\")",
+            "enum": [
+              "deleted",
+              "active"
+            ]
+          },
+          "textSearch": {
+            "type": "string",
+            "description": "Filter fields by this pattern"
+          },
+          "createdAfter": {
+            "type": "string",
+            "description": "Exclude conversions created before this date (YYYYMMDD)"
+          },
+          "createdBefore": {
+            "type": "string",
+            "description": "Exclude conversions created after this date (YYYYMMDD)"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Api.Core.Responses.EntitiesResponse[Api.Core.Responses.EntityUri[System.Int64]]"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
+      }
+    },
+    {
+      "id": "conversions.post",
+      "title": "conversions.post",
+      "description": "Create a conversion",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "value": {
+            "$ref": "#/definitions/Api.Core.Dto.Conversions.Conversion"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "value"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Api.Core.Responses.EntityUri[System.Int64]"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
+      }
+    },
+    {
+      "id": "conversions.aggregated.list.get",
+      "title": "conversions.aggregated.list.get",
+      "description": "Retrieve statistics about this customer for a timeframe related to a subset of conversions grouped by some temporal entity (day/week/month)",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "timeFrame": {
+            "type": "string",
+            "description": "Timeframe of the request. See list at $timeframeList",
+            "enum": [
+              "today",
+              "yesterday",
+              "last7",
+              "last30",
+              "lastmonth",
+              "currentmonth",
+              "previousmonth",
+              "last90",
+              "last120",
+              "last180",
+              "last12months",
+              "lastyear",
+              "currentyear",
+              "beginning",
+              "custom"
+            ]
+          },
+          "fromDay": {
+            "type": "string",
+            "description": "If using a \"custom\" timeFrame you can specify the starting day (YYYYMMDD)"
+          },
+          "toDay": {
+            "type": "string",
+            "description": "If using a \"custom\" timeFrame you can specify the ending day (YYYYMMDD)"
+          },
+          "status": {
+            "type": "string",
+            "description": "Status of conversion (\"deleted\"/\"active\")",
+            "enum": [
+              "deleted",
+              "active"
+            ]
+          },
+          "groupBy": {
+            "type": "string",
+            "description": "The temporal entity you want to group by (\"week\"/\"month\"). If unspecified is \"day\".",
+            "enum": [
+              "week",
+              "month"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "timeFrame"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Api.Core.Responses.EntitiesResponse[Api.Core.Dto.Aggregated.AggregatedResult]"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
+      }
+    },
+    {
+      "id": "conversions.count.get",
+      "title": "conversions.count.get",
+      "description": "Retrieve a count of conversions",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "status": {
+            "type": "string",
+            "description": "Status of conversion (\"deleted\"/\"active\")",
+            "enum": [
+              "deleted",
+              "active"
+            ]
+          },
+          "textSearch": {
+            "type": "string",
+            "description": "Filter fields by this pattern"
+          },
+          "createdAfter": {
+            "type": "string",
+            "description": "Exclude conversions created before this date (YYYYMMDD)"
+          },
+          "createdBefore": {
+            "type": "string",
+            "description": "Exclude conversions created after this date (YYYYMMDD)"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Api.Core.Responses.CountResponce"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
+      }
+    },
+    {
+      "id": "conversions.conversionId.delete",
+      "title": "conversions.conversionId.delete",
+      "description": "Delete conversion specified by id",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "conversionId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Id of the conversion"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "conversionId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Api.Core.Responses.EntityUri[System.Int64]"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
+      }
+    },
+    {
+      "id": "conversions.conversionId.get",
+      "title": "conversions.conversionId.get",
+      "description": "Retrieve conversion specified by id",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "conversionId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Id of the conversion"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "conversionId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Api.Core.Dto.Conversions.Conversion"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
+      }
+    },
+    {
+      "id": "conversions.conversionId.post",
+      "title": "conversions.conversionId.post",
+      "description": "Update conversion specified by id",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "conversionId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Id of the conversion"
+          },
+          "value": {
+            "$ref": "#/definitions/Api.Core.Dto.Conversions.Conversion"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "conversionId",
+          "value"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Api.Core.Responses.EntityUri[System.Int64]"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
+      }
+    },
+    {
+      "id": "conversions.conversionId.aggregated.get",
+      "title": "conversions.conversionId.aggregated.get",
+      "description": "Retrieve statistics about this conversion for a timeframe",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "conversionId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Id of the conversion"
+          },
+          "timeFrame": {
+            "type": "string",
+            "description": "Timeframe of the request. See list at $timeframeList",
+            "enum": [
+              "today",
+              "yesterday",
+              "last7",
+              "last30",
+              "lastmonth",
+              "currentmonth",
+              "previousmonth",
+              "last90",
+              "last120",
+              "last180",
+              "last12months",
+              "lastyear",
+              "currentyear",
+              "beginning",
+              "custom"
+            ]
+          },
+          "fromDay": {
+            "type": "string",
+            "description": "If using a \"custom\" timeFrame you can specify the starting day (YYYYMMDD)"
+          },
+          "toDay": {
+            "type": "string",
+            "description": "If using a \"custom\" timeFrame you can specify the ending day (YYYYMMDD)"
+          },
+          "tag": {
+            "type": "string",
+            "description": "Filter by this tag name"
+          },
+          "favourite": {
+            "type": "boolean",
+            "description": "Is the datapoint marked as favourite"
+          },
+          "hourly": {
+            "type": "boolean",
+            "description": "If using \"yesterday\" or \"today\" timeframe you can ask for the hourly detail"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "conversionId",
+          "timeFrame"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Api.Core.Dto.Aggregated.AggregatedResult"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
+      }
+    },
+    {
+      "id": "conversions.conversionId.aggregated.list.get",
+      "title": "conversions.conversionId.aggregated.list.get",
+      "description": "Retrieve statistics about this conversion for a timeframe grouped by some temporal entity (day/week/month)",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "conversionId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Id of the conversion"
+          },
+          "timeFrame": {
+            "type": "string",
+            "description": "Timeframe of the request. See list at $timeframeList",
+            "enum": [
+              "today",
+              "yesterday",
+              "last7",
+              "last30",
+              "lastmonth",
+              "currentmonth",
+              "previousmonth",
+              "last90",
+              "last120",
+              "last180",
+              "last12months",
+              "lastyear",
+              "currentyear",
+              "beginning",
+              "custom"
+            ]
+          },
+          "fromDay": {
+            "type": "string",
+            "description": "If using a \"custom\" timeFrame you can specify the starting day (YYYYMMDD)"
+          },
+          "toDay": {
+            "type": "string",
+            "description": "If using a \"custom\" timeFrame you can specify the ending day (YYYYMMDD)"
+          },
+          "groupBy": {
+            "type": "string",
+            "description": "The temporal entity you want to group by (\"week\"/\"month\"). If unspecified is \"day\".",
+            "enum": [
+              "week",
+              "month"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "conversionId",
+          "timeFrame"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Api.Core.Responses.EntitiesResponse[Api.Core.Dto.Aggregated.AggregatedResult]"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
+      }
+    },
+    {
+      "id": "conversions.conversionId.datapoints.get",
+      "title": "conversions.conversionId.datapoints.get",
+      "description": "Retrieve a list of datapoints connected to this conversion",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "conversionId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Id of the conversion"
+          },
+          "offset": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Offset where to start from"
+          },
+          "limit": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Limit results to this number"
+          },
+          "type": {
+            "type": "string",
+            "description": "Type of datapoint (\"tl\"/\"tp\")",
+            "enum": [
+              "tp",
+              "tl"
+            ]
+          },
+          "status": {
+            "type": "string",
+            "description": "Status of datapoint (\"deleted\"/\"active\"/\"paused\"/\"spam\")",
+            "enum": [
+              "deleted",
+              "active",
+              "paused",
+              "spam"
+            ]
+          },
+          "tags": {
+            "type": "string",
+            "description": "Filter by this tag name"
+          },
+          "textSearch": {
+            "type": "string",
+            "description": "Filter fields by this pattern"
+          },
+          "createdAfter": {
+            "type": "string",
+            "description": "Exclude datapoints created before this date (YYYYMMDD)"
+          },
+          "createdBefore": {
+            "type": "string",
+            "description": "Exclude datapoints created after this date (YYYYMMDD)"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "conversionId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Api.Core.Responses.EntitiesResponse[Api.Core.Responses.EntityUri[System.Int64]]"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
+      }
+    },
+    {
+      "id": "conversions.conversionId.datapoints.batch.patch.put",
+      "title": "conversions.conversionId.datapoints.batch.patch.put",
+      "description": "Modify the association between a conversion and multiple datapoints",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "conversionId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Id of the conversion"
+          },
+          "data": {
+            "$ref": "#/definitions/Api.Core.Requests.PatchBodyBatch"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "conversionId",
+          "data"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Api.Core.Responses.EntityUri[System.Int64]"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
+      }
+    },
+    {
+      "id": "conversions.conversionId.datapoints.count.get",
+      "title": "conversions.conversionId.datapoints.count.get",
+      "description": "Retrieve a count of datapoints connected to this conversion",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "conversionId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Id of the conversion"
+          },
+          "type": {
+            "type": "string",
+            "description": "Type of datapoint (\"tl\"/\"tp\")"
+          },
+          "status": {
+            "type": "string",
+            "description": "Status of datapoint (\"deleted\"/\"active\"/\"paused\"/\"spam\")"
+          },
+          "tags": {
+            "type": "string",
+            "description": "Filter by this tag name"
+          },
+          "textSearch": {
+            "type": "string",
+            "description": "Filter fields by this pattern"
+          },
+          "createdAfter": {
+            "type": "string",
+            "description": "Exclude datapoints created before this date (YYYYMMDD)"
+          },
+          "createdBefore": {
+            "type": "string",
+            "description": "Exclude datapoints created after this date (YYYYMMDD)"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "conversionId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Api.Core.Responses.CountResponce"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
+      }
+    },
+    {
+      "id": "conversions.conversionId.datapoints.patch.put",
+      "title": "conversions.conversionId.datapoints.patch.put",
+      "description": "Modify the association between a conversion and a datapoint",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "conversionId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Id of the conversion"
+          },
+          "data": {
+            "$ref": "#/definitions/Api.Core.Requests.ConversionPatchBody"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "conversionId",
+          "data"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Api.Core.Responses.EntityUri[System.Int64]"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
+      }
+    },
+    {
+      "id": "conversions.conversionId.hits.get",
+      "title": "conversions.conversionId.hits.get",
+      "description": "Retrieve the list of events related to this conversion.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "conversionId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Id of the conversion"
+          },
+          "timeframe": {
+            "type": "string",
+            "description": "Timeframe of the request. See list at $timeframeList",
+            "enum": [
+              "yesterday",
+              "last7",
+              "last30",
+              "lastmonth",
+              "currentmonth",
+              "previousmonth",
+              "last90",
+              "last120",
+              "last180",
+              "custom"
+            ]
+          },
+          "limit": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Limit results to this number"
+          },
+          "offset": {
+            "type": "string",
+            "description": "Offset where to start from (it's the lastKey field in the response object)"
+          },
+          "fromDay": {
+            "type": "string",
+            "description": "If using a \"custom\" timeFrame you can specify the starting day (YYYYMMDD)"
+          },
+          "toDay": {
+            "type": "string",
+            "description": "If using a \"custom\" timeFrame you can specify the ending day (YYYYMMDD)"
+          },
+          "filter": {
+            "type": "string",
+            "description": "Filter event type (\"spiders\"/\"uniques\"/\"nonuniques\"/\"conversions\")",
+            "enum": [
+              "spiders",
+              "uniques",
+              "nonuniques",
+              "conversions"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "conversionId",
+          "timeframe"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Api.Core.Dto.ClickStream.HitListPage"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
+      }
+    },
+    {
+      "id": "conversions.conversionId.notes.put",
+      "title": "conversions.conversionId.notes.put",
+      "description": "Fast patch the \"notes\" field of a conversion",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "conversionId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Id of the conversion"
+          },
+          "note": {
+            "$ref": "#/definitions/Api.Core.Requests.GenericTextPatch"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "conversionId",
+          "note"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Api.Core.Responses.EntityUri[System.Int64]"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
+      }
+    },
+    {
+      "id": "conversions.conversionId.reports.get",
+      "title": "conversions.conversionId.reports.get",
+      "description": "Retrieve a top report connected to this conversion",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "conversionId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Id of the conversion"
+          },
+          "type": {
+            "type": "string",
+            "description": "Type of the report.",
+            "enum": [
+              "datapoints",
+              "groups",
+              "browsers",
+              "browsersfamilies",
+              "platforms",
+              "cities",
+              "countries",
+              "keywords",
+              "referrers",
+              "convparameters",
+              "destinations",
+              "languages",
+              "params"
+            ]
+          },
+          "timeframe": {
+            "type": "string",
+            "description": "Timeframe of the request. See list at $timeframeList",
+            "enum": [
+              "yesterday",
+              "last7",
+              "last30",
+              "lastmonth",
+              "currentmonth",
+              "previousmonth",
+              "last90",
+              "last120",
+              "last180",
+              "beginning",
+              "custom"
+            ]
+          },
+          "hittype": {
+            "type": "string",
+            "description": "Type of the event you want to filter this report with. By default no filter is applied.",
+            "enum": [
+              "clicks",
+              "views"
+            ]
+          },
+          "fromDay": {
+            "type": "string",
+            "description": "If using a \"custom\" timeFrame you can specify the starting day (YYYYMMDD)"
+          },
+          "toDay": {
+            "type": "string",
+            "description": "If using a \"custom\" timeFrame you can specify the ending day (YYYYMMDD)"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "conversionId",
+          "type",
+          "timeframe"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Api.Core.Dto.Tops.Top"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
+      }
+    },
+    {
+      "id": "datapoints.get",
+      "title": "datapoints.get",
+      "description": "List of all the datapoints associated to the user",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Where to start when retrieving elements. Default is 0 if not specified."
+          },
+          "limit": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Maximum elements to retrieve. Default to 20 if not specified."
+          },
+          "type": {
+            "type": "string",
+            "description": "Type of the datapoint (\"tp\"/\"tl\")",
+            "enum": [
+              "tp",
+              "tl"
+            ]
+          },
+          "status": {
+            "type": "string",
+            "description": "Status of the datapoint",
+            "enum": [
+              "deleted",
+              "active",
+              "paused",
+              "spam"
+            ]
+          },
+          "tags": {
+            "type": "string",
+            "description": "A comma separated list of tags you want to filter with."
+          },
+          "textSearch": {
+            "type": "string",
+            "description": "Filter fields by this pattern"
+          },
+          "onlyFavorites": {
+            "type": "boolean",
+            "description": "Filter fields by favourite status"
+          },
+          "sortBy": {
+            "type": "string",
+            "description": "Field to sort by"
+          },
+          "sortDirection": {
+            "type": "string",
+            "description": "Direction of sort \"asc\" or \"desc\"",
+            "enum": [
+              "asc",
+              "desc"
+            ]
+          },
+          "createdAfter": {
+            "type": "string",
+            "description": "Exclude datapoints created before this date (YYYYMMDD)"
+          },
+          "createdBefore": {
+            "type": "string",
+            "description": "Exclude datapoints created after this date (YYYYMMDD)"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Api.Core.Responses.EntitiesResponse[Api.Core.Responses.EntityUri[System.Int64]]"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
+      }
+    },
+    {
+      "id": "datapoints.post",
+      "title": "datapoints.post",
+      "description": "Create a datapoint",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "value": {
+            "$ref": "#/definitions/Api.Core.Dto.Datapoints.Datapoint"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "value"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Api.Core.Responses.EntityUri[System.Int64]"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
+      }
+    },
+    {
+      "id": "datapoints.aggregated.get",
+      "title": "datapoints.aggregated.get",
+      "description": "Retrieve statistics about this customer for a timeframe by groups",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "timeFrame": {
+            "type": "string",
+            "description": "Timeframe of the request. See list at $timeframeList",
+            "enum": [
+              "today",
+              "yesterday",
+              "last7",
+              "last30",
+              "lastmonth",
+              "currentmonth",
+              "previousmonth",
+              "last90",
+              "last120",
+              "last180",
+              "last12months",
+              "lastyear",
+              "currentyear",
+              "beginning",
+              "custom"
+            ]
+          },
+          "type": {
+            "type": "string",
+            "description": "Type of datapoint (\"tl\"/\"tp\")",
+            "enum": [
+              "tp",
+              "tl"
+            ]
+          },
+          "fromDay": {
+            "type": "string",
+            "description": "If using a \"custom\" timeFrame you can specify the starting day (YYYYMMDD)"
+          },
+          "toDay": {
+            "type": "string",
+            "description": "If using a \"custom\" timeFrame you can specify the ending day (YYYYMMDD)"
+          },
+          "hourly": {
+            "type": "boolean",
+            "description": "If using \"yesterday\" or \"today\" timeframe you can ask for the hourly detail"
+          },
+          "status": {
+            "type": "string",
+            "description": "Status of datapoint (\"deleted\"/\"active\"/\"paused\"/\"spam\")",
+            "enum": [
+              "deleted",
+              "active",
+              "paused",
+              "spam"
+            ]
+          },
+          "tag": {
+            "type": "string",
+            "description": "A comma separated list of tags you want to filter with."
+          },
+          "favourite": {
+            "type": "boolean",
+            "description": "Is the datapoint is marked as favourite"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "timeFrame"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Api.Core.Dto.Aggregated.AggregatedResult"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
+      }
+    },
+    {
+      "id": "datapoints.aggregated.list.get",
+      "title": "datapoints.aggregated.list.get",
+      "description": "Retrieve statistics about all datapoints of this customer for a timeframe grouped by some temporal entity (day/week/month)",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "Type of datapoint (\"tl\"/\"tp\")",
+            "enum": [
+              "tp",
+              "tl"
+            ]
+          },
+          "timeFrame": {
+            "type": "string",
+            "description": "Timeframe of the request. See list at $timeframeList",
+            "enum": [
+              "today",
+              "yesterday",
+              "last7",
+              "last30",
+              "lastmonth",
+              "currentmonth",
+              "previousmonth",
+              "last90",
+              "last120",
+              "last180",
+              "last12months",
+              "lastyear",
+              "currentyear",
+              "beginning",
+              "custom"
+            ]
+          },
+          "fromDay": {
+            "type": "string",
+            "description": "If using a \"custom\" timeFrame you can specify the starting day (YYYYMMDD)"
+          },
+          "toDay": {
+            "type": "string",
+            "description": "If using a \"custom\" timeFrame you can specify the ending day (YYYYMMDD)"
+          },
+          "status": {
+            "type": "string",
+            "description": "Status of datapoint (\"deleted\"/\"active\"/\"paused\"/\"spam\")",
+            "enum": [
+              "deleted",
+              "active",
+              "paused",
+              "spam"
+            ]
+          },
+          "tag": {
+            "type": "string",
+            "description": "A comma separated list of tags you want to filter with."
+          },
+          "favourite": {
+            "type": "boolean",
+            "description": "Is the datapoint is marked as favourite"
+          },
+          "groupBy": {
+            "type": "string",
+            "description": "The temporal entity you want to group by (\"week\"/\"month\"). If unspecified is \"day\".",
+            "enum": [
+              "week",
+              "month"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "type",
+          "timeFrame"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Api.Core.Responses.EntitiesResponse[Api.Core.Dto.Aggregated.AggregatedResult]"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
+      }
+    },
+    {
+      "id": "datapoints.batch.delete",
+      "title": "datapoints.batch.delete",
+      "description": "Delete multiple datapoints",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "batch": {
+            "$ref": "#/definitions/Api.Core.Requests.DeleteBatch"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "batch"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Api.Core.Responses.ModifyBatchItemResponce[Api.Core.Dto.Datapoints.Datapoint,System.Int64]"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
+      }
+    },
+    {
+      "id": "datapoints.batch.post",
+      "title": "datapoints.batch.post",
+      "description": "Update multiple datapoints",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "batch": {
+            "$ref": "#/definitions/Api.Core.Requests.DatapointsBatch"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "batch"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Api.Core.Responses.ModifyBatchItemResponce[Api.Core.Dto.Datapoints.Datapoint,System.Int64]"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
+      }
+    },
+    {
+      "id": "datapoints.batch.put",
+      "title": "datapoints.batch.put",
+      "description": "Create multiple datapoints",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "batch": {
+            "$ref": "#/definitions/Api.Core.Requests.DatapointsBatch"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "batch"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Api.Core.Responses.ModifyBatchItemResponce[Api.Core.Dto.Datapoints.Datapoint,System.Int64]"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
+      }
+    },
+    {
+      "id": "datapoints.count.get",
+      "title": "datapoints.count.get",
+      "description": "Count the datapoints associated to the user",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "Type of the datapoint (\"tp\"/\"tl\")",
+            "enum": [
+              "tp",
+              "tl"
+            ]
+          },
+          "status": {
+            "type": "string",
+            "description": "Status of the datapoint",
+            "enum": [
+              "deleted",
+              "active",
+              "paused",
+              "spam"
+            ]
+          },
+          "tags": {
+            "type": "string",
+            "description": "A comma separated list of tags you want to filter with."
+          },
+          "textSearch": {
+            "type": "string",
+            "description": "Filter fields by this pattern"
+          },
+          "onlyFavorites": {
+            "type": "boolean",
+            "description": "Filter fields by favourite status"
+          },
+          "createdAfter": {
+            "type": "string",
+            "description": "Exclude datapoints created before this date (YYYYMMDD)"
+          },
+          "createdBefore": {
+            "type": "string",
+            "description": "Exclude datapoints created after this date (YYYYMMDD)"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Api.Core.Responses.CountResponce"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
+      }
+    },
+    {
+      "id": "datapoints.id.delete",
+      "title": "datapoints.id.delete",
+      "description": "Delete a datapoint",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "The id of the datapoint"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Api.Core.Responses.EntityUri[System.Int64]"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
+      }
+    },
+    {
+      "id": "datapoints.id.get",
+      "title": "datapoints.id.get",
+      "description": "Get a datapoint",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "The id of the datapoint"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Api.Core.Dto.Datapoints.Datapoint"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
+      }
+    },
+    {
+      "id": "datapoints.id.post",
+      "title": "datapoints.id.post",
+      "description": "Update a datapoint",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "The id of the datapoint"
+          },
+          "value": {
+            "$ref": "#/definitions/Api.Core.Dto.Datapoints.Datapoint"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "value"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Api.Core.Responses.EntityUri[System.Int64]"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
+      }
+    },
+    {
+      "id": "datapoints.id.aggregated.get",
+      "title": "datapoints.id.aggregated.get",
+      "description": "Retrieve statistics about this datapoint for a timeframe",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Id of the datapoint"
+          },
+          "timeFrame": {
+            "type": "string",
+            "description": "Timeframe of the request. See list at $timeframeList",
+            "enum": [
+              "today",
+              "yesterday",
+              "last7",
+              "last30",
+              "lastmonth",
+              "currentmonth",
+              "previousmonth",
+              "last90",
+              "last120",
+              "last180",
+              "last12months",
+              "lastyear",
+              "currentyear",
+              "beginning",
+              "custom"
+            ]
+          },
+          "fromDay": {
+            "type": "string",
+            "description": "If using a \"custom\" timeFrame you can specify the starting day (YYYYMMDD)"
+          },
+          "toDay": {
+            "type": "string",
+            "description": "If using a \"custom\" timeFrame you can specify the ending day (YYYYMMDD)"
+          },
+          "hourly": {
+            "type": "boolean",
+            "description": "If using \"yesterday\" or \"today\" timeframe you can ask for the hourly detail"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "timeFrame"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Api.Core.Dto.Aggregated.AggregatedResult"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
+      }
+    },
+    {
+      "id": "datapoints.id.aggregated.list.get",
+      "title": "datapoints.id.aggregated.list.get",
+      "description": "Retrieve statistics about this datapoint for a timeframe grouped by some temporal entity (day/week/month)",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Id of the datapoint"
+          },
+          "timeFrame": {
+            "type": "string",
+            "description": "Timeframe of the request. See list at $timeframeList",
+            "enum": [
+              "today",
+              "yesterday",
+              "last7",
+              "last30",
+              "lastmonth",
+              "currentmonth",
+              "previousmonth",
+              "last90",
+              "last120",
+              "last180",
+              "last12months",
+              "lastyear",
+              "currentyear",
+              "beginning",
+              "custom"
+            ]
+          },
+          "fromDay": {
+            "type": "string",
+            "description": "If using a \"custom\" timeFrame you can specify the starting day (YYYYMMDD)"
+          },
+          "toDay": {
+            "type": "string",
+            "description": "If using a \"custom\" timeFrame you can specify the ending day (YYYYMMDD)"
+          },
+          "groupBy": {
+            "type": "string",
+            "description": "The temporal entity you want to group by (\"week\"/\"month\"). If unspecified is \"day\".",
+            "enum": [
+              "week",
+              "month"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "timeFrame"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Api.Core.Responses.EntitiesResponse[Api.Core.Dto.Aggregated.AggregatedResult]"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
+      }
+    },
+    {
+      "id": "datapoints.id.favourite.put",
+      "title": "datapoints.id.favourite.put",
+      "description": "Fast switch the \"favourite\" field of a datapoint",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Id of the datapoint"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Api.Core.Responses.EntityUri[System.Int64]"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
+      }
+    },
+    {
+      "id": "datapoints.id.hits.get",
+      "title": "datapoints.id.hits.get",
+      "description": "Retrieve the list of events related to this datapoint.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Id of the datapoint"
+          },
+          "timeframe": {
+            "type": "string",
+            "description": "Timeframe of the request. See list at $timeframeList",
+            "enum": [
+              "yesterday",
+              "last7",
+              "last30",
+              "lastmonth",
+              "currentmonth",
+              "previousmonth",
+              "last90",
+              "last120",
+              "last180",
+              "custom"
+            ]
+          },
+          "limit": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Limit results to this number"
+          },
+          "offset": {
+            "type": "string",
+            "description": "Offset where to start from (it's the lastKey field in the response object)"
+          },
+          "fromDay": {
+            "type": "string",
+            "description": "If using a \"custom\" timeFrame you can specify the starting day (YYYYMMDD)"
+          },
+          "toDay": {
+            "type": "string",
+            "description": "If using a \"custom\" timeFrame you can specify the ending day (YYYYMMDD)"
+          },
+          "filter": {
+            "type": "string",
+            "description": "Filter event type (\"spiders\"/\"uniques\"/\"nonuniques\"/\"conversions\")",
+            "enum": [
+              "spiders",
+              "uniques",
+              "nonuniques",
+              "conversions"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "timeframe"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Api.Core.Dto.ClickStream.HitListPage"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
+      }
+    },
+    {
+      "id": "datapoints.id.notes.put",
+      "title": "datapoints.id.notes.put",
+      "description": "Fast patch the \"notes\" field of a datapoint",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Id of the datapoint"
+          },
+          "note": {
+            "$ref": "#/definitions/Api.Core.Requests.GenericTextPatch"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "note"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Api.Core.Responses.EntityUri[System.Int64]"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
+      }
+    },
+    {
+      "id": "datapoints.id.reports.get",
+      "title": "datapoints.id.reports.get",
+      "description": "Retrieve a top report connected to this datapoint",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Id of the datapoint"
+          },
+          "type": {
+            "type": "string",
+            "description": "Type of the report.",
+            "enum": [
+              "browsers",
+              "browsersfamilies",
+              "platforms",
+              "cities",
+              "countries",
+              "isps",
+              "ips",
+              "oss",
+              "ossfamilies",
+              "keywords",
+              "referrers",
+              "destinations",
+              "languages",
+              "params"
+            ]
+          },
+          "timeframe": {
+            "type": "string",
+            "description": "Timeframe of the request. See list at $timeframeList",
+            "enum": [
+              "yesterday",
+              "last7",
+              "last30",
+              "lastmonth",
+              "currentmonth",
+              "previousmonth",
+              "last90",
+              "last120",
+              "last180",
+              "beginning",
+              "custom"
+            ]
+          },
+          "fromDay": {
+            "type": "string",
+            "description": "If using a \"custom\" timeFrame you can specify the starting day (YYYYMMDD)"
+          },
+          "toDay": {
+            "type": "string",
+            "description": "If using a \"custom\" timeFrame you can specify the ending day (YYYYMMDD)"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "type",
+          "timeframe"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Api.Core.Dto.Tops.Top"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
+      }
+    },
+    {
+      "id": "domains.get",
+      "title": "domains.get",
+      "description": "Retrieve a list of domains",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Offset where to start from"
+          },
+          "limit": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Limit results to this number"
+          },
+          "type": {
+            "type": "string",
+            "description": "Type of domain (\"system\"/\"go\"/\"personal\"/\"dedicated\"). If not specified default is \"system\"",
+            "enum": [
+              "system",
+              "go",
+              "personal",
+              "dedicated"
+            ]
+          },
+          "name": {
+            "type": "string",
+            "description": "Filter domains with this anmen"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Api.Core.Responses.EntitiesResponse[Api.Core.Responses.EntityUri[System.Int64]]"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
+      }
+    },
+    {
+      "id": "domains.post",
+      "title": "domains.post",
+      "description": "Create a domain",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "value": {
+            "$ref": "#/definitions/Api.Core.Dto.Domains.Domain"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "value"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Api.Core.Responses.EntityUri[System.Int64]"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
+      }
+    },
+    {
+      "id": "domains.count.get",
+      "title": "domains.count.get",
+      "description": "Retrieve count of domains",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "Type of domain (\"system\"/\"go\"/\"personal\"/\"dedicated\"). If not specified default is \"system\"",
+            "enum": [
+              "system",
+              "go",
+              "personal",
+              "dedicated"
+            ]
+          },
+          "name": {
+            "type": "string",
+            "description": "Filter domains with this anmen"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Api.Core.Responses.CountResponce"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
+      }
+    },
+    {
+      "id": "domains.id.delete",
+      "title": "domains.id.delete",
+      "description": "Delete a domain",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Id of domain"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Api.Core.Responses.EntityUri[System.Int64]"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
+      }
+    },
+    {
+      "id": "domains.id.get",
+      "title": "domains.id.get",
+      "description": "Get a domain",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Id of domain"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Api.Core.Dto.Domains.Domain"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
+      }
+    },
+    {
+      "id": "domains.id.post",
+      "title": "domains.id.post",
+      "description": "Update a domain",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Id of domain"
+          },
+          "value": {
+            "$ref": "#/definitions/Api.Core.Dto.Domains.Domain"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "value"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Api.Core.Responses.EntityUri[System.Int64]"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
+      }
+    },
+    {
+      "id": "groups.get",
+      "title": "groups.get",
+      "description": "List of all the groups associated to the user.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Where to start when retrieving elements. Default is 0 if not specified."
+          },
+          "limit": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Maximum elements to retrieve. Default to 20 if not specified."
+          },
+          "status": {
+            "type": "string",
+            "description": "Status of the group",
+            "enum": [
+              "deleted",
+              "active"
+            ]
+          },
+          "tags": {
+            "type": "string",
+            "description": "A comma separated list of tags you want to filter with."
+          },
+          "textSearch": {
+            "type": "string",
+            "description": "Filter fields by this pattern"
+          },
+          "createdAfter": {
+            "type": "string",
+            "description": "Exclude groups created before this date (YYYYMMDD)"
+          },
+          "createdBefore": {
+            "type": "string",
+            "description": "Exclude groups created after this date (YYYYMMDD)"
+          },
+          "write": {
+            "type": "boolean",
+            "description": "Write permission"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Api.Core.Responses.EntitiesResponse[Api.Core.Responses.EntityUri[System.Int64]]"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
+      }
+    },
+    {
+      "id": "groups.post",
+      "title": "groups.post",
+      "description": "Create a group",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "value": {
+            "$ref": "#/definitions/Api.Core.Dto.Groups.Group"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "value"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Api.Core.Responses.EntityUri[System.Int64]"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
+      }
+    },
+    {
+      "id": "groups.aggregated.get",
+      "title": "groups.aggregated.get",
+      "description": "Retrieve statistics about this customer for a timeframe by groups",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "timeFrame": {
+            "type": "string",
+            "description": "Timeframe of the request. See list at $timeframeList",
+            "enum": [
+              "today",
+              "yesterday",
+              "last7",
+              "last30",
+              "lastmonth",
+              "currentmonth",
+              "previousmonth",
+              "last90",
+              "last120",
+              "last180",
+              "last12months",
+              "lastyear",
+              "currentyear",
+              "beginning",
+              "custom"
+            ]
+          },
+          "fromDay": {
+            "type": "string",
+            "description": "If using a \"custom\" timeFrame you can specify the starting day (YYYYMMDD)"
+          },
+          "toDay": {
+            "type": "string",
+            "description": "If using a \"custom\" timeFrame you can specify the ending day (YYYYMMDD)"
+          },
+          "hourly": {
+            "type": "boolean",
+            "description": "If using \"yesterday\" or \"today\" timeframe you can ask for the hourly detail"
+          },
+          "status": {
+            "type": "string",
+            "description": "Status of group (\"deleted\"/\"active\")",
+            "enum": [
+              "deleted",
+              "active"
+            ]
+          },
+          "tag": {
+            "type": "string",
+            "description": "A comma separated list of tags you want to filter with."
+          },
+          "favourite": {
+            "type": "boolean",
+            "description": "Is the group is marked as favourite"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "timeFrame"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Api.Core.Dto.Aggregated.AggregatedResult"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
+      }
+    },
+    {
+      "id": "groups.aggregated.list.get",
+      "title": "groups.aggregated.list.get",
+      "description": "Retrieve statistics about all groups of this customer for a timeframe grouped by some temporal entity (day/week/month)",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "timeFrame": {
+            "type": "string",
+            "description": "Timeframe of the request. See list at $timeframeList",
+            "enum": [
+              "today",
+              "yesterday",
+              "last7",
+              "last30",
+              "lastmonth",
+              "currentmonth",
+              "previousmonth",
+              "last90",
+              "last120",
+              "last180",
+              "last12months",
+              "lastyear",
+              "currentyear",
+              "beginning",
+              "custom"
+            ]
+          },
+          "fromDay": {
+            "type": "string",
+            "description": "If using a \"custom\" timeFrame you can specify the starting day (YYYYMMDD)"
+          },
+          "toDay": {
+            "type": "string",
+            "description": "If using a \"custom\" timeFrame you can specify the ending day (YYYYMMDD)"
+          },
+          "status": {
+            "type": "string",
+            "description": "Status of group (\"deleted\"/\"active\")"
+          },
+          "tag": {
+            "type": "string",
+            "description": "A comma separated list of tags you want to filter with."
+          },
+          "favourite": {
+            "type": "boolean",
+            "description": "Is the group is marked as favourite"
+          },
+          "groupBy": {
+            "type": "string",
+            "description": "The temporal entity you want to group by (\"week\"/\"month\"). If unspecified is \"day\".",
+            "enum": [
+              "deleted",
+              "active"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "timeFrame"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Api.Core.Responses.EntitiesResponse[Api.Core.Dto.Aggregated.AggregatedResult]"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
+      }
+    },
+    {
+      "id": "groups.count.get",
+      "title": "groups.count.get",
+      "description": "Count the groups associated to the user.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "status": {
+            "type": "string",
+            "description": "Status of the datapoint",
+            "enum": [
+              "deleted",
+              "active"
+            ]
+          },
+          "tags": {
+            "type": "string",
+            "description": "A comma separated list of tags you want to filter with."
+          },
+          "textSearch": {
+            "type": "string",
+            "description": "Filter fields by this pattern"
+          },
+          "createdAfter": {
+            "type": "string",
+            "description": "Exclude groups created before this date (YYYYMMDD)"
+          },
+          "createdBefore": {
+            "type": "string",
+            "description": "Exclude groups created after this date (YYYYMMDD)"
+          },
+          "write": {
+            "type": "boolean",
+            "description": "Write permission"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Api.Core.Responses.CountResponce"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
+      }
+    },
+    {
+      "id": "groups.id.delete",
+      "title": "groups.id.delete",
+      "description": "Delete group specified by id",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Id of the group"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Api.Core.Responses.EntityUri[System.Int64]"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
+      }
+    },
+    {
+      "id": "groups.id.get",
+      "title": "groups.id.get",
+      "description": "Get a group",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "The id of the group"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Api.Core.Dto.Groups.Group"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
+      }
+    },
+    {
+      "id": "groups.id.post",
+      "title": "groups.id.post",
+      "description": "Update a group",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "The id of the group"
+          },
+          "value": {
+            "$ref": "#/definitions/Api.Core.Dto.Groups.Group"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "value"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Api.Core.Responses.EntityUri[System.Int64]"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
+      }
+    },
+    {
+      "id": "groups.id.aggregated.get",
+      "title": "groups.id.aggregated.get",
+      "description": "Retrieve statistics about this group for a timeframe",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Id of the group"
+          },
+          "timeFrame": {
+            "type": "string",
+            "description": "Timeframe of the request. See list at $timeframeList",
+            "enum": [
+              "today",
+              "yesterday",
+              "last7",
+              "last30",
+              "lastmonth",
+              "currentmonth",
+              "previousmonth",
+              "last90",
+              "last120",
+              "last180",
+              "last12months",
+              "lastyear",
+              "currentyear",
+              "beginning",
+              "custom"
+            ]
+          },
+          "fromDay": {
+            "type": "string",
+            "description": "If using a \"custom\" timeFrame you can specify the starting day (YYYYMMDD)"
+          },
+          "toDay": {
+            "type": "string",
+            "description": "If using a \"custom\" timeFrame you can specify the ending day (YYYYMMDD)"
+          },
+          "hourly": {
+            "type": "boolean",
+            "description": "If using \"yesterday\" or \"today\" timeframe you can ask for the hourly detail"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "timeFrame"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Api.Core.Dto.Aggregated.AggregatedResult"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
+      }
+    },
+    {
+      "id": "groups.id.aggregated.list.get",
+      "title": "groups.id.aggregated.list.get",
+      "description": "Retrieve statistics about this group for a timeframe grouped by some temporal entity (day/week/month)",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Id of the group"
+          },
+          "timeFrame": {
+            "type": "string",
+            "description": "Timeframe of the request. See list at $timeframeList",
+            "enum": [
+              "today",
+              "yesterday",
+              "last7",
+              "last30",
+              "lastmonth",
+              "currentmonth",
+              "previousmonth",
+              "last90",
+              "last120",
+              "last180",
+              "last12months",
+              "lastyear",
+              "currentyear",
+              "beginning",
+              "custom"
+            ]
+          },
+          "fromDay": {
+            "type": "string",
+            "description": "If using a \"custom\" timeFrame you can specify the starting day (YYYYMMDD)"
+          },
+          "toDay": {
+            "type": "string",
+            "description": "If using a \"custom\" timeFrame you can specify the ending day (YYYYMMDD)"
+          },
+          "groupBy": {
+            "type": "string",
+            "description": "The temporal entity you want to group by (\"week\"/\"month\"). If unspecified is \"day\".",
+            "enum": [
+              "week",
+              "month"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "timeFrame"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Api.Core.Responses.EntitiesResponse[Api.Core.Dto.Aggregated.AggregatedResult]"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
+      }
+    },
+    {
+      "id": "groups.id.aggregated.summary.get",
+      "title": "groups.id.aggregated.summary.get",
+      "description": "Retrieve statistics about a subset of datapoints for a timeframe with datapoints data",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Filter by this group id"
+          },
+          "timeFrame": {
+            "type": "string",
+            "description": "Timeframe of the request. See list at $timeframeList",
+            "enum": [
+              "today",
+              "yesterday",
+              "last7",
+              "last30",
+              "lastmonth",
+              "currentmonth",
+              "previousmonth",
+              "last90",
+              "last120",
+              "last180",
+              "last12months",
+              "lastyear",
+              "currentyear",
+              "beginning",
+              "custom"
+            ]
+          },
+          "type": {
+            "type": "string",
+            "description": "Type of datapoint (\"tl\"/\"tp\")",
+            "enum": [
+              "tp",
+              "tl"
+            ]
+          },
+          "fromDay": {
+            "type": "string",
+            "description": "If using a \"custom\" timeFrame you can specify the starting day (YYYYMMDD)"
+          },
+          "toDay": {
+            "type": "string",
+            "description": "If using a \"custom\" timeFrame you can specify the ending day (YYYYMMDD)"
+          },
+          "status": {
+            "type": "string",
+            "description": "Status of datapoint (\"deleted\"/\"active\"/\"paused\"/\"spam\")",
+            "enum": [
+              "deleted",
+              "active"
+            ]
+          },
+          "tag": {
+            "type": "string",
+            "description": "A comma separated list of tags you want to filter with."
+          },
+          "favourite": {
+            "type": "boolean",
+            "description": "Is the datapoint marked as favourite"
+          },
+          "sortBy": {
+            "type": "string",
+            "description": "Field to sort by"
+          },
+          "sortDirection": {
+            "type": "string",
+            "description": "Direction of sort \"asc\" or \"desc\"",
+            "enum": [
+              "asc",
+              "desc"
+            ]
+          },
+          "offset": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Offset where to start from"
+          },
+          "limit": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Limit results to this number"
+          },
+          "textSearch": {
+            "type": "string",
+            "description": "Filter fields by this pattern"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "timeFrame"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Api.Core.Dto.Aggregated.AggregatedSummaryResult"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
+      }
+    },
+    {
+      "id": "groups.id.datapoints.get",
+      "title": "groups.id.datapoints.get",
+      "description": "List of all the datapoints associated to the user in this group.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Id of the group"
+          },
+          "offset": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Where to start when retrieving elements. Default is 0 if not specified."
+          },
+          "limit": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Maximum elements to retrieve. Default to 20 if not specified."
+          },
+          "type": {
+            "type": "string",
+            "description": "Type of the datapoint (\"tp\"/\"tl\")",
+            "enum": [
+              "tp",
+              "tl"
+            ]
+          },
+          "status": {
+            "type": "string",
+            "description": "Status of the datapoint",
+            "enum": [
+              "deleted",
+              "active",
+              "paused",
+              "spam"
+            ]
+          },
+          "tags": {
+            "type": "string",
+            "description": "A comma separated list of tags you want to filter with."
+          },
+          "textSearch": {
+            "type": "string",
+            "description": "Filter fields by this pattern"
+          },
+          "onlyFavorites": {
+            "type": "boolean",
+            "description": "Filter fields by favourite status"
+          },
+          "sortBy": {
+            "type": "string",
+            "description": "Field to sort by"
+          },
+          "sortDirection": {
+            "type": "string",
+            "description": "Direction of sort \"asc\" or \"desc\"",
+            "enum": [
+              "asc",
+              "desc"
+            ]
+          },
+          "createdAfter": {
+            "type": "string",
+            "description": "Exclude datapoints created before this date (YYYYMMDD)"
+          },
+          "createdBefore": {
+            "type": "string",
+            "description": "Exclude datapoints created after this date (YYYYMMDD)"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Api.Core.Responses.EntitiesResponse[Api.Core.Responses.EntityUri[System.Int64]]"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
+      }
+    },
+    {
+      "id": "groups.id.datapoints.post",
+      "title": "groups.id.datapoints.post",
+      "description": "Create a datapoint in this group",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "The id of the group"
+          },
+          "value": {
+            "$ref": "#/definitions/Api.Core.Dto.Datapoints.Datapoint"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "value"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Api.Core.Responses.EntityUri[System.Int64]"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
+      }
+    },
+    {
+      "id": "groups.id.datapoints.count.get",
+      "title": "groups.id.datapoints.count.get",
+      "description": "Count the datapoints associated to the user in this group.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Id of the group"
+          },
+          "type": {
+            "type": "string",
+            "description": "Type of the datapoint (\"tp\"/\"tl\")",
+            "enum": [
+              "tp",
+              "tl"
+            ]
+          },
+          "status": {
+            "type": "string",
+            "description": "Status of the datapoint",
+            "enum": [
+              "deleted",
+              "active",
+              "paused",
+              "spam"
+            ]
+          },
+          "tags": {
+            "type": "string",
+            "description": "A comma separated list of tags you want to filter with."
+          },
+          "textSearch": {
+            "type": "string",
+            "description": "Filter fields by this pattern"
+          },
+          "onlyFavorites": {
+            "type": "boolean",
+            "description": "Filter fields by favourite status"
+          },
+          "createdAfter": {
+            "type": "string",
+            "description": "Exclude datapoints created before this date (YYYYMMDD)"
+          },
+          "createdBefore": {
+            "type": "string",
+            "description": "Exclude datapoints created after this date (YYYYMMDD)"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Api.Core.Responses.CountResponce"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
+      }
+    },
+    {
+      "id": "groups.id.favourite.put",
+      "title": "groups.id.favourite.put",
+      "description": "Fast switch the \"favourite\" field of a group",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Id of the group"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Api.Core.Responses.EntityUri[System.Int64]"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
+      }
+    },
+    {
+      "id": "groups.id.hits.get",
+      "title": "groups.id.hits.get",
+      "description": "Retrieve the list of events related to this group.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Id of the group"
+          },
+          "timeframe": {
+            "type": "string",
+            "description": "Timeframe of the request. See list at $timeframeList",
+            "enum": [
+              "yesterday",
+              "last7",
+              "last30",
+              "lastmonth",
+              "currentmonth",
+              "previousmonth",
+              "last90",
+              "last120",
+              "last180",
+              "custom"
+            ]
+          },
+          "limit": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Limit results to this number"
+          },
+          "offset": {
+            "type": "string",
+            "description": "Offset where to start from (it's the lastKey field in the response object)"
+          },
+          "fromDay": {
+            "type": "string",
+            "description": "If using a \"custom\" timeFrame you can specify the starting day (YYYYMMDD)"
+          },
+          "toDay": {
+            "type": "string",
+            "description": "If using a \"custom\" timeFrame you can specify the ending day (YYYYMMDD)"
+          },
+          "filter": {
+            "type": "string",
+            "description": "Filter event type (\"spiders\"/\"uniques\"/\"nonuniques\"/\"conversions\")",
+            "enum": [
+              "spiders",
+              "uniques",
+              "nonuniques",
+              "conversions"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "timeframe"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Api.Core.Dto.ClickStream.HitListPage"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
+      }
+    },
+    {
+      "id": "groups.id.notes.put",
+      "title": "groups.id.notes.put",
+      "description": "Fast patch the \"notes\" field of a group",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Id of the group"
+          },
+          "note": {
+            "$ref": "#/definitions/Api.Core.Requests.GenericTextPatch"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "note"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Api.Core.Responses.EntityUri[System.Int64]"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
+      }
+    },
+    {
+      "id": "groups.id.reports.get",
+      "title": "groups.id.reports.get",
+      "description": "Retrieve a top report connected to this group",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Id of the group"
+          },
+          "type": {
+            "type": "string",
+            "description": "Type of the report.",
+            "enum": [
+              "browsers",
+              "browsersfamilies",
+              "platforms",
+              "cities",
+              "countries",
+              "isps",
+              "ips",
+              "oss",
+              "ossfamilies",
+              "keywords",
+              "referrers",
+              "destinations",
+              "languages",
+              "params"
+            ]
+          },
+          "timeframe": {
+            "type": "string",
+            "description": "Timeframe of the request. See list at $timeframeList",
+            "enum": [
+              "yesterday",
+              "last7",
+              "last30",
+              "lastmonth",
+              "currentmonth",
+              "previousmonth",
+              "last90",
+              "last120",
+              "last180",
+              "beginning",
+              "custom"
+            ]
+          },
+          "hittype": {
+            "type": "string",
+            "description": "Type of the event you want to filter this report with. By default no filter is applied.",
+            "enum": [
+              "clicks",
+              "views"
+            ]
+          },
+          "fromDay": {
+            "type": "string",
+            "description": "If using a \"custom\" timeFrame you can specify the starting day (YYYYMMDD)"
+          },
+          "toDay": {
+            "type": "string",
+            "description": "If using a \"custom\" timeFrame you can specify the ending day (YYYYMMDD)"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "type",
+          "timeframe"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Api.Core.Dto.Tops.Top"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
+      }
+    },
+    {
+      "id": "hits.get",
+      "title": "hits.get",
+      "description": "Retrieve the list of events related to this account.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "timeframe": {
+            "type": "string",
+            "description": "Timeframe of the request. See list at $timeframeList",
+            "enum": [
+              "yesterday",
+              "last7",
+              "last30",
+              "lastmonth",
+              "currentmonth",
+              "previousmonth",
+              "last90",
+              "last120",
+              "last180",
+              "custom"
+            ]
+          },
+          "limit": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Limit results to this number"
+          },
+          "offset": {
+            "type": "string",
+            "description": "Offset where to start from (it's the lastKey field in the response object)"
+          },
+          "fromDay": {
+            "type": "string",
+            "description": "If using a \"custom\" timeFrame you can specify the starting day (YYYYMMDD)"
+          },
+          "toDay": {
+            "type": "string",
+            "description": "If using a \"custom\" timeFrame you can specify the ending day (YYYYMMDD)"
+          },
+          "filter": {
+            "type": "string",
+            "description": "Filter event type (\"spiders\"/\"uniques\"/\"nonuniques\"/\"conversions\")",
+            "enum": [
+              "spiders",
+              "uniques",
+              "nonuniques",
+              "conversions"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "timeframe"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Api.Core.Dto.ClickStream.HitListPage"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
+      }
+    },
+    {
+      "id": "me.get",
+      "title": "me.get",
+      "description": "Retrieve current account data",
+      "inputSchema": {},
+      "outputSchema": {
+        "$ref": "#/definitions/Api.Core.Dto.Accounting.User"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
+      }
+    },
+    {
+      "id": "me.plan.get",
+      "title": "me.plan.get",
+      "description": "Retrieve current account plan",
+      "inputSchema": {},
+      "outputSchema": {
+        "$ref": "#/definitions/Api.Core.Dto.Accounting.Plan"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
+      }
+    },
+    {
+      "id": "reports.get",
+      "title": "reports.get",
+      "description": "Retrieve a top report",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "Type of the report.",
+            "enum": [
+              "browsers",
+              "browsersfamilies",
+              "platforms",
+              "cities",
+              "countries",
+              "isps",
+              "ips",
+              "oss",
+              "ossfamilies",
+              "keywords",
+              "referrers",
+              "destinations",
+              "languages",
+              "params"
+            ]
+          },
+          "timeframe": {
+            "type": "string",
+            "description": "Timeframe of the request. See list at $timeframeList",
+            "enum": [
+              "yesterday",
+              "last7",
+              "last30",
+              "lastmonth",
+              "currentmonth",
+              "previousmonth",
+              "last90",
+              "last120",
+              "last180",
+              "beginning",
+              "custom"
+            ]
+          },
+          "hittype": {
+            "type": "string",
+            "description": "Type of the event you want to filter this report with. By default no filter is applied."
+          },
+          "group": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Filter by this group id (mutually exclusive with \"datapoint\" and \"conversion\")"
+          },
+          "datapoint": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Filter by this datapoint id (mutually exclusive with \"group\" and \"conversion\")"
+          },
+          "conversion": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Filter by this conversion id (mutually exclusive with \"datapoint\" and \"group\")"
+          },
+          "fromDay": {
+            "type": "string",
+            "description": "If using a \"custom\" timeFrame you can specify the starting day (YYYYMMDD)"
+          },
+          "toDay": {
+            "type": "string",
+            "description": "If using a \"custom\" timeFrame you can specify the ending day (YYYYMMDD)"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "type",
+          "timeframe"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Api.Core.Dto.Tops.Top"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
+      }
+    },
+    {
+      "id": "retargeting.get",
+      "title": "retargeting.get",
+      "description": "List of all the retargeting scripts associated to the user",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Where to start when retrieving elements. Default is 0 if not specified."
+          },
+          "limit": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Maximum elements to retrieve. Default to 20 if not specified."
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Api.Core.Responses.EntitiesResponse[Api.Core.Responses.EntityUri[System.Int64]]"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
+      }
+    },
+    {
+      "id": "retargeting.post",
+      "title": "retargeting.post",
+      "description": "Creates a retargeting script",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "value": {
+            "$ref": "#/definitions/Api.Core.Dto.Retargeting.RetargetingScript"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "value"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Api.Core.Responses.EntityUri[System.Int64]"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
+      }
+    },
+    {
+      "id": "retargeting.count.get",
+      "title": "retargeting.count.get",
+      "description": "Retrieve count of retargeting scripts",
+      "inputSchema": {},
+      "outputSchema": {
+        "$ref": "#/definitions/Api.Core.Responses.CountResponce"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
+      }
+    },
+    {
+      "id": "retargeting.id.delete",
+      "title": "retargeting.id.delete",
+      "description": "Deletes a retargeting script (and remove associations)",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "The id of the retargeting script"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Api.Core.Responses.EntityUri[System.Int64]"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
+      }
+    },
+    {
+      "id": "retargeting.id.get",
+      "title": "retargeting.id.get",
+      "description": "Get a retargeting script object",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "The id of the retargeting script"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Api.Core.Dto.Retargeting.RetargetingScript"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
+      }
+    },
+    {
+      "id": "retargeting.id.post",
+      "title": "retargeting.id.post",
+      "description": "Updates a retargeting script",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "The id of the retargeting script"
+          },
+          "value": {
+            "$ref": "#/definitions/Api.Core.Dto.Retargeting.RetargetingScript"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "value"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Api.Core.Responses.EntityUri[System.Int64]"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
+      }
+    },
+    {
+      "id": "retargeting.id.datapoints.get",
+      "title": "retargeting.id.datapoints.get",
+      "description": "List of all the datapoints associated to the retargeting script.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Id of the retargeting script"
+          },
+          "offset": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Where to start when retrieving elements. Default is 0 if not specified."
+          },
+          "limit": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Maximum elements to retrieve. Default to 20 if not specified."
+          },
+          "status": {
+            "type": "string",
+            "description": "Status of the datapoint",
+            "enum": [
+              "deleted",
+              "active",
+              "paused",
+              "spam"
+            ]
+          },
+          "tags": {
+            "type": "string",
+            "description": "A comma separated list of tags you want to filter with."
+          },
+          "textSearch": {
+            "type": "string",
+            "description": "Filter fields by this pattern"
+          },
+          "onlyFavorites": {
+            "type": "boolean",
+            "description": "Filter fields by favourite status"
+          },
+          "sortBy": {
+            "type": "string",
+            "description": "Field to sort by"
+          },
+          "sortDirection": {
+            "type": "string",
+            "description": "Direction of sort \"asc\" or \"desc\"",
+            "enum": [
+              "asc",
+              "desc"
+            ]
+          },
+          "createdAfter": {
+            "type": "string",
+            "description": "Exclude datapoints created before this date (YYYYMMDD)"
+          },
+          "createdBefore": {
+            "type": "string",
+            "description": "Exclude datapoints created after this date (YYYYMMDD)"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Api.Core.Responses.EntitiesResponse[Api.Core.Responses.EntityUri[System.Int64]]"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
+      }
+    },
+    {
+      "id": "retargeting.id.datapoints.count.get",
+      "title": "retargeting.id.datapoints.count.get",
+      "description": "Count the datapoints associated to the retargeting script.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Id of the group"
+          },
+          "status": {
+            "type": "string",
+            "description": "Status of the datapoint",
+            "enum": [
+              "deleted",
+              "active",
+              "paused",
+              "spam"
+            ]
+          },
+          "tags": {
+            "type": "string",
+            "description": "A comma separated list of tags you want to filter with."
+          },
+          "textSearch": {
+            "type": "string",
+            "description": "Filter fields by this pattern"
+          },
+          "onlyFavorites": {
+            "type": "boolean",
+            "description": "Filter fields by favourite status"
+          },
+          "createdAfter": {
+            "type": "string",
+            "description": "Exclude datapoints created before this date (YYYYMMDD)"
+          },
+          "createdBefore": {
+            "type": "string",
+            "description": "Exclude datapoints created after this date (YYYYMMDD)"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Api.Core.Responses.CountResponce"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
+      }
+    },
+    {
+      "id": "tags.get",
+      "title": "tags.get",
+      "description": "List of all the groups associated to the user filtered by this tag.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Where to start when retrieving elements. Default is 0 if not specified."
+          },
+          "limit": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Maximum elements to retrieve. Default to 20 if not specified."
+          },
+          "name": {
+            "type": "string",
+            "description": "Name of the tag"
+          },
+          "datapoints": {
+            "type": "string",
+            "description": "Comma separated list of datapoints id to filter by"
+          },
+          "groups": {
+            "type": "string",
+            "description": "Comma separated list of groups id to filter by"
+          },
+          "type": {
+            "type": "string",
+            "description": "Type of entity related to the tag",
+            "enum": [
+              "tp",
+              "tl",
+              "dp",
+              "gr"
+            ]
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Api.Core.Responses.EntitiesResponse[Api.Core.Responses.EntityUri[System.Int64]]"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
+      }
+    },
+    {
+      "id": "tags.post",
+      "title": "tags.post",
+      "description": "Create a tag",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "value": {
+            "$ref": "#/definitions/Api.Core.Dto.Tags.Tag"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "value"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Api.Core.Responses.EntityUri[System.Int64]"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
+      }
+    },
+    {
+      "id": "tags.count.get",
+      "title": "tags.count.get",
+      "description": "List of all the groups associated to the user filtered by this tag.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Name of the tag"
+          },
+          "datapoints": {
+            "type": "string",
+            "description": "Comma separated list of datapoints id to filter by"
+          },
+          "groups": {
+            "type": "string",
+            "description": "Comma separated list of groups id to filter by"
+          },
+          "type": {
+            "type": "string",
+            "description": "Type of entity related to the tag",
+            "enum": [
+              "tp",
+              "tl",
+              "dp",
+              "gr"
+            ]
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/System.Object"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
+      }
+    },
+    {
+      "id": "tags.tagId.delete",
+      "title": "tags.tagId.delete",
+      "description": "Delete a tag",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "tagId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Id of the tag"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "tagId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/System.Object"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
+      }
+    },
+    {
+      "id": "tags.tagId.get",
+      "title": "tags.tagId.get",
+      "description": "Retrieve a tag",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "tagId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Id of the tag"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "tagId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Api.Core.Dto.Tags.Tag"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
+      }
+    },
+    {
+      "id": "tags.tagId.datapoints.delete",
+      "title": "tags.tagId.datapoints.delete",
+      "description": "Delete the association of this tag with all datapoints",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "tagId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Id of the tag"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "tagId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Api.Core.Responses.EntityUri[System.Int64]"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
+      }
+    },
+    {
+      "id": "tags.tagId.datapoints.get",
+      "title": "tags.tagId.datapoints.get",
+      "description": "List of all the datapoints associated to the user filtered by this tag",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "tagId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Id of the tag."
+          },
+          "offset": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Where to start when retrieving elements. Default is 0 if not specified."
+          },
+          "limit": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Maximum elements to retrieve. Default to 20 if not specified."
+          },
+          "type": {
+            "type": "string",
+            "description": "Type of the datapoint (\"tp\"/\"tl\")",
+            "enum": [
+              "tp",
+              "tl"
+            ]
+          },
+          "status": {
+            "type": "string",
+            "description": "Status of the datapoint",
+            "enum": [
+              "deleted",
+              "active",
+              "paused",
+              "spam"
+            ]
+          },
+          "textSearch": {
+            "type": "string",
+            "description": "Filter fields by this pattern"
+          },
+          "createdAfter": {
+            "type": "string",
+            "description": "Exclude datapoints created before this date (YYYYMMDD)"
+          },
+          "createdBefore": {
+            "type": "string",
+            "description": "Exclude datapoints created after this date (YYYYMMDD)"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "tagId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Api.Core.Responses.EntitiesResponse[Api.Core.Responses.EntityUri[System.Int64]]"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
+      }
+    },
+    {
+      "id": "tags.tagId.datapoints.count.get",
+      "title": "tags.tagId.datapoints.count.get",
+      "description": "Count the datapoints associated to the user filtered by this tag",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "tagId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Id of the tag."
+          },
+          "type": {
+            "type": "string",
+            "description": "Type of the datapoint (\"tp\"/\"tl\")",
+            "enum": [
+              "tp",
+              "tl"
+            ]
+          },
+          "status": {
+            "type": "string",
+            "description": "Status of the datapoint",
+            "enum": [
+              "deleted",
+              "active",
+              "paused",
+              "spam"
+            ]
+          },
+          "textSearch": {
+            "type": "string",
+            "description": "Filter fields by this pattern"
+          },
+          "createdAfter": {
+            "type": "string",
+            "description": "Exclude datapoints created before this date (YYYYMMDD)"
+          },
+          "createdBefore": {
+            "type": "string",
+            "description": "Exclude datapoints created after this date (YYYYMMDD)"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "tagId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Api.Core.Responses.CountResponce"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
+      }
+    },
+    {
+      "id": "tags.tagId.datapoints.patch.put",
+      "title": "tags.tagId.datapoints.patch.put",
+      "description": "Associate/Deassociate a tag with a datapoint",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "tagId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Id of the tag"
+          },
+          "data": {
+            "$ref": "#/definitions/Api.Core.Requests.PatchBody"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "tagId",
+          "data"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Api.Core.Responses.EntityUri[System.Int64]"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
+      }
+    },
+    {
+      "id": "tags.tagId.groups.delete",
+      "title": "tags.tagId.groups.delete",
+      "description": "Delete the association of this tag with all groups",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "tagId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Id of the tag"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "tagId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Api.Core.Responses.EntityUri[System.Int64]"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
+      }
+    },
+    {
+      "id": "tags.tagId.groups.get",
+      "title": "tags.tagId.groups.get",
+      "description": "List of all the groups associated to the user filtered by this tag.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "tagId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Id of the tag."
+          },
+          "offset": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Where to start when retrieving elements. Default is 0 if not specified."
+          },
+          "limit": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Maximum elements to retrieve. Default to 20 if not specified."
+          },
+          "status": {
+            "type": "string",
+            "description": "Status of the datapoint",
+            "enum": [
+              "deleted",
+              "active"
+            ]
+          },
+          "textSearch": {
+            "type": "string",
+            "description": "Filter fields by this pattern"
+          },
+          "createdAfter": {
+            "type": "string",
+            "description": "Exclude groups created before this date (YYYYMMDD)"
+          },
+          "createdBefore": {
+            "type": "string",
+            "description": "Exclude groups created after this date (YYYYMMDD)"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "tagId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Api.Core.Responses.EntitiesResponse[Api.Core.Responses.EntityUri[System.Int64]]"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
+      }
+    },
+    {
+      "id": "tags.tagId.groups.count.get",
+      "title": "tags.tagId.groups.count.get",
+      "description": "Count the groups associated to the user filtered by this tag",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "tagId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Id of the tag."
+          },
+          "status": {
+            "type": "string",
+            "description": "Status of the datapoint",
+            "enum": [
+              "deleted",
+              "active"
+            ]
+          },
+          "textSearch": {
+            "type": "string",
+            "description": "Filter fields by this pattern"
+          },
+          "createdAfter": {
+            "type": "string",
+            "description": "Exclude groups created before this date (YYYYMMDD)"
+          },
+          "createdBefore": {
+            "type": "string",
+            "description": "Exclude groups created after this date (YYYYMMDD)"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "tagId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Api.Core.Responses.CountResponce"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
+      }
+    },
+    {
+      "id": "tags.tagId.groups.patch.put",
+      "title": "tags.tagId.groups.patch.put",
+      "description": "Associate/Deassociate a tag with a group",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "tagId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Id of the tag"
+          },
+          "data": {
+            "$ref": "#/definitions/Api.Core.Requests.PatchBody"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "tagId",
+          "data"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Api.Core.Responses.EntityUri[System.Int64]"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
+      }
+    },
+    {
+      "id": "tags.tagId.name.put",
+      "title": "tags.tagId.name.put",
+      "description": "Fast patch a tag name",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "tagId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Id of the tag"
+          },
+          "data": {
+            "$ref": "#/definitions/Api.Core.Requests.GenericTextPatch"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "tagId",
+          "data"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Api.Core.Responses.EntityUri[System.Int64]"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
+      }
+    }
+  ]
+}

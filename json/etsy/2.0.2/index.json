@@ -1,0 +1,2111 @@
+{
+  "id": "etsy",
+  "title": "Etsy",
+  "description": "Bring Etsy's handmade marketplace and community into your apps.",
+  "security": {},
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/etsy.png"
+  },
+  "tags": [],
+  "actions": [
+    {
+      "id": "countries.country_id.get",
+      "title": "countries.country_id.get",
+      "description": "Retrieves a Country by id.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "country_id": {}
+        },
+        "additionalProperties": false,
+        "required": [
+          "country_id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "countries.get",
+      "title": "countries.get",
+      "description": "Finds all Country.",
+      "inputSchema": {},
+      "outputSchema": {}
+    },
+    {
+      "id": "users.user_id.favorites.listings.get",
+      "title": "users.user_id.favorites.listings.get",
+      "description": "Finds all favorite listings for a user",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "user_id": {},
+          "limit": {},
+          "offset": {}
+        },
+        "additionalProperties": false,
+        "required": [
+          "user_id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "users.user_id.favorites.listings.listing_id.get",
+      "title": "users.user_id.favorites.listings.listing_id.get",
+      "description": "Finds a favorite listing for a user",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "user_id": {},
+          "listing_id": {}
+        },
+        "additionalProperties": false,
+        "required": [
+          "user_id",
+          "listing_id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "users.user_id.favorites.listings.listing_id.post",
+      "title": "users.user_id.favorites.listings.listing_id.post",
+      "description": "Creates a new favorite listing for a user",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "user_id": {},
+          "listing_id": {}
+        },
+        "additionalProperties": false,
+        "required": [
+          "user_id",
+          "listing_id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "users.user_id.favorites.listings.listing_id.delete",
+      "title": "users.user_id.favorites.listings.listing_id.delete",
+      "description": "Delete a favorite listing for a user",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "user_id": {},
+          "listing_id": {}
+        },
+        "additionalProperties": false,
+        "required": [
+          "user_id",
+          "listing_id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "users.user_id.favorites.users.get",
+      "title": "users.user_id.favorites.users.get",
+      "description": "Finds all favorite users for a user",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "user_id": {},
+          "limit": {},
+          "offset": {}
+        },
+        "additionalProperties": false,
+        "required": [
+          "user_id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "users.user_id.favorites.users.target_user_id.get",
+      "title": "users.user_id.favorites.users.target_user_id.get",
+      "description": "Finds a favorite user for a user",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "user_id": {},
+          "target_user_id": {}
+        },
+        "additionalProperties": false,
+        "required": [
+          "user_id",
+          "target_user_id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "users.user_id.favorites.users.target_user_id.post",
+      "title": "users.user_id.favorites.users.target_user_id.post",
+      "description": "Creates a new favorite listing for a user",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "user_id": {},
+          "target_user_id": {},
+          "user_id_path": {},
+          "target_user_id_path": {}
+        },
+        "additionalProperties": false,
+        "required": [
+          "user_id",
+          "target_user_id",
+          "user_id_path",
+          "target_user_id_path"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "users.user_id.favorites.users.target_user_id.delete",
+      "title": "users.user_id.favorites.users.target_user_id.delete",
+      "description": "Delete a favorite listing for a user",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "user_id": {},
+          "target_user_id": {}
+        },
+        "additionalProperties": false,
+        "required": [
+          "user_id",
+          "target_user_id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "homepages.pickers.get",
+      "title": "homepages.pickers.get",
+      "description": "Finds all FeaturedListingPicker in scope active.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "limit": {},
+          "offset": {}
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "homepages.pickers.featured_listing_picker_id.get",
+      "title": "homepages.pickers.featured_listing_picker_id.get",
+      "description": "Retrieves a FeaturedListingPicker by id.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "featured_listing_picker_id": {}
+        },
+        "additionalProperties": false,
+        "required": [
+          "featured_listing_picker_id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "homepages.pickers.featured_listing_picker_id.featured.get",
+      "title": "homepages.pickers.featured_listing_picker_id.featured.get",
+      "description": "Retrieves a set of FeaturedListing objects associated to a FeaturedListingPicker.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "featured_listing_picker_id": {},
+          "limit": {},
+          "offset": {}
+        },
+        "additionalProperties": false,
+        "required": [
+          "featured_listing_picker_id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "homepages.pickers.featured_listing_picker_id.listings.get",
+      "title": "homepages.pickers.featured_listing_picker_id.listings.get",
+      "description": "Retrieves a set of Listing objects associated to a FeaturedListingPicker.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "featured_listing_picker_id": {},
+          "limit": {},
+          "offset": {}
+        },
+        "additionalProperties": false,
+        "required": [
+          "featured_listing_picker_id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "homepages.pickers.featured_listing_picker_id.listings.active.get",
+      "title": "homepages.pickers.featured_listing_picker_id.listings.active.get",
+      "description": "Retrieves a set of Listing objects associated to a FeaturedListingPicker in scope active.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "featured_listing_picker_id": {},
+          "limit": {},
+          "offset": {}
+        },
+        "additionalProperties": false,
+        "required": [
+          "featured_listing_picker_id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "homepages.listings.get",
+      "title": "homepages.listings.get",
+      "description": "Finds all FeaturedListings regardless of Listing state",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "limit": {},
+          "offset": {}
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "homepages.listings.active.get",
+      "title": "homepages.listings.active.get",
+      "description": "Finds all FeaturedListings that point to active Listings",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "limit": {},
+          "offset": {}
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "homepages.listings.featured_listing_id.get",
+      "title": "homepages.listings.featured_listing_id.get",
+      "description": "Retrieves a FeaturedListing by id.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "featured_listing_id": {}
+        },
+        "additionalProperties": false,
+        "required": [
+          "featured_listing_id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "homepages.listings.featured_listing_id.picker.get",
+      "title": "homepages.listings.featured_listing_id.picker.get",
+      "description": "Retrieves a set of FeaturedListingPicker objects associated to a FeaturedListing.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "featured_listing_id": {}
+        },
+        "additionalProperties": false,
+        "required": [
+          "featured_listing_id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "homepages.listings.featured_listing_id.listing.get",
+      "title": "homepages.listings.featured_listing_id.listing.get",
+      "description": "Retrieves a set of Listing objects associated to a FeaturedListing.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "featured_listing_id": {}
+        },
+        "additionalProperties": false,
+        "required": [
+          "featured_listing_id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "listings.listing_id.images.listing_image_id.get",
+      "title": "listings.listing_id.images.listing_image_id.get",
+      "description": "Retrieves a ListingImage by id.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "listing_id": {},
+          "listing_image_id": {}
+        },
+        "additionalProperties": false,
+        "required": [
+          "listing_id",
+          "listing_image_id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "listings.listing_id.images.listing_image_id.delete",
+      "title": "listings.listing_id.images.listing_image_id.delete",
+      "description": "Deletes a listing image",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "listing_id": {},
+          "listing_image_id": {}
+        },
+        "additionalProperties": false,
+        "required": [
+          "listing_id",
+          "listing_image_id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "listings.listing_id.images.post",
+      "title": "listings.listing_id.images.post",
+      "description": "Upload a new listing image",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "image": {},
+          "listing_id": {}
+        },
+        "additionalProperties": false,
+        "required": [
+          "image",
+          "listing_id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "listings.listing_id.images.get",
+      "title": "listings.listing_id.images.get",
+      "description": "Retrieves a set of ListingImage objects associated to a Listing.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "listing_id": {}
+        },
+        "additionalProperties": false,
+        "required": [
+          "listing_id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "listings.listing_id.get",
+      "title": "listings.listing_id.get",
+      "description": "Retrieves a Listing by id.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "listing_id": {}
+        },
+        "additionalProperties": false,
+        "required": [
+          "listing_id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "listings.listing_id.put",
+      "title": "listings.listing_id.put",
+      "description": "Updates a Listing",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "quantity": {},
+          "title": {},
+          "description": {},
+          "price": {},
+          "materials": {},
+          "renew": {},
+          "tags": {},
+          "shipping_template_id": {},
+          "shop_section_id": {},
+          "state": {
+            "enum": [
+              "active",
+              "inactive"
+            ]
+          },
+          "listing_id": {}
+        },
+        "additionalProperties": false,
+        "required": [
+          "listing_id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "listings.listing_id.delete",
+      "title": "listings.listing_id.delete",
+      "description": "Deletes a Listing",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "listing_id": {}
+        },
+        "additionalProperties": false,
+        "required": [
+          "listing_id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "listings.listing_id.favored_by.get",
+      "title": "listings.listing_id.favored_by.get",
+      "description": "Retrieves a set of FavoriteListing objects associated to a Listing.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "listing_id": {},
+          "limit": {},
+          "offset": {}
+        },
+        "additionalProperties": false,
+        "required": [
+          "listing_id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "listings.listing_id.shipping.info.get",
+      "title": "listings.listing_id.shipping.info.get",
+      "description": "Retrieves a set of ShippingInfo objects associated to a Listing.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "listing_id": {}
+        },
+        "additionalProperties": false,
+        "required": [
+          "listing_id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "listings.listing_id.shipping.info.post",
+      "title": "listings.listing_id.shipping.info.post",
+      "description": "Creates a new ShippingInfo.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "origin_country_id": {},
+          "destination_country_id": {},
+          "primary_cost": {},
+          "secondary_cost": {},
+          "region_id": {},
+          "listing_id": {}
+        },
+        "additionalProperties": false,
+        "required": [
+          "origin_country_id",
+          "primary_cost",
+          "secondary_cost",
+          "listing_id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "listings.listing_id.payments.get",
+      "title": "listings.listing_id.payments.get",
+      "description": "Retrieves a set of ListingPayment objects associated to a Listing.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "listing_id": {}
+        },
+        "additionalProperties": false,
+        "required": [
+          "listing_id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "listings.active.get",
+      "title": "listings.active.get",
+      "description": "Finds all active Listing",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "limit": {},
+          "offset": {},
+          "keywords": {},
+          "sort_on": {
+            "enum": [
+              "created",
+              "price",
+              "score"
+            ]
+          },
+          "sort_order": {
+            "enum": [
+              "up",
+              "down"
+            ]
+          },
+          "min_price": {},
+          "max_price": {},
+          "color": {},
+          "color_accuracy": {},
+          "tags": {},
+          "materials": {},
+          "category": {}
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "shops.shop_id.listings.active.get",
+      "title": "shops.shop_id.listings.active.get",
+      "description": "Finds all active Listings associated with a Shop",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "limit": {},
+          "offset": {},
+          "shop_id": {},
+          "keywords": {},
+          "sort_on": {
+            "enum": [
+              "created",
+              "price",
+              "score"
+            ]
+          },
+          "sort_order": {
+            "enum": [
+              "up",
+              "down"
+            ]
+          },
+          "min_price": {},
+          "max_price": {},
+          "color": {},
+          "color_accuracy": {},
+          "tags": {},
+          "materials": {},
+          "category": {}
+        },
+        "additionalProperties": false,
+        "required": [
+          "shop_id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "listings.post",
+      "title": "listings.post",
+      "description": "Creates a new Listing",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "quantity": {},
+          "title": {},
+          "description": {},
+          "price": {},
+          "materials": {},
+          "tags": {},
+          "shipping_template_id": {},
+          "shop_section_id": {}
+        },
+        "additionalProperties": false,
+        "required": [
+          "quantity",
+          "title",
+          "description",
+          "price",
+          "tags",
+          "shipping_template_id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "orders.order_id.get",
+      "title": "orders.order_id.get",
+      "description": "Retrieves a Order by id.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "order_id": {}
+        },
+        "additionalProperties": false,
+        "required": [
+          "order_id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "orders.order_id.receipts.get",
+      "title": "orders.order_id.receipts.get",
+      "description": "Retrieves a set of Receipt objects associated to a Order.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "order_id": {},
+          "limit": {},
+          "offset": {}
+        },
+        "additionalProperties": false,
+        "required": [
+          "order_id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "receipts.receipt_id.get",
+      "title": "receipts.receipt_id.get",
+      "description": "Retrieves a Receipt by id.",
+      "inputSchema": {},
+      "outputSchema": {}
+    },
+    {
+      "id": "receipts.receipt_id.put",
+      "title": "receipts.receipt_id.put",
+      "description": "Updates a Receipt",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "receipt_id": {},
+          "was_paid": {},
+          "was_shipped": {},
+          "message_from_seller": {},
+          "message_from_buyer": {}
+        },
+        "additionalProperties": false,
+        "required": [
+          "receipt_id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "receipts.receipt_id.transactions.get",
+      "title": "receipts.receipt_id.transactions.get",
+      "description": "Retrieves a set of Transaction objects associated to a Receipt.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "receipt_id": {},
+          "limit": {},
+          "offset": {}
+        },
+        "additionalProperties": false,
+        "required": [
+          "receipt_id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "users.user_id.recommended_listings.get",
+      "title": "users.user_id.recommended_listings.get",
+      "description": "Get recommended listings for an authenticated member. The number of listings returned may not match the specified limit if there is no activity from recommended shops.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "user_id": {},
+          "limit": {},
+          "excluded_listing_ids": {}
+        },
+        "additionalProperties": false,
+        "required": [
+          "user_id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "users.user_id.recommended_listings.rejects.listing_ids.post",
+      "title": "users.user_id.recommended_listings.rejects.listing_ids.post",
+      "description": "Registers rejections of recommended listings. Affects future recommended listings.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "user_id": {},
+          "listing_ids": {}
+        },
+        "additionalProperties": false,
+        "required": [
+          "user_id",
+          "listing_ids"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "users.user_id.recommended_listings.views.listing_ids.post",
+      "title": "users.user_id.recommended_listings.views.listing_ids.post",
+      "description": "Register viewings of recommended listings. Affects future recommended listings.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "user_id": {},
+          "listing_ids": {}
+        },
+        "additionalProperties": false,
+        "required": [
+          "user_id",
+          "listing_ids"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "regions.region_id.get",
+      "title": "regions.region_id.get",
+      "description": "Retrieves a Region by id.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "region_id": {}
+        },
+        "additionalProperties": false,
+        "required": [
+          "region_id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "regions.get",
+      "title": "regions.get",
+      "description": "Finds all Region.",
+      "inputSchema": {},
+      "outputSchema": {}
+    },
+    {
+      "id": "shipping.info.shipping_info_id.get",
+      "title": "shipping.info.shipping_info_id.get",
+      "description": "Retrieves a ShippingInfo by id.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "shipping_info_id": {}
+        },
+        "additionalProperties": false,
+        "required": [
+          "shipping_info_id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "shipping.info.shipping_info_id.put",
+      "title": "shipping.info.shipping_info_id.put",
+      "description": "Updates a ShippingInfo with the given id.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "origin_country_id": {},
+          "destination_country_id": {},
+          "primary_cost": {},
+          "secondary_cost": {},
+          "listing_id": {},
+          "region_id": {},
+          "shipping_info_id": {}
+        },
+        "additionalProperties": false,
+        "required": [
+          "shipping_info_id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "shipping.info.shipping_info_id.delete",
+      "title": "shipping.info.shipping_info_id.delete",
+      "description": "Deletes the ShippingInfo with the given id.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "shipping_info_id": {}
+        },
+        "additionalProperties": false,
+        "required": [
+          "shipping_info_id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "shipping.templates.entries.shipping_template_entry_id.get",
+      "title": "shipping.templates.entries.shipping_template_entry_id.get",
+      "description": "Retrieves a ShippingTemplateEntry by id.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "shipping_template_entry_id": {}
+        },
+        "additionalProperties": false,
+        "required": [
+          "shipping_template_entry_id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "shipping.templates.entries.shipping_template_entry_id.put",
+      "title": "shipping.templates.entries.shipping_template_entry_id.put",
+      "description": "Updates a ShippingTemplateEntry",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "destination_country_id": {},
+          "primary_cost": {},
+          "secondary_cost": {},
+          "shipping_template_entry_id": {}
+        },
+        "additionalProperties": false,
+        "required": [
+          "shipping_template_entry_id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "shipping.templates.entries.shipping_template_entry_id.delete",
+      "title": "shipping.templates.entries.shipping_template_entry_id.delete",
+      "description": "Deletes a ShippingTemplateEntry",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "shipping_template_entry_id": {}
+        },
+        "additionalProperties": false,
+        "required": [
+          "shipping_template_entry_id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "shipping.templates.entries.post",
+      "title": "shipping.templates.entries.post",
+      "description": "Creates a new ShippingTemplateEntry",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "shipping_template_id": {},
+          "destination_country_id": {},
+          "primary_cost": {},
+          "secondary_cost": {},
+          "destination_region_id": {}
+        },
+        "additionalProperties": false,
+        "required": [
+          "shipping_template_id",
+          "primary_cost",
+          "secondary_cost"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "shipping.templates.shipping_template_id.get",
+      "title": "shipping.templates.shipping_template_id.get",
+      "description": "Retrieves a ShippingTemplate by id.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "shipping_template_id": {}
+        },
+        "additionalProperties": false,
+        "required": [
+          "shipping_template_id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "shipping.templates.shipping_template_id.delete",
+      "title": "shipping.templates.shipping_template_id.delete",
+      "description": "Deletes the ShippingTemplate with the given id.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "shipping_template_id": {}
+        },
+        "additionalProperties": false,
+        "required": [
+          "shipping_template_id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "shipping.templates.shipping_template_id.put",
+      "title": "shipping.templates.shipping_template_id.put",
+      "description": "Updates a ShippingTemplate",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "title": {},
+          "origin_country_id": {},
+          "shipping_template_id": {}
+        },
+        "additionalProperties": false,
+        "required": [
+          "shipping_template_id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "shipping.templates.shipping_template_id.entries.get",
+      "title": "shipping.templates.shipping_template_id.entries.get",
+      "description": "Retrieves a set of ShippingTemplateEntry objects associated to a ShippingTemplate.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "shipping_template_id": {},
+          "limit": {},
+          "offset": {}
+        },
+        "additionalProperties": false,
+        "required": [
+          "shipping_template_id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "shipping.templates.post",
+      "title": "shipping.templates.post",
+      "description": "Creates a new ShippingTemplate",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "title": {},
+          "origin_country_id": {},
+          "destination_country_id": {},
+          "primary_cost": {},
+          "secondary_cost": {},
+          "destination_region_id": {}
+        },
+        "additionalProperties": false,
+        "required": [
+          "title",
+          "origin_country_id",
+          "primary_cost",
+          "secondary_cost"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "shops.shop_id.get",
+      "title": "shops.shop_id.get",
+      "description": "Retrieves a Shop by id.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "shop_id": {}
+        },
+        "additionalProperties": false,
+        "required": [
+          "shop_id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "shops.shop_id.put",
+      "title": "shops.shop_id.put",
+      "description": "Updates a Shop",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "title": {},
+          "announcement": {},
+          "is_refusing_alchemy": {},
+          "alchemy_message": {},
+          "sale_message": {},
+          "policy_welcome": {},
+          "policy_payment": {},
+          "policy_shipping": {},
+          "policy_refunds": {},
+          "policy_additional": {},
+          "shop_id": {}
+        },
+        "additionalProperties": false,
+        "required": [
+          "shop_id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "shops.shop_id.receipts.get",
+      "title": "shops.shop_id.receipts.get",
+      "description": "Retrieves a set of Receipt objects associated to a Shop.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "shop_id": {},
+          "limit": {},
+          "offset": {}
+        },
+        "additionalProperties": false,
+        "required": [
+          "shop_id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "shops.shop_id.transactions.get",
+      "title": "shops.shop_id.transactions.get",
+      "description": "Retrieves a set of Transaction objects associated to a Shop.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "shop_id": {},
+          "limit": {},
+          "offset": {}
+        },
+        "additionalProperties": false,
+        "required": [
+          "shop_id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "shops.shop_id.sections.get",
+      "title": "shops.shop_id.sections.get",
+      "description": "Retrieves a set of ShopSection objects associated to a Shop.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "shop_id": {}
+        },
+        "additionalProperties": false,
+        "required": [
+          "shop_id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "shops.get",
+      "title": "shops.get",
+      "description": "Finds all Shops. If there is a keywords parameter, finds shops with shop_name starting with keywords.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "shop_name": {},
+          "limit": {},
+          "offset": {}
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "shops.shop_id.listings.featured.get",
+      "title": "shops.shop_id.listings.featured.get",
+      "description": "Retrieves Listings associated to a Shop that are featured",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "shop_id": {},
+          "limit": {},
+          "offset": {}
+        },
+        "additionalProperties": false,
+        "required": [
+          "shop_id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "shops.shop_id.listings.inactive.get",
+      "title": "shops.shop_id.listings.inactive.get",
+      "description": "Retrieves Listings associated to a Shop that are inactive",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "shop_id": {},
+          "limit": {},
+          "offset": {}
+        },
+        "additionalProperties": false,
+        "required": [
+          "shop_id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "shops.shop_id.listings.expired.get",
+      "title": "shops.shop_id.listings.expired.get",
+      "description": "Retrieves Listings associated to a Shop that are expired",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "shop_id": {},
+          "limit": {},
+          "offset": {}
+        },
+        "additionalProperties": false,
+        "required": [
+          "shop_id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "shops.shop_id.listings.inactive.listing_id.get",
+      "title": "shops.shop_id.listings.inactive.listing_id.get",
+      "description": "Retrieves a Listing associated to a Shop that is inactive",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "shop_id": {},
+          "listing_id": {}
+        },
+        "additionalProperties": false,
+        "required": [
+          "shop_id",
+          "listing_id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "shops.shop_id.listings.expired.listing_id.get",
+      "title": "shops.shop_id.listings.expired.listing_id.get",
+      "description": "Retrieves a Listing associated to a Shop that is inactive",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "shop_id": {},
+          "listing_id": {}
+        },
+        "additionalProperties": false,
+        "required": [
+          "shop_id",
+          "listing_id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "shops.shop_id.appearance.banner.post",
+      "title": "shops.shop_id.appearance.banner.post",
+      "description": "Upload a new shop banner image",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "image": {},
+          "shop_id": {}
+        },
+        "additionalProperties": false,
+        "required": [
+          "image",
+          "shop_id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "shops.shop_id.appearance.banner.shop_banner_id.delete",
+      "title": "shops.shop_id.appearance.banner.shop_banner_id.delete",
+      "description": "Deletes a shop banner image",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "shop_id": {},
+          "shop_banner_id": {}
+        },
+        "additionalProperties": false,
+        "required": [
+          "shop_id",
+          "shop_banner_id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "sections.shop_section_id.get",
+      "title": "sections.shop_section_id.get",
+      "description": "Retrieves a ShopSection by id.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "shop_section_id": {}
+        },
+        "additionalProperties": false,
+        "required": [
+          "shop_section_id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "sections.shop_section_id.put",
+      "title": "sections.shop_section_id.put",
+      "description": "Updates a ShopSection with the given id.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "title": {},
+          "rank": {},
+          "user_id": {},
+          "shop_section_id": {}
+        },
+        "additionalProperties": false,
+        "required": [
+          "shop_section_id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "sections.shop_section_id.delete",
+      "title": "sections.shop_section_id.delete",
+      "description": "Deletes the ShopSection with the given id.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "shop_section_id": {}
+        },
+        "additionalProperties": false,
+        "required": [
+          "shop_section_id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "sections.post",
+      "title": "sections.post",
+      "description": "Creates a new ShopSection.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "title": {},
+          "user_id": {}
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "categories.tag.get",
+      "title": "categories.tag.get",
+      "description": "Retrieves a top-level Category by tag.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "tag": {}
+        },
+        "additionalProperties": false,
+        "required": [
+          "tag"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "categories.tag.subtag.get",
+      "title": "categories.tag.subtag.get",
+      "description": "Retrieves a second-level Category by tag and subtag.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "tag": {},
+          "subtag": {}
+        },
+        "additionalProperties": false,
+        "required": [
+          "tag",
+          "subtag"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "categories.tag.subtag.subsubtag.get",
+      "title": "categories.tag.subtag.subsubtag.get",
+      "description": "Retrieves a third-level Category by tag, subtag and subsubtag.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "tag": {},
+          "subtag": {},
+          "subsubtag": {}
+        },
+        "additionalProperties": false,
+        "required": [
+          "tag",
+          "subtag",
+          "subsubtag"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "taxonomy.categories.get",
+      "title": "taxonomy.categories.get",
+      "description": "Retrieves all top-level Categories.",
+      "inputSchema": {},
+      "outputSchema": {}
+    },
+    {
+      "id": "taxonomy.categories.tag.get",
+      "title": "taxonomy.categories.tag.get",
+      "description": "Retrieves children of a top-level Category by tag.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "tag": {}
+        },
+        "additionalProperties": false,
+        "required": [
+          "tag"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "taxonomy.categories.tag.subtag.get",
+      "title": "taxonomy.categories.tag.subtag.get",
+      "description": "Retrieves children of a second-level Category by tag and subtag.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "tag": {},
+          "subtag": {}
+        },
+        "additionalProperties": false,
+        "required": [
+          "tag",
+          "subtag"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "taxonomy.tags.get",
+      "title": "taxonomy.tags.get",
+      "description": "Retrieves all related tags for the given tag set.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "limit": {}
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "taxonomy.tags.tags.get",
+      "title": "taxonomy.tags.tags.get",
+      "description": "Retrieves all related tags for the given tag set.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "tags": {},
+          "limit": {}
+        },
+        "additionalProperties": false,
+        "required": [
+          "tags"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "transactions.transaction_id.get",
+      "title": "transactions.transaction_id.get",
+      "description": "Retrieves a Transaction by id.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "transaction_id": {}
+        },
+        "additionalProperties": false,
+        "required": [
+          "transaction_id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "treasuries.treasury_id.get",
+      "title": "treasuries.treasury_id.get",
+      "description": "Get a Treasury",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "treasury_id": {}
+        },
+        "additionalProperties": false,
+        "required": [
+          "treasury_id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "treasuries.get",
+      "title": "treasuries.get",
+      "description": "Search Treasuries or else List all Treasuries",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "keywords": {},
+          "sort_on": {
+            "enum": [
+              "hotness",
+              "created"
+            ]
+          },
+          "sort_order": {
+            "enum": [
+              "up",
+              "down"
+            ]
+          },
+          "maturity": {
+            "enum": [
+              "safe_only",
+              "safe_and_mature"
+            ]
+          },
+          "detail_level": {
+            "enum": [
+              "low",
+              "medium"
+            ]
+          },
+          "limit": {},
+          "offset": {}
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "users.user_id.treasuries.get",
+      "title": "users.user_id.treasuries.get",
+      "description": "Get a user's Treasuries",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "user_id": {},
+          "sort_on": {
+            "enum": [
+              "hotness",
+              "created"
+            ]
+          },
+          "sort_order": {
+            "enum": [
+              "up",
+              "down"
+            ]
+          },
+          "maturity": {
+            "enum": [
+              "safe_only",
+              "safe_and_mature"
+            ]
+          },
+          "detail_level": {
+            "enum": [
+              "low",
+              "medium"
+            ]
+          },
+          "limit": {},
+          "offset": {}
+        },
+        "additionalProperties": false,
+        "required": [
+          "user_id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "users.user_id.get",
+      "title": "users.user_id.get",
+      "description": "Retrieves a User by id.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "user_id": {}
+        },
+        "additionalProperties": false,
+        "required": [
+          "user_id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "users.user_id.shops.get",
+      "title": "users.user_id.shops.get",
+      "description": "Retrieves a set of Shop objects associated to a User.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "user_id": {},
+          "limit": {},
+          "offset": {}
+        },
+        "additionalProperties": false,
+        "required": [
+          "user_id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "users.user_id.favored_by.get",
+      "title": "users.user_id.favored_by.get",
+      "description": "Retrieves a set of FavoriteUser objects associated to a User.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "user_id": {},
+          "limit": {},
+          "offset": {}
+        },
+        "additionalProperties": false,
+        "required": [
+          "user_id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "users.user_id.feedback.as_subject.get",
+      "title": "users.user_id.feedback.as_subject.get",
+      "description": "Retrieves a set of Feedback objects associated to a User.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "user_id": {},
+          "limit": {},
+          "offset": {}
+        },
+        "additionalProperties": false,
+        "required": [
+          "user_id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "users.user_id.feedback.as_author.get",
+      "title": "users.user_id.feedback.as_author.get",
+      "description": "Retrieves a set of Feedback objects associated to a User.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "user_id": {},
+          "limit": {},
+          "offset": {}
+        },
+        "additionalProperties": false,
+        "required": [
+          "user_id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "users.user_id.feedback.as_buyer.get",
+      "title": "users.user_id.feedback.as_buyer.get",
+      "description": "Retrieves a set of Feedback objects associated to a User.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "user_id": {},
+          "limit": {},
+          "offset": {}
+        },
+        "additionalProperties": false,
+        "required": [
+          "user_id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "users.user_id.feedback.as_seller.get",
+      "title": "users.user_id.feedback.as_seller.get",
+      "description": "Retrieves a set of Feedback objects associated to a User.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "user_id": {},
+          "limit": {},
+          "offset": {}
+        },
+        "additionalProperties": false,
+        "required": [
+          "user_id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "users.user_id.orders.get",
+      "title": "users.user_id.orders.get",
+      "description": "Retrieves a set of Order objects associated to a User.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "user_id": {},
+          "limit": {},
+          "offset": {}
+        },
+        "additionalProperties": false,
+        "required": [
+          "user_id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "users.user_id.receipts.get",
+      "title": "users.user_id.receipts.get",
+      "description": "Retrieves a set of Receipt objects associated to a User.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "user_id": {},
+          "limit": {},
+          "offset": {}
+        },
+        "additionalProperties": false,
+        "required": [
+          "user_id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "users.user_id.transactions.get",
+      "title": "users.user_id.transactions.get",
+      "description": "Retrieves a set of Transaction objects associated to a User.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "user_id": {},
+          "limit": {},
+          "offset": {}
+        },
+        "additionalProperties": false,
+        "required": [
+          "user_id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "users.user_id.charges.get",
+      "title": "users.user_id.charges.get",
+      "description": "Retrieves a set of BillCharge objects associated to a User.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "user_id": {},
+          "limit": {},
+          "offset": {}
+        },
+        "additionalProperties": false,
+        "required": [
+          "user_id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "users.user_id.payments.get",
+      "title": "users.user_id.payments.get",
+      "description": "Retrieves a set of BillPayment objects associated to a User.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "user_id": {},
+          "limit": {},
+          "offset": {}
+        },
+        "additionalProperties": false,
+        "required": [
+          "user_id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "users.user_id.shipping.templates.get",
+      "title": "users.user_id.shipping.templates.get",
+      "description": "Retrieves a set of ShippingTemplate objects associated to a User.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "user_id": {},
+          "limit": {},
+          "offset": {}
+        },
+        "additionalProperties": false,
+        "required": [
+          "user_id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "users.user_id.payments.templates.get",
+      "title": "users.user_id.payments.templates.get",
+      "description": "Retrieves a set of PaymentTemplate objects associated to a User.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "user_id": {}
+        },
+        "additionalProperties": false,
+        "required": [
+          "user_id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "users.user_id.addresses.get",
+      "title": "users.user_id.addresses.get",
+      "description": "Retrieves a set of UserAddress objects associated to a User.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "user_id": {}
+        },
+        "additionalProperties": false,
+        "required": [
+          "user_id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "users.user_id.addresses.post",
+      "title": "users.user_id.addresses.post",
+      "description": "Creates a new UserAddress.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "name": {},
+          "first_line": {},
+          "second_line": {},
+          "city": {},
+          "state": {},
+          "zip": {},
+          "country_id": {},
+          "user_id": {}
+        },
+        "additionalProperties": false,
+        "required": [
+          "name",
+          "first_line",
+          "city",
+          "zip",
+          "country_id",
+          "user_id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "payments.templates.payment_template_id.get",
+      "title": "payments.templates.payment_template_id.get",
+      "description": "Retrieves a PaymentTemplate by id.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "payment_template_id": {}
+        },
+        "additionalProperties": false,
+        "required": [
+          "payment_template_id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "payments.templates.payment_template_id.put",
+      "title": "payments.templates.payment_template_id.put",
+      "description": "Updates a PaymentTemplate",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "allow_check": {},
+          "allow_mo": {},
+          "allow_other": {},
+          "allow_paypal": {},
+          "paypal_email": {},
+          "name": {},
+          "first_line": {},
+          "second_line": {},
+          "city": {},
+          "state": {},
+          "zip": {},
+          "country_id": {},
+          "payment_template_id": {}
+        },
+        "additionalProperties": false,
+        "required": [
+          "payment_template_id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "payments.templates.post",
+      "title": "payments.templates.post",
+      "description": "Creates a new PaymentTemplate",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "allow_check": {},
+          "allow_mo": {},
+          "allow_other": {},
+          "allow_paypal": {},
+          "paypal_email": {},
+          "name": {},
+          "first_line": {},
+          "second_line": {},
+          "city": {},
+          "state": {},
+          "zip": {},
+          "country_id": {}
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "payments.listing_payment_id.get",
+      "title": "payments.listing_payment_id.get",
+      "description": "Retrieves a ListingPayment by id.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "listing_payment_id": {}
+        },
+        "additionalProperties": false,
+        "required": [
+          "listing_payment_id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "users.user_id.avatar.post",
+      "title": "users.user_id.avatar.post",
+      "description": "Upload a new user avatar image",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "src": {},
+          "image": {},
+          "user_id": {}
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "users.user_id.avatar.src.get",
+      "title": "users.user_id.avatar.src.get",
+      "description": "Get avatar image source",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "user_id": {}
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "users.user_id.addresses.user_address_id.get",
+      "title": "users.user_id.addresses.user_address_id.get",
+      "description": "Retrieves a UserAddress by id.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "user_address_id": {}
+        },
+        "additionalProperties": false,
+        "required": [
+          "user_address_id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "users.user_id.addresses.user_address_id.put",
+      "title": "users.user_id.addresses.user_address_id.put",
+      "description": "Updates a UserAddress with the given id.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "name": {},
+          "first_line": {},
+          "second_line": {},
+          "city": {},
+          "state": {},
+          "zip": {},
+          "country_id": {},
+          "user_address_id": {}
+        },
+        "additionalProperties": false,
+        "required": [
+          "user_address_id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "users.user_id.addresses.user_address_id.delete",
+      "title": "users.user_id.addresses.user_address_id.delete",
+      "description": "Deletes the UserAddress with the given id.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "user_address_id": {}
+        },
+        "additionalProperties": false,
+        "required": [
+          "user_address_id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "featured.users.get",
+      "title": "featured.users.get",
+      "description": "Finds all FeaturedUser.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "limit": {},
+          "offset": {}
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "featured.users.featured_user_id.get",
+      "title": "featured.users.featured_user_id.get",
+      "description": "Retrieves a FeaturedUser by id.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "featured_user_id": {}
+        },
+        "additionalProperties": false,
+        "required": [
+          "featured_user_id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": ".get",
+      "title": ".get",
+      "description": "Get a list of all methods available.",
+      "inputSchema": {},
+      "outputSchema": {}
+    },
+    {
+      "id": "server.epoch.get",
+      "title": "server.epoch.get",
+      "description": "Get server time, in epoch seconds notation.",
+      "inputSchema": {},
+      "outputSchema": {}
+    },
+    {
+      "id": "server.ping.get",
+      "title": "server.ping.get",
+      "description": "Check that the server is alive.",
+      "inputSchema": {},
+      "outputSchema": {}
+    }
+  ]
+}

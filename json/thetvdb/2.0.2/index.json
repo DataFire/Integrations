@@ -1,0 +1,1615 @@
+{
+  "id": "thetvdb",
+  "title": "TheTVDB API v2",
+  "description": "API v2 targets v1 functionality with a few minor additions. The API is accessible via https://api.thetvdb.com and provides the following REST endpoints in JSON format.\n\n\nHow to use this API documentation\n----------------\n\n\nYou may browse the API routes without authentication, but if you wish to send requests to the API and see response data, then you must authenticate.\n1. Obtain a JWT token by `POST`ing  to the `/login` route in the `Authentication` section with your API key and credentials.\n1. Paste the JWT token from the response into the \"JWT Token\" field at the top of the page and click the 'Add Token' button.\n\n\nYou will now be able to use the remaining routes to send requests to the API and get a response.\n\n\nLanguage Selection\n----------------\n\n\nLanguage selection is done via the `Accept-Language` header. At the moment, you may only pass one language abbreviation in the header at a time. Valid language abbreviations can be found at the `/languages` route..\n\n\nAuthentication\n----------------\n\n\nAuthentication to use the API is similar to the How-to section above. Users must `POST` to the `/login` route with their API key and credentials in the following format in order to obtain a JWT token.\n\n`{\"apikey\":\"APIKEY\",\"username\":\"USERNAME\",\"userkey\":\"USERKEY\"}`\n\nNote that the username and key are ONLY required for the `/user` routes. The user's key is labled `Account Identifier` in the account section of the main site.\nThe token is then used in all subsequent requests by providing it in the `Authorization` header. The header will look like: `Authorization: Bearer <yourJWTtoken>`. Currently, the token expires after 24 hours. You can `GET` the `/refresh_token` route to extend that expiration date.\n\n\nVersioning\n----------------\n\n\nYou may request a different version of the API by including an `Accept` header in your request with the following format: `Accept:application/vnd.thetvdb.v$VERSION`. This documentation automatically uses the version seen at the top and bottom of the page.",
+  "security": {
+    "thetvdb": {
+      "integration": "thetvdb",
+      "fields": {
+        "jwtToken": "JWT token prefixed with \"Bearer \""
+      }
+    }
+  },
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/thetvdb.png"
+  },
+  "tags": [
+    "media",
+    "open data"
+  ],
+  "definitions": {
+    "Auth": {
+      "properties": {
+        "apikey": {
+          "type": "string"
+        },
+        "userkey": {
+          "type": "string"
+        },
+        "username": {
+          "type": "string"
+        }
+      }
+    },
+    "BasicEpisode": {
+      "properties": {
+        "absoluteNumber": {
+          "type": "integer"
+        },
+        "airedEpisodeNumber": {
+          "type": "integer"
+        },
+        "airedSeason": {
+          "type": "integer"
+        },
+        "dvdEpisodeNumber": {
+          "type": "integer"
+        },
+        "dvdSeason": {
+          "type": "integer"
+        },
+        "episodeName": {
+          "type": "string"
+        },
+        "firstAired": {
+          "type": "string"
+        },
+        "id": {
+          "type": "integer"
+        },
+        "lastUpdated": {
+          "type": "integer"
+        },
+        "overview": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Conflict": {
+      "properties": {
+        "Error": {
+          "default": "Conflict",
+          "type": "string"
+        }
+      }
+    },
+    "Episode": {
+      "properties": {
+        "absoluteNumber": {
+          "type": "integer"
+        },
+        "airedEpisodeNumber": {
+          "type": "integer"
+        },
+        "airedSeason": {
+          "type": "integer"
+        },
+        "airsAfterSeason": {
+          "type": "integer"
+        },
+        "airsBeforeEpisode": {
+          "type": "integer"
+        },
+        "airsBeforeSeason": {
+          "type": "integer"
+        },
+        "director": {
+          "type": "string"
+        },
+        "directors": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "dvdChapter": {
+          "type": "number"
+        },
+        "dvdDiscid": {
+          "type": "string"
+        },
+        "dvdEpisodeNumber": {
+          "type": "number"
+        },
+        "dvdSeason": {
+          "type": "integer"
+        },
+        "episodeName": {
+          "type": "string"
+        },
+        "filename": {
+          "type": "string"
+        },
+        "firstAired": {
+          "type": "string"
+        },
+        "guestStars": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "id": {
+          "type": "integer"
+        },
+        "imdbId": {
+          "type": "string"
+        },
+        "lastUpdated": {
+          "type": "integer"
+        },
+        "lastUpdatedBy": {
+          "type": "string"
+        },
+        "overview": {
+          "type": "string"
+        },
+        "productionCode": {
+          "type": "string"
+        },
+        "seriesId": {
+          "type": "string"
+        },
+        "showUrl": {
+          "type": "string"
+        },
+        "siteRating": {
+          "type": "number"
+        },
+        "siteRatingCount": {
+          "type": "integer"
+        },
+        "thumbAdded": {
+          "type": "string"
+        },
+        "thumbAuthor": {
+          "type": "integer"
+        },
+        "thumbHeight": {
+          "type": "string"
+        },
+        "thumbWidth": {
+          "type": "string"
+        },
+        "writers": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "EpisodeDataQueryParams": {
+      "properties": {
+        "data": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "EpisodeRecordData": {
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/Episode"
+        },
+        "errors": {
+          "$ref": "#/definitions/JSONErrors"
+        }
+      },
+      "type": "object"
+    },
+    "FilterKeys": {
+      "properties": {
+        "data": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      }
+    },
+    "JSONErrors": {
+      "properties": {
+        "invalidFilters": {
+          "description": "Invalid filters passed to route",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "invalidLanguage": {
+          "description": "Invalid language or translation missing",
+          "type": "string"
+        },
+        "invalidQueryParams": {
+          "description": "Invalid query params passed to route",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "Language": {
+      "properties": {
+        "abbreviation": {
+          "type": "string"
+        },
+        "englishName": {
+          "type": "string"
+        },
+        "id": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "LanguageData": {
+      "properties": {
+        "data": {
+          "items": {
+            "$ref": "#/definitions/Language"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "Links": {
+      "properties": {
+        "first": {
+          "type": "integer"
+        },
+        "last": {
+          "type": "integer"
+        },
+        "next": {
+          "type": "integer"
+        },
+        "previous": {
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "NotAuthorized": {
+      "properties": {
+        "Error": {
+          "default": "Not Authorized",
+          "type": "string"
+        }
+      }
+    },
+    "NotFound": {
+      "properties": {
+        "Error": {
+          "default": "Not Found",
+          "type": "string"
+        }
+      }
+    },
+    "Series": {
+      "properties": {
+        "added": {
+          "type": "string"
+        },
+        "airsDayOfWeek": {
+          "type": "string"
+        },
+        "airsTime": {
+          "type": "string"
+        },
+        "aliases": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "banner": {
+          "type": "string"
+        },
+        "firstAired": {
+          "type": "string"
+        },
+        "genre": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "id": {
+          "type": "integer"
+        },
+        "imdbId": {
+          "type": "string"
+        },
+        "lastUpdated": {
+          "type": "integer"
+        },
+        "network": {
+          "type": "string"
+        },
+        "networkId": {
+          "type": "string"
+        },
+        "overview": {
+          "type": "string"
+        },
+        "rating": {
+          "type": "string"
+        },
+        "runtime": {
+          "type": "string"
+        },
+        "seriesId": {
+          "type": "integer"
+        },
+        "seriesName": {
+          "type": "string"
+        },
+        "siteRating": {
+          "type": "number"
+        },
+        "siteRatingCount": {
+          "type": "integer"
+        },
+        "status": {
+          "type": "string"
+        },
+        "zap2itId": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "SeriesActors": {
+      "properties": {
+        "data": {
+          "items": {
+            "$ref": "#/definitions/SeriesActorsData"
+          },
+          "type": "array"
+        },
+        "errors": {
+          "$ref": "#/definitions/JSONErrors"
+        }
+      }
+    },
+    "SeriesActorsData": {
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "image": {
+          "type": "string"
+        },
+        "imageAdded": {
+          "type": "string"
+        },
+        "imageAuthor": {
+          "type": "integer"
+        },
+        "lastUpdated": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "role": {
+          "type": "string"
+        },
+        "seriesId": {
+          "type": "integer"
+        },
+        "sortOrder": {
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "SeriesData": {
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/Series"
+        },
+        "errors": {
+          "$ref": "#/definitions/JSONErrors",
+          "description": "Informative error messages (optional)"
+        }
+      },
+      "type": "object"
+    },
+    "SeriesEpisodes": {
+      "properties": {
+        "data": {
+          "items": {
+            "$ref": "#/definitions/BasicEpisode"
+          },
+          "type": "array"
+        },
+        "errors": {
+          "$ref": "#/definitions/JSONErrors"
+        },
+        "links": {
+          "$ref": "#/definitions/Links"
+        }
+      }
+    },
+    "SeriesEpisodesQuery": {
+      "properties": {
+        "data": {
+          "items": {
+            "$ref": "#/definitions/BasicEpisode"
+          },
+          "type": "array"
+        },
+        "errors": {
+          "$ref": "#/definitions/JSONErrors"
+        },
+        "links": {
+          "$ref": "#/definitions/Links"
+        }
+      }
+    },
+    "SeriesEpisodesQueryParams": {
+      "properties": {
+        "data": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      }
+    },
+    "SeriesEpisodesSummary": {
+      "properties": {
+        "airedEpisodes": {
+          "description": "Number of all aired episodes for this series",
+          "type": "string"
+        },
+        "airedSeasons": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "dvdEpisodes": {
+          "description": "Number of all dvd episodes for this series",
+          "type": "string"
+        },
+        "dvdSeasons": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "SeriesImageQueryResult": {
+      "properties": {
+        "fileName": {
+          "type": "string"
+        },
+        "id": {
+          "type": "integer"
+        },
+        "keyType": {
+          "type": "string"
+        },
+        "languageId": {
+          "type": "integer"
+        },
+        "ratingsInfo": {
+          "properties": {
+            "average": {
+              "description": "Average rating for the given record.",
+              "type": "number"
+            },
+            "count": {
+              "description": "Number of ratings for the given record.",
+              "type": "integer"
+            }
+          },
+          "type": "object"
+        },
+        "resolution": {
+          "type": "string"
+        },
+        "subKey": {
+          "type": "string"
+        },
+        "thumbnail": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "SeriesImageQueryResults": {
+      "properties": {
+        "data": {
+          "items": {
+            "$ref": "#/definitions/SeriesImageQueryResult"
+          },
+          "type": "array"
+        },
+        "errors": {
+          "$ref": "#/definitions/JSONErrors"
+        }
+      }
+    },
+    "SeriesImagesCount": {
+      "properties": {
+        "fanart": {
+          "type": "integer"
+        },
+        "poster": {
+          "type": "integer"
+        },
+        "season": {
+          "type": "integer"
+        },
+        "seasonwide": {
+          "type": "integer"
+        },
+        "series": {
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "SeriesImagesCounts": {
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/SeriesImagesCount"
+        }
+      }
+    },
+    "SeriesImagesQueryParam": {
+      "properties": {
+        "keyType": {
+          "type": "string"
+        },
+        "languageId": {
+          "type": "string"
+        },
+        "resolution": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "subKey": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      }
+    },
+    "SeriesImagesQueryParams": {
+      "properties": {
+        "data": {
+          "items": {
+            "$ref": "#/definitions/SeriesImagesQueryParam"
+          },
+          "type": "array"
+        }
+      }
+    },
+    "SeriesSearchData": {
+      "properties": {
+        "aliases": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "banner": {
+          "type": "string"
+        },
+        "firstAired": {
+          "type": "string"
+        },
+        "id": {
+          "type": "integer"
+        },
+        "network": {
+          "type": "string"
+        },
+        "overview": {
+          "type": "string"
+        },
+        "seriesName": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Token": {
+      "properties": {
+        "token": {
+          "type": "string"
+        }
+      }
+    },
+    "Update": {
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "lastUpdated": {
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "UpdateData": {
+      "properties": {
+        "data": {
+          "items": {
+            "$ref": "#/definitions/Update"
+          },
+          "type": "array"
+        },
+        "errors": {
+          "$ref": "#/definitions/JSONErrors"
+        }
+      },
+      "type": "object"
+    },
+    "UpdateDataQueryParams": {
+      "properties": {
+        "data": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "User": {
+      "properties": {
+        "favoritesDisplaymode": {
+          "type": "string"
+        },
+        "language": {
+          "type": "string"
+        },
+        "userName": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "UserData": {
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/User"
+        }
+      },
+      "type": "object"
+    },
+    "UserFavorites": {
+      "properties": {
+        "favorites": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "UserFavoritesData": {
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/UserFavorites"
+        },
+        "errors": {
+          "$ref": "#/definitions/JSONErrors"
+        }
+      },
+      "type": "object"
+    },
+    "UserRatings": {
+      "properties": {
+        "rating": {
+          "type": "integer"
+        },
+        "ratingItemId": {
+          "type": "integer"
+        },
+        "ratingType": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "UserRatingsData": {
+      "properties": {
+        "data": {
+          "items": {
+            "$ref": "#/definitions/UserRatings"
+          },
+          "type": "array"
+        },
+        "errors": {
+          "$ref": "#/definitions/JSONErrors"
+        },
+        "links": {
+          "$ref": "#/definitions/Links"
+        }
+      },
+      "type": "object"
+    },
+    "UserRatingsDataNoLinks": {
+      "properties": {
+        "data": {
+          "items": {
+            "$ref": "#/definitions/UserRatings"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "UserRatingsDataNoLinksEmptyArray": {
+      "properties": {
+        "data": {
+          "items": {},
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "UserRatingsQueryParams": {
+      "properties": {
+        "data": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "actions": [
+    {
+      "id": "episodes.id.get",
+      "title": "episodes.id.get",
+      "description": "Returns the full information for a given episode id. __Deprecation Warning:__ The _director_ key will be deprecated in favor of the new _directors_ key in a future release.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "ID of the episode"
+          },
+          "Accept-Language": {
+            "type": "string",
+            "description": "Records are returned with the Episode name and Overview in the desired language, if it exists. If there is no translation for the given language, then the record is still returned but with empty values for the translated fields."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/EpisodeRecordData"
+      },
+      "security": {
+        "thetvdb": {
+          "integration": "thetvdb"
+        }
+      }
+    },
+    {
+      "id": "languages.get",
+      "title": "languages.get",
+      "description": "All available languages. These language abbreviations can be used in the `Accept-Language` header for routes that return translation records.",
+      "inputSchema": {},
+      "outputSchema": {
+        "$ref": "#/definitions/LanguageData"
+      },
+      "security": {
+        "thetvdb": {
+          "integration": "thetvdb"
+        }
+      }
+    },
+    {
+      "id": "languages.id.get",
+      "title": "languages.id.get",
+      "description": "Information about a particular language, given the language ID.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "ID of the language"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Language"
+      },
+      "security": {
+        "thetvdb": {
+          "integration": "thetvdb"
+        }
+      }
+    },
+    {
+      "id": "login.post",
+      "title": "login.post",
+      "description": "Returns a session token to be included in the rest of the requests. Note that API key authentication is required for all subsequent requests and user auth is required for routes in the `User` section",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Authentication string": {
+            "$ref": "#/definitions/Auth"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Authentication string"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Token"
+      },
+      "security": {
+        "thetvdb": {
+          "integration": "thetvdb"
+        }
+      }
+    },
+    {
+      "id": "refresh_token.get",
+      "title": "refresh_token.get",
+      "description": "Refreshes your current, valid JWT token and returns a new token. Hit this route so that you do not have to post to `/login` with your API key and credentials once you have already been authenticated.",
+      "inputSchema": {},
+      "outputSchema": {
+        "$ref": "#/definitions/Token"
+      },
+      "security": {
+        "thetvdb": {
+          "integration": "thetvdb"
+        }
+      }
+    },
+    {
+      "id": "search.series.get",
+      "title": "search.series.get",
+      "description": "Allows the user to search for a series based on the following parameters.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Name of the series to search for."
+          },
+          "imdbId": {
+            "type": "string",
+            "description": "IMDB id of the series"
+          },
+          "zap2itId": {
+            "type": "string",
+            "description": "Zap2it ID of the series to search for."
+          },
+          "Accept-Language": {
+            "type": "string",
+            "description": "Records are returned with the Episode name and Overview in the desired language, if it exists. If there is no translation for the given language, then the record is still returned but with empty values for the translated fields."
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/SeriesSearchData"
+      },
+      "security": {
+        "thetvdb": {
+          "integration": "thetvdb"
+        }
+      }
+    },
+    {
+      "id": "search.series.params.get",
+      "title": "search.series.params.get",
+      "description": "Returns an array of parameters to query by in the `/search/series` route.",
+      "inputSchema": {},
+      "outputSchema": {
+        "$ref": "#/definitions/EpisodeDataQueryParams"
+      },
+      "security": {
+        "thetvdb": {
+          "integration": "thetvdb"
+        }
+      }
+    },
+    {
+      "id": "series.id.get",
+      "title": "series.id.get",
+      "description": "Returns a series records that contains all information known about a particular series id.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "ID of the series"
+          },
+          "Accept-Language": {
+            "type": "string",
+            "description": "Records are returned with the Episode name and Overview in the desired language, if it exists. If there is no translation for the given language, then the record is still returned but with empty values for the translated fields."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/SeriesData"
+      },
+      "security": {
+        "thetvdb": {
+          "integration": "thetvdb"
+        }
+      }
+    },
+    {
+      "id": "series.id.head",
+      "title": "series.id.head",
+      "description": "Returns header information only about the given series ID.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "ID of the series"
+          },
+          "Accept-Language": {
+            "type": "string",
+            "description": "Records are returned with the Episode name and Overview in the desired language, if it exists. If there is no translation for the given language, then the record is still returned but with empty values for the translated fields."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "thetvdb": {
+          "integration": "thetvdb"
+        }
+      }
+    },
+    {
+      "id": "series.id.actors.get",
+      "title": "series.id.actors.get",
+      "description": "Returns actors for the given series id",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "ID of the series"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/SeriesActors"
+      },
+      "security": {
+        "thetvdb": {
+          "integration": "thetvdb"
+        }
+      }
+    },
+    {
+      "id": "series.id.episodes.get",
+      "title": "series.id.episodes.get",
+      "description": "All episodes for a given series. Paginated with 100 results per page.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "ID of the series"
+          },
+          "page": {
+            "type": "string",
+            "description": "Page of results to fetch. Defaults to page 1 if not provided."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/SeriesEpisodes"
+      },
+      "security": {
+        "thetvdb": {
+          "integration": "thetvdb"
+        }
+      }
+    },
+    {
+      "id": "series.id.episodes.query.get",
+      "title": "series.id.episodes.query.get",
+      "description": "This route allows the user to query against episodes for the given series. The response is a paginated array of episode records that have been filtered down to basic information.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "ID of the series"
+          },
+          "absoluteNumber": {
+            "type": "string",
+            "description": "Absolute number of the episode"
+          },
+          "airedSeason": {
+            "type": "string",
+            "description": "Aired season number"
+          },
+          "airedEpisode": {
+            "type": "string",
+            "description": "Aired episode number"
+          },
+          "dvdSeason": {
+            "type": "string",
+            "description": "DVD season number"
+          },
+          "dvdEpisode": {
+            "type": "string",
+            "description": "DVD episode number"
+          },
+          "imdbId": {
+            "type": "string",
+            "description": "IMDB id of the series"
+          },
+          "page": {
+            "type": "string",
+            "description": "Page of results to fetch. Defaults to page 1 if not provided."
+          },
+          "Accept-Language": {
+            "type": "string",
+            "description": "Records are returned with the Episode name and Overview in the desired language, if it exists. If there is no translation for the given language, then the record is still returned but with empty values for the translated fields."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/SeriesEpisodesQuery"
+      },
+      "security": {
+        "thetvdb": {
+          "integration": "thetvdb"
+        }
+      }
+    },
+    {
+      "id": "series.id.episodes.query.params.get",
+      "title": "series.id.episodes.query.params.get",
+      "description": "Returns the allowed query keys for the `/series/{id}/episodes/query` route",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "ID of the series"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/SeriesEpisodesQueryParams"
+      },
+      "security": {
+        "thetvdb": {
+          "integration": "thetvdb"
+        }
+      }
+    },
+    {
+      "id": "series.id.episodes.summary.get",
+      "title": "series.id.episodes.summary.get",
+      "description": "Returns a summary of the episodes and seasons available for the series.\n\n__Note__: Season \"0\" is for all episodes that are considered to be specials.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "ID of the series"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/SeriesEpisodesSummary"
+      },
+      "security": {
+        "thetvdb": {
+          "integration": "thetvdb"
+        }
+      }
+    },
+    {
+      "id": "series.id.filter.get",
+      "title": "series.id.filter.get",
+      "description": "Returns a series records, filtered by the supplied comma-separated list of keys. Query keys can be found at the `/series/{id}/filter/params` route.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "ID of the series"
+          },
+          "keys": {
+            "type": "string",
+            "description": "Comma-separated list of keys to filter by"
+          },
+          "Accept-Language": {
+            "type": "string",
+            "description": "Records are returned with the Episode name and Overview in the desired language, if it exists. If there is no translation for the given language, then the record is still returned but with empty values for the translated fields."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "keys"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/SeriesData"
+      },
+      "security": {
+        "thetvdb": {
+          "integration": "thetvdb"
+        }
+      }
+    },
+    {
+      "id": "series.id.filter.params.get",
+      "title": "series.id.filter.params.get",
+      "description": "Returns the list of keys available for the `/series/{id}/filter` route",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "ID of the series"
+          },
+          "Accept-Language": {
+            "type": "string",
+            "description": "Records are returned with the Episode name and Overview in the desired language, if it exists. If there is no translation for the given language, then the record is still returned but with empty values for the translated fields."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/FilterKeys"
+      },
+      "security": {
+        "thetvdb": {
+          "integration": "thetvdb"
+        }
+      }
+    },
+    {
+      "id": "series.id.images.get",
+      "title": "series.id.images.get",
+      "description": "Returns a summary of the images for a particular series",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "ID of the series"
+          },
+          "Accept-Language": {
+            "type": "string",
+            "description": "Records are returned with the Episode name and Overview in the desired language, if it exists. If there is no translation for the given language, then the record is still returned but with empty values for the translated fields."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/SeriesImagesCounts"
+      },
+      "security": {
+        "thetvdb": {
+          "integration": "thetvdb"
+        }
+      }
+    },
+    {
+      "id": "series.id.images.query.get",
+      "title": "series.id.images.query.get",
+      "description": "Query images for the given series ID.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "ID of the series"
+          },
+          "keyType": {
+            "type": "string",
+            "description": "Type of image you're querying for (fanart, poster, etc. See ../images/query/params for more details)."
+          },
+          "resolution": {
+            "type": "string",
+            "description": "Resolution to filter by (1280x1024, for example)"
+          },
+          "subKey": {
+            "type": "string",
+            "description": "Subkey for the above query keys. See /series/{id}/images/query/params for more information"
+          },
+          "Accept-Language": {
+            "type": "string",
+            "description": "Records are returned with the Episode name and Overview in the desired language, if it exists. If there is no translation for the given language, then the record is still returned but with empty values for the translated fields."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/SeriesImageQueryResults"
+      },
+      "security": {
+        "thetvdb": {
+          "integration": "thetvdb"
+        }
+      }
+    },
+    {
+      "id": "series.id.images.query.params.get",
+      "title": "series.id.images.query.params.get",
+      "description": "Returns the allowed query keys for the `/series/{id}/images/query` route. Contains a parameter record for each unique `keyType`, listing values that will return results.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "ID of the series"
+          },
+          "Accept-Language": {
+            "type": "string",
+            "description": "Records are returned with the Episode name and Overview in the desired language, if it exists. If there is no translation for the given language, then the record is still returned but with empty values for the translated fields."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/SeriesImagesQueryParams"
+      },
+      "security": {
+        "thetvdb": {
+          "integration": "thetvdb"
+        }
+      }
+    },
+    {
+      "id": "updated.query.get",
+      "title": "updated.query.get",
+      "description": "Returns an array of series that have changed in a maximum of one week blocks since the provided `fromTime`.\n\n\nThe user may specify a `toTime` to grab results for less than a week. Any timespan larger than a week will be reduced down to one week automatically.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "fromTime": {
+            "type": "string",
+            "description": "Epoch time to start your date range."
+          },
+          "toTime": {
+            "type": "string",
+            "description": "Epoch time to end your date range. Must be one week from `fromTime`."
+          },
+          "Accept-Language": {
+            "type": "string",
+            "description": "Records are returned with the Episode name and Overview in the desired language, if it exists. If there is no translation for the given language, then the record is still returned but with empty values for the translated fields."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "fromTime"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UpdateData"
+      },
+      "security": {
+        "thetvdb": {
+          "integration": "thetvdb"
+        }
+      }
+    },
+    {
+      "id": "updated.query.params.get",
+      "title": "updated.query.params.get",
+      "description": "Returns an array of valid query keys for the `/updated/query/params` route.",
+      "inputSchema": {},
+      "outputSchema": {
+        "$ref": "#/definitions/UpdateDataQueryParams"
+      },
+      "security": {
+        "thetvdb": {
+          "integration": "thetvdb"
+        }
+      }
+    },
+    {
+      "id": "user.get",
+      "title": "user.get",
+      "description": "Returns basic information about the currently authenticated user.",
+      "inputSchema": {},
+      "outputSchema": {
+        "$ref": "#/definitions/UserData"
+      },
+      "security": {
+        "thetvdb": {
+          "integration": "thetvdb"
+        }
+      }
+    },
+    {
+      "id": "user.favorites.get",
+      "title": "user.favorites.get",
+      "description": "Returns an array of favorite series for a given user, will be a blank array if no favorites exist.",
+      "inputSchema": {},
+      "outputSchema": {
+        "$ref": "#/definitions/UserFavoritesData"
+      },
+      "security": {
+        "thetvdb": {
+          "integration": "thetvdb"
+        }
+      }
+    },
+    {
+      "id": "user.favorites.id.delete",
+      "title": "user.favorites.id.delete",
+      "description": "Deletes the given series ID from the user’s favorite’s list and returns the updated list.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "ID of the series"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UserFavoritesData"
+      },
+      "security": {
+        "thetvdb": {
+          "integration": "thetvdb"
+        }
+      }
+    },
+    {
+      "id": "user.favorites.id.put",
+      "title": "user.favorites.id.put",
+      "description": "Adds the supplied series ID to the user’s favorite’s list and returns the updated list.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "ID of the series"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UserFavoritesData"
+      },
+      "security": {
+        "thetvdb": {
+          "integration": "thetvdb"
+        }
+      }
+    },
+    {
+      "id": "user.ratings.get",
+      "title": "user.ratings.get",
+      "description": "Returns an array of ratings for the given user.",
+      "inputSchema": {},
+      "outputSchema": {
+        "$ref": "#/definitions/UserRatingsData"
+      },
+      "security": {
+        "thetvdb": {
+          "integration": "thetvdb"
+        }
+      }
+    },
+    {
+      "id": "user.ratings.query.get",
+      "title": "user.ratings.query.get",
+      "description": "Returns an array of ratings for a given user that match the query.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "itemType": {
+            "type": "string",
+            "format": "string",
+            "description": "Item to query. Can be either 'series', 'episode', or 'banner'"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UserRatingsData"
+      },
+      "security": {
+        "thetvdb": {
+          "integration": "thetvdb"
+        }
+      }
+    },
+    {
+      "id": "user.ratings.query.params.get",
+      "title": "user.ratings.query.params.get",
+      "description": "Returns a list of query params for use in the `/user/ratings/query` route.",
+      "inputSchema": {},
+      "outputSchema": {
+        "$ref": "#/definitions/UserRatingsQueryParams"
+      },
+      "security": {
+        "thetvdb": {
+          "integration": "thetvdb"
+        }
+      }
+    },
+    {
+      "id": "user.ratings.itemType.itemId.delete",
+      "title": "user.ratings.itemType.itemId.delete",
+      "description": "This route deletes a given rating of a given type.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "itemType": {
+            "type": "string",
+            "format": "string",
+            "description": "Item to update. Can be either 'series', 'episode', or 'image'"
+          },
+          "itemId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "ID of the ratings record that you wish to modify"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "itemType",
+          "itemId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UserRatingsDataNoLinksEmptyArray"
+      },
+      "security": {
+        "thetvdb": {
+          "integration": "thetvdb"
+        }
+      }
+    },
+    {
+      "id": "user.ratings.itemType.itemId.itemRating.put",
+      "title": "user.ratings.itemType.itemId.itemRating.put",
+      "description": "This route updates a given rating of a given type.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "itemType": {
+            "type": "string",
+            "format": "string",
+            "description": "Item to update. Can be either 'series', 'episode', or 'image'"
+          },
+          "itemId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "ID of the ratings record that you wish to modify"
+          },
+          "itemRating": {
+            "type": "integer",
+            "format": "int64",
+            "description": "The updated rating number"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "itemType",
+          "itemId",
+          "itemRating"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UserRatingsDataNoLinks"
+      },
+      "security": {
+        "thetvdb": {
+          "integration": "thetvdb"
+        }
+      }
+    }
+  ]
+}

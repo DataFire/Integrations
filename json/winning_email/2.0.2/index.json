@@ -1,0 +1,381 @@
+{
+  "id": "winning_email",
+  "title": "Winning Email",
+  "description": "The Winning Email API allows you to access our services from your applications. Contact us if you need help with anything, or require access to something we don't yet offer. The API overview is available <a href='/api/v1/docs' target='_blank'>here</a>.",
+  "security": {
+    "winning_email": {
+      "integration": "winning_email",
+      "fields": {
+        "internalApiKey": "API key"
+      }
+    }
+  },
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/winning_email.png"
+  },
+  "tags": [
+    "email",
+    "marketing"
+  ],
+  "definitions": {
+    "ErrorModel": {
+      "properties": {
+        "message": {
+          "type": "string"
+        },
+        "status": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "status",
+        "message"
+      ]
+    },
+    "Report": {
+      "properties": {
+        "baseScore": {
+          "type": "integer"
+        },
+        "report": {
+          "properties": {
+            "bodyReport": {
+              "properties": {
+                "address": {
+                  "type": "object"
+                },
+                "hasForm": {
+                  "type": "integer"
+                },
+                "hasJS": {
+                  "type": "integer"
+                },
+                "htmlLength": {
+                  "type": "integer"
+                },
+                "score": {
+                  "format": "float",
+                  "type": "number"
+                },
+                "textLength": {
+                  "type": "integer"
+                }
+              },
+              "type": "object"
+            },
+            "imageReport": {
+              "properties": {
+                "imagesNeedOptimization": {
+                  "type": "integer"
+                },
+                "imagesNoAlt": {
+                  "items": {},
+                  "type": "array"
+                },
+                "optimization": {
+                  "items": {},
+                  "type": "array"
+                },
+                "score": {
+                  "format": "float",
+                  "type": "number"
+                }
+              },
+              "type": "object"
+            },
+            "linkReport": {
+              "properties": {
+                "errors": {
+                  "items": {},
+                  "type": "array"
+                },
+                "score": {
+                  "format": "float",
+                  "type": "number"
+                }
+              },
+              "type": "object"
+            },
+            "markupReport": {
+              "properties": {
+                "response": {
+                  "properties": {
+                    "errors": {
+                      "items": {},
+                      "type": "array"
+                    },
+                    "groupedErrors": {
+                      "items": {},
+                      "type": "array"
+                    },
+                    "tripleTree": {
+                      "items": {},
+                      "type": "array"
+                    },
+                    "warnings": {
+                      "items": {},
+                      "type": "array"
+                    }
+                  },
+                  "type": "object"
+                },
+                "score": {
+                  "format": "float",
+                  "type": "number"
+                }
+              },
+              "type": "object"
+            },
+            "spamassassinReport": {
+              "properties": {
+                "baseSpamScore": {
+                  "format": "float",
+                  "type": "number"
+                },
+                "isSpam": {
+                  "type": "boolean"
+                },
+                "responseCode": {
+                  "type": "integer"
+                },
+                "responseMessage": {
+                  "type": "string"
+                },
+                "score": {
+                  "format": "float",
+                  "type": "number"
+                },
+                "spamScore": {
+                  "format": "float",
+                  "type": "number"
+                },
+                "tests": {
+                  "items": {
+                    "properties": {
+                      "desc": {
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string"
+                      },
+                      "score": {
+                        "format": "float",
+                        "type": "number"
+                      }
+                    }
+                  },
+                  "type": "array"
+                }
+              },
+              "type": "object"
+            },
+            "spellReport": {
+              "properties": {
+                "html": {
+                  "items": {},
+                  "type": "array"
+                },
+                "score": {
+                  "format": "float",
+                  "type": "number"
+                },
+                "subject": {
+                  "items": {},
+                  "type": "array"
+                },
+                "text": {
+                  "items": {},
+                  "type": "array"
+                }
+              },
+              "type": "object"
+            },
+            "subjectReport": {
+              "properties": {
+                "openrates": {
+                  "items": {},
+                  "type": "array"
+                },
+                "overallOpenRate": {
+                  "type": "string"
+                },
+                "score": {
+                  "format": "float",
+                  "type": "number"
+                },
+                "subject": {
+                  "type": "string"
+                },
+                "subjectLength": {
+                  "type": "integer"
+                }
+              },
+              "type": "object"
+            },
+            "validateHTML": {
+              "properties": {
+                "errors": {
+                  "items": {
+                    "properties": {
+                      "lastColumn": {
+                        "type": "integer"
+                      },
+                      "lastLine": {
+                        "type": "integer"
+                      },
+                      "message": {
+                        "type": "string"
+                      },
+                      "type": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "type": "array"
+                },
+                "score": {
+                  "format": "float",
+                  "type": "number"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "type": "object"
+        },
+        "score": {
+          "format": "float",
+          "type": "number"
+        },
+        "time": {
+          "type": "string"
+        }
+      }
+    },
+    "Service": {
+      "properties": {
+        "limit": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "remaining": {
+          "type": "integer"
+        },
+        "reset": {
+          "type": "integer"
+        },
+        "used": {
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "actions": [
+    {
+      "id": "emailBooster",
+      "title": "emailBooster",
+      "description": "With our API, you can access the same results available through the Winning Email website, but in a raw, JSON, format, that you can use however you wish in your application. Read more about Email Booster <a href='/email-booster/' target='_blank'>here</a>.<br><br><strong>Input Parameters</strong><br>If <strong>source</strong> provided, then all other inputs are ignored. Otherwise, <strong>subject</strong> AND one or both of <strong>html</strong> and <strong>text</strong> are required.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "subject": {
+            "type": "string",
+            "description": "email subject"
+          },
+          "html": {
+            "type": "string",
+            "description": "html body"
+          },
+          "text": {
+            "type": "string",
+            "description": "plain text body"
+          },
+          "source": {
+            "type": "string",
+            "description": "raw source"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "properties": {
+          "message": {
+            "type": "string"
+          },
+          "report": {
+            "$ref": "#/definitions/Report"
+          },
+          "status": {
+            "type": "integer"
+          }
+        },
+        "type": "object"
+      },
+      "security": {
+        "winning_email": {
+          "integration": "winning_email"
+        }
+      }
+    },
+    {
+      "id": "rateLimitStatus",
+      "title": "rateLimitStatus",
+      "description": "Check how many API queries you've used, and what your limit is.",
+      "inputSchema": {},
+      "outputSchema": {
+        "properties": {
+          "message": {
+            "type": "string"
+          },
+          "services": {
+            "items": {
+              "$ref": "#/definitions/Service"
+            },
+            "type": "array"
+          },
+          "status": {
+            "type": "integer"
+          }
+        },
+        "type": "object"
+      },
+      "security": {
+        "winning_email": {
+          "integration": "winning_email"
+        }
+      }
+    },
+    {
+      "id": "status",
+      "title": "status",
+      "description": "Check the status of the Winning Email API.",
+      "inputSchema": {},
+      "outputSchema": {
+        "properties": {
+          "message": {
+            "type": "string"
+          },
+          "status": {
+            "type": "integer"
+          },
+          "uptime": {
+            "format": "double",
+            "type": "number"
+          }
+        },
+        "type": "object"
+      },
+      "security": {
+        "winning_email": {
+          "integration": "winning_email"
+        }
+      }
+    }
+  ]
+}

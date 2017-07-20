@@ -1,0 +1,107 @@
+{
+  "id": "apitore_text2labelbytfidfapis",
+  "title": "Text2Label by tfidf APIs",
+  "description": "Text to label by tfidf of contents.<BR />[Endpoint] https://api.apitore.com/api/18",
+  "security": {},
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apitore_text2labelbytfidfapis.jpg"
+  },
+  "tags": [],
+  "definitions": {
+    "LabelEntity": {
+      "properties": {
+        "label": {
+          "description": "label",
+          "type": "string"
+        },
+        "score": {
+          "description": "tfidf score",
+          "format": "double",
+          "type": "number"
+        }
+      },
+      "required": [
+        "label",
+        "score"
+      ],
+      "type": "object"
+    },
+    "LabelResponseEntity": {
+      "properties": {
+        "endTime": {
+          "description": "End date",
+          "type": "string"
+        },
+        "input": {
+          "description": "Input word",
+          "type": "string"
+        },
+        "labels": {
+          "description": "Distances",
+          "items": {
+            "$ref": "#/definitions/LabelEntity"
+          },
+          "type": "array"
+        },
+        "log": {
+          "description": "Log message",
+          "type": "string"
+        },
+        "num": {
+          "description": "Input num",
+          "type": "string"
+        },
+        "processTime": {
+          "description": "Process time [millisecond]",
+          "type": "string"
+        },
+        "startTime": {
+          "description": "Start date",
+          "type": "string"
+        }
+      },
+      "required": [
+        "endTime",
+        "input",
+        "log",
+        "num",
+        "processTime",
+        "startTime"
+      ],
+      "type": "object"
+    }
+  },
+  "actions": [
+    {
+      "id": "getUsingGET_1",
+      "title": "getUsingGET_1",
+      "description": "Text2Label by tfidf.<BR />Response<BR />&nbsp; Github: <a href=\"https://github.com/keigohtr/apitore-response-parent/tree/master/summarize-response\">summarize-response</a><BR />&nbsp; Class: com.apitore.banana.response.summarize.LabelResponseEntity<BR />",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "access_token": {
+            "type": "string",
+            "description": "Access Token"
+          },
+          "text": {
+            "type": "string",
+            "description": "text"
+          },
+          "num": {
+            "type": "integer",
+            "format": "int32",
+            "description": "num [max 10, default 1]"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "access_token",
+          "text"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/LabelResponseEntity"
+      }
+    }
+  ]
+}

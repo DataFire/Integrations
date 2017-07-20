@@ -1,6 +1,6 @@
 {
   "name": "@datafire/consumerfinance_gov",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "main": "index.js",
   "description": "DataFire integration for The Consumer Financial Protection Bureau",
   "repository": {

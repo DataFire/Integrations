@@ -1,0 +1,1109 @@
+{
+  "id": "runscope",
+  "title": "Runscope",
+  "description": "Manage Runscope programmatically.",
+  "security": {
+    "runscope": {
+      "integration": "runscope",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)",
+        "redirect_uri": "The callback URL for your application"
+      },
+      "oauth": {
+        "authorizationUrl": "https://www.runscope.com/signin/oauth/authorize",
+        "flow": "accessCode",
+        "scopes": {
+          "account:email": "Allows you to read the email addresses of user accounts.",
+          "api:read": "Default read access.",
+          "bucket:auth_token": "Allows you to read all bucket information, including Authenticated Buckets.",
+          "bucket:write": "Allows you to create new buckets on behalf of the user (up to their plan limit).",
+          "message:write": "Allows you to create new messages on behalf of the user (up to their plan limit).",
+          "team:read": "Allows you to read team details such as lists of team members and external service integrations.",
+          "test:read": "Allows you to read the details of API tests.",
+          "test:write": "Allows you to create, update and delete details of API tests."
+        },
+        "tokenUrl": "https://www.runscope.com/signin/oauth/access_token",
+        "type": "oauth2"
+      }
+    }
+  },
+  "logo": {
+    "backgroundColor": "#FFFFFF",
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/runscope.png"
+  },
+  "tags": [
+    "developer tools"
+  ],
+  "definitions": {
+    "Account": {
+      "properties": {
+        "email": {
+          "description": "The email address for this account. Only present if authorized with the account:email scope.",
+          "type": "string"
+        },
+        "id": {
+          "description": "The unique identifier for this account.",
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the person for this account.",
+          "type": "string"
+        },
+        "teams": {
+          "items": {
+            "$ref": "#/definitions/Team"
+          },
+          "type": "array"
+        }
+      }
+    },
+    "Bucket": {
+      "properties": {
+        "auth_token": {
+          "description": "Bucket auth token if set, otherwise this value is null.",
+          "type": "string"
+        },
+        "default": {
+          "description": "True if this bucket is the 'default' for a team. Default buckets cannot be deleted.",
+          "type": "boolean"
+        },
+        "key": {
+          "description": "The unique identifier used to address a bucket.",
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of this bucket as displayed in your dashboard.",
+          "type": "string"
+        },
+        "team": {
+          "$ref": "#/definitions/Team"
+        },
+        "verify_ssl": {
+          "description": "True if this bucket is configured to verify ssl for requests made to it.",
+          "type": "boolean"
+        }
+      }
+    },
+    "Error": {
+      "properties": {
+        "code": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "fields": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        }
+      }
+    },
+    "Meta": {
+      "properties": {
+        "status": {
+          "description": "Success or failure status of call.",
+          "type": "string"
+        }
+      }
+    },
+    "NewBucket": {
+      "properties": {
+        "name": {
+          "description": "Name of this bucket",
+          "type": "string"
+        },
+        "teamId": {
+          "description": "Unique identifier for the team this to create this bucket for.",
+          "type": "string"
+        }
+      }
+    },
+    "NewEnvironment": {
+      "properties": {
+        "name": {
+          "description": "Name of this environment.",
+          "type": "string"
+        }
+      }
+    },
+    "NewMessage": {
+      "properties": {
+        "request": {
+          "properties": {
+            "body": {
+              "description": "HTTP request body (most commonly used for POST and PUT requests). If the\nrequest body contains binary data that cannot be included directly in the \nJSON, encode the content with Base64 and include the body_encoding attribute accordingly.\n",
+              "type": "string"
+            },
+            "body_encoding": {
+              "description": "If the request body was encoded with Base64, this field should be present and set to \n\"base64\". If not specified, defaults to \"plaintext\"\n",
+              "type": "string"
+            },
+            "form": {
+              "description": "JSON object of set of form fields included in a POST request. \nValues can either be represented as a string or as an array of strings.\n",
+              "type": "string"
+            },
+            "headers": {
+              "description": "JSON object of header keys and values -- with values as a string or an array of strings.",
+              "type": "string"
+            },
+            "method": {
+              "description": "HTTP method name (GET, POST, PUT, HEAD, OPTIONS, PATCH, DELETE, etc.)",
+              "type": "string"
+            },
+            "timestamp": {
+              "description": "Unix timestamp indicating when the request was made.",
+              "format": "float",
+              "type": "number"
+            },
+            "url": {
+              "description": "Full URL of the request, including URL querystring parameters.",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "response": {
+          "properties": {
+            "body": {
+              "description": "HTTP response body. If the response body contains binary data that cannot be\nincluded directly in the JSON, you should encode the content with Base64.\n",
+              "type": "string"
+            },
+            "body_encoding": {
+              "description": "If the request body was encoded with Base64, this field should be present and set to \n\"base64\". If not specified, defaults to \"plaintext\"\n",
+              "type": "string"
+            },
+            "headers": {
+              "description": "JSON object of header keys and values -- with values as a string or an array of strings.",
+              "type": "string"
+            },
+            "reason": {
+              "description": "Textual description of HTTP status code. This will be set automatically if not \nprovided in the API call. For example, if the status code is 404, this will be \nset to \"Not Found\" unless you explicitly specify a different reason.\n",
+              "type": "string"
+            },
+            "response_time": {
+              "description": "Length of time it took to receive the response, in seconds.",
+              "format": "float",
+              "type": "number"
+            },
+            "status": {
+              "description": "HTTP status code returned in the response.",
+              "type": "integer"
+            },
+            "timestamp": {
+              "description": "Unix timestamp indicating when the request was made.",
+              "format": "float",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        }
+      }
+    },
+    "NewStep": {
+      "properties": {
+        "step_type": {
+          "description": "Type of test step -- request, pause, condition or ghost-inspector.",
+          "type": "string"
+        }
+      }
+    },
+    "NewTest": {
+      "properties": {
+        "description": {
+          "description": "The description for the test.",
+          "type": "string"
+        },
+        "name": {
+          "description": "The name for the test.",
+          "type": "string"
+        }
+      }
+    },
+    "Team": {
+      "properties": {
+        "id": {
+          "description": "The unique identifier for this team.",
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of this team.",
+          "type": "string"
+        }
+      }
+    },
+    "Test": {
+      "properties": {
+        "created_at": {
+          "description": "The date the test was created in seconds (Unix time stamp format).",
+          "type": "integer"
+        },
+        "created_by": {
+          "properties": {
+            "email": {
+              "type": "string"
+            },
+            "id": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "default_environment_id": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "actions": [
+    {
+      "id": "oauthCallback",
+      "title": "",
+      "description": "Exchange the code passed to your redirect URI for an access_token",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "title": "code",
+            "type": "string"
+          }
+        },
+        "required": [
+          "code"
+        ]
+      },
+      "outputSchema": {
+        "properties": {
+          "access_token": {
+            "type": "string"
+          },
+          "refresh_token": {
+            "type": "string"
+          },
+          "token_type": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "expiration": {
+            "type": "string"
+          }
+        }
+      },
+      "security": {
+        "runscope": {
+          "integration": "runscope"
+        }
+      }
+    },
+    {
+      "id": "oauthRefresh",
+      "title": "",
+      "description": "Exchange a refresh_token for an access_token",
+      "inputSchema": {},
+      "outputSchema": {
+        "properties": {
+          "access_token": {
+            "type": "string"
+          },
+          "refresh_token": {
+            "type": "string"
+          },
+          "token_type": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "expiration": {
+            "type": "string"
+          }
+        }
+      },
+      "security": {
+        "runscope": {
+          "integration": "runscope"
+        }
+      }
+    },
+    {
+      "id": "account.get",
+      "title": "account.get",
+      "description": "Information about the authorized account.",
+      "inputSchema": {},
+      "outputSchema": {
+        "properties": {
+          "data": {
+            "$ref": "#/definitions/Account"
+          },
+          "meta": {
+            "$ref": "#/definitions/Meta"
+          }
+        },
+        "type": "object"
+      },
+      "security": {
+        "runscope": {
+          "integration": "runscope"
+        }
+      }
+    },
+    {
+      "id": "buckets.get",
+      "title": "buckets.get",
+      "description": "Returns a list of buckets.",
+      "inputSchema": {},
+      "outputSchema": {
+        "properties": {
+          "data": {
+            "$ref": "#/definitions/Account"
+          },
+          "meta": {
+            "$ref": "#/definitions/Meta"
+          }
+        },
+        "type": "object"
+      },
+      "security": {
+        "runscope": {
+          "integration": "runscope"
+        }
+      }
+    },
+    {
+      "id": "buckets.post",
+      "title": "buckets.post",
+      "description": "Create a new bucket",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "NewBucket": {
+            "$ref": "#/definitions/NewBucket"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "NewBucket"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Bucket"
+      },
+      "security": {
+        "runscope": {
+          "integration": "runscope"
+        }
+      }
+    },
+    {
+      "id": "buckets.bucketKey.delete",
+      "title": "buckets.bucketKey.delete",
+      "description": "Delete a single bucket resource.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "bucketKey": {
+            "type": "string",
+            "description": "Unique identifier for a bucket"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "bucketKey"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "runscope": {
+          "integration": "runscope"
+        }
+      }
+    },
+    {
+      "id": "buckets.bucketKey.get",
+      "title": "buckets.bucketKey.get",
+      "description": "Returns a single bucket resource.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "bucketKey": {
+            "type": "string",
+            "description": "Unique identifier for a bucket"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "bucketKey"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Bucket"
+      },
+      "security": {
+        "runscope": {
+          "integration": "runscope"
+        }
+      }
+    },
+    {
+      "id": "buckets.bucketKey.environments.get",
+      "title": "buckets.bucketKey.environments.get",
+      "description": "Returns list of shared environments for a specified bucket.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "bucketKey": {
+            "type": "string",
+            "description": "Unique identifier for a bucket"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "bucketKey"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "runscope": {
+          "integration": "runscope"
+        }
+      }
+    },
+    {
+      "id": "buckets.bucketKey.environments.post",
+      "title": "buckets.bucketKey.environments.post",
+      "description": "Create new shared environment.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "bucketKey": {
+            "type": "string",
+            "description": "Unique identifier for a bucket"
+          },
+          "NewEnvironment": {
+            "$ref": "#/definitions/NewEnvironment"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "bucketKey",
+          "NewEnvironment"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "runscope": {
+          "integration": "runscope"
+        }
+      }
+    },
+    {
+      "id": "buckets.bucketKey.environments.environmentId.put",
+      "title": "buckets.bucketKey.environments.environmentId.put",
+      "description": "Update the details of a test environment.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "bucketKey": {
+            "type": "string",
+            "description": "Unique identifier for a bucket"
+          },
+          "environmentId": {
+            "type": "string",
+            "description": "Unique identifier for a test environment"
+          },
+          "ModifiedEnvironment": {
+            "$ref": "#/definitions/NewEnvironment"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "bucketKey",
+          "environmentId",
+          "ModifiedEnvironment"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "runscope": {
+          "integration": "runscope"
+        }
+      }
+    },
+    {
+      "id": "buckets.bucketKey.errors.get",
+      "title": "buckets.bucketKey.errors.get",
+      "description": "Retrieve a list of error messages in a bucket",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "bucketKey": {
+            "type": "string",
+            "description": "Unique identifier for a bucket"
+          },
+          "count": {
+            "type": "integer",
+            "description": "Maxiumum number of messages to return. Default 50, max 1000."
+          },
+          "since": {
+            "type": "integer",
+            "description": "Only return messages after the given Unix timestamp"
+          },
+          "before": {
+            "type": "integer",
+            "description": "Only return messages before the given Unix timestamp"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "bucketKey"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Bucket"
+      },
+      "security": {
+        "runscope": {
+          "integration": "runscope"
+        }
+      }
+    },
+    {
+      "id": "buckets.bucketKey.messages.delete",
+      "title": "buckets.bucketKey.messages.delete",
+      "description": "Clear a bucket (remove all messages).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "bucketKey": {
+            "type": "string",
+            "description": "Unique identifier for a bucket"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "bucketKey"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Bucket"
+      },
+      "security": {
+        "runscope": {
+          "integration": "runscope"
+        }
+      }
+    },
+    {
+      "id": "buckets.bucketKey.messages.get",
+      "title": "buckets.bucketKey.messages.get",
+      "description": "Retrieve a list of messages in a bucket",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "bucketKey": {
+            "type": "string",
+            "description": "Unique identifier for a bucket"
+          },
+          "count": {
+            "type": "integer",
+            "description": "Maxiumum number of messages to return. Default 50, max 1000."
+          },
+          "since": {
+            "type": "integer",
+            "description": "Only return messages after the given Unix timestamp"
+          },
+          "before": {
+            "type": "integer",
+            "description": "Only return messages before the given Unix timestamp"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "bucketKey"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Bucket"
+      },
+      "security": {
+        "runscope": {
+          "integration": "runscope"
+        }
+      }
+    },
+    {
+      "id": "buckets.bucketKey.messages.post",
+      "title": "buckets.bucketKey.messages.post",
+      "description": "Create a message",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "bucketKey": {
+            "type": "string",
+            "description": "Unique identifier for a bucket"
+          },
+          "NewMessage": {
+            "$ref": "#/definitions/NewMessage"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "bucketKey",
+          "NewMessage"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Bucket"
+      },
+      "security": {
+        "runscope": {
+          "integration": "runscope"
+        }
+      }
+    },
+    {
+      "id": "buckets.bucketKey.messages.messageId.get",
+      "title": "buckets.bucketKey.messages.messageId.get",
+      "description": "Retrieve the details for a single message.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "bucketKey": {
+            "type": "string",
+            "description": "Unique identifier for a bucket"
+          },
+          "messageId": {
+            "type": "string",
+            "description": "The unique identifier for this message"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "bucketKey",
+          "messageId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Bucket"
+      },
+      "security": {
+        "runscope": {
+          "integration": "runscope"
+        }
+      }
+    },
+    {
+      "id": "buckets.bucketKey.tests.get",
+      "title": "buckets.bucketKey.tests.get",
+      "description": "Returns a list of tests.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "bucketKey": {
+            "type": "string",
+            "description": "Unique identifier for a bucket"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "bucketKey"
+        ]
+      },
+      "outputSchema": {
+        "properties": {
+          "data": {
+            "items": {
+              "$ref": "#/definitions/Test"
+            },
+            "type": "array"
+          },
+          "meta": {
+            "$ref": "#/definitions/Meta"
+          }
+        }
+      },
+      "security": {
+        "runscope": {
+          "integration": "runscope"
+        }
+      }
+    },
+    {
+      "id": "buckets.bucketKey.tests.post",
+      "title": "buckets.bucketKey.tests.post",
+      "description": "Create a test.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "bucketKey": {
+            "type": "string",
+            "description": "Unique identifier for a bucket"
+          },
+          "NewTest": {
+            "$ref": "#/definitions/NewTest"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "bucketKey",
+          "NewTest"
+        ]
+      },
+      "outputSchema": {
+        "properties": {
+          "data": {
+            "items": {
+              "$ref": "#/definitions/Test"
+            },
+            "type": "array"
+          },
+          "meta": {
+            "$ref": "#/definitions/Meta"
+          }
+        }
+      },
+      "security": {
+        "runscope": {
+          "integration": "runscope"
+        }
+      }
+    },
+    {
+      "id": "buckets.bucketKey.tests.testId.delete",
+      "title": "buckets.bucketKey.tests.testId.delete",
+      "description": "Delete a single test.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "bucketKey": {
+            "type": "string",
+            "description": "Unique identifier for a bucket"
+          },
+          "testId": {
+            "type": "string",
+            "description": "Unique identifier for a test"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "bucketKey",
+          "testId"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "runscope": {
+          "integration": "runscope"
+        }
+      }
+    },
+    {
+      "id": "buckets.bucketKey.tests.testId.environments.get",
+      "title": "buckets.bucketKey.tests.testId.environments.get",
+      "description": "Return details of the test's environments (only those that belong to the specified test)",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "bucketKey": {
+            "type": "string",
+            "description": "Unique identifier for a bucket"
+          },
+          "testId": {
+            "type": "string",
+            "description": "Unique identifier for a test"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "bucketKey",
+          "testId"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "runscope": {
+          "integration": "runscope"
+        }
+      }
+    },
+    {
+      "id": "buckets.bucketKey.tests.testId.environments.post",
+      "title": "buckets.bucketKey.tests.testId.environments.post",
+      "description": "Create new test environment.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "bucketKey": {
+            "type": "string",
+            "description": "Unique identifier for a bucket"
+          },
+          "testId": {
+            "type": "string",
+            "description": "Unique identifier for a test"
+          },
+          "NewEnvironment": {
+            "$ref": "#/definitions/NewEnvironment"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "bucketKey",
+          "testId",
+          "NewEnvironment"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "runscope": {
+          "integration": "runscope"
+        }
+      }
+    },
+    {
+      "id": "buckets.bucketKey.tests.testId.environments.environmentId.put",
+      "title": "buckets.bucketKey.tests.testId.environments.environmentId.put",
+      "description": "Update the details of a test environment.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "bucketKey": {
+            "type": "string",
+            "description": "Unique identifier for a bucket"
+          },
+          "testId": {
+            "type": "string",
+            "description": "Unique identifier for a test"
+          },
+          "environmentId": {
+            "type": "string",
+            "description": "Unique identifier for a test environment"
+          },
+          "ModifiedEnvironment": {
+            "$ref": "#/definitions/NewEnvironment"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "bucketKey",
+          "testId",
+          "environmentId",
+          "ModifiedEnvironment"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "runscope": {
+          "integration": "runscope"
+        }
+      }
+    },
+    {
+      "id": "buckets.bucketKey.tests.testId.steps.get",
+      "title": "buckets.bucketKey.tests.testId.steps.get",
+      "description": "List test steps for a test.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "bucketKey": {
+            "type": "string",
+            "description": "Unique identifier for a bucket"
+          },
+          "testId": {
+            "type": "string",
+            "description": "Unique identifier for a test"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "bucketKey",
+          "testId"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "runscope": {
+          "integration": "runscope"
+        }
+      }
+    },
+    {
+      "id": "buckets.bucketKey.tests.testId.steps.post",
+      "title": "buckets.bucketKey.tests.testId.steps.post",
+      "description": "Add new test step.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "bucketKey": {
+            "type": "string",
+            "description": "Unique identifier for a bucket"
+          },
+          "testId": {
+            "type": "string",
+            "description": "Unique identifier for a test"
+          },
+          "NewStep": {
+            "$ref": "#/definitions/NewStep"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "bucketKey",
+          "testId",
+          "NewStep"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "runscope": {
+          "integration": "runscope"
+        }
+      }
+    },
+    {
+      "id": "buckets.bucketKey.tests.testId.steps.stepId.delete",
+      "title": "buckets.bucketKey.tests.testId.steps.stepId.delete",
+      "description": "Delete a step from a test.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "bucketKey": {
+            "type": "string",
+            "description": "Unique identifier for a bucket"
+          },
+          "testId": {
+            "type": "string",
+            "description": "Unique identifier for a test"
+          },
+          "stepId": {
+            "type": "string",
+            "description": "Unique identifier for a test step"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "bucketKey",
+          "testId",
+          "stepId"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "runscope": {
+          "integration": "runscope"
+        }
+      }
+    },
+    {
+      "id": "buckets.bucketKey.tests.testId.steps.stepId.put",
+      "title": "buckets.bucketKey.tests.testId.steps.stepId.put",
+      "description": "Update the details of a single test step.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "bucketKey": {
+            "type": "string",
+            "description": "Unique identifier for a bucket"
+          },
+          "testId": {
+            "type": "string",
+            "description": "Unique identifier for a test"
+          },
+          "stepId": {
+            "type": "string",
+            "description": "Unique identifier for a test step"
+          },
+          "NewStep": {
+            "$ref": "#/definitions/NewStep"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "bucketKey",
+          "testId",
+          "stepId",
+          "NewStep"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "runscope": {
+          "integration": "runscope"
+        }
+      }
+    },
+    {
+      "id": "teams.teamId.integrations.get",
+      "title": "teams.teamId.integrations.get",
+      "description": "Returns a list of integrations configured for the team.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "teamId": {
+            "type": "string",
+            "description": "Unique identifier for team"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "teamId"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Account"
+        },
+        "type": "array"
+      },
+      "security": {
+        "runscope": {
+          "integration": "runscope"
+        }
+      }
+    },
+    {
+      "id": "teams.teamId.people.get",
+      "title": "teams.teamId.people.get",
+      "description": "List people and integrations associated with a given team.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "teamId": {
+            "type": "string",
+            "description": "Unique identifier for team"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "teamId"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Account"
+        },
+        "type": "array"
+      },
+      "security": {
+        "runscope": {
+          "integration": "runscope"
+        }
+      }
+    }
+  ]
+}

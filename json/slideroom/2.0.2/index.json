@@ -1,0 +1,544 @@
+{
+  "id": "slideroom",
+  "title": "SlideRoom API V2",
+  "description": "SlideRoom provides a RESTful API for exporting data out of your organization's SlideRoom account.",
+  "security": {},
+  "logo": {
+    "backgroundColor": "#000000",
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/slideroom.png"
+  },
+  "tags": [],
+  "definitions": {
+    "ExportResultV2": {
+      "properties": {
+        "completed_files": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "file_urls": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "status": {
+          "type": "string"
+        },
+        "total_files": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "RequestApplicationExportResultV2": {
+      "properties": {
+        "message": {
+          "type": "string"
+        },
+        "submissions": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "token": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "WebhookResultV2": {}
+  },
+  "actions": [
+    {
+      "id": "Applicant_DeleteAttributesV2",
+      "title": "Applicant_DeleteAttributesV2",
+      "description": "Deletes a custom attribute for an applicant.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "description": "The email address of the applicant."
+          },
+          "name": {
+            "type": "string",
+            "description": "The name of the attribute to be deleted."
+          },
+          "pool": {
+            "type": "string",
+            "enum": [
+              "Standard",
+              "CommonAppSDS"
+            ]
+          },
+          "commonAppYear": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "email",
+          "name"
+        ]
+      },
+      "outputSchema": {
+        "type": "string"
+      }
+    },
+    {
+      "id": "Applicant_GetAttributesV2",
+      "title": "Applicant_GetAttributesV2",
+      "description": "Gets the custom attributes for an applicant.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "description": "The email address of the applicant."
+          },
+          "pool": {
+            "type": "string",
+            "enum": [
+              "Standard",
+              "CommonAppSDS"
+            ]
+          },
+          "commonAppYear": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "email"
+        ]
+      },
+      "outputSchema": {
+        "additionalProperties": {
+          "type": "string"
+        },
+        "type": "object"
+      }
+    },
+    {
+      "id": "Applicant_PostAttributesV2",
+      "title": "Applicant_PostAttributesV2",
+      "description": "This method only adds or updates attributes. Null values will be updated as nulls, but not deleted. API Import is available in the Advanced Plan.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "description": "The email address of the applicant."
+          },
+          "data": {
+            "additionalProperties": {
+              "type": "string"
+            },
+            "example": {
+              "name1": "Value1",
+              "name2": "Value2"
+            },
+            "type": "object"
+          },
+          "pool": {
+            "type": "string",
+            "enum": [
+              "Standard",
+              "CommonAppSDS"
+            ]
+          },
+          "commonAppYear": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "email",
+          "data"
+        ]
+      },
+      "outputSchema": {
+        "type": "string"
+      }
+    },
+    {
+      "id": "Applicant_GetAttributeNamesV2",
+      "title": "Applicant_GetAttributeNamesV2",
+      "description": "Gets the custom applicant attributes used by the organization.",
+      "inputSchema": {},
+      "outputSchema": {
+        "items": {
+          "type": "string"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "Application_GetAttributeNamesV2",
+      "title": "Application_GetAttributeNamesV2",
+      "description": "Gets the custom application attributes used by the organization.",
+      "inputSchema": {},
+      "outputSchema": {
+        "items": {
+          "type": "string"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "Application_RequestExportV2",
+      "title": "Application_RequestExportV2",
+      "description": "Exports are generated asynchronously within SlideRoom.  To retrieve the export file generated by this request, use the api/v#/export/{token} endpoint to check the progress/result of the generation process.\r\n            PDF and ZIP exports are available in the Advanced Plan.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "format": {
+            "type": "string",
+            "enum": [
+              "csv",
+              "tsv",
+              "txt",
+              "tab",
+              "xlsx",
+              "pdf",
+              "zip",
+              "json"
+            ]
+          },
+          "roundType": {
+            "type": "string",
+            "enum": [
+              "Assigned",
+              "Current",
+              "Named",
+              "All"
+            ]
+          },
+          "roundName": {
+            "type": "string"
+          },
+          "tab.export": {
+            "type": "string"
+          },
+          "pdf.includeForms": {
+            "type": "boolean"
+          },
+          "pdf.includeReferences": {
+            "type": "boolean"
+          },
+          "pdf.includeMedia": {
+            "type": "boolean"
+          },
+          "pdf.includeApplicantAttachments": {
+            "type": "boolean"
+          },
+          "pdf.includeOrganizationAttachments": {
+            "type": "boolean"
+          },
+          "pdf.includeRatings": {
+            "type": "boolean"
+          },
+          "pdf.includeFullPageMedia": {
+            "type": "boolean"
+          },
+          "pdf.includeHighlights": {
+            "type": "boolean"
+          },
+          "pdf.includeComments": {
+            "type": "boolean"
+          },
+          "pdf.includeCommonApp": {
+            "type": "boolean"
+          },
+          "zip.originalMedia": {
+            "type": "boolean"
+          },
+          "zip.includeForms": {
+            "type": "boolean"
+          },
+          "zip.includeReferences": {
+            "type": "boolean"
+          },
+          "zip.includeMedia": {
+            "type": "boolean"
+          },
+          "zip.includeApplicantAttachments": {
+            "type": "boolean"
+          },
+          "zip.includeOrganizationAttachments": {
+            "type": "boolean"
+          },
+          "zip.includeRatings": {
+            "type": "boolean"
+          },
+          "zip.includeComments": {
+            "type": "boolean"
+          },
+          "zip.includeCommonApp": {
+            "type": "boolean"
+          },
+          "delivery.account": {
+            "type": "string"
+          },
+          "delivery.folder": {
+            "type": "string"
+          },
+          "since": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pool": {
+            "type": "string",
+            "enum": [
+              "All",
+              "Current",
+              "Archived",
+              "CommonAppSDS"
+            ]
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "All",
+              "InProgress",
+              "Submitted"
+            ]
+          },
+          "searchName": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/RequestApplicationExportResultV2"
+      }
+    },
+    {
+      "id": "Application_DeleteAttributesV2",
+      "title": "Application_DeleteAttributesV2",
+      "description": "Deletes a custom attribute for an application.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "applicationId": {
+            "type": "string",
+            "description": "The ID of the application."
+          },
+          "name": {
+            "type": "string",
+            "description": "The name of the attribute to be deleted."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "applicationId",
+          "name"
+        ]
+      },
+      "outputSchema": {
+        "type": "string"
+      }
+    },
+    {
+      "id": "Application_GetAttributesV2",
+      "title": "Application_GetAttributesV2",
+      "description": "Gets the custom attributes for an application.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "applicationId": {
+            "type": "string",
+            "description": "The ID of the application."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "applicationId"
+        ]
+      },
+      "outputSchema": {
+        "additionalProperties": {
+          "type": "string"
+        },
+        "type": "object"
+      }
+    },
+    {
+      "id": "Application_PostAttributesV2",
+      "title": "Application_PostAttributesV2",
+      "description": "This method only adds or updates attributes. Null values will be updated as nulls, but not deleted.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "applicationId": {
+            "type": "string",
+            "description": "The ID of the application."
+          },
+          "data": {
+            "additionalProperties": {
+              "type": "string"
+            },
+            "example": {
+              "name1": "Value1",
+              "name2": "Value2"
+            },
+            "type": "object"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "applicationId",
+          "data"
+        ]
+      },
+      "outputSchema": {
+        "type": "string"
+      }
+    },
+    {
+      "id": "Application_RequestExportByApplicationIdV2",
+      "title": "Application_RequestExportByApplicationIdV2",
+      "description": "Exports are generated asynchronously within SlideRoom.  To retrieve the export file generated by this request, use the api/v#/export/{token} endpoint to check the progress/result of the generation process.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "applicationId": {
+            "type": "string",
+            "description": "The id of the application to export"
+          },
+          "format": {
+            "type": "string",
+            "enum": [
+              "csv",
+              "tsv",
+              "txt",
+              "tab",
+              "xlsx",
+              "pdf",
+              "zip",
+              "json"
+            ]
+          },
+          "roundType": {
+            "type": "string",
+            "enum": [
+              "Assigned",
+              "Current",
+              "Named",
+              "All"
+            ]
+          },
+          "roundName": {
+            "type": "string"
+          },
+          "tab.export": {
+            "type": "string"
+          },
+          "pdf.includeForms": {
+            "type": "boolean"
+          },
+          "pdf.includeReferences": {
+            "type": "boolean"
+          },
+          "pdf.includeMedia": {
+            "type": "boolean"
+          },
+          "pdf.includeApplicantAttachments": {
+            "type": "boolean"
+          },
+          "pdf.includeOrganizationAttachments": {
+            "type": "boolean"
+          },
+          "pdf.includeRatings": {
+            "type": "boolean"
+          },
+          "pdf.includeFullPageMedia": {
+            "type": "boolean"
+          },
+          "pdf.includeHighlights": {
+            "type": "boolean"
+          },
+          "pdf.includeComments": {
+            "type": "boolean"
+          },
+          "pdf.includeCommonApp": {
+            "type": "boolean"
+          },
+          "zip.originalMedia": {
+            "type": "boolean"
+          },
+          "zip.includeForms": {
+            "type": "boolean"
+          },
+          "zip.includeReferences": {
+            "type": "boolean"
+          },
+          "zip.includeMedia": {
+            "type": "boolean"
+          },
+          "zip.includeApplicantAttachments": {
+            "type": "boolean"
+          },
+          "zip.includeOrganizationAttachments": {
+            "type": "boolean"
+          },
+          "zip.includeRatings": {
+            "type": "boolean"
+          },
+          "zip.includeComments": {
+            "type": "boolean"
+          },
+          "zip.includeCommonApp": {
+            "type": "boolean"
+          },
+          "delivery.account": {
+            "type": "string"
+          },
+          "delivery.folder": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "applicationId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/RequestApplicationExportResultV2"
+      }
+    },
+    {
+      "id": "Export_GetV2",
+      "title": "Export_GetV2",
+      "description": "Gets the status/result of a requested export.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "token": {
+            "type": "integer",
+            "format": "int32",
+            "description": ""
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "token"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ExportResultV2"
+      }
+    }
+  ]
+}

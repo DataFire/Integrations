@@ -1,0 +1,39 @@
+{
+  "id": "1forge",
+  "title": "1Forge Finance APIs",
+  "description": "Stock and Forex Data and Realtime Quotes",
+  "security": {},
+  "logo": {
+    "backgroundColor": "#24292e",
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/1forge.png"
+  },
+  "tags": [
+    "financial"
+  ],
+  "actions": [
+    {
+      "id": "quotes.get",
+      "title": "quotes.get",
+      "description": "Get quotes",
+      "inputSchema": {},
+      "outputSchema": {}
+    },
+    {
+      "id": "symbols.get",
+      "title": "symbols.get",
+      "description": "Symbol List",
+      "inputSchema": {},
+      "outputSchema": {
+        "example": [
+          "EURUSD",
+          "GBPJPY",
+          "AUDUSD"
+        ],
+        "items": {
+          "type": "string"
+        },
+        "type": "array"
+      }
+    }
+  ]
+}

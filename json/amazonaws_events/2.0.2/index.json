@@ -1,0 +1,1474 @@
+{
+  "id": "amazonaws_events",
+  "title": "Amazon CloudWatch Events",
+  "description": "<p>Amazon CloudWatch Events helps you to respond to state changes in your AWS resources. When your resources change state, they automatically send events into an event stream. You can create rules that match selected events in the stream and route them to targets to take action. You can also use rules to take action on a pre-determined schedule. For example, you can configure rules to:</p> <ul> <li> <p>Automatically invoke an AWS Lambda function to update DNS entries when an event notifies you that Amazon EC2 instance enters the running state.</p> </li> <li> <p>Direct specific API records from CloudTrail to an Amazon Kinesis stream for detailed analysis of potential security or availability risks.</p> </li> <li> <p>Periodically invoke a built-in target to create a snapshot of an Amazon EBS volume.</p> </li> </ul> <p>For more information about the features of Amazon CloudWatch Events, see the <a href=\"http://docs.aws.amazon.com/AmazonCloudWatch/latest/events\">Amazon CloudWatch Events User Guide</a>.</p>",
+  "security": {
+    "amazonaws_events": {
+      "integration": "amazonaws_events",
+      "fields": {
+        "hmac": "Amazon Signature authorization v4"
+      }
+    }
+  },
+  "logo": {
+    "backgroundColor": "#FFFFFF",
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_events.jpg"
+  },
+  "tags": [
+    "cloud",
+    "aws"
+  ],
+  "definitions": {
+    "Arn": {
+      "maxLength": 1600,
+      "minLength": 1,
+      "type": "string"
+    },
+    "Boolean": {
+      "type": "boolean"
+    },
+    "ConcurrentModificationException": {
+      "description": "There is concurrent modification on a rule or target.",
+      "properties": {},
+      "type": "object"
+    },
+    "DeleteRuleRequest": {
+      "properties": {
+        "Name": {
+          "$ref": "#/definitions/RuleName",
+          "description": "The name of the rule."
+        }
+      },
+      "required": [
+        "Name"
+      ],
+      "type": "object"
+    },
+    "DescribeRuleRequest": {
+      "properties": {
+        "Name": {
+          "$ref": "#/definitions/RuleName",
+          "description": "The name of the rule."
+        }
+      },
+      "required": [
+        "Name"
+      ],
+      "type": "object"
+    },
+    "DescribeRuleResponse": {
+      "properties": {
+        "Arn": {
+          "$ref": "#/definitions/RuleArn",
+          "description": "The Amazon Resource Name (ARN) of the rule."
+        },
+        "Description": {
+          "$ref": "#/definitions/RuleDescription",
+          "description": "The description of the rule."
+        },
+        "EventPattern": {
+          "$ref": "#/definitions/EventPattern",
+          "description": "The event pattern."
+        },
+        "Name": {
+          "$ref": "#/definitions/RuleName",
+          "description": "The name of the rule."
+        },
+        "RoleArn": {
+          "$ref": "#/definitions/RoleArn",
+          "description": "The Amazon Resource Name (ARN) of the IAM role associated with the rule."
+        },
+        "ScheduleExpression": {
+          "$ref": "#/definitions/ScheduleExpression",
+          "description": "The scheduling expression. For example, \"cron(0 20 * * ? *)\", \"rate(5 minutes)\"."
+        },
+        "State": {
+          "$ref": "#/definitions/RuleState",
+          "description": "Specifies whether the rule is enabled or disabled."
+        }
+      },
+      "type": "object"
+    },
+    "DisableRuleRequest": {
+      "properties": {
+        "Name": {
+          "$ref": "#/definitions/RuleName",
+          "description": "The name of the rule."
+        }
+      },
+      "required": [
+        "Name"
+      ],
+      "type": "object"
+    },
+    "EcsParameters": {
+      "description": "The custom parameters to be used when the target is an Amazon ECS cluster.",
+      "properties": {
+        "TaskCount": {
+          "$ref": "#/definitions/LimitMin1",
+          "description": "The number of tasks to create based on the <code>TaskDefinition</code>. The default is one."
+        },
+        "TaskDefinitionArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The ARN of the task definition to use if the event target is an Amazon ECS cluster. "
+        }
+      },
+      "required": [
+        "TaskDefinitionArn"
+      ],
+      "type": "object"
+    },
+    "EnableRuleRequest": {
+      "properties": {
+        "Name": {
+          "$ref": "#/definitions/RuleName",
+          "description": "The name of the rule."
+        }
+      },
+      "required": [
+        "Name"
+      ],
+      "type": "object"
+    },
+    "ErrorCode": {
+      "type": "string"
+    },
+    "ErrorMessage": {
+      "type": "string"
+    },
+    "EventId": {
+      "type": "string"
+    },
+    "EventPattern": {
+      "maxLength": 2048,
+      "type": "string"
+    },
+    "EventResource": {
+      "type": "string"
+    },
+    "EventResourceList": {
+      "items": {
+        "$ref": "#/definitions/EventResource"
+      },
+      "type": "array"
+    },
+    "EventTime": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "InputTransformer": {
+      "description": "Contains the parameters needed for you to provide custom input to a target based on one or more pieces of data extracted from the event.",
+      "properties": {
+        "InputPathsMap": {
+          "$ref": "#/definitions/TransformerPaths",
+          "description": "Map of JSON paths to be extracted from the event. These are key-value pairs, where each value is a JSON path."
+        },
+        "InputTemplate": {
+          "$ref": "#/definitions/TransformerInput",
+          "description": "Input template where you can use the values of the keys from <code>InputPathsMap</code> to customize the data sent to the target."
+        }
+      },
+      "required": [
+        "InputTemplate"
+      ],
+      "type": "object"
+    },
+    "InputTransformerPathKey": {
+      "maxLength": 256,
+      "minLength": 1,
+      "pattern": "[A-Za-z0-9\\_\\-]+",
+      "type": "string"
+    },
+    "Integer": {
+      "type": "integer"
+    },
+    "InternalException": {
+      "description": "This exception occurs due to unexpected causes.",
+      "properties": {},
+      "type": "object"
+    },
+    "InvalidEventPatternException": {
+      "description": "The event pattern is not valid.",
+      "properties": {},
+      "type": "object"
+    },
+    "KinesisParameters": {
+      "description": "This object enables you to specify a JSON path to extract from the event and use as the partition key for the Amazon Kinesis stream, so that you can control the shard to which the event goes. If you do not include this parameter, the default is to use the <code>eventId</code> as the partition key.",
+      "properties": {
+        "PartitionKeyPath": {
+          "$ref": "#/definitions/TargetPartitionKeyPath",
+          "description": "The JSON path to be extracted from the event and used as the partition key. For more information, see <a href=\"http://docs.aws.amazon.com/streams/latest/dev/key-concepts.html#partition-key\">Amazon Kinesis Streams Key Concepts</a> in the <i>Amazon Kinesis Streams Developer Guide</i>."
+        }
+      },
+      "required": [
+        "PartitionKeyPath"
+      ],
+      "type": "object"
+    },
+    "LimitExceededException": {
+      "description": "You tried to create more rules or add more targets to a rule than is allowed.",
+      "properties": {},
+      "type": "object"
+    },
+    "LimitMax100": {
+      "maximum": 100,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "LimitMin1": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "ListRuleNamesByTargetRequest": {
+      "properties": {
+        "Limit": {
+          "$ref": "#/definitions/LimitMax100",
+          "description": "The maximum number of results to return."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "The token returned by a previous call to retrieve the next set of results."
+        },
+        "TargetArn": {
+          "$ref": "#/definitions/TargetArn",
+          "description": "The Amazon Resource Name (ARN) of the target resource."
+        }
+      },
+      "required": [
+        "TargetArn"
+      ],
+      "type": "object"
+    },
+    "ListRuleNamesByTargetResponse": {
+      "properties": {
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "Indicates whether there are additional results to retrieve. If there are no more results, the value is null."
+        },
+        "RuleNames": {
+          "$ref": "#/definitions/RuleNameList",
+          "description": "The names of the rules that can invoke the given target."
+        }
+      },
+      "type": "object"
+    },
+    "ListRulesRequest": {
+      "properties": {
+        "Limit": {
+          "$ref": "#/definitions/LimitMax100",
+          "description": "The maximum number of results to return."
+        },
+        "NamePrefix": {
+          "$ref": "#/definitions/RuleName",
+          "description": "The prefix matching the rule name."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "The token returned by a previous call to retrieve the next set of results."
+        }
+      },
+      "type": "object"
+    },
+    "ListRulesResponse": {
+      "properties": {
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "Indicates whether there are additional results to retrieve. If there are no more results, the value is null."
+        },
+        "Rules": {
+          "$ref": "#/definitions/RuleResponseList",
+          "description": "The rules that match the specified criteria."
+        }
+      },
+      "type": "object"
+    },
+    "ListTargetsByRuleRequest": {
+      "properties": {
+        "Limit": {
+          "$ref": "#/definitions/LimitMax100",
+          "description": "The maximum number of results to return."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "The token returned by a previous call to retrieve the next set of results."
+        },
+        "Rule": {
+          "$ref": "#/definitions/RuleName",
+          "description": "The name of the rule."
+        }
+      },
+      "required": [
+        "Rule"
+      ],
+      "type": "object"
+    },
+    "ListTargetsByRuleResponse": {
+      "properties": {
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "Indicates whether there are additional results to retrieve. If there are no more results, the value is null."
+        },
+        "Targets": {
+          "$ref": "#/definitions/TargetList",
+          "description": "The targets assigned to the rule."
+        }
+      },
+      "type": "object"
+    },
+    "NextToken": {
+      "maxLength": 2048,
+      "minLength": 1,
+      "type": "string"
+    },
+    "PutEventsRequest": {
+      "properties": {
+        "Entries": {
+          "$ref": "#/definitions/PutEventsRequestEntryList",
+          "description": "The entry that defines an event in your system. You can specify several parameters for the entry such as the source and type of the event, resources associated with the event, and so on."
+        }
+      },
+      "required": [
+        "Entries"
+      ],
+      "type": "object"
+    },
+    "PutEventsRequestEntry": {
+      "description": "Represents an event to be submitted.",
+      "properties": {
+        "Detail": {
+          "$ref": "#/definitions/String",
+          "description": "In the JSON sense, an object containing fields, which may also contain nested subobjects. No constraints are imposed on its contents."
+        },
+        "DetailType": {
+          "$ref": "#/definitions/String",
+          "description": "Free-form string used to decide what fields to expect in the event detail."
+        },
+        "Resources": {
+          "$ref": "#/definitions/EventResourceList",
+          "description": "AWS resources, identified by Amazon Resource Name (ARN), which the event primarily concerns. Any number, including zero, may be present."
+        },
+        "Source": {
+          "$ref": "#/definitions/String",
+          "description": "The source of the event."
+        },
+        "Time": {
+          "$ref": "#/definitions/EventTime",
+          "description": "The timestamp of the event, per <a href=\"https://www.rfc-editor.org/rfc/rfc3339.txt\">RFC3339</a>. If no timestamp is provided, the timestamp of the <a>PutEvents</a> call is used."
+        }
+      },
+      "type": "object"
+    },
+    "PutEventsRequestEntryList": {
+      "items": {
+        "$ref": "#/definitions/PutEventsRequestEntry"
+      },
+      "maxItems": 10,
+      "minItems": 1,
+      "type": "array"
+    },
+    "PutEventsResponse": {
+      "properties": {
+        "Entries": {
+          "$ref": "#/definitions/PutEventsResultEntryList",
+          "description": "The successfully and unsuccessfully ingested events results. If the ingestion was successful, the entry has the event ID in it. Otherwise, you can use the error code and error message to identify the problem with the entry."
+        },
+        "FailedEntryCount": {
+          "$ref": "#/definitions/Integer",
+          "description": "The number of failed entries."
+        }
+      },
+      "type": "object"
+    },
+    "PutEventsResultEntry": {
+      "description": "Represents an event that failed to be submitted.",
+      "properties": {
+        "ErrorCode": {
+          "$ref": "#/definitions/ErrorCode",
+          "description": "The error code that indicates why the event submission failed."
+        },
+        "ErrorMessage": {
+          "$ref": "#/definitions/ErrorMessage",
+          "description": "The error message that explains why the event submission failed."
+        },
+        "EventId": {
+          "$ref": "#/definitions/EventId",
+          "description": "The ID of the event."
+        }
+      },
+      "type": "object"
+    },
+    "PutEventsResultEntryList": {
+      "items": {
+        "$ref": "#/definitions/PutEventsResultEntry"
+      },
+      "type": "array"
+    },
+    "PutRuleRequest": {
+      "properties": {
+        "Description": {
+          "$ref": "#/definitions/RuleDescription",
+          "description": "A description of the rule."
+        },
+        "EventPattern": {
+          "$ref": "#/definitions/EventPattern",
+          "description": "The event pattern."
+        },
+        "Name": {
+          "$ref": "#/definitions/RuleName",
+          "description": "The name of the rule that you are creating or updating."
+        },
+        "RoleArn": {
+          "$ref": "#/definitions/RoleArn",
+          "description": "The Amazon Resource Name (ARN) of the IAM role associated with the rule."
+        },
+        "ScheduleExpression": {
+          "$ref": "#/definitions/ScheduleExpression",
+          "description": "The scheduling expression. For example, \"cron(0 20 * * ? *)\", \"rate(5 minutes)\"."
+        },
+        "State": {
+          "$ref": "#/definitions/RuleState",
+          "description": "Indicates whether the rule is enabled or disabled."
+        }
+      },
+      "required": [
+        "Name"
+      ],
+      "type": "object"
+    },
+    "PutRuleResponse": {
+      "properties": {
+        "RuleArn": {
+          "$ref": "#/definitions/RuleArn",
+          "description": "The Amazon Resource Name (ARN) of the rule."
+        }
+      },
+      "type": "object"
+    },
+    "PutTargetsRequest": {
+      "properties": {
+        "Rule": {
+          "$ref": "#/definitions/RuleName",
+          "description": "The name of the rule."
+        },
+        "Targets": {
+          "$ref": "#/definitions/TargetList",
+          "description": "The targets to update or add to the rule."
+        }
+      },
+      "required": [
+        "Rule",
+        "Targets"
+      ],
+      "type": "object"
+    },
+    "PutTargetsResponse": {
+      "properties": {
+        "FailedEntries": {
+          "$ref": "#/definitions/PutTargetsResultEntryList",
+          "description": "The failed target entries."
+        },
+        "FailedEntryCount": {
+          "$ref": "#/definitions/Integer",
+          "description": "The number of failed entries."
+        }
+      },
+      "type": "object"
+    },
+    "PutTargetsResultEntry": {
+      "description": "Represents a target that failed to be added to a rule.",
+      "properties": {
+        "ErrorCode": {
+          "$ref": "#/definitions/ErrorCode",
+          "description": "The error code that indicates why the target addition failed."
+        },
+        "ErrorMessage": {
+          "$ref": "#/definitions/ErrorMessage",
+          "description": "The error message that explains why the target addition failed."
+        },
+        "TargetId": {
+          "$ref": "#/definitions/TargetId",
+          "description": "The ID of the target."
+        }
+      },
+      "type": "object"
+    },
+    "PutTargetsResultEntryList": {
+      "items": {
+        "$ref": "#/definitions/PutTargetsResultEntry"
+      },
+      "type": "array"
+    },
+    "RemoveTargetsRequest": {
+      "properties": {
+        "Ids": {
+          "$ref": "#/definitions/TargetIdList",
+          "description": "The IDs of the targets to remove from the rule."
+        },
+        "Rule": {
+          "$ref": "#/definitions/RuleName",
+          "description": "The name of the rule."
+        }
+      },
+      "required": [
+        "Rule",
+        "Ids"
+      ],
+      "type": "object"
+    },
+    "RemoveTargetsResponse": {
+      "properties": {
+        "FailedEntries": {
+          "$ref": "#/definitions/RemoveTargetsResultEntryList",
+          "description": "The failed target entries."
+        },
+        "FailedEntryCount": {
+          "$ref": "#/definitions/Integer",
+          "description": "The number of failed entries."
+        }
+      },
+      "type": "object"
+    },
+    "RemoveTargetsResultEntry": {
+      "description": "Represents a target that failed to be removed from a rule.",
+      "properties": {
+        "ErrorCode": {
+          "$ref": "#/definitions/ErrorCode",
+          "description": "The error code that indicates why the target removal failed."
+        },
+        "ErrorMessage": {
+          "$ref": "#/definitions/ErrorMessage",
+          "description": "The error message that explains why the target removal failed."
+        },
+        "TargetId": {
+          "$ref": "#/definitions/TargetId",
+          "description": "The ID of the target."
+        }
+      },
+      "type": "object"
+    },
+    "RemoveTargetsResultEntryList": {
+      "items": {
+        "$ref": "#/definitions/RemoveTargetsResultEntry"
+      },
+      "type": "array"
+    },
+    "ResourceNotFoundException": {
+      "description": "The rule does not exist.",
+      "properties": {},
+      "type": "object"
+    },
+    "RoleArn": {
+      "maxLength": 1600,
+      "minLength": 1,
+      "type": "string"
+    },
+    "Rule": {
+      "description": "Contains information about a rule in Amazon CloudWatch Events.",
+      "properties": {
+        "Arn": {
+          "$ref": "#/definitions/RuleArn",
+          "description": "The Amazon Resource Name (ARN) of the rule."
+        },
+        "Description": {
+          "$ref": "#/definitions/RuleDescription",
+          "description": "The description of the rule."
+        },
+        "EventPattern": {
+          "$ref": "#/definitions/EventPattern",
+          "description": "The event pattern of the rule."
+        },
+        "Name": {
+          "$ref": "#/definitions/RuleName",
+          "description": "The name of the rule."
+        },
+        "RoleArn": {
+          "$ref": "#/definitions/RoleArn",
+          "description": "The Amazon Resource Name (ARN) of the role that is used for target invocation."
+        },
+        "ScheduleExpression": {
+          "$ref": "#/definitions/ScheduleExpression",
+          "description": "The scheduling expression. For example, \"cron(0 20 * * ? *)\", \"rate(5 minutes)\"."
+        },
+        "State": {
+          "$ref": "#/definitions/RuleState",
+          "description": "The state of the rule."
+        }
+      },
+      "type": "object"
+    },
+    "RuleArn": {
+      "maxLength": 1600,
+      "minLength": 1,
+      "type": "string"
+    },
+    "RuleDescription": {
+      "maxLength": 512,
+      "type": "string"
+    },
+    "RuleName": {
+      "maxLength": 64,
+      "minLength": 1,
+      "pattern": "[\\.\\-_A-Za-z0-9]+",
+      "type": "string"
+    },
+    "RuleNameList": {
+      "items": {
+        "$ref": "#/definitions/RuleName"
+      },
+      "type": "array"
+    },
+    "RuleResponseList": {
+      "items": {
+        "$ref": "#/definitions/Rule"
+      },
+      "type": "array"
+    },
+    "RuleState": {
+      "enum": [
+        "ENABLED",
+        "DISABLED"
+      ],
+      "type": "string"
+    },
+    "RunCommandParameters": {
+      "description": "This parameter contains the criteria (either InstanceIds or a tag) used to specify which EC2 instances are to be sent the command. ",
+      "properties": {
+        "RunCommandTargets": {
+          "$ref": "#/definitions/RunCommandTargets",
+          "description": "Currently, we support including only one RunCommandTarget block, which specifies either an array of InstanceIds or a tag."
+        }
+      },
+      "required": [
+        "RunCommandTargets"
+      ],
+      "type": "object"
+    },
+    "RunCommandTarget": {
+      "description": "Information about the EC2 instances that are to be sent the command, specified as key-value pairs. Each <code>RunCommandTarget</code> block can include only one key, but this key may specify multiple values.",
+      "properties": {
+        "Key": {
+          "$ref": "#/definitions/RunCommandTargetKey",
+          "description": "Can be either <code>tag:</code> <i>tag-key</i> or <code>InstanceIds</code>."
+        },
+        "Values": {
+          "$ref": "#/definitions/RunCommandTargetValues",
+          "description": "If <code>Key</code> is <code>tag:</code> <i>tag-key</i>, <code>Values</code> is a list of tag values. If <code>Key</code> is <code>InstanceIds</code>, <code>Values</code> is a list of Amazon EC2 instance IDs."
+        }
+      },
+      "required": [
+        "Key",
+        "Values"
+      ],
+      "type": "object"
+    },
+    "RunCommandTargetKey": {
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": "^[\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*$",
+      "type": "string"
+    },
+    "RunCommandTargetValue": {
+      "maxLength": 256,
+      "minLength": 1,
+      "type": "string"
+    },
+    "RunCommandTargetValues": {
+      "items": {
+        "$ref": "#/definitions/RunCommandTargetValue"
+      },
+      "maxItems": 50,
+      "minItems": 1,
+      "type": "array"
+    },
+    "RunCommandTargets": {
+      "items": {
+        "$ref": "#/definitions/RunCommandTarget"
+      },
+      "maxItems": 5,
+      "minItems": 1,
+      "type": "array"
+    },
+    "ScheduleExpression": {
+      "maxLength": 256,
+      "type": "string"
+    },
+    "String": {
+      "type": "string"
+    },
+    "Target": {
+      "description": "Targets are the resources to be invoked when a rule is triggered. Target types include EC2 instances, AWS Lambda functions, Amazon Kinesis streams, Amazon ECS tasks, AWS Step Functions state machines, Run Command, and built-in targets.",
+      "properties": {
+        "Arn": {
+          "$ref": "#/definitions/TargetArn",
+          "description": "The Amazon Resource Name (ARN) of the target."
+        },
+        "EcsParameters": {
+          "$ref": "#/definitions/EcsParameters",
+          "description": "Contains the Amazon ECS task definition and task count to be used, if the event target is an Amazon ECS task. For more information about Amazon ECS tasks, see <a href=\"http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html\">Task Definitions </a> in the <i>Amazon EC2 Container Service Developer Guide</i>."
+        },
+        "Id": {
+          "$ref": "#/definitions/TargetId",
+          "description": "The ID of the target."
+        },
+        "Input": {
+          "$ref": "#/definitions/TargetInput",
+          "description": "Valid JSON text passed to the target. In this case, nothing from the event itself is passed to the target. For more information, see <a href=\"http://www.rfc-editor.org/rfc/rfc7159.txt\">The JavaScript Object Notation (JSON) Data Interchange Format</a>."
+        },
+        "InputPath": {
+          "$ref": "#/definitions/TargetInputPath",
+          "description": "The value of the JSONPath that is used for extracting part of the matched event when passing it to the target. For more information about JSON paths, see <a href=\"http://goessner.net/articles/JsonPath/\">JSONPath</a>."
+        },
+        "InputTransformer": {
+          "$ref": "#/definitions/InputTransformer",
+          "description": "Settings to enable you to provide custom input to a target based on certain event data. You can extract one or more key-value pairs from the event and then use that data to send customized input to the target."
+        },
+        "KinesisParameters": {
+          "$ref": "#/definitions/KinesisParameters",
+          "description": "The custom parameter you can use to control shard assignment, when the target is an Amazon Kinesis stream. If you do not include this parameter, the default is to use the <code>eventId</code> as the partition key."
+        },
+        "RoleArn": {
+          "$ref": "#/definitions/RoleArn",
+          "description": "The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. If one rule triggers multiple targets, you can use a different IAM role for each target."
+        },
+        "RunCommandParameters": {
+          "$ref": "#/definitions/RunCommandParameters",
+          "description": "Parameters used when you are using the rule to invoke Amazon EC2 Run Command."
+        }
+      },
+      "required": [
+        "Id",
+        "Arn"
+      ],
+      "type": "object"
+    },
+    "TargetArn": {
+      "maxLength": 1600,
+      "minLength": 1,
+      "type": "string"
+    },
+    "TargetId": {
+      "maxLength": 64,
+      "minLength": 1,
+      "pattern": "[\\.\\-_A-Za-z0-9]+",
+      "type": "string"
+    },
+    "TargetIdList": {
+      "items": {
+        "$ref": "#/definitions/TargetId"
+      },
+      "maxItems": 100,
+      "minItems": 1,
+      "type": "array"
+    },
+    "TargetInput": {
+      "maxLength": 8192,
+      "type": "string"
+    },
+    "TargetInputPath": {
+      "maxLength": 256,
+      "type": "string"
+    },
+    "TargetList": {
+      "items": {
+        "$ref": "#/definitions/Target"
+      },
+      "maxItems": 100,
+      "minItems": 1,
+      "type": "array"
+    },
+    "TargetPartitionKeyPath": {
+      "maxLength": 256,
+      "type": "string"
+    },
+    "TestEventPatternRequest": {
+      "properties": {
+        "Event": {
+          "$ref": "#/definitions/String",
+          "description": "The event, in JSON format, to test against the event pattern."
+        },
+        "EventPattern": {
+          "$ref": "#/definitions/EventPattern",
+          "description": "The event pattern."
+        }
+      },
+      "required": [
+        "EventPattern",
+        "Event"
+      ],
+      "type": "object"
+    },
+    "TestEventPatternResponse": {
+      "properties": {
+        "Result": {
+          "$ref": "#/definitions/Boolean",
+          "description": "Indicates whether the event matches the event pattern."
+        }
+      },
+      "type": "object"
+    },
+    "TransformerInput": {
+      "maxLength": 8192,
+      "minLength": 1,
+      "type": "string"
+    },
+    "TransformerPaths": {
+      "items": {
+        "properties": {
+          "key": {
+            "$ref": "#/definitions/InputTransformerPathKey"
+          },
+          "value": {
+            "$ref": "#/definitions/TargetInputPath"
+          }
+        },
+        "type": "object"
+      },
+      "maxItems": 10,
+      "type": "array"
+    }
+  },
+  "actions": [
+    {
+      "id": "DeleteRule",
+      "title": "DeleteRule",
+      "description": "<p>Deletes the specified rule.</p> <p>You must remove all targets from a rule using <a>RemoveTargets</a> before you can delete the rule.</p> <p>When you delete a rule, incoming events might continue to match to the deleted rule. Please allow a short period of time for changes to take effect.</p>",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/DeleteRuleRequest"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_events": {
+          "integration": "amazonaws_events"
+        }
+      }
+    },
+    {
+      "id": "DescribeRule",
+      "title": "DescribeRule",
+      "description": "Describes the specified rule.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/DescribeRuleRequest"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeRuleResponse"
+      },
+      "security": {
+        "amazonaws_events": {
+          "integration": "amazonaws_events"
+        }
+      }
+    },
+    {
+      "id": "DisableRule",
+      "title": "DisableRule",
+      "description": "<p>Disables the specified rule. A disabled rule won't match any events, and won't self-trigger if it has a schedule expression.</p> <p>When you disable a rule, incoming events might continue to match to the disabled rule. Please allow a short period of time for changes to take effect.</p>",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/DisableRuleRequest"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_events": {
+          "integration": "amazonaws_events"
+        }
+      }
+    },
+    {
+      "id": "EnableRule",
+      "title": "EnableRule",
+      "description": "<p>Enables the specified rule. If the rule does not exist, the operation fails.</p> <p>When you enable a rule, incoming events might not immediately start matching to a newly enabled rule. Please allow a short period of time for changes to take effect.</p>",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/EnableRuleRequest"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_events": {
+          "integration": "amazonaws_events"
+        }
+      }
+    },
+    {
+      "id": "ListRuleNamesByTarget",
+      "title": "ListRuleNamesByTarget",
+      "description": "Lists the rules for the specified target. You can see which of the rules in Amazon CloudWatch Events can invoke a specific target in your account.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/ListRuleNamesByTargetRequest"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListRuleNamesByTargetResponse"
+      },
+      "security": {
+        "amazonaws_events": {
+          "integration": "amazonaws_events"
+        }
+      }
+    },
+    {
+      "id": "ListRules",
+      "title": "ListRules",
+      "description": "Lists your Amazon CloudWatch Events rules. You can either list all the rules or you can provide a prefix to match to the rule names.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/ListRulesRequest"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListRulesResponse"
+      },
+      "security": {
+        "amazonaws_events": {
+          "integration": "amazonaws_events"
+        }
+      }
+    },
+    {
+      "id": "ListTargetsByRule",
+      "title": "ListTargetsByRule",
+      "description": "Lists the targets assigned to the specified rule.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/ListTargetsByRuleRequest"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListTargetsByRuleResponse"
+      },
+      "security": {
+        "amazonaws_events": {
+          "integration": "amazonaws_events"
+        }
+      }
+    },
+    {
+      "id": "PutEvents",
+      "title": "PutEvents",
+      "description": "Sends custom events to Amazon CloudWatch Events so that they can be matched to rules.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/PutEventsRequest"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/PutEventsResponse"
+      },
+      "security": {
+        "amazonaws_events": {
+          "integration": "amazonaws_events"
+        }
+      }
+    },
+    {
+      "id": "PutRule",
+      "title": "PutRule",
+      "description": "<p>Creates or updates the specified rule. Rules are enabled by default, or based on value of the state. You can disable a rule using <a>DisableRule</a>.</p> <p>When you create or update a rule, incoming events might not immediately start matching to new or updated rules. Please allow a short period of time for changes to take effect.</p> <p>A rule must contain at least an EventPattern or ScheduleExpression. Rules with EventPatterns are triggered when a matching event is observed. Rules with ScheduleExpressions self-trigger based on the given schedule. A rule can have both an EventPattern and a ScheduleExpression, in which case the rule triggers on matching events as well as on a schedule.</p> <p>Most services in AWS treat : or / as the same character in Amazon Resource Names (ARNs). However, CloudWatch Events uses an exact match in event patterns and rules. Be sure to use the correct ARN characters when creating event patterns so that they match the ARN syntax in the event you want to match.</p>",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/PutRuleRequest"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/PutRuleResponse"
+      },
+      "security": {
+        "amazonaws_events": {
+          "integration": "amazonaws_events"
+        }
+      }
+    },
+    {
+      "id": "PutTargets",
+      "title": "PutTargets",
+      "description": "<p>Adds the specified targets to the specified rule, or updates the targets if they are already associated with the rule.</p> <p>Targets are the resources that are invoked when a rule is triggered. Example targets include EC2 instances, AWS Lambda functions, Amazon Kinesis streams, Amazon ECS tasks, AWS Step Functions state machines, and built-in targets. Note that creating rules with built-in targets is supported only in the AWS Management Console.</p> <p>For some target types, <code>PutTargets</code> provides target-specific parameters. If the target is an Amazon Kinesis stream, you can optionally specify which shard the event goes to by using the <code>KinesisParameters</code> argument. To invoke a command on multiple EC2 instances with one rule, you can use the <code>RunCommandParameters</code> field.</p> <p>To be able to make API calls against the resources that you own, Amazon CloudWatch Events needs the appropriate permissions. For AWS Lambda and Amazon SNS resources, CloudWatch Events relies on resource-based policies. For EC2 instances, Amazon Kinesis streams, and AWS Step Functions state machines, CloudWatch Events relies on IAM roles that you specify in the <code>RoleARN</code> argument in <code>PutTarget</code>. For more information, see <a href=\"http://docs.aws.amazon.com/AmazonCloudWatch/latest/events/auth-and-access-control-cwe.html\">Authentication and Access Control</a> in the <i>Amazon CloudWatch Events User Guide</i>.</p> <p> <b>Input</b>, <b>InputPath</b> and <b>InputTransformer</b> are mutually exclusive and optional parameters of a target. When a rule is triggered due to a matched event:</p> <ul> <li> <p>If none of the following arguments are specified for a target, then the entire event is passed to the target in JSON form (unless the target is Amazon EC2 Run Command or Amazon ECS task, in which case nothing from the event is passed to the target).</p> </li> <li> <p>If <b>Input</b> is specified in the form of valid JSON, then the matched event is overridden with this constant.</p> </li> <li> <p>If <b>InputPath</b> is specified in the form of JSONPath (for example, <code>$.detail</code>), then only the part of the event specified in the path is passed to the target (for example, only the detail part of the event is passed). </p> </li> <li> <p>If <b>InputTransformer</b> is specified, then one or more specified JSONPaths are extracted from the event and used as values in a template that you specify as the input to the target.</p> </li> </ul> <p>When you add targets to a rule and the associated rule triggers soon after, new or updated targets might not be immediately invoked. Please allow a short period of time for changes to take effect.</p>",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/PutTargetsRequest"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/PutTargetsResponse"
+      },
+      "security": {
+        "amazonaws_events": {
+          "integration": "amazonaws_events"
+        }
+      }
+    },
+    {
+      "id": "RemoveTargets",
+      "title": "RemoveTargets",
+      "description": "<p>Removes the specified targets from the specified rule. When the rule is triggered, those targets are no longer be invoked.</p> <p>When you remove a target, when the associated rule triggers, removed targets might continue to be invoked. Please allow a short period of time for changes to take effect.</p>",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/RemoveTargetsRequest"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/RemoveTargetsResponse"
+      },
+      "security": {
+        "amazonaws_events": {
+          "integration": "amazonaws_events"
+        }
+      }
+    },
+    {
+      "id": "TestEventPattern",
+      "title": "TestEventPattern",
+      "description": "<p>Tests whether the specified event pattern matches the provided event.</p> <p>Most services in AWS treat : or / as the same character in Amazon Resource Names (ARNs). However, CloudWatch Events uses an exact match in event patterns and rules. Be sure to use the correct ARN characters when creating event patterns so that they match the ARN syntax in the event you want to match.</p>",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/TestEventPatternRequest"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/TestEventPatternResponse"
+      },
+      "security": {
+        "amazonaws_events": {
+          "integration": "amazonaws_events"
+        }
+      }
+    }
+  ]
+}

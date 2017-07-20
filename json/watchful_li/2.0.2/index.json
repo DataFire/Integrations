@@ -1,0 +1,2237 @@
+{
+  "id": "watchful_li",
+  "title": "watchful.li",
+  "description": "",
+  "security": {},
+  "logo": {
+    "backgroundColor": "#1B4E65",
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/watchful_li.svg"
+  },
+  "tags": [],
+  "definitions": {
+    "Audit": {
+      "properties": {
+        "id": {
+          "description": "Unique identifier for the audit",
+          "format": "int64",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "id"
+      ]
+    },
+    "Audits": {
+      "items": {
+        "$ref": "#/definitions/Audit"
+      },
+      "type": "array"
+    },
+    "Extension": {
+      "properties": {
+        "date": {
+          "description": "Date of release",
+          "type": "string"
+        },
+        "ext_name": {
+          "description": "Extension name",
+          "type": "string"
+        },
+        "idx_site": {
+          "description": "Unique identifier for the site",
+          "format": "int64",
+          "type": "integer"
+        },
+        "newVersion": {
+          "description": "New version",
+          "type": "string"
+        },
+        "type": {
+          "description": "Datetime of the log",
+          "format": "date-format",
+          "type": "string"
+        },
+        "url": {
+          "description": "Author URL",
+          "type": "string"
+        },
+        "vUpdate": {
+          "description": "Update is available",
+          "type": "integer"
+        },
+        "version": {
+          "description": "Extension version",
+          "type": "string"
+        }
+      },
+      "required": [
+        "idx_site",
+        "type"
+      ]
+    },
+    "Feedback": {
+      "properties": {
+        "id": {
+          "description": "Unique identifier for the feedback",
+          "format": "int64",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "id"
+      ]
+    },
+    "Log": {
+      "properties": {
+        "Site name": {
+          "description": "Name of the site / readyonly",
+          "type": "string"
+        },
+        "id_log": {
+          "description": "Unique identifier for the log",
+          "format": "int64",
+          "type": "integer"
+        },
+        "idx_site": {
+          "description": "Unique identifier for the site",
+          "format": "int64",
+          "type": "integer"
+        },
+        "log_date": {
+          "description": "Datetime of the log",
+          "format": "date-format",
+          "type": "string"
+        },
+        "log_entry": {
+          "description": "Log information",
+          "type": "string"
+        },
+        "log_level": {
+          "description": "Level of log",
+          "format": "int64",
+          "type": "integer"
+        },
+        "log_type": {
+          "description": "Type of log",
+          "type": "string"
+        },
+        "userid": {
+          "description": "Unique identifier for the user",
+          "format": "int64",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "id_log",
+        "idx_site",
+        "log_date",
+        "log_entry",
+        "log_level",
+        "userid"
+      ]
+    },
+    "Monitor": {},
+    "PostLog": {
+      "properties": {
+        "log_date": {
+          "description": "Datetime of the log",
+          "format": "date-format",
+          "type": "string"
+        },
+        "log_entry": {
+          "description": "Log information",
+          "type": "string"
+        },
+        "log_level": {
+          "description": "Level of log",
+          "format": "int64",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "log_entry",
+        "log_level"
+      ]
+    },
+    "PostSite": {
+      "properties": {
+        "access_url": {
+          "description": "URL of the site",
+          "type": "string"
+        },
+        "admin_url": {
+          "description": "Adminsitration URL",
+          "type": "string"
+        },
+        "akeebaProfile": {
+          "description": "Akeeba Profile",
+          "format": "date-format",
+          "type": "string"
+        },
+        "backupSchedule": {
+          "description": "Backup Schedule",
+          "type": "string"
+        },
+        "dateBackup": {
+          "description": "Date backup",
+          "format": "date-format",
+          "type": "string"
+        },
+        "name": {
+          "description": "Friendly name for the site",
+          "type": "string"
+        },
+        "notes": {
+          "description": "Personnal note for the site",
+          "type": "string"
+        },
+        "published": {
+          "description": "Published status of site",
+          "type": "boolean"
+        },
+        "secret_word": {
+          "description": "Watchful secret word",
+          "type": "string"
+        },
+        "tags": {
+          "description": "JSON encoded array of tags for the site (e.g. [{<q>name</q>:<q>mytag</q>},{<q>name</q>:<q>anothertag</q>}])",
+          "format": "json",
+          "type": "string"
+        },
+        "word_akeeba": {
+          "description": "Akeeba backup word",
+          "type": "string"
+        },
+        "word_check": {
+          "description": "Word checked for uptime",
+          "type": "string"
+        }
+      },
+      "required": [
+        "access_url"
+      ]
+    },
+    "Reports": {},
+    "Site": {
+      "properties": {
+        "access_url": {
+          "description": "URL of the site",
+          "type": "string"
+        },
+        "admin_url": {
+          "description": "Adminsitration URL",
+          "type": "string"
+        },
+        "akeebaProfile": {
+          "description": "Akeeba Profile",
+          "format": "date-format",
+          "type": "string"
+        },
+        "backupSchedule": {
+          "description": "Backup Schedule",
+          "type": "string"
+        },
+        "canBackup": {
+          "description": "Site can be backuped",
+          "type": "boolean"
+        },
+        "canUpdate": {
+          "description": "Site can use remote installer",
+          "type": "boolean"
+        },
+        "dateBackup": {
+          "description": "Date backup",
+          "format": "date-format",
+          "type": "string"
+        },
+        "date_last_check": {
+          "description": "Watchful Last check",
+          "format": "date-format",
+          "type": "string"
+        },
+        "error": {
+          "description": "Error status of site",
+          "type": "boolean"
+        },
+        "ip": {
+          "description": "server IP",
+          "type": "string"
+        },
+        "jUpdate": {
+          "description": "?",
+          "type": "boolean"
+        },
+        "j_version": {
+          "description": "Joomla site version",
+          "type": "string"
+        },
+        "monitorid": {
+          "description": "Id of the associated UptimeRobot monitor",
+          "type": "boolean"
+        },
+        "name": {
+          "description": "Friendly name for the site",
+          "type": "string"
+        },
+        "nbUpdates": {
+          "description": "Number of updates",
+          "format": "date-format",
+          "type": "string"
+        },
+        "new_j_version": {
+          "description": "Joomla site version",
+          "type": "string"
+        },
+        "notes": {
+          "description": "Personnal note for the site",
+          "type": "string"
+        },
+        "published": {
+          "description": "Published status of site",
+          "type": "boolean"
+        },
+        "secret_word": {
+          "description": "Watchful secret word",
+          "type": "string"
+        },
+        "siteid": {
+          "description": "Unique identifier for the site",
+          "format": "int64",
+          "type": "integer"
+        },
+        "tags": {
+          "description": "List of tags for this site",
+          "items": {},
+          "type": "array"
+        },
+        "up": {
+          "description": "Site status",
+          "type": "boolean"
+        },
+        "word_akeeba": {
+          "description": "Akeeba backup word",
+          "type": "string"
+        },
+        "word_check": {
+          "description": "Word checked for uptime",
+          "type": "string"
+        }
+      },
+      "required": [
+        "siteid"
+      ]
+    },
+    "SsoUsers": {
+      "properties": {
+        "email": {
+          "description": "Email of the SSO User",
+          "type": "string"
+        },
+        "groupid": {
+          "description": "Security Joomla group ID",
+          "format": "int64",
+          "type": "integer"
+        },
+        "id": {
+          "description": "Unique identifier for the SSO User",
+          "format": "int64",
+          "type": "integer"
+        },
+        "lastLoginDate": {
+          "description": "Last login date on remote site",
+          "format": "date-time",
+          "type": "string"
+        },
+        "lastLoginSite": {
+          "description": "Site Id of the last remote login",
+          "format": "int64",
+          "type": "integer"
+        },
+        "name": {
+          "description": "Account display name",
+          "type": "string"
+        },
+        "password": {
+          "description": "Password of the SSO User",
+          "type": "string"
+        },
+        "userid": {
+          "description": "Watchful user account",
+          "format": "int64",
+          "type": "integer"
+        },
+        "username": {
+          "description": "Username of the SSO User",
+          "type": "string"
+        }
+      },
+      "required": [
+        "email",
+        "groupid",
+        "id",
+        "name",
+        "password",
+        "userid",
+        "username"
+      ]
+    },
+    "Tag": {
+      "properties": {
+        "id": {
+          "description": "Unique identifier for the tag",
+          "format": "int64",
+          "type": "integer"
+        },
+        "name": {
+          "description": "Friendly name for the tag",
+          "type": "string"
+        },
+        "nbSites": {
+          "description": "Number of sites use this tag (required field id)",
+          "type": "integer"
+        },
+        "type": {
+          "default": "default",
+          "description": "Bootstrap color of the tag",
+          "enum": [
+            "default",
+            "success",
+            "warning",
+            "important",
+            "info",
+            "inverse"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "name"
+      ]
+    },
+    "Uptime": {},
+    "Version": {}
+  },
+  "actions": [
+    {
+      "id": "getAudits",
+      "title": "getAudits",
+      "description": "Returns a list of audits",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "limit": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Number of object to return (max 100, default 25)",
+            "minimum": 1
+          },
+          "limitstart": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Start of the return (default 0)",
+            "minimum": 0
+          },
+          "order": {
+            "type": "string",
+            "description": "ORDER by this field separete by comas. Add + / - after field for set ASC / DESC: type+,name-"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Audit"
+      }
+    },
+    {
+      "id": "CreateAudits",
+      "title": "CreateAudits",
+      "description": "Create a audit",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/Audit"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Audit"
+      }
+    },
+    {
+      "id": "getFieldsAudits",
+      "title": "getFieldsAudits",
+      "description": "Returns a list of fields",
+      "inputSchema": {},
+      "outputSchema": {
+        "type": "string"
+      }
+    },
+    {
+      "id": "deleteAuditById",
+      "title": "deleteAuditById",
+      "description": "Delete a specific audit",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "ID of audit that needs to be deleted",
+            "minimum": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "type": "string"
+      }
+    },
+    {
+      "id": "getAuditById",
+      "title": "getAuditById",
+      "description": "Returns a audit based on ID",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "ID of audit that needs to be fetched",
+            "minimum": 1
+          },
+          "fields": {
+            "type": "string",
+            "description": "Fields to return separate by comas: name,id"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Audit"
+      }
+    },
+    {
+      "id": "getExtensions",
+      "title": "getExtensions",
+      "description": "Returns a list Extensions",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "ext_name": {
+            "type": "string",
+            "description": "Do a 'LIKE' search, you can also use '%'"
+          },
+          "siteids": {
+            "type": "string",
+            "description": "List of sites id separated by comma"
+          },
+          "ext_prefix": {
+            "type": "string",
+            "description": "Do a 'LIKE' search, you can also use '%'. technical name of the extension com_xxxx"
+          },
+          "version": {
+            "type": "string",
+            "description": "Do a 'LIKE' search, you can also use '%'"
+          },
+          "vUpdate": {
+            "type": "integer",
+            "description": "update available for this extension",
+            "enum": [
+              1,
+              0
+            ]
+          },
+          "fields": {
+            "type": "string",
+            "description": "Fields to return separate by comas: name,id"
+          },
+          "limit": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Number of object to return (max 100, default 25)",
+            "minimum": 1
+          },
+          "limitstart": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Start of the return (default 0)",
+            "minimum": 0
+          },
+          "order": {
+            "type": "string",
+            "description": "ORDER by this field separete by comas. Add + / - after field for set ASC / DESC: type+,name-"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Extension"
+      }
+    },
+    {
+      "id": "getFieldsExtensions",
+      "title": "getFieldsExtensions",
+      "description": "Returns a list of fields",
+      "inputSchema": {},
+      "outputSchema": {
+        "type": "string"
+      }
+    },
+    {
+      "id": "ignoreExtensionUpdate",
+      "title": "ignoreExtensionUpdate",
+      "description": "Set 'ignore updates' for a given extension / site_id",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "ID of the extension",
+            "minimum": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "type": "string"
+      }
+    },
+    {
+      "id": "unignoreExtensionUpdate",
+      "title": "unignoreExtensionUpdate",
+      "description": "Remove 'ignore updates' for a given extension",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "ID of the extension",
+            "minimum": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "type": "string"
+      }
+    },
+    {
+      "id": "updateExtension",
+      "title": "updateExtension",
+      "description": "Update the extension on the remote site",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "ID of the extension",
+            "minimum": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "type": "string"
+      }
+    },
+    {
+      "id": "getFeedbacks",
+      "title": "getFeedbacks",
+      "description": "Returns a list of feedbacks",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "fields": {
+            "type": "string",
+            "description": "Fields to return separate by comas (es. name,id)"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Feedback"
+      }
+    },
+    {
+      "id": "createFeedbacks",
+      "title": "createFeedbacks",
+      "description": "Create a feedback",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/Feedback"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Audit"
+      }
+    },
+    {
+      "id": "getFieldsFeedbacks",
+      "title": "getFieldsFeedbacks",
+      "description": "Returns a list of fields",
+      "inputSchema": {},
+      "outputSchema": {
+        "type": "string"
+      }
+    },
+    {
+      "id": "logs.get",
+      "title": "logs.get",
+      "description": "Returns a list of logs",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "log_type": {
+            "type": "string",
+            "description": "Type of the log",
+            "enum": [
+              "",
+              "plugin_sends_error",
+              "curlerror",
+              "modified_file",
+              "word_not_in_homepage",
+              "file_not_exists",
+              "update_available",
+              "new_extension",
+              "deleted_extension",
+              "extension_not_saved",
+              "modified_value_files",
+              "custom"
+            ]
+          },
+          "log_entry": {
+            "type": "string",
+            "description": "Do a 'LIKE' search, you can also use '%'"
+          },
+          "from": {
+            "type": "string",
+            "description": "Logs after this date, format YYYY-MM-DD HH:MM:SS"
+          },
+          "to": {
+            "type": "string",
+            "description": "Logs before this date, format YYYY-MM-DD HH:MM:SS"
+          },
+          "fields": {
+            "type": "string",
+            "description": "Fields to return separate by comas: name,id"
+          },
+          "limit": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Number of object to return (max 100, default 25)",
+            "minimum": 1
+          },
+          "limitstart": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Start of the return (default 0)",
+            "minimum": 0
+          },
+          "order": {
+            "type": "string",
+            "description": "ORDER by this field separete by comas. Add + / - after field for set ASC / DESC: type+,name-"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Log"
+      }
+    },
+    {
+      "id": "getExportLogs",
+      "title": "getExportLogs",
+      "description": "Returns a file contain the list of logs",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "description": "Format of exported file (PDF or CSV)",
+            "enum": [
+              "csv",
+              "pdf"
+            ]
+          },
+          "site": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Site id of the log"
+          },
+          "filter_type": {
+            "type": "string",
+            "description": "Type of the log",
+            "enum": [
+              "",
+              "plugin_sends_error",
+              "curlerror",
+              "modified_file",
+              "word_not_in_homepage",
+              "file_not_exists",
+              "update_available",
+              "new_extension",
+              "deleted_extension",
+              "extension_not_saved",
+              "modified_value_files",
+              "custom"
+            ]
+          },
+          "search": {
+            "type": "string",
+            "description": "Do a 'LIKE' search, you can also use '%'"
+          },
+          "startdate": {
+            "type": "string",
+            "description": "Logs after this date, format YYYY-MM-DD HH:MM:SS"
+          },
+          "enddate": {
+            "type": "string",
+            "description": "Logs before this date, format YYYY-MM-DD HH:MM:SS"
+          },
+          "limit": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Number of object to return (max 100, default 25)",
+            "minimum": 1
+          },
+          "startid": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Start of the return (default 0)",
+            "minimum": 0
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getFieldsLogs",
+      "title": "getFieldsLogs",
+      "description": "Returns a list of fields",
+      "inputSchema": {},
+      "outputSchema": {
+        "type": "string"
+      }
+    },
+    {
+      "id": "getTypesLogs",
+      "title": "getTypesLogs",
+      "description": "Returns a list of log types",
+      "inputSchema": {},
+      "outputSchema": {
+        "type": "string"
+      }
+    },
+    {
+      "id": "deleteLogById",
+      "title": "deleteLogById",
+      "description": "Delete a specific log",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "ID of log that needs to be deleted",
+            "minimum": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "type": "string"
+      }
+    },
+    {
+      "id": "uploadZipPackage",
+      "title": "uploadZipPackage",
+      "description": "Upload a ZIP package",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "file": {
+            "type": "string",
+            "description": "ZIP package"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "file"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Tag"
+      }
+    },
+    {
+      "id": "reports.sites.id.get",
+      "title": "reports.sites.id.get",
+      "description": "Returns a PDF report based on a site ID",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "ID that needs to be fetched",
+            "minimum": 1
+          },
+          "from": {
+            "type": "string",
+            "description": "Start of the report, format YYYY-MM-DD, default today-30day "
+          },
+          "to": {
+            "type": "string",
+            "description": "End of the report, format YYYY-MM-DD, default today"
+          },
+          "reports": {
+            "type": "string",
+            "description": "Type of reports separate by comas: Ga,Logs,Uptime"
+          },
+          "log_type": {
+            "type": "string",
+            "description": "Type of the log to show in the report",
+            "enum": [
+              "",
+              "plugin_sends_error",
+              "curlerror",
+              "modified_file",
+              "word_not_in_homepage",
+              "file_not_exists",
+              "update_available",
+              "new_extension",
+              "deleted_extension",
+              "extension_not_saved",
+              "modified_value_files"
+            ]
+          },
+          "compare": {
+            "type": "integer",
+            "description": "Define if you want show previous values in Google Analytics graph",
+            "enum": [
+              0,
+              1
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Reports"
+      }
+    },
+    {
+      "id": "reports.tags.id.get",
+      "title": "reports.tags.id.get",
+      "description": "Returns a report based on a site ID",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "ID that needs to be fetched",
+            "minimum": 1
+          },
+          "from": {
+            "type": "string",
+            "description": "Start of the report, format YYYY-MM-DD, default today-30day "
+          },
+          "to": {
+            "type": "string",
+            "description": "End of the report, format YYYY-MM-DD, default today"
+          },
+          "reports": {
+            "type": "string",
+            "description": "Type of reports separate by comas: Ga,Logs,Uptime"
+          },
+          "log_type": {
+            "type": "string",
+            "description": "Type of the log to show in the report",
+            "enum": [
+              "",
+              "plugin_sends_error",
+              "curlerror",
+              "modified_file",
+              "word_not_in_homepage",
+              "file_not_exists",
+              "update_available",
+              "new_extension",
+              "deleted_extension",
+              "extension_not_saved",
+              "modified_value_files"
+            ]
+          },
+          "compare": {
+            "type": "integer",
+            "description": "Define if you want show previous values in Google Analytics graph",
+            "enum": [
+              0,
+              1
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Reports"
+      }
+    },
+    {
+      "id": "getSites",
+      "title": "getSites",
+      "description": "Returns a list of Sites",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "siteids": {
+            "type": "string",
+            "description": "List of sites id separated by comma"
+          },
+          "name": {
+            "type": "string",
+            "description": "Site name. Do a 'LIKE' search, you can also use '%'"
+          },
+          "access_url": {
+            "type": "string",
+            "description": "Access URL. Do a 'LIKE' search, you can also use '%'"
+          },
+          "j_version": {
+            "type": "string",
+            "description": "Joomla version. Do a 'LIKE' search, you can also use '%'"
+          },
+          "ip": {
+            "type": "string",
+            "description": "Ip address. Do a 'LIKE' search, you can also use '%'"
+          },
+          "jUpdate": {
+            "type": "integer",
+            "description": "Joomla core update status (1: update required, 0: update not required)",
+            "enum": [
+              1,
+              0
+            ]
+          },
+          "canUpdate": {
+            "type": "integer",
+            "description": "canUpdate",
+            "enum": [
+              1,
+              0
+            ]
+          },
+          "published": {
+            "type": "integer",
+            "description": "Is published",
+            "enum": [
+              1,
+              0
+            ]
+          },
+          "error": {
+            "type": "string",
+            "description": "Has errors"
+          },
+          "nbUpdates": {
+            "type": "string"
+          },
+          "up": {
+            "type": "integer",
+            "description": "Is online",
+            "enum": [
+              1,
+              0
+            ]
+          },
+          "fields": {
+            "type": "string",
+            "description": "Fields to return separated by commas (e.g. name,id)"
+          },
+          "limit": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Number of objects to return (max 100, default 25)",
+            "minimum": 1
+          },
+          "limitstart": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Start of the return (default 0)",
+            "minimum": 0
+          },
+          "order": {
+            "type": "string",
+            "description": "ORDER by this field separete by comas. Add + / - after field for set ASC / DESC: type+,name-"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Site"
+      }
+    },
+    {
+      "id": "createSite",
+      "title": "createSite",
+      "description": "Create a site",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/PostSite"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Site"
+      }
+    },
+    {
+      "id": "sites.metadata.get",
+      "title": "sites.metadata.get",
+      "description": "Returns a list of fields",
+      "inputSchema": {},
+      "outputSchema": {
+        "type": "string"
+      }
+    },
+    {
+      "id": "sites.id.delete",
+      "title": "sites.id.delete",
+      "description": "Delete a specific Site",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "ID of Site that needs to be deleted",
+            "minimum": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "type": "string"
+      }
+    },
+    {
+      "id": "getSiteById",
+      "title": "getSiteById",
+      "description": "Return a site based on ID",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "ID that needs to be fetched",
+            "minimum": 1
+          },
+          "fields": {
+            "type": "string",
+            "description": "Fields to return separate by comas: name,id"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Site"
+      }
+    },
+    {
+      "id": "sites.id.put",
+      "title": "sites.id.put",
+      "description": "Update a site",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "ID of the website that needs to be update",
+            "minimum": 1
+          },
+          "body": {
+            "$ref": "#/definitions/PostSite"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Site"
+      }
+    },
+    {
+      "id": "getSiteAudits",
+      "title": "getSiteAudits",
+      "description": "Return audits for a specific website",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "ID of the website",
+            "minimum": 1
+          },
+          "fields": {
+            "type": "string",
+            "description": "Fields to return separate by comas: name,id"
+          },
+          "limit": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Number of object to return (max 100, default 25)",
+            "minimum": 1
+          },
+          "limitstart": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Start of the return (default 0)",
+            "minimum": 0
+          },
+          "order": {
+            "type": "string",
+            "description": "ORDER by this field"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Audits"
+      }
+    },
+    {
+      "id": "createAudits",
+      "title": "createAudits",
+      "description": "Create an audit for the site",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "ID of the website",
+            "minimum": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Audit"
+      }
+    },
+    {
+      "id": "addSiteToBackupQueue",
+      "title": "addSiteToBackupQueue",
+      "description": "Add the site to the backup queue",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "ID of the website",
+            "minimum": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Site"
+      }
+    },
+    {
+      "id": "getBackupProfiles",
+      "title": "getBackupProfiles",
+      "description": "Return backup profile",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "ID of the website",
+            "minimum": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getListBackups",
+      "title": "getListBackups",
+      "description": "List of latest backups",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "ID of the website",
+            "minimum": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "startSiteBackup",
+      "title": "startSiteBackup",
+      "description": "Start a remote backup for the site",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "ID of the website",
+            "minimum": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Site"
+      }
+    },
+    {
+      "id": "stepSiteBackup",
+      "title": "stepSiteBackup",
+      "description": "Step (continue) a remote backup for the site",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "ID of the website",
+            "minimum": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Site"
+      }
+    },
+    {
+      "id": "sites.id.extensions.get",
+      "title": "sites.id.extensions.get",
+      "description": "Get extensions for a site",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "ID of the website",
+            "minimum": 1
+          },
+          "fields": {
+            "type": "string",
+            "description": "Fields to return separate by comas: name,id"
+          },
+          "limit": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Number of object to return (max 100, default 25)",
+            "minimum": 1
+          },
+          "limitstart": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Start of the return (default 0)",
+            "minimum": 0
+          },
+          "order": {
+            "type": "string",
+            "description": "ORDER by this field"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Extension"
+      }
+    },
+    {
+      "id": "installExtension",
+      "title": "installExtension",
+      "description": "Install extension",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "ID of the website",
+            "minimum": 1
+          },
+          "url": {
+            "type": "string",
+            "format": "url",
+            "description": "URL to install the extension from"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "url"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "sites.id.logs.get",
+      "title": "sites.id.logs.get",
+      "description": "Return logs for a specific website",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "ID of the website",
+            "minimum": 1
+          },
+          "log_entry": {
+            "type": "string",
+            "description": "Do a 'LIKE' search, you can also use '%'"
+          },
+          "log_type": {
+            "type": "string",
+            "description": "Type of the log",
+            "enum": [
+              "",
+              "plugin_sends_error",
+              "curlerror",
+              "modified_file",
+              "word_not_in_homepage",
+              "file_not_exists",
+              "update_available",
+              "new_extension",
+              "deleted_extension",
+              "extension_not_saved",
+              "modified_value_files"
+            ]
+          },
+          "from": {
+            "type": "string",
+            "description": "Logs after this date, format YYYY-MM-DD HH:MM:SS"
+          },
+          "to": {
+            "type": "string",
+            "description": "Logs before this date, format YYYY-MM-DD HH:MM:SS"
+          },
+          "fields": {
+            "type": "string",
+            "description": "Fields to return separate by comas: name,id"
+          },
+          "limit": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Number of object to return (max 100, default 25)",
+            "minimum": 1
+          },
+          "limitstart": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Start of the return (default 0)",
+            "minimum": 0
+          },
+          "order": {
+            "type": "string",
+            "description": "ORDER by this field separete by comas. Add + / - after field for set ASC / DESC: type+,name-"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Log"
+      }
+    },
+    {
+      "id": "CreateLog",
+      "title": "CreateLog",
+      "description": "Create a custom log for a specific website",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "ID of the website",
+            "minimum": 1
+          },
+          "body": {
+            "$ref": "#/definitions/PostLog"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Log"
+      }
+    },
+    {
+      "id": "deleteMonitor",
+      "title": "deleteMonitor",
+      "description": "Return boolean",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "ID of the website",
+            "minimum": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Monitor"
+      }
+    },
+    {
+      "id": "postMonitor",
+      "title": "postMonitor",
+      "description": "Return boolean",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "ID of the website",
+            "minimum": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Monitor"
+      }
+    },
+    {
+      "id": "scanner",
+      "title": "scanner",
+      "description": "Scan the site for malware",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "ID of the website",
+            "minimum": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "type": "string"
+      }
+    },
+    {
+      "id": "sites.id.tags.get",
+      "title": "sites.id.tags.get",
+      "description": "Return tags for a specific website",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "ID of the website",
+            "minimum": 1
+          },
+          "name": {
+            "type": "string",
+            "description": "Do a 'LIKE' search, you can also use '%'"
+          },
+          "type": {
+            "type": "string",
+            "description": "Bootstrap color of the tag",
+            "enum": [
+              "",
+              "default",
+              "success",
+              "warning",
+              "important",
+              "info",
+              "inverse"
+            ]
+          },
+          "fields": {
+            "type": "string",
+            "description": "Fields to return separate by comas: name,id"
+          },
+          "limit": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Number of object to return (max 100, default 25)",
+            "minimum": 1
+          },
+          "limitstart": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Start of the return (default 0)",
+            "minimum": 0
+          },
+          "order": {
+            "type": "string",
+            "description": "ORDER by this field"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Tag"
+      }
+    },
+    {
+      "id": "postTags",
+      "title": "postTags",
+      "description": "Add tags for a specific website",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "ID of the website",
+            "minimum": 1
+          },
+          "body": {
+            "$ref": "#/definitions/Tag"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Site"
+      }
+    },
+    {
+      "id": "updateJoomla",
+      "title": "updateJoomla",
+      "description": "Update Joomla core on the remote site",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "ID of the website",
+            "minimum": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "type": "string"
+      }
+    },
+    {
+      "id": "getUptime",
+      "title": "getUptime",
+      "description": "Return uptime data",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "ID of the website",
+            "minimum": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Uptime"
+      }
+    },
+    {
+      "id": "validateSite",
+      "title": "validateSite",
+      "description": "validate the site",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "ID of the website",
+            "minimum": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Log"
+      }
+    },
+    {
+      "id": "validateDebugSite",
+      "title": "validateDebugSite",
+      "description": "validate the site, return the debug information",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "ID of the website",
+            "minimum": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Log"
+      }
+    },
+    {
+      "id": "getSsoUsers",
+      "title": "getSsoUsers",
+      "description": "Returns a list of SSO Users",
+      "inputSchema": {},
+      "outputSchema": {
+        "$ref": "#/definitions/SsoUsers"
+      }
+    },
+    {
+      "id": "CreateSsoUsers",
+      "title": "CreateSsoUsers",
+      "description": "Create a SSO User",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/SsoUsers"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/SsoUsers"
+      }
+    },
+    {
+      "id": "deleteSsoUserById",
+      "title": "deleteSsoUserById",
+      "description": "Delete a specific SSO User",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "ID of SSO User that needs to be deleted",
+            "minimum": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "type": "string"
+      }
+    },
+    {
+      "id": "getSsoUsersById",
+      "title": "getSsoUsersById",
+      "description": "Returns a SSO User based on ID",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "ID of SSO User that needs to be fetched",
+            "minimum": 1
+          },
+          "fields": {
+            "type": "string",
+            "description": "Fields to return separate by comas: name,id"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/SsoUsers"
+      }
+    },
+    {
+      "id": "UpdateSsoUsers",
+      "title": "UpdateSsoUsers",
+      "description": "Update a SSO User",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "ID of SSO User that needs to be updated",
+            "minimum": 1
+          },
+          "body": {
+            "$ref": "#/definitions/SsoUsers"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/SsoUsers"
+      }
+    },
+    {
+      "id": "tags.get",
+      "title": "tags.get",
+      "description": "Returns a list of tags",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Do a 'LIKE' search, you can also use '%'"
+          },
+          "type": {
+            "type": "string",
+            "description": "Bootstrap color of the tag",
+            "enum": [
+              "",
+              "default",
+              "success",
+              "warning",
+              "important",
+              "info",
+              "inverse"
+            ]
+          },
+          "fields": {
+            "type": "string",
+            "description": "Fields to return separate by comas: name,id"
+          },
+          "limit": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Number of object to return (max 100, default 25)",
+            "minimum": 1
+          },
+          "limitstart": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Start of the return (default 0)",
+            "minimum": 0
+          },
+          "order": {
+            "type": "string",
+            "description": "ORDER by this field separete by comas. Add + / - after field for set ASC / DESC: type+,name-"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Tag"
+      }
+    },
+    {
+      "id": "CreateTags",
+      "title": "CreateTags",
+      "description": "Create a tag",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/Tag"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Tag"
+      }
+    },
+    {
+      "id": "tags.metadata.get",
+      "title": "tags.metadata.get",
+      "description": "Returns a list of fields",
+      "inputSchema": {},
+      "outputSchema": {
+        "type": "string"
+      }
+    },
+    {
+      "id": "tags.id.delete",
+      "title": "tags.id.delete",
+      "description": "Delete a specific tag",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "ID of tag that needs to be deleted",
+            "minimum": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "type": "string"
+      }
+    },
+    {
+      "id": "getTagById",
+      "title": "getTagById",
+      "description": "Returns a tag based on ID",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "ID of tag that needs to be fetched",
+            "minimum": 1
+          },
+          "fields": {
+            "type": "string",
+            "description": "Fields to return separate by comas: name,id"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Tag"
+      }
+    },
+    {
+      "id": "UpdateTag",
+      "title": "UpdateTag",
+      "description": "Update a tag",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "ID of tag",
+            "minimum": 1
+          },
+          "body": {
+            "$ref": "#/definitions/Tag"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Tag"
+      }
+    },
+    {
+      "id": "getSitesByTags",
+      "title": "getSitesByTags",
+      "description": "Returns a list of sites based with a specific tag id",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "ID of tag that needs to be fetched",
+            "minimum": 1
+          },
+          "name": {
+            "type": "string",
+            "description": "Do a 'LIKE' search, you can also use '%'"
+          },
+          "access_url": {
+            "type": "string",
+            "description": "Do a 'LIKE' search, you can also use '%'"
+          },
+          "j_version": {
+            "type": "string",
+            "description": "Do a 'LIKE' search, you can also use '%'"
+          },
+          "ip": {
+            "type": "string",
+            "description": "Do a 'LIKE' search, you can also use '%'"
+          },
+          "jUpdate": {
+            "type": "integer",
+            "description": "Joomla core update",
+            "enum": [
+              1,
+              0
+            ]
+          },
+          "published": {
+            "type": "integer",
+            "description": "is published",
+            "enum": [
+              1,
+              0
+            ]
+          },
+          "error": {
+            "type": "string",
+            "description": "have errors"
+          },
+          "nbUpdates": {
+            "type": "string"
+          },
+          "up": {
+            "type": "integer",
+            "description": "is the website online",
+            "enum": [
+              1,
+              0
+            ]
+          },
+          "fields": {
+            "type": "string",
+            "description": "Fields to return separate by comas: name,id"
+          },
+          "limit": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Number of object to return (max 100, default 25)",
+            "minimum": 1
+          },
+          "limitstart": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Start of the return (default 0)",
+            "minimum": 0
+          },
+          "order": {
+            "type": "string",
+            "description": "ORDER by this field separete by comas. Add + / - after field for set ASC / DESC: type+,name-"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Site"
+      }
+    },
+    {
+      "id": "getVersions",
+      "title": "getVersions",
+      "description": "Get list of versions",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "fields": {
+            "type": "string",
+            "description": "Fields to return separate by comas: name,id"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Version"
+      }
+    },
+    {
+      "id": "getVersion",
+      "title": "getVersion",
+      "description": "Find a version by ID",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "ID of version that needs to be fetched",
+            "minimum": 1
+          },
+          "fields": {
+            "type": "string",
+            "description": "Fields to return separate by commas: name,id"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Version"
+      }
+    }
+  ]
+}

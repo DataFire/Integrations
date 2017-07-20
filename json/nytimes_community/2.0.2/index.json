@@ -1,0 +1,832 @@
+{
+  "id": "nytimes_community",
+  "title": "Community",
+  "description": "Get access to comments from registered users on New York Times articles.  NOTE: This API is deprecated.",
+  "security": {
+    "nytimes_community": {
+      "integration": "nytimes_community",
+      "fields": {
+        "api-key": "API key"
+      }
+    }
+  },
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/nytimes_community.png"
+  },
+  "tags": [
+    "media",
+    "open data"
+  ],
+  "definitions": {},
+  "actions": [
+    {
+      "id": "user_content.by_date.json.get",
+      "title": "user_content.by_date.json.get",
+      "description": "Comments by Date",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "date": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "properties": {
+          "copyright": {
+            "type": "string"
+          },
+          "debug": {
+            "properties": {
+              "version": {
+                "type": "number"
+              }
+            },
+            "type": "object"
+          },
+          "results": {
+            "properties": {
+              "api_timestamp": {
+                "type": "string"
+              },
+              "comments": {
+                "items": {
+                  "properties": {
+                    "approveDate": {
+                      "type": "string"
+                    },
+                    "assetID": {
+                      "type": "integer"
+                    },
+                    "assetURL": {
+                      "type": "string"
+                    },
+                    "commentBody": {
+                      "type": "string"
+                    },
+                    "commentID": {
+                      "type": "integer"
+                    },
+                    "commentSequence": {
+                      "type": "integer"
+                    },
+                    "commentTitle": {
+                      "type": "string"
+                    },
+                    "commentType": {
+                      "type": "string"
+                    },
+                    "createDate": {
+                      "type": "string"
+                    },
+                    "editorsSelection": {
+                      "type": "integer"
+                    },
+                    "lft": {
+                      "type": "integer"
+                    },
+                    "parentID": {
+                      "type": "null"
+                    },
+                    "recommendationCount": {
+                      "type": "integer"
+                    },
+                    "replies": {
+                      "items": {
+                        "properties": {},
+                        "type": "object"
+                      },
+                      "type": "array"
+                    },
+                    "replyCount": {
+                      "type": "integer"
+                    },
+                    "rgt": {
+                      "type": "integer"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "statusID": {
+                      "type": "integer"
+                    },
+                    "updateDate": {
+                      "type": "string"
+                    },
+                    "userDisplayName": {
+                      "type": "string"
+                    },
+                    "userID": {
+                      "type": "integer"
+                    },
+                    "userLocation": {
+                      "type": "string"
+                    },
+                    "userTitle": {
+                      "type": "string"
+                    },
+                    "userURL": {
+                      "type": "integer"
+                    }
+                  },
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              "totalCommentsFound": {
+                "type": "integer"
+              },
+              "totalCommentsReturned": {
+                "type": "integer"
+              }
+            },
+            "type": "object"
+          },
+          "status": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "security": {
+        "nytimes_community": {
+          "integration": "nytimes_community"
+        }
+      }
+    },
+    {
+      "id": "user_content.recent.json.get",
+      "title": "user_content.recent.json.get",
+      "description": "Recent User Comments",
+      "inputSchema": {},
+      "outputSchema": {
+        "properties": {
+          "copyright": {
+            "type": "string"
+          },
+          "debug": {
+            "properties": {
+              "version": {
+                "type": "number"
+              }
+            },
+            "type": "object"
+          },
+          "results": {
+            "properties": {
+              "api_timestamp": {
+                "type": "string"
+              },
+              "comments": {
+                "items": {
+                  "properties": {
+                    "approveDate": {
+                      "type": "string"
+                    },
+                    "asset": {
+                      "properties": {
+                        "all-properties": {
+                          "items": {
+                            "properties": {
+                              "description": {
+                                "type": "string"
+                              },
+                              "name": {
+                                "type": "string"
+                              },
+                              "properties": {
+                                "items": {
+                                  "type": "object"
+                                },
+                                "type": "array"
+                              }
+                            },
+                            "type": "object"
+                          },
+                          "type": "array"
+                        },
+                        "assetID": {
+                          "type": "integer"
+                        },
+                        "assetTitle": {
+                          "type": "string"
+                        },
+                        "assetURL": {
+                          "type": "string"
+                        },
+                        "createDate": {
+                          "type": "string"
+                        },
+                        "labels": {
+                          "items": {
+                            "type": "object"
+                          },
+                          "type": "array"
+                        },
+                        "properties": {
+                          "properties": {
+                            "automoderation-on": {
+                              "properties": {
+                                "groupID": {
+                                  "type": "integer"
+                                },
+                                "taxonomyID": {
+                                  "type": "integer"
+                                }
+                              },
+                              "type": "object"
+                            },
+                            "comment-list-sort-editors": {
+                              "properties": {
+                                "groupID": {
+                                  "type": "integer"
+                                },
+                                "taxonomyID": {
+                                  "type": "integer"
+                                }
+                              },
+                              "type": "object"
+                            },
+                            "reached-max-com-off": {
+                              "properties": {
+                                "groupID": {
+                                  "type": "integer"
+                                },
+                                "taxonomyID": {
+                                  "type": "integer"
+                                }
+                              },
+                              "type": "object"
+                            }
+                          },
+                          "type": "object"
+                        },
+                        "source": {
+                          "type": "string"
+                        },
+                        "taxonomy": {
+                          "type": "string"
+                        },
+                        "text": {
+                          "items": {
+                            "type": "object"
+                          },
+                          "type": "array"
+                        },
+                        "updateDate": {
+                          "type": "string"
+                        },
+                        "vendorID": {
+                          "type": "string"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "assetID": {
+                      "type": "integer"
+                    },
+                    "commentBody": {
+                      "type": "string"
+                    },
+                    "commentID": {
+                      "type": "integer"
+                    },
+                    "commentSequence": {
+                      "type": "integer"
+                    },
+                    "commentTitle": {
+                      "type": "string"
+                    },
+                    "commentType": {
+                      "type": "string"
+                    },
+                    "createDate": {
+                      "type": "string"
+                    },
+                    "display_name": {
+                      "type": "string"
+                    },
+                    "editorsSelection": {
+                      "type": "integer"
+                    },
+                    "location": {
+                      "type": "string"
+                    },
+                    "parentID": {
+                      "type": "null"
+                    },
+                    "recommendationCount": {
+                      "type": "integer"
+                    },
+                    "replies": {
+                      "items": {
+                        "type": "object"
+                      },
+                      "type": "array"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "statusID": {
+                      "type": "integer"
+                    },
+                    "updateDate": {
+                      "type": "string"
+                    },
+                    "userDisplayName": {
+                      "type": "string"
+                    },
+                    "userID": {
+                      "type": "integer"
+                    },
+                    "userLocation": {
+                      "type": "string"
+                    },
+                    "userTitle": {
+                      "type": "string"
+                    },
+                    "userURL": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              "totalCommentsReturned": {
+                "type": "integer"
+              }
+            },
+            "type": "object"
+          },
+          "status": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "security": {
+        "nytimes_community": {
+          "integration": "nytimes_community"
+        }
+      }
+    },
+    {
+      "id": "user_content.url.json.get",
+      "title": "user_content.url.json.get",
+      "description": "Comments by URL",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "url": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "properties": {
+          "copyright": {
+            "type": "string"
+          },
+          "debug": {
+            "properties": {
+              "version": {
+                "type": "number"
+              }
+            },
+            "type": "object"
+          },
+          "results": {
+            "properties": {
+              "api_timestamp": {
+                "type": "string"
+              },
+              "callerID": {
+                "type": "null"
+              },
+              "comments": {
+                "items": {
+                  "properties": {
+                    "approveDate": {
+                      "type": "string"
+                    },
+                    "commentBody": {
+                      "type": "string"
+                    },
+                    "commentID": {
+                      "type": "integer"
+                    },
+                    "commentSequence": {
+                      "type": "integer"
+                    },
+                    "commentTitle": {
+                      "type": "string"
+                    },
+                    "commentType": {
+                      "type": "string"
+                    },
+                    "createDate": {
+                      "type": "string"
+                    },
+                    "depth": {
+                      "type": "integer"
+                    },
+                    "editorsSelection": {
+                      "type": "boolean"
+                    },
+                    "parentID": {
+                      "type": "null"
+                    },
+                    "parentUserDisplayName": {
+                      "type": "null"
+                    },
+                    "permID": {
+                      "type": "string"
+                    },
+                    "picURL": {
+                      "type": "string"
+                    },
+                    "recommendations": {
+                      "type": "integer"
+                    },
+                    "recommendedFlag": {
+                      "type": "null"
+                    },
+                    "replies": {
+                      "items": {},
+                      "type": "array"
+                    },
+                    "replyCount": {
+                      "type": "integer"
+                    },
+                    "reportAbuseFlag": {
+                      "type": "null"
+                    },
+                    "sharing": {
+                      "type": "integer"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "timespeople": {
+                      "type": "integer"
+                    },
+                    "trusted": {
+                      "type": "integer"
+                    },
+                    "updateDate": {
+                      "type": "string"
+                    },
+                    "userDisplayName": {
+                      "type": "string"
+                    },
+                    "userID": {
+                      "type": "integer"
+                    },
+                    "userLocation": {
+                      "type": "string"
+                    },
+                    "userTitle": {
+                      "type": "null"
+                    },
+                    "userURL": {
+                      "type": "null"
+                    }
+                  },
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              "depthLimit": {
+                "type": "integer"
+              },
+              "filter": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "page": {
+                "type": "integer"
+              },
+              "replyLimit": {
+                "type": "integer"
+              },
+              "sort": {
+                "type": "string"
+              },
+              "totalCommentsFound": {
+                "type": "integer"
+              },
+              "totalCommentsReturned": {
+                "type": "integer"
+              },
+              "totalEditorsSelectionFound": {
+                "type": "integer"
+              },
+              "totalEditorsSelectionReturned": {
+                "type": "integer"
+              },
+              "totalParentCommentsFound": {
+                "type": "integer"
+              },
+              "totalParentCommentsReturned": {
+                "type": "integer"
+              },
+              "totalRecommendationsFound": {
+                "type": "integer"
+              },
+              "totalRecommendationsReturned": {
+                "type": "integer"
+              },
+              "totalReplyCommentsFound": {
+                "type": "integer"
+              },
+              "totalReplyCommentsReturned": {
+                "type": "integer"
+              },
+              "totalReporterReplyCommentsFound": {
+                "type": "integer"
+              },
+              "totalReporterReplyCommentsReturned": {
+                "type": "integer"
+              }
+            },
+            "type": "object"
+          },
+          "status": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "security": {
+        "nytimes_community": {
+          "integration": "nytimes_community"
+        }
+      }
+    },
+    {
+      "id": "user_content.user.json.get",
+      "title": "user_content.user.json.get",
+      "description": "Comments by User",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "userID": {
+            "type": "integer"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "properties": {
+          "copyright": {
+            "type": "string"
+          },
+          "debug": {
+            "properties": {
+              "version": {
+                "type": "number"
+              }
+            },
+            "type": "object"
+          },
+          "results": {
+            "properties": {
+              "api_timestamp": {
+                "type": "string"
+              },
+              "comments": {
+                "items": {
+                  "properties": {
+                    "approveDate": {
+                      "type": "string"
+                    },
+                    "asset": {
+                      "properties": {
+                        "all-properties": {
+                          "items": {
+                            "properties": {
+                              "description": {
+                                "type": "string"
+                              },
+                              "name": {
+                                "type": "string"
+                              },
+                              "properties": {
+                                "items": {
+                                  "type": "object"
+                                },
+                                "type": "array"
+                              }
+                            },
+                            "type": "object"
+                          },
+                          "type": "array"
+                        },
+                        "assetID": {
+                          "type": "integer"
+                        },
+                        "assetTitle": {
+                          "type": "string"
+                        },
+                        "assetURL": {
+                          "type": "string"
+                        },
+                        "createDate": {
+                          "type": "string"
+                        },
+                        "labels": {
+                          "items": {
+                            "properties": {
+                              "labelID": {
+                                "type": "integer"
+                              },
+                              "labelName": {
+                                "type": "string"
+                              }
+                            },
+                            "type": "object"
+                          },
+                          "type": "array"
+                        },
+                        "properties": {
+                          "properties": {
+                            "automoderation-off": {
+                              "properties": {
+                                "groupID": {
+                                  "type": "integer"
+                                },
+                                "taxonomyID": {
+                                  "type": "integer"
+                                }
+                              },
+                              "type": "object"
+                            },
+                            "comment-list-sort-approvedate-desc": {
+                              "properties": {
+                                "groupID": {
+                                  "type": "integer"
+                                },
+                                "taxonomyID": {
+                                  "type": "integer"
+                                }
+                              },
+                              "type": "object"
+                            },
+                            "reached-max-com-on": {
+                              "properties": {
+                                "groupID": {
+                                  "type": "integer"
+                                },
+                                "taxonomyID": {
+                                  "type": "integer"
+                                }
+                              },
+                              "type": "object"
+                            }
+                          },
+                          "type": "object"
+                        },
+                        "source": {
+                          "type": "string"
+                        },
+                        "taxonomy": {
+                          "type": "string"
+                        },
+                        "text": {
+                          "items": {
+                            "type": "object"
+                          },
+                          "type": "array"
+                        },
+                        "updateDate": {
+                          "type": "string"
+                        },
+                        "vendorID": {
+                          "type": "string"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "commentBody": {
+                      "type": "string"
+                    },
+                    "commentID": {
+                      "type": "integer"
+                    },
+                    "commentSequence": {
+                      "type": "integer"
+                    },
+                    "commentTitle": {
+                      "type": "string"
+                    },
+                    "commentType": {
+                      "type": "string"
+                    },
+                    "createDate": {
+                      "type": "string"
+                    },
+                    "editorsSelection": {
+                      "type": "boolean"
+                    },
+                    "labels": {
+                      "items": {
+                        "type": "object"
+                      },
+                      "type": "array"
+                    },
+                    "parentID": {
+                      "type": "null"
+                    },
+                    "permid": {
+                      "type": "integer"
+                    },
+                    "picURL": {
+                      "type": "string"
+                    },
+                    "recommendations": {
+                      "type": "integer"
+                    },
+                    "replies": {
+                      "items": {
+                        "type": "object"
+                      },
+                      "type": "array"
+                    },
+                    "replyCount": {
+                      "type": "integer"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "updateDate": {
+                      "type": "string"
+                    },
+                    "userDisplayName": {
+                      "type": "null"
+                    },
+                    "userID": {
+                      "type": "integer"
+                    },
+                    "userLocation": {
+                      "type": "null"
+                    },
+                    "userSubmittedDisplayName": {
+                      "type": "string"
+                    },
+                    "userSubmittedLocation": {
+                      "type": "string"
+                    },
+                    "userSubmittedTitle": {
+                      "type": "null"
+                    },
+                    "userSubmittedURL": {
+                      "type": "null"
+                    },
+                    "userTitle": {
+                      "type": "null"
+                    },
+                    "userURL": {
+                      "type": "null"
+                    }
+                  },
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              "totalCommentsFound": {
+                "type": "integer"
+              },
+              "totalCommentsReturned": {
+                "type": "integer"
+              }
+            },
+            "type": "object"
+          },
+          "status": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "security": {
+        "nytimes_community": {
+          "integration": "nytimes_community"
+        }
+      }
+    }
+  ]
+}

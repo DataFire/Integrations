@@ -1,0 +1,92 @@
+{
+  "id": "nextcaller",
+  "title": "Next Caller",
+  "description": "Advanced Caller ID. Obtain name, address, and email of your inbound callers.",
+  "security": {},
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/nextcaller.png"
+  },
+  "tags": [],
+  "actions": [
+    {
+      "id": "version.records.get",
+      "title": "version.records.get",
+      "description": "Returns Nextcaller member detailed info.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "version": {
+            "type": "string",
+            "description": "Specifies a api version.",
+            "enum": [
+              "v2",
+              "v3"
+            ]
+          },
+          "phone": {
+            "type": "integer",
+            "description": "Specifies the caller's phone number.",
+            "maximum": 9223372036854776000,
+            "minimum": -9223372036854776000
+          },
+          "format": {
+            "type": "string",
+            "description": "Specifies a format of response: JSON or XML.",
+            "enum": [
+              "json",
+              "xml"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "version",
+          "phone",
+          "format"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "version.users.nextcaller_id._format_format.post",
+      "title": "version.users.nextcaller_id._format_format.post",
+      "description": "Allows you to update caller's info on Nextcaller.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Content-Type": {
+            "type": "string"
+          },
+          "version": {
+            "type": "string",
+            "description": "Specifies a api version.",
+            "enum": [
+              "v2",
+              "v3"
+            ]
+          },
+          "nextcaller_id": {
+            "type": "string",
+            "description": "The ID of the user whose profile you wish to edit"
+          },
+          "format": {
+            "type": "string",
+            "description": "Specifies a format of response: JSON or XML.",
+            "enum": [
+              "json",
+              "xml"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Content-Type",
+          "version",
+          "nextcaller_id",
+          "format"
+        ]
+      },
+      "outputSchema": {}
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 {
   "name": "@datafire/6_dot_authentiqio_appspot",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "main": "index.js",
   "description": "DataFire integration for Authentiq",
   "repository": {

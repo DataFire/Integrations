@@ -1,6 +1,6 @@
 {
   "name": "@datafire/apitore_url2hrefapis",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "main": "index.js",
   "description": "DataFire integration for Url2Href APIs",
   "repository": {

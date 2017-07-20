@@ -1,0 +1,1024 @@
+{
+  "id": "mozilla_kinto",
+  "title": "kinto",
+  "description": "",
+  "security": {
+    "mozilla_kinto": {
+      "integration": "mozilla_kinto",
+      "fields": {
+        "username": "Your username",
+        "password": "Your password"
+      }
+    }
+  },
+  "logo": {
+    "backgroundColor": "#FFFFFF",
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/mozilla_kinto.png"
+  },
+  "tags": [
+    "cloud"
+  ],
+  "actions": [
+    {
+      "id": "server_info",
+      "title": "server_info",
+      "description": "",
+      "inputSchema": {},
+      "outputSchema": {
+        "additionalProperties": {},
+        "title": "SchemaNode",
+        "type": "object"
+      }
+    },
+    {
+      "id": "get_openapi_spec",
+      "title": "get_openapi_spec",
+      "description": "",
+      "inputSchema": {},
+      "outputSchema": {
+        "additionalProperties": {},
+        "title": "SchemaNode",
+        "type": "object"
+      }
+    },
+    {
+      "id": "__heartbeat__",
+      "title": "__heartbeat__",
+      "description": "",
+      "inputSchema": {},
+      "outputSchema": {
+        "additionalProperties": {},
+        "title": "SchemaNode",
+        "type": "object"
+      }
+    },
+    {
+      "id": "__lbheartbeat__",
+      "title": "__lbheartbeat__",
+      "description": "",
+      "inputSchema": {},
+      "outputSchema": {
+        "title": "SchemaNode",
+        "type": "object"
+      }
+    },
+    {
+      "id": "__version__",
+      "title": "__version__",
+      "description": "",
+      "inputSchema": {},
+      "outputSchema": {
+        "additionalProperties": {},
+        "title": "SchemaNode",
+        "type": "object"
+      }
+    },
+    {
+      "id": "batch",
+      "title": "batch",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "BatchPayloadSchema": {
+            "properties": {
+              "defaults": {
+                "properties": {
+                  "body": {
+                    "additionalProperties": {},
+                    "title": "Body",
+                    "type": "object"
+                  },
+                  "headers": {
+                    "additionalProperties": {},
+                    "title": "Headers",
+                    "type": "object"
+                  },
+                  "method": {
+                    "enum": [
+                      "GET",
+                      "HEAD",
+                      "DELETE",
+                      "TRACE",
+                      "POST",
+                      "PUT",
+                      "PATCH"
+                    ],
+                    "title": "Method",
+                    "type": "string"
+                  },
+                  "path": {
+                    "pattern": "^/",
+                    "title": "Path",
+                    "type": "string"
+                  }
+                },
+                "title": "Defaults",
+                "type": "object"
+              },
+              "requests": {
+                "items": {
+                  "properties": {
+                    "body": {
+                      "additionalProperties": {},
+                      "title": "Body",
+                      "type": "object"
+                    },
+                    "headers": {
+                      "additionalProperties": {},
+                      "title": "Headers",
+                      "type": "object"
+                    },
+                    "method": {
+                      "enum": [
+                        "GET",
+                        "HEAD",
+                        "DELETE",
+                        "TRACE",
+                        "POST",
+                        "PUT",
+                        "PATCH"
+                      ],
+                      "title": "Method",
+                      "type": "string"
+                    },
+                    "path": {
+                      "pattern": "^/",
+                      "title": "Path",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "path"
+                  ],
+                  "type": "object"
+                },
+                "title": "Requests",
+                "type": "array"
+              }
+            },
+            "required": [
+              "requests"
+            ],
+            "title": "BatchPayloadSchema",
+            "type": "object"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "BatchPayloadSchema"
+        ]
+      },
+      "outputSchema": {
+        "properties": {
+          "responses": {
+            "items": {
+              "properties": {
+                "body": {
+                  "additionalProperties": {},
+                  "title": "Body",
+                  "type": "object"
+                },
+                "headers": {
+                  "additionalProperties": {},
+                  "title": "Headers",
+                  "type": "object"
+                },
+                "path": {
+                  "title": "Path",
+                  "type": "string"
+                },
+                "status": {
+                  "title": "Status",
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "status",
+                "path"
+              ],
+              "type": "object"
+            },
+            "title": "Responses",
+            "type": "array"
+          }
+        },
+        "required": [
+          "responses"
+        ],
+        "title": "BatchResponseBodySchema",
+        "type": "object"
+      }
+    },
+    {
+      "id": "get_buckets",
+      "title": "get_buckets",
+      "description": "",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "_limit": {
+            "type": "integer",
+            "maximum": 9223372036854776000,
+            "minimum": 0
+          },
+          "_sort": {
+            "type": "array"
+          },
+          "_token": {
+            "type": "string"
+          },
+          "_since": {
+            "type": "integer",
+            "maximum": 9223372036854776000,
+            "minimum": 0
+          },
+          "_to": {
+            "type": "integer",
+            "maximum": 9223372036854776000,
+            "minimum": 0
+          },
+          "_before": {
+            "type": "integer",
+            "maximum": 9223372036854776000,
+            "minimum": 0
+          },
+          "id": {
+            "type": "string"
+          },
+          "last_modified": {
+            "type": "integer",
+            "maximum": 9223372036854776000,
+            "minimum": 0
+          },
+          "_fields": {
+            "type": "array"
+          },
+          "If-Match": {
+            "type": "string",
+            "pattern": "^\"([0-9]+?)\"$|\\*"
+          },
+          "If-None-Match": {
+            "type": "string",
+            "pattern": "^\"([0-9]+?)\"$|\\*"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "properties": {
+          "data": {
+            "items": {
+              "additionalProperties": {},
+              "default": {},
+              "type": "object"
+            },
+            "type": "array"
+          }
+        },
+        "title": "Schema",
+        "type": "object"
+      },
+      "security": {
+        "mozilla_kinto": {
+          "integration": "mozilla_kinto"
+        }
+      }
+    },
+    {
+      "id": "get_changess",
+      "title": "get_changess",
+      "description": "",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "_limit": {
+            "type": "integer",
+            "maximum": 9223372036854776000,
+            "minimum": 0
+          },
+          "_sort": {
+            "type": "array"
+          },
+          "_token": {
+            "type": "string"
+          },
+          "_since": {
+            "type": "integer",
+            "maximum": 9223372036854776000,
+            "minimum": 0
+          },
+          "_to": {
+            "type": "integer",
+            "maximum": 9223372036854776000,
+            "minimum": 0
+          },
+          "_before": {
+            "type": "integer",
+            "maximum": 9223372036854776000,
+            "minimum": 0
+          },
+          "id": {
+            "type": "string"
+          },
+          "last_modified": {
+            "type": "integer",
+            "maximum": 9223372036854776000,
+            "minimum": 0
+          },
+          "_fields": {
+            "type": "array"
+          },
+          "If-Match": {
+            "type": "string",
+            "pattern": "^\"([0-9]+?)\"$|\\*"
+          },
+          "If-None-Match": {
+            "type": "string",
+            "pattern": "^\"([0-9]+?)\"$|\\*"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "properties": {
+          "data": {
+            "items": {
+              "properties": {
+                "bucket": {
+                  "title": "Bucket",
+                  "type": "string"
+                },
+                "collection": {
+                  "title": "Collection",
+                  "type": "string"
+                },
+                "host": {
+                  "title": "Host",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "host",
+                "bucket",
+                "collection"
+              ],
+              "type": "object"
+            },
+            "type": "array"
+          }
+        },
+        "title": "Schema",
+        "type": "object"
+      },
+      "security": {
+        "mozilla_kinto": {
+          "integration": "mozilla_kinto"
+        }
+      }
+    },
+    {
+      "id": "get_collections",
+      "title": "get_collections",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "_limit": {
+            "type": "integer",
+            "maximum": 9223372036854776000,
+            "minimum": 0
+          },
+          "_sort": {
+            "type": "array"
+          },
+          "_token": {
+            "type": "string"
+          },
+          "_since": {
+            "type": "integer",
+            "maximum": 9223372036854776000,
+            "minimum": 0
+          },
+          "_to": {
+            "type": "integer",
+            "maximum": 9223372036854776000,
+            "minimum": 0
+          },
+          "_before": {
+            "type": "integer",
+            "maximum": 9223372036854776000,
+            "minimum": 0
+          },
+          "id": {
+            "type": "string"
+          },
+          "last_modified": {
+            "type": "integer",
+            "maximum": 9223372036854776000,
+            "minimum": 0
+          },
+          "_fields": {
+            "type": "array"
+          },
+          "If-Match": {
+            "type": "string",
+            "pattern": "^\"([0-9]+?)\"$|\\*"
+          },
+          "If-None-Match": {
+            "type": "string",
+            "pattern": "^\"([0-9]+?)\"$|\\*"
+          },
+          "bucket_id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "bucket_id"
+        ]
+      },
+      "outputSchema": {
+        "properties": {
+          "data": {
+            "items": {
+              "additionalProperties": {},
+              "default": {},
+              "properties": {
+                "cache_expires": {
+                  "title": "Cache Expires",
+                  "type": "integer"
+                },
+                "schema": {
+                  "additionalProperties": {},
+                  "title": "Schema",
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            },
+            "type": "array"
+          }
+        },
+        "title": "Schema",
+        "type": "object"
+      },
+      "security": {
+        "mozilla_kinto": {
+          "integration": "mozilla_kinto"
+        }
+      }
+    },
+    {
+      "id": "get_records",
+      "title": "get_records",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "_limit": {
+            "type": "integer",
+            "maximum": 9223372036854776000,
+            "minimum": 0
+          },
+          "_sort": {
+            "type": "array"
+          },
+          "_token": {
+            "type": "string"
+          },
+          "_since": {
+            "type": "integer",
+            "maximum": 9223372036854776000,
+            "minimum": 0
+          },
+          "_to": {
+            "type": "integer",
+            "maximum": 9223372036854776000,
+            "minimum": 0
+          },
+          "_before": {
+            "type": "integer",
+            "maximum": 9223372036854776000,
+            "minimum": 0
+          },
+          "id": {
+            "type": "string"
+          },
+          "last_modified": {
+            "type": "integer",
+            "maximum": 9223372036854776000,
+            "minimum": 0
+          },
+          "_fields": {
+            "type": "array"
+          },
+          "If-Match": {
+            "type": "string",
+            "pattern": "^\"([0-9]+?)\"$|\\*"
+          },
+          "If-None-Match": {
+            "type": "string",
+            "pattern": "^\"([0-9]+?)\"$|\\*"
+          },
+          "bucket_id": {
+            "type": "string"
+          },
+          "collection_id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "bucket_id",
+          "collection_id"
+        ]
+      },
+      "outputSchema": {
+        "properties": {
+          "data": {
+            "items": {
+              "additionalProperties": {},
+              "default": {},
+              "type": "object"
+            },
+            "type": "array"
+          }
+        },
+        "title": "Schema",
+        "type": "object"
+      },
+      "security": {
+        "mozilla_kinto": {
+          "integration": "mozilla_kinto"
+        }
+      }
+    },
+    {
+      "id": "get_record",
+      "title": "get_record",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "_fields": {
+            "type": "array"
+          },
+          "If-Match": {
+            "type": "string",
+            "pattern": "^\"([0-9]+?)\"$|\\*"
+          },
+          "If-None-Match": {
+            "type": "string",
+            "pattern": "^\"([0-9]+?)\"$|\\*"
+          },
+          "bucket_id": {
+            "type": "string"
+          },
+          "collection_id": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "bucket_id",
+          "collection_id",
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "properties": {
+          "data": {
+            "additionalProperties": {},
+            "default": {},
+            "type": "object"
+          },
+          "permissions": {
+            "properties": {
+              "read": {
+                "items": {
+                  "type": "string"
+                },
+                "title": "Read",
+                "type": "array"
+              },
+              "write": {
+                "items": {
+                  "type": "string"
+                },
+                "title": "Write",
+                "type": "array"
+              }
+            },
+            "title": "Permissions",
+            "type": "object"
+          }
+        },
+        "title": "RecordSchema",
+        "type": "object"
+      },
+      "security": {
+        "mozilla_kinto": {
+          "integration": "mozilla_kinto"
+        }
+      }
+    },
+    {
+      "id": "get_collection",
+      "title": "get_collection",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "_fields": {
+            "type": "array"
+          },
+          "If-Match": {
+            "type": "string",
+            "pattern": "^\"([0-9]+?)\"$|\\*"
+          },
+          "If-None-Match": {
+            "type": "string",
+            "pattern": "^\"([0-9]+?)\"$|\\*"
+          },
+          "bucket_id": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "bucket_id",
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "properties": {
+          "data": {
+            "additionalProperties": {},
+            "default": {},
+            "properties": {
+              "cache_expires": {
+                "title": "Cache Expires",
+                "type": "integer"
+              },
+              "schema": {
+                "additionalProperties": {},
+                "title": "Schema",
+                "type": "object"
+              }
+            },
+            "type": "object"
+          },
+          "permissions": {
+            "properties": {
+              "read": {
+                "items": {
+                  "type": "string"
+                },
+                "title": "Read",
+                "type": "array"
+              },
+              "record:create": {
+                "items": {
+                  "type": "string"
+                },
+                "title": "Record:Create",
+                "type": "array"
+              },
+              "write": {
+                "items": {
+                  "type": "string"
+                },
+                "title": "Write",
+                "type": "array"
+              }
+            },
+            "title": "Permissions",
+            "type": "object"
+          }
+        },
+        "title": "RecordSchema",
+        "type": "object"
+      },
+      "security": {
+        "mozilla_kinto": {
+          "integration": "mozilla_kinto"
+        }
+      }
+    },
+    {
+      "id": "get_groups",
+      "title": "get_groups",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "_limit": {
+            "type": "integer",
+            "maximum": 9223372036854776000,
+            "minimum": 0
+          },
+          "_sort": {
+            "type": "array"
+          },
+          "_token": {
+            "type": "string"
+          },
+          "_since": {
+            "type": "integer",
+            "maximum": 9223372036854776000,
+            "minimum": 0
+          },
+          "_to": {
+            "type": "integer",
+            "maximum": 9223372036854776000,
+            "minimum": 0
+          },
+          "_before": {
+            "type": "integer",
+            "maximum": 9223372036854776000,
+            "minimum": 0
+          },
+          "id": {
+            "type": "string"
+          },
+          "last_modified": {
+            "type": "integer",
+            "maximum": 9223372036854776000,
+            "minimum": 0
+          },
+          "_fields": {
+            "type": "array"
+          },
+          "If-Match": {
+            "type": "string",
+            "pattern": "^\"([0-9]+?)\"$|\\*"
+          },
+          "If-None-Match": {
+            "type": "string",
+            "pattern": "^\"([0-9]+?)\"$|\\*"
+          },
+          "bucket_id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "bucket_id"
+        ]
+      },
+      "outputSchema": {
+        "properties": {
+          "data": {
+            "items": {
+              "additionalProperties": {},
+              "properties": {
+                "members": {
+                  "items": {
+                    "type": "string"
+                  },
+                  "title": "Members",
+                  "type": "array"
+                }
+              },
+              "required": [
+                "members"
+              ],
+              "type": "object"
+            },
+            "type": "array"
+          }
+        },
+        "title": "Schema",
+        "type": "object"
+      },
+      "security": {
+        "mozilla_kinto": {
+          "integration": "mozilla_kinto"
+        }
+      }
+    },
+    {
+      "id": "get_group",
+      "title": "get_group",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "_fields": {
+            "type": "array"
+          },
+          "If-Match": {
+            "type": "string",
+            "pattern": "^\"([0-9]+?)\"$|\\*"
+          },
+          "If-None-Match": {
+            "type": "string",
+            "pattern": "^\"([0-9]+?)\"$|\\*"
+          },
+          "bucket_id": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "bucket_id",
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "properties": {
+          "data": {
+            "additionalProperties": {},
+            "properties": {
+              "members": {
+                "items": {
+                  "type": "string"
+                },
+                "title": "Members",
+                "type": "array"
+              }
+            },
+            "required": [
+              "members"
+            ],
+            "type": "object"
+          },
+          "permissions": {
+            "properties": {
+              "read": {
+                "items": {
+                  "type": "string"
+                },
+                "title": "Read",
+                "type": "array"
+              },
+              "write": {
+                "items": {
+                  "type": "string"
+                },
+                "title": "Write",
+                "type": "array"
+              }
+            },
+            "title": "Permissions",
+            "type": "object"
+          }
+        },
+        "required": [
+          "data"
+        ],
+        "title": "RecordSchema",
+        "type": "object"
+      },
+      "security": {
+        "mozilla_kinto": {
+          "integration": "mozilla_kinto"
+        }
+      }
+    },
+    {
+      "id": "get_bucket",
+      "title": "get_bucket",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "_fields": {
+            "type": "array"
+          },
+          "If-Match": {
+            "type": "string",
+            "pattern": "^\"([0-9]+?)\"$|\\*"
+          },
+          "If-None-Match": {
+            "type": "string",
+            "pattern": "^\"([0-9]+?)\"$|\\*"
+          },
+          "id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "properties": {
+          "data": {
+            "additionalProperties": {},
+            "default": {},
+            "type": "object"
+          },
+          "permissions": {
+            "properties": {
+              "collection:create": {
+                "items": {
+                  "type": "string"
+                },
+                "title": "Collection:Create",
+                "type": "array"
+              },
+              "group:create": {
+                "items": {
+                  "type": "string"
+                },
+                "title": "Group:Create",
+                "type": "array"
+              },
+              "read": {
+                "items": {
+                  "type": "string"
+                },
+                "title": "Read",
+                "type": "array"
+              },
+              "write": {
+                "items": {
+                  "type": "string"
+                },
+                "title": "Write",
+                "type": "array"
+              }
+            },
+            "title": "Permissions",
+            "type": "object"
+          }
+        },
+        "title": "RecordSchema",
+        "type": "object"
+      },
+      "security": {
+        "mozilla_kinto": {
+          "integration": "mozilla_kinto"
+        }
+      }
+    },
+    {
+      "id": "contribute",
+      "title": "contribute",
+      "description": "",
+      "inputSchema": {},
+      "outputSchema": {
+        "additionalProperties": {},
+        "title": "SchemaNode",
+        "type": "object"
+      }
+    },
+    {
+      "id": "get_blocklist",
+      "title": "get_blocklist",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "api_ver:\\d+": {
+            "type": "string"
+          },
+          "metrics:.*": {
+            "type": "string"
+          },
+          "prefix": {
+            "type": "string"
+          },
+          "application_guid": {
+            "type": "string"
+          },
+          "application_ver": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "api_ver:\\d+",
+          "metrics:.*",
+          "prefix",
+          "application_guid",
+          "application_ver"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "mozilla_kinto": {
+          "integration": "mozilla_kinto"
+        }
+      }
+    }
+  ]
+}

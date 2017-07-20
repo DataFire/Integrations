@@ -1,0 +1,72 @@
+{
+  "id": "apitore_url2textapis",
+  "title": "Url2Text APIs",
+  "description": "Url to Text.<BR />[Endpoint] https://api.apitore.com/api/13",
+  "security": {},
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apitore_url2textapis.jpg"
+  },
+  "tags": [],
+  "definitions": {
+    "TextResponseEntity": {
+      "properties": {
+        "endTime": {
+          "description": "End date",
+          "type": "string"
+        },
+        "log": {
+          "description": "Log message",
+          "type": "string"
+        },
+        "processTime": {
+          "description": "Process time [millisecond]",
+          "type": "string"
+        },
+        "startTime": {
+          "description": "Start date",
+          "type": "string"
+        },
+        "text": {
+          "description": "Text",
+          "type": "string"
+        }
+      },
+      "required": [
+        "endTime",
+        "log",
+        "processTime",
+        "startTime",
+        "text"
+      ],
+      "type": "object"
+    }
+  },
+  "actions": [
+    {
+      "id": "url2textUsingGET",
+      "title": "url2textUsingGET",
+      "description": "Jsoup Web scraper.<BR />Response<BR />&nbsp; Github: <a href=\"https://github.com/keigohtr/apitore-response-parent/tree/master/jsoup-response\">jsoup-response</a><BR />&nbsp; Class: com.apitore.banana.response.org.jsoup.TextResponseEntity<BR />",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "access_token": {
+            "type": "string",
+            "description": "Access Token"
+          },
+          "url": {
+            "type": "string",
+            "description": "URL"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "access_token",
+          "url"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/TextResponseEntity"
+      }
+    }
+  ]
+}

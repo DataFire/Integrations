@@ -1,0 +1,1211 @@
+{
+  "id": "soundcloud",
+  "title": "SoundCloud",
+  "description": "Access, host, upload, and comment on audio.",
+  "security": {
+    "soundcloud": {
+      "integration": "soundcloud",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)",
+        "redirect_uri": "The callback URL for your application"
+      },
+      "oauth": {
+        "name": "oauth_token",
+        "flow": "implicit",
+        "type": "oauth2"
+      }
+    }
+  },
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/soundcloud.png"
+  },
+  "tags": [],
+  "actions": [
+    {
+      "id": "tracks.json.get",
+      "title": "tracks.json.get",
+      "description": "Returns a collection of tracks",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "consumer_key": {},
+          "title": {
+            "type": "string"
+          },
+          "asset_data": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "consumer_key",
+          "title",
+          "asset_data"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "soundcloud": {
+          "integration": "soundcloud"
+        }
+      }
+    },
+    {
+      "id": "tracks.json.post",
+      "title": "tracks.json.post",
+      "description": "Uploads a track",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "asset_data": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "title",
+          "asset_data"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "soundcloud": {
+          "integration": "soundcloud"
+        }
+      }
+    },
+    {
+      "id": "tracks.track_id.json.get",
+      "title": "tracks.track_id.json.get",
+      "description": "Returns a track by track id",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "consumer_key": {},
+          "track_id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "consumer_key",
+          "track_id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "soundcloud": {
+          "integration": "soundcloud"
+        }
+      }
+    },
+    {
+      "id": "tracks.track_id.json.put",
+      "title": "tracks.track_id.json.put",
+      "description": "Updates a given track",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "track_id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "track_id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "soundcloud": {
+          "integration": "soundcloud"
+        }
+      }
+    },
+    {
+      "id": "tracks.track_id.json.delete",
+      "title": "tracks.track_id.json.delete",
+      "description": "Deletes a given track",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "track_id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "track_id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "soundcloud": {
+          "integration": "soundcloud"
+        }
+      }
+    },
+    {
+      "id": "tracks.track_id.comments.json.get",
+      "title": "tracks.track_id.comments.json.get",
+      "description": "Returns comments of a track by track id",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "consumer_key": {},
+          "track_id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "consumer_key",
+          "track_id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "soundcloud": {
+          "integration": "soundcloud"
+        }
+      }
+    },
+    {
+      "id": "tracks.track_id.comments.json.post",
+      "title": "tracks.track_id.comments.json.post",
+      "description": "Posts a comments to a track by track id",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "track_id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "track_id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "soundcloud": {
+          "integration": "soundcloud"
+        }
+      }
+    },
+    {
+      "id": "tracks.track_id.permissions.json.get",
+      "title": "tracks.track_id.permissions.json.get",
+      "description": "Returns all users with permission for a track by track id",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "consumer_key": {},
+          "track_id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "consumer_key",
+          "track_id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "soundcloud": {
+          "integration": "soundcloud"
+        }
+      }
+    },
+    {
+      "id": "tracks.track_id.permissions.json.put",
+      "title": "tracks.track_id.permissions.json.put",
+      "description": "Updates the list of permitted users for a track by track id",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "track_id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "track_id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "soundcloud": {
+          "integration": "soundcloud"
+        }
+      }
+    },
+    {
+      "id": "tracks.track_id.secret_token.json.get",
+      "title": "tracks.track_id.secret_token.json.get",
+      "description": "Returns the secret token for a track by track id. This resource can only be used by the track owner.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "track_id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "track_id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "soundcloud": {
+          "integration": "soundcloud"
+        }
+      }
+    },
+    {
+      "id": "tracks.track_id.secret_token.json.put",
+      "title": "tracks.track_id.secret_token.json.put",
+      "description": "Resets the secret token for a track by track id. The secret token can not be specified but will be randomly chosen on\n          the server and returned. This resource can only be used by the track owner.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "track_id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "track_id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "soundcloud": {
+          "integration": "soundcloud"
+        }
+      }
+    },
+    {
+      "id": "users.json.get",
+      "title": "users.json.get",
+      "description": "Returns a collection of users",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "consumer_key": {},
+          "q": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "consumer_key"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "soundcloud": {
+          "integration": "soundcloud"
+        }
+      }
+    },
+    {
+      "id": "users.user_id.json.get",
+      "title": "users.user_id.json.get",
+      "description": "Returns a user by user id",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "consumer_key": {},
+          "user_id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "consumer_key",
+          "user_id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "soundcloud": {
+          "integration": "soundcloud"
+        }
+      }
+    },
+    {
+      "id": "users.user_id.tracks.json.get",
+      "title": "users.user_id.tracks.json.get",
+      "description": "Returns a collection of tracks uploaded by user id",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "consumer_key": {},
+          "user_id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "consumer_key",
+          "user_id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "soundcloud": {
+          "integration": "soundcloud"
+        }
+      }
+    },
+    {
+      "id": "users.user_id.comments.json.get",
+      "title": "users.user_id.comments.json.get",
+      "description": "Returns a collection of comments made by user id",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "consumer_key": {},
+          "user_id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "consumer_key",
+          "user_id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "soundcloud": {
+          "integration": "soundcloud"
+        }
+      }
+    },
+    {
+      "id": "users.user_id.followings.json.get",
+      "title": "users.user_id.followings.json.get",
+      "description": "Returns a collection of users the user with user id is following",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "consumer_key": {},
+          "user_id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "consumer_key",
+          "user_id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "soundcloud": {
+          "integration": "soundcloud"
+        }
+      }
+    },
+    {
+      "id": "users.user_id.followings.contact_id.json.get",
+      "title": "users.user_id.followings.contact_id.json.get",
+      "description": "Checks if the user with the id contact_id is in the givens user's list of contacts.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "consumer_key": {},
+          "user_id": {
+            "type": "string"
+          },
+          "contact_id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "consumer_key",
+          "user_id",
+          "contact_id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "soundcloud": {
+          "integration": "soundcloud"
+        }
+      }
+    },
+    {
+      "id": "users.user_id.followings.contact_id.json.put",
+      "title": "users.user_id.followings.contact_id.json.put",
+      "description": "Adds the user with the id contact_id to the givens user's list of contacts.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "user_id": {
+            "type": "string"
+          },
+          "contact_id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "user_id",
+          "contact_id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "soundcloud": {
+          "integration": "soundcloud"
+        }
+      }
+    },
+    {
+      "id": "users.user_id.followings.contact_id.json.delete",
+      "title": "users.user_id.followings.contact_id.json.delete",
+      "description": "Removes the user with the id contact_id from the givens user's list of contacts.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "user_id": {
+            "type": "string"
+          },
+          "contact_id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "user_id",
+          "contact_id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "soundcloud": {
+          "integration": "soundcloud"
+        }
+      }
+    },
+    {
+      "id": "users.user_id.followers.json.get",
+      "title": "users.user_id.followers.json.get",
+      "description": "Returns a collection of users who follow the user with user id",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "consumer_key": {},
+          "user_id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "consumer_key",
+          "user_id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "soundcloud": {
+          "integration": "soundcloud"
+        }
+      }
+    },
+    {
+      "id": "users.user_id.followers.contact_id.json.get",
+      "title": "users.user_id.followers.contact_id.json.get",
+      "description": "Checks if the user with contact_id is a follower of the given user.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "consumer_key": {},
+          "user_id": {
+            "type": "string"
+          },
+          "contact_id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "consumer_key",
+          "user_id",
+          "contact_id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "soundcloud": {
+          "integration": "soundcloud"
+        }
+      }
+    },
+    {
+      "id": "users.user_id.favorites.json.get",
+      "title": "users.user_id.favorites.json.get",
+      "description": "Returns a collection of tracks favorited by the user with user id",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "consumer_key": {},
+          "user_id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "consumer_key",
+          "user_id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "soundcloud": {
+          "integration": "soundcloud"
+        }
+      }
+    },
+    {
+      "id": "users.user_id.favorites.track_id.json.put",
+      "title": "users.user_id.favorites.track_id.json.put",
+      "description": "Adds the given track to the given user's list of favorites.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "user_id": {
+            "type": "string"
+          },
+          "track_id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "user_id",
+          "track_id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "soundcloud": {
+          "integration": "soundcloud"
+        }
+      }
+    },
+    {
+      "id": "users.user_id.favorites.track_id.json.delete",
+      "title": "users.user_id.favorites.track_id.json.delete",
+      "description": "Deletes the given track from the given user's list of favorites.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "user_id": {
+            "type": "string"
+          },
+          "track_id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "user_id",
+          "track_id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "soundcloud": {
+          "integration": "soundcloud"
+        }
+      }
+    },
+    {
+      "id": "users.user_id.groups.json.get",
+      "title": "users.user_id.groups.json.get",
+      "description": "Returns a collection of groups joined by user with user id",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "consumer_key": {},
+          "user_id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "consumer_key",
+          "user_id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "soundcloud": {
+          "integration": "soundcloud"
+        }
+      }
+    },
+    {
+      "id": "users.user_id.playlists.json.get",
+      "title": "users.user_id.playlists.json.get",
+      "description": "Returns a collection of playlists created by user with user id",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "consumer_key": {},
+          "user_id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "consumer_key",
+          "user_id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "soundcloud": {
+          "integration": "soundcloud"
+        }
+      }
+    },
+    {
+      "id": "me.json.get",
+      "title": "me.json.get",
+      "description": "Returns the logged-in user",
+      "inputSchema": {},
+      "outputSchema": {},
+      "security": {
+        "soundcloud": {
+          "integration": "soundcloud"
+        }
+      }
+    },
+    {
+      "id": "me.json.put",
+      "title": "me.json.put",
+      "description": "Updates the logged-in user",
+      "inputSchema": {},
+      "outputSchema": {},
+      "security": {
+        "soundcloud": {
+          "integration": "soundcloud"
+        }
+      }
+    },
+    {
+      "id": "me.tracks.json.get",
+      "title": "me.tracks.json.get",
+      "description": "Returns a collection of tracks uploaded by logged-in user",
+      "inputSchema": {},
+      "outputSchema": {},
+      "security": {
+        "soundcloud": {
+          "integration": "soundcloud"
+        }
+      }
+    },
+    {
+      "id": "me.comments.json.get",
+      "title": "me.comments.json.get",
+      "description": "Returns a collection of comments made by logged-in user",
+      "inputSchema": {},
+      "outputSchema": {},
+      "security": {
+        "soundcloud": {
+          "integration": "soundcloud"
+        }
+      }
+    },
+    {
+      "id": "me.followings.json.get",
+      "title": "me.followings.json.get",
+      "description": "Returns a collection of users the logged-in user is following",
+      "inputSchema": {},
+      "outputSchema": {},
+      "security": {
+        "soundcloud": {
+          "integration": "soundcloud"
+        }
+      }
+    },
+    {
+      "id": "me.followings.contact_id.json.get",
+      "title": "me.followings.contact_id.json.get",
+      "description": "Checks if the user with the id contact_id is in the logged-in user's list of contacts.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "contact_id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "contact_id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "soundcloud": {
+          "integration": "soundcloud"
+        }
+      }
+    },
+    {
+      "id": "me.followings.contact_id.json.put",
+      "title": "me.followings.contact_id.json.put",
+      "description": "Adds the user with the id contact_id to the logged-in user's list of contacts.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "contact_id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "contact_id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "soundcloud": {
+          "integration": "soundcloud"
+        }
+      }
+    },
+    {
+      "id": "me.followings.contact_id.json.delete",
+      "title": "me.followings.contact_id.json.delete",
+      "description": "Deletes the user with the id contact_id from the logged-in user's list of contacts.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "contact_id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "contact_id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "soundcloud": {
+          "integration": "soundcloud"
+        }
+      }
+    },
+    {
+      "id": "me.followers.json.get",
+      "title": "me.followers.json.get",
+      "description": "Returns a collection of users who follow the logged-in user",
+      "inputSchema": {},
+      "outputSchema": {},
+      "security": {
+        "soundcloud": {
+          "integration": "soundcloud"
+        }
+      }
+    },
+    {
+      "id": "me.followers.contact_id.json.get",
+      "title": "me.followers.contact_id.json.get",
+      "description": "Checks if the user with the id contact_id is a follower of the logged-in user",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "contact_id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "contact_id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "soundcloud": {
+          "integration": "soundcloud"
+        }
+      }
+    },
+    {
+      "id": "me.favorites.json.get",
+      "title": "me.favorites.json.get",
+      "description": "Returns a collection of tracks favorited by the logged-in user",
+      "inputSchema": {},
+      "outputSchema": {},
+      "security": {
+        "soundcloud": {
+          "integration": "soundcloud"
+        }
+      }
+    },
+    {
+      "id": "me.favorites.track_id.json.put",
+      "title": "me.favorites.track_id.json.put",
+      "description": "Adds the given track to the logged-in user's list of favorites.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "track_id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "track_id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "soundcloud": {
+          "integration": "soundcloud"
+        }
+      }
+    },
+    {
+      "id": "me.favorites.track_id.json.delete",
+      "title": "me.favorites.track_id.json.delete",
+      "description": "Deletes the given track from the logged-in user's list of favorites.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "track_id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "track_id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "soundcloud": {
+          "integration": "soundcloud"
+        }
+      }
+    },
+    {
+      "id": "me.groups.json.get",
+      "title": "me.groups.json.get",
+      "description": "Returns a collection of groups joined by logged-in user",
+      "inputSchema": {},
+      "outputSchema": {},
+      "security": {
+        "soundcloud": {
+          "integration": "soundcloud"
+        }
+      }
+    },
+    {
+      "id": "me.playlists.json.get",
+      "title": "me.playlists.json.get",
+      "description": "Returns a collection of playlists created by the logged-in user",
+      "inputSchema": {},
+      "outputSchema": {},
+      "security": {
+        "soundcloud": {
+          "integration": "soundcloud"
+        }
+      }
+    },
+    {
+      "id": "playlists.json.get",
+      "title": "playlists.json.get",
+      "description": "Returns a collection of playlists",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "consumer_key": {},
+          "q": {
+            "type": "string"
+          },
+          "filter": {
+            "type": "string",
+            "enum": [
+              "all",
+              "public",
+              "private"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "consumer_key"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "soundcloud": {
+          "integration": "soundcloud"
+        }
+      }
+    },
+    {
+      "id": "playlists.playlist_id.json.get",
+      "title": "playlists.playlist_id.json.get",
+      "description": "Returns a playlist by playlist id",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "consumer_key": {},
+          "playlist_id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "consumer_key",
+          "playlist_id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "soundcloud": {
+          "integration": "soundcloud"
+        }
+      }
+    },
+    {
+      "id": "groups.json.get",
+      "title": "groups.json.get",
+      "description": "Returns a collection of groups",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "consumer_key": {}
+        },
+        "additionalProperties": false,
+        "required": [
+          "consumer_key"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "soundcloud": {
+          "integration": "soundcloud"
+        }
+      }
+    },
+    {
+      "id": "groups.group_id.json.get",
+      "title": "groups.group_id.json.get",
+      "description": "Returns a group by group id",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "consumer_key": {},
+          "playlist_id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "consumer_key",
+          "playlist_id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "soundcloud": {
+          "integration": "soundcloud"
+        }
+      }
+    },
+    {
+      "id": "groups.group_id.users.json.get",
+      "title": "groups.group_id.users.json.get",
+      "description": "Returns a combined collection of moderators, members and contributors of the group with group id",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "consumer_key": {},
+          "playlist_id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "consumer_key",
+          "playlist_id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "soundcloud": {
+          "integration": "soundcloud"
+        }
+      }
+    },
+    {
+      "id": "groups.group_id.moderators.json.get",
+      "title": "groups.group_id.moderators.json.get",
+      "description": "Returns a collection of moderators of the group with group id",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "consumer_key": {},
+          "playlist_id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "consumer_key",
+          "playlist_id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "soundcloud": {
+          "integration": "soundcloud"
+        }
+      }
+    },
+    {
+      "id": "groups.group_id.members.json.get",
+      "title": "groups.group_id.members.json.get",
+      "description": "Returns a collection of members of the group with group id",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "consumer_key": {},
+          "playlist_id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "consumer_key",
+          "playlist_id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "soundcloud": {
+          "integration": "soundcloud"
+        }
+      }
+    },
+    {
+      "id": "groups.group_id.contributors.json.get",
+      "title": "groups.group_id.contributors.json.get",
+      "description": "Returns a collection of contributors of the group with group id",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "consumer_key": {},
+          "playlist_id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "consumer_key",
+          "playlist_id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "soundcloud": {
+          "integration": "soundcloud"
+        }
+      }
+    },
+    {
+      "id": "groups.group_id.tracks.json.get",
+      "title": "groups.group_id.tracks.json.get",
+      "description": "Returns a collection of tracks contributed to the group with group id",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "consumer_key": {},
+          "playlist_id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "consumer_key",
+          "playlist_id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "soundcloud": {
+          "integration": "soundcloud"
+        }
+      }
+    },
+    {
+      "id": "comments.comment_id.json.get",
+      "title": "comments.comment_id.json.get",
+      "description": "Returns a comment by comment id",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "consumer_key": {},
+          "playlist_id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "consumer_key",
+          "playlist_id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "soundcloud": {
+          "integration": "soundcloud"
+        }
+      }
+    },
+    {
+      "id": "resolve.json.get",
+      "title": "resolve.json.get",
+      "description": "Translates a website URI into an API URI",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "consumer_key": {},
+          "url": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "consumer_key",
+          "url"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "soundcloud": {
+          "integration": "soundcloud"
+        }
+      }
+    }
+  ]
+}

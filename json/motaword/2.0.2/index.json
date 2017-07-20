@@ -1,0 +1,2130 @@
+{
+  "id": "motaword",
+  "title": "MotaWord",
+  "description": "Use MotaWord API to post and track your translation projects.",
+  "security": {
+    "motaword": {
+      "integration": "motaword",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)",
+        "redirect_uri": "The callback URL for your application"
+      },
+      "oauth": {
+        "description": "OAuth2 authentication, Client Credentials flow.",
+        "flow": "password",
+        "tokenUrl": "/token",
+        "type": "oauth2"
+      }
+    }
+  },
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/motaword.png"
+  },
+  "tags": [],
+  "definitions": {
+    "Account": {
+      "properties": {
+        "billing": {
+          "properties": {
+            "city": {
+              "type": "string"
+            },
+            "country": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "state": {
+              "type": "string"
+            },
+            "street": {
+              "type": "string"
+            },
+            "zip": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "created_at": {
+          "type": "integer"
+        },
+        "id": {
+          "type": "integer"
+        },
+        "links": {
+          "properties": {
+            "projects": {
+              "properties": {
+                "href": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "self": {
+              "properties": {
+                "href": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "type": "object"
+        },
+        "name": {
+          "type": "string"
+        },
+        "stats": {
+          "properties": {
+            "started_projects": {
+              "type": "integer"
+            },
+            "total_projects": {
+              "type": "integer"
+            }
+          },
+          "type": "object"
+        }
+      }
+    },
+    "Activity": {
+      "properties": {
+        "activity_at": {
+          "format": "date",
+          "type": "string"
+        },
+        "id": {
+          "type": "integer"
+        },
+        "links": {
+          "$ref": "#/definitions/ActivityLinks"
+        },
+        "source_text": {
+          "description": "Source text",
+          "type": "string"
+        },
+        "target_text": {
+          "description": "Target text of the activity, which is actually the translation of the source text.",
+          "type": "string"
+        },
+        "translator": {
+          "description": "Unique identifier of the translator/proofreader of this activity.",
+          "type": "integer"
+        },
+        "type": {
+          "description": "Currently there are two available activity types; 'translated', 'proofread'.",
+          "enum": [
+            "translated",
+            "proofread"
+          ],
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "ActivityLinks": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/LinksMeta"
+        }
+      ],
+      "properties": {
+        "comments": {
+          "properties": {
+            "href": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "project": {
+          "properties": {
+            "href": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "type": "object"
+    },
+    "ActivityList": {
+      "properties": {
+        "activities": {
+          "items": {
+            "$ref": "#/definitions/Activity"
+          },
+          "type": "array"
+        },
+        "meta": {
+          "$ref": "#/definitions/PagingMeta"
+        }
+      },
+      "type": "object"
+    },
+    "Comment": {
+      "properties": {
+        "comment": {
+          "description": "Comment text.",
+          "type": "string"
+        },
+        "commented_at": {
+          "format": "date",
+          "type": "string"
+        },
+        "id": {
+          "type": "integer"
+        },
+        "links": {
+          "$ref": "#/definitions/CommentLinks"
+        }
+      },
+      "type": "object"
+    },
+    "CommentLinks": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/LinksMeta"
+        }
+      ],
+      "properties": {
+        "activity": {
+          "description": "Link to the activity to which this comment was submitted.",
+          "properties": {
+            "href": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "project": {
+          "properties": {
+            "href": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "type": "object"
+    },
+    "CommentList": {
+      "properties": {
+        "activities": {
+          "items": {
+            "$ref": "#/definitions/Comment"
+          },
+          "type": "array"
+        },
+        "meta": {
+          "$ref": "#/definitions/PagingMeta"
+        }
+      },
+      "type": "object"
+    },
+    "Document": {
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "links": {
+          "$ref": "#/definitions/DocumentLinks"
+        },
+        "name": {
+          "type": "string"
+        },
+        "uploaded_at": {
+          "format": "date",
+          "type": "string"
+        },
+        "word_count": {
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "DocumentLinks": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/LinksMeta"
+        }
+      ],
+      "properties": {
+        "download": {
+          "properties": {
+            "href": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "project": {
+          "properties": {
+            "href": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "type": "object"
+    },
+    "DocumentList": {
+      "properties": {
+        "documents": {
+          "items": {
+            "$ref": "#/definitions/Document"
+          },
+          "type": "array"
+        },
+        "meta": {
+          "$ref": "#/definitions/PagingMeta"
+        }
+      },
+      "type": "object"
+    },
+    "Error": {
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "help": {
+          "type": "string"
+        },
+        "http_code": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "message": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Formats": {
+      "properties": {
+        "documents": {
+          "properties": {
+            "extensions": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "mimes": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }
+          },
+          "type": "object"
+        },
+        "glossaries": {
+          "properties": {
+            "extensions": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }
+          },
+          "type": "object"
+        },
+        "styleguides": {
+          "properties": {
+            "extensions": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "type": "object"
+    },
+    "Glossary": {
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "links": {
+          "$ref": "#/definitions/DocumentLinks"
+        },
+        "name": {
+          "type": "string"
+        },
+        "uploaded_at": {
+          "format": "date",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "GlossaryList": {
+      "properties": {
+        "glossaries": {
+          "items": {
+            "$ref": "#/definitions/Glossary"
+          },
+          "type": "array"
+        },
+        "meta": {
+          "$ref": "#/definitions/PagingMeta"
+        }
+      },
+      "type": "object"
+    },
+    "Language": {
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "LanguageProgress": {
+      "properties": {
+        "languageCode": {
+          "$ref": "#/definitions/ProgressSub"
+        }
+      },
+      "type": "object"
+    },
+    "LinksMeta": {
+      "properties": {
+        "self": {
+          "properties": {
+            "href": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "type": "object"
+    },
+    "Package": {
+      "properties": {
+        "key": {
+          "description": "This is the unique package tracking key. You can use this key to track the current progress of the translation packaging with /package/check call.",
+          "type": "string"
+        },
+        "status": {
+          "description": "The status of translation packaging. Possible values are 'started', 'packaging', 'completed'. When completed, you can make a /download call to download the last translation package.",
+          "enum": [
+            "started",
+            "packaging",
+            "completed"
+          ],
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "PackageStatus": {
+      "properties": {
+        "status": {
+          "description": "The status of translation packaging. Possible values are 'started', 'packaging', 'completed'. When completed, you can make a /download call to download the last translation package.",
+          "enum": [
+            "started",
+            "packaging",
+            "completed"
+          ],
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "PagingLinksMeta": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/LinksMeta"
+        }
+      ],
+      "properties": {
+        "next": {
+          "type": "string"
+        },
+        "previous": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "PagingMeta": {
+      "properties": {
+        "paging": {
+          "properties": {
+            "links": {
+              "$ref": "#/definitions/PagingLinksMeta"
+            },
+            "page": {
+              "default": 1,
+              "type": "integer"
+            },
+            "per_page": {
+              "default": 10,
+              "type": "integer"
+            },
+            "total_count": {
+              "type": "integer"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "type": "object"
+    },
+    "Progress": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/ProgressSub"
+        }
+      ],
+      "properties": {
+        "languages": {
+          "$ref": "#/definitions/LanguageProgress"
+        },
+        "links": {
+          "$ref": "#/definitions/ProgressLink"
+        }
+      },
+      "type": "object"
+    },
+    "ProgressLink": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/LinksMeta"
+        }
+      ],
+      "properties": {
+        "project": {
+          "properties": {
+            "href": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "type": "object"
+    },
+    "ProgressSub": {
+      "properties": {
+        "proofreading": {
+          "type": "integer"
+        },
+        "total": {
+          "type": "integer"
+        },
+        "translation": {
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "Project": {
+      "properties": {
+        "callback_url": {
+          "description": "Callback URL to notify when project status changed.",
+          "type": "string"
+        },
+        "created_at": {
+          "format": "date",
+          "type": "string"
+        },
+        "custom": {
+          "description": "Custom data provided while creating a new project.",
+          "type": "object"
+        },
+        "delivery_at": {
+          "format": "date",
+          "type": "string"
+        },
+        "errors": {
+          "description": "A list of errors. Visible when creating a project and uploading your documents at the same time, in case of multiple errors.",
+          "items": {
+            "$ref": "#/definitions/Error"
+          },
+          "type": "array"
+        },
+        "id": {
+          "type": "integer"
+        },
+        "links": {
+          "$ref": "#/definitions/ProjectLinks"
+        },
+        "price": {
+          "properties": {
+            "amount": {
+              "format": "float",
+              "type": "number"
+            },
+            "currency": {
+              "default": "usd",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "source_language": {
+          "type": "string"
+        },
+        "status": {
+          "enum": [
+            "pending",
+            "started",
+            "completed"
+          ],
+          "type": "string"
+        },
+        "target_languages": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "valid_until": {
+          "description": "Available only if status is `pending`",
+          "format": "date",
+          "type": "string"
+        },
+        "word_count": {
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "ProjectLinks": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/LinksMeta"
+        }
+      ],
+      "properties": {
+        "documents": {
+          "properties": {
+            "href": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "glossaries": {
+          "properties": {
+            "href": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "styleguides": {
+          "properties": {
+            "href": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "type": "object"
+    },
+    "ProjectList": {
+      "properties": {
+        "meta": {
+          "$ref": "#/definitions/PagingMeta"
+        },
+        "projects": {
+          "items": {
+            "$ref": "#/definitions/Project"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "StyleGuide": {
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "links": {
+          "$ref": "#/definitions/DocumentLinks"
+        },
+        "name": {
+          "type": "string"
+        },
+        "uploaded_at": {
+          "format": "date",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "StyleGuideList": {
+      "properties": {
+        "meta": {
+          "$ref": "#/definitions/PagingMeta"
+        },
+        "styleguides": {
+          "items": {
+            "$ref": "#/definitions/StyleGuide"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "Token": {
+      "properties": {
+        "access_token": {
+          "type": "string"
+        },
+        "expires_in": {
+          "type": "integer"
+        },
+        "scope": {
+          "type": "string"
+        },
+        "token_type": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "actions": [
+    {
+      "id": "oauthCallback",
+      "title": "",
+      "description": "Exchange the code passed to your redirect URI for an access_token",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "title": "code",
+            "type": "string"
+          }
+        },
+        "required": [
+          "code"
+        ]
+      },
+      "outputSchema": {
+        "properties": {
+          "access_token": {
+            "type": "string"
+          },
+          "refresh_token": {
+            "type": "string"
+          },
+          "token_type": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "expiration": {
+            "type": "string"
+          }
+        }
+      },
+      "security": {
+        "motaword": {
+          "integration": "motaword"
+        }
+      }
+    },
+    {
+      "id": "oauthRefresh",
+      "title": "",
+      "description": "Exchange a refresh_token for an access_token",
+      "inputSchema": {},
+      "outputSchema": {
+        "properties": {
+          "access_token": {
+            "type": "string"
+          },
+          "refresh_token": {
+            "type": "string"
+          },
+          "token_type": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "expiration": {
+            "type": "string"
+          }
+        }
+      },
+      "security": {
+        "motaword": {
+          "integration": "motaword"
+        }
+      }
+    },
+    {
+      "id": "getEndpoints",
+      "title": "getEndpoints",
+      "description": "The root endpoint will provide you a JSON Swagger definition.\n",
+      "inputSchema": {},
+      "outputSchema": {
+        "type": "object"
+      },
+      "security": {
+        "motaword": {
+          "integration": "motaword"
+        }
+      }
+    },
+    {
+      "id": "getFormats",
+      "title": "getFormats",
+      "description": "Get a list of supported formats for documents, style guides and extensions.\n",
+      "inputSchema": {},
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Formats"
+        },
+        "type": "object"
+      },
+      "security": {
+        "motaword": {
+          "integration": "motaword"
+        }
+      }
+    },
+    {
+      "id": "downloadGlobalGlossary",
+      "title": "downloadGlobalGlossary",
+      "description": "Download your corporate account's global glossary. This endpoint is available only for corporate account customers.",
+      "inputSchema": {},
+      "outputSchema": {
+        "type": "string"
+      },
+      "security": {
+        "motaword": {
+          "integration": "motaword"
+        }
+      }
+    },
+    {
+      "id": "updateGlobalGlossary",
+      "title": "updateGlobalGlossary",
+      "description": "Update your corporate account's global glossary. This endpoint is available only for corporate account customers.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "glossary": {
+            "type": "string",
+            "description": "Glossary file. Currently supported formats: .xlsx, .tbx\n"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "glossary"
+        ]
+      },
+      "outputSchema": {
+        "properties": {
+          "status": {
+            "default": "success",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "security": {
+        "motaword": {
+          "integration": "motaword"
+        }
+      }
+    },
+    {
+      "id": "getLanguages",
+      "title": "getLanguages",
+      "description": "Get a list of supported languages",
+      "inputSchema": {},
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Language"
+        },
+        "type": "array"
+      },
+      "security": {
+        "motaword": {
+          "integration": "motaword"
+        }
+      }
+    },
+    {
+      "id": "getAccount",
+      "title": "getAccount",
+      "description": "Get your account information and summary.",
+      "inputSchema": {},
+      "outputSchema": {
+        "$ref": "#/definitions/Account"
+      },
+      "security": {
+        "motaword": {
+          "integration": "motaword"
+        }
+      }
+    },
+    {
+      "id": "getProjects",
+      "title": "getProjects",
+      "description": "Get a list of your projects",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "page": {
+            "type": "integer"
+          },
+          "per_page": {
+            "type": "integer"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/ProjectList"
+        },
+        "type": "object"
+      },
+      "security": {
+        "motaword": {
+          "integration": "motaword"
+        }
+      }
+    },
+    {
+      "id": "createProject",
+      "title": "createProject",
+      "description": "Create a new project",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "source_language": {
+            "type": "string"
+          },
+          "target_languages[]": {
+            "type": "array"
+          },
+          "callback_url": {
+            "type": "string",
+            "description": "Optional. If you provide a callback URL, we will send POST callbacks when the status of the current project is changed. Possible status changes are, 'translated', 'proofread', 'completed'."
+          },
+          "custom": {
+            "type": "array",
+            "description": "Optional. This is a consistent custom data parameter that will be given to you in the response across every request of this project model. Values should be provided like this, custom[my_key] = my_value."
+          },
+          "documents[]": {
+            "type": "string",
+            "description": "Optional. You can add as many files as you want in documents[] parameter. Or you add your documents later in separate calls."
+          },
+          "styleguides[]": {
+            "type": "string",
+            "description": "Optional. You can add as many files as you want in styleguides[] parameter. Or you add your style guides later in separate calls."
+          },
+          "glossaries[]": {
+            "type": "string",
+            "description": "Optional. Only one glossary is supported at the moment."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "source_language",
+          "target_languages[]"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Project"
+        },
+        "type": "object"
+      },
+      "security": {
+        "motaword": {
+          "integration": "motaword"
+        }
+      }
+    },
+    {
+      "id": "getProject",
+      "title": "getProject",
+      "description": "Get single project",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Project ID"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Project"
+      },
+      "security": {
+        "motaword": {
+          "integration": "motaword"
+        }
+      }
+    },
+    {
+      "id": "updateProject",
+      "title": "updateProject",
+      "description": "Update project language pairs",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Project ID"
+          },
+          "source_language": {
+            "type": "string"
+          },
+          "target_languages[]": {
+            "type": "array"
+          },
+          "callback_url": {
+            "type": "string",
+            "description": "Optional. If you provide a callback URL, we will send POST callbacks when the status of the current project is changed. Possible status changes are, 'translated', 'proofread', 'completed'."
+          },
+          "custom": {
+            "type": "array",
+            "description": "Optional. This is a consistent custom data parameter that will be given to you in the response across every request of this project model. Values should be provided like this, custom[my_key] = my_value. If you previously provided one, it will be replaced."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "source_language",
+          "target_languages[]"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Project"
+        },
+        "type": "object"
+      },
+      "security": {
+        "motaword": {
+          "integration": "motaword"
+        }
+      }
+    },
+    {
+      "id": "download",
+      "title": "download",
+      "description": "Download the latest translation package. You must have given a /package call beforehand and wait until the packaging status is 'completed'.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Project ID"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "type": "string"
+      },
+      "security": {
+        "motaword": {
+          "integration": "motaword"
+        }
+      }
+    },
+    {
+      "id": "downloadLanguage",
+      "title": "downloadLanguage",
+      "description": "Download only the translation package of this language. You must have given a /package call beforehand and wait until the packaging status is 'completed'.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Project ID"
+          },
+          "language": {
+            "type": "string",
+            "description": "Language code. You can download the translation of only a specific language."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "language"
+        ]
+      },
+      "outputSchema": {
+        "type": "string"
+      },
+      "security": {
+        "motaword": {
+          "integration": "motaword"
+        }
+      }
+    },
+    {
+      "id": "launchProject",
+      "title": "launchProject",
+      "description": "Launch your translation project",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Project ID"
+          },
+          "payment_method": {
+            "type": "string",
+            "description": "Optional. Determines which method to use for payment. Options are 'corporate', 'client'.",
+            "enum": [
+              "corporate",
+              "client"
+            ]
+          },
+          "payment_code": {
+            "type": "string",
+            "description": "Optional. According to your corporate account configuration, this may be required."
+          },
+          "budget_code": {
+            "type": "string",
+            "description": "Optional with corporate accounts. Not available for others."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "properties": {
+          "status": {
+            "default": "started",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "security": {
+        "motaword": {
+          "integration": "motaword"
+        }
+      }
+    },
+    {
+      "id": "package",
+      "title": "package",
+      "description": "Package the translation project, make it ready to be downloaded.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Project ID"
+          },
+          "async": {
+            "type": "integer",
+            "description": "If you want to package and download the translation synchronously, mark this parameter as '0'. It will package the translation and then return the packaged file in the response, identical to /download call after an asynchronous /package call."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "type": "string"
+      },
+      "security": {
+        "motaword": {
+          "integration": "motaword"
+        }
+      }
+    },
+    {
+      "id": "trackPackage",
+      "title": "trackPackage",
+      "description": "This request will tell you the current progress of the translation packaging. You will use the 'key' provided by the /package call.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Project ID"
+          },
+          "key": {
+            "type": "string",
+            "description": "This is the package tracking key provided in the response of a /package call."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/PackageStatus"
+      },
+      "security": {
+        "motaword": {
+          "integration": "motaword"
+        }
+      }
+    },
+    {
+      "id": "packageLanguage",
+      "title": "packageLanguage",
+      "description": "Package the translation project, make it ready to be downloaded.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Project ID"
+          },
+          "language": {
+            "type": "string",
+            "description": "Language code. You can package the translation of only a specific language."
+          },
+          "async": {
+            "type": "integer",
+            "description": "If you want to package and download the translation synchronously, mark this parameter as '0'. It will package the translation and then return the packaged file in the response, identical to /download call after an asynchronous /package call."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "language"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Package"
+      },
+      "security": {
+        "motaword": {
+          "integration": "motaword"
+        }
+      }
+    },
+    {
+      "id": "getProgress",
+      "title": "getProgress",
+      "description": "Get the progress of an already launched project.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Project ID"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Progress"
+      },
+      "security": {
+        "motaword": {
+          "integration": "motaword"
+        }
+      }
+    },
+    {
+      "id": "getActivities",
+      "title": "getActivities",
+      "description": "Get a list of realtime activities on the project, such as translation suggestion and translation approval.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "projectId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Project ID"
+          },
+          "page": {
+            "type": "integer"
+          },
+          "per_page": {
+            "type": "integer"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "projectId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ActivityList"
+      },
+      "security": {
+        "motaword": {
+          "integration": "motaword"
+        }
+      }
+    },
+    {
+      "id": "getActivity",
+      "title": "getActivity",
+      "description": "Get a single realtime activity.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "projectId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Project ID"
+          },
+          "activityId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Activity ID"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "projectId",
+          "activityId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Activity"
+      },
+      "security": {
+        "motaword": {
+          "integration": "motaword"
+        }
+      }
+    },
+    {
+      "id": "submitComment",
+      "title": "submitComment",
+      "description": "Submit a comment to an activity.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "projectId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Project ID"
+          },
+          "activityId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Activity ID"
+          },
+          "comment": {
+            "type": "string",
+            "description": "Comment text."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "projectId",
+          "activityId",
+          "comment"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Comment"
+      },
+      "security": {
+        "motaword": {
+          "integration": "motaword"
+        }
+      }
+    },
+    {
+      "id": "getActivityComments",
+      "title": "getActivityComments",
+      "description": "Get a list of comments belonging to this activity.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "projectId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Project ID"
+          },
+          "activityId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Activity ID"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "projectId",
+          "activityId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CommentList"
+      },
+      "security": {
+        "motaword": {
+          "integration": "motaword"
+        }
+      }
+    },
+    {
+      "id": "getComments",
+      "title": "getComments",
+      "description": "Get a list of activity comments throughout the whole project.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "projectId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Project ID"
+          },
+          "page": {
+            "type": "integer"
+          },
+          "per_page": {
+            "type": "integer"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "projectId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CommentList"
+      },
+      "security": {
+        "motaword": {
+          "integration": "motaword"
+        }
+      }
+    },
+    {
+      "id": "getDocuments",
+      "title": "getDocuments",
+      "description": "Get a list of documents",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "projectId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Project ID"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "projectId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DocumentList"
+      },
+      "security": {
+        "motaword": {
+          "integration": "motaword"
+        }
+      }
+    },
+    {
+      "id": "createDocument",
+      "title": "createDocument",
+      "description": "Upload a new document",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "projectId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Project ID"
+          },
+          "documents[]": {
+            "type": "string",
+            "description": "You can add as many files as you want in documents[] parameter."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "projectId",
+          "documents[]"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Document"
+      },
+      "security": {
+        "motaword": {
+          "integration": "motaword"
+        }
+      }
+    },
+    {
+      "id": "deleteDocument",
+      "title": "deleteDocument",
+      "description": "Delete the document",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "projectId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Project ID"
+          },
+          "documentId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Document ID"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "projectId",
+          "documentId"
+        ]
+      },
+      "outputSchema": {
+        "properties": {
+          "status": {
+            "default": "success",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "security": {
+        "motaword": {
+          "integration": "motaword"
+        }
+      }
+    },
+    {
+      "id": "getDocument",
+      "title": "getDocument",
+      "description": "Get single document",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "projectId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Project ID"
+          },
+          "documentId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Document ID"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "projectId",
+          "documentId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Document"
+      },
+      "security": {
+        "motaword": {
+          "integration": "motaword"
+        }
+      }
+    },
+    {
+      "id": "updateDocument",
+      "title": "updateDocument",
+      "description": "Update the document. File name and contents will replaced with the new one.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "projectId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Project ID"
+          },
+          "documentId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Document ID"
+          },
+          "documents": {
+            "type": "string",
+            "description": "Single file data. The name is plural to provide a consistent naming convention."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "projectId",
+          "documentId",
+          "documents"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Document"
+      },
+      "security": {
+        "motaword": {
+          "integration": "motaword"
+        }
+      }
+    },
+    {
+      "id": "downloadDocument",
+      "title": "downloadDocument",
+      "description": "Download a document",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "projectId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Project ID"
+          },
+          "documentId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Document ID"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "projectId",
+          "documentId"
+        ]
+      },
+      "outputSchema": {
+        "type": "string"
+      },
+      "security": {
+        "motaword": {
+          "integration": "motaword"
+        }
+      }
+    },
+    {
+      "id": "getGlossaries",
+      "title": "getGlossaries",
+      "description": "Get a list of glossaries",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "projectId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Project ID"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "projectId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GlossaryList"
+      },
+      "security": {
+        "motaword": {
+          "integration": "motaword"
+        }
+      }
+    },
+    {
+      "id": "createGlossary",
+      "title": "createGlossary",
+      "description": "Upload a new glossary",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "projectId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Project ID"
+          },
+          "glossaries": {
+            "type": "string",
+            "description": "You can only add one glossary, even though the name suggests multiple glossaries. This may be updated in the future to support multiple glossaries."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "projectId",
+          "glossaries"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Glossary"
+      },
+      "security": {
+        "motaword": {
+          "integration": "motaword"
+        }
+      }
+    },
+    {
+      "id": "deleteGlossary",
+      "title": "deleteGlossary",
+      "description": "Delete the glossary",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "projectId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Project ID"
+          },
+          "glossaryId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Glossary ID"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "projectId",
+          "glossaryId"
+        ]
+      },
+      "outputSchema": {
+        "properties": {
+          "status": {
+            "default": "success",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "security": {
+        "motaword": {
+          "integration": "motaword"
+        }
+      }
+    },
+    {
+      "id": "getGlossary",
+      "title": "getGlossary",
+      "description": "Get single glossary",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "projectId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Project ID"
+          },
+          "glossaryId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Glossary ID"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "projectId",
+          "glossaryId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Glossary"
+      },
+      "security": {
+        "motaword": {
+          "integration": "motaword"
+        }
+      }
+    },
+    {
+      "id": "updateGlossary",
+      "title": "updateGlossary",
+      "description": "Update the glossary. File name and contents will replaced with the new one.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "projectId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Project ID"
+          },
+          "glossaryId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Glossary ID"
+          },
+          "glossaries": {
+            "type": "string",
+            "description": "Single file data. The name is plural to provide a consistent naming convention."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "projectId",
+          "glossaryId",
+          "glossaries"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Glossary"
+      },
+      "security": {
+        "motaword": {
+          "integration": "motaword"
+        }
+      }
+    },
+    {
+      "id": "downloadGlossary",
+      "title": "downloadGlossary",
+      "description": "Download a glossary",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "projectId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Project ID"
+          },
+          "glossaryId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Glossary ID"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "projectId",
+          "glossaryId"
+        ]
+      },
+      "outputSchema": {
+        "type": "string"
+      },
+      "security": {
+        "motaword": {
+          "integration": "motaword"
+        }
+      }
+    },
+    {
+      "id": "getStyleGuides",
+      "title": "getStyleGuides",
+      "description": "Get a list of style guides",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "projectId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Project ID"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "projectId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/StyleGuideList"
+      },
+      "security": {
+        "motaword": {
+          "integration": "motaword"
+        }
+      }
+    },
+    {
+      "id": "createStyleGuide",
+      "title": "createStyleGuide",
+      "description": "Upload a new style guide",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "projectId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Project ID"
+          },
+          "styleguides[]": {
+            "type": "string",
+            "description": "You can add as many files as you want in styleguides[] parameter."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "projectId",
+          "styleguides[]"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/StyleGuide"
+      },
+      "security": {
+        "motaword": {
+          "integration": "motaword"
+        }
+      }
+    },
+    {
+      "id": "deleteStyleGuide",
+      "title": "deleteStyleGuide",
+      "description": "Delete the style guide",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "projectId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Project ID"
+          },
+          "styleGuideId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Style Guide ID"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "projectId",
+          "styleGuideId"
+        ]
+      },
+      "outputSchema": {
+        "properties": {
+          "status": {
+            "default": "success",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "security": {
+        "motaword": {
+          "integration": "motaword"
+        }
+      }
+    },
+    {
+      "id": "getStyleGuide",
+      "title": "getStyleGuide",
+      "description": "Get single style guide",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "projectId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Project ID"
+          },
+          "styleGuideId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Style Guide ID"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "projectId",
+          "styleGuideId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/StyleGuide"
+      },
+      "security": {
+        "motaword": {
+          "integration": "motaword"
+        }
+      }
+    },
+    {
+      "id": "updteStyleGuide",
+      "title": "updteStyleGuide",
+      "description": "Update the style guide. File name and contents will replaced with the new one.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "projectId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Project ID"
+          },
+          "styleGuideId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Style guide ID"
+          },
+          "styleguides": {
+            "type": "string",
+            "description": "Single file data. The name is plural to provide a consistent naming convention."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "projectId",
+          "styleGuideId",
+          "styleguides"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/StyleGuide"
+      },
+      "security": {
+        "motaword": {
+          "integration": "motaword"
+        }
+      }
+    },
+    {
+      "id": "downloadStyleGuide",
+      "title": "downloadStyleGuide",
+      "description": "Download a style guide",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "projectId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Project ID"
+          },
+          "styleGuideId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Style Guide ID"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "projectId",
+          "styleGuideId"
+        ]
+      },
+      "outputSchema": {
+        "type": "string"
+      },
+      "security": {
+        "motaword": {
+          "integration": "motaword"
+        }
+      }
+    },
+    {
+      "id": "downloadGlobalStyleGuide",
+      "title": "downloadGlobalStyleGuide",
+      "description": "Download your corporate account's global style guide. This endpoint is available only for corporate account customers.",
+      "inputSchema": {},
+      "outputSchema": {
+        "type": "string"
+      },
+      "security": {
+        "motaword": {
+          "integration": "motaword"
+        }
+      }
+    },
+    {
+      "id": "updateGlobalStyleGuide",
+      "title": "updateGlobalStyleGuide",
+      "description": "Update your corporate account's global style guide. This endpoint is available only for corporate account customers.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "styleguide": {
+            "type": "string",
+            "description": "Style guide file. Currently supported formats: .pdf, .docx, .txt\n"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "styleguide"
+        ]
+      },
+      "outputSchema": {
+        "properties": {
+          "status": {
+            "default": "success",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "security": {
+        "motaword": {
+          "integration": "motaword"
+        }
+      }
+    },
+    {
+      "id": "getAccessToken",
+      "title": "getAccessToken",
+      "description": "MotaWord API is using OAuth2 procedures when authenticating or authorizing your API call. Currently, we only allow Client Credential type flow.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "grant_type": {
+            "type": "string",
+            "description": "OAuth2 grant type. Currently only 'client_credentials' available."
+          },
+          "Authorization": {
+            "type": "string",
+            "description": "HTTP Basic Authorization header."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "grant_type",
+          "Authorization"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Token"
+      },
+      "security": {
+        "motaword": {
+          "integration": "motaword"
+        }
+      }
+    }
+  ]
+}

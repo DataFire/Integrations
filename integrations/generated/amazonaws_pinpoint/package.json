@@ -1,6 +1,6 @@
 {
   "name": "@datafire/amazonaws_pinpoint",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "main": "index.js",
   "description": "DataFire integration for Amazon Pinpoint",
   "repository": {

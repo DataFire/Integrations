@@ -1,0 +1,1125 @@
+{
+  "id": "azure_arm_authorization",
+  "title": "AuthorizationManagementClient",
+  "description": "Role based access control provides you a way to apply granular level policy administration down to individual resources or resource groups. These operations enable you to manage role definitions and role assignments. A role definition describes the set of actions that can be performed on resources. A role assignment grants access to Azure Active Directory users.",
+  "security": {
+    "azure_arm_authorization": {
+      "integration": "azure_arm_authorization",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)",
+        "redirect_uri": "The callback URL for your application"
+      },
+      "oauth": {
+        "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/authorize",
+        "description": "Azure Active Directory OAuth2 Flow",
+        "flow": "implicit",
+        "scopes": {
+          "user_impersonation": "impersonate your user account"
+        },
+        "type": "oauth2"
+      }
+    }
+  },
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_authorization.png"
+  },
+  "tags": [
+    "cloud",
+    "azure"
+  ],
+  "definitions": {
+    "ClassicAdministrator": {
+      "description": "Classic Administrators",
+      "properties": {
+        "id": {
+          "description": "The ID of the administrator.",
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the administrator.",
+          "type": "string"
+        },
+        "properties": {
+          "$ref": "#/definitions/ClassicAdministratorProperties",
+          "description": "Properties for the classic administrator."
+        },
+        "type": {
+          "description": "The type of the administrator.",
+          "type": "string"
+        }
+      }
+    },
+    "ClassicAdministratorListResult": {
+      "description": "ClassicAdministrator list result information.",
+      "properties": {
+        "nextLink": {
+          "description": "The URL to use for getting the next set of results.",
+          "type": "string"
+        },
+        "value": {
+          "description": "An array of administrators.",
+          "items": {
+            "$ref": "#/definitions/ClassicAdministrator"
+          },
+          "type": "array"
+        }
+      }
+    },
+    "ClassicAdministratorProperties": {
+      "description": "Classic Administrator properties.",
+      "properties": {
+        "emailAddress": {
+          "description": "The email address of the administrator.",
+          "type": "string"
+        },
+        "role": {
+          "description": "The role of the administrator.",
+          "type": "string"
+        }
+      }
+    },
+    "Permission": {
+      "description": "Role definition permissions.",
+      "properties": {
+        "actions": {
+          "description": "Allowed actions.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "notActions": {
+          "description": "Denied actions.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      }
+    },
+    "PermissionGetResult": {
+      "description": "Permissions information.",
+      "properties": {
+        "nextLink": {
+          "description": "The URL to use for getting the next set of results.",
+          "type": "string"
+        },
+        "value": {
+          "description": "An array of permissions.",
+          "items": {
+            "$ref": "#/definitions/Permission"
+          },
+          "type": "array"
+        }
+      }
+    },
+    "ProviderOperation": {
+      "description": "Operation",
+      "properties": {
+        "description": {
+          "description": "The operation description.",
+          "type": "string"
+        },
+        "displayName": {
+          "description": "The operation display name.",
+          "type": "string"
+        },
+        "name": {
+          "description": "The operation name.",
+          "type": "string"
+        },
+        "origin": {
+          "description": "The operation origin.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "The operation properties.",
+          "type": "object"
+        }
+      }
+    },
+    "ProviderOperationsMetadata": {
+      "description": "Provider Operations metadata",
+      "properties": {
+        "displayName": {
+          "description": "The provider display name.",
+          "type": "string"
+        },
+        "id": {
+          "description": "The provider id.",
+          "type": "string"
+        },
+        "name": {
+          "description": "The provider name.",
+          "type": "string"
+        },
+        "operations": {
+          "description": "The provider operations.",
+          "items": {
+            "$ref": "#/definitions/ProviderOperation"
+          },
+          "type": "array"
+        },
+        "resourceTypes": {
+          "description": "The provider resource types",
+          "items": {
+            "$ref": "#/definitions/ResourceType"
+          },
+          "type": "array"
+        },
+        "type": {
+          "description": "The provider type.",
+          "type": "string"
+        }
+      }
+    },
+    "ProviderOperationsMetadataListResult": {
+      "description": "Provider operations metadata list",
+      "properties": {
+        "nextLink": {
+          "description": "The URL to use for getting the next set of results.",
+          "type": "string"
+        },
+        "value": {
+          "description": "The list of providers.",
+          "items": {
+            "$ref": "#/definitions/ProviderOperationsMetadata"
+          },
+          "type": "array"
+        }
+      }
+    },
+    "ResourceType": {
+      "description": "Resource Type",
+      "properties": {
+        "displayName": {
+          "description": "The resource type display name.",
+          "type": "string"
+        },
+        "name": {
+          "description": "The resource type name.",
+          "type": "string"
+        },
+        "operations": {
+          "description": "The resource type operations.",
+          "items": {
+            "$ref": "#/definitions/ProviderOperation"
+          },
+          "type": "array"
+        }
+      }
+    },
+    "RoleAssignment": {
+      "description": "Role Assignments",
+      "properties": {
+        "id": {
+          "description": "The role assignment ID.",
+          "type": "string"
+        },
+        "name": {
+          "description": "The role assignment name.",
+          "type": "string"
+        },
+        "properties": {
+          "$ref": "#/definitions/RoleAssignmentPropertiesWithScope",
+          "description": "Role assignment properties."
+        },
+        "type": {
+          "description": "The role assignment type.",
+          "type": "string"
+        }
+      }
+    },
+    "RoleAssignmentCreateParameters": {
+      "description": "Role assignment create parameters.",
+      "properties": {
+        "properties": {
+          "$ref": "#/definitions/RoleAssignmentProperties",
+          "description": "Role assignment properties."
+        }
+      }
+    },
+    "RoleAssignmentFilter": {
+      "description": "Role Assignments filter",
+      "properties": {
+        "principalId": {
+          "description": "Returns role assignment of the specific principal.",
+          "type": "string"
+        }
+      }
+    },
+    "RoleAssignmentListResult": {
+      "description": "Role assignment list operation result.",
+      "properties": {
+        "nextLink": {
+          "description": "The URL to use for getting the next set of results.",
+          "type": "string"
+        },
+        "value": {
+          "description": "Role assignment list.",
+          "items": {
+            "$ref": "#/definitions/RoleAssignment"
+          },
+          "type": "array"
+        }
+      }
+    },
+    "RoleAssignmentProperties": {
+      "description": "Role assignment properties.",
+      "properties": {
+        "principalId": {
+          "description": "The principal ID assigned to the role. This maps to the ID inside the Active Directory. It can point to a user, service principal, or security group.",
+          "type": "string"
+        },
+        "roleDefinitionId": {
+          "description": "The role definition ID used in the role assignment.",
+          "type": "string"
+        }
+      }
+    },
+    "RoleAssignmentPropertiesWithScope": {
+      "description": "Role assignment properties with scope.",
+      "properties": {
+        "principalId": {
+          "description": "The principal ID.",
+          "type": "string"
+        },
+        "roleDefinitionId": {
+          "description": "The role definition ID.",
+          "type": "string"
+        },
+        "scope": {
+          "description": "The role assignment scope.",
+          "type": "string"
+        }
+      }
+    },
+    "RoleDefinition": {
+      "description": "Role definition.",
+      "properties": {
+        "id": {
+          "description": "The role definition ID.",
+          "type": "string"
+        },
+        "name": {
+          "description": "The role definition name.",
+          "type": "string"
+        },
+        "properties": {
+          "$ref": "#/definitions/RoleDefinitionProperties",
+          "description": "Role definition properties."
+        },
+        "type": {
+          "description": "The role definition type.",
+          "type": "string"
+        }
+      }
+    },
+    "RoleDefinitionFilter": {
+      "description": "Role Definitions filter",
+      "properties": {
+        "roleName": {
+          "description": "Returns role definition with the specific name.",
+          "type": "string"
+        }
+      }
+    },
+    "RoleDefinitionListResult": {
+      "description": "Role definition list operation result.",
+      "properties": {
+        "nextLink": {
+          "description": "The URL to use for getting the next set of results.",
+          "type": "string"
+        },
+        "value": {
+          "description": "Role definition list.",
+          "items": {
+            "$ref": "#/definitions/RoleDefinition"
+          },
+          "type": "array"
+        }
+      }
+    },
+    "RoleDefinitionProperties": {
+      "description": "Role definition properties.",
+      "properties": {
+        "assignableScopes": {
+          "description": "Role definition assignable scopes.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "description": {
+          "description": "The role definition description.",
+          "type": "string"
+        },
+        "permissions": {
+          "description": "Role definition permissions.",
+          "items": {
+            "$ref": "#/definitions/Permission"
+          },
+          "type": "array"
+        },
+        "roleName": {
+          "description": "The role name.",
+          "type": "string"
+        },
+        "type": {
+          "description": "The role type.",
+          "type": "string"
+        }
+      }
+    }
+  },
+  "actions": [
+    {
+      "id": "ProviderOperationsMetadata_List",
+      "title": "ProviderOperationsMetadata_List",
+      "description": "Gets provider operations metadata for all resource providers.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "api-version": {
+            "type": "string",
+            "description": "The API version to use for this operation."
+          },
+          "$expand": {
+            "type": "string",
+            "description": "Specifies whether to expand the values."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "api-version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ProviderOperationsMetadataListResult"
+      },
+      "security": {
+        "azure_arm_authorization": {
+          "integration": "azure_arm_authorization"
+        }
+      }
+    },
+    {
+      "id": "ProviderOperationsMetadata_Get",
+      "title": "ProviderOperationsMetadata_Get",
+      "description": "Gets provider operations metadata for the specified resource provider.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "resourceProviderNamespace": {
+            "type": "string",
+            "description": "The namespace of the resource provider."
+          },
+          "api-version": {
+            "type": "string",
+            "description": "The API version to use for the operation."
+          },
+          "$expand": {
+            "type": "string",
+            "description": "Specifies whether to expand the values."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "resourceProviderNamespace",
+          "api-version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ProviderOperationsMetadata"
+      },
+      "security": {
+        "azure_arm_authorization": {
+          "integration": "azure_arm_authorization"
+        }
+      }
+    },
+    {
+      "id": "ClassicAdministrators_List",
+      "title": "ClassicAdministrators_List",
+      "description": "Gets service administrator, account administrator, and co-administrators for the subscription.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "api-version": {
+            "type": "string",
+            "description": "The API version to use for this operation."
+          },
+          "subscriptionId": {
+            "type": "string",
+            "description": "The ID of the target subscription."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "api-version",
+          "subscriptionId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ClassicAdministratorListResult"
+      },
+      "security": {
+        "azure_arm_authorization": {
+          "integration": "azure_arm_authorization"
+        }
+      }
+    },
+    {
+      "id": "RoleAssignments_List",
+      "title": "RoleAssignments_List",
+      "description": "Gets all role assignments for the subscription.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "$filter": {
+            "type": "string",
+            "description": "The filter to apply on the operation. Use $filter=atScope() to return all role assignments at or above the scope. Use $filter=principalId eq {id} to return all role assignments at, above or below the scope for the specified principal."
+          },
+          "api-version": {
+            "type": "string",
+            "description": "The API version to use for this operation."
+          },
+          "subscriptionId": {
+            "type": "string",
+            "description": "The ID of the target subscription."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "api-version",
+          "subscriptionId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/RoleAssignmentListResult"
+      },
+      "security": {
+        "azure_arm_authorization": {
+          "integration": "azure_arm_authorization"
+        }
+      }
+    },
+    {
+      "id": "RoleAssignments_ListForResourceGroup",
+      "title": "RoleAssignments_ListForResourceGroup",
+      "description": "Gets role assignments for a resource group.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "resourceGroupName": {
+            "type": "string",
+            "description": "The name of the resource group."
+          },
+          "$filter": {
+            "type": "string",
+            "description": "The filter to apply on the operation. Use $filter=atScope() to return all role assignments at or above the scope. Use $filter=principalId eq {id} to return all role assignments at, above or below the scope for the specified principal."
+          },
+          "api-version": {
+            "type": "string",
+            "description": "The API version to use for this operation."
+          },
+          "subscriptionId": {
+            "type": "string",
+            "description": "The ID of the target subscription."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "api-version",
+          "subscriptionId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/RoleAssignmentListResult"
+      },
+      "security": {
+        "azure_arm_authorization": {
+          "integration": "azure_arm_authorization"
+        }
+      }
+    },
+    {
+      "id": "Permissions_ListForResourceGroup",
+      "title": "Permissions_ListForResourceGroup",
+      "description": "Gets all permissions the caller has for a resource group.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "resourceGroupName": {
+            "type": "string",
+            "description": "The name of the resource group to get the permissions for. The name is case insensitive."
+          },
+          "api-version": {
+            "type": "string",
+            "description": "The API version to use for this operation."
+          },
+          "subscriptionId": {
+            "type": "string",
+            "description": "The ID of the target subscription."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "api-version",
+          "subscriptionId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/PermissionGetResult"
+      },
+      "security": {
+        "azure_arm_authorization": {
+          "integration": "azure_arm_authorization"
+        }
+      }
+    },
+    {
+      "id": "Permissions_ListForResource",
+      "title": "Permissions_ListForResource",
+      "description": "Gets all permissions the caller has for a resource.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "resourceGroupName": {
+            "type": "string",
+            "description": "The name of the resource group containing the resource. The name is case insensitive."
+          },
+          "resourceProviderNamespace": {
+            "type": "string",
+            "description": "The namespace of the resource provider."
+          },
+          "parentResourcePath": {
+            "type": "string",
+            "description": "The parent resource identity."
+          },
+          "resourceType": {
+            "type": "string",
+            "description": "The resource type of the resource."
+          },
+          "resourceName": {
+            "type": "string",
+            "description": "The name of the resource to get the permissions for."
+          },
+          "api-version": {
+            "type": "string",
+            "description": "The API version to use for this operation."
+          },
+          "subscriptionId": {
+            "type": "string",
+            "description": "The ID of the target subscription."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "resourceProviderNamespace",
+          "parentResourcePath",
+          "resourceType",
+          "resourceName",
+          "api-version",
+          "subscriptionId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/PermissionGetResult"
+      },
+      "security": {
+        "azure_arm_authorization": {
+          "integration": "azure_arm_authorization"
+        }
+      }
+    },
+    {
+      "id": "RoleAssignments_ListForResource",
+      "title": "RoleAssignments_ListForResource",
+      "description": "Gets role assignments for a resource.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "resourceGroupName": {
+            "type": "string",
+            "description": "The name of the resource group."
+          },
+          "resourceProviderNamespace": {
+            "type": "string",
+            "description": "The namespace of the resource provider."
+          },
+          "parentResourcePath": {
+            "type": "string",
+            "description": "The parent resource identity."
+          },
+          "resourceType": {
+            "type": "string",
+            "description": "The resource type of the resource."
+          },
+          "resourceName": {
+            "type": "string",
+            "description": "The name of the resource to get role assignments for."
+          },
+          "$filter": {
+            "type": "string",
+            "description": "The filter to apply on the operation. Use $filter=atScope() to return all role assignments at or above the scope. Use $filter=principalId eq {id} to return all role assignments at, above or below the scope for the specified principal."
+          },
+          "api-version": {
+            "type": "string",
+            "description": "The API version to use for this operation."
+          },
+          "subscriptionId": {
+            "type": "string",
+            "description": "The ID of the target subscription."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "resourceProviderNamespace",
+          "parentResourcePath",
+          "resourceType",
+          "resourceName",
+          "api-version",
+          "subscriptionId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/RoleAssignmentListResult"
+      },
+      "security": {
+        "azure_arm_authorization": {
+          "integration": "azure_arm_authorization"
+        }
+      }
+    },
+    {
+      "id": "RoleAssignments_DeleteById",
+      "title": "RoleAssignments_DeleteById",
+      "description": "Deletes a role assignment.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "roleAssignmentId": {
+            "type": "string",
+            "description": "The ID of the role assignment to delete."
+          },
+          "api-version": {
+            "type": "string",
+            "description": "The API version to use for this operation."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "roleAssignmentId",
+          "api-version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/RoleAssignment"
+      },
+      "security": {
+        "azure_arm_authorization": {
+          "integration": "azure_arm_authorization"
+        }
+      }
+    },
+    {
+      "id": "RoleAssignments_GetById",
+      "title": "RoleAssignments_GetById",
+      "description": "Gets a role assignment by ID.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "roleAssignmentId": {
+            "type": "string",
+            "description": "The ID of the role assignment to get."
+          },
+          "api-version": {
+            "type": "string",
+            "description": "The API version to use for this operation."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "roleAssignmentId",
+          "api-version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/RoleAssignment"
+      },
+      "security": {
+        "azure_arm_authorization": {
+          "integration": "azure_arm_authorization"
+        }
+      }
+    },
+    {
+      "id": "RoleAssignments_CreateById",
+      "title": "RoleAssignments_CreateById",
+      "description": "Creates a role assignment by ID.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "roleAssignmentId": {
+            "type": "string",
+            "description": "The ID of the role assignment to create."
+          },
+          "parameters": {
+            "$ref": "#/definitions/RoleAssignmentCreateParameters"
+          },
+          "api-version": {
+            "type": "string",
+            "description": "The API version to use for this operation."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "roleAssignmentId",
+          "parameters",
+          "api-version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/RoleAssignment"
+      },
+      "security": {
+        "azure_arm_authorization": {
+          "integration": "azure_arm_authorization"
+        }
+      }
+    },
+    {
+      "id": "RoleDefinitions_GetById",
+      "title": "RoleDefinitions_GetById",
+      "description": "Gets a role definition by ID.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "roleDefinitionId": {
+            "type": "string",
+            "description": "The fully qualified role definition ID to get."
+          },
+          "api-version": {
+            "type": "string",
+            "description": "The API version to use for this operation."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "roleDefinitionId",
+          "api-version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/RoleDefinition"
+      },
+      "security": {
+        "azure_arm_authorization": {
+          "integration": "azure_arm_authorization"
+        }
+      }
+    },
+    {
+      "id": "RoleAssignments_ListForScope",
+      "title": "RoleAssignments_ListForScope",
+      "description": "Gets role assignments for a scope.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "scope": {
+            "type": "string",
+            "description": "The scope of the role assignments."
+          },
+          "$filter": {
+            "type": "string",
+            "description": "The filter to apply on the operation. Use $filter=atScope() to return all role assignments at or above the scope. Use $filter=principalId eq {id} to return all role assignments at, above or below the scope for the specified principal."
+          },
+          "api-version": {
+            "type": "string",
+            "description": "The API version to use for this operation."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "scope",
+          "api-version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/RoleAssignmentListResult"
+      },
+      "security": {
+        "azure_arm_authorization": {
+          "integration": "azure_arm_authorization"
+        }
+      }
+    },
+    {
+      "id": "RoleAssignments_Delete",
+      "title": "RoleAssignments_Delete",
+      "description": "Deletes a role assignment.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "scope": {
+            "type": "string",
+            "description": "The scope of the role assignment to delete."
+          },
+          "roleAssignmentName": {
+            "type": "string",
+            "description": "The name of the role assignment to delete."
+          },
+          "api-version": {
+            "type": "string",
+            "description": "The API version to use for this operation."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "scope",
+          "roleAssignmentName",
+          "api-version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/RoleAssignment"
+      },
+      "security": {
+        "azure_arm_authorization": {
+          "integration": "azure_arm_authorization"
+        }
+      }
+    },
+    {
+      "id": "RoleAssignments_Get",
+      "title": "RoleAssignments_Get",
+      "description": "Get the specified role assignment.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "scope": {
+            "type": "string",
+            "description": "The scope of the role assignment."
+          },
+          "roleAssignmentName": {
+            "type": "string",
+            "description": "The name of the role assignment to get."
+          },
+          "api-version": {
+            "type": "string",
+            "description": "The API version to use for this operation."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "scope",
+          "roleAssignmentName",
+          "api-version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/RoleAssignment"
+      },
+      "security": {
+        "azure_arm_authorization": {
+          "integration": "azure_arm_authorization"
+        }
+      }
+    },
+    {
+      "id": "RoleAssignments_Create",
+      "title": "RoleAssignments_Create",
+      "description": "Creates a role assignment.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "scope": {
+            "type": "string",
+            "description": "The scope of the role assignment to create. The scope can be any REST resource instance. For example, use '/subscriptions/{subscription-id}/' for a subscription, '/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}' for a resource group, and '/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider}/{resource-type}/{resource-name}' for a resource."
+          },
+          "roleAssignmentName": {
+            "type": "string",
+            "description": "The name of the role assignment to create. It can be any valid GUID."
+          },
+          "parameters": {
+            "$ref": "#/definitions/RoleAssignmentCreateParameters"
+          },
+          "api-version": {
+            "type": "string",
+            "description": "The API version to use for this operation."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "scope",
+          "roleAssignmentName",
+          "parameters",
+          "api-version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/RoleAssignment"
+      },
+      "security": {
+        "azure_arm_authorization": {
+          "integration": "azure_arm_authorization"
+        }
+      }
+    },
+    {
+      "id": "RoleDefinitions_List",
+      "title": "RoleDefinitions_List",
+      "description": "Get all role definitions that are applicable at scope and above.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "scope": {
+            "type": "string",
+            "description": "The scope of the role definition."
+          },
+          "$filter": {
+            "type": "string",
+            "description": "The filter to apply on the operation. Use atScopeAndBelow filter to search below the given scope as well."
+          },
+          "api-version": {
+            "type": "string",
+            "description": "The API version to use for this operation."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "scope",
+          "api-version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/RoleDefinitionListResult"
+      },
+      "security": {
+        "azure_arm_authorization": {
+          "integration": "azure_arm_authorization"
+        }
+      }
+    },
+    {
+      "id": "RoleDefinitions_Delete",
+      "title": "RoleDefinitions_Delete",
+      "description": "Deletes a role definition.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "scope": {
+            "type": "string",
+            "description": "The scope of the role definition."
+          },
+          "roleDefinitionId": {
+            "type": "string",
+            "description": "The ID of the role definition to delete."
+          },
+          "api-version": {
+            "type": "string",
+            "description": "The API version to use for this operation."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "scope",
+          "roleDefinitionId",
+          "api-version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/RoleDefinition"
+      },
+      "security": {
+        "azure_arm_authorization": {
+          "integration": "azure_arm_authorization"
+        }
+      }
+    },
+    {
+      "id": "RoleDefinitions_Get",
+      "title": "RoleDefinitions_Get",
+      "description": "Get role definition by name (GUID).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "scope": {
+            "type": "string",
+            "description": "The scope of the role definition."
+          },
+          "roleDefinitionId": {
+            "type": "string",
+            "description": "The ID of the role definition."
+          },
+          "api-version": {
+            "type": "string",
+            "description": "The API version to use for this operation."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "scope",
+          "roleDefinitionId",
+          "api-version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/RoleDefinition"
+      },
+      "security": {
+        "azure_arm_authorization": {
+          "integration": "azure_arm_authorization"
+        }
+      }
+    },
+    {
+      "id": "RoleDefinitions_CreateOrUpdate",
+      "title": "RoleDefinitions_CreateOrUpdate",
+      "description": "Creates or updates a role definition.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "scope": {
+            "type": "string",
+            "description": "The scope of the role definition."
+          },
+          "roleDefinitionId": {
+            "type": "string",
+            "description": "The ID of the role definition."
+          },
+          "roleDefinition": {
+            "$ref": "#/definitions/RoleDefinition"
+          },
+          "api-version": {
+            "type": "string",
+            "description": "The API version to use for this operation."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "scope",
+          "roleDefinitionId",
+          "roleDefinition",
+          "api-version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/RoleDefinition"
+      },
+      "security": {
+        "azure_arm_authorization": {
+          "integration": "azure_arm_authorization"
+        }
+      }
+    }
+  ]
+}

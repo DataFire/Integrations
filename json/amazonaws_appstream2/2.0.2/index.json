@@ -1,0 +1,2091 @@
+{
+  "id": "amazonaws_appstream2",
+  "title": "Amazon AppStream",
+  "description": "<fullname>Amazon AppStream 2.0</fullname> <p>API documentation for Amazon AppStream 2.0.</p>",
+  "security": {
+    "amazonaws_appstream2": {
+      "integration": "amazonaws_appstream2",
+      "fields": {
+        "hmac": "Amazon Signature authorization v4"
+      }
+    }
+  },
+  "logo": {
+    "backgroundColor": "#FFFFFF",
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_appstream2.jpg"
+  },
+  "tags": [
+    "cloud",
+    "aws"
+  ],
+  "definitions": {
+    "Application": {
+      "description": "An entry for a single application in the application catalog.",
+      "properties": {
+        "DisplayName": {
+          "$ref": "#/definitions/String",
+          "description": "The name of the application shown to the end users."
+        },
+        "Enabled": {
+          "$ref": "#/definitions/Boolean",
+          "description": "An application can be disabled after image creation if there is a problem."
+        },
+        "IconURL": {
+          "$ref": "#/definitions/String",
+          "description": "The URL for the application icon. This URL may be time-limited."
+        },
+        "LaunchParameters": {
+          "$ref": "#/definitions/String",
+          "description": "A list of arguments that are passed to the application at launch."
+        },
+        "LaunchPath": {
+          "$ref": "#/definitions/String",
+          "description": "The path to the application executable in the instance."
+        },
+        "Metadata": {
+          "$ref": "#/definitions/Metadata",
+          "description": "Additional attributes that describes the application."
+        },
+        "Name": {
+          "$ref": "#/definitions/String",
+          "description": "The unique identifier for the application."
+        }
+      },
+      "type": "object"
+    },
+    "Applications": {
+      "items": {
+        "$ref": "#/definitions/Application"
+      },
+      "type": "array"
+    },
+    "Arn": {
+      "pattern": "^arn:aws:[A-Za-z0-9][A-Za-z0-9_/.-]{0,62}:[A-Za-z0-9_/.-]{0,63}:[A-Za-z0-9_/.-]{0,63}:[A-Za-z0-9][A-Za-z0-9:_/+=,@.-]{0,1023}$",
+      "type": "string"
+    },
+    "AssociateFleetRequest": {
+      "properties": {
+        "FleetName": {
+          "$ref": "#/definitions/String",
+          "description": "The name of the fleet to associate."
+        },
+        "StackName": {
+          "$ref": "#/definitions/String",
+          "description": "The name of the stack to which the fleet is associated."
+        }
+      },
+      "required": [
+        "FleetName",
+        "StackName"
+      ],
+      "type": "object"
+    },
+    "AssociateFleetResult": {
+      "properties": {},
+      "type": "object"
+    },
+    "AuthenticationType": {
+      "enum": [
+        "API",
+        "SAML"
+      ],
+      "type": "string"
+    },
+    "Boolean": {
+      "type": "boolean"
+    },
+    "BooleanObject": {
+      "type": "boolean"
+    },
+    "ComputeCapacity": {
+      "description": "The capacity configuration for the fleet.",
+      "properties": {
+        "DesiredInstances": {
+          "$ref": "#/definitions/Integer",
+          "description": "The desired number of streaming instances."
+        }
+      },
+      "required": [
+        "DesiredInstances"
+      ],
+      "type": "object"
+    },
+    "ComputeCapacityStatus": {
+      "description": "The capacity information for the fleet.",
+      "properties": {
+        "Available": {
+          "$ref": "#/definitions/Integer",
+          "description": "The number of currently available instances that can be used to stream sessions."
+        },
+        "Desired": {
+          "$ref": "#/definitions/Integer",
+          "description": "The desired number of streaming instances."
+        },
+        "InUse": {
+          "$ref": "#/definitions/Integer",
+          "description": "The number of instances that are being used for streaming."
+        },
+        "Running": {
+          "$ref": "#/definitions/Integer",
+          "description": "The total number of simultaneous streaming instances that are running."
+        }
+      },
+      "required": [
+        "Desired"
+      ],
+      "type": "object"
+    },
+    "ConcurrentModificationException": {
+      "description": "An API error occurred, please try again.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "type": "object"
+    },
+    "CreateFleetRequest": {
+      "description": "Contains the parameters for the new fleet to create.",
+      "properties": {
+        "ComputeCapacity": {
+          "$ref": "#/definitions/ComputeCapacity",
+          "description": "The parameters for the capacity allocated to the fleet."
+        },
+        "Description": {
+          "$ref": "#/definitions/Description",
+          "description": "The description of the fleet."
+        },
+        "DisconnectTimeoutInSeconds": {
+          "$ref": "#/definitions/Integer",
+          "description": "The time after disconnection when a session is considered to have ended. If a user who got disconnected reconnects within this timeout interval, the user is connected back to his/her previous session. "
+        },
+        "DisplayName": {
+          "$ref": "#/definitions/DisplayName",
+          "description": "The display name of the fleet."
+        },
+        "EnableDefaultInternetAccess": {
+          "$ref": "#/definitions/BooleanObject",
+          "description": "Enable/Disable default Internet access from fleet."
+        },
+        "ImageName": {
+          "$ref": "#/definitions/String",
+          "description": "Unique name of the image used by the fleet."
+        },
+        "InstanceType": {
+          "$ref": "#/definitions/String",
+          "description": "The instance type of compute resources for the fleet. Fleet instances are launched from this instance type."
+        },
+        "MaxUserDurationInSeconds": {
+          "$ref": "#/definitions/Integer",
+          "description": "The maximum time up to which a streaming session can run."
+        },
+        "Name": {
+          "$ref": "#/definitions/Name",
+          "description": "A unique identifier for the fleet."
+        },
+        "VpcConfig": {
+          "$ref": "#/definitions/VpcConfig",
+          "description": "The VPC configuration for the fleet."
+        }
+      },
+      "required": [
+        "Name",
+        "ImageName",
+        "InstanceType",
+        "ComputeCapacity"
+      ],
+      "type": "object"
+    },
+    "CreateFleetResult": {
+      "properties": {
+        "Fleet": {
+          "$ref": "#/definitions/Fleet",
+          "description": "The details for the created fleet."
+        }
+      },
+      "type": "object"
+    },
+    "CreateStackRequest": {
+      "properties": {
+        "Description": {
+          "$ref": "#/definitions/Description",
+          "description": "The description displayed to end users on the AppStream 2.0 portal."
+        },
+        "DisplayName": {
+          "$ref": "#/definitions/DisplayName",
+          "description": "The name displayed to end users on the AppStream 2.0 portal."
+        },
+        "Name": {
+          "$ref": "#/definitions/String",
+          "description": "The unique identifier for this stack."
+        }
+      },
+      "required": [
+        "Name"
+      ],
+      "type": "object"
+    },
+    "CreateStackResult": {
+      "properties": {
+        "Stack": {
+          "$ref": "#/definitions/Stack",
+          "description": "The details for the created stack."
+        }
+      },
+      "type": "object"
+    },
+    "CreateStreamingURLRequest": {
+      "properties": {
+        "ApplicationId": {
+          "$ref": "#/definitions/String",
+          "description": "The ID of the application that must be launched after the session starts."
+        },
+        "FleetName": {
+          "$ref": "#/definitions/String",
+          "description": "The fleet for which the URL is generated."
+        },
+        "SessionContext": {
+          "$ref": "#/definitions/String",
+          "description": "The sessionContext of the streaming URL."
+        },
+        "StackName": {
+          "$ref": "#/definitions/String",
+          "description": "The stack for which the URL is generated."
+        },
+        "UserId": {
+          "$ref": "#/definitions/UserId",
+          "description": "A unique user ID for whom the URL is generated."
+        },
+        "Validity": {
+          "$ref": "#/definitions/Long",
+          "description": "The validity duration of the URL in seconds. After this duration, the URL returned by this operation becomes invalid."
+        }
+      },
+      "required": [
+        "StackName",
+        "FleetName",
+        "UserId"
+      ],
+      "type": "object"
+    },
+    "CreateStreamingURLResult": {
+      "properties": {
+        "Expires": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "Elapsed seconds after the Unix epoch, at which time this URL expires."
+        },
+        "StreamingURL": {
+          "$ref": "#/definitions/String",
+          "description": "The URL to start the AppStream 2.0 streaming session."
+        }
+      },
+      "type": "object"
+    },
+    "DeleteFleetRequest": {
+      "properties": {
+        "Name": {
+          "$ref": "#/definitions/String",
+          "description": "The name of the fleet to be deleted."
+        }
+      },
+      "required": [
+        "Name"
+      ],
+      "type": "object"
+    },
+    "DeleteFleetResult": {
+      "properties": {},
+      "type": "object"
+    },
+    "DeleteStackRequest": {
+      "properties": {
+        "Name": {
+          "$ref": "#/definitions/String",
+          "description": "The name of the stack to delete."
+        }
+      },
+      "required": [
+        "Name"
+      ],
+      "type": "object"
+    },
+    "DeleteStackResult": {
+      "properties": {},
+      "type": "object"
+    },
+    "DescribeFleetsRequest": {
+      "properties": {
+        "Names": {
+          "$ref": "#/definitions/StringList",
+          "description": "The fleet names to describe. Use null to describe all the fleets for the AWS account."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/String",
+          "description": "The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page."
+        }
+      },
+      "type": "object"
+    },
+    "DescribeFleetsResult": {
+      "properties": {
+        "Fleets": {
+          "$ref": "#/definitions/FleetList",
+          "description": "The list of fleet details."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/String",
+          "description": "The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null."
+        }
+      },
+      "type": "object"
+    },
+    "DescribeImagesRequest": {
+      "properties": {
+        "Names": {
+          "$ref": "#/definitions/StringList",
+          "description": "A specific list of images to describe."
+        }
+      },
+      "type": "object"
+    },
+    "DescribeImagesResult": {
+      "properties": {
+        "Images": {
+          "$ref": "#/definitions/ImageList",
+          "description": "The list of images."
+        }
+      },
+      "type": "object"
+    },
+    "DescribeSessionsRequest": {
+      "properties": {
+        "AuthenticationType": {
+          "$ref": "#/definitions/AuthenticationType",
+          "description": "The authentication method of the user. It can be <code>API</code> for a user authenticated using a streaming url or <code>SAML</code> for a SAML federated user. If an authentication type is not provided, the operation defaults to users authenticated using a streaming url."
+        },
+        "FleetName": {
+          "$ref": "#/definitions/String",
+          "description": "The name of the fleet for which to list sessions."
+        },
+        "Limit": {
+          "$ref": "#/definitions/Integer",
+          "description": "The size of each page of results. The default value is 20 and the maximum supported value is 50."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/String",
+          "description": "The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page."
+        },
+        "StackName": {
+          "$ref": "#/definitions/String",
+          "description": "The name of the stack for which to list sessions."
+        },
+        "UserId": {
+          "$ref": "#/definitions/UserId",
+          "description": "The user for whom to list sessions. Use null to describe all the sessions for the stack and fleet."
+        }
+      },
+      "required": [
+        "StackName",
+        "FleetName"
+      ],
+      "type": "object"
+    },
+    "DescribeSessionsResult": {
+      "properties": {
+        "NextToken": {
+          "$ref": "#/definitions/String",
+          "description": "The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null."
+        },
+        "Sessions": {
+          "$ref": "#/definitions/SessionList",
+          "description": "The list of streaming sessions."
+        }
+      },
+      "type": "object"
+    },
+    "DescribeStacksRequest": {
+      "properties": {
+        "Names": {
+          "$ref": "#/definitions/StringList",
+          "description": "The stack names to describe. Use null to describe all the stacks for the AWS account."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/String",
+          "description": "The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page."
+        }
+      },
+      "type": "object"
+    },
+    "DescribeStacksResult": {
+      "properties": {
+        "NextToken": {
+          "$ref": "#/definitions/String",
+          "description": "The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null."
+        },
+        "Stacks": {
+          "$ref": "#/definitions/StackList",
+          "description": "The list of stack details."
+        }
+      },
+      "type": "object"
+    },
+    "Description": {
+      "maxLength": 256,
+      "type": "string"
+    },
+    "DisassociateFleetRequest": {
+      "properties": {
+        "FleetName": {
+          "$ref": "#/definitions/String",
+          "description": "The name of the fleet to disassociate."
+        },
+        "StackName": {
+          "$ref": "#/definitions/String",
+          "description": "The name of the stack with which the fleet is associated."
+        }
+      },
+      "required": [
+        "FleetName",
+        "StackName"
+      ],
+      "type": "object"
+    },
+    "DisassociateFleetResult": {
+      "properties": {},
+      "type": "object"
+    },
+    "DisplayName": {
+      "maxLength": 100,
+      "type": "string"
+    },
+    "ErrorMessage": {
+      "description": "The error message in the exception.",
+      "type": "string"
+    },
+    "ExpireSessionRequest": {
+      "properties": {
+        "SessionId": {
+          "$ref": "#/definitions/String",
+          "description": "The unique identifier of the streaming session to be stopped."
+        }
+      },
+      "required": [
+        "SessionId"
+      ],
+      "type": "object"
+    },
+    "ExpireSessionResult": {
+      "properties": {},
+      "type": "object"
+    },
+    "Fleet": {
+      "description": "Contains the parameters for a fleet.",
+      "properties": {
+        "Arn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The ARN for the fleet."
+        },
+        "ComputeCapacityStatus": {
+          "$ref": "#/definitions/ComputeCapacityStatus",
+          "description": "The capacity information for the fleet."
+        },
+        "CreatedTime": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The time at which the fleet was created."
+        },
+        "Description": {
+          "$ref": "#/definitions/String",
+          "description": "The description displayed to end users on the AppStream 2.0 portal."
+        },
+        "DisconnectTimeoutInSeconds": {
+          "$ref": "#/definitions/Integer",
+          "description": "The time after disconnection when a session is considered to have ended. When a user reconnects after a disconnection, the user is connected to the same session and instance within this time interval."
+        },
+        "DisplayName": {
+          "$ref": "#/definitions/String",
+          "description": "The name displayed to end users on the AppStream 2.0 portal."
+        },
+        "EnableDefaultInternetAccess": {
+          "$ref": "#/definitions/BooleanObject",
+          "description": "Default Internet access from the fleet. True (Enabled), False (Disabled)."
+        },
+        "FleetErrors": {
+          "$ref": "#/definitions/FleetErrors",
+          "description": "The list of fleet errors is appended to this list."
+        },
+        "ImageName": {
+          "$ref": "#/definitions/String",
+          "description": "The image used by the fleet."
+        },
+        "InstanceType": {
+          "$ref": "#/definitions/String",
+          "description": "The instance type of compute resources for the fleet. The fleet instances are launched from this instance type. "
+        },
+        "MaxUserDurationInSeconds": {
+          "$ref": "#/definitions/Integer",
+          "description": "The maximum time during which a streaming session can run."
+        },
+        "Name": {
+          "$ref": "#/definitions/String",
+          "description": "The name of the fleet."
+        },
+        "State": {
+          "$ref": "#/definitions/FleetState",
+          "description": "The current state for the fleet."
+        },
+        "VpcConfig": {
+          "$ref": "#/definitions/VpcConfig",
+          "description": "The VPC configuration for the fleet."
+        }
+      },
+      "required": [
+        "Arn",
+        "Name",
+        "ImageName",
+        "InstanceType",
+        "ComputeCapacityStatus",
+        "State"
+      ],
+      "type": "object"
+    },
+    "FleetError": {
+      "description": "The details of the fleet error.",
+      "properties": {
+        "ErrorCode": {
+          "$ref": "#/definitions/FleetErrorCode",
+          "description": "The error code for the fleet error."
+        },
+        "ErrorMessage": {
+          "$ref": "#/definitions/String",
+          "description": "The error message generated when the fleet has errors."
+        }
+      },
+      "type": "object"
+    },
+    "FleetErrorCode": {
+      "enum": [
+        "IAM_SERVICE_ROLE_MISSING_ENI_DESCRIBE_ACTION",
+        "IAM_SERVICE_ROLE_MISSING_ENI_CREATE_ACTION",
+        "IAM_SERVICE_ROLE_MISSING_ENI_DELETE_ACTION",
+        "NETWORK_INTERFACE_LIMIT_EXCEEDED",
+        "INTERNAL_SERVICE_ERROR",
+        "IAM_SERVICE_ROLE_IS_MISSING",
+        "SUBNET_HAS_INSUFFICIENT_IP_ADDRESSES",
+        "IAM_SERVICE_ROLE_MISSING_DESCRIBE_SUBNET_ACTION",
+        "SUBNET_NOT_FOUND",
+        "IMAGE_NOT_FOUND",
+        "INVALID_SUBNET_CONFIGURATION"
+      ],
+      "type": "string"
+    },
+    "FleetErrors": {
+      "items": {
+        "$ref": "#/definitions/FleetError"
+      },
+      "type": "array"
+    },
+    "FleetList": {
+      "description": "A list of fleets.",
+      "items": {
+        "$ref": "#/definitions/Fleet"
+      },
+      "type": "array"
+    },
+    "FleetState": {
+      "enum": [
+        "STARTING",
+        "RUNNING",
+        "STOPPING",
+        "STOPPED"
+      ],
+      "type": "string"
+    },
+    "Image": {
+      "description": "New streaming instances are booted from images. The image stores the application catalog and is connected to fleets.",
+      "properties": {
+        "Applications": {
+          "$ref": "#/definitions/Applications",
+          "description": "The applications associated with an image."
+        },
+        "Arn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The ARN for the image."
+        },
+        "BaseImageArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The source image ARN from which this image was created."
+        },
+        "CreatedTime": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The timestamp when the image was created."
+        },
+        "Description": {
+          "$ref": "#/definitions/String",
+          "description": "A meaningful description for the image."
+        },
+        "DisplayName": {
+          "$ref": "#/definitions/String",
+          "description": "The display name for the image."
+        },
+        "ImageBuilderSupported": {
+          "$ref": "#/definitions/Boolean",
+          "description": "Indicates whether an image builder can be launched from this image."
+        },
+        "Name": {
+          "$ref": "#/definitions/String",
+          "description": "The unique identifier for the image."
+        },
+        "Platform": {
+          "$ref": "#/definitions/PlatformType",
+          "description": "The operating system platform of the image."
+        },
+        "State": {
+          "$ref": "#/definitions/ImageState",
+          "description": "The image starts in the <b>PENDING</b> state, and then moves to <b>AVAILABLE</b> if image creation succeeds and <b>FAILED</b> if image creation has failed."
+        },
+        "StateChangeReason": {
+          "$ref": "#/definitions/ImageStateChangeReason",
+          "description": "The reason why the last state change occurred."
+        },
+        "Visibility": {
+          "$ref": "#/definitions/VisibilityType",
+          "description": "The visibility of an image to the user; images can be public or private."
+        }
+      },
+      "required": [
+        "Name"
+      ],
+      "type": "object"
+    },
+    "ImageList": {
+      "items": {
+        "$ref": "#/definitions/Image"
+      },
+      "type": "array"
+    },
+    "ImageState": {
+      "enum": [
+        "PENDING",
+        "AVAILABLE",
+        "FAILED",
+        "DELETING"
+      ],
+      "type": "string"
+    },
+    "ImageStateChangeReason": {
+      "description": "The reason why the last state change occurred.",
+      "properties": {
+        "Code": {
+          "$ref": "#/definitions/ImageStateChangeReasonCode",
+          "description": "The state change reason code of the image."
+        },
+        "Message": {
+          "$ref": "#/definitions/String",
+          "description": "The state change reason message to the end user."
+        }
+      },
+      "type": "object"
+    },
+    "ImageStateChangeReasonCode": {
+      "enum": [
+        "INTERNAL_ERROR",
+        "IMAGE_BUILDER_NOT_AVAILABLE"
+      ],
+      "type": "string"
+    },
+    "Integer": {
+      "type": "integer"
+    },
+    "InvalidParameterCombinationException": {
+      "description": "Indicates an incorrect combination of parameters, or a missing parameter.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "type": "object"
+    },
+    "InvalidRoleException": {
+      "description": "The specified role is invalid.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "type": "object"
+    },
+    "LimitExceededException": {
+      "description": "The requested limit exceeds the permitted limit for an account.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "type": "object"
+    },
+    "ListAssociatedFleetsRequest": {
+      "properties": {
+        "NextToken": {
+          "$ref": "#/definitions/String",
+          "description": "The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page."
+        },
+        "StackName": {
+          "$ref": "#/definitions/String",
+          "description": "The name of the stack whose associated fleets are listed."
+        }
+      },
+      "required": [
+        "StackName"
+      ],
+      "type": "object"
+    },
+    "ListAssociatedFleetsResult": {
+      "description": "The response from a successful operation.",
+      "properties": {
+        "Names": {
+          "$ref": "#/definitions/StringList",
+          "description": "The names of associated fleets."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/String",
+          "description": "The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null."
+        }
+      },
+      "type": "object"
+    },
+    "ListAssociatedStacksRequest": {
+      "properties": {
+        "FleetName": {
+          "$ref": "#/definitions/String",
+          "description": "The name of the fleet whose associated stacks are listed."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/String",
+          "description": "The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page."
+        }
+      },
+      "required": [
+        "FleetName"
+      ],
+      "type": "object"
+    },
+    "ListAssociatedStacksResult": {
+      "description": "The response from a successful operation.",
+      "properties": {
+        "Names": {
+          "$ref": "#/definitions/StringList",
+          "description": "The names of associated stacks."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/String",
+          "description": "The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null."
+        }
+      },
+      "type": "object"
+    },
+    "Long": {
+      "type": "integer"
+    },
+    "Metadata": {
+      "items": {
+        "properties": {
+          "key": {
+            "$ref": "#/definitions/String"
+          },
+          "value": {
+            "$ref": "#/definitions/String"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "Name": {
+      "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.-]{0,100}$",
+      "type": "string"
+    },
+    "OperationNotPermittedException": {
+      "description": "The attempted operation is not permitted.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "type": "object"
+    },
+    "PlatformType": {
+      "enum": [
+        "WINDOWS"
+      ],
+      "type": "string"
+    },
+    "ResourceAlreadyExistsException": {
+      "description": "The specified resource already exists.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "type": "object"
+    },
+    "ResourceInUseException": {
+      "description": "The specified resource is in use.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "type": "object"
+    },
+    "ResourceNotAvailableException": {
+      "description": "The specified resource exists and is not in use, but isn't available.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "type": "object"
+    },
+    "ResourceNotFoundException": {
+      "description": "The specified resource was not found.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "type": "object"
+    },
+    "Session": {
+      "description": "Contains the parameters for a streaming session.",
+      "properties": {
+        "AuthenticationType": {
+          "$ref": "#/definitions/AuthenticationType",
+          "description": "The authentication method of the user for whom the session was created. It can be <code>API</code> for a user authenticated using a streaming url or <code>SAML</code> for a SAML federated user."
+        },
+        "FleetName": {
+          "$ref": "#/definitions/String",
+          "description": "The name of the fleet for which the streaming session was created."
+        },
+        "Id": {
+          "$ref": "#/definitions/String",
+          "description": "The unique ID for a streaming session."
+        },
+        "StackName": {
+          "$ref": "#/definitions/String",
+          "description": "The name of the stack for which the streaming session was created."
+        },
+        "State": {
+          "$ref": "#/definitions/SessionState",
+          "description": "The current state of the streaming session."
+        },
+        "UserId": {
+          "$ref": "#/definitions/UserId",
+          "description": "The identifier of the user for whom the session was created."
+        }
+      },
+      "required": [
+        "Id",
+        "UserId",
+        "StackName",
+        "FleetName",
+        "State"
+      ],
+      "type": "object"
+    },
+    "SessionList": {
+      "description": "List of sessions.",
+      "items": {
+        "$ref": "#/definitions/Session"
+      },
+      "type": "array"
+    },
+    "SessionState": {
+      "description": "Possible values for the state of a streaming session.",
+      "enum": [
+        "ACTIVE",
+        "PENDING",
+        "EXPIRED"
+      ],
+      "type": "string"
+    },
+    "Stack": {
+      "description": "Details about a stack.",
+      "properties": {
+        "Arn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The ARN of the stack."
+        },
+        "CreatedTime": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The timestamp when the stack was created."
+        },
+        "Description": {
+          "$ref": "#/definitions/String",
+          "description": "A meaningful description for the stack."
+        },
+        "DisplayName": {
+          "$ref": "#/definitions/String",
+          "description": "A display name for the stack."
+        },
+        "Name": {
+          "$ref": "#/definitions/String",
+          "description": "The unique identifier of the stack."
+        }
+      },
+      "required": [
+        "Name"
+      ],
+      "type": "object"
+    },
+    "StackList": {
+      "description": "A list of stacks.",
+      "items": {
+        "$ref": "#/definitions/Stack"
+      },
+      "type": "array"
+    },
+    "StartFleetRequest": {
+      "properties": {
+        "Name": {
+          "$ref": "#/definitions/String",
+          "description": "The name of the fleet to start."
+        }
+      },
+      "required": [
+        "Name"
+      ],
+      "type": "object"
+    },
+    "StartFleetResult": {
+      "properties": {},
+      "type": "object"
+    },
+    "StopFleetRequest": {
+      "properties": {
+        "Name": {
+          "$ref": "#/definitions/String",
+          "description": "The name of the fleet to stop."
+        }
+      },
+      "required": [
+        "Name"
+      ],
+      "type": "object"
+    },
+    "StopFleetResult": {
+      "properties": {},
+      "type": "object"
+    },
+    "String": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "StringList": {
+      "items": {
+        "$ref": "#/definitions/String"
+      },
+      "type": "array"
+    },
+    "SubnetIdList": {
+      "description": "A list of subnet IDs.",
+      "items": {
+        "$ref": "#/definitions/String"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "Timestamp": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "UpdateFleetRequest": {
+      "properties": {
+        "ComputeCapacity": {
+          "$ref": "#/definitions/ComputeCapacity",
+          "description": "The parameters for the capacity allocated to the fleet. "
+        },
+        "DeleteVpcConfig": {
+          "$ref": "#/definitions/Boolean",
+          "description": "Delete the VPC association for the specified fleet."
+        },
+        "Description": {
+          "$ref": "#/definitions/Description",
+          "description": "The description displayed to end users on the AppStream 2.0 portal."
+        },
+        "DisconnectTimeoutInSeconds": {
+          "$ref": "#/definitions/Integer",
+          "description": "The time after disconnection when a session is considered to have ended. When the user reconnects after a disconnection, the user is connected to the same instance within this time interval."
+        },
+        "DisplayName": {
+          "$ref": "#/definitions/DisplayName",
+          "description": "The name displayed to end users on the AppStream 2.0 portal."
+        },
+        "EnableDefaultInternetAccess": {
+          "$ref": "#/definitions/BooleanObject",
+          "description": "Enable/Disable default Internet access from fleet."
+        },
+        "ImageName": {
+          "$ref": "#/definitions/String",
+          "description": "The image name from which a fleet is created."
+        },
+        "InstanceType": {
+          "$ref": "#/definitions/String",
+          "description": "The instance type of compute resources for the fleet. Fleet instances are launched from this instance type."
+        },
+        "MaxUserDurationInSeconds": {
+          "$ref": "#/definitions/Integer",
+          "description": "The maximum time during which a streaming session can run."
+        },
+        "Name": {
+          "$ref": "#/definitions/String",
+          "description": "The name of the fleet."
+        },
+        "VpcConfig": {
+          "$ref": "#/definitions/VpcConfig",
+          "description": "The VPC configuration for the fleet."
+        }
+      },
+      "required": [
+        "Name"
+      ],
+      "type": "object"
+    },
+    "UpdateFleetResult": {
+      "properties": {
+        "Fleet": {
+          "$ref": "#/definitions/Fleet",
+          "description": "A list of fleet details."
+        }
+      },
+      "type": "object"
+    },
+    "UpdateStackRequest": {
+      "properties": {
+        "Description": {
+          "$ref": "#/definitions/Description",
+          "description": "The description displayed to end users on the AppStream 2.0 portal."
+        },
+        "DisplayName": {
+          "$ref": "#/definitions/DisplayName",
+          "description": "The name displayed to end users on the AppStream 2.0 portal."
+        },
+        "Name": {
+          "$ref": "#/definitions/String",
+          "description": "The name of the stack to update."
+        }
+      },
+      "required": [
+        "Name"
+      ],
+      "type": "object"
+    },
+    "UpdateStackResult": {
+      "properties": {
+        "Stack": {
+          "$ref": "#/definitions/Stack",
+          "description": "A list of stack details."
+        }
+      },
+      "type": "object"
+    },
+    "UserId": {
+      "maxLength": 32,
+      "minLength": 2,
+      "type": "string"
+    },
+    "VisibilityType": {
+      "enum": [
+        "PUBLIC",
+        "PRIVATE"
+      ],
+      "type": "string"
+    },
+    "VpcConfig": {
+      "description": "VPC configuration information.",
+      "properties": {
+        "SubnetIds": {
+          "$ref": "#/definitions/SubnetIdList",
+          "description": "The list of subnets to which a network interface is established from the fleet instance."
+        }
+      },
+      "required": [
+        "SubnetIds"
+      ],
+      "type": "object"
+    }
+  },
+  "actions": [
+    {
+      "id": "AssociateFleet",
+      "title": "AssociateFleet",
+      "description": "Associate a fleet to a stack.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/AssociateFleetRequest"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/AssociateFleetResult"
+      },
+      "security": {
+        "amazonaws_appstream2": {
+          "integration": "amazonaws_appstream2"
+        }
+      }
+    },
+    {
+      "id": "CreateFleet",
+      "title": "CreateFleet",
+      "description": "Creates a new fleet.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/CreateFleetRequest"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CreateFleetResult"
+      },
+      "security": {
+        "amazonaws_appstream2": {
+          "integration": "amazonaws_appstream2"
+        }
+      }
+    },
+    {
+      "id": "CreateStack",
+      "title": "CreateStack",
+      "description": "Create a new stack.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/CreateStackRequest"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CreateStackResult"
+      },
+      "security": {
+        "amazonaws_appstream2": {
+          "integration": "amazonaws_appstream2"
+        }
+      }
+    },
+    {
+      "id": "CreateStreamingURL",
+      "title": "CreateStreamingURL",
+      "description": "Creates a URL to start an AppStream 2.0 streaming session for a user. By default, the URL is valid only for 1 minute from the time that it is generated.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/CreateStreamingURLRequest"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CreateStreamingURLResult"
+      },
+      "security": {
+        "amazonaws_appstream2": {
+          "integration": "amazonaws_appstream2"
+        }
+      }
+    },
+    {
+      "id": "DeleteFleet",
+      "title": "DeleteFleet",
+      "description": "Deletes a fleet.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/DeleteFleetRequest"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DeleteFleetResult"
+      },
+      "security": {
+        "amazonaws_appstream2": {
+          "integration": "amazonaws_appstream2"
+        }
+      }
+    },
+    {
+      "id": "DeleteStack",
+      "title": "DeleteStack",
+      "description": "Deletes the stack. After this operation completes, the environment can no longer be activated, and any reservations made for the stack are released.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/DeleteStackRequest"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DeleteStackResult"
+      },
+      "security": {
+        "amazonaws_appstream2": {
+          "integration": "amazonaws_appstream2"
+        }
+      }
+    },
+    {
+      "id": "DescribeFleets",
+      "title": "DescribeFleets",
+      "description": "If fleet names are provided, this operation describes the specified fleets; otherwise, all the fleets in the account are described.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/DescribeFleetsRequest"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeFleetsResult"
+      },
+      "security": {
+        "amazonaws_appstream2": {
+          "integration": "amazonaws_appstream2"
+        }
+      }
+    },
+    {
+      "id": "DescribeImages",
+      "title": "DescribeImages",
+      "description": "Describes the images. If a list of names is not provided, all images in your account are returned. This operation does not return a paginated result.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/DescribeImagesRequest"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeImagesResult"
+      },
+      "security": {
+        "amazonaws_appstream2": {
+          "integration": "amazonaws_appstream2"
+        }
+      }
+    },
+    {
+      "id": "DescribeSessions",
+      "title": "DescribeSessions",
+      "description": "Describes the streaming sessions for a stack and a fleet. If a user ID is provided, this operation returns streaming sessions for only that user. Pass this value for the <code>nextToken</code> parameter in a subsequent call to this operation to retrieve the next set of items. If an authentication type is not provided, the operation defaults to users authenticated using a streaming url.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/DescribeSessionsRequest"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeSessionsResult"
+      },
+      "security": {
+        "amazonaws_appstream2": {
+          "integration": "amazonaws_appstream2"
+        }
+      }
+    },
+    {
+      "id": "DescribeStacks",
+      "title": "DescribeStacks",
+      "description": "If stack names are not provided, this operation describes the specified stacks; otherwise, all stacks in the account are described. Pass the <code>nextToken</code> value in a subsequent call to this operation to retrieve the next set of items.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/DescribeStacksRequest"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeStacksResult"
+      },
+      "security": {
+        "amazonaws_appstream2": {
+          "integration": "amazonaws_appstream2"
+        }
+      }
+    },
+    {
+      "id": "DisassociateFleet",
+      "title": "DisassociateFleet",
+      "description": "Disassociates a fleet from a stack.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/DisassociateFleetRequest"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DisassociateFleetResult"
+      },
+      "security": {
+        "amazonaws_appstream2": {
+          "integration": "amazonaws_appstream2"
+        }
+      }
+    },
+    {
+      "id": "ExpireSession",
+      "title": "ExpireSession",
+      "description": "This operation immediately stops a streaming session.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/ExpireSessionRequest"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ExpireSessionResult"
+      },
+      "security": {
+        "amazonaws_appstream2": {
+          "integration": "amazonaws_appstream2"
+        }
+      }
+    },
+    {
+      "id": "ListAssociatedFleets",
+      "title": "ListAssociatedFleets",
+      "description": "Lists all fleets associated with the stack.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/ListAssociatedFleetsRequest"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListAssociatedFleetsResult"
+      },
+      "security": {
+        "amazonaws_appstream2": {
+          "integration": "amazonaws_appstream2"
+        }
+      }
+    },
+    {
+      "id": "ListAssociatedStacks",
+      "title": "ListAssociatedStacks",
+      "description": "Lists all stacks to which the specified fleet is associated.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/ListAssociatedStacksRequest"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListAssociatedStacksResult"
+      },
+      "security": {
+        "amazonaws_appstream2": {
+          "integration": "amazonaws_appstream2"
+        }
+      }
+    },
+    {
+      "id": "StartFleet",
+      "title": "StartFleet",
+      "description": "Starts a fleet.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/StartFleetRequest"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/StartFleetResult"
+      },
+      "security": {
+        "amazonaws_appstream2": {
+          "integration": "amazonaws_appstream2"
+        }
+      }
+    },
+    {
+      "id": "StopFleet",
+      "title": "StopFleet",
+      "description": "Stops a fleet.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/StopFleetRequest"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/StopFleetResult"
+      },
+      "security": {
+        "amazonaws_appstream2": {
+          "integration": "amazonaws_appstream2"
+        }
+      }
+    },
+    {
+      "id": "UpdateFleet",
+      "title": "UpdateFleet",
+      "description": "Updates an existing fleet. All the attributes except the fleet name can be updated in the <b>STOPPED</b> state. When a fleet is in the <b>RUNNING</b> state, only <code>DisplayName</code> and <code>ComputeCapacity</code> can be updated. A fleet cannot be updated in a status of <b>STARTING</b> or <b>STOPPING</b>.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/UpdateFleetRequest"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UpdateFleetResult"
+      },
+      "security": {
+        "amazonaws_appstream2": {
+          "integration": "amazonaws_appstream2"
+        }
+      }
+    },
+    {
+      "id": "UpdateStack",
+      "title": "UpdateStack",
+      "description": "Updates the specified fields in the stack with the specified name.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/UpdateStackRequest"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UpdateStackResult"
+      },
+      "security": {
+        "amazonaws_appstream2": {
+          "integration": "amazonaws_appstream2"
+        }
+      }
+    }
+  ]
+}

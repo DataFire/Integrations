@@ -1,0 +1,4982 @@
+{
+  "id": "amazonaws_servicecatalog",
+  "title": "AWS Service Catalog",
+  "description": "<fullname>AWS Service Catalog</fullname> <p> <b>Overview</b> </p> <p> <a href=\"https://aws.amazon.com/servicecatalog/\">AWS Service Catalog</a> allows organizations to create and manage catalogs of IT services that are approved for use on AWS. This documentation provides reference material for the AWS Service Catalog end user API. To get the most out of this documentation, be familiar with the terminology discussed in <a href=\"http://docs.aws.amazon.com/servicecatalog/latest/adminguide/what-is_concepts.html\">AWS Service Catalog Concepts</a>.</p> <p> <i>Additional Resources</i> </p> <ul> <li> <p> <a href=\"http://docs.aws.amazon.com/servicecatalog/latest/adminguide/introduction.html\">AWS Service Catalog Administrator Guide</a> </p> </li> <li> <p> <a href=\"http://docs.aws.amazon.com/servicecatalog/latest/userguide/introduction.html\">AWS Service Catalog User Guide</a> </p> </li> </ul>",
+  "security": {
+    "amazonaws_servicecatalog": {
+      "integration": "amazonaws_servicecatalog",
+      "fields": {
+        "hmac": "Amazon Signature authorization v4"
+      }
+    }
+  },
+  "logo": {
+    "backgroundColor": "#FFFFFF",
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_servicecatalog.jpg"
+  },
+  "tags": [
+    "cloud",
+    "aws"
+  ],
+  "definitions": {
+    "AcceptLanguage": {
+      "type": "string"
+    },
+    "AcceptPortfolioShareInput": {
+      "properties": {
+        "AcceptLanguage": {
+          "$ref": "#/definitions/AcceptLanguage",
+          "description": "<p>The language code to use for this operation. Supported language codes are as follows:</p> <p>\"en\" (English)</p> <p>\"jp\" (Japanese)</p> <p>\"zh\" (Chinese)</p> <p>If no code is specified, \"en\" is used as the default.</p>"
+        },
+        "PortfolioId": {
+          "$ref": "#/definitions/Id",
+          "description": "The portfolio identifier."
+        }
+      },
+      "required": [
+        "PortfolioId"
+      ],
+      "type": "object"
+    },
+    "AcceptPortfolioShareOutput": {
+      "properties": {},
+      "type": "object"
+    },
+    "AccessLevelFilter": {
+      "description": "The access level to limit results.",
+      "properties": {
+        "Key": {
+          "$ref": "#/definitions/AccessLevelFilterKey",
+          "description": "<p>Specifies the access level.</p> <p> <code>Account</code> allows results at the account level. </p> <p> <code>Role</code> allows results based on the federated role of the specified user.</p> <p> <code>User</code> allows results limited to the specified user. </p>"
+        },
+        "Value": {
+          "$ref": "#/definitions/AccessLevelFilterValue",
+          "description": "Specifies the user to which the access level applies. A value of <code>Self</code> is currently supported."
+        }
+      },
+      "type": "object"
+    },
+    "AccessLevelFilterKey": {
+      "enum": [
+        "Account",
+        "Role",
+        "User"
+      ],
+      "type": "string"
+    },
+    "AccessLevelFilterValue": {
+      "type": "string"
+    },
+    "AccountId": {
+      "pattern": "^[0-9]{12}$",
+      "type": "string"
+    },
+    "AccountIds": {
+      "items": {
+        "$ref": "#/definitions/AccountId"
+      },
+      "type": "array"
+    },
+    "AddTags": {
+      "items": {
+        "$ref": "#/definitions/Tag"
+      },
+      "maxItems": 20,
+      "type": "array"
+    },
+    "AllowedValue": {
+      "type": "string"
+    },
+    "AllowedValues": {
+      "items": {
+        "$ref": "#/definitions/AllowedValue"
+      },
+      "type": "array"
+    },
+    "ApproximateCount": {
+      "type": "integer"
+    },
+    "AssociatePrincipalWithPortfolioInput": {
+      "properties": {
+        "AcceptLanguage": {
+          "$ref": "#/definitions/AcceptLanguage",
+          "description": "<p>The language code to use for this operation. Supported language codes are as follows:</p> <p>\"en\" (English)</p> <p>\"jp\" (Japanese)</p> <p>\"zh\" (Chinese)</p> <p>If no code is specified, \"en\" is used as the default.</p>"
+        },
+        "PortfolioId": {
+          "$ref": "#/definitions/Id",
+          "description": "The portfolio identifier."
+        },
+        "PrincipalARN": {
+          "$ref": "#/definitions/PrincipalARN",
+          "description": "The ARN representing the principal (IAM user, role, or group)."
+        },
+        "PrincipalType": {
+          "$ref": "#/definitions/PrincipalType",
+          "description": "The principal type. Must be <code>IAM</code> "
+        }
+      },
+      "required": [
+        "PortfolioId",
+        "PrincipalARN",
+        "PrincipalType"
+      ],
+      "type": "object"
+    },
+    "AssociatePrincipalWithPortfolioOutput": {
+      "properties": {},
+      "type": "object"
+    },
+    "AssociateProductWithPortfolioInput": {
+      "properties": {
+        "AcceptLanguage": {
+          "$ref": "#/definitions/AcceptLanguage",
+          "description": "<p>The language code to use for this operation. Supported language codes are as follows:</p> <p>\"en\" (English)</p> <p>\"jp\" (Japanese)</p> <p>\"zh\" (Chinese)</p> <p>If no code is specified, \"en\" is used as the default.</p>"
+        },
+        "PortfolioId": {
+          "$ref": "#/definitions/Id",
+          "description": "The portfolio identifier."
+        },
+        "ProductId": {
+          "$ref": "#/definitions/Id",
+          "description": "The product identifier."
+        },
+        "SourcePortfolioId": {
+          "$ref": "#/definitions/Id",
+          "description": "The identifier of the source portfolio to use with this association."
+        }
+      },
+      "required": [
+        "ProductId",
+        "PortfolioId"
+      ],
+      "type": "object"
+    },
+    "AssociateProductWithPortfolioOutput": {
+      "properties": {},
+      "type": "object"
+    },
+    "AttributeValue": {
+      "type": "string"
+    },
+    "ConstraintDescription": {
+      "maxLength": 2000,
+      "type": "string"
+    },
+    "ConstraintDetail": {
+      "description": "Detailed constraint information.",
+      "properties": {
+        "ConstraintId": {
+          "$ref": "#/definitions/Id",
+          "description": "The identifier of the constraint."
+        },
+        "Description": {
+          "$ref": "#/definitions/ConstraintDescription",
+          "description": "The text description of the constraint."
+        },
+        "Owner": {
+          "$ref": "#/definitions/AccountId",
+          "description": "The owner of the constraint."
+        },
+        "Type": {
+          "$ref": "#/definitions/ConstraintType",
+          "description": "The type of the constraint."
+        }
+      },
+      "type": "object"
+    },
+    "ConstraintDetails": {
+      "items": {
+        "$ref": "#/definitions/ConstraintDetail"
+      },
+      "type": "array"
+    },
+    "ConstraintParameters": {
+      "type": "string"
+    },
+    "ConstraintSummaries": {
+      "items": {
+        "$ref": "#/definitions/ConstraintSummary"
+      },
+      "type": "array"
+    },
+    "ConstraintSummary": {
+      "description": "An administrator-specified constraint to apply when provisioning a product.",
+      "properties": {
+        "Description": {
+          "$ref": "#/definitions/ConstraintDescription",
+          "description": "The text description of the constraint."
+        },
+        "Type": {
+          "$ref": "#/definitions/ConstraintType",
+          "description": "The type of the constraint. "
+        }
+      },
+      "type": "object"
+    },
+    "ConstraintType": {
+      "maxLength": 1024,
+      "minLength": 1,
+      "type": "string"
+    },
+    "CreateConstraintInput": {
+      "properties": {
+        "AcceptLanguage": {
+          "$ref": "#/definitions/AcceptLanguage",
+          "description": "<p>The language code to use for this operation. Supported language codes are as follows:</p> <p>\"en\" (English)</p> <p>\"jp\" (Japanese)</p> <p>\"zh\" (Chinese)</p> <p>If no code is specified, \"en\" is used as the default.</p>"
+        },
+        "Description": {
+          "$ref": "#/definitions/ConstraintDescription",
+          "description": "The text description of the constraint."
+        },
+        "IdempotencyToken": {
+          "$ref": "#/definitions/IdempotencyToken",
+          "description": "A token to disambiguate duplicate requests. You can create multiple resources using the same input in multiple requests, provided that you also specify a different idempotency token for each request."
+        },
+        "Parameters": {
+          "$ref": "#/definitions/ConstraintParameters",
+          "description": "The constraint parameters."
+        },
+        "PortfolioId": {
+          "$ref": "#/definitions/Id",
+          "description": "The portfolio identifier."
+        },
+        "ProductId": {
+          "$ref": "#/definitions/Id",
+          "description": "The product identifier."
+        },
+        "Type": {
+          "$ref": "#/definitions/ConstraintType",
+          "description": "The type of the constraint."
+        }
+      },
+      "required": [
+        "PortfolioId",
+        "ProductId",
+        "Parameters",
+        "Type",
+        "IdempotencyToken"
+      ],
+      "type": "object"
+    },
+    "CreateConstraintOutput": {
+      "properties": {
+        "ConstraintDetail": {
+          "$ref": "#/definitions/ConstraintDetail",
+          "description": "The resulting detailed constraint information."
+        },
+        "ConstraintParameters": {
+          "$ref": "#/definitions/ConstraintParameters",
+          "description": "The resulting constraint parameters."
+        },
+        "Status": {
+          "$ref": "#/definitions/Status",
+          "description": "The status of the current request."
+        }
+      },
+      "type": "object"
+    },
+    "CreatePortfolioInput": {
+      "properties": {
+        "AcceptLanguage": {
+          "$ref": "#/definitions/AcceptLanguage",
+          "description": "<p>The language code to use for this operation. Supported language codes are as follows:</p> <p>\"en\" (English)</p> <p>\"jp\" (Japanese)</p> <p>\"zh\" (Chinese)</p> <p>If no code is specified, \"en\" is used as the default.</p>"
+        },
+        "Description": {
+          "$ref": "#/definitions/PortfolioDescription",
+          "description": "The text description of the portfolio."
+        },
+        "DisplayName": {
+          "$ref": "#/definitions/PortfolioDisplayName",
+          "description": "The name to use for display purposes."
+        },
+        "IdempotencyToken": {
+          "$ref": "#/definitions/IdempotencyToken",
+          "description": "A token to disambiguate duplicate requests. You can create multiple resources using the same input in multiple requests, provided that you also specify a different idempotency token for each request."
+        },
+        "ProviderName": {
+          "$ref": "#/definitions/ProviderName",
+          "description": "The name of the portfolio provider."
+        },
+        "Tags": {
+          "$ref": "#/definitions/AddTags",
+          "description": "Tags to associate with the new portfolio."
+        }
+      },
+      "required": [
+        "DisplayName",
+        "ProviderName",
+        "IdempotencyToken"
+      ],
+      "type": "object"
+    },
+    "CreatePortfolioOutput": {
+      "properties": {
+        "PortfolioDetail": {
+          "$ref": "#/definitions/PortfolioDetail",
+          "description": "The resulting detailed portfolio information."
+        },
+        "Tags": {
+          "$ref": "#/definitions/Tags",
+          "description": "Tags successfully associated with the new portfolio."
+        }
+      },
+      "type": "object"
+    },
+    "CreatePortfolioShareInput": {
+      "properties": {
+        "AcceptLanguage": {
+          "$ref": "#/definitions/AcceptLanguage",
+          "description": "<p>The language code to use for this operation. Supported language codes are as follows:</p> <p>\"en\" (English)</p> <p>\"jp\" (Japanese)</p> <p>\"zh\" (Chinese)</p> <p>If no code is specified, \"en\" is used as the default.</p>"
+        },
+        "AccountId": {
+          "$ref": "#/definitions/AccountId",
+          "description": "The account ID with which to share the portfolio."
+        },
+        "PortfolioId": {
+          "$ref": "#/definitions/Id",
+          "description": "The portfolio identifier."
+        }
+      },
+      "required": [
+        "PortfolioId",
+        "AccountId"
+      ],
+      "type": "object"
+    },
+    "CreatePortfolioShareOutput": {
+      "properties": {},
+      "type": "object"
+    },
+    "CreateProductInput": {
+      "properties": {
+        "AcceptLanguage": {
+          "$ref": "#/definitions/AcceptLanguage",
+          "description": "<p>The language code to use for this operation. Supported language codes are as follows:</p> <p>\"en\" (English)</p> <p>\"jp\" (Japanese)</p> <p>\"zh\" (Chinese)</p> <p>If no code is specified, \"en\" is used as the default.</p>"
+        },
+        "Description": {
+          "$ref": "#/definitions/ProductViewShortDescription",
+          "description": "The text description of the product."
+        },
+        "Distributor": {
+          "$ref": "#/definitions/ProductViewOwner",
+          "description": "The distributor of the product."
+        },
+        "IdempotencyToken": {
+          "$ref": "#/definitions/IdempotencyToken",
+          "description": "A token to disambiguate duplicate requests. You can create multiple resources using the same input in multiple requests, provided that you also specify a different idempotency token for each request."
+        },
+        "Name": {
+          "$ref": "#/definitions/ProductViewName",
+          "description": "The name of the product."
+        },
+        "Owner": {
+          "$ref": "#/definitions/ProductViewOwner",
+          "description": "The owner of the product."
+        },
+        "ProductType": {
+          "$ref": "#/definitions/ProductType",
+          "description": "The type of the product to create."
+        },
+        "ProvisioningArtifactParameters": {
+          "$ref": "#/definitions/ProvisioningArtifactProperties",
+          "description": "Parameters for the provisioning artifact."
+        },
+        "SupportDescription": {
+          "$ref": "#/definitions/SupportDescription",
+          "description": "Support information about the product."
+        },
+        "SupportEmail": {
+          "$ref": "#/definitions/SupportEmail",
+          "description": "Contact email for product support."
+        },
+        "SupportUrl": {
+          "$ref": "#/definitions/SupportUrl",
+          "description": "Contact URL for product support."
+        },
+        "Tags": {
+          "$ref": "#/definitions/AddTags",
+          "description": "Tags to associate with the new product."
+        }
+      },
+      "required": [
+        "Name",
+        "Owner",
+        "ProductType",
+        "ProvisioningArtifactParameters",
+        "IdempotencyToken"
+      ],
+      "type": "object"
+    },
+    "CreateProductOutput": {
+      "properties": {
+        "ProductViewDetail": {
+          "$ref": "#/definitions/ProductViewDetail",
+          "description": "The resulting detailed product view information."
+        },
+        "ProvisioningArtifactDetail": {
+          "$ref": "#/definitions/ProvisioningArtifactDetail",
+          "description": "The resulting detailed provisioning artifact information."
+        },
+        "Tags": {
+          "$ref": "#/definitions/Tags",
+          "description": "Tags successfully associated with the new product."
+        }
+      },
+      "type": "object"
+    },
+    "CreateProvisioningArtifactInput": {
+      "properties": {
+        "AcceptLanguage": {
+          "$ref": "#/definitions/AcceptLanguage",
+          "description": "<p>The language code to use for this operation. Supported language codes are as follows:</p> <p>\"en\" (English)</p> <p>\"jp\" (Japanese)</p> <p>\"zh\" (Chinese)</p> <p>If no code is specified, \"en\" is used as the default.</p>"
+        },
+        "IdempotencyToken": {
+          "$ref": "#/definitions/IdempotencyToken",
+          "description": "A token to disambiguate duplicate requests. You can create multiple resources using the same input in multiple requests, provided that you also specify a different idempotency token for each request."
+        },
+        "Parameters": {
+          "$ref": "#/definitions/ProvisioningArtifactProperties",
+          "description": "The parameters to use when creating the new provisioning artifact."
+        },
+        "ProductId": {
+          "$ref": "#/definitions/Id",
+          "description": "The product identifier."
+        }
+      },
+      "required": [
+        "ProductId",
+        "Parameters",
+        "IdempotencyToken"
+      ],
+      "type": "object"
+    },
+    "CreateProvisioningArtifactOutput": {
+      "properties": {
+        "Info": {
+          "$ref": "#/definitions/ProvisioningArtifactInfo",
+          "description": "Additional information about the provisioning artifact create request."
+        },
+        "ProvisioningArtifactDetail": {
+          "$ref": "#/definitions/ProvisioningArtifactDetail",
+          "description": "The resulting detailed provisioning artifact information."
+        },
+        "Status": {
+          "$ref": "#/definitions/Status",
+          "description": "The status of the current request."
+        }
+      },
+      "type": "object"
+    },
+    "CreatedTime": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "CreationTime": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "DefaultValue": {
+      "type": "string"
+    },
+    "DeleteConstraintInput": {
+      "properties": {
+        "AcceptLanguage": {
+          "$ref": "#/definitions/AcceptLanguage",
+          "description": "<p>The language code to use for this operation. Supported language codes are as follows:</p> <p>\"en\" (English)</p> <p>\"jp\" (Japanese)</p> <p>\"zh\" (Chinese)</p> <p>If no code is specified, \"en\" is used as the default.</p>"
+        },
+        "Id": {
+          "$ref": "#/definitions/Id",
+          "description": "The identifier of the constraint to delete."
+        }
+      },
+      "required": [
+        "Id"
+      ],
+      "type": "object"
+    },
+    "DeleteConstraintOutput": {
+      "properties": {},
+      "type": "object"
+    },
+    "DeletePortfolioInput": {
+      "properties": {
+        "AcceptLanguage": {
+          "$ref": "#/definitions/AcceptLanguage",
+          "description": "<p>The language code to use for this operation. Supported language codes are as follows:</p> <p>\"en\" (English)</p> <p>\"jp\" (Japanese)</p> <p>\"zh\" (Chinese)</p> <p>If no code is specified, \"en\" is used as the default.</p>"
+        },
+        "Id": {
+          "$ref": "#/definitions/Id",
+          "description": "The identifier of the portfolio for the delete request."
+        }
+      },
+      "required": [
+        "Id"
+      ],
+      "type": "object"
+    },
+    "DeletePortfolioOutput": {
+      "properties": {},
+      "type": "object"
+    },
+    "DeletePortfolioShareInput": {
+      "properties": {
+        "AcceptLanguage": {
+          "$ref": "#/definitions/AcceptLanguage",
+          "description": "<p>The language code to use for this operation. Supported language codes are as follows:</p> <p>\"en\" (English)</p> <p>\"jp\" (Japanese)</p> <p>\"zh\" (Chinese)</p> <p>If no code is specified, \"en\" is used as the default.</p>"
+        },
+        "AccountId": {
+          "$ref": "#/definitions/AccountId",
+          "description": "The account ID associated with the share to delete."
+        },
+        "PortfolioId": {
+          "$ref": "#/definitions/Id",
+          "description": "The portfolio identifier."
+        }
+      },
+      "required": [
+        "PortfolioId",
+        "AccountId"
+      ],
+      "type": "object"
+    },
+    "DeletePortfolioShareOutput": {
+      "properties": {},
+      "type": "object"
+    },
+    "DeleteProductInput": {
+      "properties": {
+        "AcceptLanguage": {
+          "$ref": "#/definitions/AcceptLanguage",
+          "description": "<p>The language code to use for this operation. Supported language codes are as follows:</p> <p>\"en\" (English)</p> <p>\"jp\" (Japanese)</p> <p>\"zh\" (Chinese)</p> <p>If no code is specified, \"en\" is used as the default.</p>"
+        },
+        "Id": {
+          "$ref": "#/definitions/Id",
+          "description": "The identifier of the product for the delete request."
+        }
+      },
+      "required": [
+        "Id"
+      ],
+      "type": "object"
+    },
+    "DeleteProductOutput": {
+      "properties": {},
+      "type": "object"
+    },
+    "DeleteProvisioningArtifactInput": {
+      "properties": {
+        "AcceptLanguage": {
+          "$ref": "#/definitions/AcceptLanguage",
+          "description": "<p>The language code to use for this operation. Supported language codes are as follows:</p> <p>\"en\" (English)</p> <p>\"jp\" (Japanese)</p> <p>\"zh\" (Chinese)</p> <p>If no code is specified, \"en\" is used as the default.</p>"
+        },
+        "ProductId": {
+          "$ref": "#/definitions/Id",
+          "description": "The product identifier."
+        },
+        "ProvisioningArtifactId": {
+          "$ref": "#/definitions/Id",
+          "description": "The identifier of the provisioning artifact for the delete request."
+        }
+      },
+      "required": [
+        "ProductId",
+        "ProvisioningArtifactId"
+      ],
+      "type": "object"
+    },
+    "DeleteProvisioningArtifactOutput": {
+      "properties": {},
+      "type": "object"
+    },
+    "DescribeConstraintInput": {
+      "properties": {
+        "AcceptLanguage": {
+          "$ref": "#/definitions/AcceptLanguage",
+          "description": "<p>The language code to use for this operation. Supported language codes are as follows:</p> <p>\"en\" (English)</p> <p>\"jp\" (Japanese)</p> <p>\"zh\" (Chinese)</p> <p>If no code is specified, \"en\" is used as the default.</p>"
+        },
+        "Id": {
+          "$ref": "#/definitions/Id",
+          "description": "The identifier of the constraint."
+        }
+      },
+      "required": [
+        "Id"
+      ],
+      "type": "object"
+    },
+    "DescribeConstraintOutput": {
+      "properties": {
+        "ConstraintDetail": {
+          "$ref": "#/definitions/ConstraintDetail",
+          "description": "Detailed constraint information."
+        },
+        "ConstraintParameters": {
+          "$ref": "#/definitions/ConstraintParameters",
+          "description": "The current parameters associated with the specified constraint."
+        },
+        "Status": {
+          "$ref": "#/definitions/Status",
+          "description": "The status of the current request."
+        }
+      },
+      "type": "object"
+    },
+    "DescribePortfolioInput": {
+      "properties": {
+        "AcceptLanguage": {
+          "$ref": "#/definitions/AcceptLanguage",
+          "description": "<p>The language code to use for this operation. Supported language codes are as follows:</p> <p>\"en\" (English)</p> <p>\"jp\" (Japanese)</p> <p>\"zh\" (Chinese)</p> <p>If no code is specified, \"en\" is used as the default.</p>"
+        },
+        "Id": {
+          "$ref": "#/definitions/Id",
+          "description": "The identifier of the portfolio for which to retrieve information."
+        }
+      },
+      "required": [
+        "Id"
+      ],
+      "type": "object"
+    },
+    "DescribePortfolioOutput": {
+      "properties": {
+        "PortfolioDetail": {
+          "$ref": "#/definitions/PortfolioDetail",
+          "description": "Detailed portfolio information."
+        },
+        "Tags": {
+          "$ref": "#/definitions/Tags",
+          "description": "Tags associated with the portfolio."
+        }
+      },
+      "type": "object"
+    },
+    "DescribeProductAsAdminInput": {
+      "properties": {
+        "AcceptLanguage": {
+          "$ref": "#/definitions/AcceptLanguage",
+          "description": "<p>The language code to use for this operation. Supported language codes are as follows:</p> <p>\"en\" (English)</p> <p>\"jp\" (Japanese)</p> <p>\"zh\" (Chinese)</p> <p>If no code is specified, \"en\" is used as the default.</p>"
+        },
+        "Id": {
+          "$ref": "#/definitions/Id",
+          "description": "The identifier of the product for which to retrieve information."
+        }
+      },
+      "required": [
+        "Id"
+      ],
+      "type": "object"
+    },
+    "DescribeProductAsAdminOutput": {
+      "properties": {
+        "ProductViewDetail": {
+          "$ref": "#/definitions/ProductViewDetail",
+          "description": "Detailed product view information."
+        },
+        "Tags": {
+          "$ref": "#/definitions/Tags",
+          "description": "Tags associated with the product."
+        }
+      },
+      "type": "object"
+    },
+    "DescribeProductInput": {
+      "properties": {
+        "AcceptLanguage": {
+          "$ref": "#/definitions/AcceptLanguage",
+          "description": "<p>The language code to use for this operation. Supported language codes are as follows:</p> <p>\"en\" (English)</p> <p>\"jp\" (Japanese)</p> <p>\"zh\" (Chinese)</p> <p>If no code is specified, \"en\" is used as the default.</p>"
+        },
+        "Id": {
+          "$ref": "#/definitions/Id",
+          "description": "The <code>ProductId</code> of the product to describe."
+        }
+      },
+      "required": [
+        "Id"
+      ],
+      "type": "object"
+    },
+    "DescribeProductOutput": {
+      "properties": {
+        "ProductViewSummary": {
+          "$ref": "#/definitions/ProductViewSummary",
+          "description": "The summary metadata about the specified product."
+        },
+        "ProvisioningArtifacts": {
+          "$ref": "#/definitions/ProvisioningArtifacts",
+          "description": "A list of provisioning artifact objects for the specified product. The <code>ProvisioningArtifacts</code> parameter represent the ways the specified product can be provisioned."
+        }
+      },
+      "type": "object"
+    },
+    "DescribeProductViewInput": {
+      "properties": {
+        "AcceptLanguage": {
+          "$ref": "#/definitions/AcceptLanguage",
+          "description": "<p>The language code to use for this operation. Supported language codes are as follows:</p> <p>\"en\" (English)</p> <p>\"jp\" (Japanese)</p> <p>\"zh\" (Chinese)</p> <p>If no code is specified, \"en\" is used as the default.</p>"
+        },
+        "Id": {
+          "$ref": "#/definitions/Id",
+          "description": "The <code>ProductViewId</code> of the product to describe."
+        }
+      },
+      "required": [
+        "Id"
+      ],
+      "type": "object"
+    },
+    "DescribeProductViewOutput": {
+      "properties": {
+        "ProductViewSummary": {
+          "$ref": "#/definitions/ProductViewSummary",
+          "description": "The summary metadata about the specified product."
+        },
+        "ProvisioningArtifacts": {
+          "$ref": "#/definitions/ProvisioningArtifacts",
+          "description": "A list of provisioning artifact objects for the specified product. The <code>ProvisioningArtifacts</code> represent the ways in which the specified product can be provisioned."
+        }
+      },
+      "type": "object"
+    },
+    "DescribeProvisioningArtifactInput": {
+      "properties": {
+        "AcceptLanguage": {
+          "$ref": "#/definitions/AcceptLanguage",
+          "description": "<p>The language code to use for this operation. Supported language codes are as follows:</p> <p>\"en\" (English)</p> <p>\"jp\" (Japanese)</p> <p>\"zh\" (Chinese)</p> <p>If no code is specified, \"en\" is used as the default.</p>"
+        },
+        "ProductId": {
+          "$ref": "#/definitions/Id",
+          "description": "The product identifier."
+        },
+        "ProvisioningArtifactId": {
+          "$ref": "#/definitions/Id",
+          "description": "The identifier of the provisioning artifact."
+        }
+      },
+      "required": [
+        "ProvisioningArtifactId",
+        "ProductId"
+      ],
+      "type": "object"
+    },
+    "DescribeProvisioningArtifactOutput": {
+      "properties": {
+        "Info": {
+          "$ref": "#/definitions/ProvisioningArtifactInfo",
+          "description": "Additional information about the provisioning artifact."
+        },
+        "ProvisioningArtifactDetail": {
+          "$ref": "#/definitions/ProvisioningArtifactDetail",
+          "description": "Detailed provisioning artifact information."
+        },
+        "Status": {
+          "$ref": "#/definitions/Status",
+          "description": "The status of the current request."
+        }
+      },
+      "type": "object"
+    },
+    "DescribeProvisioningParametersInput": {
+      "properties": {
+        "AcceptLanguage": {
+          "$ref": "#/definitions/AcceptLanguage",
+          "description": "<p>The language code to use for this operation. Supported language codes are as follows:</p> <p>\"en\" (English)</p> <p>\"jp\" (Japanese)</p> <p>\"zh\" (Chinese)</p> <p>If no code is specified, \"en\" is used as the default.</p>"
+        },
+        "PathId": {
+          "$ref": "#/definitions/Id",
+          "description": "The identifier of the path for this product's provisioning. This value is optional if the product has a default path, and is required if there is more than one path for the specified product."
+        },
+        "ProductId": {
+          "$ref": "#/definitions/Id",
+          "description": "The product identifier."
+        },
+        "ProvisioningArtifactId": {
+          "$ref": "#/definitions/Id",
+          "description": "The provisioning artifact identifier for this product."
+        }
+      },
+      "required": [
+        "ProductId",
+        "ProvisioningArtifactId"
+      ],
+      "type": "object"
+    },
+    "DescribeProvisioningParametersOutput": {
+      "properties": {
+        "ConstraintSummaries": {
+          "$ref": "#/definitions/ConstraintSummaries",
+          "description": "The list of constraint summaries that apply to provisioning this product."
+        },
+        "ProvisioningArtifactParameters": {
+          "$ref": "#/definitions/ProvisioningArtifactParameters",
+          "description": "The list of parameters used to successfully provision the product. Each parameter includes a list of allowable values and additional metadata about each parameter."
+        },
+        "UsageInstructions": {
+          "$ref": "#/definitions/UsageInstructions",
+          "description": "Any additional metadata specifically related to the provisioning of the product. For example, see the <code>Version</code> field of the CloudFormation template."
+        }
+      },
+      "type": "object"
+    },
+    "DescribeRecordInput": {
+      "properties": {
+        "AcceptLanguage": {
+          "$ref": "#/definitions/AcceptLanguage",
+          "description": "<p>The language code to use for this operation. Supported language codes are as follows:</p> <p>\"en\" (English)</p> <p>\"jp\" (Japanese)</p> <p>\"zh\" (Chinese)</p> <p>If no code is specified, \"en\" is used as the default.</p>"
+        },
+        "Id": {
+          "$ref": "#/definitions/Id",
+          "description": "The record identifier of the ProvisionedProduct object for which to retrieve output information. This is the <code>RecordDetail.RecordId</code> obtained from the request operation's response."
+        },
+        "PageSize": {
+          "$ref": "#/definitions/PageSize",
+          "description": "The maximum number of items to return in the results. If more results exist than fit in the specified <code>PageSize</code>, the value of <code>NextPageToken</code> in the response is non-null."
+        },
+        "PageToken": {
+          "$ref": "#/definitions/PageToken",
+          "description": "The page token of the first page retrieved. If null, this retrieves the first page of size <code>PageSize</code>."
+        }
+      },
+      "required": [
+        "Id"
+      ],
+      "type": "object"
+    },
+    "DescribeRecordOutput": {
+      "properties": {
+        "NextPageToken": {
+          "$ref": "#/definitions/PageToken",
+          "description": "The page token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null."
+        },
+        "RecordDetail": {
+          "$ref": "#/definitions/RecordDetail",
+          "description": "Detailed record information for the specified product. "
+        },
+        "RecordOutputs": {
+          "$ref": "#/definitions/RecordOutputs",
+          "description": "A list of outputs for the specified Product object created as the result of a request. For example, a CloudFormation-backed product that creates an S3 bucket would have an output for the S3 bucket URL."
+        }
+      },
+      "type": "object"
+    },
+    "Description": {
+      "type": "string"
+    },
+    "DisassociatePrincipalFromPortfolioInput": {
+      "properties": {
+        "AcceptLanguage": {
+          "$ref": "#/definitions/AcceptLanguage",
+          "description": "<p>The language code to use for this operation. Supported language codes are as follows:</p> <p>\"en\" (English)</p> <p>\"jp\" (Japanese)</p> <p>\"zh\" (Chinese)</p> <p>If no code is specified, \"en\" is used as the default.</p>"
+        },
+        "PortfolioId": {
+          "$ref": "#/definitions/Id",
+          "description": "The portfolio identifier."
+        },
+        "PrincipalARN": {
+          "$ref": "#/definitions/PrincipalARN",
+          "description": "The ARN representing the principal (IAM user, role, or group)."
+        }
+      },
+      "required": [
+        "PortfolioId",
+        "PrincipalARN"
+      ],
+      "type": "object"
+    },
+    "DisassociatePrincipalFromPortfolioOutput": {
+      "properties": {},
+      "type": "object"
+    },
+    "DisassociateProductFromPortfolioInput": {
+      "properties": {
+        "AcceptLanguage": {
+          "$ref": "#/definitions/AcceptLanguage",
+          "description": "<p>The language code to use for this operation. Supported language codes are as follows:</p> <p>\"en\" (English)</p> <p>\"jp\" (Japanese)</p> <p>\"zh\" (Chinese)</p> <p>If no code is specified, \"en\" is used as the default.</p>"
+        },
+        "PortfolioId": {
+          "$ref": "#/definitions/Id",
+          "description": "The portfolio identifier."
+        },
+        "ProductId": {
+          "$ref": "#/definitions/Id",
+          "description": "The product identifier."
+        }
+      },
+      "required": [
+        "ProductId",
+        "PortfolioId"
+      ],
+      "type": "object"
+    },
+    "DisassociateProductFromPortfolioOutput": {
+      "properties": {},
+      "type": "object"
+    },
+    "DuplicateResourceException": {
+      "description": "The specified resource is a duplicate.",
+      "properties": {},
+      "type": "object"
+    },
+    "ErrorCode": {
+      "type": "string"
+    },
+    "ErrorDescription": {
+      "type": "string"
+    },
+    "HasDefaultPath": {
+      "type": "boolean"
+    },
+    "Id": {
+      "maxLength": 100,
+      "minLength": 1,
+      "type": "string"
+    },
+    "IdempotencyToken": {
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": "[a-zA-Z0-9][a-zA-Z0-9_-]*",
+      "type": "string"
+    },
+    "IgnoreErrors": {
+      "type": "boolean"
+    },
+    "InstructionType": {
+      "type": "string"
+    },
+    "InstructionValue": {
+      "type": "string"
+    },
+    "InvalidParametersException": {
+      "description": "One or more parameters provided to the operation are invalid.",
+      "properties": {},
+      "type": "object"
+    },
+    "LastRequestId": {
+      "type": "string"
+    },
+    "LaunchPathSummaries": {
+      "items": {
+        "$ref": "#/definitions/LaunchPathSummary"
+      },
+      "type": "array"
+    },
+    "LaunchPathSummary": {
+      "description": "Summary information about a path for a user to have access to a specified product.",
+      "properties": {
+        "ConstraintSummaries": {
+          "$ref": "#/definitions/ConstraintSummaries",
+          "description": "List of constraints on the portfolio-product relationship."
+        },
+        "Id": {
+          "$ref": "#/definitions/Id",
+          "description": "The unique identifier of the product path."
+        },
+        "Name": {
+          "$ref": "#/definitions/PortfolioName",
+          "description": "Corresponds to the name of the portfolio to which the user was assigned."
+        },
+        "Tags": {
+          "$ref": "#/definitions/Tags",
+          "description": "List of tags used by this launch path."
+        }
+      },
+      "type": "object"
+    },
+    "LimitExceededException": {
+      "description": "The current limits of the service would have been exceeded by this operation. Reduce the resource use or increase the service limits and retry the operation.",
+      "properties": {},
+      "type": "object"
+    },
+    "ListAcceptedPortfolioSharesInput": {
+      "properties": {
+        "AcceptLanguage": {
+          "$ref": "#/definitions/AcceptLanguage",
+          "description": "<p>The language code to use for this operation. Supported language codes are as follows:</p> <p>\"en\" (English)</p> <p>\"jp\" (Japanese)</p> <p>\"zh\" (Chinese)</p> <p>If no code is specified, \"en\" is used as the default.</p>"
+        },
+        "PageSize": {
+          "$ref": "#/definitions/PageSize",
+          "description": "The maximum number of items to return in the results. If more results exist than fit in the specified <code>PageSize</code>, the value of <code>NextPageToken</code> in the response is non-null."
+        },
+        "PageToken": {
+          "$ref": "#/definitions/PageToken",
+          "description": "The page token of the first page retrieved. If null, this retrieves the first page of size <code>PageSize</code>."
+        }
+      },
+      "type": "object"
+    },
+    "ListAcceptedPortfolioSharesOutput": {
+      "properties": {
+        "NextPageToken": {
+          "$ref": "#/definitions/PageToken",
+          "description": "The page token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null."
+        },
+        "PortfolioDetails": {
+          "$ref": "#/definitions/PortfolioDetails",
+          "description": "List of detailed portfolio information objects."
+        }
+      },
+      "type": "object"
+    },
+    "ListConstraintsForPortfolioInput": {
+      "properties": {
+        "AcceptLanguage": {
+          "$ref": "#/definitions/AcceptLanguage",
+          "description": "<p>The language code to use for this operation. Supported language codes are as follows:</p> <p>\"en\" (English)</p> <p>\"jp\" (Japanese)</p> <p>\"zh\" (Chinese)</p> <p>If no code is specified, \"en\" is used as the default.</p>"
+        },
+        "PageSize": {
+          "$ref": "#/definitions/PageSize",
+          "description": "The maximum number of items to return in the results. If more results exist than fit in the specified <code>PageSize</code>, the value of <code>NextPageToken</code> in the response is non-null."
+        },
+        "PageToken": {
+          "$ref": "#/definitions/PageToken",
+          "description": "The page token of the first page retrieved. If null, this retrieves the first page of size <code>PageSize</code>."
+        },
+        "PortfolioId": {
+          "$ref": "#/definitions/Id",
+          "description": "The portfolio identifier."
+        },
+        "ProductId": {
+          "$ref": "#/definitions/Id",
+          "description": "The product identifier."
+        }
+      },
+      "required": [
+        "PortfolioId"
+      ],
+      "type": "object"
+    },
+    "ListConstraintsForPortfolioOutput": {
+      "properties": {
+        "ConstraintDetails": {
+          "$ref": "#/definitions/ConstraintDetails",
+          "description": "List of detailed constraint information objects."
+        },
+        "NextPageToken": {
+          "$ref": "#/definitions/PageToken",
+          "description": "The page token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null."
+        }
+      },
+      "type": "object"
+    },
+    "ListLaunchPathsInput": {
+      "properties": {
+        "AcceptLanguage": {
+          "$ref": "#/definitions/AcceptLanguage",
+          "description": "<p>The language code to use for this operation. Supported language codes are as follows:</p> <p>\"en\" (English)</p> <p>\"jp\" (Japanese)</p> <p>\"zh\" (Chinese)</p> <p>If no code is specified, \"en\" is used as the default.</p>"
+        },
+        "PageSize": {
+          "$ref": "#/definitions/PageSize",
+          "description": "The maximum number of items to return in the results. If more results exist than fit in the specified <code>PageSize</code>, the value of <code>NextPageToken</code> in the response is non-null."
+        },
+        "PageToken": {
+          "$ref": "#/definitions/PageToken",
+          "description": "The page token of the first page retrieved. If null, this retrieves the first page of size <code>PageSize</code>."
+        },
+        "ProductId": {
+          "$ref": "#/definitions/Id",
+          "description": "The product identifier.. Identifies the product for which to retrieve <code>LaunchPathSummaries</code> information."
+        }
+      },
+      "required": [
+        "ProductId"
+      ],
+      "type": "object"
+    },
+    "ListLaunchPathsOutput": {
+      "properties": {
+        "LaunchPathSummaries": {
+          "$ref": "#/definitions/LaunchPathSummaries",
+          "description": "List of launch path information summaries for the specified <code>PageToken</code>."
+        },
+        "NextPageToken": {
+          "$ref": "#/definitions/PageToken",
+          "description": "The page token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null."
+        }
+      },
+      "type": "object"
+    },
+    "ListPortfolioAccessInput": {
+      "properties": {
+        "AcceptLanguage": {
+          "$ref": "#/definitions/AcceptLanguage",
+          "description": "<p>The language code to use for this operation. Supported language codes are as follows:</p> <p>\"en\" (English)</p> <p>\"jp\" (Japanese)</p> <p>\"zh\" (Chinese)</p> <p>If no code is specified, \"en\" is used as the default.</p>"
+        },
+        "PortfolioId": {
+          "$ref": "#/definitions/Id",
+          "description": "The portfolio identifier."
+        }
+      },
+      "required": [
+        "PortfolioId"
+      ],
+      "type": "object"
+    },
+    "ListPortfolioAccessOutput": {
+      "properties": {
+        "AccountIds": {
+          "$ref": "#/definitions/AccountIds",
+          "description": "List of account IDs associated with access to the portfolio."
+        },
+        "NextPageToken": {
+          "$ref": "#/definitions/PageToken",
+          "description": "The page token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null."
+        }
+      },
+      "type": "object"
+    },
+    "ListPortfoliosForProductInput": {
+      "properties": {
+        "AcceptLanguage": {
+          "$ref": "#/definitions/AcceptLanguage",
+          "description": "<p>The language code to use for this operation. Supported language codes are as follows:</p> <p>\"en\" (English)</p> <p>\"jp\" (Japanese)</p> <p>\"zh\" (Chinese)</p> <p>If no code is specified, \"en\" is used as the default.</p>"
+        },
+        "PageSize": {
+          "$ref": "#/definitions/PageSize",
+          "description": "The maximum number of items to return in the results. If more results exist than fit in the specified <code>PageSize</code>, the value of <code>NextPageToken</code> in the response is non-null."
+        },
+        "PageToken": {
+          "$ref": "#/definitions/PageToken",
+          "description": "The page token of the first page retrieved. If null, this retrieves the first page of size <code>PageSize</code>."
+        },
+        "ProductId": {
+          "$ref": "#/definitions/Id",
+          "description": "The product identifier."
+        }
+      },
+      "required": [
+        "ProductId"
+      ],
+      "type": "object"
+    },
+    "ListPortfoliosForProductOutput": {
+      "properties": {
+        "NextPageToken": {
+          "$ref": "#/definitions/PageToken",
+          "description": "The page token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null."
+        },
+        "PortfolioDetails": {
+          "$ref": "#/definitions/PortfolioDetails",
+          "description": "List of detailed portfolio information objects."
+        }
+      },
+      "type": "object"
+    },
+    "ListPortfoliosInput": {
+      "properties": {
+        "AcceptLanguage": {
+          "$ref": "#/definitions/AcceptLanguage",
+          "description": "<p>The language code to use for this operation. Supported language codes are as follows:</p> <p>\"en\" (English)</p> <p>\"jp\" (Japanese)</p> <p>\"zh\" (Chinese)</p> <p>If no code is specified, \"en\" is used as the default.</p>"
+        },
+        "PageSize": {
+          "$ref": "#/definitions/PageSize",
+          "description": "The maximum number of items to return in the results. If more results exist than fit in the specified <code>PageSize</code>, the value of <code>NextPageToken</code> in the response is non-null."
+        },
+        "PageToken": {
+          "$ref": "#/definitions/PageToken",
+          "description": "The page token of the first page retrieved. If null, this retrieves the first page of size <code>PageSize</code>."
+        }
+      },
+      "type": "object"
+    },
+    "ListPortfoliosOutput": {
+      "properties": {
+        "NextPageToken": {
+          "$ref": "#/definitions/PageToken",
+          "description": "The page token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null."
+        },
+        "PortfolioDetails": {
+          "$ref": "#/definitions/PortfolioDetails",
+          "description": "List of detailed portfolio information objects."
+        }
+      },
+      "type": "object"
+    },
+    "ListPrincipalsForPortfolioInput": {
+      "properties": {
+        "AcceptLanguage": {
+          "$ref": "#/definitions/AcceptLanguage",
+          "description": "<p>The language code to use for this operation. Supported language codes are as follows:</p> <p>\"en\" (English)</p> <p>\"jp\" (Japanese)</p> <p>\"zh\" (Chinese)</p> <p>If no code is specified, \"en\" is used as the default.</p>"
+        },
+        "PageSize": {
+          "$ref": "#/definitions/PageSize",
+          "description": "The maximum number of items to return in the results. If more results exist than fit in the specified <code>PageSize</code>, the value of <code>NextPageToken</code> in the response is non-null."
+        },
+        "PageToken": {
+          "$ref": "#/definitions/PageToken",
+          "description": "The page token of the first page retrieved. If null, this retrieves the first page of size <code>PageSize</code>."
+        },
+        "PortfolioId": {
+          "$ref": "#/definitions/Id",
+          "description": "The portfolio identifier."
+        }
+      },
+      "required": [
+        "PortfolioId"
+      ],
+      "type": "object"
+    },
+    "ListPrincipalsForPortfolioOutput": {
+      "properties": {
+        "NextPageToken": {
+          "$ref": "#/definitions/PageToken",
+          "description": "The page token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null."
+        },
+        "Principals": {
+          "$ref": "#/definitions/Principals",
+          "description": "The IAM principals (users or roles) associated with the portfolio."
+        }
+      },
+      "type": "object"
+    },
+    "ListProvisioningArtifactsInput": {
+      "properties": {
+        "AcceptLanguage": {
+          "$ref": "#/definitions/AcceptLanguage",
+          "description": "<p>The language code to use for this operation. Supported language codes are as follows:</p> <p>\"en\" (English)</p> <p>\"jp\" (Japanese)</p> <p>\"zh\" (Chinese)</p> <p>If no code is specified, \"en\" is used as the default.</p>"
+        },
+        "ProductId": {
+          "$ref": "#/definitions/Id",
+          "description": "The product identifier."
+        }
+      },
+      "required": [
+        "ProductId"
+      ],
+      "type": "object"
+    },
+    "ListProvisioningArtifactsOutput": {
+      "properties": {
+        "NextPageToken": {
+          "$ref": "#/definitions/PageToken",
+          "description": "The page token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null."
+        },
+        "ProvisioningArtifactDetails": {
+          "$ref": "#/definitions/ProvisioningArtifactDetails",
+          "description": "List of detailed provisioning artifact information objects."
+        }
+      },
+      "type": "object"
+    },
+    "ListRecordHistoryInput": {
+      "properties": {
+        "AcceptLanguage": {
+          "$ref": "#/definitions/AcceptLanguage",
+          "description": "<p>The language code to use for this operation. Supported language codes are as follows:</p> <p>\"en\" (English)</p> <p>\"jp\" (Japanese)</p> <p>\"zh\" (Chinese)</p> <p>If no code is specified, \"en\" is used as the default.</p>"
+        },
+        "AccessLevelFilter": {
+          "$ref": "#/definitions/AccessLevelFilter",
+          "description": "The access level for obtaining results. If left unspecified, <code>User</code> level access is used."
+        },
+        "PageSize": {
+          "$ref": "#/definitions/PageSize",
+          "description": "The maximum number of items to return in the results. If more results exist than fit in the specified <code>PageSize</code>, the value of <code>NextPageToken</code> in the response is non-null."
+        },
+        "PageToken": {
+          "$ref": "#/definitions/PageToken",
+          "description": "The page token of the first page retrieved. If null, this retrieves the first page of size <code>PageSize</code>."
+        },
+        "SearchFilter": {
+          "$ref": "#/definitions/ListRecordHistorySearchFilter",
+          "description": "The filter to limit search results. "
+        }
+      },
+      "type": "object"
+    },
+    "ListRecordHistoryOutput": {
+      "properties": {
+        "NextPageToken": {
+          "$ref": "#/definitions/PageToken",
+          "description": "The page token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null."
+        },
+        "RecordDetails": {
+          "$ref": "#/definitions/RecordDetails",
+          "description": "A list of record detail objects, listed in reverse chronological order."
+        }
+      },
+      "type": "object"
+    },
+    "ListRecordHistorySearchFilter": {
+      "description": "The search filter to limit results when listing request history records.",
+      "properties": {
+        "Key": {
+          "$ref": "#/definitions/SearchFilterKey",
+          "description": "The filter key."
+        },
+        "Value": {
+          "$ref": "#/definitions/SearchFilterValue",
+          "description": "The filter value for <code>Key</code>."
+        }
+      },
+      "type": "object"
+    },
+    "NoEcho": {
+      "type": "boolean"
+    },
+    "NotificationArn": {
+      "maxLength": 1224,
+      "minLength": 1,
+      "pattern": "arn:[a-z0-9-\\.]{1,63}:[a-z0-9-\\.]{0,63}:[a-z0-9-\\.]{0,63}:[a-z0-9-\\.]{0,63}:[^/].{0,1023}",
+      "type": "string"
+    },
+    "NotificationArns": {
+      "items": {
+        "$ref": "#/definitions/NotificationArn"
+      },
+      "maxItems": 5,
+      "type": "array"
+    },
+    "OutputKey": {
+      "type": "string"
+    },
+    "OutputValue": {
+      "type": "string"
+    },
+    "PageSize": {
+      "maximum": 20,
+      "minimum": 0,
+      "type": "integer"
+    },
+    "PageToken": {
+      "pattern": "[\\u0009\\u000a\\u000d\\u0020-\\uD7FF\\uE000-\\uFFFD]*",
+      "type": "string"
+    },
+    "ParameterConstraints": {
+      "description": "The constraints that the administrator has put on the parameter.",
+      "properties": {
+        "AllowedValues": {
+          "$ref": "#/definitions/AllowedValues",
+          "description": "The values that the administrator has allowed for the parameter."
+        }
+      },
+      "type": "object"
+    },
+    "ParameterKey": {
+      "maxLength": 1000,
+      "minLength": 1,
+      "type": "string"
+    },
+    "ParameterType": {
+      "type": "string"
+    },
+    "ParameterValue": {
+      "maxLength": 1000,
+      "type": "string"
+    },
+    "PortfolioDescription": {
+      "maxLength": 2000,
+      "type": "string"
+    },
+    "PortfolioDetail": {
+      "description": "Detailed portfolio information.",
+      "properties": {
+        "ARN": {
+          "$ref": "#/definitions/ResourceARN",
+          "description": "The ARN assigned to the portfolio."
+        },
+        "CreatedTime": {
+          "$ref": "#/definitions/CreationTime",
+          "description": "The UTC timestamp of the creation time."
+        },
+        "Description": {
+          "$ref": "#/definitions/PortfolioDescription",
+          "description": "The text description of the portfolio."
+        },
+        "DisplayName": {
+          "$ref": "#/definitions/PortfolioDisplayName",
+          "description": "The name to use for display purposes."
+        },
+        "Id": {
+          "$ref": "#/definitions/Id",
+          "description": "The identifier for the portfolio."
+        },
+        "ProviderName": {
+          "$ref": "#/definitions/ProviderName",
+          "description": "The name of the portfolio provider."
+        }
+      },
+      "type": "object"
+    },
+    "PortfolioDetails": {
+      "items": {
+        "$ref": "#/definitions/PortfolioDetail"
+      },
+      "type": "array"
+    },
+    "PortfolioDisplayName": {
+      "maxLength": 100,
+      "minLength": 1,
+      "type": "string"
+    },
+    "PortfolioName": {
+      "type": "string"
+    },
+    "Principal": {
+      "description": "A principal's ARN and type.",
+      "properties": {
+        "PrincipalARN": {
+          "$ref": "#/definitions/PrincipalARN",
+          "description": "The ARN representing the principal (IAM user, role, or group)."
+        },
+        "PrincipalType": {
+          "$ref": "#/definitions/PrincipalType",
+          "description": "The principal type. Must be <code>IAM</code> "
+        }
+      },
+      "type": "object"
+    },
+    "PrincipalARN": {
+      "maxLength": 1000,
+      "minLength": 1,
+      "type": "string"
+    },
+    "PrincipalType": {
+      "enum": [
+        "IAM"
+      ],
+      "type": "string"
+    },
+    "Principals": {
+      "items": {
+        "$ref": "#/definitions/Principal"
+      },
+      "type": "array"
+    },
+    "ProductSource": {
+      "enum": [
+        "ACCOUNT"
+      ],
+      "type": "string"
+    },
+    "ProductType": {
+      "enum": [
+        "CLOUD_FORMATION_TEMPLATE"
+      ],
+      "type": "string"
+    },
+    "ProductViewAggregationType": {
+      "type": "string"
+    },
+    "ProductViewAggregationValue": {
+      "description": "A single product view aggregation value/count pair, containing metadata about each product to which the calling user has access.",
+      "properties": {
+        "ApproximateCount": {
+          "$ref": "#/definitions/ApproximateCount",
+          "description": "An approximate count of the products that match the value."
+        },
+        "Value": {
+          "$ref": "#/definitions/AttributeValue",
+          "description": "The value of the product view aggregation."
+        }
+      },
+      "type": "object"
+    },
+    "ProductViewAggregationValues": {
+      "items": {
+        "$ref": "#/definitions/ProductViewAggregationValue"
+      },
+      "type": "array"
+    },
+    "ProductViewAggregations": {
+      "items": {
+        "properties": {
+          "key": {
+            "$ref": "#/definitions/ProductViewAggregationType"
+          },
+          "value": {
+            "$ref": "#/definitions/ProductViewAggregationValues"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "ProductViewDetail": {
+      "description": "Detailed product view information.",
+      "properties": {
+        "CreatedTime": {
+          "$ref": "#/definitions/CreatedTime",
+          "description": "The UTC timestamp of the creation time."
+        },
+        "ProductARN": {
+          "$ref": "#/definitions/ResourceARN",
+          "description": "The ARN associated with the product."
+        },
+        "ProductViewSummary": {
+          "$ref": "#/definitions/ProductViewSummary",
+          "description": "The summary metadata about the specified product view."
+        },
+        "Status": {
+          "$ref": "#/definitions/Status",
+          "description": "Current status of the product."
+        }
+      },
+      "type": "object"
+    },
+    "ProductViewDetails": {
+      "items": {
+        "$ref": "#/definitions/ProductViewDetail"
+      },
+      "type": "array"
+    },
+    "ProductViewDistributor": {
+      "type": "string"
+    },
+    "ProductViewFilterBy": {
+      "enum": [
+        "FullTextSearch",
+        "Owner",
+        "ProductType"
+      ],
+      "type": "string"
+    },
+    "ProductViewFilterValue": {
+      "type": "string"
+    },
+    "ProductViewFilterValues": {
+      "items": {
+        "$ref": "#/definitions/ProductViewFilterValue"
+      },
+      "type": "array"
+    },
+    "ProductViewFilters": {
+      "items": {
+        "properties": {
+          "key": {
+            "$ref": "#/definitions/ProductViewFilterBy"
+          },
+          "value": {
+            "$ref": "#/definitions/ProductViewFilterValues"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "ProductViewName": {
+      "type": "string"
+    },
+    "ProductViewOwner": {
+      "type": "string"
+    },
+    "ProductViewShortDescription": {
+      "type": "string"
+    },
+    "ProductViewSortBy": {
+      "enum": [
+        "Title",
+        "VersionCount",
+        "CreationDate"
+      ],
+      "type": "string"
+    },
+    "ProductViewSummaries": {
+      "items": {
+        "$ref": "#/definitions/ProductViewSummary"
+      },
+      "type": "array"
+    },
+    "ProductViewSummary": {
+      "description": "The summary metadata about the specified product.",
+      "properties": {
+        "Distributor": {
+          "$ref": "#/definitions/ProductViewDistributor",
+          "description": "The distributor of the product. Contact the product administrator for the significance of this value."
+        },
+        "HasDefaultPath": {
+          "$ref": "#/definitions/HasDefaultPath",
+          "description": "A value of <code>false</code> indicates that the product does not have a default path, while a value of <code>true</code> indicates that it does. If it's false, call <a>ListLaunchPaths</a> to disambiguate between paths. If true, <a>ListLaunchPaths</a> is not required, and the output of the <a>ProductViewSummary</a> operation can be used directly with <a>DescribeProvisioningParameters</a>."
+        },
+        "Id": {
+          "$ref": "#/definitions/Id",
+          "description": "The product view identifier."
+        },
+        "Name": {
+          "$ref": "#/definitions/ProductViewName",
+          "description": "The name of the product."
+        },
+        "Owner": {
+          "$ref": "#/definitions/ProductViewOwner",
+          "description": "The owner of the product. Contact the product administrator for the significance of this value."
+        },
+        "ProductId": {
+          "$ref": "#/definitions/Id",
+          "description": "The product identifier."
+        },
+        "ShortDescription": {
+          "$ref": "#/definitions/ProductViewShortDescription",
+          "description": "Short description of the product."
+        },
+        "SupportDescription": {
+          "$ref": "#/definitions/SupportDescription",
+          "description": "The description of the support for this Product."
+        },
+        "SupportEmail": {
+          "$ref": "#/definitions/SupportEmail",
+          "description": "The email contact information to obtain support for this Product."
+        },
+        "SupportUrl": {
+          "$ref": "#/definitions/SupportUrl",
+          "description": "The URL information to obtain support for this Product."
+        },
+        "Type": {
+          "$ref": "#/definitions/ProductType",
+          "description": "The product type. Contact the product administrator for the significance of this value."
+        }
+      },
+      "type": "object"
+    },
+    "ProviderName": {
+      "maxLength": 20,
+      "minLength": 1,
+      "type": "string"
+    },
+    "ProvisionProductInput": {
+      "properties": {
+        "AcceptLanguage": {
+          "$ref": "#/definitions/AcceptLanguage",
+          "description": "<p>The language code to use for this operation. Supported language codes are as follows:</p> <p>\"en\" (English)</p> <p>\"jp\" (Japanese)</p> <p>\"zh\" (Chinese)</p> <p>If no code is specified, \"en\" is used as the default.</p>"
+        },
+        "NotificationArns": {
+          "$ref": "#/definitions/NotificationArns",
+          "description": "Passed to CloudFormation. The SNS topic ARNs to which to publish stack-related events."
+        },
+        "PathId": {
+          "$ref": "#/definitions/Id",
+          "description": "The identifier of the path for this product's provisioning. This value is optional if the product has a default path, and is required if there is more than one path for the specified product."
+        },
+        "ProductId": {
+          "$ref": "#/definitions/Id",
+          "description": "The product identifier."
+        },
+        "ProvisionToken": {
+          "$ref": "#/definitions/IdempotencyToken",
+          "description": "An idempotency token that uniquely identifies the provisioning request. "
+        },
+        "ProvisionedProductName": {
+          "$ref": "#/definitions/ProvisionedProductName",
+          "description": "A user-friendly name to identify the ProvisionedProduct object. This value must be unique for the AWS account and cannot be updated after the product is provisioned."
+        },
+        "ProvisioningArtifactId": {
+          "$ref": "#/definitions/Id",
+          "description": "The provisioning artifact identifier for this product."
+        },
+        "ProvisioningParameters": {
+          "$ref": "#/definitions/ProvisioningParameters",
+          "description": "Parameters specified by the administrator that are required for provisioning the product."
+        },
+        "Tags": {
+          "$ref": "#/definitions/Tags",
+          "description": "A list of tags to use as provisioning options."
+        }
+      },
+      "required": [
+        "ProductId",
+        "ProvisioningArtifactId",
+        "ProvisionedProductName",
+        "ProvisionToken"
+      ],
+      "type": "object"
+    },
+    "ProvisionProductOutput": {
+      "properties": {
+        "RecordDetail": {
+          "$ref": "#/definitions/RecordDetail",
+          "description": "The detailed result of the <a>ProvisionProduct</a> request, containing the inputs made to that request, the current state of the request, a pointer to the ProvisionedProduct object of the request, and a list of any errors that the request encountered. "
+        }
+      },
+      "type": "object"
+    },
+    "ProvisionedProductDetail": {
+      "description": "Detailed information about a ProvisionedProduct object.",
+      "properties": {
+        "Arn": {
+          "$ref": "#/definitions/ProvisionedProductNameOrArn",
+          "description": "The ARN associated with the ProvisionedProduct object."
+        },
+        "CreatedTime": {
+          "$ref": "#/definitions/CreatedTime",
+          "description": "The UTC timestamp of the creation time."
+        },
+        "Id": {
+          "$ref": "#/definitions/ProvisionedProductId",
+          "description": "The identifier of the ProvisionedProduct object."
+        },
+        "IdempotencyToken": {
+          "$ref": "#/definitions/IdempotencyToken",
+          "description": "A token to disambiguate duplicate requests. You can create multiple resources using the same input in multiple requests, provided that you also specify a different idempotency token for each request."
+        },
+        "LastRecordId": {
+          "$ref": "#/definitions/LastRequestId",
+          "description": "The record identifier of the last request performed on this ProvisionedProduct object."
+        },
+        "Name": {
+          "$ref": "#/definitions/ProvisionedProductNameOrArn",
+          "description": "The user-friendly name of the ProvisionedProduct object."
+        },
+        "Status": {
+          "$ref": "#/definitions/RecordStatus",
+          "description": "The current status of the ProvisionedProduct."
+        },
+        "StatusMessage": {
+          "$ref": "#/definitions/ProvisionedProductStatusMessage",
+          "description": "The current status message of the ProvisionedProduct."
+        },
+        "Type": {
+          "$ref": "#/definitions/ProvisionedProductType",
+          "description": "The type of the ProvisionedProduct object."
+        }
+      },
+      "type": "object"
+    },
+    "ProvisionedProductDetails": {
+      "items": {
+        "$ref": "#/definitions/ProvisionedProductDetail"
+      },
+      "type": "array"
+    },
+    "ProvisionedProductId": {
+      "type": "string"
+    },
+    "ProvisionedProductName": {
+      "type": "string"
+    },
+    "ProvisionedProductNameOrArn": {
+      "maxLength": 1224,
+      "minLength": 1,
+      "pattern": "[a-zA-Z0-9][a-zA-Z0-9_-]{0,127}|arn:[a-z0-9-\\.]{1,63}:[a-z0-9-\\.]{0,63}:[a-z0-9-\\.]{0,63}:[a-z0-9-\\.]{0,63}:[^/].{0,1023}",
+      "type": "string"
+    },
+    "ProvisionedProductStatusMessage": {
+      "type": "string"
+    },
+    "ProvisionedProductType": {
+      "type": "string"
+    },
+    "ProvisioningArtifact": {
+      "description": "Contains information indicating the ways in which a product can be provisioned.",
+      "properties": {
+        "CreatedTime": {
+          "$ref": "#/definitions/ProvisioningArtifactCreatedTime",
+          "description": "The UTC timestamp of the creation time."
+        },
+        "Description": {
+          "$ref": "#/definitions/ProvisioningArtifactDescription",
+          "description": "The text description of the artifact."
+        },
+        "Id": {
+          "$ref": "#/definitions/Id",
+          "description": "The identifier for the artifact."
+        },
+        "Name": {
+          "$ref": "#/definitions/ProvisioningArtifactName",
+          "description": "The name of the artifact."
+        }
+      },
+      "type": "object"
+    },
+    "ProvisioningArtifactCreatedTime": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "ProvisioningArtifactDescription": {
+      "type": "string"
+    },
+    "ProvisioningArtifactDetail": {
+      "description": "Detailed provisioning artifact information.",
+      "properties": {
+        "CreatedTime": {
+          "$ref": "#/definitions/CreationTime",
+          "description": "The UTC timestamp of the creation time."
+        },
+        "Description": {
+          "$ref": "#/definitions/ProvisioningArtifactName",
+          "description": "The text description of the provisioning artifact."
+        },
+        "Id": {
+          "$ref": "#/definitions/Id",
+          "description": "The identifier of the provisioning artifact."
+        },
+        "Name": {
+          "$ref": "#/definitions/ProvisioningArtifactName",
+          "description": "The name assigned to the provisioning artifact."
+        },
+        "Type": {
+          "$ref": "#/definitions/ProvisioningArtifactType",
+          "description": "The type of the provisioning artifact."
+        }
+      },
+      "type": "object"
+    },
+    "ProvisioningArtifactDetails": {
+      "items": {
+        "$ref": "#/definitions/ProvisioningArtifactDetail"
+      },
+      "type": "array"
+    },
+    "ProvisioningArtifactInfo": {
+      "items": {
+        "properties": {
+          "key": {
+            "$ref": "#/definitions/ProvisioningArtifactInfoKey"
+          },
+          "value": {
+            "$ref": "#/definitions/ProvisioningArtifactInfoValue"
+          }
+        },
+        "type": "object"
+      },
+      "maxItems": 1,
+      "minItems": 1,
+      "type": "array"
+    },
+    "ProvisioningArtifactInfoKey": {
+      "type": "string"
+    },
+    "ProvisioningArtifactInfoValue": {
+      "type": "string"
+    },
+    "ProvisioningArtifactName": {
+      "type": "string"
+    },
+    "ProvisioningArtifactParameter": {
+      "description": "A parameter used to successfully provision the product. This value includes a list of allowable values and additional metadata. ",
+      "properties": {
+        "DefaultValue": {
+          "$ref": "#/definitions/DefaultValue",
+          "description": "The default value for this parameter."
+        },
+        "Description": {
+          "$ref": "#/definitions/Description",
+          "description": "The text description of the parameter."
+        },
+        "IsNoEcho": {
+          "$ref": "#/definitions/NoEcho",
+          "description": "If this value is true, the value for this parameter is obfuscated from view when the parameter is retrieved. This parameter is used to hide sensitive information."
+        },
+        "ParameterConstraints": {
+          "$ref": "#/definitions/ParameterConstraints",
+          "description": "The list of constraints that the administrator has put on the parameter."
+        },
+        "ParameterKey": {
+          "$ref": "#/definitions/ParameterKey",
+          "description": "The parameter key. "
+        },
+        "ParameterType": {
+          "$ref": "#/definitions/ParameterType",
+          "description": "The parameter type."
+        }
+      },
+      "type": "object"
+    },
+    "ProvisioningArtifactParameters": {
+      "items": {
+        "$ref": "#/definitions/ProvisioningArtifactParameter"
+      },
+      "type": "array"
+    },
+    "ProvisioningArtifactProperties": {
+      "description": "Provisioning artifact properties.",
+      "properties": {
+        "Description": {
+          "$ref": "#/definitions/ProvisioningArtifactDescription",
+          "description": "The text description of the provisioning artifact properties."
+        },
+        "Info": {
+          "$ref": "#/definitions/ProvisioningArtifactInfo",
+          "description": "Additional information about the provisioning artifact properties."
+        },
+        "Name": {
+          "$ref": "#/definitions/ProvisioningArtifactName",
+          "description": "The name assigned to the provisioning artifact properties."
+        },
+        "Type": {
+          "$ref": "#/definitions/ProvisioningArtifactType",
+          "description": "The type of the provisioning artifact properties."
+        }
+      },
+      "required": [
+        "Info"
+      ],
+      "type": "object"
+    },
+    "ProvisioningArtifactType": {
+      "enum": [
+        "CLOUD_FORMATION_TEMPLATE"
+      ],
+      "type": "string"
+    },
+    "ProvisioningArtifacts": {
+      "items": {
+        "$ref": "#/definitions/ProvisioningArtifact"
+      },
+      "type": "array"
+    },
+    "ProvisioningParameter": {
+      "description": "The arameter key/value pairs used to provision a product.",
+      "properties": {
+        "Key": {
+          "$ref": "#/definitions/ParameterKey",
+          "description": "The <code>ProvisioningArtifactParameter.ParameterKey</code> parameter from <a>DescribeProvisioningParameters</a>."
+        },
+        "Value": {
+          "$ref": "#/definitions/ParameterValue",
+          "description": "The value to use for provisioning. Any constraints on this value can be found in <code>ProvisioningArtifactParameter</code> for <code>Key</code>."
+        }
+      },
+      "type": "object"
+    },
+    "ProvisioningParameters": {
+      "items": {
+        "$ref": "#/definitions/ProvisioningParameter"
+      },
+      "type": "array"
+    },
+    "RecordDetail": {
+      "description": "The full details of a specific ProvisionedProduct object.",
+      "properties": {
+        "CreatedTime": {
+          "$ref": "#/definitions/CreatedTime",
+          "description": "The UTC timestamp of the creation time."
+        },
+        "PathId": {
+          "$ref": "#/definitions/Id",
+          "description": "The identifier of the path for this product's provisioning."
+        },
+        "ProductId": {
+          "$ref": "#/definitions/Id",
+          "description": "The product identifier."
+        },
+        "ProvisionedProductId": {
+          "$ref": "#/definitions/Id",
+          "description": "The identifier of the ProvisionedProduct object."
+        },
+        "ProvisionedProductName": {
+          "$ref": "#/definitions/ProvisionedProductName",
+          "description": "The user-friendly name of the ProvisionedProduct object."
+        },
+        "ProvisionedProductType": {
+          "$ref": "#/definitions/ProvisionedProductType",
+          "description": "The type of the ProvisionedProduct object."
+        },
+        "ProvisioningArtifactId": {
+          "$ref": "#/definitions/Id",
+          "description": "The provisioning artifact identifier for this product."
+        },
+        "RecordErrors": {
+          "$ref": "#/definitions/RecordErrors",
+          "description": "A list of errors that occurred while processing the request."
+        },
+        "RecordId": {
+          "$ref": "#/definitions/Id",
+          "description": "The identifier of the ProvisionedProduct object record."
+        },
+        "RecordTags": {
+          "$ref": "#/definitions/RecordTags",
+          "description": "List of tags associated with this record."
+        },
+        "RecordType": {
+          "$ref": "#/definitions/RecordType",
+          "description": "The record type for this record."
+        },
+        "Status": {
+          "$ref": "#/definitions/RecordStatus",
+          "description": "The status of the ProvisionedProduct object."
+        },
+        "UpdatedTime": {
+          "$ref": "#/definitions/UpdatedTime",
+          "description": "The time when the record for the ProvisionedProduct object was last updated."
+        }
+      },
+      "type": "object"
+    },
+    "RecordDetails": {
+      "items": {
+        "$ref": "#/definitions/RecordDetail"
+      },
+      "type": "array"
+    },
+    "RecordError": {
+      "description": "The error code and description resulting from an operation.",
+      "properties": {
+        "Code": {
+          "$ref": "#/definitions/ErrorCode",
+          "description": "The numeric value of the error."
+        },
+        "Description": {
+          "$ref": "#/definitions/ErrorDescription",
+          "description": "The text description of the error."
+        }
+      },
+      "type": "object"
+    },
+    "RecordErrors": {
+      "items": {
+        "$ref": "#/definitions/RecordError"
+      },
+      "type": "array"
+    },
+    "RecordOutput": {
+      "description": "An output for the specified Product object created as the result of a request. For example, a CloudFormation-backed product that creates an S3 bucket would have an output for the S3 bucket URL.",
+      "properties": {
+        "Description": {
+          "$ref": "#/definitions/Description",
+          "description": "The text description of the output."
+        },
+        "OutputKey": {
+          "$ref": "#/definitions/OutputKey",
+          "description": "The output key."
+        },
+        "OutputValue": {
+          "$ref": "#/definitions/OutputValue",
+          "description": "The output value."
+        }
+      },
+      "type": "object"
+    },
+    "RecordOutputs": {
+      "items": {
+        "$ref": "#/definitions/RecordOutput"
+      },
+      "type": "array"
+    },
+    "RecordStatus": {
+      "enum": [
+        "IN_PROGRESS",
+        "SUCCEEDED",
+        "ERROR"
+      ],
+      "type": "string"
+    },
+    "RecordTag": {
+      "description": "A tag associated with the record, stored as a key-value pair.",
+      "properties": {
+        "Key": {
+          "$ref": "#/definitions/RecordTagKey",
+          "description": "The key for this tag."
+        },
+        "Value": {
+          "$ref": "#/definitions/RecordTagValue",
+          "description": "The value for this tag."
+        }
+      },
+      "type": "object"
+    },
+    "RecordTagKey": {
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-%@]*)$",
+      "type": "string"
+    },
+    "RecordTagValue": {
+      "maxLength": 256,
+      "minLength": 1,
+      "pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-%@]*)$",
+      "type": "string"
+    },
+    "RecordTags": {
+      "items": {
+        "$ref": "#/definitions/RecordTag"
+      },
+      "maxItems": 50,
+      "type": "array"
+    },
+    "RecordType": {
+      "type": "string"
+    },
+    "RejectPortfolioShareInput": {
+      "properties": {
+        "AcceptLanguage": {
+          "$ref": "#/definitions/AcceptLanguage",
+          "description": "<p>The language code to use for this operation. Supported language codes are as follows:</p> <p>\"en\" (English)</p> <p>\"jp\" (Japanese)</p> <p>\"zh\" (Chinese)</p> <p>If no code is specified, \"en\" is used as the default.</p>"
+        },
+        "PortfolioId": {
+          "$ref": "#/definitions/Id",
+          "description": "The portfolio identifier."
+        }
+      },
+      "required": [
+        "PortfolioId"
+      ],
+      "type": "object"
+    },
+    "RejectPortfolioShareOutput": {
+      "properties": {},
+      "type": "object"
+    },
+    "ResourceARN": {
+      "maxLength": 150,
+      "minLength": 1,
+      "type": "string"
+    },
+    "ResourceInUseException": {
+      "description": "The operation was requested against a resource that is currently in use. Free the resource from use and retry the operation.",
+      "properties": {},
+      "type": "object"
+    },
+    "ResourceNotFoundException": {
+      "description": "The specified resource was not found.",
+      "properties": {},
+      "type": "object"
+    },
+    "ScanProvisionedProductsInput": {
+      "properties": {
+        "AcceptLanguage": {
+          "$ref": "#/definitions/AcceptLanguage",
+          "description": "<p>The language code to use for this operation. Supported language codes are as follows:</p> <p>\"en\" (English)</p> <p>\"jp\" (Japanese)</p> <p>\"zh\" (Chinese)</p> <p>If no code is specified, \"en\" is used as the default.</p>"
+        },
+        "AccessLevelFilter": {
+          "$ref": "#/definitions/AccessLevelFilter",
+          "description": "The access level for obtaining results. If left unspecified, <code>User</code> level access is used."
+        },
+        "PageSize": {
+          "$ref": "#/definitions/PageSize",
+          "description": "The maximum number of items to return in the results. If more results exist than fit in the specified <code>PageSize</code>, the value of <code>NextPageToken</code> in the response is non-null."
+        },
+        "PageToken": {
+          "$ref": "#/definitions/PageToken",
+          "description": "The page token of the first page retrieved. If null, this retrieves the first page of size <code>PageSize</code>."
+        }
+      },
+      "type": "object"
+    },
+    "ScanProvisionedProductsOutput": {
+      "properties": {
+        "NextPageToken": {
+          "$ref": "#/definitions/PageToken",
+          "description": "The page token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null."
+        },
+        "ProvisionedProducts": {
+          "$ref": "#/definitions/ProvisionedProductDetails",
+          "description": "A list of ProvisionedProduct detail objects."
+        }
+      },
+      "type": "object"
+    },
+    "SearchFilterKey": {
+      "type": "string"
+    },
+    "SearchFilterValue": {
+      "type": "string"
+    },
+    "SearchProductsAsAdminInput": {
+      "properties": {
+        "AcceptLanguage": {
+          "$ref": "#/definitions/AcceptLanguage",
+          "description": "<p>The language code to use for this operation. Supported language codes are as follows:</p> <p>\"en\" (English)</p> <p>\"jp\" (Japanese)</p> <p>\"zh\" (Chinese)</p> <p>If no code is specified, \"en\" is used as the default.</p>"
+        },
+        "Filters": {
+          "$ref": "#/definitions/ProductViewFilters",
+          "description": "The list of filters with which to limit search results. If no search filters are specified, the output is all the products to which the administrator has access."
+        },
+        "PageSize": {
+          "$ref": "#/definitions/PageSize",
+          "description": "The maximum number of items to return in the results. If more results exist than fit in the specified <code>PageSize</code>, the value of <code>NextPageToken</code> in the response is non-null."
+        },
+        "PageToken": {
+          "$ref": "#/definitions/PageToken",
+          "description": "The page token of the first page retrieved. If null, this retrieves the first page of size <code>PageSize</code>."
+        },
+        "PortfolioId": {
+          "$ref": "#/definitions/Id",
+          "description": "The portfolio identifier."
+        },
+        "ProductSource": {
+          "$ref": "#/definitions/ProductSource",
+          "description": "Access level of the source of the product."
+        },
+        "SortBy": {
+          "$ref": "#/definitions/ProductViewSortBy",
+          "description": "The sort field specifier. If no value is specified, results are not sorted."
+        },
+        "SortOrder": {
+          "$ref": "#/definitions/SortOrder",
+          "description": "The sort order specifier. If no value is specified, results are not sorted."
+        }
+      },
+      "type": "object"
+    },
+    "SearchProductsAsAdminOutput": {
+      "properties": {
+        "NextPageToken": {
+          "$ref": "#/definitions/PageToken",
+          "description": "The page token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null."
+        },
+        "ProductViewDetails": {
+          "$ref": "#/definitions/ProductViewDetails",
+          "description": "List of detailed product view information objects."
+        }
+      },
+      "type": "object"
+    },
+    "SearchProductsInput": {
+      "properties": {
+        "AcceptLanguage": {
+          "$ref": "#/definitions/AcceptLanguage",
+          "description": "<p>The language code to use for this operation. Supported language codes are as follows:</p> <p>\"en\" (English)</p> <p>\"jp\" (Japanese)</p> <p>\"zh\" (Chinese)</p> <p>If no code is specified, \"en\" is used as the default.</p>"
+        },
+        "Filters": {
+          "$ref": "#/definitions/ProductViewFilters",
+          "description": "The list of filters with which to limit search results. If no search filters are specified, the output is all the products to which the calling user has access. "
+        },
+        "PageSize": {
+          "$ref": "#/definitions/PageSize",
+          "description": "The maximum number of items to return in the results. If more results exist than fit in the specified <code>PageSize</code>, the value of <code>NextPageToken</code> in the response is non-null."
+        },
+        "PageToken": {
+          "$ref": "#/definitions/PageToken",
+          "description": "The page token of the first page retrieved. If null, this retrieves the first page of size <code>PageSize</code>."
+        },
+        "SortBy": {
+          "$ref": "#/definitions/ProductViewSortBy",
+          "description": "The sort field specifier. If no value is specified, results are not sorted."
+        },
+        "SortOrder": {
+          "$ref": "#/definitions/SortOrder",
+          "description": "The sort order specifier. If no value is specified, results are not sorted."
+        }
+      },
+      "type": "object"
+    },
+    "SearchProductsOutput": {
+      "properties": {
+        "NextPageToken": {
+          "$ref": "#/definitions/PageToken",
+          "description": "The page token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null."
+        },
+        "ProductViewAggregations": {
+          "$ref": "#/definitions/ProductViewAggregations",
+          "description": "A list of the product view aggregation value objects."
+        },
+        "ProductViewSummaries": {
+          "$ref": "#/definitions/ProductViewSummaries",
+          "description": "A list of the product view summary objects."
+        }
+      },
+      "type": "object"
+    },
+    "SortOrder": {
+      "enum": [
+        "ASCENDING",
+        "DESCENDING"
+      ],
+      "type": "string"
+    },
+    "Status": {
+      "enum": [
+        "AVAILABLE",
+        "CREATING",
+        "FAILED"
+      ],
+      "type": "string"
+    },
+    "SupportDescription": {
+      "type": "string"
+    },
+    "SupportEmail": {
+      "type": "string"
+    },
+    "SupportUrl": {
+      "type": "string"
+    },
+    "Tag": {
+      "description": "Key/value pairs to associate with this provisioning. These tags are entirely discretionary and are propagated to the resources created in the provisioning.",
+      "properties": {
+        "Key": {
+          "$ref": "#/definitions/TagKey",
+          "description": "The <code>ProvisioningArtifactParameter.TagKey</code> parameter from <a>DescribeProvisioningParameters</a>."
+        },
+        "Value": {
+          "$ref": "#/definitions/TagValue",
+          "description": "The esired value for this key."
+        }
+      },
+      "required": [
+        "Key",
+        "Value"
+      ],
+      "type": "object"
+    },
+    "TagKey": {
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$",
+      "type": "string"
+    },
+    "TagKeys": {
+      "items": {
+        "$ref": "#/definitions/TagKey"
+      },
+      "type": "array"
+    },
+    "TagValue": {
+      "maxLength": 256,
+      "minLength": 1,
+      "pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$",
+      "type": "string"
+    },
+    "Tags": {
+      "items": {
+        "$ref": "#/definitions/Tag"
+      },
+      "maxItems": 50,
+      "type": "array"
+    },
+    "TerminateProvisionedProductInput": {
+      "properties": {
+        "AcceptLanguage": {
+          "$ref": "#/definitions/AcceptLanguage",
+          "description": "<p>The language code to use for this operation. Supported language codes are as follows:</p> <p>\"en\" (English)</p> <p>\"jp\" (Japanese)</p> <p>\"zh\" (Chinese)</p> <p>If no code is specified, \"en\" is used as the default.</p>"
+        },
+        "IgnoreErrors": {
+          "$ref": "#/definitions/IgnoreErrors",
+          "description": "If set to true, AWS Service Catalog stops managing the specified ProvisionedProduct object even if it cannot delete the underlying resources."
+        },
+        "ProvisionedProductId": {
+          "$ref": "#/definitions/Id",
+          "description": "The identifier of the ProvisionedProduct object to terminate. You must specify either <code>ProvisionedProductName</code> or <code>ProvisionedProductId</code>, but not both."
+        },
+        "ProvisionedProductName": {
+          "$ref": "#/definitions/ProvisionedProductNameOrArn",
+          "description": "The name of the ProvisionedProduct object to terminate. You must specify either <code>ProvisionedProductName</code> or <code>ProvisionedProductId</code>, but not both."
+        },
+        "TerminateToken": {
+          "$ref": "#/definitions/IdempotencyToken",
+          "description": "An idempotency token that uniquely identifies the termination request. This token is only valid during the termination process. After the ProvisionedProduct object is terminated, further requests to terminate the same ProvisionedProduct object always return <b>ResourceNotFound</b> regardless of the value of <code>TerminateToken</code>."
+        }
+      },
+      "required": [
+        "TerminateToken"
+      ],
+      "type": "object"
+    },
+    "TerminateProvisionedProductOutput": {
+      "properties": {
+        "RecordDetail": {
+          "$ref": "#/definitions/RecordDetail",
+          "description": "The detailed result of the <a>TerminateProvisionedProduct</a> request, containing the inputs made to that request, the current state of the request, a pointer to the ProvisionedProduct object that the request is modifying, and a list of any errors that the request encountered."
+        }
+      },
+      "type": "object"
+    },
+    "UpdateConstraintInput": {
+      "properties": {
+        "AcceptLanguage": {
+          "$ref": "#/definitions/AcceptLanguage",
+          "description": "<p>The language code to use for this operation. Supported language codes are as follows:</p> <p>\"en\" (English)</p> <p>\"jp\" (Japanese)</p> <p>\"zh\" (Chinese)</p> <p>If no code is specified, \"en\" is used as the default.</p>"
+        },
+        "Description": {
+          "$ref": "#/definitions/ConstraintDescription",
+          "description": "The updated text description of the constraint."
+        },
+        "Id": {
+          "$ref": "#/definitions/Id",
+          "description": "The identifier of the constraint to update."
+        }
+      },
+      "required": [
+        "Id"
+      ],
+      "type": "object"
+    },
+    "UpdateConstraintOutput": {
+      "properties": {
+        "ConstraintDetail": {
+          "$ref": "#/definitions/ConstraintDetail",
+          "description": "The resulting detailed constraint information."
+        },
+        "ConstraintParameters": {
+          "$ref": "#/definitions/ConstraintParameters",
+          "description": "The resulting updated constraint parameters."
+        },
+        "Status": {
+          "$ref": "#/definitions/Status",
+          "description": "The status of the current request."
+        }
+      },
+      "type": "object"
+    },
+    "UpdatePortfolioInput": {
+      "properties": {
+        "AcceptLanguage": {
+          "$ref": "#/definitions/AcceptLanguage",
+          "description": "<p>The language code to use for this operation. Supported language codes are as follows:</p> <p>\"en\" (English)</p> <p>\"jp\" (Japanese)</p> <p>\"zh\" (Chinese)</p> <p>If no code is specified, \"en\" is used as the default.</p>"
+        },
+        "AddTags": {
+          "$ref": "#/definitions/AddTags",
+          "description": "Tags to add to the existing list of tags associated with the portfolio."
+        },
+        "Description": {
+          "$ref": "#/definitions/PortfolioDescription",
+          "description": "The updated text description of the portfolio."
+        },
+        "DisplayName": {
+          "$ref": "#/definitions/PortfolioDisplayName",
+          "description": "The name to use for display purposes."
+        },
+        "Id": {
+          "$ref": "#/definitions/Id",
+          "description": "The identifier of the portfolio for the update request."
+        },
+        "ProviderName": {
+          "$ref": "#/definitions/ProviderName",
+          "description": "The updated name of the portfolio provider."
+        },
+        "RemoveTags": {
+          "$ref": "#/definitions/TagKeys",
+          "description": "Tags to remove from the existing list of tags associated with the portfolio."
+        }
+      },
+      "required": [
+        "Id"
+      ],
+      "type": "object"
+    },
+    "UpdatePortfolioOutput": {
+      "properties": {
+        "PortfolioDetail": {
+          "$ref": "#/definitions/PortfolioDetail",
+          "description": "The resulting detailed portfolio information."
+        },
+        "Tags": {
+          "$ref": "#/definitions/Tags",
+          "description": "Tags associated with the portfolio."
+        }
+      },
+      "type": "object"
+    },
+    "UpdateProductInput": {
+      "properties": {
+        "AcceptLanguage": {
+          "$ref": "#/definitions/AcceptLanguage",
+          "description": "<p>The language code to use for this operation. Supported language codes are as follows:</p> <p>\"en\" (English)</p> <p>\"jp\" (Japanese)</p> <p>\"zh\" (Chinese)</p> <p>If no code is specified, \"en\" is used as the default.</p>"
+        },
+        "AddTags": {
+          "$ref": "#/definitions/AddTags",
+          "description": "Tags to add to the existing list of tags associated with the product."
+        },
+        "Description": {
+          "$ref": "#/definitions/ProductViewShortDescription",
+          "description": "The updated text description of the product."
+        },
+        "Distributor": {
+          "$ref": "#/definitions/ProductViewOwner",
+          "description": "The updated distributor of the product."
+        },
+        "Id": {
+          "$ref": "#/definitions/Id",
+          "description": "The identifier of the product for the update request."
+        },
+        "Name": {
+          "$ref": "#/definitions/ProductViewName",
+          "description": "The updated product name."
+        },
+        "Owner": {
+          "$ref": "#/definitions/ProductViewOwner",
+          "description": "The updated owner of the product."
+        },
+        "RemoveTags": {
+          "$ref": "#/definitions/TagKeys",
+          "description": "Tags to remove from the existing list of tags associated with the product."
+        },
+        "SupportDescription": {
+          "$ref": "#/definitions/SupportDescription",
+          "description": "The updated support description for the product."
+        },
+        "SupportEmail": {
+          "$ref": "#/definitions/SupportEmail",
+          "description": "The updated support email for the product."
+        },
+        "SupportUrl": {
+          "$ref": "#/definitions/SupportUrl",
+          "description": "The updated support URL for the product."
+        }
+      },
+      "required": [
+        "Id"
+      ],
+      "type": "object"
+    },
+    "UpdateProductOutput": {
+      "properties": {
+        "ProductViewDetail": {
+          "$ref": "#/definitions/ProductViewDetail",
+          "description": "The resulting detailed product view information."
+        },
+        "Tags": {
+          "$ref": "#/definitions/Tags",
+          "description": "Tags associated with the product."
+        }
+      },
+      "type": "object"
+    },
+    "UpdateProvisionedProductInput": {
+      "properties": {
+        "AcceptLanguage": {
+          "$ref": "#/definitions/AcceptLanguage",
+          "description": "<p>The language code to use for this operation. Supported language codes are as follows:</p> <p>\"en\" (English)</p> <p>\"jp\" (Japanese)</p> <p>\"zh\" (Chinese)</p> <p>If no code is specified, \"en\" is used as the default.</p>"
+        },
+        "PathId": {
+          "$ref": "#/definitions/Id",
+          "description": "The identifier of the path to use in the updated ProvisionedProduct object. This value is optional if the product has a default path, and is required if there is more than one path for the specified product."
+        },
+        "ProductId": {
+          "$ref": "#/definitions/Id",
+          "description": "The identifier of the ProvisionedProduct object."
+        },
+        "ProvisionedProductId": {
+          "$ref": "#/definitions/Id",
+          "description": "The identifier of the ProvisionedProduct object to update. You must specify either <code>ProvisionedProductName</code> or <code>ProvisionedProductId</code>, but not both."
+        },
+        "ProvisionedProductName": {
+          "$ref": "#/definitions/ProvisionedProductNameOrArn",
+          "description": "The updated name of the ProvisionedProduct object . You must specify either <code>ProvisionedProductName</code> or <code>ProvisionedProductId</code>, but not both."
+        },
+        "ProvisioningArtifactId": {
+          "$ref": "#/definitions/Id",
+          "description": "The provisioning artifact identifier for this product."
+        },
+        "ProvisioningParameters": {
+          "$ref": "#/definitions/UpdateProvisioningParameters",
+          "description": "A list of <code>ProvisioningParameter</code> objects used to update the ProvisionedProduct object."
+        },
+        "UpdateToken": {
+          "$ref": "#/definitions/IdempotencyToken",
+          "description": "The idempotency token that uniquely identifies the provisioning update request."
+        }
+      },
+      "required": [
+        "UpdateToken"
+      ],
+      "type": "object"
+    },
+    "UpdateProvisionedProductOutput": {
+      "properties": {
+        "RecordDetail": {
+          "$ref": "#/definitions/RecordDetail",
+          "description": "The detailed result of the <a>UpdateProvisionedProduct</a> request, containing the inputs made to that request, the current state of the request, a pointer to the ProvisionedProduct object that the request is modifying, and a list of any errors that the request encountered."
+        }
+      },
+      "type": "object"
+    },
+    "UpdateProvisioningArtifactInput": {
+      "properties": {
+        "AcceptLanguage": {
+          "$ref": "#/definitions/AcceptLanguage",
+          "description": "<p>The language code to use for this operation. Supported language codes are as follows:</p> <p>\"en\" (English)</p> <p>\"jp\" (Japanese)</p> <p>\"zh\" (Chinese)</p> <p>If no code is specified, \"en\" is used as the default.</p>"
+        },
+        "Description": {
+          "$ref": "#/definitions/ProvisioningArtifactDescription",
+          "description": "The updated text description of the provisioning artifact."
+        },
+        "Name": {
+          "$ref": "#/definitions/ProvisioningArtifactName",
+          "description": "The updated name of the provisioning artifact."
+        },
+        "ProductId": {
+          "$ref": "#/definitions/Id",
+          "description": "The product identifier."
+        },
+        "ProvisioningArtifactId": {
+          "$ref": "#/definitions/Id",
+          "description": "The identifier of the provisioning artifact for the update request."
+        }
+      },
+      "required": [
+        "ProductId",
+        "ProvisioningArtifactId"
+      ],
+      "type": "object"
+    },
+    "UpdateProvisioningArtifactOutput": {
+      "properties": {
+        "Info": {
+          "$ref": "#/definitions/ProvisioningArtifactInfo",
+          "description": "Additional information about the provisioning artifact update request."
+        },
+        "ProvisioningArtifactDetail": {
+          "$ref": "#/definitions/ProvisioningArtifactDetail",
+          "description": "The resulting detailed provisioning artifact information."
+        },
+        "Status": {
+          "$ref": "#/definitions/Status",
+          "description": "The status of the current request."
+        }
+      },
+      "type": "object"
+    },
+    "UpdateProvisioningParameter": {
+      "description": "The parameter key/value pair used to update a ProvisionedProduct object. If <code>UsePreviousValue</code> is set to true, <code>Value</code> is ignored and the value for <code>Key</code> is kept as previously set (current value).",
+      "properties": {
+        "Key": {
+          "$ref": "#/definitions/ParameterKey",
+          "description": "The <code>ProvisioningArtifactParameter.ParameterKey</code> parameter from <a>DescribeProvisioningParameters</a>."
+        },
+        "UsePreviousValue": {
+          "$ref": "#/definitions/UsePreviousValue",
+          "description": "If true, uses the currently set value for <code>Key</code>, ignoring <code>UpdateProvisioningParameter.Value</code>."
+        },
+        "Value": {
+          "$ref": "#/definitions/ParameterValue",
+          "description": "The value to use for updating the product provisioning. Any constraints on this value can be found in the <code>ProvisioningArtifactParameter</code> parameter for <code>Key</code>."
+        }
+      },
+      "type": "object"
+    },
+    "UpdateProvisioningParameters": {
+      "items": {
+        "$ref": "#/definitions/UpdateProvisioningParameter"
+      },
+      "type": "array"
+    },
+    "UpdatedTime": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "UsageInstruction": {
+      "description": "Additional information provided by the administrator.",
+      "properties": {
+        "Type": {
+          "$ref": "#/definitions/InstructionType",
+          "description": "The usage instruction type for the value."
+        },
+        "Value": {
+          "$ref": "#/definitions/InstructionValue",
+          "description": "The usage instruction value for this type."
+        }
+      },
+      "type": "object"
+    },
+    "UsageInstructions": {
+      "items": {
+        "$ref": "#/definitions/UsageInstruction"
+      },
+      "type": "array"
+    },
+    "UsePreviousValue": {
+      "type": "boolean"
+    }
+  },
+  "actions": [
+    {
+      "id": "AcceptPortfolioShare",
+      "title": "AcceptPortfolioShare",
+      "description": "Accepts an offer to share a portfolio.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/AcceptPortfolioShareInput"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/AcceptPortfolioShareOutput"
+      },
+      "security": {
+        "amazonaws_servicecatalog": {
+          "integration": "amazonaws_servicecatalog"
+        }
+      }
+    },
+    {
+      "id": "AssociatePrincipalWithPortfolio",
+      "title": "AssociatePrincipalWithPortfolio",
+      "description": "Associates the specified principal ARN with the specified portfolio.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/AssociatePrincipalWithPortfolioInput"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/AssociatePrincipalWithPortfolioOutput"
+      },
+      "security": {
+        "amazonaws_servicecatalog": {
+          "integration": "amazonaws_servicecatalog"
+        }
+      }
+    },
+    {
+      "id": "AssociateProductWithPortfolio",
+      "title": "AssociateProductWithPortfolio",
+      "description": "Associates a product with a portfolio.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/AssociateProductWithPortfolioInput"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/AssociateProductWithPortfolioOutput"
+      },
+      "security": {
+        "amazonaws_servicecatalog": {
+          "integration": "amazonaws_servicecatalog"
+        }
+      }
+    },
+    {
+      "id": "CreateConstraint",
+      "title": "CreateConstraint",
+      "description": "Creates a new constraint.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/CreateConstraintInput"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CreateConstraintOutput"
+      },
+      "security": {
+        "amazonaws_servicecatalog": {
+          "integration": "amazonaws_servicecatalog"
+        }
+      }
+    },
+    {
+      "id": "CreatePortfolio",
+      "title": "CreatePortfolio",
+      "description": "Creates a new portfolio.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/CreatePortfolioInput"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CreatePortfolioOutput"
+      },
+      "security": {
+        "amazonaws_servicecatalog": {
+          "integration": "amazonaws_servicecatalog"
+        }
+      }
+    },
+    {
+      "id": "CreatePortfolioShare",
+      "title": "CreatePortfolioShare",
+      "description": "Creates a new portfolio share.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/CreatePortfolioShareInput"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CreatePortfolioShareOutput"
+      },
+      "security": {
+        "amazonaws_servicecatalog": {
+          "integration": "amazonaws_servicecatalog"
+        }
+      }
+    },
+    {
+      "id": "CreateProduct",
+      "title": "CreateProduct",
+      "description": "Creates a new product.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/CreateProductInput"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CreateProductOutput"
+      },
+      "security": {
+        "amazonaws_servicecatalog": {
+          "integration": "amazonaws_servicecatalog"
+        }
+      }
+    },
+    {
+      "id": "CreateProvisioningArtifact",
+      "title": "CreateProvisioningArtifact",
+      "description": "Create a new provisioning artifact for the specified product. This operation will not work with a product that has been shared with you.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/CreateProvisioningArtifactInput"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CreateProvisioningArtifactOutput"
+      },
+      "security": {
+        "amazonaws_servicecatalog": {
+          "integration": "amazonaws_servicecatalog"
+        }
+      }
+    },
+    {
+      "id": "DeleteConstraint",
+      "title": "DeleteConstraint",
+      "description": "Deletes the specified constraint.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/DeleteConstraintInput"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DeleteConstraintOutput"
+      },
+      "security": {
+        "amazonaws_servicecatalog": {
+          "integration": "amazonaws_servicecatalog"
+        }
+      }
+    },
+    {
+      "id": "DeletePortfolio",
+      "title": "DeletePortfolio",
+      "description": "Deletes the specified portfolio. This operation will not work with a portfolio that has been shared with you or if it has products, users, constraints, or shared accounts associated with it.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/DeletePortfolioInput"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DeletePortfolioOutput"
+      },
+      "security": {
+        "amazonaws_servicecatalog": {
+          "integration": "amazonaws_servicecatalog"
+        }
+      }
+    },
+    {
+      "id": "DeletePortfolioShare",
+      "title": "DeletePortfolioShare",
+      "description": "Deletes the specified portfolio share.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/DeletePortfolioShareInput"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DeletePortfolioShareOutput"
+      },
+      "security": {
+        "amazonaws_servicecatalog": {
+          "integration": "amazonaws_servicecatalog"
+        }
+      }
+    },
+    {
+      "id": "DeleteProduct",
+      "title": "DeleteProduct",
+      "description": "Deletes the specified product. This operation will not work with a product that has been shared with you or is associated with a portfolio. ",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/DeleteProductInput"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DeleteProductOutput"
+      },
+      "security": {
+        "amazonaws_servicecatalog": {
+          "integration": "amazonaws_servicecatalog"
+        }
+      }
+    },
+    {
+      "id": "DeleteProvisioningArtifact",
+      "title": "DeleteProvisioningArtifact",
+      "description": "Deletes the specified provisioning artifact. This operation will not work on a provisioning artifact associated with a product that has been shared with you, or on the last provisioning artifact associated with a product (a product must have at least one provisioning artifact).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/DeleteProvisioningArtifactInput"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DeleteProvisioningArtifactOutput"
+      },
+      "security": {
+        "amazonaws_servicecatalog": {
+          "integration": "amazonaws_servicecatalog"
+        }
+      }
+    },
+    {
+      "id": "DescribeConstraint",
+      "title": "DescribeConstraint",
+      "description": "Retrieves detailed information for a specified constraint.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/DescribeConstraintInput"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeConstraintOutput"
+      },
+      "security": {
+        "amazonaws_servicecatalog": {
+          "integration": "amazonaws_servicecatalog"
+        }
+      }
+    },
+    {
+      "id": "DescribePortfolio",
+      "title": "DescribePortfolio",
+      "description": "Retrieves detailed information and any tags associated with the specified portfolio.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/DescribePortfolioInput"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribePortfolioOutput"
+      },
+      "security": {
+        "amazonaws_servicecatalog": {
+          "integration": "amazonaws_servicecatalog"
+        }
+      }
+    },
+    {
+      "id": "DescribeProduct",
+      "title": "DescribeProduct",
+      "description": "<p>Retrieves information about a specified product.</p> <p>This operation is functionally identical to <a>DescribeProductView</a> except that it takes as input <code>ProductId</code> instead of <code>ProductViewId</code>.</p>",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/DescribeProductInput"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeProductOutput"
+      },
+      "security": {
+        "amazonaws_servicecatalog": {
+          "integration": "amazonaws_servicecatalog"
+        }
+      }
+    },
+    {
+      "id": "DescribeProductAsAdmin",
+      "title": "DescribeProductAsAdmin",
+      "description": "Retrieves information about a specified product, run with administrator access.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/DescribeProductAsAdminInput"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeProductAsAdminOutput"
+      },
+      "security": {
+        "amazonaws_servicecatalog": {
+          "integration": "amazonaws_servicecatalog"
+        }
+      }
+    },
+    {
+      "id": "DescribeProductView",
+      "title": "DescribeProductView",
+      "description": "<p>Retrieves information about a specified product.</p> <p>This operation is functionally identical to <a>DescribeProduct</a> except that it takes as input <code>ProductViewId</code> instead of <code>ProductId</code>.</p>",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/DescribeProductViewInput"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeProductViewOutput"
+      },
+      "security": {
+        "amazonaws_servicecatalog": {
+          "integration": "amazonaws_servicecatalog"
+        }
+      }
+    },
+    {
+      "id": "DescribeProvisioningArtifact",
+      "title": "DescribeProvisioningArtifact",
+      "description": "Retrieves detailed information about the specified provisioning artifact.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/DescribeProvisioningArtifactInput"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeProvisioningArtifactOutput"
+      },
+      "security": {
+        "amazonaws_servicecatalog": {
+          "integration": "amazonaws_servicecatalog"
+        }
+      }
+    },
+    {
+      "id": "DescribeProvisioningParameters",
+      "title": "DescribeProvisioningParameters",
+      "description": "Provides information about parameters required to provision a specified product in a specified manner. Use this operation to obtain the list of <code>ProvisioningArtifactParameters</code> parameters available to call the <a>ProvisionProduct</a> operation for the specified product.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/DescribeProvisioningParametersInput"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeProvisioningParametersOutput"
+      },
+      "security": {
+        "amazonaws_servicecatalog": {
+          "integration": "amazonaws_servicecatalog"
+        }
+      }
+    },
+    {
+      "id": "DescribeRecord",
+      "title": "DescribeRecord",
+      "description": "Retrieves a paginated list of the full details of a specific request. Use this operation after calling a request operation (<a>ProvisionProduct</a>, <a>TerminateProvisionedProduct</a>, or <a>UpdateProvisionedProduct</a>). ",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/DescribeRecordInput"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeRecordOutput"
+      },
+      "security": {
+        "amazonaws_servicecatalog": {
+          "integration": "amazonaws_servicecatalog"
+        }
+      }
+    },
+    {
+      "id": "DisassociatePrincipalFromPortfolio",
+      "title": "DisassociatePrincipalFromPortfolio",
+      "description": "Disassociates a previously associated principal ARN from a specified portfolio.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/DisassociatePrincipalFromPortfolioInput"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DisassociatePrincipalFromPortfolioOutput"
+      },
+      "security": {
+        "amazonaws_servicecatalog": {
+          "integration": "amazonaws_servicecatalog"
+        }
+      }
+    },
+    {
+      "id": "DisassociateProductFromPortfolio",
+      "title": "DisassociateProductFromPortfolio",
+      "description": "Disassociates the specified product from the specified portfolio. ",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/DisassociateProductFromPortfolioInput"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DisassociateProductFromPortfolioOutput"
+      },
+      "security": {
+        "amazonaws_servicecatalog": {
+          "integration": "amazonaws_servicecatalog"
+        }
+      }
+    },
+    {
+      "id": "ListAcceptedPortfolioShares",
+      "title": "ListAcceptedPortfolioShares",
+      "description": "Lists details of all portfolios for which sharing was accepted by this account.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/ListAcceptedPortfolioSharesInput"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListAcceptedPortfolioSharesOutput"
+      },
+      "security": {
+        "amazonaws_servicecatalog": {
+          "integration": "amazonaws_servicecatalog"
+        }
+      }
+    },
+    {
+      "id": "ListConstraintsForPortfolio",
+      "title": "ListConstraintsForPortfolio",
+      "description": "Retrieves detailed constraint information for the specified portfolio and product.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/ListConstraintsForPortfolioInput"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListConstraintsForPortfolioOutput"
+      },
+      "security": {
+        "amazonaws_servicecatalog": {
+          "integration": "amazonaws_servicecatalog"
+        }
+      }
+    },
+    {
+      "id": "ListLaunchPaths",
+      "title": "ListLaunchPaths",
+      "description": "Returns a paginated list of all paths to a specified product. A path is how the user has access to a specified product, and is necessary when provisioning a product. A path also determines the constraints put on the product.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/ListLaunchPathsInput"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListLaunchPathsOutput"
+      },
+      "security": {
+        "amazonaws_servicecatalog": {
+          "integration": "amazonaws_servicecatalog"
+        }
+      }
+    },
+    {
+      "id": "ListPortfolioAccess",
+      "title": "ListPortfolioAccess",
+      "description": "Lists the account IDs that have been authorized sharing of the specified portfolio.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/ListPortfolioAccessInput"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListPortfolioAccessOutput"
+      },
+      "security": {
+        "amazonaws_servicecatalog": {
+          "integration": "amazonaws_servicecatalog"
+        }
+      }
+    },
+    {
+      "id": "ListPortfolios",
+      "title": "ListPortfolios",
+      "description": "Lists all portfolios in the catalog.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/ListPortfoliosInput"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListPortfoliosOutput"
+      },
+      "security": {
+        "amazonaws_servicecatalog": {
+          "integration": "amazonaws_servicecatalog"
+        }
+      }
+    },
+    {
+      "id": "ListPortfoliosForProduct",
+      "title": "ListPortfoliosForProduct",
+      "description": "Lists all portfolios that the specified product is associated with.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/ListPortfoliosForProductInput"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListPortfoliosForProductOutput"
+      },
+      "security": {
+        "amazonaws_servicecatalog": {
+          "integration": "amazonaws_servicecatalog"
+        }
+      }
+    },
+    {
+      "id": "ListPrincipalsForPortfolio",
+      "title": "ListPrincipalsForPortfolio",
+      "description": "Lists all principal ARNs associated with the specified portfolio.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/ListPrincipalsForPortfolioInput"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListPrincipalsForPortfolioOutput"
+      },
+      "security": {
+        "amazonaws_servicecatalog": {
+          "integration": "amazonaws_servicecatalog"
+        }
+      }
+    },
+    {
+      "id": "ListProvisioningArtifacts",
+      "title": "ListProvisioningArtifacts",
+      "description": "Lists all provisioning artifacts associated with the specified product.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/ListProvisioningArtifactsInput"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListProvisioningArtifactsOutput"
+      },
+      "security": {
+        "amazonaws_servicecatalog": {
+          "integration": "amazonaws_servicecatalog"
+        }
+      }
+    },
+    {
+      "id": "ListRecordHistory",
+      "title": "ListRecordHistory",
+      "description": "Returns a paginated list of all performed requests, in the form of RecordDetails objects that are filtered as specified.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/ListRecordHistoryInput"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListRecordHistoryOutput"
+      },
+      "security": {
+        "amazonaws_servicecatalog": {
+          "integration": "amazonaws_servicecatalog"
+        }
+      }
+    },
+    {
+      "id": "ProvisionProduct",
+      "title": "ProvisionProduct",
+      "description": "<p>Requests a <i>Provision</i> of a specified product. A <i>ProvisionedProduct</i> is a resourced instance for a product. For example, provisioning a CloudFormation-template-backed product results in launching a CloudFormation stack and all the underlying resources that come with it. </p> <p>You can check the status of this request using the <a>DescribeRecord</a> operation.</p>",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/ProvisionProductInput"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ProvisionProductOutput"
+      },
+      "security": {
+        "amazonaws_servicecatalog": {
+          "integration": "amazonaws_servicecatalog"
+        }
+      }
+    },
+    {
+      "id": "RejectPortfolioShare",
+      "title": "RejectPortfolioShare",
+      "description": "Rejects an offer to share a portfolio.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/RejectPortfolioShareInput"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/RejectPortfolioShareOutput"
+      },
+      "security": {
+        "amazonaws_servicecatalog": {
+          "integration": "amazonaws_servicecatalog"
+        }
+      }
+    },
+    {
+      "id": "ScanProvisionedProducts",
+      "title": "ScanProvisionedProducts",
+      "description": "Returns a paginated list of all the ProvisionedProduct objects that are currently available (not terminated). ",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/ScanProvisionedProductsInput"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ScanProvisionedProductsOutput"
+      },
+      "security": {
+        "amazonaws_servicecatalog": {
+          "integration": "amazonaws_servicecatalog"
+        }
+      }
+    },
+    {
+      "id": "SearchProducts",
+      "title": "SearchProducts",
+      "description": "<p>Returns a paginated list all of the <code>Products</code> objects to which the caller has access. </p> <p>The output of this operation can be used as input for other operations, such as <a>DescribeProductView</a>.</p>",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/SearchProductsInput"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/SearchProductsOutput"
+      },
+      "security": {
+        "amazonaws_servicecatalog": {
+          "integration": "amazonaws_servicecatalog"
+        }
+      }
+    },
+    {
+      "id": "SearchProductsAsAdmin",
+      "title": "SearchProductsAsAdmin",
+      "description": "Retrieves summary and status information about all products created within the caller's account. If a portfolio ID is provided, this operation retrieves information for only those products that are associated with the specified portfolio.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/SearchProductsAsAdminInput"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/SearchProductsAsAdminOutput"
+      },
+      "security": {
+        "amazonaws_servicecatalog": {
+          "integration": "amazonaws_servicecatalog"
+        }
+      }
+    },
+    {
+      "id": "TerminateProvisionedProduct",
+      "title": "TerminateProvisionedProduct",
+      "description": "<p>Requests termination of an existing ProvisionedProduct object. If there are <code>Tags</code> associated with the object, they are terminated when the ProvisionedProduct object is terminated. </p> <p>This operation does not delete any records associated with the ProvisionedProduct object.</p> <p>You can check the status of this request using the <a>DescribeRecord</a> operation.</p>",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/TerminateProvisionedProductInput"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/TerminateProvisionedProductOutput"
+      },
+      "security": {
+        "amazonaws_servicecatalog": {
+          "integration": "amazonaws_servicecatalog"
+        }
+      }
+    },
+    {
+      "id": "UpdateConstraint",
+      "title": "UpdateConstraint",
+      "description": "Updates an existing constraint.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/UpdateConstraintInput"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UpdateConstraintOutput"
+      },
+      "security": {
+        "amazonaws_servicecatalog": {
+          "integration": "amazonaws_servicecatalog"
+        }
+      }
+    },
+    {
+      "id": "UpdatePortfolio",
+      "title": "UpdatePortfolio",
+      "description": "Updates the specified portfolio's details. This operation will not work with a product that has been shared with you.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/UpdatePortfolioInput"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UpdatePortfolioOutput"
+      },
+      "security": {
+        "amazonaws_servicecatalog": {
+          "integration": "amazonaws_servicecatalog"
+        }
+      }
+    },
+    {
+      "id": "UpdateProduct",
+      "title": "UpdateProduct",
+      "description": "Updates an existing product.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/UpdateProductInput"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UpdateProductOutput"
+      },
+      "security": {
+        "amazonaws_servicecatalog": {
+          "integration": "amazonaws_servicecatalog"
+        }
+      }
+    },
+    {
+      "id": "UpdateProvisionedProduct",
+      "title": "UpdateProvisionedProduct",
+      "description": "<p>Requests updates to the configuration of an existing ProvisionedProduct object. If there are tags associated with the object, they cannot be updated or added with this operation. Depending on the specific updates requested, this operation may update with no interruption, with some interruption, or replace the ProvisionedProduct object entirely. </p> <p>You can check the status of this request using the <a>DescribeRecord</a> operation.</p>",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/UpdateProvisionedProductInput"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UpdateProvisionedProductOutput"
+      },
+      "security": {
+        "amazonaws_servicecatalog": {
+          "integration": "amazonaws_servicecatalog"
+        }
+      }
+    },
+    {
+      "id": "UpdateProvisioningArtifact",
+      "title": "UpdateProvisioningArtifact",
+      "description": "Updates an existing provisioning artifact's information. This operation will not work on a provisioning artifact associated with a product that has been shared with you.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/UpdateProvisioningArtifactInput"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UpdateProvisioningArtifactOutput"
+      },
+      "security": {
+        "amazonaws_servicecatalog": {
+          "integration": "amazonaws_servicecatalog"
+        }
+      }
+    }
+  ]
+}

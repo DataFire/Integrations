@@ -1,0 +1,745 @@
+{
+  "id": "europeana_eu",
+  "title": "Europeana",
+  "description": "This Swagger API console provides an overview of an interface to the Europeana REST API. You can build and test anything from the simplest search to a complex query using facetList such as dates, geotags and permissions. For more help and information, head to our comprehensive <a href=\"http://labs.europeana.eu/api/\">online documentation</a>.",
+  "security": {},
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/europeana_eu.png"
+  },
+  "tags": [
+    "open data"
+  ],
+  "definitions": {
+    "AtomLink": {
+      "properties": {
+        "href": {
+          "type": "string"
+        }
+      }
+    },
+    "Channel": {
+      "properties": {
+        "atomLink": {
+          "$ref": "#/definitions/AtomLink"
+        },
+        "image": {
+          "$ref": "#/definitions/ChannelImage"
+        },
+        "items": {
+          "items": {
+            "$ref": "#/definitions/Item"
+          },
+          "type": "array"
+        },
+        "itemsPerPage": {
+          "$ref": "#/definitions/Statistic"
+        },
+        "query": {
+          "$ref": "#/definitions/Query"
+        },
+        "startIndex": {
+          "$ref": "#/definitions/Statistic"
+        },
+        "totalResults": {
+          "$ref": "#/definitions/Statistic"
+        }
+      }
+    },
+    "ChannelImage": {},
+    "Enclosure": {
+      "properties": {
+        "url": {
+          "type": "string"
+        }
+      }
+    },
+    "Item": {
+      "properties": {
+        "dcCreator": {
+          "type": "string"
+        },
+        "dcTermsHasPart": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "dcTermsIsPartOf": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "description": {
+          "type": "string"
+        },
+        "enclosure": {
+          "$ref": "#/definitions/Enclosure"
+        },
+        "enrichmentAgentLabel": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "enrichmentAgentTerm": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "enrichmentConceptLabel": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "enrichmentConceptTerm": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "enrichmentPeriodBegin": {
+          "type": "string"
+        },
+        "enrichmentPeriodEnd": {
+          "type": "string"
+        },
+        "enrichmentPeriodLabel": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "enrichmentPeriodTerm": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "enrichmentPlaceLabel": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "enrichmentPlaceLatitude": {
+          "format": "float",
+          "type": "number"
+        },
+        "enrichmentPlaceLongitude": {
+          "format": "float",
+          "type": "number"
+        },
+        "enrichmentPlaceTerm": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "europeanaDataProvider": {
+          "type": "string"
+        },
+        "europeanaLanguage": {
+          "type": "string"
+        },
+        "europeanaProvider": {
+          "type": "string"
+        },
+        "europeanaRights": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "europeanaType": {
+          "type": "string"
+        },
+        "europeanaYear": {
+          "type": "string"
+        },
+        "guid": {
+          "type": "string"
+        },
+        "link": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        }
+      }
+    },
+    "ModelAndView": {
+      "properties": {
+        "empty": {
+          "type": "boolean"
+        },
+        "model": {
+          "type": "object"
+        },
+        "modelMap": {
+          "additionalProperties": {
+            "type": "object"
+          },
+          "type": "object"
+        },
+        "reference": {
+          "type": "boolean"
+        },
+        "view": {
+          "$ref": "#/definitions/View"
+        },
+        "viewName": {
+          "type": "string"
+        }
+      }
+    },
+    "ModelMap": {
+      "additionalProperties": {
+        "type": "object"
+      },
+      "type": "object"
+    },
+    "Query": {
+      "properties": {
+        "searchTerms": {
+          "type": "string"
+        },
+        "startPage": {
+          "format": "int32",
+          "type": "integer"
+        }
+      }
+    },
+    "RssResponse": {
+      "properties": {
+        "channel": {
+          "$ref": "#/definitions/Channel"
+        }
+      }
+    },
+    "Statistic": {
+      "properties": {
+        "value": {
+          "format": "int64",
+          "type": "integer"
+        }
+      }
+    },
+    "View": {
+      "properties": {
+        "contentType": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "actions": [
+    {
+      "id": "getDataset",
+      "title": "getDataset",
+      "description": "get information about a specific dataset",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "id"
+          },
+          "wskey": {
+            "type": "string",
+            "description": "wskey"
+          },
+          "callback": {
+            "type": "string",
+            "description": "callback"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ModelAndView"
+      }
+    },
+    {
+      "id": "listDatasets",
+      "title": "listDatasets",
+      "description": "get the list of Europeana datasets",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "wskey": {
+            "type": "string",
+            "description": "wskey"
+          },
+          "callback": {
+            "type": "string",
+            "description": "callback"
+          },
+          "edmDatasetName": {
+            "type": "string",
+            "description": "edmDatasetName"
+          },
+          "countryCode": {
+            "type": "string",
+            "description": "countryCode"
+          },
+          "status": {
+            "type": "string",
+            "description": "status"
+          },
+          "offset": {
+            "type": "string",
+            "description": "offset"
+          },
+          "pagesize": {
+            "type": "string",
+            "description": "pagesize"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ModelAndView"
+      }
+    },
+    {
+      "id": "openSearch",
+      "title": "openSearch",
+      "description": "basic search function following the OpenSearch specification",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "searchTerms": {
+            "type": "string",
+            "description": "searchTerms"
+          },
+          "startIndex": {
+            "type": "integer",
+            "format": "int32",
+            "description": "startIndex"
+          },
+          "count": {
+            "type": "integer",
+            "format": "int32",
+            "description": "count"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "searchTerms"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/RssResponse"
+      }
+    },
+    {
+      "id": "getProvider",
+      "title": "getProvider",
+      "description": "get information about a specific Europeana provider",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "id"
+          },
+          "wskey": {
+            "type": "string",
+            "description": "wskey"
+          },
+          "callback": {
+            "type": "string",
+            "description": "callback"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ModelAndView"
+      }
+    },
+    {
+      "id": "listProviderDatasets",
+      "title": "listProviderDatasets",
+      "description": "get the list of datasets provided by a specific provider",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "id"
+          },
+          "wskey": {
+            "type": "string",
+            "description": "wskey"
+          },
+          "callback": {
+            "type": "string",
+            "description": "callback"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ModelAndView"
+      }
+    },
+    {
+      "id": "listProviders",
+      "title": "listProviders",
+      "description": "get the list of Europeana data providers",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "wskey": {
+            "type": "string",
+            "description": "wskey"
+          },
+          "callback": {
+            "type": "string",
+            "description": "callback"
+          },
+          "countryCode": {
+            "type": "string",
+            "description": "countryCode"
+          },
+          "offset": {
+            "type": "string",
+            "description": "offset"
+          },
+          "pagesize": {
+            "type": "string",
+            "description": "pagesize"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ModelAndView"
+      }
+    },
+    {
+      "id": "getSingleRecordJson",
+      "title": "getSingleRecordJson",
+      "description": "get a single record in JSON format",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "collectionId": {
+            "type": "string",
+            "description": "collectionId"
+          },
+          "recordId": {
+            "type": "string",
+            "description": "recordId"
+          },
+          "profile": {
+            "type": "string",
+            "description": "profile"
+          },
+          "wskey": {
+            "type": "string",
+            "description": "wskey"
+          },
+          "callback": {
+            "type": "string",
+            "description": "callback"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "collectionId",
+          "recordId",
+          "wskey"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ModelAndView"
+      }
+    },
+    {
+      "id": "getSingleRecordJsonLD",
+      "title": "getSingleRecordJsonLD",
+      "description": "get single record in JSON LD format",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "collectionId": {
+            "type": "string",
+            "description": "collectionId"
+          },
+          "recordId": {
+            "type": "string",
+            "description": "recordId"
+          },
+          "wskey": {
+            "type": "string",
+            "description": "wskey"
+          },
+          "format": {
+            "type": "string",
+            "description": "format"
+          },
+          "callback": {
+            "type": "string",
+            "description": "callback"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "collectionId",
+          "recordId",
+          "wskey"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ModelAndView"
+      }
+    },
+    {
+      "id": "getSingleRecordRDF",
+      "title": "getSingleRecordRDF",
+      "description": "get single record in RDF format)",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "collectionId": {
+            "type": "string",
+            "description": "collectionId"
+          },
+          "recordId": {
+            "type": "string",
+            "description": "recordId"
+          },
+          "wskey": {
+            "type": "string",
+            "description": "wskey"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "collectionId",
+          "recordId",
+          "wskey"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ModelAndView"
+      }
+    },
+    {
+      "id": "searchRecords",
+      "title": "searchRecords",
+      "description": "search for records",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "wskey": {
+            "type": "string",
+            "description": "wskey"
+          },
+          "query": {
+            "type": "string",
+            "description": "query"
+          },
+          "qf": {
+            "type": "array",
+            "description": "qf"
+          },
+          "reusability": {
+            "type": "array",
+            "description": "reusability"
+          },
+          "profile": {
+            "type": "string",
+            "description": "profile"
+          },
+          "start": {
+            "type": "integer",
+            "format": "int32",
+            "description": "start"
+          },
+          "rows": {
+            "type": "integer",
+            "format": "int32",
+            "description": "rows"
+          },
+          "facet": {
+            "type": "array",
+            "description": "facet"
+          },
+          "sort": {
+            "type": "string",
+            "description": "sort"
+          },
+          "colourpalette": {
+            "type": "array",
+            "description": "colourpalette"
+          },
+          "thumbnail": {
+            "type": "boolean",
+            "description": "thumbnail"
+          },
+          "media": {
+            "type": "boolean",
+            "description": "media"
+          },
+          "text_fulltext": {
+            "type": "boolean",
+            "description": "text_fulltext"
+          },
+          "landingpage": {
+            "type": "boolean",
+            "description": "landingpage"
+          },
+          "cursor": {
+            "type": "string",
+            "description": "cursor"
+          },
+          "callback": {
+            "type": "string",
+            "description": "callback"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "wskey"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ModelAndView"
+      }
+    },
+    {
+      "id": "fieldTrip",
+      "title": "fieldTrip",
+      "description": "Google Fieldtrip formatted RSS of selected collections",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string",
+            "description": "query"
+          },
+          "offset": {
+            "type": "integer",
+            "format": "int32",
+            "description": "offset"
+          },
+          "limit": {
+            "type": "integer",
+            "format": "int32",
+            "description": "limit"
+          },
+          "profile": {
+            "type": "string",
+            "description": "profile"
+          },
+          "language": {
+            "type": "string",
+            "description": "language"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "query"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ModelAndView"
+      }
+    },
+    {
+      "id": "suggestions",
+      "title": "suggestions",
+      "description": "get autocompletion recommendations for search queries",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string",
+            "description": "query"
+          },
+          "rows": {
+            "type": "integer",
+            "format": "int32",
+            "description": "rows"
+          },
+          "phrases": {
+            "type": "boolean",
+            "description": "phrases"
+          },
+          "callback": {
+            "type": "string",
+            "description": "callback"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "query"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ModelAndView"
+      }
+    },
+    {
+      "id": "translateQueryUsingGET",
+      "title": "translateQueryUsingGET",
+      "description": "translate a term to different languages",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "term": {
+            "type": "string",
+            "description": "term"
+          },
+          "languageCodes": {
+            "type": "array",
+            "description": "languageCodes"
+          },
+          "wskey": {
+            "type": "string",
+            "description": "wskey"
+          },
+          "profile": {
+            "type": "string",
+            "description": "profile"
+          },
+          "callback": {
+            "type": "string",
+            "description": "callback"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "term",
+          "languageCodes",
+          "wskey"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ModelAndView"
+      }
+    }
+  ]
+}

@@ -1,0 +1,1328 @@
+{
+  "id": "azure_arm_batch",
+  "title": "BatchManagement",
+  "description": "",
+  "security": {
+    "azure_arm_batch": {
+      "integration": "azure_arm_batch",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)",
+        "redirect_uri": "The callback URL for your application"
+      },
+      "oauth": {
+        "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/authorize",
+        "description": "Azure Active Directory OAuth2 Flow",
+        "flow": "implicit",
+        "scopes": {
+          "user_impersonation": "impersonate your user account"
+        },
+        "type": "oauth2"
+      }
+    }
+  },
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_batch.png"
+  },
+  "tags": [
+    "cloud",
+    "azure"
+  ],
+  "definitions": {
+    "ActivateApplicationPackageParameters": {
+      "description": "Parameters for an ApplicationOperations.ActivateApplicationPackage request.",
+      "properties": {
+        "format": {
+          "description": "The format of the application package binary file.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "format"
+      ]
+    },
+    "AddApplicationParameters": {
+      "description": "Parameters for an ApplicationOperations.AddApplication request.",
+      "properties": {
+        "allowUpdates": {
+          "description": "A value indicating whether packages within the application may be overwritten using the same version string.",
+          "type": "boolean"
+        },
+        "displayName": {
+          "description": "The display name for the application.",
+          "type": "string"
+        }
+      }
+    },
+    "Application": {
+      "description": "Contains information about an application in a Batch account.",
+      "properties": {
+        "allowUpdates": {
+          "description": "A value indicating whether packages within the application may be overwritten using the same version string.",
+          "type": "boolean"
+        },
+        "defaultVersion": {
+          "description": "The package to use if a client requests the application but does not specify a version.",
+          "type": "string"
+        },
+        "displayName": {
+          "description": "The display name for the application.",
+          "type": "string"
+        },
+        "id": {
+          "description": "A string that uniquely identifies the application within the account.",
+          "type": "string"
+        },
+        "packages": {
+          "description": "The list of packages under this application.",
+          "items": {
+            "$ref": "#/definitions/ApplicationPackage"
+          },
+          "type": "array"
+        }
+      }
+    },
+    "ApplicationPackage": {
+      "description": "An application package which represents a particular version of an application.",
+      "properties": {
+        "format": {
+          "description": "The format of the application package, if the package is active.",
+          "type": "string"
+        },
+        "id": {
+          "description": "The ID of the application.",
+          "type": "string"
+        },
+        "lastActivationTime": {
+          "description": "The time at which the package was last activated, if the package is active.",
+          "format": "date-time",
+          "type": "string"
+        },
+        "state": {
+          "description": "The current state of the application package.",
+          "enum": [
+            "pending",
+            "active",
+            "unmapped"
+          ],
+          "type": "string",
+          "x-ms-enum": {
+            "modelAsString": false,
+            "name": "PackageState"
+          }
+        },
+        "storageUrl": {
+          "description": "The storage URL at which the application package is stored.",
+          "type": "string"
+        },
+        "storageUrlExpiry": {
+          "description": "The UTC time at which the storage URL will expire.",
+          "format": "date-time",
+          "type": "string"
+        },
+        "version": {
+          "description": "The version of the application package. ",
+          "type": "string"
+        }
+      }
+    },
+    "AutoStorageBaseProperties": {
+      "description": "The properties related to auto storage account.",
+      "properties": {
+        "storageAccountId": {
+          "description": "The resource ID of the storage account to be used for auto storage account.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "storageAccountId"
+      ]
+    },
+    "AutoStorageProperties": {
+      "description": "Contains information about the auto storage account associated with a Batch account.",
+      "properties": {
+        "lastKeySync": {
+          "description": "The UTC time at which storage keys were last synchronized with the Batch account.",
+          "format": "date-time",
+          "type": "string"
+        },
+        "storageAccountId": {
+          "description": "The resource ID of the storage account to be used for auto storage account.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "storageAccountId",
+        "lastKeySync"
+      ]
+    },
+    "BatchAccount": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/Resource"
+        }
+      ],
+      "description": "Contains information about an Azure Batch account.",
+      "properties": {
+        "properties": {
+          "$ref": "#/definitions/BatchAccountProperties",
+          "description": "The properties associated with the account.",
+          "x-ms-client-flatten": true
+        }
+      }
+    },
+    "BatchAccountBaseProperties": {
+      "description": "The properties of a Batch account.",
+      "properties": {
+        "autoStorage": {
+          "$ref": "#/definitions/AutoStorageBaseProperties",
+          "description": "The properties related to auto storage account."
+        }
+      }
+    },
+    "BatchAccountCreateParameters": {
+      "description": "Parameters supplied to the Create operation.",
+      "properties": {
+        "location": {
+          "description": "The region in which to create the account.",
+          "type": "string"
+        },
+        "properties": {
+          "$ref": "#/definitions/BatchAccountBaseProperties",
+          "description": "The properties of the account.",
+          "x-ms-client-flatten": true
+        },
+        "tags": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "description": "The user specified tags associated with the account.",
+          "type": "object"
+        }
+      },
+      "required": [
+        "location"
+      ]
+    },
+    "BatchAccountKeys": {
+      "description": "A set of Azure Batch account keys.",
+      "properties": {
+        "primary": {
+          "description": "The primary key associated with the account.",
+          "type": "string"
+        },
+        "secondary": {
+          "description": "The secondary key associated with the account.",
+          "type": "string"
+        }
+      }
+    },
+    "BatchAccountListResult": {
+      "description": "Values returned by the List operation.",
+      "properties": {
+        "nextLink": {
+          "description": "The continuation token.",
+          "type": "string"
+        },
+        "value": {
+          "description": "The collection of returned Batch accounts.",
+          "items": {
+            "$ref": "#/definitions/BatchAccount"
+          },
+          "type": "array"
+        }
+      }
+    },
+    "BatchAccountProperties": {
+      "description": "Account specific properties.",
+      "properties": {
+        "accountEndpoint": {
+          "description": "The endpoint used by this account to interact with the Batch services.",
+          "readOnly": true,
+          "type": "string"
+        },
+        "activeJobAndJobScheduleQuota": {
+          "description": "The active job and job schedule quota for this Batch account.",
+          "format": "int32",
+          "type": "integer"
+        },
+        "autoStorage": {
+          "$ref": "#/definitions/AutoStorageProperties",
+          "description": "The properties and status of any auto storage account associated with the account."
+        },
+        "coreQuota": {
+          "description": "The core quota for this Batch account.",
+          "format": "int32",
+          "type": "integer"
+        },
+        "poolQuota": {
+          "description": "The pool quota for this Batch account.",
+          "format": "int32",
+          "type": "integer"
+        },
+        "provisioningState": {
+          "description": "The provisioned state of the resource",
+          "enum": [
+            "Invalid",
+            "Creating",
+            "Deleting",
+            "Succeeded",
+            "Failed",
+            "Cancelled"
+          ],
+          "type": "string",
+          "x-ms-enum": {
+            "modelAsString": false,
+            "name": "ProvisioningState"
+          }
+        }
+      },
+      "required": [
+        "coreQuota",
+        "poolQuota",
+        "activeJobAndJobScheduleQuota"
+      ]
+    },
+    "BatchAccountRegenerateKeyParameters": {
+      "description": "Parameters supplied to the RegenerateKey operation.",
+      "properties": {
+        "keyName": {
+          "description": "The type of account key to regenerate.",
+          "enum": [
+            "Primary",
+            "Secondary"
+          ],
+          "type": "string",
+          "x-ms-enum": {
+            "modelAsString": false,
+            "name": "AccountKeyType"
+          }
+        }
+      },
+      "required": [
+        "keyName"
+      ]
+    },
+    "BatchAccountUpdateParameters": {
+      "description": "Parameters supplied to the Update operation.",
+      "properties": {
+        "properties": {
+          "$ref": "#/definitions/BatchAccountBaseProperties",
+          "description": "The properties of the account.",
+          "x-ms-client-flatten": true
+        },
+        "tags": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "description": "The user specified tags associated with the account.",
+          "type": "object"
+        }
+      }
+    },
+    "BatchLocationQuota": {
+      "description": "Quotas associated with a Batch region for a particular subscription.",
+      "properties": {
+        "accountQuota": {
+          "description": "The number of Batch accounts that may be created under the subscription in the specified region.",
+          "format": "int32",
+          "type": "integer"
+        }
+      }
+    },
+    "CloudError": {
+      "description": "An error response from the Batch service.",
+      "properties": {
+        "code": {
+          "description": "An identifier for the error. Codes are invariant and are intended to be consumed programmatically.",
+          "type": "string"
+        },
+        "details": {
+          "description": "A list of additional details about the error.",
+          "items": {
+            "$ref": "#/definitions/CloudError"
+          },
+          "type": "array"
+        },
+        "message": {
+          "description": "A message describing the error, intended to be suitable for display in a user interface.",
+          "type": "string"
+        },
+        "target": {
+          "description": "The target of the particular error. For example, the name of the property in error.",
+          "type": "string"
+        }
+      },
+      "x-ms-external": true
+    },
+    "ListApplicationsResult": {
+      "description": "Response to an ApplicationOperations.ListApplications request.",
+      "properties": {
+        "nextLink": {
+          "description": "The URL to get the next set of results.",
+          "type": "string"
+        },
+        "value": {
+          "description": "The list of applications.",
+          "items": {
+            "$ref": "#/definitions/Application"
+          },
+          "type": "array"
+        }
+      }
+    },
+    "Resource": {
+      "description": "A definition of an Azure resource.",
+      "properties": {
+        "id": {
+          "description": "The ID of the resource",
+          "readOnly": true,
+          "type": "string"
+        },
+        "location": {
+          "description": "The location of the resource",
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the resource",
+          "readOnly": true,
+          "type": "string"
+        },
+        "tags": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "description": "The tags of the resource",
+          "type": "object"
+        },
+        "type": {
+          "description": "The type of the resource",
+          "readOnly": true,
+          "type": "string"
+        }
+      },
+      "x-ms-azure-resource": true
+    },
+    "UpdateApplicationParameters": {
+      "description": "Parameters for an ApplicationOperations.UpdateApplication request.",
+      "properties": {
+        "allowUpdates": {
+          "description": "A value indicating whether packages within the application may be overwritten using the same version string.",
+          "type": "boolean"
+        },
+        "defaultVersion": {
+          "description": "The package to use if a client requests the application but does not specify a version.",
+          "type": "string"
+        },
+        "displayName": {
+          "description": "The display name for the application.",
+          "type": "string"
+        }
+      }
+    }
+  },
+  "actions": [
+    {
+      "id": "BatchAccount_List",
+      "title": "BatchAccount_List",
+      "description": "Gets information about the Batch accounts associated with the subscription.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "api-version": {
+            "type": "string",
+            "description": "The API version to be used with the HTTP request."
+          },
+          "subscriptionId": {
+            "type": "string",
+            "description": "A unique identifier of a Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "api-version",
+          "subscriptionId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/BatchAccountListResult"
+      },
+      "security": {
+        "azure_arm_batch": {
+          "integration": "azure_arm_batch"
+        }
+      }
+    },
+    {
+      "id": "Location_GetQuotas",
+      "title": "Location_GetQuotas",
+      "description": "Gets the Batch service quotas for the specified subscription at the given location.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "locationName": {
+            "type": "string",
+            "description": "The desired region for the quotas."
+          },
+          "api-version": {
+            "type": "string",
+            "description": "The API version to be used with the HTTP request."
+          },
+          "subscriptionId": {
+            "type": "string",
+            "description": "A unique identifier of a Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "locationName",
+          "api-version",
+          "subscriptionId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/BatchLocationQuota"
+      },
+      "security": {
+        "azure_arm_batch": {
+          "integration": "azure_arm_batch"
+        }
+      }
+    },
+    {
+      "id": "BatchAccount_ListByResourceGroup",
+      "title": "BatchAccount_ListByResourceGroup",
+      "description": "Gets information about the Batch accounts associated within the specified resource group.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "resourceGroupName": {
+            "type": "string",
+            "description": "The name of the resource group whose Batch accounts to list.",
+            "pattern": "^[-\\w\\._]+$"
+          },
+          "api-version": {
+            "type": "string",
+            "description": "The API version to be used with the HTTP request."
+          },
+          "subscriptionId": {
+            "type": "string",
+            "description": "A unique identifier of a Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "api-version",
+          "subscriptionId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/BatchAccountListResult"
+      },
+      "security": {
+        "azure_arm_batch": {
+          "integration": "azure_arm_batch"
+        }
+      }
+    },
+    {
+      "id": "BatchAccount_Delete",
+      "title": "BatchAccount_Delete",
+      "description": "Deletes the specified Batch account.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "resourceGroupName": {
+            "type": "string",
+            "description": "The name of the resource group that contains the Batch account to be deleted.",
+            "pattern": "^[-\\w\\._]+$"
+          },
+          "accountName": {
+            "type": "string",
+            "description": "The name of the account to be deleted.",
+            "pattern": "^[-\\w\\._]+$",
+            "maxLength": 24,
+            "minLength": 3
+          },
+          "api-version": {
+            "type": "string",
+            "description": "The API version to be used with the HTTP request."
+          },
+          "subscriptionId": {
+            "type": "string",
+            "description": "A unique identifier of a Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "accountName",
+          "api-version",
+          "subscriptionId"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "azure_arm_batch": {
+          "integration": "azure_arm_batch"
+        }
+      }
+    },
+    {
+      "id": "BatchAccount_Get",
+      "title": "BatchAccount_Get",
+      "description": "Gets information about the specified Batch account.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "resourceGroupName": {
+            "type": "string",
+            "description": "The name of the resource group that contains the Batch account.",
+            "pattern": "^[-\\w\\._]+$"
+          },
+          "accountName": {
+            "type": "string",
+            "description": "The name of the account.",
+            "pattern": "^[-\\w\\._]+$",
+            "maxLength": 24,
+            "minLength": 3
+          },
+          "api-version": {
+            "type": "string",
+            "description": "The API version to be used with the HTTP request."
+          },
+          "subscriptionId": {
+            "type": "string",
+            "description": "A unique identifier of a Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "accountName",
+          "api-version",
+          "subscriptionId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/BatchAccount"
+      },
+      "security": {
+        "azure_arm_batch": {
+          "integration": "azure_arm_batch"
+        }
+      }
+    },
+    {
+      "id": "BatchAccount_Update",
+      "title": "BatchAccount_Update",
+      "description": "Updates the properties of an existing Batch account.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "resourceGroupName": {
+            "type": "string",
+            "description": "The name of the resource group that contains the Batch account.",
+            "pattern": "^[-\\w\\._]+$"
+          },
+          "accountName": {
+            "type": "string",
+            "description": "The name of the account.",
+            "pattern": "^[-\\w\\._]+$",
+            "maxLength": 24,
+            "minLength": 3
+          },
+          "parameters": {
+            "$ref": "#/definitions/BatchAccountUpdateParameters"
+          },
+          "api-version": {
+            "type": "string",
+            "description": "The API version to be used with the HTTP request."
+          },
+          "subscriptionId": {
+            "type": "string",
+            "description": "A unique identifier of a Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "accountName",
+          "parameters",
+          "api-version",
+          "subscriptionId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/BatchAccount"
+      },
+      "security": {
+        "azure_arm_batch": {
+          "integration": "azure_arm_batch"
+        }
+      }
+    },
+    {
+      "id": "BatchAccount_Create",
+      "title": "BatchAccount_Create",
+      "description": "Creates a new Batch account with the specified parameters. Existing accounts cannot be updated with this API and should instead be updated with the Update Batch Account API.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "resourceGroupName": {
+            "type": "string",
+            "description": "The name of the resource group that contains the new Batch account.",
+            "pattern": "^[-\\w\\._]+$"
+          },
+          "accountName": {
+            "type": "string",
+            "description": "A name for the Batch account which must be unique within the region. Batch account names must be between 3 and 24 characters in length and must use only numbers and lowercase letters. This name is used as part of the DNS name that is used to access the Batch service in the region in which the account is created. For example: http://accountname.region.batch.azure.com/.",
+            "pattern": "^[-\\w\\._]+$",
+            "maxLength": 24,
+            "minLength": 3
+          },
+          "parameters": {
+            "$ref": "#/definitions/BatchAccountCreateParameters"
+          },
+          "api-version": {
+            "type": "string",
+            "description": "The API version to be used with the HTTP request."
+          },
+          "subscriptionId": {
+            "type": "string",
+            "description": "A unique identifier of a Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "accountName",
+          "parameters",
+          "api-version",
+          "subscriptionId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/BatchAccount"
+      },
+      "security": {
+        "azure_arm_batch": {
+          "integration": "azure_arm_batch"
+        }
+      }
+    },
+    {
+      "id": "Application_List",
+      "title": "Application_List",
+      "description": "Lists all of the applications in the specified account.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "resourceGroupName": {
+            "type": "string",
+            "description": "The name of the resource group that contains the Batch account.",
+            "pattern": "^[-\\w\\._]+$"
+          },
+          "accountName": {
+            "type": "string",
+            "description": "The name of the Batch account.",
+            "pattern": "^[-\\w\\._]+$",
+            "maxLength": 24,
+            "minLength": 3
+          },
+          "maxresults": {
+            "type": "integer",
+            "format": "int32",
+            "description": "The maximum number of items to return in the response."
+          },
+          "api-version": {
+            "type": "string",
+            "description": "The API version to be used with the HTTP request."
+          },
+          "subscriptionId": {
+            "type": "string",
+            "description": "A unique identifier of a Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "accountName",
+          "api-version",
+          "subscriptionId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListApplicationsResult"
+      },
+      "security": {
+        "azure_arm_batch": {
+          "integration": "azure_arm_batch"
+        }
+      }
+    },
+    {
+      "id": "Application_Delete",
+      "title": "Application_Delete",
+      "description": "Deletes an application.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "resourceGroupName": {
+            "type": "string",
+            "description": "The name of the resource group that contains the Batch account.",
+            "pattern": "^[-\\w\\._]+$"
+          },
+          "accountName": {
+            "type": "string",
+            "description": "The name of the Batch account.",
+            "pattern": "^[-\\w\\._]+$",
+            "maxLength": 24,
+            "minLength": 3
+          },
+          "applicationId": {
+            "type": "string",
+            "description": "The ID of the application."
+          },
+          "api-version": {
+            "type": "string",
+            "description": "The API version to be used with the HTTP request."
+          },
+          "subscriptionId": {
+            "type": "string",
+            "description": "A unique identifier of a Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "accountName",
+          "applicationId",
+          "api-version",
+          "subscriptionId"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "azure_arm_batch": {
+          "integration": "azure_arm_batch"
+        }
+      }
+    },
+    {
+      "id": "Application_Get",
+      "title": "Application_Get",
+      "description": "Gets information about the specified application.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "resourceGroupName": {
+            "type": "string",
+            "description": "The name of the resource group that contains the Batch account.",
+            "pattern": "^[-\\w\\._]+$"
+          },
+          "accountName": {
+            "type": "string",
+            "description": "The name of the Batch account.",
+            "pattern": "^[-\\w\\._]+$",
+            "maxLength": 24,
+            "minLength": 3
+          },
+          "applicationId": {
+            "type": "string",
+            "description": "The ID of the application."
+          },
+          "api-version": {
+            "type": "string",
+            "description": "The API version to be used with the HTTP request."
+          },
+          "subscriptionId": {
+            "type": "string",
+            "description": "A unique identifier of a Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "accountName",
+          "applicationId",
+          "api-version",
+          "subscriptionId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Application"
+      },
+      "security": {
+        "azure_arm_batch": {
+          "integration": "azure_arm_batch"
+        }
+      }
+    },
+    {
+      "id": "Application_Update",
+      "title": "Application_Update",
+      "description": "Updates settings for the specified application.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "resourceGroupName": {
+            "type": "string",
+            "description": "The name of the resource group that contains the Batch account.",
+            "pattern": "^[-\\w\\._]+$"
+          },
+          "accountName": {
+            "type": "string",
+            "description": "The name of the Batch account.",
+            "pattern": "^[-\\w\\._]+$",
+            "maxLength": 24,
+            "minLength": 3
+          },
+          "applicationId": {
+            "type": "string",
+            "description": "The ID of the application."
+          },
+          "parameters": {
+            "$ref": "#/definitions/UpdateApplicationParameters"
+          },
+          "api-version": {
+            "type": "string",
+            "description": "The API version to be used with the HTTP request."
+          },
+          "subscriptionId": {
+            "type": "string",
+            "description": "A unique identifier of a Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "accountName",
+          "applicationId",
+          "parameters",
+          "api-version",
+          "subscriptionId"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "azure_arm_batch": {
+          "integration": "azure_arm_batch"
+        }
+      }
+    },
+    {
+      "id": "Application_Create",
+      "title": "Application_Create",
+      "description": "Adds an application to the specified Batch account.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "resourceGroupName": {
+            "type": "string",
+            "description": "The name of the resource group that contains the Batch account.",
+            "pattern": "^[-\\w\\._]+$"
+          },
+          "accountName": {
+            "type": "string",
+            "description": "The name of the Batch account.",
+            "pattern": "^[-\\w\\._]+$",
+            "maxLength": 24,
+            "minLength": 3
+          },
+          "applicationId": {
+            "type": "string",
+            "description": "The ID of the application."
+          },
+          "parameters": {
+            "$ref": "#/definitions/AddApplicationParameters"
+          },
+          "api-version": {
+            "type": "string",
+            "description": "The API version to be used with the HTTP request."
+          },
+          "subscriptionId": {
+            "type": "string",
+            "description": "A unique identifier of a Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "accountName",
+          "applicationId",
+          "api-version",
+          "subscriptionId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Application"
+      },
+      "security": {
+        "azure_arm_batch": {
+          "integration": "azure_arm_batch"
+        }
+      }
+    },
+    {
+      "id": "ApplicationPackage_Delete",
+      "title": "ApplicationPackage_Delete",
+      "description": "Deletes an application package record and its associated binary file.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "resourceGroupName": {
+            "type": "string",
+            "description": "The name of the resource group that contains the Batch account.",
+            "pattern": "^[-\\w\\._]+$"
+          },
+          "accountName": {
+            "type": "string",
+            "description": "The name of the Batch account.",
+            "pattern": "^[-\\w\\._]+$",
+            "maxLength": 24,
+            "minLength": 3
+          },
+          "applicationId": {
+            "type": "string",
+            "description": "The ID of the application."
+          },
+          "version": {
+            "type": "string",
+            "description": "The version of the application to delete."
+          },
+          "api-version": {
+            "type": "string",
+            "description": "The API version to be used with the HTTP request."
+          },
+          "subscriptionId": {
+            "type": "string",
+            "description": "A unique identifier of a Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "accountName",
+          "applicationId",
+          "version",
+          "api-version",
+          "subscriptionId"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "azure_arm_batch": {
+          "integration": "azure_arm_batch"
+        }
+      }
+    },
+    {
+      "id": "ApplicationPackage_Get",
+      "title": "ApplicationPackage_Get",
+      "description": "Gets information about the specified application package.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "resourceGroupName": {
+            "type": "string",
+            "description": "The name of the resource group that contains the Batch account.",
+            "pattern": "^[-\\w\\._]+$"
+          },
+          "accountName": {
+            "type": "string",
+            "description": "The name of the Batch account.",
+            "pattern": "^[-\\w\\._]+$",
+            "maxLength": 24,
+            "minLength": 3
+          },
+          "applicationId": {
+            "type": "string",
+            "description": "The ID of the application."
+          },
+          "version": {
+            "type": "string",
+            "description": "The version of the application."
+          },
+          "api-version": {
+            "type": "string",
+            "description": "The API version to be used with the HTTP request."
+          },
+          "subscriptionId": {
+            "type": "string",
+            "description": "A unique identifier of a Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "accountName",
+          "applicationId",
+          "version",
+          "api-version",
+          "subscriptionId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ApplicationPackage"
+      },
+      "security": {
+        "azure_arm_batch": {
+          "integration": "azure_arm_batch"
+        }
+      }
+    },
+    {
+      "id": "ApplicationPackage_Create",
+      "title": "ApplicationPackage_Create",
+      "description": "Creates an application package record.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "resourceGroupName": {
+            "type": "string",
+            "description": "The name of the resource group that contains the Batch account.",
+            "pattern": "^[-\\w\\._]+$"
+          },
+          "accountName": {
+            "type": "string",
+            "description": "The name of the Batch account.",
+            "pattern": "^[-\\w\\._]+$",
+            "maxLength": 24,
+            "minLength": 3
+          },
+          "applicationId": {
+            "type": "string",
+            "description": "The ID of the application."
+          },
+          "version": {
+            "type": "string",
+            "description": "The version of the application."
+          },
+          "api-version": {
+            "type": "string",
+            "description": "The API version to be used with the HTTP request."
+          },
+          "subscriptionId": {
+            "type": "string",
+            "description": "A unique identifier of a Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "accountName",
+          "applicationId",
+          "version",
+          "api-version",
+          "subscriptionId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ApplicationPackage"
+      },
+      "security": {
+        "azure_arm_batch": {
+          "integration": "azure_arm_batch"
+        }
+      }
+    },
+    {
+      "id": "ApplicationPackage_Activate",
+      "title": "ApplicationPackage_Activate",
+      "description": "Activates the specified application package.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "resourceGroupName": {
+            "type": "string",
+            "description": "The name of the resource group that contains the Batch account.",
+            "pattern": "^[-\\w\\._]+$"
+          },
+          "accountName": {
+            "type": "string",
+            "description": "The name of the Batch account.",
+            "pattern": "^[-\\w\\._]+$",
+            "maxLength": 24,
+            "minLength": 3
+          },
+          "applicationId": {
+            "type": "string",
+            "description": "The ID of the application."
+          },
+          "version": {
+            "type": "string",
+            "description": "The version of the application to activate."
+          },
+          "parameters": {
+            "$ref": "#/definitions/ActivateApplicationPackageParameters"
+          },
+          "api-version": {
+            "type": "string",
+            "description": "The API version to be used with the HTTP request."
+          },
+          "subscriptionId": {
+            "type": "string",
+            "description": "A unique identifier of a Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "accountName",
+          "applicationId",
+          "version",
+          "parameters",
+          "api-version",
+          "subscriptionId"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "azure_arm_batch": {
+          "integration": "azure_arm_batch"
+        }
+      }
+    },
+    {
+      "id": "BatchAccount_GetKeys",
+      "title": "BatchAccount_GetKeys",
+      "description": "Gets the account keys for the specified Batch account.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "resourceGroupName": {
+            "type": "string",
+            "description": "The name of the resource group that contains the Batch account.",
+            "pattern": "^[-\\w\\._]+$"
+          },
+          "accountName": {
+            "type": "string",
+            "description": "The name of the account.",
+            "pattern": "^[-\\w\\._]+$",
+            "maxLength": 24,
+            "minLength": 3
+          },
+          "api-version": {
+            "type": "string",
+            "description": "The API version to be used with the HTTP request."
+          },
+          "subscriptionId": {
+            "type": "string",
+            "description": "A unique identifier of a Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "accountName",
+          "api-version",
+          "subscriptionId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/BatchAccountKeys"
+      },
+      "security": {
+        "azure_arm_batch": {
+          "integration": "azure_arm_batch"
+        }
+      }
+    },
+    {
+      "id": "BatchAccount_RegenerateKey",
+      "title": "BatchAccount_RegenerateKey",
+      "description": "Regenerates the specified account key for the Batch account.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "resourceGroupName": {
+            "type": "string",
+            "description": "The name of the resource group that contains the Batch account.",
+            "pattern": "^[-\\w\\._]+$"
+          },
+          "accountName": {
+            "type": "string",
+            "description": "The name of the account.",
+            "pattern": "^[-\\w\\._]+$",
+            "maxLength": 24,
+            "minLength": 3
+          },
+          "parameters": {
+            "$ref": "#/definitions/BatchAccountRegenerateKeyParameters"
+          },
+          "api-version": {
+            "type": "string",
+            "description": "The API version to be used with the HTTP request."
+          },
+          "subscriptionId": {
+            "type": "string",
+            "description": "A unique identifier of a Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "accountName",
+          "parameters",
+          "api-version",
+          "subscriptionId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/BatchAccountKeys"
+      },
+      "security": {
+        "azure_arm_batch": {
+          "integration": "azure_arm_batch"
+        }
+      }
+    },
+    {
+      "id": "BatchAccount_SynchronizeAutoStorageKeys",
+      "title": "BatchAccount_SynchronizeAutoStorageKeys",
+      "description": "Synchronizes access keys for the auto storage account configured for the specified Batch account.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "resourceGroupName": {
+            "type": "string",
+            "description": "The name of the resource group that contains the Batch account.",
+            "pattern": "^[-\\w\\._]+$"
+          },
+          "accountName": {
+            "type": "string",
+            "description": "The name of the Batch account.",
+            "pattern": "^[-\\w\\._]+$",
+            "maxLength": 24,
+            "minLength": 3
+          },
+          "api-version": {
+            "type": "string",
+            "description": "The API version to be used with the HTTP request."
+          },
+          "subscriptionId": {
+            "type": "string",
+            "description": "A unique identifier of a Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "accountName",
+          "api-version",
+          "subscriptionId"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "azure_arm_batch": {
+          "integration": "azure_arm_batch"
+        }
+      }
+    }
+  ]
+}

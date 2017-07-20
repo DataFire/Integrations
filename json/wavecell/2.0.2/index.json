@@ -1,0 +1,314 @@
+{
+  "id": "wavecell",
+  "title": "Wavecell.Sms.Api",
+  "description": "This API allows Wavecell customers to originate request to send SMS messages anywhere in the World. The messages can be send individually or as a bulk request.",
+  "security": {
+    "wavecell": {
+      "integration": "wavecell",
+      "fields": {
+        "username": "Your username",
+        "password": "Your password"
+      }
+    }
+  },
+  "logo": {
+    "backgroundColor": "#050917",
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/wavecell.jpg"
+  },
+  "tags": [
+    "messaging"
+  ],
+  "definitions": {
+    "BulkSmsRequest": {
+      "properties": {
+        "clientBatchId": {
+          "maxLength": 20,
+          "type": "string"
+        },
+        "includeMessagesInResponse": {
+          "type": "boolean"
+        },
+        "messages": {
+          "items": {
+            "$ref": "#/definitions/SmsRequest"
+          },
+          "type": "array"
+        },
+        "template": {
+          "$ref": "#/definitions/SmsTemplate"
+        }
+      },
+      "required": [
+        "messages"
+      ],
+      "type": "object"
+    },
+    "BulkSmsRequestCompact": {
+      "properties": {
+        "clientBatchId": {
+          "maxLength": 20,
+          "type": "string"
+        },
+        "destinations": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "includeMessagesInResponse": {
+          "type": "boolean"
+        },
+        "template": {
+          "$ref": "#/definitions/SmsTemplate"
+        }
+      },
+      "required": [
+        "destinations",
+        "template"
+      ],
+      "type": "object"
+    },
+    "BulkSmsResponse": {
+      "properties": {
+        "acceptedCount": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "batchId": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "clientBatchId": {
+          "type": "string"
+        },
+        "messages": {
+          "items": {
+            "$ref": "#/definitions/SmsResponse"
+          },
+          "type": "array"
+        },
+        "rejectedCount": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "ErrorResponse": {
+      "properties": {
+        "code": {
+          "format": "int32",
+          "readOnly": true,
+          "type": "integer"
+        },
+        "errorId": {
+          "format": "uuid",
+          "readOnly": true,
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "timestamp": {
+          "format": "date-time",
+          "readOnly": true,
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "SmsRequest": {
+      "properties": {
+        "clientMessageId": {
+          "maxLength": 20,
+          "type": "string"
+        },
+        "destination": {
+          "pattern": "^\\+{0,1}[1-9]{1}[0-9]{6,14}$",
+          "type": "string"
+        },
+        "encoding": {
+          "enum": [
+            "AUTO",
+            "GSM7bit",
+            "UNICODE"
+          ],
+          "type": "string"
+        },
+        "expiry": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "scheduled": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "source": {
+          "maxLength": 16,
+          "type": "string"
+        },
+        "text": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "destination"
+      ],
+      "type": "object"
+    },
+    "SmsResponse": {
+      "properties": {
+        "clientMessageId": {
+          "type": "string"
+        },
+        "destination": {
+          "type": "string"
+        },
+        "status": {
+          "$ref": "#/definitions/SmsStatus"
+        },
+        "umid": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "SmsStatus": {
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "SmsTemplate": {
+      "properties": {
+        "encoding": {
+          "enum": [
+            "AUTO",
+            "GSM7bit",
+            "UNICODE"
+          ],
+          "type": "string"
+        },
+        "expiry": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "scheduled": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "source": {
+          "maxLength": 16,
+          "type": "string"
+        },
+        "text": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "actions": [
+    {
+      "id": "SmsV1StatusGet",
+      "title": "SmsV1StatusGet",
+      "description": "",
+      "inputSchema": {},
+      "outputSchema": {},
+      "security": {
+        "wavecell": {
+          "integration": "wavecell"
+        }
+      }
+    },
+    {
+      "id": "SendManyMessages",
+      "title": "SendManyMessages",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "subAccountId": {
+            "type": "string"
+          },
+          "body": {
+            "$ref": "#/definitions/BulkSmsRequest"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "subAccountId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/BulkSmsResponse"
+      },
+      "security": {
+        "wavecell": {
+          "integration": "wavecell"
+        }
+      }
+    },
+    {
+      "id": "SendManyMessagesInCompactForm",
+      "title": "SendManyMessagesInCompactForm",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "subAccountId": {
+            "type": "string"
+          },
+          "body": {
+            "$ref": "#/definitions/BulkSmsRequestCompact"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "subAccountId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/BulkSmsResponse"
+      },
+      "security": {
+        "wavecell": {
+          "integration": "wavecell"
+        }
+      }
+    },
+    {
+      "id": "SendSingleMessage",
+      "title": "SendSingleMessage",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "subAccountId": {
+            "type": "string"
+          },
+          "body": {
+            "$ref": "#/definitions/SmsRequest"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "subAccountId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/SmsResponse"
+      },
+      "security": {
+        "wavecell": {
+          "integration": "wavecell"
+        }
+      }
+    }
+  ]
+}

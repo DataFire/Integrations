@@ -1,0 +1,319 @@
+{
+  "id": "zappiti",
+  "title": "Zappiti Player",
+  "description": "Move your app forward with the Zappiti Player API. Use http://your-player-ip:8990/ as base URL for your requests.",
+  "security": {},
+  "logo": {
+    "backgroundColor": "#FFFFFF",
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/zappiti.png"
+  },
+  "tags": [
+    "entertainment"
+  ],
+  "definitions": {
+    "CheckZappitiServiceRequest": {
+      "properties": {
+        "ApiKey": {
+          "description": "Client API Key",
+          "format": "uuid",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "CheckZappitiServiceResult": {
+      "properties": {
+        "ErrorCode": {
+          "$ref": "#/definitions/ErrorCode"
+        }
+      },
+      "type": "object"
+    },
+    "ErrorCode": {
+      "enum": [
+        "None",
+        "Failed",
+        "Exist",
+        "NotInstalled",
+        "NotRunning",
+        "Running",
+        "FailToStart",
+        "BadApiKey"
+      ],
+      "type": "string"
+    },
+    "InstallZappitiServiceRequest": {
+      "properties": {
+        "ApiKey": {
+          "description": "Client API Key",
+          "format": "uuid",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "InstallZappitiServiceResult": {
+      "properties": {
+        "ErrorCode": {
+          "$ref": "#/definitions/ErrorCode"
+        }
+      },
+      "type": "object"
+    },
+    "IsAliveRequest": {
+      "properties": {
+        "ApiKey": {
+          "description": "Client API Key",
+          "format": "uuid",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "IsAliveResult": {
+      "properties": {
+        "ErrorCode": {
+          "$ref": "#/definitions/ErrorCode"
+        }
+      },
+      "type": "object"
+    },
+    "LastMediaRequest": {
+      "properties": {
+        "ApiKey": {
+          "description": "Client API Key",
+          "format": "uuid",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "LastMediaResult": {
+      "properties": {
+        "Actors": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "BackgroundUrl": {
+          "type": "string"
+        },
+        "Directors": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "Episode": {
+          "type": "integer"
+        },
+        "ErrorCode": {
+          "$ref": "#/definitions/ErrorCode"
+        },
+        "PosterUrl": {
+          "type": "string"
+        },
+        "Runtime": {
+          "type": "integer"
+        },
+        "Season": {
+          "type": "integer"
+        },
+        "Synopsis": {
+          "type": "string"
+        },
+        "Title": {
+          "type": "string"
+        },
+        "TvShowName": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "StartVideoRequest": {
+      "properties": {
+        "ApiKey": {
+          "description": "Client API Key",
+          "format": "uuid",
+          "type": "string"
+        },
+        "AuthKey": {
+          "description": "User auth key",
+          "format": "uuid",
+          "type": "string"
+        },
+        "Collection": {
+          "description": "Collection id",
+          "format": "string",
+          "type": "string"
+        },
+        "Ip": {
+          "description": "Server Ip",
+          "format": "string",
+          "type": "string"
+        },
+        "MediaId": {
+          "description": "Id of the video to start",
+          "format": "uuid",
+          "type": "string"
+        },
+        "Port": {
+          "description": "Server Port",
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "StartVideoResult": {
+      "properties": {
+        "ErrorCode": {
+          "$ref": "#/definitions/ErrorCode"
+        }
+      },
+      "type": "object"
+    },
+    "StartZappitiServiceRequest": {
+      "properties": {
+        "ApiKey": {
+          "description": "Client API Key",
+          "format": "uuid",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "StartZappitiServiceResult": {
+      "properties": {
+        "ErrorCode": {
+          "$ref": "#/definitions/ErrorCode"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "actions": [
+    {
+      "id": "CheckZappitiService.post",
+      "title": "CheckZappitiService.post",
+      "description": "ErrorCode.NotInstalled\nErrorCode.NotRunning\nErrorCode.Running\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/CheckZappitiServiceRequest"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CheckZappitiServiceResult"
+      }
+    },
+    {
+      "id": "InstallZappitiService.post",
+      "title": "InstallZappitiService.post",
+      "description": "Open a popup that allow the user to install Zappiti Service, if not already installed",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/InstallZappitiServiceRequest"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/InstallZappitiServiceResult"
+      }
+    },
+    {
+      "id": "IsAlive.post",
+      "title": "IsAlive.post",
+      "description": "Get server status",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/IsAliveRequest"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/IsAliveResult"
+      }
+    },
+    {
+      "id": "LastMedia.post",
+      "title": "LastMedia.post",
+      "description": "Get informations about last media playback",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/LastMediaRequest"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/LastMediaResult"
+      }
+    },
+    {
+      "id": "StartVideo.post",
+      "title": "StartVideo.post",
+      "description": "Start the playback of the speficied video.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/StartVideoRequest"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/StartVideoResult"
+      }
+    },
+    {
+      "id": "StartZappitiService.post",
+      "title": "StartZappitiService.post",
+      "description": "Start Zappiti Service if not started yet",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/StartZappitiServiceRequest"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/StartZappitiServiceResult"
+      }
+    }
+  ]
+}

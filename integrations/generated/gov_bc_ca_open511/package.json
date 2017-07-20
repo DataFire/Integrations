@@ -1,6 +1,6 @@
 {
   "name": "@datafire/gov_bc_ca_open511",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "main": "index.js",
   "description": "DataFire integration for DriveBC's Open511",
   "repository": {

@@ -1,0 +1,68 @@
+{
+  "id": "passwordutility",
+  "title": "PasswordUtility.Web",
+  "description": "Validate and generate passwords using open source tools",
+  "security": {},
+  "tags": [
+    "security",
+    "tools"
+  ],
+  "definitions": {
+    "Object": {
+      "properties": {},
+      "type": "object"
+    }
+  },
+  "actions": [
+    {
+      "id": "Password_Generate",
+      "title": "Password_Generate",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "length": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "upperCase": {
+            "type": "boolean"
+          },
+          "digits": {
+            "type": "boolean"
+          },
+          "specialCharacters": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "length"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Object"
+      }
+    },
+    {
+      "id": "Password_Validate",
+      "title": "Password_Validate",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "password": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "password"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Object"
+      }
+    }
+  ]
+}

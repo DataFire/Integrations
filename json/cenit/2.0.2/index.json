@@ -1,0 +1,1141 @@
+{
+  "id": "cenit",
+  "title": "Cenit IO - REST API Specification",
+  "description": "Cenit IO is an Open Platform for Data and Business Integration (iPaaS)\n",
+  "security": {
+    "cenit": {
+      "integration": "cenit",
+      "fields": {
+        "X-User-Access-Key": "API key",
+        "X-User-Access-Token": "API key"
+      }
+    }
+  },
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/cenit.png"
+  },
+  "tags": [],
+  "definitions": {
+    "connection": {
+      "properties": {
+        "headers": {
+          "items": {
+            "properties": {
+              "key": {
+                "type": "string"
+              },
+              "value": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "id": {
+          "type": "string"
+        },
+        "key": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "namespace": {
+          "$ref": "#/definitions/namespace"
+        },
+        "parameters": {
+          "items": {
+            "properties": {
+              "key": {
+                "type": "string"
+              },
+              "value": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "token": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "connection_role": {
+      "properties": {
+        "connection": {
+          "items": {
+            "$ref": "#/definitions/connection"
+          },
+          "type": "array"
+        },
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "namespace": {
+          "$ref": "#/definitions/namespace"
+        },
+        "webhook": {
+          "items": {
+            "$ref": "#/definitions/webhook"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "data_type": {
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "model_schema": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "namespace": {
+          "$ref": "#/definitions/namespace"
+        },
+        "show_navigation_link": {
+          "type": "string"
+        },
+        "slug": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "type": {
+          "type": "object"
+        }
+      },
+      "type": "object"
+    },
+    "flow": {
+      "properties": {
+        "active": {
+          "type": "boolean"
+        },
+        "connection_role": {
+          "$ref": "#/definitions/connection_role"
+        },
+        "custom_data_type": {
+          "$ref": "#/definitions/data_type"
+        },
+        "event": {
+          "type": "object"
+        },
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "namespace": {
+          "$ref": "#/definitions/namespace"
+        },
+        "notify_request": {
+          "type": "boolean"
+        },
+        "notify_response": {
+          "type": "boolean"
+        },
+        "response_translator": {
+          "$ref": "#/definitions/translator"
+        },
+        "translator": {
+          "$ref": "#/definitions/translator"
+        },
+        "webhook": {
+          "$ref": "#/definitions/webhook"
+        }
+      },
+      "type": "object"
+    },
+    "namespace": {
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "slug": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "observer": {
+      "properties": {
+        "data_type": {
+          "$ref": "#/definitions/data_type"
+        },
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "namespace": {
+          "$ref": "#/definitions/namespace"
+        },
+        "triggers": {
+          "type": "string"
+        },
+        "type": {
+          "type": "object"
+        }
+      },
+      "type": "object"
+    },
+    "scheduler": {
+      "properties": {
+        "activated": {
+          "type": "boolean"
+        },
+        "expression": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "namespace": {
+          "$ref": "#/definitions/namespace"
+        }
+      },
+      "type": "object"
+    },
+    "schema": {
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "namespace": {
+          "$ref": "#/definitions/namespace"
+        },
+        "schema": {
+          "type": "string"
+        },
+        "uri": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "translator": {
+      "properties": {
+        "custom_data_type": {
+          "$ref": "#/definitions/data_type"
+        },
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "namespace": {
+          "$ref": "#/definitions/namespace"
+        },
+        "source_data_type": {
+          "$ref": "#/definitions/data_type"
+        },
+        "style": {
+          "enum": [
+            "Ruby",
+            "Liquid",
+            "xslt"
+          ],
+          "type": "string"
+        },
+        "target_data_type": {
+          "$ref": "#/definitions/data_type"
+        },
+        "transformation": {
+          "type": "string"
+        },
+        "type": {
+          "enum": [
+            "Import",
+            "Export",
+            "Convert",
+            "Update"
+          ],
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "webhook": {
+      "properties": {
+        "headers": {
+          "items": {
+            "properties": {
+              "key": {
+                "type": "string"
+              },
+              "value": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "namespace": {
+          "$ref": "#/definitions/namespace"
+        },
+        "parameters": {
+          "items": {
+            "properties": {
+              "key": {
+                "type": "string"
+              },
+              "value": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "path": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "actions": [
+    {
+      "id": "setup.connection.get",
+      "title": "setup.connection.get",
+      "description": "Returns a list of connections you've previously created. The connections are returned in sorted order, with the most recent connection appearing first.",
+      "inputSchema": {},
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/connection"
+        },
+        "type": "array"
+      },
+      "security": {
+        "cenit": {
+          "integration": "cenit"
+        }
+      }
+    },
+    {
+      "id": "setup.connection.post",
+      "title": "setup.connection.post",
+      "description": "Creates or updates the specified connection by setting the values of the parameters passed. Any parameters not provided will be left unchanged.",
+      "inputSchema": {},
+      "outputSchema": {
+        "$ref": "#/definitions/connection"
+      },
+      "security": {
+        "cenit": {
+          "integration": "cenit"
+        }
+      }
+    },
+    {
+      "id": "setup.connection.id.delete",
+      "title": "setup.connection.id.delete",
+      "description": "Permanently deletes a connection. It cannot be undone.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Connection ID"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "cenit": {
+          "integration": "cenit"
+        }
+      }
+    },
+    {
+      "id": "setup.connection.id.get",
+      "title": "setup.connection.id.get",
+      "description": "Retrieves the details of an existing connection. You need only supply the unique connection identifier that was returned upon connection creation.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Connection ID"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/connection"
+      },
+      "security": {
+        "cenit": {
+          "integration": "cenit"
+        }
+      }
+    },
+    {
+      "id": "setup.connection_role.get",
+      "title": "setup.connection_role.get",
+      "description": "Returns a list of connection roles you've previously created. The connection roles are returned in sorted order, with the most recent connection role appearing first.",
+      "inputSchema": {},
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/connection_role"
+        },
+        "type": "array"
+      },
+      "security": {
+        "cenit": {
+          "integration": "cenit"
+        }
+      }
+    },
+    {
+      "id": "setup.connection_role.post",
+      "title": "setup.connection_role.post",
+      "description": "Creates or updates the specified connection role by setting the values of the parameters passed. Any parameters not provided will be left unchanged.",
+      "inputSchema": {},
+      "outputSchema": {
+        "$ref": "#/definitions/connection_role"
+      },
+      "security": {
+        "cenit": {
+          "integration": "cenit"
+        }
+      }
+    },
+    {
+      "id": "setup.connection_role.id.delete",
+      "title": "setup.connection_role.id.delete",
+      "description": "Deletes the specified connection role.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Connection role ID"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "cenit": {
+          "integration": "cenit"
+        }
+      }
+    },
+    {
+      "id": "setup.connection_role.id.get",
+      "title": "setup.connection_role.id.get",
+      "description": "Returns a connection role",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Connection role ID"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/connection_role"
+      },
+      "security": {
+        "cenit": {
+          "integration": "cenit"
+        }
+      }
+    },
+    {
+      "id": "setup.data_type.get",
+      "title": "setup.data_type.get",
+      "description": "Returns a list of data types you've previously created. The data types are returned in sorted order, with the most recent DataType appearing first.",
+      "inputSchema": {},
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/data_type"
+        },
+        "type": "array"
+      },
+      "security": {
+        "cenit": {
+          "integration": "cenit"
+        }
+      }
+    },
+    {
+      "id": "setup.data_type.post",
+      "title": "setup.data_type.post",
+      "description": "Creates or updates the specified data type by setting the values of the parameters passed. Any parameters not provided will be left unchanged.",
+      "inputSchema": {},
+      "outputSchema": {
+        "$ref": "#/definitions/data_type"
+      },
+      "security": {
+        "cenit": {
+          "integration": "cenit"
+        }
+      }
+    },
+    {
+      "id": "setup.data_type.id.delete",
+      "title": "setup.data_type.id.delete",
+      "description": "Deletes the specified data type.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "data type ID"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "cenit": {
+          "integration": "cenit"
+        }
+      }
+    },
+    {
+      "id": "setup.data_type.id.get",
+      "title": "setup.data_type.id.get",
+      "description": "Retrieves the details of an existing data type. You need only supply the unique data  type identifier that was returned upon DataType creation.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "data type ID"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/data_type"
+      },
+      "security": {
+        "cenit": {
+          "integration": "cenit"
+        }
+      }
+    },
+    {
+      "id": "setup.flow.get",
+      "title": "setup.flow.get",
+      "description": "Returns a list of flows you've previously created. The flows are returned in sorted order, with the most recent flow appearing first.",
+      "inputSchema": {},
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/flow"
+        },
+        "type": "array"
+      },
+      "security": {
+        "cenit": {
+          "integration": "cenit"
+        }
+      }
+    },
+    {
+      "id": "setup.flow.post",
+      "title": "setup.flow.post",
+      "description": "Creates or updates the specified flow. Any parameters not provided will be left unchanged.",
+      "inputSchema": {},
+      "outputSchema": {
+        "$ref": "#/definitions/flow"
+      },
+      "security": {
+        "cenit": {
+          "integration": "cenit"
+        }
+      }
+    },
+    {
+      "id": "setup.flow.id.delete",
+      "title": "setup.flow.id.delete",
+      "description": "Deletes the specified flow.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Flow ID"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "cenit": {
+          "integration": "cenit"
+        }
+      }
+    },
+    {
+      "id": "setup.flow.id.get",
+      "title": "setup.flow.id.get",
+      "description": "Retrieves the details of an existing flow. You need only supply the unique flow identifier that was returned upon flow creation.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Flow ID"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/flow"
+      },
+      "security": {
+        "cenit": {
+          "integration": "cenit"
+        }
+      }
+    },
+    {
+      "id": "setup.namespace.get",
+      "title": "setup.namespace.get",
+      "description": "Returns a list of namespaces you've previously created. The namespaces are returned in sorted order, with the most recent namespace appearing first.",
+      "inputSchema": {},
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/namespace"
+        },
+        "type": "array"
+      },
+      "security": {
+        "cenit": {
+          "integration": "cenit"
+        }
+      }
+    },
+    {
+      "id": "setup.namespace.post",
+      "title": "setup.namespace.post",
+      "description": "Creates or updates the specified namespace. Any parameters not provided will be left unchanged.",
+      "inputSchema": {},
+      "outputSchema": {
+        "$ref": "#/definitions/namespace"
+      },
+      "security": {
+        "cenit": {
+          "integration": "cenit"
+        }
+      }
+    },
+    {
+      "id": "setup.namespace.id.delete",
+      "title": "setup.namespace.id.delete",
+      "description": "Deletes the specified namespace.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Namespace ID."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "cenit": {
+          "integration": "cenit"
+        }
+      }
+    },
+    {
+      "id": "setup.namespace.id.get",
+      "title": "setup.namespace.id.get",
+      "description": "Retrieves the details of an existing namespace. You need only supply the unique webhook namespace that was returned upon namespace creation.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Namespace ID."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/namespace"
+      },
+      "security": {
+        "cenit": {
+          "integration": "cenit"
+        }
+      }
+    },
+    {
+      "id": "setup.observer.get",
+      "title": "setup.observer.get",
+      "description": "Returns a list of events you've previously created. The events are returned in sorted order, with the most recent event appearing first.",
+      "inputSchema": {},
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/observer"
+        },
+        "type": "array"
+      },
+      "security": {
+        "cenit": {
+          "integration": "cenit"
+        }
+      }
+    },
+    {
+      "id": "setup.observer.post",
+      "title": "setup.observer.post",
+      "description": "Creates or updates the specified event observer. Any parameters not provided will be left unchanged.",
+      "inputSchema": {},
+      "outputSchema": {
+        "$ref": "#/definitions/observer"
+      },
+      "security": {
+        "cenit": {
+          "integration": "cenit"
+        }
+      }
+    },
+    {
+      "id": "setup.observer.id.delete",
+      "title": "setup.observer.id.delete",
+      "description": "Deletes the specified event observer.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Observer ID"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "cenit": {
+          "integration": "cenit"
+        }
+      }
+    },
+    {
+      "id": "setup.observer.id.get",
+      "title": "setup.observer.id.get",
+      "description": "Retrieves the details of an existing event. You need only supply the unique event identifier that was returned upon event creation.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Observer ID"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/observer"
+      },
+      "security": {
+        "cenit": {
+          "integration": "cenit"
+        }
+      }
+    },
+    {
+      "id": "setup.scheduler.get",
+      "title": "setup.scheduler.get",
+      "description": "Returns a list of schedulers you've previously created. The schedulers are returned in sorted order, with the most recent scheduler appearing first.",
+      "inputSchema": {},
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/scheduler"
+        },
+        "type": "array"
+      },
+      "security": {
+        "cenit": {
+          "integration": "cenit"
+        }
+      }
+    },
+    {
+      "id": "setup.scheduler.post",
+      "title": "setup.scheduler.post",
+      "description": "Creates or updates the specified scheduler. Any parameters not provided will be left unchanged.",
+      "inputSchema": {},
+      "outputSchema": {
+        "$ref": "#/definitions/scheduler"
+      },
+      "security": {
+        "cenit": {
+          "integration": "cenit"
+        }
+      }
+    },
+    {
+      "id": "setup.scheduler.id.delete",
+      "title": "setup.scheduler.id.delete",
+      "description": "Deletes the specified scheduler.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Scheduler ID"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "cenit": {
+          "integration": "cenit"
+        }
+      }
+    },
+    {
+      "id": "setup.scheduler.id.get",
+      "title": "setup.scheduler.id.get",
+      "description": "Retrieves the details of an existing scheduler. You need only supply the unique scheduler identifier that was returned upon scheduler creation.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Scheduler ID"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/scheduler"
+      },
+      "security": {
+        "cenit": {
+          "integration": "cenit"
+        }
+      }
+    },
+    {
+      "id": "setup.schema.get",
+      "title": "setup.schema.get",
+      "description": "Returns a list of schemas you've previously created. The schemas are returned in sorted order, with the most recent schema appearing first.",
+      "inputSchema": {},
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/schema"
+        },
+        "type": "array"
+      },
+      "security": {
+        "cenit": {
+          "integration": "cenit"
+        }
+      }
+    },
+    {
+      "id": "setup.schema.post",
+      "title": "setup.schema.post",
+      "description": "Creates or updates the specified schema. Any parameters not provided will be left unchanged.",
+      "inputSchema": {},
+      "outputSchema": {
+        "$ref": "#/definitions/schema"
+      },
+      "security": {
+        "cenit": {
+          "integration": "cenit"
+        }
+      }
+    },
+    {
+      "id": "setup.schema.id.delete",
+      "title": "setup.schema.id.delete",
+      "description": "Deletes the specified schema.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Schema ID"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "cenit": {
+          "integration": "cenit"
+        }
+      }
+    },
+    {
+      "id": "setup.schema.id.get",
+      "title": "setup.schema.id.get",
+      "description": "Retrieves the details of an existing schema. You need only supply the unique schema identifier that was returned upon schema creation.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Schema ID"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/schema"
+      },
+      "security": {
+        "cenit": {
+          "integration": "cenit"
+        }
+      }
+    },
+    {
+      "id": "setup.translator.get",
+      "title": "setup.translator.get",
+      "description": "Returns a list of translators you've previously created. The translators are returned in sorted order, with the most recent translator appearing first.",
+      "inputSchema": {},
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/translator"
+        },
+        "type": "array"
+      },
+      "security": {
+        "cenit": {
+          "integration": "cenit"
+        }
+      }
+    },
+    {
+      "id": "setup.translator.post",
+      "title": "setup.translator.post",
+      "description": "Creates or updates the specified translator. Any parameters not provided will be left unchanged.",
+      "inputSchema": {},
+      "outputSchema": {
+        "$ref": "#/definitions/translator"
+      },
+      "security": {
+        "cenit": {
+          "integration": "cenit"
+        }
+      }
+    },
+    {
+      "id": "setup.translator.id.delete",
+      "title": "setup.translator.id.delete",
+      "description": "Deletes the specified translator.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Translator ID."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "cenit": {
+          "integration": "cenit"
+        }
+      }
+    },
+    {
+      "id": "setup.translator.id.get",
+      "title": "setup.translator.id.get",
+      "description": "Retrieves the details of an existing translator. You need only supply the unique translator identifier that was returned upon translator creation.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Translator ID."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/translator"
+      },
+      "security": {
+        "cenit": {
+          "integration": "cenit"
+        }
+      }
+    },
+    {
+      "id": "setup.webhook.get",
+      "title": "setup.webhook.get",
+      "description": "Returns a list of webhooks you've previously created. The webhooks are returned in sorted order, with the most recent webhook appearing first.",
+      "inputSchema": {},
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/webhook"
+        },
+        "type": "array"
+      },
+      "security": {
+        "cenit": {
+          "integration": "cenit"
+        }
+      }
+    },
+    {
+      "id": "setup.webhook.post",
+      "title": "setup.webhook.post",
+      "description": "Creates or updates the specified webhook. Any parameters not provided will be left unchanged.",
+      "inputSchema": {},
+      "outputSchema": {
+        "$ref": "#/definitions/webhook"
+      },
+      "security": {
+        "cenit": {
+          "integration": "cenit"
+        }
+      }
+    },
+    {
+      "id": "setup.webhook.id.delete",
+      "title": "setup.webhook.id.delete",
+      "description": "Deletes the specified webhook.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Webhook ID."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "cenit": {
+          "integration": "cenit"
+        }
+      }
+    },
+    {
+      "id": "setup.webhook.id.get",
+      "title": "setup.webhook.id.get",
+      "description": "Retrieves the details of an existing webhook. You need only supply the unique webhook identifier that was returned upon webhook creation.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Webhook ID."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/webhook"
+      },
+      "security": {
+        "cenit": {
+          "integration": "cenit"
+        }
+      }
+    }
+  ]
+}

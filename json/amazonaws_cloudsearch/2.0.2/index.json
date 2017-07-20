@@ -1,0 +1,3005 @@
+{
+  "id": "amazonaws_cloudsearch",
+  "title": "Amazon CloudSearch",
+  "description": "<fullname>Amazon CloudSearch Configuration Service</fullname> <p>You use the Amazon CloudSearch configuration service to create, configure, and manage search domains. Configuration service requests are submitted using the AWS Query protocol. AWS Query requests are HTTP or HTTPS requests submitted via HTTP GET or POST with a query parameter named Action.</p> <p>The endpoint for configuration service requests is region-specific: cloudsearch.<i>region</i>.amazonaws.com. For example, cloudsearch.us-east-1.amazonaws.com. For a current list of supported regions and endpoints, see <a href=\"http://docs.aws.amazon.com/general/latest/gr/rande.html#cloudsearch_region\" target=\"_blank\">Regions and Endpoints</a>.</p>",
+  "security": {
+    "amazonaws_cloudsearch": {
+      "integration": "amazonaws_cloudsearch",
+      "fields": {
+        "hmac": "Amazon Signature authorization v4"
+      }
+    }
+  },
+  "logo": {
+    "backgroundColor": "#FFFFFF",
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_cloudsearch.jpg"
+  },
+  "tags": [
+    "cloud",
+    "aws"
+  ],
+  "definitions": {
+    "APIVersion": {
+      "description": "The Amazon CloudSearch API version for a domain: 2011-02-01 or 2013-01-01.",
+      "type": "string"
+    },
+    "ARN": {
+      "description": "The Amazon Resource Name (ARN) of the search domain. See <a href=\"http://docs.aws.amazon.com/IAM/latest/UserGuide/index.html?Using_Identifiers.html\" target=\"_blank\">Identifiers for IAM Entities</a> in <i>Using AWS Identity and Access Management</i> for more information.",
+      "type": "string"
+    },
+    "AccessPoliciesStatus": {
+      "description": "The configured access rules for the domain's document and search endpoints, and the current status of those rules.",
+      "properties": {
+        "Options": {
+          "$ref": "#/definitions/PolicyDocument"
+        },
+        "Status": {
+          "$ref": "#/definitions/OptionStatus"
+        }
+      },
+      "required": [
+        "Options",
+        "Status"
+      ],
+      "type": "object"
+    },
+    "AlgorithmicStemming": {
+      "enum": [
+        "none",
+        "minimal",
+        "light",
+        "full"
+      ],
+      "type": "string"
+    },
+    "AnalysisOptions": {
+      "description": "Synonyms, stopwords, and stemming options for an analysis scheme. Includes tokenization dictionary for Japanese.",
+      "properties": {
+        "AlgorithmicStemming": {
+          "$ref": "#/definitions/AlgorithmicStemming",
+          "description": "The level of algorithmic stemming to perform: <code>none</code>, <code>minimal</code>, <code>light</code>, or <code>full</code>. The available levels vary depending on the language. For more information, see <a href=\"http://docs.aws.amazon.com/cloudsearch/latest/developerguide/text-processing.html#text-processing-settings\" target=\"_blank\">Language Specific Text Processing Settings</a> in the <i>Amazon CloudSearch Developer Guide</i> "
+        },
+        "JapaneseTokenizationDictionary": {
+          "$ref": "#/definitions/String",
+          "description": "A JSON array that contains a collection of terms, tokens, readings and part of speech for Japanese Tokenizaiton. The Japanese tokenization dictionary enables you to override the default tokenization for selected terms. This is only valid for Japanese language fields."
+        },
+        "StemmingDictionary": {
+          "$ref": "#/definitions/String",
+          "description": "A JSON object that contains a collection of string:value pairs that each map a term to its stem. For example, <code>{\"term1\": \"stem1\", \"term2\": \"stem2\", \"term3\": \"stem3\"}</code>. The stemming dictionary is applied in addition to any algorithmic stemming. This enables you to override the results of the algorithmic stemming to correct specific cases of overstemming or understemming. The maximum size of a stemming dictionary is 500 KB."
+        },
+        "Stopwords": {
+          "$ref": "#/definitions/String",
+          "description": "A JSON array of terms to ignore during indexing and searching. For example, <code>[\"a\", \"an\", \"the\", \"of\"]</code>. The stopwords dictionary must explicitly list each word you want to ignore. Wildcards and regular expressions are not supported. "
+        },
+        "Synonyms": {
+          "$ref": "#/definitions/String",
+          "description": "A JSON object that defines synonym groups and aliases. A synonym group is an array of arrays, where each sub-array is a group of terms where each term in the group is considered a synonym of every other term in the group. The aliases value is an object that contains a collection of string:value pairs where the string specifies a term and the array of values specifies each of the aliases for that term. An alias is considered a synonym of the specified term, but the term is not considered a synonym of the alias. For more information about specifying synonyms, see <a href=\"http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-analysis-schemes.html#synonyms\">Synonyms</a> in the <i>Amazon CloudSearch Developer Guide</i>."
+        }
+      },
+      "type": "object"
+    },
+    "AnalysisScheme": {
+      "description": "Configuration information for an analysis scheme. Each analysis scheme has a unique name and specifies the language of the text to be processed. The following options can be configured for an analysis scheme: <code>Synonyms</code>, <code>Stopwords</code>, <code>StemmingDictionary</code>, <code>JapaneseTokenizationDictionary</code> and <code>AlgorithmicStemming</code>.",
+      "properties": {
+        "AnalysisOptions": {
+          "$ref": "#/definitions/AnalysisOptions"
+        },
+        "AnalysisSchemeLanguage": {
+          "$ref": "#/definitions/AnalysisSchemeLanguage"
+        },
+        "AnalysisSchemeName": {
+          "$ref": "#/definitions/StandardName"
+        }
+      },
+      "required": [
+        "AnalysisSchemeName",
+        "AnalysisSchemeLanguage"
+      ],
+      "type": "object"
+    },
+    "AnalysisSchemeLanguage": {
+      "description": "An <a href=\"http://tools.ietf.org/html/rfc4646\" target=\"_blank\">IETF RFC 4646</a> language code or <code>mul</code> for multiple languages.",
+      "enum": [
+        "ar",
+        "bg",
+        "ca",
+        "cs",
+        "da",
+        "de",
+        "el",
+        "en",
+        "es",
+        "eu",
+        "fa",
+        "fi",
+        "fr",
+        "ga",
+        "gl",
+        "he",
+        "hi",
+        "hu",
+        "hy",
+        "id",
+        "it",
+        "ja",
+        "ko",
+        "lv",
+        "mul",
+        "nl",
+        "no",
+        "pt",
+        "ro",
+        "ru",
+        "sv",
+        "th",
+        "tr",
+        "zh-Hans",
+        "zh-Hant"
+      ],
+      "type": "string"
+    },
+    "AnalysisSchemeStatus": {
+      "description": "The status and configuration of an <code>AnalysisScheme</code>.",
+      "properties": {
+        "Options": {
+          "$ref": "#/definitions/AnalysisScheme"
+        },
+        "Status": {
+          "$ref": "#/definitions/OptionStatus"
+        }
+      },
+      "required": [
+        "Options",
+        "Status"
+      ],
+      "type": "object"
+    },
+    "AnalysisSchemeStatusList": {
+      "description": "A list of the analysis schemes configured for a domain.",
+      "items": {
+        "$ref": "#/definitions/AnalysisSchemeStatus"
+      },
+      "type": "array"
+    },
+    "AvailabilityOptionsStatus": {
+      "description": "The status and configuration of the domain's availability options.",
+      "properties": {
+        "Options": {
+          "$ref": "#/definitions/MultiAZ",
+          "description": "The availability options configured for the domain."
+        },
+        "Status": {
+          "$ref": "#/definitions/OptionStatus"
+        }
+      },
+      "required": [
+        "Options",
+        "Status"
+      ],
+      "type": "object"
+    },
+    "BaseException": {
+      "description": "An error occurred while processing the request.",
+      "properties": {
+        "Code": {
+          "$ref": "#/definitions/ErrorCode"
+        },
+        "Message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "type": "object"
+    },
+    "Boolean": {
+      "type": "boolean"
+    },
+    "BuildSuggestersRequest": {
+      "description": "Container for the parameters to the <code><a>BuildSuggester</a></code> operation. Specifies the name of the domain you want to update.",
+      "properties": {
+        "DomainName": {
+          "$ref": "#/definitions/DomainName"
+        }
+      },
+      "required": [
+        "DomainName"
+      ],
+      "type": "object"
+    },
+    "BuildSuggestersResponse": {
+      "description": "The result of a <code>BuildSuggester</code> request. Contains a list of the fields used for suggestions.",
+      "properties": {
+        "FieldNames": {
+          "$ref": "#/definitions/FieldNameList"
+        }
+      },
+      "type": "object"
+    },
+    "CreateDomainRequest": {
+      "description": "Container for the parameters to the <code><a>CreateDomain</a></code> operation. Specifies a name for the new search domain.",
+      "properties": {
+        "DomainName": {
+          "$ref": "#/definitions/DomainName",
+          "description": "A name for the domain you are creating. Allowed characters are a-z (lower-case letters), 0-9, and hyphen (-). Domain names must start with a letter or number and be at least 3 and no more than 28 characters long."
+        }
+      },
+      "required": [
+        "DomainName"
+      ],
+      "type": "object"
+    },
+    "CreateDomainResponse": {
+      "description": "The result of a <code>CreateDomainRequest</code>. Contains the status of a newly created domain.",
+      "properties": {
+        "DomainStatus": {
+          "$ref": "#/definitions/DomainStatus"
+        }
+      },
+      "type": "object"
+    },
+    "DateArrayOptions": {
+      "description": "Options for a field that contains an array of dates. Present if <code>IndexFieldType</code> specifies the field is of type <code>date-array</code>. All options are enabled by default.",
+      "properties": {
+        "DefaultValue": {
+          "$ref": "#/definitions/FieldValue",
+          "description": "A value to use for the field if the field isn't specified for a document."
+        },
+        "FacetEnabled": {
+          "$ref": "#/definitions/Boolean",
+          "description": "Whether facet information can be returned for the field."
+        },
+        "ReturnEnabled": {
+          "$ref": "#/definitions/Boolean",
+          "description": "Whether the contents of the field can be returned in the search results."
+        },
+        "SearchEnabled": {
+          "$ref": "#/definitions/Boolean",
+          "description": "Whether the contents of the field are searchable."
+        },
+        "SourceFields": {
+          "$ref": "#/definitions/FieldNameCommaList",
+          "description": "A list of source fields to map to the field. "
+        }
+      },
+      "type": "object"
+    },
+    "DateOptions": {
+      "description": "Options for a date field. Dates and times are specified in UTC (Coordinated Universal Time) according to IETF RFC3339: yyyy-mm-ddT00:00:00Z. Present if <code>IndexFieldType</code> specifies the field is of type <code>date</code>. All options are enabled by default.",
+      "properties": {
+        "DefaultValue": {
+          "$ref": "#/definitions/FieldValue",
+          "description": "A value to use for the field if the field isn't specified for a document."
+        },
+        "FacetEnabled": {
+          "$ref": "#/definitions/Boolean",
+          "description": "Whether facet information can be returned for the field."
+        },
+        "ReturnEnabled": {
+          "$ref": "#/definitions/Boolean",
+          "description": "Whether the contents of the field can be returned in the search results."
+        },
+        "SearchEnabled": {
+          "$ref": "#/definitions/Boolean",
+          "description": "Whether the contents of the field are searchable."
+        },
+        "SortEnabled": {
+          "$ref": "#/definitions/Boolean",
+          "description": "Whether the field can be used to sort the search results."
+        },
+        "SourceField": {
+          "$ref": "#/definitions/FieldName"
+        }
+      },
+      "type": "object"
+    },
+    "DefineAnalysisSchemeRequest": {
+      "description": "Container for the parameters to the <code><a>DefineAnalysisScheme</a></code> operation. Specifies the name of the domain you want to update and the analysis scheme configuration.",
+      "properties": {
+        "AnalysisScheme": {
+          "$ref": "#/definitions/AnalysisScheme"
+        },
+        "DomainName": {
+          "$ref": "#/definitions/DomainName"
+        }
+      },
+      "required": [
+        "DomainName",
+        "AnalysisScheme"
+      ],
+      "type": "object"
+    },
+    "DefineAnalysisSchemeResponse": {
+      "description": "The result of a <code><a>DefineAnalysisScheme</a></code> request. Contains the status of the newly-configured analysis scheme.",
+      "properties": {
+        "AnalysisScheme": {
+          "$ref": "#/definitions/AnalysisSchemeStatus"
+        }
+      },
+      "required": [
+        "AnalysisScheme"
+      ],
+      "type": "object"
+    },
+    "DefineExpressionRequest": {
+      "description": "Container for the parameters to the <code><a>DefineExpression</a></code> operation. Specifies the name of the domain you want to update and the expression you want to configure.",
+      "properties": {
+        "DomainName": {
+          "$ref": "#/definitions/DomainName"
+        },
+        "Expression": {
+          "$ref": "#/definitions/Expression"
+        }
+      },
+      "required": [
+        "DomainName",
+        "Expression"
+      ],
+      "type": "object"
+    },
+    "DefineExpressionResponse": {
+      "description": "The result of a <code>DefineExpression</code> request. Contains the status of the newly-configured expression.",
+      "properties": {
+        "Expression": {
+          "$ref": "#/definitions/ExpressionStatus"
+        }
+      },
+      "required": [
+        "Expression"
+      ],
+      "type": "object"
+    },
+    "DefineIndexFieldRequest": {
+      "description": "Container for the parameters to the <code><a>DefineIndexField</a></code> operation. Specifies the name of the domain you want to update and the index field configuration.",
+      "properties": {
+        "DomainName": {
+          "$ref": "#/definitions/DomainName"
+        },
+        "IndexField": {
+          "$ref": "#/definitions/IndexField",
+          "description": "The index field and field options you want to configure. "
+        }
+      },
+      "required": [
+        "DomainName",
+        "IndexField"
+      ],
+      "type": "object"
+    },
+    "DefineIndexFieldResponse": {
+      "description": "The result of a <code><a>DefineIndexField</a></code> request. Contains the status of the newly-configured index field.",
+      "properties": {
+        "IndexField": {
+          "$ref": "#/definitions/IndexFieldStatus"
+        }
+      },
+      "required": [
+        "IndexField"
+      ],
+      "type": "object"
+    },
+    "DefineSuggesterRequest": {
+      "description": "Container for the parameters to the <code><a>DefineSuggester</a></code> operation. Specifies the name of the domain you want to update and the suggester configuration.",
+      "properties": {
+        "DomainName": {
+          "$ref": "#/definitions/DomainName"
+        },
+        "Suggester": {
+          "$ref": "#/definitions/Suggester"
+        }
+      },
+      "required": [
+        "DomainName",
+        "Suggester"
+      ],
+      "type": "object"
+    },
+    "DefineSuggesterResponse": {
+      "description": "The result of a <code>DefineSuggester</code> request. Contains the status of the newly-configured suggester.",
+      "properties": {
+        "Suggester": {
+          "$ref": "#/definitions/SuggesterStatus"
+        }
+      },
+      "required": [
+        "Suggester"
+      ],
+      "type": "object"
+    },
+    "DeleteAnalysisSchemeRequest": {
+      "description": "Container for the parameters to the <code><a>DeleteAnalysisScheme</a></code> operation. Specifies the name of the domain you want to update and the analysis scheme you want to delete. ",
+      "properties": {
+        "AnalysisSchemeName": {
+          "$ref": "#/definitions/StandardName",
+          "description": "The name of the analysis scheme you want to delete."
+        },
+        "DomainName": {
+          "$ref": "#/definitions/DomainName"
+        }
+      },
+      "required": [
+        "DomainName",
+        "AnalysisSchemeName"
+      ],
+      "type": "object"
+    },
+    "DeleteAnalysisSchemeResponse": {
+      "description": "The result of a <code>DeleteAnalysisScheme</code> request. Contains the status of the deleted analysis scheme.",
+      "properties": {
+        "AnalysisScheme": {
+          "$ref": "#/definitions/AnalysisSchemeStatus",
+          "description": "The status of the analysis scheme being deleted."
+        }
+      },
+      "required": [
+        "AnalysisScheme"
+      ],
+      "type": "object"
+    },
+    "DeleteDomainRequest": {
+      "description": "Container for the parameters to the <code><a>DeleteDomain</a></code> operation. Specifies the name of the domain you want to delete.",
+      "properties": {
+        "DomainName": {
+          "$ref": "#/definitions/DomainName",
+          "description": "The name of the domain you want to permanently delete."
+        }
+      },
+      "required": [
+        "DomainName"
+      ],
+      "type": "object"
+    },
+    "DeleteDomainResponse": {
+      "description": "The result of a <code>DeleteDomain</code> request. Contains the status of a newly deleted domain, or no status if the domain has already been completely deleted.",
+      "properties": {
+        "DomainStatus": {
+          "$ref": "#/definitions/DomainStatus"
+        }
+      },
+      "type": "object"
+    },
+    "DeleteExpressionRequest": {
+      "description": "Container for the parameters to the <code><a>DeleteExpression</a></code> operation. Specifies the name of the domain you want to update and the name of the expression you want to delete.",
+      "properties": {
+        "DomainName": {
+          "$ref": "#/definitions/DomainName"
+        },
+        "ExpressionName": {
+          "$ref": "#/definitions/StandardName",
+          "description": "The name of the <code><a>Expression</a></code> to delete."
+        }
+      },
+      "required": [
+        "DomainName",
+        "ExpressionName"
+      ],
+      "type": "object"
+    },
+    "DeleteExpressionResponse": {
+      "description": "The result of a <code><a>DeleteExpression</a></code> request. Specifies the expression being deleted.",
+      "properties": {
+        "Expression": {
+          "$ref": "#/definitions/ExpressionStatus",
+          "description": "The status of the expression being deleted."
+        }
+      },
+      "required": [
+        "Expression"
+      ],
+      "type": "object"
+    },
+    "DeleteIndexFieldRequest": {
+      "description": "Container for the parameters to the <code><a>DeleteIndexField</a></code> operation. Specifies the name of the domain you want to update and the name of the index field you want to delete.",
+      "properties": {
+        "DomainName": {
+          "$ref": "#/definitions/DomainName"
+        },
+        "IndexFieldName": {
+          "$ref": "#/definitions/DynamicFieldName",
+          "description": "The name of the index field your want to remove from the domain's indexing options."
+        }
+      },
+      "required": [
+        "DomainName",
+        "IndexFieldName"
+      ],
+      "type": "object"
+    },
+    "DeleteIndexFieldResponse": {
+      "description": "The result of a <code><a>DeleteIndexField</a></code> request.",
+      "properties": {
+        "IndexField": {
+          "$ref": "#/definitions/IndexFieldStatus",
+          "description": "The status of the index field being deleted."
+        }
+      },
+      "required": [
+        "IndexField"
+      ],
+      "type": "object"
+    },
+    "DeleteSuggesterRequest": {
+      "description": "Container for the parameters to the <code><a>DeleteSuggester</a></code> operation. Specifies the name of the domain you want to update and name of the suggester you want to delete.",
+      "properties": {
+        "DomainName": {
+          "$ref": "#/definitions/DomainName"
+        },
+        "SuggesterName": {
+          "$ref": "#/definitions/StandardName",
+          "description": "Specifies the name of the suggester you want to delete."
+        }
+      },
+      "required": [
+        "DomainName",
+        "SuggesterName"
+      ],
+      "type": "object"
+    },
+    "DeleteSuggesterResponse": {
+      "description": "The result of a <code>DeleteSuggester</code> request. Contains the status of the deleted suggester.",
+      "properties": {
+        "Suggester": {
+          "$ref": "#/definitions/SuggesterStatus",
+          "description": "The status of the suggester being deleted."
+        }
+      },
+      "required": [
+        "Suggester"
+      ],
+      "type": "object"
+    },
+    "DescribeAnalysisSchemesRequest": {
+      "description": "Container for the parameters to the <code><a>DescribeAnalysisSchemes</a></code> operation. Specifies the name of the domain you want to describe. To limit the response to particular analysis schemes, specify the names of the analysis schemes you want to describe. To show the active configuration and exclude any pending changes, set the <code>Deployed</code> option to <code>true</code>. ",
+      "properties": {
+        "AnalysisSchemeNames": {
+          "$ref": "#/definitions/StandardNameList",
+          "description": "The analysis schemes you want to describe."
+        },
+        "Deployed": {
+          "$ref": "#/definitions/Boolean",
+          "description": "Whether to display the deployed configuration (<code>true</code>) or include any pending changes (<code>false</code>). Defaults to <code>false</code>."
+        },
+        "DomainName": {
+          "$ref": "#/definitions/DomainName",
+          "description": "The name of the domain you want to describe."
+        }
+      },
+      "required": [
+        "DomainName"
+      ],
+      "type": "object"
+    },
+    "DescribeAnalysisSchemesResponse": {
+      "description": "The result of a <code>DescribeAnalysisSchemes</code> request. Contains the analysis schemes configured for the domain specified in the request.",
+      "properties": {
+        "AnalysisSchemes": {
+          "$ref": "#/definitions/AnalysisSchemeStatusList",
+          "description": "The analysis scheme descriptions."
+        }
+      },
+      "required": [
+        "AnalysisSchemes"
+      ],
+      "type": "object"
+    },
+    "DescribeAvailabilityOptionsRequest": {
+      "description": "Container for the parameters to the <code><a>DescribeAvailabilityOptions</a></code> operation. Specifies the name of the domain you want to describe. To show the active configuration and exclude any pending changes, set the Deployed option to <code>true</code>.",
+      "properties": {
+        "Deployed": {
+          "$ref": "#/definitions/Boolean",
+          "description": "Whether to display the deployed configuration (<code>true</code>) or include any pending changes (<code>false</code>). Defaults to <code>false</code>."
+        },
+        "DomainName": {
+          "$ref": "#/definitions/DomainName",
+          "description": "The name of the domain you want to describe."
+        }
+      },
+      "required": [
+        "DomainName"
+      ],
+      "type": "object"
+    },
+    "DescribeAvailabilityOptionsResponse": {
+      "description": "The result of a <code>DescribeAvailabilityOptions</code> request. Indicates whether or not the Multi-AZ option is enabled for the domain specified in the request. ",
+      "properties": {
+        "AvailabilityOptions": {
+          "$ref": "#/definitions/AvailabilityOptionsStatus",
+          "description": "The availability options configured for the domain. Indicates whether Multi-AZ is enabled for the domain. "
+        }
+      },
+      "type": "object"
+    },
+    "DescribeDomainsRequest": {
+      "description": "Container for the parameters to the <code><a>DescribeDomains</a></code> operation. By default shows the status of all domains. To restrict the response to particular domains, specify the names of the domains you want to describe.",
+      "properties": {
+        "DomainNames": {
+          "$ref": "#/definitions/DomainNameList",
+          "description": "The names of the domains you want to include in the response."
+        }
+      },
+      "type": "object"
+    },
+    "DescribeDomainsResponse": {
+      "description": "The result of a <code>DescribeDomains</code> request. Contains the status of the domains specified in the request or all domains owned by the account.",
+      "properties": {
+        "DomainStatusList": {
+          "$ref": "#/definitions/DomainStatusList"
+        }
+      },
+      "required": [
+        "DomainStatusList"
+      ],
+      "type": "object"
+    },
+    "DescribeExpressionsRequest": {
+      "description": "Container for the parameters to the <code><a>DescribeDomains</a></code> operation. Specifies the name of the domain you want to describe. To restrict the response to particular expressions, specify the names of the expressions you want to describe. To show the active configuration and exclude any pending changes, set the <code>Deployed</code> option to <code>true</code>.",
+      "properties": {
+        "Deployed": {
+          "$ref": "#/definitions/Boolean",
+          "description": "Whether to display the deployed configuration (<code>true</code>) or include any pending changes (<code>false</code>). Defaults to <code>false</code>."
+        },
+        "DomainName": {
+          "$ref": "#/definitions/DomainName",
+          "description": "The name of the domain you want to describe."
+        },
+        "ExpressionNames": {
+          "$ref": "#/definitions/StandardNameList",
+          "description": "Limits the <code><a>DescribeExpressions</a></code> response to the specified expressions. If not specified, all expressions are shown."
+        }
+      },
+      "required": [
+        "DomainName"
+      ],
+      "type": "object"
+    },
+    "DescribeExpressionsResponse": {
+      "description": "The result of a <code>DescribeExpressions</code> request. Contains the expressions configured for the domain specified in the request.",
+      "properties": {
+        "Expressions": {
+          "$ref": "#/definitions/ExpressionStatusList",
+          "description": "The expressions configured for the domain."
+        }
+      },
+      "required": [
+        "Expressions"
+      ],
+      "type": "object"
+    },
+    "DescribeIndexFieldsRequest": {
+      "description": "Container for the parameters to the <code><a>DescribeIndexFields</a></code> operation. Specifies the name of the domain you want to describe. To restrict the response to particular index fields, specify the names of the index fields you want to describe. To show the active configuration and exclude any pending changes, set the <code>Deployed</code> option to <code>true</code>.",
+      "properties": {
+        "Deployed": {
+          "$ref": "#/definitions/Boolean",
+          "description": "Whether to display the deployed configuration (<code>true</code>) or include any pending changes (<code>false</code>). Defaults to <code>false</code>."
+        },
+        "DomainName": {
+          "$ref": "#/definitions/DomainName",
+          "description": "The name of the domain you want to describe."
+        },
+        "FieldNames": {
+          "$ref": "#/definitions/DynamicFieldNameList",
+          "description": "A list of the index fields you want to describe. If not specified, information is returned for all configured index fields."
+        }
+      },
+      "required": [
+        "DomainName"
+      ],
+      "type": "object"
+    },
+    "DescribeIndexFieldsResponse": {
+      "description": "The result of a <code>DescribeIndexFields</code> request. Contains the index fields configured for the domain specified in the request.",
+      "properties": {
+        "IndexFields": {
+          "$ref": "#/definitions/IndexFieldStatusList",
+          "description": "The index fields configured for the domain."
+        }
+      },
+      "required": [
+        "IndexFields"
+      ],
+      "type": "object"
+    },
+    "DescribeScalingParametersRequest": {
+      "description": "Container for the parameters to the <code><a>DescribeScalingParameters</a></code> operation. Specifies the name of the domain you want to describe. ",
+      "properties": {
+        "DomainName": {
+          "$ref": "#/definitions/DomainName"
+        }
+      },
+      "required": [
+        "DomainName"
+      ],
+      "type": "object"
+    },
+    "DescribeScalingParametersResponse": {
+      "description": "The result of a <code>DescribeScalingParameters</code> request. Contains the scaling parameters configured for the domain specified in the request.",
+      "properties": {
+        "ScalingParameters": {
+          "$ref": "#/definitions/ScalingParametersStatus"
+        }
+      },
+      "required": [
+        "ScalingParameters"
+      ],
+      "type": "object"
+    },
+    "DescribeServiceAccessPoliciesRequest": {
+      "description": "Container for the parameters to the <code><a>DescribeServiceAccessPolicies</a></code> operation. Specifies the name of the domain you want to describe. To show the active configuration and exclude any pending changes, set the <code>Deployed</code> option to <code>true</code>.",
+      "properties": {
+        "Deployed": {
+          "$ref": "#/definitions/Boolean",
+          "description": "Whether to display the deployed configuration (<code>true</code>) or include any pending changes (<code>false</code>). Defaults to <code>false</code>."
+        },
+        "DomainName": {
+          "$ref": "#/definitions/DomainName",
+          "description": "The name of the domain you want to describe."
+        }
+      },
+      "required": [
+        "DomainName"
+      ],
+      "type": "object"
+    },
+    "DescribeServiceAccessPoliciesResponse": {
+      "description": "The result of a <code>DescribeServiceAccessPolicies</code> request.",
+      "properties": {
+        "AccessPolicies": {
+          "$ref": "#/definitions/AccessPoliciesStatus",
+          "description": "The access rules configured for the domain specified in the request."
+        }
+      },
+      "required": [
+        "AccessPolicies"
+      ],
+      "type": "object"
+    },
+    "DescribeSuggestersRequest": {
+      "description": "Container for the parameters to the <code><a>DescribeSuggester</a></code> operation. Specifies the name of the domain you want to describe. To restrict the response to particular suggesters, specify the names of the suggesters you want to describe. To show the active configuration and exclude any pending changes, set the <code>Deployed</code> option to <code>true</code>.",
+      "properties": {
+        "Deployed": {
+          "$ref": "#/definitions/Boolean",
+          "description": "Whether to display the deployed configuration (<code>true</code>) or include any pending changes (<code>false</code>). Defaults to <code>false</code>."
+        },
+        "DomainName": {
+          "$ref": "#/definitions/DomainName",
+          "description": "The name of the domain you want to describe."
+        },
+        "SuggesterNames": {
+          "$ref": "#/definitions/StandardNameList",
+          "description": "The suggesters you want to describe."
+        }
+      },
+      "required": [
+        "DomainName"
+      ],
+      "type": "object"
+    },
+    "DescribeSuggestersResponse": {
+      "description": "The result of a <code>DescribeSuggesters</code> request.",
+      "properties": {
+        "Suggesters": {
+          "$ref": "#/definitions/SuggesterStatusList",
+          "description": "The suggesters configured for the domain specified in the request."
+        }
+      },
+      "required": [
+        "Suggesters"
+      ],
+      "type": "object"
+    },
+    "DisabledOperationException": {
+      "description": "The request was rejected because it attempted an operation which is not enabled.",
+      "properties": {},
+      "type": "object"
+    },
+    "DocumentSuggesterOptions": {
+      "description": "Options for a search suggester.",
+      "properties": {
+        "FuzzyMatching": {
+          "$ref": "#/definitions/SuggesterFuzzyMatching",
+          "description": "The level of fuzziness allowed when suggesting matches for a string: <code>none</code>, <code>low</code>, or <code>high</code>. With none, the specified string is treated as an exact prefix. With low, suggestions must differ from the specified string by no more than one character. With high, suggestions can differ by up to two characters. The default is none. "
+        },
+        "SortExpression": {
+          "$ref": "#/definitions/String",
+          "description": "An expression that computes a score for each suggestion to control how they are sorted. The scores are rounded to the nearest integer, with a floor of 0 and a ceiling of 2^31-1. A document's relevance score is not computed for suggestions, so sort expressions cannot reference the <code>_score</code> value. To sort suggestions using a numeric field or existing expression, simply specify the name of the field or expression. If no expression is configured for the suggester, the suggestions are sorted with the closest matches listed first."
+        },
+        "SourceField": {
+          "$ref": "#/definitions/FieldName",
+          "description": "The name of the index field you want to use for suggestions. "
+        }
+      },
+      "required": [
+        "SourceField"
+      ],
+      "type": "object"
+    },
+    "DomainId": {
+      "description": "An internally generated unique identifier for a domain.",
+      "maxLength": 64,
+      "minLength": 1,
+      "type": "string"
+    },
+    "DomainName": {
+      "description": "A string that represents the name of a domain. Domain names are unique across the domains owned by an account within an AWS region. Domain names start with a letter or number and can contain the following characters: a-z (lowercase), 0-9, and - (hyphen).",
+      "maxLength": 28,
+      "minLength": 3,
+      "pattern": "[a-z][a-z0-9\\-]+",
+      "type": "string"
+    },
+    "DomainNameList": {
+      "description": "A list of domain names.",
+      "items": {
+        "$ref": "#/definitions/DomainName"
+      },
+      "type": "array"
+    },
+    "DomainNameMap": {
+      "description": "A collection of domain names.",
+      "items": {
+        "properties": {
+          "key": {
+            "$ref": "#/definitions/DomainName"
+          },
+          "value": {
+            "$ref": "#/definitions/APIVersion"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "DomainStatus": {
+      "description": "The current status of the search domain.",
+      "properties": {
+        "ARN": {
+          "$ref": "#/definitions/ARN"
+        },
+        "Created": {
+          "$ref": "#/definitions/Boolean",
+          "description": "True if the search domain is created. It can take several minutes to initialize a domain when <a>CreateDomain</a> is called. Newly created search domains are returned from <a>DescribeDomains</a> with a false value for Created until domain creation is complete."
+        },
+        "Deleted": {
+          "$ref": "#/definitions/Boolean",
+          "description": "True if the search domain has been deleted. The system must clean up resources dedicated to the search domain when <a>DeleteDomain</a> is called. Newly deleted search domains are returned from <a>DescribeDomains</a> with a true value for IsDeleted for several minutes until resource cleanup is complete."
+        },
+        "DocService": {
+          "$ref": "#/definitions/ServiceEndpoint",
+          "description": "The service endpoint for updating documents in a search domain."
+        },
+        "DomainId": {
+          "$ref": "#/definitions/DomainId"
+        },
+        "DomainName": {
+          "$ref": "#/definitions/DomainName"
+        },
+        "Limits": {
+          "$ref": "#/definitions/Limits"
+        },
+        "Processing": {
+          "$ref": "#/definitions/Boolean",
+          "description": "True if processing is being done to activate the current domain configuration."
+        },
+        "RequiresIndexDocuments": {
+          "$ref": "#/definitions/Boolean",
+          "description": "True if <a>IndexDocuments</a> needs to be called to activate the current domain configuration."
+        },
+        "SearchInstanceCount": {
+          "$ref": "#/definitions/InstanceCount",
+          "description": "The number of search instances that are available to process search requests."
+        },
+        "SearchInstanceType": {
+          "$ref": "#/definitions/SearchInstanceType",
+          "description": "The instance type that is being used to process search requests."
+        },
+        "SearchPartitionCount": {
+          "$ref": "#/definitions/PartitionCount",
+          "description": "The number of partitions across which the search index is spread."
+        },
+        "SearchService": {
+          "$ref": "#/definitions/ServiceEndpoint",
+          "description": "The service endpoint for requesting search results from a search domain."
+        }
+      },
+      "required": [
+        "DomainId",
+        "DomainName",
+        "RequiresIndexDocuments"
+      ],
+      "type": "object"
+    },
+    "DomainStatusList": {
+      "description": "A list that contains the status of each requested domain.",
+      "items": {
+        "$ref": "#/definitions/DomainStatus"
+      },
+      "type": "array"
+    },
+    "Double": {
+      "format": "double",
+      "type": "number"
+    },
+    "DoubleArrayOptions": {
+      "description": "Options for a field that contains an array of double-precision 64-bit floating point values. Present if <code>IndexFieldType</code> specifies the field is of type <code>double-array</code>. All options are enabled by default.",
+      "properties": {
+        "DefaultValue": {
+          "$ref": "#/definitions/Double",
+          "description": "A value to use for the field if the field isn't specified for a document."
+        },
+        "FacetEnabled": {
+          "$ref": "#/definitions/Boolean",
+          "description": "Whether facet information can be returned for the field."
+        },
+        "ReturnEnabled": {
+          "$ref": "#/definitions/Boolean",
+          "description": "Whether the contents of the field can be returned in the search results."
+        },
+        "SearchEnabled": {
+          "$ref": "#/definitions/Boolean",
+          "description": "Whether the contents of the field are searchable."
+        },
+        "SourceFields": {
+          "$ref": "#/definitions/FieldNameCommaList",
+          "description": "A list of source fields to map to the field. "
+        }
+      },
+      "type": "object"
+    },
+    "DoubleOptions": {
+      "description": "Options for a double-precision 64-bit floating point field. Present if <code>IndexFieldType</code> specifies the field is of type <code>double</code>. All options are enabled by default.",
+      "properties": {
+        "DefaultValue": {
+          "$ref": "#/definitions/Double",
+          "description": "A value to use for the field if the field isn't specified for a document. This can be important if you are using the field in an expression and that field is not present in every document."
+        },
+        "FacetEnabled": {
+          "$ref": "#/definitions/Boolean",
+          "description": "Whether facet information can be returned for the field."
+        },
+        "ReturnEnabled": {
+          "$ref": "#/definitions/Boolean",
+          "description": "Whether the contents of the field can be returned in the search results."
+        },
+        "SearchEnabled": {
+          "$ref": "#/definitions/Boolean",
+          "description": "Whether the contents of the field are searchable."
+        },
+        "SortEnabled": {
+          "$ref": "#/definitions/Boolean",
+          "description": "Whether the field can be used to sort the search results."
+        },
+        "SourceField": {
+          "$ref": "#/definitions/FieldName",
+          "description": "The name of the source field to map to the field. "
+        }
+      },
+      "type": "object"
+    },
+    "DynamicFieldName": {
+      "maxLength": 64,
+      "minLength": 1,
+      "pattern": "([a-z][a-z0-9_]*\\*?|\\*[a-z0-9_]*)",
+      "type": "string"
+    },
+    "DynamicFieldNameList": {
+      "items": {
+        "$ref": "#/definitions/DynamicFieldName"
+      },
+      "type": "array"
+    },
+    "ErrorCode": {
+      "description": "A machine-parsable string error or warning code.",
+      "type": "string"
+    },
+    "ErrorMessage": {
+      "description": "A human-readable string error or warning message.",
+      "type": "string"
+    },
+    "Expression": {
+      "description": "A named expression that can be evaluated at search time. Can be used to sort the search results, define other expressions, or return computed information in the search results. ",
+      "properties": {
+        "ExpressionName": {
+          "$ref": "#/definitions/StandardName"
+        },
+        "ExpressionValue": {
+          "$ref": "#/definitions/ExpressionValue"
+        }
+      },
+      "required": [
+        "ExpressionName",
+        "ExpressionValue"
+      ],
+      "type": "object"
+    },
+    "ExpressionStatus": {
+      "description": "The value of an <code>Expression</code> and its current status.",
+      "properties": {
+        "Options": {
+          "$ref": "#/definitions/Expression",
+          "description": "The expression that is evaluated for sorting while processing a search request."
+        },
+        "Status": {
+          "$ref": "#/definitions/OptionStatus"
+        }
+      },
+      "required": [
+        "Options",
+        "Status"
+      ],
+      "type": "object"
+    },
+    "ExpressionStatusList": {
+      "description": "Contains the status of multiple expressions.",
+      "items": {
+        "$ref": "#/definitions/ExpressionStatus"
+      },
+      "type": "array"
+    },
+    "ExpressionValue": {
+      "description": "The expression to evaluate for sorting while processing a search request. The <code>Expression</code> syntax is based on JavaScript expressions. For more information, see <a href=\"http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-expressions.html\" target=\"_blank\">Configuring Expressions</a> in the <i>Amazon CloudSearch Developer Guide</i>.",
+      "maxLength": 10240,
+      "minLength": 1,
+      "type": "string"
+    },
+    "FieldName": {
+      "description": "<p>A string that represents the name of an index field. CloudSearch supports regular index fields as well as dynamic fields. A dynamic field's name defines a pattern that begins or ends with a wildcard. Any document fields that don't map to a regular index field but do match a dynamic field's pattern are configured with the dynamic field's indexing options. </p> <p>Regular field names begin with a letter and can contain the following characters: a-z (lowercase), 0-9, and _ (underscore). Dynamic field names must begin or end with a wildcard (*). The wildcard can also be the only character in a dynamic field name. Multiple wildcards, and wildcards embedded within a string are not supported. </p> <p>The name <code>score</code> is reserved and cannot be used as a field name. To reference a document's ID, you can use the name <code>_id</code>. </p>",
+      "maxLength": 64,
+      "minLength": 1,
+      "pattern": "[a-z][a-z0-9_]*",
+      "type": "string"
+    },
+    "FieldNameCommaList": {
+      "pattern": "\\s*[a-z*][a-z0-9_]*\\*?\\s*(,\\s*[a-z*][a-z0-9_]*\\*?\\s*)*",
+      "type": "string"
+    },
+    "FieldNameList": {
+      "description": "A list of field names.",
+      "items": {
+        "$ref": "#/definitions/FieldName"
+      },
+      "type": "array"
+    },
+    "FieldValue": {
+      "description": "The value of a field attribute.",
+      "maxLength": 1024,
+      "minLength": 0,
+      "type": "string"
+    },
+    "IndexDocumentsRequest": {
+      "description": "Container for the parameters to the <code><a>IndexDocuments</a></code> operation. Specifies the name of the domain you want to re-index.",
+      "properties": {
+        "DomainName": {
+          "$ref": "#/definitions/DomainName"
+        }
+      },
+      "required": [
+        "DomainName"
+      ],
+      "type": "object"
+    },
+    "IndexDocumentsResponse": {
+      "description": "The result of an <code>IndexDocuments</code> request. Contains the status of the indexing operation, including the fields being indexed.",
+      "properties": {
+        "FieldNames": {
+          "$ref": "#/definitions/FieldNameList",
+          "description": "The names of the fields that are currently being indexed."
+        }
+      },
+      "type": "object"
+    },
+    "IndexField": {
+      "description": "Configuration information for a field in the index, including its name, type, and options. The supported options depend on the <code><a>IndexFieldType</a></code>.",
+      "properties": {
+        "DateArrayOptions": {
+          "$ref": "#/definitions/DateArrayOptions"
+        },
+        "DateOptions": {
+          "$ref": "#/definitions/DateOptions"
+        },
+        "DoubleArrayOptions": {
+          "$ref": "#/definitions/DoubleArrayOptions"
+        },
+        "DoubleOptions": {
+          "$ref": "#/definitions/DoubleOptions"
+        },
+        "IndexFieldName": {
+          "$ref": "#/definitions/DynamicFieldName",
+          "description": "<p>A string that represents the name of an index field. CloudSearch supports regular index fields as well as dynamic fields. A dynamic field's name defines a pattern that begins or ends with a wildcard. Any document fields that don't map to a regular index field but do match a dynamic field's pattern are configured with the dynamic field's indexing options. </p> <p>Regular field names begin with a letter and can contain the following characters: a-z (lowercase), 0-9, and _ (underscore). Dynamic field names must begin or end with a wildcard (*). The wildcard can also be the only character in a dynamic field name. Multiple wildcards, and wildcards embedded within a string are not supported. </p> <p>The name <code>score</code> is reserved and cannot be used as a field name. To reference a document's ID, you can use the name <code>_id</code>. </p>"
+        },
+        "IndexFieldType": {
+          "$ref": "#/definitions/IndexFieldType"
+        },
+        "IntArrayOptions": {
+          "$ref": "#/definitions/IntArrayOptions"
+        },
+        "IntOptions": {
+          "$ref": "#/definitions/IntOptions"
+        },
+        "LatLonOptions": {
+          "$ref": "#/definitions/LatLonOptions"
+        },
+        "LiteralArrayOptions": {
+          "$ref": "#/definitions/LiteralArrayOptions"
+        },
+        "LiteralOptions": {
+          "$ref": "#/definitions/LiteralOptions"
+        },
+        "TextArrayOptions": {
+          "$ref": "#/definitions/TextArrayOptions"
+        },
+        "TextOptions": {
+          "$ref": "#/definitions/TextOptions"
+        }
+      },
+      "required": [
+        "IndexFieldName",
+        "IndexFieldType"
+      ],
+      "type": "object"
+    },
+    "IndexFieldStatus": {
+      "description": "The value of an <code>IndexField</code> and its current status.",
+      "properties": {
+        "Options": {
+          "$ref": "#/definitions/IndexField"
+        },
+        "Status": {
+          "$ref": "#/definitions/OptionStatus"
+        }
+      },
+      "required": [
+        "Options",
+        "Status"
+      ],
+      "type": "object"
+    },
+    "IndexFieldStatusList": {
+      "description": "Contains the status of multiple index fields.",
+      "items": {
+        "$ref": "#/definitions/IndexFieldStatus"
+      },
+      "type": "array"
+    },
+    "IndexFieldType": {
+      "description": "The type of field. The valid options for a field depend on the field type. For more information about the supported field types, see <a href=\"http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-index-fields.html\" target=\"_blank\">Configuring Index Fields</a> in the <i>Amazon CloudSearch Developer Guide</i>.",
+      "enum": [
+        "int",
+        "double",
+        "literal",
+        "text",
+        "date",
+        "latlon",
+        "int-array",
+        "double-array",
+        "literal-array",
+        "text-array",
+        "date-array"
+      ],
+      "type": "string"
+    },
+    "InstanceCount": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "IntArrayOptions": {
+      "description": "Options for a field that contains an array of 64-bit signed integers. Present if <code>IndexFieldType</code> specifies the field is of type <code>int-array</code>. All options are enabled by default.",
+      "properties": {
+        "DefaultValue": {
+          "$ref": "#/definitions/Long",
+          "description": "A value to use for the field if the field isn't specified for a document."
+        },
+        "FacetEnabled": {
+          "$ref": "#/definitions/Boolean",
+          "description": "Whether facet information can be returned for the field."
+        },
+        "ReturnEnabled": {
+          "$ref": "#/definitions/Boolean",
+          "description": "Whether the contents of the field can be returned in the search results."
+        },
+        "SearchEnabled": {
+          "$ref": "#/definitions/Boolean",
+          "description": "Whether the contents of the field are searchable."
+        },
+        "SourceFields": {
+          "$ref": "#/definitions/FieldNameCommaList",
+          "description": "A list of source fields to map to the field. "
+        }
+      },
+      "type": "object"
+    },
+    "IntOptions": {
+      "description": "Options for a 64-bit signed integer field. Present if <code>IndexFieldType</code> specifies the field is of type <code>int</code>. All options are enabled by default.",
+      "properties": {
+        "DefaultValue": {
+          "$ref": "#/definitions/Long",
+          "description": "A value to use for the field if the field isn't specified for a document. This can be important if you are using the field in an expression and that field is not present in every document."
+        },
+        "FacetEnabled": {
+          "$ref": "#/definitions/Boolean",
+          "description": "Whether facet information can be returned for the field."
+        },
+        "ReturnEnabled": {
+          "$ref": "#/definitions/Boolean",
+          "description": "Whether the contents of the field can be returned in the search results."
+        },
+        "SearchEnabled": {
+          "$ref": "#/definitions/Boolean",
+          "description": "Whether the contents of the field are searchable."
+        },
+        "SortEnabled": {
+          "$ref": "#/definitions/Boolean",
+          "description": "Whether the field can be used to sort the search results."
+        },
+        "SourceField": {
+          "$ref": "#/definitions/FieldName",
+          "description": "The name of the source field to map to the field. "
+        }
+      },
+      "type": "object"
+    },
+    "InternalException": {
+      "description": "An internal error occurred while processing the request. If this problem persists, report an issue from the <a href=\"http://status.aws.amazon.com/\" target=\"_blank\">Service Health Dashboard</a>.",
+      "properties": {},
+      "type": "object"
+    },
+    "InvalidTypeException": {
+      "description": "The request was rejected because it specified an invalid type definition.",
+      "properties": {},
+      "type": "object"
+    },
+    "LatLonOptions": {
+      "description": "Options for a latlon field. A latlon field contains a location stored as a latitude and longitude value pair. Present if <code>IndexFieldType</code> specifies the field is of type <code>latlon</code>. All options are enabled by default.",
+      "properties": {
+        "DefaultValue": {
+          "$ref": "#/definitions/FieldValue",
+          "description": "A value to use for the field if the field isn't specified for a document."
+        },
+        "FacetEnabled": {
+          "$ref": "#/definitions/Boolean",
+          "description": "Whether facet information can be returned for the field."
+        },
+        "ReturnEnabled": {
+          "$ref": "#/definitions/Boolean",
+          "description": "Whether the contents of the field can be returned in the search results."
+        },
+        "SearchEnabled": {
+          "$ref": "#/definitions/Boolean",
+          "description": "Whether the contents of the field are searchable."
+        },
+        "SortEnabled": {
+          "$ref": "#/definitions/Boolean",
+          "description": "Whether the field can be used to sort the search results."
+        },
+        "SourceField": {
+          "$ref": "#/definitions/FieldName"
+        }
+      },
+      "type": "object"
+    },
+    "LimitExceededException": {
+      "description": "The request was rejected because a resource limit has already been met.",
+      "properties": {},
+      "type": "object"
+    },
+    "Limits": {
+      "properties": {
+        "MaximumPartitionCount": {
+          "$ref": "#/definitions/MaximumPartitionCount"
+        },
+        "MaximumReplicationCount": {
+          "$ref": "#/definitions/MaximumReplicationCount"
+        }
+      },
+      "required": [
+        "MaximumReplicationCount",
+        "MaximumPartitionCount"
+      ],
+      "type": "object"
+    },
+    "ListDomainNamesResponse": {
+      "description": "The result of a <code>ListDomainNames</code> request. Contains a list of the domains owned by an account.",
+      "properties": {
+        "DomainNames": {
+          "$ref": "#/definitions/DomainNameMap",
+          "description": "The names of the search domains owned by an account."
+        }
+      },
+      "type": "object"
+    },
+    "LiteralArrayOptions": {
+      "description": "Options for a field that contains an array of literal strings. Present if <code>IndexFieldType</code> specifies the field is of type <code>literal-array</code>. All options are enabled by default.",
+      "properties": {
+        "DefaultValue": {
+          "$ref": "#/definitions/FieldValue",
+          "description": "A value to use for the field if the field isn't specified for a document."
+        },
+        "FacetEnabled": {
+          "$ref": "#/definitions/Boolean",
+          "description": "Whether facet information can be returned for the field."
+        },
+        "ReturnEnabled": {
+          "$ref": "#/definitions/Boolean",
+          "description": "Whether the contents of the field can be returned in the search results."
+        },
+        "SearchEnabled": {
+          "$ref": "#/definitions/Boolean",
+          "description": "Whether the contents of the field are searchable."
+        },
+        "SourceFields": {
+          "$ref": "#/definitions/FieldNameCommaList",
+          "description": "A list of source fields to map to the field. "
+        }
+      },
+      "type": "object"
+    },
+    "LiteralOptions": {
+      "description": "Options for literal field. Present if <code>IndexFieldType</code> specifies the field is of type <code>literal</code>. All options are enabled by default.",
+      "properties": {
+        "DefaultValue": {
+          "$ref": "#/definitions/FieldValue",
+          "description": "A value to use for the field if the field isn't specified for a document."
+        },
+        "FacetEnabled": {
+          "$ref": "#/definitions/Boolean",
+          "description": "Whether facet information can be returned for the field."
+        },
+        "ReturnEnabled": {
+          "$ref": "#/definitions/Boolean",
+          "description": "Whether the contents of the field can be returned in the search results."
+        },
+        "SearchEnabled": {
+          "$ref": "#/definitions/Boolean",
+          "description": "Whether the contents of the field are searchable."
+        },
+        "SortEnabled": {
+          "$ref": "#/definitions/Boolean",
+          "description": "Whether the field can be used to sort the search results."
+        },
+        "SourceField": {
+          "$ref": "#/definitions/FieldName"
+        }
+      },
+      "type": "object"
+    },
+    "Long": {
+      "type": "integer"
+    },
+    "MaximumPartitionCount": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "MaximumReplicationCount": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "MultiAZ": {
+      "type": "boolean"
+    },
+    "OptionState": {
+      "description": "<p>The state of processing a change to an option. One of:</p> <ul> <li>RequiresIndexDocuments: The option's latest value will not be deployed until <a>IndexDocuments</a> has been called and indexing is complete.</li> <li>Processing: The option's latest value is in the process of being activated.</li> <li>Active: The option's latest value is fully deployed. </li> <li>FailedToValidate: The option value is not compatible with the domain's data and cannot be used to index the data. You must either modify the option value or update or remove the incompatible documents.</li> </ul>",
+      "enum": [
+        "RequiresIndexDocuments",
+        "Processing",
+        "Active",
+        "FailedToValidate"
+      ],
+      "type": "string"
+    },
+    "OptionStatus": {
+      "description": "The status of domain configuration option.",
+      "properties": {
+        "CreationDate": {
+          "$ref": "#/definitions/UpdateTimestamp",
+          "description": "A timestamp for when this option was created."
+        },
+        "PendingDeletion": {
+          "$ref": "#/definitions/Boolean",
+          "description": "Indicates that the option will be deleted once processing is complete."
+        },
+        "State": {
+          "$ref": "#/definitions/OptionState",
+          "description": "<p>The state of processing a change to an option. Possible values:</p> <ul> <li> <code>RequiresIndexDocuments</code>: the option's latest value will not be deployed until <a>IndexDocuments</a> has been called and indexing is complete.</li> <li> <code>Processing</code>: the option's latest value is in the process of being activated. </li> <li> <code>Active</code>: the option's latest value is completely deployed.</li> <li> <code>FailedToValidate</code>: the option value is not compatible with the domain's data and cannot be used to index the data. You must either modify the option value or update or remove the incompatible documents.</li> </ul>"
+        },
+        "UpdateDate": {
+          "$ref": "#/definitions/UpdateTimestamp",
+          "description": "A timestamp for when this option was last updated."
+        },
+        "UpdateVersion": {
+          "$ref": "#/definitions/UIntValue",
+          "description": "A unique integer that indicates when this option was last updated."
+        }
+      },
+      "required": [
+        "CreationDate",
+        "UpdateDate",
+        "State"
+      ],
+      "type": "object"
+    },
+    "PartitionCount": {
+      "description": "The number of partitions used to hold the domain's index.",
+      "minimum": 1,
+      "type": "integer"
+    },
+    "PartitionInstanceType": {
+      "description": "The instance type (such as <code>search.m1.small</code>) on which an index partition is hosted.",
+      "enum": [
+        "search.m1.small",
+        "search.m1.large",
+        "search.m2.xlarge",
+        "search.m2.2xlarge",
+        "search.m3.medium",
+        "search.m3.large",
+        "search.m3.xlarge",
+        "search.m3.2xlarge"
+      ],
+      "type": "string"
+    },
+    "PolicyDocument": {
+      "description": "Access rules for a domain's document or search service endpoints. For more information, see <a href=\"http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-access.html\" target=\"_blank\">Configuring Access for a Search Domain</a> in the <i>Amazon CloudSearch Developer Guide</i>. The maximum size of a policy document is 100 KB.",
+      "type": "string"
+    },
+    "ResourceNotFoundException": {
+      "description": "The request was rejected because it attempted to reference a resource that does not exist.",
+      "properties": {},
+      "type": "object"
+    },
+    "ScalingParameters": {
+      "description": "The desired instance type and desired number of replicas of each index partition.",
+      "properties": {
+        "DesiredInstanceType": {
+          "$ref": "#/definitions/PartitionInstanceType",
+          "description": "The instance type that you want to preconfigure for your domain. For example, <code>search.m1.small</code>."
+        },
+        "DesiredPartitionCount": {
+          "$ref": "#/definitions/UIntValue",
+          "description": "The number of partitions you want to preconfigure for your domain. Only valid when you select <code>m2.2xlarge</code> as the desired instance type."
+        },
+        "DesiredReplicationCount": {
+          "$ref": "#/definitions/UIntValue",
+          "description": "The number of replicas you want to preconfigure for each index partition."
+        }
+      },
+      "type": "object"
+    },
+    "ScalingParametersStatus": {
+      "description": "The status and configuration of a search domain's scaling parameters. ",
+      "properties": {
+        "Options": {
+          "$ref": "#/definitions/ScalingParameters"
+        },
+        "Status": {
+          "$ref": "#/definitions/OptionStatus"
+        }
+      },
+      "required": [
+        "Options",
+        "Status"
+      ],
+      "type": "object"
+    },
+    "SearchInstanceType": {
+      "description": "The instance type (such as <code>search.m1.small</code>) that is being used to process search requests.",
+      "type": "string"
+    },
+    "ServiceEndpoint": {
+      "description": "The endpoint to which service requests can be submitted.",
+      "properties": {
+        "Endpoint": {
+          "$ref": "#/definitions/ServiceUrl"
+        }
+      },
+      "type": "object"
+    },
+    "ServiceUrl": {
+      "description": "The endpoint to which service requests can be submitted. For example, <code>search-imdb-movies-oopcnjfn6ugofer3zx5iadxxca.eu-west-1.cloudsearch.amazonaws.com</code> or <code>doc-imdb-movies-oopcnjfn6ugofer3zx5iadxxca.eu-west-1.cloudsearch.amazonaws.com</code>.",
+      "type": "string"
+    },
+    "StandardName": {
+      "description": "Names must begin with a letter and can contain the following characters: a-z (lowercase), 0-9, and _ (underscore).",
+      "maxLength": 64,
+      "minLength": 1,
+      "pattern": "[a-z][a-z0-9_]*",
+      "type": "string"
+    },
+    "StandardNameList": {
+      "items": {
+        "$ref": "#/definitions/StandardName"
+      },
+      "type": "array"
+    },
+    "String": {
+      "type": "string"
+    },
+    "Suggester": {
+      "description": "Configuration information for a search suggester. Each suggester has a unique name and specifies the text field you want to use for suggestions. The following options can be configured for a suggester: <code>FuzzyMatching</code>, <code>SortExpression</code>. ",
+      "properties": {
+        "DocumentSuggesterOptions": {
+          "$ref": "#/definitions/DocumentSuggesterOptions"
+        },
+        "SuggesterName": {
+          "$ref": "#/definitions/StandardName"
+        }
+      },
+      "required": [
+        "SuggesterName",
+        "DocumentSuggesterOptions"
+      ],
+      "type": "object"
+    },
+    "SuggesterFuzzyMatching": {
+      "enum": [
+        "none",
+        "low",
+        "high"
+      ],
+      "type": "string"
+    },
+    "SuggesterStatus": {
+      "description": "The value of a <code>Suggester</code> and its current status.",
+      "properties": {
+        "Options": {
+          "$ref": "#/definitions/Suggester"
+        },
+        "Status": {
+          "$ref": "#/definitions/OptionStatus"
+        }
+      },
+      "required": [
+        "Options",
+        "Status"
+      ],
+      "type": "object"
+    },
+    "SuggesterStatusList": {
+      "description": "Contains the status of multiple suggesters.",
+      "items": {
+        "$ref": "#/definitions/SuggesterStatus"
+      },
+      "type": "array"
+    },
+    "TextArrayOptions": {
+      "description": "Options for a field that contains an array of text strings. Present if <code>IndexFieldType</code> specifies the field is of type <code>text-array</code>. A <code>text-array</code> field is always searchable. All options are enabled by default.",
+      "properties": {
+        "AnalysisScheme": {
+          "$ref": "#/definitions/Word",
+          "description": "The name of an analysis scheme for a <code>text-array</code> field."
+        },
+        "DefaultValue": {
+          "$ref": "#/definitions/FieldValue",
+          "description": "A value to use for the field if the field isn't specified for a document."
+        },
+        "HighlightEnabled": {
+          "$ref": "#/definitions/Boolean",
+          "description": "Whether highlights can be returned for the field."
+        },
+        "ReturnEnabled": {
+          "$ref": "#/definitions/Boolean",
+          "description": "Whether the contents of the field can be returned in the search results."
+        },
+        "SourceFields": {
+          "$ref": "#/definitions/FieldNameCommaList",
+          "description": "A list of source fields to map to the field. "
+        }
+      },
+      "type": "object"
+    },
+    "TextOptions": {
+      "description": "Options for text field. Present if <code>IndexFieldType</code> specifies the field is of type <code>text</code>. A <code>text</code> field is always searchable. All options are enabled by default.",
+      "properties": {
+        "AnalysisScheme": {
+          "$ref": "#/definitions/Word",
+          "description": "The name of an analysis scheme for a <code>text</code> field."
+        },
+        "DefaultValue": {
+          "$ref": "#/definitions/FieldValue",
+          "description": "A value to use for the field if the field isn't specified for a document."
+        },
+        "HighlightEnabled": {
+          "$ref": "#/definitions/Boolean",
+          "description": "Whether highlights can be returned for the field."
+        },
+        "ReturnEnabled": {
+          "$ref": "#/definitions/Boolean",
+          "description": "Whether the contents of the field can be returned in the search results."
+        },
+        "SortEnabled": {
+          "$ref": "#/definitions/Boolean",
+          "description": "Whether the field can be used to sort the search results."
+        },
+        "SourceField": {
+          "$ref": "#/definitions/FieldName"
+        }
+      },
+      "type": "object"
+    },
+    "UIntValue": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "UpdateAvailabilityOptionsRequest": {
+      "description": "Container for the parameters to the <code><a>UpdateAvailabilityOptions</a></code> operation. Specifies the name of the domain you want to update and the Multi-AZ availability option.",
+      "properties": {
+        "DomainName": {
+          "$ref": "#/definitions/DomainName"
+        },
+        "MultiAZ": {
+          "$ref": "#/definitions/Boolean",
+          "description": "You expand an existing search domain to a second Availability Zone by setting the Multi-AZ option to true. Similarly, you can turn off the Multi-AZ option to downgrade the domain to a single Availability Zone by setting the Multi-AZ option to <code>false</code>. "
+        }
+      },
+      "required": [
+        "DomainName",
+        "MultiAZ"
+      ],
+      "type": "object"
+    },
+    "UpdateAvailabilityOptionsResponse": {
+      "description": "The result of a <code>UpdateAvailabilityOptions</code> request. Contains the status of the domain's availability options. ",
+      "properties": {
+        "AvailabilityOptions": {
+          "$ref": "#/definitions/AvailabilityOptionsStatus",
+          "description": "The newly-configured availability options. Indicates whether Multi-AZ is enabled for the domain. "
+        }
+      },
+      "type": "object"
+    },
+    "UpdateScalingParametersRequest": {
+      "description": "Container for the parameters to the <code><a>UpdateScalingParameters</a></code> operation. Specifies the name of the domain you want to update and the scaling parameters you want to configure.",
+      "properties": {
+        "DomainName": {
+          "$ref": "#/definitions/DomainName"
+        },
+        "ScalingParameters": {
+          "$ref": "#/definitions/ScalingParameters"
+        }
+      },
+      "required": [
+        "DomainName",
+        "ScalingParameters"
+      ],
+      "type": "object"
+    },
+    "UpdateScalingParametersResponse": {
+      "description": "The result of a <code>UpdateScalingParameters</code> request. Contains the status of the newly-configured scaling parameters.",
+      "properties": {
+        "ScalingParameters": {
+          "$ref": "#/definitions/ScalingParametersStatus"
+        }
+      },
+      "required": [
+        "ScalingParameters"
+      ],
+      "type": "object"
+    },
+    "UpdateServiceAccessPoliciesRequest": {
+      "description": "Container for the parameters to the <code><a>UpdateServiceAccessPolicies</a></code> operation. Specifies the name of the domain you want to update and the access rules you want to configure.",
+      "properties": {
+        "AccessPolicies": {
+          "$ref": "#/definitions/PolicyDocument",
+          "description": "The access rules you want to configure. These rules replace any existing rules. "
+        },
+        "DomainName": {
+          "$ref": "#/definitions/DomainName"
+        }
+      },
+      "required": [
+        "DomainName",
+        "AccessPolicies"
+      ],
+      "type": "object"
+    },
+    "UpdateServiceAccessPoliciesResponse": {
+      "description": "The result of an <code>UpdateServiceAccessPolicies</code> request. Contains the new access policies.",
+      "properties": {
+        "AccessPolicies": {
+          "$ref": "#/definitions/AccessPoliciesStatus",
+          "description": "The access rules configured for the domain."
+        }
+      },
+      "required": [
+        "AccessPolicies"
+      ],
+      "type": "object"
+    },
+    "UpdateTimestamp": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "Word": {
+      "pattern": "[\\S]+",
+      "type": "string"
+    }
+  },
+  "actions": [
+    {
+      "id": "BuildSuggesters",
+      "title": "BuildSuggesters",
+      "description": "Indexes the search suggestions. For more information, see <a href=\"http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-suggestions.html#configuring-suggesters\">Configuring Suggesters</a> in the <i>Amazon CloudSearch Developer Guide</i>.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/BuildSuggestersRequest"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/BuildSuggestersResponse"
+      },
+      "security": {
+        "amazonaws_cloudsearch": {
+          "integration": "amazonaws_cloudsearch"
+        }
+      }
+    },
+    {
+      "id": "CreateDomain",
+      "title": "CreateDomain",
+      "description": "Creates a new search domain. For more information, see <a href=\"http://docs.aws.amazon.com/cloudsearch/latest/developerguide/creating-domains.html\" target=\"_blank\">Creating a Search Domain</a> in the <i>Amazon CloudSearch Developer Guide</i>.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/CreateDomainRequest"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CreateDomainResponse"
+      },
+      "security": {
+        "amazonaws_cloudsearch": {
+          "integration": "amazonaws_cloudsearch"
+        }
+      }
+    },
+    {
+      "id": "DefineAnalysisScheme",
+      "title": "DefineAnalysisScheme",
+      "description": "Configures an analysis scheme that can be applied to a <code>text</code> or <code>text-array</code> field to define language-specific text processing options. For more information, see <a href=\"http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-analysis-schemes.html\" target=\"_blank\">Configuring Analysis Schemes</a> in the <i>Amazon CloudSearch Developer Guide</i>.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/DefineAnalysisSchemeRequest"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DefineAnalysisSchemeResponse"
+      },
+      "security": {
+        "amazonaws_cloudsearch": {
+          "integration": "amazonaws_cloudsearch"
+        }
+      }
+    },
+    {
+      "id": "DefineExpression",
+      "title": "DefineExpression",
+      "description": "Configures an <code><a>Expression</a></code> for the search domain. Used to create new expressions and modify existing ones. If the expression exists, the new configuration replaces the old one. For more information, see <a href=\"http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-expressions.html\" target=\"_blank\">Configuring Expressions</a> in the <i>Amazon CloudSearch Developer Guide</i>.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/DefineExpressionRequest"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DefineExpressionResponse"
+      },
+      "security": {
+        "amazonaws_cloudsearch": {
+          "integration": "amazonaws_cloudsearch"
+        }
+      }
+    },
+    {
+      "id": "DefineIndexField",
+      "title": "DefineIndexField",
+      "description": "Configures an <code><a>IndexField</a></code> for the search domain. Used to create new fields and modify existing ones. You must specify the name of the domain you are configuring and an index field configuration. The index field configuration specifies a unique name, the index field type, and the options you want to configure for the field. The options you can specify depend on the <code><a>IndexFieldType</a></code>. If the field exists, the new configuration replaces the old one. For more information, see <a href=\"http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-index-fields.html\" target=\"_blank\">Configuring Index Fields</a> in the <i>Amazon CloudSearch Developer Guide</i>. ",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/DefineIndexFieldRequest"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DefineIndexFieldResponse"
+      },
+      "security": {
+        "amazonaws_cloudsearch": {
+          "integration": "amazonaws_cloudsearch"
+        }
+      }
+    },
+    {
+      "id": "DefineSuggester",
+      "title": "DefineSuggester",
+      "description": "Configures a suggester for a domain. A suggester enables you to display possible matches before users finish typing their queries. When you configure a suggester, you must specify the name of the text field you want to search for possible matches and a unique name for the suggester. For more information, see <a href=\"http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-suggestions.html\" target=\"_blank\">Getting Search Suggestions</a> in the <i>Amazon CloudSearch Developer Guide</i>.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/DefineSuggesterRequest"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DefineSuggesterResponse"
+      },
+      "security": {
+        "amazonaws_cloudsearch": {
+          "integration": "amazonaws_cloudsearch"
+        }
+      }
+    },
+    {
+      "id": "DeleteAnalysisScheme",
+      "title": "DeleteAnalysisScheme",
+      "description": "Deletes an analysis scheme. For more information, see <a href=\"http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-analysis-schemes.html\" target=\"_blank\">Configuring Analysis Schemes</a> in the <i>Amazon CloudSearch Developer Guide</i>. ",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/DeleteAnalysisSchemeRequest"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DeleteAnalysisSchemeResponse"
+      },
+      "security": {
+        "amazonaws_cloudsearch": {
+          "integration": "amazonaws_cloudsearch"
+        }
+      }
+    },
+    {
+      "id": "DeleteDomain",
+      "title": "DeleteDomain",
+      "description": "Permanently deletes a search domain and all of its data. Once a domain has been deleted, it cannot be recovered. For more information, see <a href=\"http://docs.aws.amazon.com/cloudsearch/latest/developerguide/deleting-domains.html\" target=\"_blank\">Deleting a Search Domain</a> in the <i>Amazon CloudSearch Developer Guide</i>. ",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/DeleteDomainRequest"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DeleteDomainResponse"
+      },
+      "security": {
+        "amazonaws_cloudsearch": {
+          "integration": "amazonaws_cloudsearch"
+        }
+      }
+    },
+    {
+      "id": "DeleteExpression",
+      "title": "DeleteExpression",
+      "description": "Removes an <code><a>Expression</a></code> from the search domain. For more information, see <a href=\"http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-expressions.html\" target=\"_blank\">Configuring Expressions</a> in the <i>Amazon CloudSearch Developer Guide</i>.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/DeleteExpressionRequest"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DeleteExpressionResponse"
+      },
+      "security": {
+        "amazonaws_cloudsearch": {
+          "integration": "amazonaws_cloudsearch"
+        }
+      }
+    },
+    {
+      "id": "DeleteIndexField",
+      "title": "DeleteIndexField",
+      "description": "Removes an <code><a>IndexField</a></code> from the search domain. For more information, see <a href=\"http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-index-fields.html\" target=\"_blank\">Configuring Index Fields</a> in the <i>Amazon CloudSearch Developer Guide</i>.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/DeleteIndexFieldRequest"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DeleteIndexFieldResponse"
+      },
+      "security": {
+        "amazonaws_cloudsearch": {
+          "integration": "amazonaws_cloudsearch"
+        }
+      }
+    },
+    {
+      "id": "DeleteSuggester",
+      "title": "DeleteSuggester",
+      "description": "Deletes a suggester. For more information, see <a href=\"http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-suggestions.html\" target=\"_blank\">Getting Search Suggestions</a> in the <i>Amazon CloudSearch Developer Guide</i>.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/DeleteSuggesterRequest"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DeleteSuggesterResponse"
+      },
+      "security": {
+        "amazonaws_cloudsearch": {
+          "integration": "amazonaws_cloudsearch"
+        }
+      }
+    },
+    {
+      "id": "DescribeAnalysisSchemes",
+      "title": "DescribeAnalysisSchemes",
+      "description": "Gets the analysis schemes configured for a domain. An analysis scheme defines language-specific text processing options for a <code>text</code> field. Can be limited to specific analysis schemes by name. By default, shows all analysis schemes and includes any pending changes to the configuration. Set the <code>Deployed</code> option to <code>true</code> to show the active configuration and exclude pending changes. For more information, see <a href=\"http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-analysis-schemes.html\" target=\"_blank\">Configuring Analysis Schemes</a> in the <i>Amazon CloudSearch Developer Guide</i>.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/DescribeAnalysisSchemesRequest"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeAnalysisSchemesResponse"
+      },
+      "security": {
+        "amazonaws_cloudsearch": {
+          "integration": "amazonaws_cloudsearch"
+        }
+      }
+    },
+    {
+      "id": "DescribeAvailabilityOptions",
+      "title": "DescribeAvailabilityOptions",
+      "description": "Gets the availability options configured for a domain. By default, shows the configuration with any pending changes. Set the <code>Deployed</code> option to <code>true</code> to show the active configuration and exclude pending changes. For more information, see <a href=\"http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-availability-options.html\" target=\"_blank\">Configuring Availability Options</a> in the <i>Amazon CloudSearch Developer Guide</i>.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/DescribeAvailabilityOptionsRequest"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeAvailabilityOptionsResponse"
+      },
+      "security": {
+        "amazonaws_cloudsearch": {
+          "integration": "amazonaws_cloudsearch"
+        }
+      }
+    },
+    {
+      "id": "DescribeDomains",
+      "title": "DescribeDomains",
+      "description": "Gets information about the search domains owned by this account. Can be limited to specific domains. Shows all domains by default. To get the number of searchable documents in a domain, use the console or submit a <code>matchall</code> request to your domain's search endpoint: <code>q=matchall&amp;amp;q.parser=structured&amp;amp;size=0</code>. For more information, see <a href=\"http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-domain-info.html\" target=\"_blank\">Getting Information about a Search Domain</a> in the <i>Amazon CloudSearch Developer Guide</i>.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/DescribeDomainsRequest"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeDomainsResponse"
+      },
+      "security": {
+        "amazonaws_cloudsearch": {
+          "integration": "amazonaws_cloudsearch"
+        }
+      }
+    },
+    {
+      "id": "DescribeExpressions",
+      "title": "DescribeExpressions",
+      "description": "Gets the expressions configured for the search domain. Can be limited to specific expressions by name. By default, shows all expressions and includes any pending changes to the configuration. Set the <code>Deployed</code> option to <code>true</code> to show the active configuration and exclude pending changes. For more information, see <a href=\"http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-expressions.html\" target=\"_blank\">Configuring Expressions</a> in the <i>Amazon CloudSearch Developer Guide</i>.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/DescribeExpressionsRequest"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeExpressionsResponse"
+      },
+      "security": {
+        "amazonaws_cloudsearch": {
+          "integration": "amazonaws_cloudsearch"
+        }
+      }
+    },
+    {
+      "id": "DescribeIndexFields",
+      "title": "DescribeIndexFields",
+      "description": "Gets information about the index fields configured for the search domain. Can be limited to specific fields by name. By default, shows all fields and includes any pending changes to the configuration. Set the <code>Deployed</code> option to <code>true</code> to show the active configuration and exclude pending changes. For more information, see <a href=\"http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-domain-info.html\" target=\"_blank\">Getting Domain Information</a> in the <i>Amazon CloudSearch Developer Guide</i>.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/DescribeIndexFieldsRequest"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeIndexFieldsResponse"
+      },
+      "security": {
+        "amazonaws_cloudsearch": {
+          "integration": "amazonaws_cloudsearch"
+        }
+      }
+    },
+    {
+      "id": "DescribeScalingParameters",
+      "title": "DescribeScalingParameters",
+      "description": "Gets the scaling parameters configured for a domain. A domain's scaling parameters specify the desired search instance type and replication count. For more information, see <a href=\"http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-scaling-options.html\" target=\"_blank\">Configuring Scaling Options</a> in the <i>Amazon CloudSearch Developer Guide</i>.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/DescribeScalingParametersRequest"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeScalingParametersResponse"
+      },
+      "security": {
+        "amazonaws_cloudsearch": {
+          "integration": "amazonaws_cloudsearch"
+        }
+      }
+    },
+    {
+      "id": "DescribeServiceAccessPolicies",
+      "title": "DescribeServiceAccessPolicies",
+      "description": "Gets information about the access policies that control access to the domain's document and search endpoints. By default, shows the configuration with any pending changes. Set the <code>Deployed</code> option to <code>true</code> to show the active configuration and exclude pending changes. For more information, see <a href=\"http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-access.html\" target=\"_blank\">Configuring Access for a Search Domain</a> in the <i>Amazon CloudSearch Developer Guide</i>.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/DescribeServiceAccessPoliciesRequest"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeServiceAccessPoliciesResponse"
+      },
+      "security": {
+        "amazonaws_cloudsearch": {
+          "integration": "amazonaws_cloudsearch"
+        }
+      }
+    },
+    {
+      "id": "DescribeSuggesters",
+      "title": "DescribeSuggesters",
+      "description": "Gets the suggesters configured for a domain. A suggester enables you to display possible matches before users finish typing their queries. Can be limited to specific suggesters by name. By default, shows all suggesters and includes any pending changes to the configuration. Set the <code>Deployed</code> option to <code>true</code> to show the active configuration and exclude pending changes. For more information, see <a href=\"http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-suggestions.html\" target=\"_blank\">Getting Search Suggestions</a> in the <i>Amazon CloudSearch Developer Guide</i>.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/DescribeSuggestersRequest"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeSuggestersResponse"
+      },
+      "security": {
+        "amazonaws_cloudsearch": {
+          "integration": "amazonaws_cloudsearch"
+        }
+      }
+    },
+    {
+      "id": "IndexDocuments",
+      "title": "IndexDocuments",
+      "description": "Tells the search domain to start indexing its documents using the latest indexing options. This operation must be invoked to activate options whose <a>OptionStatus</a> is <code>RequiresIndexDocuments</code>.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/IndexDocumentsRequest"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/IndexDocumentsResponse"
+      },
+      "security": {
+        "amazonaws_cloudsearch": {
+          "integration": "amazonaws_cloudsearch"
+        }
+      }
+    },
+    {
+      "id": "ListDomainNames",
+      "title": "ListDomainNames",
+      "description": "Lists all search domains owned by an account.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListDomainNamesResponse"
+      },
+      "security": {
+        "amazonaws_cloudsearch": {
+          "integration": "amazonaws_cloudsearch"
+        }
+      }
+    },
+    {
+      "id": "UpdateAvailabilityOptions",
+      "title": "UpdateAvailabilityOptions",
+      "description": "Configures the availability options for a domain. Enabling the Multi-AZ option expands an Amazon CloudSearch domain to an additional Availability Zone in the same Region to increase fault tolerance in the event of a service disruption. Changes to the Multi-AZ option can take about half an hour to become active. For more information, see <a href=\"http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-availability-options.html\" target=\"_blank\">Configuring Availability Options</a> in the <i>Amazon CloudSearch Developer Guide</i>.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/UpdateAvailabilityOptionsRequest"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UpdateAvailabilityOptionsResponse"
+      },
+      "security": {
+        "amazonaws_cloudsearch": {
+          "integration": "amazonaws_cloudsearch"
+        }
+      }
+    },
+    {
+      "id": "UpdateScalingParameters",
+      "title": "UpdateScalingParameters",
+      "description": "Configures scaling parameters for a domain. A domain's scaling parameters specify the desired search instance type and replication count. Amazon CloudSearch will still automatically scale your domain based on the volume of data and traffic, but not below the desired instance type and replication count. If the Multi-AZ option is enabled, these values control the resources used per Availability Zone. For more information, see <a href=\"http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-scaling-options.html\" target=\"_blank\">Configuring Scaling Options</a> in the <i>Amazon CloudSearch Developer Guide</i>. ",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/UpdateScalingParametersRequest"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UpdateScalingParametersResponse"
+      },
+      "security": {
+        "amazonaws_cloudsearch": {
+          "integration": "amazonaws_cloudsearch"
+        }
+      }
+    },
+    {
+      "id": "UpdateServiceAccessPolicies",
+      "title": "UpdateServiceAccessPolicies",
+      "description": "Configures the access rules that control access to the domain's document and search endpoints. For more information, see <a href=\"http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-access.html\" target=\"_blank\"> Configuring Access for an Amazon CloudSearch Domain</a>.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/UpdateServiceAccessPoliciesRequest"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UpdateServiceAccessPoliciesResponse"
+      },
+      "security": {
+        "amazonaws_cloudsearch": {
+          "integration": "amazonaws_cloudsearch"
+        }
+      }
+    }
+  ]
+}

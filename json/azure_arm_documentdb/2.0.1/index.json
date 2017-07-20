@@ -1,0 +1,969 @@
+{
+  "id": "azure_arm_documentdb",
+  "title": "DocumentDB",
+  "description": "Azure DocumentDB Database Service Resource Provider REST API",
+  "security": {
+    "azure_arm_documentdb": {
+      "integration": "azure_arm_documentdb",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)",
+        "redirect_uri": "The callback URL for your application"
+      },
+      "oauth": {
+        "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/authorize",
+        "description": "Azure Active Directory OAuth2 Flow",
+        "flow": "implicit",
+        "scopes": {
+          "user_impersonation": "Impersonate your user account"
+        },
+        "type": "oauth2"
+      }
+    }
+  },
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_documentdb.png"
+  },
+  "tags": [
+    "cloud",
+    "azure"
+  ],
+  "definitions": {
+    "ConsistencyPolicy": {
+      "description": "The consistency policy for the DocumentDB database account.",
+      "properties": {
+        "defaultConsistencyLevel": {
+          "description": "The default consistency level and configuration settings of the DocumentDB account.",
+          "enum": [
+            "Eventual",
+            "Session",
+            "BoundedStaleness",
+            "Strong"
+          ],
+          "type": "string",
+          "x-ms-enum": {
+            "modelAsString": false,
+            "name": "DefaultConsistencyLevel"
+          }
+        },
+        "maxIntervalInSeconds": {
+          "description": "When used with the Bounded Staleness consistency level, this value represents the time amount of staleness (in seconds) tolerated. Accepted range for this value is 1 - 100. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.",
+          "format": "int32",
+          "maximum": 100,
+          "minimum": 1,
+          "type": "integer"
+        },
+        "maxStalenessPrefix": {
+          "description": "When used with the Bounded Staleness consistency level, this value represents the number of stale requests tolerated. Accepted range for this value is 1 – 2,147,483,647. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.",
+          "format": "int64",
+          "maximum": 2147483647,
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "defaultConsistencyLevel"
+      ],
+      "type": "object"
+    },
+    "DatabaseAccount": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/Resource"
+        }
+      ],
+      "description": "A DocumentDB database account.",
+      "properties": {
+        "kind": {
+          "default": "GlobalDocumentDB",
+          "description": "Indicates the type of database account. This can only be set at database account creation.",
+          "enum": [
+            "GlobalDocumentDB",
+            "MongoDB",
+            "Parse"
+          ],
+          "type": "string",
+          "x-ms-enum": {
+            "modelAsString": true,
+            "name": "DatabaseAccountKind"
+          }
+        },
+        "properties": {
+          "$ref": "#/definitions/DatabaseAccountProperties",
+          "x-ms-client-flatten": true
+        }
+      },
+      "type": "object"
+    },
+    "DatabaseAccountConnectionString": {
+      "description": "Connection string for the DocumentDB account",
+      "properties": {
+        "connectionString": {
+          "description": "Value of the connection string",
+          "readOnly": true,
+          "type": "string"
+        },
+        "description": {
+          "description": "Description of the connection string",
+          "readOnly": true,
+          "type": "string"
+        }
+      }
+    },
+    "DatabaseAccountCreateUpdateParameters": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/Resource"
+        }
+      ],
+      "description": "Parameters to create and update DocumentDB database accounts.",
+      "properties": {
+        "kind": {
+          "default": "GlobalDocumentDB",
+          "description": "Indicates the type of database account. This can only be set at database account creation.",
+          "enum": [
+            "GlobalDocumentDB",
+            "MongoDB",
+            "Parse"
+          ],
+          "type": "string",
+          "x-ms-enum": {
+            "modelAsString": true,
+            "name": "DatabaseAccountKind"
+          }
+        },
+        "properties": {
+          "$ref": "#/definitions/DatabaseAccountCreateUpdateProperties",
+          "x-ms-client-flatten": true
+        }
+      },
+      "required": [
+        "properties"
+      ],
+      "type": "object"
+    },
+    "DatabaseAccountCreateUpdateProperties": {
+      "description": "Properties to create and update Azure DocumentDB database accounts.",
+      "properties": {
+        "consistencyPolicy": {
+          "$ref": "#/definitions/ConsistencyPolicy",
+          "description": "The consistency policy for the DocumentDB account."
+        },
+        "databaseAccountOfferType": {
+          "$ref": "#/definitions/DatabaseAccountOfferType"
+        },
+        "ipRangeFilter": {
+          "$ref": "#/definitions/IPRangeFilter",
+          "description": "DocumentDB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IPs for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces."
+        },
+        "locations": {
+          "description": "An array that contains the georeplication locations enabled for the DocumentDB account.",
+          "items": {
+            "$ref": "#/definitions/Location"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "locations",
+        "databaseAccountOfferType"
+      ],
+      "type": "object"
+    },
+    "DatabaseAccountListConnectionStringsResult": {
+      "description": "The connection strings for the given database account.",
+      "properties": {
+        "connectionStrings": {
+          "description": "An array that contains the connection strings for the DocumentDB account.",
+          "items": {
+            "$ref": "#/definitions/DatabaseAccountConnectionString"
+          },
+          "type": "array"
+        }
+      }
+    },
+    "DatabaseAccountListKeysResult": {
+      "description": "The access keys for the given database account.",
+      "properties": {
+        "primaryMasterKey": {
+          "description": "Base 64 encoded value of the primary read-write key.",
+          "readOnly": true,
+          "type": "string"
+        },
+        "properties": {
+          "$ref": "#/definitions/DatabaseAccountListReadOnlyKeysResult",
+          "x-ms-client-flatten": true
+        },
+        "secondaryMasterKey": {
+          "description": "Base 64 encoded value of the secondary read-write key.",
+          "readOnly": true,
+          "type": "string"
+        }
+      }
+    },
+    "DatabaseAccountListReadOnlyKeysResult": {
+      "description": "The read-only access keys for the given database account.",
+      "properties": {
+        "primaryReadonlyMasterKey": {
+          "description": "Base 64 encoded value of the primary read-only key.",
+          "readOnly": true,
+          "type": "string"
+        },
+        "secondaryReadonlyMasterKey": {
+          "description": "Base 64 encoded value of the secondary read-only key.",
+          "readOnly": true,
+          "type": "string"
+        }
+      }
+    },
+    "DatabaseAccountOfferType": {
+      "description": "The offer type for the DocumentDB database account.",
+      "enum": [
+        "Standard"
+      ],
+      "type": "string",
+      "x-ms-enum": {
+        "modelAsString": false,
+        "name": "DatabaseAccountOfferType"
+      }
+    },
+    "DatabaseAccountPatchParameters": {
+      "description": "Parameters for patching Azure DocumentDB database account properties.",
+      "properties": {
+        "tags": {
+          "$ref": "#/definitions/Tags"
+        }
+      },
+      "required": [
+        "tags"
+      ],
+      "type": "object"
+    },
+    "DatabaseAccountProperties": {
+      "description": "Properties for the database account.",
+      "properties": {
+        "consistencyPolicy": {
+          "$ref": "#/definitions/ConsistencyPolicy",
+          "description": "The consistency policy for the DocumentDB database account."
+        },
+        "databaseAccountOfferType": {
+          "$ref": "#/definitions/DatabaseAccountOfferType",
+          "description": "The offer type for the DocumentDB database account. Default value: Standard.",
+          "readOnly": true
+        },
+        "documentEndpoint": {
+          "description": "The connection endpoint for the DocumentDB database account.",
+          "readOnly": true,
+          "type": "string"
+        },
+        "failoverPolicies": {
+          "description": "An array that contains the regions ordered by their failover priorities.",
+          "items": {
+            "$ref": "#/definitions/FailoverPolicy"
+          },
+          "readOnly": true,
+          "type": "array"
+        },
+        "ipRangeFilter": {
+          "$ref": "#/definitions/IPRangeFilter",
+          "description": "DocumentDB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IPs for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces."
+        },
+        "provisioningState": {
+          "$ref": "#/definitions/ProvisioningState"
+        },
+        "readLocations": {
+          "description": "An array that contains of the read locations enabled for the DocumentDB account.",
+          "items": {
+            "$ref": "#/definitions/Location"
+          },
+          "readOnly": true,
+          "type": "array"
+        },
+        "writeLocations": {
+          "description": "An array that contains the write location for the DocumentDB account.",
+          "items": {
+            "$ref": "#/definitions/Location"
+          },
+          "readOnly": true,
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "DatabaseAccountRegenerateKeyParameters": {
+      "description": "Parameters to regenerate the keys within the database account.",
+      "properties": {
+        "keyKind": {
+          "description": "The access key to regenerate.",
+          "enum": [
+            "primary",
+            "secondary",
+            "primaryReadonly",
+            "secondaryReadonly"
+          ],
+          "type": "string",
+          "x-ms-enum": {
+            "modelAsString": true,
+            "name": "KeyKind"
+          }
+        }
+      },
+      "required": [
+        "keyKind"
+      ],
+      "type": "object"
+    },
+    "DatabaseAccountsListResult": {
+      "description": "The List operation response, that contains the database accounts and their properties.",
+      "properties": {
+        "value": {
+          "description": "List of database account and their properties.",
+          "items": {
+            "$ref": "#/definitions/DatabaseAccount"
+          },
+          "readOnly": true,
+          "type": "array"
+        }
+      }
+    },
+    "FailoverPolicies": {
+      "description": "The list of new failover policies for the failover priority change.",
+      "properties": {
+        "failoverPolicies": {
+          "description": "List of failover policies.",
+          "items": {
+            "$ref": "#/definitions/FailoverPolicy"
+          },
+          "type": "array"
+        }
+      }
+    },
+    "FailoverPolicy": {
+      "description": "The failover policy for a given region of a database account.",
+      "properties": {
+        "failoverPriority": {
+          "description": "The failover priority of the region. A failover priority of 0 indicates a write region. The maximum value for a failover priority = (total number of regions - 1). Failover priority values must be unique for each of the regions in which the database account exists.",
+          "format": "int32",
+          "minimum": 0,
+          "type": "integer"
+        },
+        "id": {
+          "description": "The unique identifier of the region in which the database account replicates to. Example: &lt;accountName&gt;-&lt;locationName&gt;.",
+          "readOnly": true,
+          "type": "string"
+        },
+        "locationName": {
+          "description": "The name of the region in which the database account exists.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "IPRangeFilter": {
+      "description": "DocumentDB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IPs for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.",
+      "type": "string"
+    },
+    "Location": {
+      "description": "A region in which the Azure DocumentDB database account is deployed.",
+      "properties": {
+        "documentEndpoint": {
+          "description": "The connection endpoint for the specific region. Example: https://&lt;accountName&gt;-&lt;locationName&gt;.documents.azure.com:443/",
+          "readOnly": true,
+          "type": "string"
+        },
+        "failoverPriority": {
+          "description": "The failover priority of the region. A failover priority of 0 indicates a write region. The maximum value for a failover priority = (total number of regions - 1). Failover priority values must be unique for each of the regions in which the database account exists.",
+          "format": "int32",
+          "minimum": 0,
+          "type": "integer"
+        },
+        "id": {
+          "description": "The unique identifier of the region within the database account. Example: &lt;accountName&gt;-&lt;locationName&gt;.",
+          "readOnly": true,
+          "type": "string"
+        },
+        "locationName": {
+          "description": "The name of the region.",
+          "type": "string"
+        },
+        "provisioningState": {
+          "$ref": "#/definitions/ProvisioningState"
+        }
+      },
+      "type": "object"
+    },
+    "ProvisioningState": {
+      "description": "The status of the DocumentDB account at the time the operation was called. The status can be one of following. 'Creating' – the DocumentDB account is being created. When an account is in Creating state, only properties that are specified as input for the Create DocumentDB account operation are returned. 'Succeeded' – the DocumentDB account is active for use. 'Updating' – the DocumentDB account is being updated. 'Deleting' – the DocumentDB account is being deleted. 'Failed' – the DocumentDB account failed creation.",
+      "readOnly": true,
+      "type": "string"
+    },
+    "Resource": {
+      "description": "A database account resource.",
+      "properties": {
+        "id": {
+          "description": "The unique resource identifier of the database account.",
+          "readOnly": true,
+          "type": "string"
+        },
+        "location": {
+          "description": "The location of the resource group to which the resource belongs.",
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the database account.",
+          "readOnly": true,
+          "type": "string"
+        },
+        "tags": {
+          "$ref": "#/definitions/Tags"
+        },
+        "type": {
+          "description": "The type of Azure resource.",
+          "readOnly": true,
+          "type": "string"
+        }
+      },
+      "required": [
+        "location"
+      ],
+      "type": "object",
+      "x-ms-azure-resource": true
+    },
+    "Tags": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "description": "Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters.",
+      "type": "object"
+    }
+  },
+  "actions": [
+    {
+      "id": "DatabaseAccounts_CheckNameExists",
+      "title": "DatabaseAccounts_CheckNameExists",
+      "description": "Checks that the Azure DocumentDB account name already exists. A valid account name may contain only lowercase letters, numbers, and the '-' character, and must be between 3 and 50 characters.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "accountName": {
+            "type": "string",
+            "description": "DocumentDB database account name.",
+            "maxLength": 50,
+            "minLength": 3
+          },
+          "api-version": {
+            "type": "string",
+            "description": "Version of the API to be used with the client request. The current version is 2015-04-08."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "accountName",
+          "api-version"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "azure_arm_documentdb": {
+          "integration": "azure_arm_documentdb"
+        }
+      }
+    },
+    {
+      "id": "DatabaseAccounts_List",
+      "title": "DatabaseAccounts_List",
+      "description": "Lists all the Azure DocumentDB database accounts available under the subscription.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "api-version": {
+            "type": "string",
+            "description": "Version of the API to be used with the client request. The current version is 2015-04-08."
+          },
+          "subscriptionId": {
+            "type": "string",
+            "description": "Azure subscription ID."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "api-version",
+          "subscriptionId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DatabaseAccountsListResult"
+      },
+      "security": {
+        "azure_arm_documentdb": {
+          "integration": "azure_arm_documentdb"
+        }
+      }
+    },
+    {
+      "id": "DatabaseAccounts_ListByResourceGroup",
+      "title": "DatabaseAccounts_ListByResourceGroup",
+      "description": "Lists all the Azure DocumentDB database accounts available under the given resource group.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "resourceGroupName": {
+            "type": "string",
+            "description": "Name of an Azure resource group.",
+            "pattern": "^[-\\w\\._\\(\\)]+$",
+            "maxLength": 90,
+            "minLength": 1
+          },
+          "api-version": {
+            "type": "string",
+            "description": "Version of the API to be used with the client request. The current version is 2015-04-08."
+          },
+          "subscriptionId": {
+            "type": "string",
+            "description": "Azure subscription ID."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "api-version",
+          "subscriptionId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DatabaseAccountsListResult"
+      },
+      "security": {
+        "azure_arm_documentdb": {
+          "integration": "azure_arm_documentdb"
+        }
+      }
+    },
+    {
+      "id": "DatabaseAccounts_Delete",
+      "title": "DatabaseAccounts_Delete",
+      "description": "Deletes an existing Azure DocumentDB database account.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "subscriptionId": {
+            "type": "string",
+            "description": "Azure subscription ID."
+          },
+          "resourceGroupName": {
+            "type": "string",
+            "description": "Name of an Azure resource group.",
+            "pattern": "^[-\\w\\._\\(\\)]+$",
+            "maxLength": 90,
+            "minLength": 1
+          },
+          "accountName": {
+            "type": "string",
+            "description": "DocumentDB database account name.",
+            "maxLength": 50,
+            "minLength": 3
+          },
+          "api-version": {
+            "type": "string",
+            "description": "Version of the API to be used with the client request. The current version is 2015-04-08."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "accountName",
+          "api-version"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "azure_arm_documentdb": {
+          "integration": "azure_arm_documentdb"
+        }
+      }
+    },
+    {
+      "id": "DatabaseAccounts_Get",
+      "title": "DatabaseAccounts_Get",
+      "description": "Retrieves the properties of an existing Azure DocumentDB database account.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "subscriptionId": {
+            "type": "string",
+            "description": "Azure subscription ID."
+          },
+          "resourceGroupName": {
+            "type": "string",
+            "description": "Name of an Azure resource group.",
+            "pattern": "^[-\\w\\._\\(\\)]+$",
+            "maxLength": 90,
+            "minLength": 1
+          },
+          "accountName": {
+            "type": "string",
+            "description": "DocumentDB database account name.",
+            "maxLength": 50,
+            "minLength": 3
+          },
+          "api-version": {
+            "type": "string",
+            "description": "Version of the API to be used with the client request. The current version is 2015-04-08."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "accountName",
+          "api-version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DatabaseAccount"
+      },
+      "security": {
+        "azure_arm_documentdb": {
+          "integration": "azure_arm_documentdb"
+        }
+      }
+    },
+    {
+      "id": "DatabaseAccounts_Patch",
+      "title": "DatabaseAccounts_Patch",
+      "description": "Patches the properties of an existing Azure DocumentDB database account.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "subscriptionId": {
+            "type": "string",
+            "description": "Azure subscription ID."
+          },
+          "resourceGroupName": {
+            "type": "string",
+            "description": "Name of an Azure resource group.",
+            "pattern": "^[-\\w\\._\\(\\)]+$",
+            "maxLength": 90,
+            "minLength": 1
+          },
+          "accountName": {
+            "type": "string",
+            "description": "DocumentDB database account name.",
+            "maxLength": 50,
+            "minLength": 3
+          },
+          "api-version": {
+            "type": "string",
+            "description": "Version of the API to be used with the client request. The current version is 2015-04-08."
+          },
+          "updateParameters": {
+            "$ref": "#/definitions/DatabaseAccountPatchParameters"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "accountName",
+          "api-version",
+          "updateParameters"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DatabaseAccount"
+      },
+      "security": {
+        "azure_arm_documentdb": {
+          "integration": "azure_arm_documentdb"
+        }
+      }
+    },
+    {
+      "id": "DatabaseAccounts_CreateOrUpdate",
+      "title": "DatabaseAccounts_CreateOrUpdate",
+      "description": "Creates or updates an Azure DocumentDB database account.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "subscriptionId": {
+            "type": "string",
+            "description": "Azure subscription ID."
+          },
+          "resourceGroupName": {
+            "type": "string",
+            "description": "Name of an Azure resource group.",
+            "pattern": "^[-\\w\\._\\(\\)]+$",
+            "maxLength": 90,
+            "minLength": 1
+          },
+          "accountName": {
+            "type": "string",
+            "description": "DocumentDB database account name.",
+            "maxLength": 50,
+            "minLength": 3
+          },
+          "api-version": {
+            "type": "string",
+            "description": "Version of the API to be used with the client request. The current version is 2015-04-08."
+          },
+          "createUpdateParameters": {
+            "$ref": "#/definitions/DatabaseAccountCreateUpdateParameters"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "accountName",
+          "api-version",
+          "createUpdateParameters"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DatabaseAccount"
+      },
+      "security": {
+        "azure_arm_documentdb": {
+          "integration": "azure_arm_documentdb"
+        }
+      }
+    },
+    {
+      "id": "DatabaseAccounts_FailoverPriorityChange",
+      "title": "DatabaseAccounts_FailoverPriorityChange",
+      "description": "Changes the failover priority for the Azure DocumentDB database account. A failover priority of 0 indicates a write region. The maximum value for a failover priority = (total number of regions - 1). Failover priority values must be unique for each of the regions in which the database account exists.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "subscriptionId": {
+            "type": "string",
+            "description": "Azure subscription ID."
+          },
+          "resourceGroupName": {
+            "type": "string",
+            "description": "Name of an Azure resource group.",
+            "pattern": "^[-\\w\\._\\(\\)]+$",
+            "maxLength": 90,
+            "minLength": 1
+          },
+          "accountName": {
+            "type": "string",
+            "description": "DocumentDB database account name.",
+            "maxLength": 50,
+            "minLength": 3
+          },
+          "api-version": {
+            "type": "string",
+            "description": "Version of the API to be used with the client request. The current version is 2015-04-08."
+          },
+          "failoverParameters": {
+            "$ref": "#/definitions/FailoverPolicies"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "accountName",
+          "api-version",
+          "failoverParameters"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "azure_arm_documentdb": {
+          "integration": "azure_arm_documentdb"
+        }
+      }
+    },
+    {
+      "id": "DatabaseAccounts_ListConnectionStrings",
+      "title": "DatabaseAccounts_ListConnectionStrings",
+      "description": "Lists the connection strings for the specified Azure DocumentDB database account.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "subscriptionId": {
+            "type": "string",
+            "description": "Azure subscription ID."
+          },
+          "resourceGroupName": {
+            "type": "string",
+            "description": "Name of an Azure resource group.",
+            "pattern": "^[-\\w\\._\\(\\)]+$",
+            "maxLength": 90,
+            "minLength": 1
+          },
+          "accountName": {
+            "type": "string",
+            "description": "DocumentDB database account name.",
+            "maxLength": 50,
+            "minLength": 3
+          },
+          "api-version": {
+            "type": "string",
+            "description": "Version of the API to be used with the client request. The current version is 2015-04-08."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "accountName",
+          "api-version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DatabaseAccountListConnectionStringsResult"
+      },
+      "security": {
+        "azure_arm_documentdb": {
+          "integration": "azure_arm_documentdb"
+        }
+      }
+    },
+    {
+      "id": "DatabaseAccounts_ListKeys",
+      "title": "DatabaseAccounts_ListKeys",
+      "description": "Lists the access keys for the specified Azure DocumentDB database account.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "subscriptionId": {
+            "type": "string",
+            "description": "Azure subscription ID."
+          },
+          "resourceGroupName": {
+            "type": "string",
+            "description": "Name of an Azure resource group.",
+            "pattern": "^[-\\w\\._\\(\\)]+$",
+            "maxLength": 90,
+            "minLength": 1
+          },
+          "accountName": {
+            "type": "string",
+            "description": "DocumentDB database account name.",
+            "maxLength": 50,
+            "minLength": 3
+          },
+          "api-version": {
+            "type": "string",
+            "description": "Version of the API to be used with the client request. The current version is 2015-04-08."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "accountName",
+          "api-version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DatabaseAccountListKeysResult"
+      },
+      "security": {
+        "azure_arm_documentdb": {
+          "integration": "azure_arm_documentdb"
+        }
+      }
+    },
+    {
+      "id": "DatabaseAccounts_ListReadOnlyKeys",
+      "title": "DatabaseAccounts_ListReadOnlyKeys",
+      "description": "Lists the read-only access keys for the specified Azure DocumentDB database account.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "subscriptionId": {
+            "type": "string",
+            "description": "Azure subscription ID."
+          },
+          "resourceGroupName": {
+            "type": "string",
+            "description": "Name of an Azure resource group.",
+            "pattern": "^[-\\w\\._\\(\\)]+$",
+            "maxLength": 90,
+            "minLength": 1
+          },
+          "accountName": {
+            "type": "string",
+            "description": "DocumentDB database account name.",
+            "maxLength": 50,
+            "minLength": 3
+          },
+          "api-version": {
+            "type": "string",
+            "description": "Version of the API to be used with the client request. The current version is 2015-04-08."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "accountName",
+          "api-version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DatabaseAccountListReadOnlyKeysResult"
+      },
+      "security": {
+        "azure_arm_documentdb": {
+          "integration": "azure_arm_documentdb"
+        }
+      }
+    },
+    {
+      "id": "DatabaseAccounts_RegenerateKey",
+      "title": "DatabaseAccounts_RegenerateKey",
+      "description": "Regenerates an access key for the specified Azure DocumentDB database account.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "subscriptionId": {
+            "type": "string",
+            "description": "Azure subscription ID."
+          },
+          "resourceGroupName": {
+            "type": "string",
+            "description": "Name of an Azure resource group.",
+            "pattern": "^[-\\w\\._\\(\\)]+$",
+            "maxLength": 90,
+            "minLength": 1
+          },
+          "accountName": {
+            "type": "string",
+            "description": "DocumentDB database account name.",
+            "maxLength": 50,
+            "minLength": 3
+          },
+          "api-version": {
+            "type": "string",
+            "description": "Version of the API to be used with the client request. The current version is 2015-04-08."
+          },
+          "keyToRegenerate": {
+            "$ref": "#/definitions/DatabaseAccountRegenerateKeyParameters"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "accountName",
+          "api-version",
+          "keyToRegenerate"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "azure_arm_documentdb": {
+          "integration": "azure_arm_documentdb"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,217 @@
+{
+  "id": "opencagedata",
+  "title": "OpenCage Geocoder",
+  "description": "Worldwide forward and reverse geocoding",
+  "security": {},
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/opencagedata.png"
+  },
+  "tags": [
+    "location"
+  ],
+  "definitions": {
+    "LatLng": {
+      "properties": {
+        "lat": {
+          "format": "float",
+          "type": "number"
+        },
+        "lng": {
+          "format": "float",
+          "type": "number"
+        }
+      },
+      "type": "object"
+    },
+    "Response": {
+      "properties": {
+        "documentation": {
+          "type": "string"
+        },
+        "licenses": {
+          "items": {
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "url": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "rate": {
+          "properties": {
+            "limit": {
+              "type": "integer"
+            },
+            "remaining": {
+              "type": "integer"
+            },
+            "reset": {
+              "type": "integer"
+            }
+          },
+          "type": "object"
+        },
+        "results": {
+          "items": {
+            "properties": {
+              "annotations": {
+                "type": "object"
+              },
+              "bounds": {
+                "properties": {
+                  "northeast": {
+                    "$ref": "#/definitions/LatLng"
+                  },
+                  "southwest": {
+                    "$ref": "#/definitions/LatLng"
+                  }
+                },
+                "type": "object"
+              },
+              "components": {
+                "type": "object"
+              },
+              "confidence": {
+                "type": "integer"
+              },
+              "formatted": {
+                "type": "string"
+              },
+              "geometry": {
+                "$ref": "#/definitions/LatLng"
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "status": {
+          "properties": {
+            "code": {
+              "type": "integer"
+            },
+            "message": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "stay_informed": {
+          "properties": {
+            "blog": {
+              "type": "string"
+            },
+            "twitter": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "thanks": {
+          "type": "string"
+        },
+        "timestamp": {
+          "properties": {
+            "created_http": {
+              "type": "string"
+            },
+            "created_unix": {
+              "type": "integer"
+            }
+          },
+          "type": "object"
+        },
+        "total_results": {
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "actions": [
+    {
+      "id": "vversion.format.get",
+      "title": "vversion.format.get",
+      "description": "geocode a query",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "version": {
+            "type": "integer",
+            "description": "API version."
+          },
+          "format": {
+            "type": "string",
+            "description": "format of the response. One of 'json', 'xml' or 'map'."
+          },
+          "q": {
+            "type": "string",
+            "description": "string or lat,lng to be geocoded."
+          },
+          "key": {
+            "type": "string",
+            "description": "an application key."
+          },
+          "add_request": {
+            "type": "boolean",
+            "description": "if true the request is included in the response."
+          },
+          "bounds": {
+            "type": "string",
+            "description": "four coordinate points forming the south-west and north-east corners of a bounding box (min long, min lat, max long, max lat)."
+          },
+          "countrycode": {
+            "type": "string",
+            "description": "two letter code ISO 3166-1 Alpha 2 code to limit results to that country."
+          },
+          "jsonp": {
+            "type": "string",
+            "description": "wraps the returned JSON with a function name."
+          },
+          "language": {
+            "type": "string",
+            "description": "an IETF format language code (ex: 'es' or 'pt-BR')."
+          },
+          "limit": {
+            "type": "integer",
+            "description": "maximum number of results to return. Default is 10. Maximum is 100."
+          },
+          "min_confidence": {
+            "type": "integer",
+            "description": "integer from 1-10. Only results with at least this confidence are returned."
+          },
+          "no_annotations": {
+            "type": "boolean",
+            "description": "when true annotations are not added to results."
+          },
+          "no_dedupe": {
+            "type": "boolean",
+            "description": "when true results are not deduplicated."
+          },
+          "no_record": {
+            "type": "boolean",
+            "description": "when true query content is not logged."
+          },
+          "pretty": {
+            "type": "boolean",
+            "description": "when true results are pretty printed. Useful for debugging."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "version",
+          "format",
+          "q",
+          "key"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Response"
+      }
+    }
+  ]
+}

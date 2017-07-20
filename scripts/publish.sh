@@ -1,5 +1,5 @@
 #!/bin/bash
-set -e
+#set -e
 export baseDir=`pwd`
 for dir in ./integrations/**/*/
 do

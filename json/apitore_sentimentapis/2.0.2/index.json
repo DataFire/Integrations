@@ -1,0 +1,105 @@
+{
+  "id": "apitore_sentimentapis",
+  "title": "Sentiment APIs",
+  "description": "Japanese sentiment analyzer.<BR />[Endpoint] https://api.apitore.com/api/11",
+  "security": {},
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apitore_sentimentapis.jpg"
+  },
+  "tags": [
+    "developer tools"
+  ],
+  "definitions": {
+    "SentimentEntity": {
+      "properties": {
+        "score": {
+          "description": "cosine distance",
+          "format": "double",
+          "type": "number"
+        },
+        "sentiment": {
+          "description": "sentiment",
+          "type": "string"
+        }
+      },
+      "required": [
+        "score",
+        "sentiment"
+      ],
+      "type": "object"
+    },
+    "SentimentResponseEntity": {
+      "properties": {
+        "endTime": {
+          "description": "End date",
+          "type": "string"
+        },
+        "log": {
+          "description": "Log message",
+          "type": "string"
+        },
+        "predict": {
+          "$ref": "#/definitions/SentimentEntity",
+          "description": "Output: prediction"
+        },
+        "processTime": {
+          "description": "Process time [millisecond]",
+          "type": "string"
+        },
+        "sentiments": {
+          "description": "Output: sentiments",
+          "items": {
+            "$ref": "#/definitions/SentimentEntity"
+          },
+          "type": "array"
+        },
+        "startTime": {
+          "description": "Start date",
+          "type": "string"
+        },
+        "text": {
+          "description": "Input: text",
+          "type": "string"
+        }
+      },
+      "required": [
+        "endTime",
+        "log",
+        "predict",
+        "processTime",
+        "sentiments",
+        "startTime",
+        "text"
+      ],
+      "type": "object"
+    }
+  },
+  "actions": [
+    {
+      "id": "predictUsingGET",
+      "title": "predictUsingGET",
+      "description": "Sentiment Analysis, last update at 2016-10-16.<BR />Response<BR />&nbsp; Github: <a href=\"https://github.com/keigohtr/apitore-response-parent/tree/master/word2vec-response\">word2vec-response</a><BR />&nbsp; Class: com.apitore.banana.response.sentiment.SentimentResponseEntity<BR />",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "access_token": {
+            "type": "string",
+            "description": "Access Token"
+          },
+          "text": {
+            "type": "string",
+            "description": "text"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "access_token",
+          "text"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/SentimentResponseEntity"
+      }
+    }
+  ]
+}

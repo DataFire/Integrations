@@ -1,0 +1,731 @@
+{
+  "id": "azure_arm_powerbiembedded",
+  "title": "Power BI Embedded Management Client",
+  "description": "Client to manage your Power BI Embedded workspace collections and retrieve workspaces.",
+  "security": {},
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_powerbiembedded.png"
+  },
+  "tags": [
+    "cloud",
+    "azure"
+  ],
+  "definitions": {
+    "AzureSku": {
+      "properties": {
+        "name": {
+          "description": "SKU name",
+          "enum": [
+            "S1"
+          ],
+          "type": "string",
+          "x-ms-enum": {
+            "modelAsString": true,
+            "name": "AzureSkuName"
+          }
+        },
+        "tier": {
+          "description": "SKU tier",
+          "enum": [
+            "Standard"
+          ],
+          "type": "string",
+          "x-ms-enum": {
+            "modelAsString": true,
+            "name": "AzureSkuTier"
+          }
+        }
+      },
+      "required": [
+        "name",
+        "tier"
+      ],
+      "type": "object"
+    },
+    "CheckNameRequest": {
+      "properties": {
+        "name": {
+          "description": "Workspace collection name",
+          "type": "string"
+        },
+        "type": {
+          "default": "Microsoft.PowerBI/workspaceCollections",
+          "description": "Resource type",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "CheckNameResponse": {
+      "properties": {
+        "message": {
+          "description": "Message indicating an unavailable name due to a conflict, or a description of the naming rules that are violated.",
+          "type": "string"
+        },
+        "nameAvailable": {
+          "description": "Specifies a Boolean value that indicates whether the specified Power BI Workspace Collection name is available to use.",
+          "type": "boolean"
+        },
+        "reason": {
+          "description": "Reason why the workspace collection name cannot be used.",
+          "enum": [
+            "Unavailable",
+            "Invalid"
+          ],
+          "type": "string",
+          "x-ms-enum": {
+            "modelAsString": true,
+            "name": "CheckNameReason"
+          }
+        }
+      },
+      "type": "object"
+    },
+    "CreateWorkspaceCollectionRequest": {
+      "properties": {
+        "location": {
+          "description": "Azure location",
+          "type": "string"
+        },
+        "sku": {
+          "$ref": "#/definitions/AzureSku"
+        },
+        "tags": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "type": "object"
+        }
+      },
+      "type": "object"
+    },
+    "Display": {
+      "properties": {
+        "description": {
+          "description": "The localized friendly description for the operation as shown to the user. This description should be thorough, yet concise. It will be used in tool-tips and detailed views.",
+          "type": "string"
+        },
+        "operation": {
+          "description": "The localized friendly name for the operation as shown to the user. This name should be concise (to fit in drop downs), but clear (self-documenting). Use Title Casing and include the entity/resource to which it applies.",
+          "type": "string"
+        },
+        "origin": {
+          "description": "The intended executor of the operation; governs the display of the operation in the RBAC UX and the audit logs UX. Default value is 'user,system'",
+          "type": "string"
+        },
+        "provider": {
+          "description": "The localized friendly form of the resource provider name. This form is also expected to include the publisher/company responsible. Use Title Casing. Begin with “Microsoft” for 1st party services.",
+          "type": "string"
+        },
+        "resource": {
+          "description": "The localized friendly form of the resource type related to this action/operation. This form should match the public documentation for the resource provider. Use Title Casing. For examples, refer to the “name” section.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Error": {
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "details": {
+          "items": {
+            "$ref": "#/definitions/ErrorDetail"
+          },
+          "type": "array"
+        },
+        "message": {
+          "type": "string"
+        },
+        "target": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "ErrorDetail": {
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "target": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "MigrateWorkspaceCollectionRequest": {
+      "properties": {
+        "resources": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "targetResourceGroup": {
+          "description": "Name of the resource group the Power BI workspace collections will be migrated to.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Operation": {
+      "properties": {
+        "display": {
+          "$ref": "#/definitions/Display"
+        },
+        "name": {
+          "description": "The name of the operation being performed on this particular object. This name should match the action name that appears in RBAC / the event service.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "OperationList": {
+      "properties": {
+        "value": {
+          "items": {
+            "$ref": "#/definitions/Operation"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "UpdateWorkspaceCollectionRequest": {
+      "properties": {
+        "sku": {
+          "$ref": "#/definitions/AzureSku"
+        },
+        "tags": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "type": "object"
+        }
+      },
+      "type": "object"
+    },
+    "Workspace": {
+      "properties": {
+        "id": {
+          "description": "Workspace id",
+          "type": "string"
+        },
+        "name": {
+          "description": "Workspace name",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Property bag",
+          "type": "object"
+        },
+        "type": {
+          "description": "Resource type",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "WorkspaceCollection": {
+      "properties": {
+        "id": {
+          "description": "Resource id",
+          "type": "string"
+        },
+        "location": {
+          "description": "Azure location",
+          "type": "string"
+        },
+        "name": {
+          "description": "Workspace collection name",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Properties",
+          "type": "object"
+        },
+        "sku": {
+          "$ref": "#/definitions/AzureSku"
+        },
+        "tags": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "type": "object"
+        },
+        "type": {
+          "description": "Resource type",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "WorkspaceCollectionAccessKey": {
+      "properties": {
+        "keyName": {
+          "description": "Key name",
+          "enum": [
+            "key1",
+            "key2"
+          ],
+          "type": "string",
+          "x-ms-enum": {
+            "modelAsString": false,
+            "name": "AccessKeyName"
+          }
+        }
+      },
+      "type": "object"
+    },
+    "WorkspaceCollectionAccessKeys": {
+      "properties": {
+        "key1": {
+          "description": "Access key 1",
+          "type": "string"
+        },
+        "key2": {
+          "description": "Access key 2",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "WorkspaceCollectionList": {
+      "properties": {
+        "value": {
+          "items": {
+            "$ref": "#/definitions/WorkspaceCollection"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "WorkspaceList": {
+      "properties": {
+        "value": {
+          "items": {
+            "$ref": "#/definitions/Workspace"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "actions": [
+    {
+      "id": "getAvailableOperations",
+      "title": "getAvailableOperations",
+      "description": "Indicates which operations can be performed by the Power BI Resource Provider.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "api-version": {
+            "type": "string",
+            "description": "Client Api Version."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "api-version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/OperationList"
+      }
+    },
+    {
+      "id": "WorkspaceCollections_checkNameAvailability",
+      "title": "WorkspaceCollections_checkNameAvailability",
+      "description": "Verify the specified Power BI Workspace Collection name is valid and not already in use.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "subscriptionId": {
+            "type": "string",
+            "description": "Gets subscription credentials which uniquely identify a Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
+          },
+          "location": {
+            "type": "string",
+            "description": "Azure location"
+          },
+          "api-version": {
+            "type": "string",
+            "description": "Client Api Version."
+          },
+          "body": {
+            "$ref": "#/definitions/CheckNameRequest"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "location",
+          "api-version",
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CheckNameResponse"
+      }
+    },
+    {
+      "id": "WorkspaceCollections_listBySubscription",
+      "title": "WorkspaceCollections_listBySubscription",
+      "description": "Retrieves all existing Power BI workspace collections in the specified subscription.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "subscriptionId": {
+            "type": "string",
+            "description": "Gets subscription credentials which uniquely identify a Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
+          },
+          "api-version": {
+            "type": "string",
+            "description": "Client Api Version."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "api-version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/WorkspaceCollectionList"
+      }
+    },
+    {
+      "id": "WorkspaceCollections_migrate",
+      "title": "WorkspaceCollections_migrate",
+      "description": "Migrates an existing Power BI Workspace Collection to a different resource group and/or subscription.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "subscriptionId": {
+            "type": "string",
+            "description": "Gets subscription credentials which uniquely identify a Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
+          },
+          "resourceGroupName": {
+            "type": "string",
+            "description": "Azure resource group"
+          },
+          "api-version": {
+            "type": "string",
+            "description": "Client Api Version."
+          },
+          "body": {
+            "$ref": "#/definitions/MigrateWorkspaceCollectionRequest"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "api-version",
+          "body"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "WorkspaceCollections_listByResourceGroup",
+      "title": "WorkspaceCollections_listByResourceGroup",
+      "description": "Retrieves all existing Power BI workspace collections in the specified resource group.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "subscriptionId": {
+            "type": "string",
+            "description": "Gets subscription credentials which uniquely identify a Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
+          },
+          "resourceGroupName": {
+            "type": "string",
+            "description": "Azure resource group"
+          },
+          "api-version": {
+            "type": "string",
+            "description": "Client Api Version."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "api-version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/WorkspaceCollectionList"
+      }
+    },
+    {
+      "id": "WorkspaceCollections_delete",
+      "title": "WorkspaceCollections_delete",
+      "description": "Delete a Power BI Workspace Collection.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "subscriptionId": {
+            "type": "string",
+            "description": "Gets subscription credentials which uniquely identify a Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
+          },
+          "resourceGroupName": {
+            "type": "string",
+            "description": "Azure resource group"
+          },
+          "workspaceCollectionName": {
+            "type": "string",
+            "description": "Power BI Embedded Workspace Collection name"
+          },
+          "api-version": {
+            "type": "string",
+            "description": "Client Api Version."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "workspaceCollectionName",
+          "api-version"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "WorkspaceCollections_getByName",
+      "title": "WorkspaceCollections_getByName",
+      "description": "Retrieves an existing Power BI Workspace Collection.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "subscriptionId": {
+            "type": "string",
+            "description": "Gets subscription credentials which uniquely identify a Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
+          },
+          "resourceGroupName": {
+            "type": "string",
+            "description": "Azure resource group"
+          },
+          "workspaceCollectionName": {
+            "type": "string",
+            "description": "Power BI Embedded Workspace Collection name"
+          },
+          "api-version": {
+            "type": "string",
+            "description": "Client Api Version."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "workspaceCollectionName",
+          "api-version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/WorkspaceCollection"
+      }
+    },
+    {
+      "id": "WorkspaceCollections_update",
+      "title": "WorkspaceCollections_update",
+      "description": "Update an existing Power BI Workspace Collection with the specified properties.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "subscriptionId": {
+            "type": "string",
+            "description": "Gets subscription credentials which uniquely identify a Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
+          },
+          "resourceGroupName": {
+            "type": "string",
+            "description": "Azure resource group"
+          },
+          "workspaceCollectionName": {
+            "type": "string",
+            "description": "Power BI Embedded Workspace Collection name"
+          },
+          "api-version": {
+            "type": "string",
+            "description": "Client Api Version."
+          },
+          "body": {
+            "$ref": "#/definitions/UpdateWorkspaceCollectionRequest"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "workspaceCollectionName",
+          "api-version",
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/WorkspaceCollection"
+      }
+    },
+    {
+      "id": "WorkspaceCollections_create",
+      "title": "WorkspaceCollections_create",
+      "description": "Creates a new Power BI Workspace Collection with the specified properties. A Power BI Workspace Collection contains one or more workspaces, and can be used to provision keys that provide API access to those workspaces.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "subscriptionId": {
+            "type": "string",
+            "description": "Gets subscription credentials which uniquely identify a Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
+          },
+          "resourceGroupName": {
+            "type": "string",
+            "description": "Azure resource group"
+          },
+          "workspaceCollectionName": {
+            "type": "string",
+            "description": "Power BI Embedded Workspace Collection name"
+          },
+          "api-version": {
+            "type": "string",
+            "description": "Client Api Version."
+          },
+          "body": {
+            "$ref": "#/definitions/CreateWorkspaceCollectionRequest"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "workspaceCollectionName",
+          "api-version",
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/WorkspaceCollection"
+      }
+    },
+    {
+      "id": "WorkspaceCollections_getAccessKeys",
+      "title": "WorkspaceCollections_getAccessKeys",
+      "description": "Retrieves the primary and secondary access keys for the specified Power BI Workspace Collection.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "subscriptionId": {
+            "type": "string",
+            "description": "Gets subscription credentials which uniquely identify a Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
+          },
+          "resourceGroupName": {
+            "type": "string",
+            "description": "Azure resource group"
+          },
+          "workspaceCollectionName": {
+            "type": "string",
+            "description": "Power BI Embedded Workspace Collection name"
+          },
+          "api-version": {
+            "type": "string",
+            "description": "Client Api Version."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "workspaceCollectionName",
+          "api-version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/WorkspaceCollectionAccessKeys"
+      }
+    },
+    {
+      "id": "WorkspaceCollections_regenerateKey",
+      "title": "WorkspaceCollections_regenerateKey",
+      "description": "Regenerates the primary or secondary access key for the specified Power BI Workspace Collection.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "subscriptionId": {
+            "type": "string",
+            "description": "Gets subscription credentials which uniquely identify a Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
+          },
+          "resourceGroupName": {
+            "type": "string",
+            "description": "Azure resource group"
+          },
+          "workspaceCollectionName": {
+            "type": "string",
+            "description": "Power BI Embedded Workspace Collection name"
+          },
+          "api-version": {
+            "type": "string",
+            "description": "Client Api Version."
+          },
+          "body": {
+            "$ref": "#/definitions/WorkspaceCollectionAccessKey"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "workspaceCollectionName",
+          "api-version",
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/WorkspaceCollectionAccessKeys"
+      }
+    },
+    {
+      "id": "Workspaces_List",
+      "title": "Workspaces_List",
+      "description": "Retrieves all existing Power BI workspaces in the specified workspace collection.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "subscriptionId": {
+            "type": "string",
+            "description": "Gets subscription credentials which uniquely identify a Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
+          },
+          "resourceGroupName": {
+            "type": "string",
+            "description": "Azure resource group"
+          },
+          "workspaceCollectionName": {
+            "type": "string",
+            "description": "Power BI Embedded Workspace Collection name"
+          },
+          "api-version": {
+            "type": "string",
+            "description": "Client Api Version."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "workspaceCollectionName",
+          "api-version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/WorkspaceList"
+      }
+    }
+  ]
+}

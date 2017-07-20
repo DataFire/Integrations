@@ -1,0 +1,1740 @@
+{
+  "id": "bufferapp",
+  "title": "Bufferapp",
+  "description": "Social media management for marketers and agencies",
+  "security": {
+    "bufferapp": {
+      "integration": "bufferapp",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)",
+        "redirect_uri": "The callback URL for your application"
+      },
+      "oauth": {
+        "authorizationUrl": "https://bufferapp.com/oauth2/authorize",
+        "description": "Body example for authorisation request:\n\nclient_id=...&\nredirect_uri=...&\nresponse_type=code\n\nBidy example for token request:\n\nPOST Data\nclient_id=...&\nclient_secret=...&\nredirect_uri=...&\ncode=...&\ngrant_type=authorization_code\n\nAll requests to the Buffer API must be made using HTTPS, with the access token provided in the HTTP Authorization header, request body or query string.\n",
+        "flow": "accessCode",
+        "scopes": {},
+        "tokenUrl": "https://api.bufferapp.com/1/oauth2/token.json",
+        "type": "oauth2"
+      }
+    }
+  },
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/bufferapp.png"
+  },
+  "tags": [
+    "social",
+    "marketing"
+  ],
+  "definitions": {
+    "configuration": {
+      "properties": {
+        "media": {
+          "properties": {
+            "picture_filetypes": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "picture_size_max": {
+              "type": "number"
+            },
+            "picture_size_min": {
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "services": {
+          "properties": {
+            "appdotnet": {
+              "properties": {
+                "types": {
+                  "properties": {
+                    "profile": {
+                      "properties": {
+                        "character_limit": {
+                          "type": "number"
+                        },
+                        "icons": {
+                          "properties": {
+                            "16": {
+                              "type": "string"
+                            },
+                            "32": {
+                              "type": "string"
+                            },
+                            "64": {
+                              "type": "string"
+                            }
+                          },
+                          "type": "object"
+                        },
+                        "link_attachments": {
+                          "type": "boolean"
+                        },
+                        "name": {
+                          "type": "string"
+                        },
+                        "schedule_limit": {
+                          "type": "number"
+                        },
+                        "supported_interactions": {
+                          "items": {},
+                          "type": "array"
+                        }
+                      },
+                      "type": "object"
+                    }
+                  },
+                  "type": "object"
+                },
+                "urls": {
+                  "properties": {
+                    "hashtag": {
+                      "type": "string"
+                    },
+                    "user": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            },
+            "facebook": {
+              "properties": {
+                "types": {
+                  "properties": {
+                    "group": {
+                      "properties": {
+                        "character_limit": {
+                          "type": "number"
+                        },
+                        "icons": {
+                          "properties": {
+                            "16": {
+                              "type": "string"
+                            },
+                            "32": {
+                              "type": "string"
+                            },
+                            "64": {
+                              "type": "string"
+                            }
+                          },
+                          "type": "object"
+                        },
+                        "link_attachments": {
+                          "type": "boolean"
+                        },
+                        "name": {
+                          "type": "string"
+                        },
+                        "schedule_limit": {
+                          "type": "number"
+                        },
+                        "supported_interactions": {
+                          "items": {
+                            "type": "string"
+                          },
+                          "type": "array"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "page": {
+                      "properties": {
+                        "character_limit": {
+                          "type": "number"
+                        },
+                        "icons": {
+                          "properties": {
+                            "16": {
+                              "type": "string"
+                            },
+                            "32": {
+                              "type": "string"
+                            },
+                            "64": {
+                              "type": "string"
+                            }
+                          },
+                          "type": "object"
+                        },
+                        "link_attachments": {
+                          "type": "boolean"
+                        },
+                        "name": {
+                          "type": "string"
+                        },
+                        "schedule_limit": {
+                          "type": "number"
+                        },
+                        "supported_interactions": {
+                          "items": {
+                            "type": "string"
+                          },
+                          "type": "array"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "profile": {
+                      "properties": {
+                        "character_limit": {
+                          "type": "number"
+                        },
+                        "icons": {
+                          "properties": {
+                            "16": {
+                              "type": "string"
+                            },
+                            "32": {
+                              "type": "string"
+                            },
+                            "64": {
+                              "type": "string"
+                            }
+                          },
+                          "type": "object"
+                        },
+                        "link_attachments": {
+                          "type": "boolean"
+                        },
+                        "name": {
+                          "type": "string"
+                        },
+                        "schedule_limit": {
+                          "type": "number"
+                        },
+                        "supported_interactions": {
+                          "items": {
+                            "type": "string"
+                          },
+                          "type": "array"
+                        }
+                      },
+                      "type": "object"
+                    }
+                  },
+                  "type": "object"
+                },
+                "urls": {
+                  "properties": {
+                    "user": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            },
+            "google": {
+              "properties": {
+                "types": {
+                  "properties": {
+                    "page": {
+                      "properties": {
+                        "character_limit": {
+                          "type": "number"
+                        },
+                        "icons": {
+                          "properties": {
+                            "16": {
+                              "type": "string"
+                            },
+                            "32": {
+                              "type": "string"
+                            },
+                            "64": {
+                              "type": "string"
+                            }
+                          },
+                          "type": "object"
+                        },
+                        "link_attachments": {
+                          "type": "boolean"
+                        },
+                        "name": {
+                          "type": "string"
+                        },
+                        "schedule_limit": {
+                          "type": "number"
+                        },
+                        "supported_interactions": {
+                          "items": {
+                            "type": "string"
+                          },
+                          "type": "array"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "profile": {
+                      "properties": {
+                        "character_limit": {
+                          "type": "number"
+                        },
+                        "icons": {
+                          "properties": {
+                            "16": {
+                              "type": "string"
+                            },
+                            "32": {
+                              "type": "string"
+                            },
+                            "64": {
+                              "type": "string"
+                            }
+                          },
+                          "type": "object"
+                        },
+                        "link_attachments": {
+                          "type": "boolean"
+                        },
+                        "name": {
+                          "type": "string"
+                        },
+                        "schedule_limit": {
+                          "type": "number"
+                        },
+                        "supported_interactions": {
+                          "items": {
+                            "type": "string"
+                          },
+                          "type": "array"
+                        }
+                      },
+                      "type": "object"
+                    }
+                  },
+                  "type": "object"
+                },
+                "urls": {
+                  "properties": {
+                    "user": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            },
+            "linkedin": {
+              "properties": {
+                "types": {
+                  "properties": {
+                    "group": {
+                      "properties": {
+                        "character_limit": {
+                          "type": "number"
+                        },
+                        "icons": {
+                          "properties": {
+                            "16": {
+                              "type": "string"
+                            },
+                            "32": {
+                              "type": "string"
+                            },
+                            "64": {
+                              "type": "string"
+                            }
+                          },
+                          "type": "object"
+                        },
+                        "link_attachments": {
+                          "type": "boolean"
+                        },
+                        "name": {
+                          "type": "string"
+                        },
+                        "schedule_limit": {
+                          "type": "number"
+                        },
+                        "supported_interactions": {
+                          "items": {
+                            "type": "string"
+                          },
+                          "type": "array"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "page": {
+                      "properties": {
+                        "character_limit": {
+                          "type": "number"
+                        },
+                        "icons": {
+                          "properties": {
+                            "16": {
+                              "type": "string"
+                            },
+                            "32": {
+                              "type": "string"
+                            },
+                            "64": {
+                              "type": "string"
+                            }
+                          },
+                          "type": "object"
+                        },
+                        "link_attachments": {
+                          "type": "boolean"
+                        },
+                        "name": {
+                          "type": "string"
+                        },
+                        "schedule_limit": {
+                          "type": "number"
+                        },
+                        "supported_interactions": {
+                          "items": {
+                            "type": "string"
+                          },
+                          "type": "array"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "profile": {
+                      "properties": {
+                        "character_limit": {
+                          "type": "number"
+                        },
+                        "icons": {
+                          "properties": {
+                            "16": {
+                              "type": "string"
+                            },
+                            "32": {
+                              "type": "string"
+                            },
+                            "64": {
+                              "type": "string"
+                            }
+                          },
+                          "type": "object"
+                        },
+                        "link_attachments": {
+                          "type": "boolean"
+                        },
+                        "name": {
+                          "type": "string"
+                        },
+                        "schedule_limit": {
+                          "type": "number"
+                        },
+                        "supported_interactions": {
+                          "items": {
+                            "type": "string"
+                          },
+                          "type": "array"
+                        }
+                      },
+                      "type": "object"
+                    }
+                  },
+                  "type": "object"
+                },
+                "urls": {
+                  "properties": {
+                    "user": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            },
+            "twitter": {
+              "properties": {
+                "types": {
+                  "properties": {
+                    "profile": {
+                      "properties": {
+                        "character_limit": {
+                          "type": "number"
+                        },
+                        "icons": {
+                          "properties": {
+                            "16": {
+                              "type": "string"
+                            },
+                            "32": {
+                              "type": "string"
+                            },
+                            "64": {
+                              "type": "string"
+                            }
+                          },
+                          "type": "object"
+                        },
+                        "link_attachments": {
+                          "type": "boolean"
+                        },
+                        "name": {
+                          "type": "string"
+                        },
+                        "schedule_limit": {
+                          "type": "number"
+                        },
+                        "supported_interactions": {
+                          "items": {
+                            "type": "string"
+                          },
+                          "type": "array"
+                        }
+                      },
+                      "type": "object"
+                    }
+                  },
+                  "type": "object"
+                },
+                "urls": {
+                  "properties": {
+                    "cashtag": {
+                      "type": "string"
+                    },
+                    "hashtag": {
+                      "type": "string"
+                    },
+                    "user": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "type": "object"
+    },
+    "individual-update": {
+      "properties": {
+        "buffer_count": {
+          "type": "number"
+        },
+        "buffer_percentage": {
+          "type": "number"
+        },
+        "success": {
+          "type": "boolean"
+        },
+        "update": {
+          "properties": {
+            "client_id": {
+              "type": "string"
+            },
+            "created_at": {
+              "type": "number"
+            },
+            "day": {
+              "type": "string"
+            },
+            "due_at": {
+              "type": "number"
+            },
+            "due_time": {
+              "type": "string"
+            },
+            "id": {
+              "type": "string"
+            },
+            "media": {
+              "properties": {
+                "description": {
+                  "type": "string"
+                },
+                "link": {
+                  "type": "string"
+                },
+                "title": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "profile_id": {
+              "type": "string"
+            },
+            "profile_service": {
+              "type": "string"
+            },
+            "status": {
+              "type": "string"
+            },
+            "text": {
+              "type": "string"
+            },
+            "text_formatted": {
+              "type": "string"
+            },
+            "user_id": {
+              "type": "string"
+            },
+            "via": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "type": "object"
+    },
+    "interactions": {
+      "properties": {
+        "interactions": {
+          "items": {
+            "properties": {
+              "_id": {
+                "type": "string"
+              },
+              "created_at": {
+                "type": "number"
+              },
+              "event": {
+                "type": "string"
+              },
+              "id": {
+                "type": "string"
+              },
+              "interaction_id": {
+                "type": "string"
+              },
+              "user": {
+                "properties": {
+                  "avatar": {
+                    "type": "string"
+                  },
+                  "avatar_https": {
+                    "type": "string"
+                  },
+                  "followers": {
+                    "type": "number"
+                  },
+                  "twitter_id": {
+                    "type": "string"
+                  },
+                  "username": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "total": {
+          "type": "number"
+        }
+      },
+      "type": "object"
+    },
+    "newUpdate": {
+      "properties": {
+        "buffer_count": {
+          "type": "number"
+        },
+        "buffer_percentage": {
+          "type": "number"
+        },
+        "success": {
+          "type": "boolean"
+        },
+        "updates": {
+          "items": {
+            "properties": {
+              "created_at": {
+                "type": "number"
+              },
+              "day": {
+                "type": "string"
+              },
+              "due_at": {
+                "type": "number"
+              },
+              "due_time": {
+                "type": "string"
+              },
+              "id": {
+                "type": "string"
+              },
+              "media": {
+                "properties": {
+                  "description": {
+                    "type": "string"
+                  },
+                  "link": {
+                    "type": "string"
+                  },
+                  "title": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              "profile_id": {
+                "type": "string"
+              },
+              "profile_service": {
+                "type": "string"
+              },
+              "status": {
+                "type": "string"
+              },
+              "text": {
+                "type": "string"
+              },
+              "text_formatted": {
+                "type": "string"
+              },
+              "user_id": {
+                "type": "string"
+              },
+              "via": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "profile": {
+      "properties": {
+        "avatar": {
+          "type": "string"
+        },
+        "created_at": {
+          "type": "number"
+        },
+        "default": {
+          "type": "boolean"
+        },
+        "formatted_username": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "schedules": {
+          "items": {
+            "properties": {
+              "days": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "times": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "service": {
+          "type": "string"
+        },
+        "service_id": {
+          "type": "string"
+        },
+        "service_username": {
+          "type": "string"
+        },
+        "statistics": {
+          "properties": {
+            "followers": {
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "team_members": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "timezone": {
+          "type": "string"
+        },
+        "user_id": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "profiles": {
+      "items": {
+        "properties": {
+          "_id": {
+            "type": "string"
+          },
+          "avatar": {
+            "type": "string"
+          },
+          "avatar_https": {
+            "type": "string"
+          },
+          "counts": {
+            "properties": {
+              "daily_suggestions": {
+                "type": "number"
+              },
+              "drafts": {
+                "type": "number"
+              },
+              "pending": {
+                "type": "number"
+              },
+              "sent": {
+                "type": "number"
+              }
+            },
+            "type": "object"
+          },
+          "cover_photo": {
+            "type": "string"
+          },
+          "default": {
+            "type": "boolean"
+          },
+          "disabled_features": {
+            "items": {},
+            "type": "array"
+          },
+          "disconnected": {
+            "type": "string"
+          },
+          "formatted_service": {
+            "type": "string"
+          },
+          "formatted_username": {
+            "type": "string"
+          },
+          "has_used_suggestions": {
+            "type": "boolean"
+          },
+          "id": {
+            "type": "string"
+          },
+          "schedules": {
+            "items": {
+              "properties": {
+                "days": {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                "times": {
+                  "items": {},
+                  "type": "array"
+                }
+              },
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "service": {
+            "type": "string"
+          },
+          "service_id": {
+            "type": "string"
+          },
+          "service_type": {
+            "type": "string"
+          },
+          "service_username": {
+            "type": "string"
+          },
+          "shortener": {
+            "properties": {
+              "domain": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "statistics": {
+            "properties": {
+              "connections": {
+                "type": "number"
+              }
+            },
+            "type": "object"
+          },
+          "timezone": {
+            "type": "string"
+          },
+          "user_id": {
+            "type": "string"
+          },
+          "utm_tracking": {
+            "type": "string"
+          },
+          "verb": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "reorder": {
+      "properties": {
+        "success": {
+          "type": "boolean"
+        },
+        "updates": {
+          "items": {
+            "properties": {
+              "created_at": {
+                "type": "number"
+              },
+              "day": {
+                "type": "string"
+              },
+              "due_at": {
+                "type": "number"
+              },
+              "due_time": {
+                "type": "string"
+              },
+              "id": {
+                "type": "string"
+              },
+              "profile_id": {
+                "type": "string"
+              },
+              "profile_service": {
+                "type": "string"
+              },
+              "status": {
+                "type": "string"
+              },
+              "text": {
+                "type": "string"
+              },
+              "text_formatted": {
+                "type": "string"
+              },
+              "user_id": {
+                "type": "string"
+              },
+              "via": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "schedules": {
+      "properties": {
+        "days": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "times": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "schedules-update": {
+      "properties": {
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "share": {
+      "properties": {
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "shares": {
+      "properties": {
+        "shares": {
+          "type": "number"
+        }
+      },
+      "type": "object"
+    },
+    "shuffle": {
+      "properties": {
+        "success": {
+          "type": "boolean"
+        },
+        "updates": {
+          "items": {
+            "properties": {
+              "created_at": {
+                "type": "number"
+              },
+              "day": {
+                "type": "string"
+              },
+              "due_at": {
+                "type": "number"
+              },
+              "due_time": {
+                "type": "string"
+              },
+              "id": {
+                "type": "string"
+              },
+              "profile_id": {
+                "type": "string"
+              },
+              "profile_service": {
+                "type": "string"
+              },
+              "status": {
+                "type": "string"
+              },
+              "text": {
+                "type": "string"
+              },
+              "text_formatted": {
+                "type": "string"
+              },
+              "user_id": {
+                "type": "string"
+              },
+              "via": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "success": {
+      "properties": {
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "update": {
+      "properties": {
+        "created_at": {
+          "type": "number"
+        },
+        "day": {
+          "type": "string"
+        },
+        "due_at": {
+          "type": "number"
+        },
+        "due_time": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "profile_id": {
+          "type": "string"
+        },
+        "profile_service": {
+          "type": "string"
+        },
+        "sent_at": {
+          "type": "number"
+        },
+        "service_update_id": {
+          "type": "string"
+        },
+        "statistics": {
+          "properties": {
+            "clicks": {
+              "type": "number"
+            },
+            "favorites": {
+              "type": "number"
+            },
+            "mentions": {
+              "type": "number"
+            },
+            "reach": {
+              "type": "number"
+            },
+            "retweets": {
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "status": {
+          "type": "string"
+        },
+        "text": {
+          "type": "string"
+        },
+        "text_formatted": {
+          "type": "string"
+        },
+        "user_id": {
+          "type": "string"
+        },
+        "via": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "updates-array": {
+      "properties": {
+        "total": {
+          "type": "number"
+        },
+        "updates": {
+          "items": {
+            "properties": {
+              "created_at": {
+                "type": "number"
+              },
+              "day": {
+                "type": "string"
+              },
+              "due_at": {
+                "type": "number"
+              },
+              "due_time": {
+                "type": "string"
+              },
+              "id": {
+                "type": "string"
+              },
+              "profile_id": {
+                "type": "string"
+              },
+              "profile_service": {
+                "type": "string"
+              },
+              "status": {
+                "type": "string"
+              },
+              "text": {
+                "type": "string"
+              },
+              "text_formatted": {
+                "type": "string"
+              },
+              "user_id": {
+                "type": "string"
+              },
+              "via": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "user": {
+      "properties": {
+        "_id": {
+          "type": "string"
+        },
+        "activity_at": {
+          "type": "number"
+        },
+        "created_at": {
+          "type": "number"
+        },
+        "id": {
+          "type": "string"
+        },
+        "plan": {
+          "type": "string"
+        },
+        "referral_link": {
+          "type": "string"
+        },
+        "referral_token": {
+          "type": "string"
+        },
+        "secret_email": {
+          "type": "string"
+        },
+        "timezone": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "actions": [
+    {
+      "id": "oauthCallback",
+      "title": "",
+      "description": "Exchange the code passed to your redirect URI for an access_token",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "title": "code",
+            "type": "string"
+          }
+        },
+        "required": [
+          "code"
+        ]
+      },
+      "outputSchema": {
+        "properties": {
+          "access_token": {
+            "type": "string"
+          },
+          "refresh_token": {
+            "type": "string"
+          },
+          "token_type": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "expiration": {
+            "type": "string"
+          }
+        }
+      },
+      "security": {
+        "bufferapp": {
+          "integration": "bufferapp"
+        }
+      }
+    },
+    {
+      "id": "oauthRefresh",
+      "title": "",
+      "description": "Exchange a refresh_token for an access_token",
+      "inputSchema": {},
+      "outputSchema": {
+        "properties": {
+          "access_token": {
+            "type": "string"
+          },
+          "refresh_token": {
+            "type": "string"
+          },
+          "token_type": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "expiration": {
+            "type": "string"
+          }
+        }
+      },
+      "security": {
+        "bufferapp": {
+          "integration": "bufferapp"
+        }
+      }
+    },
+    {
+      "id": "info.configuration.json.get",
+      "title": "info.configuration.json.get",
+      "description": "Returns an object with the current configuration that Buffer is using, including supported services, their icons and the varying limits of character and schedules.",
+      "inputSchema": {},
+      "outputSchema": {
+        "$ref": "#/definitions/configuration"
+      },
+      "security": {
+        "bufferapp": {
+          "integration": "bufferapp"
+        }
+      }
+    },
+    {
+      "id": "links.shares.json.get",
+      "title": "links.shares.json.get",
+      "description": "Returns an object with a the numbers of shares a link has had using Buffer.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string",
+            "description": "URL-encoded URL of the page for which the number of shares is requested."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "url"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/shares"
+      },
+      "security": {
+        "bufferapp": {
+          "integration": "bufferapp"
+        }
+      }
+    },
+    {
+      "id": "profiles.id.schedules.update.json.post",
+      "title": "profiles.id.schedules.update.json.post",
+      "description": "\"Set the posting schedules for the specified social media profile.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/success"
+      },
+      "security": {
+        "bufferapp": {
+          "integration": "bufferapp"
+        }
+      }
+    },
+    {
+      "id": "profiles.id.schedules.json.get",
+      "title": "profiles.id.schedules.json.get",
+      "description": "Returns details of the posting schedules associated with a social media profile.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/schedules"
+      },
+      "security": {
+        "bufferapp": {
+          "integration": "bufferapp"
+        }
+      }
+    },
+    {
+      "id": "profiles.id.updates.pending.json.get",
+      "title": "profiles.id.updates.pending.json.get",
+      "description": "\"Returns an array of updates that are currently in the buffer for an individual social media profile.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "page": {
+            "type": "integer",
+            "description": "Specifies the page of status updates to receive. If not specified the first page of results will be returned."
+          },
+          "count": {
+            "type": "integer",
+            "description": "Specifies the number of status updates to receive. If provided, must be between 1 and 100."
+          },
+          "since": {
+            "type": "string",
+            "format": "date",
+            "description": "Specifies a unix timestamp which only status updates created after this time will be retrieved."
+          },
+          "utc": {
+            "type": "boolean",
+            "description": "If utc is set times will be returned relative to UTC rather than the users associated timezone."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/updates-array"
+      },
+      "security": {
+        "bufferapp": {
+          "integration": "bufferapp"
+        }
+      }
+    },
+    {
+      "id": "profiles.id.updates.reorder.json.post",
+      "title": "profiles.id.updates.reorder.json.post",
+      "description": "Edit the order at which statuses for the specified social media profile will be sent out of the buffer.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/shuffle"
+      },
+      "security": {
+        "bufferapp": {
+          "integration": "bufferapp"
+        }
+      }
+    },
+    {
+      "id": "profiles.id.updates.sent.json.get",
+      "title": "profiles.id.updates.sent.json.get",
+      "description": "Returns an array of updates that have been sent from the buffer for an individual social media profile.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "page": {
+            "type": "integer",
+            "description": "Specifies the page of status updates to receive. If not specified the first page of results will be returned."
+          },
+          "count": {
+            "type": "integer",
+            "description": "Specifies the number of status updates to receive. If provided, must be between 1 and 100."
+          },
+          "since": {
+            "type": "string",
+            "format": "date",
+            "description": "Specifies a unix timestamp which only status updates created after this time will be retrieved."
+          },
+          "utc": {
+            "type": "boolean",
+            "description": "If utc is set times will be returned relative to UTC rather than the users associated timezone."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/updates-array"
+      },
+      "security": {
+        "bufferapp": {
+          "integration": "bufferapp"
+        }
+      }
+    },
+    {
+      "id": "profiles.id.updates.shuffle.json.post",
+      "title": "profiles.id.updates.shuffle.json.post",
+      "description": "Randomize the order at which statuses for the specified social media profile will be sent out of the buffer.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/shuffle"
+      },
+      "security": {
+        "bufferapp": {
+          "integration": "bufferapp"
+        }
+      }
+    },
+    {
+      "id": "profiles.id.json.get",
+      "title": "profiles.id.json.get",
+      "description": "Returns details of the single specified social media profile.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/profile"
+      },
+      "security": {
+        "bufferapp": {
+          "integration": "bufferapp"
+        }
+      }
+    },
+    {
+      "id": "profiles.json.get",
+      "title": "profiles.json.get",
+      "description": "Returns an array of social media profiles connected to a users account.",
+      "inputSchema": {},
+      "outputSchema": {
+        "$ref": "#/definitions/profiles"
+      },
+      "security": {
+        "bufferapp": {
+          "integration": "bufferapp"
+        }
+      }
+    },
+    {
+      "id": "updates.create.json.post",
+      "title": "updates.create.json.post",
+      "description": "Create one or more new status updates.\n",
+      "inputSchema": {},
+      "outputSchema": {
+        "$ref": "#/definitions/newUpdate"
+      },
+      "security": {
+        "bufferapp": {
+          "integration": "bufferapp"
+        }
+      }
+    },
+    {
+      "id": "updates.id.destroy.json.post",
+      "title": "updates.id.destroy.json.post",
+      "description": "Permanently delete an existing status update.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/success"
+      },
+      "security": {
+        "bufferapp": {
+          "integration": "bufferapp"
+        }
+      }
+    },
+    {
+      "id": "updates.id.interactions.json.get",
+      "title": "updates.id.interactions.json.get",
+      "description": "Returns the detailed information on individual interactions with the social media update such as favorites, retweets and likes.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "event": {
+            "type": "string",
+            "description": "Specifies a type of event to be retrieved, for example \"retweet\", \"like\", \"comment\", \"mention\" or \"reshare\". They can also be plural (e.g., \"reshares\"). Plurality has no effect other than visual semantics. See /info/configuration for more information on supported interaction events.\n"
+          },
+          "page": {
+            "type": "integer",
+            "description": "Specifies the page of status updates to receive. If not specified the first page of results will be returned."
+          },
+          "count": {
+            "type": "integer",
+            "description": "Specifies the number of status updates to receive. If provided, must be between 1 and 100."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "event"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/interactions"
+      },
+      "security": {
+        "bufferapp": {
+          "integration": "bufferapp"
+        }
+      }
+    },
+    {
+      "id": "updates.id.move_to_top.json.post",
+      "title": "updates.id.move_to_top.json.post",
+      "description": "Move an existing status update to the top of the queue and recalculate times for all updates in the queue. Returns the update with its new posting time.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/update"
+      },
+      "security": {
+        "bufferapp": {
+          "integration": "bufferapp"
+        }
+      }
+    },
+    {
+      "id": "updates.id.share.json.post",
+      "title": "updates.id.share.json.post",
+      "description": "Immediately shares a single pending update and recalculates times for updates remaining in the queue.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/success"
+      },
+      "security": {
+        "bufferapp": {
+          "integration": "bufferapp"
+        }
+      }
+    },
+    {
+      "id": "updates.id.update.json.post",
+      "title": "updates.id.update.json.post",
+      "description": "Edit an existing, individual status update.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/individual-update"
+      },
+      "security": {
+        "bufferapp": {
+          "integration": "bufferapp"
+        }
+      }
+    },
+    {
+      "id": "updates.id.json.get",
+      "title": "updates.id.json.get",
+      "description": "Returns a single social media update.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/update"
+      },
+      "security": {
+        "bufferapp": {
+          "integration": "bufferapp"
+        }
+      }
+    },
+    {
+      "id": "user.json.get",
+      "title": "user.json.get",
+      "description": "Returns a single user.",
+      "inputSchema": {},
+      "outputSchema": {
+        "$ref": "#/definitions/user"
+      },
+      "security": {
+        "bufferapp": {
+          "integration": "bufferapp"
+        }
+      }
+    }
+  ]
+}

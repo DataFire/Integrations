@@ -1,0 +1,107 @@
+{
+  "id": "apitore_url2labelbywordvectorapis",
+  "title": "Url2Label by word vector APIs",
+  "description": "Url to label by word2vec of contents.<BR />[Endpoint] https://api.apitore.com/api/21",
+  "security": {},
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apitore_url2labelbywordvectorapis.jpg"
+  },
+  "tags": [],
+  "definitions": {
+    "LabelEntity": {
+      "properties": {
+        "label": {
+          "description": "label",
+          "type": "string"
+        },
+        "score": {
+          "description": "tfidf score",
+          "format": "double",
+          "type": "number"
+        }
+      },
+      "required": [
+        "label",
+        "score"
+      ],
+      "type": "object"
+    },
+    "LabelResponseEntity": {
+      "properties": {
+        "endTime": {
+          "description": "End date",
+          "type": "string"
+        },
+        "input": {
+          "description": "Input word",
+          "type": "string"
+        },
+        "labels": {
+          "description": "Distances",
+          "items": {
+            "$ref": "#/definitions/LabelEntity"
+          },
+          "type": "array"
+        },
+        "log": {
+          "description": "Log message",
+          "type": "string"
+        },
+        "num": {
+          "description": "Input num",
+          "type": "string"
+        },
+        "processTime": {
+          "description": "Process time [millisecond]",
+          "type": "string"
+        },
+        "startTime": {
+          "description": "Start date",
+          "type": "string"
+        }
+      },
+      "required": [
+        "endTime",
+        "input",
+        "log",
+        "num",
+        "processTime",
+        "startTime"
+      ],
+      "type": "object"
+    }
+  },
+  "actions": [
+    {
+      "id": "getUsingGET_4",
+      "title": "getUsingGET_4",
+      "description": "Url2Label by kmeans of word vectors.<BR />Response<BR />&nbsp; Github: <a href=\"https://github.com/keigohtr/apitore-response-parent/tree/master/summarize-response\">summarize-response</a><BR />&nbsp; Class: com.apitore.banana.response.summarize.LabelResponseEntity<BR />",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "access_token": {
+            "type": "string",
+            "description": "Access Token"
+          },
+          "url": {
+            "type": "string",
+            "description": "url"
+          },
+          "num": {
+            "type": "integer",
+            "format": "int32",
+            "description": "num [max 10, default 1]"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "access_token",
+          "url"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/LabelResponseEntity"
+      }
+    }
+  ]
+}
