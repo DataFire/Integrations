@@ -52,7 +52,9 @@
         "pages_manage_leads": "",
         "ads_read": "",
         "ads_management": ""
-      }
+      },
+      "tokenUrl": "https://graph.facebook.com/oauth/access_token",
+      "authorizationUrl": "https://www.facebook.com/dialog/oauth"
     }
   },
   "paths": {

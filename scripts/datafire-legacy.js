@@ -2,6 +2,7 @@ const async = require('async');
 const request = require('request');
 const fs = require('fs');
 const integrate = require('./integrate');
+const args = require('yargs').argv;
 
 const OUT_DIR = __dirname + '/../integrations/generated';
 
@@ -48,6 +49,7 @@ const integrations = {
 
 async.series(Object.keys(integrations).map(name => {
   return acb => {
+    if (args.name && args.name !== name) return acb();
     let url = `https://datafire.io/api/connection/${integrations[name]}`;
     request.get(url, {json: true}, (err, resp, details) => {
       if (err) throw err;
