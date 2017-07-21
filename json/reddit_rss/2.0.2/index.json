@@ -3,6 +3,9 @@
   "title": "www.reddit.com",
   "description": "",
   "security": {},
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/reddit_rss.svg"
+  },
   "tags": [],
   "definitions": {
     "Feed": {

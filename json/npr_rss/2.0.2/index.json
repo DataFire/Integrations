@@ -3,6 +3,9 @@
   "title": "www.npr.org",
   "description": "",
   "security": {},
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/npr_rss.JPG"
+  },
   "tags": [],
   "actions": [
     {

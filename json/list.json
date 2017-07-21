@@ -4883,6 +4883,9 @@
     "id": "cnn_rss",
     "title": "rss.cnn.com",
     "security": {},
+    "logo": {
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/cnn_rss.png"
+    },
     "tags": [],
     "actionCount": 4,
     "latestVersion": "2.0.2"
@@ -10712,6 +10715,9 @@
     "id": "npr_rss",
     "title": "www.npr.org",
     "security": {},
+    "logo": {
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/npr_rss.JPG"
+    },
     "tags": [],
     "actionCount": 1,
     "latestVersion": "2.0.2"
@@ -10910,6 +10916,9 @@
     "id": "nytimes_rss",
     "title": "rss.nytimes.com",
     "security": {},
+    "logo": {
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/nytimes_rss.png"
+    },
     "tags": [],
     "actionCount": 5,
     "latestVersion": "2.0.2"
@@ -11405,6 +11414,9 @@
     "id": "reddit_rss",
     "title": "www.reddit.com",
     "security": {},
+    "logo": {
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/reddit_rss.svg"
+    },
     "tags": [],
     "actionCount": 2,
     "latestVersion": "2.0.2"
@@ -11908,7 +11920,8 @@
     "description": "This is an API designed for merchants who are using SpectroCoin services and wishes to integrate them locally.",
     "security": {},
     "logo": {
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/spectrocoin.svg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/spectrocoin.svg",
+      "backgroundColor": "#333333"
     },
     "tags": [
       "ecommerce",
@@ -12690,6 +12703,9 @@
     "title": "File Server",
     "description": "Serve static files, such as HTML, CSS, JavaScript, and images",
     "security": {},
+    "logo": {
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/fileserver.png"
+    },
     "tags": [],
     "actionCount": 1,
     "latestVersion": "1.0.1"
@@ -12699,6 +12715,9 @@
     "title": "HTTP",
     "description": "Make HTTP calls",
     "security": {},
+    "logo": {
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/http.png"
+    },
     "tags": [],
     "actionCount": 8,
     "latestVersion": "2.0.0"
@@ -12707,6 +12726,9 @@
     "id": "lucybot_docs",
     "title": "LucyBot API Documentation",
     "security": {},
+    "logo": {
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/lucybot_docs.svg"
+    },
     "tags": [],
     "actionCount": 1,
     "latestVersion": "1.0.2"
@@ -12722,6 +12744,9 @@
           "url": "A mongodb URL"
         }
       }
+    },
+    "logo": {
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/mongodb.png"
     },
     "tags": [],
     "actionCount": 6,
