@@ -9,12 +9,13 @@ const OUTDIR = __dirname + '/../logos';
 
 iterate(function(dir, name, integ) {
   let logo = integ.logo;
+  try {
+    logo = require(dir + '/info.json').logo || logo;
+  } catch (e) {}
   if (!logo) {
-    try {
-      logo = require(dir + '/info.json').logo;
-    } catch (e) {}
+    console.log('no logo:' + name);
+    return;
   }
-  if (!logo) return;
   console.log(name);
   logos[name] = logo.url;
 }, name => !args.name || args.name === name);
@@ -23,7 +24,10 @@ async.series(Object.keys(logos).map(name => {
   return function(acb) {
     console.log(name, logos[name]);
     let extname = logos[name].match(/\.(\w+)$/)[1];
-    request.get(logos[name])
+    request.get(logos[name], (err, resp, body) => {
+      if (err) throw err;
+      if (resp.statusCode >= 300) throw new Error("Error fetching logo for " + name + ": " + resp.statusCode);
+    })
         .pipe(fs.createWriteStream(OUTDIR + '/' + name + '.' + extname))
         .on('close', acb);
   }
