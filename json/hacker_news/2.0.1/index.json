@@ -3,9 +3,13 @@
   "title": "Hacker News",
   "description": "Hacker News is a social news website focusing on computer science and entrepreneurship",
   "security": {},
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/hacker_news.ico"
+  },
   "tags": [],
   "definitions": {
     "Item": {
+      "type": "object",
       "properties": {
         "id": {
           "type": "integer",
@@ -59,6 +63,7 @@
       }
     },
     "User": {
+      "type": "object",
       "properties": {
         "id": {
           "type": "string"
