@@ -10,15 +10,7 @@ npm install --save datafire @datafire/amazonaws_autoscaling
 ```js
 let datafire = require('datafire');
 let amazonaws_autoscaling = require('@datafire/amazonaws_autoscaling').actions;
-
-let account = {
-  hmac: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    amazonaws_autoscaling: account,
-  }
-})
+let context = new datafire.Context();
 
 amazonaws_autoscaling.DeleteScalingPolicy({}, context).then(data => {
   console.log(data);
@@ -30,200 +22,78 @@ amazonaws_autoscaling.DeleteScalingPolicy({}, context).then(data => {
 
 ## Actions
 ### DeleteScalingPolicy
-<p>Deletes the specified Application Auto Scaling scaling policy.</p> <p>Deleting a policy deletes the underlying alarm action, but does not delete the CloudWatch alarm associated with the scaling policy, even if it no longer has an associated action.</p> <p>To create a scaling policy or update an existing one, see <a>PutScalingPolicy</a>.</p>
+
 
 
 ```js
-amazonaws_autoscaling.DeleteScalingPolicy({
-  "body": {
-    "PolicyName": "",
-    "ServiceNamespace": "",
-    "ResourceId": "",
-    "ScalableDimension": ""
-  },
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_autoscaling.DeleteScalingPolicy({}, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 
 ### DeregisterScalableTarget
-<p>Deregisters a scalable target.</p> <p>Deregistering a scalable target deletes the scaling policies that are associated with it.</p> <p>To create a scalable target or update an existing one, see <a>RegisterScalableTarget</a>.</p>
+
 
 
 ```js
-amazonaws_autoscaling.DeregisterScalableTarget({
-  "body": {
-    "ServiceNamespace": "",
-    "ResourceId": "",
-    "ScalableDimension": ""
-  },
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_autoscaling.DeregisterScalableTarget({}, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 
 ### DescribeScalableTargets
-<p>Provides descriptive information about the scalable targets in the specified namespace.</p> <p>You can filter the results using the <code>ResourceIds</code> and <code>ScalableDimension</code> parameters.</p> <p>To create a scalable target or update an existing one, see <a>RegisterScalableTarget</a>. If you are no longer using a scalable target, you can deregister it using <a>DeregisterScalableTarget</a>.</p>
+
 
 
 ```js
-amazonaws_autoscaling.DescribeScalableTargets({
-  "body": {
-    "ServiceNamespace": ""
-  },
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_autoscaling.DescribeScalableTargets({}, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* MaxResults (string) - Pagination limit
-* NextToken (string) - Pagination token
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
+* MaxResults (string)
+* NextToken (string)
 
 ### DescribeScalingActivities
-<p>Provides descriptive information about the scaling activities in the specified namespace from the previous six weeks.</p> <p>You can filter the results using the <code>ResourceId</code> and <code>ScalableDimension</code> parameters.</p> <p>Scaling activities are triggered by CloudWatch alarms that are associated with scaling policies. To view the scaling policies for a service namespace, see <a>DescribeScalingPolicies</a>. To create a scaling policy or update an existing one, see <a>PutScalingPolicy</a>.</p>
+
 
 
 ```js
-amazonaws_autoscaling.DescribeScalingActivities({
-  "body": {
-    "ServiceNamespace": ""
-  },
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_autoscaling.DescribeScalingActivities({}, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* MaxResults (string) - Pagination limit
-* NextToken (string) - Pagination token
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
+* MaxResults (string)
+* NextToken (string)
 
 ### DescribeScalingPolicies
-<p>Provides descriptive information about the scaling policies in the specified namespace.</p> <p>You can filter the results using the <code>ResourceId</code>, <code>ScalableDimension</code>, and <code>PolicyNames</code> parameters.</p> <p>To create a scaling policy or update an existing one, see <a>PutScalingPolicy</a>. If you are no longer using a scaling policy, you can delete it using <a>DeleteScalingPolicy</a>.</p>
+
 
 
 ```js
-amazonaws_autoscaling.DescribeScalingPolicies({
-  "body": {
-    "ServiceNamespace": ""
-  },
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_autoscaling.DescribeScalingPolicies({}, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* MaxResults (string) - Pagination limit
-* NextToken (string) - Pagination token
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
+* MaxResults (string)
+* NextToken (string)
 
 ### PutScalingPolicy
-<p>Creates or updates a policy for an Application Auto Scaling scalable target.</p> <p>Each scalable target is identified by a service namespace, resource ID, and scalable dimension. A scaling policy applies to the scalable target identified by those three attributes. You cannot create a scaling policy without first registering a scalable target using <a>RegisterScalableTarget</a>.</p> <p>To update a policy, specify its policy name and the parameters that you want to change. Any parameters that you don't specify are not changed by this update request.</p> <p>You can view the scaling policies for a service namespace using <a>DescribeScalingPolicies</a>. If you are no longer using a scaling policy, you can delete it using <a>DeleteScalingPolicy</a>.</p>
+
 
 
 ```js
-amazonaws_autoscaling.PutScalingPolicy({
-  "body": {
-    "PolicyName": "",
-    "ServiceNamespace": "",
-    "ResourceId": "",
-    "ScalableDimension": ""
-  },
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_autoscaling.PutScalingPolicy({}, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 
 ### RegisterScalableTarget
-<p>Registers or updates a scalable target. A scalable target is a resource that Application Auto Scaling can scale out or scale in. After you have registered a scalable target, you can use this operation to update the minimum and maximum values for your scalable dimension.</p> <p>After you register a scalable target, you can create and apply scaling policies using <a>PutScalingPolicy</a>. You can view the scaling policies for a service namespace using <a>DescribeScalableTargets</a>. If you are no longer using a scalable target, you can deregister it using <a>DeregisterScalableTarget</a>.</p>
+
 
 
 ```js
-amazonaws_autoscaling.RegisterScalableTarget({
-  "body": {
-    "ServiceNamespace": "",
-    "ResourceId": "",
-    "ScalableDimension": ""
-  },
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_autoscaling.RegisterScalableTarget({}, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 

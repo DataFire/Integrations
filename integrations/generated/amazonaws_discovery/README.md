@@ -10,15 +10,7 @@ npm install --save datafire @datafire/amazonaws_discovery
 ```js
 let datafire = require('datafire');
 let amazonaws_discovery = require('@datafire/amazonaws_discovery').actions;
-
-let account = {
-  hmac: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    amazonaws_discovery: account,
-  }
-})
+let context = new datafire.Context();
 
 amazonaws_discovery.AssociateConfigurationItemsToApplication({}, context).then(data => {
   console.log(data);
@@ -30,483 +22,192 @@ amazonaws_discovery.AssociateConfigurationItemsToApplication({}, context).then(d
 
 ## Actions
 ### AssociateConfigurationItemsToApplication
-Associates one or more configuration items with an application.
+
 
 
 ```js
-amazonaws_discovery.AssociateConfigurationItemsToApplication({
-  "body": {
-    "applicationConfigurationId": "",
-    "configurationIds": []
-  },
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_discovery.AssociateConfigurationItemsToApplication({}, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 
 ### CreateApplication
-Creates an application with the given name and description.
+
 
 
 ```js
-amazonaws_discovery.CreateApplication({
-  "body": {
-    "name": ""
-  },
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_discovery.CreateApplication({}, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 
 ### CreateTags
-Creates one or more tags for configuration items. Tags are metadata that help you categorize IT assets. This API accepts a list of multiple configuration items.
+
 
 
 ```js
-amazonaws_discovery.CreateTags({
-  "body": {
-    "configurationIds": [],
-    "tags": []
-  },
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_discovery.CreateTags({}, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 
 ### DeleteApplications
-Deletes a list of applications and their associations with configuration items.
+
 
 
 ```js
-amazonaws_discovery.DeleteApplications({
-  "body": {
-    "configurationIds": []
-  },
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_discovery.DeleteApplications({}, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 
 ### DeleteTags
-Deletes the association between configuration items and one or more tags. This API accepts a list of multiple configuration items.
+
 
 
 ```js
-amazonaws_discovery.DeleteTags({
-  "body": {
-    "configurationIds": []
-  },
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_discovery.DeleteTags({}, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 
 ### DescribeAgents
-Lists agents or the Connector by ID or lists all agents/Connectors associated with your user account if you did not specify an ID.
+
 
 
 ```js
-amazonaws_discovery.DescribeAgents({
-  "body": {},
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_discovery.DescribeAgents({}, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 
 ### DescribeConfigurations
-<p>Retrieves attributes for a list of configuration item IDs. All of the supplied IDs must be for the same asset type (server, application, process, or connection). Output fields are specific to the asset type selected. For example, the output for a <i>server</i> configuration item includes a list of attributes about the server, such as host name, operating system, and number of network cards.</p> <p>For a complete list of outputs for each asset type, see <a href="http://docs.aws.amazon.com/application-discovery/latest/APIReference/discovery-api-queries.html#DescribeConfigurations">Using the DescribeConfigurations Action</a>.</p>
+
 
 
 ```js
-amazonaws_discovery.DescribeConfigurations({
-  "body": {
-    "configurationIds": []
-  },
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_discovery.DescribeConfigurations({}, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 
 ### DescribeExportConfigurations
-<p>Deprecated. Use <code>DescribeExportTasks</code> instead.</p> <p>Retrieves the status of a given export process. You can retrieve status from a maximum of 100 processes.</p>
+
 
 
 ```js
-amazonaws_discovery.DescribeExportConfigurations({
-  "body": {},
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_discovery.DescribeExportConfigurations({}, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 
 ### DescribeExportTasks
-Retrieve status of one or more export tasks. You can retrieve the status of up to 100 export tasks.
+
 
 
 ```js
-amazonaws_discovery.DescribeExportTasks({
-  "body": {},
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_discovery.DescribeExportTasks({}, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 
 ### DescribeTags
-Retrieves a list of configuration items that are tagged with a specific tag. Or retrieves a list of all tags assigned to a specific configuration item.
+
 
 
 ```js
-amazonaws_discovery.DescribeTags({
-  "body": {},
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_discovery.DescribeTags({}, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 
 ### DisassociateConfigurationItemsFromApplication
-Disassociates one or more configuration items from an application.
+
 
 
 ```js
-amazonaws_discovery.DisassociateConfigurationItemsFromApplication({
-  "body": {
-    "applicationConfigurationId": "",
-    "configurationIds": []
-  },
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_discovery.DisassociateConfigurationItemsFromApplication({}, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 
 ### ExportConfigurations
-<p>Deprecated. Use <code>StartExportTask</code> instead.</p> <p>Exports all discovered configuration data to an Amazon S3 bucket or an application that enables you to view and evaluate the data. Data includes tags and tag associations, processes, connections, servers, and system performance. This API returns an export ID that you can query using the <i>DescribeExportConfigurations</i> API. The system imposes a limit of two configuration exports in six hours.</p>
+
 
 
 ```js
-amazonaws_discovery.ExportConfigurations({
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_discovery.ExportConfigurations({}, context)
 ```
 
 #### Parameters
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 
 ### GetDiscoverySummary
-Retrieves a short summary of discovered assets.
+
 
 
 ```js
-amazonaws_discovery.GetDiscoverySummary({
-  "body": {},
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_discovery.GetDiscoverySummary({}, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 
 ### ListConfigurations
-Retrieves a list of configuration items according to criteria that you specify in a filter. The filter criteria identifies the relationship requirements.
+
 
 
 ```js
-amazonaws_discovery.ListConfigurations({
-  "body": {
-    "configurationType": ""
-  },
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_discovery.ListConfigurations({}, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 
 ### ListServerNeighbors
-Retrieves a list of servers that are one network hop away from a specified server.
+
 
 
 ```js
-amazonaws_discovery.ListServerNeighbors({
-  "body": {
-    "configurationId": ""
-  },
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_discovery.ListServerNeighbors({}, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 
 ### StartDataCollectionByAgentIds
-Instructs the specified agents or connectors to start collecting data.
+
 
 
 ```js
-amazonaws_discovery.StartDataCollectionByAgentIds({
-  "body": {
-    "agentIds": []
-  },
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_discovery.StartDataCollectionByAgentIds({}, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 
 ### StartExportTask
-Export the configuration data about discovered configuration items and relationships to an S3 bucket in a specified format.
+
 
 
 ```js
-amazonaws_discovery.StartExportTask({
-  "body": {},
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_discovery.StartExportTask({}, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 
 ### StopDataCollectionByAgentIds
-Instructs the specified agents or connectors to stop collecting data.
+
 
 
 ```js
-amazonaws_discovery.StopDataCollectionByAgentIds({
-  "body": {
-    "agentIds": []
-  },
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_discovery.StopDataCollectionByAgentIds({}, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 
 ### UpdateApplication
-Updates metadata about an application.
+
 
 
 ```js
-amazonaws_discovery.UpdateApplication({
-  "body": {
-    "configurationId": ""
-  },
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_discovery.UpdateApplication({}, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 

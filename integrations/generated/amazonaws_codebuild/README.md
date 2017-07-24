@@ -10,15 +10,7 @@ npm install --save datafire @datafire/amazonaws_codebuild
 ```js
 let datafire = require('datafire');
 let amazonaws_codebuild = require('@datafire/amazonaws_codebuild').actions;
-
-let account = {
-  hmac: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    amazonaws_codebuild: account,
-  }
-})
+let context = new datafire.Context();
 
 amazonaws_codebuild.BatchGetBuilds({}, context).then(data => {
   console.log(data);
@@ -30,293 +22,112 @@ amazonaws_codebuild.BatchGetBuilds({}, context).then(data => {
 
 ## Actions
 ### BatchGetBuilds
-Gets information about builds.
+
 
 
 ```js
-amazonaws_codebuild.BatchGetBuilds({
-  "body": {
-    "ids": []
-  },
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_codebuild.BatchGetBuilds({}, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 
 ### BatchGetProjects
-Gets information about build projects.
+
 
 
 ```js
-amazonaws_codebuild.BatchGetProjects({
-  "body": {
-    "names": []
-  },
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_codebuild.BatchGetProjects({}, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 
 ### CreateProject
-Creates a build project.
+
 
 
 ```js
-amazonaws_codebuild.CreateProject({
-  "body": {
-    "name": "",
-    "source": {
-      "type": ""
-    },
-    "artifacts": {
-      "type": ""
-    },
-    "environment": {
-      "type": "",
-      "image": "",
-      "computeType": ""
-    }
-  },
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_codebuild.CreateProject({}, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 
 ### DeleteProject
-Deletes a build project.
+
 
 
 ```js
-amazonaws_codebuild.DeleteProject({
-  "body": {
-    "name": ""
-  },
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_codebuild.DeleteProject({}, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 
 ### ListBuilds
-Gets a list of build IDs, with each build ID representing a single build.
+
 
 
 ```js
-amazonaws_codebuild.ListBuilds({
-  "body": {},
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_codebuild.ListBuilds({}, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 
 ### ListBuildsForProject
-Gets a list of build IDs for the specified build project, with each build ID representing a single build.
+
 
 
 ```js
-amazonaws_codebuild.ListBuildsForProject({
-  "body": {
-    "projectName": ""
-  },
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_codebuild.ListBuildsForProject({}, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 
 ### ListCuratedEnvironmentImages
-Gets information about Docker images that are managed by AWS CodeBuild.
+
 
 
 ```js
-amazonaws_codebuild.ListCuratedEnvironmentImages({
-  "body": {},
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_codebuild.ListCuratedEnvironmentImages({}, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 
 ### ListProjects
-Gets a list of build project names, with each build project name representing a single build project.
+
 
 
 ```js
-amazonaws_codebuild.ListProjects({
-  "body": {},
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_codebuild.ListProjects({}, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 
 ### StartBuild
-Starts running a build.
+
 
 
 ```js
-amazonaws_codebuild.StartBuild({
-  "body": {
-    "projectName": ""
-  },
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_codebuild.StartBuild({}, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 
 ### StopBuild
-Attempts to stop running a build.
+
 
 
 ```js
-amazonaws_codebuild.StopBuild({
-  "body": {
-    "id": ""
-  },
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_codebuild.StopBuild({}, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 
 ### UpdateProject
-Changes the settings of a build project.
+
 
 
 ```js
-amazonaws_codebuild.UpdateProject({
-  "body": {
-    "name": ""
-  },
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_codebuild.UpdateProject({}, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 

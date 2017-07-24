@@ -10,15 +10,7 @@ npm install --save datafire @datafire/amazonaws_codestar
 ```js
 let datafire = require('datafire');
 let amazonaws_codestar = require('@datafire/amazonaws_codestar').actions;
-
-let account = {
-  hmac: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    amazonaws_codestar: account,
-  }
-})
+let context = new datafire.Context();
 
 amazonaws_codestar.AssociateTeamMember({}, context).then(data => {
   console.log(data);
@@ -30,395 +22,152 @@ amazonaws_codestar.AssociateTeamMember({}, context).then(data => {
 
 ## Actions
 ### AssociateTeamMember
-Adds an IAM user to the team for an AWS CodeStar project.
+
 
 
 ```js
-amazonaws_codestar.AssociateTeamMember({
-  "body": {
-    "projectId": "",
-    "userArn": "",
-    "projectRole": ""
-  },
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_codestar.AssociateTeamMember({}, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 
 ### CreateProject
-Reserved for future use. To create a project, use the AWS CodeStar console.
+
 
 
 ```js
-amazonaws_codestar.CreateProject({
-  "body": {
-    "name": "",
-    "id": ""
-  },
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_codestar.CreateProject({}, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 
 ### CreateUserProfile
-Creates a profile for a user that includes user preferences, such as the display name and email address assocciated with the user, in AWS CodeStar. The user profile is not project-specific. Information in the user profile is displayed wherever the user's information appears to other users in AWS CodeStar.
+
 
 
 ```js
-amazonaws_codestar.CreateUserProfile({
-  "body": {
-    "userArn": "",
-    "displayName": "",
-    "emailAddress": ""
-  },
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_codestar.CreateUserProfile({}, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 
 ### DeleteProject
-Deletes a project, including project resources. Does not delete users associated with the project, but does delete the IAM roles that allowed access to the project.
+
 
 
 ```js
-amazonaws_codestar.DeleteProject({
-  "body": {
-    "id": ""
-  },
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_codestar.DeleteProject({}, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 
 ### DeleteUserProfile
-Deletes a user profile in AWS CodeStar, including all personal preference data associated with that profile, such as display name and email address. It does not delete the history of that user, for example the history of commits made by that user.
+
 
 
 ```js
-amazonaws_codestar.DeleteUserProfile({
-  "body": {
-    "userArn": ""
-  },
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_codestar.DeleteUserProfile({}, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 
 ### DescribeProject
-Describes a project and its resources.
+
 
 
 ```js
-amazonaws_codestar.DescribeProject({
-  "body": {
-    "id": ""
-  },
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_codestar.DescribeProject({}, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 
 ### DescribeUserProfile
-Describes a user in AWS CodeStar and the user attributes across all projects.
+
 
 
 ```js
-amazonaws_codestar.DescribeUserProfile({
-  "body": {
-    "userArn": ""
-  },
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_codestar.DescribeUserProfile({}, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 
 ### DisassociateTeamMember
-Removes a user from a project. Removing a user from a project also removes the IAM policies from that user that allowed access to the project and its resources. Disassociating a team member does not remove that user's profile from AWS CodeStar. It does not remove the user from IAM.
+
 
 
 ```js
-amazonaws_codestar.DisassociateTeamMember({
-  "body": {
-    "projectId": "",
-    "userArn": ""
-  },
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_codestar.DisassociateTeamMember({}, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 
 ### ListProjects
-Lists all projects in AWS CodeStar associated with your AWS account.
+
 
 
 ```js
-amazonaws_codestar.ListProjects({
-  "body": {},
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_codestar.ListProjects({}, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 
 ### ListResources
-Lists resources associated with a project in AWS CodeStar.
+
 
 
 ```js
-amazonaws_codestar.ListResources({
-  "body": {
-    "projectId": ""
-  },
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_codestar.ListResources({}, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 
 ### ListTeamMembers
-Lists all team members associated with a project.
+
 
 
 ```js
-amazonaws_codestar.ListTeamMembers({
-  "body": {
-    "projectId": ""
-  },
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_codestar.ListTeamMembers({}, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 
 ### ListUserProfiles
-Lists all the user profiles configured for your AWS account in AWS CodeStar.
+
 
 
 ```js
-amazonaws_codestar.ListUserProfiles({
-  "body": {},
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_codestar.ListUserProfiles({}, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 
 ### UpdateProject
-Updates a project in AWS CodeStar.
+
 
 
 ```js
-amazonaws_codestar.UpdateProject({
-  "body": {
-    "id": ""
-  },
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_codestar.UpdateProject({}, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 
 ### UpdateTeamMember
-Updates a team member's attributes in an AWS CodeStar project. For example, you can change a team member's role in the project, or change whether they have remote access to project resources.
+
 
 
 ```js
-amazonaws_codestar.UpdateTeamMember({
-  "body": {
-    "projectId": "",
-    "userArn": ""
-  },
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_codestar.UpdateTeamMember({}, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 
 ### UpdateUserProfile
-Updates a user's profile in AWS CodeStar. The user profile is not project-specific. Information in the user profile is displayed wherever the user's information appears to other users in AWS CodeStar. 
+
 
 
 ```js
-amazonaws_codestar.UpdateUserProfile({
-  "body": {
-    "userArn": ""
-  },
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_codestar.UpdateUserProfile({}, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 

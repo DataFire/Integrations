@@ -10,15 +10,7 @@ npm install --save datafire @datafire/amazonaws_email
 ```js
 let datafire = require('datafire');
 let amazonaws_email = require('@datafire/amazonaws_email').actions;
-
-let account = {
-  hmac: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    amazonaws_email: account,
-  }
-})
+let context = new datafire.Context();
 
 amazonaws_email.CloneReceiptRuleSet({}, context).then(data => {
   console.log(data);
@@ -30,1302 +22,494 @@ amazonaws_email.CloneReceiptRuleSet({}, context).then(data => {
 
 ## Actions
 ### CloneReceiptRuleSet
-<p>Creates a receipt rule set by cloning an existing one. All receipt rules and configurations are copied to the new receipt rule set and are completely independent of the source rule set.</p> <p>For information about setting up rule sets, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-receipt-rule-set.html">Amazon SES Developer Guide</a>.</p> <p>This action is throttled at one request per second.</p>
+
 
 
 ```js
-amazonaws_email.CloneReceiptRuleSet({
-  "body": {
-    "RuleSetName": "",
-    "OriginalRuleSetName": ""
-  },
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_email.CloneReceiptRuleSet({}, context)
 ```
 
 #### Parameters
-* body (object) **required** - Represents a request to create a receipt rule set by cloning an existing one. You use receipt rule sets to receive email with Amazon SES. For more information, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html">Amazon SES Developer Guide</a>.
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 
 ### CreateConfigurationSet
-<p>Creates a configuration set.</p> <p>Configuration sets enable you to publish email sending events. For information about using configuration sets, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Amazon SES Developer Guide</a>.</p> <p>This action is throttled at one request per second.</p>
+
 
 
 ```js
-amazonaws_email.CreateConfigurationSet({
-  "body": {
-    "ConfigurationSet": {
-      "Name": ""
-    }
-  },
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_email.CreateConfigurationSet({}, context)
 ```
 
 #### Parameters
-* body (object) **required** - Represents a request to create a configuration set. Configuration sets enable you to publish email sending events. For information about using configuration sets, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Amazon SES Developer Guide</a>.
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 
 ### CreateConfigurationSetEventDestination
-<p>Creates a configuration set event destination.</p> <note> <p>When you create or update an event destination, you must provide one, and only one, destination. The destination can be either Amazon CloudWatch or Amazon Kinesis Firehose.</p> </note> <p>An event destination is the AWS service to which Amazon SES publishes the email sending events associated with a configuration set. For information about using configuration sets, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Amazon SES Developer Guide</a>.</p> <p>This action is throttled at one request per second.</p>
+
 
 
 ```js
-amazonaws_email.CreateConfigurationSetEventDestination({
-  "body": {
-    "ConfigurationSetName": "",
-    "EventDestination": {
-      "Name": "",
-      "MatchingEventTypes": []
-    }
-  },
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_email.CreateConfigurationSetEventDestination({}, context)
 ```
 
 #### Parameters
-* body (object) **required** - Represents a request to create a configuration set event destination. A configuration set event destination, which can be either Amazon CloudWatch or Amazon Kinesis Firehose, describes an AWS service in which Amazon SES publishes the email sending events associated with a configuration set. For information about using configuration sets, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Amazon SES Developer Guide</a>.
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 
 ### CreateReceiptFilter
-<p>Creates a new IP address filter.</p> <p>For information about setting up IP address filters, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-ip-filters.html">Amazon SES Developer Guide</a>.</p> <p>This action is throttled at one request per second.</p>
+
 
 
 ```js
-amazonaws_email.CreateReceiptFilter({
-  "body": {
-    "Filter": {
-      "Name": "",
-      "IpFilter": {
-        "Policy": "",
-        "Cidr": ""
-      }
-    }
-  },
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_email.CreateReceiptFilter({}, context)
 ```
 
 #### Parameters
-* body (object) **required** - Represents a request to create a new IP address filter. You use IP address filters when you receive email with Amazon SES. For more information, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html">Amazon SES Developer Guide</a>.
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 
 ### CreateReceiptRule
-<p>Creates a receipt rule.</p> <p>For information about setting up receipt rules, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-receipt-rules.html">Amazon SES Developer Guide</a>.</p> <p>This action is throttled at one request per second.</p>
+
 
 
 ```js
-amazonaws_email.CreateReceiptRule({
-  "body": {
-    "RuleSetName": "",
-    "Rule": {
-      "Name": ""
-    }
-  },
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_email.CreateReceiptRule({}, context)
 ```
 
 #### Parameters
-* body (object) **required** - Represents a request to create a receipt rule. You use receipt rules to receive email with Amazon SES. For more information, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html">Amazon SES Developer Guide</a>.
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 
 ### CreateReceiptRuleSet
-<p>Creates an empty receipt rule set.</p> <p>For information about setting up receipt rule sets, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-receipt-rule-set.html">Amazon SES Developer Guide</a>.</p> <p>This action is throttled at one request per second.</p>
+
 
 
 ```js
-amazonaws_email.CreateReceiptRuleSet({
-  "body": {
-    "RuleSetName": ""
-  },
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_email.CreateReceiptRuleSet({}, context)
 ```
 
 #### Parameters
-* body (object) **required** - Represents a request to create an empty receipt rule set. You use receipt rule sets to receive email with Amazon SES. For more information, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html">Amazon SES Developer Guide</a>.
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 
 ### DeleteConfigurationSet
-<p>Deletes a configuration set.</p> <p>Configuration sets enable you to publish email sending events. For information about using configuration sets, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Amazon SES Developer Guide</a>.</p> <p>This action is throttled at one request per second.</p>
+
 
 
 ```js
-amazonaws_email.DeleteConfigurationSet({
-  "body": {
-    "ConfigurationSetName": ""
-  },
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_email.DeleteConfigurationSet({}, context)
 ```
 
 #### Parameters
-* body (object) **required** - Represents a request to delete a configuration set. Configuration sets enable you to publish email sending events. For information about using configuration sets, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Amazon SES Developer Guide</a>.
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 
 ### DeleteConfigurationSetEventDestination
-<p>Deletes a configuration set event destination.</p> <p>Configuration set event destinations are associated with configuration sets, which enable you to publish email sending events. For information about using configuration sets, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Amazon SES Developer Guide</a>.</p> <p>This action is throttled at one request per second.</p>
+
 
 
 ```js
-amazonaws_email.DeleteConfigurationSetEventDestination({
-  "body": {
-    "ConfigurationSetName": "",
-    "EventDestinationName": ""
-  },
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_email.DeleteConfigurationSetEventDestination({}, context)
 ```
 
 #### Parameters
-* body (object) **required** - Represents a request to delete a configuration set event destination. Configuration set event destinations are associated with configuration sets, which enable you to publish email sending events. For information about using configuration sets, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Amazon SES Developer Guide</a>.
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 
 ### DeleteIdentity
-<p>Deletes the specified identity (an email address or a domain) from the list of verified identities.</p> <p>This action is throttled at one request per second.</p>
+
 
 
 ```js
-amazonaws_email.DeleteIdentity({
-  "body": {
-    "Identity": ""
-  },
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_email.DeleteIdentity({}, context)
 ```
 
 #### Parameters
-* body (object) **required** - Represents a request to delete one of your Amazon SES identities (an email address or domain).
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 
 ### DeleteIdentityPolicy
-<p>Deletes the specified sending authorization policy for the given identity (an email address or a domain). This API returns successfully even if a policy with the specified name does not exist.</p> <note> <p>This API is for the identity owner only. If you have not verified the identity, this API will return an error.</p> </note> <p>Sending authorization is a feature that enables an identity owner to authorize other senders to use its identities. For information about using sending authorization, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer Guide</a>.</p> <p>This action is throttled at one request per second.</p>
+
 
 
 ```js
-amazonaws_email.DeleteIdentityPolicy({
-  "body": {
-    "Identity": "",
-    "PolicyName": ""
-  },
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_email.DeleteIdentityPolicy({}, context)
 ```
 
 #### Parameters
-* body (object) **required** - Represents a request to delete a sending authorization policy for an identity. Sending authorization is an Amazon SES feature that enables you to authorize other senders to use your identities. For information, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer Guide</a>.
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 
 ### DeleteReceiptFilter
-<p>Deletes the specified IP address filter.</p> <p>For information about managing IP address filters, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-ip-filters.html">Amazon SES Developer Guide</a>.</p> <p>This action is throttled at one request per second.</p>
+
 
 
 ```js
-amazonaws_email.DeleteReceiptFilter({
-  "body": {
-    "FilterName": ""
-  },
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_email.DeleteReceiptFilter({}, context)
 ```
 
 #### Parameters
-* body (object) **required** - Represents a request to delete an IP address filter. You use IP address filters when you receive email with Amazon SES. For more information, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html">Amazon SES Developer Guide</a>.
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 
 ### DeleteReceiptRule
-<p>Deletes the specified receipt rule.</p> <p>For information about managing receipt rules, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rules.html">Amazon SES Developer Guide</a>.</p> <p>This action is throttled at one request per second.</p>
+
 
 
 ```js
-amazonaws_email.DeleteReceiptRule({
-  "body": {
-    "RuleSetName": "",
-    "RuleName": ""
-  },
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_email.DeleteReceiptRule({}, context)
 ```
 
 #### Parameters
-* body (object) **required** - Represents a request to delete a receipt rule. You use receipt rules to receive email with Amazon SES. For more information, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html">Amazon SES Developer Guide</a>.
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 
 ### DeleteReceiptRuleSet
-<p>Deletes the specified receipt rule set and all of the receipt rules it contains.</p> <note> <p>The currently active rule set cannot be deleted.</p> </note> <p>For information about managing receipt rule sets, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rule-sets.html">Amazon SES Developer Guide</a>.</p> <p>This action is throttled at one request per second.</p>
+
 
 
 ```js
-amazonaws_email.DeleteReceiptRuleSet({
-  "body": {
-    "RuleSetName": ""
-  },
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_email.DeleteReceiptRuleSet({}, context)
 ```
 
 #### Parameters
-* body (object) **required** - Represents a request to delete a receipt rule set and all of the receipt rules it contains. You use receipt rule sets to receive email with Amazon SES. For more information, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html">Amazon SES Developer Guide</a>.
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 
 ### DeleteVerifiedEmailAddress
-<p>Deletes the specified email address from the list of verified addresses.</p> <important> <p>The DeleteVerifiedEmailAddress action is deprecated as of the May 15, 2012 release of Domain Verification. The DeleteIdentity action is now preferred.</p> </important> <p>This action is throttled at one request per second.</p>
+
 
 
 ```js
-amazonaws_email.DeleteVerifiedEmailAddress({
-  "body": {
-    "EmailAddress": ""
-  },
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_email.DeleteVerifiedEmailAddress({}, context)
 ```
 
 #### Parameters
-* body (object) **required** - Represents a request to delete an email address from the list of email addresses you have attempted to verify under your AWS account.
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 
 ### DescribeActiveReceiptRuleSet
-<p>Returns the metadata and receipt rules for the receipt rule set that is currently active.</p> <p>For information about setting up receipt rule sets, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-receipt-rule-set.html">Amazon SES Developer Guide</a>.</p> <p>This action is throttled at one request per second.</p>
+
 
 
 ```js
-amazonaws_email.DescribeActiveReceiptRuleSet({
-  "body": {},
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_email.DescribeActiveReceiptRuleSet({}, context)
 ```
 
 #### Parameters
-* body (object) **required** - Represents a request to return the metadata and receipt rules for the receipt rule set that is currently active. You use receipt rule sets to receive email with Amazon SES. For more information, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html">Amazon SES Developer Guide</a>.
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 
 ### DescribeConfigurationSet
-<p>Returns the details of the specified configuration set.</p> <p>Configuration sets enable you to publish email sending events. For information about using configuration sets, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Amazon SES Developer Guide</a>.</p> <p>This action is throttled at one request per second.</p>
+
 
 
 ```js
-amazonaws_email.DescribeConfigurationSet({
-  "body": {
-    "ConfigurationSetName": ""
-  },
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_email.DescribeConfigurationSet({}, context)
 ```
 
 #### Parameters
-* body (object) **required** - Represents a request to return the details of a configuration set. Configuration sets enable you to publish email sending events. For information about using configuration sets, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Amazon SES Developer Guide</a>.
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 
 ### DescribeReceiptRule
-<p>Returns the details of the specified receipt rule.</p> <p>For information about setting up receipt rules, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-receipt-rules.html">Amazon SES Developer Guide</a>.</p> <p>This action is throttled at one request per second.</p>
+
 
 
 ```js
-amazonaws_email.DescribeReceiptRule({
-  "body": {
-    "RuleSetName": "",
-    "RuleName": ""
-  },
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_email.DescribeReceiptRule({}, context)
 ```
 
 #### Parameters
-* body (object) **required** - Represents a request to return the details of a receipt rule. You use receipt rules to receive email with Amazon SES. For more information, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html">Amazon SES Developer Guide</a>.
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 
 ### DescribeReceiptRuleSet
-<p>Returns the details of the specified receipt rule set.</p> <p>For information about managing receipt rule sets, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rule-sets.html">Amazon SES Developer Guide</a>.</p> <p>This action is throttled at one request per second.</p>
+
 
 
 ```js
-amazonaws_email.DescribeReceiptRuleSet({
-  "body": {
-    "RuleSetName": ""
-  },
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_email.DescribeReceiptRuleSet({}, context)
 ```
 
 #### Parameters
-* body (object) **required** - Represents a request to return the details of a receipt rule set. You use receipt rule sets to receive email with Amazon SES. For more information, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html">Amazon SES Developer Guide</a>.
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 
 ### GetIdentityDkimAttributes
-<p>Returns the current status of Easy DKIM signing for an entity. For domain name identities, this action also returns the DKIM tokens that are required for Easy DKIM signing, and whether Amazon SES has successfully verified that these tokens have been published.</p> <p>This action takes a list of identities as input and returns the following information for each:</p> <ul> <li> <p>Whether Easy DKIM signing is enabled or disabled.</p> </li> <li> <p>A set of DKIM tokens that represent the identity. If the identity is an email address, the tokens represent the domain of that address.</p> </li> <li> <p>Whether Amazon SES has successfully verified the DKIM tokens published in the domain's DNS. This information is only returned for domain name identities, not for email addresses.</p> </li> </ul> <p>This action is throttled at one request per second and can only get DKIM attributes for up to 100 identities at a time.</p> <p>For more information about creating DNS records using DKIM tokens, go to the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim-dns-records.html">Amazon SES Developer Guide</a>.</p>
+
 
 
 ```js
-amazonaws_email.GetIdentityDkimAttributes({
-  "body": {
-    "Identities": []
-  },
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_email.GetIdentityDkimAttributes({}, context)
 ```
 
 #### Parameters
-* body (object) **required** - Represents a request for the status of Amazon SES Easy DKIM signing for an identity. For domain identities, this request also returns the DKIM tokens that are required for Easy DKIM signing, and whether Amazon SES successfully verified that these tokens were published. For more information about Easy DKIM, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html">Amazon SES Developer Guide</a>.
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 
 ### GetIdentityMailFromDomainAttributes
-<p>Returns the custom MAIL FROM attributes for a list of identities (email addresses and/or domains).</p> <p>This action is throttled at one request per second and can only get custom MAIL FROM attributes for up to 100 identities at a time.</p>
+
 
 
 ```js
-amazonaws_email.GetIdentityMailFromDomainAttributes({
-  "body": {
-    "Identities": []
-  },
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_email.GetIdentityMailFromDomainAttributes({}, context)
 ```
 
 #### Parameters
-* body (object) **required** - Represents a request to return the Amazon SES custom MAIL FROM attributes for a list of identities. For information about using a custom MAIL FROM domain, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/mail-from.html">Amazon SES Developer Guide</a>.
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 
 ### GetIdentityNotificationAttributes
-<p>Given a list of verified identities (email addresses and/or domains), returns a structure describing identity notification attributes.</p> <p>This action is throttled at one request per second and can only get notification attributes for up to 100 identities at a time.</p> <p>For more information about using notifications with Amazon SES, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications.html">Amazon SES Developer Guide</a>.</p>
+
 
 
 ```js
-amazonaws_email.GetIdentityNotificationAttributes({
-  "body": {
-    "Identities": []
-  },
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_email.GetIdentityNotificationAttributes({}, context)
 ```
 
 #### Parameters
-* body (object) **required** - Represents a request to return the notification attributes for a list of identities you verified with Amazon SES. For information about Amazon SES notifications, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications.html">Amazon SES Developer Guide</a>.
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 
 ### GetIdentityPolicies
-<p>Returns the requested sending authorization policies for the given identity (an email address or a domain). The policies are returned as a map of policy names to policy contents. You can retrieve a maximum of 20 policies at a time.</p> <note> <p>This API is for the identity owner only. If you have not verified the identity, this API will return an error.</p> </note> <p>Sending authorization is a feature that enables an identity owner to authorize other senders to use its identities. For information about using sending authorization, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer Guide</a>.</p> <p>This action is throttled at one request per second.</p>
+
 
 
 ```js
-amazonaws_email.GetIdentityPolicies({
-  "body": {
-    "Identity": "",
-    "PolicyNames": []
-  },
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_email.GetIdentityPolicies({}, context)
 ```
 
 #### Parameters
-* body (object) **required** - Represents a request to return the requested sending authorization policies for an identity. Sending authorization is an Amazon SES feature that enables you to authorize other senders to use your identities. For information, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer Guide</a>.
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 
 ### GetIdentityVerificationAttributes
-<p>Given a list of identities (email addresses and/or domains), returns the verification status and (for domain identities) the verification token for each identity.</p> <p>This action is throttled at one request per second and can only get verification attributes for up to 100 identities at a time.</p>
+
 
 
 ```js
-amazonaws_email.GetIdentityVerificationAttributes({
-  "body": {
-    "Identities": []
-  },
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_email.GetIdentityVerificationAttributes({}, context)
 ```
 
 #### Parameters
-* body (object) **required** - Represents a request to return the Amazon SES verification status of a list of identities. For domain identities, this request also returns the verification token. For information about verifying identities with Amazon SES, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html">Amazon SES Developer Guide</a>.
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 
 ### GetSendQuota
-<p>Returns the user's current sending limits.</p> <p>This action is throttled at one request per second.</p>
+
 
 
 ```js
-amazonaws_email.GetSendQuota({
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_email.GetSendQuota({}, context)
 ```
 
 #### Parameters
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 
 ### GetSendStatistics
-<p>Returns the user's sending statistics. The result is a list of data points, representing the last two weeks of sending activity.</p> <p>Each data point in the list contains statistics for a 15-minute interval.</p> <p>This action is throttled at one request per second.</p>
+
 
 
 ```js
-amazonaws_email.GetSendStatistics({
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_email.GetSendStatistics({}, context)
 ```
 
 #### Parameters
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 
 ### ListConfigurationSets
-<p>Lists the configuration sets associated with your AWS account.</p> <p>Configuration sets enable you to publish email sending events. For information about using configuration sets, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Amazon SES Developer Guide</a>.</p> <p>This action is throttled at one request per second and can return up to 50 configuration sets at a time.</p>
+
 
 
 ```js
-amazonaws_email.ListConfigurationSets({
-  "body": {},
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_email.ListConfigurationSets({}, context)
 ```
 
 #### Parameters
-* body (object) **required** - Represents a request to list the configuration sets associated with your AWS account. Configuration sets enable you to publish email sending events. For information about using configuration sets, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Amazon SES Developer Guide</a>.
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 
 ### ListIdentities
-<p>Returns a list containing all of the identities (email addresses and domains) for your AWS account, regardless of verification status.</p> <p>This action is throttled at one request per second.</p>
+
 
 
 ```js
-amazonaws_email.ListIdentities({
-  "body": {},
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_email.ListIdentities({}, context)
 ```
 
 #### Parameters
-* body (object) **required** - Represents a request to return a list of all identities (email addresses and domains) that you have attempted to verify under your AWS account, regardless of verification status.
-* MaxItems (string) - Pagination limit
-* NextToken (string) - Pagination token
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
+* MaxItems (string)
+* NextToken (string)
 
 ### ListIdentityPolicies
-<p>Returns a list of sending authorization policies that are attached to the given identity (an email address or a domain). This API returns only a list. If you want the actual policy content, you can use <code>GetIdentityPolicies</code>.</p> <note> <p>This API is for the identity owner only. If you have not verified the identity, this API will return an error.</p> </note> <p>Sending authorization is a feature that enables an identity owner to authorize other senders to use its identities. For information about using sending authorization, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer Guide</a>.</p> <p>This action is throttled at one request per second.</p>
+
 
 
 ```js
-amazonaws_email.ListIdentityPolicies({
-  "body": {
-    "Identity": ""
-  },
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_email.ListIdentityPolicies({}, context)
 ```
 
 #### Parameters
-* body (object) **required** - Represents a request to return a list of sending authorization policies that are attached to an identity. Sending authorization is an Amazon SES feature that enables you to authorize other senders to use your identities. For information, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer Guide</a>.
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 
 ### ListReceiptFilters
-<p>Lists the IP address filters associated with your AWS account.</p> <p>For information about managing IP address filters, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-ip-filters.html">Amazon SES Developer Guide</a>.</p> <p>This action is throttled at one request per second.</p>
+
 
 
 ```js
-amazonaws_email.ListReceiptFilters({
-  "body": {},
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_email.ListReceiptFilters({}, context)
 ```
 
 #### Parameters
-* body (object) **required** - Represents a request to list the IP address filters that exist under your AWS account. You use IP address filters when you receive email with Amazon SES. For more information, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html">Amazon SES Developer Guide</a>.
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 
 ### ListReceiptRuleSets
-<p>Lists the receipt rule sets that exist under your AWS account. If there are additional receipt rule sets to be retrieved, you will receive a <code>NextToken</code> that you can provide to the next call to <code>ListReceiptRuleSets</code> to retrieve the additional entries.</p> <p>For information about managing receipt rule sets, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rule-sets.html">Amazon SES Developer Guide</a>.</p> <p>This action is throttled at one request per second.</p>
+
 
 
 ```js
-amazonaws_email.ListReceiptRuleSets({
-  "body": {},
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_email.ListReceiptRuleSets({}, context)
 ```
 
 #### Parameters
-* body (object) **required** - Represents a request to list the receipt rule sets that exist under your AWS account. You use receipt rule sets to receive email with Amazon SES. For more information, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html">Amazon SES Developer Guide</a>.
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 
 ### ListVerifiedEmailAddresses
-<p>Returns a list containing all of the email addresses that have been verified.</p> <important> <p>The ListVerifiedEmailAddresses action is deprecated as of the May 15, 2012 release of Domain Verification. The ListIdentities action is now preferred.</p> </important> <p>This action is throttled at one request per second.</p>
+
 
 
 ```js
-amazonaws_email.ListVerifiedEmailAddresses({
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_email.ListVerifiedEmailAddresses({}, context)
 ```
 
 #### Parameters
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 
 ### PutIdentityPolicy
-<p>Adds or updates a sending authorization policy for the specified identity (an email address or a domain).</p> <note> <p>This API is for the identity owner only. If you have not verified the identity, this API will return an error.</p> </note> <p>Sending authorization is a feature that enables an identity owner to authorize other senders to use its identities. For information about using sending authorization, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer Guide</a>.</p> <p>This action is throttled at one request per second.</p>
+
 
 
 ```js
-amazonaws_email.PutIdentityPolicy({
-  "body": {
-    "Identity": "",
-    "PolicyName": "",
-    "Policy": ""
-  },
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_email.PutIdentityPolicy({}, context)
 ```
 
 #### Parameters
-* body (object) **required** - Represents a request to add or update a sending authorization policy for an identity. Sending authorization is an Amazon SES feature that enables you to authorize other senders to use your identities. For information, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer Guide</a>.
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 
 ### ReorderReceiptRuleSet
-<p>Reorders the receipt rules within a receipt rule set.</p> <note> <p>All of the rules in the rule set must be represented in this request. That is, this API will return an error if the reorder request doesn't explicitly position all of the rules.</p> </note> <p>For information about managing receipt rule sets, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rule-sets.html">Amazon SES Developer Guide</a>.</p> <p>This action is throttled at one request per second.</p>
+
 
 
 ```js
-amazonaws_email.ReorderReceiptRuleSet({
-  "body": {
-    "RuleSetName": "",
-    "RuleNames": []
-  },
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_email.ReorderReceiptRuleSet({}, context)
 ```
 
 #### Parameters
-* body (object) **required** - Represents a request to reorder the receipt rules within a receipt rule set. You use receipt rule sets to receive email with Amazon SES. For more information, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html">Amazon SES Developer Guide</a>.
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 
 ### SendBounce
-<p>Generates and sends a bounce message to the sender of an email you received through Amazon SES. You can only use this API on an email up to 24 hours after you receive it.</p> <note> <p>You cannot use this API to send generic bounces for mail that was not received by Amazon SES.</p> </note> <p>For information about receiving email through Amazon SES, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email.html">Amazon SES Developer Guide</a>.</p> <p>This action is throttled at one request per second.</p>
+
 
 
 ```js
-amazonaws_email.SendBounce({
-  "body": {
-    "OriginalMessageId": "",
-    "BounceSender": "",
-    "BouncedRecipientInfoList": []
-  },
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_email.SendBounce({}, context)
 ```
 
 #### Parameters
-* body (object) **required** - Represents a request to send a bounce message to the sender of an email you received through Amazon SES.
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 
 ### SendEmail
-<p>Composes an email message based on input data, and then immediately queues the message for sending.</p> <p>There are several important points to know about <code>SendEmail</code>:</p> <ul> <li> <p>You can only send email from verified email addresses and domains; otherwise, you will get an "Email address not verified" error. If your account is still in the Amazon SES sandbox, you must also verify every recipient email address except for the recipients provided by the Amazon SES mailbox simulator. For more information, go to the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html">Amazon SES Developer Guide</a>.</p> </li> <li> <p>The total size of the message cannot exceed 10 MB. This includes any attachments that are part of the message.</p> </li> <li> <p>Amazon SES has a limit on the total number of recipients per message. The combined number of To:, CC: and BCC: email addresses cannot exceed 50. If you need to send an email message to a larger audience, you can divide your recipient list into groups of 50 or fewer, and then call Amazon SES repeatedly to send the message to each group.</p> </li> <li> <p>For every message that you send, the total number of recipients (To:, CC: and BCC:) is counted against your sending quota - the maximum number of emails you can send in a 24-hour period. For information about your sending quota, go to the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/manage-sending-limits.html">Amazon SES Developer Guide</a>.</p> </li> </ul>
+
 
 
 ```js
-amazonaws_email.SendEmail({
-  "body": {
-    "Source": "",
-    "Destination": {},
-    "Message": {
-      "Subject": {
-        "Data": ""
-      },
-      "Body": {}
-    }
-  },
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_email.SendEmail({}, context)
 ```
 
 #### Parameters
-* body (object) **required** - Represents a request to send a single formatted email using Amazon SES. For more information, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-formatted.html">Amazon SES Developer Guide</a>.
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 
 ### SendRawEmail
-<p>Sends an email message, with header and content specified by the client. The <code>SendRawEmail</code> action is useful for sending multipart MIME emails. The raw text of the message must comply with Internet email standards; otherwise, the message cannot be sent. </p> <p>There are several important points to know about <code>SendRawEmail</code>:</p> <ul> <li> <p>You can only send email from verified email addresses and domains; otherwise, you will get an "Email address not verified" error. If your account is still in the Amazon SES sandbox, you must also verify every recipient email address except for the recipients provided by the Amazon SES mailbox simulator. For more information, go to the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html">Amazon SES Developer Guide</a>.</p> </li> <li> <p>The total size of the message cannot exceed 10 MB. This includes any attachments that are part of the message.</p> </li> <li> <p>Amazon SES has a limit on the total number of recipients per message. The combined number of To:, CC: and BCC: email addresses cannot exceed 50. If you need to send an email message to a larger audience, you can divide your recipient list into groups of 50 or fewer, and then call Amazon SES repeatedly to send the message to each group.</p> </li> <li> <p>The To:, CC:, and BCC: headers in the raw message can contain a group list. Note that each recipient in a group list counts towards the 50-recipient limit.</p> </li> <li> <p>Amazon SES overrides any Message-ID and Date headers you provide.</p> </li> <li> <p>For every message that you send, the total number of recipients (To:, CC: and BCC:) is counted against your sending quota - the maximum number of emails you can send in a 24-hour period. For information about your sending quota, go to the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/manage-sending-limits.html">Amazon SES Developer Guide</a>.</p> </li> <li> <p>If you are using sending authorization to send on behalf of another user, <code>SendRawEmail</code> enables you to specify the cross-account identity for the email's "Source," "From," and "Return-Path" parameters in one of two ways: you can pass optional parameters <code>SourceArn</code>, <code>FromArn</code>, and/or <code>ReturnPathArn</code> to the API, or you can include the following X-headers in the header of your raw email:</p> <ul> <li> <p> <code>X-SES-SOURCE-ARN</code> </p> </li> <li> <p> <code>X-SES-FROM-ARN</code> </p> </li> <li> <p> <code>X-SES-RETURN-PATH-ARN</code> </p> </li> </ul> <important> <p>Do not include these X-headers in the DKIM signature, because they are removed by Amazon SES before sending the email.</p> </important> <p>For the most common sending authorization use case, we recommend that you specify the <code>SourceIdentityArn</code> and do not specify either the <code>FromIdentityArn</code> or <code>ReturnPathIdentityArn</code>. (The same note applies to the corresponding X-headers.) If you only specify the <code>SourceIdentityArn</code>, Amazon SES will simply set the "From" address and the "Return Path" address to the identity specified in <code>SourceIdentityArn</code>. For more information about sending authorization, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer Guide</a>.</p> </li> </ul>
+
 
 
 ```js
-amazonaws_email.SendRawEmail({
-  "body": {
-    "RawMessage": {
-      "Data": ""
-    }
-  },
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_email.SendRawEmail({}, context)
 ```
 
 #### Parameters
-* body (object) **required** - Represents a request to send a single raw email using Amazon SES. For more information, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-raw.html">Amazon SES Developer Guide</a>.
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 
 ### SetActiveReceiptRuleSet
-<p>Sets the specified receipt rule set as the active receipt rule set.</p> <note> <p>To disable your email-receiving through Amazon SES completely, you can call this API with RuleSetName set to null.</p> </note> <p>For information about managing receipt rule sets, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rule-sets.html">Amazon SES Developer Guide</a>.</p> <p>This action is throttled at one request per second.</p>
+
 
 
 ```js
-amazonaws_email.SetActiveReceiptRuleSet({
-  "body": {},
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_email.SetActiveReceiptRuleSet({}, context)
 ```
 
 #### Parameters
-* body (object) **required** - Represents a request to set a receipt rule set as the active receipt rule set. You use receipt rule sets to receive email with Amazon SES. For more information, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html">Amazon SES Developer Guide</a>.
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 
 ### SetIdentityDkimEnabled
-<p>Enables or disables Easy DKIM signing of email sent from an identity:</p> <ul> <li> <p>If Easy DKIM signing is enabled for a domain name identity (e.g., <code>example.com</code>), then Amazon SES will DKIM-sign all email sent by addresses under that domain name (e.g., <code>user@example.com</code>).</p> </li> <li> <p>If Easy DKIM signing is enabled for an email address, then Amazon SES will DKIM-sign all email sent by that email address.</p> </li> </ul> <p>For email addresses (e.g., <code>user@example.com</code>), you can only enable Easy DKIM signing if the corresponding domain (e.g., <code>example.com</code>) has been set up for Easy DKIM using the AWS Console or the <code>VerifyDomainDkim</code> action.</p> <p>This action is throttled at one request per second.</p> <p>For more information about Easy DKIM signing, go to the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html">Amazon SES Developer Guide</a>.</p>
+
 
 
 ```js
-amazonaws_email.SetIdentityDkimEnabled({
-  "body": {
-    "Identity": "",
-    "DkimEnabled": true
-  },
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_email.SetIdentityDkimEnabled({}, context)
 ```
 
 #### Parameters
-* body (object) **required** - Represents a request to enable or disable Amazon SES Easy DKIM signing for an identity. For more information about setting up Easy DKIM, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html">Amazon SES Developer Guide</a>.
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 
 ### SetIdentityFeedbackForwardingEnabled
-<p>Given an identity (an email address or a domain), enables or disables whether Amazon SES forwards bounce and complaint notifications as email. Feedback forwarding can only be disabled when Amazon Simple Notification Service (Amazon SNS) topics are specified for both bounces and complaints.</p> <note> <p>Feedback forwarding does not apply to delivery notifications. Delivery notifications are only available through Amazon SNS.</p> </note> <p>This action is throttled at one request per second.</p> <p>For more information about using notifications with Amazon SES, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications.html">Amazon SES Developer Guide</a>.</p>
+
 
 
 ```js
-amazonaws_email.SetIdentityFeedbackForwardingEnabled({
-  "body": {
-    "Identity": "",
-    "ForwardingEnabled": true
-  },
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_email.SetIdentityFeedbackForwardingEnabled({}, context)
 ```
 
 #### Parameters
-* body (object) **required** - Represents a request to enable or disable whether Amazon SES forwards you bounce and complaint notifications through email. For information about email feedback forwarding, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications-via-email.html">Amazon SES Developer Guide</a>.
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 
 ### SetIdentityHeadersInNotificationsEnabled
-<p>Given an identity (an email address or a domain), sets whether Amazon SES includes the original email headers in the Amazon Simple Notification Service (Amazon SNS) notifications of a specified type.</p> <p>This action is throttled at one request per second.</p> <p>For more information about using notifications with Amazon SES, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications.html">Amazon SES Developer Guide</a>.</p>
+
 
 
 ```js
-amazonaws_email.SetIdentityHeadersInNotificationsEnabled({
-  "body": {
-    "Identity": "",
-    "NotificationType": "",
-    "Enabled": true
-  },
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_email.SetIdentityHeadersInNotificationsEnabled({}, context)
 ```
 
 #### Parameters
-* body (object) **required** - Represents a request to set whether Amazon SES includes the original email headers in the Amazon SNS notifications of a specified type. For information about notifications, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications-via-sns.html">Amazon SES Developer Guide</a>.
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 
 ### SetIdentityMailFromDomain
-<p>Enables or disables the custom MAIL FROM domain setup for a verified identity (an email address or a domain).</p> <important> <p>To send emails using the specified MAIL FROM domain, you must add an MX record to your MAIL FROM domain's DNS settings. If you want your emails to pass Sender Policy Framework (SPF) checks, you must also add or update an SPF record. For more information, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/mail-from-set.html">Amazon SES Developer Guide</a>.</p> </important> <p>This action is throttled at one request per second.</p>
+
 
 
 ```js
-amazonaws_email.SetIdentityMailFromDomain({
-  "body": {
-    "Identity": ""
-  },
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_email.SetIdentityMailFromDomain({}, context)
 ```
 
 #### Parameters
-* body (object) **required** - Represents a request to enable or disable the Amazon SES custom MAIL FROM domain setup for a verified identity. For information about using a custom MAIL FROM domain, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/mail-from.html">Amazon SES Developer Guide</a>.
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 
 ### SetIdentityNotificationTopic
-<p>Given an identity (an email address or a domain), sets the Amazon Simple Notification Service (Amazon SNS) topic to which Amazon SES will publish bounce, complaint, and/or delivery notifications for emails sent with that identity as the <code>Source</code>.</p> <note> <p>Unless feedback forwarding is enabled, you must specify Amazon SNS topics for bounce and complaint notifications. For more information, see <code>SetIdentityFeedbackForwardingEnabled</code>.</p> </note> <p>This action is throttled at one request per second.</p> <p>For more information about feedback notification, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications.html">Amazon SES Developer Guide</a>.</p>
+
 
 
 ```js
-amazonaws_email.SetIdentityNotificationTopic({
-  "body": {
-    "Identity": "",
-    "NotificationType": ""
-  },
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_email.SetIdentityNotificationTopic({}, context)
 ```
 
 #### Parameters
-* body (object) **required** - Represents a request to specify the Amazon SNS topic to which Amazon SES will publish bounce, complaint, or delivery notifications for emails sent with that identity as the Source. For information about Amazon SES notifications, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications-via-sns.html">Amazon SES Developer Guide</a>.
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 
 ### SetReceiptRulePosition
-<p>Sets the position of the specified receipt rule in the receipt rule set.</p> <p>For information about managing receipt rules, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rules.html">Amazon SES Developer Guide</a>.</p> <p>This action is throttled at one request per second.</p>
+
 
 
 ```js
-amazonaws_email.SetReceiptRulePosition({
-  "body": {
-    "RuleSetName": "",
-    "RuleName": ""
-  },
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_email.SetReceiptRulePosition({}, context)
 ```
 
 #### Parameters
-* body (object) **required** - Represents a request to set the position of a receipt rule in a receipt rule set. You use receipt rule sets to receive email with Amazon SES. For more information, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html">Amazon SES Developer Guide</a>.
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 
 ### UpdateConfigurationSetEventDestination
-<p>Updates the event destination of a configuration set.</p> <note> <p>When you create or update an event destination, you must provide one, and only one, destination. The destination can be either Amazon CloudWatch or Amazon Kinesis Firehose.</p> </note> <p>Event destinations are associated with configuration sets, which enable you to publish email sending events to Amazon CloudWatch or Amazon Kinesis Firehose. For information about using configuration sets, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Amazon SES Developer Guide</a>.</p> <p>This action is throttled at one request per second.</p>
+
 
 
 ```js
-amazonaws_email.UpdateConfigurationSetEventDestination({
-  "body": {
-    "ConfigurationSetName": "",
-    "EventDestination": {
-      "Name": "",
-      "MatchingEventTypes": []
-    }
-  },
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_email.UpdateConfigurationSetEventDestination({}, context)
 ```
 
 #### Parameters
-* body (object) **required** - Represents a request to update the event destination of a configuration set. Configuration sets enable you to publish email sending events. For information about using configuration sets, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Amazon SES Developer Guide</a>.
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 
 ### UpdateReceiptRule
-<p>Updates a receipt rule.</p> <p>For information about managing receipt rules, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rules.html">Amazon SES Developer Guide</a>.</p> <p>This action is throttled at one request per second.</p>
+
 
 
 ```js
-amazonaws_email.UpdateReceiptRule({
-  "body": {
-    "RuleSetName": "",
-    "Rule": {
-      "Name": ""
-    }
-  },
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_email.UpdateReceiptRule({}, context)
 ```
 
 #### Parameters
-* body (object) **required** - Represents a request to update a receipt rule. You use receipt rules to receive email with Amazon SES. For more information, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html">Amazon SES Developer Guide</a>.
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 
 ### VerifyDomainDkim
-<p>Returns a set of DKIM tokens for a domain. DKIM <i>tokens</i> are character strings that represent your domain's identity. Using these tokens, you will need to create DNS CNAME records that point to DKIM public keys hosted by Amazon SES. Amazon Web Services will eventually detect that you have updated your DNS records; this detection process may take up to 72 hours. Upon successful detection, Amazon SES will be able to DKIM-sign email originating from that domain.</p> <p>This action is throttled at one request per second.</p> <p>To enable or disable Easy DKIM signing for a domain, use the <code>SetIdentityDkimEnabled</code> action.</p> <p>For more information about creating DNS records using DKIM tokens, go to the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim-dns-records.html">Amazon SES Developer Guide</a>.</p>
+
 
 
 ```js
-amazonaws_email.VerifyDomainDkim({
-  "body": {
-    "Domain": ""
-  },
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_email.VerifyDomainDkim({}, context)
 ```
 
 #### Parameters
-* body (object) **required** - Represents a request to generate the CNAME records needed to set up Easy DKIM with Amazon SES. For more information about setting up Easy DKIM, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html">Amazon SES Developer Guide</a>.
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 
 ### VerifyDomainIdentity
-<p>Verifies a domain.</p> <p>This action is throttled at one request per second.</p>
+
 
 
 ```js
-amazonaws_email.VerifyDomainIdentity({
-  "body": {
-    "Domain": ""
-  },
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_email.VerifyDomainIdentity({}, context)
 ```
 
 #### Parameters
-* body (object) **required** - Represents a request to begin Amazon SES domain verification and to generate the TXT records that you must publish to the DNS server of your domain to complete the verification. For information about domain verification, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-domains.html">Amazon SES Developer Guide</a>.
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 
 ### VerifyEmailAddress
-<p>Verifies an email address. This action causes a confirmation email message to be sent to the specified address.</p> <important> <p>The VerifyEmailAddress action is deprecated as of the May 15, 2012 release of Domain Verification. The VerifyEmailIdentity action is now preferred.</p> </important> <p>This action is throttled at one request per second.</p>
+
 
 
 ```js
-amazonaws_email.VerifyEmailAddress({
-  "body": {
-    "EmailAddress": ""
-  },
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_email.VerifyEmailAddress({}, context)
 ```
 
 #### Parameters
-* body (object) **required** - Represents a request to begin email address verification with Amazon SES. For information about email address verification, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-email-addresses.html">Amazon SES Developer Guide</a>.
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 
 ### VerifyEmailIdentity
-<p>Verifies an email address. This action causes a confirmation email message to be sent to the specified address.</p> <p>This action is throttled at one request per second.</p>
+
 
 
 ```js
-amazonaws_email.VerifyEmailIdentity({
-  "body": {
-    "EmailAddress": ""
-  },
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_email.VerifyEmailIdentity({}, context)
 ```
 
 #### Parameters
-* body (object) **required** - Represents a request to begin email address verification with Amazon SES. For information about email address verification, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-email-addresses.html">Amazon SES Developer Guide</a>.
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 

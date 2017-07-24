@@ -10,15 +10,7 @@ npm install --save datafire @datafire/amazonaws_kms
 ```js
 let datafire = require('datafire');
 let amazonaws_kms = require('@datafire/amazonaws_kms').actions;
-
-let account = {
-  hmac: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    amazonaws_kms: account,
-  }
-})
+let context = new datafire.Context();
 
 amazonaws_kms.CancelKeyDeletion({}, context).then(data => {
   console.log(data);
@@ -30,926 +22,360 @@ amazonaws_kms.CancelKeyDeletion({}, context).then(data => {
 
 ## Actions
 ### CancelKeyDeletion
-<p>Cancels the deletion of a customer master key (CMK). When this operation is successful, the CMK is set to the <code>Disabled</code> state. To enable a CMK, use <a>EnableKey</a>.</p> <p>For more information about scheduling and canceling deletion of a CMK, see <a href="http://docs.aws.amazon.com/kms/latest/developerguide/deleting-keys.html">Deleting Customer Master Keys</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
+
 
 
 ```js
-amazonaws_kms.CancelKeyDeletion({
-  "body": {
-    "KeyId": ""
-  },
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_kms.CancelKeyDeletion({}, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 
 ### CreateAlias
-<p>Creates a display name for a customer master key. An alias can be used to identify a key and should be unique. The console enforces a one-to-one mapping between the alias and a key. An alias name can contain only alphanumeric characters, forward slashes (/), underscores (_), and dashes (-). An alias must start with the word "alias" followed by a forward slash (alias/). An alias that begins with "aws" after the forward slash (alias/aws...) is reserved by Amazon Web Services (AWS).</p> <p>The alias and the key it is mapped to must be in the same AWS account and the same region.</p> <p>To map an alias to a different key, call <a>UpdateAlias</a>.</p>
+
 
 
 ```js
-amazonaws_kms.CreateAlias({
-  "body": {
-    "AliasName": "",
-    "TargetKeyId": ""
-  },
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_kms.CreateAlias({}, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 
 ### CreateGrant
-<p>Adds a grant to a key to specify who can use the key and under what conditions. Grants are alternate permission mechanisms to key policies.</p> <p>For more information about grants, see <a href="http://docs.aws.amazon.com/kms/latest/developerguide/grants.html">Grants</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
+
 
 
 ```js
-amazonaws_kms.CreateGrant({
-  "body": {
-    "KeyId": "",
-    "GranteePrincipal": ""
-  },
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_kms.CreateGrant({}, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 
 ### CreateKey
-<p>Creates a customer master key (CMK).</p> <p>You can use a CMK to encrypt small amounts of data (4 KiB or less) directly, but CMKs are more commonly used to encrypt data encryption keys (DEKs), which are used to encrypt raw data. For more information about DEKs and the difference between CMKs and DEKs, see the following:</p> <ul> <li> <p>The <a>GenerateDataKey</a> operation</p> </li> <li> <p> <a href="http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html">AWS Key Management Service Concepts</a> in the <i>AWS Key Management Service Developer Guide</i> </p> </li> </ul>
+
 
 
 ```js
-amazonaws_kms.CreateKey({
-  "body": {},
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_kms.CreateKey({}, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 
 ### Decrypt
-<p>Decrypts ciphertext. Ciphertext is plaintext that has been previously encrypted by using any of the following functions:</p> <ul> <li> <p> <a>GenerateDataKey</a> </p> </li> <li> <p> <a>GenerateDataKeyWithoutPlaintext</a> </p> </li> <li> <p> <a>Encrypt</a> </p> </li> </ul> <p>Note that if a caller has been granted access permissions to all keys (through, for example, IAM user policies that grant <code>Decrypt</code> permission on all resources), then ciphertext encrypted by using keys in other accounts where the key grants access to the caller can be decrypted. To remedy this, we recommend that you do not grant <code>Decrypt</code> access in an IAM user policy. Instead grant <code>Decrypt</code> access only in key policies. If you must grant <code>Decrypt</code> access in an IAM user policy, you should scope the resource to specific keys or to specific trusted accounts.</p>
+
 
 
 ```js
-amazonaws_kms.Decrypt({
-  "body": {
-    "CiphertextBlob": ""
-  },
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_kms.Decrypt({}, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 
 ### DeleteAlias
-Deletes the specified alias. To map an alias to a different key, call <a>UpdateAlias</a>.
+
 
 
 ```js
-amazonaws_kms.DeleteAlias({
-  "body": {
-    "AliasName": ""
-  },
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_kms.DeleteAlias({}, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 
 ### DeleteImportedKeyMaterial
-<p>Deletes key material that you previously imported and makes the specified customer master key (CMK) unusable. For more information about importing key material into AWS KMS, see <a href="http://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html">Importing Key Material</a> in the <i>AWS Key Management Service Developer Guide</i>.</p> <p>When the specified CMK is in the <code>PendingDeletion</code> state, this operation does not change the CMK's state. Otherwise, it changes the CMK's state to <code>PendingImport</code>.</p> <p>After you delete key material, you can use <a>ImportKeyMaterial</a> to reimport the same key material into the CMK.</p>
+
 
 
 ```js
-amazonaws_kms.DeleteImportedKeyMaterial({
-  "body": {
-    "KeyId": ""
-  },
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_kms.DeleteImportedKeyMaterial({}, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 
 ### DescribeKey
-Provides detailed information about the specified customer master key.
+
 
 
 ```js
-amazonaws_kms.DescribeKey({
-  "body": {
-    "KeyId": ""
-  },
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_kms.DescribeKey({}, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 
 ### DisableKey
-Sets the state of a customer master key (CMK) to disabled, thereby preventing its use for cryptographic operations. For more information about how key state affects the use of a CMK, see <a href="http://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">How Key State Affects the Use of a Customer Master Key</a> in the <i>AWS Key Management Service Developer Guide</i>.
+
 
 
 ```js
-amazonaws_kms.DisableKey({
-  "body": {
-    "KeyId": ""
-  },
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_kms.DisableKey({}, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 
 ### DisableKeyRotation
-Disables rotation of the specified key.
+
 
 
 ```js
-amazonaws_kms.DisableKeyRotation({
-  "body": {
-    "KeyId": ""
-  },
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_kms.DisableKeyRotation({}, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 
 ### EnableKey
-Marks a key as enabled, thereby permitting its use.
+
 
 
 ```js
-amazonaws_kms.EnableKey({
-  "body": {
-    "KeyId": ""
-  },
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_kms.EnableKey({}, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 
 ### EnableKeyRotation
-Enables rotation of the specified customer master key.
+
 
 
 ```js
-amazonaws_kms.EnableKeyRotation({
-  "body": {
-    "KeyId": ""
-  },
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_kms.EnableKeyRotation({}, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 
 ### Encrypt
-<p>Encrypts plaintext into ciphertext by using a customer master key. The <code>Encrypt</code> function has two primary use cases:</p> <ul> <li> <p>You can encrypt up to 4 KB of arbitrary data such as an RSA key, a database password, or other sensitive customer information.</p> </li> <li> <p>If you are moving encrypted data from one region to another, you can use this API to encrypt in the new region the plaintext data key that was used to encrypt the data in the original region. This provides you with an encrypted copy of the data key that can be decrypted in the new region and used there to decrypt the encrypted data.</p> </li> </ul> <p>Unless you are moving encrypted data from one region to another, you don't use this function to encrypt a generated data key within a region. You retrieve data keys already encrypted by calling the <a>GenerateDataKey</a> or <a>GenerateDataKeyWithoutPlaintext</a> function. Data keys don't need to be encrypted again by calling <code>Encrypt</code>.</p> <p>If you want to encrypt data locally in your application, you can use the <code>GenerateDataKey</code> function to return a plaintext data encryption key and a copy of the key encrypted under the customer master key (CMK) of your choosing.</p>
+
 
 
 ```js
-amazonaws_kms.Encrypt({
-  "body": {
-    "KeyId": "",
-    "Plaintext": ""
-  },
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_kms.Encrypt({}, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 
 ### GenerateDataKey
-<p>Returns a data encryption key that you can use in your application to encrypt data locally.</p> <p>You must specify the customer master key (CMK) under which to generate the data key. You must also specify the length of the data key using either the <code>KeySpec</code> or <code>NumberOfBytes</code> field. You must specify one field or the other, but not both. For common key lengths (128-bit and 256-bit symmetric keys), we recommend that you use <code>KeySpec</code>.</p> <p>This operation returns a plaintext copy of the data key in the <code>Plaintext</code> field of the response, and an encrypted copy of the data key in the <code>CiphertextBlob</code> field. The data key is encrypted under the CMK specified in the <code>KeyId</code> field of the request.</p> <p>We recommend that you use the following pattern to encrypt data locally in your application:</p> <ol> <li> <p>Use this operation (<code>GenerateDataKey</code>) to retrieve a data encryption key.</p> </li> <li> <p>Use the plaintext data encryption key (returned in the <code>Plaintext</code> field of the response) to encrypt data locally, then erase the plaintext data key from memory.</p> </li> <li> <p>Store the encrypted data key (returned in the <code>CiphertextBlob</code> field of the response) alongside the locally encrypted data.</p> </li> </ol> <p>To decrypt data locally:</p> <ol> <li> <p>Use the <a>Decrypt</a> operation to decrypt the encrypted data key into a plaintext copy of the data key.</p> </li> <li> <p>Use the plaintext data key to decrypt data locally, then erase the plaintext data key from memory.</p> </li> </ol> <p>To return only an encrypted copy of the data key, use <a>GenerateDataKeyWithoutPlaintext</a>. To return a random byte string that is cryptographically secure, use <a>GenerateRandom</a>.</p> <p>If you use the optional <code>EncryptionContext</code> field, you must store at least enough information to be able to reconstruct the full encryption context when you later send the ciphertext to the <a>Decrypt</a> operation. It is a good practice to choose an encryption context that you can reconstruct on the fly to better secure the ciphertext. For more information, see <a href="http://docs.aws.amazon.com/kms/latest/developerguide/encryption-context.html">Encryption Context</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
+
 
 
 ```js
-amazonaws_kms.GenerateDataKey({
-  "body": {
-    "KeyId": ""
-  },
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_kms.GenerateDataKey({}, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 
 ### GenerateDataKeyWithoutPlaintext
-<p>Returns a data encryption key encrypted under a customer master key (CMK). This operation is identical to <a>GenerateDataKey</a> but returns only the encrypted copy of the data key.</p> <p>This operation is useful in a system that has multiple components with different degrees of trust. For example, consider a system that stores encrypted data in containers. Each container stores the encrypted data and an encrypted copy of the data key. One component of the system, called the <i>control plane</i>, creates new containers. When it creates a new container, it uses this operation (<code>GenerateDataKeyWithoutPlaintext</code>) to get an encrypted data key and then stores it in the container. Later, a different component of the system, called the <i>data plane</i>, puts encrypted data into the containers. To do this, it passes the encrypted data key to the <a>Decrypt</a> operation, then uses the returned plaintext data key to encrypt data, and finally stores the encrypted data in the container. In this system, the control plane never sees the plaintext data key.</p>
+
 
 
 ```js
-amazonaws_kms.GenerateDataKeyWithoutPlaintext({
-  "body": {
-    "KeyId": ""
-  },
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_kms.GenerateDataKeyWithoutPlaintext({}, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 
 ### GenerateRandom
-<p>Returns a random byte string that is cryptographically secure.</p> <p>For more information about entropy and random number generation, see the <a href="https://d0.awsstatic.com/whitepapers/KMS-Cryptographic-Details.pdf">AWS Key Management Service Cryptographic Details</a> whitepaper.</p>
+
 
 
 ```js
-amazonaws_kms.GenerateRandom({
-  "body": {},
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_kms.GenerateRandom({}, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 
 ### GetKeyPolicy
-Retrieves a policy attached to the specified key.
+
 
 
 ```js
-amazonaws_kms.GetKeyPolicy({
-  "body": {
-    "KeyId": "",
-    "PolicyName": ""
-  },
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_kms.GetKeyPolicy({}, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 
 ### GetKeyRotationStatus
-Retrieves a Boolean value that indicates whether key rotation is enabled for the specified key.
+
 
 
 ```js
-amazonaws_kms.GetKeyRotationStatus({
-  "body": {
-    "KeyId": ""
-  },
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_kms.GetKeyRotationStatus({}, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 
 ### GetParametersForImport
-<p>Returns the items you need in order to import key material into AWS KMS from your existing key management infrastructure. For more information about importing key material into AWS KMS, see <a href="http://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html">Importing Key Material</a> in the <i>AWS Key Management Service Developer Guide</i>.</p> <p>You must specify the key ID of the customer master key (CMK) into which you will import key material. This CMK's <code>Origin</code> must be <code>EXTERNAL</code>. You must also specify the wrapping algorithm and type of wrapping key (public key) that you will use to encrypt the key material.</p> <p>This operation returns a public key and an import token. Use the public key to encrypt the key material. Store the import token to send with a subsequent <a>ImportKeyMaterial</a> request. The public key and import token from the same response must be used together. These items are valid for 24 hours, after which they cannot be used for a subsequent <a>ImportKeyMaterial</a> request. To retrieve new ones, send another <code>GetParametersForImport</code> request.</p>
+
 
 
 ```js
-amazonaws_kms.GetParametersForImport({
-  "body": {
-    "KeyId": "",
-    "WrappingAlgorithm": "",
-    "WrappingKeySpec": ""
-  },
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_kms.GetParametersForImport({}, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 
 ### ImportKeyMaterial
-<p>Imports key material into an AWS KMS customer master key (CMK) from your existing key management infrastructure. For more information about importing key material into AWS KMS, see <a href="http://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html">Importing Key Material</a> in the <i>AWS Key Management Service Developer Guide</i>.</p> <p>You must specify the key ID of the CMK to import the key material into. This CMK's <code>Origin</code> must be <code>EXTERNAL</code>. You must also send an import token and the encrypted key material. Send the import token that you received in the same <a>GetParametersForImport</a> response that contained the public key that you used to encrypt the key material. You must also specify whether the key material expires and if so, when. When the key material expires, AWS KMS deletes the key material and the CMK becomes unusable. To use the CMK again, you can reimport the same key material. If you set an expiration date, you can change it only by reimporting the same key material and specifying a new expiration date.</p> <p>When this operation is successful, the specified CMK's key state changes to <code>Enabled</code>, and you can use the CMK.</p> <p>After you successfully import key material into a CMK, you can reimport the same key material into that CMK, but you cannot import different key material.</p>
+
 
 
 ```js
-amazonaws_kms.ImportKeyMaterial({
-  "body": {
-    "KeyId": "",
-    "ImportToken": "",
-    "EncryptedKeyMaterial": ""
-  },
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_kms.ImportKeyMaterial({}, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 
 ### ListAliases
-Lists all of the key aliases in the account.
+
 
 
 ```js
-amazonaws_kms.ListAliases({
-  "body": {},
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_kms.ListAliases({}, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Limit (string) - Pagination limit
-* Marker (string) - Pagination token
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
+* Limit (string)
+* Marker (string)
 
 ### ListGrants
-List the grants for a specified key.
+
 
 
 ```js
-amazonaws_kms.ListGrants({
-  "body": {
-    "KeyId": ""
-  },
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_kms.ListGrants({}, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Limit (string) - Pagination limit
-* Marker (string) - Pagination token
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
+* Limit (string)
+* Marker (string)
 
 ### ListKeyPolicies
-Retrieves a list of policies attached to a key.
+
 
 
 ```js
-amazonaws_kms.ListKeyPolicies({
-  "body": {
-    "KeyId": ""
-  },
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_kms.ListKeyPolicies({}, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Limit (string) - Pagination limit
-* Marker (string) - Pagination token
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
+* Limit (string)
+* Marker (string)
 
 ### ListKeys
-Lists the customer master keys.
+
 
 
 ```js
-amazonaws_kms.ListKeys({
-  "body": {},
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_kms.ListKeys({}, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Limit (string) - Pagination limit
-* Marker (string) - Pagination token
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
+* Limit (string)
+* Marker (string)
 
 ### ListResourceTags
-Returns a list of all tags for the specified customer master key (CMK).
+
 
 
 ```js
-amazonaws_kms.ListResourceTags({
-  "body": {
-    "KeyId": ""
-  },
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_kms.ListResourceTags({}, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 
 ### ListRetirableGrants
-<p>Returns a list of all grants for which the grant's <code>RetiringPrincipal</code> matches the one specified.</p> <p>A typical use is to list all grants that you are able to retire. To retire a grant, use <a>RetireGrant</a>.</p>
+
 
 
 ```js
-amazonaws_kms.ListRetirableGrants({
-  "body": {
-    "RetiringPrincipal": ""
-  },
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_kms.ListRetirableGrants({}, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 
 ### PutKeyPolicy
-<p>Attaches a key policy to the specified customer master key (CMK).</p> <p>For more information about key policies, see <a href="http://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html">Key Policies</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
+
 
 
 ```js
-amazonaws_kms.PutKeyPolicy({
-  "body": {
-    "KeyId": "",
-    "PolicyName": "",
-    "Policy": ""
-  },
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_kms.PutKeyPolicy({}, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 
 ### ReEncrypt
-<p>Encrypts data on the server side with a new customer master key (CMK) without exposing the plaintext of the data on the client side. The data is first decrypted and then reencrypted. You can also use this operation to change the encryption context of a ciphertext.</p> <p>Unlike other operations, <code>ReEncrypt</code> is authorized twice, once as <code>ReEncryptFrom</code> on the source CMK and once as <code>ReEncryptTo</code> on the destination CMK. We recommend that you include the <code>"kms:ReEncrypt*"</code> permission in your <a href="http://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html">key policies</a> to permit reencryption from or to the CMK. This permission is automatically included in the key policy when you create a CMK through the console, but you must include it manually when you create a CMK programmatically or when you set a key policy with the <a>PutKeyPolicy</a> operation.</p>
+
 
 
 ```js
-amazonaws_kms.ReEncrypt({
-  "body": {
-    "CiphertextBlob": "",
-    "DestinationKeyId": ""
-  },
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_kms.ReEncrypt({}, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 
 ### RetireGrant
-<p>Retires a grant. To clean up, you can retire a grant when you're done using it. You should revoke a grant when you intend to actively deny operations that depend on it. The following are permitted to call this API:</p> <ul> <li> <p>The AWS account (root user) under which the grant was created</p> </li> <li> <p>The <code>RetiringPrincipal</code>, if present in the grant</p> </li> <li> <p>The <code>GranteePrincipal</code>, if <code>RetireGrant</code> is an operation specified in the grant</p> </li> </ul> <p>You must identify the grant to retire by its grant token or by a combination of the grant ID and the Amazon Resource Name (ARN) of the customer master key (CMK). A grant token is a unique variable-length base64-encoded string. A grant ID is a 64 character unique identifier of a grant. The <a>CreateGrant</a> operation returns both.</p>
+
 
 
 ```js
-amazonaws_kms.RetireGrant({
-  "body": {},
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_kms.RetireGrant({}, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 
 ### RevokeGrant
-Revokes a grant. You can revoke a grant to actively deny operations that depend on it.
+
 
 
 ```js
-amazonaws_kms.RevokeGrant({
-  "body": {
-    "KeyId": "",
-    "GrantId": ""
-  },
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_kms.RevokeGrant({}, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 
 ### ScheduleKeyDeletion
-<p>Schedules the deletion of a customer master key (CMK). You may provide a waiting period, specified in days, before deletion occurs. If you do not provide a waiting period, the default period of 30 days is used. When this operation is successful, the state of the CMK changes to <code>PendingDeletion</code>. Before the waiting period ends, you can use <a>CancelKeyDeletion</a> to cancel the deletion of the CMK. After the waiting period ends, AWS KMS deletes the CMK and all AWS KMS data associated with it, including all aliases that refer to it.</p> <important> <p>Deleting a CMK is a destructive and potentially dangerous operation. When a CMK is deleted, all data that was encrypted under the CMK is rendered unrecoverable. To restrict the use of a CMK without deleting it, use <a>DisableKey</a>.</p> </important> <p>For more information about scheduling a CMK for deletion, see <a href="http://docs.aws.amazon.com/kms/latest/developerguide/deleting-keys.html">Deleting Customer Master Keys</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
+
 
 
 ```js
-amazonaws_kms.ScheduleKeyDeletion({
-  "body": {
-    "KeyId": ""
-  },
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_kms.ScheduleKeyDeletion({}, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 
 ### TagResource
-<p>Adds or overwrites one or more tags for the specified customer master key (CMK). </p> <p>Each tag consists of a tag key and a tag value. Tag keys and tag values are both required, but tag values can be empty (null) strings.</p> <p>You cannot use the same tag key more than once per CMK. For example, consider a CMK with one tag whose tag key is <code>Purpose</code> and tag value is <code>Test</code>. If you send a <code>TagResource</code> request for this CMK with a tag key of <code>Purpose</code> and a tag value of <code>Prod</code>, it does not create a second tag. Instead, the original tag is overwritten with the new tag value.</p>
+
 
 
 ```js
-amazonaws_kms.TagResource({
-  "body": {
-    "KeyId": "",
-    "Tags": []
-  },
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_kms.TagResource({}, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 
 ### UntagResource
-<p>Removes the specified tag or tags from the specified customer master key (CMK). </p> <p>To remove a tag, you specify the tag key for each tag to remove. You do not specify the tag value. To overwrite the tag value for an existing tag, use <a>TagResource</a>.</p>
+
 
 
 ```js
-amazonaws_kms.UntagResource({
-  "body": {
-    "KeyId": "",
-    "TagKeys": []
-  },
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_kms.UntagResource({}, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 
 ### UpdateAlias
-<p>Updates an alias to map it to a different key.</p> <p>An alias is not a property of a key. Therefore, an alias can be mapped to and unmapped from an existing key without changing the properties of the key.</p> <p>An alias name can contain only alphanumeric characters, forward slashes (/), underscores (_), and dashes (-). An alias must start with the word "alias" followed by a forward slash (alias/). An alias that begins with "aws" after the forward slash (alias/aws...) is reserved by Amazon Web Services (AWS).</p> <p>The alias and the key it is mapped to must be in the same AWS account and the same region.</p>
+
 
 
 ```js
-amazonaws_kms.UpdateAlias({
-  "body": {
-    "AliasName": "",
-    "TargetKeyId": ""
-  },
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_kms.UpdateAlias({}, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 
 ### UpdateKeyDescription
-Updates the description of a customer master key (CMK).
+
 
 
 ```js
-amazonaws_kms.UpdateKeyDescription({
-  "body": {
-    "KeyId": "",
-    "Description": ""
-  },
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_kms.UpdateKeyDescription({}, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 

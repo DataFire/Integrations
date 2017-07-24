@@ -10,15 +10,7 @@ npm install --save datafire @datafire/amazonaws_data_iot
 ```js
 let datafire = require('datafire');
 let amazonaws_data_iot = require('@datafire/amazonaws_data_iot').actions;
-
-let account = {
-  hmac: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    amazonaws_data_iot: account,
-  }
-})
+let context = new datafire.Context();
 
 amazonaws_data_iot.UpdateThingShadow({}, context).then(data => {
   console.log(data);
@@ -30,56 +22,28 @@ amazonaws_data_iot.UpdateThingShadow({}, context).then(data => {
 
 ## Actions
 ### UpdateThingShadow
-<p>Updates the thing shadow for the specified thing.</p> <p>For more information, see <a href="http://docs.aws.amazon.com/iot/latest/developerguide/API_UpdateThingShadow.html">UpdateThingShadow</a> in the <i>AWS IoT Developer Guide</i>.</p>
+
 
 
 ```js
 amazonaws_data_iot.UpdateThingShadow({
-  "body": {
-    "payload": ""
-  },
-  "thingName": "",
-  "Action": "",
-  "Version": ""
+  "thingName": ""
 }, context)
 ```
 
 #### Parameters
-* body (object) **required** - The input for the UpdateThingShadow operation.
 * thingName (string) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 
 ### Publish
-<p>Publishes state information.</p> <p>For more information, see <a href="http://docs.aws.amazon.com/iot/latest/developerguide/protocols.html#http">HTTP Protocol</a> in the <i>AWS IoT Developer Guide</i>.</p>
+
 
 
 ```js
 amazonaws_data_iot.Publish({
-  "body": {},
-  "topic": "",
-  "Action": "",
-  "Version": ""
+  "topic": ""
 }, context)
 ```
 
 #### Parameters
-* body (object) **required** - The input for the Publish operation.
 * topic (string) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 

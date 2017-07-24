@@ -10,15 +10,7 @@ npm install --save datafire @datafire/amazonaws_shield
 ```js
 let datafire = require('datafire');
 let amazonaws_shield = require('@datafire/amazonaws_shield').actions;
-
-let account = {
-  hmac: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    amazonaws_shield: account,
-  }
-})
+let context = new datafire.Context();
 
 amazonaws_shield.CreateProtection({}, context).then(data => {
   console.log(data);
@@ -30,227 +22,92 @@ amazonaws_shield.CreateProtection({}, context).then(data => {
 
 ## Actions
 ### CreateProtection
-Enables AWS Shield Advanced for a specific AWS resource. The resource can be an Amazon CloudFront distribution, Elastic Load Balancing load balancer, or an Amazon Route 53 hosted zone.
+
 
 
 ```js
-amazonaws_shield.CreateProtection({
-  "body": {
-    "Name": "",
-    "ResourceArn": ""
-  },
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_shield.CreateProtection({}, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 
 ### CreateSubscription
-Activates AWS Shield Advanced for an account.
+
 
 
 ```js
-amazonaws_shield.CreateSubscription({
-  "body": {},
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_shield.CreateSubscription({}, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 
 ### DeleteProtection
-Deletes an AWS Shield Advanced <a>Protection</a>.
+
 
 
 ```js
-amazonaws_shield.DeleteProtection({
-  "body": {
-    "ProtectionId": ""
-  },
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_shield.DeleteProtection({}, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 
 ### DeleteSubscription
-Removes AWS Shield Advanced from an account.
+
 
 
 ```js
-amazonaws_shield.DeleteSubscription({
-  "body": {},
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_shield.DeleteSubscription({}, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 
 ### DescribeAttack
-Describes the details of a DDoS attack. 
+
 
 
 ```js
-amazonaws_shield.DescribeAttack({
-  "body": {
-    "AttackId": ""
-  },
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_shield.DescribeAttack({}, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 
 ### DescribeProtection
-Lists the details of a <a>Protection</a> object.
+
 
 
 ```js
-amazonaws_shield.DescribeProtection({
-  "body": {
-    "ProtectionId": ""
-  },
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_shield.DescribeProtection({}, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 
 ### DescribeSubscription
-Provides details about the AWS Shield Advanced subscription for an account.
+
 
 
 ```js
-amazonaws_shield.DescribeSubscription({
-  "body": {},
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_shield.DescribeSubscription({}, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 
 ### ListAttacks
-Returns all ongoing DDoS attacks or all DDoS attacks during a specified time period.
+
 
 
 ```js
-amazonaws_shield.ListAttacks({
-  "body": {},
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_shield.ListAttacks({}, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 
 ### ListProtections
-Lists all <a>Protection</a> objects for the account.
+
 
 
 ```js
-amazonaws_shield.ListProtections({
-  "body": {},
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_shield.ListProtections({}, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 

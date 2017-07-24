@@ -10,15 +10,7 @@ npm install --save datafire @datafire/amazonaws_entitlement_marketplace
 ```js
 let datafire = require('datafire');
 let amazonaws_entitlement_marketplace = require('@datafire/amazonaws_entitlement_marketplace').actions;
-
-let account = {
-  hmac: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    amazonaws_entitlement_marketplace: account,
-  }
-})
+let context = new datafire.Context();
 
 amazonaws_entitlement_marketplace.GetEntitlements({}, context).then(data => {
   console.log(data);
@@ -30,28 +22,12 @@ amazonaws_entitlement_marketplace.GetEntitlements({}, context).then(data => {
 
 ## Actions
 ### GetEntitlements
-GetEntitlements retrieves entitlement values for a given product. The results can be filtered based on customer identifier or product dimensions.
+
 
 
 ```js
-amazonaws_entitlement_marketplace.GetEntitlements({
-  "body": {
-    "ProductCode": ""
-  },
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_entitlement_marketplace.GetEntitlements({}, context)
 ```
 
 #### Parameters
-* body (object) **required** - The GetEntitlementsRequest contains parameters for the GetEntitlements operation.
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
 
