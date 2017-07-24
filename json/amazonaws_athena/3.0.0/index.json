@@ -1,0 +1,1040 @@
+{
+  "id": "amazonaws_athena",
+  "title": "Amazon Athena",
+  "description": "<p>Amazon Athena is an interactive query service that lets you use standard SQL to analyze data directly in Amazon S3. You can point Athena at your data in Amazon S3 and run ad-hoc queries and get results in seconds. Athena is serverless, so there is no infrastructure to set up or manage. You pay only for the queries you run. Athena scales automatically—executing queries in parallel—so results are fast, even with large datasets and complex queries. For more information, see <a href=\"http://docs.aws.amazon.com/athena/latest/ug/what-is.html\">What is Amazon Athena</a> in the <i>Amazon Athena User Guide</i>.</p> <p>For code samples using the AWS SDK for Java, see <a href=\"http://docs.aws.amazon.com/athena/latest/ug/code-samples.html\">Examples and Code Samples</a> in the <i>Amazon Athena User Guide</i>.</p>",
+  "security": {
+    "amazonaws_athena": {
+      "integration": "amazonaws_athena",
+      "accessKeyId": "",
+      "secretAccessKey": "",
+      "region": "AWS region (if applicable)"
+    }
+  },
+  "logo": {
+    "backgroundColor": "#FFFFFF",
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_athena.jpg"
+  },
+  "tags": [
+    "cloud",
+    "aws"
+  ],
+  "definitions": {
+    "BatchGetNamedQueryInput": {
+      "properties": {
+        "NamedQueryIds": {
+          "$ref": "#/definitions/NamedQueryIdList",
+          "description": "An array of query IDs."
+        }
+      },
+      "required": [
+        "NamedQueryIds"
+      ],
+      "type": "object"
+    },
+    "BatchGetNamedQueryOutput": {
+      "properties": {
+        "NamedQueries": {
+          "$ref": "#/definitions/NamedQueryList",
+          "description": "Information about the named query IDs submitted."
+        },
+        "UnprocessedNamedQueryIds": {
+          "$ref": "#/definitions/UnprocessedNamedQueryIdList",
+          "description": "Information about provided query IDs."
+        }
+      },
+      "type": "object"
+    },
+    "BatchGetQueryExecutionInput": {
+      "properties": {
+        "QueryExecutionIds": {
+          "$ref": "#/definitions/QueryExecutionIdList",
+          "description": "An array of query execution IDs."
+        }
+      },
+      "required": [
+        "QueryExecutionIds"
+      ],
+      "type": "object"
+    },
+    "BatchGetQueryExecutionOutput": {
+      "properties": {
+        "QueryExecutions": {
+          "$ref": "#/definitions/QueryExecutionList",
+          "description": "Information about a query execution."
+        },
+        "UnprocessedQueryExecutionIds": {
+          "$ref": "#/definitions/UnprocessedQueryExecutionIdList",
+          "description": "Information about the query executions that failed to run."
+        }
+      },
+      "type": "object"
+    },
+    "Boolean": {
+      "type": "boolean"
+    },
+    "ColumnInfo": {
+      "description": "Information about the columns in a query execution result.",
+      "properties": {
+        "CaseSensitive": {
+          "$ref": "#/definitions/Boolean",
+          "description": "Indicates whether values in the column are case-sensitive."
+        },
+        "CatalogName": {
+          "$ref": "#/definitions/String",
+          "description": "The catalog to which the query results belong."
+        },
+        "Label": {
+          "$ref": "#/definitions/String",
+          "description": "A column label."
+        },
+        "Name": {
+          "$ref": "#/definitions/String",
+          "description": "The name of the column."
+        },
+        "Nullable": {
+          "$ref": "#/definitions/ColumnNullable",
+          "description": "Indicates the column's nullable status."
+        },
+        "Precision": {
+          "$ref": "#/definitions/Integer",
+          "description": "For <code>DECIMAL</code> data types, specifies the total number of digits, up to 38. For performance reasons, we recommend up to 18 digits."
+        },
+        "Scale": {
+          "$ref": "#/definitions/Integer",
+          "description": "For <code>DECIMAL</code> data types, specifies the total number of digits in the fractional part of the value. Defaults to 0."
+        },
+        "SchemaName": {
+          "$ref": "#/definitions/String",
+          "description": "The schema name (database name) to which the query results belong."
+        },
+        "TableName": {
+          "$ref": "#/definitions/String",
+          "description": "The table name for the query results."
+        },
+        "Type": {
+          "$ref": "#/definitions/String",
+          "description": "The data type of the column."
+        }
+      },
+      "required": [
+        "Name",
+        "Type"
+      ],
+      "type": "object"
+    },
+    "ColumnInfoList": {
+      "items": {
+        "$ref": "#/definitions/ColumnInfo"
+      },
+      "type": "array"
+    },
+    "ColumnNullable": {
+      "enum": [
+        "NOT_NULL",
+        "NULLABLE",
+        "UNKNOWN"
+      ],
+      "type": "string"
+    },
+    "CreateNamedQueryInput": {
+      "properties": {
+        "ClientRequestToken": {
+          "$ref": "#/definitions/IdempotencyToken",
+          "description": "<p>A unique case-sensitive string used to ensure the request to create the query is idempotent (executes only once). If another <code>CreateNamedQuery</code> request is received, the same response is returned and another query is not created. If a parameter has changed, for example, the <code>QueryString</code>, an error is returned.</p> <important> <p>This token is listed as not required because AWS SDKs (for example the AWS SDK for Java) auto-generate the token for users. If you are not using the AWS SDK or the AWS CLI, you must provide this token or the action will fail.</p> </important>"
+        },
+        "Database": {
+          "$ref": "#/definitions/DatabaseString",
+          "description": "The database to which the query belongs."
+        },
+        "Description": {
+          "$ref": "#/definitions/DescriptionString",
+          "description": "A brief explanation of the query."
+        },
+        "Name": {
+          "$ref": "#/definitions/NameString",
+          "description": "The plain language name for the query."
+        },
+        "QueryString": {
+          "$ref": "#/definitions/QueryString",
+          "description": "The text of the query itself. In other words, all query statements."
+        }
+      },
+      "required": [
+        "Name",
+        "Database",
+        "QueryString"
+      ],
+      "type": "object"
+    },
+    "CreateNamedQueryOutput": {
+      "properties": {
+        "NamedQueryId": {
+          "$ref": "#/definitions/NamedQueryId",
+          "description": "The unique ID of the query."
+        }
+      },
+      "type": "object"
+    },
+    "DatabaseString": {
+      "maxLength": 32,
+      "minLength": 1,
+      "type": "string"
+    },
+    "Date": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "Datum": {
+      "description": "A piece of data (a field in the table).",
+      "properties": {
+        "VarCharValue": {
+          "$ref": "#/definitions/datumString",
+          "description": "The value of the datum."
+        }
+      },
+      "type": "object"
+    },
+    "DeleteNamedQueryInput": {
+      "properties": {
+        "NamedQueryId": {
+          "$ref": "#/definitions/NamedQueryId",
+          "description": "The unique ID of the query to delete."
+        }
+      },
+      "required": [
+        "NamedQueryId"
+      ],
+      "type": "object"
+    },
+    "DeleteNamedQueryOutput": {
+      "properties": {},
+      "type": "object"
+    },
+    "DescriptionString": {
+      "maxLength": 1024,
+      "minLength": 1,
+      "type": "string"
+    },
+    "EncryptionConfiguration": {
+      "description": "If query results are encrypted in Amazon S3, indicates the Amazon S3 encryption option used.",
+      "properties": {
+        "EncryptionOption": {
+          "$ref": "#/definitions/EncryptionOption",
+          "description": "Indicates whether Amazon S3 server-side encryption with Amazon S3-managed keys (<code>SSE-S3</code>), server-side encryption with KMS-managed keys (<code>SSE-KMS</code>), or client-side encryption with KMS-managed keys (CSE-KMS) is used."
+        },
+        "KmsKey": {
+          "$ref": "#/definitions/String",
+          "description": "For <code>SSE-KMS</code> and <code>CSE-KMS</code>, this is the KMS key ARN or ID."
+        }
+      },
+      "required": [
+        "EncryptionOption"
+      ],
+      "type": "object"
+    },
+    "EncryptionOption": {
+      "enum": [
+        "SSE_S3",
+        "SSE_KMS",
+        "CSE_KMS"
+      ],
+      "type": "string"
+    },
+    "ErrorCode": {
+      "maxLength": 256,
+      "minLength": 1,
+      "type": "string"
+    },
+    "ErrorMessage": {
+      "type": "string"
+    },
+    "GetNamedQueryInput": {
+      "properties": {
+        "NamedQueryId": {
+          "$ref": "#/definitions/NamedQueryId",
+          "description": "The unique ID of the query. Use <a>ListNamedQueries</a> to get query IDs."
+        }
+      },
+      "required": [
+        "NamedQueryId"
+      ],
+      "type": "object"
+    },
+    "GetNamedQueryOutput": {
+      "properties": {
+        "NamedQuery": {
+          "$ref": "#/definitions/NamedQuery",
+          "description": "Information about the query."
+        }
+      },
+      "type": "object"
+    },
+    "GetQueryExecutionInput": {
+      "properties": {
+        "QueryExecutionId": {
+          "$ref": "#/definitions/QueryExecutionId",
+          "description": "The unique ID of the query execution."
+        }
+      },
+      "required": [
+        "QueryExecutionId"
+      ],
+      "type": "object"
+    },
+    "GetQueryExecutionOutput": {
+      "properties": {
+        "QueryExecution": {
+          "$ref": "#/definitions/QueryExecution",
+          "description": "Information about the query execution."
+        }
+      },
+      "type": "object"
+    },
+    "GetQueryResultsInput": {
+      "properties": {
+        "MaxResults": {
+          "$ref": "#/definitions/MaxQueryResults",
+          "description": "The maximum number of results (rows) to return in this request."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/Token",
+          "description": "The token that specifies where to start pagination if a previous request was truncated."
+        },
+        "QueryExecutionId": {
+          "$ref": "#/definitions/QueryExecutionId",
+          "description": "The unique ID of the query execution."
+        }
+      },
+      "required": [
+        "QueryExecutionId"
+      ],
+      "type": "object"
+    },
+    "GetQueryResultsOutput": {
+      "properties": {
+        "NextToken": {
+          "$ref": "#/definitions/Token",
+          "description": "A token to be used by the next request if this request is truncated."
+        },
+        "ResultSet": {
+          "$ref": "#/definitions/ResultSet",
+          "description": "The results of the query execution."
+        }
+      },
+      "type": "object"
+    },
+    "IdempotencyToken": {
+      "maxLength": 128,
+      "minLength": 32,
+      "type": "string"
+    },
+    "Integer": {
+      "type": "integer"
+    },
+    "InternalServerException": {
+      "description": "Indicates a platform issue, which may be due to a transient condition or outage.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "type": "object"
+    },
+    "InvalidRequestException": {
+      "description": "Indicates that something is wrong with the input to the request. For example, a required parameter may be missing or out of range.",
+      "properties": {
+        "AthenaErrorCode": {
+          "$ref": "#/definitions/ErrorCode"
+        },
+        "Message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "type": "object"
+    },
+    "ListNamedQueriesInput": {
+      "properties": {
+        "MaxResults": {
+          "$ref": "#/definitions/MaxNamedQueriesCount",
+          "description": "The maximum number of queries to return in this request."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/Token",
+          "description": "The token that specifies where to start pagination if a previous request was truncated."
+        }
+      },
+      "type": "object"
+    },
+    "ListNamedQueriesOutput": {
+      "properties": {
+        "NamedQueryIds": {
+          "$ref": "#/definitions/NamedQueryIdList",
+          "description": "The list of unique query IDs."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/Token",
+          "description": "A token to be used by the next request if this request is truncated."
+        }
+      },
+      "type": "object"
+    },
+    "ListQueryExecutionsInput": {
+      "properties": {
+        "MaxResults": {
+          "$ref": "#/definitions/MaxQueryExecutionsCount",
+          "description": "The maximum number of query executions to return in this request."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/Token",
+          "description": "The token that specifies where to start pagination if a previous request was truncated."
+        }
+      },
+      "type": "object"
+    },
+    "ListQueryExecutionsOutput": {
+      "properties": {
+        "NextToken": {
+          "$ref": "#/definitions/Token",
+          "description": "A token to be used by the next request if this request is truncated."
+        },
+        "QueryExecutionIds": {
+          "$ref": "#/definitions/QueryExecutionIdList",
+          "description": "The unique IDs of each query execution as an array of strings."
+        }
+      },
+      "type": "object"
+    },
+    "Long": {
+      "type": "integer"
+    },
+    "MaxNamedQueriesCount": {
+      "maximum": 50,
+      "minimum": 0,
+      "type": "integer"
+    },
+    "MaxQueryExecutionsCount": {
+      "maximum": 50,
+      "minimum": 0,
+      "type": "integer"
+    },
+    "MaxQueryResults": {
+      "maximum": 1000,
+      "minimum": 0,
+      "type": "integer"
+    },
+    "NameString": {
+      "maxLength": 128,
+      "minLength": 1,
+      "type": "string"
+    },
+    "NamedQuery": {
+      "description": "A query, where <code>QueryString</code> is the SQL query statements that comprise the query.",
+      "properties": {
+        "Database": {
+          "$ref": "#/definitions/DatabaseString",
+          "description": "The database to which the query belongs."
+        },
+        "Description": {
+          "$ref": "#/definitions/DescriptionString",
+          "description": "A brief description of the query."
+        },
+        "Name": {
+          "$ref": "#/definitions/NameString",
+          "description": "The plain-language name of the query."
+        },
+        "NamedQueryId": {
+          "$ref": "#/definitions/NamedQueryId",
+          "description": "The unique identifier of the query."
+        },
+        "QueryString": {
+          "$ref": "#/definitions/QueryString",
+          "description": "The SQL query statements that comprise the query."
+        }
+      },
+      "required": [
+        "Name",
+        "Database",
+        "QueryString"
+      ],
+      "type": "object"
+    },
+    "NamedQueryId": {
+      "type": "string"
+    },
+    "NamedQueryIdList": {
+      "items": {
+        "$ref": "#/definitions/NamedQueryId"
+      },
+      "maxItems": 50,
+      "minItems": 1,
+      "type": "array"
+    },
+    "NamedQueryList": {
+      "items": {
+        "$ref": "#/definitions/NamedQuery"
+      },
+      "type": "array"
+    },
+    "QueryExecution": {
+      "description": "Information about a single instance of a query execution.",
+      "properties": {
+        "Query": {
+          "$ref": "#/definitions/QueryString",
+          "description": "The SQL query statements which the query execution ran."
+        },
+        "QueryExecutionContext": {
+          "$ref": "#/definitions/QueryExecutionContext",
+          "description": "The database in which the query execution occurred."
+        },
+        "QueryExecutionId": {
+          "$ref": "#/definitions/QueryExecutionId",
+          "description": "The unique identifier for each query execution."
+        },
+        "ResultConfiguration": {
+          "$ref": "#/definitions/ResultConfiguration",
+          "description": "The location in Amazon S3 where query results were stored and the encryption option, if any, used for query results."
+        },
+        "Statistics": {
+          "$ref": "#/definitions/QueryExecutionStatistics",
+          "description": "The amount of data scanned during the query execution and the amount of time that it took to execute."
+        },
+        "Status": {
+          "$ref": "#/definitions/QueryExecutionStatus",
+          "description": "The completion date, current state, submission time, and state change reason (if applicable) for the query execution."
+        }
+      },
+      "type": "object"
+    },
+    "QueryExecutionContext": {
+      "description": "The database in which the query execution occurs.",
+      "properties": {
+        "Database": {
+          "$ref": "#/definitions/DatabaseString",
+          "description": "The name of the database."
+        }
+      },
+      "type": "object"
+    },
+    "QueryExecutionId": {
+      "type": "string"
+    },
+    "QueryExecutionIdList": {
+      "items": {
+        "$ref": "#/definitions/QueryExecutionId"
+      },
+      "maxItems": 50,
+      "minItems": 1,
+      "type": "array"
+    },
+    "QueryExecutionList": {
+      "items": {
+        "$ref": "#/definitions/QueryExecution"
+      },
+      "type": "array"
+    },
+    "QueryExecutionState": {
+      "enum": [
+        "QUEUED",
+        "RUNNING",
+        "SUCCEEDED",
+        "FAILED",
+        "CANCELLED"
+      ],
+      "type": "string"
+    },
+    "QueryExecutionStatistics": {
+      "description": "The amount of data scanned during the query execution and the amount of time that it took to execute.",
+      "properties": {
+        "DataScannedInBytes": {
+          "$ref": "#/definitions/Long",
+          "description": "The number of bytes in the data that was queried."
+        },
+        "EngineExecutionTimeInMillis": {
+          "$ref": "#/definitions/Long",
+          "description": "The number of milliseconds that the query took to execute."
+        }
+      },
+      "type": "object"
+    },
+    "QueryExecutionStatus": {
+      "description": "The completion date, current state, submission time, and state change reason (if applicable) for the query execution.",
+      "properties": {
+        "CompletionDateTime": {
+          "$ref": "#/definitions/Date",
+          "description": "The date and time that the query completed."
+        },
+        "State": {
+          "$ref": "#/definitions/QueryExecutionState",
+          "description": "The state of query execution. <code>SUBMITTED</code> indicates that the query is queued for execution. <code>RUNNING</code> indicates that the query is scanning data and returning results. <code>SUCCEEDED</code> indicates that the query completed without error. <code>FAILED</code> indicates that the query experienced an error and did not complete processing. <code>CANCELLED</code> indicates that user input interrupted query execution."
+        },
+        "StateChangeReason": {
+          "$ref": "#/definitions/String",
+          "description": "Further detail about the status of the query."
+        },
+        "SubmissionDateTime": {
+          "$ref": "#/definitions/Date",
+          "description": "The date and time that the query was submitted."
+        }
+      },
+      "type": "object"
+    },
+    "QueryString": {
+      "maxLength": 262144,
+      "minLength": 1,
+      "type": "string"
+    },
+    "ResultConfiguration": {
+      "description": "The location in Amazon S3 where query results are stored and the encryption option, if any, used for query results.",
+      "properties": {
+        "EncryptionConfiguration": {
+          "$ref": "#/definitions/EncryptionConfiguration",
+          "description": "If query results are encrypted in S3, indicates the S3 encryption option used (for example, <code>SSE-KMS</code> or <code>CSE-KMS</code> and key information."
+        },
+        "OutputLocation": {
+          "$ref": "#/definitions/String",
+          "description": "The location in S3 where query results are stored."
+        }
+      },
+      "required": [
+        "OutputLocation"
+      ],
+      "type": "object"
+    },
+    "ResultSet": {
+      "description": "The metadata and rows that comprise a query result set. The metadata describes the column structure and data types.",
+      "properties": {
+        "ResultSetMetadata": {
+          "$ref": "#/definitions/ResultSetMetadata",
+          "description": "The metadata that describes the column structure and data types of a table of query results."
+        },
+        "Rows": {
+          "$ref": "#/definitions/RowList",
+          "description": "The rows in the table."
+        }
+      },
+      "type": "object"
+    },
+    "ResultSetMetadata": {
+      "description": "The metadata that describes the column structure and data types of a table of query results.",
+      "properties": {
+        "ColumnInfo": {
+          "$ref": "#/definitions/ColumnInfoList",
+          "description": "Information about the columns in a query execution result."
+        }
+      },
+      "type": "object"
+    },
+    "Row": {
+      "description": "The rows that comprise a query result table.",
+      "properties": {
+        "Data": {
+          "$ref": "#/definitions/datumList",
+          "description": "The data that populates a row in a query result table."
+        }
+      },
+      "type": "object"
+    },
+    "RowList": {
+      "items": {
+        "$ref": "#/definitions/Row"
+      },
+      "type": "array"
+    },
+    "StartQueryExecutionInput": {
+      "properties": {
+        "ClientRequestToken": {
+          "$ref": "#/definitions/IdempotencyToken",
+          "description": "<p>A unique case-sensitive string used to ensure the request to create the query is idempotent (executes only once). If another <code>StartQueryExecution</code> request is received, the same response is returned and another query is not created. If a parameter has changed, for example, the <code>QueryString</code>, an error is returned.</p> <important> <p>This token is listed as not required because AWS SDKs (for example the AWS SDK for Java) auto-generate the token for users. If you are not using the AWS SDK or the AWS CLI, you must provide this token or the action will fail.</p> </important>"
+        },
+        "QueryExecutionContext": {
+          "$ref": "#/definitions/QueryExecutionContext",
+          "description": "The database within which the query executes."
+        },
+        "QueryString": {
+          "$ref": "#/definitions/QueryString",
+          "description": "The SQL query statements to be executed."
+        },
+        "ResultConfiguration": {
+          "$ref": "#/definitions/ResultConfiguration",
+          "description": "Specifies information about where and how to save the results of the query execution."
+        }
+      },
+      "required": [
+        "QueryString",
+        "ResultConfiguration"
+      ],
+      "type": "object"
+    },
+    "StartQueryExecutionOutput": {
+      "properties": {
+        "QueryExecutionId": {
+          "$ref": "#/definitions/QueryExecutionId",
+          "description": "The unique ID of the query that ran as a result of this request."
+        }
+      },
+      "type": "object"
+    },
+    "StopQueryExecutionInput": {
+      "properties": {
+        "QueryExecutionId": {
+          "$ref": "#/definitions/QueryExecutionId",
+          "description": "The unique ID of the query execution to stop."
+        }
+      },
+      "required": [
+        "QueryExecutionId"
+      ],
+      "type": "object"
+    },
+    "StopQueryExecutionOutput": {
+      "properties": {},
+      "type": "object"
+    },
+    "String": {
+      "type": "string"
+    },
+    "ThrottleReason": {
+      "enum": [
+        "CONCURRENT_QUERY_LIMIT_EXCEEDED"
+      ],
+      "type": "string"
+    },
+    "Token": {
+      "type": "string"
+    },
+    "TooManyRequestsException": {
+      "description": "Indicates that the request was throttled.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ErrorMessage"
+        },
+        "Reason": {
+          "$ref": "#/definitions/ThrottleReason"
+        }
+      },
+      "type": "object"
+    },
+    "UnprocessedNamedQueryId": {
+      "description": "Information about a named query ID that could not be processed.",
+      "properties": {
+        "ErrorCode": {
+          "$ref": "#/definitions/ErrorCode",
+          "description": "The error code returned when the processing request for the named query failed, if applicable."
+        },
+        "ErrorMessage": {
+          "$ref": "#/definitions/ErrorMessage",
+          "description": "The error message returned when the processing request for the named query failed, if applicable."
+        },
+        "NamedQueryId": {
+          "$ref": "#/definitions/NamedQueryId",
+          "description": "The unique identifier of the named query."
+        }
+      },
+      "type": "object"
+    },
+    "UnprocessedNamedQueryIdList": {
+      "items": {
+        "$ref": "#/definitions/UnprocessedNamedQueryId"
+      },
+      "type": "array"
+    },
+    "UnprocessedQueryExecutionId": {
+      "description": "Describes a query execution that failed to process.",
+      "properties": {
+        "ErrorCode": {
+          "$ref": "#/definitions/ErrorCode",
+          "description": "The error code returned when the query execution failed to process, if applicable."
+        },
+        "ErrorMessage": {
+          "$ref": "#/definitions/ErrorMessage",
+          "description": "The error message returned when the query execution failed to process, if applicable."
+        },
+        "QueryExecutionId": {
+          "$ref": "#/definitions/QueryExecutionId",
+          "description": "The unique identifier of the query execution."
+        }
+      },
+      "type": "object"
+    },
+    "UnprocessedQueryExecutionIdList": {
+      "items": {
+        "$ref": "#/definitions/UnprocessedQueryExecutionId"
+      },
+      "type": "array"
+    },
+    "datumList": {
+      "items": {
+        "$ref": "#/definitions/Datum"
+      },
+      "type": "array"
+    },
+    "datumString": {
+      "type": "string"
+    }
+  },
+  "actions": [
+    {
+      "id": "BatchGetNamedQuery",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/BatchGetNamedQueryInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/BatchGetNamedQueryOutput"
+      },
+      "security": {
+        "amazonaws_athena": {
+          "integration": "amazonaws_athena"
+        }
+      }
+    },
+    {
+      "id": "BatchGetQueryExecution",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/BatchGetQueryExecutionInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/BatchGetQueryExecutionOutput"
+      },
+      "security": {
+        "amazonaws_athena": {
+          "integration": "amazonaws_athena"
+        }
+      }
+    },
+    {
+      "id": "CreateNamedQuery",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/CreateNamedQueryInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CreateNamedQueryOutput"
+      },
+      "security": {
+        "amazonaws_athena": {
+          "integration": "amazonaws_athena"
+        }
+      }
+    },
+    {
+      "id": "DeleteNamedQuery",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DeleteNamedQueryInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DeleteNamedQueryOutput"
+      },
+      "security": {
+        "amazonaws_athena": {
+          "integration": "amazonaws_athena"
+        }
+      }
+    },
+    {
+      "id": "GetNamedQuery",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetNamedQueryInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetNamedQueryOutput"
+      },
+      "security": {
+        "amazonaws_athena": {
+          "integration": "amazonaws_athena"
+        }
+      }
+    },
+    {
+      "id": "GetQueryExecution",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetQueryExecutionInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetQueryExecutionOutput"
+      },
+      "security": {
+        "amazonaws_athena": {
+          "integration": "amazonaws_athena"
+        }
+      }
+    },
+    {
+      "id": "GetQueryResults",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "MaxResults": {
+            "type": "string"
+          },
+          "NextToken": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetQueryResultsInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetQueryResultsOutput"
+      },
+      "security": {
+        "amazonaws_athena": {
+          "integration": "amazonaws_athena"
+        }
+      }
+    },
+    {
+      "id": "ListNamedQueries",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "MaxResults": {
+            "type": "string"
+          },
+          "NextToken": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListNamedQueriesInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListNamedQueriesOutput"
+      },
+      "security": {
+        "amazonaws_athena": {
+          "integration": "amazonaws_athena"
+        }
+      }
+    },
+    {
+      "id": "ListQueryExecutions",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "MaxResults": {
+            "type": "string"
+          },
+          "NextToken": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListQueryExecutionsInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListQueryExecutionsOutput"
+      },
+      "security": {
+        "amazonaws_athena": {
+          "integration": "amazonaws_athena"
+        }
+      }
+    },
+    {
+      "id": "StartQueryExecution",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/StartQueryExecutionInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/StartQueryExecutionOutput"
+      },
+      "security": {
+        "amazonaws_athena": {
+          "integration": "amazonaws_athena"
+        }
+      }
+    },
+    {
+      "id": "StopQueryExecution",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/StopQueryExecutionInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/StopQueryExecutionOutput"
+      },
+      "security": {
+        "amazonaws_athena": {
+          "integration": "amazonaws_athena"
+        }
+      }
+    }
+  ]
+}

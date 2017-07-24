@@ -1,0 +1,2680 @@
+{
+  "id": "amazonaws_pinpoint",
+  "title": "Amazon Pinpoint",
+  "description": "",
+  "security": {
+    "amazonaws_pinpoint": {
+      "integration": "amazonaws_pinpoint",
+      "accessKeyId": "",
+      "secretAccessKey": "",
+      "region": "AWS region (if applicable)"
+    }
+  },
+  "logo": {
+    "backgroundColor": "#FFFFFF",
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_pinpoint.jpg"
+  },
+  "tags": [
+    "cloud",
+    "aws"
+  ],
+  "definitions": {
+    "APNSChannelRequest": {
+      "description": "Apple Push Notification Service channel definition.",
+      "properties": {
+        "Certificate": {
+          "$ref": "#/definitions/__string",
+          "description": "The distribution certificate from Apple."
+        },
+        "PrivateKey": {
+          "$ref": "#/definitions/__string",
+          "description": "The certificate private key."
+        }
+      },
+      "type": "object"
+    },
+    "APNSChannelResponse": {
+      "description": "Apple Distribution Push Notification Service channel definition.",
+      "properties": {
+        "ApplicationId": {
+          "$ref": "#/definitions/__string",
+          "description": "The ID of the application to which the channel applies."
+        },
+        "CreationDate": {
+          "$ref": "#/definitions/__string",
+          "description": "When was this segment created"
+        },
+        "Id": {
+          "$ref": "#/definitions/__string",
+          "description": "The unique channel ID."
+        },
+        "IsArchived": {
+          "$ref": "#/definitions/__boolean",
+          "description": "Is this channel archived"
+        },
+        "LastModifiedBy": {
+          "$ref": "#/definitions/__string",
+          "description": "Who last updated this entry"
+        },
+        "LastModifiedDate": {
+          "$ref": "#/definitions/__string",
+          "description": "Last date this was updated"
+        },
+        "Platform": {
+          "$ref": "#/definitions/__string",
+          "description": "The platform type. Will be APNS."
+        },
+        "Version": {
+          "$ref": "#/definitions/__integer",
+          "description": "Version of channel"
+        }
+      },
+      "type": "object"
+    },
+    "Action": {
+      "enum": [
+        "OPEN_APP",
+        "DEEP_LINK",
+        "URL"
+      ],
+      "type": "string"
+    },
+    "ActivitiesResponse": {
+      "description": "Activities for campaign.",
+      "properties": {
+        "Item": {
+          "$ref": "#/definitions/ListOfActivityResponse",
+          "description": "List of campaign activities"
+        }
+      },
+      "type": "object"
+    },
+    "ActivityResponse": {
+      "description": "Activity definition",
+      "properties": {
+        "ApplicationId": {
+          "$ref": "#/definitions/__string",
+          "description": "The ID of the application to which the campaign applies."
+        },
+        "CampaignId": {
+          "$ref": "#/definitions/__string",
+          "description": "The ID of the campaign to which the activity applies."
+        },
+        "End": {
+          "$ref": "#/definitions/__string",
+          "description": "The actual time the activity was marked CANCELLED or COMPLETED. Provided in ISO 8601 format."
+        },
+        "Id": {
+          "$ref": "#/definitions/__string",
+          "description": "The unique activity ID."
+        },
+        "Result": {
+          "$ref": "#/definitions/__string",
+          "description": "Indicates whether the activity succeeded.\n\nValid values: SUCCESS, FAIL"
+        },
+        "ScheduledStart": {
+          "$ref": "#/definitions/__string",
+          "description": "The scheduled start time for the activity in ISO 8601 format."
+        },
+        "Start": {
+          "$ref": "#/definitions/__string",
+          "description": "The actual start time of the activity in ISO 8601 format."
+        },
+        "State": {
+          "$ref": "#/definitions/__string",
+          "description": "The state of the activity.\n\nValid values: PENDING, INITIALIZING, RUNNING, PAUSED, CANCELLED, COMPLETED"
+        },
+        "SuccessfulEndpointCount": {
+          "$ref": "#/definitions/__integer",
+          "description": "The total number of endpoints to which the campaign successfully delivered messages."
+        },
+        "TimezonesCompletedCount": {
+          "$ref": "#/definitions/__integer",
+          "description": "The total number of timezones completed."
+        },
+        "TimezonesTotalCount": {
+          "$ref": "#/definitions/__integer",
+          "description": "The total number of unique timezones present in the segment."
+        },
+        "TotalEndpointCount": {
+          "$ref": "#/definitions/__integer",
+          "description": "The total number of endpoints to which the campaign attempts to deliver messages."
+        },
+        "TreatmentId": {
+          "$ref": "#/definitions/__string",
+          "description": "The ID of a variation of the campaign used for A/B testing."
+        }
+      },
+      "type": "object"
+    },
+    "ApplicationSettingsResource": {
+      "description": "Application settings.",
+      "properties": {
+        "ApplicationId": {
+          "$ref": "#/definitions/__string",
+          "description": "The unique ID for the application."
+        },
+        "LastModifiedDate": {
+          "$ref": "#/definitions/__string",
+          "description": "The date that the settings were last updated in ISO 8601 format."
+        },
+        "Limits": {
+          "$ref": "#/definitions/CampaignLimits",
+          "description": "The default campaign limits for the app. These limits apply to each campaign for the app, unless the campaign overrides the default with limits of its own."
+        },
+        "QuietTime": {
+          "$ref": "#/definitions/QuietTime",
+          "description": "The default quiet time for the app. Each campaign for this app sends no messages during this time unless the campaign overrides the default with a quiet time of its own."
+        }
+      },
+      "type": "object"
+    },
+    "AttributeDimension": {
+      "description": "Custom attibute dimension",
+      "properties": {
+        "AttributeType": {
+          "$ref": "#/definitions/AttributeType",
+          "description": "The type of dimension:\nINCLUSIVE – Endpoints that match the criteria are included in the segment.\nEXCLUSIVE – Endpoints that match the criteria are excluded from the segment."
+        },
+        "Values": {
+          "$ref": "#/definitions/ListOf__string",
+          "description": "The criteria values for the segment dimension. Endpoints with matching attribute values are included or excluded from the segment, depending on the setting for Type."
+        }
+      },
+      "type": "object"
+    },
+    "AttributeType": {
+      "enum": [
+        "INCLUSIVE",
+        "EXCLUSIVE"
+      ],
+      "type": "string"
+    },
+    "BadRequestException": {
+      "description": "Simple message object.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/__string",
+          "description": "The error message returned from the API."
+        },
+        "RequestID": {
+          "$ref": "#/definitions/__string",
+          "description": "The unique message body ID."
+        }
+      },
+      "type": "object"
+    },
+    "CampaignLimits": {
+      "description": "Campaign Limits are used to limit the number of messages that can be sent to a user.",
+      "properties": {
+        "Daily": {
+          "$ref": "#/definitions/__integer",
+          "description": "The maximum number of messages that the campaign can send daily."
+        },
+        "Total": {
+          "$ref": "#/definitions/__integer",
+          "description": "The maximum total number of messages that the campaign can send."
+        }
+      },
+      "type": "object"
+    },
+    "CampaignResponse": {
+      "description": "Campaign definition",
+      "properties": {
+        "AdditionalTreatments": {
+          "$ref": "#/definitions/ListOfTreatmentResource",
+          "description": "Treatments that are defined in addition to the default treatment."
+        },
+        "ApplicationId": {
+          "$ref": "#/definitions/__string",
+          "description": "The ID of the application to which the campaign applies."
+        },
+        "CreationDate": {
+          "$ref": "#/definitions/__string",
+          "description": "The date the campaign was created in ISO 8601 format."
+        },
+        "DefaultState": {
+          "$ref": "#/definitions/CampaignState",
+          "description": "The status of the campaign's default treatment. Only present for A/B test campaigns."
+        },
+        "Description": {
+          "$ref": "#/definitions/__string",
+          "description": "A description of the campaign."
+        },
+        "HoldoutPercent": {
+          "$ref": "#/definitions/__integer",
+          "description": "The allocated percentage of end users who will not receive messages from this campaign."
+        },
+        "Id": {
+          "$ref": "#/definitions/__string",
+          "description": "The unique campaign ID."
+        },
+        "IsPaused": {
+          "$ref": "#/definitions/__boolean",
+          "description": "Indicates whether the campaign is paused. A paused campaign does not send messages unless you resume it by setting IsPaused to false."
+        },
+        "LastModifiedDate": {
+          "$ref": "#/definitions/__string",
+          "description": "The date the campaign was last updated in ISO 8601 format.\t"
+        },
+        "Limits": {
+          "$ref": "#/definitions/CampaignLimits",
+          "description": "The campaign limits settings."
+        },
+        "MessageConfiguration": {
+          "$ref": "#/definitions/MessageConfiguration",
+          "description": "The message configuration settings."
+        },
+        "Name": {
+          "$ref": "#/definitions/__string",
+          "description": "The custom name of the campaign."
+        },
+        "Schedule": {
+          "$ref": "#/definitions/Schedule",
+          "description": "The campaign schedule."
+        },
+        "SegmentId": {
+          "$ref": "#/definitions/__string",
+          "description": "The ID of the segment to which the campaign sends messages."
+        },
+        "SegmentVersion": {
+          "$ref": "#/definitions/__integer",
+          "description": "The version of the segment to which the campaign sends messages."
+        },
+        "State": {
+          "$ref": "#/definitions/CampaignState",
+          "description": "The campaign status.\n\nAn A/B test campaign will have a status of COMPLETED only when all treatments have a status of COMPLETED."
+        },
+        "TreatmentDescription": {
+          "$ref": "#/definitions/__string",
+          "description": "A custom description for the treatment."
+        },
+        "TreatmentName": {
+          "$ref": "#/definitions/__string",
+          "description": "The custom name of a variation of the campaign used for A/B testing."
+        },
+        "Version": {
+          "$ref": "#/definitions/__integer",
+          "description": "The campaign version number."
+        }
+      },
+      "type": "object"
+    },
+    "CampaignState": {
+      "description": "State of the Campaign",
+      "properties": {
+        "CampaignStatus": {
+          "$ref": "#/definitions/CampaignStatus",
+          "description": "The status of the campaign, or the status of a treatment that belongs to an A/B test campaign.\n\nValid values: SCHEDULED, EXECUTING, PENDING_NEXT_RUN, COMPLETED, PAUSED"
+        }
+      },
+      "type": "object"
+    },
+    "CampaignStatus": {
+      "enum": [
+        "SCHEDULED",
+        "EXECUTING",
+        "PENDING_NEXT_RUN",
+        "COMPLETED",
+        "PAUSED"
+      ],
+      "type": "string"
+    },
+    "CampaignsResponse": {
+      "description": "List of available campaigns.",
+      "properties": {
+        "Item": {
+          "$ref": "#/definitions/ListOfCampaignResponse",
+          "description": "A list of campaigns."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/__string",
+          "description": "The string that you use in a subsequent request to get the next page of results in a paginated response."
+        }
+      },
+      "type": "object"
+    },
+    "ChannelType": {
+      "enum": [
+        "APNS",
+        "GCM"
+      ],
+      "type": "string"
+    },
+    "CreateCampaignRequest": {
+      "properties": {
+        "WriteCampaignRequest": {
+          "$ref": "#/definitions/WriteCampaignRequest"
+        }
+      },
+      "required": [
+        "WriteCampaignRequest"
+      ],
+      "type": "object"
+    },
+    "CreateCampaignResponse": {
+      "properties": {
+        "CampaignResponse": {
+          "$ref": "#/definitions/CampaignResponse"
+        }
+      },
+      "required": [
+        "CampaignResponse"
+      ],
+      "type": "object"
+    },
+    "CreateImportJobRequest": {
+      "properties": {
+        "ImportJobRequest": {
+          "$ref": "#/definitions/ImportJobRequest"
+        }
+      },
+      "required": [
+        "ImportJobRequest"
+      ],
+      "type": "object"
+    },
+    "CreateImportJobResponse": {
+      "properties": {
+        "ImportJobResponse": {
+          "$ref": "#/definitions/ImportJobResponse"
+        }
+      },
+      "required": [
+        "ImportJobResponse"
+      ],
+      "type": "object"
+    },
+    "CreateSegmentRequest": {
+      "properties": {
+        "WriteSegmentRequest": {
+          "$ref": "#/definitions/WriteSegmentRequest"
+        }
+      },
+      "required": [
+        "WriteSegmentRequest"
+      ],
+      "type": "object"
+    },
+    "CreateSegmentResponse": {
+      "properties": {
+        "SegmentResponse": {
+          "$ref": "#/definitions/SegmentResponse"
+        }
+      },
+      "required": [
+        "SegmentResponse"
+      ],
+      "type": "object"
+    },
+    "DeleteApnsChannelRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "DeleteApnsChannelResponse": {
+      "properties": {
+        "APNSChannelResponse": {
+          "$ref": "#/definitions/APNSChannelResponse"
+        }
+      },
+      "required": [
+        "APNSChannelResponse"
+      ],
+      "type": "object"
+    },
+    "DeleteCampaignRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "DeleteCampaignResponse": {
+      "properties": {
+        "CampaignResponse": {
+          "$ref": "#/definitions/CampaignResponse"
+        }
+      },
+      "required": [
+        "CampaignResponse"
+      ],
+      "type": "object"
+    },
+    "DeleteEventStreamRequest": {
+      "description": "DeleteEventStream Request",
+      "properties": {},
+      "type": "object"
+    },
+    "DeleteEventStreamResponse": {
+      "description": "DeleteEventStream Response",
+      "properties": {
+        "EventStream": {
+          "$ref": "#/definitions/EventStream"
+        }
+      },
+      "required": [
+        "EventStream"
+      ],
+      "type": "object"
+    },
+    "DeleteGcmChannelRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "DeleteGcmChannelResponse": {
+      "properties": {
+        "GCMChannelResponse": {
+          "$ref": "#/definitions/GCMChannelResponse"
+        }
+      },
+      "required": [
+        "GCMChannelResponse"
+      ],
+      "type": "object"
+    },
+    "DeleteSegmentRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "DeleteSegmentResponse": {
+      "properties": {
+        "SegmentResponse": {
+          "$ref": "#/definitions/SegmentResponse"
+        }
+      },
+      "required": [
+        "SegmentResponse"
+      ],
+      "type": "object"
+    },
+    "DimensionType": {
+      "enum": [
+        "INCLUSIVE",
+        "EXCLUSIVE"
+      ],
+      "type": "string"
+    },
+    "Duration": {
+      "enum": [
+        "HR_24",
+        "DAY_7",
+        "DAY_14",
+        "DAY_30"
+      ],
+      "type": "string"
+    },
+    "EndpointBatchItem": {
+      "description": "Endpoint update request",
+      "properties": {
+        "Address": {
+          "$ref": "#/definitions/__string",
+          "description": "The address or token of the endpoint as provided by your push provider (e.g. DeviceToken or RegistrationId)."
+        },
+        "Attributes": {
+          "$ref": "#/definitions/MapOfListOf__string",
+          "description": "Custom attributes that your app reports to Amazon Pinpoint. You can use these attributes as selection criteria when you create a segment."
+        },
+        "ChannelType": {
+          "$ref": "#/definitions/ChannelType",
+          "description": "The channel type.\n\nValid values: APNS, GCM"
+        },
+        "Demographic": {
+          "$ref": "#/definitions/EndpointDemographic",
+          "description": "The endpoint demographic attributes."
+        },
+        "EffectiveDate": {
+          "$ref": "#/definitions/__string",
+          "description": "The last time the endpoint was updated. Provided in ISO 8601 format."
+        },
+        "EndpointStatus": {
+          "$ref": "#/definitions/__string",
+          "description": "The endpoint status. Can be either ACTIVE or INACTIVE. Will be set to INACTIVE if a delivery fails. Will be set to ACTIVE if the address is updated."
+        },
+        "Id": {
+          "$ref": "#/definitions/__string",
+          "description": "The unique Id for the Endpoint in the batch."
+        },
+        "Location": {
+          "$ref": "#/definitions/EndpointLocation",
+          "description": "The endpoint location attributes."
+        },
+        "Metrics": {
+          "$ref": "#/definitions/MapOf__double",
+          "description": "Custom metrics that your app reports to Amazon Pinpoint."
+        },
+        "OptOut": {
+          "$ref": "#/definitions/__string",
+          "description": "Indicates whether a user has opted out of receiving messages with one of the following values:\n\nALL – User receives all messages.\nNONE – User receives no messages."
+        },
+        "RequestId": {
+          "$ref": "#/definitions/__string",
+          "description": "The unique ID for the most recent request to update the endpoint."
+        },
+        "User": {
+          "$ref": "#/definitions/EndpointUser",
+          "description": "Custom user-specific attributes that your app reports to Amazon Pinpoint."
+        }
+      },
+      "type": "object"
+    },
+    "EndpointBatchRequest": {
+      "description": "Endpoint batch update request.",
+      "properties": {
+        "Item": {
+          "$ref": "#/definitions/ListOfEndpointBatchItem",
+          "description": "List of items to update. Maximum 100 items"
+        }
+      },
+      "type": "object"
+    },
+    "EndpointDemographic": {
+      "description": "Endpoint demographic data",
+      "properties": {
+        "AppVersion": {
+          "$ref": "#/definitions/__string",
+          "description": "The version of the application associated with the endpoint."
+        },
+        "Locale": {
+          "$ref": "#/definitions/__string",
+          "description": "The endpoint locale in the following format: The ISO 639-1 alpha-2 code, followed by an underscore, followed by an ISO 3166-1 alpha-2 value.\n"
+        },
+        "Make": {
+          "$ref": "#/definitions/__string",
+          "description": "The endpoint make, such as such as Apple or Samsung."
+        },
+        "Model": {
+          "$ref": "#/definitions/__string",
+          "description": "The endpoint model, such as iPhone."
+        },
+        "ModelVersion": {
+          "$ref": "#/definitions/__string",
+          "description": "The endpoint model version."
+        },
+        "Platform": {
+          "$ref": "#/definitions/__string",
+          "description": "The endpoint platform, such as ios or android."
+        },
+        "PlatformVersion": {
+          "$ref": "#/definitions/__string",
+          "description": "The endpoint platform version."
+        },
+        "Timezone": {
+          "$ref": "#/definitions/__string",
+          "description": "The timezone of the endpoint. Specified as a tz database value, such as Americas/Los_Angeles."
+        }
+      },
+      "type": "object"
+    },
+    "EndpointLocation": {
+      "description": "Endpoint location data",
+      "properties": {
+        "City": {
+          "$ref": "#/definitions/__string",
+          "description": "The city where the endpoint is located."
+        },
+        "Country": {
+          "$ref": "#/definitions/__string",
+          "description": "Country according to ISO 3166-1 Alpha-2 codes. For example, US."
+        },
+        "Latitude": {
+          "$ref": "#/definitions/__double",
+          "description": "The latitude of the endpoint location. Rounded to one decimal (Roughly corresponding to a mile)."
+        },
+        "Longitude": {
+          "$ref": "#/definitions/__double",
+          "description": "The longitude of the endpoint location. Rounded to one decimal (Roughly corresponding to a mile)."
+        },
+        "PostalCode": {
+          "$ref": "#/definitions/__string",
+          "description": "The postal code or zip code of the endpoint."
+        },
+        "Region": {
+          "$ref": "#/definitions/__string",
+          "description": "The region of the endpoint location. For example, corresponds to a state in US."
+        }
+      },
+      "type": "object"
+    },
+    "EndpointRequest": {
+      "description": "Endpoint update request",
+      "properties": {
+        "Address": {
+          "$ref": "#/definitions/__string",
+          "description": "The address or token of the endpoint as provided by your push provider (e.g. DeviceToken or RegistrationId)."
+        },
+        "Attributes": {
+          "$ref": "#/definitions/MapOfListOf__string",
+          "description": "Custom attributes that your app reports to Amazon Pinpoint. You can use these attributes as selection criteria when you create a segment."
+        },
+        "ChannelType": {
+          "$ref": "#/definitions/ChannelType",
+          "description": "The channel type.\n\nValid values: APNS, GCM"
+        },
+        "Demographic": {
+          "$ref": "#/definitions/EndpointDemographic",
+          "description": "The endpoint demographic attributes."
+        },
+        "EffectiveDate": {
+          "$ref": "#/definitions/__string",
+          "description": "The last time the endpoint was updated. Provided in ISO 8601 format."
+        },
+        "EndpointStatus": {
+          "$ref": "#/definitions/__string",
+          "description": "The endpoint status. Can be either ACTIVE or INACTIVE. Will be set to INACTIVE if a delivery fails. Will be set to ACTIVE if the address is updated."
+        },
+        "Location": {
+          "$ref": "#/definitions/EndpointLocation",
+          "description": "The endpoint location attributes."
+        },
+        "Metrics": {
+          "$ref": "#/definitions/MapOf__double",
+          "description": "Custom metrics that your app reports to Amazon Pinpoint."
+        },
+        "OptOut": {
+          "$ref": "#/definitions/__string",
+          "description": "Indicates whether a user has opted out of receiving messages with one of the following values:\n\nALL – User receives all messages.\nNONE – User receives no messages."
+        },
+        "RequestId": {
+          "$ref": "#/definitions/__string",
+          "description": "The unique ID for the most recent request to update the endpoint."
+        },
+        "User": {
+          "$ref": "#/definitions/EndpointUser",
+          "description": "Custom user-specific attributes that your app reports to Amazon Pinpoint."
+        }
+      },
+      "type": "object"
+    },
+    "EndpointResponse": {
+      "description": "Endpoint response",
+      "properties": {
+        "Address": {
+          "$ref": "#/definitions/__string",
+          "description": "The address or token of the endpoint as provided by your push provider (e.g. DeviceToken or RegistrationId)."
+        },
+        "ApplicationId": {
+          "$ref": "#/definitions/__string",
+          "description": "The ID of the application associated with the endpoint."
+        },
+        "Attributes": {
+          "$ref": "#/definitions/MapOfListOf__string",
+          "description": "Custom attributes that your app reports to Amazon Pinpoint. You can use these attributes as selection criteria when you create a segment."
+        },
+        "ChannelType": {
+          "$ref": "#/definitions/ChannelType",
+          "description": "The channel type.\n\nValid values: APNS, GCM"
+        },
+        "CohortId": {
+          "$ref": "#/definitions/__string",
+          "description": "A number from 0 - 99 that represents the cohort the endpoint is assigned to. Endpoints are grouped into cohorts randomly, and each cohort contains approximately 1 percent of the endpoints for an app. Amazon Pinpoint assigns cohorts to the holdout or treatment allocations for a campaign."
+        },
+        "CreationDate": {
+          "$ref": "#/definitions/__string",
+          "description": "The last time the endpoint was created. Provided in ISO 8601 format."
+        },
+        "Demographic": {
+          "$ref": "#/definitions/EndpointDemographic",
+          "description": "The endpoint demographic attributes."
+        },
+        "EffectiveDate": {
+          "$ref": "#/definitions/__string",
+          "description": "The last time the endpoint was updated. Provided in ISO 8601 format."
+        },
+        "EndpointStatus": {
+          "$ref": "#/definitions/__string",
+          "description": "The endpoint status. Can be either ACTIVE or INACTIVE. Will be set to INACTIVE if a delivery fails. Will be set to ACTIVE if the address is updated."
+        },
+        "Id": {
+          "$ref": "#/definitions/__string",
+          "description": "The unique ID that you assigned to the endpoint. The ID should be a globally unique identifier (GUID) to ensure that it is unique compared to all other endpoints for the application."
+        },
+        "Location": {
+          "$ref": "#/definitions/EndpointLocation",
+          "description": "The endpoint location attributes."
+        },
+        "Metrics": {
+          "$ref": "#/definitions/MapOf__double",
+          "description": "Custom metrics that your app reports to Amazon Pinpoint."
+        },
+        "OptOut": {
+          "$ref": "#/definitions/__string",
+          "description": "Indicates whether a user has opted out of receiving messages with one of the following values:\n\nALL – User receives all messages.\nNONE – User receives no messages."
+        },
+        "RequestId": {
+          "$ref": "#/definitions/__string",
+          "description": "The unique ID for the most recent request to update the endpoint."
+        },
+        "ShardId": {
+          "$ref": "#/definitions/__string",
+          "description": "The ShardId of endpoint"
+        },
+        "User": {
+          "$ref": "#/definitions/EndpointUser",
+          "description": "Custom user-specific attributes that your app reports to Amazon Pinpoint."
+        }
+      },
+      "type": "object"
+    },
+    "EndpointUser": {
+      "description": "Endpoint user specific custom userAttributes",
+      "properties": {
+        "UserAttributes": {
+          "$ref": "#/definitions/MapOfListOf__string",
+          "description": "Custom attributes specific to the user."
+        },
+        "UserId": {
+          "$ref": "#/definitions/__string",
+          "description": "The unique ID of the user."
+        }
+      },
+      "type": "object"
+    },
+    "EventStream": {
+      "description": "Model for an event publishing subscription export.",
+      "properties": {
+        "ApplicationId": {
+          "$ref": "#/definitions/__string",
+          "description": "The ID of the application from which events should be published."
+        },
+        "DestinationStreamArn": {
+          "$ref": "#/definitions/__string",
+          "description": "The Amazon Resource Name (ARN) of the Amazon Kinesis stream or Firehose delivery stream to which you want to publish events.\n Firehose ARN: arn:aws:firehose:REGION:ACCOUNT_ID:deliverystream/STREAM_NAME\n Kinesis ARN: arn:aws:kinesis:REGION:ACCOUNT_ID:stream/STREAM_NAME"
+        },
+        "ExternalId": {
+          "$ref": "#/definitions/__string",
+          "description": "The external ID assigned the IAM role that authorizes Amazon Pinpoint to publish to the stream."
+        },
+        "LastModifiedDate": {
+          "$ref": "#/definitions/__string",
+          "description": "The date the event stream was last updated in ISO 8601 format."
+        },
+        "LastUpdatedBy": {
+          "$ref": "#/definitions/__string",
+          "description": "The IAM user who last modified the event stream."
+        },
+        "RoleArn": {
+          "$ref": "#/definitions/__string",
+          "description": "The IAM role that authorizes Amazon Pinpoint to publish events to the stream in your account."
+        }
+      },
+      "type": "object"
+    },
+    "ForbiddenException": {
+      "description": "Simple message object.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/__string",
+          "description": "The error message returned from the API."
+        },
+        "RequestID": {
+          "$ref": "#/definitions/__string",
+          "description": "The unique message body ID."
+        }
+      },
+      "type": "object"
+    },
+    "Format": {
+      "enum": [
+        "CSV",
+        "JSON"
+      ],
+      "type": "string"
+    },
+    "Frequency": {
+      "enum": [
+        "ONCE",
+        "HOURLY",
+        "DAILY",
+        "WEEKLY",
+        "MONTHLY"
+      ],
+      "type": "string"
+    },
+    "GCMChannelRequest": {
+      "description": "Google Cloud Messaging credentials",
+      "properties": {
+        "ApiKey": {
+          "$ref": "#/definitions/__string",
+          "description": "Platform credential API key from Google."
+        }
+      },
+      "type": "object"
+    },
+    "GCMChannelResponse": {
+      "description": "Google Cloud Messaging channel definition",
+      "properties": {
+        "ApplicationId": {
+          "$ref": "#/definitions/__string",
+          "description": "The ID of the application to which the channel applies."
+        },
+        "CreationDate": {
+          "$ref": "#/definitions/__string",
+          "description": "When was this segment created"
+        },
+        "Credential": {
+          "$ref": "#/definitions/__string",
+          "description": "The GCM API key from Google."
+        },
+        "Id": {
+          "$ref": "#/definitions/__string",
+          "description": "The unique channel ID."
+        },
+        "IsArchived": {
+          "$ref": "#/definitions/__boolean",
+          "description": "Is this channel archived"
+        },
+        "LastModifiedBy": {
+          "$ref": "#/definitions/__string",
+          "description": "Who last updated this entry"
+        },
+        "LastModifiedDate": {
+          "$ref": "#/definitions/__string",
+          "description": "Last date this was updated"
+        },
+        "Platform": {
+          "$ref": "#/definitions/__string",
+          "description": "The platform type. Will be GCM"
+        },
+        "Version": {
+          "$ref": "#/definitions/__integer",
+          "description": "Version of channel"
+        }
+      },
+      "type": "object"
+    },
+    "GetApnsChannelRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "GetApnsChannelResponse": {
+      "properties": {
+        "APNSChannelResponse": {
+          "$ref": "#/definitions/APNSChannelResponse"
+        }
+      },
+      "required": [
+        "APNSChannelResponse"
+      ],
+      "type": "object"
+    },
+    "GetApplicationSettingsRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "GetApplicationSettingsResponse": {
+      "properties": {
+        "ApplicationSettingsResource": {
+          "$ref": "#/definitions/ApplicationSettingsResource"
+        }
+      },
+      "required": [
+        "ApplicationSettingsResource"
+      ],
+      "type": "object"
+    },
+    "GetCampaignActivitiesRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "GetCampaignActivitiesResponse": {
+      "properties": {
+        "ActivitiesResponse": {
+          "$ref": "#/definitions/ActivitiesResponse"
+        }
+      },
+      "required": [
+        "ActivitiesResponse"
+      ],
+      "type": "object"
+    },
+    "GetCampaignRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "GetCampaignResponse": {
+      "properties": {
+        "CampaignResponse": {
+          "$ref": "#/definitions/CampaignResponse"
+        }
+      },
+      "required": [
+        "CampaignResponse"
+      ],
+      "type": "object"
+    },
+    "GetCampaignVersionRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "GetCampaignVersionResponse": {
+      "properties": {
+        "CampaignResponse": {
+          "$ref": "#/definitions/CampaignResponse"
+        }
+      },
+      "required": [
+        "CampaignResponse"
+      ],
+      "type": "object"
+    },
+    "GetCampaignVersionsRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "GetCampaignVersionsResponse": {
+      "properties": {
+        "CampaignsResponse": {
+          "$ref": "#/definitions/CampaignsResponse"
+        }
+      },
+      "required": [
+        "CampaignsResponse"
+      ],
+      "type": "object"
+    },
+    "GetCampaignsRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "GetCampaignsResponse": {
+      "properties": {
+        "CampaignsResponse": {
+          "$ref": "#/definitions/CampaignsResponse"
+        }
+      },
+      "required": [
+        "CampaignsResponse"
+      ],
+      "type": "object"
+    },
+    "GetEndpointRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "GetEndpointResponse": {
+      "properties": {
+        "EndpointResponse": {
+          "$ref": "#/definitions/EndpointResponse"
+        }
+      },
+      "required": [
+        "EndpointResponse"
+      ],
+      "type": "object"
+    },
+    "GetEventStreamRequest": {
+      "description": "GetEventStream Request",
+      "properties": {},
+      "type": "object"
+    },
+    "GetEventStreamResponse": {
+      "description": "GetEventStream Response",
+      "properties": {
+        "EventStream": {
+          "$ref": "#/definitions/EventStream"
+        }
+      },
+      "required": [
+        "EventStream"
+      ],
+      "type": "object"
+    },
+    "GetGcmChannelRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "GetGcmChannelResponse": {
+      "properties": {
+        "GCMChannelResponse": {
+          "$ref": "#/definitions/GCMChannelResponse"
+        }
+      },
+      "required": [
+        "GCMChannelResponse"
+      ],
+      "type": "object"
+    },
+    "GetImportJobRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "GetImportJobResponse": {
+      "properties": {
+        "ImportJobResponse": {
+          "$ref": "#/definitions/ImportJobResponse"
+        }
+      },
+      "required": [
+        "ImportJobResponse"
+      ],
+      "type": "object"
+    },
+    "GetImportJobsRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "GetImportJobsResponse": {
+      "properties": {
+        "ImportJobsResponse": {
+          "$ref": "#/definitions/ImportJobsResponse"
+        }
+      },
+      "required": [
+        "ImportJobsResponse"
+      ],
+      "type": "object"
+    },
+    "GetSegmentImportJobsRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "GetSegmentImportJobsResponse": {
+      "properties": {
+        "ImportJobsResponse": {
+          "$ref": "#/definitions/ImportJobsResponse"
+        }
+      },
+      "required": [
+        "ImportJobsResponse"
+      ],
+      "type": "object"
+    },
+    "GetSegmentRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "GetSegmentResponse": {
+      "properties": {
+        "SegmentResponse": {
+          "$ref": "#/definitions/SegmentResponse"
+        }
+      },
+      "required": [
+        "SegmentResponse"
+      ],
+      "type": "object"
+    },
+    "GetSegmentVersionRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "GetSegmentVersionResponse": {
+      "properties": {
+        "SegmentResponse": {
+          "$ref": "#/definitions/SegmentResponse"
+        }
+      },
+      "required": [
+        "SegmentResponse"
+      ],
+      "type": "object"
+    },
+    "GetSegmentVersionsRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "GetSegmentVersionsResponse": {
+      "properties": {
+        "SegmentsResponse": {
+          "$ref": "#/definitions/SegmentsResponse"
+        }
+      },
+      "required": [
+        "SegmentsResponse"
+      ],
+      "type": "object"
+    },
+    "GetSegmentsRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "GetSegmentsResponse": {
+      "properties": {
+        "SegmentsResponse": {
+          "$ref": "#/definitions/SegmentsResponse"
+        }
+      },
+      "required": [
+        "SegmentsResponse"
+      ],
+      "type": "object"
+    },
+    "ImportJobRequest": {
+      "properties": {
+        "DefineSegment": {
+          "$ref": "#/definitions/__boolean",
+          "description": "Sets whether the endpoints create a segment when they are imported."
+        },
+        "ExternalId": {
+          "$ref": "#/definitions/__string",
+          "description": "A unique, custom ID assigned to the IAM role that restricts who can assume the role.\t"
+        },
+        "Format": {
+          "$ref": "#/definitions/Format",
+          "description": "The format of the files that contain the endpoint definitions.\nValid values: CSV, JSON"
+        },
+        "RegisterEndpoints": {
+          "$ref": "#/definitions/__boolean",
+          "description": "Sets whether the endpoints are registered with Amazon Pinpoint when they are imported."
+        },
+        "RoleArn": {
+          "$ref": "#/definitions/__string",
+          "description": "The Amazon Resource Name (ARN) of an IAM role that grants Amazon Pinpoint access to the Amazon S3 location that contains the endpoints to import."
+        },
+        "S3Url": {
+          "$ref": "#/definitions/__string",
+          "description": "A URL that points to the location within an Amazon S3 bucket that contains the endpoints to import. The location can be a folder or a single file.\nThe URL should follow this format: s3://bucket-name/folder-name/file-name\n\nAmazon Pinpoint will import endpoints from this location and any subfolders it contains."
+        },
+        "SegmentId": {
+          "$ref": "#/definitions/__string",
+          "description": "The ID of the segment to update if the import job is meant to update an existing segment."
+        },
+        "SegmentName": {
+          "$ref": "#/definitions/__string",
+          "description": "A custom name for the segment created by the import job. Use if DefineSegment is true."
+        }
+      },
+      "type": "object"
+    },
+    "ImportJobResource": {
+      "properties": {
+        "DefineSegment": {
+          "$ref": "#/definitions/__boolean",
+          "description": "Sets whether the endpoints create a segment when they are imported."
+        },
+        "ExternalId": {
+          "$ref": "#/definitions/__string",
+          "description": "A unique, custom ID assigned to the IAM role that restricts who can assume the role.\t"
+        },
+        "Format": {
+          "$ref": "#/definitions/Format",
+          "description": "The format of the files that contain the endpoint definitions.\nValid values: CSV, JSON"
+        },
+        "RegisterEndpoints": {
+          "$ref": "#/definitions/__boolean",
+          "description": "Sets whether the endpoints are registered with Amazon Pinpoint when they are imported."
+        },
+        "RoleArn": {
+          "$ref": "#/definitions/__string",
+          "description": "The Amazon Resource Name (ARN) of an IAM role that grants Amazon Pinpoint access to the Amazon S3 location that contains the endpoints to import."
+        },
+        "S3Url": {
+          "$ref": "#/definitions/__string",
+          "description": "A URL that points to the location within an Amazon S3 bucket that contains the endpoints to import. The location can be a folder or a single file.\nThe URL should follow this format: s3://bucket-name/folder-name/file-name\n\nAmazon Pinpoint will import endpoints from this location and any subfolders it contains."
+        },
+        "SegmentId": {
+          "$ref": "#/definitions/__string",
+          "description": "The ID of the segment to update if the import job is meant to update an existing segment."
+        },
+        "SegmentName": {
+          "$ref": "#/definitions/__string",
+          "description": "A custom name for the segment created by the import job. Use if DefineSegment is true."
+        }
+      },
+      "type": "object"
+    },
+    "ImportJobResponse": {
+      "properties": {
+        "ApplicationId": {
+          "$ref": "#/definitions/__string",
+          "description": "The unique ID of the application to which the import job applies."
+        },
+        "CompletedPieces": {
+          "$ref": "#/definitions/__integer",
+          "description": "The number of pieces that have successfully imported as of the time of the request."
+        },
+        "CompletionDate": {
+          "$ref": "#/definitions/__string",
+          "description": "The date the import job completed in ISO 8601 format."
+        },
+        "CreationDate": {
+          "$ref": "#/definitions/__string",
+          "description": "The date the import job was created in ISO 8601 format."
+        },
+        "Definition": {
+          "$ref": "#/definitions/ImportJobResource",
+          "description": "The import job settings."
+        },
+        "FailedPieces": {
+          "$ref": "#/definitions/__integer",
+          "description": "The number of pieces that have failed to import as of the time of the request."
+        },
+        "Failures": {
+          "$ref": "#/definitions/ListOf__string",
+          "description": "Provides up to 100 of the first failed entries for the job, if any exist."
+        },
+        "Id": {
+          "$ref": "#/definitions/__string",
+          "description": "The unique ID of the import job."
+        },
+        "JobStatus": {
+          "$ref": "#/definitions/JobStatus",
+          "description": "The status of the import job.\nValid values: CREATED, INITIALIZING, PROCESSING, COMPLETING, COMPLETED, FAILING, FAILED\n\nThe job status is FAILED if one or more pieces failed to import."
+        },
+        "TotalFailures": {
+          "$ref": "#/definitions/__integer",
+          "description": "The number of endpoints that failed to import; for example, because of syntax errors."
+        },
+        "TotalPieces": {
+          "$ref": "#/definitions/__integer",
+          "description": "The total number of pieces that must be imported to finish the job. Each piece is an approximately equal portion of the endpoints to import."
+        },
+        "TotalProcessed": {
+          "$ref": "#/definitions/__integer",
+          "description": "The number of endpoints that were processed by the import job."
+        },
+        "Type": {
+          "$ref": "#/definitions/__string",
+          "description": "The job type. Will be Import."
+        }
+      },
+      "type": "object"
+    },
+    "ImportJobsResponse": {
+      "description": "Import job list.",
+      "properties": {
+        "Item": {
+          "$ref": "#/definitions/ListOfImportJobResponse",
+          "description": "A list of import jobs for the application."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/__string",
+          "description": "The string that you use in a subsequent request to get the next page of results in a paginated response."
+        }
+      },
+      "type": "object"
+    },
+    "InternalServerErrorException": {
+      "description": "Simple message object.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/__string",
+          "description": "The error message returned from the API."
+        },
+        "RequestID": {
+          "$ref": "#/definitions/__string",
+          "description": "The unique message body ID."
+        }
+      },
+      "type": "object"
+    },
+    "JobStatus": {
+      "enum": [
+        "CREATED",
+        "INITIALIZING",
+        "PROCESSING",
+        "COMPLETING",
+        "COMPLETED",
+        "FAILING",
+        "FAILED"
+      ],
+      "type": "string"
+    },
+    "ListOfActivityResponse": {
+      "items": {
+        "$ref": "#/definitions/ActivityResponse"
+      },
+      "type": "array"
+    },
+    "ListOfCampaignResponse": {
+      "items": {
+        "$ref": "#/definitions/CampaignResponse"
+      },
+      "type": "array"
+    },
+    "ListOfEndpointBatchItem": {
+      "items": {
+        "$ref": "#/definitions/EndpointBatchItem"
+      },
+      "type": "array"
+    },
+    "ListOfImportJobResponse": {
+      "items": {
+        "$ref": "#/definitions/ImportJobResponse"
+      },
+      "type": "array"
+    },
+    "ListOfSegmentResponse": {
+      "items": {
+        "$ref": "#/definitions/SegmentResponse"
+      },
+      "type": "array"
+    },
+    "ListOfTreatmentResource": {
+      "items": {
+        "$ref": "#/definitions/TreatmentResource"
+      },
+      "type": "array"
+    },
+    "ListOfWriteTreatmentResource": {
+      "items": {
+        "$ref": "#/definitions/WriteTreatmentResource"
+      },
+      "type": "array"
+    },
+    "ListOf__string": {
+      "items": {
+        "$ref": "#/definitions/__string"
+      },
+      "type": "array"
+    },
+    "MapOfAttributeDimension": {
+      "items": {
+        "properties": {
+          "key": {
+            "$ref": "#/definitions/__string"
+          },
+          "value": {
+            "$ref": "#/definitions/AttributeDimension"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "MapOfListOf__string": {
+      "items": {
+        "properties": {
+          "key": {
+            "$ref": "#/definitions/__string"
+          },
+          "value": {
+            "$ref": "#/definitions/ListOf__string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "MapOf__double": {
+      "items": {
+        "properties": {
+          "key": {
+            "$ref": "#/definitions/__string"
+          },
+          "value": {
+            "$ref": "#/definitions/__double"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "Message": {
+      "properties": {
+        "Action": {
+          "$ref": "#/definitions/Action",
+          "description": "The action that occurs if the user taps a push notification delivered by the campaign:\nOPEN_APP – Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action.\n\nDEEP_LINK – Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app.\n\nURL – The default mobile browser on the user's device launches and opens a web page at the URL you specify."
+        },
+        "Body": {
+          "$ref": "#/definitions/__string",
+          "description": "The message body. Can include up to 140 characters."
+        },
+        "ImageIconUrl": {
+          "$ref": "#/definitions/__string",
+          "description": "The URL that points to the icon image for the push notification icon, for example, the app icon."
+        },
+        "ImageUrl": {
+          "$ref": "#/definitions/__string",
+          "description": "The URL that points to an image used in the push notification."
+        },
+        "JsonBody": {
+          "$ref": "#/definitions/__string",
+          "description": "The JSON payload used for a silent push."
+        },
+        "MediaUrl": {
+          "$ref": "#/definitions/__string",
+          "description": "The URL that points to the media resource, for example a .mp4 or .gif file."
+        },
+        "SilentPush": {
+          "$ref": "#/definitions/__boolean",
+          "description": "Indicates if the message should display on the users device.\n\nSilent pushes can be used for Remote Configuration and Phone Home use cases. "
+        },
+        "Title": {
+          "$ref": "#/definitions/__string",
+          "description": "The message title that displays above the message on the user's device."
+        },
+        "Url": {
+          "$ref": "#/definitions/__string",
+          "description": "The URL to open in the user's mobile browser. Used if the value for Action is URL."
+        }
+      },
+      "type": "object"
+    },
+    "MessageBody": {
+      "description": "Simple message object.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/__string",
+          "description": "The error message returned from the API."
+        },
+        "RequestID": {
+          "$ref": "#/definitions/__string",
+          "description": "The unique message body ID."
+        }
+      },
+      "type": "object"
+    },
+    "MessageConfiguration": {
+      "description": "Message configuration for a campaign.",
+      "properties": {
+        "APNSMessage": {
+          "$ref": "#/definitions/Message",
+          "description": "The message that the campaign delivers to APNS channels. Overrides the default message."
+        },
+        "DefaultMessage": {
+          "$ref": "#/definitions/Message",
+          "description": "The default message for all channels."
+        },
+        "GCMMessage": {
+          "$ref": "#/definitions/Message",
+          "description": "The message that the campaign delivers to GCM channels. Overrides the default message."
+        }
+      },
+      "type": "object"
+    },
+    "MethodNotAllowedException": {
+      "description": "Simple message object.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/__string",
+          "description": "The error message returned from the API."
+        },
+        "RequestID": {
+          "$ref": "#/definitions/__string",
+          "description": "The unique message body ID."
+        }
+      },
+      "type": "object"
+    },
+    "NotFoundException": {
+      "description": "Simple message object.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/__string",
+          "description": "The error message returned from the API."
+        },
+        "RequestID": {
+          "$ref": "#/definitions/__string",
+          "description": "The unique message body ID."
+        }
+      },
+      "type": "object"
+    },
+    "PutEventStreamRequest": {
+      "description": "PutEventStream Request",
+      "properties": {
+        "WriteEventStream": {
+          "$ref": "#/definitions/WriteEventStream",
+          "description": "EventStream to write."
+        }
+      },
+      "required": [
+        "WriteEventStream"
+      ],
+      "type": "object"
+    },
+    "PutEventStreamResponse": {
+      "description": "PutEventStream Response",
+      "properties": {
+        "EventStream": {
+          "$ref": "#/definitions/EventStream"
+        }
+      },
+      "required": [
+        "EventStream"
+      ],
+      "type": "object"
+    },
+    "QuietTime": {
+      "description": "Quiet Time",
+      "properties": {
+        "End": {
+          "$ref": "#/definitions/__string",
+          "description": "The default end time for quiet time in ISO 8601 format."
+        },
+        "Start": {
+          "$ref": "#/definitions/__string",
+          "description": "The default start time for quiet time in ISO 8601 format."
+        }
+      },
+      "type": "object"
+    },
+    "RecencyDimension": {
+      "description": "Define how a segment based on recency of use.",
+      "properties": {
+        "Duration": {
+          "$ref": "#/definitions/Duration",
+          "description": "The length of time during which users have been active or inactive with your app.\nValid values: HR_24, DAY_7, DAY_14, DAY_30"
+        },
+        "RecencyType": {
+          "$ref": "#/definitions/RecencyType",
+          "description": "The recency dimension type:\nACTIVE – Users who have used your app within the specified duration are included in the segment.\nINACTIVE – Users who have not used your app within the specified duration are included in the segment."
+        }
+      },
+      "type": "object"
+    },
+    "RecencyType": {
+      "enum": [
+        "ACTIVE",
+        "INACTIVE"
+      ],
+      "type": "string"
+    },
+    "Schedule": {
+      "description": "Shcedule that defines when a campaign is run.",
+      "properties": {
+        "EndTime": {
+          "$ref": "#/definitions/__string",
+          "description": "The scheduled time that the campaign ends in ISO 8601 format."
+        },
+        "Frequency": {
+          "$ref": "#/definitions/Frequency",
+          "description": "How often the campaign delivers messages.\n\nValid values: ONCE, HOURLY, DAILY, WEEKLY, MONTHLY"
+        },
+        "IsLocalTime": {
+          "$ref": "#/definitions/__boolean",
+          "description": "Indicates whether the campaign schedule takes effect according to each user's local time."
+        },
+        "QuietTime": {
+          "$ref": "#/definitions/QuietTime",
+          "description": "The time during which the campaign sends no messages."
+        },
+        "StartTime": {
+          "$ref": "#/definitions/__string",
+          "description": "The scheduled time that the campaign begins in ISO 8601 format."
+        },
+        "Timezone": {
+          "$ref": "#/definitions/__string",
+          "description": "The starting UTC offset for the schedule if the value for isLocalTime is true\n\nValid values: \nUTC\nUTC+01\nUTC+02\nUTC+03\nUTC+03:30\nUTC+04\nUTC+04:30\nUTC+05\nUTC+05:30\nUTC+05:45\nUTC+06\nUTC+06:30\nUTC+07\nUTC+08\nUTC+09\nUTC+09:30\nUTC+10\nUTC+10:30\nUTC+11\nUTC+12\nUTC+13\nUTC-02\nUTC-03\nUTC-04\nUTC-05\nUTC-06\nUTC-07\nUTC-08\nUTC-09\nUTC-10\nUTC-11"
+        }
+      },
+      "type": "object"
+    },
+    "SegmentBehaviors": {
+      "description": "Segment behavior dimensions",
+      "properties": {
+        "Recency": {
+          "$ref": "#/definitions/RecencyDimension",
+          "description": "The recency of use."
+        }
+      },
+      "type": "object"
+    },
+    "SegmentDemographics": {
+      "description": "Segment demographic dimensions",
+      "properties": {
+        "AppVersion": {
+          "$ref": "#/definitions/SetDimension",
+          "description": "The app version criteria for the segment."
+        },
+        "DeviceType": {
+          "$ref": "#/definitions/SetDimension",
+          "description": "The device type criteria for the segment."
+        },
+        "Make": {
+          "$ref": "#/definitions/SetDimension",
+          "description": "The device make criteria for the segment."
+        },
+        "Model": {
+          "$ref": "#/definitions/SetDimension",
+          "description": "The device model criteria for the segment."
+        },
+        "Platform": {
+          "$ref": "#/definitions/SetDimension",
+          "description": "The device platform criteria for the segment."
+        }
+      },
+      "type": "object"
+    },
+    "SegmentDimensions": {
+      "description": "Segment dimensions",
+      "properties": {
+        "Attributes": {
+          "$ref": "#/definitions/MapOfAttributeDimension",
+          "description": "Custom segment attributes."
+        },
+        "Behavior": {
+          "$ref": "#/definitions/SegmentBehaviors",
+          "description": "The segment behaviors attributes."
+        },
+        "Demographic": {
+          "$ref": "#/definitions/SegmentDemographics",
+          "description": "The segment demographics attributes."
+        },
+        "Location": {
+          "$ref": "#/definitions/SegmentLocation",
+          "description": "The segment location attributes."
+        },
+        "UserAttributes": {
+          "$ref": "#/definitions/MapOfAttributeDimension",
+          "description": "Custom segment user attributes."
+        }
+      },
+      "type": "object"
+    },
+    "SegmentImportResource": {
+      "description": "Segment import definition.",
+      "properties": {
+        "ExternalId": {
+          "$ref": "#/definitions/__string",
+          "description": "A unique, custom ID assigned to the IAM role that restricts who can assume the role."
+        },
+        "Format": {
+          "$ref": "#/definitions/Format",
+          "description": "The format of the endpoint files that were imported to create this segment.\nValid values: CSV, JSON"
+        },
+        "RoleArn": {
+          "$ref": "#/definitions/__string",
+          "description": "The Amazon Resource Name (ARN) of an IAM role that grants Amazon Pinpoint access to the endpoints in Amazon S3."
+        },
+        "S3Url": {
+          "$ref": "#/definitions/__string",
+          "description": "A URL that points to the Amazon S3 location from which the endpoints for this segment were imported."
+        },
+        "Size": {
+          "$ref": "#/definitions/__integer",
+          "description": "The number of endpoints that were successfully imported to create this segment."
+        }
+      },
+      "type": "object"
+    },
+    "SegmentLocation": {
+      "description": "Segment location dimensions",
+      "properties": {
+        "Country": {
+          "$ref": "#/definitions/SetDimension",
+          "description": "The country filter according to ISO 3166-1 Alpha-2 codes."
+        }
+      },
+      "type": "object"
+    },
+    "SegmentResponse": {
+      "description": "Segment definition.",
+      "properties": {
+        "ApplicationId": {
+          "$ref": "#/definitions/__string",
+          "description": "The ID of the application to which the segment applies."
+        },
+        "CreationDate": {
+          "$ref": "#/definitions/__string",
+          "description": "The date the segment was created in ISO 8601 format."
+        },
+        "Dimensions": {
+          "$ref": "#/definitions/SegmentDimensions",
+          "description": "The segment dimensions attributes."
+        },
+        "Id": {
+          "$ref": "#/definitions/__string",
+          "description": "The unique segment ID."
+        },
+        "ImportDefinition": {
+          "$ref": "#/definitions/SegmentImportResource",
+          "description": "The import job settings."
+        },
+        "LastModifiedDate": {
+          "$ref": "#/definitions/__string",
+          "description": "The date the segment was last updated in ISO 8601 format."
+        },
+        "Name": {
+          "$ref": "#/definitions/__string",
+          "description": "The name of segment"
+        },
+        "SegmentType": {
+          "$ref": "#/definitions/SegmentType",
+          "description": "The segment type:\nDIMENSIONAL – A dynamic segment built from selection criteria based on endpoint data reported by your app. You create this type of segment by using the segment builder in the Amazon Pinpoint console or by making a POST request to the segments resource.\nIMPORT – A static segment built from an imported set of endpoint definitions. You create this type of segment by importing a segment in the Amazon Pinpoint console or by making a POST request to the jobs/import resource."
+        },
+        "Version": {
+          "$ref": "#/definitions/__integer",
+          "description": "The segment version number."
+        }
+      },
+      "type": "object"
+    },
+    "SegmentType": {
+      "enum": [
+        "DIMENSIONAL",
+        "IMPORT"
+      ],
+      "type": "string"
+    },
+    "SegmentsResponse": {
+      "description": "Segments in your account.",
+      "properties": {
+        "Item": {
+          "$ref": "#/definitions/ListOfSegmentResponse",
+          "description": "The list of segments."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/__string",
+          "description": "An identifier used to retrieve the next page of results. The token is null if no additional pages exist."
+        }
+      },
+      "type": "object"
+    },
+    "SetDimension": {
+      "description": "Dimension specification of a segment.",
+      "properties": {
+        "DimensionType": {
+          "$ref": "#/definitions/DimensionType",
+          "description": "The type of dimension:\nINCLUSIVE – Endpoints that match the criteria are included in the segment.\nEXCLUSIVE – Endpoints that match the criteria are excluded from the segment."
+        },
+        "Values": {
+          "$ref": "#/definitions/ListOf__string",
+          "description": "The criteria values for the segment dimension. Endpoints with matching attribute values are included or excluded from the segment, depending on the setting for Type."
+        }
+      },
+      "type": "object"
+    },
+    "TooManyRequestsException": {
+      "description": "Simple message object.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/__string",
+          "description": "The error message returned from the API."
+        },
+        "RequestID": {
+          "$ref": "#/definitions/__string",
+          "description": "The unique message body ID."
+        }
+      },
+      "type": "object"
+    },
+    "TreatmentResource": {
+      "description": "Treatment resource",
+      "properties": {
+        "Id": {
+          "$ref": "#/definitions/__string",
+          "description": "The unique treatment ID."
+        },
+        "MessageConfiguration": {
+          "$ref": "#/definitions/MessageConfiguration",
+          "description": "The message configuration settings."
+        },
+        "Schedule": {
+          "$ref": "#/definitions/Schedule",
+          "description": "The campaign schedule."
+        },
+        "SizePercent": {
+          "$ref": "#/definitions/__integer",
+          "description": "The allocated percentage of users for this treatment."
+        },
+        "State": {
+          "$ref": "#/definitions/CampaignState",
+          "description": "The treatment status."
+        },
+        "TreatmentDescription": {
+          "$ref": "#/definitions/__string",
+          "description": "A custom description for the treatment."
+        },
+        "TreatmentName": {
+          "$ref": "#/definitions/__string",
+          "description": "The custom name of a variation of the campaign used for A/B testing."
+        }
+      },
+      "type": "object"
+    },
+    "UpdateApnsChannelRequest": {
+      "properties": {
+        "APNSChannelRequest": {
+          "$ref": "#/definitions/APNSChannelRequest"
+        }
+      },
+      "required": [
+        "APNSChannelRequest"
+      ],
+      "type": "object"
+    },
+    "UpdateApnsChannelResponse": {
+      "properties": {
+        "APNSChannelResponse": {
+          "$ref": "#/definitions/APNSChannelResponse"
+        }
+      },
+      "required": [
+        "APNSChannelResponse"
+      ],
+      "type": "object"
+    },
+    "UpdateApplicationSettingsRequest": {
+      "properties": {
+        "WriteApplicationSettingsRequest": {
+          "$ref": "#/definitions/WriteApplicationSettingsRequest"
+        }
+      },
+      "required": [
+        "WriteApplicationSettingsRequest"
+      ],
+      "type": "object"
+    },
+    "UpdateApplicationSettingsResponse": {
+      "properties": {
+        "ApplicationSettingsResource": {
+          "$ref": "#/definitions/ApplicationSettingsResource"
+        }
+      },
+      "required": [
+        "ApplicationSettingsResource"
+      ],
+      "type": "object"
+    },
+    "UpdateCampaignRequest": {
+      "properties": {
+        "WriteCampaignRequest": {
+          "$ref": "#/definitions/WriteCampaignRequest"
+        }
+      },
+      "required": [
+        "WriteCampaignRequest"
+      ],
+      "type": "object"
+    },
+    "UpdateCampaignResponse": {
+      "properties": {
+        "CampaignResponse": {
+          "$ref": "#/definitions/CampaignResponse"
+        }
+      },
+      "required": [
+        "CampaignResponse"
+      ],
+      "type": "object"
+    },
+    "UpdateEndpointRequest": {
+      "properties": {
+        "EndpointRequest": {
+          "$ref": "#/definitions/EndpointRequest"
+        }
+      },
+      "required": [
+        "EndpointRequest"
+      ],
+      "type": "object"
+    },
+    "UpdateEndpointResponse": {
+      "properties": {
+        "MessageBody": {
+          "$ref": "#/definitions/MessageBody"
+        }
+      },
+      "required": [
+        "MessageBody"
+      ],
+      "type": "object"
+    },
+    "UpdateEndpointsBatchRequest": {
+      "properties": {
+        "EndpointBatchRequest": {
+          "$ref": "#/definitions/EndpointBatchRequest"
+        }
+      },
+      "required": [
+        "EndpointBatchRequest"
+      ],
+      "type": "object"
+    },
+    "UpdateEndpointsBatchResponse": {
+      "properties": {
+        "MessageBody": {
+          "$ref": "#/definitions/MessageBody"
+        }
+      },
+      "required": [
+        "MessageBody"
+      ],
+      "type": "object"
+    },
+    "UpdateGcmChannelRequest": {
+      "properties": {
+        "GCMChannelRequest": {
+          "$ref": "#/definitions/GCMChannelRequest"
+        }
+      },
+      "required": [
+        "GCMChannelRequest"
+      ],
+      "type": "object"
+    },
+    "UpdateGcmChannelResponse": {
+      "properties": {
+        "GCMChannelResponse": {
+          "$ref": "#/definitions/GCMChannelResponse"
+        }
+      },
+      "required": [
+        "GCMChannelResponse"
+      ],
+      "type": "object"
+    },
+    "UpdateSegmentRequest": {
+      "properties": {
+        "WriteSegmentRequest": {
+          "$ref": "#/definitions/WriteSegmentRequest"
+        }
+      },
+      "required": [
+        "WriteSegmentRequest"
+      ],
+      "type": "object"
+    },
+    "UpdateSegmentResponse": {
+      "properties": {
+        "SegmentResponse": {
+          "$ref": "#/definitions/SegmentResponse"
+        }
+      },
+      "required": [
+        "SegmentResponse"
+      ],
+      "type": "object"
+    },
+    "WriteApplicationSettingsRequest": {
+      "description": "Creating application setting request",
+      "properties": {
+        "Limits": {
+          "$ref": "#/definitions/CampaignLimits",
+          "description": "The default campaign limits for the app. These limits apply to each campaign for the app, unless the campaign overrides the default with limits of its own."
+        },
+        "QuietTime": {
+          "$ref": "#/definitions/QuietTime",
+          "description": "The default quiet time for the app. Each campaign for this app sends no messages during this time unless the campaign overrides the default with a quiet time of its own."
+        }
+      },
+      "type": "object"
+    },
+    "WriteCampaignRequest": {
+      "description": "Used to create a campaign.",
+      "properties": {
+        "AdditionalTreatments": {
+          "$ref": "#/definitions/ListOfWriteTreatmentResource",
+          "description": "Treatments that are defined in addition to the default treatment."
+        },
+        "Description": {
+          "$ref": "#/definitions/__string",
+          "description": "A description of the campaign."
+        },
+        "HoldoutPercent": {
+          "$ref": "#/definitions/__integer",
+          "description": "The allocated percentage of end users who will not receive messages from this campaign."
+        },
+        "IsPaused": {
+          "$ref": "#/definitions/__boolean",
+          "description": "Indicates whether the campaign is paused. A paused campaign does not send messages unless you resume it by setting IsPaused to false."
+        },
+        "Limits": {
+          "$ref": "#/definitions/CampaignLimits",
+          "description": "The campaign limits settings."
+        },
+        "MessageConfiguration": {
+          "$ref": "#/definitions/MessageConfiguration",
+          "description": "The message configuration settings."
+        },
+        "Name": {
+          "$ref": "#/definitions/__string",
+          "description": "The custom name of the campaign."
+        },
+        "Schedule": {
+          "$ref": "#/definitions/Schedule",
+          "description": "The campaign schedule."
+        },
+        "SegmentId": {
+          "$ref": "#/definitions/__string",
+          "description": "The ID of the segment to which the campaign sends messages."
+        },
+        "SegmentVersion": {
+          "$ref": "#/definitions/__integer",
+          "description": "The version of the segment to which the campaign sends messages."
+        },
+        "TreatmentDescription": {
+          "$ref": "#/definitions/__string",
+          "description": "A custom description for the treatment."
+        },
+        "TreatmentName": {
+          "$ref": "#/definitions/__string",
+          "description": "The custom name of a variation of the campaign used for A/B testing."
+        }
+      },
+      "type": "object"
+    },
+    "WriteEventStream": {
+      "description": "Request to save an EventStream.",
+      "properties": {
+        "DestinationStreamArn": {
+          "$ref": "#/definitions/__string",
+          "description": "The Amazon Resource Name (ARN) of the Amazon Kinesis stream or Firehose delivery stream to which you want to publish events.\n Firehose ARN: arn:aws:firehose:REGION:ACCOUNT_ID:deliverystream/STREAM_NAME\n Kinesis ARN: arn:aws:kinesis:REGION:ACCOUNT_ID:stream/STREAM_NAME"
+        },
+        "ExternalId": {
+          "$ref": "#/definitions/__string",
+          "description": "The external ID assigned the IAM role that authorizes Amazon Pinpoint to publish to the stream."
+        },
+        "RoleArn": {
+          "$ref": "#/definitions/__string",
+          "description": "The IAM role that authorizes Amazon Pinpoint to publish events to the stream in your account."
+        }
+      },
+      "type": "object"
+    },
+    "WriteSegmentRequest": {
+      "description": "Segment definition.",
+      "properties": {
+        "Dimensions": {
+          "$ref": "#/definitions/SegmentDimensions",
+          "description": "The segment dimensions attributes."
+        },
+        "Name": {
+          "$ref": "#/definitions/__string",
+          "description": "The name of segment"
+        }
+      },
+      "type": "object"
+    },
+    "WriteTreatmentResource": {
+      "description": "Used to create a campaign treatment.",
+      "properties": {
+        "MessageConfiguration": {
+          "$ref": "#/definitions/MessageConfiguration",
+          "description": "The message configuration settings."
+        },
+        "Schedule": {
+          "$ref": "#/definitions/Schedule",
+          "description": "The campaign schedule."
+        },
+        "SizePercent": {
+          "$ref": "#/definitions/__integer",
+          "description": "The allocated percentage of users for this treatment."
+        },
+        "TreatmentDescription": {
+          "$ref": "#/definitions/__string",
+          "description": "A custom description for the treatment."
+        },
+        "TreatmentName": {
+          "$ref": "#/definitions/__string",
+          "description": "The custom name of a variation of the campaign used for A/B testing."
+        }
+      },
+      "type": "object"
+    },
+    "__boolean": {
+      "type": "boolean"
+    },
+    "__double": {
+      "format": "double",
+      "type": "number"
+    },
+    "__integer": {
+      "type": "integer"
+    },
+    "__string": {
+      "type": "string"
+    },
+    "__timestamp": {
+      "format": "date-time",
+      "type": "string"
+    }
+  },
+  "actions": [
+    {
+      "id": "GetCampaigns",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "application-id": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetCampaignsRequest"
+          }
+        ],
+        "required": [
+          "application-id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetCampaignsResponse"
+      },
+      "security": {
+        "amazonaws_pinpoint": {
+          "integration": "amazonaws_pinpoint"
+        }
+      }
+    },
+    {
+      "id": "UpdateCampaign",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "application-id": {
+            "type": "string"
+          },
+          "campaign-id": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/UpdateCampaignRequest"
+          }
+        ],
+        "required": [
+          "application-id",
+          "campaign-id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UpdateCampaignResponse"
+      },
+      "security": {
+        "amazonaws_pinpoint": {
+          "integration": "amazonaws_pinpoint"
+        }
+      }
+    },
+    {
+      "id": "GetCampaignActivities",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "application-id": {
+            "type": "string"
+          },
+          "campaign-id": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetCampaignActivitiesRequest"
+          }
+        ],
+        "required": [
+          "application-id",
+          "campaign-id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetCampaignActivitiesResponse"
+      },
+      "security": {
+        "amazonaws_pinpoint": {
+          "integration": "amazonaws_pinpoint"
+        }
+      }
+    },
+    {
+      "id": "GetCampaignVersions",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "application-id": {
+            "type": "string"
+          },
+          "campaign-id": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetCampaignVersionsRequest"
+          }
+        ],
+        "required": [
+          "application-id",
+          "campaign-id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetCampaignVersionsResponse"
+      },
+      "security": {
+        "amazonaws_pinpoint": {
+          "integration": "amazonaws_pinpoint"
+        }
+      }
+    },
+    {
+      "id": "GetCampaignVersion",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "application-id": {
+            "type": "string"
+          },
+          "campaign-id": {
+            "type": "string"
+          },
+          "version": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetCampaignVersionRequest"
+          }
+        ],
+        "required": [
+          "application-id",
+          "campaign-id",
+          "version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetCampaignVersionResponse"
+      },
+      "security": {
+        "amazonaws_pinpoint": {
+          "integration": "amazonaws_pinpoint"
+        }
+      }
+    },
+    {
+      "id": "UpdateApnsChannel",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "application-id": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/UpdateApnsChannelRequest"
+          }
+        ],
+        "required": [
+          "application-id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UpdateApnsChannelResponse"
+      },
+      "security": {
+        "amazonaws_pinpoint": {
+          "integration": "amazonaws_pinpoint"
+        }
+      }
+    },
+    {
+      "id": "UpdateGcmChannel",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "application-id": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/UpdateGcmChannelRequest"
+          }
+        ],
+        "required": [
+          "application-id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UpdateGcmChannelResponse"
+      },
+      "security": {
+        "amazonaws_pinpoint": {
+          "integration": "amazonaws_pinpoint"
+        }
+      }
+    },
+    {
+      "id": "UpdateEndpointsBatch",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "application-id": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/UpdateEndpointsBatchRequest"
+          }
+        ],
+        "required": [
+          "application-id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_pinpoint": {
+          "integration": "amazonaws_pinpoint"
+        }
+      }
+    },
+    {
+      "id": "UpdateEndpoint",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "application-id": {
+            "type": "string"
+          },
+          "endpoint-id": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/UpdateEndpointRequest"
+          }
+        ],
+        "required": [
+          "application-id",
+          "endpoint-id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_pinpoint": {
+          "integration": "amazonaws_pinpoint"
+        }
+      }
+    },
+    {
+      "id": "PutEventStream",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "application-id": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/PutEventStreamRequest"
+          }
+        ],
+        "required": [
+          "application-id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/PutEventStreamResponse"
+      },
+      "security": {
+        "amazonaws_pinpoint": {
+          "integration": "amazonaws_pinpoint"
+        }
+      }
+    },
+    {
+      "id": "GetImportJobs",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "application-id": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetImportJobsRequest"
+          }
+        ],
+        "required": [
+          "application-id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetImportJobsResponse"
+      },
+      "security": {
+        "amazonaws_pinpoint": {
+          "integration": "amazonaws_pinpoint"
+        }
+      }
+    },
+    {
+      "id": "GetImportJob",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "application-id": {
+            "type": "string"
+          },
+          "job-id": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetImportJobRequest"
+          }
+        ],
+        "required": [
+          "application-id",
+          "job-id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetImportJobResponse"
+      },
+      "security": {
+        "amazonaws_pinpoint": {
+          "integration": "amazonaws_pinpoint"
+        }
+      }
+    },
+    {
+      "id": "GetSegments",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "application-id": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetSegmentsRequest"
+          }
+        ],
+        "required": [
+          "application-id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetSegmentsResponse"
+      },
+      "security": {
+        "amazonaws_pinpoint": {
+          "integration": "amazonaws_pinpoint"
+        }
+      }
+    },
+    {
+      "id": "UpdateSegment",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "application-id": {
+            "type": "string"
+          },
+          "segment-id": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/UpdateSegmentRequest"
+          }
+        ],
+        "required": [
+          "application-id",
+          "segment-id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UpdateSegmentResponse"
+      },
+      "security": {
+        "amazonaws_pinpoint": {
+          "integration": "amazonaws_pinpoint"
+        }
+      }
+    },
+    {
+      "id": "GetSegmentImportJobs",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "application-id": {
+            "type": "string"
+          },
+          "segment-id": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetSegmentImportJobsRequest"
+          }
+        ],
+        "required": [
+          "application-id",
+          "segment-id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetSegmentImportJobsResponse"
+      },
+      "security": {
+        "amazonaws_pinpoint": {
+          "integration": "amazonaws_pinpoint"
+        }
+      }
+    },
+    {
+      "id": "GetSegmentVersions",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "application-id": {
+            "type": "string"
+          },
+          "segment-id": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetSegmentVersionsRequest"
+          }
+        ],
+        "required": [
+          "application-id",
+          "segment-id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetSegmentVersionsResponse"
+      },
+      "security": {
+        "amazonaws_pinpoint": {
+          "integration": "amazonaws_pinpoint"
+        }
+      }
+    },
+    {
+      "id": "GetSegmentVersion",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "application-id": {
+            "type": "string"
+          },
+          "segment-id": {
+            "type": "string"
+          },
+          "version": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetSegmentVersionRequest"
+          }
+        ],
+        "required": [
+          "application-id",
+          "segment-id",
+          "version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetSegmentVersionResponse"
+      },
+      "security": {
+        "amazonaws_pinpoint": {
+          "integration": "amazonaws_pinpoint"
+        }
+      }
+    },
+    {
+      "id": "UpdateApplicationSettings",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "application-id": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/UpdateApplicationSettingsRequest"
+          }
+        ],
+        "required": [
+          "application-id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UpdateApplicationSettingsResponse"
+      },
+      "security": {
+        "amazonaws_pinpoint": {
+          "integration": "amazonaws_pinpoint"
+        }
+      }
+    }
+  ]
+}

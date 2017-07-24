@@ -1,0 +1,2381 @@
+{
+  "id": "amazonaws_directconnect",
+  "title": "AWS Direct Connect",
+  "description": "AWS Direct Connect links your internal network to an AWS Direct Connect location over a standard 1 gigabit or 10 gigabit Ethernet fiber-optic cable. One end of the cable is connected to your router, the other to an AWS Direct Connect router. With this connection in place, you can create virtual interfaces directly to the AWS cloud (for example, to Amazon Elastic Compute Cloud (Amazon EC2) and Amazon Simple Storage Service (Amazon S3)) and to Amazon Virtual Private Cloud (Amazon VPC), bypassing Internet service providers in your network path. An AWS Direct Connect location provides access to AWS in the region it is associated with, as well as access to other US regions. For example, you can provision a single connection to any AWS Direct Connect location in the US and use it to access public AWS services in all US Regions and AWS GovCloud (US).",
+  "security": {
+    "amazonaws_directconnect": {
+      "integration": "amazonaws_directconnect",
+      "accessKeyId": "",
+      "secretAccessKey": "",
+      "region": "AWS region (if applicable)"
+    }
+  },
+  "logo": {
+    "backgroundColor": "#FFFFFF",
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_directconnect.jpg"
+  },
+  "tags": [
+    "cloud",
+    "aws"
+  ],
+  "definitions": {
+    "ASN": {
+      "description": "<p>The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.</p> <p>Example: 65000</p>",
+      "type": "integer"
+    },
+    "AddressFamily": {
+      "description": "<p>Indicates the address family for the BGP peer.</p> <ul> <li> <p> <b>ipv4</b>: IPv4 address family</p> </li> <li> <p> <b>ipv6</b>: IPv6 address family</p> </li> </ul>",
+      "enum": [
+        "ipv4",
+        "ipv6"
+      ],
+      "type": "string"
+    },
+    "AllocateConnectionOnInterconnectRequest": {
+      "description": "Container for the parameters to the AllocateConnectionOnInterconnect operation.",
+      "properties": {
+        "bandwidth": {
+          "$ref": "#/definitions/Bandwidth",
+          "description": "<p>Bandwidth of the connection.</p> <p>Example: \"<i>500Mbps</i>\"</p> <p>Default: None</p> <p>Values: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, or 500Mbps</p>"
+        },
+        "connectionName": {
+          "$ref": "#/definitions/ConnectionName",
+          "description": "<p>Name of the provisioned connection.</p> <p>Example: \"<i>500M Connection to AWS</i>\"</p> <p>Default: None</p>"
+        },
+        "interconnectId": {
+          "$ref": "#/definitions/InterconnectId",
+          "description": "<p>ID of the interconnect on which the connection will be provisioned.</p> <p>Example: dxcon-456abc78</p> <p>Default: None</p>"
+        },
+        "ownerAccount": {
+          "$ref": "#/definitions/OwnerAccount",
+          "description": "<p>Numeric account Id of the customer for whom the connection will be provisioned.</p> <p>Example: 123443215678</p> <p>Default: None</p>"
+        },
+        "vlan": {
+          "$ref": "#/definitions/VLAN",
+          "description": "<p>The dedicated VLAN provisioned to the connection.</p> <p>Example: 101</p> <p>Default: None</p>"
+        }
+      },
+      "required": [
+        "bandwidth",
+        "connectionName",
+        "ownerAccount",
+        "interconnectId",
+        "vlan"
+      ],
+      "type": "object"
+    },
+    "AllocateHostedConnectionRequest": {
+      "description": "Container for the parameters to theHostedConnection operation.",
+      "properties": {
+        "bandwidth": {
+          "$ref": "#/definitions/Bandwidth",
+          "description": "<p>The bandwidth of the connection.</p> <p>Example: <code>500Mbps</code> </p> <p>Default: None</p> <p>Values: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, or 500Mbps</p>"
+        },
+        "connectionId": {
+          "$ref": "#/definitions/ConnectionId",
+          "description": "<p>The ID of the interconnect or LAG on which the connection will be provisioned.</p> <p>Example: dxcon-456abc78 or dxlag-abc123</p> <p>Default: None</p>"
+        },
+        "connectionName": {
+          "$ref": "#/definitions/ConnectionName",
+          "description": "<p>The name of the provisioned connection.</p> <p>Example: \"<code>500M Connection to AWS</code>\"</p> <p>Default: None</p>"
+        },
+        "ownerAccount": {
+          "$ref": "#/definitions/OwnerAccount",
+          "description": "<p>The numeric account ID of the customer for whom the connection will be provisioned.</p> <p>Example: 123443215678</p> <p>Default: None</p>"
+        },
+        "vlan": {
+          "$ref": "#/definitions/VLAN",
+          "description": "<p>The dedicated VLAN provisioned to the hosted connection.</p> <p>Example: 101</p> <p>Default: None</p>"
+        }
+      },
+      "required": [
+        "connectionId",
+        "ownerAccount",
+        "bandwidth",
+        "connectionName",
+        "vlan"
+      ],
+      "type": "object"
+    },
+    "AllocatePrivateVirtualInterfaceRequest": {
+      "description": "Container for the parameters to the AllocatePrivateVirtualInterface operation.",
+      "properties": {
+        "connectionId": {
+          "$ref": "#/definitions/ConnectionId",
+          "description": "<p>The connection ID on which the private virtual interface is provisioned.</p> <p>Default: None</p>"
+        },
+        "newPrivateVirtualInterfaceAllocation": {
+          "$ref": "#/definitions/NewPrivateVirtualInterfaceAllocation",
+          "description": "<p>Detailed information for the private virtual interface to be provisioned.</p> <p>Default: None</p>"
+        },
+        "ownerAccount": {
+          "$ref": "#/definitions/OwnerAccount",
+          "description": "<p>The AWS account that will own the new private virtual interface.</p> <p>Default: None</p>"
+        }
+      },
+      "required": [
+        "connectionId",
+        "ownerAccount",
+        "newPrivateVirtualInterfaceAllocation"
+      ],
+      "type": "object"
+    },
+    "AllocatePublicVirtualInterfaceRequest": {
+      "description": "Container for the parameters to the AllocatePublicVirtualInterface operation.",
+      "properties": {
+        "connectionId": {
+          "$ref": "#/definitions/ConnectionId",
+          "description": "<p>The connection ID on which the public virtual interface is provisioned.</p> <p>Default: None</p>"
+        },
+        "newPublicVirtualInterfaceAllocation": {
+          "$ref": "#/definitions/NewPublicVirtualInterfaceAllocation",
+          "description": "<p>Detailed information for the public virtual interface to be provisioned.</p> <p>Default: None</p>"
+        },
+        "ownerAccount": {
+          "$ref": "#/definitions/OwnerAccount",
+          "description": "<p>The AWS account that will own the new public virtual interface.</p> <p>Default: None</p>"
+        }
+      },
+      "required": [
+        "connectionId",
+        "ownerAccount",
+        "newPublicVirtualInterfaceAllocation"
+      ],
+      "type": "object"
+    },
+    "AmazonAddress": {
+      "description": "<p>IP address assigned to the Amazon interface.</p> <p>Example: 192.168.1.1/30 or 2001:db8::1/125</p>",
+      "type": "string"
+    },
+    "AssociateConnectionWithLagRequest": {
+      "description": "Container for the parameters to the AssociateConnectionWithLag operation.",
+      "properties": {
+        "connectionId": {
+          "$ref": "#/definitions/ConnectionId",
+          "description": "<p>The ID of the connection.</p> <p>Example: dxcon-abc123</p> <p>Default: None</p>"
+        },
+        "lagId": {
+          "$ref": "#/definitions/LagId",
+          "description": "<p>The ID of the LAG with which to associate the connection.</p> <p>Example: dxlag-abc123</p> <p>Default: None</p>"
+        }
+      },
+      "required": [
+        "connectionId",
+        "lagId"
+      ],
+      "type": "object"
+    },
+    "AssociateHostedConnectionRequest": {
+      "description": "Container for the parameters to the AssociateHostedConnection operation.",
+      "properties": {
+        "connectionId": {
+          "$ref": "#/definitions/ConnectionId",
+          "description": "<p>The ID of the hosted connection.</p> <p>Example: dxcon-abc123</p> <p>Default: None</p>"
+        },
+        "parentConnectionId": {
+          "$ref": "#/definitions/ConnectionId",
+          "description": "<p>The ID of the interconnect or the LAG.</p> <p>Example: dxcon-abc123 or dxlag-abc123</p> <p>Default: None</p>"
+        }
+      },
+      "required": [
+        "connectionId",
+        "parentConnectionId"
+      ],
+      "type": "object"
+    },
+    "AssociateVirtualInterfaceRequest": {
+      "description": "Container for the parameters to the AssociateVirtualInterface operation.",
+      "properties": {
+        "connectionId": {
+          "$ref": "#/definitions/ConnectionId",
+          "description": "<p>The ID of the LAG or connection with which to associate the virtual interface.</p> <p>Example: dxlag-abc123 or dxcon-abc123</p> <p>Default: None</p>"
+        },
+        "virtualInterfaceId": {
+          "$ref": "#/definitions/VirtualInterfaceId",
+          "description": "<p>The ID of the virtual interface.</p> <p>Example: dxvif-123dfg56</p> <p>Default: None</p>"
+        }
+      },
+      "required": [
+        "virtualInterfaceId",
+        "connectionId"
+      ],
+      "type": "object"
+    },
+    "AwsDevice": {
+      "description": "<p>An abstract ID for the physical Direct Connect endpoint.</p> <p>Example: EQC50-abcdef123456</p>",
+      "type": "string"
+    },
+    "BGPAuthKey": {
+      "description": "<p>The authentication key for BGP configuration.</p> <p>Example: asdf34example</p>",
+      "type": "string"
+    },
+    "BGPPeer": {
+      "description": "A structure containing information about a BGP peer.",
+      "properties": {
+        "addressFamily": {
+          "$ref": "#/definitions/AddressFamily"
+        },
+        "amazonAddress": {
+          "$ref": "#/definitions/AmazonAddress"
+        },
+        "asn": {
+          "$ref": "#/definitions/ASN"
+        },
+        "authKey": {
+          "$ref": "#/definitions/BGPAuthKey"
+        },
+        "bgpPeerState": {
+          "$ref": "#/definitions/BGPPeerState"
+        },
+        "bgpStatus": {
+          "$ref": "#/definitions/BGPStatus"
+        },
+        "customerAddress": {
+          "$ref": "#/definitions/CustomerAddress"
+        }
+      },
+      "type": "object"
+    },
+    "BGPPeerList": {
+      "description": "A list of the BGP peers configured on this virtual interface.",
+      "items": {
+        "$ref": "#/definitions/BGPPeer"
+      },
+      "type": "array"
+    },
+    "BGPPeerState": {
+      "description": "<p>The state of the BGP peer.</p> <ul> <li> <p> <b>Verifying</b>: The BGP peering addresses or ASN require validation before the BGP peer can be created. This state only applies to BGP peers on a public virtual interface. </p> </li> <li> <p> <b>Pending</b>: The BGP peer has been created, and is in this state until it is ready to be established.</p> </li> <li> <p> <b>Available</b>: The BGP peer can be established.</p> </li> <li> <p> <b>Deleting</b>: The BGP peer is in the process of being deleted.</p> </li> <li> <p> <b>Deleted</b>: The BGP peer has been deleted and cannot be established.</p> </li> </ul>",
+      "enum": [
+        "verifying",
+        "pending",
+        "available",
+        "deleting",
+        "deleted"
+      ],
+      "type": "string"
+    },
+    "BGPStatus": {
+      "description": "<p>The Up/Down state of the BGP peer.</p> <ul> <li> <p> <b>Up</b>: The BGP peer is established.</p> </li> <li> <p> <b>Down</b>: The BGP peer is down.</p> </li> </ul>",
+      "enum": [
+        "up",
+        "down"
+      ],
+      "type": "string"
+    },
+    "Bandwidth": {
+      "description": "<p>Bandwidth of the connection.</p> <p>Example: 1Gbps</p> <p>Default: None</p>",
+      "type": "string"
+    },
+    "BooleanFlag": {
+      "type": "boolean"
+    },
+    "CIDR": {
+      "type": "string"
+    },
+    "ConfirmConnectionRequest": {
+      "description": "Container for the parameters to the ConfirmConnection operation.",
+      "properties": {
+        "connectionId": {
+          "$ref": "#/definitions/ConnectionId"
+        }
+      },
+      "required": [
+        "connectionId"
+      ],
+      "type": "object"
+    },
+    "ConfirmConnectionResponse": {
+      "description": "The response received when ConfirmConnection is called.",
+      "properties": {
+        "connectionState": {
+          "$ref": "#/definitions/ConnectionState"
+        }
+      },
+      "type": "object"
+    },
+    "ConfirmPrivateVirtualInterfaceRequest": {
+      "description": "Container for the parameters to the ConfirmPrivateVirtualInterface operation.",
+      "properties": {
+        "virtualGatewayId": {
+          "$ref": "#/definitions/VirtualGatewayId",
+          "description": "<p>ID of the virtual private gateway that will be attached to the virtual interface.</p> <p> A virtual private gateway can be managed via the Amazon Virtual Private Cloud (VPC) console or the <a href=\"http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateVpnGateway.html\">EC2 CreateVpnGateway</a> action.</p> <p>Default: None</p>"
+        },
+        "virtualInterfaceId": {
+          "$ref": "#/definitions/VirtualInterfaceId"
+        }
+      },
+      "required": [
+        "virtualInterfaceId",
+        "virtualGatewayId"
+      ],
+      "type": "object"
+    },
+    "ConfirmPrivateVirtualInterfaceResponse": {
+      "description": "The response received when ConfirmPrivateVirtualInterface is called.",
+      "properties": {
+        "virtualInterfaceState": {
+          "$ref": "#/definitions/VirtualInterfaceState"
+        }
+      },
+      "type": "object"
+    },
+    "ConfirmPublicVirtualInterfaceRequest": {
+      "description": "Container for the parameters to the ConfirmPublicVirtualInterface operation.",
+      "properties": {
+        "virtualInterfaceId": {
+          "$ref": "#/definitions/VirtualInterfaceId"
+        }
+      },
+      "required": [
+        "virtualInterfaceId"
+      ],
+      "type": "object"
+    },
+    "ConfirmPublicVirtualInterfaceResponse": {
+      "description": "The response received when ConfirmPublicVirtualInterface is called.",
+      "properties": {
+        "virtualInterfaceState": {
+          "$ref": "#/definitions/VirtualInterfaceState"
+        }
+      },
+      "type": "object"
+    },
+    "Connection": {
+      "description": "A connection represents the physical network connection between the AWS Direct Connect location and the customer.",
+      "properties": {
+        "awsDevice": {
+          "$ref": "#/definitions/AwsDevice",
+          "description": "The Direct Connection endpoint which the physical connection terminates on."
+        },
+        "bandwidth": {
+          "$ref": "#/definitions/Bandwidth",
+          "description": "<p>Bandwidth of the connection.</p> <p>Example: 1Gbps (for regular connections), or 500Mbps (for hosted connections)</p> <p>Default: None</p>"
+        },
+        "connectionId": {
+          "$ref": "#/definitions/ConnectionId"
+        },
+        "connectionName": {
+          "$ref": "#/definitions/ConnectionName"
+        },
+        "connectionState": {
+          "$ref": "#/definitions/ConnectionState"
+        },
+        "lagId": {
+          "$ref": "#/definitions/LagId"
+        },
+        "loaIssueTime": {
+          "$ref": "#/definitions/LoaIssueTime",
+          "description": "The time of the most recent call to <a>DescribeLoa</a> for this connection."
+        },
+        "location": {
+          "$ref": "#/definitions/LocationCode"
+        },
+        "ownerAccount": {
+          "$ref": "#/definitions/OwnerAccount",
+          "description": "The AWS account that will own the new connection."
+        },
+        "partnerName": {
+          "$ref": "#/definitions/PartnerName",
+          "description": "The name of the AWS Direct Connect service provider associated with the connection."
+        },
+        "region": {
+          "$ref": "#/definitions/Region"
+        },
+        "vlan": {
+          "$ref": "#/definitions/VLAN"
+        }
+      },
+      "type": "object"
+    },
+    "ConnectionId": {
+      "description": "<p>The ID of the connection. This field is also used as the ID type for operations that use multiple connection types (LAG, interconnect, and/or connection).</p> <p>Example: dxcon-fg5678gh</p> <p>Default: None</p>",
+      "type": "string"
+    },
+    "ConnectionList": {
+      "description": "A list of connections.",
+      "items": {
+        "$ref": "#/definitions/Connection"
+      },
+      "type": "array"
+    },
+    "ConnectionName": {
+      "description": "<p>The name of the connection.</p> <p>Example: \"<i>My Connection to AWS</i>\"</p> <p>Default: None</p>",
+      "type": "string"
+    },
+    "ConnectionState": {
+      "description": "<p>State of the connection.</p> <ul> <li> <p> <b>Ordering</b>: The initial state of a hosted connection provisioned on an interconnect. The connection stays in the ordering state until the owner of the hosted connection confirms or declines the connection order.</p> </li> <li> <p> <b>Requested</b>: The initial state of a standard connection. The connection stays in the requested state until the Letter of Authorization (LOA) is sent to the customer.</p> </li> <li> <p> <b>Pending</b>: The connection has been approved, and is being initialized.</p> </li> <li> <p> <b>Available</b>: The network link is up, and the connection is ready for use.</p> </li> <li> <p> <b>Down</b>: The network link is down.</p> </li> <li> <p> <b>Deleting</b>: The connection is in the process of being deleted.</p> </li> <li> <p> <b>Deleted</b>: The connection has been deleted.</p> </li> <li> <p> <b>Rejected</b>: A hosted connection in the 'Ordering' state will enter the 'Rejected' state if it is deleted by the end customer.</p> </li> </ul>",
+      "enum": [
+        "ordering",
+        "requested",
+        "pending",
+        "available",
+        "down",
+        "deleting",
+        "deleted",
+        "rejected"
+      ],
+      "type": "string"
+    },
+    "Connections": {
+      "description": "A structure containing a list of connections.",
+      "properties": {
+        "connections": {
+          "$ref": "#/definitions/ConnectionList",
+          "description": "A list of connections."
+        }
+      },
+      "type": "object"
+    },
+    "Count": {
+      "type": "integer"
+    },
+    "CreateBGPPeerRequest": {
+      "description": "Container for the parameters to the CreateBGPPeer operation.",
+      "properties": {
+        "newBGPPeer": {
+          "$ref": "#/definitions/NewBGPPeer",
+          "description": "<p>Detailed information for the BGP peer to be created.</p> <p>Default: None</p>"
+        },
+        "virtualInterfaceId": {
+          "$ref": "#/definitions/VirtualInterfaceId",
+          "description": "<p>The ID of the virtual interface on which the BGP peer will be provisioned.</p> <p>Example: dxvif-456abc78</p> <p>Default: None</p>"
+        }
+      },
+      "type": "object"
+    },
+    "CreateBGPPeerResponse": {
+      "description": "The response received when CreateBGPPeer is called.",
+      "properties": {
+        "virtualInterface": {
+          "$ref": "#/definitions/VirtualInterface"
+        }
+      },
+      "type": "object"
+    },
+    "CreateConnectionRequest": {
+      "description": "Container for the parameters to the CreateConnection operation.",
+      "properties": {
+        "bandwidth": {
+          "$ref": "#/definitions/Bandwidth"
+        },
+        "connectionName": {
+          "$ref": "#/definitions/ConnectionName"
+        },
+        "lagId": {
+          "$ref": "#/definitions/LagId"
+        },
+        "location": {
+          "$ref": "#/definitions/LocationCode"
+        }
+      },
+      "required": [
+        "location",
+        "bandwidth",
+        "connectionName"
+      ],
+      "type": "object"
+    },
+    "CreateInterconnectRequest": {
+      "description": "Container for the parameters to the CreateInterconnect operation.",
+      "properties": {
+        "bandwidth": {
+          "$ref": "#/definitions/Bandwidth",
+          "description": "<p>The port bandwidth</p> <p>Example: 1Gbps</p> <p>Default: None</p> <p>Available values: 1Gbps,10Gbps</p>"
+        },
+        "interconnectName": {
+          "$ref": "#/definitions/InterconnectName",
+          "description": "<p>The name of the interconnect.</p> <p>Example: \"<i>1G Interconnect to AWS</i>\"</p> <p>Default: None</p>"
+        },
+        "lagId": {
+          "$ref": "#/definitions/LagId"
+        },
+        "location": {
+          "$ref": "#/definitions/LocationCode",
+          "description": "<p>Where the interconnect is located</p> <p>Example: EqSV5</p> <p>Default: None</p>"
+        }
+      },
+      "required": [
+        "interconnectName",
+        "bandwidth",
+        "location"
+      ],
+      "type": "object"
+    },
+    "CreateLagRequest": {
+      "description": "Container for the parameters to the CreateLag operation.",
+      "properties": {
+        "connectionId": {
+          "$ref": "#/definitions/ConnectionId",
+          "description": "<p>The ID of an existing connection to migrate to the LAG.</p> <p>Default: None</p>"
+        },
+        "connectionsBandwidth": {
+          "$ref": "#/definitions/Bandwidth",
+          "description": "<p>The bandwidth of the individual physical connections bundled by the LAG.</p> <p>Default: None</p> <p>Available values: 1Gbps, 10Gbps</p>"
+        },
+        "lagName": {
+          "$ref": "#/definitions/LagName",
+          "description": "<p>The name of the LAG.</p> <p>Example: \"<code>3x10G LAG to AWS</code>\"</p> <p>Default: None</p>"
+        },
+        "location": {
+          "$ref": "#/definitions/LocationCode",
+          "description": "<p>The AWS Direct Connect location in which the LAG should be allocated.</p> <p>Example: EqSV5</p> <p>Default: None</p>"
+        },
+        "numberOfConnections": {
+          "$ref": "#/definitions/Count",
+          "description": "<p>The number of physical connections initially provisioned and bundled by the LAG.</p> <p>Default: None</p>"
+        }
+      },
+      "required": [
+        "numberOfConnections",
+        "location",
+        "connectionsBandwidth",
+        "lagName"
+      ],
+      "type": "object"
+    },
+    "CreatePrivateVirtualInterfaceRequest": {
+      "description": "Container for the parameters to the CreatePrivateVirtualInterface operation.",
+      "properties": {
+        "connectionId": {
+          "$ref": "#/definitions/ConnectionId"
+        },
+        "newPrivateVirtualInterface": {
+          "$ref": "#/definitions/NewPrivateVirtualInterface",
+          "description": "<p>Detailed information for the private virtual interface to be created.</p> <p>Default: None</p>"
+        }
+      },
+      "required": [
+        "connectionId",
+        "newPrivateVirtualInterface"
+      ],
+      "type": "object"
+    },
+    "CreatePublicVirtualInterfaceRequest": {
+      "description": "Container for the parameters to the CreatePublicVirtualInterface operation.",
+      "properties": {
+        "connectionId": {
+          "$ref": "#/definitions/ConnectionId"
+        },
+        "newPublicVirtualInterface": {
+          "$ref": "#/definitions/NewPublicVirtualInterface",
+          "description": "<p>Detailed information for the public virtual interface to be created.</p> <p>Default: None</p>"
+        }
+      },
+      "required": [
+        "connectionId",
+        "newPublicVirtualInterface"
+      ],
+      "type": "object"
+    },
+    "CustomerAddress": {
+      "description": "<p>IP address assigned to the customer interface.</p> <p>Example: 192.168.1.2/30 or 2001:db8::2/125</p>",
+      "type": "string"
+    },
+    "DeleteBGPPeerRequest": {
+      "description": "Container for the parameters to the DeleteBGPPeer operation.",
+      "properties": {
+        "asn": {
+          "$ref": "#/definitions/ASN"
+        },
+        "customerAddress": {
+          "$ref": "#/definitions/CustomerAddress"
+        },
+        "virtualInterfaceId": {
+          "$ref": "#/definitions/VirtualInterfaceId",
+          "description": "<p>The ID of the virtual interface from which the BGP peer will be deleted.</p> <p>Example: dxvif-456abc78</p> <p>Default: None</p>"
+        }
+      },
+      "type": "object"
+    },
+    "DeleteBGPPeerResponse": {
+      "description": "The response received when DeleteBGPPeer is called.",
+      "properties": {
+        "virtualInterface": {
+          "$ref": "#/definitions/VirtualInterface"
+        }
+      },
+      "type": "object"
+    },
+    "DeleteConnectionRequest": {
+      "description": "Container for the parameters to the DeleteConnection operation.",
+      "properties": {
+        "connectionId": {
+          "$ref": "#/definitions/ConnectionId"
+        }
+      },
+      "required": [
+        "connectionId"
+      ],
+      "type": "object"
+    },
+    "DeleteInterconnectRequest": {
+      "description": "Container for the parameters to the DeleteInterconnect operation.",
+      "properties": {
+        "interconnectId": {
+          "$ref": "#/definitions/InterconnectId"
+        }
+      },
+      "required": [
+        "interconnectId"
+      ],
+      "type": "object"
+    },
+    "DeleteInterconnectResponse": {
+      "description": "The response received when DeleteInterconnect is called.",
+      "properties": {
+        "interconnectState": {
+          "$ref": "#/definitions/InterconnectState"
+        }
+      },
+      "type": "object"
+    },
+    "DeleteLagRequest": {
+      "description": "Container for the parameters to the DeleteLag operation.",
+      "properties": {
+        "lagId": {
+          "$ref": "#/definitions/LagId",
+          "description": "<p>The ID of the LAG to delete.</p> <p>Example: dxlag-abc123</p> <p>Default: None</p>"
+        }
+      },
+      "required": [
+        "lagId"
+      ],
+      "type": "object"
+    },
+    "DeleteVirtualInterfaceRequest": {
+      "description": "Container for the parameters to the DeleteVirtualInterface operation.",
+      "properties": {
+        "virtualInterfaceId": {
+          "$ref": "#/definitions/VirtualInterfaceId"
+        }
+      },
+      "required": [
+        "virtualInterfaceId"
+      ],
+      "type": "object"
+    },
+    "DeleteVirtualInterfaceResponse": {
+      "description": "The response received when DeleteVirtualInterface is called.",
+      "properties": {
+        "virtualInterfaceState": {
+          "$ref": "#/definitions/VirtualInterfaceState"
+        }
+      },
+      "type": "object"
+    },
+    "DescribeConnectionLoaRequest": {
+      "description": "Container for the parameters to the DescribeConnectionLoa operation.",
+      "properties": {
+        "connectionId": {
+          "$ref": "#/definitions/ConnectionId"
+        },
+        "loaContentType": {
+          "$ref": "#/definitions/LoaContentType"
+        },
+        "providerName": {
+          "$ref": "#/definitions/ProviderName",
+          "description": "<p>The name of the APN partner or service provider who establishes connectivity on your behalf. If you supply this parameter, the LOA-CFA lists the provider name alongside your company name as the requester of the cross connect.</p> <p>Default: None</p>"
+        }
+      },
+      "required": [
+        "connectionId"
+      ],
+      "type": "object"
+    },
+    "DescribeConnectionLoaResponse": {
+      "description": "The response received when DescribeConnectionLoa is called.",
+      "properties": {
+        "loa": {
+          "$ref": "#/definitions/Loa"
+        }
+      },
+      "type": "object"
+    },
+    "DescribeConnectionsOnInterconnectRequest": {
+      "description": "Container for the parameters to the DescribeConnectionsOnInterconnect operation.",
+      "properties": {
+        "interconnectId": {
+          "$ref": "#/definitions/InterconnectId",
+          "description": "<p>ID of the interconnect on which a list of connection is provisioned.</p> <p>Example: dxcon-abc123</p> <p>Default: None</p>"
+        }
+      },
+      "required": [
+        "interconnectId"
+      ],
+      "type": "object"
+    },
+    "DescribeConnectionsRequest": {
+      "description": "Container for the parameters to the DescribeConnections operation.",
+      "properties": {
+        "connectionId": {
+          "$ref": "#/definitions/ConnectionId"
+        }
+      },
+      "type": "object"
+    },
+    "DescribeHostedConnectionsRequest": {
+      "description": "Container for the parameters to the DescribeHostedConnections operation.",
+      "properties": {
+        "connectionId": {
+          "$ref": "#/definitions/ConnectionId",
+          "description": "<p>The ID of the interconnect or LAG on which the hosted connections are provisioned.</p> <p>Example: dxcon-abc123 or dxlag-abc123</p> <p>Default: None</p>"
+        }
+      },
+      "required": [
+        "connectionId"
+      ],
+      "type": "object"
+    },
+    "DescribeInterconnectLoaRequest": {
+      "description": "Container for the parameters to the DescribeInterconnectLoa operation.",
+      "properties": {
+        "interconnectId": {
+          "$ref": "#/definitions/InterconnectId"
+        },
+        "loaContentType": {
+          "$ref": "#/definitions/LoaContentType"
+        },
+        "providerName": {
+          "$ref": "#/definitions/ProviderName",
+          "description": "<p>The name of the service provider who establishes connectivity on your behalf. If you supply this parameter, the LOA-CFA lists the provider name alongside your company name as the requester of the cross connect.</p> <p>Default: None</p>"
+        }
+      },
+      "required": [
+        "interconnectId"
+      ],
+      "type": "object"
+    },
+    "DescribeInterconnectLoaResponse": {
+      "description": "The response received when DescribeInterconnectLoa is called.",
+      "properties": {
+        "loa": {
+          "$ref": "#/definitions/Loa"
+        }
+      },
+      "type": "object"
+    },
+    "DescribeInterconnectsRequest": {
+      "description": "Container for the parameters to the DescribeInterconnects operation.",
+      "properties": {
+        "interconnectId": {
+          "$ref": "#/definitions/InterconnectId"
+        }
+      },
+      "type": "object"
+    },
+    "DescribeLagsRequest": {
+      "description": "Container for the parameters to the DescribeLags operation.",
+      "properties": {
+        "lagId": {
+          "$ref": "#/definitions/LagId",
+          "description": "<p>The ID of the LAG.</p> <p>Example: dxlag-abc123</p> <p>Default: None</p>"
+        }
+      },
+      "type": "object"
+    },
+    "DescribeLoaRequest": {
+      "description": "Container for the parameters to the DescribeLoa operation.",
+      "properties": {
+        "connectionId": {
+          "$ref": "#/definitions/ConnectionId",
+          "description": "<p>The ID of a connection, LAG, or interconnect for which to get the LOA-CFA information.</p> <p>Example: dxcon-abc123 or dxlag-abc123</p> <p>Default: None</p>"
+        },
+        "loaContentType": {
+          "$ref": "#/definitions/LoaContentType",
+          "description": "<p>A standard media type indicating the content type of the LOA-CFA document. Currently, the only supported value is \"application/pdf\".</p> <p>Default: application/pdf</p>"
+        },
+        "providerName": {
+          "$ref": "#/definitions/ProviderName",
+          "description": "<p>The name of the service provider who establishes connectivity on your behalf. If you supply this parameter, the LOA-CFA lists the provider name alongside your company name as the requester of the cross connect.</p> <p>Default: None</p>"
+        }
+      },
+      "required": [
+        "connectionId"
+      ],
+      "type": "object"
+    },
+    "DescribeTagsRequest": {
+      "description": "Container for the parameters to the DescribeTags operation.",
+      "properties": {
+        "resourceArns": {
+          "$ref": "#/definitions/ResourceArnList",
+          "description": "The Amazon Resource Names (ARNs) of the Direct Connect resources."
+        }
+      },
+      "required": [
+        "resourceArns"
+      ],
+      "type": "object"
+    },
+    "DescribeTagsResponse": {
+      "description": "The response received when DescribeTags is called.",
+      "properties": {
+        "resourceTags": {
+          "$ref": "#/definitions/ResourceTagList",
+          "description": "Information about the tags."
+        }
+      },
+      "type": "object"
+    },
+    "DescribeVirtualInterfacesRequest": {
+      "description": "Container for the parameters to the DescribeVirtualInterfaces operation.",
+      "properties": {
+        "connectionId": {
+          "$ref": "#/definitions/ConnectionId"
+        },
+        "virtualInterfaceId": {
+          "$ref": "#/definitions/VirtualInterfaceId"
+        }
+      },
+      "type": "object"
+    },
+    "DirectConnectClientException": {
+      "description": "The API was called with invalid parameters. The error message will contain additional details about the cause.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/ErrorMessage",
+          "description": "This is an exception thrown when there is an issue with the input provided by the API call. For example, the name provided for a connection contains a pound sign (#). This can also occur when a valid value is provided, but is otherwise constrained. For example, the valid VLAN tag range is 1-4096 but each can only be used once per connection."
+        }
+      },
+      "type": "object"
+    },
+    "DirectConnectServerException": {
+      "description": "A server-side error occurred during the API call. The error message will contain additional details about the cause.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/ErrorMessage",
+          "description": "This is an exception thrown when there is a backend issue on the server side."
+        }
+      },
+      "type": "object"
+    },
+    "DisassociateConnectionFromLagRequest": {
+      "description": "Container for the parameters to the DisassociateConnectionFromLag operation.",
+      "properties": {
+        "connectionId": {
+          "$ref": "#/definitions/ConnectionId",
+          "description": "<p>The ID of the connection to disassociate from the LAG.</p> <p>Example: dxcon-abc123</p> <p>Default: None</p>"
+        },
+        "lagId": {
+          "$ref": "#/definitions/LagId",
+          "description": "<p>The ID of the LAG.</p> <p>Example: dxlag-abc123</p> <p>Default: None</p>"
+        }
+      },
+      "required": [
+        "connectionId",
+        "lagId"
+      ],
+      "type": "object"
+    },
+    "DuplicateTagKeysException": {
+      "description": "A tag key was specified more than once.",
+      "properties": {},
+      "type": "object"
+    },
+    "ErrorMessage": {
+      "type": "string"
+    },
+    "Interconnect": {
+      "description": "<p>An interconnect is a connection that can host other connections.</p> <p>Like a standard AWS Direct Connect connection, an interconnect represents the physical connection between an AWS Direct Connect partner's network and a specific Direct Connect location. An AWS Direct Connect partner who owns an interconnect can provision hosted connections on the interconnect for their end customers, thereby providing the end customers with connectivity to AWS services.</p> <p>The resources of the interconnect, including bandwidth and VLAN numbers, are shared by all of the hosted connections on the interconnect, and the owner of the interconnect determines how these resources are assigned.</p>",
+      "properties": {
+        "awsDevice": {
+          "$ref": "#/definitions/AwsDevice",
+          "description": "The Direct Connection endpoint which the physical connection terminates on."
+        },
+        "bandwidth": {
+          "$ref": "#/definitions/Bandwidth"
+        },
+        "interconnectId": {
+          "$ref": "#/definitions/InterconnectId"
+        },
+        "interconnectName": {
+          "$ref": "#/definitions/InterconnectName"
+        },
+        "interconnectState": {
+          "$ref": "#/definitions/InterconnectState"
+        },
+        "lagId": {
+          "$ref": "#/definitions/LagId"
+        },
+        "loaIssueTime": {
+          "$ref": "#/definitions/LoaIssueTime",
+          "description": "The time of the most recent call to DescribeInterconnectLoa for this Interconnect."
+        },
+        "location": {
+          "$ref": "#/definitions/LocationCode"
+        },
+        "region": {
+          "$ref": "#/definitions/Region"
+        }
+      },
+      "type": "object"
+    },
+    "InterconnectId": {
+      "description": "<p>The ID of the interconnect.</p> <p>Example: dxcon-abc123</p>",
+      "type": "string"
+    },
+    "InterconnectList": {
+      "description": "A list of interconnects.",
+      "items": {
+        "$ref": "#/definitions/Interconnect"
+      },
+      "type": "array"
+    },
+    "InterconnectName": {
+      "description": "<p>The name of the interconnect.</p> <p>Example: \"<i>1G Interconnect to AWS</i>\"</p>",
+      "type": "string"
+    },
+    "InterconnectState": {
+      "description": "<p>State of the interconnect.</p> <ul> <li> <p> <b>Requested</b>: The initial state of an interconnect. The interconnect stays in the requested state until the Letter of Authorization (LOA) is sent to the customer.</p> </li> <li> <p> <b>Pending</b>: The interconnect has been approved, and is being initialized.</p> </li> <li> <p> <b>Available</b>: The network link is up, and the interconnect is ready for use.</p> </li> <li> <p> <b>Down</b>: The network link is down.</p> </li> <li> <p> <b>Deleting</b>: The interconnect is in the process of being deleted.</p> </li> <li> <p> <b>Deleted</b>: The interconnect has been deleted.</p> </li> </ul>",
+      "enum": [
+        "requested",
+        "pending",
+        "available",
+        "down",
+        "deleting",
+        "deleted"
+      ],
+      "type": "string"
+    },
+    "Interconnects": {
+      "description": "A structure containing a list of interconnects.",
+      "properties": {
+        "interconnects": {
+          "$ref": "#/definitions/InterconnectList",
+          "description": "A list of interconnects."
+        }
+      },
+      "type": "object"
+    },
+    "Lag": {
+      "description": "Describes a link aggregation group (LAG). A LAG is a connection that uses the Link Aggregation Control Protocol (LACP) to logically aggregate a bundle of physical connections. Like an interconnect, it can host other connections. All connections in a LAG must terminate on the same physical AWS Direct Connect endpoint, and must be the same bandwidth.",
+      "properties": {
+        "allowsHostedConnections": {
+          "$ref": "#/definitions/BooleanFlag",
+          "description": "<p>Indicates whether the LAG can host other connections.</p> <note> <p>This is intended for use by AWS Direct Connect partners only.</p> </note>"
+        },
+        "awsDevice": {
+          "$ref": "#/definitions/AwsDevice",
+          "description": "The AWS Direct Connection endpoint that hosts the LAG."
+        },
+        "connections": {
+          "$ref": "#/definitions/ConnectionList",
+          "description": "A list of connections bundled by this LAG."
+        },
+        "connectionsBandwidth": {
+          "$ref": "#/definitions/Bandwidth",
+          "description": "<p>The individual bandwidth of the physical connections bundled by the LAG.</p> <p>Available values: 1Gbps, 10Gbps</p>"
+        },
+        "lagId": {
+          "$ref": "#/definitions/LagId"
+        },
+        "lagName": {
+          "$ref": "#/definitions/LagName",
+          "description": "The name of the LAG."
+        },
+        "lagState": {
+          "$ref": "#/definitions/LagState"
+        },
+        "location": {
+          "$ref": "#/definitions/LocationCode"
+        },
+        "minimumLinks": {
+          "$ref": "#/definitions/Count",
+          "description": "The minimum number of physical connections that must be operational for the LAG itself to be operational. If the number of operational connections drops below this setting, the LAG state changes to <code>down</code>. This value can help to ensure that a LAG is not overutilized if a significant number of its bundled connections go down."
+        },
+        "numberOfConnections": {
+          "$ref": "#/definitions/Count",
+          "description": "The number of physical connections bundled by the LAG, up to a maximum of 10."
+        },
+        "ownerAccount": {
+          "$ref": "#/definitions/OwnerAccount",
+          "description": "The owner of the LAG."
+        },
+        "region": {
+          "$ref": "#/definitions/Region"
+        }
+      },
+      "type": "object"
+    },
+    "LagId": {
+      "description": "<p>The ID of the LAG.</p> <p>Example: dxlag-fg5678gh</p>",
+      "type": "string"
+    },
+    "LagList": {
+      "description": "A list of LAGs.",
+      "items": {
+        "$ref": "#/definitions/Lag"
+      },
+      "type": "array"
+    },
+    "LagName": {
+      "type": "string"
+    },
+    "LagState": {
+      "description": "<p>The state of the LAG.</p> <ul> <li> <p> <b>Requested</b>: The initial state of a LAG. The LAG stays in the requested state until the Letter of Authorization (LOA) is available.</p> </li> <li> <p> <b>Pending</b>: The LAG has been approved, and is being initialized.</p> </li> <li> <p> <b>Available</b>: The network link is established, and the LAG is ready for use.</p> </li> <li> <p> <b>Down</b>: The network link is down.</p> </li> <li> <p> <b>Deleting</b>: The LAG is in the process of being deleted.</p> </li> <li> <p> <b>Deleted</b>: The LAG has been deleted.</p> </li> </ul>",
+      "enum": [
+        "requested",
+        "pending",
+        "available",
+        "down",
+        "deleting",
+        "deleted"
+      ],
+      "type": "string"
+    },
+    "Lags": {
+      "description": "A structure containing a list of LAGs.",
+      "properties": {
+        "lags": {
+          "$ref": "#/definitions/LagList",
+          "description": "A list of LAGs."
+        }
+      },
+      "type": "object"
+    },
+    "Loa": {
+      "description": "A structure containing the Letter of Authorization - Connecting Facility Assignment (LOA-CFA) for a connection.",
+      "properties": {
+        "loaContent": {
+          "$ref": "#/definitions/LoaContent"
+        },
+        "loaContentType": {
+          "$ref": "#/definitions/LoaContentType"
+        }
+      },
+      "type": "object"
+    },
+    "LoaContent": {
+      "description": "The binary contents of the LOA-CFA document.",
+      "type": "string"
+    },
+    "LoaContentType": {
+      "description": "<p>A standard media type indicating the content type of the LOA-CFA document. Currently, the only supported value is \"application/pdf\".</p> <p>Default: application/pdf</p>",
+      "enum": [
+        "application/pdf"
+      ],
+      "type": "string"
+    },
+    "LoaIssueTime": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "Location": {
+      "description": "An AWS Direct Connect location where connections and interconnects can be requested.",
+      "properties": {
+        "locationCode": {
+          "$ref": "#/definitions/LocationCode",
+          "description": "The code used to indicate the AWS Direct Connect location."
+        }
+      },
+      "type": "object"
+    },
+    "LocationCode": {
+      "description": "<p>Where the connection is located.</p> <p>Example: EqSV5</p> <p>Default: None</p>",
+      "type": "string"
+    },
+    "LocationList": {
+      "items": {
+        "$ref": "#/definitions/Location"
+      },
+      "type": "array"
+    },
+    "LocationName": {
+      "type": "string"
+    },
+    "Locations": {
+      "description": "A location is a network facility where AWS Direct Connect routers are available to be connected. Generally, these are colocation hubs where many network providers have equipment, and where cross connects can be delivered. Locations include a name and facility code, and must be provided when creating a connection.",
+      "properties": {
+        "locations": {
+          "$ref": "#/definitions/LocationList",
+          "description": "A list of colocation hubs where network providers have equipment. Most regions have multiple locations available."
+        }
+      },
+      "type": "object"
+    },
+    "NewBGPPeer": {
+      "description": "A structure containing information about a new BGP peer.",
+      "properties": {
+        "addressFamily": {
+          "$ref": "#/definitions/AddressFamily"
+        },
+        "amazonAddress": {
+          "$ref": "#/definitions/AmazonAddress"
+        },
+        "asn": {
+          "$ref": "#/definitions/ASN"
+        },
+        "authKey": {
+          "$ref": "#/definitions/BGPAuthKey"
+        },
+        "customerAddress": {
+          "$ref": "#/definitions/CustomerAddress"
+        }
+      },
+      "type": "object"
+    },
+    "NewPrivateVirtualInterface": {
+      "description": "A structure containing information about a new private virtual interface.",
+      "properties": {
+        "addressFamily": {
+          "$ref": "#/definitions/AddressFamily"
+        },
+        "amazonAddress": {
+          "$ref": "#/definitions/AmazonAddress"
+        },
+        "asn": {
+          "$ref": "#/definitions/ASN"
+        },
+        "authKey": {
+          "$ref": "#/definitions/BGPAuthKey"
+        },
+        "customerAddress": {
+          "$ref": "#/definitions/CustomerAddress"
+        },
+        "virtualGatewayId": {
+          "$ref": "#/definitions/VirtualGatewayId"
+        },
+        "virtualInterfaceName": {
+          "$ref": "#/definitions/VirtualInterfaceName"
+        },
+        "vlan": {
+          "$ref": "#/definitions/VLAN"
+        }
+      },
+      "required": [
+        "virtualInterfaceName",
+        "vlan",
+        "asn",
+        "virtualGatewayId"
+      ],
+      "type": "object"
+    },
+    "NewPrivateVirtualInterfaceAllocation": {
+      "description": "A structure containing information about a private virtual interface that will be provisioned on a connection.",
+      "properties": {
+        "addressFamily": {
+          "$ref": "#/definitions/AddressFamily"
+        },
+        "amazonAddress": {
+          "$ref": "#/definitions/AmazonAddress"
+        },
+        "asn": {
+          "$ref": "#/definitions/ASN"
+        },
+        "authKey": {
+          "$ref": "#/definitions/BGPAuthKey"
+        },
+        "customerAddress": {
+          "$ref": "#/definitions/CustomerAddress"
+        },
+        "virtualInterfaceName": {
+          "$ref": "#/definitions/VirtualInterfaceName"
+        },
+        "vlan": {
+          "$ref": "#/definitions/VLAN"
+        }
+      },
+      "required": [
+        "virtualInterfaceName",
+        "vlan",
+        "asn"
+      ],
+      "type": "object"
+    },
+    "NewPublicVirtualInterface": {
+      "description": "A structure containing information about a new public virtual interface.",
+      "properties": {
+        "addressFamily": {
+          "$ref": "#/definitions/AddressFamily"
+        },
+        "amazonAddress": {
+          "$ref": "#/definitions/AmazonAddress"
+        },
+        "asn": {
+          "$ref": "#/definitions/ASN"
+        },
+        "authKey": {
+          "$ref": "#/definitions/BGPAuthKey"
+        },
+        "customerAddress": {
+          "$ref": "#/definitions/CustomerAddress"
+        },
+        "routeFilterPrefixes": {
+          "$ref": "#/definitions/RouteFilterPrefixList"
+        },
+        "virtualInterfaceName": {
+          "$ref": "#/definitions/VirtualInterfaceName"
+        },
+        "vlan": {
+          "$ref": "#/definitions/VLAN"
+        }
+      },
+      "required": [
+        "virtualInterfaceName",
+        "vlan",
+        "asn"
+      ],
+      "type": "object"
+    },
+    "NewPublicVirtualInterfaceAllocation": {
+      "description": "A structure containing information about a public virtual interface that will be provisioned on a connection.",
+      "properties": {
+        "addressFamily": {
+          "$ref": "#/definitions/AddressFamily"
+        },
+        "amazonAddress": {
+          "$ref": "#/definitions/AmazonAddress"
+        },
+        "asn": {
+          "$ref": "#/definitions/ASN"
+        },
+        "authKey": {
+          "$ref": "#/definitions/BGPAuthKey"
+        },
+        "customerAddress": {
+          "$ref": "#/definitions/CustomerAddress"
+        },
+        "routeFilterPrefixes": {
+          "$ref": "#/definitions/RouteFilterPrefixList"
+        },
+        "virtualInterfaceName": {
+          "$ref": "#/definitions/VirtualInterfaceName"
+        },
+        "vlan": {
+          "$ref": "#/definitions/VLAN"
+        }
+      },
+      "required": [
+        "virtualInterfaceName",
+        "vlan",
+        "asn"
+      ],
+      "type": "object"
+    },
+    "OwnerAccount": {
+      "type": "string"
+    },
+    "PartnerName": {
+      "type": "string"
+    },
+    "ProviderName": {
+      "type": "string"
+    },
+    "Region": {
+      "description": "<p>The AWS region where the connection is located.</p> <p>Example: us-east-1</p> <p>Default: None</p>",
+      "type": "string"
+    },
+    "ResourceArn": {
+      "type": "string"
+    },
+    "ResourceArnList": {
+      "items": {
+        "$ref": "#/definitions/ResourceArn"
+      },
+      "type": "array"
+    },
+    "ResourceTag": {
+      "description": "The tags associated with a Direct Connect resource.",
+      "properties": {
+        "resourceArn": {
+          "$ref": "#/definitions/ResourceArn",
+          "description": "The Amazon Resource Name (ARN) of the Direct Connect resource."
+        },
+        "tags": {
+          "$ref": "#/definitions/TagList",
+          "description": "The tags."
+        }
+      },
+      "type": "object"
+    },
+    "ResourceTagList": {
+      "items": {
+        "$ref": "#/definitions/ResourceTag"
+      },
+      "type": "array"
+    },
+    "RouteFilterPrefix": {
+      "description": "A route filter prefix that the customer can advertise through Border Gateway Protocol (BGP) over a public virtual interface.",
+      "properties": {
+        "cidr": {
+          "$ref": "#/definitions/CIDR",
+          "description": "<p>CIDR notation for the advertised route. Multiple routes are separated by commas.</p> <p>IPv6 CIDRs must be at least a /64 or shorter</p> <p>Example: 10.10.10.0/24,10.10.11.0/24,2001:db8::/64</p>"
+        }
+      },
+      "type": "object"
+    },
+    "RouteFilterPrefixList": {
+      "description": "A list of routes to be advertised to the AWS network in this region (public virtual interface).",
+      "items": {
+        "$ref": "#/definitions/RouteFilterPrefix"
+      },
+      "type": "array"
+    },
+    "RouterConfig": {
+      "type": "string"
+    },
+    "Tag": {
+      "description": "Information about a tag.",
+      "properties": {
+        "key": {
+          "$ref": "#/definitions/TagKey",
+          "description": "The key of the tag."
+        },
+        "value": {
+          "$ref": "#/definitions/TagValue",
+          "description": "The value of the tag."
+        }
+      },
+      "required": [
+        "key"
+      ],
+      "type": "object"
+    },
+    "TagKey": {
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$",
+      "type": "string"
+    },
+    "TagKeyList": {
+      "items": {
+        "$ref": "#/definitions/TagKey"
+      },
+      "type": "array"
+    },
+    "TagList": {
+      "items": {
+        "$ref": "#/definitions/Tag"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "TagResourceRequest": {
+      "description": "Container for the parameters to the TagResource operation.",
+      "properties": {
+        "resourceArn": {
+          "$ref": "#/definitions/ResourceArn",
+          "description": "<p>The Amazon Resource Name (ARN) of the Direct Connect resource.</p> <p>Example: arn:aws:directconnect:us-east-1:123456789012:dxcon/dxcon-fg5678gh</p>"
+        },
+        "tags": {
+          "$ref": "#/definitions/TagList",
+          "description": "The list of tags to add."
+        }
+      },
+      "required": [
+        "resourceArn",
+        "tags"
+      ],
+      "type": "object"
+    },
+    "TagResourceResponse": {
+      "description": "The response received when TagResource is called.",
+      "properties": {},
+      "type": "object"
+    },
+    "TagValue": {
+      "maxLength": 256,
+      "minLength": 0,
+      "pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$",
+      "type": "string"
+    },
+    "TooManyTagsException": {
+      "description": "You have reached the limit on the number of tags that can be assigned to a Direct Connect resource.",
+      "properties": {},
+      "type": "object"
+    },
+    "UntagResourceRequest": {
+      "description": "Container for the parameters to the UntagResource operation.",
+      "properties": {
+        "resourceArn": {
+          "$ref": "#/definitions/ResourceArn",
+          "description": "The Amazon Resource Name (ARN) of the Direct Connect resource."
+        },
+        "tagKeys": {
+          "$ref": "#/definitions/TagKeyList",
+          "description": "The list of tag keys to remove."
+        }
+      },
+      "required": [
+        "resourceArn",
+        "tagKeys"
+      ],
+      "type": "object"
+    },
+    "UntagResourceResponse": {
+      "description": "The response received when UntagResource is called.",
+      "properties": {},
+      "type": "object"
+    },
+    "UpdateLagRequest": {
+      "description": "Container for the parameters to the UpdateLag operation.",
+      "properties": {
+        "lagId": {
+          "$ref": "#/definitions/LagId",
+          "description": "<p>The ID of the LAG to update.</p> <p>Example: dxlag-abc123</p> <p>Default: None</p>"
+        },
+        "lagName": {
+          "$ref": "#/definitions/LagName",
+          "description": "<p>The name for the LAG.</p> <p>Example: \"<code>3x10G LAG to AWS</code>\"</p> <p>Default: None</p>"
+        },
+        "minimumLinks": {
+          "$ref": "#/definitions/Count",
+          "description": "<p>The minimum number of physical connections that must be operational for the LAG itself to be operational.</p> <p>Default: None</p>"
+        }
+      },
+      "required": [
+        "lagId"
+      ],
+      "type": "object"
+    },
+    "VLAN": {
+      "description": "<p>The VLAN ID.</p> <p>Example: 101</p>",
+      "type": "integer"
+    },
+    "VirtualGateway": {
+      "description": "<p>You can create one or more AWS Direct Connect private virtual interfaces linking to your virtual private gateway.</p> <p>Virtual private gateways can be managed using the Amazon Virtual Private Cloud (Amazon VPC) console or the <a href=\"http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateVpnGateway.html\">Amazon EC2 CreateVpnGateway action</a>.</p>",
+      "properties": {
+        "virtualGatewayId": {
+          "$ref": "#/definitions/VirtualGatewayId"
+        },
+        "virtualGatewayState": {
+          "$ref": "#/definitions/VirtualGatewayState"
+        }
+      },
+      "type": "object"
+    },
+    "VirtualGatewayId": {
+      "description": "<p>The ID of the virtual private gateway to a VPC. This only applies to private virtual interfaces.</p> <p>Example: vgw-123er56</p>",
+      "type": "string"
+    },
+    "VirtualGatewayList": {
+      "description": "A list of virtual private gateways.",
+      "items": {
+        "$ref": "#/definitions/VirtualGateway"
+      },
+      "type": "array"
+    },
+    "VirtualGatewayState": {
+      "description": "<p>State of the virtual private gateway.</p> <ul> <li> <p> <b>Pending</b>: This is the initial state after calling <i>CreateVpnGateway</i>.</p> </li> <li> <p> <b>Available</b>: Ready for use by a private virtual interface.</p> </li> <li> <p> <b>Deleting</b>: This is the initial state after calling <i>DeleteVpnGateway</i>.</p> </li> <li> <p> <b>Deleted</b>: In this state, a private virtual interface is unable to send traffic over this gateway.</p> </li> </ul>",
+      "type": "string"
+    },
+    "VirtualGateways": {
+      "description": "A structure containing a list of virtual private gateways.",
+      "properties": {
+        "virtualGateways": {
+          "$ref": "#/definitions/VirtualGatewayList",
+          "description": "A list of virtual private gateways."
+        }
+      },
+      "type": "object"
+    },
+    "VirtualInterface": {
+      "description": "A virtual interface (VLAN) transmits the traffic between the AWS Direct Connect location and the customer.",
+      "properties": {
+        "addressFamily": {
+          "$ref": "#/definitions/AddressFamily"
+        },
+        "amazonAddress": {
+          "$ref": "#/definitions/AmazonAddress"
+        },
+        "asn": {
+          "$ref": "#/definitions/ASN"
+        },
+        "authKey": {
+          "$ref": "#/definitions/BGPAuthKey"
+        },
+        "bgpPeers": {
+          "$ref": "#/definitions/BGPPeerList"
+        },
+        "connectionId": {
+          "$ref": "#/definitions/ConnectionId"
+        },
+        "customerAddress": {
+          "$ref": "#/definitions/CustomerAddress"
+        },
+        "customerRouterConfig": {
+          "$ref": "#/definitions/RouterConfig",
+          "description": "Information for generating the customer router configuration."
+        },
+        "location": {
+          "$ref": "#/definitions/LocationCode"
+        },
+        "ownerAccount": {
+          "$ref": "#/definitions/OwnerAccount",
+          "description": "The AWS account that will own the new virtual interface."
+        },
+        "routeFilterPrefixes": {
+          "$ref": "#/definitions/RouteFilterPrefixList"
+        },
+        "virtualGatewayId": {
+          "$ref": "#/definitions/VirtualGatewayId"
+        },
+        "virtualInterfaceId": {
+          "$ref": "#/definitions/VirtualInterfaceId"
+        },
+        "virtualInterfaceName": {
+          "$ref": "#/definitions/VirtualInterfaceName"
+        },
+        "virtualInterfaceState": {
+          "$ref": "#/definitions/VirtualInterfaceState"
+        },
+        "virtualInterfaceType": {
+          "$ref": "#/definitions/VirtualInterfaceType"
+        },
+        "vlan": {
+          "$ref": "#/definitions/VLAN"
+        }
+      },
+      "type": "object"
+    },
+    "VirtualInterfaceId": {
+      "description": "<p>The ID of the virtual interface.</p> <p>Example: dxvif-123dfg56</p> <p>Default: None</p>",
+      "type": "string"
+    },
+    "VirtualInterfaceList": {
+      "description": "A list of virtual interfaces.",
+      "items": {
+        "$ref": "#/definitions/VirtualInterface"
+      },
+      "type": "array"
+    },
+    "VirtualInterfaceName": {
+      "description": "<p>The name of the virtual interface assigned by the customer.</p> <p>Example: \"My VPC\"</p>",
+      "type": "string"
+    },
+    "VirtualInterfaceState": {
+      "description": "<p>State of the virtual interface.</p> <ul> <li> <p> <b>Confirming</b>: The creation of the virtual interface is pending confirmation from the virtual interface owner. If the owner of the virtual interface is different from the owner of the connection on which it is provisioned, then the virtual interface will remain in this state until it is confirmed by the virtual interface owner.</p> </li> <li> <p> <b>Verifying</b>: This state only applies to public virtual interfaces. Each public virtual interface needs validation before the virtual interface can be created.</p> </li> <li> <p> <b>Pending</b>: A virtual interface is in this state from the time that it is created until the virtual interface is ready to forward traffic.</p> </li> <li> <p> <b>Available</b>: A virtual interface that is able to forward traffic.</p> </li> <li> <p> <b>Down</b>: A virtual interface that is BGP down.</p> </li> <li> <p> <b>Deleting</b>: A virtual interface is in this state immediately after calling <a>DeleteVirtualInterface</a> until it can no longer forward traffic.</p> </li> <li> <p> <b>Deleted</b>: A virtual interface that cannot forward traffic.</p> </li> <li> <p> <b>Rejected</b>: The virtual interface owner has declined creation of the virtual interface. If a virtual interface in the 'Confirming' state is deleted by the virtual interface owner, the virtual interface will enter the 'Rejected' state.</p> </li> </ul>",
+      "enum": [
+        "confirming",
+        "verifying",
+        "pending",
+        "available",
+        "down",
+        "deleting",
+        "deleted",
+        "rejected"
+      ],
+      "type": "string"
+    },
+    "VirtualInterfaceType": {
+      "description": "<p>The type of virtual interface.</p> <p>Example: private (Amazon VPC) or public (Amazon S3, Amazon DynamoDB, and so on.)</p>",
+      "type": "string"
+    },
+    "VirtualInterfaces": {
+      "description": "A structure containing a list of virtual interfaces.",
+      "properties": {
+        "virtualInterfaces": {
+          "$ref": "#/definitions/VirtualInterfaceList",
+          "description": "A list of virtual interfaces."
+        }
+      },
+      "type": "object"
+    }
+  },
+  "actions": [
+    {
+      "id": "AllocateConnectionOnInterconnect",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/AllocateConnectionOnInterconnectRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Connection"
+      },
+      "security": {
+        "amazonaws_directconnect": {
+          "integration": "amazonaws_directconnect"
+        }
+      }
+    },
+    {
+      "id": "AllocateHostedConnection",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/AllocateHostedConnectionRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Connection"
+      },
+      "security": {
+        "amazonaws_directconnect": {
+          "integration": "amazonaws_directconnect"
+        }
+      }
+    },
+    {
+      "id": "AllocatePrivateVirtualInterface",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/AllocatePrivateVirtualInterfaceRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/VirtualInterface"
+      },
+      "security": {
+        "amazonaws_directconnect": {
+          "integration": "amazonaws_directconnect"
+        }
+      }
+    },
+    {
+      "id": "AllocatePublicVirtualInterface",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/AllocatePublicVirtualInterfaceRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/VirtualInterface"
+      },
+      "security": {
+        "amazonaws_directconnect": {
+          "integration": "amazonaws_directconnect"
+        }
+      }
+    },
+    {
+      "id": "AssociateConnectionWithLag",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/AssociateConnectionWithLagRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Connection"
+      },
+      "security": {
+        "amazonaws_directconnect": {
+          "integration": "amazonaws_directconnect"
+        }
+      }
+    },
+    {
+      "id": "AssociateHostedConnection",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/AssociateHostedConnectionRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Connection"
+      },
+      "security": {
+        "amazonaws_directconnect": {
+          "integration": "amazonaws_directconnect"
+        }
+      }
+    },
+    {
+      "id": "AssociateVirtualInterface",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/AssociateVirtualInterfaceRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/VirtualInterface"
+      },
+      "security": {
+        "amazonaws_directconnect": {
+          "integration": "amazonaws_directconnect"
+        }
+      }
+    },
+    {
+      "id": "ConfirmConnection",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/ConfirmConnectionRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ConfirmConnectionResponse"
+      },
+      "security": {
+        "amazonaws_directconnect": {
+          "integration": "amazonaws_directconnect"
+        }
+      }
+    },
+    {
+      "id": "ConfirmPrivateVirtualInterface",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/ConfirmPrivateVirtualInterfaceRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ConfirmPrivateVirtualInterfaceResponse"
+      },
+      "security": {
+        "amazonaws_directconnect": {
+          "integration": "amazonaws_directconnect"
+        }
+      }
+    },
+    {
+      "id": "ConfirmPublicVirtualInterface",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/ConfirmPublicVirtualInterfaceRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ConfirmPublicVirtualInterfaceResponse"
+      },
+      "security": {
+        "amazonaws_directconnect": {
+          "integration": "amazonaws_directconnect"
+        }
+      }
+    },
+    {
+      "id": "CreateBGPPeer",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/CreateBGPPeerRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CreateBGPPeerResponse"
+      },
+      "security": {
+        "amazonaws_directconnect": {
+          "integration": "amazonaws_directconnect"
+        }
+      }
+    },
+    {
+      "id": "CreateConnection",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/CreateConnectionRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Connection"
+      },
+      "security": {
+        "amazonaws_directconnect": {
+          "integration": "amazonaws_directconnect"
+        }
+      }
+    },
+    {
+      "id": "CreateInterconnect",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/CreateInterconnectRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Interconnect"
+      },
+      "security": {
+        "amazonaws_directconnect": {
+          "integration": "amazonaws_directconnect"
+        }
+      }
+    },
+    {
+      "id": "CreateLag",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/CreateLagRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Lag"
+      },
+      "security": {
+        "amazonaws_directconnect": {
+          "integration": "amazonaws_directconnect"
+        }
+      }
+    },
+    {
+      "id": "CreatePrivateVirtualInterface",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/CreatePrivateVirtualInterfaceRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/VirtualInterface"
+      },
+      "security": {
+        "amazonaws_directconnect": {
+          "integration": "amazonaws_directconnect"
+        }
+      }
+    },
+    {
+      "id": "CreatePublicVirtualInterface",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/CreatePublicVirtualInterfaceRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/VirtualInterface"
+      },
+      "security": {
+        "amazonaws_directconnect": {
+          "integration": "amazonaws_directconnect"
+        }
+      }
+    },
+    {
+      "id": "DeleteBGPPeer",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DeleteBGPPeerRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DeleteBGPPeerResponse"
+      },
+      "security": {
+        "amazonaws_directconnect": {
+          "integration": "amazonaws_directconnect"
+        }
+      }
+    },
+    {
+      "id": "DeleteConnection",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DeleteConnectionRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Connection"
+      },
+      "security": {
+        "amazonaws_directconnect": {
+          "integration": "amazonaws_directconnect"
+        }
+      }
+    },
+    {
+      "id": "DeleteInterconnect",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DeleteInterconnectRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DeleteInterconnectResponse"
+      },
+      "security": {
+        "amazonaws_directconnect": {
+          "integration": "amazonaws_directconnect"
+        }
+      }
+    },
+    {
+      "id": "DeleteLag",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DeleteLagRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Lag"
+      },
+      "security": {
+        "amazonaws_directconnect": {
+          "integration": "amazonaws_directconnect"
+        }
+      }
+    },
+    {
+      "id": "DeleteVirtualInterface",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DeleteVirtualInterfaceRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DeleteVirtualInterfaceResponse"
+      },
+      "security": {
+        "amazonaws_directconnect": {
+          "integration": "amazonaws_directconnect"
+        }
+      }
+    },
+    {
+      "id": "DescribeConnectionLoa",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DescribeConnectionLoaRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeConnectionLoaResponse"
+      },
+      "security": {
+        "amazonaws_directconnect": {
+          "integration": "amazonaws_directconnect"
+        }
+      }
+    },
+    {
+      "id": "DescribeConnections",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DescribeConnectionsRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Connections"
+      },
+      "security": {
+        "amazonaws_directconnect": {
+          "integration": "amazonaws_directconnect"
+        }
+      }
+    },
+    {
+      "id": "DescribeConnectionsOnInterconnect",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DescribeConnectionsOnInterconnectRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Connections"
+      },
+      "security": {
+        "amazonaws_directconnect": {
+          "integration": "amazonaws_directconnect"
+        }
+      }
+    },
+    {
+      "id": "DescribeHostedConnections",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DescribeHostedConnectionsRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Connections"
+      },
+      "security": {
+        "amazonaws_directconnect": {
+          "integration": "amazonaws_directconnect"
+        }
+      }
+    },
+    {
+      "id": "DescribeInterconnectLoa",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DescribeInterconnectLoaRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeInterconnectLoaResponse"
+      },
+      "security": {
+        "amazonaws_directconnect": {
+          "integration": "amazonaws_directconnect"
+        }
+      }
+    },
+    {
+      "id": "DescribeInterconnects",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DescribeInterconnectsRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Interconnects"
+      },
+      "security": {
+        "amazonaws_directconnect": {
+          "integration": "amazonaws_directconnect"
+        }
+      }
+    },
+    {
+      "id": "DescribeLags",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DescribeLagsRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Lags"
+      },
+      "security": {
+        "amazonaws_directconnect": {
+          "integration": "amazonaws_directconnect"
+        }
+      }
+    },
+    {
+      "id": "DescribeLoa",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DescribeLoaRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Loa"
+      },
+      "security": {
+        "amazonaws_directconnect": {
+          "integration": "amazonaws_directconnect"
+        }
+      }
+    },
+    {
+      "id": "DescribeLocations",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {}
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Locations"
+      },
+      "security": {
+        "amazonaws_directconnect": {
+          "integration": "amazonaws_directconnect"
+        }
+      }
+    },
+    {
+      "id": "DescribeTags",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DescribeTagsRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeTagsResponse"
+      },
+      "security": {
+        "amazonaws_directconnect": {
+          "integration": "amazonaws_directconnect"
+        }
+      }
+    },
+    {
+      "id": "DescribeVirtualGateways",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {}
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/VirtualGateways"
+      },
+      "security": {
+        "amazonaws_directconnect": {
+          "integration": "amazonaws_directconnect"
+        }
+      }
+    },
+    {
+      "id": "DescribeVirtualInterfaces",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DescribeVirtualInterfacesRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/VirtualInterfaces"
+      },
+      "security": {
+        "amazonaws_directconnect": {
+          "integration": "amazonaws_directconnect"
+        }
+      }
+    },
+    {
+      "id": "DisassociateConnectionFromLag",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DisassociateConnectionFromLagRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Connection"
+      },
+      "security": {
+        "amazonaws_directconnect": {
+          "integration": "amazonaws_directconnect"
+        }
+      }
+    },
+    {
+      "id": "TagResource",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/TagResourceRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/TagResourceResponse"
+      },
+      "security": {
+        "amazonaws_directconnect": {
+          "integration": "amazonaws_directconnect"
+        }
+      }
+    },
+    {
+      "id": "UntagResource",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/UntagResourceRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UntagResourceResponse"
+      },
+      "security": {
+        "amazonaws_directconnect": {
+          "integration": "amazonaws_directconnect"
+        }
+      }
+    },
+    {
+      "id": "UpdateLag",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/UpdateLagRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Lag"
+      },
+      "security": {
+        "amazonaws_directconnect": {
+          "integration": "amazonaws_directconnect"
+        }
+      }
+    }
+  ]
+}

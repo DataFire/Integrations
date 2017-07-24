@@ -1,0 +1,1487 @@
+{
+  "id": "amazonaws_codecommit",
+  "title": "AWS CodeCommit",
+  "description": "<fullname>AWS CodeCommit</fullname> <p>This is the <i>AWS CodeCommit API Reference</i>. This reference provides descriptions of the operations and data types for AWS CodeCommit API along with usage examples.</p> <p>You can use the AWS CodeCommit API to work with the following objects:</p> <p>Repositories, by calling the following:</p> <ul> <li> <p> <a>BatchGetRepositories</a>, which returns information about one or more repositories associated with your AWS account</p> </li> <li> <p> <a>CreateRepository</a>, which creates an AWS CodeCommit repository</p> </li> <li> <p> <a>DeleteRepository</a>, which deletes an AWS CodeCommit repository</p> </li> <li> <p> <a>GetRepository</a>, which returns information about a specified repository</p> </li> <li> <p> <a>ListRepositories</a>, which lists all AWS CodeCommit repositories associated with your AWS account</p> </li> <li> <p> <a>UpdateRepositoryDescription</a>, which sets or updates the description of the repository</p> </li> <li> <p> <a>UpdateRepositoryName</a>, which changes the name of the repository. If you change the name of a repository, no other users of that repository will be able to access it until you send them the new HTTPS or SSH URL to use.</p> </li> </ul> <p>Branches, by calling the following:</p> <ul> <li> <p> <a>CreateBranch</a>, which creates a new branch in a specified repository</p> </li> <li> <p> <a>GetBranch</a>, which returns information about a specified branch</p> </li> <li> <p> <a>ListBranches</a>, which lists all branches for a specified repository</p> </li> <li> <p> <a>UpdateDefaultBranch</a>, which changes the default branch for a repository</p> </li> </ul> <p>Information about committed code in a repository, by calling the following:</p> <ul> <li> <p> <a>GetBlob</a>, which returns the base-64 encoded content of an individual Git blob object within a repository</p> </li> <li> <p> <a>GetCommit</a>, which returns information about a commit, including commit messages and author and committer information</p> </li> <li> <p> <a>GetDifferences</a>, which returns information about the differences in a valid commit specifier (such as a branch, tag, HEAD, commit ID or other fully qualified reference)</p> </li> </ul> <p>Triggers, by calling the following:</p> <ul> <li> <p> <a>GetRepositoryTriggers</a>, which returns information about triggers configured for a repository</p> </li> <li> <p> <a>PutRepositoryTriggers</a>, which replaces all triggers for a repository and can be used to create or delete triggers</p> </li> <li> <p> <a>TestRepositoryTriggers</a>, which tests the functionality of a repository trigger by sending data to the trigger target</p> </li> </ul> <p>For information about how to use AWS CodeCommit, see the <a href=\"http://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html\">AWS CodeCommit User Guide</a>.</p>",
+  "security": {
+    "amazonaws_codecommit": {
+      "integration": "amazonaws_codecommit",
+      "accessKeyId": "",
+      "secretAccessKey": "",
+      "region": "AWS region (if applicable)"
+    }
+  },
+  "logo": {
+    "backgroundColor": "#FFFFFF",
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_codecommit.jpg"
+  },
+  "tags": [
+    "cloud",
+    "aws"
+  ],
+  "definitions": {
+    "AccountId": {
+      "type": "string"
+    },
+    "AdditionalData": {
+      "type": "string"
+    },
+    "Arn": {
+      "type": "string"
+    },
+    "BatchGetRepositoriesInput": {
+      "description": "Represents the input of a batch get repositories operation.",
+      "properties": {
+        "repositoryNames": {
+          "$ref": "#/definitions/RepositoryNameList",
+          "description": "The names of the repositories to get information about."
+        }
+      },
+      "required": [
+        "repositoryNames"
+      ],
+      "type": "object"
+    },
+    "BatchGetRepositoriesOutput": {
+      "description": "Represents the output of a batch get repositories operation.",
+      "properties": {
+        "repositories": {
+          "$ref": "#/definitions/RepositoryMetadataList",
+          "description": "A list of repositories returned by the batch get repositories operation."
+        },
+        "repositoriesNotFound": {
+          "$ref": "#/definitions/RepositoryNotFoundList",
+          "description": "Returns a list of repository names for which information could not be found."
+        }
+      },
+      "type": "object"
+    },
+    "BlobIdDoesNotExistException": {
+      "description": "The specified blob does not exist.",
+      "properties": {},
+      "type": "object"
+    },
+    "BlobIdRequiredException": {
+      "description": "A blob ID is required but was not specified.",
+      "properties": {},
+      "type": "object"
+    },
+    "BlobMetadata": {
+      "description": "Returns information about a specific Git blob object.",
+      "properties": {
+        "blobId": {
+          "$ref": "#/definitions/ObjectId",
+          "description": "The full ID of the blob."
+        },
+        "mode": {
+          "$ref": "#/definitions/Mode",
+          "description": "<p>The file mode permissions of the blob. File mode permission codes include:</p> <ul> <li> <p> <code>100644</code> indicates read/write</p> </li> <li> <p> <code>100755</code> indicates read/write/execute</p> </li> <li> <p> <code>160000</code> indicates a submodule</p> </li> <li> <p> <code>120000</code> indicates a symlink</p> </li> </ul>"
+        },
+        "path": {
+          "$ref": "#/definitions/Path",
+          "description": "The path to the blob and any associated file name, if any."
+        }
+      },
+      "type": "object"
+    },
+    "BranchDoesNotExistException": {
+      "description": "The specified branch does not exist.",
+      "properties": {},
+      "type": "object"
+    },
+    "BranchInfo": {
+      "description": "Returns information about a branch.",
+      "properties": {
+        "branchName": {
+          "$ref": "#/definitions/BranchName",
+          "description": "The name of the branch."
+        },
+        "commitId": {
+          "$ref": "#/definitions/CommitId",
+          "description": "The ID of the last commit made to the branch."
+        }
+      },
+      "type": "object"
+    },
+    "BranchName": {
+      "maxLength": 100,
+      "minLength": 1,
+      "type": "string"
+    },
+    "BranchNameExistsException": {
+      "description": "The specified branch name already exists.",
+      "properties": {},
+      "type": "object"
+    },
+    "BranchNameList": {
+      "items": {
+        "$ref": "#/definitions/BranchName"
+      },
+      "type": "array"
+    },
+    "BranchNameRequiredException": {
+      "description": "A branch name is required but was not specified.",
+      "properties": {},
+      "type": "object"
+    },
+    "ChangeTypeEnum": {
+      "enum": [
+        "A",
+        "M",
+        "D"
+      ],
+      "type": "string"
+    },
+    "CloneUrlHttp": {
+      "type": "string"
+    },
+    "CloneUrlSsh": {
+      "type": "string"
+    },
+    "Commit": {
+      "description": "Returns information about a specific commit.",
+      "properties": {
+        "additionalData": {
+          "$ref": "#/definitions/AdditionalData",
+          "description": "Any additional data associated with the specified commit."
+        },
+        "author": {
+          "$ref": "#/definitions/UserInfo",
+          "description": "Information about the author of the specified commit. Information includes the date in timestamp format with GMT offset, the name of the author, and the email address for the author, as configured in Git."
+        },
+        "committer": {
+          "$ref": "#/definitions/UserInfo",
+          "description": "<p>Information about the person who committed the specified commit, also known as the committer. Information includes the date in timestamp format with GMT offset, the name of the committer, and the email address for the committer, as configured in Git.</p> <p>For more information about the difference between an author and a committer in Git, see <a href=\"http://git-scm.com/book/ch2-3.html\">Viewing the Commit History</a> in Pro Git by Scott Chacon and Ben Straub.</p>"
+        },
+        "message": {
+          "$ref": "#/definitions/Message",
+          "description": "The commit message associated with the specified commit."
+        },
+        "parents": {
+          "$ref": "#/definitions/ParentList",
+          "description": "The parent list for the specified commit."
+        },
+        "treeId": {
+          "$ref": "#/definitions/ObjectId",
+          "description": "Tree information for the specified commit."
+        }
+      },
+      "type": "object"
+    },
+    "CommitDoesNotExistException": {
+      "description": "The specified commit does not exist or no commit was specified, and the specified repository has no default branch.",
+      "properties": {},
+      "type": "object"
+    },
+    "CommitId": {
+      "type": "string"
+    },
+    "CommitIdDoesNotExistException": {
+      "description": "The specified commit ID does not exist.",
+      "properties": {},
+      "type": "object"
+    },
+    "CommitIdRequiredException": {
+      "description": "A commit ID was not specified.",
+      "properties": {},
+      "type": "object"
+    },
+    "CommitName": {
+      "type": "string"
+    },
+    "CommitRequiredException": {
+      "description": "A commit was not specified.",
+      "properties": {},
+      "type": "object"
+    },
+    "CreateBranchInput": {
+      "description": "Represents the input of a create branch operation.",
+      "properties": {
+        "branchName": {
+          "$ref": "#/definitions/BranchName",
+          "description": "The name of the new branch to create."
+        },
+        "commitId": {
+          "$ref": "#/definitions/CommitId",
+          "description": "The ID of the commit to point the new branch to."
+        },
+        "repositoryName": {
+          "$ref": "#/definitions/RepositoryName",
+          "description": "The name of the repository in which you want to create the new branch."
+        }
+      },
+      "required": [
+        "repositoryName",
+        "branchName",
+        "commitId"
+      ],
+      "type": "object"
+    },
+    "CreateRepositoryInput": {
+      "description": "Represents the input of a create repository operation.",
+      "properties": {
+        "repositoryDescription": {
+          "$ref": "#/definitions/RepositoryDescription",
+          "description": "<p>A comment or description about the new repository.</p> <note> <p>The description field for a repository accepts all HTML characters and all valid Unicode characters. Applications that do not HTML-encode the description and display it in a web page could expose users to potentially malicious code. Make sure that you HTML-encode the description field in any application that uses this API to display the repository description on a web page.</p> </note>"
+        },
+        "repositoryName": {
+          "$ref": "#/definitions/RepositoryName",
+          "description": "<p>The name of the new repository to be created.</p> <note> <p>The repository name must be unique across the calling AWS account. In addition, repository names are limited to 100 alphanumeric, dash, and underscore characters, and cannot include certain characters. For a full description of the limits on repository names, see <a href=\"http://docs.aws.amazon.com/codecommit/latest/userguide/limits.html\">Limits</a> in the AWS CodeCommit User Guide. The suffix \".git\" is prohibited.</p> </note>"
+        }
+      },
+      "required": [
+        "repositoryName"
+      ],
+      "type": "object"
+    },
+    "CreateRepositoryOutput": {
+      "description": "Represents the output of a create repository operation.",
+      "properties": {
+        "repositoryMetadata": {
+          "$ref": "#/definitions/RepositoryMetadata",
+          "description": "Information about the newly created repository."
+        }
+      },
+      "type": "object"
+    },
+    "CreationDate": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "Date": {
+      "type": "string"
+    },
+    "DeleteRepositoryInput": {
+      "description": "Represents the input of a delete repository operation.",
+      "properties": {
+        "repositoryName": {
+          "$ref": "#/definitions/RepositoryName",
+          "description": "The name of the repository to delete."
+        }
+      },
+      "required": [
+        "repositoryName"
+      ],
+      "type": "object"
+    },
+    "DeleteRepositoryOutput": {
+      "description": "Represents the output of a delete repository operation.",
+      "properties": {
+        "repositoryId": {
+          "$ref": "#/definitions/RepositoryId",
+          "description": "The ID of the repository that was deleted."
+        }
+      },
+      "type": "object"
+    },
+    "Difference": {
+      "description": "Returns information about a set of differences for a commit specifier.",
+      "properties": {
+        "afterBlob": {
+          "$ref": "#/definitions/BlobMetadata",
+          "description": "Information about an <code>afterBlob</code> data type object, including the ID, the file mode permission code, and the path."
+        },
+        "beforeBlob": {
+          "$ref": "#/definitions/BlobMetadata",
+          "description": "Information about a <code>beforeBlob</code> data type object, including the ID, the file mode permission code, and the path."
+        },
+        "changeType": {
+          "$ref": "#/definitions/ChangeTypeEnum",
+          "description": "Whether the change type of the difference is an addition (A), deletion (D), or modification (M)."
+        }
+      },
+      "type": "object"
+    },
+    "DifferenceList": {
+      "items": {
+        "$ref": "#/definitions/Difference"
+      },
+      "type": "array"
+    },
+    "Email": {
+      "type": "string"
+    },
+    "EncryptionIntegrityChecksFailedException": {
+      "description": "An encryption integrity check failed.",
+      "properties": {},
+      "type": "object"
+    },
+    "EncryptionKeyAccessDeniedException": {
+      "description": "An encryption key could not be accessed.",
+      "properties": {},
+      "type": "object"
+    },
+    "EncryptionKeyDisabledException": {
+      "description": "The encryption key is disabled.",
+      "properties": {},
+      "type": "object"
+    },
+    "EncryptionKeyNotFoundException": {
+      "description": "No encryption key was found.",
+      "properties": {},
+      "type": "object"
+    },
+    "EncryptionKeyUnavailableException": {
+      "description": "The encryption key is not available.",
+      "properties": {},
+      "type": "object"
+    },
+    "FileTooLargeException": {
+      "description": "The specified file exceeds the file size limit for AWS CodeCommit. For more information about limits in AWS CodeCommit, see <a href=\"http://docs.aws.amazon.com/codecommit/latest/userguide/limits.html\">AWS CodeCommit User Guide</a>.",
+      "properties": {},
+      "type": "object"
+    },
+    "GetBlobInput": {
+      "description": "Represents the input of a get blob operation.",
+      "properties": {
+        "blobId": {
+          "$ref": "#/definitions/ObjectId",
+          "description": "The ID of the blob, which is its SHA-1 pointer."
+        },
+        "repositoryName": {
+          "$ref": "#/definitions/RepositoryName",
+          "description": "The name of the repository that contains the blob."
+        }
+      },
+      "required": [
+        "repositoryName",
+        "blobId"
+      ],
+      "type": "object"
+    },
+    "GetBlobOutput": {
+      "description": "Represents the output of a get blob operation.",
+      "properties": {
+        "content": {
+          "$ref": "#/definitions/blob",
+          "description": "The content of the blob, usually a file."
+        }
+      },
+      "required": [
+        "content"
+      ],
+      "type": "object"
+    },
+    "GetBranchInput": {
+      "description": "Represents the input of a get branch operation.",
+      "properties": {
+        "branchName": {
+          "$ref": "#/definitions/BranchName",
+          "description": "The name of the branch for which you want to retrieve information."
+        },
+        "repositoryName": {
+          "$ref": "#/definitions/RepositoryName",
+          "description": "The name of the repository that contains the branch for which you want to retrieve information."
+        }
+      },
+      "type": "object"
+    },
+    "GetBranchOutput": {
+      "description": "Represents the output of a get branch operation.",
+      "properties": {
+        "branch": {
+          "$ref": "#/definitions/BranchInfo",
+          "description": "The name of the branch."
+        }
+      },
+      "type": "object"
+    },
+    "GetCommitInput": {
+      "description": "Represents the input of a get commit operation.",
+      "properties": {
+        "commitId": {
+          "$ref": "#/definitions/ObjectId",
+          "description": "The commit ID."
+        },
+        "repositoryName": {
+          "$ref": "#/definitions/RepositoryName",
+          "description": "The name of the repository to which the commit was made."
+        }
+      },
+      "required": [
+        "repositoryName",
+        "commitId"
+      ],
+      "type": "object"
+    },
+    "GetCommitOutput": {
+      "description": "Represents the output of a get commit operation.",
+      "properties": {
+        "commit": {
+          "$ref": "#/definitions/Commit",
+          "description": "A commit data type object that contains information about the specified commit."
+        }
+      },
+      "required": [
+        "commit"
+      ],
+      "type": "object"
+    },
+    "GetDifferencesInput": {
+      "properties": {
+        "MaxResults": {
+          "$ref": "#/definitions/Limit",
+          "description": "A non-negative integer used to limit the number of returned results."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "An enumeration token that when provided in a request, returns the next batch of the results."
+        },
+        "afterCommitSpecifier": {
+          "$ref": "#/definitions/CommitName",
+          "description": "The branch, tag, HEAD, or other fully qualified reference used to identify a commit."
+        },
+        "afterPath": {
+          "$ref": "#/definitions/Path",
+          "description": "The file path in which to check differences. Limits the results to this path. Can also be used to specify the changed name of a directory or folder, if it has changed. If not specified, differences will be shown for all paths."
+        },
+        "beforeCommitSpecifier": {
+          "$ref": "#/definitions/CommitName",
+          "description": "The branch, tag, HEAD, or other fully qualified reference used to identify a commit. For example, the full commit ID. Optional. If not specified, all changes prior to the <code>afterCommitSpecifier</code> value will be shown. If you do not use <code>beforeCommitSpecifier</code> in your request, consider limiting the results with <code>maxResults</code>."
+        },
+        "beforePath": {
+          "$ref": "#/definitions/Path",
+          "description": "The file path in which to check for differences. Limits the results to this path. Can also be used to specify the previous name of a directory or folder. If <code>beforePath</code> and <code>afterPath</code> are not specified, differences will be shown for all paths."
+        },
+        "repositoryName": {
+          "$ref": "#/definitions/RepositoryName",
+          "description": "The name of the repository where you want to get differences."
+        }
+      },
+      "required": [
+        "repositoryName",
+        "afterCommitSpecifier"
+      ],
+      "type": "object"
+    },
+    "GetDifferencesOutput": {
+      "properties": {
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "An enumeration token that can be used in a request to return the next batch of the results."
+        },
+        "differences": {
+          "$ref": "#/definitions/DifferenceList",
+          "description": "A differences data type object that contains information about the differences, including whether the difference is added, modified, or deleted (A, D, M)."
+        }
+      },
+      "type": "object"
+    },
+    "GetRepositoryInput": {
+      "description": "Represents the input of a get repository operation.",
+      "properties": {
+        "repositoryName": {
+          "$ref": "#/definitions/RepositoryName",
+          "description": "The name of the repository to get information about."
+        }
+      },
+      "required": [
+        "repositoryName"
+      ],
+      "type": "object"
+    },
+    "GetRepositoryOutput": {
+      "description": "Represents the output of a get repository operation.",
+      "properties": {
+        "repositoryMetadata": {
+          "$ref": "#/definitions/RepositoryMetadata",
+          "description": "Information about the repository."
+        }
+      },
+      "type": "object"
+    },
+    "GetRepositoryTriggersInput": {
+      "description": "Represents the input of a get repository triggers operation.",
+      "properties": {
+        "repositoryName": {
+          "$ref": "#/definitions/RepositoryName",
+          "description": "The name of the repository for which the trigger is configured."
+        }
+      },
+      "required": [
+        "repositoryName"
+      ],
+      "type": "object"
+    },
+    "GetRepositoryTriggersOutput": {
+      "description": "Represents the output of a get repository triggers operation.",
+      "properties": {
+        "configurationId": {
+          "$ref": "#/definitions/RepositoryTriggersConfigurationId",
+          "description": "The system-generated unique ID for the trigger."
+        },
+        "triggers": {
+          "$ref": "#/definitions/RepositoryTriggersList",
+          "description": "The JSON block of configuration information for each trigger."
+        }
+      },
+      "type": "object"
+    },
+    "InvalidBlobIdException": {
+      "description": "The specified blob is not valid.",
+      "properties": {},
+      "type": "object"
+    },
+    "InvalidBranchNameException": {
+      "description": "The specified branch name is not valid.",
+      "properties": {},
+      "type": "object"
+    },
+    "InvalidCommitException": {
+      "description": "The specified commit is not valid.",
+      "properties": {},
+      "type": "object"
+    },
+    "InvalidCommitIdException": {
+      "description": "The specified commit ID is not valid.",
+      "properties": {},
+      "type": "object"
+    },
+    "InvalidContinuationTokenException": {
+      "description": "The specified continuation token is not valid.",
+      "properties": {},
+      "type": "object"
+    },
+    "InvalidMaxResultsException": {
+      "description": "The specified number of maximum results is not valid.",
+      "properties": {},
+      "type": "object"
+    },
+    "InvalidOrderException": {
+      "description": "The specified sort order is not valid.",
+      "properties": {},
+      "type": "object"
+    },
+    "InvalidPathException": {
+      "description": "The specified path is not valid.",
+      "properties": {},
+      "type": "object"
+    },
+    "InvalidRepositoryDescriptionException": {
+      "description": "The specified repository description is not valid.",
+      "properties": {},
+      "type": "object"
+    },
+    "InvalidRepositoryNameException": {
+      "description": "<p>At least one specified repository name is not valid.</p> <note> <p>This exception only occurs when a specified repository name is not valid. Other exceptions occur when a required repository parameter is missing, or when a specified repository does not exist.</p> </note>",
+      "properties": {},
+      "type": "object"
+    },
+    "InvalidRepositoryTriggerBranchNameException": {
+      "description": "One or more branch names specified for the trigger is not valid.",
+      "properties": {},
+      "type": "object"
+    },
+    "InvalidRepositoryTriggerCustomDataException": {
+      "description": "The custom data provided for the trigger is not valid.",
+      "properties": {},
+      "type": "object"
+    },
+    "InvalidRepositoryTriggerDestinationArnException": {
+      "description": "The Amazon Resource Name (ARN) for the trigger is not valid for the specified destination. The most common reason for this error is that the ARN does not meet the requirements for the service type.",
+      "properties": {},
+      "type": "object"
+    },
+    "InvalidRepositoryTriggerEventsException": {
+      "description": "One or more events specified for the trigger is not valid. Check to make sure that all events specified match the requirements for allowed events.",
+      "properties": {},
+      "type": "object"
+    },
+    "InvalidRepositoryTriggerNameException": {
+      "description": "The name of the trigger is not valid.",
+      "properties": {},
+      "type": "object"
+    },
+    "InvalidRepositoryTriggerRegionException": {
+      "description": "The region for the trigger target does not match the region for the repository. Triggers must be created in the same region as the target for the trigger.",
+      "properties": {},
+      "type": "object"
+    },
+    "InvalidSortByException": {
+      "description": "The specified sort by value is not valid.",
+      "properties": {},
+      "type": "object"
+    },
+    "LastModifiedDate": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "Limit": {
+      "type": "integer"
+    },
+    "ListBranchesInput": {
+      "description": "Represents the input of a list branches operation.",
+      "properties": {
+        "nextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "An enumeration token that allows the operation to batch the results."
+        },
+        "repositoryName": {
+          "$ref": "#/definitions/RepositoryName",
+          "description": "The name of the repository that contains the branches."
+        }
+      },
+      "required": [
+        "repositoryName"
+      ],
+      "type": "object"
+    },
+    "ListBranchesOutput": {
+      "description": "Represents the output of a list branches operation.",
+      "properties": {
+        "branches": {
+          "$ref": "#/definitions/BranchNameList",
+          "description": "The list of branch names."
+        },
+        "nextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "An enumeration token that returns the batch of the results."
+        }
+      },
+      "type": "object"
+    },
+    "ListRepositoriesInput": {
+      "description": "Represents the input of a list repositories operation.",
+      "properties": {
+        "nextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "An enumeration token that allows the operation to batch the results of the operation. Batch sizes are 1,000 for list repository operations. When the client sends the token back to AWS CodeCommit, another page of 1,000 records is retrieved."
+        },
+        "order": {
+          "$ref": "#/definitions/OrderEnum",
+          "description": "The order in which to sort the results of a list repositories operation."
+        },
+        "sortBy": {
+          "$ref": "#/definitions/SortByEnum",
+          "description": "The criteria used to sort the results of a list repositories operation."
+        }
+      },
+      "type": "object"
+    },
+    "ListRepositoriesOutput": {
+      "description": "Represents the output of a list repositories operation.",
+      "properties": {
+        "nextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "An enumeration token that allows the operation to batch the results of the operation. Batch sizes are 1,000 for list repository operations. When the client sends the token back to AWS CodeCommit, another page of 1,000 records is retrieved."
+        },
+        "repositories": {
+          "$ref": "#/definitions/RepositoryNameIdPairList",
+          "description": "Lists the repositories called by the list repositories operation."
+        }
+      },
+      "type": "object"
+    },
+    "MaximumBranchesExceededException": {
+      "description": "The number of branches for the trigger was exceeded.",
+      "properties": {},
+      "type": "object"
+    },
+    "MaximumRepositoryNamesExceededException": {
+      "description": "The maximum number of allowed repository names was exceeded. Currently, this number is 25.",
+      "properties": {},
+      "type": "object"
+    },
+    "MaximumRepositoryTriggersExceededException": {
+      "description": "The number of triggers allowed for the repository was exceeded.",
+      "properties": {},
+      "type": "object"
+    },
+    "Message": {
+      "type": "string"
+    },
+    "Mode": {
+      "type": "string"
+    },
+    "Name": {
+      "type": "string"
+    },
+    "NextToken": {
+      "type": "string"
+    },
+    "ObjectId": {
+      "type": "string"
+    },
+    "OrderEnum": {
+      "enum": [
+        "ascending",
+        "descending"
+      ],
+      "type": "string"
+    },
+    "ParentList": {
+      "items": {
+        "$ref": "#/definitions/ObjectId"
+      },
+      "type": "array"
+    },
+    "Path": {
+      "type": "string"
+    },
+    "PathDoesNotExistException": {
+      "description": "The specified path does not exist.",
+      "properties": {},
+      "type": "object"
+    },
+    "PutRepositoryTriggersInput": {
+      "description": "Represents the input ofa put repository triggers operation.",
+      "properties": {
+        "repositoryName": {
+          "$ref": "#/definitions/RepositoryName",
+          "description": "The name of the repository where you want to create or update the trigger."
+        },
+        "triggers": {
+          "$ref": "#/definitions/RepositoryTriggersList",
+          "description": "The JSON block of configuration information for each trigger."
+        }
+      },
+      "required": [
+        "repositoryName",
+        "triggers"
+      ],
+      "type": "object"
+    },
+    "PutRepositoryTriggersOutput": {
+      "description": "Represents the output of a put repository triggers operation.",
+      "properties": {
+        "configurationId": {
+          "$ref": "#/definitions/RepositoryTriggersConfigurationId",
+          "description": "The system-generated unique ID for the create or update operation."
+        }
+      },
+      "type": "object"
+    },
+    "RepositoryDescription": {
+      "maxLength": 1000,
+      "type": "string"
+    },
+    "RepositoryDoesNotExistException": {
+      "description": "The specified repository does not exist.",
+      "properties": {},
+      "type": "object"
+    },
+    "RepositoryId": {
+      "type": "string"
+    },
+    "RepositoryLimitExceededException": {
+      "description": "A repository resource limit was exceeded.",
+      "properties": {},
+      "type": "object"
+    },
+    "RepositoryMetadata": {
+      "description": "Information about a repository.",
+      "properties": {
+        "Arn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The Amazon Resource Name (ARN) of the repository."
+        },
+        "accountId": {
+          "$ref": "#/definitions/AccountId",
+          "description": "The ID of the AWS account associated with the repository."
+        },
+        "cloneUrlHttp": {
+          "$ref": "#/definitions/CloneUrlHttp",
+          "description": "The URL to use for cloning the repository over HTTPS."
+        },
+        "cloneUrlSsh": {
+          "$ref": "#/definitions/CloneUrlSsh",
+          "description": "The URL to use for cloning the repository over SSH."
+        },
+        "creationDate": {
+          "$ref": "#/definitions/CreationDate",
+          "description": "The date and time the repository was created, in timestamp format."
+        },
+        "defaultBranch": {
+          "$ref": "#/definitions/BranchName",
+          "description": "The repository's default branch name."
+        },
+        "lastModifiedDate": {
+          "$ref": "#/definitions/LastModifiedDate",
+          "description": "The date and time the repository was last modified, in timestamp format."
+        },
+        "repositoryDescription": {
+          "$ref": "#/definitions/RepositoryDescription",
+          "description": "A comment or description about the repository."
+        },
+        "repositoryId": {
+          "$ref": "#/definitions/RepositoryId",
+          "description": "The ID of the repository."
+        },
+        "repositoryName": {
+          "$ref": "#/definitions/RepositoryName",
+          "description": "The repository's name."
+        }
+      },
+      "type": "object"
+    },
+    "RepositoryMetadataList": {
+      "items": {
+        "$ref": "#/definitions/RepositoryMetadata"
+      },
+      "type": "array"
+    },
+    "RepositoryName": {
+      "maxLength": 100,
+      "minLength": 1,
+      "pattern": "[\\w\\.-]+",
+      "type": "string"
+    },
+    "RepositoryNameExistsException": {
+      "description": "The specified repository name already exists.",
+      "properties": {},
+      "type": "object"
+    },
+    "RepositoryNameIdPair": {
+      "description": "Information about a repository name and ID.",
+      "properties": {
+        "repositoryId": {
+          "$ref": "#/definitions/RepositoryId",
+          "description": "The ID associated with the repository."
+        },
+        "repositoryName": {
+          "$ref": "#/definitions/RepositoryName",
+          "description": "The name associated with the repository."
+        }
+      },
+      "type": "object"
+    },
+    "RepositoryNameIdPairList": {
+      "items": {
+        "$ref": "#/definitions/RepositoryNameIdPair"
+      },
+      "type": "array"
+    },
+    "RepositoryNameList": {
+      "items": {
+        "$ref": "#/definitions/RepositoryName"
+      },
+      "type": "array"
+    },
+    "RepositoryNameRequiredException": {
+      "description": "A repository name is required but was not specified.",
+      "properties": {},
+      "type": "object"
+    },
+    "RepositoryNamesRequiredException": {
+      "description": "A repository names object is required but was not specified.",
+      "properties": {},
+      "type": "object"
+    },
+    "RepositoryNotFoundList": {
+      "items": {
+        "$ref": "#/definitions/RepositoryName"
+      },
+      "type": "array"
+    },
+    "RepositoryTrigger": {
+      "description": "Information about a trigger for a repository.",
+      "properties": {
+        "branches": {
+          "$ref": "#/definitions/BranchNameList",
+          "description": "The branches that will be included in the trigger configuration. If no branches are specified, the trigger will apply to all branches."
+        },
+        "customData": {
+          "$ref": "#/definitions/RepositoryTriggerCustomData",
+          "description": "Any custom data associated with the trigger that will be included in the information sent to the target of the trigger."
+        },
+        "destinationArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The ARN of the resource that is the target for a trigger. For example, the ARN of a topic in Amazon Simple Notification Service (SNS)."
+        },
+        "events": {
+          "$ref": "#/definitions/RepositoryTriggerEventList",
+          "description": "<p>The repository events that will cause the trigger to run actions in another service, such as sending a notification through Amazon Simple Notification Service (SNS). </p> <note> <p>The valid value \"all\" cannot be used with any other values.</p> </note>"
+        },
+        "name": {
+          "$ref": "#/definitions/RepositoryTriggerName",
+          "description": "The name of the trigger."
+        }
+      },
+      "required": [
+        "name",
+        "destinationArn",
+        "events"
+      ],
+      "type": "object"
+    },
+    "RepositoryTriggerBranchNameListRequiredException": {
+      "description": "At least one branch name is required but was not specified in the trigger configuration.",
+      "properties": {},
+      "type": "object"
+    },
+    "RepositoryTriggerCustomData": {
+      "type": "string"
+    },
+    "RepositoryTriggerDestinationArnRequiredException": {
+      "description": "A destination ARN for the target service for the trigger is required but was not specified.",
+      "properties": {},
+      "type": "object"
+    },
+    "RepositoryTriggerEventEnum": {
+      "enum": [
+        "all",
+        "updateReference",
+        "createReference",
+        "deleteReference"
+      ],
+      "type": "string"
+    },
+    "RepositoryTriggerEventList": {
+      "items": {
+        "$ref": "#/definitions/RepositoryTriggerEventEnum"
+      },
+      "type": "array"
+    },
+    "RepositoryTriggerEventsListRequiredException": {
+      "description": "At least one event for the trigger is required but was not specified.",
+      "properties": {},
+      "type": "object"
+    },
+    "RepositoryTriggerExecutionFailure": {
+      "description": "A trigger failed to run.",
+      "properties": {
+        "failureMessage": {
+          "$ref": "#/definitions/RepositoryTriggerExecutionFailureMessage",
+          "description": "Additional message information about the trigger that did not run."
+        },
+        "trigger": {
+          "$ref": "#/definitions/RepositoryTriggerName",
+          "description": "The name of the trigger that did not run."
+        }
+      },
+      "type": "object"
+    },
+    "RepositoryTriggerExecutionFailureList": {
+      "items": {
+        "$ref": "#/definitions/RepositoryTriggerExecutionFailure"
+      },
+      "type": "array"
+    },
+    "RepositoryTriggerExecutionFailureMessage": {
+      "type": "string"
+    },
+    "RepositoryTriggerName": {
+      "type": "string"
+    },
+    "RepositoryTriggerNameList": {
+      "items": {
+        "$ref": "#/definitions/RepositoryTriggerName"
+      },
+      "type": "array"
+    },
+    "RepositoryTriggerNameRequiredException": {
+      "description": "A name for the trigger is required but was not specified.",
+      "properties": {},
+      "type": "object"
+    },
+    "RepositoryTriggersConfigurationId": {
+      "type": "string"
+    },
+    "RepositoryTriggersList": {
+      "items": {
+        "$ref": "#/definitions/RepositoryTrigger"
+      },
+      "type": "array"
+    },
+    "RepositoryTriggersListRequiredException": {
+      "description": "The list of triggers for the repository is required but was not specified.",
+      "properties": {},
+      "type": "object"
+    },
+    "SortByEnum": {
+      "enum": [
+        "repositoryName",
+        "lastModifiedDate"
+      ],
+      "type": "string"
+    },
+    "TestRepositoryTriggersInput": {
+      "description": "Represents the input of a test repository triggers operation.",
+      "properties": {
+        "repositoryName": {
+          "$ref": "#/definitions/RepositoryName",
+          "description": "The name of the repository in which to test the triggers."
+        },
+        "triggers": {
+          "$ref": "#/definitions/RepositoryTriggersList",
+          "description": "The list of triggers to test."
+        }
+      },
+      "required": [
+        "repositoryName",
+        "triggers"
+      ],
+      "type": "object"
+    },
+    "TestRepositoryTriggersOutput": {
+      "description": "Represents the output of a test repository triggers operation.",
+      "properties": {
+        "failedExecutions": {
+          "$ref": "#/definitions/RepositoryTriggerExecutionFailureList",
+          "description": "The list of triggers that were not able to be tested. This list provides the names of the triggers that could not be tested, separated by commas."
+        },
+        "successfulExecutions": {
+          "$ref": "#/definitions/RepositoryTriggerNameList",
+          "description": "The list of triggers that were successfully tested. This list provides the names of the triggers that were successfully tested, separated by commas."
+        }
+      },
+      "type": "object"
+    },
+    "UpdateDefaultBranchInput": {
+      "description": "Represents the input of an update default branch operation.",
+      "properties": {
+        "defaultBranchName": {
+          "$ref": "#/definitions/BranchName",
+          "description": "The name of the branch to set as the default."
+        },
+        "repositoryName": {
+          "$ref": "#/definitions/RepositoryName",
+          "description": "The name of the repository to set or change the default branch for."
+        }
+      },
+      "required": [
+        "repositoryName",
+        "defaultBranchName"
+      ],
+      "type": "object"
+    },
+    "UpdateRepositoryDescriptionInput": {
+      "description": "Represents the input of an update repository description operation.",
+      "properties": {
+        "repositoryDescription": {
+          "$ref": "#/definitions/RepositoryDescription",
+          "description": "The new comment or description for the specified repository. Repository descriptions are limited to 1,000 characters."
+        },
+        "repositoryName": {
+          "$ref": "#/definitions/RepositoryName",
+          "description": "The name of the repository to set or change the comment or description for."
+        }
+      },
+      "required": [
+        "repositoryName"
+      ],
+      "type": "object"
+    },
+    "UpdateRepositoryNameInput": {
+      "description": "Represents the input of an update repository description operation.",
+      "properties": {
+        "newName": {
+          "$ref": "#/definitions/RepositoryName",
+          "description": "The new name for the repository."
+        },
+        "oldName": {
+          "$ref": "#/definitions/RepositoryName",
+          "description": "The existing name of the repository."
+        }
+      },
+      "required": [
+        "oldName",
+        "newName"
+      ],
+      "type": "object"
+    },
+    "UserInfo": {
+      "description": "Information about the user who made a specified commit.",
+      "properties": {
+        "date": {
+          "$ref": "#/definitions/Date",
+          "description": "The date when the specified commit was pushed to the repository."
+        },
+        "email": {
+          "$ref": "#/definitions/Email",
+          "description": "The email address associated with the user who made the commit, if any."
+        },
+        "name": {
+          "$ref": "#/definitions/Name",
+          "description": "The name of the user who made the specified commit."
+        }
+      },
+      "type": "object"
+    },
+    "blob": {
+      "type": "string"
+    }
+  },
+  "actions": [
+    {
+      "id": "BatchGetRepositories",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/BatchGetRepositoriesInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/BatchGetRepositoriesOutput"
+      },
+      "security": {
+        "amazonaws_codecommit": {
+          "integration": "amazonaws_codecommit"
+        }
+      }
+    },
+    {
+      "id": "CreateBranch",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/CreateBranchInput"
+          }
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_codecommit": {
+          "integration": "amazonaws_codecommit"
+        }
+      }
+    },
+    {
+      "id": "CreateRepository",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/CreateRepositoryInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CreateRepositoryOutput"
+      },
+      "security": {
+        "amazonaws_codecommit": {
+          "integration": "amazonaws_codecommit"
+        }
+      }
+    },
+    {
+      "id": "DeleteRepository",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DeleteRepositoryInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DeleteRepositoryOutput"
+      },
+      "security": {
+        "amazonaws_codecommit": {
+          "integration": "amazonaws_codecommit"
+        }
+      }
+    },
+    {
+      "id": "GetBlob",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetBlobInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetBlobOutput"
+      },
+      "security": {
+        "amazonaws_codecommit": {
+          "integration": "amazonaws_codecommit"
+        }
+      }
+    },
+    {
+      "id": "GetBranch",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetBranchInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetBranchOutput"
+      },
+      "security": {
+        "amazonaws_codecommit": {
+          "integration": "amazonaws_codecommit"
+        }
+      }
+    },
+    {
+      "id": "GetCommit",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetCommitInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetCommitOutput"
+      },
+      "security": {
+        "amazonaws_codecommit": {
+          "integration": "amazonaws_codecommit"
+        }
+      }
+    },
+    {
+      "id": "GetDifferences",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "MaxResults": {
+            "type": "string"
+          },
+          "NextToken": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetDifferencesInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetDifferencesOutput"
+      },
+      "security": {
+        "amazonaws_codecommit": {
+          "integration": "amazonaws_codecommit"
+        }
+      }
+    },
+    {
+      "id": "GetRepository",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetRepositoryInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetRepositoryOutput"
+      },
+      "security": {
+        "amazonaws_codecommit": {
+          "integration": "amazonaws_codecommit"
+        }
+      }
+    },
+    {
+      "id": "GetRepositoryTriggers",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetRepositoryTriggersInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetRepositoryTriggersOutput"
+      },
+      "security": {
+        "amazonaws_codecommit": {
+          "integration": "amazonaws_codecommit"
+        }
+      }
+    },
+    {
+      "id": "ListBranches",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "nextToken": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListBranchesInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListBranchesOutput"
+      },
+      "security": {
+        "amazonaws_codecommit": {
+          "integration": "amazonaws_codecommit"
+        }
+      }
+    },
+    {
+      "id": "ListRepositories",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "nextToken": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListRepositoriesInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListRepositoriesOutput"
+      },
+      "security": {
+        "amazonaws_codecommit": {
+          "integration": "amazonaws_codecommit"
+        }
+      }
+    },
+    {
+      "id": "PutRepositoryTriggers",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/PutRepositoryTriggersInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/PutRepositoryTriggersOutput"
+      },
+      "security": {
+        "amazonaws_codecommit": {
+          "integration": "amazonaws_codecommit"
+        }
+      }
+    },
+    {
+      "id": "TestRepositoryTriggers",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/TestRepositoryTriggersInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/TestRepositoryTriggersOutput"
+      },
+      "security": {
+        "amazonaws_codecommit": {
+          "integration": "amazonaws_codecommit"
+        }
+      }
+    },
+    {
+      "id": "UpdateDefaultBranch",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/UpdateDefaultBranchInput"
+          }
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_codecommit": {
+          "integration": "amazonaws_codecommit"
+        }
+      }
+    },
+    {
+      "id": "UpdateRepositoryDescription",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/UpdateRepositoryDescriptionInput"
+          }
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_codecommit": {
+          "integration": "amazonaws_codecommit"
+        }
+      }
+    },
+    {
+      "id": "UpdateRepositoryName",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/UpdateRepositoryNameInput"
+          }
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_codecommit": {
+          "integration": "amazonaws_codecommit"
+        }
+      }
+    }
+  ]
+}

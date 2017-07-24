@@ -1,0 +1,4794 @@
+{
+  "id": "amazonaws_elasticbeanstalk",
+  "title": "AWS Elastic Beanstalk",
+  "description": "<fullname>AWS Elastic Beanstalk</fullname> <p>AWS Elastic Beanstalk makes it easy for you to create, deploy, and manage scalable, fault-tolerant applications running on the Amazon Web Services cloud.</p> <p>For more information about this product, go to the <a href=\"http://aws.amazon.com/elasticbeanstalk/\">AWS Elastic Beanstalk</a> details page. The location of the latest AWS Elastic Beanstalk WSDL is <a href=\"http://elasticbeanstalk.s3.amazonaws.com/doc/2010-12-01/AWSElasticBeanstalk.wsdl\">http://elasticbeanstalk.s3.amazonaws.com/doc/2010-12-01/AWSElasticBeanstalk.wsdl</a>. To install the Software Development Kits (SDKs), Integrated Development Environment (IDE) Toolkits, and command line tools that enable you to access the API, go to <a href=\"http://aws.amazon.com/tools/\">Tools for Amazon Web Services</a>.</p> <p> <b>Endpoints</b> </p> <p>For a list of region-specific endpoints that AWS Elastic Beanstalk supports, go to <a href=\"http://docs.aws.amazon.com/general/latest/gr/rande.html#elasticbeanstalk_region\">Regions and Endpoints</a> in the <i>Amazon Web Services Glossary</i>.</p>",
+  "security": {
+    "amazonaws_elasticbeanstalk": {
+      "integration": "amazonaws_elasticbeanstalk",
+      "accessKeyId": "",
+      "secretAccessKey": "",
+      "region": "AWS region (if applicable)"
+    }
+  },
+  "logo": {
+    "backgroundColor": "#FFFFFF",
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_elasticbeanstalk.jpg"
+  },
+  "tags": [
+    "cloud",
+    "aws"
+  ],
+  "definitions": {
+    "ARN": {
+      "type": "string"
+    },
+    "AbortEnvironmentUpdateMessage": {
+      "description": "<p/>",
+      "example": {
+        "EnvironmentName": "my-env"
+      },
+      "properties": {
+        "EnvironmentId": {
+          "$ref": "#/definitions/EnvironmentId",
+          "description": "This specifies the ID of the environment with the in-progress update that you want to cancel."
+        },
+        "EnvironmentName": {
+          "$ref": "#/definitions/EnvironmentName",
+          "description": "This specifies the name of the environment with the in-progress update that you want to cancel."
+        }
+      },
+      "type": "object"
+    },
+    "AbortableOperationInProgress": {
+      "type": "boolean"
+    },
+    "ActionHistoryStatus": {
+      "enum": [
+        "Completed",
+        "Failed",
+        "Unknown"
+      ],
+      "type": "string"
+    },
+    "ActionStatus": {
+      "enum": [
+        "Scheduled",
+        "Pending",
+        "Running",
+        "Unknown"
+      ],
+      "type": "string"
+    },
+    "ActionType": {
+      "enum": [
+        "InstanceRefresh",
+        "PlatformUpdate",
+        "Unknown"
+      ],
+      "type": "string"
+    },
+    "ApplicationDescription": {
+      "description": "Describes the properties of an application.",
+      "properties": {
+        "ApplicationName": {
+          "$ref": "#/definitions/ApplicationName",
+          "description": "The name of the application."
+        },
+        "ConfigurationTemplates": {
+          "$ref": "#/definitions/ConfigurationTemplateNamesList",
+          "description": "The names of the configuration templates associated with this application."
+        },
+        "DateCreated": {
+          "$ref": "#/definitions/CreationDate",
+          "description": "The date when the application was created."
+        },
+        "DateUpdated": {
+          "$ref": "#/definitions/UpdateDate",
+          "description": "The date when the application was last modified."
+        },
+        "Description": {
+          "$ref": "#/definitions/Description",
+          "description": "User-defined description of the application."
+        },
+        "ResourceLifecycleConfig": {
+          "$ref": "#/definitions/ApplicationResourceLifecycleConfig",
+          "description": "The lifecycle settings for the application."
+        },
+        "Versions": {
+          "$ref": "#/definitions/VersionLabelsList",
+          "description": "The names of the versions for this application."
+        }
+      },
+      "type": "object"
+    },
+    "ApplicationDescriptionList": {
+      "items": {
+        "$ref": "#/definitions/ApplicationDescription"
+      },
+      "type": "array"
+    },
+    "ApplicationDescriptionMessage": {
+      "description": "Result message containing a single description of an application.",
+      "example": {
+        "Application": {
+          "ApplicationName": "my-app",
+          "ConfigurationTemplates": [],
+          "DateCreated": "2015-08-13T19:15:50.449Z",
+          "DateUpdated": "2015-08-20T22:34:56.195Z",
+          "Description": "my Elastic Beanstalk application",
+          "Versions": [
+            "2fba-stage-150819_234450",
+            "bf07-stage-150820_214945",
+            "93f8",
+            "fd7c-stage-150820_000431",
+            "22a0-stage-150819_185942"
+          ]
+        }
+      },
+      "properties": {
+        "Application": {
+          "$ref": "#/definitions/ApplicationDescription",
+          "description": " The <a>ApplicationDescription</a> of the application. "
+        }
+      },
+      "type": "object"
+    },
+    "ApplicationDescriptionsMessage": {
+      "description": "Result message containing a list of application descriptions.",
+      "example": {
+        "Applications": [
+          {
+            "ApplicationName": "ruby",
+            "ConfigurationTemplates": [],
+            "DateCreated": "2015-08-13T21:05:44.376Z",
+            "DateUpdated": "2015-08-13T21:05:44.376Z",
+            "Versions": [
+              "Sample Application"
+            ]
+          },
+          {
+            "ApplicationName": "pythonsample",
+            "ConfigurationTemplates": [],
+            "DateCreated": "2015-08-13T19:05:43.637Z",
+            "DateUpdated": "2015-08-13T19:05:43.637Z",
+            "Description": "Application created from the EB CLI using \"eb init\"",
+            "Versions": [
+              "Sample Application"
+            ]
+          },
+          {
+            "ApplicationName": "nodejs-example",
+            "ConfigurationTemplates": [],
+            "DateCreated": "2015-08-06T17:50:02.486Z",
+            "DateUpdated": "2015-08-06T17:50:02.486Z",
+            "Versions": [
+              "add elasticache",
+              "First Release"
+            ]
+          }
+        ]
+      },
+      "properties": {
+        "Applications": {
+          "$ref": "#/definitions/ApplicationDescriptionList",
+          "description": "This parameter contains a list of <a>ApplicationDescription</a>."
+        }
+      },
+      "type": "object"
+    },
+    "ApplicationMetrics": {
+      "description": "Application request metrics for an AWS Elastic Beanstalk environment.",
+      "properties": {
+        "Duration": {
+          "$ref": "#/definitions/NullableInteger",
+          "description": "The amount of time that the metrics cover (usually 10 seconds). For example, you might have 5 requests (<code>request_count</code>) within the most recent time slice of 10 seconds (<code>duration</code>)."
+        },
+        "Latency": {
+          "$ref": "#/definitions/Latency",
+          "description": "Represents the average latency for the slowest X percent of requests over the last 10 seconds. Latencies are in seconds with one millisecond resolution."
+        },
+        "RequestCount": {
+          "$ref": "#/definitions/RequestCount",
+          "description": "Average number of requests handled by the web server per second over the last 10 seconds."
+        },
+        "StatusCodes": {
+          "$ref": "#/definitions/StatusCodes",
+          "description": "Represents the percentage of requests over the last 10 seconds that resulted in each type of status code response."
+        }
+      },
+      "type": "object"
+    },
+    "ApplicationName": {
+      "maxLength": 100,
+      "minLength": 1,
+      "type": "string"
+    },
+    "ApplicationNamesList": {
+      "items": {
+        "$ref": "#/definitions/ApplicationName"
+      },
+      "type": "array"
+    },
+    "ApplicationResourceLifecycleConfig": {
+      "description": "The resource lifecycle configuration for an application. Defines lifecycle settings for resources that belong to the application, and the service role that Elastic Beanstalk assumes in order to apply lifecycle settings. The version lifecycle configuration defines lifecycle settings for application versions.",
+      "properties": {
+        "ServiceRole": {
+          "$ref": "#/definitions/String",
+          "description": "The ARN of an IAM service role that Elastic Beanstalk has permission to assume."
+        },
+        "VersionLifecycleConfig": {
+          "$ref": "#/definitions/ApplicationVersionLifecycleConfig",
+          "description": "The application version lifecycle configuration."
+        }
+      },
+      "type": "object"
+    },
+    "ApplicationResourceLifecycleDescriptionMessage": {
+      "properties": {
+        "ApplicationName": {
+          "$ref": "#/definitions/ApplicationName",
+          "description": "The name of the application."
+        },
+        "ResourceLifecycleConfig": {
+          "$ref": "#/definitions/ApplicationResourceLifecycleConfig",
+          "description": "The lifecycle configuration."
+        }
+      },
+      "type": "object"
+    },
+    "ApplicationVersionDescription": {
+      "description": "Describes the properties of an application version.",
+      "properties": {
+        "ApplicationName": {
+          "$ref": "#/definitions/ApplicationName",
+          "description": "The name of the application to which the application version belongs."
+        },
+        "BuildArn": {
+          "$ref": "#/definitions/String",
+          "description": "Reference to the artifact from the AWS CodeBuild build."
+        },
+        "DateCreated": {
+          "$ref": "#/definitions/CreationDate",
+          "description": "The creation date of the application version."
+        },
+        "DateUpdated": {
+          "$ref": "#/definitions/UpdateDate",
+          "description": "The last modified date of the application version."
+        },
+        "Description": {
+          "$ref": "#/definitions/Description",
+          "description": "The description of the application version."
+        },
+        "SourceBuildInformation": {
+          "$ref": "#/definitions/SourceBuildInformation",
+          "description": "If the version's source code was retrieved from AWS CodeCommit, the location of the source code for the application version."
+        },
+        "SourceBundle": {
+          "$ref": "#/definitions/S3Location",
+          "description": "The storage location of the application version's source bundle in Amazon S3."
+        },
+        "Status": {
+          "$ref": "#/definitions/ApplicationVersionStatus",
+          "description": "The processing status of the application version."
+        },
+        "VersionLabel": {
+          "$ref": "#/definitions/VersionLabel",
+          "description": "A unique identifier for the application version."
+        }
+      },
+      "type": "object"
+    },
+    "ApplicationVersionDescriptionList": {
+      "items": {
+        "$ref": "#/definitions/ApplicationVersionDescription"
+      },
+      "type": "array"
+    },
+    "ApplicationVersionDescriptionMessage": {
+      "description": "Result message wrapping a single description of an application version.",
+      "example": {
+        "ApplicationVersion": {
+          "ApplicationName": "my-app",
+          "DateCreated": "2015-08-19T18:59:17.646Z",
+          "DateUpdated": "2015-08-20T22:53:28.871Z",
+          "Description": "new description",
+          "SourceBundle": {
+            "S3Bucket": "elasticbeanstalk-us-west-2-0123456789012",
+            "S3Key": "my-app/22a0-stage-150819_185942.war"
+          },
+          "VersionLabel": "22a0-stage-150819_185942"
+        }
+      },
+      "properties": {
+        "ApplicationVersion": {
+          "$ref": "#/definitions/ApplicationVersionDescription",
+          "description": " The <a>ApplicationVersionDescription</a> of the application version. "
+        }
+      },
+      "type": "object"
+    },
+    "ApplicationVersionDescriptionsMessage": {
+      "description": "Result message wrapping a list of application version descriptions.",
+      "example": {
+        "ApplicationVersions": [
+          {
+            "ApplicationName": "my-app",
+            "DateCreated": "2015-07-23T01:32:26.079Z",
+            "DateUpdated": "2015-07-23T01:32:26.079Z",
+            "Description": "update cover page",
+            "SourceBundle": {
+              "S3Bucket": "elasticbeanstalk-us-west-2-015321684451",
+              "S3Key": "my-app/5026-stage-150723_224258.war"
+            },
+            "VersionLabel": "v2"
+          },
+          {
+            "ApplicationName": "my-app",
+            "DateCreated": "2015-07-23T22:26:10.816Z",
+            "DateUpdated": "2015-07-23T22:26:10.816Z",
+            "Description": "initial version",
+            "SourceBundle": {
+              "S3Bucket": "elasticbeanstalk-us-west-2-015321684451",
+              "S3Key": "my-app/5026-stage-150723_222618.war"
+            },
+            "VersionLabel": "v1"
+          }
+        ]
+      },
+      "properties": {
+        "ApplicationVersions": {
+          "$ref": "#/definitions/ApplicationVersionDescriptionList",
+          "description": "List of <code>ApplicationVersionDescription</code> objects sorted in order of creation."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/Token",
+          "description": "For a paginated request, the token that you can pass in a subsequent request to get the next page."
+        }
+      },
+      "type": "object"
+    },
+    "ApplicationVersionLifecycleConfig": {
+      "description": "<p>The application version lifecycle settings for an application. Defines the rules that Elastic Beanstalk applies to an application's versions in order to avoid hitting the per-region limit for application versions.</p> <p>When Elastic Beanstalk deletes an application version from its database, you can no longer deploy that version to an environment. The source bundle remains in S3 unless you configure the rule to delete it.</p>",
+      "properties": {
+        "MaxAgeRule": {
+          "$ref": "#/definitions/MaxAgeRule",
+          "description": "Specify a max age rule to restrict the length of time that application versions are retained for an application."
+        },
+        "MaxCountRule": {
+          "$ref": "#/definitions/MaxCountRule",
+          "description": "Specify a max count rule to restrict the number of application versions that are retained for an application."
+        }
+      },
+      "type": "object"
+    },
+    "ApplicationVersionProccess": {
+      "type": "boolean"
+    },
+    "ApplicationVersionStatus": {
+      "enum": [
+        "Processed",
+        "Unprocessed",
+        "Failed",
+        "Processing",
+        "Building"
+      ],
+      "type": "string"
+    },
+    "ApplyEnvironmentManagedActionRequest": {
+      "description": "Request to execute a scheduled managed action immediately.",
+      "properties": {
+        "ActionId": {
+          "$ref": "#/definitions/String",
+          "description": "The action ID of the scheduled managed action to execute."
+        },
+        "EnvironmentId": {
+          "$ref": "#/definitions/String",
+          "description": "The environment ID of the target environment."
+        },
+        "EnvironmentName": {
+          "$ref": "#/definitions/String",
+          "description": "The name of the target environment."
+        }
+      },
+      "required": [
+        "ActionId"
+      ],
+      "type": "object"
+    },
+    "ApplyEnvironmentManagedActionResult": {
+      "description": "The result message containing information about the managed action.",
+      "properties": {
+        "ActionDescription": {
+          "$ref": "#/definitions/String",
+          "description": "A description of the managed action."
+        },
+        "ActionId": {
+          "$ref": "#/definitions/String",
+          "description": "The action ID of the managed action."
+        },
+        "ActionType": {
+          "$ref": "#/definitions/ActionType",
+          "description": "The type of managed action."
+        },
+        "Status": {
+          "$ref": "#/definitions/String",
+          "description": "The status of the managed action."
+        }
+      },
+      "type": "object"
+    },
+    "AutoCreateApplication": {
+      "type": "boolean"
+    },
+    "AutoScalingGroup": {
+      "description": "Describes an Auto Scaling launch configuration.",
+      "properties": {
+        "Name": {
+          "$ref": "#/definitions/ResourceId",
+          "description": "The name of the <code>AutoScalingGroup</code> . "
+        }
+      },
+      "type": "object"
+    },
+    "AutoScalingGroupList": {
+      "items": {
+        "$ref": "#/definitions/AutoScalingGroup"
+      },
+      "type": "array"
+    },
+    "AvailableSolutionStackDetailsList": {
+      "items": {
+        "$ref": "#/definitions/SolutionStackDescription"
+      },
+      "type": "array"
+    },
+    "AvailableSolutionStackNamesList": {
+      "items": {
+        "$ref": "#/definitions/SolutionStackName"
+      },
+      "type": "array"
+    },
+    "BoxedBoolean": {
+      "type": "boolean"
+    },
+    "BoxedInt": {
+      "type": "integer"
+    },
+    "BuildConfiguration": {
+      "description": "Settings for an AWS CodeBuild build.",
+      "properties": {
+        "ArtifactName": {
+          "$ref": "#/definitions/String",
+          "description": "The name of the artifact of the CodeBuild build. If provided, Elastic Beanstalk stores the build artifact in the S3 location <i>S3-bucket</i>/resources/<i>application-name</i>/codebuild/codebuild-<i>version-label</i>-<i>artifact-name</i>.zip. If not provided, Elastic Beanstalk stores the build artifact in the S3 location <i>S3-bucket</i>/resources/<i>application-name</i>/codebuild/codebuild-<i>version-label</i>.zip. "
+        },
+        "CodeBuildServiceRole": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account."
+        },
+        "ComputeType": {
+          "$ref": "#/definitions/ComputeType",
+          "description": "<p>Information about the compute resources the build project will use.</p> <ul> <li> <p> <code>BUILD_GENERAL1_SMALL: Use up to 3 GB memory and 2 vCPUs for builds</code> </p> </li> <li> <p> <code>BUILD_GENERAL1_MEDIUM: Use up to 7 GB memory and 4 vCPUs for builds</code> </p> </li> <li> <p> <code>BUILD_GENERAL1_LARGE: Use up to 15 GB memory and 8 vCPUs for builds</code> </p> </li> </ul>"
+        },
+        "Image": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "The ID of the Docker image to use for this build project."
+        },
+        "TimeoutInMinutes": {
+          "$ref": "#/definitions/BoxedInt",
+          "description": "How long in minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes."
+        }
+      },
+      "required": [
+        "CodeBuildServiceRole",
+        "Image"
+      ],
+      "type": "object"
+    },
+    "Builder": {
+      "description": "The builder used to build the custom platform.",
+      "properties": {
+        "ARN": {
+          "$ref": "#/definitions/ARN",
+          "description": "The ARN of the builder."
+        }
+      },
+      "type": "object"
+    },
+    "CPUUtilization": {
+      "description": "CPU utilization metrics for an instance.",
+      "properties": {
+        "IOWait": {
+          "$ref": "#/definitions/NullableDouble",
+          "description": "Percentage of time that the CPU has spent in the <code>I/O Wait</code> state over the last 10 seconds."
+        },
+        "IRQ": {
+          "$ref": "#/definitions/NullableDouble",
+          "description": "Percentage of time that the CPU has spent in the <code>IRQ</code> state over the last 10 seconds."
+        },
+        "Idle": {
+          "$ref": "#/definitions/NullableDouble",
+          "description": "Percentage of time that the CPU has spent in the <code>Idle</code> state over the last 10 seconds."
+        },
+        "Nice": {
+          "$ref": "#/definitions/NullableDouble",
+          "description": "Percentage of time that the CPU has spent in the <code>Nice</code> state over the last 10 seconds."
+        },
+        "SoftIRQ": {
+          "$ref": "#/definitions/NullableDouble",
+          "description": "Percentage of time that the CPU has spent in the <code>SoftIRQ</code> state over the last 10 seconds."
+        },
+        "System": {
+          "$ref": "#/definitions/NullableDouble",
+          "description": "Percentage of time that the CPU has spent in the <code>System</code> state over the last 10 seconds."
+        },
+        "User": {
+          "$ref": "#/definitions/NullableDouble",
+          "description": "Percentage of time that the CPU has spent in the <code>User</code> state over the last 10 seconds."
+        }
+      },
+      "type": "object"
+    },
+    "Cause": {
+      "maxLength": 255,
+      "minLength": 1,
+      "type": "string"
+    },
+    "Causes": {
+      "items": {
+        "$ref": "#/definitions/Cause"
+      },
+      "type": "array"
+    },
+    "CheckDNSAvailabilityMessage": {
+      "description": "Results message indicating whether a CNAME is available.",
+      "example": {
+        "CNAMEPrefix": "my-cname"
+      },
+      "properties": {
+        "CNAMEPrefix": {
+          "$ref": "#/definitions/DNSCnamePrefix",
+          "description": "The prefix used when this CNAME is reserved."
+        }
+      },
+      "required": [
+        "CNAMEPrefix"
+      ],
+      "type": "object"
+    },
+    "CheckDNSAvailabilityResultMessage": {
+      "description": "Indicates if the specified CNAME is available.",
+      "example": {
+        "Available": true,
+        "FullyQualifiedCNAME": "my-cname.us-west-2.elasticbeanstalk.com"
+      },
+      "properties": {
+        "Available": {
+          "$ref": "#/definitions/CnameAvailability",
+          "description": "<p>Indicates if the specified CNAME is available:</p> <ul> <li> <p> <code>true</code> : The CNAME is available.</p> </li> <li> <p> <code>false</code> : The CNAME is not available.</p> </li> </ul>"
+        },
+        "FullyQualifiedCNAME": {
+          "$ref": "#/definitions/DNSCname",
+          "description": "The fully qualified CNAME to reserve when <a>CreateEnvironment</a> is called with the provided prefix."
+        }
+      },
+      "type": "object"
+    },
+    "CnameAvailability": {
+      "type": "boolean"
+    },
+    "CodeBuildNotInServiceRegionException": {
+      "description": "AWS CodeBuild is not available in the specified region.",
+      "properties": {},
+      "type": "object"
+    },
+    "ComposeEnvironmentsMessage": {
+      "description": "Request to create or update a group of environments.",
+      "properties": {
+        "ApplicationName": {
+          "$ref": "#/definitions/ApplicationName",
+          "description": "The name of the application to which the specified source bundles belong."
+        },
+        "GroupName": {
+          "$ref": "#/definitions/GroupName",
+          "description": "The name of the group to which the target environments belong. Specify a group name only if the environment name defined in each target environment's manifest ends with a + (plus) character. See <a href=\"http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-cfg-manifest.html\">Environment Manifest (env.yaml)</a> for details."
+        },
+        "VersionLabels": {
+          "$ref": "#/definitions/VersionLabels",
+          "description": "A list of version labels, specifying one or more application source bundles that belong to the target application. Each source bundle must include an environment manifest that specifies the name of the environment and the name of the solution stack to use, and optionally can specify environment links to create."
+        }
+      },
+      "type": "object"
+    },
+    "ComputeType": {
+      "enum": [
+        "BUILD_GENERAL1_SMALL",
+        "BUILD_GENERAL1_MEDIUM",
+        "BUILD_GENERAL1_LARGE"
+      ],
+      "type": "string"
+    },
+    "ConfigurationDeploymentStatus": {
+      "enum": [
+        "deployed",
+        "pending",
+        "failed"
+      ],
+      "type": "string"
+    },
+    "ConfigurationOptionDefaultValue": {
+      "type": "string"
+    },
+    "ConfigurationOptionDescription": {
+      "description": "Describes the possible values for a configuration option.",
+      "properties": {
+        "ChangeSeverity": {
+          "$ref": "#/definitions/ConfigurationOptionSeverity",
+          "description": "<p>An indication of which action is required if the value for this configuration option changes:</p> <ul> <li> <p> <code>NoInterruption</code> : There is no interruption to the environment or application availability.</p> </li> <li> <p> <code>RestartEnvironment</code> : The environment is entirely restarted, all AWS resources are deleted and recreated, and the environment is unavailable during the process.</p> </li> <li> <p> <code>RestartApplicationServer</code> : The environment is available the entire time. However, a short application outage occurs when the application servers on the running Amazon EC2 instances are restarted.</p> </li> </ul>"
+        },
+        "DefaultValue": {
+          "$ref": "#/definitions/ConfigurationOptionDefaultValue",
+          "description": "The default value for this configuration option."
+        },
+        "MaxLength": {
+          "$ref": "#/definitions/OptionRestrictionMaxLength",
+          "description": "If specified, the configuration option must be a string value no longer than this value."
+        },
+        "MaxValue": {
+          "$ref": "#/definitions/OptionRestrictionMaxValue",
+          "description": "If specified, the configuration option must be a numeric value less than this value."
+        },
+        "MinValue": {
+          "$ref": "#/definitions/OptionRestrictionMinValue",
+          "description": "If specified, the configuration option must be a numeric value greater than this value."
+        },
+        "Name": {
+          "$ref": "#/definitions/ConfigurationOptionName",
+          "description": "The name of the configuration option."
+        },
+        "Namespace": {
+          "$ref": "#/definitions/OptionNamespace",
+          "description": "A unique namespace identifying the option's associated AWS resource."
+        },
+        "Regex": {
+          "$ref": "#/definitions/OptionRestrictionRegex",
+          "description": "If specified, the configuration option must be a string value that satisfies this regular expression."
+        },
+        "UserDefined": {
+          "$ref": "#/definitions/UserDefinedOption",
+          "description": "<p>An indication of whether the user defined this configuration option:</p> <ul> <li> <p> <code>true</code> : This configuration option was defined by the user. It is a valid choice for specifying if this as an <code>Option to Remove</code> when updating configuration settings. </p> </li> <li> <p> <code>false</code> : This configuration was not defined by the user.</p> </li> </ul> <p> Constraint: You can remove only <code>UserDefined</code> options from a configuration. </p> <p> Valid Values: <code>true</code> | <code>false</code> </p>"
+        },
+        "ValueOptions": {
+          "$ref": "#/definitions/ConfigurationOptionPossibleValues",
+          "description": "If specified, values for the configuration option are selected from this list."
+        },
+        "ValueType": {
+          "$ref": "#/definitions/ConfigurationOptionValueType",
+          "description": "<p>An indication of which type of values this option has and whether it is allowable to select one or more than one of the possible values:</p> <ul> <li> <p> <code>Scalar</code> : Values for this option are a single selection from the possible values, or an unformatted string, or numeric value governed by the <code>MIN/MAX/Regex</code> constraints.</p> </li> <li> <p> <code>List</code> : Values for this option are multiple selections from the possible values.</p> </li> <li> <p> <code>Boolean</code> : Values for this option are either <code>true</code> or <code>false</code> .</p> </li> <li> <p> <code>Json</code> : Values for this option are a JSON representation of a <code>ConfigDocument</code>.</p> </li> </ul>"
+        }
+      },
+      "type": "object"
+    },
+    "ConfigurationOptionDescriptionsList": {
+      "items": {
+        "$ref": "#/definitions/ConfigurationOptionDescription"
+      },
+      "type": "array"
+    },
+    "ConfigurationOptionName": {
+      "type": "string"
+    },
+    "ConfigurationOptionPossibleValue": {
+      "type": "string"
+    },
+    "ConfigurationOptionPossibleValues": {
+      "items": {
+        "$ref": "#/definitions/ConfigurationOptionPossibleValue"
+      },
+      "type": "array"
+    },
+    "ConfigurationOptionSetting": {
+      "description": " A specification identifying an individual configuration option along with its current value. For a list of possible option values, go to <a href=\"http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options.html\">Option Values</a> in the <i>AWS Elastic Beanstalk Developer Guide</i>. ",
+      "properties": {
+        "Namespace": {
+          "$ref": "#/definitions/OptionNamespace",
+          "description": "A unique namespace identifying the option's associated AWS resource."
+        },
+        "OptionName": {
+          "$ref": "#/definitions/ConfigurationOptionName",
+          "description": "The name of the configuration option."
+        },
+        "ResourceName": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "A unique resource name for a time-based scaling configuration option."
+        },
+        "Value": {
+          "$ref": "#/definitions/ConfigurationOptionValue",
+          "description": "The current value for the configuration option."
+        }
+      },
+      "type": "object"
+    },
+    "ConfigurationOptionSettingsList": {
+      "items": {
+        "$ref": "#/definitions/ConfigurationOptionSetting"
+      },
+      "type": "array"
+    },
+    "ConfigurationOptionSeverity": {
+      "type": "string"
+    },
+    "ConfigurationOptionValue": {
+      "type": "string"
+    },
+    "ConfigurationOptionValueType": {
+      "enum": [
+        "Scalar",
+        "List"
+      ],
+      "type": "string"
+    },
+    "ConfigurationOptionsDescription": {
+      "description": "Describes the settings for a specified configuration set.",
+      "example": {
+        "Options": [
+          {
+            "ChangeSeverity": "NoInterruption",
+            "DefaultValue": "30",
+            "MaxValue": 300,
+            "MinValue": 5,
+            "Name": "Interval",
+            "Namespace": "aws:elb:healthcheck",
+            "UserDefined": false,
+            "ValueType": "Scalar"
+          },
+          {
+            "ChangeSeverity": "NoInterruption",
+            "DefaultValue": "2000000",
+            "MinValue": 0,
+            "Name": "LowerThreshold",
+            "Namespace": "aws:autoscaling:trigger",
+            "UserDefined": false,
+            "ValueType": "Scalar"
+          }
+        ]
+      },
+      "properties": {
+        "Options": {
+          "$ref": "#/definitions/ConfigurationOptionDescriptionsList",
+          "description": " A list of <a>ConfigurationOptionDescription</a>. "
+        },
+        "PlatformArn": {
+          "$ref": "#/definitions/PlatformArn",
+          "description": "The ARN of the custom platform."
+        },
+        "SolutionStackName": {
+          "$ref": "#/definitions/SolutionStackName",
+          "description": "The name of the solution stack these configuration options belong to."
+        }
+      },
+      "type": "object"
+    },
+    "ConfigurationSettingsDescription": {
+      "description": "Describes the settings for a configuration set.",
+      "example": {
+        "ApplicationName": "my-app",
+        "DateCreated": "2015-08-20T22:39:31Z",
+        "DateUpdated": "2015-08-20T22:43:11Z",
+        "SolutionStackName": "64bit Amazon Linux 2015.03 v2.0.0 running Tomcat 8 Java 8",
+        "TemplateName": "my-template"
+      },
+      "properties": {
+        "ApplicationName": {
+          "$ref": "#/definitions/ApplicationName",
+          "description": "The name of the application associated with this configuration set."
+        },
+        "DateCreated": {
+          "$ref": "#/definitions/CreationDate",
+          "description": "The date (in UTC time) when this configuration set was created."
+        },
+        "DateUpdated": {
+          "$ref": "#/definitions/UpdateDate",
+          "description": "The date (in UTC time) when this configuration set was last modified."
+        },
+        "DeploymentStatus": {
+          "$ref": "#/definitions/ConfigurationDeploymentStatus",
+          "description": "<p> If this configuration set is associated with an environment, the <code>DeploymentStatus</code> parameter indicates the deployment status of this configuration set: </p> <ul> <li> <p> <code>null</code>: This configuration is not associated with a running environment.</p> </li> <li> <p> <code>pending</code>: This is a draft configuration that is not deployed to the associated environment but is in the process of deploying.</p> </li> <li> <p> <code>deployed</code>: This is the configuration that is currently deployed to the associated running environment.</p> </li> <li> <p> <code>failed</code>: This is a draft configuration that failed to successfully deploy.</p> </li> </ul>"
+        },
+        "Description": {
+          "$ref": "#/definitions/Description",
+          "description": "Describes this configuration set."
+        },
+        "EnvironmentName": {
+          "$ref": "#/definitions/EnvironmentName",
+          "description": " If not <code>null</code>, the name of the environment for this configuration set. "
+        },
+        "OptionSettings": {
+          "$ref": "#/definitions/ConfigurationOptionSettingsList",
+          "description": "A list of the configuration options and their values in this configuration set."
+        },
+        "PlatformArn": {
+          "$ref": "#/definitions/PlatformArn",
+          "description": "The ARN of the custom platform."
+        },
+        "SolutionStackName": {
+          "$ref": "#/definitions/SolutionStackName",
+          "description": "The name of the solution stack this configuration set uses."
+        },
+        "TemplateName": {
+          "$ref": "#/definitions/ConfigurationTemplateName",
+          "description": " If not <code>null</code>, the name of the configuration template for this configuration set. "
+        }
+      },
+      "type": "object"
+    },
+    "ConfigurationSettingsDescriptionList": {
+      "items": {
+        "$ref": "#/definitions/ConfigurationSettingsDescription"
+      },
+      "type": "array"
+    },
+    "ConfigurationSettingsDescriptions": {
+      "description": "The results from a request to change the configuration settings of an environment.",
+      "example": {
+        "ConfigurationSettings": [
+          {
+            "ApplicationName": "my-app",
+            "DateCreated": "2015-08-13T19:16:25Z",
+            "DateUpdated": "2015-08-13T23:30:07Z",
+            "DeploymentStatus": "deployed",
+            "Description": "Environment created from the EB CLI using \"eb create\"",
+            "EnvironmentName": "my-env",
+            "OptionSettings": [
+              {
+                "Namespace": "aws:autoscaling:asg",
+                "OptionName": "Availability Zones",
+                "ResourceName": "AWSEBAutoScalingGroup",
+                "Value": "Any"
+              },
+              {
+                "Namespace": "aws:autoscaling:asg",
+                "OptionName": "Cooldown",
+                "ResourceName": "AWSEBAutoScalingGroup",
+                "Value": "360"
+              },
+              {
+                "Namespace": "aws:elb:policies",
+                "OptionName": "ConnectionDrainingTimeout",
+                "ResourceName": "AWSEBLoadBalancer",
+                "Value": "20"
+              },
+              {
+                "Namespace": "aws:elb:policies",
+                "OptionName": "ConnectionSettingIdleTimeout",
+                "ResourceName": "AWSEBLoadBalancer",
+                "Value": "60"
+              }
+            ],
+            "SolutionStackName": "64bit Amazon Linux 2015.03 v2.0.0 running Tomcat 8 Java 8"
+          }
+        ]
+      },
+      "properties": {
+        "ConfigurationSettings": {
+          "$ref": "#/definitions/ConfigurationSettingsDescriptionList",
+          "description": " A list of <a>ConfigurationSettingsDescription</a>. "
+        }
+      },
+      "type": "object"
+    },
+    "ConfigurationSettingsValidationMessages": {
+      "description": "Provides a list of validation messages.",
+      "example": {
+        "Messages": []
+      },
+      "properties": {
+        "Messages": {
+          "$ref": "#/definitions/ValidationMessagesList",
+          "description": " A list of <a>ValidationMessage</a>. "
+        }
+      },
+      "type": "object"
+    },
+    "ConfigurationTemplateName": {
+      "maxLength": 100,
+      "minLength": 1,
+      "type": "string"
+    },
+    "ConfigurationTemplateNamesList": {
+      "items": {
+        "$ref": "#/definitions/ConfigurationTemplateName"
+      },
+      "type": "array"
+    },
+    "CreateApplicationMessage": {
+      "description": "Request to create an application.",
+      "example": {
+        "ApplicationName": "my-app",
+        "Description": "my application"
+      },
+      "properties": {
+        "ApplicationName": {
+          "$ref": "#/definitions/ApplicationName",
+          "description": "<p>The name of the application.</p> <p>Constraint: This name must be unique within your account. If the specified name already exists, the action returns an <code>InvalidParameterValue</code> error.</p>"
+        },
+        "Description": {
+          "$ref": "#/definitions/Description",
+          "description": "Describes the application."
+        },
+        "ResourceLifecycleConfig": {
+          "$ref": "#/definitions/ApplicationResourceLifecycleConfig",
+          "description": "Specify an application resource lifecycle configuration to prevent your application from accumulating too many versions."
+        }
+      },
+      "required": [
+        "ApplicationName"
+      ],
+      "type": "object"
+    },
+    "CreateApplicationVersionMessage": {
+      "description": "<p/>",
+      "example": {
+        "ApplicationName": "my-app",
+        "AutoCreateApplication": true,
+        "Description": "my-app-v1",
+        "Process": true,
+        "SourceBundle": {
+          "S3Bucket": "my-bucket",
+          "S3Key": "sample.war"
+        },
+        "VersionLabel": "v1"
+      },
+      "properties": {
+        "ApplicationName": {
+          "$ref": "#/definitions/ApplicationName",
+          "description": " The name of the application. If no application is found with this name, and <code>AutoCreateApplication</code> is <code>false</code>, returns an <code>InvalidParameterValue</code> error. "
+        },
+        "AutoCreateApplication": {
+          "$ref": "#/definitions/AutoCreateApplication",
+          "description": "Set to <code>true</code> to create an application with the specified name if it doesn't already exist."
+        },
+        "BuildConfiguration": {
+          "$ref": "#/definitions/BuildConfiguration",
+          "description": "Settings for an AWS CodeBuild build."
+        },
+        "Description": {
+          "$ref": "#/definitions/Description",
+          "description": "Describes this version."
+        },
+        "Process": {
+          "$ref": "#/definitions/ApplicationVersionProccess",
+          "description": "Preprocesses and validates the environment manifest and configuration files in the source bundle. Validating configuration files can identify issues prior to deploying the application version to an environment."
+        },
+        "SourceBuildInformation": {
+          "$ref": "#/definitions/SourceBuildInformation",
+          "description": "Specify a commit in an AWS CodeCommit Git repository to use as the source code for the application version."
+        },
+        "SourceBundle": {
+          "$ref": "#/definitions/S3Location",
+          "description": "<p>The Amazon S3 bucket and key that identify the location of the source bundle for this version.</p> <note> <p>The Amazon S3 bucket must be in the same region as the environment.</p> </note> <p>Specify a source bundle in S3 or a commit in an AWS CodeCommit repository (with <code>SourceBuildInformation</code>), but not both. If neither <code>SourceBundle</code> nor <code>SourceBuildInformation</code> are provided, Elastic Beanstalk uses a sample application.</p>"
+        },
+        "VersionLabel": {
+          "$ref": "#/definitions/VersionLabel",
+          "description": "<p>A label identifying this version.</p> <p>Constraint: Must be unique per application. If an application version already exists with this label for the specified application, AWS Elastic Beanstalk returns an <code>InvalidParameterValue</code> error. </p>"
+        }
+      },
+      "required": [
+        "ApplicationName",
+        "VersionLabel"
+      ],
+      "type": "object"
+    },
+    "CreateConfigurationTemplateMessage": {
+      "description": "Request to create a configuration template.",
+      "example": {
+        "ApplicationName": "my-app",
+        "EnvironmentId": "e-rpqsewtp2j",
+        "TemplateName": "my-app-v1"
+      },
+      "properties": {
+        "ApplicationName": {
+          "$ref": "#/definitions/ApplicationName",
+          "description": "The name of the application to associate with this configuration template. If no application is found with this name, AWS Elastic Beanstalk returns an <code>InvalidParameterValue</code> error. "
+        },
+        "Description": {
+          "$ref": "#/definitions/Description",
+          "description": "Describes this configuration."
+        },
+        "EnvironmentId": {
+          "$ref": "#/definitions/EnvironmentId",
+          "description": "The ID of the environment used with this configuration template."
+        },
+        "OptionSettings": {
+          "$ref": "#/definitions/ConfigurationOptionSettingsList",
+          "description": "If specified, AWS Elastic Beanstalk sets the specified configuration option to the requested value. The new value overrides the value obtained from the solution stack or the source configuration template."
+        },
+        "PlatformArn": {
+          "$ref": "#/definitions/PlatformArn",
+          "description": "The ARN of the custome platform."
+        },
+        "SolutionStackName": {
+          "$ref": "#/definitions/SolutionStackName",
+          "description": "<p>The name of the solution stack used by this configuration. The solution stack specifies the operating system, architecture, and application server for a configuration template. It determines the set of configuration options as well as the possible and default values.</p> <p> Use <a>ListAvailableSolutionStacks</a> to obtain a list of available solution stacks. </p> <p> A solution stack name or a source configuration parameter must be specified, otherwise AWS Elastic Beanstalk returns an <code>InvalidParameterValue</code> error. </p> <p>If a solution stack name is not specified and the source configuration parameter is specified, AWS Elastic Beanstalk uses the same solution stack as the source configuration template.</p>"
+        },
+        "SourceConfiguration": {
+          "$ref": "#/definitions/SourceConfiguration",
+          "description": "<p>If specified, AWS Elastic Beanstalk uses the configuration values from the specified configuration template to create a new configuration.</p> <p> Values specified in the <code>OptionSettings</code> parameter of this call overrides any values obtained from the <code>SourceConfiguration</code>. </p> <p> If no configuration template is found, returns an <code>InvalidParameterValue</code> error. </p> <p> Constraint: If both the solution stack name parameter and the source configuration parameters are specified, the solution stack of the source configuration template must match the specified solution stack name or else AWS Elastic Beanstalk returns an <code>InvalidParameterCombination</code> error. </p>"
+        },
+        "TemplateName": {
+          "$ref": "#/definitions/ConfigurationTemplateName",
+          "description": "<p>The name of the configuration template.</p> <p>Constraint: This name must be unique per application.</p> <p>Default: If a configuration template already exists with this name, AWS Elastic Beanstalk returns an <code>InvalidParameterValue</code> error. </p>"
+        }
+      },
+      "required": [
+        "ApplicationName",
+        "TemplateName"
+      ],
+      "type": "object"
+    },
+    "CreateEnvironmentMessage": {
+      "description": "<p/>",
+      "example": {
+        "ApplicationName": "my-app",
+        "CNAMEPrefix": "my-app",
+        "EnvironmentName": "my-env",
+        "SolutionStackName": "64bit Amazon Linux 2015.03 v2.0.0 running Tomcat 8 Java 8",
+        "VersionLabel": "v1"
+      },
+      "properties": {
+        "ApplicationName": {
+          "$ref": "#/definitions/ApplicationName",
+          "description": "<p>The name of the application that contains the version to be deployed.</p> <p> If no application is found with this name, <code>CreateEnvironment</code> returns an <code>InvalidParameterValue</code> error. </p>"
+        },
+        "CNAMEPrefix": {
+          "$ref": "#/definitions/DNSCnamePrefix",
+          "description": "If specified, the environment attempts to use this value as the prefix for the CNAME. If not specified, the CNAME is generated automatically by appending a random alphanumeric string to the environment name."
+        },
+        "Description": {
+          "$ref": "#/definitions/Description",
+          "description": "Describes this environment."
+        },
+        "EnvironmentName": {
+          "$ref": "#/definitions/EnvironmentName",
+          "description": "<p>A unique name for the deployment environment. Used in the application URL.</p> <p>Constraint: Must be from 4 to 40 characters in length. The name can contain only letters, numbers, and hyphens. It cannot start or end with a hyphen. This name must be unique in your account. If the specified name already exists, AWS Elastic Beanstalk returns an <code>InvalidParameterValue</code> error. </p> <p>Default: If the CNAME parameter is not specified, the environment name becomes part of the CNAME, and therefore part of the visible URL for your application.</p>"
+        },
+        "GroupName": {
+          "$ref": "#/definitions/GroupName",
+          "description": "The name of the group to which the target environment belongs. Specify a group name only if the environment's name is specified in an environment manifest and not with the environment name parameter. See <a href=\"http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-cfg-manifest.html\">Environment Manifest (env.yaml)</a> for details."
+        },
+        "OptionSettings": {
+          "$ref": "#/definitions/ConfigurationOptionSettingsList",
+          "description": "If specified, AWS Elastic Beanstalk sets the specified configuration options to the requested value in the configuration set for the new environment. These override the values obtained from the solution stack or the configuration template."
+        },
+        "OptionsToRemove": {
+          "$ref": "#/definitions/OptionsSpecifierList",
+          "description": "A list of custom user-defined configuration options to remove from the configuration set for this new environment."
+        },
+        "PlatformArn": {
+          "$ref": "#/definitions/PlatformArn",
+          "description": "The ARN of the custom platform."
+        },
+        "SolutionStackName": {
+          "$ref": "#/definitions/SolutionStackName",
+          "description": "This is an alternative to specifying a template name. If specified, AWS Elastic Beanstalk sets the configuration values to the default values associated with the specified solution stack."
+        },
+        "Tags": {
+          "$ref": "#/definitions/Tags",
+          "description": "This specifies the tags applied to resources in the environment."
+        },
+        "TemplateName": {
+          "$ref": "#/definitions/ConfigurationTemplateName",
+          "description": " The name of the configuration template to use in deployment. If no configuration template is found with this name, AWS Elastic Beanstalk returns an <code>InvalidParameterValue</code> error. "
+        },
+        "Tier": {
+          "$ref": "#/definitions/EnvironmentTier",
+          "description": "This specifies the tier to use for creating this environment."
+        },
+        "VersionLabel": {
+          "$ref": "#/definitions/VersionLabel",
+          "description": "<p>The name of the application version to deploy.</p> <p> If the specified application has no associated application versions, AWS Elastic Beanstalk <code>UpdateEnvironment</code> returns an <code>InvalidParameterValue</code> error. </p> <p>Default: If not specified, AWS Elastic Beanstalk attempts to launch the sample application in the container.</p>"
+        }
+      },
+      "required": [
+        "ApplicationName"
+      ],
+      "type": "object"
+    },
+    "CreatePlatformVersionRequest": {
+      "description": "Request to create a new platform version.",
+      "properties": {
+        "EnvironmentName": {
+          "$ref": "#/definitions/EnvironmentName",
+          "description": "The name of the builder environment."
+        },
+        "OptionSettings": {
+          "$ref": "#/definitions/ConfigurationOptionSettingsList",
+          "description": "The configuration option settings to apply to the builder environment."
+        },
+        "PlatformDefinitionBundle": {
+          "$ref": "#/definitions/S3Location",
+          "description": "The location of the platform definition archive in Amazon S3."
+        },
+        "PlatformName": {
+          "$ref": "#/definitions/PlatformName",
+          "description": "The name of your custom platform."
+        },
+        "PlatformVersion": {
+          "$ref": "#/definitions/PlatformVersion",
+          "description": "The number, such as 1.0.2, for the new platform version."
+        }
+      },
+      "required": [
+        "PlatformName",
+        "PlatformVersion",
+        "PlatformDefinitionBundle"
+      ],
+      "type": "object"
+    },
+    "CreatePlatformVersionResult": {
+      "properties": {
+        "Builder": {
+          "$ref": "#/definitions/Builder",
+          "description": "The builder used to create the custom platform."
+        },
+        "PlatformSummary": {
+          "$ref": "#/definitions/PlatformSummary",
+          "description": "Detailed information about the new version of the custom platform."
+        }
+      },
+      "type": "object"
+    },
+    "CreateStorageLocationResultMessage": {
+      "description": "Results of a <a>CreateStorageLocationResult</a> call.",
+      "example": {
+        "S3Bucket": "elasticbeanstalk-us-west-2-0123456789012"
+      },
+      "properties": {
+        "S3Bucket": {
+          "$ref": "#/definitions/S3Bucket",
+          "description": "The name of the Amazon S3 bucket created."
+        }
+      },
+      "type": "object"
+    },
+    "CreationDate": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "CustomAmi": {
+      "description": "A custom AMI available to platforms.",
+      "properties": {
+        "ImageId": {
+          "$ref": "#/definitions/ImageId",
+          "description": "THe ID of the image used to create the custom AMI."
+        },
+        "VirtualizationType": {
+          "$ref": "#/definitions/VirtualizationType",
+          "description": "The type of virtualization used to create the custom AMI."
+        }
+      },
+      "type": "object"
+    },
+    "CustomAmiList": {
+      "items": {
+        "$ref": "#/definitions/CustomAmi"
+      },
+      "type": "array"
+    },
+    "DNSCname": {
+      "maxLength": 255,
+      "minLength": 1,
+      "type": "string"
+    },
+    "DNSCnamePrefix": {
+      "maxLength": 63,
+      "minLength": 4,
+      "type": "string"
+    },
+    "DeleteApplicationMessage": {
+      "description": "Request to delete an application.",
+      "example": {
+        "ApplicationName": "my-app"
+      },
+      "properties": {
+        "ApplicationName": {
+          "$ref": "#/definitions/ApplicationName",
+          "description": "The name of the application to delete."
+        },
+        "TerminateEnvByForce": {
+          "$ref": "#/definitions/TerminateEnvForce",
+          "description": "When set to true, running environments will be terminated before deleting the application."
+        }
+      },
+      "required": [
+        "ApplicationName"
+      ],
+      "type": "object"
+    },
+    "DeleteApplicationVersionMessage": {
+      "description": "Request to delete an application version.",
+      "example": {
+        "ApplicationName": "my-app",
+        "DeleteSourceBundle": true,
+        "VersionLabel": "22a0-stage-150819_182129"
+      },
+      "properties": {
+        "ApplicationName": {
+          "$ref": "#/definitions/ApplicationName",
+          "description": "The name of the application to which the version belongs."
+        },
+        "DeleteSourceBundle": {
+          "$ref": "#/definitions/DeleteSourceBundle",
+          "description": "Set to <code>true</code> to delete the source bundle from your storage bucket. Otherwise, the application version is deleted only from Elastic Beanstalk and the source bundle remains in Amazon S3."
+        },
+        "VersionLabel": {
+          "$ref": "#/definitions/VersionLabel",
+          "description": "The label of the version to delete."
+        }
+      },
+      "required": [
+        "ApplicationName",
+        "VersionLabel"
+      ],
+      "type": "object"
+    },
+    "DeleteConfigurationTemplateMessage": {
+      "description": "Request to delete a configuration template.",
+      "example": {
+        "ApplicationName": "my-app",
+        "TemplateName": "my-template"
+      },
+      "properties": {
+        "ApplicationName": {
+          "$ref": "#/definitions/ApplicationName",
+          "description": "The name of the application to delete the configuration template from."
+        },
+        "TemplateName": {
+          "$ref": "#/definitions/ConfigurationTemplateName",
+          "description": "The name of the configuration template to delete."
+        }
+      },
+      "required": [
+        "ApplicationName",
+        "TemplateName"
+      ],
+      "type": "object"
+    },
+    "DeleteEnvironmentConfigurationMessage": {
+      "description": "Request to delete a draft environment configuration.",
+      "example": {
+        "ApplicationName": "my-app",
+        "EnvironmentName": "my-env"
+      },
+      "properties": {
+        "ApplicationName": {
+          "$ref": "#/definitions/ApplicationName",
+          "description": "The name of the application the environment is associated with."
+        },
+        "EnvironmentName": {
+          "$ref": "#/definitions/EnvironmentName",
+          "description": "The name of the environment to delete the draft configuration from."
+        }
+      },
+      "required": [
+        "ApplicationName",
+        "EnvironmentName"
+      ],
+      "type": "object"
+    },
+    "DeletePlatformVersionRequest": {
+      "properties": {
+        "PlatformArn": {
+          "$ref": "#/definitions/PlatformArn",
+          "description": "The ARN of the version of the custom platform."
+        }
+      },
+      "type": "object"
+    },
+    "DeletePlatformVersionResult": {
+      "properties": {
+        "PlatformSummary": {
+          "$ref": "#/definitions/PlatformSummary",
+          "description": "Detailed information about the version of the custom platform."
+        }
+      },
+      "type": "object"
+    },
+    "DeleteSourceBundle": {
+      "type": "boolean"
+    },
+    "Deployment": {
+      "description": "Information about an application version deployment.",
+      "properties": {
+        "DeploymentId": {
+          "$ref": "#/definitions/NullableLong",
+          "description": "The ID of the deployment. This number increases by one each time that you deploy source code or change instance configuration settings."
+        },
+        "DeploymentTime": {
+          "$ref": "#/definitions/DeploymentTimestamp",
+          "description": "<p>For in-progress deployments, the time that the deloyment started.</p> <p>For completed deployments, the time that the deployment ended.</p>"
+        },
+        "Status": {
+          "$ref": "#/definitions/String",
+          "description": "<p>The status of the deployment:</p> <ul> <li> <p> <code>In Progress</code> : The deployment is in progress.</p> </li> <li> <p> <code>Deployed</code> : The deployment succeeded.</p> </li> <li> <p> <code>Failed</code> : The deployment failed.</p> </li> </ul>"
+        },
+        "VersionLabel": {
+          "$ref": "#/definitions/String",
+          "description": "The version label of the application version in the deployment."
+        }
+      },
+      "type": "object"
+    },
+    "DeploymentTimestamp": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "DescribeApplicationVersionsMessage": {
+      "description": "Request to describe application versions.",
+      "example": {
+        "ApplicationName": "my-app",
+        "VersionLabels": [
+          "v2"
+        ]
+      },
+      "properties": {
+        "ApplicationName": {
+          "$ref": "#/definitions/ApplicationName",
+          "description": "Specify an application name to show only application versions for that application."
+        },
+        "MaxRecords": {
+          "$ref": "#/definitions/MaxRecords",
+          "description": "Specify a maximum number of application versions to paginate in the request."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/Token",
+          "description": "Specify a next token to retrieve the next page in a paginated request."
+        },
+        "VersionLabels": {
+          "$ref": "#/definitions/VersionLabelsList",
+          "description": "Specify a version label to show a specific application version."
+        }
+      },
+      "type": "object"
+    },
+    "DescribeApplicationsMessage": {
+      "description": "Request to describe one or more applications.",
+      "example": {},
+      "properties": {
+        "ApplicationNames": {
+          "$ref": "#/definitions/ApplicationNamesList",
+          "description": "If specified, AWS Elastic Beanstalk restricts the returned descriptions to only include those with the specified names."
+        }
+      },
+      "type": "object"
+    },
+    "DescribeConfigurationOptionsMessage": {
+      "description": "Result message containing a list of application version descriptions.",
+      "example": {
+        "ApplicationName": "my-app",
+        "EnvironmentName": "my-env"
+      },
+      "properties": {
+        "ApplicationName": {
+          "$ref": "#/definitions/ApplicationName",
+          "description": "The name of the application associated with the configuration template or environment. Only needed if you want to describe the configuration options associated with either the configuration template or environment."
+        },
+        "EnvironmentName": {
+          "$ref": "#/definitions/EnvironmentName",
+          "description": "The name of the environment whose configuration options you want to describe."
+        },
+        "Options": {
+          "$ref": "#/definitions/OptionsSpecifierList",
+          "description": "If specified, restricts the descriptions to only the specified options."
+        },
+        "PlatformArn": {
+          "$ref": "#/definitions/PlatformArn",
+          "description": "The ARN of the custom platform."
+        },
+        "SolutionStackName": {
+          "$ref": "#/definitions/SolutionStackName",
+          "description": "The name of the solution stack whose configuration options you want to describe."
+        },
+        "TemplateName": {
+          "$ref": "#/definitions/ConfigurationTemplateName",
+          "description": "The name of the configuration template whose configuration options you want to describe."
+        }
+      },
+      "type": "object"
+    },
+    "DescribeConfigurationSettingsMessage": {
+      "description": "Result message containing all of the configuration settings for a specified solution stack or configuration template.",
+      "example": {
+        "ApplicationName": "my-app",
+        "EnvironmentName": "my-env"
+      },
+      "properties": {
+        "ApplicationName": {
+          "$ref": "#/definitions/ApplicationName",
+          "description": "The application for the environment or configuration template."
+        },
+        "EnvironmentName": {
+          "$ref": "#/definitions/EnvironmentName",
+          "description": "<p>The name of the environment to describe.</p> <p> Condition: You must specify either this or a TemplateName, but not both. If you specify both, AWS Elastic Beanstalk returns an <code>InvalidParameterCombination</code> error. If you do not specify either, AWS Elastic Beanstalk returns <code>MissingRequiredParameter</code> error. </p>"
+        },
+        "TemplateName": {
+          "$ref": "#/definitions/ConfigurationTemplateName",
+          "description": "<p>The name of the configuration template to describe.</p> <p> Conditional: You must specify either this parameter or an EnvironmentName, but not both. If you specify both, AWS Elastic Beanstalk returns an <code>InvalidParameterCombination</code> error. If you do not specify either, AWS Elastic Beanstalk returns a <code>MissingRequiredParameter</code> error. </p>"
+        }
+      },
+      "required": [
+        "ApplicationName"
+      ],
+      "type": "object"
+    },
+    "DescribeEnvironmentHealthRequest": {
+      "description": "See the example below to learn how to create a request body.",
+      "example": {
+        "AttributeNames": [
+          "All"
+        ],
+        "EnvironmentName": "my-env"
+      },
+      "properties": {
+        "AttributeNames": {
+          "$ref": "#/definitions/EnvironmentHealthAttributes",
+          "description": "Specify the response elements to return. To retrieve all attributes, set to <code>All</code>. If no attribute names are specified, returns the name of the environment."
+        },
+        "EnvironmentId": {
+          "$ref": "#/definitions/EnvironmentId",
+          "description": "<p>Specify the environment by ID.</p> <p>You must specify either this or an EnvironmentName, or both.</p>"
+        },
+        "EnvironmentName": {
+          "$ref": "#/definitions/EnvironmentName",
+          "description": "<p>Specify the environment by name.</p> <p>You must specify either this or an EnvironmentName, or both.</p>"
+        }
+      },
+      "type": "object"
+    },
+    "DescribeEnvironmentHealthResult": {
+      "description": "Health details for an AWS Elastic Beanstalk environment.",
+      "example": {
+        "ApplicationMetrics": {
+          "Duration": 10,
+          "Latency": {
+            "P10": 0.001,
+            "P50": 0.001,
+            "P75": 0.002,
+            "P85": 0.003,
+            "P90": 0.003,
+            "P95": 0.004,
+            "P99": 0.004,
+            "P999": 0.004
+          },
+          "RequestCount": 45,
+          "StatusCodes": {
+            "Status2xx": 45,
+            "Status3xx": 0,
+            "Status4xx": 0,
+            "Status5xx": 0
+          }
+        },
+        "Causes": [],
+        "Color": "Green",
+        "EnvironmentName": "my-env",
+        "HealthStatus": "Ok",
+        "InstancesHealth": {
+          "Degraded": 0,
+          "Info": 0,
+          "NoData": 0,
+          "Ok": 1,
+          "Pending": 0,
+          "Severe": 0,
+          "Unknown": 0,
+          "Warning": 0
+        },
+        "RefreshedAt": "2015-08-20T21:09:18Z"
+      },
+      "properties": {
+        "ApplicationMetrics": {
+          "$ref": "#/definitions/ApplicationMetrics",
+          "description": "Application request metrics for the environment."
+        },
+        "Causes": {
+          "$ref": "#/definitions/Causes",
+          "description": "Descriptions of the data that contributed to the environment's current health status."
+        },
+        "Color": {
+          "$ref": "#/definitions/String",
+          "description": "The <a href=\"http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html\">health color</a> of the environment."
+        },
+        "EnvironmentName": {
+          "$ref": "#/definitions/EnvironmentName",
+          "description": "The environment's name."
+        },
+        "HealthStatus": {
+          "$ref": "#/definitions/String",
+          "description": "The <a href=\"http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html\">health status</a> of the environment. For example, <code>Ok</code>."
+        },
+        "InstancesHealth": {
+          "$ref": "#/definitions/InstanceHealthSummary",
+          "description": "Summary health information for the instances in the environment."
+        },
+        "RefreshedAt": {
+          "$ref": "#/definitions/RefreshedAt",
+          "description": "The date and time that the health information was retrieved."
+        },
+        "Status": {
+          "$ref": "#/definitions/EnvironmentHealth",
+          "description": "The environment's operational status. <code>Ready</code>, <code>Launching</code>, <code>Updating</code>, <code>Terminating</code>, or <code>Terminated</code>."
+        }
+      },
+      "type": "object"
+    },
+    "DescribeEnvironmentManagedActionHistoryRequest": {
+      "description": "Request to list completed and failed managed actions.",
+      "properties": {
+        "EnvironmentId": {
+          "$ref": "#/definitions/EnvironmentId",
+          "description": "The environment ID of the target environment."
+        },
+        "EnvironmentName": {
+          "$ref": "#/definitions/EnvironmentName",
+          "description": "The name of the target environment."
+        },
+        "MaxItems": {
+          "$ref": "#/definitions/Integer",
+          "description": "The maximum number of items to return for a single request."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/String",
+          "description": "The pagination token returned by a previous request."
+        }
+      },
+      "type": "object"
+    },
+    "DescribeEnvironmentManagedActionHistoryResult": {
+      "description": "A result message containing a list of completed and failed managed actions.",
+      "properties": {
+        "ManagedActionHistoryItems": {
+          "$ref": "#/definitions/ManagedActionHistoryItems",
+          "description": "A list of completed and failed managed actions."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/String",
+          "description": "A pagination token that you pass to <a>DescribeEnvironmentManagedActionHistory</a> to get the next page of results."
+        }
+      },
+      "type": "object"
+    },
+    "DescribeEnvironmentManagedActionsRequest": {
+      "description": "Request to list an environment's upcoming and in-progress managed actions.",
+      "properties": {
+        "EnvironmentId": {
+          "$ref": "#/definitions/String",
+          "description": "The environment ID of the target environment."
+        },
+        "EnvironmentName": {
+          "$ref": "#/definitions/String",
+          "description": "The name of the target environment."
+        },
+        "Status": {
+          "$ref": "#/definitions/ActionStatus",
+          "description": "To show only actions with a particular status, specify a status."
+        }
+      },
+      "type": "object"
+    },
+    "DescribeEnvironmentManagedActionsResult": {
+      "description": "The result message containing a list of managed actions.",
+      "properties": {
+        "ManagedActions": {
+          "$ref": "#/definitions/ManagedActions",
+          "description": "A list of upcoming and in-progress managed actions."
+        }
+      },
+      "type": "object"
+    },
+    "DescribeEnvironmentResourcesMessage": {
+      "description": "Request to describe the resources in an environment.",
+      "example": {
+        "EnvironmentName": "my-env"
+      },
+      "properties": {
+        "EnvironmentId": {
+          "$ref": "#/definitions/EnvironmentId",
+          "description": "<p>The ID of the environment to retrieve AWS resource usage data.</p> <p> Condition: You must specify either this or an EnvironmentName, or both. If you do not specify either, AWS Elastic Beanstalk returns <code>MissingRequiredParameter</code> error. </p>"
+        },
+        "EnvironmentName": {
+          "$ref": "#/definitions/EnvironmentName",
+          "description": "<p>The name of the environment to retrieve AWS resource usage data.</p> <p> Condition: You must specify either this or an EnvironmentId, or both. If you do not specify either, AWS Elastic Beanstalk returns <code>MissingRequiredParameter</code> error. </p>"
+        }
+      },
+      "type": "object"
+    },
+    "DescribeEnvironmentsMessage": {
+      "description": "Request to describe one or more environments.",
+      "example": {
+        "EnvironmentNames": [
+          "my-env"
+        ]
+      },
+      "properties": {
+        "ApplicationName": {
+          "$ref": "#/definitions/ApplicationName",
+          "description": "If specified, AWS Elastic Beanstalk restricts the returned descriptions to include only those that are associated with this application."
+        },
+        "EnvironmentIds": {
+          "$ref": "#/definitions/EnvironmentIdList",
+          "description": "If specified, AWS Elastic Beanstalk restricts the returned descriptions to include only those that have the specified IDs."
+        },
+        "EnvironmentNames": {
+          "$ref": "#/definitions/EnvironmentNamesList",
+          "description": "If specified, AWS Elastic Beanstalk restricts the returned descriptions to include only those that have the specified names."
+        },
+        "IncludeDeleted": {
+          "$ref": "#/definitions/IncludeDeleted",
+          "description": "<p>Indicates whether to include deleted environments:</p> <p> <code>true</code>: Environments that have been deleted after <code>IncludedDeletedBackTo</code> are displayed.</p> <p> <code>false</code>: Do not include deleted environments.</p>"
+        },
+        "IncludedDeletedBackTo": {
+          "$ref": "#/definitions/IncludeDeletedBackTo",
+          "description": " If specified when <code>IncludeDeleted</code> is set to <code>true</code>, then environments deleted after this date are displayed. "
+        },
+        "VersionLabel": {
+          "$ref": "#/definitions/VersionLabel",
+          "description": "If specified, AWS Elastic Beanstalk restricts the returned descriptions to include only those that are associated with this application version."
+        }
+      },
+      "type": "object"
+    },
+    "DescribeEventsMessage": {
+      "description": "Request to retrieve a list of events for an environment.",
+      "example": {
+        "EnvironmentName": "my-env"
+      },
+      "properties": {
+        "ApplicationName": {
+          "$ref": "#/definitions/ApplicationName",
+          "description": "If specified, AWS Elastic Beanstalk restricts the returned descriptions to include only those associated with this application."
+        },
+        "EndTime": {
+          "$ref": "#/definitions/TimeFilterEnd",
+          "description": " If specified, AWS Elastic Beanstalk restricts the returned descriptions to those that occur up to, but not including, the <code>EndTime</code>. "
+        },
+        "EnvironmentId": {
+          "$ref": "#/definitions/EnvironmentId",
+          "description": "If specified, AWS Elastic Beanstalk restricts the returned descriptions to those associated with this environment."
+        },
+        "EnvironmentName": {
+          "$ref": "#/definitions/EnvironmentName",
+          "description": "If specified, AWS Elastic Beanstalk restricts the returned descriptions to those associated with this environment."
+        },
+        "MaxRecords": {
+          "$ref": "#/definitions/MaxRecords",
+          "description": "Specifies the maximum number of events that can be returned, beginning with the most recent event."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/Token",
+          "description": "Pagination token. If specified, the events return the next batch of results."
+        },
+        "PlatformArn": {
+          "$ref": "#/definitions/PlatformArn",
+          "description": "The ARN of the version of the custom platform."
+        },
+        "RequestId": {
+          "$ref": "#/definitions/RequestId",
+          "description": "If specified, AWS Elastic Beanstalk restricts the described events to include only those associated with this request ID."
+        },
+        "Severity": {
+          "$ref": "#/definitions/EventSeverity",
+          "description": "If specified, limits the events returned from this call to include only those with the specified severity or higher."
+        },
+        "StartTime": {
+          "$ref": "#/definitions/TimeFilterStart",
+          "description": "If specified, AWS Elastic Beanstalk restricts the returned descriptions to those that occur on or after this time."
+        },
+        "TemplateName": {
+          "$ref": "#/definitions/ConfigurationTemplateName",
+          "description": "If specified, AWS Elastic Beanstalk restricts the returned descriptions to those that are associated with this environment configuration."
+        },
+        "VersionLabel": {
+          "$ref": "#/definitions/VersionLabel",
+          "description": "If specified, AWS Elastic Beanstalk restricts the returned descriptions to those associated with this application version."
+        }
+      },
+      "type": "object"
+    },
+    "DescribeInstancesHealthRequest": {
+      "description": "Parameters for a call to <code>DescribeInstancesHealth</code>.",
+      "example": {
+        "AttributeNames": [
+          "All"
+        ],
+        "EnvironmentName": "my-env"
+      },
+      "properties": {
+        "AttributeNames": {
+          "$ref": "#/definitions/InstancesHealthAttributes",
+          "description": "Specifies the response elements you wish to receive. To retrieve all attributes, set to <code>All</code>. If no attribute names are specified, returns a list of instances."
+        },
+        "EnvironmentId": {
+          "$ref": "#/definitions/EnvironmentId",
+          "description": "Specify the AWS Elastic Beanstalk environment by ID."
+        },
+        "EnvironmentName": {
+          "$ref": "#/definitions/EnvironmentName",
+          "description": "Specify the AWS Elastic Beanstalk environment by name."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "Specify the pagination token returned by a previous call."
+        }
+      },
+      "type": "object"
+    },
+    "DescribeInstancesHealthResult": {
+      "description": "Detailed health information about the Amazon EC2 instances in an AWS Elastic Beanstalk environment.",
+      "example": {
+        "InstanceHealthList": [
+          {
+            "ApplicationMetrics": {
+              "Duration": 10,
+              "Latency": {
+                "P10": 0,
+                "P50": 0.001,
+                "P75": 0.002,
+                "P85": 0.003,
+                "P90": 0.004,
+                "P95": 0.005,
+                "P99": 0.006,
+                "P999": 0.006
+              },
+              "RequestCount": 48,
+              "StatusCodes": {
+                "Status2xx": 47,
+                "Status3xx": 0,
+                "Status4xx": 1,
+                "Status5xx": 0
+              }
+            },
+            "Causes": [],
+            "Color": "Green",
+            "HealthStatus": "Ok",
+            "InstanceId": "i-08691cc7",
+            "LaunchedAt": "2015-08-13T19:17:09Z",
+            "System": {
+              "CPUUtilization": {
+                "IOWait": 0.2,
+                "IRQ": 0,
+                "Idle": 97.8,
+                "Nice": 0.1,
+                "SoftIRQ": 0.1,
+                "System": 0.3,
+                "User": 1.5
+              },
+              "LoadAverage": [
+                0,
+                0.02,
+                0.05
+              ]
+            }
+          }
+        ],
+        "RefreshedAt": "2015-08-20T21:09:08Z"
+      },
+      "properties": {
+        "InstanceHealthList": {
+          "$ref": "#/definitions/InstanceHealthList",
+          "description": "Detailed health information about each instance."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "Pagination token for the next page of results, if available."
+        },
+        "RefreshedAt": {
+          "$ref": "#/definitions/RefreshedAt",
+          "description": "The date and time that the health information was retrieved."
+        }
+      },
+      "type": "object"
+    },
+    "DescribePlatformVersionRequest": {
+      "properties": {
+        "PlatformArn": {
+          "$ref": "#/definitions/PlatformArn",
+          "description": "The ARN of the version of the platform."
+        }
+      },
+      "type": "object"
+    },
+    "DescribePlatformVersionResult": {
+      "properties": {
+        "PlatformDescription": {
+          "$ref": "#/definitions/PlatformDescription",
+          "description": "Detailed information about the version of the platform."
+        }
+      },
+      "type": "object"
+    },
+    "Description": {
+      "maxLength": 200,
+      "type": "string"
+    },
+    "Ec2InstanceId": {
+      "type": "string"
+    },
+    "ElasticBeanstalkServiceException": {
+      "description": "A generic service exception has occurred.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/ExceptionMessage",
+          "description": "The exception error message."
+        }
+      },
+      "type": "object"
+    },
+    "EndpointURL": {
+      "type": "string"
+    },
+    "EnvironmentDescription": {
+      "description": "Describes the properties of an environment.",
+      "example": {
+        "AbortableOperationInProgress": true,
+        "ApplicationName": "my-app",
+        "CNAME": "my-env.elasticbeanstalk.com",
+        "DateCreated": "2015-08-07T20:48:49.599Z",
+        "DateUpdated": "2015-08-12T18:15:23.804Z",
+        "EndpointURL": "awseb-e-w-AWSEBLoa-14XB83101Q4L-104QXY80921.sa-east-1.elb.amazonaws.com",
+        "EnvironmentId": "e-wtp2rpqsej",
+        "EnvironmentName": "my-env",
+        "Health": "Grey",
+        "SolutionStackName": "64bit Amazon Linux 2015.03 v2.0.0 running Tomcat 8 Java 8",
+        "Status": "Updating",
+        "Tier": {
+          "Name": "WebServer",
+          "Type": "Standard",
+          "Version": " "
+        },
+        "VersionLabel": "7f58-stage-150812_025409"
+      },
+      "properties": {
+        "AbortableOperationInProgress": {
+          "$ref": "#/definitions/AbortableOperationInProgress",
+          "description": "<p>Indicates if there is an in-progress environment configuration update or application version deployment that you can cancel.</p> <p> <code>true:</code> There is an update in progress. </p> <p> <code>false:</code> There are no updates currently in progress. </p>"
+        },
+        "ApplicationName": {
+          "$ref": "#/definitions/ApplicationName",
+          "description": "The name of the application associated with this environment."
+        },
+        "CNAME": {
+          "$ref": "#/definitions/DNSCname",
+          "description": "The URL to the CNAME for this environment."
+        },
+        "DateCreated": {
+          "$ref": "#/definitions/CreationDate",
+          "description": "The creation date for this environment."
+        },
+        "DateUpdated": {
+          "$ref": "#/definitions/UpdateDate",
+          "description": "The last modified date for this environment."
+        },
+        "Description": {
+          "$ref": "#/definitions/Description",
+          "description": "Describes this environment."
+        },
+        "EndpointURL": {
+          "$ref": "#/definitions/EndpointURL",
+          "description": "For load-balanced, autoscaling environments, the URL to the LoadBalancer. For single-instance environments, the IP address of the instance."
+        },
+        "EnvironmentId": {
+          "$ref": "#/definitions/EnvironmentId",
+          "description": "The ID of this environment."
+        },
+        "EnvironmentLinks": {
+          "$ref": "#/definitions/EnvironmentLinks",
+          "description": "A list of links to other environments in the same group."
+        },
+        "EnvironmentName": {
+          "$ref": "#/definitions/EnvironmentName",
+          "description": "The name of this environment."
+        },
+        "Health": {
+          "$ref": "#/definitions/EnvironmentHealth",
+          "description": "<p>Describes the health status of the environment. AWS Elastic Beanstalk indicates the failure levels for a running environment:</p> <ul> <li> <p> <code>Red</code>: Indicates the environment is not responsive. Occurs when three or more consecutive failures occur for an environment.</p> </li> <li> <p> <code>Yellow</code>: Indicates that something is wrong. Occurs when two consecutive failures occur for an environment.</p> </li> <li> <p> <code>Green</code>: Indicates the environment is healthy and fully functional.</p> </li> <li> <p> <code>Grey</code>: Default health for a new environment. The environment is not fully launched and health checks have not started or health checks are suspended during an <code>UpdateEnvironment</code> or <code>RestartEnvironement</code> request.</p> </li> </ul> <p> Default: <code>Grey</code> </p>"
+        },
+        "HealthStatus": {
+          "$ref": "#/definitions/EnvironmentHealthStatus",
+          "description": "Returns the health status of the application running in your environment. For more information, see <a href=\"http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html\">Health Colors and Statuses</a>."
+        },
+        "PlatformArn": {
+          "$ref": "#/definitions/PlatformArn",
+          "description": "The ARN of the custom platform."
+        },
+        "Resources": {
+          "$ref": "#/definitions/EnvironmentResourcesDescription",
+          "description": "The description of the AWS resources used by this environment."
+        },
+        "SolutionStackName": {
+          "$ref": "#/definitions/SolutionStackName",
+          "description": " The name of the <code>SolutionStack</code> deployed with this environment. "
+        },
+        "Status": {
+          "$ref": "#/definitions/EnvironmentStatus",
+          "description": "<p>The current operational status of the environment:</p> <ul> <li> <p> <code>Launching</code>: Environment is in the process of initial deployment.</p> </li> <li> <p> <code>Updating</code>: Environment is in the process of updating its configuration settings or application version.</p> </li> <li> <p> <code>Ready</code>: Environment is available to have an action performed on it, such as update or terminate.</p> </li> <li> <p> <code>Terminating</code>: Environment is in the shut-down process.</p> </li> <li> <p> <code>Terminated</code>: Environment is not running.</p> </li> </ul>"
+        },
+        "TemplateName": {
+          "$ref": "#/definitions/ConfigurationTemplateName",
+          "description": "The name of the configuration template used to originally launch this environment."
+        },
+        "Tier": {
+          "$ref": "#/definitions/EnvironmentTier",
+          "description": "Describes the current tier of this environment."
+        },
+        "VersionLabel": {
+          "$ref": "#/definitions/VersionLabel",
+          "description": "The application version deployed in this environment."
+        }
+      },
+      "type": "object"
+    },
+    "EnvironmentDescriptionsList": {
+      "items": {
+        "$ref": "#/definitions/EnvironmentDescription"
+      },
+      "type": "array"
+    },
+    "EnvironmentDescriptionsMessage": {
+      "description": "Result message containing a list of environment descriptions.",
+      "example": {
+        "Environments": [
+          {
+            "AbortableOperationInProgress": false,
+            "ApplicationName": "my-app",
+            "CNAME": "my-env.elasticbeanstalk.com",
+            "DateCreated": "2015-08-07T20:48:49.599Z",
+            "DateUpdated": "2015-08-12T18:16:55.019Z",
+            "EndpointURL": "awseb-e-w-AWSEBLoa-1483140XB0Q4L-109QXY8121.us-west-2.elb.amazonaws.com",
+            "EnvironmentId": "e-rpqsewtp2j",
+            "EnvironmentName": "my-env",
+            "Health": "Green",
+            "SolutionStackName": "64bit Amazon Linux 2015.03 v2.0.0 running Tomcat 8 Java 8",
+            "Status": "Ready",
+            "Tier": {
+              "Name": "WebServer",
+              "Type": "Standard",
+              "Version": " "
+            },
+            "VersionLabel": "7f58-stage-150812_025409"
+          }
+        ]
+      },
+      "properties": {
+        "Environments": {
+          "$ref": "#/definitions/EnvironmentDescriptionsList",
+          "description": " Returns an <a>EnvironmentDescription</a> list. "
+        }
+      },
+      "type": "object"
+    },
+    "EnvironmentHealth": {
+      "enum": [
+        "Green",
+        "Yellow",
+        "Red",
+        "Grey"
+      ],
+      "type": "string"
+    },
+    "EnvironmentHealthAttribute": {
+      "enum": [
+        "Status",
+        "Color",
+        "Causes",
+        "ApplicationMetrics",
+        "InstancesHealth",
+        "All",
+        "HealthStatus",
+        "RefreshedAt"
+      ],
+      "type": "string"
+    },
+    "EnvironmentHealthAttributes": {
+      "items": {
+        "$ref": "#/definitions/EnvironmentHealthAttribute"
+      },
+      "type": "array"
+    },
+    "EnvironmentHealthStatus": {
+      "enum": [
+        "NoData",
+        "Unknown",
+        "Pending",
+        "Ok",
+        "Info",
+        "Warning",
+        "Degraded",
+        "Severe"
+      ],
+      "type": "string"
+    },
+    "EnvironmentId": {
+      "type": "string"
+    },
+    "EnvironmentIdList": {
+      "items": {
+        "$ref": "#/definitions/EnvironmentId"
+      },
+      "type": "array"
+    },
+    "EnvironmentInfoDescription": {
+      "description": "The information retrieved from the Amazon EC2 instances.",
+      "properties": {
+        "Ec2InstanceId": {
+          "$ref": "#/definitions/Ec2InstanceId",
+          "description": "The Amazon EC2 Instance ID for this information."
+        },
+        "InfoType": {
+          "$ref": "#/definitions/EnvironmentInfoType",
+          "description": "The type of information retrieved."
+        },
+        "Message": {
+          "$ref": "#/definitions/Message",
+          "description": "The retrieved information."
+        },
+        "SampleTimestamp": {
+          "$ref": "#/definitions/SampleTimestamp",
+          "description": "The time stamp when this information was retrieved."
+        }
+      },
+      "type": "object"
+    },
+    "EnvironmentInfoDescriptionList": {
+      "items": {
+        "$ref": "#/definitions/EnvironmentInfoDescription"
+      },
+      "type": "array"
+    },
+    "EnvironmentInfoType": {
+      "enum": [
+        "tail",
+        "bundle"
+      ],
+      "type": "string"
+    },
+    "EnvironmentLink": {
+      "description": "A link to another environment, defined in the environment's manifest. Links provide connection information in system properties that can be used to connect to another environment in the same group. See <a href=\"http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-cfg-manifest.html\">Environment Manifest (env.yaml)</a> for details.",
+      "properties": {
+        "EnvironmentName": {
+          "$ref": "#/definitions/String",
+          "description": "The name of the linked environment (the dependency)."
+        },
+        "LinkName": {
+          "$ref": "#/definitions/String",
+          "description": "The name of the link."
+        }
+      },
+      "type": "object"
+    },
+    "EnvironmentLinks": {
+      "items": {
+        "$ref": "#/definitions/EnvironmentLink"
+      },
+      "type": "array"
+    },
+    "EnvironmentName": {
+      "maxLength": 40,
+      "minLength": 4,
+      "type": "string"
+    },
+    "EnvironmentNamesList": {
+      "items": {
+        "$ref": "#/definitions/EnvironmentName"
+      },
+      "type": "array"
+    },
+    "EnvironmentResourceDescription": {
+      "description": "Describes the AWS resources in use by this environment. This data is live.",
+      "properties": {
+        "AutoScalingGroups": {
+          "$ref": "#/definitions/AutoScalingGroupList",
+          "description": " The <code>AutoScalingGroups</code> used by this environment. "
+        },
+        "EnvironmentName": {
+          "$ref": "#/definitions/EnvironmentName",
+          "description": "The name of the environment."
+        },
+        "Instances": {
+          "$ref": "#/definitions/InstanceList",
+          "description": "The Amazon EC2 instances used by this environment."
+        },
+        "LaunchConfigurations": {
+          "$ref": "#/definitions/LaunchConfigurationList",
+          "description": "The Auto Scaling launch configurations in use by this environment."
+        },
+        "LoadBalancers": {
+          "$ref": "#/definitions/LoadBalancerList",
+          "description": "The LoadBalancers in use by this environment."
+        },
+        "Queues": {
+          "$ref": "#/definitions/QueueList",
+          "description": "The queues used by this environment."
+        },
+        "Triggers": {
+          "$ref": "#/definitions/TriggerList",
+          "description": "The <code>AutoScaling</code> triggers in use by this environment. "
+        }
+      },
+      "type": "object"
+    },
+    "EnvironmentResourceDescriptionsMessage": {
+      "description": "Result message containing a list of environment resource descriptions.",
+      "example": {
+        "EnvironmentResources": {
+          "AutoScalingGroups": [
+            {
+              "Name": "awseb-e-qu3fyyjyjs-stack-AWSEBAutoScalingGroup-QSB2ZO88SXZT"
+            }
+          ],
+          "EnvironmentName": "my-env",
+          "Instances": [
+            {
+              "Id": "i-0c91c786"
+            }
+          ],
+          "LaunchConfigurations": [
+            {
+              "Name": "awseb-e-qu3fyyjyjs-stack-AWSEBAutoScalingLaunchConfiguration-1UUVQIBC96TQ2"
+            }
+          ],
+          "LoadBalancers": [
+            {
+              "Name": "awseb-e-q-AWSEBLoa-1EEPZ0K98BIF0"
+            }
+          ],
+          "Queues": [],
+          "Triggers": []
+        }
+      },
+      "properties": {
+        "EnvironmentResources": {
+          "$ref": "#/definitions/EnvironmentResourceDescription",
+          "description": " A list of <a>EnvironmentResourceDescription</a>. "
+        }
+      },
+      "type": "object"
+    },
+    "EnvironmentResourcesDescription": {
+      "description": "Describes the AWS resources in use by this environment. This data is not live data.",
+      "properties": {
+        "LoadBalancer": {
+          "$ref": "#/definitions/LoadBalancerDescription",
+          "description": "Describes the LoadBalancer."
+        }
+      },
+      "type": "object"
+    },
+    "EnvironmentStatus": {
+      "enum": [
+        "Launching",
+        "Updating",
+        "Ready",
+        "Terminating",
+        "Terminated"
+      ],
+      "type": "string"
+    },
+    "EnvironmentTier": {
+      "description": "Describes the properties of an environment tier",
+      "properties": {
+        "Name": {
+          "$ref": "#/definitions/String",
+          "description": "The name of this environment tier."
+        },
+        "Type": {
+          "$ref": "#/definitions/String",
+          "description": "The type of this environment tier."
+        },
+        "Version": {
+          "$ref": "#/definitions/String",
+          "description": "The version of this environment tier."
+        }
+      },
+      "type": "object"
+    },
+    "EventDate": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "EventDescription": {
+      "description": "Describes an event.",
+      "properties": {
+        "ApplicationName": {
+          "$ref": "#/definitions/ApplicationName",
+          "description": "The application associated with the event."
+        },
+        "EnvironmentName": {
+          "$ref": "#/definitions/EnvironmentName",
+          "description": "The name of the environment associated with this event."
+        },
+        "EventDate": {
+          "$ref": "#/definitions/EventDate",
+          "description": "The date when the event occurred."
+        },
+        "Message": {
+          "$ref": "#/definitions/EventMessage",
+          "description": "The event message."
+        },
+        "PlatformArn": {
+          "$ref": "#/definitions/PlatformArn",
+          "description": "The ARN of the custom platform."
+        },
+        "RequestId": {
+          "$ref": "#/definitions/RequestId",
+          "description": "The web service request ID for the activity of this event."
+        },
+        "Severity": {
+          "$ref": "#/definitions/EventSeverity",
+          "description": "The severity level of this event."
+        },
+        "TemplateName": {
+          "$ref": "#/definitions/ConfigurationTemplateName",
+          "description": "The name of the configuration associated with this event."
+        },
+        "VersionLabel": {
+          "$ref": "#/definitions/VersionLabel",
+          "description": "The release label for the application version associated with this event."
+        }
+      },
+      "type": "object"
+    },
+    "EventDescriptionList": {
+      "items": {
+        "$ref": "#/definitions/EventDescription"
+      },
+      "type": "array"
+    },
+    "EventDescriptionsMessage": {
+      "description": "Result message wrapping a list of event descriptions.",
+      "example": {
+        "Events": [
+          {
+            "ApplicationName": "my-app",
+            "EnvironmentName": "my-env",
+            "EventDate": "2015-08-20T07:06:53.535Z",
+            "Message": "Environment health has transitioned from Info to Ok.",
+            "Severity": "INFO"
+          },
+          {
+            "ApplicationName": "my-app",
+            "EnvironmentName": "my-env",
+            "EventDate": "2015-08-20T07:06:02.049Z",
+            "Message": "Environment update completed successfully.",
+            "RequestId": "b7f3960b-4709-11e5-ba1e-07e16200da41",
+            "Severity": "INFO"
+          },
+          {
+            "ApplicationName": "my-app",
+            "EnvironmentName": "my-env",
+            "EventDate": "2015-08-13T19:16:27.561Z",
+            "Message": "Using elasticbeanstalk-us-west-2-012445113685 as Amazon S3 storage bucket for environment data.",
+            "RequestId": "ca8dfbf6-41ef-11e5-988b-651aa638f46b",
+            "Severity": "INFO"
+          },
+          {
+            "ApplicationName": "my-app",
+            "EnvironmentName": "my-env",
+            "EventDate": "2015-08-13T19:16:26.581Z",
+            "Message": "createEnvironment is starting.",
+            "RequestId": "cdfba8f6-41ef-11e5-988b-65638f41aa6b",
+            "Severity": "INFO"
+          }
+        ]
+      },
+      "properties": {
+        "Events": {
+          "$ref": "#/definitions/EventDescriptionList",
+          "description": " A list of <a>EventDescription</a>. "
+        },
+        "NextToken": {
+          "$ref": "#/definitions/Token",
+          "description": " If returned, this indicates that there are more results to obtain. Use this token in the next <a>DescribeEvents</a> call to get the next batch of events. "
+        }
+      },
+      "type": "object"
+    },
+    "EventMessage": {
+      "type": "string"
+    },
+    "EventSeverity": {
+      "enum": [
+        "TRACE",
+        "DEBUG",
+        "INFO",
+        "WARN",
+        "ERROR",
+        "FATAL"
+      ],
+      "type": "string"
+    },
+    "ExceptionMessage": {
+      "type": "string"
+    },
+    "FailureType": {
+      "enum": [
+        "UpdateCancelled",
+        "CancellationFailed",
+        "RollbackFailed",
+        "RollbackSuccessful",
+        "InternalFailure",
+        "InvalidEnvironmentState",
+        "PermissionsError"
+      ],
+      "type": "string"
+    },
+    "FileTypeExtension": {
+      "maxLength": 100,
+      "minLength": 1,
+      "type": "string"
+    },
+    "ForceTerminate": {
+      "type": "boolean"
+    },
+    "GroupName": {
+      "maxLength": 19,
+      "minLength": 1,
+      "type": "string"
+    },
+    "ImageId": {
+      "type": "string"
+    },
+    "IncludeDeleted": {
+      "type": "boolean"
+    },
+    "IncludeDeletedBackTo": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "Instance": {
+      "description": "The description of an Amazon EC2 instance.",
+      "properties": {
+        "Id": {
+          "$ref": "#/definitions/ResourceId",
+          "description": "The ID of the Amazon EC2 instance."
+        }
+      },
+      "type": "object"
+    },
+    "InstanceHealthList": {
+      "items": {
+        "$ref": "#/definitions/SingleInstanceHealth"
+      },
+      "type": "array"
+    },
+    "InstanceHealthSummary": {
+      "description": "Represents summary information about the health of an instance. For more information, see <a href=\"http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html\">Health Colors and Statuses</a>.",
+      "properties": {
+        "Degraded": {
+          "$ref": "#/definitions/NullableInteger",
+          "description": " <b>Red.</b> The health agent is reporting a high number of request failures or other issues for an instance or environment."
+        },
+        "Info": {
+          "$ref": "#/definitions/NullableInteger",
+          "description": " <b>Green.</b> An operation is in progress on an instance."
+        },
+        "NoData": {
+          "$ref": "#/definitions/NullableInteger",
+          "description": " <b>Grey.</b> AWS Elastic Beanstalk and the health agent are reporting no data on an instance."
+        },
+        "Ok": {
+          "$ref": "#/definitions/NullableInteger",
+          "description": " <b>Green.</b> An instance is passing health checks and the health agent is not reporting any problems."
+        },
+        "Pending": {
+          "$ref": "#/definitions/NullableInteger",
+          "description": " <b>Grey.</b> An operation is in progress on an instance within the command timeout."
+        },
+        "Severe": {
+          "$ref": "#/definitions/NullableInteger",
+          "description": " <b>Red.</b> The health agent is reporting a very high number of request failures or other issues for an instance or environment."
+        },
+        "Unknown": {
+          "$ref": "#/definitions/NullableInteger",
+          "description": " <b>Grey.</b> AWS Elastic Beanstalk and the health agent are reporting an insufficient amount of data on an instance."
+        },
+        "Warning": {
+          "$ref": "#/definitions/NullableInteger",
+          "description": " <b>Yellow.</b> The health agent is reporting a moderate number of request failures or other issues for an instance or environment."
+        }
+      },
+      "type": "object"
+    },
+    "InstanceId": {
+      "maxLength": 255,
+      "minLength": 1,
+      "type": "string"
+    },
+    "InstanceList": {
+      "items": {
+        "$ref": "#/definitions/Instance"
+      },
+      "type": "array"
+    },
+    "InstancesHealthAttribute": {
+      "enum": [
+        "HealthStatus",
+        "Color",
+        "Causes",
+        "ApplicationMetrics",
+        "RefreshedAt",
+        "LaunchedAt",
+        "System",
+        "Deployment",
+        "AvailabilityZone",
+        "InstanceType",
+        "All"
+      ],
+      "type": "string"
+    },
+    "InstancesHealthAttributes": {
+      "items": {
+        "$ref": "#/definitions/InstancesHealthAttribute"
+      },
+      "type": "array"
+    },
+    "InsufficientPrivilegesException": {
+      "description": "The specified account does not have sufficient privileges for one of more AWS services.",
+      "properties": {},
+      "type": "object"
+    },
+    "Integer": {
+      "type": "integer"
+    },
+    "InvalidRequestException": {
+      "description": "One or more input parameters is not valid. Please correct the input parameters and try the operation again.",
+      "properties": {},
+      "type": "object"
+    },
+    "Latency": {
+      "description": "Represents the average latency for the slowest X percent of requests over the last 10 seconds.",
+      "properties": {
+        "P10": {
+          "$ref": "#/definitions/NullableDouble",
+          "description": "The average latency for the slowest 90 percent of requests over the last 10 seconds."
+        },
+        "P50": {
+          "$ref": "#/definitions/NullableDouble",
+          "description": "The average latency for the slowest 50 percent of requests over the last 10 seconds."
+        },
+        "P75": {
+          "$ref": "#/definitions/NullableDouble",
+          "description": "The average latency for the slowest 25 percent of requests over the last 10 seconds."
+        },
+        "P85": {
+          "$ref": "#/definitions/NullableDouble",
+          "description": "The average latency for the slowest 15 percent of requests over the last 10 seconds."
+        },
+        "P90": {
+          "$ref": "#/definitions/NullableDouble",
+          "description": "The average latency for the slowest 10 percent of requests over the last 10 seconds."
+        },
+        "P95": {
+          "$ref": "#/definitions/NullableDouble",
+          "description": "The average latency for the slowest 5 percent of requests over the last 10 seconds."
+        },
+        "P99": {
+          "$ref": "#/definitions/NullableDouble",
+          "description": "The average latency for the slowest 1 percent of requests over the last 10 seconds."
+        },
+        "P999": {
+          "$ref": "#/definitions/NullableDouble",
+          "description": "The average latency for the slowest 0.1 percent of requests over the last 10 seconds."
+        }
+      },
+      "type": "object"
+    },
+    "LaunchConfiguration": {
+      "description": "Describes an Auto Scaling launch configuration.",
+      "properties": {
+        "Name": {
+          "$ref": "#/definitions/ResourceId",
+          "description": "The name of the launch configuration."
+        }
+      },
+      "type": "object"
+    },
+    "LaunchConfigurationList": {
+      "items": {
+        "$ref": "#/definitions/LaunchConfiguration"
+      },
+      "type": "array"
+    },
+    "LaunchedAt": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "ListAvailableSolutionStacksResultMessage": {
+      "description": "A list of available AWS Elastic Beanstalk solution stacks.",
+      "example": {
+        "SolutionStackDetails": [
+          {
+            "PermittedFileTypes": [
+              "zip"
+            ],
+            "SolutionStackName": "64bit Amazon Linux 2015.03 v2.0.0 running Node.js"
+          }
+        ],
+        "SolutionStacks": [
+          "64bit Amazon Linux 2015.03 v2.0.0 running Node.js",
+          "64bit Amazon Linux 2015.03 v2.0.0 running PHP 5.6",
+          "64bit Amazon Linux 2015.03 v2.0.0 running PHP 5.5",
+          "64bit Amazon Linux 2015.03 v2.0.0 running PHP 5.4",
+          "64bit Amazon Linux 2015.03 v2.0.0 running Python 3.4",
+          "64bit Amazon Linux 2015.03 v2.0.0 running Python 2.7",
+          "64bit Amazon Linux 2015.03 v2.0.0 running Python",
+          "64bit Amazon Linux 2015.03 v2.0.0 running Ruby 2.2 (Puma)",
+          "64bit Amazon Linux 2015.03 v2.0.0 running Ruby 2.2 (Passenger Standalone)",
+          "64bit Amazon Linux 2015.03 v2.0.0 running Ruby 2.1 (Puma)",
+          "64bit Amazon Linux 2015.03 v2.0.0 running Ruby 2.1 (Passenger Standalone)",
+          "64bit Amazon Linux 2015.03 v2.0.0 running Ruby 2.0 (Puma)",
+          "64bit Amazon Linux 2015.03 v2.0.0 running Ruby 2.0 (Passenger Standalone)",
+          "64bit Amazon Linux 2015.03 v2.0.0 running Ruby 1.9.3",
+          "64bit Amazon Linux 2015.03 v2.0.0 running Tomcat 8 Java 8",
+          "64bit Amazon Linux 2015.03 v2.0.0 running Tomcat 7 Java 7",
+          "64bit Amazon Linux 2015.03 v2.0.0 running Tomcat 7 Java 6",
+          "64bit Windows Server Core 2012 R2 running IIS 8.5",
+          "64bit Windows Server 2012 R2 running IIS 8.5",
+          "64bit Windows Server 2012 running IIS 8",
+          "64bit Windows Server 2008 R2 running IIS 7.5",
+          "64bit Amazon Linux 2015.03 v2.0.0 running Docker 1.6.2",
+          "64bit Amazon Linux 2015.03 v2.0.0 running Multi-container Docker 1.6.2 (Generic)",
+          "64bit Debian jessie v2.0.0 running GlassFish 4.1 Java 8 (Preconfigured - Docker)",
+          "64bit Debian jessie v2.0.0 running GlassFish 4.0 Java 7 (Preconfigured - Docker)",
+          "64bit Debian jessie v2.0.0 running Go 1.4 (Preconfigured - Docker)",
+          "64bit Debian jessie v2.0.0 running Go 1.3 (Preconfigured - Docker)",
+          "64bit Debian jessie v2.0.0 running Python 3.4 (Preconfigured - Docker)"
+        ]
+      },
+      "properties": {
+        "SolutionStackDetails": {
+          "$ref": "#/definitions/AvailableSolutionStackDetailsList",
+          "description": " A list of available solution stacks and their <a>SolutionStackDescription</a>. "
+        },
+        "SolutionStacks": {
+          "$ref": "#/definitions/AvailableSolutionStackNamesList",
+          "description": "A list of available solution stacks."
+        }
+      },
+      "type": "object"
+    },
+    "ListPlatformVersionsRequest": {
+      "properties": {
+        "Filters": {
+          "$ref": "#/definitions/PlatformFilters",
+          "description": "List only the platforms where the platform member value relates to one of the supplied values."
+        },
+        "MaxRecords": {
+          "$ref": "#/definitions/PlatformMaxRecords",
+          "description": "The maximum number of platform values returned in one call."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/Token",
+          "description": "The starting index into the remaining list of platforms. Use the <code>NextToken</code> value from a previous <code>ListPlatformVersion</code> call."
+        }
+      },
+      "type": "object"
+    },
+    "ListPlatformVersionsResult": {
+      "properties": {
+        "NextToken": {
+          "$ref": "#/definitions/Token",
+          "description": "The starting index into the remaining list of platforms. if this value is not <code>null</code>, you can use it in a subsequent <code>ListPlatformVersion</code> call. "
+        },
+        "PlatformSummaryList": {
+          "$ref": "#/definitions/PlatformSummaryList",
+          "description": "Detailed information about the platforms."
+        }
+      },
+      "type": "object"
+    },
+    "Listener": {
+      "description": "Describes the properties of a Listener for the LoadBalancer.",
+      "properties": {
+        "Port": {
+          "$ref": "#/definitions/Integer",
+          "description": "The port that is used by the Listener."
+        },
+        "Protocol": {
+          "$ref": "#/definitions/String",
+          "description": "The protocol that is used by the Listener."
+        }
+      },
+      "type": "object"
+    },
+    "LoadAverage": {
+      "items": {
+        "$ref": "#/definitions/LoadAverageValue"
+      },
+      "type": "array"
+    },
+    "LoadAverageValue": {
+      "format": "double",
+      "type": "number"
+    },
+    "LoadBalancer": {
+      "description": "Describes a LoadBalancer.",
+      "properties": {
+        "Name": {
+          "$ref": "#/definitions/ResourceId",
+          "description": "The name of the LoadBalancer."
+        }
+      },
+      "type": "object"
+    },
+    "LoadBalancerDescription": {
+      "description": "Describes the details of a LoadBalancer.",
+      "properties": {
+        "Domain": {
+          "$ref": "#/definitions/String",
+          "description": "The domain name of the LoadBalancer."
+        },
+        "Listeners": {
+          "$ref": "#/definitions/LoadBalancerListenersDescription",
+          "description": "A list of Listeners used by the LoadBalancer."
+        },
+        "LoadBalancerName": {
+          "$ref": "#/definitions/String",
+          "description": "The name of the LoadBalancer."
+        }
+      },
+      "type": "object"
+    },
+    "LoadBalancerList": {
+      "items": {
+        "$ref": "#/definitions/LoadBalancer"
+      },
+      "type": "array"
+    },
+    "LoadBalancerListenersDescription": {
+      "items": {
+        "$ref": "#/definitions/Listener"
+      },
+      "type": "array"
+    },
+    "Maintainer": {
+      "type": "string"
+    },
+    "ManagedAction": {
+      "description": "The record of an upcoming or in-progress managed action.",
+      "properties": {
+        "ActionDescription": {
+          "$ref": "#/definitions/String",
+          "description": "A description of the managed action."
+        },
+        "ActionId": {
+          "$ref": "#/definitions/String",
+          "description": "A unique identifier for the managed action."
+        },
+        "ActionType": {
+          "$ref": "#/definitions/ActionType",
+          "description": "The type of managed action."
+        },
+        "Status": {
+          "$ref": "#/definitions/ActionStatus",
+          "description": "The status of the managed action. If the action is <code>Scheduled</code>, you can apply it immediately with <a>ApplyEnvironmentManagedAction</a>."
+        },
+        "WindowStartTime": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The start time of the maintenance window in which the managed action will execute."
+        }
+      },
+      "type": "object"
+    },
+    "ManagedActionHistoryItem": {
+      "description": "The record of a completed or failed managed action.",
+      "properties": {
+        "ActionDescription": {
+          "$ref": "#/definitions/String",
+          "description": "A description of the managed action."
+        },
+        "ActionId": {
+          "$ref": "#/definitions/String",
+          "description": "A unique identifier for the managed action."
+        },
+        "ActionType": {
+          "$ref": "#/definitions/ActionType",
+          "description": "The type of the managed action."
+        },
+        "ExecutedTime": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The date and time that the action started executing."
+        },
+        "FailureDescription": {
+          "$ref": "#/definitions/String",
+          "description": "If the action failed, a description of the failure."
+        },
+        "FailureType": {
+          "$ref": "#/definitions/FailureType",
+          "description": "If the action failed, the type of failure."
+        },
+        "FinishedTime": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The date and time that the action finished executing."
+        },
+        "Status": {
+          "$ref": "#/definitions/ActionHistoryStatus",
+          "description": "The status of the action."
+        }
+      },
+      "type": "object"
+    },
+    "ManagedActionHistoryItems": {
+      "items": {
+        "$ref": "#/definitions/ManagedActionHistoryItem"
+      },
+      "maxItems": 100,
+      "minItems": 1,
+      "type": "array"
+    },
+    "ManagedActionInvalidStateException": {
+      "description": "Cannot modify the managed action in its current state.",
+      "properties": {},
+      "type": "object"
+    },
+    "ManagedActions": {
+      "items": {
+        "$ref": "#/definitions/ManagedAction"
+      },
+      "maxItems": 100,
+      "minItems": 1,
+      "type": "array"
+    },
+    "MaxAgeRule": {
+      "description": "A lifecycle rule that deletes application versions after the specified number of days.",
+      "properties": {
+        "DeleteSourceFromS3": {
+          "$ref": "#/definitions/BoxedBoolean",
+          "description": "Set to <code>true</code> to delete a version's source bundle from Amazon S3 when Elastic Beanstalk deletes the application version."
+        },
+        "Enabled": {
+          "$ref": "#/definitions/BoxedBoolean",
+          "description": "Specify <code>true</code> to apply the rule, or <code>false</code> to disable it."
+        },
+        "MaxAgeInDays": {
+          "$ref": "#/definitions/BoxedInt",
+          "description": "Specify the number of days to retain an application versions."
+        }
+      },
+      "required": [
+        "Enabled"
+      ],
+      "type": "object"
+    },
+    "MaxCountRule": {
+      "description": "A lifecycle rule that deletes the oldest application version when the maximum count is exceeded.",
+      "properties": {
+        "DeleteSourceFromS3": {
+          "$ref": "#/definitions/BoxedBoolean",
+          "description": "Set to <code>true</code> to delete a version's source bundle from Amazon S3 when Elastic Beanstalk deletes the application version."
+        },
+        "Enabled": {
+          "$ref": "#/definitions/BoxedBoolean",
+          "description": "Specify <code>true</code> to apply the rule, or <code>false</code> to disable it."
+        },
+        "MaxCount": {
+          "$ref": "#/definitions/BoxedInt",
+          "description": "Specify the maximum number of application versions to retain."
+        }
+      },
+      "required": [
+        "Enabled"
+      ],
+      "type": "object"
+    },
+    "MaxRecords": {
+      "maximum": 1000,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "Message": {
+      "type": "string"
+    },
+    "NextToken": {
+      "maxLength": 100,
+      "minLength": 1,
+      "type": "string"
+    },
+    "NonEmptyString": {
+      "pattern": ".*\\S.*",
+      "type": "string"
+    },
+    "NullableDouble": {
+      "format": "double",
+      "type": "number"
+    },
+    "NullableInteger": {
+      "type": "integer"
+    },
+    "NullableLong": {
+      "type": "integer"
+    },
+    "OperatingSystemName": {
+      "type": "string"
+    },
+    "OperatingSystemVersion": {
+      "type": "string"
+    },
+    "OperationInProgressException": {
+      "description": "Unable to perform the specified operation because another operation that effects an element in this activity is already in progress.",
+      "properties": {},
+      "type": "object"
+    },
+    "OptionNamespace": {
+      "type": "string"
+    },
+    "OptionRestrictionMaxLength": {
+      "type": "integer"
+    },
+    "OptionRestrictionMaxValue": {
+      "type": "integer"
+    },
+    "OptionRestrictionMinValue": {
+      "type": "integer"
+    },
+    "OptionRestrictionRegex": {
+      "description": "A regular expression representing a restriction on a string configuration option value.",
+      "properties": {
+        "Label": {
+          "$ref": "#/definitions/RegexLabel",
+          "description": "A unique name representing this regular expression."
+        },
+        "Pattern": {
+          "$ref": "#/definitions/RegexPattern",
+          "description": "The regular expression pattern that a string configuration option value with this restriction must match."
+        }
+      },
+      "type": "object"
+    },
+    "OptionSpecification": {
+      "description": "A specification identifying an individual configuration option.",
+      "properties": {
+        "Namespace": {
+          "$ref": "#/definitions/OptionNamespace",
+          "description": "A unique namespace identifying the option's associated AWS resource."
+        },
+        "OptionName": {
+          "$ref": "#/definitions/ConfigurationOptionName",
+          "description": "The name of the configuration option."
+        },
+        "ResourceName": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "A unique resource name for a time-based scaling configuration option."
+        }
+      },
+      "type": "object"
+    },
+    "OptionsSpecifierList": {
+      "items": {
+        "$ref": "#/definitions/OptionSpecification"
+      },
+      "type": "array"
+    },
+    "PlatformArn": {
+      "type": "string"
+    },
+    "PlatformCategory": {
+      "type": "string"
+    },
+    "PlatformDescription": {
+      "description": "Detailed information about a platform.",
+      "properties": {
+        "CustomAmiList": {
+          "$ref": "#/definitions/CustomAmiList",
+          "description": "The custom AMIs supported by the platform."
+        },
+        "DateCreated": {
+          "$ref": "#/definitions/CreationDate",
+          "description": "The date when the platform was created."
+        },
+        "DateUpdated": {
+          "$ref": "#/definitions/UpdateDate",
+          "description": "The date when the platform was last updated."
+        },
+        "Description": {
+          "$ref": "#/definitions/Description",
+          "description": "The description of the platform."
+        },
+        "Frameworks": {
+          "$ref": "#/definitions/PlatformFrameworks",
+          "description": "The frameworks supported by the platform."
+        },
+        "Maintainer": {
+          "$ref": "#/definitions/Maintainer",
+          "description": "Information about the maintainer of the platform."
+        },
+        "OperatingSystemName": {
+          "$ref": "#/definitions/OperatingSystemName",
+          "description": "The operating system used by the platform."
+        },
+        "OperatingSystemVersion": {
+          "$ref": "#/definitions/OperatingSystemVersion",
+          "description": "The version of the operating system used by the platform."
+        },
+        "PlatformArn": {
+          "$ref": "#/definitions/PlatformArn",
+          "description": "The ARN of the platform."
+        },
+        "PlatformCategory": {
+          "$ref": "#/definitions/PlatformCategory",
+          "description": "The category of the platform."
+        },
+        "PlatformName": {
+          "$ref": "#/definitions/PlatformName",
+          "description": "The name of the platform."
+        },
+        "PlatformOwner": {
+          "$ref": "#/definitions/PlatformOwner",
+          "description": "The AWS account ID of the person who created the platform."
+        },
+        "PlatformStatus": {
+          "$ref": "#/definitions/PlatformStatus",
+          "description": "The status of the platform."
+        },
+        "PlatformVersion": {
+          "$ref": "#/definitions/PlatformVersion",
+          "description": "The version of the platform."
+        },
+        "ProgrammingLanguages": {
+          "$ref": "#/definitions/PlatformProgrammingLanguages",
+          "description": "The programming languages supported by the platform."
+        },
+        "SolutionStackName": {
+          "$ref": "#/definitions/SolutionStackName",
+          "description": "The name of the solution stack used by the platform."
+        },
+        "SupportedAddonList": {
+          "$ref": "#/definitions/SupportedAddonList",
+          "description": "The additions supported by the platform."
+        },
+        "SupportedTierList": {
+          "$ref": "#/definitions/SupportedTierList",
+          "description": "The tiers supported by the platform."
+        }
+      },
+      "type": "object"
+    },
+    "PlatformFilter": {
+      "description": "<p>Specify criteria to restrict the results when listing custom platforms.</p> <p>The filter is evaluated as the expression:</p> <p> <code>Type</code> <code>Operator</code> <code>Values[i]</code> </p>",
+      "properties": {
+        "Operator": {
+          "$ref": "#/definitions/PlatformFilterOperator",
+          "description": "<p>The operator to apply to the <code>Type</code> with each of the <code>Values</code>.</p> <p> Valid Values: <code>=</code> (equal to) | <code>!=</code> (not equal to) | <code>&lt;</code> (less than) | <code>&lt;=</code> (less than or equal to) | <code>&gt;</code> (greater than) | <code>&gt;=</code> (greater than or equal to) | <code>contains</code> | <code>begins_with</code> | <code>ends_with</code> </p>"
+        },
+        "Type": {
+          "$ref": "#/definitions/PlatformFilterType",
+          "description": "<p>The custom platform attribute to which the filter values are applied.</p> <p>Valid Values: <code>PlatformName</code> | <code>PlatformVersion</code> | <code>PlatformStatus</code> | <code>PlatformOwner</code> </p>"
+        },
+        "Values": {
+          "$ref": "#/definitions/PlatformFilterValueList",
+          "description": "The list of values applied to the custom platform attribute."
+        }
+      },
+      "type": "object"
+    },
+    "PlatformFilterOperator": {
+      "type": "string"
+    },
+    "PlatformFilterType": {
+      "type": "string"
+    },
+    "PlatformFilterValue": {
+      "type": "string"
+    },
+    "PlatformFilterValueList": {
+      "items": {
+        "$ref": "#/definitions/PlatformFilterValue"
+      },
+      "type": "array"
+    },
+    "PlatformFilters": {
+      "items": {
+        "$ref": "#/definitions/PlatformFilter"
+      },
+      "type": "array"
+    },
+    "PlatformFramework": {
+      "description": "A framework supported by the custom platform.",
+      "properties": {
+        "Name": {
+          "$ref": "#/definitions/String",
+          "description": "The name of the framework."
+        },
+        "Version": {
+          "$ref": "#/definitions/String",
+          "description": "The version of the framework."
+        }
+      },
+      "type": "object"
+    },
+    "PlatformFrameworks": {
+      "items": {
+        "$ref": "#/definitions/PlatformFramework"
+      },
+      "type": "array"
+    },
+    "PlatformMaxRecords": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "PlatformName": {
+      "type": "string"
+    },
+    "PlatformOwner": {
+      "type": "string"
+    },
+    "PlatformProgrammingLanguage": {
+      "description": "A programming language supported by the platform.",
+      "properties": {
+        "Name": {
+          "$ref": "#/definitions/String",
+          "description": "The name of the programming language."
+        },
+        "Version": {
+          "$ref": "#/definitions/String",
+          "description": "The version of the programming language."
+        }
+      },
+      "type": "object"
+    },
+    "PlatformProgrammingLanguages": {
+      "items": {
+        "$ref": "#/definitions/PlatformProgrammingLanguage"
+      },
+      "type": "array"
+    },
+    "PlatformStatus": {
+      "enum": [
+        "Creating",
+        "Failed",
+        "Ready",
+        "Deleting",
+        "Deleted"
+      ],
+      "type": "string"
+    },
+    "PlatformSummary": {
+      "description": "Detailed information about a platform.",
+      "properties": {
+        "OperatingSystemName": {
+          "$ref": "#/definitions/OperatingSystemName",
+          "description": "The operating system used by the platform."
+        },
+        "OperatingSystemVersion": {
+          "$ref": "#/definitions/OperatingSystemVersion",
+          "description": "The version of the operating system used by the platform."
+        },
+        "PlatformArn": {
+          "$ref": "#/definitions/PlatformArn",
+          "description": "The ARN of the platform."
+        },
+        "PlatformCategory": {
+          "$ref": "#/definitions/PlatformCategory",
+          "description": "The category of platform."
+        },
+        "PlatformOwner": {
+          "$ref": "#/definitions/PlatformOwner",
+          "description": "The AWS account ID of the person who created the platform."
+        },
+        "PlatformStatus": {
+          "$ref": "#/definitions/PlatformStatus",
+          "description": "The status of the platform. You can create an environment from the platform once it is ready."
+        },
+        "SupportedAddonList": {
+          "$ref": "#/definitions/SupportedAddonList",
+          "description": "The additions associated with the platform."
+        },
+        "SupportedTierList": {
+          "$ref": "#/definitions/SupportedTierList",
+          "description": "The tiers in which the platform runs."
+        }
+      },
+      "type": "object"
+    },
+    "PlatformSummaryList": {
+      "items": {
+        "$ref": "#/definitions/PlatformSummary"
+      },
+      "type": "array"
+    },
+    "PlatformVersion": {
+      "type": "string"
+    },
+    "PlatformVersionStillReferencedException": {
+      "description": "You cannot delete the platform version because there are still environments running on it.",
+      "properties": {},
+      "type": "object"
+    },
+    "Queue": {
+      "description": "Describes a queue.",
+      "properties": {
+        "Name": {
+          "$ref": "#/definitions/String",
+          "description": "The name of the queue."
+        },
+        "URL": {
+          "$ref": "#/definitions/String",
+          "description": "The URL of the queue."
+        }
+      },
+      "type": "object"
+    },
+    "QueueList": {
+      "items": {
+        "$ref": "#/definitions/Queue"
+      },
+      "type": "array"
+    },
+    "RebuildEnvironmentMessage": {
+      "description": "<p/>",
+      "example": {
+        "EnvironmentName": "my-env"
+      },
+      "properties": {
+        "EnvironmentId": {
+          "$ref": "#/definitions/EnvironmentId",
+          "description": "<p>The ID of the environment to rebuild.</p> <p> Condition: You must specify either this or an EnvironmentName, or both. If you do not specify either, AWS Elastic Beanstalk returns <code>MissingRequiredParameter</code> error. </p>"
+        },
+        "EnvironmentName": {
+          "$ref": "#/definitions/EnvironmentName",
+          "description": "<p>The name of the environment to rebuild.</p> <p> Condition: You must specify either this or an EnvironmentId, or both. If you do not specify either, AWS Elastic Beanstalk returns <code>MissingRequiredParameter</code> error. </p>"
+        }
+      },
+      "type": "object"
+    },
+    "RefreshedAt": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "RegexLabel": {
+      "type": "string"
+    },
+    "RegexPattern": {
+      "type": "string"
+    },
+    "RequestCount": {
+      "type": "integer"
+    },
+    "RequestEnvironmentInfoMessage": {
+      "description": "Request to retrieve logs from an environment and store them in your Elastic Beanstalk storage bucket.",
+      "example": {
+        "EnvironmentName": "my-env",
+        "InfoType": "tail"
+      },
+      "properties": {
+        "EnvironmentId": {
+          "$ref": "#/definitions/EnvironmentId",
+          "description": "<p>The ID of the environment of the requested data.</p> <p>If no such environment is found, <code>RequestEnvironmentInfo</code> returns an <code>InvalidParameterValue</code> error. </p> <p>Condition: You must specify either this or an EnvironmentName, or both. If you do not specify either, AWS Elastic Beanstalk returns <code>MissingRequiredParameter</code> error. </p>"
+        },
+        "EnvironmentName": {
+          "$ref": "#/definitions/EnvironmentName",
+          "description": "<p>The name of the environment of the requested data.</p> <p>If no such environment is found, <code>RequestEnvironmentInfo</code> returns an <code>InvalidParameterValue</code> error. </p> <p>Condition: You must specify either this or an EnvironmentId, or both. If you do not specify either, AWS Elastic Beanstalk returns <code>MissingRequiredParameter</code> error. </p>"
+        },
+        "InfoType": {
+          "$ref": "#/definitions/EnvironmentInfoType",
+          "description": "The type of information to request."
+        }
+      },
+      "required": [
+        "InfoType"
+      ],
+      "type": "object"
+    },
+    "RequestId": {
+      "type": "string"
+    },
+    "ResourceId": {
+      "type": "string"
+    },
+    "ResourceName": {
+      "maxLength": 256,
+      "minLength": 1,
+      "type": "string"
+    },
+    "RestartAppServerMessage": {
+      "description": "<p/>",
+      "example": {
+        "EnvironmentName": "my-env"
+      },
+      "properties": {
+        "EnvironmentId": {
+          "$ref": "#/definitions/EnvironmentId",
+          "description": "<p>The ID of the environment to restart the server for.</p> <p> Condition: You must specify either this or an EnvironmentName, or both. If you do not specify either, AWS Elastic Beanstalk returns <code>MissingRequiredParameter</code> error. </p>"
+        },
+        "EnvironmentName": {
+          "$ref": "#/definitions/EnvironmentName",
+          "description": "<p>The name of the environment to restart the server for.</p> <p> Condition: You must specify either this or an EnvironmentId, or both. If you do not specify either, AWS Elastic Beanstalk returns <code>MissingRequiredParameter</code> error. </p>"
+        }
+      },
+      "type": "object"
+    },
+    "RetrieveEnvironmentInfoMessage": {
+      "description": "Request to download logs retrieved with <a>RequestEnvironmentInfo</a>.",
+      "example": {
+        "EnvironmentName": "my-env",
+        "InfoType": "tail"
+      },
+      "properties": {
+        "EnvironmentId": {
+          "$ref": "#/definitions/EnvironmentId",
+          "description": "<p>The ID of the data's environment.</p> <p>If no such environment is found, returns an <code>InvalidParameterValue</code> error.</p> <p>Condition: You must specify either this or an EnvironmentName, or both. If you do not specify either, AWS Elastic Beanstalk returns <code>MissingRequiredParameter</code> error.</p>"
+        },
+        "EnvironmentName": {
+          "$ref": "#/definitions/EnvironmentName",
+          "description": "<p>The name of the data's environment.</p> <p> If no such environment is found, returns an <code>InvalidParameterValue</code> error. </p> <p> Condition: You must specify either this or an EnvironmentId, or both. If you do not specify either, AWS Elastic Beanstalk returns <code>MissingRequiredParameter</code> error. </p>"
+        },
+        "InfoType": {
+          "$ref": "#/definitions/EnvironmentInfoType",
+          "description": "The type of information to retrieve."
+        }
+      },
+      "required": [
+        "InfoType"
+      ],
+      "type": "object"
+    },
+    "RetrieveEnvironmentInfoResultMessage": {
+      "description": "Result message containing a description of the requested environment info.",
+      "example": {
+        "EnvironmentInfo": [
+          {
+            "Ec2InstanceId": "i-09c1c867",
+            "InfoType": "tail",
+            "Message": "https://elasticbeanstalk-us-west-2-0123456789012.s3.amazonaws.com/resources/environments/logs/tail/e-fyqyju3yjs/i-09c1c867/TailLogs-1440109397703.out?AWSAccessKeyId=AKGPT4J56IAJ2EUBL5CQ&Expires=1440195891&Signature=n%2BEalOV6A2HIOx4Rcfb7LT16bBM%3D",
+            "SampleTimestamp": "2015-08-20T22:23:17.703Z"
+          }
+        ]
+      },
+      "properties": {
+        "EnvironmentInfo": {
+          "$ref": "#/definitions/EnvironmentInfoDescriptionList",
+          "description": " The <a>EnvironmentInfoDescription</a> of the environment. "
+        }
+      },
+      "type": "object"
+    },
+    "S3Bucket": {
+      "maxLength": 255,
+      "type": "string"
+    },
+    "S3Key": {
+      "maxLength": 1024,
+      "type": "string"
+    },
+    "S3Location": {
+      "description": "The bucket and key of an item stored in Amazon S3.",
+      "properties": {
+        "S3Bucket": {
+          "$ref": "#/definitions/S3Bucket",
+          "description": "The Amazon S3 bucket where the data is located."
+        },
+        "S3Key": {
+          "$ref": "#/definitions/S3Key",
+          "description": "The Amazon S3 key where the data is located."
+        }
+      },
+      "type": "object"
+    },
+    "S3LocationNotInServiceRegionException": {
+      "description": "<p>The specified S3 bucket does not belong to the S3 region in which the service is running. The following regions are supported:</p> <ul> <li> <p>IAD/us-east-1</p> </li> <li> <p>PDX/us-west-2</p> </li> <li> <p>DUB/eu-west-1</p> </li> </ul>",
+      "properties": {},
+      "type": "object"
+    },
+    "S3SubscriptionRequiredException": {
+      "description": "The specified account does not have a subscription to Amazon S3.",
+      "properties": {},
+      "type": "object"
+    },
+    "SampleTimestamp": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "SingleInstanceHealth": {
+      "description": "Detailed health information about an Amazon EC2 instance in your Elastic Beanstalk environment.",
+      "properties": {
+        "ApplicationMetrics": {
+          "$ref": "#/definitions/ApplicationMetrics",
+          "description": "Request metrics from your application."
+        },
+        "AvailabilityZone": {
+          "$ref": "#/definitions/String",
+          "description": "The availability zone in which the instance runs."
+        },
+        "Causes": {
+          "$ref": "#/definitions/Causes",
+          "description": "Represents the causes, which provide more information about the current health status."
+        },
+        "Color": {
+          "$ref": "#/definitions/String",
+          "description": "Represents the color indicator that gives you information about the health of the EC2 instance. For more information, see <a href=\"http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html\">Health Colors and Statuses</a>."
+        },
+        "Deployment": {
+          "$ref": "#/definitions/Deployment",
+          "description": "Information about the most recent deployment to an instance."
+        },
+        "HealthStatus": {
+          "$ref": "#/definitions/String",
+          "description": "Returns the health status of the specified instance. For more information, see <a href=\"http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html\">Health Colors and Statuses</a>."
+        },
+        "InstanceId": {
+          "$ref": "#/definitions/InstanceId",
+          "description": "The ID of the Amazon EC2 instance."
+        },
+        "InstanceType": {
+          "$ref": "#/definitions/String",
+          "description": "The instance's type."
+        },
+        "LaunchedAt": {
+          "$ref": "#/definitions/LaunchedAt",
+          "description": "The time at which the EC2 instance was launched."
+        },
+        "System": {
+          "$ref": "#/definitions/SystemStatus",
+          "description": "Operating system metrics from the instance."
+        }
+      },
+      "type": "object"
+    },
+    "SolutionStackDescription": {
+      "description": "Describes the solution stack.",
+      "properties": {
+        "PermittedFileTypes": {
+          "$ref": "#/definitions/SolutionStackFileTypeList",
+          "description": "The permitted file types allowed for a solution stack."
+        },
+        "SolutionStackName": {
+          "$ref": "#/definitions/SolutionStackName",
+          "description": "The name of the solution stack."
+        }
+      },
+      "type": "object"
+    },
+    "SolutionStackFileTypeList": {
+      "items": {
+        "$ref": "#/definitions/FileTypeExtension"
+      },
+      "type": "array"
+    },
+    "SolutionStackName": {
+      "type": "string"
+    },
+    "SourceBuildInformation": {
+      "description": "Location of the source code for an application version.",
+      "properties": {
+        "SourceLocation": {
+          "$ref": "#/definitions/SourceLocation",
+          "description": "<p>The location of the source code, as a formatted string, depending on the value of <code>SourceRepository</code> </p> <ul> <li> <p>For <code>CodeCommit</code>, the format is the repository name and commit ID, separated by a forward slash. For example, <code>my-git-repo/265cfa0cf6af46153527f55d6503ec030551f57a</code>.</p> </li> <li> <p>For <code>S3</code>, the format is the S3 bucket name and object key, separated by a forward slash. For example, <code>my-s3-bucket/Folders/my-source-file</code>.</p> </li> </ul>"
+        },
+        "SourceRepository": {
+          "$ref": "#/definitions/SourceRepository",
+          "description": "<p>Location where the repository is stored.</p> <ul> <li> <p> <code>CodeCommit</code> </p> </li> <li> <p> <code>S3</code> </p> </li> </ul>"
+        },
+        "SourceType": {
+          "$ref": "#/definitions/SourceType",
+          "description": "<p>The type of repository.</p> <ul> <li> <p> <code>Git</code> </p> </li> <li> <p> <code>Zip</code> </p> </li> </ul>"
+        }
+      },
+      "required": [
+        "SourceType",
+        "SourceRepository",
+        "SourceLocation"
+      ],
+      "type": "object"
+    },
+    "SourceBundleDeletionException": {
+      "description": "Unable to delete the Amazon S3 source bundle associated with the application version. The application version was deleted successfully.",
+      "properties": {},
+      "type": "object"
+    },
+    "SourceConfiguration": {
+      "description": "A specification for an environment configuration",
+      "properties": {
+        "ApplicationName": {
+          "$ref": "#/definitions/ApplicationName",
+          "description": "The name of the application associated with the configuration."
+        },
+        "TemplateName": {
+          "$ref": "#/definitions/ConfigurationTemplateName",
+          "description": "The name of the configuration template."
+        }
+      },
+      "type": "object"
+    },
+    "SourceLocation": {
+      "maxLength": 255,
+      "minLength": 3,
+      "pattern": ".+/.+",
+      "type": "string"
+    },
+    "SourceRepository": {
+      "enum": [
+        "CodeCommit",
+        "S3"
+      ],
+      "type": "string"
+    },
+    "SourceType": {
+      "enum": [
+        "Git",
+        "Zip"
+      ],
+      "type": "string"
+    },
+    "StatusCodes": {
+      "description": "Represents the percentage of requests over the last 10 seconds that resulted in each type of status code response. For more information, see <a href=\"http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html\">Status Code Definitions</a>.",
+      "properties": {
+        "Status2xx": {
+          "$ref": "#/definitions/NullableInteger",
+          "description": "The percentage of requests over the last 10 seconds that resulted in a 2xx (200, 201, etc.) status code."
+        },
+        "Status3xx": {
+          "$ref": "#/definitions/NullableInteger",
+          "description": "The percentage of requests over the last 10 seconds that resulted in a 3xx (300, 301, etc.) status code."
+        },
+        "Status4xx": {
+          "$ref": "#/definitions/NullableInteger",
+          "description": "The percentage of requests over the last 10 seconds that resulted in a 4xx (400, 401, etc.) status code."
+        },
+        "Status5xx": {
+          "$ref": "#/definitions/NullableInteger",
+          "description": "The percentage of requests over the last 10 seconds that resulted in a 5xx (500, 501, etc.) status code."
+        }
+      },
+      "type": "object"
+    },
+    "String": {
+      "type": "string"
+    },
+    "SupportedAddon": {
+      "type": "string"
+    },
+    "SupportedAddonList": {
+      "items": {
+        "$ref": "#/definitions/SupportedAddon"
+      },
+      "type": "array"
+    },
+    "SupportedTier": {
+      "type": "string"
+    },
+    "SupportedTierList": {
+      "items": {
+        "$ref": "#/definitions/SupportedTier"
+      },
+      "type": "array"
+    },
+    "SwapEnvironmentCNAMEsMessage": {
+      "description": "Swaps the CNAMEs of two environments.",
+      "example": {
+        "DestinationEnvironmentName": "my-env-green",
+        "SourceEnvironmentName": "my-env-blue"
+      },
+      "properties": {
+        "DestinationEnvironmentId": {
+          "$ref": "#/definitions/EnvironmentId",
+          "description": "<p>The ID of the destination environment.</p> <p> Condition: You must specify at least the <code>DestinationEnvironmentID</code> or the <code>DestinationEnvironmentName</code>. You may also specify both. You must specify the <code>SourceEnvironmentId</code> with the <code>DestinationEnvironmentId</code>. </p>"
+        },
+        "DestinationEnvironmentName": {
+          "$ref": "#/definitions/EnvironmentName",
+          "description": "<p>The name of the destination environment.</p> <p> Condition: You must specify at least the <code>DestinationEnvironmentID</code> or the <code>DestinationEnvironmentName</code>. You may also specify both. You must specify the <code>SourceEnvironmentName</code> with the <code>DestinationEnvironmentName</code>. </p>"
+        },
+        "SourceEnvironmentId": {
+          "$ref": "#/definitions/EnvironmentId",
+          "description": "<p>The ID of the source environment.</p> <p> Condition: You must specify at least the <code>SourceEnvironmentID</code> or the <code>SourceEnvironmentName</code>. You may also specify both. If you specify the <code>SourceEnvironmentId</code>, you must specify the <code>DestinationEnvironmentId</code>. </p>"
+        },
+        "SourceEnvironmentName": {
+          "$ref": "#/definitions/EnvironmentName",
+          "description": "<p>The name of the source environment.</p> <p> Condition: You must specify at least the <code>SourceEnvironmentID</code> or the <code>SourceEnvironmentName</code>. You may also specify both. If you specify the <code>SourceEnvironmentName</code>, you must specify the <code>DestinationEnvironmentName</code>. </p>"
+        }
+      },
+      "type": "object"
+    },
+    "SystemStatus": {
+      "description": "CPU utilization and load average metrics for an Amazon EC2 instance.",
+      "properties": {
+        "CPUUtilization": {
+          "$ref": "#/definitions/CPUUtilization",
+          "description": "CPU utilization metrics for the instance."
+        },
+        "LoadAverage": {
+          "$ref": "#/definitions/LoadAverage",
+          "description": "Load average in the last 1-minute, 5-minute, and 15-minute periods. For more information, see <a href=\"http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-metrics.html#health-enhanced-metrics-os\">Operating System Metrics</a>."
+        }
+      },
+      "type": "object"
+    },
+    "Tag": {
+      "description": "Describes a tag applied to a resource in an environment.",
+      "properties": {
+        "Key": {
+          "$ref": "#/definitions/TagKey",
+          "description": "The key of the tag."
+        },
+        "Value": {
+          "$ref": "#/definitions/TagValue",
+          "description": "The value of the tag."
+        }
+      },
+      "type": "object"
+    },
+    "TagKey": {
+      "maxLength": 128,
+      "minLength": 1,
+      "type": "string"
+    },
+    "TagValue": {
+      "maxLength": 256,
+      "minLength": 1,
+      "type": "string"
+    },
+    "Tags": {
+      "items": {
+        "$ref": "#/definitions/Tag"
+      },
+      "type": "array"
+    },
+    "TerminateEnvForce": {
+      "type": "boolean"
+    },
+    "TerminateEnvironmentMessage": {
+      "description": "Request to terminate an environment.",
+      "example": {
+        "EnvironmentName": "my-env"
+      },
+      "properties": {
+        "EnvironmentId": {
+          "$ref": "#/definitions/EnvironmentId",
+          "description": "<p>The ID of the environment to terminate.</p> <p> Condition: You must specify either this or an EnvironmentName, or both. If you do not specify either, AWS Elastic Beanstalk returns <code>MissingRequiredParameter</code> error. </p>"
+        },
+        "EnvironmentName": {
+          "$ref": "#/definitions/EnvironmentName",
+          "description": "<p>The name of the environment to terminate.</p> <p> Condition: You must specify either this or an EnvironmentId, or both. If you do not specify either, AWS Elastic Beanstalk returns <code>MissingRequiredParameter</code> error. </p>"
+        },
+        "ForceTerminate": {
+          "$ref": "#/definitions/ForceTerminate",
+          "description": "Terminates the target environment even if another environment in the same group is dependent on it."
+        },
+        "TerminateResources": {
+          "$ref": "#/definitions/TerminateEnvironmentResources",
+          "description": "<p>Indicates whether the associated AWS resources should shut down when the environment is terminated:</p> <ul> <li> <p> <code>true</code>: The specified environment as well as the associated AWS resources, such as Auto Scaling group and LoadBalancer, are terminated.</p> </li> <li> <p> <code>false</code>: AWS Elastic Beanstalk resource management is removed from the environment, but the AWS resources continue to operate.</p> </li> </ul> <p> For more information, see the <a href=\"http://docs.aws.amazon.com/elasticbeanstalk/latest/ug/\"> AWS Elastic Beanstalk User Guide. </a> </p> <p> Default: <code>true</code> </p> <p> Valid Values: <code>true</code> | <code>false</code> </p>"
+        }
+      },
+      "type": "object"
+    },
+    "TerminateEnvironmentResources": {
+      "type": "boolean"
+    },
+    "TimeFilterEnd": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "TimeFilterStart": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "Timestamp": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "Token": {
+      "type": "string"
+    },
+    "TooManyApplicationVersionsException": {
+      "description": "The specified account has reached its limit of application versions.",
+      "properties": {},
+      "type": "object"
+    },
+    "TooManyApplicationsException": {
+      "description": "The specified account has reached its limit of applications.",
+      "properties": {},
+      "type": "object"
+    },
+    "TooManyBucketsException": {
+      "description": "The specified account has reached its limit of Amazon S3 buckets.",
+      "properties": {},
+      "type": "object"
+    },
+    "TooManyConfigurationTemplatesException": {
+      "description": "The specified account has reached its limit of configuration templates.",
+      "properties": {},
+      "type": "object"
+    },
+    "TooManyEnvironmentsException": {
+      "description": "The specified account has reached its limit of environments.",
+      "properties": {},
+      "type": "object"
+    },
+    "TooManyPlatformsException": {
+      "description": "You have exceeded the maximum number of allowed platforms associated with the account.",
+      "properties": {},
+      "type": "object"
+    },
+    "Trigger": {
+      "description": "Describes a trigger.",
+      "properties": {
+        "Name": {
+          "$ref": "#/definitions/ResourceId",
+          "description": "The name of the trigger."
+        }
+      },
+      "type": "object"
+    },
+    "TriggerList": {
+      "items": {
+        "$ref": "#/definitions/Trigger"
+      },
+      "type": "array"
+    },
+    "UpdateApplicationMessage": {
+      "description": "Request to update an application.",
+      "example": {
+        "ApplicationName": "my-app",
+        "Description": "my Elastic Beanstalk application"
+      },
+      "properties": {
+        "ApplicationName": {
+          "$ref": "#/definitions/ApplicationName",
+          "description": "The name of the application to update. If no such application is found, <code>UpdateApplication</code> returns an <code>InvalidParameterValue</code> error. "
+        },
+        "Description": {
+          "$ref": "#/definitions/Description",
+          "description": "<p>A new description for the application.</p> <p>Default: If not specified, AWS Elastic Beanstalk does not update the description.</p>"
+        }
+      },
+      "required": [
+        "ApplicationName"
+      ],
+      "type": "object"
+    },
+    "UpdateApplicationResourceLifecycleMessage": {
+      "properties": {
+        "ApplicationName": {
+          "$ref": "#/definitions/ApplicationName",
+          "description": "The name of the application."
+        },
+        "ResourceLifecycleConfig": {
+          "$ref": "#/definitions/ApplicationResourceLifecycleConfig",
+          "description": "The lifecycle configuration."
+        }
+      },
+      "required": [
+        "ApplicationName",
+        "ResourceLifecycleConfig"
+      ],
+      "type": "object"
+    },
+    "UpdateApplicationVersionMessage": {
+      "description": "<p/>",
+      "example": {
+        "ApplicationName": "my-app",
+        "Description": "new description",
+        "VersionLabel": "22a0-stage-150819_185942"
+      },
+      "properties": {
+        "ApplicationName": {
+          "$ref": "#/definitions/ApplicationName",
+          "description": "<p>The name of the application associated with this version.</p> <p> If no application is found with this name, <code>UpdateApplication</code> returns an <code>InvalidParameterValue</code> error.</p>"
+        },
+        "Description": {
+          "$ref": "#/definitions/Description",
+          "description": "A new description for this version."
+        },
+        "VersionLabel": {
+          "$ref": "#/definitions/VersionLabel",
+          "description": "<p>The name of the version to update.</p> <p>If no application version is found with this label, <code>UpdateApplication</code> returns an <code>InvalidParameterValue</code> error. </p>"
+        }
+      },
+      "required": [
+        "ApplicationName",
+        "VersionLabel"
+      ],
+      "type": "object"
+    },
+    "UpdateConfigurationTemplateMessage": {
+      "description": "The result message containing the options for the specified solution stack.",
+      "example": {
+        "ApplicationName": "my-app",
+        "OptionsToRemove": [
+          {
+            "Namespace": "aws:elasticbeanstalk:healthreporting:system",
+            "OptionName": "ConfigDocument"
+          }
+        ],
+        "TemplateName": "my-template"
+      },
+      "properties": {
+        "ApplicationName": {
+          "$ref": "#/definitions/ApplicationName",
+          "description": "<p>The name of the application associated with the configuration template to update.</p> <p> If no application is found with this name, <code>UpdateConfigurationTemplate</code> returns an <code>InvalidParameterValue</code> error. </p>"
+        },
+        "Description": {
+          "$ref": "#/definitions/Description",
+          "description": "A new description for the configuration."
+        },
+        "OptionSettings": {
+          "$ref": "#/definitions/ConfigurationOptionSettingsList",
+          "description": "A list of configuration option settings to update with the new specified option value."
+        },
+        "OptionsToRemove": {
+          "$ref": "#/definitions/OptionsSpecifierList",
+          "description": "<p>A list of configuration options to remove from the configuration set.</p> <p> Constraint: You can remove only <code>UserDefined</code> configuration options. </p>"
+        },
+        "TemplateName": {
+          "$ref": "#/definitions/ConfigurationTemplateName",
+          "description": "<p>The name of the configuration template to update.</p> <p> If no configuration template is found with this name, <code>UpdateConfigurationTemplate</code> returns an <code>InvalidParameterValue</code> error. </p>"
+        }
+      },
+      "required": [
+        "ApplicationName",
+        "TemplateName"
+      ],
+      "type": "object"
+    },
+    "UpdateDate": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "UpdateEnvironmentMessage": {
+      "description": "Request to update an environment.",
+      "example": {
+        "EnvironmentName": "my-env",
+        "OptionSettings": [
+          {
+            "Namespace": "aws:elb:healthcheck",
+            "OptionName": "Interval",
+            "Value": "15"
+          },
+          {
+            "Namespace": "aws:elb:healthcheck",
+            "OptionName": "Timeout",
+            "Value": "8"
+          },
+          {
+            "Namespace": "aws:elb:healthcheck",
+            "OptionName": "HealthyThreshold",
+            "Value": "2"
+          },
+          {
+            "Namespace": "aws:elb:healthcheck",
+            "OptionName": "UnhealthyThreshold",
+            "Value": "3"
+          }
+        ]
+      },
+      "properties": {
+        "ApplicationName": {
+          "$ref": "#/definitions/ApplicationName",
+          "description": "The name of the application with which the environment is associated."
+        },
+        "Description": {
+          "$ref": "#/definitions/Description",
+          "description": "If this parameter is specified, AWS Elastic Beanstalk updates the description of this environment."
+        },
+        "EnvironmentId": {
+          "$ref": "#/definitions/EnvironmentId",
+          "description": "<p>The ID of the environment to update.</p> <p>If no environment with this ID exists, AWS Elastic Beanstalk returns an <code>InvalidParameterValue</code> error.</p> <p>Condition: You must specify either this or an EnvironmentName, or both. If you do not specify either, AWS Elastic Beanstalk returns <code>MissingRequiredParameter</code> error. </p>"
+        },
+        "EnvironmentName": {
+          "$ref": "#/definitions/EnvironmentName",
+          "description": "<p>The name of the environment to update. If no environment with this name exists, AWS Elastic Beanstalk returns an <code>InvalidParameterValue</code> error. </p> <p>Condition: You must specify either this or an EnvironmentId, or both. If you do not specify either, AWS Elastic Beanstalk returns <code>MissingRequiredParameter</code> error. </p>"
+        },
+        "GroupName": {
+          "$ref": "#/definitions/GroupName",
+          "description": "The name of the group to which the target environment belongs. Specify a group name only if the environment's name is specified in an environment manifest and not with the environment name or environment ID parameters. See <a href=\"http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-cfg-manifest.html\">Environment Manifest (env.yaml)</a> for details."
+        },
+        "OptionSettings": {
+          "$ref": "#/definitions/ConfigurationOptionSettingsList",
+          "description": "If specified, AWS Elastic Beanstalk updates the configuration set associated with the running environment and sets the specified configuration options to the requested value."
+        },
+        "OptionsToRemove": {
+          "$ref": "#/definitions/OptionsSpecifierList",
+          "description": "A list of custom user-defined configuration options to remove from the configuration set for this environment."
+        },
+        "PlatformArn": {
+          "$ref": "#/definitions/PlatformArn",
+          "description": "The ARN of the platform, if used."
+        },
+        "SolutionStackName": {
+          "$ref": "#/definitions/SolutionStackName",
+          "description": "This specifies the platform version that the environment will run after the environment is updated."
+        },
+        "TemplateName": {
+          "$ref": "#/definitions/ConfigurationTemplateName",
+          "description": "If this parameter is specified, AWS Elastic Beanstalk deploys this configuration template to the environment. If no such configuration template is found, AWS Elastic Beanstalk returns an <code>InvalidParameterValue</code> error. "
+        },
+        "Tier": {
+          "$ref": "#/definitions/EnvironmentTier",
+          "description": "<p>This specifies the tier to use to update the environment.</p> <p>Condition: At this time, if you change the tier version, name, or type, AWS Elastic Beanstalk returns <code>InvalidParameterValue</code> error. </p>"
+        },
+        "VersionLabel": {
+          "$ref": "#/definitions/VersionLabel",
+          "description": "If this parameter is specified, AWS Elastic Beanstalk deploys the named application version to the environment. If no such application version is found, returns an <code>InvalidParameterValue</code> error. "
+        }
+      },
+      "type": "object"
+    },
+    "UserDefinedOption": {
+      "type": "boolean"
+    },
+    "ValidateConfigurationSettingsMessage": {
+      "description": "A list of validation messages for a specified configuration template.",
+      "example": {
+        "ApplicationName": "my-app",
+        "EnvironmentName": "my-env",
+        "OptionSettings": [
+          {
+            "Namespace": "aws:elasticbeanstalk:healthreporting:system",
+            "OptionName": "ConfigDocument",
+            "Value": "{\"CloudWatchMetrics\": {\"Environment\": {\"ApplicationLatencyP99.9\": null,\"InstancesSevere\": 60,\"ApplicationLatencyP90\": 60,\"ApplicationLatencyP99\": null,\"ApplicationLatencyP95\": 60,\"InstancesUnknown\": 60,\"ApplicationLatencyP85\": 60,\"InstancesInfo\": null,\"ApplicationRequests2xx\": null,\"InstancesDegraded\": null,\"InstancesWarning\": 60,\"ApplicationLatencyP50\": 60,\"ApplicationRequestsTotal\": null,\"InstancesNoData\": null,\"InstancesPending\": 60,\"ApplicationLatencyP10\": null,\"ApplicationRequests5xx\": null,\"ApplicationLatencyP75\": null,\"InstancesOk\": 60,\"ApplicationRequests3xx\": null,\"ApplicationRequests4xx\": null},\"Instance\": {\"ApplicationLatencyP99.9\": null,\"ApplicationLatencyP90\": 60,\"ApplicationLatencyP99\": null,\"ApplicationLatencyP95\": null,\"ApplicationLatencyP85\": null,\"CPUUser\": 60,\"ApplicationRequests2xx\": null,\"CPUIdle\": null,\"ApplicationLatencyP50\": null,\"ApplicationRequestsTotal\": 60,\"RootFilesystemUtil\": null,\"LoadAverage1min\": null,\"CPUIrq\": null,\"CPUNice\": 60,\"CPUIowait\": 60,\"ApplicationLatencyP10\": null,\"LoadAverage5min\": null,\"ApplicationRequests5xx\": null,\"ApplicationLatencyP75\": 60,\"CPUSystem\": 60,\"ApplicationRequests3xx\": 60,\"ApplicationRequests4xx\": null,\"InstanceHealth\": null,\"CPUSoftirq\": 60}},\"Version\": 1}"
+          }
+        ]
+      },
+      "properties": {
+        "ApplicationName": {
+          "$ref": "#/definitions/ApplicationName",
+          "description": "The name of the application that the configuration template or environment belongs to."
+        },
+        "EnvironmentName": {
+          "$ref": "#/definitions/EnvironmentName",
+          "description": "<p>The name of the environment to validate the settings against.</p> <p>Condition: You cannot specify both this and a configuration template name.</p>"
+        },
+        "OptionSettings": {
+          "$ref": "#/definitions/ConfigurationOptionSettingsList",
+          "description": "A list of the options and desired values to evaluate."
+        },
+        "TemplateName": {
+          "$ref": "#/definitions/ConfigurationTemplateName",
+          "description": "<p>The name of the configuration template to validate the settings against.</p> <p>Condition: You cannot specify both this and an environment name.</p>"
+        }
+      },
+      "required": [
+        "ApplicationName",
+        "OptionSettings"
+      ],
+      "type": "object"
+    },
+    "ValidationMessage": {
+      "description": "An error or warning for a desired configuration option value.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ValidationMessageString",
+          "description": "A message describing the error or warning."
+        },
+        "Namespace": {
+          "$ref": "#/definitions/OptionNamespace",
+          "description": "The namespace to which the option belongs."
+        },
+        "OptionName": {
+          "$ref": "#/definitions/ConfigurationOptionName",
+          "description": "The name of the option."
+        },
+        "Severity": {
+          "$ref": "#/definitions/ValidationSeverity",
+          "description": "<p>An indication of the severity of this message:</p> <ul> <li> <p> <code>error</code>: This message indicates that this is not a valid setting for an option.</p> </li> <li> <p> <code>warning</code>: This message is providing information you should take into account.</p> </li> </ul>"
+        }
+      },
+      "type": "object"
+    },
+    "ValidationMessageString": {
+      "type": "string"
+    },
+    "ValidationMessagesList": {
+      "items": {
+        "$ref": "#/definitions/ValidationMessage"
+      },
+      "type": "array"
+    },
+    "ValidationSeverity": {
+      "enum": [
+        "error",
+        "warning"
+      ],
+      "type": "string"
+    },
+    "VersionLabel": {
+      "maxLength": 100,
+      "minLength": 1,
+      "type": "string"
+    },
+    "VersionLabels": {
+      "items": {
+        "$ref": "#/definitions/VersionLabel"
+      },
+      "type": "array"
+    },
+    "VersionLabelsList": {
+      "items": {
+        "$ref": "#/definitions/VersionLabel"
+      },
+      "type": "array"
+    },
+    "VirtualizationType": {
+      "type": "string"
+    }
+  },
+  "actions": [
+    {
+      "id": "AbortEnvironmentUpdate",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/AbortEnvironmentUpdateMessage"
+          }
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_elasticbeanstalk": {
+          "integration": "amazonaws_elasticbeanstalk"
+        }
+      }
+    },
+    {
+      "id": "ApplyEnvironmentManagedAction",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/ApplyEnvironmentManagedActionRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ApplyEnvironmentManagedActionResult"
+      },
+      "security": {
+        "amazonaws_elasticbeanstalk": {
+          "integration": "amazonaws_elasticbeanstalk"
+        }
+      }
+    },
+    {
+      "id": "CheckDNSAvailability",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/CheckDNSAvailabilityMessage"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CheckDNSAvailabilityResultMessage"
+      },
+      "security": {
+        "amazonaws_elasticbeanstalk": {
+          "integration": "amazonaws_elasticbeanstalk"
+        }
+      }
+    },
+    {
+      "id": "ComposeEnvironments",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/ComposeEnvironmentsMessage"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/EnvironmentDescriptionsMessage"
+      },
+      "security": {
+        "amazonaws_elasticbeanstalk": {
+          "integration": "amazonaws_elasticbeanstalk"
+        }
+      }
+    },
+    {
+      "id": "CreateApplication",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/CreateApplicationMessage"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ApplicationDescriptionMessage"
+      },
+      "security": {
+        "amazonaws_elasticbeanstalk": {
+          "integration": "amazonaws_elasticbeanstalk"
+        }
+      }
+    },
+    {
+      "id": "CreateApplicationVersion",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/CreateApplicationVersionMessage"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ApplicationVersionDescriptionMessage"
+      },
+      "security": {
+        "amazonaws_elasticbeanstalk": {
+          "integration": "amazonaws_elasticbeanstalk"
+        }
+      }
+    },
+    {
+      "id": "CreateConfigurationTemplate",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/CreateConfigurationTemplateMessage"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ConfigurationSettingsDescription"
+      },
+      "security": {
+        "amazonaws_elasticbeanstalk": {
+          "integration": "amazonaws_elasticbeanstalk"
+        }
+      }
+    },
+    {
+      "id": "CreateEnvironment",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/CreateEnvironmentMessage"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/EnvironmentDescription"
+      },
+      "security": {
+        "amazonaws_elasticbeanstalk": {
+          "integration": "amazonaws_elasticbeanstalk"
+        }
+      }
+    },
+    {
+      "id": "CreatePlatformVersion",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/CreatePlatformVersionRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CreatePlatformVersionResult"
+      },
+      "security": {
+        "amazonaws_elasticbeanstalk": {
+          "integration": "amazonaws_elasticbeanstalk"
+        }
+      }
+    },
+    {
+      "id": "CreateStorageLocation",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {}
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CreateStorageLocationResultMessage"
+      },
+      "security": {
+        "amazonaws_elasticbeanstalk": {
+          "integration": "amazonaws_elasticbeanstalk"
+        }
+      }
+    },
+    {
+      "id": "DeleteApplication",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DeleteApplicationMessage"
+          }
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_elasticbeanstalk": {
+          "integration": "amazonaws_elasticbeanstalk"
+        }
+      }
+    },
+    {
+      "id": "DeleteApplicationVersion",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DeleteApplicationVersionMessage"
+          }
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_elasticbeanstalk": {
+          "integration": "amazonaws_elasticbeanstalk"
+        }
+      }
+    },
+    {
+      "id": "DeleteConfigurationTemplate",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DeleteConfigurationTemplateMessage"
+          }
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_elasticbeanstalk": {
+          "integration": "amazonaws_elasticbeanstalk"
+        }
+      }
+    },
+    {
+      "id": "DeleteEnvironmentConfiguration",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DeleteEnvironmentConfigurationMessage"
+          }
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_elasticbeanstalk": {
+          "integration": "amazonaws_elasticbeanstalk"
+        }
+      }
+    },
+    {
+      "id": "DeletePlatformVersion",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DeletePlatformVersionRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DeletePlatformVersionResult"
+      },
+      "security": {
+        "amazonaws_elasticbeanstalk": {
+          "integration": "amazonaws_elasticbeanstalk"
+        }
+      }
+    },
+    {
+      "id": "DescribeApplicationVersions",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DescribeApplicationVersionsMessage"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ApplicationVersionDescriptionsMessage"
+      },
+      "security": {
+        "amazonaws_elasticbeanstalk": {
+          "integration": "amazonaws_elasticbeanstalk"
+        }
+      }
+    },
+    {
+      "id": "DescribeApplications",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DescribeApplicationsMessage"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ApplicationDescriptionsMessage"
+      },
+      "security": {
+        "amazonaws_elasticbeanstalk": {
+          "integration": "amazonaws_elasticbeanstalk"
+        }
+      }
+    },
+    {
+      "id": "DescribeConfigurationOptions",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DescribeConfigurationOptionsMessage"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ConfigurationOptionsDescription"
+      },
+      "security": {
+        "amazonaws_elasticbeanstalk": {
+          "integration": "amazonaws_elasticbeanstalk"
+        }
+      }
+    },
+    {
+      "id": "DescribeConfigurationSettings",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DescribeConfigurationSettingsMessage"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ConfigurationSettingsDescriptions"
+      },
+      "security": {
+        "amazonaws_elasticbeanstalk": {
+          "integration": "amazonaws_elasticbeanstalk"
+        }
+      }
+    },
+    {
+      "id": "DescribeEnvironmentHealth",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DescribeEnvironmentHealthRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeEnvironmentHealthResult"
+      },
+      "security": {
+        "amazonaws_elasticbeanstalk": {
+          "integration": "amazonaws_elasticbeanstalk"
+        }
+      }
+    },
+    {
+      "id": "DescribeEnvironmentManagedActionHistory",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DescribeEnvironmentManagedActionHistoryRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeEnvironmentManagedActionHistoryResult"
+      },
+      "security": {
+        "amazonaws_elasticbeanstalk": {
+          "integration": "amazonaws_elasticbeanstalk"
+        }
+      }
+    },
+    {
+      "id": "DescribeEnvironmentManagedActions",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DescribeEnvironmentManagedActionsRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeEnvironmentManagedActionsResult"
+      },
+      "security": {
+        "amazonaws_elasticbeanstalk": {
+          "integration": "amazonaws_elasticbeanstalk"
+        }
+      }
+    },
+    {
+      "id": "DescribeEnvironmentResources",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DescribeEnvironmentResourcesMessage"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/EnvironmentResourceDescriptionsMessage"
+      },
+      "security": {
+        "amazonaws_elasticbeanstalk": {
+          "integration": "amazonaws_elasticbeanstalk"
+        }
+      }
+    },
+    {
+      "id": "DescribeEnvironments",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DescribeEnvironmentsMessage"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/EnvironmentDescriptionsMessage"
+      },
+      "security": {
+        "amazonaws_elasticbeanstalk": {
+          "integration": "amazonaws_elasticbeanstalk"
+        }
+      }
+    },
+    {
+      "id": "DescribeEvents",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "MaxRecords": {
+            "type": "string"
+          },
+          "NextToken": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/DescribeEventsMessage"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/EventDescriptionsMessage"
+      },
+      "security": {
+        "amazonaws_elasticbeanstalk": {
+          "integration": "amazonaws_elasticbeanstalk"
+        }
+      }
+    },
+    {
+      "id": "DescribeInstancesHealth",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DescribeInstancesHealthRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeInstancesHealthResult"
+      },
+      "security": {
+        "amazonaws_elasticbeanstalk": {
+          "integration": "amazonaws_elasticbeanstalk"
+        }
+      }
+    },
+    {
+      "id": "DescribePlatformVersion",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DescribePlatformVersionRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribePlatformVersionResult"
+      },
+      "security": {
+        "amazonaws_elasticbeanstalk": {
+          "integration": "amazonaws_elasticbeanstalk"
+        }
+      }
+    },
+    {
+      "id": "ListAvailableSolutionStacks",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {}
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListAvailableSolutionStacksResultMessage"
+      },
+      "security": {
+        "amazonaws_elasticbeanstalk": {
+          "integration": "amazonaws_elasticbeanstalk"
+        }
+      }
+    },
+    {
+      "id": "ListPlatformVersions",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListPlatformVersionsRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListPlatformVersionsResult"
+      },
+      "security": {
+        "amazonaws_elasticbeanstalk": {
+          "integration": "amazonaws_elasticbeanstalk"
+        }
+      }
+    },
+    {
+      "id": "RebuildEnvironment",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/RebuildEnvironmentMessage"
+          }
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_elasticbeanstalk": {
+          "integration": "amazonaws_elasticbeanstalk"
+        }
+      }
+    },
+    {
+      "id": "RequestEnvironmentInfo",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/RequestEnvironmentInfoMessage"
+          }
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_elasticbeanstalk": {
+          "integration": "amazonaws_elasticbeanstalk"
+        }
+      }
+    },
+    {
+      "id": "RestartAppServer",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/RestartAppServerMessage"
+          }
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_elasticbeanstalk": {
+          "integration": "amazonaws_elasticbeanstalk"
+        }
+      }
+    },
+    {
+      "id": "RetrieveEnvironmentInfo",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/RetrieveEnvironmentInfoMessage"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/RetrieveEnvironmentInfoResultMessage"
+      },
+      "security": {
+        "amazonaws_elasticbeanstalk": {
+          "integration": "amazonaws_elasticbeanstalk"
+        }
+      }
+    },
+    {
+      "id": "SwapEnvironmentCNAMEs",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/SwapEnvironmentCNAMEsMessage"
+          }
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_elasticbeanstalk": {
+          "integration": "amazonaws_elasticbeanstalk"
+        }
+      }
+    },
+    {
+      "id": "TerminateEnvironment",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/TerminateEnvironmentMessage"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/EnvironmentDescription"
+      },
+      "security": {
+        "amazonaws_elasticbeanstalk": {
+          "integration": "amazonaws_elasticbeanstalk"
+        }
+      }
+    },
+    {
+      "id": "UpdateApplication",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/UpdateApplicationMessage"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ApplicationDescriptionMessage"
+      },
+      "security": {
+        "amazonaws_elasticbeanstalk": {
+          "integration": "amazonaws_elasticbeanstalk"
+        }
+      }
+    },
+    {
+      "id": "UpdateApplicationResourceLifecycle",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/UpdateApplicationResourceLifecycleMessage"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ApplicationResourceLifecycleDescriptionMessage"
+      },
+      "security": {
+        "amazonaws_elasticbeanstalk": {
+          "integration": "amazonaws_elasticbeanstalk"
+        }
+      }
+    },
+    {
+      "id": "UpdateApplicationVersion",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/UpdateApplicationVersionMessage"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ApplicationVersionDescriptionMessage"
+      },
+      "security": {
+        "amazonaws_elasticbeanstalk": {
+          "integration": "amazonaws_elasticbeanstalk"
+        }
+      }
+    },
+    {
+      "id": "UpdateConfigurationTemplate",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/UpdateConfigurationTemplateMessage"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ConfigurationSettingsDescription"
+      },
+      "security": {
+        "amazonaws_elasticbeanstalk": {
+          "integration": "amazonaws_elasticbeanstalk"
+        }
+      }
+    },
+    {
+      "id": "UpdateEnvironment",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/UpdateEnvironmentMessage"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/EnvironmentDescription"
+      },
+      "security": {
+        "amazonaws_elasticbeanstalk": {
+          "integration": "amazonaws_elasticbeanstalk"
+        }
+      }
+    },
+    {
+      "id": "ValidateConfigurationSettings",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/ValidateConfigurationSettingsMessage"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ConfigurationSettingsValidationMessages"
+      },
+      "security": {
+        "amazonaws_elasticbeanstalk": {
+          "integration": "amazonaws_elasticbeanstalk"
+        }
+      }
+    }
+  ]
+}

@@ -51,9 +51,9 @@
     "security": {
       "amazonaws_acm": {
         "integration": "amazonaws_acm",
-        "fields": {
-          "hmac": "Amazon Signature authorization v4"
-        }
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
       }
     },
     "logo": {
@@ -65,7 +65,7 @@
       "aws"
     ],
     "actionCount": 10,
-    "latestVersion": "2.0.2"
+    "latestVersion": "3.0.0"
   },
   "amazonaws_apigateway": {
     "id": "amazonaws_apigateway",
@@ -74,9 +74,9 @@
     "security": {
       "amazonaws_apigateway": {
         "integration": "amazonaws_apigateway",
-        "fields": {
-          "hmac": "Amazon Signature authorization v4"
-        }
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
       }
     },
     "logo": {
@@ -88,7 +88,7 @@
       "aws"
     ],
     "actionCount": 47,
-    "latestVersion": "2.0.2"
+    "latestVersion": "3.0.0"
   },
   "amazonaws_appstream2": {
     "id": "amazonaws_appstream2",
@@ -97,9 +97,9 @@
     "security": {
       "amazonaws_appstream2": {
         "integration": "amazonaws_appstream2",
-        "fields": {
-          "hmac": "Amazon Signature authorization v4"
-        }
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
       }
     },
     "logo": {
@@ -111,7 +111,7 @@
       "aws"
     ],
     "actionCount": 18,
-    "latestVersion": "2.0.2"
+    "latestVersion": "3.0.0"
   },
   "amazonaws_athena": {
     "id": "amazonaws_athena",
@@ -120,9 +120,9 @@
     "security": {
       "amazonaws_athena": {
         "integration": "amazonaws_athena",
-        "fields": {
-          "hmac": "Amazon Signature authorization v4"
-        }
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
       }
     },
     "logo": {
@@ -134,7 +134,7 @@
       "aws"
     ],
     "actionCount": 11,
-    "latestVersion": "2.0.2"
+    "latestVersion": "3.0.0"
   },
   "amazonaws_autoscaling": {
     "id": "amazonaws_autoscaling",
@@ -143,9 +143,9 @@
     "security": {
       "amazonaws_autoscaling": {
         "integration": "amazonaws_autoscaling",
-        "fields": {
-          "hmac": "Amazon Signature authorization v4"
-        }
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
       }
     },
     "logo": {
@@ -157,7 +157,7 @@
       "aws"
     ],
     "actionCount": 7,
-    "latestVersion": "2.0.2"
+    "latestVersion": "3.0.0"
   },
   "amazonaws_batch": {
     "id": "amazonaws_batch",
@@ -166,9 +166,9 @@
     "security": {
       "amazonaws_batch": {
         "integration": "amazonaws_batch",
-        "fields": {
-          "hmac": "Amazon Signature authorization v4"
-        }
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
       }
     },
     "logo": {
@@ -180,7 +180,7 @@
       "aws"
     ],
     "actionCount": 16,
-    "latestVersion": "2.0.2"
+    "latestVersion": "3.0.0"
   },
   "amazonaws_budgets": {
     "id": "amazonaws_budgets",
@@ -189,9 +189,9 @@
     "security": {
       "amazonaws_budgets": {
         "integration": "amazonaws_budgets",
-        "fields": {
-          "hmac": "Amazon Signature authorization v4"
-        }
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
       }
     },
     "logo": {
@@ -203,7 +203,7 @@
       "aws"
     ],
     "actionCount": 13,
-    "latestVersion": "2.0.2"
+    "latestVersion": "3.0.0"
   },
   "amazonaws_clouddirectory": {
     "id": "amazonaws_clouddirectory",
@@ -212,9 +212,9 @@
     "security": {
       "amazonaws_clouddirectory": {
         "integration": "amazonaws_clouddirectory",
-        "fields": {
-          "hmac": "Amazon Signature authorization v4"
-        }
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
       }
     },
     "logo": {
@@ -226,7 +226,7 @@
       "aws"
     ],
     "actionCount": 47,
-    "latestVersion": "2.0.2"
+    "latestVersion": "3.0.0"
   },
   "amazonaws_cloudformation": {
     "id": "amazonaws_cloudformation",
@@ -235,9 +235,9 @@
     "security": {
       "amazonaws_cloudformation": {
         "integration": "amazonaws_cloudformation",
-        "fields": {
-          "hmac": "Amazon Signature authorization v4"
-        }
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
       }
     },
     "logo": {
@@ -249,7 +249,7 @@
       "aws"
     ],
     "actionCount": 26,
-    "latestVersion": "2.0.2"
+    "latestVersion": "3.0.0"
   },
   "amazonaws_cloudfront": {
     "id": "amazonaws_cloudfront",
@@ -258,9 +258,9 @@
     "security": {
       "amazonaws_cloudfront": {
         "integration": "amazonaws_cloudfront",
-        "fields": {
-          "hmac": "Amazon Signature authorization v4"
-        }
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
       }
     },
     "logo": {
@@ -272,7 +272,7 @@
       "aws"
     ],
     "actionCount": 17,
-    "latestVersion": "2.0.2"
+    "latestVersion": "3.0.0"
   },
   "amazonaws_cloudhsm": {
     "id": "amazonaws_cloudhsm",
@@ -281,9 +281,9 @@
     "security": {
       "amazonaws_cloudhsm": {
         "integration": "amazonaws_cloudhsm",
-        "fields": {
-          "hmac": "Amazon Signature authorization v4"
-        }
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
       }
     },
     "logo": {
@@ -295,7 +295,7 @@
       "aws"
     ],
     "actionCount": 20,
-    "latestVersion": "2.0.2"
+    "latestVersion": "3.0.0"
   },
   "amazonaws_cloudsearch": {
     "id": "amazonaws_cloudsearch",
@@ -304,9 +304,9 @@
     "security": {
       "amazonaws_cloudsearch": {
         "integration": "amazonaws_cloudsearch",
-        "fields": {
-          "hmac": "Amazon Signature authorization v4"
-        }
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
       }
     },
     "logo": {
@@ -318,7 +318,7 @@
       "aws"
     ],
     "actionCount": 24,
-    "latestVersion": "2.0.2"
+    "latestVersion": "3.0.0"
   },
   "amazonaws_cloudsearchdomain": {
     "id": "amazonaws_cloudsearchdomain",
@@ -327,9 +327,9 @@
     "security": {
       "amazonaws_cloudsearchdomain": {
         "integration": "amazonaws_cloudsearchdomain",
-        "fields": {
-          "hmac": "Amazon Signature authorization v4"
-        }
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
       }
     },
     "logo": {
@@ -341,7 +341,7 @@
       "aws"
     ],
     "actionCount": 3,
-    "latestVersion": "2.0.2"
+    "latestVersion": "3.0.0"
   },
   "amazonaws_cloudtrail": {
     "id": "amazonaws_cloudtrail",
@@ -350,9 +350,9 @@
     "security": {
       "amazonaws_cloudtrail": {
         "integration": "amazonaws_cloudtrail",
-        "fields": {
-          "hmac": "Amazon Signature authorization v4"
-        }
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
       }
     },
     "logo": {
@@ -364,7 +364,7 @@
       "aws"
     ],
     "actionCount": 14,
-    "latestVersion": "2.0.2"
+    "latestVersion": "3.0.0"
   },
   "amazonaws_codebuild": {
     "id": "amazonaws_codebuild",
@@ -373,9 +373,9 @@
     "security": {
       "amazonaws_codebuild": {
         "integration": "amazonaws_codebuild",
-        "fields": {
-          "hmac": "Amazon Signature authorization v4"
-        }
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
       }
     },
     "logo": {
@@ -387,7 +387,7 @@
       "aws"
     ],
     "actionCount": 11,
-    "latestVersion": "2.0.2"
+    "latestVersion": "3.0.0"
   },
   "amazonaws_codecommit": {
     "id": "amazonaws_codecommit",
@@ -396,9 +396,9 @@
     "security": {
       "amazonaws_codecommit": {
         "integration": "amazonaws_codecommit",
-        "fields": {
-          "hmac": "Amazon Signature authorization v4"
-        }
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
       }
     },
     "logo": {
@@ -410,7 +410,7 @@
       "aws"
     ],
     "actionCount": 17,
-    "latestVersion": "2.0.2"
+    "latestVersion": "3.0.0"
   },
   "amazonaws_codedeploy": {
     "id": "amazonaws_codedeploy",
@@ -419,9 +419,9 @@
     "security": {
       "amazonaws_codedeploy": {
         "integration": "amazonaws_codedeploy",
-        "fields": {
-          "hmac": "Amazon Signature authorization v4"
-        }
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
       }
     },
     "logo": {
@@ -433,7 +433,7 @@
       "aws"
     ],
     "actionCount": 37,
-    "latestVersion": "2.0.2"
+    "latestVersion": "3.0.0"
   },
   "amazonaws_codepipeline": {
     "id": "amazonaws_codepipeline",
@@ -442,9 +442,9 @@
     "security": {
       "amazonaws_codepipeline": {
         "integration": "amazonaws_codepipeline",
-        "fields": {
-          "hmac": "Amazon Signature authorization v4"
-        }
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
       }
     },
     "logo": {
@@ -456,7 +456,7 @@
       "aws"
     ],
     "actionCount": 26,
-    "latestVersion": "2.0.2"
+    "latestVersion": "3.0.0"
   },
   "amazonaws_codestar": {
     "id": "amazonaws_codestar",
@@ -465,9 +465,9 @@
     "security": {
       "amazonaws_codestar": {
         "integration": "amazonaws_codestar",
-        "fields": {
-          "hmac": "Amazon Signature authorization v4"
-        }
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
       }
     },
     "logo": {
@@ -479,7 +479,7 @@
       "aws"
     ],
     "actionCount": 15,
-    "latestVersion": "2.0.2"
+    "latestVersion": "3.0.0"
   },
   "amazonaws_cognito_identity": {
     "id": "amazonaws_cognito_identity",
@@ -488,9 +488,9 @@
     "security": {
       "amazonaws_cognito_identity": {
         "integration": "amazonaws_cognito_identity",
-        "fields": {
-          "hmac": "Amazon Signature authorization v4"
-        }
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
       }
     },
     "logo": {
@@ -502,7 +502,7 @@
       "aws"
     ],
     "actionCount": 18,
-    "latestVersion": "2.0.2"
+    "latestVersion": "3.0.0"
   },
   "amazonaws_cognito_idp": {
     "id": "amazonaws_cognito_idp",
@@ -511,9 +511,9 @@
     "security": {
       "amazonaws_cognito_idp": {
         "integration": "amazonaws_cognito_idp",
-        "fields": {
-          "hmac": "Amazon Signature authorization v4"
-        }
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
       }
     },
     "logo": {
@@ -525,7 +525,7 @@
       "aws"
     ],
     "actionCount": 65,
-    "latestVersion": "2.0.2"
+    "latestVersion": "3.0.0"
   },
   "amazonaws_cognito_sync": {
     "id": "amazonaws_cognito_sync",
@@ -534,9 +534,9 @@
     "security": {
       "amazonaws_cognito_sync": {
         "integration": "amazonaws_cognito_sync",
-        "fields": {
-          "hmac": "Amazon Signature authorization v4"
-        }
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
       }
     },
     "logo": {
@@ -548,7 +548,7 @@
       "aws"
     ],
     "actionCount": 12,
-    "latestVersion": "2.0.2"
+    "latestVersion": "3.0.0"
   },
   "amazonaws_config": {
     "id": "amazonaws_config",
@@ -557,9 +557,9 @@
     "security": {
       "amazonaws_config": {
         "integration": "amazonaws_config",
-        "fields": {
-          "hmac": "Amazon Signature authorization v4"
-        }
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
       }
     },
     "logo": {
@@ -571,7 +571,7 @@
       "aws"
     ],
     "actionCount": 26,
-    "latestVersion": "2.0.2"
+    "latestVersion": "3.0.0"
   },
   "amazonaws_cur": {
     "id": "amazonaws_cur",
@@ -580,9 +580,9 @@
     "security": {
       "amazonaws_cur": {
         "integration": "amazonaws_cur",
-        "fields": {
-          "hmac": "Amazon Signature authorization v4"
-        }
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
       }
     },
     "logo": {
@@ -594,7 +594,7 @@
       "aws"
     ],
     "actionCount": 3,
-    "latestVersion": "2.0.2"
+    "latestVersion": "3.0.0"
   },
   "amazonaws_data_iot": {
     "id": "amazonaws_data_iot",
@@ -603,9 +603,9 @@
     "security": {
       "amazonaws_data_iot": {
         "integration": "amazonaws_data_iot",
-        "fields": {
-          "hmac": "Amazon Signature authorization v4"
-        }
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
       }
     },
     "logo": {
@@ -617,7 +617,7 @@
       "aws"
     ],
     "actionCount": 2,
-    "latestVersion": "2.0.2"
+    "latestVersion": "3.0.0"
   },
   "amazonaws_datapipeline": {
     "id": "amazonaws_datapipeline",
@@ -626,9 +626,9 @@
     "security": {
       "amazonaws_datapipeline": {
         "integration": "amazonaws_datapipeline",
-        "fields": {
-          "hmac": "Amazon Signature authorization v4"
-        }
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
       }
     },
     "logo": {
@@ -640,7 +640,7 @@
       "aws"
     ],
     "actionCount": 19,
-    "latestVersion": "2.0.2"
+    "latestVersion": "3.0.0"
   },
   "amazonaws_dax": {
     "id": "amazonaws_dax",
@@ -649,9 +649,9 @@
     "security": {
       "amazonaws_dax": {
         "integration": "amazonaws_dax",
-        "fields": {
-          "hmac": "Amazon Signature authorization v4"
-        }
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
       }
     },
     "logo": {
@@ -663,7 +663,7 @@
       "aws"
     ],
     "actionCount": 21,
-    "latestVersion": "2.0.2"
+    "latestVersion": "3.0.0"
   },
   "amazonaws_devicefarm": {
     "id": "amazonaws_devicefarm",
@@ -672,9 +672,9 @@
     "security": {
       "amazonaws_devicefarm": {
         "integration": "amazonaws_devicefarm",
-        "fields": {
-          "hmac": "Amazon Signature authorization v4"
-        }
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
       }
     },
     "logo": {
@@ -686,7 +686,7 @@
       "aws"
     ],
     "actionCount": 49,
-    "latestVersion": "2.0.2"
+    "latestVersion": "3.0.0"
   },
   "amazonaws_directconnect": {
     "id": "amazonaws_directconnect",
@@ -695,9 +695,9 @@
     "security": {
       "amazonaws_directconnect": {
         "integration": "amazonaws_directconnect",
-        "fields": {
-          "hmac": "Amazon Signature authorization v4"
-        }
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
       }
     },
     "logo": {
@@ -709,7 +709,7 @@
       "aws"
     ],
     "actionCount": 37,
-    "latestVersion": "2.0.2"
+    "latestVersion": "3.0.0"
   },
   "amazonaws_discovery": {
     "id": "amazonaws_discovery",
@@ -718,9 +718,9 @@
     "security": {
       "amazonaws_discovery": {
         "integration": "amazonaws_discovery",
-        "fields": {
-          "hmac": "Amazon Signature authorization v4"
-        }
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
       }
     },
     "logo": {
@@ -732,7 +732,7 @@
       "aws"
     ],
     "actionCount": 19,
-    "latestVersion": "2.0.2"
+    "latestVersion": "3.0.0"
   },
   "amazonaws_dms": {
     "id": "amazonaws_dms",
@@ -741,9 +741,9 @@
     "security": {
       "amazonaws_dms": {
         "integration": "amazonaws_dms",
-        "fields": {
-          "hmac": "Amazon Signature authorization v4"
-        }
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
       }
     },
     "logo": {
@@ -755,7 +755,7 @@
       "aws"
     ],
     "actionCount": 33,
-    "latestVersion": "2.0.2"
+    "latestVersion": "3.0.0"
   },
   "amazonaws_ds": {
     "id": "amazonaws_ds",
@@ -764,9 +764,9 @@
     "security": {
       "amazonaws_ds": {
         "integration": "amazonaws_ds",
-        "fields": {
-          "hmac": "Amazon Signature authorization v4"
-        }
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
       }
     },
     "logo": {
@@ -778,7 +778,7 @@
       "aws"
     ],
     "actionCount": 38,
-    "latestVersion": "2.0.2"
+    "latestVersion": "3.0.0"
   },
   "amazonaws_dynamodb": {
     "id": "amazonaws_dynamodb",
@@ -787,9 +787,9 @@
     "security": {
       "amazonaws_dynamodb": {
         "integration": "amazonaws_dynamodb",
-        "fields": {
-          "hmac": "Amazon Signature authorization v4"
-        }
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
       }
     },
     "logo": {
@@ -801,7 +801,7 @@
       "aws"
     ],
     "actionCount": 19,
-    "latestVersion": "2.0.2"
+    "latestVersion": "3.0.0"
   },
   "amazonaws_ec2": {
     "id": "amazonaws_ec2",
@@ -810,9 +810,9 @@
     "security": {
       "amazonaws_ec2": {
         "integration": "amazonaws_ec2",
-        "fields": {
-          "hmac": "Amazon Signature authorization v4"
-        }
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
       }
     },
     "logo": {
@@ -824,7 +824,7 @@
       "aws"
     ],
     "actionCount": 228,
-    "latestVersion": "2.0.2"
+    "latestVersion": "3.0.0"
   },
   "amazonaws_ecr": {
     "id": "amazonaws_ecr",
@@ -833,9 +833,9 @@
     "security": {
       "amazonaws_ecr": {
         "integration": "amazonaws_ecr",
-        "fields": {
-          "hmac": "Amazon Signature authorization v4"
-        }
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
       }
     },
     "logo": {
@@ -847,7 +847,7 @@
       "aws"
     ],
     "actionCount": 17,
-    "latestVersion": "2.0.2"
+    "latestVersion": "3.0.0"
   },
   "amazonaws_ecs": {
     "id": "amazonaws_ecs",
@@ -856,9 +856,9 @@
     "security": {
       "amazonaws_ecs": {
         "integration": "amazonaws_ecs",
-        "fields": {
-          "hmac": "Amazon Signature authorization v4"
-        }
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
       }
     },
     "logo": {
@@ -870,7 +870,7 @@
       "aws"
     ],
     "actionCount": 31,
-    "latestVersion": "2.0.2"
+    "latestVersion": "3.0.0"
   },
   "amazonaws_elasticache": {
     "id": "amazonaws_elasticache",
@@ -879,9 +879,9 @@
     "security": {
       "amazonaws_elasticache": {
         "integration": "amazonaws_elasticache",
-        "fields": {
-          "hmac": "Amazon Signature authorization v4"
-        }
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
       }
     },
     "logo": {
@@ -893,7 +893,7 @@
       "aws"
     ],
     "actionCount": 39,
-    "latestVersion": "2.0.2"
+    "latestVersion": "3.0.0"
   },
   "amazonaws_elasticbeanstalk": {
     "id": "amazonaws_elasticbeanstalk",
@@ -902,9 +902,9 @@
     "security": {
       "amazonaws_elasticbeanstalk": {
         "integration": "amazonaws_elasticbeanstalk",
-        "fields": {
-          "hmac": "Amazon Signature authorization v4"
-        }
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
       }
     },
     "logo": {
@@ -916,7 +916,7 @@
       "aws"
     ],
     "actionCount": 41,
-    "latestVersion": "2.0.2"
+    "latestVersion": "3.0.0"
   },
   "amazonaws_elasticfilesystem": {
     "id": "amazonaws_elasticfilesystem",
@@ -925,9 +925,9 @@
     "security": {
       "amazonaws_elasticfilesystem": {
         "integration": "amazonaws_elasticfilesystem",
-        "fields": {
-          "hmac": "Amazon Signature authorization v4"
-        }
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
       }
     },
     "logo": {
@@ -939,7 +939,7 @@
       "aws"
     ],
     "actionCount": 8,
-    "latestVersion": "2.0.2"
+    "latestVersion": "3.0.0"
   },
   "amazonaws_elasticloadbalancing": {
     "id": "amazonaws_elasticloadbalancing",
@@ -948,9 +948,9 @@
     "security": {
       "amazonaws_elasticloadbalancing": {
         "integration": "amazonaws_elasticloadbalancing",
-        "fields": {
-          "hmac": "Amazon Signature authorization v4"
-        }
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
       }
     },
     "logo": {
@@ -962,7 +962,7 @@
       "aws"
     ],
     "actionCount": 31,
-    "latestVersion": "2.0.2"
+    "latestVersion": "3.0.0"
   },
   "amazonaws_elasticmapreduce": {
     "id": "amazonaws_elasticmapreduce",
@@ -971,9 +971,9 @@
     "security": {
       "amazonaws_elasticmapreduce": {
         "integration": "amazonaws_elasticmapreduce",
-        "fields": {
-          "hmac": "Amazon Signature authorization v4"
-        }
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
       }
     },
     "logo": {
@@ -985,7 +985,7 @@
       "aws"
     ],
     "actionCount": 27,
-    "latestVersion": "2.0.2"
+    "latestVersion": "3.0.0"
   },
   "amazonaws_elastictranscoder": {
     "id": "amazonaws_elastictranscoder",
@@ -994,9 +994,9 @@
     "security": {
       "amazonaws_elastictranscoder": {
         "integration": "amazonaws_elastictranscoder",
-        "fields": {
-          "hmac": "Amazon Signature authorization v4"
-        }
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
       }
     },
     "logo": {
@@ -1008,7 +1008,7 @@
       "aws"
     ],
     "actionCount": 11,
-    "latestVersion": "2.0.2"
+    "latestVersion": "3.0.0"
   },
   "amazonaws_email": {
     "id": "amazonaws_email",
@@ -1017,9 +1017,9 @@
     "security": {
       "amazonaws_email": {
         "integration": "amazonaws_email",
-        "fields": {
-          "hmac": "Amazon Signature authorization v4"
-        }
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
       }
     },
     "logo": {
@@ -1031,7 +1031,7 @@
       "aws"
     ],
     "actionCount": 49,
-    "latestVersion": "2.0.2"
+    "latestVersion": "3.0.0"
   },
   "amazonaws_entitlement_marketplace": {
     "id": "amazonaws_entitlement_marketplace",
@@ -1040,9 +1040,9 @@
     "security": {
       "amazonaws_entitlement_marketplace": {
         "integration": "amazonaws_entitlement_marketplace",
-        "fields": {
-          "hmac": "Amazon Signature authorization v4"
-        }
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
       }
     },
     "logo": {
@@ -1054,7 +1054,7 @@
       "aws"
     ],
     "actionCount": 1,
-    "latestVersion": "2.0.2"
+    "latestVersion": "3.0.0"
   },
   "amazonaws_es": {
     "id": "amazonaws_es",
@@ -1063,9 +1063,9 @@
     "security": {
       "amazonaws_es": {
         "integration": "amazonaws_es",
-        "fields": {
-          "hmac": "Amazon Signature authorization v4"
-        }
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
       }
     },
     "logo": {
@@ -1077,7 +1077,7 @@
       "aws"
     ],
     "actionCount": 11,
-    "latestVersion": "2.0.2"
+    "latestVersion": "3.0.0"
   },
   "amazonaws_events": {
     "id": "amazonaws_events",
@@ -1086,9 +1086,9 @@
     "security": {
       "amazonaws_events": {
         "integration": "amazonaws_events",
-        "fields": {
-          "hmac": "Amazon Signature authorization v4"
-        }
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
       }
     },
     "logo": {
@@ -1100,7 +1100,7 @@
       "aws"
     ],
     "actionCount": 12,
-    "latestVersion": "2.0.2"
+    "latestVersion": "3.0.0"
   },
   "amazonaws_firehose": {
     "id": "amazonaws_firehose",
@@ -1109,9 +1109,9 @@
     "security": {
       "amazonaws_firehose": {
         "integration": "amazonaws_firehose",
-        "fields": {
-          "hmac": "Amazon Signature authorization v4"
-        }
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
       }
     },
     "logo": {
@@ -1123,7 +1123,7 @@
       "aws"
     ],
     "actionCount": 7,
-    "latestVersion": "2.0.2"
+    "latestVersion": "3.0.0"
   },
   "amazonaws_gamelift": {
     "id": "amazonaws_gamelift",
@@ -1132,9 +1132,9 @@
     "security": {
       "amazonaws_gamelift": {
         "integration": "amazonaws_gamelift",
-        "fields": {
-          "hmac": "Amazon Signature authorization v4"
-        }
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
       }
     },
     "logo": {
@@ -1146,7 +1146,7 @@
       "aws"
     ],
     "actionCount": 47,
-    "latestVersion": "2.0.2"
+    "latestVersion": "3.0.0"
   },
   "amazonaws_glacier": {
     "id": "amazonaws_glacier",
@@ -1155,9 +1155,9 @@
     "security": {
       "amazonaws_glacier": {
         "integration": "amazonaws_glacier",
-        "fields": {
-          "hmac": "Amazon Signature authorization v4"
-        }
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
       }
     },
     "logo": {
@@ -1169,7 +1169,7 @@
       "aws"
     ],
     "actionCount": 18,
-    "latestVersion": "2.0.2"
+    "latestVersion": "3.0.0"
   },
   "amazonaws_greengrass": {
     "id": "amazonaws_greengrass",
@@ -1178,9 +1178,9 @@
     "security": {
       "amazonaws_greengrass": {
         "integration": "amazonaws_greengrass",
-        "fields": {
-          "hmac": "Amazon Signature authorization v4"
-        }
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
       }
     },
     "logo": {
@@ -1192,7 +1192,7 @@
       "aws"
     ],
     "actionCount": 32,
-    "latestVersion": "2.0.2"
+    "latestVersion": "3.0.0"
   },
   "amazonaws_health": {
     "id": "amazonaws_health",
@@ -1201,9 +1201,9 @@
     "security": {
       "amazonaws_health": {
         "integration": "amazonaws_health",
-        "fields": {
-          "hmac": "Amazon Signature authorization v4"
-        }
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
       }
     },
     "logo": {
@@ -1215,7 +1215,7 @@
       "aws"
     ],
     "actionCount": 6,
-    "latestVersion": "2.0.2"
+    "latestVersion": "3.0.0"
   },
   "amazonaws_iam": {
     "id": "amazonaws_iam",
@@ -1224,9 +1224,9 @@
     "security": {
       "amazonaws_iam": {
         "integration": "amazonaws_iam",
-        "fields": {
-          "hmac": "Amazon Signature authorization v4"
-        }
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
       }
     },
     "logo": {
@@ -1238,7 +1238,7 @@
       "aws"
     ],
     "actionCount": 120,
-    "latestVersion": "2.0.2"
+    "latestVersion": "3.0.0"
   },
   "amazonaws_importexport": {
     "id": "amazonaws_importexport",
@@ -1247,9 +1247,9 @@
     "security": {
       "amazonaws_importexport": {
         "integration": "amazonaws_importexport",
-        "fields": {
-          "hmac": "Amazon Signature authorization v2"
-        }
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
       }
     },
     "logo": {
@@ -1261,7 +1261,7 @@
       "aws"
     ],
     "actionCount": 6,
-    "latestVersion": "2.0.2"
+    "latestVersion": "3.0.0"
   },
   "amazonaws_inspector": {
     "id": "amazonaws_inspector",
@@ -1270,9 +1270,9 @@
     "security": {
       "amazonaws_inspector": {
         "integration": "amazonaws_inspector",
-        "fields": {
-          "hmac": "Amazon Signature authorization v4"
-        }
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
       }
     },
     "logo": {
@@ -1284,7 +1284,7 @@
       "aws"
     ],
     "actionCount": 32,
-    "latestVersion": "2.0.2"
+    "latestVersion": "3.0.0"
   },
   "amazonaws_iot": {
     "id": "amazonaws_iot",
@@ -1293,9 +1293,9 @@
     "security": {
       "amazonaws_iot": {
         "integration": "amazonaws_iot",
-        "fields": {
-          "hmac": "Amazon Signature authorization v4"
-        }
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
       }
     },
     "logo": {
@@ -1307,7 +1307,7 @@
       "aws"
     ],
     "actionCount": 34,
-    "latestVersion": "2.0.2"
+    "latestVersion": "3.0.0"
   },
   "amazonaws_kinesis": {
     "id": "amazonaws_kinesis",
@@ -1316,9 +1316,9 @@
     "security": {
       "amazonaws_kinesis": {
         "integration": "amazonaws_kinesis",
-        "fields": {
-          "hmac": "Amazon Signature authorization v4"
-        }
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
       }
     },
     "logo": {
@@ -1330,7 +1330,7 @@
       "aws"
     ],
     "actionCount": 19,
-    "latestVersion": "2.0.2"
+    "latestVersion": "3.0.0"
   },
   "amazonaws_kinesisanalytics": {
     "id": "amazonaws_kinesisanalytics",
@@ -1338,9 +1338,9 @@
     "security": {
       "amazonaws_kinesisanalytics": {
         "integration": "amazonaws_kinesisanalytics",
-        "fields": {
-          "hmac": "Amazon Signature authorization v4"
-        }
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
       }
     },
     "logo": {
@@ -1352,7 +1352,7 @@
       "aws"
     ],
     "actionCount": 13,
-    "latestVersion": "2.0.2"
+    "latestVersion": "3.0.0"
   },
   "amazonaws_kms": {
     "id": "amazonaws_kms",
@@ -1361,9 +1361,9 @@
     "security": {
       "amazonaws_kms": {
         "integration": "amazonaws_kms",
-        "fields": {
-          "hmac": "Amazon Signature authorization v4"
-        }
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
       }
     },
     "logo": {
@@ -1375,7 +1375,7 @@
       "aws"
     ],
     "actionCount": 35,
-    "latestVersion": "2.0.2"
+    "latestVersion": "3.0.0"
   },
   "amazonaws_lambda": {
     "id": "amazonaws_lambda",
@@ -1384,9 +1384,9 @@
     "security": {
       "amazonaws_lambda": {
         "integration": "amazonaws_lambda",
-        "fields": {
-          "hmac": "Amazon Signature authorization v4"
-        }
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
       }
     },
     "logo": {
@@ -1398,7 +1398,7 @@
       "aws"
     ],
     "actionCount": 16,
-    "latestVersion": "2.0.2"
+    "latestVersion": "3.0.0"
   },
   "amazonaws_lightsail": {
     "id": "amazonaws_lightsail",
@@ -1407,9 +1407,9 @@
     "security": {
       "amazonaws_lightsail": {
         "integration": "amazonaws_lightsail",
-        "fields": {
-          "hmac": "Amazon Signature authorization v4"
-        }
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
       }
     },
     "logo": {
@@ -1421,7 +1421,7 @@
       "aws"
     ],
     "actionCount": 47,
-    "latestVersion": "2.0.2"
+    "latestVersion": "3.0.0"
   },
   "amazonaws_machinelearning": {
     "id": "amazonaws_machinelearning",
@@ -1430,9 +1430,9 @@
     "security": {
       "amazonaws_machinelearning": {
         "integration": "amazonaws_machinelearning",
-        "fields": {
-          "hmac": "Amazon Signature authorization v4"
-        }
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
       }
     },
     "logo": {
@@ -1444,7 +1444,7 @@
       "aws"
     ],
     "actionCount": 28,
-    "latestVersion": "2.0.2"
+    "latestVersion": "3.0.0"
   },
   "amazonaws_marketplacecommerceanalytics": {
     "id": "amazonaws_marketplacecommerceanalytics",
@@ -1453,9 +1453,9 @@
     "security": {
       "amazonaws_marketplacecommerceanalytics": {
         "integration": "amazonaws_marketplacecommerceanalytics",
-        "fields": {
-          "hmac": "Amazon Signature authorization v4"
-        }
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
       }
     },
     "logo": {
@@ -1467,7 +1467,7 @@
       "aws"
     ],
     "actionCount": 2,
-    "latestVersion": "2.0.2"
+    "latestVersion": "3.0.0"
   },
   "amazonaws_metering_marketplace": {
     "id": "amazonaws_metering_marketplace",
@@ -1476,9 +1476,9 @@
     "security": {
       "amazonaws_metering_marketplace": {
         "integration": "amazonaws_metering_marketplace",
-        "fields": {
-          "hmac": "Amazon Signature authorization v4"
-        }
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
       }
     },
     "logo": {
@@ -1490,7 +1490,7 @@
       "aws"
     ],
     "actionCount": 3,
-    "latestVersion": "2.0.2"
+    "latestVersion": "3.0.0"
   },
   "amazonaws_mobileanalytics": {
     "id": "amazonaws_mobileanalytics",
@@ -1499,9 +1499,9 @@
     "security": {
       "amazonaws_mobileanalytics": {
         "integration": "amazonaws_mobileanalytics",
-        "fields": {
-          "hmac": "Amazon Signature authorization v4"
-        }
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
       }
     },
     "logo": {
@@ -1513,7 +1513,7 @@
       "aws"
     ],
     "actionCount": 1,
-    "latestVersion": "2.0.2"
+    "latestVersion": "3.0.0"
   },
   "amazonaws_models_lex": {
     "id": "amazonaws_models_lex",
@@ -1522,9 +1522,9 @@
     "security": {
       "amazonaws_models_lex": {
         "integration": "amazonaws_models_lex",
-        "fields": {
-          "hmac": "Amazon Signature authorization v4"
-        }
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
       }
     },
     "logo": {
@@ -1536,7 +1536,7 @@
       "aws"
     ],
     "actionCount": 29,
-    "latestVersion": "2.0.2"
+    "latestVersion": "3.0.0"
   },
   "amazonaws_monitoring": {
     "id": "amazonaws_monitoring",
@@ -1545,9 +1545,9 @@
     "security": {
       "amazonaws_monitoring": {
         "integration": "amazonaws_monitoring",
-        "fields": {
-          "hmac": "Amazon Signature authorization v4"
-        }
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
       }
     },
     "logo": {
@@ -1559,7 +1559,7 @@
       "aws"
     ],
     "actionCount": 11,
-    "latestVersion": "2.0.2"
+    "latestVersion": "3.0.0"
   },
   "amazonaws_mturk_requester": {
     "id": "amazonaws_mturk_requester",
@@ -1568,9 +1568,9 @@
     "security": {
       "amazonaws_mturk_requester": {
         "integration": "amazonaws_mturk_requester",
-        "fields": {
-          "hmac": "Amazon Signature authorization v4"
-        }
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
       }
     },
     "logo": {
@@ -1582,7 +1582,7 @@
       "aws"
     ],
     "actionCount": 39,
-    "latestVersion": "2.0.2"
+    "latestVersion": "3.0.0"
   },
   "amazonaws_opsworks": {
     "id": "amazonaws_opsworks",
@@ -1591,9 +1591,9 @@
     "security": {
       "amazonaws_opsworks": {
         "integration": "amazonaws_opsworks",
-        "fields": {
-          "hmac": "Amazon Signature authorization v4"
-        }
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
       }
     },
     "logo": {
@@ -1605,7 +1605,7 @@
       "aws"
     ],
     "actionCount": 70,
-    "latestVersion": "2.0.2"
+    "latestVersion": "3.0.0"
   },
   "amazonaws_opsworks_cm": {
     "id": "amazonaws_opsworks_cm",
@@ -1614,9 +1614,9 @@
     "security": {
       "amazonaws_opsworks_cm": {
         "integration": "amazonaws_opsworks_cm",
-        "fields": {
-          "hmac": "Amazon Signature authorization v4"
-        }
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
       }
     },
     "logo": {
@@ -1628,7 +1628,7 @@
       "aws"
     ],
     "actionCount": 15,
-    "latestVersion": "2.0.2"
+    "latestVersion": "3.0.0"
   },
   "amazonaws_organizations": {
     "id": "amazonaws_organizations",
@@ -1637,9 +1637,9 @@
     "security": {
       "amazonaws_organizations": {
         "integration": "amazonaws_organizations",
-        "fields": {
-          "hmac": "Amazon Signature authorization v4"
-        }
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
       }
     },
     "logo": {
@@ -1651,7 +1651,7 @@
       "aws"
     ],
     "actionCount": 39,
-    "latestVersion": "2.0.2"
+    "latestVersion": "3.0.0"
   },
   "amazonaws_pinpoint": {
     "id": "amazonaws_pinpoint",
@@ -1659,9 +1659,9 @@
     "security": {
       "amazonaws_pinpoint": {
         "integration": "amazonaws_pinpoint",
-        "fields": {
-          "hmac": "Amazon Signature authorization v4"
-        }
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
       }
     },
     "logo": {
@@ -1673,7 +1673,7 @@
       "aws"
     ],
     "actionCount": 18,
-    "latestVersion": "2.0.2"
+    "latestVersion": "3.0.0"
   },
   "amazonaws_polly": {
     "id": "amazonaws_polly",
@@ -1682,9 +1682,9 @@
     "security": {
       "amazonaws_polly": {
         "integration": "amazonaws_polly",
-        "fields": {
-          "hmac": "Amazon Signature authorization v4"
-        }
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
       }
     },
     "logo": {
@@ -1696,7 +1696,7 @@
       "aws"
     ],
     "actionCount": 4,
-    "latestVersion": "2.0.2"
+    "latestVersion": "3.0.0"
   },
   "amazonaws_rds": {
     "id": "amazonaws_rds",
@@ -1705,9 +1705,9 @@
     "security": {
       "amazonaws_rds": {
         "integration": "amazonaws_rds",
-        "fields": {
-          "hmac": "Amazon Signature authorization v4"
-        }
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
       }
     },
     "logo": {
@@ -1719,7 +1719,7 @@
       "aws"
     ],
     "actionCount": 87,
-    "latestVersion": "2.0.2"
+    "latestVersion": "3.0.0"
   },
   "amazonaws_redshift": {
     "id": "amazonaws_redshift",
@@ -1728,9 +1728,9 @@
     "security": {
       "amazonaws_redshift": {
         "integration": "amazonaws_redshift",
-        "fields": {
-          "hmac": "Amazon Signature authorization v4"
-        }
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
       }
     },
     "logo": {
@@ -1742,7 +1742,7 @@
       "aws"
     ],
     "actionCount": 63,
-    "latestVersion": "2.0.2"
+    "latestVersion": "3.0.0"
   },
   "amazonaws_rekognition": {
     "id": "amazonaws_rekognition",
@@ -1751,9 +1751,9 @@
     "security": {
       "amazonaws_rekognition": {
         "integration": "amazonaws_rekognition",
-        "fields": {
-          "hmac": "Amazon Signature authorization v4"
-        }
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
       }
     },
     "logo": {
@@ -1765,7 +1765,7 @@
       "aws"
     ],
     "actionCount": 12,
-    "latestVersion": "2.0.2"
+    "latestVersion": "3.0.0"
   },
   "amazonaws_route53": {
     "id": "amazonaws_route53",
@@ -1773,9 +1773,9 @@
     "security": {
       "amazonaws_route53": {
         "integration": "amazonaws_route53",
-        "fields": {
-          "hmac": "Amazon Signature authorization v4"
-        }
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
       }
     },
     "logo": {
@@ -1787,7 +1787,7 @@
       "aws"
     ],
     "actionCount": 35,
-    "latestVersion": "2.0.2"
+    "latestVersion": "3.0.0"
   },
   "amazonaws_route53domains": {
     "id": "amazonaws_route53domains",
@@ -1796,9 +1796,9 @@
     "security": {
       "amazonaws_route53domains": {
         "integration": "amazonaws_route53domains",
-        "fields": {
-          "hmac": "Amazon Signature authorization v4"
-        }
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
       }
     },
     "logo": {
@@ -1810,7 +1810,7 @@
       "aws"
     ],
     "actionCount": 23,
-    "latestVersion": "2.0.2"
+    "latestVersion": "3.0.0"
   },
   "amazonaws_runtime_lex": {
     "id": "amazonaws_runtime_lex",
@@ -1819,9 +1819,9 @@
     "security": {
       "amazonaws_runtime_lex": {
         "integration": "amazonaws_runtime_lex",
-        "fields": {
-          "hmac": "Amazon Signature authorization v4"
-        }
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
       }
     },
     "logo": {
@@ -1833,7 +1833,7 @@
       "aws"
     ],
     "actionCount": 2,
-    "latestVersion": "2.0.2"
+    "latestVersion": "3.0.0"
   },
   "amazonaws_s3": {
     "id": "amazonaws_s3",
@@ -1841,9 +1841,9 @@
     "security": {
       "amazonaws_s3": {
         "integration": "amazonaws_s3",
-        "fields": {
-          "hmac": "Amazon S3 signature"
-        }
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
       }
     },
     "logo": {
@@ -1855,7 +1855,7 @@
       "aws"
     ],
     "actionCount": 66,
-    "latestVersion": "2.0.2"
+    "latestVersion": "3.0.0"
   },
   "amazonaws_sdb": {
     "id": "amazonaws_sdb",
@@ -1864,9 +1864,9 @@
     "security": {
       "amazonaws_sdb": {
         "integration": "amazonaws_sdb",
-        "fields": {
-          "hmac": "Amazon Signature authorization v2"
-        }
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
       }
     },
     "logo": {
@@ -1878,7 +1878,7 @@
       "aws"
     ],
     "actionCount": 10,
-    "latestVersion": "2.0.2"
+    "latestVersion": "3.0.0"
   },
   "amazonaws_servicecatalog": {
     "id": "amazonaws_servicecatalog",
@@ -1887,9 +1887,9 @@
     "security": {
       "amazonaws_servicecatalog": {
         "integration": "amazonaws_servicecatalog",
-        "fields": {
-          "hmac": "Amazon Signature authorization v4"
-        }
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
       }
     },
     "logo": {
@@ -1901,7 +1901,7 @@
       "aws"
     ],
     "actionCount": 43,
-    "latestVersion": "2.0.2"
+    "latestVersion": "3.0.0"
   },
   "amazonaws_shield": {
     "id": "amazonaws_shield",
@@ -1910,9 +1910,9 @@
     "security": {
       "amazonaws_shield": {
         "integration": "amazonaws_shield",
-        "fields": {
-          "hmac": "Amazon Signature authorization v4"
-        }
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
       }
     },
     "logo": {
@@ -1924,7 +1924,7 @@
       "aws"
     ],
     "actionCount": 9,
-    "latestVersion": "2.0.2"
+    "latestVersion": "3.0.0"
   },
   "amazonaws_sms": {
     "id": "amazonaws_sms",
@@ -1933,9 +1933,9 @@
     "security": {
       "amazonaws_sms": {
         "integration": "amazonaws_sms",
-        "fields": {
-          "hmac": "Amazon Signature authorization v4"
-        }
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
       }
     },
     "logo": {
@@ -1947,7 +1947,7 @@
       "aws"
     ],
     "actionCount": 11,
-    "latestVersion": "2.0.2"
+    "latestVersion": "3.0.0"
   },
   "amazonaws_snowball": {
     "id": "amazonaws_snowball",
@@ -1956,9 +1956,9 @@
     "security": {
       "amazonaws_snowball": {
         "integration": "amazonaws_snowball",
-        "fields": {
-          "hmac": "Amazon Signature authorization v4"
-        }
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
       }
     },
     "logo": {
@@ -1970,7 +1970,7 @@
       "aws"
     ],
     "actionCount": 17,
-    "latestVersion": "2.0.2"
+    "latestVersion": "3.0.0"
   },
   "amazonaws_sns": {
     "id": "amazonaws_sns",
@@ -1979,9 +1979,9 @@
     "security": {
       "amazonaws_sns": {
         "integration": "amazonaws_sns",
-        "fields": {
-          "hmac": "Amazon Signature authorization v4"
-        }
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
       }
     },
     "logo": {
@@ -1993,7 +1993,7 @@
       "aws"
     ],
     "actionCount": 30,
-    "latestVersion": "2.0.2"
+    "latestVersion": "3.0.0"
   },
   "amazonaws_sqs": {
     "id": "amazonaws_sqs",
@@ -2002,9 +2002,9 @@
     "security": {
       "amazonaws_sqs": {
         "integration": "amazonaws_sqs",
-        "fields": {
-          "hmac": "Amazon Signature authorization v4"
-        }
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
       }
     },
     "logo": {
@@ -2016,7 +2016,7 @@
       "aws"
     ],
     "actionCount": 17,
-    "latestVersion": "2.0.2"
+    "latestVersion": "3.0.0"
   },
   "amazonaws_ssm": {
     "id": "amazonaws_ssm",
@@ -2025,9 +2025,9 @@
     "security": {
       "amazonaws_ssm": {
         "integration": "amazonaws_ssm",
-        "fields": {
-          "hmac": "Amazon Signature authorization v4"
-        }
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
       }
     },
     "logo": {
@@ -2039,7 +2039,7 @@
       "aws"
     ],
     "actionCount": 80,
-    "latestVersion": "2.0.2"
+    "latestVersion": "3.0.0"
   },
   "amazonaws_states": {
     "id": "amazonaws_states",
@@ -2048,9 +2048,9 @@
     "security": {
       "amazonaws_states": {
         "integration": "amazonaws_states",
-        "fields": {
-          "hmac": "Amazon Signature authorization v4"
-        }
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
       }
     },
     "logo": {
@@ -2062,7 +2062,7 @@
       "aws"
     ],
     "actionCount": 17,
-    "latestVersion": "2.0.2"
+    "latestVersion": "3.0.0"
   },
   "amazonaws_storagegateway": {
     "id": "amazonaws_storagegateway",
@@ -2071,9 +2071,9 @@
     "security": {
       "amazonaws_storagegateway": {
         "integration": "amazonaws_storagegateway",
-        "fields": {
-          "hmac": "Amazon Signature authorization v4"
-        }
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
       }
     },
     "logo": {
@@ -2085,7 +2085,7 @@
       "aws"
     ],
     "actionCount": 62,
-    "latestVersion": "2.0.2"
+    "latestVersion": "3.0.0"
   },
   "amazonaws_streams_dynamodb": {
     "id": "amazonaws_streams_dynamodb",
@@ -2094,9 +2094,9 @@
     "security": {
       "amazonaws_streams_dynamodb": {
         "integration": "amazonaws_streams_dynamodb",
-        "fields": {
-          "hmac": "Amazon Signature authorization v4"
-        }
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
       }
     },
     "logo": {
@@ -2108,7 +2108,7 @@
       "aws"
     ],
     "actionCount": 4,
-    "latestVersion": "2.0.2"
+    "latestVersion": "3.0.0"
   },
   "amazonaws_sts": {
     "id": "amazonaws_sts",
@@ -2117,9 +2117,9 @@
     "security": {
       "amazonaws_sts": {
         "integration": "amazonaws_sts",
-        "fields": {
-          "hmac": "Amazon Signature authorization v4"
-        }
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
       }
     },
     "logo": {
@@ -2131,7 +2131,7 @@
       "aws"
     ],
     "actionCount": 7,
-    "latestVersion": "2.0.2"
+    "latestVersion": "3.0.0"
   },
   "amazonaws_support": {
     "id": "amazonaws_support",
@@ -2140,9 +2140,9 @@
     "security": {
       "amazonaws_support": {
         "integration": "amazonaws_support",
-        "fields": {
-          "hmac": "Amazon Signature authorization v4"
-        }
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
       }
     },
     "logo": {
@@ -2154,7 +2154,7 @@
       "aws"
     ],
     "actionCount": 14,
-    "latestVersion": "2.0.2"
+    "latestVersion": "3.0.0"
   },
   "amazonaws_swf": {
     "id": "amazonaws_swf",
@@ -2163,9 +2163,9 @@
     "security": {
       "amazonaws_swf": {
         "integration": "amazonaws_swf",
-        "fields": {
-          "hmac": "Amazon Signature authorization v4"
-        }
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
       }
     },
     "logo": {
@@ -2177,7 +2177,7 @@
       "aws"
     ],
     "actionCount": 31,
-    "latestVersion": "2.0.2"
+    "latestVersion": "3.0.0"
   },
   "amazonaws_tagging": {
     "id": "amazonaws_tagging",
@@ -2186,9 +2186,9 @@
     "security": {
       "amazonaws_tagging": {
         "integration": "amazonaws_tagging",
-        "fields": {
-          "hmac": "Amazon Signature authorization v4"
-        }
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
       }
     },
     "logo": {
@@ -2200,7 +2200,7 @@
       "aws"
     ],
     "actionCount": 5,
-    "latestVersion": "2.0.2"
+    "latestVersion": "3.0.0"
   },
   "amazonaws_waf": {
     "id": "amazonaws_waf",
@@ -2209,9 +2209,9 @@
     "security": {
       "amazonaws_waf": {
         "integration": "amazonaws_waf",
-        "fields": {
-          "hmac": "Amazon Signature authorization v4"
-        }
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
       }
     },
     "logo": {
@@ -2223,7 +2223,7 @@
       "aws"
     ],
     "actionCount": 38,
-    "latestVersion": "2.0.2"
+    "latestVersion": "3.0.0"
   },
   "amazonaws_waf_regional": {
     "id": "amazonaws_waf_regional",
@@ -2232,9 +2232,9 @@
     "security": {
       "amazonaws_waf_regional": {
         "integration": "amazonaws_waf_regional",
-        "fields": {
-          "hmac": "Amazon Signature authorization v4"
-        }
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
       }
     },
     "logo": {
@@ -2246,7 +2246,7 @@
       "aws"
     ],
     "actionCount": 42,
-    "latestVersion": "2.0.2"
+    "latestVersion": "3.0.0"
   },
   "amazonaws_workdocs": {
     "id": "amazonaws_workdocs",
@@ -2255,9 +2255,9 @@
     "security": {
       "amazonaws_workdocs": {
         "integration": "amazonaws_workdocs",
-        "fields": {
-          "hmac": "Amazon Signature authorization v4"
-        }
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
       }
     },
     "logo": {
@@ -2269,7 +2269,7 @@
       "aws"
     ],
     "actionCount": 16,
-    "latestVersion": "2.0.2"
+    "latestVersion": "3.0.0"
   },
   "amazonaws_workspaces": {
     "id": "amazonaws_workspaces",
@@ -2278,9 +2278,9 @@
     "security": {
       "amazonaws_workspaces": {
         "integration": "amazonaws_workspaces",
-        "fields": {
-          "hmac": "Amazon Signature authorization v4"
-        }
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
       }
     },
     "logo": {
@@ -2292,7 +2292,7 @@
       "aws"
     ],
     "actionCount": 14,
-    "latestVersion": "2.0.2"
+    "latestVersion": "3.0.0"
   },
   "amazonaws_xray": {
     "id": "amazonaws_xray",
@@ -2301,9 +2301,9 @@
     "security": {
       "amazonaws_xray": {
         "integration": "amazonaws_xray",
-        "fields": {
-          "hmac": "Amazon Signature authorization v4"
-        }
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
       }
     },
     "logo": {
@@ -2315,7 +2315,7 @@
       "aws"
     ],
     "actionCount": 6,
-    "latestVersion": "2.0.2"
+    "latestVersion": "3.0.0"
   },
   "apacta": {
     "id": "apacta",

@@ -1,0 +1,2699 @@
+{
+  "id": "amazonaws_cloudformation",
+  "title": "AWS CloudFormation",
+  "description": "<fullname>AWS CloudFormation</fullname> <p>AWS CloudFormation allows you to create and manage AWS infrastructure deployments predictably and repeatedly. You can use AWS CloudFormation to leverage AWS products, such as Amazon Elastic Compute Cloud, Amazon Elastic Block Store, Amazon Simple Notification Service, Elastic Load Balancing, and Auto Scaling to build highly-reliable, highly scalable, cost-effective applications without creating or configuring the underlying AWS infrastructure.</p> <p>With AWS CloudFormation, you declare all of your resources and dependencies in a template file. The template defines a collection of resources as a single unit called a stack. AWS CloudFormation creates and deletes all member resources of the stack together and manages all dependencies between the resources for you.</p> <p>For more information about AWS CloudFormation, see the <a href=\"http://aws.amazon.com/cloudformation/\">AWS CloudFormation Product Page</a>.</p> <p>Amazon CloudFormation makes use of other AWS products. If you need additional technical information about a specific AWS product, you can find the product's technical documentation at <a href=\"http://docs.aws.amazon.com/\">docs.aws.amazon.com</a>.</p>",
+  "security": {
+    "amazonaws_cloudformation": {
+      "integration": "amazonaws_cloudformation",
+      "accessKeyId": "",
+      "secretAccessKey": "",
+      "region": "AWS region (if applicable)"
+    }
+  },
+  "logo": {
+    "backgroundColor": "#FFFFFF",
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_cloudformation.jpg"
+  },
+  "tags": [
+    "cloud",
+    "aws"
+  ],
+  "definitions": {
+    "AccountLimit": {
+      "description": "The AccountLimit data type.",
+      "properties": {
+        "Name": {
+          "$ref": "#/definitions/LimitName",
+          "description": "The name of the account limit. Currently, the only account limit is <code>StackLimit</code>."
+        },
+        "Value": {
+          "$ref": "#/definitions/LimitValue",
+          "description": "The value that is associated with the account limit name."
+        }
+      },
+      "type": "object"
+    },
+    "AccountLimitList": {
+      "items": {
+        "$ref": "#/definitions/AccountLimit"
+      },
+      "type": "array"
+    },
+    "AllowedValue": {
+      "type": "string"
+    },
+    "AllowedValues": {
+      "items": {
+        "$ref": "#/definitions/AllowedValue"
+      },
+      "type": "array"
+    },
+    "AlreadyExistsException": {
+      "description": "Resource with the name requested already exists.",
+      "properties": {},
+      "type": "object"
+    },
+    "CancelUpdateStackInput": {
+      "description": "The input for the <a>CancelUpdateStack</a> action.",
+      "properties": {
+        "ClientRequestToken": {
+          "$ref": "#/definitions/ClientRequestToken",
+          "description": "A unique identifier for this <code>CancelUpdateStack</code> request. Specify this token if you plan to retry requests so that AWS CloudFormation knows that you're not attempting to cancel an update on a stack with the same name. You might retry <code>CancelUpdateStack</code> requests to ensure that AWS CloudFormation successfully received them."
+        },
+        "StackName": {
+          "$ref": "#/definitions/StackName",
+          "description": "The name or the unique stack ID that is associated with the stack."
+        }
+      },
+      "required": [
+        "StackName"
+      ],
+      "type": "object"
+    },
+    "Capabilities": {
+      "items": {
+        "$ref": "#/definitions/Capability"
+      },
+      "type": "array"
+    },
+    "CapabilitiesReason": {
+      "type": "string"
+    },
+    "Capability": {
+      "enum": [
+        "CAPABILITY_IAM",
+        "CAPABILITY_NAMED_IAM"
+      ],
+      "type": "string"
+    },
+    "CausingEntity": {
+      "type": "string"
+    },
+    "Change": {
+      "description": "The <code>Change</code> structure describes the changes AWS CloudFormation will perform if you execute the change set.",
+      "properties": {
+        "ResourceChange": {
+          "$ref": "#/definitions/ResourceChange",
+          "description": "A <code>ResourceChange</code> structure that describes the resource and action that AWS CloudFormation will perform."
+        },
+        "Type": {
+          "$ref": "#/definitions/ChangeType",
+          "description": "The type of entity that AWS CloudFormation changes. Currently, the only entity type is <code>Resource</code>."
+        }
+      },
+      "type": "object"
+    },
+    "ChangeAction": {
+      "enum": [
+        "Add",
+        "Modify",
+        "Remove"
+      ],
+      "type": "string"
+    },
+    "ChangeSetId": {
+      "minLength": 1,
+      "pattern": "arn:[-a-zA-Z0-9:/]*",
+      "type": "string"
+    },
+    "ChangeSetName": {
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": "[a-zA-Z][-a-zA-Z0-9]*",
+      "type": "string"
+    },
+    "ChangeSetNameOrId": {
+      "maxLength": 1600,
+      "minLength": 1,
+      "pattern": "[a-zA-Z][-a-zA-Z0-9]*|arn:[-a-zA-Z0-9:/]*",
+      "type": "string"
+    },
+    "ChangeSetNotFoundException": {
+      "description": "The specified change set name or ID doesn't exit. To view valid change sets for a stack, use the <code>ListChangeSets</code> action.",
+      "properties": {},
+      "type": "object"
+    },
+    "ChangeSetStatus": {
+      "enum": [
+        "CREATE_PENDING",
+        "CREATE_IN_PROGRESS",
+        "CREATE_COMPLETE",
+        "DELETE_COMPLETE",
+        "FAILED"
+      ],
+      "type": "string"
+    },
+    "ChangeSetStatusReason": {
+      "type": "string"
+    },
+    "ChangeSetSummaries": {
+      "items": {
+        "$ref": "#/definitions/ChangeSetSummary"
+      },
+      "type": "array"
+    },
+    "ChangeSetSummary": {
+      "description": "The <code>ChangeSetSummary</code> structure describes a change set, its status, and the stack with which it's associated.",
+      "properties": {
+        "ChangeSetId": {
+          "$ref": "#/definitions/ChangeSetId",
+          "description": "The ID of the change set."
+        },
+        "ChangeSetName": {
+          "$ref": "#/definitions/ChangeSetName",
+          "description": "The name of the change set."
+        },
+        "CreationTime": {
+          "$ref": "#/definitions/CreationTime",
+          "description": "The start time when the change set was created, in UTC."
+        },
+        "Description": {
+          "$ref": "#/definitions/Description",
+          "description": "Descriptive information about the change set."
+        },
+        "ExecutionStatus": {
+          "$ref": "#/definitions/ExecutionStatus",
+          "description": "If the change set execution status is <code>AVAILABLE</code>, you can execute the change set. If you can’t execute the change set, the status indicates why. For example, a change set might be in an <code>UNAVAILABLE</code> state because AWS CloudFormation is still creating it or in an <code>OBSOLETE</code> state because the stack was already updated."
+        },
+        "StackId": {
+          "$ref": "#/definitions/StackId",
+          "description": "The ID of the stack with which the change set is associated."
+        },
+        "StackName": {
+          "$ref": "#/definitions/StackName",
+          "description": "The name of the stack with which the change set is associated."
+        },
+        "Status": {
+          "$ref": "#/definitions/ChangeSetStatus",
+          "description": "The state of the change set, such as <code>CREATE_IN_PROGRESS</code>, <code>CREATE_COMPLETE</code>, or <code>FAILED</code>."
+        },
+        "StatusReason": {
+          "$ref": "#/definitions/ChangeSetStatusReason",
+          "description": "A description of the change set's status. For example, if your change set is in the <code>FAILED</code> state, AWS CloudFormation shows the error message."
+        }
+      },
+      "type": "object"
+    },
+    "ChangeSetType": {
+      "enum": [
+        "CREATE",
+        "UPDATE"
+      ],
+      "type": "string"
+    },
+    "ChangeSource": {
+      "enum": [
+        "ResourceReference",
+        "ParameterReference",
+        "ResourceAttribute",
+        "DirectModification",
+        "Automatic"
+      ],
+      "type": "string"
+    },
+    "ChangeType": {
+      "enum": [
+        "Resource"
+      ],
+      "type": "string"
+    },
+    "Changes": {
+      "items": {
+        "$ref": "#/definitions/Change"
+      },
+      "type": "array"
+    },
+    "ClientRequestToken": {
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": "[a-zA-Z][-a-zA-Z0-9]*",
+      "type": "string"
+    },
+    "ClientToken": {
+      "maxLength": 128,
+      "minLength": 1,
+      "type": "string"
+    },
+    "ContinueUpdateRollbackInput": {
+      "description": "The input for the <a>ContinueUpdateRollback</a> action.",
+      "properties": {
+        "ClientRequestToken": {
+          "$ref": "#/definitions/ClientRequestToken",
+          "description": "A unique identifier for this <code>ContinueUpdateRollback</code> request. Specify this token if you plan to retry requests so that AWS CloudFormation knows that you're not attempting to continue the rollback to a stack with the same name. You might retry <code>ContinueUpdateRollback</code> requests to ensure that AWS CloudFormation successfully received them."
+        },
+        "ResourcesToSkip": {
+          "$ref": "#/definitions/ResourcesToSkip",
+          "description": "<p>A list of the logical IDs of the resources that AWS CloudFormation skips during the continue update rollback operation. You can specify only resources that are in the <code>UPDATE_FAILED</code> state because a rollback failed. You can't specify resources that are in the <code>UPDATE_FAILED</code> state for other reasons, for example, because an update was canceled. To check why a resource update failed, use the <a>DescribeStackResources</a> action, and view the resource status reason. </p> <important> <p>Specify this property to skip rolling back resources that AWS CloudFormation can't successfully roll back. We recommend that you <a href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/troubleshooting.html#troubleshooting-errors-update-rollback-failed\"> troubleshoot</a> resources before skipping them. AWS CloudFormation sets the status of the specified resources to <code>UPDATE_COMPLETE</code> and continues to roll back the stack. After the rollback is complete, the state of the skipped resources will be inconsistent with the state of the resources in the stack template. Before performing another stack update, you must update the stack or resources to be consistent with each other. If you don't, subsequent stack updates might fail, and the stack will become unrecoverable. </p> </important> <p>Specify the minimum number of resources required to successfully roll back your stack. For example, a failed resource update might cause dependent resources to fail. In this case, it might not be necessary to skip the dependent resources. </p> <p>To specify resources in a nested stack, use the following format: <code>NestedStackName.ResourceLogicalID</code>. If the <code>ResourceLogicalID</code> is a stack resource (<code>Type: AWS::CloudFormation::Stack</code>), it must be in one of the following states: <code>DELETE_IN_PROGRESS</code>, <code>DELETE_COMPLETE</code>, or <code>DELETE_FAILED</code>. </p>"
+        },
+        "RoleARN": {
+          "$ref": "#/definitions/RoleARN",
+          "description": "<p>The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM) role that AWS CloudFormation assumes to roll back the stack. AWS CloudFormation uses the role's credentials to make calls on your behalf. AWS CloudFormation always uses this role for all future operations on the stack. As long as users have permission to operate on the stack, AWS CloudFormation uses this role even if the users don't have permission to pass it. Ensure that the role grants least privilege.</p> <p>If you don't specify a value, AWS CloudFormation uses the role that was previously associated with the stack. If no role is available, AWS CloudFormation uses a temporary session that is generated from your user credentials.</p>"
+        },
+        "StackName": {
+          "$ref": "#/definitions/StackNameOrId",
+          "description": "<p>The name or the unique ID of the stack that you want to continue rolling back.</p> <note> <p>Don't specify the name of a nested stack (a stack that was created by using the <code>AWS::CloudFormation::Stack</code> resource). Instead, use this operation on the parent stack (the stack that contains the <code>AWS::CloudFormation::Stack</code> resource).</p> </note>"
+        }
+      },
+      "required": [
+        "StackName"
+      ],
+      "type": "object"
+    },
+    "ContinueUpdateRollbackOutput": {
+      "description": "The output for a <a>ContinueUpdateRollback</a> action.",
+      "properties": {},
+      "type": "object"
+    },
+    "CreateChangeSetInput": {
+      "description": "The input for the <a>CreateChangeSet</a> action.",
+      "properties": {
+        "Capabilities": {
+          "$ref": "#/definitions/Capabilities",
+          "description": "<p>A list of values that you must specify before AWS CloudFormation can update certain stacks. Some stack templates might include resources that can affect permissions in your AWS account, for example, by creating new AWS Identity and Access Management (IAM) users. For those stacks, you must explicitly acknowledge their capabilities by specifying this parameter.</p> <p>The only valid values are <code>CAPABILITY_IAM</code> and <code>CAPABILITY_NAMED_IAM</code>. The following resources require you to specify this parameter: <a href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-accesskey.html\"> AWS::IAM::AccessKey</a>, <a href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html\"> AWS::IAM::Group</a>, <a href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html\"> AWS::IAM::InstanceProfile</a>, <a href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-policy.html\"> AWS::IAM::Policy</a>, <a href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html\"> AWS::IAM::Role</a>, <a href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html\"> AWS::IAM::User</a>, and <a href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-addusertogroup.html\"> AWS::IAM::UserToGroupAddition</a>. If your stack template contains these resources, we recommend that you review all permissions associated with them and edit their permissions if necessary.</p> <p>If you have IAM resources, you can specify either capability. If you have IAM resources with custom names, you must specify <code>CAPABILITY_NAMED_IAM</code>. If you don't specify this parameter, this action returns an <code>InsufficientCapabilities</code> error.</p> <p>For more information, see <a href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities\">Acknowledging IAM Resources in AWS CloudFormation Templates</a>.</p>"
+        },
+        "ChangeSetName": {
+          "$ref": "#/definitions/ChangeSetName",
+          "description": "<p>The name of the change set. The name must be unique among all change sets that are associated with the specified stack.</p> <p>A change set name can contain only alphanumeric, case sensitive characters and hyphens. It must start with an alphabetic character and cannot exceed 128 characters.</p>"
+        },
+        "ChangeSetType": {
+          "$ref": "#/definitions/ChangeSetType",
+          "description": "<p>The type of change set operation. To create a change set for a new stack, specify <code>CREATE</code>. To create a change set for an existing stack, specify <code>UPDATE</code>.</p> <p>If you create a change set for a new stack, AWS Cloudformation creates a stack with a unique stack ID, but no template or resources. The stack will be in the <a href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-describing-stacks.html#d0e11995\"> <code>REVIEW_IN_PROGRESS</code> </a> state until you execute the change set.</p> <p>By default, AWS CloudFormation specifies <code>UPDATE</code>. You can't use the <code>UPDATE</code> type to create a change set for a new stack or the <code>CREATE</code> type to create a change set for an existing stack.</p>"
+        },
+        "ClientToken": {
+          "$ref": "#/definitions/ClientToken",
+          "description": "A unique identifier for this <code>CreateChangeSet</code> request. Specify this token if you plan to retry requests so that AWS CloudFormation knows that you're not attempting to create another change set with the same name. You might retry <code>CreateChangeSet</code> requests to ensure that AWS CloudFormation successfully received them."
+        },
+        "Description": {
+          "$ref": "#/definitions/Description",
+          "description": "A description to help you identify this change set."
+        },
+        "NotificationARNs": {
+          "$ref": "#/definitions/NotificationARNs",
+          "description": "The Amazon Resource Names (ARNs) of Amazon Simple Notification Service (Amazon SNS) topics that AWS CloudFormation associates with the stack. To remove all associated notification topics, specify an empty list."
+        },
+        "Parameters": {
+          "$ref": "#/definitions/Parameters",
+          "description": "A list of <code>Parameter</code> structures that specify input parameters for the change set. For more information, see the <a href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_Parameter.html\">Parameter</a> data type."
+        },
+        "ResourceTypes": {
+          "$ref": "#/definitions/ResourceTypes",
+          "description": "<p>The template resource types that you have permissions to work with if you execute this change set, such as <code>AWS::EC2::Instance</code>, <code>AWS::EC2::*</code>, or <code>Custom::MyCustomInstance</code>.</p> <p>If the list of resource types doesn't include a resource type that you're updating, the stack update fails. By default, AWS CloudFormation grants permissions to all resource types. AWS Identity and Access Management (IAM) uses this parameter for condition keys in IAM policies for AWS CloudFormation. For more information, see <a href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html\">Controlling Access with AWS Identity and Access Management</a> in the AWS CloudFormation User Guide.</p>"
+        },
+        "RoleARN": {
+          "$ref": "#/definitions/RoleARN",
+          "description": "<p>The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM) role that AWS CloudFormation assumes when executing the change set. AWS CloudFormation uses the role's credentials to make calls on your behalf. AWS CloudFormation uses this role for all future operations on the stack. As long as users have permission to operate on the stack, AWS CloudFormation uses this role even if the users don't have permission to pass it. Ensure that the role grants least privilege.</p> <p>If you don't specify a value, AWS CloudFormation uses the role that was previously associated with the stack. If no role is available, AWS CloudFormation uses a temporary session that is generated from your user credentials.</p>"
+        },
+        "StackName": {
+          "$ref": "#/definitions/StackNameOrId",
+          "description": "The name or the unique ID of the stack for which you are creating a change set. AWS CloudFormation generates the change set by comparing this stack's information with the information that you submit, such as a modified template or different parameter input values."
+        },
+        "Tags": {
+          "$ref": "#/definitions/Tags",
+          "description": "Key-value pairs to associate with this stack. AWS CloudFormation also propagates these tags to resources in the stack. You can specify a maximum of 10 tags."
+        },
+        "TemplateBody": {
+          "$ref": "#/definitions/TemplateBody",
+          "description": "<p>A structure that contains the body of the revised template, with a minimum length of 1 byte and a maximum length of 51,200 bytes. AWS CloudFormation generates the change set by comparing this template with the template of the stack that you specified.</p> <p>Conditional: You must specify only <code>TemplateBody</code> or <code>TemplateURL</code>.</p>"
+        },
+        "TemplateURL": {
+          "$ref": "#/definitions/TemplateURL",
+          "description": "<p>The location of the file that contains the revised template. The URL must point to a template (max size: 460,800 bytes) that is located in an S3 bucket. AWS CloudFormation generates the change set by comparing this template with the stack that you specified.</p> <p>Conditional: You must specify only <code>TemplateBody</code> or <code>TemplateURL</code>.</p>"
+        },
+        "UsePreviousTemplate": {
+          "$ref": "#/definitions/UsePreviousTemplate",
+          "description": "Whether to reuse the template that is associated with the stack to create the change set."
+        }
+      },
+      "required": [
+        "StackName",
+        "ChangeSetName"
+      ],
+      "type": "object"
+    },
+    "CreateChangeSetOutput": {
+      "description": "The output for the <a>CreateChangeSet</a> action.",
+      "properties": {
+        "Id": {
+          "$ref": "#/definitions/ChangeSetId",
+          "description": "The Amazon Resource Name (ARN) of the change set."
+        },
+        "StackId": {
+          "$ref": "#/definitions/StackId",
+          "description": "The unique ID of the stack."
+        }
+      },
+      "type": "object"
+    },
+    "CreateStackInput": {
+      "description": "The input for <a>CreateStack</a> action.",
+      "properties": {
+        "Capabilities": {
+          "$ref": "#/definitions/Capabilities",
+          "description": "<p>A list of values that you must specify before AWS CloudFormation can create certain stacks. Some stack templates might include resources that can affect permissions in your AWS account, for example, by creating new AWS Identity and Access Management (IAM) users. For those stacks, you must explicitly acknowledge their capabilities by specifying this parameter.</p> <p>The only valid values are <code>CAPABILITY_IAM</code> and <code>CAPABILITY_NAMED_IAM</code>. The following resources require you to specify this parameter: <a href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-accesskey.html\"> AWS::IAM::AccessKey</a>, <a href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html\"> AWS::IAM::Group</a>, <a href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html\"> AWS::IAM::InstanceProfile</a>, <a href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-policy.html\"> AWS::IAM::Policy</a>, <a href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html\"> AWS::IAM::Role</a>, <a href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html\"> AWS::IAM::User</a>, and <a href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-addusertogroup.html\"> AWS::IAM::UserToGroupAddition</a>. If your stack template contains these resources, we recommend that you review all permissions associated with them and edit their permissions if necessary.</p> <p>If you have IAM resources, you can specify either capability. If you have IAM resources with custom names, you must specify <code>CAPABILITY_NAMED_IAM</code>. If you don't specify this parameter, this action returns an <code>InsufficientCapabilities</code> error.</p> <p>For more information, see <a href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities\">Acknowledging IAM Resources in AWS CloudFormation Templates</a>.</p>"
+        },
+        "ClientRequestToken": {
+          "$ref": "#/definitions/ClientRequestToken",
+          "description": "A unique identifier for this <code>CreateStack</code> request. Specify this token if you plan to retry requests so that AWS CloudFormation knows that you're not attempting to create a stack with the same name. You might retry <code>CreateStack</code> requests to ensure that AWS CloudFormation successfully received them."
+        },
+        "DisableRollback": {
+          "$ref": "#/definitions/DisableRollback",
+          "description": "<p>Set to <code>true</code> to disable rollback of the stack if stack creation failed. You can specify either <code>DisableRollback</code> or <code>OnFailure</code>, but not both.</p> <p>Default: <code>false</code> </p>"
+        },
+        "NotificationARNs": {
+          "$ref": "#/definitions/NotificationARNs",
+          "description": "The Simple Notification Service (SNS) topic ARNs to publish stack related events. You can find your SNS topic ARNs using the SNS console or your Command Line Interface (CLI)."
+        },
+        "OnFailure": {
+          "$ref": "#/definitions/OnFailure",
+          "description": "<p>Determines what action will be taken if stack creation fails. This must be one of: DO_NOTHING, ROLLBACK, or DELETE. You can specify either <code>OnFailure</code> or <code>DisableRollback</code>, but not both.</p> <p>Default: <code>ROLLBACK</code> </p>"
+        },
+        "Parameters": {
+          "$ref": "#/definitions/Parameters",
+          "description": "A list of <code>Parameter</code> structures that specify input parameters for the stack. For more information, see the <a href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_Parameter.html\">Parameter</a> data type."
+        },
+        "ResourceTypes": {
+          "$ref": "#/definitions/ResourceTypes",
+          "description": "<p>The template resource types that you have permissions to work with for this create stack action, such as <code>AWS::EC2::Instance</code>, <code>AWS::EC2::*</code>, or <code>Custom::MyCustomInstance</code>. Use the following syntax to describe template resource types: <code>AWS::*</code> (for all AWS resource), <code>Custom::*</code> (for all custom resources), <code>Custom::<i>logical_ID</i> </code> (for a specific custom resource), <code>AWS::<i>service_name</i>::*</code> (for all resources of a particular AWS service), and <code>AWS::<i>service_name</i>::<i>resource_logical_ID</i> </code> (for a specific AWS resource).</p> <p>If the list of resource types doesn't include a resource that you're creating, the stack creation fails. By default, AWS CloudFormation grants permissions to all resource types. AWS Identity and Access Management (IAM) uses this parameter for AWS CloudFormation-specific condition keys in IAM policies. For more information, see <a href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html\">Controlling Access with AWS Identity and Access Management</a>.</p>"
+        },
+        "RoleARN": {
+          "$ref": "#/definitions/RoleARN",
+          "description": "<p>The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM) role that AWS CloudFormation assumes to create the stack. AWS CloudFormation uses the role's credentials to make calls on your behalf. AWS CloudFormation always uses this role for all future operations on the stack. As long as users have permission to operate on the stack, AWS CloudFormation uses this role even if the users don't have permission to pass it. Ensure that the role grants least privilege.</p> <p>If you don't specify a value, AWS CloudFormation uses the role that was previously associated with the stack. If no role is available, AWS CloudFormation uses a temporary session that is generated from your user credentials.</p>"
+        },
+        "StackName": {
+          "$ref": "#/definitions/StackName",
+          "description": "<p>The name that is associated with the stack. The name must be unique in the region in which you are creating the stack.</p> <note> <p>A stack name can contain only alphanumeric characters (case sensitive) and hyphens. It must start with an alphabetic character and cannot be longer than 128 characters.</p> </note>"
+        },
+        "StackPolicyBody": {
+          "$ref": "#/definitions/StackPolicyBody",
+          "description": "Structure containing the stack policy body. For more information, go to <a href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html\"> Prevent Updates to Stack Resources</a> in the <i>AWS CloudFormation User Guide</i>. You can specify either the <code>StackPolicyBody</code> or the <code>StackPolicyURL</code> parameter, but not both."
+        },
+        "StackPolicyURL": {
+          "$ref": "#/definitions/StackPolicyURL",
+          "description": "Location of a file containing the stack policy. The URL must point to a policy (maximum size: 16 KB) located in an S3 bucket in the same region as the stack. You can specify either the <code>StackPolicyBody</code> or the <code>StackPolicyURL</code> parameter, but not both."
+        },
+        "Tags": {
+          "$ref": "#/definitions/Tags",
+          "description": "Key-value pairs to associate with this stack. AWS CloudFormation also propagates these tags to the resources created in the stack. A maximum number of 10 tags can be specified."
+        },
+        "TemplateBody": {
+          "$ref": "#/definitions/TemplateBody",
+          "description": "<p>Structure containing the template body with a minimum length of 1 byte and a maximum length of 51,200 bytes. For more information, go to <a href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html\">Template Anatomy</a> in the AWS CloudFormation User Guide.</p> <p>Conditional: You must specify either the <code>TemplateBody</code> or the <code>TemplateURL</code> parameter, but not both.</p>"
+        },
+        "TemplateURL": {
+          "$ref": "#/definitions/TemplateURL",
+          "description": "<p>Location of file containing the template body. The URL must point to a template (max size: 460,800 bytes) that is located in an Amazon S3 bucket. For more information, go to the <a href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html\">Template Anatomy</a> in the AWS CloudFormation User Guide.</p> <p>Conditional: You must specify either the <code>TemplateBody</code> or the <code>TemplateURL</code> parameter, but not both.</p>"
+        },
+        "TimeoutInMinutes": {
+          "$ref": "#/definitions/TimeoutMinutes",
+          "description": "The amount of time that can pass before the stack status becomes CREATE_FAILED; if <code>DisableRollback</code> is not set or is set to <code>false</code>, the stack will be rolled back."
+        }
+      },
+      "required": [
+        "StackName"
+      ],
+      "type": "object"
+    },
+    "CreateStackOutput": {
+      "description": "The output for a <a>CreateStack</a> action.",
+      "properties": {
+        "StackId": {
+          "$ref": "#/definitions/StackId",
+          "description": "Unique identifier of the stack."
+        }
+      },
+      "type": "object"
+    },
+    "CreationTime": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "DeleteChangeSetInput": {
+      "description": "The input for the <a>DeleteChangeSet</a> action.",
+      "properties": {
+        "ChangeSetName": {
+          "$ref": "#/definitions/ChangeSetNameOrId",
+          "description": "The name or Amazon Resource Name (ARN) of the change set that you want to delete."
+        },
+        "StackName": {
+          "$ref": "#/definitions/StackNameOrId",
+          "description": "If you specified the name of a change set to delete, specify the stack name or ID (ARN) that is associated with it."
+        }
+      },
+      "required": [
+        "ChangeSetName"
+      ],
+      "type": "object"
+    },
+    "DeleteChangeSetOutput": {
+      "description": "The output for the <a>DeleteChangeSet</a> action.",
+      "properties": {},
+      "type": "object"
+    },
+    "DeleteStackInput": {
+      "description": "The input for <a>DeleteStack</a> action.",
+      "properties": {
+        "ClientRequestToken": {
+          "$ref": "#/definitions/ClientRequestToken",
+          "description": "A unique identifier for this <code>DeleteStack</code> request. Specify this token if you plan to retry requests so that AWS CloudFormation knows that you're not attempting to delete a stack with the same name. You might retry <code>DeleteStack</code> requests to ensure that AWS CloudFormation successfully received them."
+        },
+        "RetainResources": {
+          "$ref": "#/definitions/RetainResources",
+          "description": "<p>For stacks in the <code>DELETE_FAILED</code> state, a list of resource logical IDs that are associated with the resources you want to retain. During deletion, AWS CloudFormation deletes the stack but does not delete the retained resources.</p> <p>Retaining resources is useful when you cannot delete a resource, such as a non-empty S3 bucket, but you want to delete the stack.</p>"
+        },
+        "RoleARN": {
+          "$ref": "#/definitions/RoleARN",
+          "description": "<p>The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM) role that AWS CloudFormation assumes to delete the stack. AWS CloudFormation uses the role's credentials to make calls on your behalf.</p> <p>If you don't specify a value, AWS CloudFormation uses the role that was previously associated with the stack. If no role is available, AWS CloudFormation uses a temporary session that is generated from your user credentials.</p>"
+        },
+        "StackName": {
+          "$ref": "#/definitions/StackName",
+          "description": "The name or the unique stack ID that is associated with the stack."
+        }
+      },
+      "required": [
+        "StackName"
+      ],
+      "type": "object"
+    },
+    "DeletionTime": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "DescribeAccountLimitsInput": {
+      "description": "The input for the <a>DescribeAccountLimits</a> action.",
+      "properties": {
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "A string that identifies the next page of limits that you want to retrieve."
+        }
+      },
+      "type": "object"
+    },
+    "DescribeAccountLimitsOutput": {
+      "description": "The output for the <a>DescribeAccountLimits</a> action.",
+      "properties": {
+        "AccountLimits": {
+          "$ref": "#/definitions/AccountLimitList",
+          "description": "An account limit structure that contain a list of AWS CloudFormation account limits and their values."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "If the output exceeds 1 MB in size, a string that identifies the next page of limits. If no additional page exists, this value is null."
+        }
+      },
+      "type": "object"
+    },
+    "DescribeChangeSetInput": {
+      "description": "The input for the <a>DescribeChangeSet</a> action.",
+      "properties": {
+        "ChangeSetName": {
+          "$ref": "#/definitions/ChangeSetNameOrId",
+          "description": "The name or Amazon Resource Name (ARN) of the change set that you want to describe."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "A string (provided by the <a>DescribeChangeSet</a> response output) that identifies the next page of information that you want to retrieve."
+        },
+        "StackName": {
+          "$ref": "#/definitions/StackNameOrId",
+          "description": "If you specified the name of a change set, specify the stack name or ID (ARN) of the change set you want to describe."
+        }
+      },
+      "required": [
+        "ChangeSetName"
+      ],
+      "type": "object"
+    },
+    "DescribeChangeSetOutput": {
+      "description": "The output for the <a>DescribeChangeSet</a> action.",
+      "properties": {
+        "Capabilities": {
+          "$ref": "#/definitions/Capabilities",
+          "description": "If you execute the change set, the list of capabilities that were explicitly acknowledged when the change set was created."
+        },
+        "ChangeSetId": {
+          "$ref": "#/definitions/ChangeSetId",
+          "description": "The ARN of the change set."
+        },
+        "ChangeSetName": {
+          "$ref": "#/definitions/ChangeSetName",
+          "description": "The name of the change set."
+        },
+        "Changes": {
+          "$ref": "#/definitions/Changes",
+          "description": "A list of <code>Change</code> structures that describes the resources AWS CloudFormation changes if you execute the change set."
+        },
+        "CreationTime": {
+          "$ref": "#/definitions/CreationTime",
+          "description": "The start time when the change set was created, in UTC."
+        },
+        "Description": {
+          "$ref": "#/definitions/Description",
+          "description": "Information about the change set."
+        },
+        "ExecutionStatus": {
+          "$ref": "#/definitions/ExecutionStatus",
+          "description": "If the change set execution status is <code>AVAILABLE</code>, you can execute the change set. If you can’t execute the change set, the status indicates why. For example, a change set might be in an <code>UNAVAILABLE</code> state because AWS CloudFormation is still creating it or in an <code>OBSOLETE</code> state because the stack was already updated."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "If the output exceeds 1 MB, a string that identifies the next page of changes. If there is no additional page, this value is null."
+        },
+        "NotificationARNs": {
+          "$ref": "#/definitions/NotificationARNs",
+          "description": "The ARNs of the Amazon Simple Notification Service (Amazon SNS) topics that will be associated with the stack if you execute the change set."
+        },
+        "Parameters": {
+          "$ref": "#/definitions/Parameters",
+          "description": "A list of <code>Parameter</code> structures that describes the input parameters and their values used to create the change set. For more information, see the <a href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_Parameter.html\">Parameter</a> data type."
+        },
+        "StackId": {
+          "$ref": "#/definitions/StackId",
+          "description": "The ARN of the stack that is associated with the change set."
+        },
+        "StackName": {
+          "$ref": "#/definitions/StackName",
+          "description": "The name of the stack that is associated with the change set."
+        },
+        "Status": {
+          "$ref": "#/definitions/ChangeSetStatus",
+          "description": "The current status of the change set, such as <code>CREATE_IN_PROGRESS</code>, <code>CREATE_COMPLETE</code>, or <code>FAILED</code>."
+        },
+        "StatusReason": {
+          "$ref": "#/definitions/ChangeSetStatusReason",
+          "description": "A description of the change set's status. For example, if your attempt to create a change set failed, AWS CloudFormation shows the error message."
+        },
+        "Tags": {
+          "$ref": "#/definitions/Tags",
+          "description": "If you execute the change set, the tags that will be associated with the stack."
+        }
+      },
+      "type": "object"
+    },
+    "DescribeStackEventsInput": {
+      "description": "The input for <a>DescribeStackEvents</a> action.",
+      "properties": {
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "A string that identifies the next page of events that you want to retrieve."
+        },
+        "StackName": {
+          "$ref": "#/definitions/StackName",
+          "description": "<p>The name or the unique stack ID that is associated with the stack, which are not always interchangeable:</p> <ul> <li> <p>Running stacks: You can specify either the stack's name or its unique stack ID.</p> </li> <li> <p>Deleted stacks: You must specify the unique stack ID.</p> </li> </ul> <p>Default: There is no default value.</p>"
+        }
+      },
+      "type": "object"
+    },
+    "DescribeStackEventsOutput": {
+      "description": "The output for a <a>DescribeStackEvents</a> action.",
+      "properties": {
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "If the output exceeds 1 MB in size, a string that identifies the next page of events. If no additional page exists, this value is null."
+        },
+        "StackEvents": {
+          "$ref": "#/definitions/StackEvents",
+          "description": "A list of <code>StackEvents</code> structures."
+        }
+      },
+      "type": "object"
+    },
+    "DescribeStackResourceInput": {
+      "description": "The input for <a>DescribeStackResource</a> action.",
+      "properties": {
+        "LogicalResourceId": {
+          "$ref": "#/definitions/LogicalResourceId",
+          "description": "<p>The logical name of the resource as specified in the template.</p> <p>Default: There is no default value.</p>"
+        },
+        "StackName": {
+          "$ref": "#/definitions/StackName",
+          "description": "<p>The name or the unique stack ID that is associated with the stack, which are not always interchangeable:</p> <ul> <li> <p>Running stacks: You can specify either the stack's name or its unique stack ID.</p> </li> <li> <p>Deleted stacks: You must specify the unique stack ID.</p> </li> </ul> <p>Default: There is no default value.</p>"
+        }
+      },
+      "required": [
+        "StackName",
+        "LogicalResourceId"
+      ],
+      "type": "object"
+    },
+    "DescribeStackResourceOutput": {
+      "description": "The output for a <a>DescribeStackResource</a> action.",
+      "properties": {
+        "StackResourceDetail": {
+          "$ref": "#/definitions/StackResourceDetail",
+          "description": "A <code>StackResourceDetail</code> structure containing the description of the specified resource in the specified stack."
+        }
+      },
+      "type": "object"
+    },
+    "DescribeStackResourcesInput": {
+      "description": "The input for <a>DescribeStackResources</a> action.",
+      "properties": {
+        "LogicalResourceId": {
+          "$ref": "#/definitions/LogicalResourceId",
+          "description": "<p>The logical name of the resource as specified in the template.</p> <p>Default: There is no default value.</p>"
+        },
+        "PhysicalResourceId": {
+          "$ref": "#/definitions/PhysicalResourceId",
+          "description": "<p>The name or unique identifier that corresponds to a physical instance ID of a resource supported by AWS CloudFormation.</p> <p>For example, for an Amazon Elastic Compute Cloud (EC2) instance, <code>PhysicalResourceId</code> corresponds to the <code>InstanceId</code>. You can pass the EC2 <code>InstanceId</code> to <code>DescribeStackResources</code> to find which stack the instance belongs to and what other resources are part of the stack.</p> <p>Required: Conditional. If you do not specify <code>PhysicalResourceId</code>, you must specify <code>StackName</code>.</p> <p>Default: There is no default value.</p>"
+        },
+        "StackName": {
+          "$ref": "#/definitions/StackName",
+          "description": "<p>The name or the unique stack ID that is associated with the stack, which are not always interchangeable:</p> <ul> <li> <p>Running stacks: You can specify either the stack's name or its unique stack ID.</p> </li> <li> <p>Deleted stacks: You must specify the unique stack ID.</p> </li> </ul> <p>Default: There is no default value.</p> <p>Required: Conditional. If you do not specify <code>StackName</code>, you must specify <code>PhysicalResourceId</code>.</p>"
+        }
+      },
+      "type": "object"
+    },
+    "DescribeStackResourcesOutput": {
+      "description": "The output for a <a>DescribeStackResources</a> action.",
+      "properties": {
+        "StackResources": {
+          "$ref": "#/definitions/StackResources",
+          "description": "A list of <code>StackResource</code> structures."
+        }
+      },
+      "type": "object"
+    },
+    "DescribeStacksInput": {
+      "description": "The input for <a>DescribeStacks</a> action.",
+      "properties": {
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "A string that identifies the next page of stacks that you want to retrieve."
+        },
+        "StackName": {
+          "$ref": "#/definitions/StackName",
+          "description": "<p>The name or the unique stack ID that is associated with the stack, which are not always interchangeable:</p> <ul> <li> <p>Running stacks: You can specify either the stack's name or its unique stack ID.</p> </li> <li> <p>Deleted stacks: You must specify the unique stack ID.</p> </li> </ul> <p>Default: There is no default value.</p>"
+        }
+      },
+      "type": "object"
+    },
+    "DescribeStacksOutput": {
+      "description": "The output for a <a>DescribeStacks</a> action.",
+      "properties": {
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "If the output exceeds 1 MB in size, a string that identifies the next page of stacks. If no additional page exists, this value is null."
+        },
+        "Stacks": {
+          "$ref": "#/definitions/Stacks",
+          "description": "A list of stack structures."
+        }
+      },
+      "type": "object"
+    },
+    "Description": {
+      "maxLength": 1024,
+      "minLength": 1,
+      "type": "string"
+    },
+    "DisableRollback": {
+      "type": "boolean"
+    },
+    "EstimateTemplateCostInput": {
+      "description": "The input for an <a>EstimateTemplateCost</a> action.",
+      "properties": {
+        "Parameters": {
+          "$ref": "#/definitions/Parameters",
+          "description": "A list of <code>Parameter</code> structures that specify input parameters."
+        },
+        "TemplateBody": {
+          "$ref": "#/definitions/TemplateBody",
+          "description": "<p>Structure containing the template body with a minimum length of 1 byte and a maximum length of 51,200 bytes. (For more information, go to <a href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html\">Template Anatomy</a> in the AWS CloudFormation User Guide.)</p> <p>Conditional: You must pass <code>TemplateBody</code> or <code>TemplateURL</code>. If both are passed, only <code>TemplateBody</code> is used.</p>"
+        },
+        "TemplateURL": {
+          "$ref": "#/definitions/TemplateURL",
+          "description": "<p>Location of file containing the template body. The URL must point to a template that is located in an Amazon S3 bucket. For more information, go to <a href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html\">Template Anatomy</a> in the AWS CloudFormation User Guide.</p> <p>Conditional: You must pass <code>TemplateURL</code> or <code>TemplateBody</code>. If both are passed, only <code>TemplateBody</code> is used.</p>"
+        }
+      },
+      "type": "object"
+    },
+    "EstimateTemplateCostOutput": {
+      "description": "The output for a <a>EstimateTemplateCost</a> action.",
+      "properties": {
+        "Url": {
+          "$ref": "#/definitions/Url",
+          "description": "An AWS Simple Monthly Calculator URL with a query string that describes the resources required to run the template."
+        }
+      },
+      "type": "object"
+    },
+    "EvaluationType": {
+      "enum": [
+        "Static",
+        "Dynamic"
+      ],
+      "type": "string"
+    },
+    "EventId": {
+      "type": "string"
+    },
+    "ExecuteChangeSetInput": {
+      "description": "The input for the <a>ExecuteChangeSet</a> action.",
+      "properties": {
+        "ChangeSetName": {
+          "$ref": "#/definitions/ChangeSetNameOrId",
+          "description": "The name or ARN of the change set that you want use to update the specified stack."
+        },
+        "ClientRequestToken": {
+          "$ref": "#/definitions/ClientRequestToken",
+          "description": "A unique identifier for this <code>ExecuteChangeSet</code> request. Specify this token if you plan to retry requests so that AWS CloudFormation knows that you're not attempting to execute a change set to update a stack with the same name. You might retry <code>ExecuteChangeSet</code> requests to ensure that AWS CloudFormation successfully received them."
+        },
+        "StackName": {
+          "$ref": "#/definitions/StackNameOrId",
+          "description": "If you specified the name of a change set, specify the stack name or ID (ARN) that is associated with the change set you want to execute."
+        }
+      },
+      "required": [
+        "ChangeSetName"
+      ],
+      "type": "object"
+    },
+    "ExecuteChangeSetOutput": {
+      "description": "The output for the <a>ExecuteChangeSet</a> action.",
+      "properties": {},
+      "type": "object"
+    },
+    "ExecutionStatus": {
+      "enum": [
+        "UNAVAILABLE",
+        "AVAILABLE",
+        "EXECUTE_IN_PROGRESS",
+        "EXECUTE_COMPLETE",
+        "EXECUTE_FAILED",
+        "OBSOLETE"
+      ],
+      "type": "string"
+    },
+    "Export": {
+      "description": "The <code>Export</code> structure describes the exported output values for a stack.",
+      "properties": {
+        "ExportingStackId": {
+          "$ref": "#/definitions/StackId",
+          "description": "The stack that contains the exported output name and value."
+        },
+        "Name": {
+          "$ref": "#/definitions/ExportName",
+          "description": "The name of exported output value. Use this name and the <code>Fn::ImportValue</code> function to import the associated value into other stacks. The name is defined in the <code>Export</code> field in the associated stack's <code>Outputs</code> section."
+        },
+        "Value": {
+          "$ref": "#/definitions/ExportValue",
+          "description": "The value of the exported output, such as a resource physical ID. This value is defined in the <code>Export</code> field in the associated stack's <code>Outputs</code> section."
+        }
+      },
+      "type": "object"
+    },
+    "ExportName": {
+      "type": "string"
+    },
+    "ExportValue": {
+      "type": "string"
+    },
+    "Exports": {
+      "items": {
+        "$ref": "#/definitions/Export"
+      },
+      "type": "array"
+    },
+    "GetStackPolicyInput": {
+      "description": "The input for the <a>GetStackPolicy</a> action.",
+      "properties": {
+        "StackName": {
+          "$ref": "#/definitions/StackName",
+          "description": "The name or unique stack ID that is associated with the stack whose policy you want to get."
+        }
+      },
+      "required": [
+        "StackName"
+      ],
+      "type": "object"
+    },
+    "GetStackPolicyOutput": {
+      "description": "The output for the <a>GetStackPolicy</a> action.",
+      "properties": {
+        "StackPolicyBody": {
+          "$ref": "#/definitions/StackPolicyBody",
+          "description": "Structure containing the stack policy body. (For more information, go to <a href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html\"> Prevent Updates to Stack Resources</a> in the AWS CloudFormation User Guide.)"
+        }
+      },
+      "type": "object"
+    },
+    "GetTemplateInput": {
+      "description": "The input for a <a>GetTemplate</a> action.",
+      "properties": {
+        "ChangeSetName": {
+          "$ref": "#/definitions/ChangeSetNameOrId",
+          "description": "The name or Amazon Resource Name (ARN) of a change set for which AWS CloudFormation returns the associated template. If you specify a name, you must also specify the <code>StackName</code>."
+        },
+        "StackName": {
+          "$ref": "#/definitions/StackName",
+          "description": "<p>The name or the unique stack ID that is associated with the stack, which are not always interchangeable:</p> <ul> <li> <p>Running stacks: You can specify either the stack's name or its unique stack ID.</p> </li> <li> <p>Deleted stacks: You must specify the unique stack ID.</p> </li> </ul> <p>Default: There is no default value.</p>"
+        },
+        "TemplateStage": {
+          "$ref": "#/definitions/TemplateStage",
+          "description": "<p>For templates that include transforms, the stage of the template that AWS CloudFormation returns. To get the user-submitted template, specify <code>Original</code>. To get the template after AWS CloudFormation has processed all transforms, specify <code>Processed</code>. </p> <p>If the template doesn't include transforms, <code>Original</code> and <code>Processed</code> return the same template. By default, AWS CloudFormation specifies <code>Original</code>. </p>"
+        }
+      },
+      "type": "object"
+    },
+    "GetTemplateOutput": {
+      "description": "The output for <a>GetTemplate</a> action.",
+      "properties": {
+        "StagesAvailable": {
+          "$ref": "#/definitions/StageList",
+          "description": "The stage of the template that you can retrieve. For stacks, the <code>Original</code> and <code>Processed</code> templates are always available. For change sets, the <code>Original</code> template is always available. After AWS CloudFormation finishes creating the change set, the <code>Processed</code> template becomes available."
+        },
+        "TemplateBody": {
+          "$ref": "#/definitions/TemplateBody",
+          "description": "<p>Structure containing the template body. (For more information, go to <a href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html\">Template Anatomy</a> in the AWS CloudFormation User Guide.)</p> <p>AWS CloudFormation returns the same template that was used when the stack was created.</p>"
+        }
+      },
+      "type": "object"
+    },
+    "GetTemplateSummaryInput": {
+      "description": "The input for the <a>GetTemplateSummary</a> action.",
+      "properties": {
+        "StackName": {
+          "$ref": "#/definitions/StackNameOrId",
+          "description": "<p>The name or the stack ID that is associated with the stack, which are not always interchangeable. For running stacks, you can specify either the stack's name or its unique stack ID. For deleted stack, you must specify the unique stack ID.</p> <p>Conditional: You must specify only one of the following parameters: <code>StackName</code>, <code>TemplateBody</code>, or <code>TemplateURL</code>.</p>"
+        },
+        "TemplateBody": {
+          "$ref": "#/definitions/TemplateBody",
+          "description": "<p>Structure containing the template body with a minimum length of 1 byte and a maximum length of 51,200 bytes. For more information about templates, see <a href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html\">Template Anatomy</a> in the AWS CloudFormation User Guide.</p> <p>Conditional: You must specify only one of the following parameters: <code>StackName</code>, <code>TemplateBody</code>, or <code>TemplateURL</code>.</p>"
+        },
+        "TemplateURL": {
+          "$ref": "#/definitions/TemplateURL",
+          "description": "<p>Location of file containing the template body. The URL must point to a template (max size: 460,800 bytes) that is located in an Amazon S3 bucket. For more information about templates, see <a href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html\">Template Anatomy</a> in the AWS CloudFormation User Guide.</p> <p>Conditional: You must specify only one of the following parameters: <code>StackName</code>, <code>TemplateBody</code>, or <code>TemplateURL</code>.</p>"
+        }
+      },
+      "type": "object"
+    },
+    "GetTemplateSummaryOutput": {
+      "description": "The output for the <a>GetTemplateSummary</a> action.",
+      "properties": {
+        "Capabilities": {
+          "$ref": "#/definitions/Capabilities",
+          "description": "<p>The capabilities found within the template. If your template contains IAM resources, you must specify the CAPABILITY_IAM or CAPABILITY_NAMED_IAM value for this parameter when you use the <a>CreateStack</a> or <a>UpdateStack</a> actions with your template; otherwise, those actions return an InsufficientCapabilities error.</p> <p>For more information, see <a href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities\">Acknowledging IAM Resources in AWS CloudFormation Templates</a>.</p>"
+        },
+        "CapabilitiesReason": {
+          "$ref": "#/definitions/CapabilitiesReason",
+          "description": "The list of resources that generated the values in the <code>Capabilities</code> response element."
+        },
+        "DeclaredTransforms": {
+          "$ref": "#/definitions/TransformsList",
+          "description": "A list of the transforms that are declared in the template."
+        },
+        "Description": {
+          "$ref": "#/definitions/Description",
+          "description": "The value that is defined in the <code>Description</code> property of the template."
+        },
+        "Metadata": {
+          "$ref": "#/definitions/Metadata",
+          "description": "The value that is defined for the <code>Metadata</code> property of the template."
+        },
+        "Parameters": {
+          "$ref": "#/definitions/ParameterDeclarations",
+          "description": "A list of parameter declarations that describe various properties for each parameter."
+        },
+        "ResourceTypes": {
+          "$ref": "#/definitions/ResourceTypes",
+          "description": "A list of all the template resource types that are defined in the template, such as <code>AWS::EC2::Instance</code>, <code>AWS::Dynamo::Table</code>, and <code>Custom::MyCustomInstance</code>."
+        },
+        "Version": {
+          "$ref": "#/definitions/Version",
+          "description": "The AWS template format version, which identifies the capabilities of the template."
+        }
+      },
+      "type": "object"
+    },
+    "Imports": {
+      "items": {
+        "$ref": "#/definitions/StackName"
+      },
+      "type": "array"
+    },
+    "InsufficientCapabilitiesException": {
+      "description": "The template contains resources with capabilities that were not specified in the Capabilities parameter.",
+      "properties": {},
+      "type": "object"
+    },
+    "InvalidChangeSetStatusException": {
+      "description": "The specified change set cannot be used to update the stack. For example, the change set status might be <code>CREATE_IN_PROGRESS</code> or the stack status might be <code>UPDATE_IN_PROGRESS</code>.",
+      "properties": {},
+      "type": "object"
+    },
+    "LastUpdatedTime": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "LimitExceededException": {
+      "description": "Quota for the resource has already been reached.",
+      "properties": {},
+      "type": "object"
+    },
+    "LimitName": {
+      "type": "string"
+    },
+    "LimitValue": {
+      "type": "integer"
+    },
+    "ListChangeSetsInput": {
+      "description": "The input for the <a>ListChangeSets</a> action.",
+      "properties": {
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "A string (provided by the <a>ListChangeSets</a> response output) that identifies the next page of change sets that you want to retrieve."
+        },
+        "StackName": {
+          "$ref": "#/definitions/StackNameOrId",
+          "description": "The name or the Amazon Resource Name (ARN) of the stack for which you want to list change sets."
+        }
+      },
+      "required": [
+        "StackName"
+      ],
+      "type": "object"
+    },
+    "ListChangeSetsOutput": {
+      "description": "The output for the <a>ListChangeSets</a> action.",
+      "properties": {
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "If the output exceeds 1 MB, a string that identifies the next page of change sets. If there is no additional page, this value is null."
+        },
+        "Summaries": {
+          "$ref": "#/definitions/ChangeSetSummaries",
+          "description": "A list of <code>ChangeSetSummary</code> structures that provides the ID and status of each change set for the specified stack."
+        }
+      },
+      "type": "object"
+    },
+    "ListExportsInput": {
+      "properties": {
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "A string (provided by the <a>ListExports</a> response output) that identifies the next page of exported output values that you asked to retrieve."
+        }
+      },
+      "type": "object"
+    },
+    "ListExportsOutput": {
+      "properties": {
+        "Exports": {
+          "$ref": "#/definitions/Exports",
+          "description": "The output for the <a>ListExports</a> action."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "If the output exceeds 100 exported output values, a string that identifies the next page of exports. If there is no additional page, this value is null."
+        }
+      },
+      "type": "object"
+    },
+    "ListImportsInput": {
+      "properties": {
+        "ExportName": {
+          "$ref": "#/definitions/ExportName",
+          "description": "The name of the exported output value. AWS CloudFormation returns the stack names that are importing this value. "
+        },
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "A string (provided by the <a>ListImports</a> response output) that identifies the next page of stacks that are importing the specified exported output value. "
+        }
+      },
+      "required": [
+        "ExportName"
+      ],
+      "type": "object"
+    },
+    "ListImportsOutput": {
+      "properties": {
+        "Imports": {
+          "$ref": "#/definitions/Imports",
+          "description": "A list of stack names that are importing the specified exported output value. "
+        },
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "A string that identifies the next page of exports. If there is no additional page, this value is null."
+        }
+      },
+      "type": "object"
+    },
+    "ListStackResourcesInput": {
+      "description": "The input for the <a>ListStackResource</a> action.",
+      "properties": {
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "A string that identifies the next page of stack resources that you want to retrieve."
+        },
+        "StackName": {
+          "$ref": "#/definitions/StackName",
+          "description": "<p>The name or the unique stack ID that is associated with the stack, which are not always interchangeable:</p> <ul> <li> <p>Running stacks: You can specify either the stack's name or its unique stack ID.</p> </li> <li> <p>Deleted stacks: You must specify the unique stack ID.</p> </li> </ul> <p>Default: There is no default value.</p>"
+        }
+      },
+      "required": [
+        "StackName"
+      ],
+      "type": "object"
+    },
+    "ListStackResourcesOutput": {
+      "description": "The output for a <a>ListStackResources</a> action.",
+      "properties": {
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "If the output exceeds 1 MB, a string that identifies the next page of stack resources. If no additional page exists, this value is null."
+        },
+        "StackResourceSummaries": {
+          "$ref": "#/definitions/StackResourceSummaries",
+          "description": "A list of <code>StackResourceSummary</code> structures."
+        }
+      },
+      "type": "object"
+    },
+    "ListStacksInput": {
+      "description": "The input for <a>ListStacks</a> action.",
+      "properties": {
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "A string that identifies the next page of stacks that you want to retrieve."
+        },
+        "StackStatusFilter": {
+          "$ref": "#/definitions/StackStatusFilter",
+          "description": "Stack status to use as a filter. Specify one or more stack status codes to list only stacks with the specified status codes. For a complete list of stack status codes, see the <code>StackStatus</code> parameter of the <a>Stack</a> data type."
+        }
+      },
+      "type": "object"
+    },
+    "ListStacksOutput": {
+      "description": "The output for <a>ListStacks</a> action.",
+      "properties": {
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "If the output exceeds 1 MB in size, a string that identifies the next page of stacks. If no additional page exists, this value is null."
+        },
+        "StackSummaries": {
+          "$ref": "#/definitions/StackSummaries",
+          "description": "A list of <code>StackSummary</code> structures containing information about the specified stacks."
+        }
+      },
+      "type": "object"
+    },
+    "LogicalResourceId": {
+      "type": "string"
+    },
+    "Metadata": {
+      "type": "string"
+    },
+    "NextToken": {
+      "maxLength": 1024,
+      "minLength": 1,
+      "type": "string"
+    },
+    "NoEcho": {
+      "type": "boolean"
+    },
+    "NotificationARN": {
+      "type": "string"
+    },
+    "NotificationARNs": {
+      "items": {
+        "$ref": "#/definitions/NotificationARN"
+      },
+      "maxItems": 5,
+      "type": "array"
+    },
+    "OnFailure": {
+      "enum": [
+        "DO_NOTHING",
+        "ROLLBACK",
+        "DELETE"
+      ],
+      "type": "string"
+    },
+    "Output": {
+      "description": "The Output data type.",
+      "properties": {
+        "Description": {
+          "$ref": "#/definitions/Description",
+          "description": "User defined description associated with the output."
+        },
+        "OutputKey": {
+          "$ref": "#/definitions/OutputKey",
+          "description": "The key associated with the output."
+        },
+        "OutputValue": {
+          "$ref": "#/definitions/OutputValue",
+          "description": "The value associated with the output."
+        }
+      },
+      "type": "object"
+    },
+    "OutputKey": {
+      "type": "string"
+    },
+    "OutputValue": {
+      "type": "string"
+    },
+    "Outputs": {
+      "items": {
+        "$ref": "#/definitions/Output"
+      },
+      "type": "array"
+    },
+    "Parameter": {
+      "description": "The Parameter data type.",
+      "properties": {
+        "ParameterKey": {
+          "$ref": "#/definitions/ParameterKey",
+          "description": "The key associated with the parameter. If you don't specify a key and value for a particular parameter, AWS CloudFormation uses the default value that is specified in your template."
+        },
+        "ParameterValue": {
+          "$ref": "#/definitions/ParameterValue",
+          "description": "The value associated with the parameter."
+        },
+        "UsePreviousValue": {
+          "$ref": "#/definitions/UsePreviousValue",
+          "description": "During a stack update, use the existing parameter value that the stack is using for a given parameter key. If you specify <code>true</code>, do not specify a parameter value."
+        }
+      },
+      "type": "object"
+    },
+    "ParameterConstraints": {
+      "description": "A set of criteria that AWS CloudFormation uses to validate parameter values. Although other constraints might be defined in the stack template, AWS CloudFormation returns only the <code>AllowedValues</code> property.",
+      "properties": {
+        "AllowedValues": {
+          "$ref": "#/definitions/AllowedValues",
+          "description": "A list of values that are permitted for a parameter."
+        }
+      },
+      "type": "object"
+    },
+    "ParameterDeclaration": {
+      "description": "The ParameterDeclaration data type.",
+      "properties": {
+        "DefaultValue": {
+          "$ref": "#/definitions/ParameterValue",
+          "description": "The default value of the parameter."
+        },
+        "Description": {
+          "$ref": "#/definitions/Description",
+          "description": "The description that is associate with the parameter."
+        },
+        "NoEcho": {
+          "$ref": "#/definitions/NoEcho",
+          "description": "Flag that indicates whether the parameter value is shown as plain text in logs and in the AWS Management Console."
+        },
+        "ParameterConstraints": {
+          "$ref": "#/definitions/ParameterConstraints",
+          "description": "The criteria that AWS CloudFormation uses to validate parameter values."
+        },
+        "ParameterKey": {
+          "$ref": "#/definitions/ParameterKey",
+          "description": "The name that is associated with the parameter."
+        },
+        "ParameterType": {
+          "$ref": "#/definitions/ParameterType",
+          "description": "The type of parameter."
+        }
+      },
+      "type": "object"
+    },
+    "ParameterDeclarations": {
+      "items": {
+        "$ref": "#/definitions/ParameterDeclaration"
+      },
+      "type": "array"
+    },
+    "ParameterKey": {
+      "type": "string"
+    },
+    "ParameterType": {
+      "type": "string"
+    },
+    "ParameterValue": {
+      "type": "string"
+    },
+    "Parameters": {
+      "items": {
+        "$ref": "#/definitions/Parameter"
+      },
+      "type": "array"
+    },
+    "PhysicalResourceId": {
+      "type": "string"
+    },
+    "PropertyName": {
+      "type": "string"
+    },
+    "Replacement": {
+      "enum": [
+        "True",
+        "False",
+        "Conditional"
+      ],
+      "type": "string"
+    },
+    "RequiresRecreation": {
+      "enum": [
+        "Never",
+        "Conditionally",
+        "Always"
+      ],
+      "type": "string"
+    },
+    "ResourceAttribute": {
+      "enum": [
+        "Properties",
+        "Metadata",
+        "CreationPolicy",
+        "UpdatePolicy",
+        "DeletionPolicy",
+        "Tags"
+      ],
+      "type": "string"
+    },
+    "ResourceChange": {
+      "description": "The <code>ResourceChange</code> structure describes the resource and the action that AWS CloudFormation will perform on it if you execute this change set.",
+      "properties": {
+        "Action": {
+          "$ref": "#/definitions/ChangeAction",
+          "description": "The action that AWS CloudFormation takes on the resource, such as <code>Add</code> (adds a new resource), <code>Modify</code> (changes a resource), or <code>Remove</code> (deletes a resource)."
+        },
+        "Details": {
+          "$ref": "#/definitions/ResourceChangeDetails",
+          "description": "For the <code>Modify</code> action, a list of <code>ResourceChangeDetail</code> structures that describes the changes that AWS CloudFormation will make to the resource. "
+        },
+        "LogicalResourceId": {
+          "$ref": "#/definitions/LogicalResourceId",
+          "description": "The resource's logical ID, which is defined in the stack's template."
+        },
+        "PhysicalResourceId": {
+          "$ref": "#/definitions/PhysicalResourceId",
+          "description": "The resource's physical ID (resource name). Resources that you are adding don't have physical IDs because they haven't been created."
+        },
+        "Replacement": {
+          "$ref": "#/definitions/Replacement",
+          "description": "<p>For the <code>Modify</code> action, indicates whether AWS CloudFormation will replace the resource by creating a new one and deleting the old one. This value depends on the value of the <code>RequiresRecreation</code> property in the <code>ResourceTargetDefinition</code> structure. For example, if the <code>RequiresRecreation</code> field is <code>Always</code> and the <code>Evaluation</code> field is <code>Static</code>, <code>Replacement</code> is <code>True</code>. If the <code>RequiresRecreation</code> field is <code>Always</code> and the <code>Evaluation</code> field is <code>Dynamic</code>, <code>Replacement</code> is <code>Conditionally</code>.</p> <p>If you have multiple changes with different <code>RequiresRecreation</code> values, the <code>Replacement</code> value depends on the change with the most impact. A <code>RequiresRecreation</code> value of <code>Always</code> has the most impact, followed by <code>Conditionally</code>, and then <code>Never</code>.</p>"
+        },
+        "ResourceType": {
+          "$ref": "#/definitions/ResourceType",
+          "description": "The type of AWS CloudFormation resource, such as <code>AWS::S3::Bucket</code>."
+        },
+        "Scope": {
+          "$ref": "#/definitions/Scope",
+          "description": "For the <code>Modify</code> action, indicates which resource attribute is triggering this update, such as a change in the resource attribute's <code>Metadata</code>, <code>Properties</code>, or <code>Tags</code>."
+        }
+      },
+      "type": "object"
+    },
+    "ResourceChangeDetail": {
+      "description": "For a resource with <code>Modify</code> as the action, the <code>ResourceChange</code> structure describes the changes AWS CloudFormation will make to that resource.",
+      "properties": {
+        "CausingEntity": {
+          "$ref": "#/definitions/CausingEntity",
+          "description": "<p>The identity of the entity that triggered this change. This entity is a member of the group that is specified by the <code>ChangeSource</code> field. For example, if you modified the value of the <code>KeyPairName</code> parameter, the <code>CausingEntity</code> is the name of the parameter (<code>KeyPairName</code>).</p> <p>If the <code>ChangeSource</code> value is <code>DirectModification</code>, no value is given for <code>CausingEntity</code>.</p>"
+        },
+        "ChangeSource": {
+          "$ref": "#/definitions/ChangeSource",
+          "description": "<p>The group to which the <code>CausingEntity</code> value belongs. There are five entity groups:</p> <ul> <li> <p> <code>ResourceReference</code> entities are <code>Ref</code> intrinsic functions that refer to resources in the template, such as <code>{ \"Ref\" : \"MyEC2InstanceResource\" }</code>.</p> </li> <li> <p> <code>ParameterReference</code> entities are <code>Ref</code> intrinsic functions that get template parameter values, such as <code>{ \"Ref\" : \"MyPasswordParameter\" }</code>.</p> </li> <li> <p> <code>ResourceAttribute</code> entities are <code>Fn::GetAtt</code> intrinsic functions that get resource attribute values, such as <code>{ \"Fn::GetAtt\" : [ \"MyEC2InstanceResource\", \"PublicDnsName\" ] }</code>.</p> </li> <li> <p> <code>DirectModification</code> entities are changes that are made directly to the template.</p> </li> <li> <p> <code>Automatic</code> entities are <code>AWS::CloudFormation::Stack</code> resource types, which are also known as nested stacks. If you made no changes to the <code>AWS::CloudFormation::Stack</code> resource, AWS CloudFormation sets the <code>ChangeSource</code> to <code>Automatic</code> because the nested stack's template might have changed. Changes to a nested stack's template aren't visible to AWS CloudFormation until you run an update on the parent stack.</p> </li> </ul>"
+        },
+        "Evaluation": {
+          "$ref": "#/definitions/EvaluationType",
+          "description": "<p>Indicates whether AWS CloudFormation can determine the target value, and whether the target value will change before you execute a change set.</p> <p>For <code>Static</code> evaluations, AWS CloudFormation can determine that the target value will change, and its value. For example, if you directly modify the <code>InstanceType</code> property of an EC2 instance, AWS CloudFormation knows that this property value will change, and its value, so this is a <code>Static</code> evaluation.</p> <p>For <code>Dynamic</code> evaluations, cannot determine the target value because it depends on the result of an intrinsic function, such as a <code>Ref</code> or <code>Fn::GetAtt</code> intrinsic function, when the stack is updated. For example, if your template includes a reference to a resource that is conditionally recreated, the value of the reference (the physical ID of the resource) might change, depending on if the resource is recreated. If the resource is recreated, it will have a new physical ID, so all references to that resource will also be updated.</p>"
+        },
+        "Target": {
+          "$ref": "#/definitions/ResourceTargetDefinition",
+          "description": "A <code>ResourceTargetDefinition</code> structure that describes the field that AWS CloudFormation will change and whether the resource will be recreated."
+        }
+      },
+      "type": "object"
+    },
+    "ResourceChangeDetails": {
+      "items": {
+        "$ref": "#/definitions/ResourceChangeDetail"
+      },
+      "type": "array"
+    },
+    "ResourceProperties": {
+      "type": "string"
+    },
+    "ResourceSignalStatus": {
+      "enum": [
+        "SUCCESS",
+        "FAILURE"
+      ],
+      "type": "string"
+    },
+    "ResourceSignalUniqueId": {
+      "maxLength": 64,
+      "minLength": 1,
+      "type": "string"
+    },
+    "ResourceStatus": {
+      "enum": [
+        "CREATE_IN_PROGRESS",
+        "CREATE_FAILED",
+        "CREATE_COMPLETE",
+        "DELETE_IN_PROGRESS",
+        "DELETE_FAILED",
+        "DELETE_COMPLETE",
+        "DELETE_SKIPPED",
+        "UPDATE_IN_PROGRESS",
+        "UPDATE_FAILED",
+        "UPDATE_COMPLETE"
+      ],
+      "type": "string"
+    },
+    "ResourceStatusReason": {
+      "type": "string"
+    },
+    "ResourceTargetDefinition": {
+      "description": "The field that AWS CloudFormation will change, such as the name of a resource's property, and whether the resource will be recreated.",
+      "properties": {
+        "Attribute": {
+          "$ref": "#/definitions/ResourceAttribute",
+          "description": "Indicates which resource attribute is triggering this update, such as a change in the resource attribute's <code>Metadata</code>, <code>Properties</code>, or <code>Tags</code>."
+        },
+        "Name": {
+          "$ref": "#/definitions/PropertyName",
+          "description": "If the <code>Attribute</code> value is <code>Properties</code>, the name of the property. For all other attributes, the value is null."
+        },
+        "RequiresRecreation": {
+          "$ref": "#/definitions/RequiresRecreation",
+          "description": "If the <code>Attribute</code> value is <code>Properties</code>, indicates whether a change to this property causes the resource to be recreated. The value can be <code>Never</code>, <code>Always</code>, or <code>Conditionally</code>. To determine the conditions for a <code>Conditionally</code> recreation, see the update behavior for that <a href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html\">property</a> in the AWS CloudFormation User Guide."
+        }
+      },
+      "type": "object"
+    },
+    "ResourceToSkip": {
+      "pattern": "[a-zA-Z0-9]+|[a-zA-Z][-a-zA-Z0-9]*\\.[a-zA-Z0-9]+",
+      "type": "string"
+    },
+    "ResourceType": {
+      "maxLength": 256,
+      "minLength": 1,
+      "type": "string"
+    },
+    "ResourceTypes": {
+      "items": {
+        "$ref": "#/definitions/ResourceType"
+      },
+      "type": "array"
+    },
+    "ResourcesToSkip": {
+      "items": {
+        "$ref": "#/definitions/ResourceToSkip"
+      },
+      "type": "array"
+    },
+    "RetainResources": {
+      "items": {
+        "$ref": "#/definitions/LogicalResourceId"
+      },
+      "type": "array"
+    },
+    "RoleARN": {
+      "maxLength": 2048,
+      "minLength": 20,
+      "type": "string"
+    },
+    "Scope": {
+      "items": {
+        "$ref": "#/definitions/ResourceAttribute"
+      },
+      "type": "array"
+    },
+    "SetStackPolicyInput": {
+      "description": "The input for the <a>SetStackPolicy</a> action.",
+      "properties": {
+        "StackName": {
+          "$ref": "#/definitions/StackName",
+          "description": "The name or unique stack ID that you want to associate a policy with."
+        },
+        "StackPolicyBody": {
+          "$ref": "#/definitions/StackPolicyBody",
+          "description": "Structure containing the stack policy body. For more information, go to <a href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html\"> Prevent Updates to Stack Resources</a> in the AWS CloudFormation User Guide. You can specify either the <code>StackPolicyBody</code> or the <code>StackPolicyURL</code> parameter, but not both."
+        },
+        "StackPolicyURL": {
+          "$ref": "#/definitions/StackPolicyURL",
+          "description": "Location of a file containing the stack policy. The URL must point to a policy (maximum size: 16 KB) located in an S3 bucket in the same region as the stack. You can specify either the <code>StackPolicyBody</code> or the <code>StackPolicyURL</code> parameter, but not both."
+        }
+      },
+      "required": [
+        "StackName"
+      ],
+      "type": "object"
+    },
+    "SignalResourceInput": {
+      "description": "The input for the <a>SignalResource</a> action.",
+      "properties": {
+        "LogicalResourceId": {
+          "$ref": "#/definitions/LogicalResourceId",
+          "description": "The logical ID of the resource that you want to signal. The logical ID is the name of the resource that given in the template."
+        },
+        "StackName": {
+          "$ref": "#/definitions/StackNameOrId",
+          "description": "The stack name or unique stack ID that includes the resource that you want to signal."
+        },
+        "Status": {
+          "$ref": "#/definitions/ResourceSignalStatus",
+          "description": "The status of the signal, which is either success or failure. A failure signal causes AWS CloudFormation to immediately fail the stack creation or update."
+        },
+        "UniqueId": {
+          "$ref": "#/definitions/ResourceSignalUniqueId",
+          "description": "A unique ID of the signal. When you signal Amazon EC2 instances or Auto Scaling groups, specify the instance ID that you are signaling as the unique ID. If you send multiple signals to a single resource (such as signaling a wait condition), each signal requires a different unique ID."
+        }
+      },
+      "required": [
+        "StackName",
+        "LogicalResourceId",
+        "UniqueId",
+        "Status"
+      ],
+      "type": "object"
+    },
+    "Stack": {
+      "description": "The Stack data type.",
+      "properties": {
+        "Capabilities": {
+          "$ref": "#/definitions/Capabilities",
+          "description": "The capabilities allowed in the stack."
+        },
+        "ChangeSetId": {
+          "$ref": "#/definitions/ChangeSetId",
+          "description": "The unique ID of the change set."
+        },
+        "CreationTime": {
+          "$ref": "#/definitions/CreationTime",
+          "description": "The time at which the stack was created."
+        },
+        "Description": {
+          "$ref": "#/definitions/Description",
+          "description": "A user-defined description associated with the stack."
+        },
+        "DisableRollback": {
+          "$ref": "#/definitions/DisableRollback",
+          "description": "<p>Boolean to enable or disable rollback on stack creation failures:</p> <ul> <li> <p> <code>true</code>: disable rollback</p> </li> <li> <p> <code>false</code>: enable rollback</p> </li> </ul>"
+        },
+        "LastUpdatedTime": {
+          "$ref": "#/definitions/LastUpdatedTime",
+          "description": "The time the stack was last updated. This field will only be returned if the stack has been updated at least once."
+        },
+        "NotificationARNs": {
+          "$ref": "#/definitions/NotificationARNs",
+          "description": "SNS topic ARNs to which stack related events are published."
+        },
+        "Outputs": {
+          "$ref": "#/definitions/Outputs",
+          "description": "A list of output structures."
+        },
+        "Parameters": {
+          "$ref": "#/definitions/Parameters",
+          "description": "A list of <code>Parameter</code> structures."
+        },
+        "RoleARN": {
+          "$ref": "#/definitions/RoleARN",
+          "description": "The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM) role that is associated with the stack. During a stack operation, AWS CloudFormation uses this role's credentials to make calls on your behalf."
+        },
+        "StackId": {
+          "$ref": "#/definitions/StackId",
+          "description": "Unique identifier of the stack."
+        },
+        "StackName": {
+          "$ref": "#/definitions/StackName",
+          "description": "The name associated with the stack."
+        },
+        "StackStatus": {
+          "$ref": "#/definitions/StackStatus",
+          "description": "Current status of the stack."
+        },
+        "StackStatusReason": {
+          "$ref": "#/definitions/StackStatusReason",
+          "description": "Success/failure message associated with the stack status."
+        },
+        "Tags": {
+          "$ref": "#/definitions/Tags",
+          "description": "A list of <code>Tag</code>s that specify information about the stack."
+        },
+        "TimeoutInMinutes": {
+          "$ref": "#/definitions/TimeoutMinutes",
+          "description": "The amount of time within which stack creation should complete."
+        }
+      },
+      "required": [
+        "StackName",
+        "CreationTime",
+        "StackStatus"
+      ],
+      "type": "object"
+    },
+    "StackEvent": {
+      "description": "The StackEvent data type.",
+      "properties": {
+        "ClientRequestToken": {
+          "$ref": "#/definitions/ClientRequestToken",
+          "description": "<p>The token passed to the operation that generated this event.</p> <p>For example, if you execute a <code>CreateStack</code> operation with the token <code>token1</code>, then all the <code>StackEvents</code> generated by that operation will have <code>ClientRequestToken</code> set as <code>token1</code>.</p>"
+        },
+        "EventId": {
+          "$ref": "#/definitions/EventId",
+          "description": "The unique ID of this event."
+        },
+        "LogicalResourceId": {
+          "$ref": "#/definitions/LogicalResourceId",
+          "description": "The logical name of the resource specified in the template."
+        },
+        "PhysicalResourceId": {
+          "$ref": "#/definitions/PhysicalResourceId",
+          "description": "The name or unique identifier associated with the physical instance of the resource."
+        },
+        "ResourceProperties": {
+          "$ref": "#/definitions/ResourceProperties",
+          "description": "BLOB of the properties used to create the resource."
+        },
+        "ResourceStatus": {
+          "$ref": "#/definitions/ResourceStatus",
+          "description": "Current status of the resource."
+        },
+        "ResourceStatusReason": {
+          "$ref": "#/definitions/ResourceStatusReason",
+          "description": "Success/failure message associated with the resource."
+        },
+        "ResourceType": {
+          "$ref": "#/definitions/ResourceType",
+          "description": "Type of resource. (For more information, go to <a href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html\"> AWS Resource Types Reference</a> in the AWS CloudFormation User Guide.)"
+        },
+        "StackId": {
+          "$ref": "#/definitions/StackId",
+          "description": "The unique ID name of the instance of the stack."
+        },
+        "StackName": {
+          "$ref": "#/definitions/StackName",
+          "description": "The name associated with a stack."
+        },
+        "Timestamp": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "Time the status was updated."
+        }
+      },
+      "required": [
+        "StackId",
+        "EventId",
+        "StackName",
+        "Timestamp"
+      ],
+      "type": "object"
+    },
+    "StackEvents": {
+      "items": {
+        "$ref": "#/definitions/StackEvent"
+      },
+      "type": "array"
+    },
+    "StackId": {
+      "type": "string"
+    },
+    "StackName": {
+      "type": "string"
+    },
+    "StackNameOrId": {
+      "minLength": 1,
+      "pattern": "([a-zA-Z][-a-zA-Z0-9]*)|(arn:\\b(aws|aws-us-gov|aws-cn)\\b:[-a-zA-Z0-9:/._+]*)",
+      "type": "string"
+    },
+    "StackPolicyBody": {
+      "maxLength": 16384,
+      "minLength": 1,
+      "type": "string"
+    },
+    "StackPolicyDuringUpdateBody": {
+      "maxLength": 16384,
+      "minLength": 1,
+      "type": "string"
+    },
+    "StackPolicyDuringUpdateURL": {
+      "maxLength": 1350,
+      "minLength": 1,
+      "type": "string"
+    },
+    "StackPolicyURL": {
+      "maxLength": 1350,
+      "minLength": 1,
+      "type": "string"
+    },
+    "StackResource": {
+      "description": "The StackResource data type.",
+      "properties": {
+        "Description": {
+          "$ref": "#/definitions/Description",
+          "description": "User defined description associated with the resource."
+        },
+        "LogicalResourceId": {
+          "$ref": "#/definitions/LogicalResourceId",
+          "description": "The logical name of the resource specified in the template."
+        },
+        "PhysicalResourceId": {
+          "$ref": "#/definitions/PhysicalResourceId",
+          "description": "The name or unique identifier that corresponds to a physical instance ID of a resource supported by AWS CloudFormation."
+        },
+        "ResourceStatus": {
+          "$ref": "#/definitions/ResourceStatus",
+          "description": "Current status of the resource."
+        },
+        "ResourceStatusReason": {
+          "$ref": "#/definitions/ResourceStatusReason",
+          "description": "Success/failure message associated with the resource."
+        },
+        "ResourceType": {
+          "$ref": "#/definitions/ResourceType",
+          "description": "Type of resource. (For more information, go to <a href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html\"> AWS Resource Types Reference</a> in the AWS CloudFormation User Guide.)"
+        },
+        "StackId": {
+          "$ref": "#/definitions/StackId",
+          "description": "Unique identifier of the stack."
+        },
+        "StackName": {
+          "$ref": "#/definitions/StackName",
+          "description": "The name associated with the stack."
+        },
+        "Timestamp": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "Time the status was updated."
+        }
+      },
+      "required": [
+        "LogicalResourceId",
+        "ResourceType",
+        "Timestamp",
+        "ResourceStatus"
+      ],
+      "type": "object"
+    },
+    "StackResourceDetail": {
+      "description": "Contains detailed information about the specified stack resource.",
+      "properties": {
+        "Description": {
+          "$ref": "#/definitions/Description",
+          "description": "User defined description associated with the resource."
+        },
+        "LastUpdatedTimestamp": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "Time the status was updated."
+        },
+        "LogicalResourceId": {
+          "$ref": "#/definitions/LogicalResourceId",
+          "description": "The logical name of the resource specified in the template."
+        },
+        "Metadata": {
+          "$ref": "#/definitions/Metadata",
+          "description": "The content of the <code>Metadata</code> attribute declared for the resource. For more information, see <a href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-metadata.html\">Metadata Attribute</a> in the AWS CloudFormation User Guide."
+        },
+        "PhysicalResourceId": {
+          "$ref": "#/definitions/PhysicalResourceId",
+          "description": "The name or unique identifier that corresponds to a physical instance ID of a resource supported by AWS CloudFormation."
+        },
+        "ResourceStatus": {
+          "$ref": "#/definitions/ResourceStatus",
+          "description": "Current status of the resource."
+        },
+        "ResourceStatusReason": {
+          "$ref": "#/definitions/ResourceStatusReason",
+          "description": "Success/failure message associated with the resource."
+        },
+        "ResourceType": {
+          "$ref": "#/definitions/ResourceType",
+          "description": "Type of resource. ((For more information, go to <a href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html\"> AWS Resource Types Reference</a> in the AWS CloudFormation User Guide.)"
+        },
+        "StackId": {
+          "$ref": "#/definitions/StackId",
+          "description": "Unique identifier of the stack."
+        },
+        "StackName": {
+          "$ref": "#/definitions/StackName",
+          "description": "The name associated with the stack."
+        }
+      },
+      "required": [
+        "LogicalResourceId",
+        "ResourceType",
+        "LastUpdatedTimestamp",
+        "ResourceStatus"
+      ],
+      "type": "object"
+    },
+    "StackResourceSummaries": {
+      "items": {
+        "$ref": "#/definitions/StackResourceSummary"
+      },
+      "type": "array"
+    },
+    "StackResourceSummary": {
+      "description": "Contains high-level information about the specified stack resource.",
+      "properties": {
+        "LastUpdatedTimestamp": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "Time the status was updated."
+        },
+        "LogicalResourceId": {
+          "$ref": "#/definitions/LogicalResourceId",
+          "description": "The logical name of the resource specified in the template."
+        },
+        "PhysicalResourceId": {
+          "$ref": "#/definitions/PhysicalResourceId",
+          "description": "The name or unique identifier that corresponds to a physical instance ID of the resource."
+        },
+        "ResourceStatus": {
+          "$ref": "#/definitions/ResourceStatus",
+          "description": "Current status of the resource."
+        },
+        "ResourceStatusReason": {
+          "$ref": "#/definitions/ResourceStatusReason",
+          "description": "Success/failure message associated with the resource."
+        },
+        "ResourceType": {
+          "$ref": "#/definitions/ResourceType",
+          "description": "Type of resource. (For more information, go to <a href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html\"> AWS Resource Types Reference</a> in the AWS CloudFormation User Guide.)"
+        }
+      },
+      "required": [
+        "LogicalResourceId",
+        "ResourceType",
+        "LastUpdatedTimestamp",
+        "ResourceStatus"
+      ],
+      "type": "object"
+    },
+    "StackResources": {
+      "items": {
+        "$ref": "#/definitions/StackResource"
+      },
+      "type": "array"
+    },
+    "StackStatus": {
+      "enum": [
+        "CREATE_IN_PROGRESS",
+        "CREATE_FAILED",
+        "CREATE_COMPLETE",
+        "ROLLBACK_IN_PROGRESS",
+        "ROLLBACK_FAILED",
+        "ROLLBACK_COMPLETE",
+        "DELETE_IN_PROGRESS",
+        "DELETE_FAILED",
+        "DELETE_COMPLETE",
+        "UPDATE_IN_PROGRESS",
+        "UPDATE_COMPLETE_CLEANUP_IN_PROGRESS",
+        "UPDATE_COMPLETE",
+        "UPDATE_ROLLBACK_IN_PROGRESS",
+        "UPDATE_ROLLBACK_FAILED",
+        "UPDATE_ROLLBACK_COMPLETE_CLEANUP_IN_PROGRESS",
+        "UPDATE_ROLLBACK_COMPLETE",
+        "REVIEW_IN_PROGRESS"
+      ],
+      "type": "string"
+    },
+    "StackStatusFilter": {
+      "items": {
+        "$ref": "#/definitions/StackStatus"
+      },
+      "type": "array"
+    },
+    "StackStatusReason": {
+      "type": "string"
+    },
+    "StackSummaries": {
+      "items": {
+        "$ref": "#/definitions/StackSummary"
+      },
+      "type": "array"
+    },
+    "StackSummary": {
+      "description": "The StackSummary Data Type",
+      "properties": {
+        "CreationTime": {
+          "$ref": "#/definitions/CreationTime",
+          "description": "The time the stack was created."
+        },
+        "DeletionTime": {
+          "$ref": "#/definitions/DeletionTime",
+          "description": "The time the stack was deleted."
+        },
+        "LastUpdatedTime": {
+          "$ref": "#/definitions/LastUpdatedTime",
+          "description": "The time the stack was last updated. This field will only be returned if the stack has been updated at least once."
+        },
+        "StackId": {
+          "$ref": "#/definitions/StackId",
+          "description": "Unique stack identifier."
+        },
+        "StackName": {
+          "$ref": "#/definitions/StackName",
+          "description": "The name associated with the stack."
+        },
+        "StackStatus": {
+          "$ref": "#/definitions/StackStatus",
+          "description": "The current status of the stack."
+        },
+        "StackStatusReason": {
+          "$ref": "#/definitions/StackStatusReason",
+          "description": "Success/Failure message associated with the stack status."
+        },
+        "TemplateDescription": {
+          "$ref": "#/definitions/TemplateDescription",
+          "description": "The template description of the template used to create the stack."
+        }
+      },
+      "required": [
+        "StackName",
+        "CreationTime",
+        "StackStatus"
+      ],
+      "type": "object"
+    },
+    "Stacks": {
+      "items": {
+        "$ref": "#/definitions/Stack"
+      },
+      "type": "array"
+    },
+    "StageList": {
+      "items": {
+        "$ref": "#/definitions/TemplateStage"
+      },
+      "type": "array"
+    },
+    "Tag": {
+      "description": "The Tag type enables you to specify a key-value pair that can be used to store information about an AWS CloudFormation stack.",
+      "properties": {
+        "Key": {
+          "$ref": "#/definitions/TagKey",
+          "description": " <i>Required</i>. A string used to identify this tag. You can specify a maximum of 128 characters for a tag key. Tags owned by Amazon Web Services (AWS) have the reserved prefix: <code>aws:</code>."
+        },
+        "Value": {
+          "$ref": "#/definitions/TagValue",
+          "description": " <i>Required</i>. A string containing the value for this tag. You can specify a maximum of 256 characters for a tag value."
+        }
+      },
+      "type": "object"
+    },
+    "TagKey": {
+      "type": "string"
+    },
+    "TagValue": {
+      "type": "string"
+    },
+    "Tags": {
+      "items": {
+        "$ref": "#/definitions/Tag"
+      },
+      "type": "array"
+    },
+    "TemplateBody": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "TemplateDescription": {
+      "type": "string"
+    },
+    "TemplateParameter": {
+      "description": "The TemplateParameter data type.",
+      "properties": {
+        "DefaultValue": {
+          "$ref": "#/definitions/ParameterValue",
+          "description": "The default value associated with the parameter."
+        },
+        "Description": {
+          "$ref": "#/definitions/Description",
+          "description": "User defined description associated with the parameter."
+        },
+        "NoEcho": {
+          "$ref": "#/definitions/NoEcho",
+          "description": "Flag indicating whether the parameter should be displayed as plain text in logs and UIs."
+        },
+        "ParameterKey": {
+          "$ref": "#/definitions/ParameterKey",
+          "description": "The name associated with the parameter."
+        }
+      },
+      "type": "object"
+    },
+    "TemplateParameters": {
+      "items": {
+        "$ref": "#/definitions/TemplateParameter"
+      },
+      "type": "array"
+    },
+    "TemplateStage": {
+      "enum": [
+        "Original",
+        "Processed"
+      ],
+      "type": "string"
+    },
+    "TemplateURL": {
+      "maxLength": 1024,
+      "minLength": 1,
+      "type": "string"
+    },
+    "TimeoutMinutes": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "Timestamp": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "TokenAlreadyExistsException": {
+      "description": "A client request token already exists.",
+      "properties": {},
+      "type": "object"
+    },
+    "TransformName": {
+      "type": "string"
+    },
+    "TransformsList": {
+      "items": {
+        "$ref": "#/definitions/TransformName"
+      },
+      "type": "array"
+    },
+    "UpdateStackInput": {
+      "description": "The input for an <a>UpdateStack</a> action.",
+      "properties": {
+        "Capabilities": {
+          "$ref": "#/definitions/Capabilities",
+          "description": "<p>A list of values that you must specify before AWS CloudFormation can update certain stacks. Some stack templates might include resources that can affect permissions in your AWS account, for example, by creating new AWS Identity and Access Management (IAM) users. For those stacks, you must explicitly acknowledge their capabilities by specifying this parameter.</p> <p>The only valid values are <code>CAPABILITY_IAM</code> and <code>CAPABILITY_NAMED_IAM</code>. The following resources require you to specify this parameter: <a href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-accesskey.html\"> AWS::IAM::AccessKey</a>, <a href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html\"> AWS::IAM::Group</a>, <a href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html\"> AWS::IAM::InstanceProfile</a>, <a href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-policy.html\"> AWS::IAM::Policy</a>, <a href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html\"> AWS::IAM::Role</a>, <a href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html\"> AWS::IAM::User</a>, and <a href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-addusertogroup.html\"> AWS::IAM::UserToGroupAddition</a>. If your stack template contains these resources, we recommend that you review all permissions associated with them and edit their permissions if necessary.</p> <p>If you have IAM resources, you can specify either capability. If you have IAM resources with custom names, you must specify <code>CAPABILITY_NAMED_IAM</code>. If you don't specify this parameter, this action returns an <code>InsufficientCapabilities</code> error.</p> <p>For more information, see <a href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities\">Acknowledging IAM Resources in AWS CloudFormation Templates</a>.</p>"
+        },
+        "ClientRequestToken": {
+          "$ref": "#/definitions/ClientRequestToken",
+          "description": "A unique identifier for this <code>UpdateStack</code> request. Specify this token if you plan to retry requests so that AWS CloudFormation knows that you're not attempting to update a stack with the same name. You might retry <code>UpdateStack</code> requests to ensure that AWS CloudFormation successfully received them."
+        },
+        "NotificationARNs": {
+          "$ref": "#/definitions/NotificationARNs",
+          "description": "Amazon Simple Notification Service topic Amazon Resource Names (ARNs) that AWS CloudFormation associates with the stack. Specify an empty list to remove all notification topics."
+        },
+        "Parameters": {
+          "$ref": "#/definitions/Parameters",
+          "description": "A list of <code>Parameter</code> structures that specify input parameters for the stack. For more information, see the <a href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_Parameter.html\">Parameter</a> data type."
+        },
+        "ResourceTypes": {
+          "$ref": "#/definitions/ResourceTypes",
+          "description": "<p>The template resource types that you have permissions to work with for this update stack action, such as <code>AWS::EC2::Instance</code>, <code>AWS::EC2::*</code>, or <code>Custom::MyCustomInstance</code>.</p> <p>If the list of resource types doesn't include a resource that you're updating, the stack update fails. By default, AWS CloudFormation grants permissions to all resource types. AWS Identity and Access Management (IAM) uses this parameter for AWS CloudFormation-specific condition keys in IAM policies. For more information, see <a href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html\">Controlling Access with AWS Identity and Access Management</a>.</p>"
+        },
+        "RoleARN": {
+          "$ref": "#/definitions/RoleARN",
+          "description": "<p>The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM) role that AWS CloudFormation assumes to update the stack. AWS CloudFormation uses the role's credentials to make calls on your behalf. AWS CloudFormation always uses this role for all future operations on the stack. As long as users have permission to operate on the stack, AWS CloudFormation uses this role even if the users don't have permission to pass it. Ensure that the role grants least privilege.</p> <p>If you don't specify a value, AWS CloudFormation uses the role that was previously associated with the stack. If no role is available, AWS CloudFormation uses a temporary session that is generated from your user credentials.</p>"
+        },
+        "StackName": {
+          "$ref": "#/definitions/StackName",
+          "description": "The name or unique stack ID of the stack to update."
+        },
+        "StackPolicyBody": {
+          "$ref": "#/definitions/StackPolicyBody",
+          "description": "<p>Structure containing a new stack policy body. You can specify either the <code>StackPolicyBody</code> or the <code>StackPolicyURL</code> parameter, but not both.</p> <p>You might update the stack policy, for example, in order to protect a new resource that you created during a stack update. If you do not specify a stack policy, the current policy that is associated with the stack is unchanged.</p>"
+        },
+        "StackPolicyDuringUpdateBody": {
+          "$ref": "#/definitions/StackPolicyDuringUpdateBody",
+          "description": "<p>Structure containing the temporary overriding stack policy body. You can specify either the <code>StackPolicyDuringUpdateBody</code> or the <code>StackPolicyDuringUpdateURL</code> parameter, but not both.</p> <p>If you want to update protected resources, specify a temporary overriding stack policy during this update. If you do not specify a stack policy, the current policy that is associated with the stack will be used.</p>"
+        },
+        "StackPolicyDuringUpdateURL": {
+          "$ref": "#/definitions/StackPolicyDuringUpdateURL",
+          "description": "<p>Location of a file containing the temporary overriding stack policy. The URL must point to a policy (max size: 16KB) located in an S3 bucket in the same region as the stack. You can specify either the <code>StackPolicyDuringUpdateBody</code> or the <code>StackPolicyDuringUpdateURL</code> parameter, but not both.</p> <p>If you want to update protected resources, specify a temporary overriding stack policy during this update. If you do not specify a stack policy, the current policy that is associated with the stack will be used.</p>"
+        },
+        "StackPolicyURL": {
+          "$ref": "#/definitions/StackPolicyURL",
+          "description": "<p>Location of a file containing the updated stack policy. The URL must point to a policy (max size: 16KB) located in an S3 bucket in the same region as the stack. You can specify either the <code>StackPolicyBody</code> or the <code>StackPolicyURL</code> parameter, but not both.</p> <p>You might update the stack policy, for example, in order to protect a new resource that you created during a stack update. If you do not specify a stack policy, the current policy that is associated with the stack is unchanged.</p>"
+        },
+        "Tags": {
+          "$ref": "#/definitions/Tags",
+          "description": "<p>Key-value pairs to associate with this stack. AWS CloudFormation also propagates these tags to supported resources in the stack. You can specify a maximum number of 10 tags.</p> <p>If you don't specify this parameter, AWS CloudFormation doesn't modify the stack's tags. If you specify an empty value, AWS CloudFormation removes all associated tags.</p>"
+        },
+        "TemplateBody": {
+          "$ref": "#/definitions/TemplateBody",
+          "description": "<p>Structure containing the template body with a minimum length of 1 byte and a maximum length of 51,200 bytes. (For more information, go to <a href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html\">Template Anatomy</a> in the AWS CloudFormation User Guide.)</p> <p>Conditional: You must specify only one of the following parameters: <code>TemplateBody</code>, <code>TemplateURL</code>, or set the <code>UsePreviousTemplate</code> to <code>true</code>.</p>"
+        },
+        "TemplateURL": {
+          "$ref": "#/definitions/TemplateURL",
+          "description": "<p>Location of file containing the template body. The URL must point to a template that is located in an Amazon S3 bucket. For more information, go to <a href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html\">Template Anatomy</a> in the AWS CloudFormation User Guide.</p> <p>Conditional: You must specify only one of the following parameters: <code>TemplateBody</code>, <code>TemplateURL</code>, or set the <code>UsePreviousTemplate</code> to <code>true</code>.</p>"
+        },
+        "UsePreviousTemplate": {
+          "$ref": "#/definitions/UsePreviousTemplate",
+          "description": "<p>Reuse the existing template that is associated with the stack that you are updating.</p> <p>Conditional: You must specify only one of the following parameters: <code>TemplateBody</code>, <code>TemplateURL</code>, or set the <code>UsePreviousTemplate</code> to <code>true</code>.</p>"
+        }
+      },
+      "required": [
+        "StackName"
+      ],
+      "type": "object"
+    },
+    "UpdateStackOutput": {
+      "description": "The output for an <a>UpdateStack</a> action.",
+      "properties": {
+        "StackId": {
+          "$ref": "#/definitions/StackId",
+          "description": "Unique identifier of the stack."
+        }
+      },
+      "type": "object"
+    },
+    "Url": {
+      "type": "string"
+    },
+    "UsePreviousTemplate": {
+      "type": "boolean"
+    },
+    "UsePreviousValue": {
+      "type": "boolean"
+    },
+    "ValidateTemplateInput": {
+      "description": "The input for <a>ValidateTemplate</a> action.",
+      "properties": {
+        "TemplateBody": {
+          "$ref": "#/definitions/TemplateBody",
+          "description": "<p>Structure containing the template body with a minimum length of 1 byte and a maximum length of 51,200 bytes. For more information, go to <a href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html\">Template Anatomy</a> in the AWS CloudFormation User Guide.</p> <p>Conditional: You must pass <code>TemplateURL</code> or <code>TemplateBody</code>. If both are passed, only <code>TemplateBody</code> is used.</p>"
+        },
+        "TemplateURL": {
+          "$ref": "#/definitions/TemplateURL",
+          "description": "<p>Location of file containing the template body. The URL must point to a template (max size: 460,800 bytes) that is located in an Amazon S3 bucket. For more information, go to <a href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html\">Template Anatomy</a> in the AWS CloudFormation User Guide.</p> <p>Conditional: You must pass <code>TemplateURL</code> or <code>TemplateBody</code>. If both are passed, only <code>TemplateBody</code> is used.</p>"
+        }
+      },
+      "type": "object"
+    },
+    "ValidateTemplateOutput": {
+      "description": "The output for <a>ValidateTemplate</a> action.",
+      "properties": {
+        "Capabilities": {
+          "$ref": "#/definitions/Capabilities",
+          "description": "<p>The capabilities found within the template. If your template contains IAM resources, you must specify the CAPABILITY_IAM or CAPABILITY_NAMED_IAM value for this parameter when you use the <a>CreateStack</a> or <a>UpdateStack</a> actions with your template; otherwise, those actions return an InsufficientCapabilities error.</p> <p>For more information, see <a href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities\">Acknowledging IAM Resources in AWS CloudFormation Templates</a>.</p>"
+        },
+        "CapabilitiesReason": {
+          "$ref": "#/definitions/CapabilitiesReason",
+          "description": "The list of resources that generated the values in the <code>Capabilities</code> response element."
+        },
+        "DeclaredTransforms": {
+          "$ref": "#/definitions/TransformsList",
+          "description": "A list of the transforms that are declared in the template."
+        },
+        "Description": {
+          "$ref": "#/definitions/Description",
+          "description": "The description found within the template."
+        },
+        "Parameters": {
+          "$ref": "#/definitions/TemplateParameters",
+          "description": "A list of <code>TemplateParameter</code> structures."
+        }
+      },
+      "type": "object"
+    },
+    "Version": {
+      "type": "string"
+    }
+  },
+  "actions": [
+    {
+      "id": "CancelUpdateStack",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/CancelUpdateStackInput"
+          }
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_cloudformation": {
+          "integration": "amazonaws_cloudformation"
+        }
+      }
+    },
+    {
+      "id": "ContinueUpdateRollback",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/ContinueUpdateRollbackInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ContinueUpdateRollbackOutput"
+      },
+      "security": {
+        "amazonaws_cloudformation": {
+          "integration": "amazonaws_cloudformation"
+        }
+      }
+    },
+    {
+      "id": "CreateChangeSet",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/CreateChangeSetInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CreateChangeSetOutput"
+      },
+      "security": {
+        "amazonaws_cloudformation": {
+          "integration": "amazonaws_cloudformation"
+        }
+      }
+    },
+    {
+      "id": "CreateStack",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/CreateStackInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CreateStackOutput"
+      },
+      "security": {
+        "amazonaws_cloudformation": {
+          "integration": "amazonaws_cloudformation"
+        }
+      }
+    },
+    {
+      "id": "DeleteChangeSet",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DeleteChangeSetInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DeleteChangeSetOutput"
+      },
+      "security": {
+        "amazonaws_cloudformation": {
+          "integration": "amazonaws_cloudformation"
+        }
+      }
+    },
+    {
+      "id": "DeleteStack",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DeleteStackInput"
+          }
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_cloudformation": {
+          "integration": "amazonaws_cloudformation"
+        }
+      }
+    },
+    {
+      "id": "DescribeAccountLimits",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DescribeAccountLimitsInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeAccountLimitsOutput"
+      },
+      "security": {
+        "amazonaws_cloudformation": {
+          "integration": "amazonaws_cloudformation"
+        }
+      }
+    },
+    {
+      "id": "DescribeChangeSet",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DescribeChangeSetInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeChangeSetOutput"
+      },
+      "security": {
+        "amazonaws_cloudformation": {
+          "integration": "amazonaws_cloudformation"
+        }
+      }
+    },
+    {
+      "id": "DescribeStackEvents",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "NextToken": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/DescribeStackEventsInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeStackEventsOutput"
+      },
+      "security": {
+        "amazonaws_cloudformation": {
+          "integration": "amazonaws_cloudformation"
+        }
+      }
+    },
+    {
+      "id": "DescribeStackResource",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DescribeStackResourceInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeStackResourceOutput"
+      },
+      "security": {
+        "amazonaws_cloudformation": {
+          "integration": "amazonaws_cloudformation"
+        }
+      }
+    },
+    {
+      "id": "DescribeStackResources",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DescribeStackResourcesInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeStackResourcesOutput"
+      },
+      "security": {
+        "amazonaws_cloudformation": {
+          "integration": "amazonaws_cloudformation"
+        }
+      }
+    },
+    {
+      "id": "DescribeStacks",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "NextToken": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/DescribeStacksInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeStacksOutput"
+      },
+      "security": {
+        "amazonaws_cloudformation": {
+          "integration": "amazonaws_cloudformation"
+        }
+      }
+    },
+    {
+      "id": "EstimateTemplateCost",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/EstimateTemplateCostInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/EstimateTemplateCostOutput"
+      },
+      "security": {
+        "amazonaws_cloudformation": {
+          "integration": "amazonaws_cloudformation"
+        }
+      }
+    },
+    {
+      "id": "ExecuteChangeSet",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/ExecuteChangeSetInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ExecuteChangeSetOutput"
+      },
+      "security": {
+        "amazonaws_cloudformation": {
+          "integration": "amazonaws_cloudformation"
+        }
+      }
+    },
+    {
+      "id": "GetStackPolicy",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetStackPolicyInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetStackPolicyOutput"
+      },
+      "security": {
+        "amazonaws_cloudformation": {
+          "integration": "amazonaws_cloudformation"
+        }
+      }
+    },
+    {
+      "id": "GetTemplate",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetTemplateInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetTemplateOutput"
+      },
+      "security": {
+        "amazonaws_cloudformation": {
+          "integration": "amazonaws_cloudformation"
+        }
+      }
+    },
+    {
+      "id": "GetTemplateSummary",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetTemplateSummaryInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetTemplateSummaryOutput"
+      },
+      "security": {
+        "amazonaws_cloudformation": {
+          "integration": "amazonaws_cloudformation"
+        }
+      }
+    },
+    {
+      "id": "ListChangeSets",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListChangeSetsInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListChangeSetsOutput"
+      },
+      "security": {
+        "amazonaws_cloudformation": {
+          "integration": "amazonaws_cloudformation"
+        }
+      }
+    },
+    {
+      "id": "ListExports",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "NextToken": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListExportsInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListExportsOutput"
+      },
+      "security": {
+        "amazonaws_cloudformation": {
+          "integration": "amazonaws_cloudformation"
+        }
+      }
+    },
+    {
+      "id": "ListImports",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "NextToken": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListImportsInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListImportsOutput"
+      },
+      "security": {
+        "amazonaws_cloudformation": {
+          "integration": "amazonaws_cloudformation"
+        }
+      }
+    },
+    {
+      "id": "ListStackResources",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "NextToken": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListStackResourcesInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListStackResourcesOutput"
+      },
+      "security": {
+        "amazonaws_cloudformation": {
+          "integration": "amazonaws_cloudformation"
+        }
+      }
+    },
+    {
+      "id": "ListStacks",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "NextToken": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListStacksInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListStacksOutput"
+      },
+      "security": {
+        "amazonaws_cloudformation": {
+          "integration": "amazonaws_cloudformation"
+        }
+      }
+    },
+    {
+      "id": "SetStackPolicy",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/SetStackPolicyInput"
+          }
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_cloudformation": {
+          "integration": "amazonaws_cloudformation"
+        }
+      }
+    },
+    {
+      "id": "SignalResource",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/SignalResourceInput"
+          }
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_cloudformation": {
+          "integration": "amazonaws_cloudformation"
+        }
+      }
+    },
+    {
+      "id": "UpdateStack",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/UpdateStackInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UpdateStackOutput"
+      },
+      "security": {
+        "amazonaws_cloudformation": {
+          "integration": "amazonaws_cloudformation"
+        }
+      }
+    },
+    {
+      "id": "ValidateTemplate",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/ValidateTemplateInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ValidateTemplateOutput"
+      },
+      "security": {
+        "amazonaws_cloudformation": {
+          "integration": "amazonaws_cloudformation"
+        }
+      }
+    }
+  ]
+}
