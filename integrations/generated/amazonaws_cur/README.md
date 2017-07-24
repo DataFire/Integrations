@@ -29,7 +29,6 @@ All public APIs for AWS Cost and Usage Report service
 amazonaws_cur.DeleteReportDefinition({}, context)
 ```
 
-#### Parameters
 
 ### DescribeReportDefinitions
 
@@ -51,5 +50,4 @@ amazonaws_cur.DescribeReportDefinitions({}, context)
 amazonaws_cur.PutReportDefinition({}, context)
 ```
 
-#### Parameters
 

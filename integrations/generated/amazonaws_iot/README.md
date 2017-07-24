@@ -42,7 +42,6 @@ amazonaws_iot.AcceptCertificateTransfer({
 amazonaws_iot.RegisterCACertificate({}, context)
 ```
 
-#### Parameters
 
 ### UpdateCACertificate
 
@@ -65,7 +64,6 @@ amazonaws_iot.UpdateCACertificate({
 amazonaws_iot.ListCACertificates({}, context)
 ```
 
-#### Parameters
 
 ### CancelCertificateTransfer
 
@@ -88,7 +86,6 @@ amazonaws_iot.CancelCertificateTransfer({
 amazonaws_iot.RegisterCertificate({}, context)
 ```
 
-#### Parameters
 
 ### ListCertificates
 
@@ -98,7 +95,6 @@ amazonaws_iot.RegisterCertificate({}, context)
 amazonaws_iot.ListCertificates({}, context)
 ```
 
-#### Parameters
 
 ### ListCertificatesByCA
 
@@ -121,7 +117,6 @@ amazonaws_iot.ListCertificatesByCA({
 amazonaws_iot.ListOutgoingCertificates({}, context)
 ```
 
-#### Parameters
 
 ### UpdateCertificate
 
@@ -144,7 +139,6 @@ amazonaws_iot.UpdateCertificate({
 amazonaws_iot.DescribeEndpoint({}, context)
 ```
 
-#### Parameters
 
 ### CreateKeysAndCertificate
 
@@ -154,7 +148,6 @@ amazonaws_iot.DescribeEndpoint({}, context)
 amazonaws_iot.CreateKeysAndCertificate({}, context)
 ```
 
-#### Parameters
 
 ### SetLoggingOptions
 
@@ -164,7 +157,6 @@ amazonaws_iot.CreateKeysAndCertificate({}, context)
 amazonaws_iot.SetLoggingOptions({}, context)
 ```
 
-#### Parameters
 
 ### ListPolicies
 
@@ -174,7 +166,6 @@ amazonaws_iot.SetLoggingOptions({}, context)
 amazonaws_iot.ListPolicies({}, context)
 ```
 
-#### Parameters
 
 ### GetPolicy
 
@@ -225,7 +216,6 @@ amazonaws_iot.SetDefaultPolicyVersion({
 amazonaws_iot.ListPolicyPrincipals({}, context)
 ```
 
-#### Parameters
 
 ### ListPrincipalPolicies
 
@@ -235,7 +225,6 @@ amazonaws_iot.ListPolicyPrincipals({}, context)
 amazonaws_iot.ListPrincipalPolicies({}, context)
 ```
 
-#### Parameters
 
 ### DetachPrincipalPolicy
 
@@ -258,7 +247,6 @@ amazonaws_iot.DetachPrincipalPolicy({
 amazonaws_iot.ListPrincipalThings({}, context)
 ```
 
-#### Parameters
 
 ### GetRegistrationCode
 
@@ -268,7 +256,6 @@ amazonaws_iot.ListPrincipalThings({}, context)
 amazonaws_iot.GetRegistrationCode({}, context)
 ```
 
-#### Parameters
 
 ### RejectCertificateTransfer
 
@@ -291,7 +278,6 @@ amazonaws_iot.RejectCertificateTransfer({
 amazonaws_iot.ListTopicRules({}, context)
 ```
 
-#### Parameters
 
 ### ReplaceTopicRule
 
@@ -340,7 +326,6 @@ amazonaws_iot.EnableTopicRule({
 amazonaws_iot.ListThingTypes({}, context)
 ```
 
-#### Parameters
 
 ### DescribeThingType
 
@@ -376,7 +361,6 @@ amazonaws_iot.DeprecateThingType({
 amazonaws_iot.ListThings({}, context)
 ```
 
-#### Parameters
 
 ### UpdateThing
 

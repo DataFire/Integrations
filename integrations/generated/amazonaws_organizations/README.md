@@ -29,7 +29,6 @@ amazonaws_organizations.AcceptHandshake({}, context).then(data => {
 amazonaws_organizations.AcceptHandshake({}, context)
 ```
 
-#### Parameters
 
 ### AttachPolicy
 
@@ -39,7 +38,6 @@ amazonaws_organizations.AcceptHandshake({}, context)
 amazonaws_organizations.AttachPolicy({}, context)
 ```
 
-#### Parameters
 
 ### CancelHandshake
 
@@ -49,7 +47,6 @@ amazonaws_organizations.AttachPolicy({}, context)
 amazonaws_organizations.CancelHandshake({}, context)
 ```
 
-#### Parameters
 
 ### CreateAccount
 
@@ -59,7 +56,6 @@ amazonaws_organizations.CancelHandshake({}, context)
 amazonaws_organizations.CreateAccount({}, context)
 ```
 
-#### Parameters
 
 ### CreateOrganization
 
@@ -69,7 +65,6 @@ amazonaws_organizations.CreateAccount({}, context)
 amazonaws_organizations.CreateOrganization({}, context)
 ```
 
-#### Parameters
 
 ### CreateOrganizationalUnit
 
@@ -79,7 +74,6 @@ amazonaws_organizations.CreateOrganization({}, context)
 amazonaws_organizations.CreateOrganizationalUnit({}, context)
 ```
 
-#### Parameters
 
 ### CreatePolicy
 
@@ -89,7 +83,6 @@ amazonaws_organizations.CreateOrganizationalUnit({}, context)
 amazonaws_organizations.CreatePolicy({}, context)
 ```
 
-#### Parameters
 
 ### DeclineHandshake
 
@@ -99,7 +92,6 @@ amazonaws_organizations.CreatePolicy({}, context)
 amazonaws_organizations.DeclineHandshake({}, context)
 ```
 
-#### Parameters
 
 ### DeleteOrganization
 
@@ -109,7 +101,6 @@ amazonaws_organizations.DeclineHandshake({}, context)
 amazonaws_organizations.DeleteOrganization({}, context)
 ```
 
-#### Parameters
 
 ### DeleteOrganizationalUnit
 
@@ -119,7 +110,6 @@ amazonaws_organizations.DeleteOrganization({}, context)
 amazonaws_organizations.DeleteOrganizationalUnit({}, context)
 ```
 
-#### Parameters
 
 ### DeletePolicy
 
@@ -129,7 +119,6 @@ amazonaws_organizations.DeleteOrganizationalUnit({}, context)
 amazonaws_organizations.DeletePolicy({}, context)
 ```
 
-#### Parameters
 
 ### DescribeAccount
 
@@ -139,7 +128,6 @@ amazonaws_organizations.DeletePolicy({}, context)
 amazonaws_organizations.DescribeAccount({}, context)
 ```
 
-#### Parameters
 
 ### DescribeCreateAccountStatus
 
@@ -149,7 +137,6 @@ amazonaws_organizations.DescribeAccount({}, context)
 amazonaws_organizations.DescribeCreateAccountStatus({}, context)
 ```
 
-#### Parameters
 
 ### DescribeHandshake
 
@@ -159,7 +146,6 @@ amazonaws_organizations.DescribeCreateAccountStatus({}, context)
 amazonaws_organizations.DescribeHandshake({}, context)
 ```
 
-#### Parameters
 
 ### DescribeOrganization
 
@@ -169,7 +155,6 @@ amazonaws_organizations.DescribeHandshake({}, context)
 amazonaws_organizations.DescribeOrganization({}, context)
 ```
 
-#### Parameters
 
 ### DescribeOrganizationalUnit
 
@@ -179,7 +164,6 @@ amazonaws_organizations.DescribeOrganization({}, context)
 amazonaws_organizations.DescribeOrganizationalUnit({}, context)
 ```
 
-#### Parameters
 
 ### DescribePolicy
 
@@ -189,7 +173,6 @@ amazonaws_organizations.DescribeOrganizationalUnit({}, context)
 amazonaws_organizations.DescribePolicy({}, context)
 ```
 
-#### Parameters
 
 ### DetachPolicy
 
@@ -199,7 +182,6 @@ amazonaws_organizations.DescribePolicy({}, context)
 amazonaws_organizations.DetachPolicy({}, context)
 ```
 
-#### Parameters
 
 ### DisablePolicyType
 
@@ -209,7 +191,6 @@ amazonaws_organizations.DetachPolicy({}, context)
 amazonaws_organizations.DisablePolicyType({}, context)
 ```
 
-#### Parameters
 
 ### EnableAllFeatures
 
@@ -219,7 +200,6 @@ amazonaws_organizations.DisablePolicyType({}, context)
 amazonaws_organizations.EnableAllFeatures({}, context)
 ```
 
-#### Parameters
 
 ### EnablePolicyType
 
@@ -229,7 +209,6 @@ amazonaws_organizations.EnableAllFeatures({}, context)
 amazonaws_organizations.EnablePolicyType({}, context)
 ```
 
-#### Parameters
 
 ### InviteAccountToOrganization
 
@@ -239,7 +218,6 @@ amazonaws_organizations.EnablePolicyType({}, context)
 amazonaws_organizations.InviteAccountToOrganization({}, context)
 ```
 
-#### Parameters
 
 ### LeaveOrganization
 
@@ -249,7 +227,6 @@ amazonaws_organizations.InviteAccountToOrganization({}, context)
 amazonaws_organizations.LeaveOrganization({}, context)
 ```
 
-#### Parameters
 
 ### ListAccounts
 
@@ -403,7 +380,6 @@ amazonaws_organizations.ListTargetsForPolicy({}, context)
 amazonaws_organizations.MoveAccount({}, context)
 ```
 
-#### Parameters
 
 ### RemoveAccountFromOrganization
 
@@ -413,7 +389,6 @@ amazonaws_organizations.MoveAccount({}, context)
 amazonaws_organizations.RemoveAccountFromOrganization({}, context)
 ```
 
-#### Parameters
 
 ### UpdateOrganizationalUnit
 
@@ -423,7 +398,6 @@ amazonaws_organizations.RemoveAccountFromOrganization({}, context)
 amazonaws_organizations.UpdateOrganizationalUnit({}, context)
 ```
 
-#### Parameters
 
 ### UpdatePolicy
 
@@ -433,5 +407,4 @@ amazonaws_organizations.UpdateOrganizationalUnit({}, context)
 amazonaws_organizations.UpdatePolicy({}, context)
 ```
 
-#### Parameters
 

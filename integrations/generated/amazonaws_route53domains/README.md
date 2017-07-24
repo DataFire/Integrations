@@ -29,7 +29,6 @@ Amazon Route 53 API actions let you register domain names and perform related op
 amazonaws_route53domains.CheckDomainAvailability({}, context)
 ```
 
-#### Parameters
 
 ### DeleteTagsForDomain
 
@@ -39,7 +38,6 @@ amazonaws_route53domains.CheckDomainAvailability({}, context)
 amazonaws_route53domains.DeleteTagsForDomain({}, context)
 ```
 
-#### Parameters
 
 ### DisableDomainAutoRenew
 
@@ -49,7 +47,6 @@ amazonaws_route53domains.DeleteTagsForDomain({}, context)
 amazonaws_route53domains.DisableDomainAutoRenew({}, context)
 ```
 
-#### Parameters
 
 ### DisableDomainTransferLock
 
@@ -59,7 +56,6 @@ amazonaws_route53domains.DisableDomainAutoRenew({}, context)
 amazonaws_route53domains.DisableDomainTransferLock({}, context)
 ```
 
-#### Parameters
 
 ### EnableDomainAutoRenew
 
@@ -69,7 +65,6 @@ amazonaws_route53domains.DisableDomainTransferLock({}, context)
 amazonaws_route53domains.EnableDomainAutoRenew({}, context)
 ```
 
-#### Parameters
 
 ### EnableDomainTransferLock
 
@@ -79,7 +74,6 @@ amazonaws_route53domains.EnableDomainAutoRenew({}, context)
 amazonaws_route53domains.EnableDomainTransferLock({}, context)
 ```
 
-#### Parameters
 
 ### GetContactReachabilityStatus
 
@@ -89,7 +83,6 @@ amazonaws_route53domains.EnableDomainTransferLock({}, context)
 amazonaws_route53domains.GetContactReachabilityStatus({}, context)
 ```
 
-#### Parameters
 
 ### GetDomainDetail
 
@@ -99,7 +92,6 @@ amazonaws_route53domains.GetContactReachabilityStatus({}, context)
 amazonaws_route53domains.GetDomainDetail({}, context)
 ```
 
-#### Parameters
 
 ### GetDomainSuggestions
 
@@ -109,7 +101,6 @@ amazonaws_route53domains.GetDomainDetail({}, context)
 amazonaws_route53domains.GetDomainSuggestions({}, context)
 ```
 
-#### Parameters
 
 ### GetOperationDetail
 
@@ -119,7 +110,6 @@ amazonaws_route53domains.GetDomainSuggestions({}, context)
 amazonaws_route53domains.GetOperationDetail({}, context)
 ```
 
-#### Parameters
 
 ### ListDomains
 
@@ -153,7 +143,6 @@ amazonaws_route53domains.ListOperations({}, context)
 amazonaws_route53domains.ListTagsForDomain({}, context)
 ```
 
-#### Parameters
 
 ### RegisterDomain
 
@@ -163,7 +152,6 @@ amazonaws_route53domains.ListTagsForDomain({}, context)
 amazonaws_route53domains.RegisterDomain({}, context)
 ```
 
-#### Parameters
 
 ### RenewDomain
 
@@ -173,7 +161,6 @@ amazonaws_route53domains.RegisterDomain({}, context)
 amazonaws_route53domains.RenewDomain({}, context)
 ```
 
-#### Parameters
 
 ### ResendContactReachabilityEmail
 
@@ -183,7 +170,6 @@ amazonaws_route53domains.RenewDomain({}, context)
 amazonaws_route53domains.ResendContactReachabilityEmail({}, context)
 ```
 
-#### Parameters
 
 ### RetrieveDomainAuthCode
 
@@ -193,7 +179,6 @@ amazonaws_route53domains.ResendContactReachabilityEmail({}, context)
 amazonaws_route53domains.RetrieveDomainAuthCode({}, context)
 ```
 
-#### Parameters
 
 ### TransferDomain
 
@@ -203,7 +188,6 @@ amazonaws_route53domains.RetrieveDomainAuthCode({}, context)
 amazonaws_route53domains.TransferDomain({}, context)
 ```
 
-#### Parameters
 
 ### UpdateDomainContact
 
@@ -213,7 +197,6 @@ amazonaws_route53domains.TransferDomain({}, context)
 amazonaws_route53domains.UpdateDomainContact({}, context)
 ```
 
-#### Parameters
 
 ### UpdateDomainContactPrivacy
 
@@ -223,7 +206,6 @@ amazonaws_route53domains.UpdateDomainContact({}, context)
 amazonaws_route53domains.UpdateDomainContactPrivacy({}, context)
 ```
 
-#### Parameters
 
 ### UpdateDomainNameservers
 
@@ -233,7 +215,6 @@ amazonaws_route53domains.UpdateDomainContactPrivacy({}, context)
 amazonaws_route53domains.UpdateDomainNameservers({}, context)
 ```
 
-#### Parameters
 
 ### UpdateTagsForDomain
 
@@ -243,7 +224,6 @@ amazonaws_route53domains.UpdateDomainNameservers({}, context)
 amazonaws_route53domains.UpdateTagsForDomain({}, context)
 ```
 
-#### Parameters
 
 ### ViewBilling
 
@@ -253,5 +233,4 @@ amazonaws_route53domains.UpdateTagsForDomain({}, context)
 amazonaws_route53domains.ViewBilling({}, context)
 ```
 
-#### Parameters
 

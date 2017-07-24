@@ -29,7 +29,6 @@ amazonaws_tagging.GetResources({}, context).then(data => {
 amazonaws_tagging.GetResources({}, context)
 ```
 
-#### Parameters
 
 ### GetTagKeys
 
@@ -39,7 +38,6 @@ amazonaws_tagging.GetResources({}, context)
 amazonaws_tagging.GetTagKeys({}, context)
 ```
 
-#### Parameters
 
 ### GetTagValues
 
@@ -49,7 +47,6 @@ amazonaws_tagging.GetTagKeys({}, context)
 amazonaws_tagging.GetTagValues({}, context)
 ```
 
-#### Parameters
 
 ### TagResources
 
@@ -59,7 +56,6 @@ amazonaws_tagging.GetTagValues({}, context)
 amazonaws_tagging.TagResources({}, context)
 ```
 
-#### Parameters
 
 ### UntagResources
 
@@ -69,5 +65,4 @@ amazonaws_tagging.TagResources({}, context)
 amazonaws_tagging.UntagResources({}, context)
 ```
 
-#### Parameters
 

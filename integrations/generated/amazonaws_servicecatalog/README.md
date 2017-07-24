@@ -29,7 +29,6 @@ amazonaws_servicecatalog.AcceptPortfolioShare({}, context).then(data => {
 amazonaws_servicecatalog.AcceptPortfolioShare({}, context)
 ```
 
-#### Parameters
 
 ### AssociatePrincipalWithPortfolio
 
@@ -39,7 +38,6 @@ amazonaws_servicecatalog.AcceptPortfolioShare({}, context)
 amazonaws_servicecatalog.AssociatePrincipalWithPortfolio({}, context)
 ```
 
-#### Parameters
 
 ### AssociateProductWithPortfolio
 
@@ -49,7 +47,6 @@ amazonaws_servicecatalog.AssociatePrincipalWithPortfolio({}, context)
 amazonaws_servicecatalog.AssociateProductWithPortfolio({}, context)
 ```
 
-#### Parameters
 
 ### CreateConstraint
 
@@ -59,7 +56,6 @@ amazonaws_servicecatalog.AssociateProductWithPortfolio({}, context)
 amazonaws_servicecatalog.CreateConstraint({}, context)
 ```
 
-#### Parameters
 
 ### CreatePortfolio
 
@@ -69,7 +65,6 @@ amazonaws_servicecatalog.CreateConstraint({}, context)
 amazonaws_servicecatalog.CreatePortfolio({}, context)
 ```
 
-#### Parameters
 
 ### CreatePortfolioShare
 
@@ -79,7 +74,6 @@ amazonaws_servicecatalog.CreatePortfolio({}, context)
 amazonaws_servicecatalog.CreatePortfolioShare({}, context)
 ```
 
-#### Parameters
 
 ### CreateProduct
 
@@ -89,7 +83,6 @@ amazonaws_servicecatalog.CreatePortfolioShare({}, context)
 amazonaws_servicecatalog.CreateProduct({}, context)
 ```
 
-#### Parameters
 
 ### CreateProvisioningArtifact
 
@@ -99,7 +92,6 @@ amazonaws_servicecatalog.CreateProduct({}, context)
 amazonaws_servicecatalog.CreateProvisioningArtifact({}, context)
 ```
 
-#### Parameters
 
 ### DeleteConstraint
 
@@ -109,7 +101,6 @@ amazonaws_servicecatalog.CreateProvisioningArtifact({}, context)
 amazonaws_servicecatalog.DeleteConstraint({}, context)
 ```
 
-#### Parameters
 
 ### DeletePortfolio
 
@@ -119,7 +110,6 @@ amazonaws_servicecatalog.DeleteConstraint({}, context)
 amazonaws_servicecatalog.DeletePortfolio({}, context)
 ```
 
-#### Parameters
 
 ### DeletePortfolioShare
 
@@ -129,7 +119,6 @@ amazonaws_servicecatalog.DeletePortfolio({}, context)
 amazonaws_servicecatalog.DeletePortfolioShare({}, context)
 ```
 
-#### Parameters
 
 ### DeleteProduct
 
@@ -139,7 +128,6 @@ amazonaws_servicecatalog.DeletePortfolioShare({}, context)
 amazonaws_servicecatalog.DeleteProduct({}, context)
 ```
 
-#### Parameters
 
 ### DeleteProvisioningArtifact
 
@@ -149,7 +137,6 @@ amazonaws_servicecatalog.DeleteProduct({}, context)
 amazonaws_servicecatalog.DeleteProvisioningArtifact({}, context)
 ```
 
-#### Parameters
 
 ### DescribeConstraint
 
@@ -159,7 +146,6 @@ amazonaws_servicecatalog.DeleteProvisioningArtifact({}, context)
 amazonaws_servicecatalog.DescribeConstraint({}, context)
 ```
 
-#### Parameters
 
 ### DescribePortfolio
 
@@ -169,7 +155,6 @@ amazonaws_servicecatalog.DescribeConstraint({}, context)
 amazonaws_servicecatalog.DescribePortfolio({}, context)
 ```
 
-#### Parameters
 
 ### DescribeProduct
 
@@ -179,7 +164,6 @@ amazonaws_servicecatalog.DescribePortfolio({}, context)
 amazonaws_servicecatalog.DescribeProduct({}, context)
 ```
 
-#### Parameters
 
 ### DescribeProductAsAdmin
 
@@ -189,7 +173,6 @@ amazonaws_servicecatalog.DescribeProduct({}, context)
 amazonaws_servicecatalog.DescribeProductAsAdmin({}, context)
 ```
 
-#### Parameters
 
 ### DescribeProductView
 
@@ -199,7 +182,6 @@ amazonaws_servicecatalog.DescribeProductAsAdmin({}, context)
 amazonaws_servicecatalog.DescribeProductView({}, context)
 ```
 
-#### Parameters
 
 ### DescribeProvisioningArtifact
 
@@ -209,7 +191,6 @@ amazonaws_servicecatalog.DescribeProductView({}, context)
 amazonaws_servicecatalog.DescribeProvisioningArtifact({}, context)
 ```
 
-#### Parameters
 
 ### DescribeProvisioningParameters
 
@@ -219,7 +200,6 @@ amazonaws_servicecatalog.DescribeProvisioningArtifact({}, context)
 amazonaws_servicecatalog.DescribeProvisioningParameters({}, context)
 ```
 
-#### Parameters
 
 ### DescribeRecord
 
@@ -229,7 +209,6 @@ amazonaws_servicecatalog.DescribeProvisioningParameters({}, context)
 amazonaws_servicecatalog.DescribeRecord({}, context)
 ```
 
-#### Parameters
 
 ### DisassociatePrincipalFromPortfolio
 
@@ -239,7 +218,6 @@ amazonaws_servicecatalog.DescribeRecord({}, context)
 amazonaws_servicecatalog.DisassociatePrincipalFromPortfolio({}, context)
 ```
 
-#### Parameters
 
 ### DisassociateProductFromPortfolio
 
@@ -249,7 +227,6 @@ amazonaws_servicecatalog.DisassociatePrincipalFromPortfolio({}, context)
 amazonaws_servicecatalog.DisassociateProductFromPortfolio({}, context)
 ```
 
-#### Parameters
 
 ### ListAcceptedPortfolioShares
 
@@ -259,7 +236,6 @@ amazonaws_servicecatalog.DisassociateProductFromPortfolio({}, context)
 amazonaws_servicecatalog.ListAcceptedPortfolioShares({}, context)
 ```
 
-#### Parameters
 
 ### ListConstraintsForPortfolio
 
@@ -269,7 +245,6 @@ amazonaws_servicecatalog.ListAcceptedPortfolioShares({}, context)
 amazonaws_servicecatalog.ListConstraintsForPortfolio({}, context)
 ```
 
-#### Parameters
 
 ### ListLaunchPaths
 
@@ -279,7 +254,6 @@ amazonaws_servicecatalog.ListConstraintsForPortfolio({}, context)
 amazonaws_servicecatalog.ListLaunchPaths({}, context)
 ```
 
-#### Parameters
 
 ### ListPortfolioAccess
 
@@ -289,7 +263,6 @@ amazonaws_servicecatalog.ListLaunchPaths({}, context)
 amazonaws_servicecatalog.ListPortfolioAccess({}, context)
 ```
 
-#### Parameters
 
 ### ListPortfolios
 
@@ -299,7 +272,6 @@ amazonaws_servicecatalog.ListPortfolioAccess({}, context)
 amazonaws_servicecatalog.ListPortfolios({}, context)
 ```
 
-#### Parameters
 
 ### ListPortfoliosForProduct
 
@@ -309,7 +281,6 @@ amazonaws_servicecatalog.ListPortfolios({}, context)
 amazonaws_servicecatalog.ListPortfoliosForProduct({}, context)
 ```
 
-#### Parameters
 
 ### ListPrincipalsForPortfolio
 
@@ -319,7 +290,6 @@ amazonaws_servicecatalog.ListPortfoliosForProduct({}, context)
 amazonaws_servicecatalog.ListPrincipalsForPortfolio({}, context)
 ```
 
-#### Parameters
 
 ### ListProvisioningArtifacts
 
@@ -329,7 +299,6 @@ amazonaws_servicecatalog.ListPrincipalsForPortfolio({}, context)
 amazonaws_servicecatalog.ListProvisioningArtifacts({}, context)
 ```
 
-#### Parameters
 
 ### ListRecordHistory
 
@@ -339,7 +308,6 @@ amazonaws_servicecatalog.ListProvisioningArtifacts({}, context)
 amazonaws_servicecatalog.ListRecordHistory({}, context)
 ```
 
-#### Parameters
 
 ### ProvisionProduct
 
@@ -349,7 +317,6 @@ amazonaws_servicecatalog.ListRecordHistory({}, context)
 amazonaws_servicecatalog.ProvisionProduct({}, context)
 ```
 
-#### Parameters
 
 ### RejectPortfolioShare
 
@@ -359,7 +326,6 @@ amazonaws_servicecatalog.ProvisionProduct({}, context)
 amazonaws_servicecatalog.RejectPortfolioShare({}, context)
 ```
 
-#### Parameters
 
 ### ScanProvisionedProducts
 
@@ -369,7 +335,6 @@ amazonaws_servicecatalog.RejectPortfolioShare({}, context)
 amazonaws_servicecatalog.ScanProvisionedProducts({}, context)
 ```
 
-#### Parameters
 
 ### SearchProducts
 
@@ -379,7 +344,6 @@ amazonaws_servicecatalog.ScanProvisionedProducts({}, context)
 amazonaws_servicecatalog.SearchProducts({}, context)
 ```
 
-#### Parameters
 
 ### SearchProductsAsAdmin
 
@@ -389,7 +353,6 @@ amazonaws_servicecatalog.SearchProducts({}, context)
 amazonaws_servicecatalog.SearchProductsAsAdmin({}, context)
 ```
 
-#### Parameters
 
 ### TerminateProvisionedProduct
 
@@ -399,7 +362,6 @@ amazonaws_servicecatalog.SearchProductsAsAdmin({}, context)
 amazonaws_servicecatalog.TerminateProvisionedProduct({}, context)
 ```
 
-#### Parameters
 
 ### UpdateConstraint
 
@@ -409,7 +371,6 @@ amazonaws_servicecatalog.TerminateProvisionedProduct({}, context)
 amazonaws_servicecatalog.UpdateConstraint({}, context)
 ```
 
-#### Parameters
 
 ### UpdatePortfolio
 
@@ -419,7 +380,6 @@ amazonaws_servicecatalog.UpdateConstraint({}, context)
 amazonaws_servicecatalog.UpdatePortfolio({}, context)
 ```
 
-#### Parameters
 
 ### UpdateProduct
 
@@ -429,7 +389,6 @@ amazonaws_servicecatalog.UpdatePortfolio({}, context)
 amazonaws_servicecatalog.UpdateProduct({}, context)
 ```
 
-#### Parameters
 
 ### UpdateProvisionedProduct
 
@@ -439,7 +398,6 @@ amazonaws_servicecatalog.UpdateProduct({}, context)
 amazonaws_servicecatalog.UpdateProvisionedProduct({}, context)
 ```
 
-#### Parameters
 
 ### UpdateProvisioningArtifact
 
@@ -449,5 +407,4 @@ amazonaws_servicecatalog.UpdateProvisionedProduct({}, context)
 amazonaws_servicecatalog.UpdateProvisioningArtifact({}, context)
 ```
 
-#### Parameters
 

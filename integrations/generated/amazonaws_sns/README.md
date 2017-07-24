@@ -29,7 +29,6 @@ amazonaws_sns.AddPermission({}, context).then(data => {
 amazonaws_sns.AddPermission({}, context)
 ```
 
-#### Parameters
 
 ### CheckIfPhoneNumberIsOptedOut
 
@@ -39,7 +38,6 @@ amazonaws_sns.AddPermission({}, context)
 amazonaws_sns.CheckIfPhoneNumberIsOptedOut({}, context)
 ```
 
-#### Parameters
 
 ### ConfirmSubscription
 
@@ -49,7 +47,6 @@ amazonaws_sns.CheckIfPhoneNumberIsOptedOut({}, context)
 amazonaws_sns.ConfirmSubscription({}, context)
 ```
 
-#### Parameters
 
 ### CreatePlatformApplication
 
@@ -59,7 +56,6 @@ amazonaws_sns.ConfirmSubscription({}, context)
 amazonaws_sns.CreatePlatformApplication({}, context)
 ```
 
-#### Parameters
 
 ### CreatePlatformEndpoint
 
@@ -69,7 +65,6 @@ amazonaws_sns.CreatePlatformApplication({}, context)
 amazonaws_sns.CreatePlatformEndpoint({}, context)
 ```
 
-#### Parameters
 
 ### CreateTopic
 
@@ -79,7 +74,6 @@ amazonaws_sns.CreatePlatformEndpoint({}, context)
 amazonaws_sns.CreateTopic({}, context)
 ```
 
-#### Parameters
 
 ### DeleteEndpoint
 
@@ -89,7 +83,6 @@ amazonaws_sns.CreateTopic({}, context)
 amazonaws_sns.DeleteEndpoint({}, context)
 ```
 
-#### Parameters
 
 ### DeletePlatformApplication
 
@@ -99,7 +92,6 @@ amazonaws_sns.DeleteEndpoint({}, context)
 amazonaws_sns.DeletePlatformApplication({}, context)
 ```
 
-#### Parameters
 
 ### DeleteTopic
 
@@ -109,7 +101,6 @@ amazonaws_sns.DeletePlatformApplication({}, context)
 amazonaws_sns.DeleteTopic({}, context)
 ```
 
-#### Parameters
 
 ### GetEndpointAttributes
 
@@ -119,7 +110,6 @@ amazonaws_sns.DeleteTopic({}, context)
 amazonaws_sns.GetEndpointAttributes({}, context)
 ```
 
-#### Parameters
 
 ### GetPlatformApplicationAttributes
 
@@ -129,7 +119,6 @@ amazonaws_sns.GetEndpointAttributes({}, context)
 amazonaws_sns.GetPlatformApplicationAttributes({}, context)
 ```
 
-#### Parameters
 
 ### GetSMSAttributes
 
@@ -139,7 +128,6 @@ amazonaws_sns.GetPlatformApplicationAttributes({}, context)
 amazonaws_sns.GetSMSAttributes({}, context)
 ```
 
-#### Parameters
 
 ### GetSubscriptionAttributes
 
@@ -149,7 +137,6 @@ amazonaws_sns.GetSMSAttributes({}, context)
 amazonaws_sns.GetSubscriptionAttributes({}, context)
 ```
 
-#### Parameters
 
 ### GetTopicAttributes
 
@@ -159,7 +146,6 @@ amazonaws_sns.GetSubscriptionAttributes({}, context)
 amazonaws_sns.GetTopicAttributes({}, context)
 ```
 
-#### Parameters
 
 ### ListEndpointsByPlatformApplication
 
@@ -180,7 +166,6 @@ amazonaws_sns.ListEndpointsByPlatformApplication({}, context)
 amazonaws_sns.ListPhoneNumbersOptedOut({}, context)
 ```
 
-#### Parameters
 
 ### ListPlatformApplications
 
@@ -234,7 +219,6 @@ amazonaws_sns.ListTopics({}, context)
 amazonaws_sns.OptInPhoneNumber({}, context)
 ```
 
-#### Parameters
 
 ### Publish
 
@@ -244,7 +228,6 @@ amazonaws_sns.OptInPhoneNumber({}, context)
 amazonaws_sns.Publish({}, context)
 ```
 
-#### Parameters
 
 ### RemovePermission
 
@@ -254,7 +237,6 @@ amazonaws_sns.Publish({}, context)
 amazonaws_sns.RemovePermission({}, context)
 ```
 
-#### Parameters
 
 ### SetEndpointAttributes
 
@@ -264,7 +246,6 @@ amazonaws_sns.RemovePermission({}, context)
 amazonaws_sns.SetEndpointAttributes({}, context)
 ```
 
-#### Parameters
 
 ### SetPlatformApplicationAttributes
 
@@ -274,7 +255,6 @@ amazonaws_sns.SetEndpointAttributes({}, context)
 amazonaws_sns.SetPlatformApplicationAttributes({}, context)
 ```
 
-#### Parameters
 
 ### SetSMSAttributes
 
@@ -284,7 +264,6 @@ amazonaws_sns.SetPlatformApplicationAttributes({}, context)
 amazonaws_sns.SetSMSAttributes({}, context)
 ```
 
-#### Parameters
 
 ### SetSubscriptionAttributes
 
@@ -294,7 +273,6 @@ amazonaws_sns.SetSMSAttributes({}, context)
 amazonaws_sns.SetSubscriptionAttributes({}, context)
 ```
 
-#### Parameters
 
 ### SetTopicAttributes
 
@@ -304,7 +282,6 @@ amazonaws_sns.SetSubscriptionAttributes({}, context)
 amazonaws_sns.SetTopicAttributes({}, context)
 ```
 
-#### Parameters
 
 ### Subscribe
 
@@ -314,7 +291,6 @@ amazonaws_sns.SetTopicAttributes({}, context)
 amazonaws_sns.Subscribe({}, context)
 ```
 
-#### Parameters
 
 ### Unsubscribe
 
@@ -324,5 +300,4 @@ amazonaws_sns.Subscribe({}, context)
 amazonaws_sns.Unsubscribe({}, context)
 ```
 
-#### Parameters
 

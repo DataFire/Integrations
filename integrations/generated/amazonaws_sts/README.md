@@ -29,7 +29,6 @@ amazonaws_sts.AssumeRole({}, context).then(data => {
 amazonaws_sts.AssumeRole({}, context)
 ```
 
-#### Parameters
 
 ### AssumeRoleWithSAML
 
@@ -39,7 +38,6 @@ amazonaws_sts.AssumeRole({}, context)
 amazonaws_sts.AssumeRoleWithSAML({}, context)
 ```
 
-#### Parameters
 
 ### AssumeRoleWithWebIdentity
 
@@ -49,7 +47,6 @@ amazonaws_sts.AssumeRoleWithSAML({}, context)
 amazonaws_sts.AssumeRoleWithWebIdentity({}, context)
 ```
 
-#### Parameters
 
 ### DecodeAuthorizationMessage
 
@@ -59,7 +56,6 @@ amazonaws_sts.AssumeRoleWithWebIdentity({}, context)
 amazonaws_sts.DecodeAuthorizationMessage({}, context)
 ```
 
-#### Parameters
 
 ### GetCallerIdentity
 
@@ -69,7 +65,6 @@ amazonaws_sts.DecodeAuthorizationMessage({}, context)
 amazonaws_sts.GetCallerIdentity({}, context)
 ```
 
-#### Parameters
 
 ### GetFederationToken
 
@@ -79,7 +74,6 @@ amazonaws_sts.GetCallerIdentity({}, context)
 amazonaws_sts.GetFederationToken({}, context)
 ```
 
-#### Parameters
 
 ### GetSessionToken
 
@@ -89,5 +83,4 @@ amazonaws_sts.GetFederationToken({}, context)
 amazonaws_sts.GetSessionToken({}, context)
 ```
 
-#### Parameters
 

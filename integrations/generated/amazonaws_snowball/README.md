@@ -29,7 +29,6 @@ AWS Snowball is a petabyte-scale data transport solution that uses secure applia
 amazonaws_snowball.CancelCluster({}, context)
 ```
 
-#### Parameters
 
 ### CancelJob
 
@@ -39,7 +38,6 @@ amazonaws_snowball.CancelCluster({}, context)
 amazonaws_snowball.CancelJob({}, context)
 ```
 
-#### Parameters
 
 ### CreateAddress
 
@@ -49,7 +47,6 @@ amazonaws_snowball.CancelJob({}, context)
 amazonaws_snowball.CreateAddress({}, context)
 ```
 
-#### Parameters
 
 ### CreateCluster
 
@@ -59,7 +56,6 @@ amazonaws_snowball.CreateAddress({}, context)
 amazonaws_snowball.CreateCluster({}, context)
 ```
 
-#### Parameters
 
 ### CreateJob
 
@@ -69,7 +65,6 @@ amazonaws_snowball.CreateCluster({}, context)
 amazonaws_snowball.CreateJob({}, context)
 ```
 
-#### Parameters
 
 ### DescribeAddress
 
@@ -79,7 +74,6 @@ amazonaws_snowball.CreateJob({}, context)
 amazonaws_snowball.DescribeAddress({}, context)
 ```
 
-#### Parameters
 
 ### DescribeAddresses
 
@@ -101,7 +95,6 @@ amazonaws_snowball.DescribeAddresses({}, context)
 amazonaws_snowball.DescribeCluster({}, context)
 ```
 
-#### Parameters
 
 ### DescribeJob
 
@@ -111,7 +104,6 @@ amazonaws_snowball.DescribeCluster({}, context)
 amazonaws_snowball.DescribeJob({}, context)
 ```
 
-#### Parameters
 
 ### GetJobManifest
 
@@ -121,7 +113,6 @@ amazonaws_snowball.DescribeJob({}, context)
 amazonaws_snowball.GetJobManifest({}, context)
 ```
 
-#### Parameters
 
 ### GetJobUnlockCode
 
@@ -131,7 +122,6 @@ amazonaws_snowball.GetJobManifest({}, context)
 amazonaws_snowball.GetJobUnlockCode({}, context)
 ```
 
-#### Parameters
 
 ### GetSnowballUsage
 
@@ -141,7 +131,6 @@ amazonaws_snowball.GetJobUnlockCode({}, context)
 amazonaws_snowball.GetSnowballUsage({}, context)
 ```
 
-#### Parameters
 
 ### ListClusterJobs
 
@@ -151,7 +140,6 @@ amazonaws_snowball.GetSnowballUsage({}, context)
 amazonaws_snowball.ListClusterJobs({}, context)
 ```
 
-#### Parameters
 
 ### ListClusters
 
@@ -161,7 +149,6 @@ amazonaws_snowball.ListClusterJobs({}, context)
 amazonaws_snowball.ListClusters({}, context)
 ```
 
-#### Parameters
 
 ### ListJobs
 
@@ -183,7 +170,6 @@ amazonaws_snowball.ListJobs({}, context)
 amazonaws_snowball.UpdateCluster({}, context)
 ```
 
-#### Parameters
 
 ### UpdateJob
 
@@ -193,5 +179,4 @@ amazonaws_snowball.UpdateCluster({}, context)
 amazonaws_snowball.UpdateJob({}, context)
 ```
 
-#### Parameters
 

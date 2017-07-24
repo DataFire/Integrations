@@ -29,7 +29,6 @@ amazonaws_events.DeleteRule({}, context).then(data => {
 amazonaws_events.DeleteRule({}, context)
 ```
 
-#### Parameters
 
 ### DescribeRule
 
@@ -39,7 +38,6 @@ amazonaws_events.DeleteRule({}, context)
 amazonaws_events.DescribeRule({}, context)
 ```
 
-#### Parameters
 
 ### DisableRule
 
@@ -49,7 +47,6 @@ amazonaws_events.DescribeRule({}, context)
 amazonaws_events.DisableRule({}, context)
 ```
 
-#### Parameters
 
 ### EnableRule
 
@@ -59,7 +56,6 @@ amazonaws_events.DisableRule({}, context)
 amazonaws_events.EnableRule({}, context)
 ```
 
-#### Parameters
 
 ### ListRuleNamesByTarget
 
@@ -69,7 +65,6 @@ amazonaws_events.EnableRule({}, context)
 amazonaws_events.ListRuleNamesByTarget({}, context)
 ```
 
-#### Parameters
 
 ### ListRules
 
@@ -79,7 +74,6 @@ amazonaws_events.ListRuleNamesByTarget({}, context)
 amazonaws_events.ListRules({}, context)
 ```
 
-#### Parameters
 
 ### ListTargetsByRule
 
@@ -89,7 +83,6 @@ amazonaws_events.ListRules({}, context)
 amazonaws_events.ListTargetsByRule({}, context)
 ```
 
-#### Parameters
 
 ### PutEvents
 
@@ -99,7 +92,6 @@ amazonaws_events.ListTargetsByRule({}, context)
 amazonaws_events.PutEvents({}, context)
 ```
 
-#### Parameters
 
 ### PutRule
 
@@ -109,7 +101,6 @@ amazonaws_events.PutEvents({}, context)
 amazonaws_events.PutRule({}, context)
 ```
 
-#### Parameters
 
 ### PutTargets
 
@@ -119,7 +110,6 @@ amazonaws_events.PutRule({}, context)
 amazonaws_events.PutTargets({}, context)
 ```
 
-#### Parameters
 
 ### RemoveTargets
 
@@ -129,7 +119,6 @@ amazonaws_events.PutTargets({}, context)
 amazonaws_events.RemoveTargets({}, context)
 ```
 
-#### Parameters
 
 ### TestEventPattern
 
@@ -139,5 +128,4 @@ amazonaws_events.RemoveTargets({}, context)
 amazonaws_events.TestEventPattern({}, context)
 ```
 
-#### Parameters
 

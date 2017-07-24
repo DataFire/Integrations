@@ -29,7 +29,6 @@ amazonaws_mturk_requester.AcceptQualificationRequest({}, context).then(data => {
 amazonaws_mturk_requester.AcceptQualificationRequest({}, context)
 ```
 
-#### Parameters
 
 ### ApproveAssignment
 
@@ -39,7 +38,6 @@ amazonaws_mturk_requester.AcceptQualificationRequest({}, context)
 amazonaws_mturk_requester.ApproveAssignment({}, context)
 ```
 
-#### Parameters
 
 ### AssociateQualificationWithWorker
 
@@ -49,7 +47,6 @@ amazonaws_mturk_requester.ApproveAssignment({}, context)
 amazonaws_mturk_requester.AssociateQualificationWithWorker({}, context)
 ```
 
-#### Parameters
 
 ### CreateAdditionalAssignmentsForHIT
 
@@ -59,7 +56,6 @@ amazonaws_mturk_requester.AssociateQualificationWithWorker({}, context)
 amazonaws_mturk_requester.CreateAdditionalAssignmentsForHIT({}, context)
 ```
 
-#### Parameters
 
 ### CreateHIT
 
@@ -69,7 +65,6 @@ amazonaws_mturk_requester.CreateAdditionalAssignmentsForHIT({}, context)
 amazonaws_mturk_requester.CreateHIT({}, context)
 ```
 
-#### Parameters
 
 ### CreateHITType
 
@@ -79,7 +74,6 @@ amazonaws_mturk_requester.CreateHIT({}, context)
 amazonaws_mturk_requester.CreateHITType({}, context)
 ```
 
-#### Parameters
 
 ### CreateHITWithHITType
 
@@ -89,7 +83,6 @@ amazonaws_mturk_requester.CreateHITType({}, context)
 amazonaws_mturk_requester.CreateHITWithHITType({}, context)
 ```
 
-#### Parameters
 
 ### CreateQualificationType
 
@@ -99,7 +92,6 @@ amazonaws_mturk_requester.CreateHITWithHITType({}, context)
 amazonaws_mturk_requester.CreateQualificationType({}, context)
 ```
 
-#### Parameters
 
 ### CreateWorkerBlock
 
@@ -109,7 +101,6 @@ amazonaws_mturk_requester.CreateQualificationType({}, context)
 amazonaws_mturk_requester.CreateWorkerBlock({}, context)
 ```
 
-#### Parameters
 
 ### DeleteHIT
 
@@ -119,7 +110,6 @@ amazonaws_mturk_requester.CreateWorkerBlock({}, context)
 amazonaws_mturk_requester.DeleteHIT({}, context)
 ```
 
-#### Parameters
 
 ### DeleteQualificationType
 
@@ -129,7 +119,6 @@ amazonaws_mturk_requester.DeleteHIT({}, context)
 amazonaws_mturk_requester.DeleteQualificationType({}, context)
 ```
 
-#### Parameters
 
 ### DeleteWorkerBlock
 
@@ -139,7 +128,6 @@ amazonaws_mturk_requester.DeleteQualificationType({}, context)
 amazonaws_mturk_requester.DeleteWorkerBlock({}, context)
 ```
 
-#### Parameters
 
 ### DisassociateQualificationFromWorker
 
@@ -149,7 +137,6 @@ amazonaws_mturk_requester.DeleteWorkerBlock({}, context)
 amazonaws_mturk_requester.DisassociateQualificationFromWorker({}, context)
 ```
 
-#### Parameters
 
 ### GetAccountBalance
 
@@ -159,7 +146,6 @@ amazonaws_mturk_requester.DisassociateQualificationFromWorker({}, context)
 amazonaws_mturk_requester.GetAccountBalance({}, context)
 ```
 
-#### Parameters
 
 ### GetAssignment
 
@@ -169,7 +155,6 @@ amazonaws_mturk_requester.GetAccountBalance({}, context)
 amazonaws_mturk_requester.GetAssignment({}, context)
 ```
 
-#### Parameters
 
 ### GetFileUploadURL
 
@@ -179,7 +164,6 @@ amazonaws_mturk_requester.GetAssignment({}, context)
 amazonaws_mturk_requester.GetFileUploadURL({}, context)
 ```
 
-#### Parameters
 
 ### GetHIT
 
@@ -189,7 +173,6 @@ amazonaws_mturk_requester.GetFileUploadURL({}, context)
 amazonaws_mturk_requester.GetHIT({}, context)
 ```
 
-#### Parameters
 
 ### GetQualificationScore
 
@@ -199,7 +182,6 @@ amazonaws_mturk_requester.GetHIT({}, context)
 amazonaws_mturk_requester.GetQualificationScore({}, context)
 ```
 
-#### Parameters
 
 ### GetQualificationType
 
@@ -209,7 +191,6 @@ amazonaws_mturk_requester.GetQualificationScore({}, context)
 amazonaws_mturk_requester.GetQualificationType({}, context)
 ```
 
-#### Parameters
 
 ### ListAssignmentsForHIT
 
@@ -339,7 +320,6 @@ amazonaws_mturk_requester.ListWorkersWithQualificationType({}, context)
 amazonaws_mturk_requester.NotifyWorkers({}, context)
 ```
 
-#### Parameters
 
 ### RejectAssignment
 
@@ -349,7 +329,6 @@ amazonaws_mturk_requester.NotifyWorkers({}, context)
 amazonaws_mturk_requester.RejectAssignment({}, context)
 ```
 
-#### Parameters
 
 ### RejectQualificationRequest
 
@@ -359,7 +338,6 @@ amazonaws_mturk_requester.RejectAssignment({}, context)
 amazonaws_mturk_requester.RejectQualificationRequest({}, context)
 ```
 
-#### Parameters
 
 ### SendBonus
 
@@ -369,7 +347,6 @@ amazonaws_mturk_requester.RejectQualificationRequest({}, context)
 amazonaws_mturk_requester.SendBonus({}, context)
 ```
 
-#### Parameters
 
 ### SendTestEventNotification
 
@@ -379,7 +356,6 @@ amazonaws_mturk_requester.SendBonus({}, context)
 amazonaws_mturk_requester.SendTestEventNotification({}, context)
 ```
 
-#### Parameters
 
 ### UpdateExpirationForHIT
 
@@ -389,7 +365,6 @@ amazonaws_mturk_requester.SendTestEventNotification({}, context)
 amazonaws_mturk_requester.UpdateExpirationForHIT({}, context)
 ```
 
-#### Parameters
 
 ### UpdateHITReviewStatus
 
@@ -399,7 +374,6 @@ amazonaws_mturk_requester.UpdateExpirationForHIT({}, context)
 amazonaws_mturk_requester.UpdateHITReviewStatus({}, context)
 ```
 
-#### Parameters
 
 ### UpdateHITTypeOfHIT
 
@@ -409,7 +383,6 @@ amazonaws_mturk_requester.UpdateHITReviewStatus({}, context)
 amazonaws_mturk_requester.UpdateHITTypeOfHIT({}, context)
 ```
 
-#### Parameters
 
 ### UpdateNotificationSettings
 
@@ -419,7 +392,6 @@ amazonaws_mturk_requester.UpdateHITTypeOfHIT({}, context)
 amazonaws_mturk_requester.UpdateNotificationSettings({}, context)
 ```
 
-#### Parameters
 
 ### UpdateQualificationType
 
@@ -429,5 +401,4 @@ amazonaws_mturk_requester.UpdateNotificationSettings({}, context)
 amazonaws_mturk_requester.UpdateQualificationType({}, context)
 ```
 
-#### Parameters
 

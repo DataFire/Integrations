@@ -42,7 +42,6 @@ amazonaws_route53.GetChange({
 amazonaws_route53.GetCheckerIpRanges({}, context)
 ```
 
-#### Parameters
 
 ### ListReusableDelegationSets
 
@@ -52,7 +51,6 @@ amazonaws_route53.GetCheckerIpRanges({}, context)
 amazonaws_route53.ListReusableDelegationSets({}, context)
 ```
 
-#### Parameters
 
 ### GetReusableDelegationSet
 
@@ -75,7 +73,6 @@ amazonaws_route53.GetReusableDelegationSet({
 amazonaws_route53.GetGeoLocation({}, context)
 ```
 
-#### Parameters
 
 ### ListGeoLocations
 
@@ -85,7 +82,6 @@ amazonaws_route53.GetGeoLocation({}, context)
 amazonaws_route53.ListGeoLocations({}, context)
 ```
 
-#### Parameters
 
 ### ListHealthChecks
 
@@ -146,7 +142,6 @@ amazonaws_route53.GetHealthCheckStatus({
 amazonaws_route53.GetHealthCheckCount({}, context)
 ```
 
-#### Parameters
 
 ### ListHostedZones
 
@@ -263,7 +258,6 @@ amazonaws_route53.ChangeResourceRecordSets({
 amazonaws_route53.GetHostedZoneCount({}, context)
 ```
 
-#### Parameters
 
 ### ListHostedZonesByName
 
@@ -273,7 +267,6 @@ amazonaws_route53.GetHostedZoneCount({}, context)
 amazonaws_route53.ListHostedZonesByName({}, context)
 ```
 
-#### Parameters
 
 ### ListTagsForResources
 
@@ -311,7 +304,6 @@ amazonaws_route53.ListTagsForResource({
 amazonaws_route53.TestDNSAnswer({}, context)
 ```
 
-#### Parameters
 
 ### ListTrafficPolicies
 
@@ -321,7 +313,6 @@ amazonaws_route53.TestDNSAnswer({}, context)
 amazonaws_route53.ListTrafficPolicies({}, context)
 ```
 
-#### Parameters
 
 ### ListTrafficPolicyVersions
 
@@ -344,7 +335,6 @@ amazonaws_route53.ListTrafficPolicyVersions({
 amazonaws_route53.CreateTrafficPolicy({}, context)
 ```
 
-#### Parameters
 
 ### CreateTrafficPolicyVersion
 
@@ -380,7 +370,6 @@ amazonaws_route53.UpdateTrafficPolicyComment({
 amazonaws_route53.CreateTrafficPolicyInstance({}, context)
 ```
 
-#### Parameters
 
 ### UpdateTrafficPolicyInstance
 
@@ -403,7 +392,6 @@ amazonaws_route53.UpdateTrafficPolicyInstance({
 amazonaws_route53.GetTrafficPolicyInstanceCount({}, context)
 ```
 
-#### Parameters
 
 ### ListTrafficPolicyInstances
 
@@ -413,7 +401,6 @@ amazonaws_route53.GetTrafficPolicyInstanceCount({}, context)
 amazonaws_route53.ListTrafficPolicyInstances({}, context)
 ```
 
-#### Parameters
 
 ### ListTrafficPolicyInstancesByHostedZone
 
@@ -423,7 +410,6 @@ amazonaws_route53.ListTrafficPolicyInstances({}, context)
 amazonaws_route53.ListTrafficPolicyInstancesByHostedZone({}, context)
 ```
 
-#### Parameters
 
 ### ListTrafficPolicyInstancesByPolicy
 
@@ -433,5 +419,4 @@ amazonaws_route53.ListTrafficPolicyInstancesByHostedZone({}, context)
 amazonaws_route53.ListTrafficPolicyInstancesByPolicy({}, context)
 ```
 
-#### Parameters
 

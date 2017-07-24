@@ -29,7 +29,6 @@ amazonaws_acm.AddTagsToCertificate({}, context).then(data => {
 amazonaws_acm.AddTagsToCertificate({}, context)
 ```
 
-#### Parameters
 
 ### DeleteCertificate
 
@@ -39,7 +38,6 @@ amazonaws_acm.AddTagsToCertificate({}, context)
 amazonaws_acm.DeleteCertificate({}, context)
 ```
 
-#### Parameters
 
 ### DescribeCertificate
 
@@ -49,7 +47,6 @@ amazonaws_acm.DeleteCertificate({}, context)
 amazonaws_acm.DescribeCertificate({}, context)
 ```
 
-#### Parameters
 
 ### GetCertificate
 
@@ -59,7 +56,6 @@ amazonaws_acm.DescribeCertificate({}, context)
 amazonaws_acm.GetCertificate({}, context)
 ```
 
-#### Parameters
 
 ### ImportCertificate
 
@@ -69,7 +65,6 @@ amazonaws_acm.GetCertificate({}, context)
 amazonaws_acm.ImportCertificate({}, context)
 ```
 
-#### Parameters
 
 ### ListCertificates
 
@@ -91,7 +86,6 @@ amazonaws_acm.ListCertificates({}, context)
 amazonaws_acm.ListTagsForCertificate({}, context)
 ```
 
-#### Parameters
 
 ### RemoveTagsFromCertificate
 
@@ -101,7 +95,6 @@ amazonaws_acm.ListTagsForCertificate({}, context)
 amazonaws_acm.RemoveTagsFromCertificate({}, context)
 ```
 
-#### Parameters
 
 ### RequestCertificate
 
@@ -111,7 +104,6 @@ amazonaws_acm.RemoveTagsFromCertificate({}, context)
 amazonaws_acm.RequestCertificate({}, context)
 ```
 
-#### Parameters
 
 ### ResendValidationEmail
 
@@ -121,5 +113,4 @@ amazonaws_acm.RequestCertificate({}, context)
 amazonaws_acm.ResendValidationEmail({}, context)
 ```
 
-#### Parameters
 

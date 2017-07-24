@@ -29,7 +29,6 @@ DAX is a managed caching service engineered for Amazon DynamoDB. DAX dramaticall
 amazonaws_dax.CreateCluster({}, context)
 ```
 
-#### Parameters
 
 ### CreateParameterGroup
 
@@ -39,7 +38,6 @@ amazonaws_dax.CreateCluster({}, context)
 amazonaws_dax.CreateParameterGroup({}, context)
 ```
 
-#### Parameters
 
 ### CreateSubnetGroup
 
@@ -49,7 +47,6 @@ amazonaws_dax.CreateParameterGroup({}, context)
 amazonaws_dax.CreateSubnetGroup({}, context)
 ```
 
-#### Parameters
 
 ### DecreaseReplicationFactor
 
@@ -59,7 +56,6 @@ amazonaws_dax.CreateSubnetGroup({}, context)
 amazonaws_dax.DecreaseReplicationFactor({}, context)
 ```
 
-#### Parameters
 
 ### DeleteCluster
 
@@ -69,7 +65,6 @@ amazonaws_dax.DecreaseReplicationFactor({}, context)
 amazonaws_dax.DeleteCluster({}, context)
 ```
 
-#### Parameters
 
 ### DeleteParameterGroup
 
@@ -79,7 +74,6 @@ amazonaws_dax.DeleteCluster({}, context)
 amazonaws_dax.DeleteParameterGroup({}, context)
 ```
 
-#### Parameters
 
 ### DeleteSubnetGroup
 
@@ -89,7 +83,6 @@ amazonaws_dax.DeleteParameterGroup({}, context)
 amazonaws_dax.DeleteSubnetGroup({}, context)
 ```
 
-#### Parameters
 
 ### DescribeClusters
 
@@ -99,7 +92,6 @@ amazonaws_dax.DeleteSubnetGroup({}, context)
 amazonaws_dax.DescribeClusters({}, context)
 ```
 
-#### Parameters
 
 ### DescribeDefaultParameters
 
@@ -109,7 +101,6 @@ amazonaws_dax.DescribeClusters({}, context)
 amazonaws_dax.DescribeDefaultParameters({}, context)
 ```
 
-#### Parameters
 
 ### DescribeEvents
 
@@ -119,7 +110,6 @@ amazonaws_dax.DescribeDefaultParameters({}, context)
 amazonaws_dax.DescribeEvents({}, context)
 ```
 
-#### Parameters
 
 ### DescribeParameterGroups
 
@@ -129,7 +119,6 @@ amazonaws_dax.DescribeEvents({}, context)
 amazonaws_dax.DescribeParameterGroups({}, context)
 ```
 
-#### Parameters
 
 ### DescribeParameters
 
@@ -139,7 +128,6 @@ amazonaws_dax.DescribeParameterGroups({}, context)
 amazonaws_dax.DescribeParameters({}, context)
 ```
 
-#### Parameters
 
 ### DescribeSubnetGroups
 
@@ -149,7 +137,6 @@ amazonaws_dax.DescribeParameters({}, context)
 amazonaws_dax.DescribeSubnetGroups({}, context)
 ```
 
-#### Parameters
 
 ### IncreaseReplicationFactor
 
@@ -159,7 +146,6 @@ amazonaws_dax.DescribeSubnetGroups({}, context)
 amazonaws_dax.IncreaseReplicationFactor({}, context)
 ```
 
-#### Parameters
 
 ### ListTags
 
@@ -169,7 +155,6 @@ amazonaws_dax.IncreaseReplicationFactor({}, context)
 amazonaws_dax.ListTags({}, context)
 ```
 
-#### Parameters
 
 ### RebootNode
 
@@ -179,7 +164,6 @@ amazonaws_dax.ListTags({}, context)
 amazonaws_dax.RebootNode({}, context)
 ```
 
-#### Parameters
 
 ### TagResource
 
@@ -189,7 +173,6 @@ amazonaws_dax.RebootNode({}, context)
 amazonaws_dax.TagResource({}, context)
 ```
 
-#### Parameters
 
 ### UntagResource
 
@@ -199,7 +182,6 @@ amazonaws_dax.TagResource({}, context)
 amazonaws_dax.UntagResource({}, context)
 ```
 
-#### Parameters
 
 ### UpdateCluster
 
@@ -209,7 +191,6 @@ amazonaws_dax.UntagResource({}, context)
 amazonaws_dax.UpdateCluster({}, context)
 ```
 
-#### Parameters
 
 ### UpdateParameterGroup
 
@@ -219,7 +200,6 @@ amazonaws_dax.UpdateCluster({}, context)
 amazonaws_dax.UpdateParameterGroup({}, context)
 ```
 
-#### Parameters
 
 ### UpdateSubnetGroup
 
@@ -229,5 +209,4 @@ amazonaws_dax.UpdateParameterGroup({}, context)
 amazonaws_dax.UpdateSubnetGroup({}, context)
 ```
 
-#### Parameters
 

@@ -29,7 +29,6 @@ Amazon EC2 Container Registry (Amazon ECR) is a managed AWS Docker registry serv
 amazonaws_ecr.BatchCheckLayerAvailability({}, context)
 ```
 
-#### Parameters
 
 ### BatchDeleteImage
 
@@ -39,7 +38,6 @@ amazonaws_ecr.BatchCheckLayerAvailability({}, context)
 amazonaws_ecr.BatchDeleteImage({}, context)
 ```
 
-#### Parameters
 
 ### BatchGetImage
 
@@ -49,7 +47,6 @@ amazonaws_ecr.BatchDeleteImage({}, context)
 amazonaws_ecr.BatchGetImage({}, context)
 ```
 
-#### Parameters
 
 ### CompleteLayerUpload
 
@@ -59,7 +56,6 @@ amazonaws_ecr.BatchGetImage({}, context)
 amazonaws_ecr.CompleteLayerUpload({}, context)
 ```
 
-#### Parameters
 
 ### CreateRepository
 
@@ -69,7 +65,6 @@ amazonaws_ecr.CompleteLayerUpload({}, context)
 amazonaws_ecr.CreateRepository({}, context)
 ```
 
-#### Parameters
 
 ### DeleteRepository
 
@@ -79,7 +74,6 @@ amazonaws_ecr.CreateRepository({}, context)
 amazonaws_ecr.DeleteRepository({}, context)
 ```
 
-#### Parameters
 
 ### DeleteRepositoryPolicy
 
@@ -89,7 +83,6 @@ amazonaws_ecr.DeleteRepository({}, context)
 amazonaws_ecr.DeleteRepositoryPolicy({}, context)
 ```
 
-#### Parameters
 
 ### DescribeImages
 
@@ -123,7 +116,6 @@ amazonaws_ecr.DescribeRepositories({}, context)
 amazonaws_ecr.GetAuthorizationToken({}, context)
 ```
 
-#### Parameters
 
 ### GetDownloadUrlForLayer
 
@@ -133,7 +125,6 @@ amazonaws_ecr.GetAuthorizationToken({}, context)
 amazonaws_ecr.GetDownloadUrlForLayer({}, context)
 ```
 
-#### Parameters
 
 ### GetRepositoryPolicy
 
@@ -143,7 +134,6 @@ amazonaws_ecr.GetDownloadUrlForLayer({}, context)
 amazonaws_ecr.GetRepositoryPolicy({}, context)
 ```
 
-#### Parameters
 
 ### InitiateLayerUpload
 
@@ -153,7 +143,6 @@ amazonaws_ecr.GetRepositoryPolicy({}, context)
 amazonaws_ecr.InitiateLayerUpload({}, context)
 ```
 
-#### Parameters
 
 ### ListImages
 
@@ -175,7 +164,6 @@ amazonaws_ecr.ListImages({}, context)
 amazonaws_ecr.PutImage({}, context)
 ```
 
-#### Parameters
 
 ### SetRepositoryPolicy
 
@@ -185,7 +173,6 @@ amazonaws_ecr.PutImage({}, context)
 amazonaws_ecr.SetRepositoryPolicy({}, context)
 ```
 
-#### Parameters
 
 ### UploadLayerPart
 
@@ -195,5 +182,4 @@ amazonaws_ecr.SetRepositoryPolicy({}, context)
 amazonaws_ecr.UploadLayerPart({}, context)
 ```
 
-#### Parameters
 

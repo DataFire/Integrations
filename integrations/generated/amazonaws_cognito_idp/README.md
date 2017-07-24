@@ -29,7 +29,6 @@ amazonaws_cognito_idp.AddCustomAttributes({}, context).then(data => {
 amazonaws_cognito_idp.AddCustomAttributes({}, context)
 ```
 
-#### Parameters
 
 ### AdminAddUserToGroup
 
@@ -39,7 +38,6 @@ amazonaws_cognito_idp.AddCustomAttributes({}, context)
 amazonaws_cognito_idp.AdminAddUserToGroup({}, context)
 ```
 
-#### Parameters
 
 ### AdminConfirmSignUp
 
@@ -49,7 +47,6 @@ amazonaws_cognito_idp.AdminAddUserToGroup({}, context)
 amazonaws_cognito_idp.AdminConfirmSignUp({}, context)
 ```
 
-#### Parameters
 
 ### AdminCreateUser
 
@@ -59,7 +56,6 @@ amazonaws_cognito_idp.AdminConfirmSignUp({}, context)
 amazonaws_cognito_idp.AdminCreateUser({}, context)
 ```
 
-#### Parameters
 
 ### AdminDeleteUser
 
@@ -69,7 +65,6 @@ amazonaws_cognito_idp.AdminCreateUser({}, context)
 amazonaws_cognito_idp.AdminDeleteUser({}, context)
 ```
 
-#### Parameters
 
 ### AdminDeleteUserAttributes
 
@@ -79,7 +74,6 @@ amazonaws_cognito_idp.AdminDeleteUser({}, context)
 amazonaws_cognito_idp.AdminDeleteUserAttributes({}, context)
 ```
 
-#### Parameters
 
 ### AdminDisableUser
 
@@ -89,7 +83,6 @@ amazonaws_cognito_idp.AdminDeleteUserAttributes({}, context)
 amazonaws_cognito_idp.AdminDisableUser({}, context)
 ```
 
-#### Parameters
 
 ### AdminEnableUser
 
@@ -99,7 +92,6 @@ amazonaws_cognito_idp.AdminDisableUser({}, context)
 amazonaws_cognito_idp.AdminEnableUser({}, context)
 ```
 
-#### Parameters
 
 ### AdminForgetDevice
 
@@ -109,7 +101,6 @@ amazonaws_cognito_idp.AdminEnableUser({}, context)
 amazonaws_cognito_idp.AdminForgetDevice({}, context)
 ```
 
-#### Parameters
 
 ### AdminGetDevice
 
@@ -119,7 +110,6 @@ amazonaws_cognito_idp.AdminForgetDevice({}, context)
 amazonaws_cognito_idp.AdminGetDevice({}, context)
 ```
 
-#### Parameters
 
 ### AdminGetUser
 
@@ -129,7 +119,6 @@ amazonaws_cognito_idp.AdminGetDevice({}, context)
 amazonaws_cognito_idp.AdminGetUser({}, context)
 ```
 
-#### Parameters
 
 ### AdminInitiateAuth
 
@@ -139,7 +128,6 @@ amazonaws_cognito_idp.AdminGetUser({}, context)
 amazonaws_cognito_idp.AdminInitiateAuth({}, context)
 ```
 
-#### Parameters
 
 ### AdminListDevices
 
@@ -149,7 +137,6 @@ amazonaws_cognito_idp.AdminInitiateAuth({}, context)
 amazonaws_cognito_idp.AdminListDevices({}, context)
 ```
 
-#### Parameters
 
 ### AdminListGroupsForUser
 
@@ -159,7 +146,6 @@ amazonaws_cognito_idp.AdminListDevices({}, context)
 amazonaws_cognito_idp.AdminListGroupsForUser({}, context)
 ```
 
-#### Parameters
 
 ### AdminRemoveUserFromGroup
 
@@ -169,7 +155,6 @@ amazonaws_cognito_idp.AdminListGroupsForUser({}, context)
 amazonaws_cognito_idp.AdminRemoveUserFromGroup({}, context)
 ```
 
-#### Parameters
 
 ### AdminResetUserPassword
 
@@ -179,7 +164,6 @@ amazonaws_cognito_idp.AdminRemoveUserFromGroup({}, context)
 amazonaws_cognito_idp.AdminResetUserPassword({}, context)
 ```
 
-#### Parameters
 
 ### AdminRespondToAuthChallenge
 
@@ -189,7 +173,6 @@ amazonaws_cognito_idp.AdminResetUserPassword({}, context)
 amazonaws_cognito_idp.AdminRespondToAuthChallenge({}, context)
 ```
 
-#### Parameters
 
 ### AdminSetUserSettings
 
@@ -199,7 +182,6 @@ amazonaws_cognito_idp.AdminRespondToAuthChallenge({}, context)
 amazonaws_cognito_idp.AdminSetUserSettings({}, context)
 ```
 
-#### Parameters
 
 ### AdminUpdateDeviceStatus
 
@@ -209,7 +191,6 @@ amazonaws_cognito_idp.AdminSetUserSettings({}, context)
 amazonaws_cognito_idp.AdminUpdateDeviceStatus({}, context)
 ```
 
-#### Parameters
 
 ### AdminUpdateUserAttributes
 
@@ -219,7 +200,6 @@ amazonaws_cognito_idp.AdminUpdateDeviceStatus({}, context)
 amazonaws_cognito_idp.AdminUpdateUserAttributes({}, context)
 ```
 
-#### Parameters
 
 ### AdminUserGlobalSignOut
 
@@ -229,7 +209,6 @@ amazonaws_cognito_idp.AdminUpdateUserAttributes({}, context)
 amazonaws_cognito_idp.AdminUserGlobalSignOut({}, context)
 ```
 
-#### Parameters
 
 ### ChangePassword
 
@@ -239,7 +218,6 @@ amazonaws_cognito_idp.AdminUserGlobalSignOut({}, context)
 amazonaws_cognito_idp.ChangePassword({}, context)
 ```
 
-#### Parameters
 
 ### ConfirmDevice
 
@@ -249,7 +227,6 @@ amazonaws_cognito_idp.ChangePassword({}, context)
 amazonaws_cognito_idp.ConfirmDevice({}, context)
 ```
 
-#### Parameters
 
 ### ConfirmForgotPassword
 
@@ -259,7 +236,6 @@ amazonaws_cognito_idp.ConfirmDevice({}, context)
 amazonaws_cognito_idp.ConfirmForgotPassword({}, context)
 ```
 
-#### Parameters
 
 ### ConfirmSignUp
 
@@ -269,7 +245,6 @@ amazonaws_cognito_idp.ConfirmForgotPassword({}, context)
 amazonaws_cognito_idp.ConfirmSignUp({}, context)
 ```
 
-#### Parameters
 
 ### CreateGroup
 
@@ -279,7 +254,6 @@ amazonaws_cognito_idp.ConfirmSignUp({}, context)
 amazonaws_cognito_idp.CreateGroup({}, context)
 ```
 
-#### Parameters
 
 ### CreateUserImportJob
 
@@ -289,7 +263,6 @@ amazonaws_cognito_idp.CreateGroup({}, context)
 amazonaws_cognito_idp.CreateUserImportJob({}, context)
 ```
 
-#### Parameters
 
 ### CreateUserPool
 
@@ -299,7 +272,6 @@ amazonaws_cognito_idp.CreateUserImportJob({}, context)
 amazonaws_cognito_idp.CreateUserPool({}, context)
 ```
 
-#### Parameters
 
 ### CreateUserPoolClient
 
@@ -309,7 +281,6 @@ amazonaws_cognito_idp.CreateUserPool({}, context)
 amazonaws_cognito_idp.CreateUserPoolClient({}, context)
 ```
 
-#### Parameters
 
 ### DeleteGroup
 
@@ -319,7 +290,6 @@ amazonaws_cognito_idp.CreateUserPoolClient({}, context)
 amazonaws_cognito_idp.DeleteGroup({}, context)
 ```
 
-#### Parameters
 
 ### DeleteUser
 
@@ -329,7 +299,6 @@ amazonaws_cognito_idp.DeleteGroup({}, context)
 amazonaws_cognito_idp.DeleteUser({}, context)
 ```
 
-#### Parameters
 
 ### DeleteUserAttributes
 
@@ -339,7 +308,6 @@ amazonaws_cognito_idp.DeleteUser({}, context)
 amazonaws_cognito_idp.DeleteUserAttributes({}, context)
 ```
 
-#### Parameters
 
 ### DeleteUserPool
 
@@ -349,7 +317,6 @@ amazonaws_cognito_idp.DeleteUserAttributes({}, context)
 amazonaws_cognito_idp.DeleteUserPool({}, context)
 ```
 
-#### Parameters
 
 ### DeleteUserPoolClient
 
@@ -359,7 +326,6 @@ amazonaws_cognito_idp.DeleteUserPool({}, context)
 amazonaws_cognito_idp.DeleteUserPoolClient({}, context)
 ```
 
-#### Parameters
 
 ### DescribeUserImportJob
 
@@ -369,7 +335,6 @@ amazonaws_cognito_idp.DeleteUserPoolClient({}, context)
 amazonaws_cognito_idp.DescribeUserImportJob({}, context)
 ```
 
-#### Parameters
 
 ### DescribeUserPool
 
@@ -379,7 +344,6 @@ amazonaws_cognito_idp.DescribeUserImportJob({}, context)
 amazonaws_cognito_idp.DescribeUserPool({}, context)
 ```
 
-#### Parameters
 
 ### DescribeUserPoolClient
 
@@ -389,7 +353,6 @@ amazonaws_cognito_idp.DescribeUserPool({}, context)
 amazonaws_cognito_idp.DescribeUserPoolClient({}, context)
 ```
 
-#### Parameters
 
 ### ForgetDevice
 
@@ -399,7 +362,6 @@ amazonaws_cognito_idp.DescribeUserPoolClient({}, context)
 amazonaws_cognito_idp.ForgetDevice({}, context)
 ```
 
-#### Parameters
 
 ### ForgotPassword
 
@@ -409,7 +371,6 @@ amazonaws_cognito_idp.ForgetDevice({}, context)
 amazonaws_cognito_idp.ForgotPassword({}, context)
 ```
 
-#### Parameters
 
 ### GetCSVHeader
 
@@ -419,7 +380,6 @@ amazonaws_cognito_idp.ForgotPassword({}, context)
 amazonaws_cognito_idp.GetCSVHeader({}, context)
 ```
 
-#### Parameters
 
 ### GetDevice
 
@@ -429,7 +389,6 @@ amazonaws_cognito_idp.GetCSVHeader({}, context)
 amazonaws_cognito_idp.GetDevice({}, context)
 ```
 
-#### Parameters
 
 ### GetGroup
 
@@ -439,7 +398,6 @@ amazonaws_cognito_idp.GetDevice({}, context)
 amazonaws_cognito_idp.GetGroup({}, context)
 ```
 
-#### Parameters
 
 ### GetUser
 
@@ -449,7 +407,6 @@ amazonaws_cognito_idp.GetGroup({}, context)
 amazonaws_cognito_idp.GetUser({}, context)
 ```
 
-#### Parameters
 
 ### GetUserAttributeVerificationCode
 
@@ -459,7 +416,6 @@ amazonaws_cognito_idp.GetUser({}, context)
 amazonaws_cognito_idp.GetUserAttributeVerificationCode({}, context)
 ```
 
-#### Parameters
 
 ### GlobalSignOut
 
@@ -469,7 +425,6 @@ amazonaws_cognito_idp.GetUserAttributeVerificationCode({}, context)
 amazonaws_cognito_idp.GlobalSignOut({}, context)
 ```
 
-#### Parameters
 
 ### InitiateAuth
 
@@ -479,7 +434,6 @@ amazonaws_cognito_idp.GlobalSignOut({}, context)
 amazonaws_cognito_idp.InitiateAuth({}, context)
 ```
 
-#### Parameters
 
 ### ListDevices
 
@@ -489,7 +443,6 @@ amazonaws_cognito_idp.InitiateAuth({}, context)
 amazonaws_cognito_idp.ListDevices({}, context)
 ```
 
-#### Parameters
 
 ### ListGroups
 
@@ -499,7 +452,6 @@ amazonaws_cognito_idp.ListDevices({}, context)
 amazonaws_cognito_idp.ListGroups({}, context)
 ```
 
-#### Parameters
 
 ### ListUserImportJobs
 
@@ -509,7 +461,6 @@ amazonaws_cognito_idp.ListGroups({}, context)
 amazonaws_cognito_idp.ListUserImportJobs({}, context)
 ```
 
-#### Parameters
 
 ### ListUserPoolClients
 
@@ -519,7 +470,6 @@ amazonaws_cognito_idp.ListUserImportJobs({}, context)
 amazonaws_cognito_idp.ListUserPoolClients({}, context)
 ```
 
-#### Parameters
 
 ### ListUserPools
 
@@ -529,7 +479,6 @@ amazonaws_cognito_idp.ListUserPoolClients({}, context)
 amazonaws_cognito_idp.ListUserPools({}, context)
 ```
 
-#### Parameters
 
 ### ListUsers
 
@@ -539,7 +488,6 @@ amazonaws_cognito_idp.ListUserPools({}, context)
 amazonaws_cognito_idp.ListUsers({}, context)
 ```
 
-#### Parameters
 
 ### ListUsersInGroup
 
@@ -549,7 +497,6 @@ amazonaws_cognito_idp.ListUsers({}, context)
 amazonaws_cognito_idp.ListUsersInGroup({}, context)
 ```
 
-#### Parameters
 
 ### ResendConfirmationCode
 
@@ -559,7 +506,6 @@ amazonaws_cognito_idp.ListUsersInGroup({}, context)
 amazonaws_cognito_idp.ResendConfirmationCode({}, context)
 ```
 
-#### Parameters
 
 ### RespondToAuthChallenge
 
@@ -569,7 +515,6 @@ amazonaws_cognito_idp.ResendConfirmationCode({}, context)
 amazonaws_cognito_idp.RespondToAuthChallenge({}, context)
 ```
 
-#### Parameters
 
 ### SetUserSettings
 
@@ -579,7 +524,6 @@ amazonaws_cognito_idp.RespondToAuthChallenge({}, context)
 amazonaws_cognito_idp.SetUserSettings({}, context)
 ```
 
-#### Parameters
 
 ### SignUp
 
@@ -589,7 +533,6 @@ amazonaws_cognito_idp.SetUserSettings({}, context)
 amazonaws_cognito_idp.SignUp({}, context)
 ```
 
-#### Parameters
 
 ### StartUserImportJob
 
@@ -599,7 +542,6 @@ amazonaws_cognito_idp.SignUp({}, context)
 amazonaws_cognito_idp.StartUserImportJob({}, context)
 ```
 
-#### Parameters
 
 ### StopUserImportJob
 
@@ -609,7 +551,6 @@ amazonaws_cognito_idp.StartUserImportJob({}, context)
 amazonaws_cognito_idp.StopUserImportJob({}, context)
 ```
 
-#### Parameters
 
 ### UpdateDeviceStatus
 
@@ -619,7 +560,6 @@ amazonaws_cognito_idp.StopUserImportJob({}, context)
 amazonaws_cognito_idp.UpdateDeviceStatus({}, context)
 ```
 
-#### Parameters
 
 ### UpdateGroup
 
@@ -629,7 +569,6 @@ amazonaws_cognito_idp.UpdateDeviceStatus({}, context)
 amazonaws_cognito_idp.UpdateGroup({}, context)
 ```
 
-#### Parameters
 
 ### UpdateUserAttributes
 
@@ -639,7 +578,6 @@ amazonaws_cognito_idp.UpdateGroup({}, context)
 amazonaws_cognito_idp.UpdateUserAttributes({}, context)
 ```
 
-#### Parameters
 
 ### UpdateUserPool
 
@@ -649,7 +587,6 @@ amazonaws_cognito_idp.UpdateUserAttributes({}, context)
 amazonaws_cognito_idp.UpdateUserPool({}, context)
 ```
 
-#### Parameters
 
 ### UpdateUserPoolClient
 
@@ -659,7 +596,6 @@ amazonaws_cognito_idp.UpdateUserPool({}, context)
 amazonaws_cognito_idp.UpdateUserPoolClient({}, context)
 ```
 
-#### Parameters
 
 ### VerifyUserAttribute
 
@@ -669,5 +605,4 @@ amazonaws_cognito_idp.UpdateUserPoolClient({}, context)
 amazonaws_cognito_idp.VerifyUserAttribute({}, context)
 ```
 
-#### Parameters
 

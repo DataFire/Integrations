@@ -29,7 +29,6 @@ amazonaws_cognito_sync.ListIdentityPoolUsage({}, context).then(data => {
 amazonaws_cognito_sync.ListIdentityPoolUsage({}, context)
 ```
 
-#### Parameters
 
 ### DescribeIdentityPoolUsage
 

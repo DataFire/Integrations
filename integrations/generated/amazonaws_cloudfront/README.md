@@ -97,7 +97,6 @@ amazonaws_cloudfront.UpdateDistribution({
 amazonaws_cloudfront.CreateDistributionWithTags({}, context)
 ```
 
-#### Parameters
 
 ### ListDistributionsByWebACLId
 
@@ -196,7 +195,6 @@ amazonaws_cloudfront.UpdateStreamingDistribution({
 amazonaws_cloudfront.CreateStreamingDistributionWithTags({}, context)
 ```
 
-#### Parameters
 
 ### ListTagsForResource
 
@@ -206,7 +204,6 @@ amazonaws_cloudfront.CreateStreamingDistributionWithTags({}, context)
 amazonaws_cloudfront.ListTagsForResource({}, context)
 ```
 
-#### Parameters
 
 ### TagResource
 
@@ -216,7 +213,6 @@ amazonaws_cloudfront.ListTagsForResource({}, context)
 amazonaws_cloudfront.TagResource({}, context)
 ```
 
-#### Parameters
 
 ### UntagResource
 
@@ -226,5 +222,4 @@ amazonaws_cloudfront.TagResource({}, context)
 amazonaws_cloudfront.UntagResource({}, context)
 ```
 
-#### Parameters
 

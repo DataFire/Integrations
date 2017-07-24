@@ -29,7 +29,6 @@ amazonaws_kinesisanalytics.AddApplicationInput({}, context).then(data => {
 amazonaws_kinesisanalytics.AddApplicationInput({}, context)
 ```
 
-#### Parameters
 
 ### AddApplicationOutput
 
@@ -39,7 +38,6 @@ amazonaws_kinesisanalytics.AddApplicationInput({}, context)
 amazonaws_kinesisanalytics.AddApplicationOutput({}, context)
 ```
 
-#### Parameters
 
 ### AddApplicationReferenceDataSource
 
@@ -49,7 +47,6 @@ amazonaws_kinesisanalytics.AddApplicationOutput({}, context)
 amazonaws_kinesisanalytics.AddApplicationReferenceDataSource({}, context)
 ```
 
-#### Parameters
 
 ### CreateApplication
 
@@ -59,7 +56,6 @@ amazonaws_kinesisanalytics.AddApplicationReferenceDataSource({}, context)
 amazonaws_kinesisanalytics.CreateApplication({}, context)
 ```
 
-#### Parameters
 
 ### DeleteApplication
 
@@ -69,7 +65,6 @@ amazonaws_kinesisanalytics.CreateApplication({}, context)
 amazonaws_kinesisanalytics.DeleteApplication({}, context)
 ```
 
-#### Parameters
 
 ### DeleteApplicationOutput
 
@@ -79,7 +74,6 @@ amazonaws_kinesisanalytics.DeleteApplication({}, context)
 amazonaws_kinesisanalytics.DeleteApplicationOutput({}, context)
 ```
 
-#### Parameters
 
 ### DeleteApplicationReferenceDataSource
 
@@ -89,7 +83,6 @@ amazonaws_kinesisanalytics.DeleteApplicationOutput({}, context)
 amazonaws_kinesisanalytics.DeleteApplicationReferenceDataSource({}, context)
 ```
 
-#### Parameters
 
 ### DescribeApplication
 
@@ -99,7 +92,6 @@ amazonaws_kinesisanalytics.DeleteApplicationReferenceDataSource({}, context)
 amazonaws_kinesisanalytics.DescribeApplication({}, context)
 ```
 
-#### Parameters
 
 ### DiscoverInputSchema
 
@@ -109,7 +101,6 @@ amazonaws_kinesisanalytics.DescribeApplication({}, context)
 amazonaws_kinesisanalytics.DiscoverInputSchema({}, context)
 ```
 
-#### Parameters
 
 ### ListApplications
 
@@ -119,7 +110,6 @@ amazonaws_kinesisanalytics.DiscoverInputSchema({}, context)
 amazonaws_kinesisanalytics.ListApplications({}, context)
 ```
 
-#### Parameters
 
 ### StartApplication
 
@@ -129,7 +119,6 @@ amazonaws_kinesisanalytics.ListApplications({}, context)
 amazonaws_kinesisanalytics.StartApplication({}, context)
 ```
 
-#### Parameters
 
 ### StopApplication
 
@@ -139,7 +128,6 @@ amazonaws_kinesisanalytics.StartApplication({}, context)
 amazonaws_kinesisanalytics.StopApplication({}, context)
 ```
 
-#### Parameters
 
 ### UpdateApplication
 
@@ -149,5 +137,4 @@ amazonaws_kinesisanalytics.StopApplication({}, context)
 amazonaws_kinesisanalytics.UpdateApplication({}, context)
 ```
 
-#### Parameters
 

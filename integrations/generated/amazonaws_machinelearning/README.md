@@ -29,7 +29,6 @@ Definition of the public APIs exposed by Amazon Machine Learning
 amazonaws_machinelearning.AddTags({}, context)
 ```
 
-#### Parameters
 
 ### CreateBatchPrediction
 
@@ -39,7 +38,6 @@ amazonaws_machinelearning.AddTags({}, context)
 amazonaws_machinelearning.CreateBatchPrediction({}, context)
 ```
 
-#### Parameters
 
 ### CreateDataSourceFromRDS
 
@@ -49,7 +47,6 @@ amazonaws_machinelearning.CreateBatchPrediction({}, context)
 amazonaws_machinelearning.CreateDataSourceFromRDS({}, context)
 ```
 
-#### Parameters
 
 ### CreateDataSourceFromRedshift
 
@@ -59,7 +56,6 @@ amazonaws_machinelearning.CreateDataSourceFromRDS({}, context)
 amazonaws_machinelearning.CreateDataSourceFromRedshift({}, context)
 ```
 
-#### Parameters
 
 ### CreateDataSourceFromS3
 
@@ -69,7 +65,6 @@ amazonaws_machinelearning.CreateDataSourceFromRedshift({}, context)
 amazonaws_machinelearning.CreateDataSourceFromS3({}, context)
 ```
 
-#### Parameters
 
 ### CreateEvaluation
 
@@ -79,7 +74,6 @@ amazonaws_machinelearning.CreateDataSourceFromS3({}, context)
 amazonaws_machinelearning.CreateEvaluation({}, context)
 ```
 
-#### Parameters
 
 ### CreateMLModel
 
@@ -89,7 +83,6 @@ amazonaws_machinelearning.CreateEvaluation({}, context)
 amazonaws_machinelearning.CreateMLModel({}, context)
 ```
 
-#### Parameters
 
 ### CreateRealtimeEndpoint
 
@@ -99,7 +92,6 @@ amazonaws_machinelearning.CreateMLModel({}, context)
 amazonaws_machinelearning.CreateRealtimeEndpoint({}, context)
 ```
 
-#### Parameters
 
 ### DeleteBatchPrediction
 
@@ -109,7 +101,6 @@ amazonaws_machinelearning.CreateRealtimeEndpoint({}, context)
 amazonaws_machinelearning.DeleteBatchPrediction({}, context)
 ```
 
-#### Parameters
 
 ### DeleteDataSource
 
@@ -119,7 +110,6 @@ amazonaws_machinelearning.DeleteBatchPrediction({}, context)
 amazonaws_machinelearning.DeleteDataSource({}, context)
 ```
 
-#### Parameters
 
 ### DeleteEvaluation
 
@@ -129,7 +119,6 @@ amazonaws_machinelearning.DeleteDataSource({}, context)
 amazonaws_machinelearning.DeleteEvaluation({}, context)
 ```
 
-#### Parameters
 
 ### DeleteMLModel
 
@@ -139,7 +128,6 @@ amazonaws_machinelearning.DeleteEvaluation({}, context)
 amazonaws_machinelearning.DeleteMLModel({}, context)
 ```
 
-#### Parameters
 
 ### DeleteRealtimeEndpoint
 
@@ -149,7 +137,6 @@ amazonaws_machinelearning.DeleteMLModel({}, context)
 amazonaws_machinelearning.DeleteRealtimeEndpoint({}, context)
 ```
 
-#### Parameters
 
 ### DeleteTags
 
@@ -159,7 +146,6 @@ amazonaws_machinelearning.DeleteRealtimeEndpoint({}, context)
 amazonaws_machinelearning.DeleteTags({}, context)
 ```
 
-#### Parameters
 
 ### DescribeBatchPredictions
 
@@ -217,7 +203,6 @@ amazonaws_machinelearning.DescribeMLModels({}, context)
 amazonaws_machinelearning.DescribeTags({}, context)
 ```
 
-#### Parameters
 
 ### GetBatchPrediction
 
@@ -227,7 +212,6 @@ amazonaws_machinelearning.DescribeTags({}, context)
 amazonaws_machinelearning.GetBatchPrediction({}, context)
 ```
 
-#### Parameters
 
 ### GetDataSource
 
@@ -237,7 +221,6 @@ amazonaws_machinelearning.GetBatchPrediction({}, context)
 amazonaws_machinelearning.GetDataSource({}, context)
 ```
 
-#### Parameters
 
 ### GetEvaluation
 
@@ -247,7 +230,6 @@ amazonaws_machinelearning.GetDataSource({}, context)
 amazonaws_machinelearning.GetEvaluation({}, context)
 ```
 
-#### Parameters
 
 ### GetMLModel
 
@@ -257,7 +239,6 @@ amazonaws_machinelearning.GetEvaluation({}, context)
 amazonaws_machinelearning.GetMLModel({}, context)
 ```
 
-#### Parameters
 
 ### Predict
 
@@ -267,7 +248,6 @@ amazonaws_machinelearning.GetMLModel({}, context)
 amazonaws_machinelearning.Predict({}, context)
 ```
 
-#### Parameters
 
 ### UpdateBatchPrediction
 
@@ -277,7 +257,6 @@ amazonaws_machinelearning.Predict({}, context)
 amazonaws_machinelearning.UpdateBatchPrediction({}, context)
 ```
 
-#### Parameters
 
 ### UpdateDataSource
 
@@ -287,7 +266,6 @@ amazonaws_machinelearning.UpdateBatchPrediction({}, context)
 amazonaws_machinelearning.UpdateDataSource({}, context)
 ```
 
-#### Parameters
 
 ### UpdateEvaluation
 
@@ -297,7 +275,6 @@ amazonaws_machinelearning.UpdateDataSource({}, context)
 amazonaws_machinelearning.UpdateEvaluation({}, context)
 ```
 
-#### Parameters
 
 ### UpdateMLModel
 
@@ -307,5 +284,4 @@ amazonaws_machinelearning.UpdateEvaluation({}, context)
 amazonaws_machinelearning.UpdateMLModel({}, context)
 ```
 
-#### Parameters
 

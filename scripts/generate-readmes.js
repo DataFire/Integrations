@@ -49,7 +49,7 @@ ${action.id.replace('/', '.')}(${JSON.stringify(example, null, 2)}, context)
 \`\`\`
 
 `
-  if (action.inputSchema.properties) {
+  if (action.inputSchema.properties && Object.keys(action.inputSchema.properties).length) {
     md += '#### Parameters\n';
     Object.keys(action.inputSchema.properties).forEach(prop => {
       let propSchema = action.inputSchema.properties[prop];

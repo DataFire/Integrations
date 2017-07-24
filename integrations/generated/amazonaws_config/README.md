@@ -29,7 +29,6 @@ amazonaws_config.DeleteConfigRule({}, context).then(data => {
 amazonaws_config.DeleteConfigRule({}, context)
 ```
 
-#### Parameters
 
 ### DeleteConfigurationRecorder
 
@@ -39,7 +38,6 @@ amazonaws_config.DeleteConfigRule({}, context)
 amazonaws_config.DeleteConfigurationRecorder({}, context)
 ```
 
-#### Parameters
 
 ### DeleteDeliveryChannel
 
@@ -49,7 +47,6 @@ amazonaws_config.DeleteConfigurationRecorder({}, context)
 amazonaws_config.DeleteDeliveryChannel({}, context)
 ```
 
-#### Parameters
 
 ### DeleteEvaluationResults
 
@@ -59,7 +56,6 @@ amazonaws_config.DeleteDeliveryChannel({}, context)
 amazonaws_config.DeleteEvaluationResults({}, context)
 ```
 
-#### Parameters
 
 ### DeliverConfigSnapshot
 
@@ -69,7 +65,6 @@ amazonaws_config.DeleteEvaluationResults({}, context)
 amazonaws_config.DeliverConfigSnapshot({}, context)
 ```
 
-#### Parameters
 
 ### DescribeComplianceByConfigRule
 
@@ -79,7 +74,6 @@ amazonaws_config.DeliverConfigSnapshot({}, context)
 amazonaws_config.DescribeComplianceByConfigRule({}, context)
 ```
 
-#### Parameters
 
 ### DescribeComplianceByResource
 
@@ -89,7 +83,6 @@ amazonaws_config.DescribeComplianceByConfigRule({}, context)
 amazonaws_config.DescribeComplianceByResource({}, context)
 ```
 
-#### Parameters
 
 ### DescribeConfigRuleEvaluationStatus
 
@@ -99,7 +92,6 @@ amazonaws_config.DescribeComplianceByResource({}, context)
 amazonaws_config.DescribeConfigRuleEvaluationStatus({}, context)
 ```
 
-#### Parameters
 
 ### DescribeConfigRules
 
@@ -109,7 +101,6 @@ amazonaws_config.DescribeConfigRuleEvaluationStatus({}, context)
 amazonaws_config.DescribeConfigRules({}, context)
 ```
 
-#### Parameters
 
 ### DescribeConfigurationRecorderStatus
 
@@ -119,7 +110,6 @@ amazonaws_config.DescribeConfigRules({}, context)
 amazonaws_config.DescribeConfigurationRecorderStatus({}, context)
 ```
 
-#### Parameters
 
 ### DescribeConfigurationRecorders
 
@@ -129,7 +119,6 @@ amazonaws_config.DescribeConfigurationRecorderStatus({}, context)
 amazonaws_config.DescribeConfigurationRecorders({}, context)
 ```
 
-#### Parameters
 
 ### DescribeDeliveryChannelStatus
 
@@ -139,7 +128,6 @@ amazonaws_config.DescribeConfigurationRecorders({}, context)
 amazonaws_config.DescribeDeliveryChannelStatus({}, context)
 ```
 
-#### Parameters
 
 ### DescribeDeliveryChannels
 
@@ -149,7 +137,6 @@ amazonaws_config.DescribeDeliveryChannelStatus({}, context)
 amazonaws_config.DescribeDeliveryChannels({}, context)
 ```
 
-#### Parameters
 
 ### GetComplianceDetailsByConfigRule
 
@@ -159,7 +146,6 @@ amazonaws_config.DescribeDeliveryChannels({}, context)
 amazonaws_config.GetComplianceDetailsByConfigRule({}, context)
 ```
 
-#### Parameters
 
 ### GetComplianceDetailsByResource
 
@@ -169,7 +155,6 @@ amazonaws_config.GetComplianceDetailsByConfigRule({}, context)
 amazonaws_config.GetComplianceDetailsByResource({}, context)
 ```
 
-#### Parameters
 
 ### GetComplianceSummaryByConfigRule
 
@@ -179,7 +164,6 @@ amazonaws_config.GetComplianceDetailsByResource({}, context)
 amazonaws_config.GetComplianceSummaryByConfigRule({}, context)
 ```
 
-#### Parameters
 
 ### GetComplianceSummaryByResourceType
 
@@ -189,7 +173,6 @@ amazonaws_config.GetComplianceSummaryByConfigRule({}, context)
 amazonaws_config.GetComplianceSummaryByResourceType({}, context)
 ```
 
-#### Parameters
 
 ### GetResourceConfigHistory
 
@@ -211,7 +194,6 @@ amazonaws_config.GetResourceConfigHistory({}, context)
 amazonaws_config.ListDiscoveredResources({}, context)
 ```
 
-#### Parameters
 
 ### PutConfigRule
 
@@ -221,7 +203,6 @@ amazonaws_config.ListDiscoveredResources({}, context)
 amazonaws_config.PutConfigRule({}, context)
 ```
 
-#### Parameters
 
 ### PutConfigurationRecorder
 
@@ -231,7 +212,6 @@ amazonaws_config.PutConfigRule({}, context)
 amazonaws_config.PutConfigurationRecorder({}, context)
 ```
 
-#### Parameters
 
 ### PutDeliveryChannel
 
@@ -241,7 +221,6 @@ amazonaws_config.PutConfigurationRecorder({}, context)
 amazonaws_config.PutDeliveryChannel({}, context)
 ```
 
-#### Parameters
 
 ### PutEvaluations
 
@@ -251,7 +230,6 @@ amazonaws_config.PutDeliveryChannel({}, context)
 amazonaws_config.PutEvaluations({}, context)
 ```
 
-#### Parameters
 
 ### StartConfigRulesEvaluation
 
@@ -261,7 +239,6 @@ amazonaws_config.PutEvaluations({}, context)
 amazonaws_config.StartConfigRulesEvaluation({}, context)
 ```
 
-#### Parameters
 
 ### StartConfigurationRecorder
 
@@ -271,7 +248,6 @@ amazonaws_config.StartConfigRulesEvaluation({}, context)
 amazonaws_config.StartConfigurationRecorder({}, context)
 ```
 
-#### Parameters
 
 ### StopConfigurationRecorder
 
@@ -281,5 +257,4 @@ amazonaws_config.StartConfigurationRecorder({}, context)
 amazonaws_config.StopConfigurationRecorder({}, context)
 ```
 
-#### Parameters
 

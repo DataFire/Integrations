@@ -29,7 +29,6 @@ amazonaws_discovery.AssociateConfigurationItemsToApplication({}, context).then(d
 amazonaws_discovery.AssociateConfigurationItemsToApplication({}, context)
 ```
 
-#### Parameters
 
 ### CreateApplication
 
@@ -39,7 +38,6 @@ amazonaws_discovery.AssociateConfigurationItemsToApplication({}, context)
 amazonaws_discovery.CreateApplication({}, context)
 ```
 
-#### Parameters
 
 ### CreateTags
 
@@ -49,7 +47,6 @@ amazonaws_discovery.CreateApplication({}, context)
 amazonaws_discovery.CreateTags({}, context)
 ```
 
-#### Parameters
 
 ### DeleteApplications
 
@@ -59,7 +56,6 @@ amazonaws_discovery.CreateTags({}, context)
 amazonaws_discovery.DeleteApplications({}, context)
 ```
 
-#### Parameters
 
 ### DeleteTags
 
@@ -69,7 +65,6 @@ amazonaws_discovery.DeleteApplications({}, context)
 amazonaws_discovery.DeleteTags({}, context)
 ```
 
-#### Parameters
 
 ### DescribeAgents
 
@@ -79,7 +74,6 @@ amazonaws_discovery.DeleteTags({}, context)
 amazonaws_discovery.DescribeAgents({}, context)
 ```
 
-#### Parameters
 
 ### DescribeConfigurations
 
@@ -89,7 +83,6 @@ amazonaws_discovery.DescribeAgents({}, context)
 amazonaws_discovery.DescribeConfigurations({}, context)
 ```
 
-#### Parameters
 
 ### DescribeExportConfigurations
 
@@ -99,7 +92,6 @@ amazonaws_discovery.DescribeConfigurations({}, context)
 amazonaws_discovery.DescribeExportConfigurations({}, context)
 ```
 
-#### Parameters
 
 ### DescribeExportTasks
 
@@ -109,7 +101,6 @@ amazonaws_discovery.DescribeExportConfigurations({}, context)
 amazonaws_discovery.DescribeExportTasks({}, context)
 ```
 
-#### Parameters
 
 ### DescribeTags
 
@@ -119,7 +110,6 @@ amazonaws_discovery.DescribeExportTasks({}, context)
 amazonaws_discovery.DescribeTags({}, context)
 ```
 
-#### Parameters
 
 ### DisassociateConfigurationItemsFromApplication
 
@@ -129,7 +119,6 @@ amazonaws_discovery.DescribeTags({}, context)
 amazonaws_discovery.DisassociateConfigurationItemsFromApplication({}, context)
 ```
 
-#### Parameters
 
 ### ExportConfigurations
 
@@ -139,7 +128,6 @@ amazonaws_discovery.DisassociateConfigurationItemsFromApplication({}, context)
 amazonaws_discovery.ExportConfigurations({}, context)
 ```
 
-#### Parameters
 
 ### GetDiscoverySummary
 
@@ -149,7 +137,6 @@ amazonaws_discovery.ExportConfigurations({}, context)
 amazonaws_discovery.GetDiscoverySummary({}, context)
 ```
 
-#### Parameters
 
 ### ListConfigurations
 
@@ -159,7 +146,6 @@ amazonaws_discovery.GetDiscoverySummary({}, context)
 amazonaws_discovery.ListConfigurations({}, context)
 ```
 
-#### Parameters
 
 ### ListServerNeighbors
 
@@ -169,7 +155,6 @@ amazonaws_discovery.ListConfigurations({}, context)
 amazonaws_discovery.ListServerNeighbors({}, context)
 ```
 
-#### Parameters
 
 ### StartDataCollectionByAgentIds
 
@@ -179,7 +164,6 @@ amazonaws_discovery.ListServerNeighbors({}, context)
 amazonaws_discovery.StartDataCollectionByAgentIds({}, context)
 ```
 
-#### Parameters
 
 ### StartExportTask
 
@@ -189,7 +173,6 @@ amazonaws_discovery.StartDataCollectionByAgentIds({}, context)
 amazonaws_discovery.StartExportTask({}, context)
 ```
 
-#### Parameters
 
 ### StopDataCollectionByAgentIds
 
@@ -199,7 +182,6 @@ amazonaws_discovery.StartExportTask({}, context)
 amazonaws_discovery.StopDataCollectionByAgentIds({}, context)
 ```
 
-#### Parameters
 
 ### UpdateApplication
 
@@ -209,5 +191,4 @@ amazonaws_discovery.StopDataCollectionByAgentIds({}, context)
 amazonaws_discovery.UpdateApplication({}, context)
 ```
 
-#### Parameters
 

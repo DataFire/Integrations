@@ -29,7 +29,6 @@ amazonaws_es.ListDomainNames({}, context).then(data => {
 amazonaws_es.ListDomainNames({}, context)
 ```
 
-#### Parameters
 
 ### CreateElasticsearchDomain
 
@@ -39,7 +38,6 @@ amazonaws_es.ListDomainNames({}, context)
 amazonaws_es.CreateElasticsearchDomain({}, context)
 ```
 
-#### Parameters
 
 ### DescribeElasticsearchDomains
 
@@ -49,7 +47,6 @@ amazonaws_es.CreateElasticsearchDomain({}, context)
 amazonaws_es.DescribeElasticsearchDomains({}, context)
 ```
 
-#### Parameters
 
 ### DescribeElasticsearchDomain
 
@@ -127,7 +124,6 @@ amazonaws_es.ListElasticsearchVersions({}, context)
 amazonaws_es.AddTags({}, context)
 ```
 
-#### Parameters
 
 ### RemoveTags
 
@@ -137,7 +133,6 @@ amazonaws_es.AddTags({}, context)
 amazonaws_es.RemoveTags({}, context)
 ```
 
-#### Parameters
 
 ### ListTags
 
@@ -147,5 +142,4 @@ amazonaws_es.RemoveTags({}, context)
 amazonaws_es.ListTags({}, context)
 ```
 
-#### Parameters
 

@@ -29,7 +29,6 @@ amazonaws_redshift.AuthorizeClusterSecurityGroupIngress({}, context).then(data =
 amazonaws_redshift.AuthorizeClusterSecurityGroupIngress({}, context)
 ```
 
-#### Parameters
 
 ### AuthorizeSnapshotAccess
 
@@ -39,7 +38,6 @@ amazonaws_redshift.AuthorizeClusterSecurityGroupIngress({}, context)
 amazonaws_redshift.AuthorizeSnapshotAccess({}, context)
 ```
 
-#### Parameters
 
 ### CopyClusterSnapshot
 
@@ -49,7 +47,6 @@ amazonaws_redshift.AuthorizeSnapshotAccess({}, context)
 amazonaws_redshift.CopyClusterSnapshot({}, context)
 ```
 
-#### Parameters
 
 ### CreateCluster
 
@@ -59,7 +56,6 @@ amazonaws_redshift.CopyClusterSnapshot({}, context)
 amazonaws_redshift.CreateCluster({}, context)
 ```
 
-#### Parameters
 
 ### CreateClusterParameterGroup
 
@@ -69,7 +65,6 @@ amazonaws_redshift.CreateCluster({}, context)
 amazonaws_redshift.CreateClusterParameterGroup({}, context)
 ```
 
-#### Parameters
 
 ### CreateClusterSecurityGroup
 
@@ -79,7 +74,6 @@ amazonaws_redshift.CreateClusterParameterGroup({}, context)
 amazonaws_redshift.CreateClusterSecurityGroup({}, context)
 ```
 
-#### Parameters
 
 ### CreateClusterSnapshot
 
@@ -89,7 +83,6 @@ amazonaws_redshift.CreateClusterSecurityGroup({}, context)
 amazonaws_redshift.CreateClusterSnapshot({}, context)
 ```
 
-#### Parameters
 
 ### CreateClusterSubnetGroup
 
@@ -99,7 +92,6 @@ amazonaws_redshift.CreateClusterSnapshot({}, context)
 amazonaws_redshift.CreateClusterSubnetGroup({}, context)
 ```
 
-#### Parameters
 
 ### CreateEventSubscription
 
@@ -109,7 +101,6 @@ amazonaws_redshift.CreateClusterSubnetGroup({}, context)
 amazonaws_redshift.CreateEventSubscription({}, context)
 ```
 
-#### Parameters
 
 ### CreateHsmClientCertificate
 
@@ -119,7 +110,6 @@ amazonaws_redshift.CreateEventSubscription({}, context)
 amazonaws_redshift.CreateHsmClientCertificate({}, context)
 ```
 
-#### Parameters
 
 ### CreateHsmConfiguration
 
@@ -129,7 +119,6 @@ amazonaws_redshift.CreateHsmClientCertificate({}, context)
 amazonaws_redshift.CreateHsmConfiguration({}, context)
 ```
 
-#### Parameters
 
 ### CreateSnapshotCopyGrant
 
@@ -139,7 +128,6 @@ amazonaws_redshift.CreateHsmConfiguration({}, context)
 amazonaws_redshift.CreateSnapshotCopyGrant({}, context)
 ```
 
-#### Parameters
 
 ### CreateTags
 
@@ -149,7 +137,6 @@ amazonaws_redshift.CreateSnapshotCopyGrant({}, context)
 amazonaws_redshift.CreateTags({}, context)
 ```
 
-#### Parameters
 
 ### DeleteCluster
 
@@ -159,7 +146,6 @@ amazonaws_redshift.CreateTags({}, context)
 amazonaws_redshift.DeleteCluster({}, context)
 ```
 
-#### Parameters
 
 ### DeleteClusterParameterGroup
 
@@ -169,7 +155,6 @@ amazonaws_redshift.DeleteCluster({}, context)
 amazonaws_redshift.DeleteClusterParameterGroup({}, context)
 ```
 
-#### Parameters
 
 ### DeleteClusterSecurityGroup
 
@@ -179,7 +164,6 @@ amazonaws_redshift.DeleteClusterParameterGroup({}, context)
 amazonaws_redshift.DeleteClusterSecurityGroup({}, context)
 ```
 
-#### Parameters
 
 ### DeleteClusterSnapshot
 
@@ -189,7 +173,6 @@ amazonaws_redshift.DeleteClusterSecurityGroup({}, context)
 amazonaws_redshift.DeleteClusterSnapshot({}, context)
 ```
 
-#### Parameters
 
 ### DeleteClusterSubnetGroup
 
@@ -199,7 +182,6 @@ amazonaws_redshift.DeleteClusterSnapshot({}, context)
 amazonaws_redshift.DeleteClusterSubnetGroup({}, context)
 ```
 
-#### Parameters
 
 ### DeleteEventSubscription
 
@@ -209,7 +191,6 @@ amazonaws_redshift.DeleteClusterSubnetGroup({}, context)
 amazonaws_redshift.DeleteEventSubscription({}, context)
 ```
 
-#### Parameters
 
 ### DeleteHsmClientCertificate
 
@@ -219,7 +200,6 @@ amazonaws_redshift.DeleteEventSubscription({}, context)
 amazonaws_redshift.DeleteHsmClientCertificate({}, context)
 ```
 
-#### Parameters
 
 ### DeleteHsmConfiguration
 
@@ -229,7 +209,6 @@ amazonaws_redshift.DeleteHsmClientCertificate({}, context)
 amazonaws_redshift.DeleteHsmConfiguration({}, context)
 ```
 
-#### Parameters
 
 ### DeleteSnapshotCopyGrant
 
@@ -239,7 +218,6 @@ amazonaws_redshift.DeleteHsmConfiguration({}, context)
 amazonaws_redshift.DeleteSnapshotCopyGrant({}, context)
 ```
 
-#### Parameters
 
 ### DeleteTags
 
@@ -249,7 +227,6 @@ amazonaws_redshift.DeleteSnapshotCopyGrant({}, context)
 amazonaws_redshift.DeleteTags({}, context)
 ```
 
-#### Parameters
 
 ### DescribeClusterParameterGroups
 
@@ -355,7 +332,6 @@ amazonaws_redshift.DescribeDefaultClusterParameters({}, context)
 amazonaws_redshift.DescribeEventCategories({}, context)
 ```
 
-#### Parameters
 
 ### DescribeEventSubscriptions
 
@@ -413,7 +389,6 @@ amazonaws_redshift.DescribeHsmConfigurations({}, context)
 amazonaws_redshift.DescribeLoggingStatus({}, context)
 ```
 
-#### Parameters
 
 ### DescribeOrderableClusterOptions
 
@@ -459,7 +434,6 @@ amazonaws_redshift.DescribeReservedNodes({}, context)
 amazonaws_redshift.DescribeResize({}, context)
 ```
 
-#### Parameters
 
 ### DescribeSnapshotCopyGrants
 
@@ -469,7 +443,6 @@ amazonaws_redshift.DescribeResize({}, context)
 amazonaws_redshift.DescribeSnapshotCopyGrants({}, context)
 ```
 
-#### Parameters
 
 ### DescribeTableRestoreStatus
 
@@ -479,7 +452,6 @@ amazonaws_redshift.DescribeSnapshotCopyGrants({}, context)
 amazonaws_redshift.DescribeTableRestoreStatus({}, context)
 ```
 
-#### Parameters
 
 ### DescribeTags
 
@@ -489,7 +461,6 @@ amazonaws_redshift.DescribeTableRestoreStatus({}, context)
 amazonaws_redshift.DescribeTags({}, context)
 ```
 
-#### Parameters
 
 ### DisableLogging
 
@@ -499,7 +470,6 @@ amazonaws_redshift.DescribeTags({}, context)
 amazonaws_redshift.DisableLogging({}, context)
 ```
 
-#### Parameters
 
 ### DisableSnapshotCopy
 
@@ -509,7 +479,6 @@ amazonaws_redshift.DisableLogging({}, context)
 amazonaws_redshift.DisableSnapshotCopy({}, context)
 ```
 
-#### Parameters
 
 ### EnableLogging
 
@@ -519,7 +488,6 @@ amazonaws_redshift.DisableSnapshotCopy({}, context)
 amazonaws_redshift.EnableLogging({}, context)
 ```
 
-#### Parameters
 
 ### EnableSnapshotCopy
 
@@ -529,7 +497,6 @@ amazonaws_redshift.EnableLogging({}, context)
 amazonaws_redshift.EnableSnapshotCopy({}, context)
 ```
 
-#### Parameters
 
 ### GetClusterCredentials
 
@@ -539,7 +506,6 @@ amazonaws_redshift.EnableSnapshotCopy({}, context)
 amazonaws_redshift.GetClusterCredentials({}, context)
 ```
 
-#### Parameters
 
 ### ModifyCluster
 
@@ -549,7 +515,6 @@ amazonaws_redshift.GetClusterCredentials({}, context)
 amazonaws_redshift.ModifyCluster({}, context)
 ```
 
-#### Parameters
 
 ### ModifyClusterIamRoles
 
@@ -559,7 +524,6 @@ amazonaws_redshift.ModifyCluster({}, context)
 amazonaws_redshift.ModifyClusterIamRoles({}, context)
 ```
 
-#### Parameters
 
 ### ModifyClusterParameterGroup
 
@@ -569,7 +533,6 @@ amazonaws_redshift.ModifyClusterIamRoles({}, context)
 amazonaws_redshift.ModifyClusterParameterGroup({}, context)
 ```
 
-#### Parameters
 
 ### ModifyClusterSubnetGroup
 
@@ -579,7 +542,6 @@ amazonaws_redshift.ModifyClusterParameterGroup({}, context)
 amazonaws_redshift.ModifyClusterSubnetGroup({}, context)
 ```
 
-#### Parameters
 
 ### ModifyEventSubscription
 
@@ -589,7 +551,6 @@ amazonaws_redshift.ModifyClusterSubnetGroup({}, context)
 amazonaws_redshift.ModifyEventSubscription({}, context)
 ```
 
-#### Parameters
 
 ### ModifySnapshotCopyRetentionPeriod
 
@@ -599,7 +560,6 @@ amazonaws_redshift.ModifyEventSubscription({}, context)
 amazonaws_redshift.ModifySnapshotCopyRetentionPeriod({}, context)
 ```
 
-#### Parameters
 
 ### PurchaseReservedNodeOffering
 
@@ -609,7 +569,6 @@ amazonaws_redshift.ModifySnapshotCopyRetentionPeriod({}, context)
 amazonaws_redshift.PurchaseReservedNodeOffering({}, context)
 ```
 
-#### Parameters
 
 ### RebootCluster
 
@@ -619,7 +578,6 @@ amazonaws_redshift.PurchaseReservedNodeOffering({}, context)
 amazonaws_redshift.RebootCluster({}, context)
 ```
 
-#### Parameters
 
 ### ResetClusterParameterGroup
 
@@ -629,7 +587,6 @@ amazonaws_redshift.RebootCluster({}, context)
 amazonaws_redshift.ResetClusterParameterGroup({}, context)
 ```
 
-#### Parameters
 
 ### RestoreFromClusterSnapshot
 
@@ -639,7 +596,6 @@ amazonaws_redshift.ResetClusterParameterGroup({}, context)
 amazonaws_redshift.RestoreFromClusterSnapshot({}, context)
 ```
 
-#### Parameters
 
 ### RestoreTableFromClusterSnapshot
 
@@ -649,7 +605,6 @@ amazonaws_redshift.RestoreFromClusterSnapshot({}, context)
 amazonaws_redshift.RestoreTableFromClusterSnapshot({}, context)
 ```
 
-#### Parameters
 
 ### RevokeClusterSecurityGroupIngress
 
@@ -659,7 +614,6 @@ amazonaws_redshift.RestoreTableFromClusterSnapshot({}, context)
 amazonaws_redshift.RevokeClusterSecurityGroupIngress({}, context)
 ```
 
-#### Parameters
 
 ### RevokeSnapshotAccess
 
@@ -669,7 +623,6 @@ amazonaws_redshift.RevokeClusterSecurityGroupIngress({}, context)
 amazonaws_redshift.RevokeSnapshotAccess({}, context)
 ```
 
-#### Parameters
 
 ### RotateEncryptionKey
 
@@ -679,5 +632,4 @@ amazonaws_redshift.RevokeSnapshotAccess({}, context)
 amazonaws_redshift.RotateEncryptionKey({}, context)
 ```
 
-#### Parameters
 

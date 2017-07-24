@@ -29,7 +29,6 @@ amazonaws_kinesis.AddTagsToStream({}, context).then(data => {
 amazonaws_kinesis.AddTagsToStream({}, context)
 ```
 
-#### Parameters
 
 ### CreateStream
 
@@ -39,7 +38,6 @@ amazonaws_kinesis.AddTagsToStream({}, context)
 amazonaws_kinesis.CreateStream({}, context)
 ```
 
-#### Parameters
 
 ### DecreaseStreamRetentionPeriod
 
@@ -49,7 +47,6 @@ amazonaws_kinesis.CreateStream({}, context)
 amazonaws_kinesis.DecreaseStreamRetentionPeriod({}, context)
 ```
 
-#### Parameters
 
 ### DeleteStream
 
@@ -59,7 +56,6 @@ amazonaws_kinesis.DecreaseStreamRetentionPeriod({}, context)
 amazonaws_kinesis.DeleteStream({}, context)
 ```
 
-#### Parameters
 
 ### DescribeLimits
 
@@ -69,7 +65,6 @@ amazonaws_kinesis.DeleteStream({}, context)
 amazonaws_kinesis.DescribeLimits({}, context)
 ```
 
-#### Parameters
 
 ### DescribeStream
 
@@ -91,7 +86,6 @@ amazonaws_kinesis.DescribeStream({}, context)
 amazonaws_kinesis.DisableEnhancedMonitoring({}, context)
 ```
 
-#### Parameters
 
 ### EnableEnhancedMonitoring
 
@@ -101,7 +95,6 @@ amazonaws_kinesis.DisableEnhancedMonitoring({}, context)
 amazonaws_kinesis.EnableEnhancedMonitoring({}, context)
 ```
 
-#### Parameters
 
 ### GetRecords
 
@@ -111,7 +104,6 @@ amazonaws_kinesis.EnableEnhancedMonitoring({}, context)
 amazonaws_kinesis.GetRecords({}, context)
 ```
 
-#### Parameters
 
 ### GetShardIterator
 
@@ -121,7 +113,6 @@ amazonaws_kinesis.GetRecords({}, context)
 amazonaws_kinesis.GetShardIterator({}, context)
 ```
 
-#### Parameters
 
 ### IncreaseStreamRetentionPeriod
 
@@ -131,7 +122,6 @@ amazonaws_kinesis.GetShardIterator({}, context)
 amazonaws_kinesis.IncreaseStreamRetentionPeriod({}, context)
 ```
 
-#### Parameters
 
 ### ListStreams
 
@@ -153,7 +143,6 @@ amazonaws_kinesis.ListStreams({}, context)
 amazonaws_kinesis.ListTagsForStream({}, context)
 ```
 
-#### Parameters
 
 ### MergeShards
 
@@ -163,7 +152,6 @@ amazonaws_kinesis.ListTagsForStream({}, context)
 amazonaws_kinesis.MergeShards({}, context)
 ```
 
-#### Parameters
 
 ### PutRecord
 
@@ -173,7 +161,6 @@ amazonaws_kinesis.MergeShards({}, context)
 amazonaws_kinesis.PutRecord({}, context)
 ```
 
-#### Parameters
 
 ### PutRecords
 
@@ -183,7 +170,6 @@ amazonaws_kinesis.PutRecord({}, context)
 amazonaws_kinesis.PutRecords({}, context)
 ```
 
-#### Parameters
 
 ### RemoveTagsFromStream
 
@@ -193,7 +179,6 @@ amazonaws_kinesis.PutRecords({}, context)
 amazonaws_kinesis.RemoveTagsFromStream({}, context)
 ```
 
-#### Parameters
 
 ### SplitShard
 
@@ -203,7 +188,6 @@ amazonaws_kinesis.RemoveTagsFromStream({}, context)
 amazonaws_kinesis.SplitShard({}, context)
 ```
 
-#### Parameters
 
 ### UpdateShardCount
 
@@ -213,5 +197,4 @@ amazonaws_kinesis.SplitShard({}, context)
 amazonaws_kinesis.UpdateShardCount({}, context)
 ```
 
-#### Parameters
 

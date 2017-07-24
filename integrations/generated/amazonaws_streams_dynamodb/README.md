@@ -29,7 +29,6 @@ amazonaws_streams_dynamodb.DescribeStream({}, context).then(data => {
 amazonaws_streams_dynamodb.DescribeStream({}, context)
 ```
 
-#### Parameters
 
 ### GetRecords
 
@@ -39,7 +38,6 @@ amazonaws_streams_dynamodb.DescribeStream({}, context)
 amazonaws_streams_dynamodb.GetRecords({}, context)
 ```
 
-#### Parameters
 
 ### GetShardIterator
 
@@ -49,7 +47,6 @@ amazonaws_streams_dynamodb.GetRecords({}, context)
 amazonaws_streams_dynamodb.GetShardIterator({}, context)
 ```
 
-#### Parameters
 
 ### ListStreams
 
@@ -59,5 +56,4 @@ amazonaws_streams_dynamodb.GetShardIterator({}, context)
 amazonaws_streams_dynamodb.ListStreams({}, context)
 ```
 
-#### Parameters
 

@@ -29,7 +29,6 @@ amazonaws_shield.CreateProtection({}, context).then(data => {
 amazonaws_shield.CreateProtection({}, context)
 ```
 
-#### Parameters
 
 ### CreateSubscription
 
@@ -39,7 +38,6 @@ amazonaws_shield.CreateProtection({}, context)
 amazonaws_shield.CreateSubscription({}, context)
 ```
 
-#### Parameters
 
 ### DeleteProtection
 
@@ -49,7 +47,6 @@ amazonaws_shield.CreateSubscription({}, context)
 amazonaws_shield.DeleteProtection({}, context)
 ```
 
-#### Parameters
 
 ### DeleteSubscription
 
@@ -59,7 +56,6 @@ amazonaws_shield.DeleteProtection({}, context)
 amazonaws_shield.DeleteSubscription({}, context)
 ```
 
-#### Parameters
 
 ### DescribeAttack
 
@@ -69,7 +65,6 @@ amazonaws_shield.DeleteSubscription({}, context)
 amazonaws_shield.DescribeAttack({}, context)
 ```
 
-#### Parameters
 
 ### DescribeProtection
 
@@ -79,7 +74,6 @@ amazonaws_shield.DescribeAttack({}, context)
 amazonaws_shield.DescribeProtection({}, context)
 ```
 
-#### Parameters
 
 ### DescribeSubscription
 
@@ -89,7 +83,6 @@ amazonaws_shield.DescribeProtection({}, context)
 amazonaws_shield.DescribeSubscription({}, context)
 ```
 
-#### Parameters
 
 ### ListAttacks
 
@@ -99,7 +92,6 @@ amazonaws_shield.DescribeSubscription({}, context)
 amazonaws_shield.ListAttacks({}, context)
 ```
 
-#### Parameters
 
 ### ListProtections
 
@@ -109,5 +101,4 @@ amazonaws_shield.ListAttacks({}, context)
 amazonaws_shield.ListProtections({}, context)
 ```
 
-#### Parameters
 

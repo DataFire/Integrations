@@ -29,7 +29,6 @@ AWS Greengrass seamlessly extends AWS onto physical devices so they can act loca
 amazonaws_greengrass.ListCoreDefinitions({}, context)
 ```
 
-#### Parameters
 
 ### UpdateCoreDefinition
 
@@ -80,7 +79,6 @@ amazonaws_greengrass.GetCoreDefinitionVersion({
 amazonaws_greengrass.ListDeviceDefinitions({}, context)
 ```
 
-#### Parameters
 
 ### UpdateDeviceDefinition
 
@@ -131,7 +129,6 @@ amazonaws_greengrass.GetDeviceDefinitionVersion({
 amazonaws_greengrass.ListFunctionDefinitions({}, context)
 ```
 
-#### Parameters
 
 ### UpdateFunctionDefinition
 
@@ -182,7 +179,6 @@ amazonaws_greengrass.GetFunctionDefinitionVersion({
 amazonaws_greengrass.ListLoggerDefinitions({}, context)
 ```
 
-#### Parameters
 
 ### UpdateLoggerDefinition
 
@@ -233,7 +229,6 @@ amazonaws_greengrass.GetLoggerDefinitionVersion({
 amazonaws_greengrass.ListSubscriptionDefinitions({}, context)
 ```
 
-#### Parameters
 
 ### UpdateSubscriptionDefinition
 
@@ -284,7 +279,6 @@ amazonaws_greengrass.GetSubscriptionDefinitionVersion({
 amazonaws_greengrass.ListGroups({}, context)
 ```
 
-#### Parameters
 
 ### UpdateGroup
 
@@ -417,7 +411,6 @@ amazonaws_greengrass.GetGroupVersion({
 amazonaws_greengrass.GetServiceRoleForAccount({}, context)
 ```
 
-#### Parameters
 
 ### UpdateConnectivityInfo
 

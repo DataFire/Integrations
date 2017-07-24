@@ -29,7 +29,6 @@ amazonaws_ecs.CreateCluster({}, context).then(data => {
 amazonaws_ecs.CreateCluster({}, context)
 ```
 
-#### Parameters
 
 ### CreateService
 
@@ -39,7 +38,6 @@ amazonaws_ecs.CreateCluster({}, context)
 amazonaws_ecs.CreateService({}, context)
 ```
 
-#### Parameters
 
 ### DeleteAttributes
 
@@ -49,7 +47,6 @@ amazonaws_ecs.CreateService({}, context)
 amazonaws_ecs.DeleteAttributes({}, context)
 ```
 
-#### Parameters
 
 ### DeleteCluster
 
@@ -59,7 +56,6 @@ amazonaws_ecs.DeleteAttributes({}, context)
 amazonaws_ecs.DeleteCluster({}, context)
 ```
 
-#### Parameters
 
 ### DeleteService
 
@@ -69,7 +65,6 @@ amazonaws_ecs.DeleteCluster({}, context)
 amazonaws_ecs.DeleteService({}, context)
 ```
 
-#### Parameters
 
 ### DeregisterContainerInstance
 
@@ -79,7 +74,6 @@ amazonaws_ecs.DeleteService({}, context)
 amazonaws_ecs.DeregisterContainerInstance({}, context)
 ```
 
-#### Parameters
 
 ### DeregisterTaskDefinition
 
@@ -89,7 +83,6 @@ amazonaws_ecs.DeregisterContainerInstance({}, context)
 amazonaws_ecs.DeregisterTaskDefinition({}, context)
 ```
 
-#### Parameters
 
 ### DescribeClusters
 
@@ -99,7 +92,6 @@ amazonaws_ecs.DeregisterTaskDefinition({}, context)
 amazonaws_ecs.DescribeClusters({}, context)
 ```
 
-#### Parameters
 
 ### DescribeContainerInstances
 
@@ -109,7 +101,6 @@ amazonaws_ecs.DescribeClusters({}, context)
 amazonaws_ecs.DescribeContainerInstances({}, context)
 ```
 
-#### Parameters
 
 ### DescribeServices
 
@@ -119,7 +110,6 @@ amazonaws_ecs.DescribeContainerInstances({}, context)
 amazonaws_ecs.DescribeServices({}, context)
 ```
 
-#### Parameters
 
 ### DescribeTaskDefinition
 
@@ -129,7 +119,6 @@ amazonaws_ecs.DescribeServices({}, context)
 amazonaws_ecs.DescribeTaskDefinition({}, context)
 ```
 
-#### Parameters
 
 ### DescribeTasks
 
@@ -139,7 +128,6 @@ amazonaws_ecs.DescribeTaskDefinition({}, context)
 amazonaws_ecs.DescribeTasks({}, context)
 ```
 
-#### Parameters
 
 ### DiscoverPollEndpoint
 
@@ -149,7 +137,6 @@ amazonaws_ecs.DescribeTasks({}, context)
 amazonaws_ecs.DiscoverPollEndpoint({}, context)
 ```
 
-#### Parameters
 
 ### ListAttributes
 
@@ -159,7 +146,6 @@ amazonaws_ecs.DiscoverPollEndpoint({}, context)
 amazonaws_ecs.ListAttributes({}, context)
 ```
 
-#### Parameters
 
 ### ListClusters
 
@@ -241,7 +227,6 @@ amazonaws_ecs.ListTasks({}, context)
 amazonaws_ecs.PutAttributes({}, context)
 ```
 
-#### Parameters
 
 ### RegisterContainerInstance
 
@@ -251,7 +236,6 @@ amazonaws_ecs.PutAttributes({}, context)
 amazonaws_ecs.RegisterContainerInstance({}, context)
 ```
 
-#### Parameters
 
 ### RegisterTaskDefinition
 
@@ -261,7 +245,6 @@ amazonaws_ecs.RegisterContainerInstance({}, context)
 amazonaws_ecs.RegisterTaskDefinition({}, context)
 ```
 
-#### Parameters
 
 ### RunTask
 
@@ -271,7 +254,6 @@ amazonaws_ecs.RegisterTaskDefinition({}, context)
 amazonaws_ecs.RunTask({}, context)
 ```
 
-#### Parameters
 
 ### StartTask
 
@@ -281,7 +263,6 @@ amazonaws_ecs.RunTask({}, context)
 amazonaws_ecs.StartTask({}, context)
 ```
 
-#### Parameters
 
 ### StopTask
 
@@ -291,7 +272,6 @@ amazonaws_ecs.StartTask({}, context)
 amazonaws_ecs.StopTask({}, context)
 ```
 
-#### Parameters
 
 ### SubmitContainerStateChange
 
@@ -301,7 +281,6 @@ amazonaws_ecs.StopTask({}, context)
 amazonaws_ecs.SubmitContainerStateChange({}, context)
 ```
 
-#### Parameters
 
 ### SubmitTaskStateChange
 
@@ -311,7 +290,6 @@ amazonaws_ecs.SubmitContainerStateChange({}, context)
 amazonaws_ecs.SubmitTaskStateChange({}, context)
 ```
 
-#### Parameters
 
 ### UpdateContainerAgent
 
@@ -321,7 +299,6 @@ amazonaws_ecs.SubmitTaskStateChange({}, context)
 amazonaws_ecs.UpdateContainerAgent({}, context)
 ```
 
-#### Parameters
 
 ### UpdateContainerInstancesState
 
@@ -331,7 +308,6 @@ amazonaws_ecs.UpdateContainerAgent({}, context)
 amazonaws_ecs.UpdateContainerInstancesState({}, context)
 ```
 
-#### Parameters
 
 ### UpdateService
 
@@ -341,5 +317,4 @@ amazonaws_ecs.UpdateContainerInstancesState({}, context)
 amazonaws_ecs.UpdateService({}, context)
 ```
 
-#### Parameters
 

@@ -29,7 +29,6 @@ amazonaws_batch.CancelJob({}, context).then(data => {
 amazonaws_batch.CancelJob({}, context)
 ```
 
-#### Parameters
 
 ### CreateComputeEnvironment
 
@@ -39,7 +38,6 @@ amazonaws_batch.CancelJob({}, context)
 amazonaws_batch.CreateComputeEnvironment({}, context)
 ```
 
-#### Parameters
 
 ### CreateJobQueue
 
@@ -49,7 +47,6 @@ amazonaws_batch.CreateComputeEnvironment({}, context)
 amazonaws_batch.CreateJobQueue({}, context)
 ```
 
-#### Parameters
 
 ### DeleteComputeEnvironment
 
@@ -59,7 +56,6 @@ amazonaws_batch.CreateJobQueue({}, context)
 amazonaws_batch.DeleteComputeEnvironment({}, context)
 ```
 
-#### Parameters
 
 ### DeleteJobQueue
 
@@ -69,7 +65,6 @@ amazonaws_batch.DeleteComputeEnvironment({}, context)
 amazonaws_batch.DeleteJobQueue({}, context)
 ```
 
-#### Parameters
 
 ### DeregisterJobDefinition
 
@@ -79,7 +74,6 @@ amazonaws_batch.DeleteJobQueue({}, context)
 amazonaws_batch.DeregisterJobDefinition({}, context)
 ```
 
-#### Parameters
 
 ### DescribeComputeEnvironments
 
@@ -89,7 +83,6 @@ amazonaws_batch.DeregisterJobDefinition({}, context)
 amazonaws_batch.DescribeComputeEnvironments({}, context)
 ```
 
-#### Parameters
 
 ### DescribeJobDefinitions
 
@@ -99,7 +92,6 @@ amazonaws_batch.DescribeComputeEnvironments({}, context)
 amazonaws_batch.DescribeJobDefinitions({}, context)
 ```
 
-#### Parameters
 
 ### DescribeJobQueues
 
@@ -109,7 +101,6 @@ amazonaws_batch.DescribeJobDefinitions({}, context)
 amazonaws_batch.DescribeJobQueues({}, context)
 ```
 
-#### Parameters
 
 ### DescribeJobs
 
@@ -119,7 +110,6 @@ amazonaws_batch.DescribeJobQueues({}, context)
 amazonaws_batch.DescribeJobs({}, context)
 ```
 
-#### Parameters
 
 ### ListJobs
 
@@ -129,7 +119,6 @@ amazonaws_batch.DescribeJobs({}, context)
 amazonaws_batch.ListJobs({}, context)
 ```
 
-#### Parameters
 
 ### RegisterJobDefinition
 
@@ -139,7 +128,6 @@ amazonaws_batch.ListJobs({}, context)
 amazonaws_batch.RegisterJobDefinition({}, context)
 ```
 
-#### Parameters
 
 ### SubmitJob
 
@@ -149,7 +137,6 @@ amazonaws_batch.RegisterJobDefinition({}, context)
 amazonaws_batch.SubmitJob({}, context)
 ```
 
-#### Parameters
 
 ### TerminateJob
 
@@ -159,7 +146,6 @@ amazonaws_batch.SubmitJob({}, context)
 amazonaws_batch.TerminateJob({}, context)
 ```
 
-#### Parameters
 
 ### UpdateComputeEnvironment
 
@@ -169,7 +155,6 @@ amazonaws_batch.TerminateJob({}, context)
 amazonaws_batch.UpdateComputeEnvironment({}, context)
 ```
 
-#### Parameters
 
 ### UpdateJobQueue
 
@@ -179,5 +164,4 @@ amazonaws_batch.UpdateComputeEnvironment({}, context)
 amazonaws_batch.UpdateJobQueue({}, context)
 ```
 
-#### Parameters
 

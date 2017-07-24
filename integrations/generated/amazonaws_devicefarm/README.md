@@ -29,7 +29,6 @@ AWS Device Farm is a service that enables mobile app developers to test Android,
 amazonaws_devicefarm.CreateDevicePool({}, context)
 ```
 
-#### Parameters
 
 ### CreateNetworkProfile
 
@@ -39,7 +38,6 @@ amazonaws_devicefarm.CreateDevicePool({}, context)
 amazonaws_devicefarm.CreateNetworkProfile({}, context)
 ```
 
-#### Parameters
 
 ### CreateProject
 
@@ -49,7 +47,6 @@ amazonaws_devicefarm.CreateNetworkProfile({}, context)
 amazonaws_devicefarm.CreateProject({}, context)
 ```
 
-#### Parameters
 
 ### CreateRemoteAccessSession
 
@@ -59,7 +56,6 @@ amazonaws_devicefarm.CreateProject({}, context)
 amazonaws_devicefarm.CreateRemoteAccessSession({}, context)
 ```
 
-#### Parameters
 
 ### CreateUpload
 
@@ -69,7 +65,6 @@ amazonaws_devicefarm.CreateRemoteAccessSession({}, context)
 amazonaws_devicefarm.CreateUpload({}, context)
 ```
 
-#### Parameters
 
 ### DeleteDevicePool
 
@@ -79,7 +74,6 @@ amazonaws_devicefarm.CreateUpload({}, context)
 amazonaws_devicefarm.DeleteDevicePool({}, context)
 ```
 
-#### Parameters
 
 ### DeleteNetworkProfile
 
@@ -89,7 +83,6 @@ amazonaws_devicefarm.DeleteDevicePool({}, context)
 amazonaws_devicefarm.DeleteNetworkProfile({}, context)
 ```
 
-#### Parameters
 
 ### DeleteProject
 
@@ -99,7 +92,6 @@ amazonaws_devicefarm.DeleteNetworkProfile({}, context)
 amazonaws_devicefarm.DeleteProject({}, context)
 ```
 
-#### Parameters
 
 ### DeleteRemoteAccessSession
 
@@ -109,7 +101,6 @@ amazonaws_devicefarm.DeleteProject({}, context)
 amazonaws_devicefarm.DeleteRemoteAccessSession({}, context)
 ```
 
-#### Parameters
 
 ### DeleteRun
 
@@ -119,7 +110,6 @@ amazonaws_devicefarm.DeleteRemoteAccessSession({}, context)
 amazonaws_devicefarm.DeleteRun({}, context)
 ```
 
-#### Parameters
 
 ### DeleteUpload
 
@@ -129,7 +119,6 @@ amazonaws_devicefarm.DeleteRun({}, context)
 amazonaws_devicefarm.DeleteUpload({}, context)
 ```
 
-#### Parameters
 
 ### GetAccountSettings
 
@@ -139,7 +128,6 @@ amazonaws_devicefarm.DeleteUpload({}, context)
 amazonaws_devicefarm.GetAccountSettings({}, context)
 ```
 
-#### Parameters
 
 ### GetDevice
 
@@ -149,7 +137,6 @@ amazonaws_devicefarm.GetAccountSettings({}, context)
 amazonaws_devicefarm.GetDevice({}, context)
 ```
 
-#### Parameters
 
 ### GetDevicePool
 
@@ -159,7 +146,6 @@ amazonaws_devicefarm.GetDevice({}, context)
 amazonaws_devicefarm.GetDevicePool({}, context)
 ```
 
-#### Parameters
 
 ### GetDevicePoolCompatibility
 
@@ -169,7 +155,6 @@ amazonaws_devicefarm.GetDevicePool({}, context)
 amazonaws_devicefarm.GetDevicePoolCompatibility({}, context)
 ```
 
-#### Parameters
 
 ### GetJob
 
@@ -179,7 +164,6 @@ amazonaws_devicefarm.GetDevicePoolCompatibility({}, context)
 amazonaws_devicefarm.GetJob({}, context)
 ```
 
-#### Parameters
 
 ### GetNetworkProfile
 
@@ -189,7 +173,6 @@ amazonaws_devicefarm.GetJob({}, context)
 amazonaws_devicefarm.GetNetworkProfile({}, context)
 ```
 
-#### Parameters
 
 ### GetOfferingStatus
 
@@ -210,7 +193,6 @@ amazonaws_devicefarm.GetOfferingStatus({}, context)
 amazonaws_devicefarm.GetProject({}, context)
 ```
 
-#### Parameters
 
 ### GetRemoteAccessSession
 
@@ -220,7 +202,6 @@ amazonaws_devicefarm.GetProject({}, context)
 amazonaws_devicefarm.GetRemoteAccessSession({}, context)
 ```
 
-#### Parameters
 
 ### GetRun
 
@@ -230,7 +211,6 @@ amazonaws_devicefarm.GetRemoteAccessSession({}, context)
 amazonaws_devicefarm.GetRun({}, context)
 ```
 
-#### Parameters
 
 ### GetSuite
 
@@ -240,7 +220,6 @@ amazonaws_devicefarm.GetRun({}, context)
 amazonaws_devicefarm.GetSuite({}, context)
 ```
 
-#### Parameters
 
 ### GetTest
 
@@ -250,7 +229,6 @@ amazonaws_devicefarm.GetSuite({}, context)
 amazonaws_devicefarm.GetTest({}, context)
 ```
 
-#### Parameters
 
 ### GetUpload
 
@@ -260,7 +238,6 @@ amazonaws_devicefarm.GetTest({}, context)
 amazonaws_devicefarm.GetUpload({}, context)
 ```
 
-#### Parameters
 
 ### InstallToRemoteAccessSession
 
@@ -270,7 +247,6 @@ amazonaws_devicefarm.GetUpload({}, context)
 amazonaws_devicefarm.InstallToRemoteAccessSession({}, context)
 ```
 
-#### Parameters
 
 ### ListArtifacts
 
@@ -324,7 +300,6 @@ amazonaws_devicefarm.ListJobs({}, context)
 amazonaws_devicefarm.ListNetworkProfiles({}, context)
 ```
 
-#### Parameters
 
 ### ListOfferingPromotions
 
@@ -334,7 +309,6 @@ amazonaws_devicefarm.ListNetworkProfiles({}, context)
 amazonaws_devicefarm.ListOfferingPromotions({}, context)
 ```
 
-#### Parameters
 
 ### ListOfferingTransactions
 
@@ -377,7 +351,6 @@ amazonaws_devicefarm.ListProjects({}, context)
 amazonaws_devicefarm.ListRemoteAccessSessions({}, context)
 ```
 
-#### Parameters
 
 ### ListRuns
 
@@ -453,7 +426,6 @@ amazonaws_devicefarm.ListUploads({}, context)
 amazonaws_devicefarm.PurchaseOffering({}, context)
 ```
 
-#### Parameters
 
 ### RenewOffering
 
@@ -463,7 +435,6 @@ amazonaws_devicefarm.PurchaseOffering({}, context)
 amazonaws_devicefarm.RenewOffering({}, context)
 ```
 
-#### Parameters
 
 ### ScheduleRun
 
@@ -473,7 +444,6 @@ amazonaws_devicefarm.RenewOffering({}, context)
 amazonaws_devicefarm.ScheduleRun({}, context)
 ```
 
-#### Parameters
 
 ### StopRemoteAccessSession
 
@@ -483,7 +453,6 @@ amazonaws_devicefarm.ScheduleRun({}, context)
 amazonaws_devicefarm.StopRemoteAccessSession({}, context)
 ```
 
-#### Parameters
 
 ### StopRun
 
@@ -493,7 +462,6 @@ amazonaws_devicefarm.StopRemoteAccessSession({}, context)
 amazonaws_devicefarm.StopRun({}, context)
 ```
 
-#### Parameters
 
 ### UpdateDevicePool
 
@@ -503,7 +471,6 @@ amazonaws_devicefarm.StopRun({}, context)
 amazonaws_devicefarm.UpdateDevicePool({}, context)
 ```
 
-#### Parameters
 
 ### UpdateNetworkProfile
 
@@ -513,7 +480,6 @@ amazonaws_devicefarm.UpdateDevicePool({}, context)
 amazonaws_devicefarm.UpdateNetworkProfile({}, context)
 ```
 
-#### Parameters
 
 ### UpdateProject
 
@@ -523,5 +489,4 @@ amazonaws_devicefarm.UpdateNetworkProfile({}, context)
 amazonaws_devicefarm.UpdateProject({}, context)
 ```
 
-#### Parameters
 

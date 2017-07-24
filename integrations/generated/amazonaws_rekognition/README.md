@@ -29,7 +29,6 @@ This is the Amazon Rekognition API reference.
 amazonaws_rekognition.CompareFaces({}, context)
 ```
 
-#### Parameters
 
 ### CreateCollection
 
@@ -39,7 +38,6 @@ amazonaws_rekognition.CompareFaces({}, context)
 amazonaws_rekognition.CreateCollection({}, context)
 ```
 
-#### Parameters
 
 ### DeleteCollection
 
@@ -49,7 +47,6 @@ amazonaws_rekognition.CreateCollection({}, context)
 amazonaws_rekognition.DeleteCollection({}, context)
 ```
 
-#### Parameters
 
 ### DeleteFaces
 
@@ -59,7 +56,6 @@ amazonaws_rekognition.DeleteCollection({}, context)
 amazonaws_rekognition.DeleteFaces({}, context)
 ```
 
-#### Parameters
 
 ### DetectFaces
 
@@ -69,7 +65,6 @@ amazonaws_rekognition.DeleteFaces({}, context)
 amazonaws_rekognition.DetectFaces({}, context)
 ```
 
-#### Parameters
 
 ### DetectLabels
 
@@ -79,7 +74,6 @@ amazonaws_rekognition.DetectFaces({}, context)
 amazonaws_rekognition.DetectLabels({}, context)
 ```
 
-#### Parameters
 
 ### DetectModerationLabels
 
@@ -89,7 +83,6 @@ amazonaws_rekognition.DetectLabels({}, context)
 amazonaws_rekognition.DetectModerationLabels({}, context)
 ```
 
-#### Parameters
 
 ### IndexFaces
 
@@ -99,7 +92,6 @@ amazonaws_rekognition.DetectModerationLabels({}, context)
 amazonaws_rekognition.IndexFaces({}, context)
 ```
 
-#### Parameters
 
 ### ListCollections
 
@@ -133,7 +125,6 @@ amazonaws_rekognition.ListFaces({}, context)
 amazonaws_rekognition.SearchFaces({}, context)
 ```
 
-#### Parameters
 
 ### SearchFacesByImage
 
@@ -143,5 +134,4 @@ amazonaws_rekognition.SearchFaces({}, context)
 amazonaws_rekognition.SearchFacesByImage({}, context)
 ```
 
-#### Parameters
 

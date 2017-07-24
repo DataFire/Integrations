@@ -29,7 +29,6 @@ amazonaws_cognito_identity.CreateIdentityPool({}, context).then(data => {
 amazonaws_cognito_identity.CreateIdentityPool({}, context)
 ```
 
-#### Parameters
 
 ### DeleteIdentities
 
@@ -39,7 +38,6 @@ amazonaws_cognito_identity.CreateIdentityPool({}, context)
 amazonaws_cognito_identity.DeleteIdentities({}, context)
 ```
 
-#### Parameters
 
 ### DeleteIdentityPool
 
@@ -49,7 +47,6 @@ amazonaws_cognito_identity.DeleteIdentities({}, context)
 amazonaws_cognito_identity.DeleteIdentityPool({}, context)
 ```
 
-#### Parameters
 
 ### DescribeIdentity
 
@@ -59,7 +56,6 @@ amazonaws_cognito_identity.DeleteIdentityPool({}, context)
 amazonaws_cognito_identity.DescribeIdentity({}, context)
 ```
 
-#### Parameters
 
 ### DescribeIdentityPool
 
@@ -69,7 +65,6 @@ amazonaws_cognito_identity.DescribeIdentity({}, context)
 amazonaws_cognito_identity.DescribeIdentityPool({}, context)
 ```
 
-#### Parameters
 
 ### GetCredentialsForIdentity
 
@@ -79,7 +74,6 @@ amazonaws_cognito_identity.DescribeIdentityPool({}, context)
 amazonaws_cognito_identity.GetCredentialsForIdentity({}, context)
 ```
 
-#### Parameters
 
 ### GetId
 
@@ -89,7 +83,6 @@ amazonaws_cognito_identity.GetCredentialsForIdentity({}, context)
 amazonaws_cognito_identity.GetId({}, context)
 ```
 
-#### Parameters
 
 ### GetIdentityPoolRoles
 
@@ -99,7 +92,6 @@ amazonaws_cognito_identity.GetId({}, context)
 amazonaws_cognito_identity.GetIdentityPoolRoles({}, context)
 ```
 
-#### Parameters
 
 ### GetOpenIdToken
 
@@ -109,7 +101,6 @@ amazonaws_cognito_identity.GetIdentityPoolRoles({}, context)
 amazonaws_cognito_identity.GetOpenIdToken({}, context)
 ```
 
-#### Parameters
 
 ### GetOpenIdTokenForDeveloperIdentity
 
@@ -119,7 +110,6 @@ amazonaws_cognito_identity.GetOpenIdToken({}, context)
 amazonaws_cognito_identity.GetOpenIdTokenForDeveloperIdentity({}, context)
 ```
 
-#### Parameters
 
 ### ListIdentities
 
@@ -129,7 +119,6 @@ amazonaws_cognito_identity.GetOpenIdTokenForDeveloperIdentity({}, context)
 amazonaws_cognito_identity.ListIdentities({}, context)
 ```
 
-#### Parameters
 
 ### ListIdentityPools
 
@@ -139,7 +128,6 @@ amazonaws_cognito_identity.ListIdentities({}, context)
 amazonaws_cognito_identity.ListIdentityPools({}, context)
 ```
 
-#### Parameters
 
 ### LookupDeveloperIdentity
 
@@ -149,7 +137,6 @@ amazonaws_cognito_identity.ListIdentityPools({}, context)
 amazonaws_cognito_identity.LookupDeveloperIdentity({}, context)
 ```
 
-#### Parameters
 
 ### MergeDeveloperIdentities
 
@@ -159,7 +146,6 @@ amazonaws_cognito_identity.LookupDeveloperIdentity({}, context)
 amazonaws_cognito_identity.MergeDeveloperIdentities({}, context)
 ```
 
-#### Parameters
 
 ### SetIdentityPoolRoles
 
@@ -169,7 +155,6 @@ amazonaws_cognito_identity.MergeDeveloperIdentities({}, context)
 amazonaws_cognito_identity.SetIdentityPoolRoles({}, context)
 ```
 
-#### Parameters
 
 ### UnlinkDeveloperIdentity
 
@@ -179,7 +164,6 @@ amazonaws_cognito_identity.SetIdentityPoolRoles({}, context)
 amazonaws_cognito_identity.UnlinkDeveloperIdentity({}, context)
 ```
 
-#### Parameters
 
 ### UnlinkIdentity
 
@@ -189,7 +173,6 @@ amazonaws_cognito_identity.UnlinkDeveloperIdentity({}, context)
 amazonaws_cognito_identity.UnlinkIdentity({}, context)
 ```
 
-#### Parameters
 
 ### UpdateIdentityPool
 
@@ -199,5 +182,4 @@ amazonaws_cognito_identity.UnlinkIdentity({}, context)
 amazonaws_cognito_identity.UpdateIdentityPool({}, context)
 ```
 
-#### Parameters
 

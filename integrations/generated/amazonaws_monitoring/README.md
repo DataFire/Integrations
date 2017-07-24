@@ -29,7 +29,6 @@ amazonaws_monitoring.DeleteAlarms({}, context).then(data => {
 amazonaws_monitoring.DeleteAlarms({}, context)
 ```
 
-#### Parameters
 
 ### DescribeAlarmHistory
 
@@ -63,7 +62,6 @@ amazonaws_monitoring.DescribeAlarms({}, context)
 amazonaws_monitoring.DescribeAlarmsForMetric({}, context)
 ```
 
-#### Parameters
 
 ### DisableAlarmActions
 
@@ -73,7 +71,6 @@ amazonaws_monitoring.DescribeAlarmsForMetric({}, context)
 amazonaws_monitoring.DisableAlarmActions({}, context)
 ```
 
-#### Parameters
 
 ### EnableAlarmActions
 
@@ -83,7 +80,6 @@ amazonaws_monitoring.DisableAlarmActions({}, context)
 amazonaws_monitoring.EnableAlarmActions({}, context)
 ```
 
-#### Parameters
 
 ### GetMetricStatistics
 
@@ -93,7 +89,6 @@ amazonaws_monitoring.EnableAlarmActions({}, context)
 amazonaws_monitoring.GetMetricStatistics({}, context)
 ```
 
-#### Parameters
 
 ### ListMetrics
 
@@ -114,7 +109,6 @@ amazonaws_monitoring.ListMetrics({}, context)
 amazonaws_monitoring.PutMetricAlarm({}, context)
 ```
 
-#### Parameters
 
 ### PutMetricData
 
@@ -124,7 +118,6 @@ amazonaws_monitoring.PutMetricAlarm({}, context)
 amazonaws_monitoring.PutMetricData({}, context)
 ```
 
-#### Parameters
 
 ### SetAlarmState
 
@@ -134,5 +127,4 @@ amazonaws_monitoring.PutMetricData({}, context)
 amazonaws_monitoring.SetAlarmState({}, context)
 ```
 
-#### Parameters
 

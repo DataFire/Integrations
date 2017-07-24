@@ -29,7 +29,6 @@ amazonaws_apigateway.UpdateAccount({}, context).then(data => {
 amazonaws_apigateway.UpdateAccount({}, context)
 ```
 
-#### Parameters
 
 ### GetApiKeys
 
@@ -64,7 +63,6 @@ amazonaws_apigateway.UpdateApiKey({
 amazonaws_apigateway.ImportApiKeys({}, context)
 ```
 
-#### Parameters
 
 ### GetClientCertificates
 
@@ -575,7 +573,6 @@ amazonaws_apigateway.GetSdk({
 amazonaws_apigateway.ImportRestApi({}, context)
 ```
 
-#### Parameters
 
 ### GetSdkTypes
 
@@ -585,7 +582,6 @@ amazonaws_apigateway.ImportRestApi({}, context)
 amazonaws_apigateway.GetSdkTypes({}, context)
 ```
 
-#### Parameters
 
 ### GetSdkType
 

@@ -29,7 +29,6 @@ amazonaws_support.AddAttachmentsToSet({}, context).then(data => {
 amazonaws_support.AddAttachmentsToSet({}, context)
 ```
 
-#### Parameters
 
 ### AddCommunicationToCase
 
@@ -39,7 +38,6 @@ amazonaws_support.AddAttachmentsToSet({}, context)
 amazonaws_support.AddCommunicationToCase({}, context)
 ```
 
-#### Parameters
 
 ### CreateCase
 
@@ -49,7 +47,6 @@ amazonaws_support.AddCommunicationToCase({}, context)
 amazonaws_support.CreateCase({}, context)
 ```
 
-#### Parameters
 
 ### DescribeAttachment
 
@@ -59,7 +56,6 @@ amazonaws_support.CreateCase({}, context)
 amazonaws_support.DescribeAttachment({}, context)
 ```
 
-#### Parameters
 
 ### DescribeCases
 
@@ -93,7 +89,6 @@ amazonaws_support.DescribeCommunications({}, context)
 amazonaws_support.DescribeServices({}, context)
 ```
 
-#### Parameters
 
 ### DescribeSeverityLevels
 
@@ -103,7 +98,6 @@ amazonaws_support.DescribeServices({}, context)
 amazonaws_support.DescribeSeverityLevels({}, context)
 ```
 
-#### Parameters
 
 ### DescribeTrustedAdvisorCheckRefreshStatuses
 
@@ -113,7 +107,6 @@ amazonaws_support.DescribeSeverityLevels({}, context)
 amazonaws_support.DescribeTrustedAdvisorCheckRefreshStatuses({}, context)
 ```
 
-#### Parameters
 
 ### DescribeTrustedAdvisorCheckResult
 
@@ -123,7 +116,6 @@ amazonaws_support.DescribeTrustedAdvisorCheckRefreshStatuses({}, context)
 amazonaws_support.DescribeTrustedAdvisorCheckResult({}, context)
 ```
 
-#### Parameters
 
 ### DescribeTrustedAdvisorCheckSummaries
 
@@ -133,7 +125,6 @@ amazonaws_support.DescribeTrustedAdvisorCheckResult({}, context)
 amazonaws_support.DescribeTrustedAdvisorCheckSummaries({}, context)
 ```
 
-#### Parameters
 
 ### DescribeTrustedAdvisorChecks
 
@@ -143,7 +134,6 @@ amazonaws_support.DescribeTrustedAdvisorCheckSummaries({}, context)
 amazonaws_support.DescribeTrustedAdvisorChecks({}, context)
 ```
 
-#### Parameters
 
 ### RefreshTrustedAdvisorCheck
 
@@ -153,7 +143,6 @@ amazonaws_support.DescribeTrustedAdvisorChecks({}, context)
 amazonaws_support.RefreshTrustedAdvisorCheck({}, context)
 ```
 
-#### Parameters
 
 ### ResolveCase
 
@@ -163,5 +152,4 @@ amazonaws_support.RefreshTrustedAdvisorCheck({}, context)
 amazonaws_support.ResolveCase({}, context)
 ```
 
-#### Parameters
 

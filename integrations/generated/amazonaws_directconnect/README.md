@@ -29,7 +29,6 @@ AWS Direct Connect links your internal network to an AWS Direct Connect location
 amazonaws_directconnect.AllocateConnectionOnInterconnect({}, context)
 ```
 
-#### Parameters
 
 ### AllocateHostedConnection
 
@@ -39,7 +38,6 @@ amazonaws_directconnect.AllocateConnectionOnInterconnect({}, context)
 amazonaws_directconnect.AllocateHostedConnection({}, context)
 ```
 
-#### Parameters
 
 ### AllocatePrivateVirtualInterface
 
@@ -49,7 +47,6 @@ amazonaws_directconnect.AllocateHostedConnection({}, context)
 amazonaws_directconnect.AllocatePrivateVirtualInterface({}, context)
 ```
 
-#### Parameters
 
 ### AllocatePublicVirtualInterface
 
@@ -59,7 +56,6 @@ amazonaws_directconnect.AllocatePrivateVirtualInterface({}, context)
 amazonaws_directconnect.AllocatePublicVirtualInterface({}, context)
 ```
 
-#### Parameters
 
 ### AssociateConnectionWithLag
 
@@ -69,7 +65,6 @@ amazonaws_directconnect.AllocatePublicVirtualInterface({}, context)
 amazonaws_directconnect.AssociateConnectionWithLag({}, context)
 ```
 
-#### Parameters
 
 ### AssociateHostedConnection
 
@@ -79,7 +74,6 @@ amazonaws_directconnect.AssociateConnectionWithLag({}, context)
 amazonaws_directconnect.AssociateHostedConnection({}, context)
 ```
 
-#### Parameters
 
 ### AssociateVirtualInterface
 
@@ -89,7 +83,6 @@ amazonaws_directconnect.AssociateHostedConnection({}, context)
 amazonaws_directconnect.AssociateVirtualInterface({}, context)
 ```
 
-#### Parameters
 
 ### ConfirmConnection
 
@@ -99,7 +92,6 @@ amazonaws_directconnect.AssociateVirtualInterface({}, context)
 amazonaws_directconnect.ConfirmConnection({}, context)
 ```
 
-#### Parameters
 
 ### ConfirmPrivateVirtualInterface
 
@@ -109,7 +101,6 @@ amazonaws_directconnect.ConfirmConnection({}, context)
 amazonaws_directconnect.ConfirmPrivateVirtualInterface({}, context)
 ```
 
-#### Parameters
 
 ### ConfirmPublicVirtualInterface
 
@@ -119,7 +110,6 @@ amazonaws_directconnect.ConfirmPrivateVirtualInterface({}, context)
 amazonaws_directconnect.ConfirmPublicVirtualInterface({}, context)
 ```
 
-#### Parameters
 
 ### CreateBGPPeer
 
@@ -129,7 +119,6 @@ amazonaws_directconnect.ConfirmPublicVirtualInterface({}, context)
 amazonaws_directconnect.CreateBGPPeer({}, context)
 ```
 
-#### Parameters
 
 ### CreateConnection
 
@@ -139,7 +128,6 @@ amazonaws_directconnect.CreateBGPPeer({}, context)
 amazonaws_directconnect.CreateConnection({}, context)
 ```
 
-#### Parameters
 
 ### CreateInterconnect
 
@@ -149,7 +137,6 @@ amazonaws_directconnect.CreateConnection({}, context)
 amazonaws_directconnect.CreateInterconnect({}, context)
 ```
 
-#### Parameters
 
 ### CreateLag
 
@@ -159,7 +146,6 @@ amazonaws_directconnect.CreateInterconnect({}, context)
 amazonaws_directconnect.CreateLag({}, context)
 ```
 
-#### Parameters
 
 ### CreatePrivateVirtualInterface
 
@@ -169,7 +155,6 @@ amazonaws_directconnect.CreateLag({}, context)
 amazonaws_directconnect.CreatePrivateVirtualInterface({}, context)
 ```
 
-#### Parameters
 
 ### CreatePublicVirtualInterface
 
@@ -179,7 +164,6 @@ amazonaws_directconnect.CreatePrivateVirtualInterface({}, context)
 amazonaws_directconnect.CreatePublicVirtualInterface({}, context)
 ```
 
-#### Parameters
 
 ### DeleteBGPPeer
 
@@ -189,7 +173,6 @@ amazonaws_directconnect.CreatePublicVirtualInterface({}, context)
 amazonaws_directconnect.DeleteBGPPeer({}, context)
 ```
 
-#### Parameters
 
 ### DeleteConnection
 
@@ -199,7 +182,6 @@ amazonaws_directconnect.DeleteBGPPeer({}, context)
 amazonaws_directconnect.DeleteConnection({}, context)
 ```
 
-#### Parameters
 
 ### DeleteInterconnect
 
@@ -209,7 +191,6 @@ amazonaws_directconnect.DeleteConnection({}, context)
 amazonaws_directconnect.DeleteInterconnect({}, context)
 ```
 
-#### Parameters
 
 ### DeleteLag
 
@@ -219,7 +200,6 @@ amazonaws_directconnect.DeleteInterconnect({}, context)
 amazonaws_directconnect.DeleteLag({}, context)
 ```
 
-#### Parameters
 
 ### DeleteVirtualInterface
 
@@ -229,7 +209,6 @@ amazonaws_directconnect.DeleteLag({}, context)
 amazonaws_directconnect.DeleteVirtualInterface({}, context)
 ```
 
-#### Parameters
 
 ### DescribeConnectionLoa
 
@@ -239,7 +218,6 @@ amazonaws_directconnect.DeleteVirtualInterface({}, context)
 amazonaws_directconnect.DescribeConnectionLoa({}, context)
 ```
 
-#### Parameters
 
 ### DescribeConnections
 
@@ -249,7 +227,6 @@ amazonaws_directconnect.DescribeConnectionLoa({}, context)
 amazonaws_directconnect.DescribeConnections({}, context)
 ```
 
-#### Parameters
 
 ### DescribeConnectionsOnInterconnect
 
@@ -259,7 +236,6 @@ amazonaws_directconnect.DescribeConnections({}, context)
 amazonaws_directconnect.DescribeConnectionsOnInterconnect({}, context)
 ```
 
-#### Parameters
 
 ### DescribeHostedConnections
 
@@ -269,7 +245,6 @@ amazonaws_directconnect.DescribeConnectionsOnInterconnect({}, context)
 amazonaws_directconnect.DescribeHostedConnections({}, context)
 ```
 
-#### Parameters
 
 ### DescribeInterconnectLoa
 
@@ -279,7 +254,6 @@ amazonaws_directconnect.DescribeHostedConnections({}, context)
 amazonaws_directconnect.DescribeInterconnectLoa({}, context)
 ```
 
-#### Parameters
 
 ### DescribeInterconnects
 
@@ -289,7 +263,6 @@ amazonaws_directconnect.DescribeInterconnectLoa({}, context)
 amazonaws_directconnect.DescribeInterconnects({}, context)
 ```
 
-#### Parameters
 
 ### DescribeLags
 
@@ -299,7 +272,6 @@ amazonaws_directconnect.DescribeInterconnects({}, context)
 amazonaws_directconnect.DescribeLags({}, context)
 ```
 
-#### Parameters
 
 ### DescribeLoa
 
@@ -309,7 +281,6 @@ amazonaws_directconnect.DescribeLags({}, context)
 amazonaws_directconnect.DescribeLoa({}, context)
 ```
 
-#### Parameters
 
 ### DescribeLocations
 
@@ -319,7 +290,6 @@ amazonaws_directconnect.DescribeLoa({}, context)
 amazonaws_directconnect.DescribeLocations({}, context)
 ```
 
-#### Parameters
 
 ### DescribeTags
 
@@ -329,7 +299,6 @@ amazonaws_directconnect.DescribeLocations({}, context)
 amazonaws_directconnect.DescribeTags({}, context)
 ```
 
-#### Parameters
 
 ### DescribeVirtualGateways
 
@@ -339,7 +308,6 @@ amazonaws_directconnect.DescribeTags({}, context)
 amazonaws_directconnect.DescribeVirtualGateways({}, context)
 ```
 
-#### Parameters
 
 ### DescribeVirtualInterfaces
 
@@ -349,7 +317,6 @@ amazonaws_directconnect.DescribeVirtualGateways({}, context)
 amazonaws_directconnect.DescribeVirtualInterfaces({}, context)
 ```
 
-#### Parameters
 
 ### DisassociateConnectionFromLag
 
@@ -359,7 +326,6 @@ amazonaws_directconnect.DescribeVirtualInterfaces({}, context)
 amazonaws_directconnect.DisassociateConnectionFromLag({}, context)
 ```
 
-#### Parameters
 
 ### TagResource
 
@@ -369,7 +335,6 @@ amazonaws_directconnect.DisassociateConnectionFromLag({}, context)
 amazonaws_directconnect.TagResource({}, context)
 ```
 
-#### Parameters
 
 ### UntagResource
 
@@ -379,7 +344,6 @@ amazonaws_directconnect.TagResource({}, context)
 amazonaws_directconnect.UntagResource({}, context)
 ```
 
-#### Parameters
 
 ### UpdateLag
 
@@ -389,5 +353,4 @@ amazonaws_directconnect.UntagResource({}, context)
 amazonaws_directconnect.UpdateLag({}, context)
 ```
 
-#### Parameters
 

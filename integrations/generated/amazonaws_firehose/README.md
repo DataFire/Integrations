@@ -29,7 +29,6 @@ amazonaws_firehose.CreateDeliveryStream({}, context).then(data => {
 amazonaws_firehose.CreateDeliveryStream({}, context)
 ```
 
-#### Parameters
 
 ### DeleteDeliveryStream
 
@@ -39,7 +38,6 @@ amazonaws_firehose.CreateDeliveryStream({}, context)
 amazonaws_firehose.DeleteDeliveryStream({}, context)
 ```
 
-#### Parameters
 
 ### DescribeDeliveryStream
 
@@ -49,7 +47,6 @@ amazonaws_firehose.DeleteDeliveryStream({}, context)
 amazonaws_firehose.DescribeDeliveryStream({}, context)
 ```
 
-#### Parameters
 
 ### ListDeliveryStreams
 
@@ -59,7 +56,6 @@ amazonaws_firehose.DescribeDeliveryStream({}, context)
 amazonaws_firehose.ListDeliveryStreams({}, context)
 ```
 
-#### Parameters
 
 ### PutRecord
 
@@ -69,7 +65,6 @@ amazonaws_firehose.ListDeliveryStreams({}, context)
 amazonaws_firehose.PutRecord({}, context)
 ```
 
-#### Parameters
 
 ### PutRecordBatch
 
@@ -79,7 +74,6 @@ amazonaws_firehose.PutRecord({}, context)
 amazonaws_firehose.PutRecordBatch({}, context)
 ```
 
-#### Parameters
 
 ### UpdateDestination
 
@@ -89,5 +83,4 @@ amazonaws_firehose.PutRecordBatch({}, context)
 amazonaws_firehose.UpdateDestination({}, context)
 ```
 
-#### Parameters
 

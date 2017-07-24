@@ -29,7 +29,6 @@ Amazon SimpleDB is a web service providing the core database functions of data i
 amazonaws_sdb.BatchDeleteAttributes({}, context)
 ```
 
-#### Parameters
 
 ### BatchPutAttributes
 
@@ -39,7 +38,6 @@ amazonaws_sdb.BatchDeleteAttributes({}, context)
 amazonaws_sdb.BatchPutAttributes({}, context)
 ```
 
-#### Parameters
 
 ### CreateDomain
 
@@ -49,7 +47,6 @@ amazonaws_sdb.BatchPutAttributes({}, context)
 amazonaws_sdb.CreateDomain({}, context)
 ```
 
-#### Parameters
 
 ### DeleteAttributes
 
@@ -59,7 +56,6 @@ amazonaws_sdb.CreateDomain({}, context)
 amazonaws_sdb.DeleteAttributes({}, context)
 ```
 
-#### Parameters
 
 ### DeleteDomain
 
@@ -69,7 +65,6 @@ amazonaws_sdb.DeleteAttributes({}, context)
 amazonaws_sdb.DeleteDomain({}, context)
 ```
 
-#### Parameters
 
 ### DomainMetadata
 
@@ -79,7 +74,6 @@ amazonaws_sdb.DeleteDomain({}, context)
 amazonaws_sdb.DomainMetadata({}, context)
 ```
 
-#### Parameters
 
 ### GetAttributes
 
@@ -89,7 +83,6 @@ amazonaws_sdb.DomainMetadata({}, context)
 amazonaws_sdb.GetAttributes({}, context)
 ```
 
-#### Parameters
 
 ### ListDomains
 
@@ -111,7 +104,6 @@ amazonaws_sdb.ListDomains({}, context)
 amazonaws_sdb.PutAttributes({}, context)
 ```
 
-#### Parameters
 
 ### Select
 

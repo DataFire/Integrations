@@ -29,7 +29,6 @@ amazonaws_s3.ListBuckets({}, context).then(data => {
 amazonaws_s3.ListBuckets({}, context)
 ```
 
-#### Parameters
 
 ### DeleteBucket
 

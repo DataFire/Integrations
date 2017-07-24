@@ -29,7 +29,6 @@ amazonaws_autoscaling.DeleteScalingPolicy({}, context).then(data => {
 amazonaws_autoscaling.DeleteScalingPolicy({}, context)
 ```
 
-#### Parameters
 
 ### DeregisterScalableTarget
 
@@ -39,7 +38,6 @@ amazonaws_autoscaling.DeleteScalingPolicy({}, context)
 amazonaws_autoscaling.DeregisterScalableTarget({}, context)
 ```
 
-#### Parameters
 
 ### DescribeScalableTargets
 
@@ -85,7 +83,6 @@ amazonaws_autoscaling.DescribeScalingPolicies({}, context)
 amazonaws_autoscaling.PutScalingPolicy({}, context)
 ```
 
-#### Parameters
 
 ### RegisterScalableTarget
 
@@ -95,5 +92,4 @@ amazonaws_autoscaling.PutScalingPolicy({}, context)
 amazonaws_autoscaling.RegisterScalableTarget({}, context)
 ```
 
-#### Parameters
 

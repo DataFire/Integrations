@@ -29,7 +29,6 @@ amazonaws_swf.CountClosedWorkflowExecutions({}, context).then(data => {
 amazonaws_swf.CountClosedWorkflowExecutions({}, context)
 ```
 
-#### Parameters
 
 ### CountOpenWorkflowExecutions
 
@@ -39,7 +38,6 @@ amazonaws_swf.CountClosedWorkflowExecutions({}, context)
 amazonaws_swf.CountOpenWorkflowExecutions({}, context)
 ```
 
-#### Parameters
 
 ### CountPendingActivityTasks
 
@@ -49,7 +47,6 @@ amazonaws_swf.CountOpenWorkflowExecutions({}, context)
 amazonaws_swf.CountPendingActivityTasks({}, context)
 ```
 
-#### Parameters
 
 ### CountPendingDecisionTasks
 
@@ -59,7 +56,6 @@ amazonaws_swf.CountPendingActivityTasks({}, context)
 amazonaws_swf.CountPendingDecisionTasks({}, context)
 ```
 
-#### Parameters
 
 ### DeprecateActivityType
 
@@ -69,7 +65,6 @@ amazonaws_swf.CountPendingDecisionTasks({}, context)
 amazonaws_swf.DeprecateActivityType({}, context)
 ```
 
-#### Parameters
 
 ### DeprecateDomain
 
@@ -79,7 +74,6 @@ amazonaws_swf.DeprecateActivityType({}, context)
 amazonaws_swf.DeprecateDomain({}, context)
 ```
 
-#### Parameters
 
 ### DeprecateWorkflowType
 
@@ -89,7 +83,6 @@ amazonaws_swf.DeprecateDomain({}, context)
 amazonaws_swf.DeprecateWorkflowType({}, context)
 ```
 
-#### Parameters
 
 ### DescribeActivityType
 
@@ -99,7 +92,6 @@ amazonaws_swf.DeprecateWorkflowType({}, context)
 amazonaws_swf.DescribeActivityType({}, context)
 ```
 
-#### Parameters
 
 ### DescribeDomain
 
@@ -109,7 +101,6 @@ amazonaws_swf.DescribeActivityType({}, context)
 amazonaws_swf.DescribeDomain({}, context)
 ```
 
-#### Parameters
 
 ### DescribeWorkflowExecution
 
@@ -119,7 +110,6 @@ amazonaws_swf.DescribeDomain({}, context)
 amazonaws_swf.DescribeWorkflowExecution({}, context)
 ```
 
-#### Parameters
 
 ### DescribeWorkflowType
 
@@ -129,7 +119,6 @@ amazonaws_swf.DescribeWorkflowExecution({}, context)
 amazonaws_swf.DescribeWorkflowType({}, context)
 ```
 
-#### Parameters
 
 ### GetWorkflowExecutionHistory
 
@@ -211,7 +200,6 @@ amazonaws_swf.ListWorkflowTypes({}, context)
 amazonaws_swf.PollForActivityTask({}, context)
 ```
 
-#### Parameters
 
 ### PollForDecisionTask
 
@@ -233,7 +221,6 @@ amazonaws_swf.PollForDecisionTask({}, context)
 amazonaws_swf.RecordActivityTaskHeartbeat({}, context)
 ```
 
-#### Parameters
 
 ### RegisterActivityType
 
@@ -243,7 +230,6 @@ amazonaws_swf.RecordActivityTaskHeartbeat({}, context)
 amazonaws_swf.RegisterActivityType({}, context)
 ```
 
-#### Parameters
 
 ### RegisterDomain
 
@@ -253,7 +239,6 @@ amazonaws_swf.RegisterActivityType({}, context)
 amazonaws_swf.RegisterDomain({}, context)
 ```
 
-#### Parameters
 
 ### RegisterWorkflowType
 
@@ -263,7 +248,6 @@ amazonaws_swf.RegisterDomain({}, context)
 amazonaws_swf.RegisterWorkflowType({}, context)
 ```
 
-#### Parameters
 
 ### RequestCancelWorkflowExecution
 
@@ -273,7 +257,6 @@ amazonaws_swf.RegisterWorkflowType({}, context)
 amazonaws_swf.RequestCancelWorkflowExecution({}, context)
 ```
 
-#### Parameters
 
 ### RespondActivityTaskCanceled
 
@@ -283,7 +266,6 @@ amazonaws_swf.RequestCancelWorkflowExecution({}, context)
 amazonaws_swf.RespondActivityTaskCanceled({}, context)
 ```
 
-#### Parameters
 
 ### RespondActivityTaskCompleted
 
@@ -293,7 +275,6 @@ amazonaws_swf.RespondActivityTaskCanceled({}, context)
 amazonaws_swf.RespondActivityTaskCompleted({}, context)
 ```
 
-#### Parameters
 
 ### RespondActivityTaskFailed
 
@@ -303,7 +284,6 @@ amazonaws_swf.RespondActivityTaskCompleted({}, context)
 amazonaws_swf.RespondActivityTaskFailed({}, context)
 ```
 
-#### Parameters
 
 ### RespondDecisionTaskCompleted
 
@@ -313,7 +293,6 @@ amazonaws_swf.RespondActivityTaskFailed({}, context)
 amazonaws_swf.RespondDecisionTaskCompleted({}, context)
 ```
 
-#### Parameters
 
 ### SignalWorkflowExecution
 
@@ -323,7 +302,6 @@ amazonaws_swf.RespondDecisionTaskCompleted({}, context)
 amazonaws_swf.SignalWorkflowExecution({}, context)
 ```
 
-#### Parameters
 
 ### StartWorkflowExecution
 
@@ -333,7 +311,6 @@ amazonaws_swf.SignalWorkflowExecution({}, context)
 amazonaws_swf.StartWorkflowExecution({}, context)
 ```
 
-#### Parameters
 
 ### TerminateWorkflowExecution
 
@@ -343,5 +320,4 @@ amazonaws_swf.StartWorkflowExecution({}, context)
 amazonaws_swf.TerminateWorkflowExecution({}, context)
 ```
 
-#### Parameters
 

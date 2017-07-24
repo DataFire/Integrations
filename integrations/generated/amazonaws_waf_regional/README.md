@@ -29,7 +29,6 @@ This is the <i>AWS WAF Regional API Reference</i> for using AWS WAF with Elastic
 amazonaws_waf_regional.AssociateWebACL({}, context)
 ```
 
-#### Parameters
 
 ### CreateByteMatchSet
 
@@ -39,7 +38,6 @@ amazonaws_waf_regional.AssociateWebACL({}, context)
 amazonaws_waf_regional.CreateByteMatchSet({}, context)
 ```
 
-#### Parameters
 
 ### CreateIPSet
 
@@ -49,7 +47,6 @@ amazonaws_waf_regional.CreateByteMatchSet({}, context)
 amazonaws_waf_regional.CreateIPSet({}, context)
 ```
 
-#### Parameters
 
 ### CreateRule
 
@@ -59,7 +56,6 @@ amazonaws_waf_regional.CreateIPSet({}, context)
 amazonaws_waf_regional.CreateRule({}, context)
 ```
 
-#### Parameters
 
 ### CreateSizeConstraintSet
 
@@ -69,7 +65,6 @@ amazonaws_waf_regional.CreateRule({}, context)
 amazonaws_waf_regional.CreateSizeConstraintSet({}, context)
 ```
 
-#### Parameters
 
 ### CreateSqlInjectionMatchSet
 
@@ -79,7 +74,6 @@ amazonaws_waf_regional.CreateSizeConstraintSet({}, context)
 amazonaws_waf_regional.CreateSqlInjectionMatchSet({}, context)
 ```
 
-#### Parameters
 
 ### CreateWebACL
 
@@ -89,7 +83,6 @@ amazonaws_waf_regional.CreateSqlInjectionMatchSet({}, context)
 amazonaws_waf_regional.CreateWebACL({}, context)
 ```
 
-#### Parameters
 
 ### CreateXssMatchSet
 
@@ -99,7 +92,6 @@ amazonaws_waf_regional.CreateWebACL({}, context)
 amazonaws_waf_regional.CreateXssMatchSet({}, context)
 ```
 
-#### Parameters
 
 ### DeleteByteMatchSet
 
@@ -109,7 +101,6 @@ amazonaws_waf_regional.CreateXssMatchSet({}, context)
 amazonaws_waf_regional.DeleteByteMatchSet({}, context)
 ```
 
-#### Parameters
 
 ### DeleteIPSet
 
@@ -119,7 +110,6 @@ amazonaws_waf_regional.DeleteByteMatchSet({}, context)
 amazonaws_waf_regional.DeleteIPSet({}, context)
 ```
 
-#### Parameters
 
 ### DeleteRule
 
@@ -129,7 +119,6 @@ amazonaws_waf_regional.DeleteIPSet({}, context)
 amazonaws_waf_regional.DeleteRule({}, context)
 ```
 
-#### Parameters
 
 ### DeleteSizeConstraintSet
 
@@ -139,7 +128,6 @@ amazonaws_waf_regional.DeleteRule({}, context)
 amazonaws_waf_regional.DeleteSizeConstraintSet({}, context)
 ```
 
-#### Parameters
 
 ### DeleteSqlInjectionMatchSet
 
@@ -149,7 +137,6 @@ amazonaws_waf_regional.DeleteSizeConstraintSet({}, context)
 amazonaws_waf_regional.DeleteSqlInjectionMatchSet({}, context)
 ```
 
-#### Parameters
 
 ### DeleteWebACL
 
@@ -159,7 +146,6 @@ amazonaws_waf_regional.DeleteSqlInjectionMatchSet({}, context)
 amazonaws_waf_regional.DeleteWebACL({}, context)
 ```
 
-#### Parameters
 
 ### DeleteXssMatchSet
 
@@ -169,7 +155,6 @@ amazonaws_waf_regional.DeleteWebACL({}, context)
 amazonaws_waf_regional.DeleteXssMatchSet({}, context)
 ```
 
-#### Parameters
 
 ### DisassociateWebACL
 
@@ -179,7 +164,6 @@ amazonaws_waf_regional.DeleteXssMatchSet({}, context)
 amazonaws_waf_regional.DisassociateWebACL({}, context)
 ```
 
-#### Parameters
 
 ### GetByteMatchSet
 
@@ -189,7 +173,6 @@ amazonaws_waf_regional.DisassociateWebACL({}, context)
 amazonaws_waf_regional.GetByteMatchSet({}, context)
 ```
 
-#### Parameters
 
 ### GetChangeToken
 
@@ -199,7 +182,6 @@ amazonaws_waf_regional.GetByteMatchSet({}, context)
 amazonaws_waf_regional.GetChangeToken({}, context)
 ```
 
-#### Parameters
 
 ### GetChangeTokenStatus
 
@@ -209,7 +191,6 @@ amazonaws_waf_regional.GetChangeToken({}, context)
 amazonaws_waf_regional.GetChangeTokenStatus({}, context)
 ```
 
-#### Parameters
 
 ### GetIPSet
 
@@ -219,7 +200,6 @@ amazonaws_waf_regional.GetChangeTokenStatus({}, context)
 amazonaws_waf_regional.GetIPSet({}, context)
 ```
 
-#### Parameters
 
 ### GetRule
 
@@ -229,7 +209,6 @@ amazonaws_waf_regional.GetIPSet({}, context)
 amazonaws_waf_regional.GetRule({}, context)
 ```
 
-#### Parameters
 
 ### GetSampledRequests
 
@@ -239,7 +218,6 @@ amazonaws_waf_regional.GetRule({}, context)
 amazonaws_waf_regional.GetSampledRequests({}, context)
 ```
 
-#### Parameters
 
 ### GetSizeConstraintSet
 
@@ -249,7 +227,6 @@ amazonaws_waf_regional.GetSampledRequests({}, context)
 amazonaws_waf_regional.GetSizeConstraintSet({}, context)
 ```
 
-#### Parameters
 
 ### GetSqlInjectionMatchSet
 
@@ -259,7 +236,6 @@ amazonaws_waf_regional.GetSizeConstraintSet({}, context)
 amazonaws_waf_regional.GetSqlInjectionMatchSet({}, context)
 ```
 
-#### Parameters
 
 ### GetWebACL
 
@@ -269,7 +245,6 @@ amazonaws_waf_regional.GetSqlInjectionMatchSet({}, context)
 amazonaws_waf_regional.GetWebACL({}, context)
 ```
 
-#### Parameters
 
 ### GetWebACLForResource
 
@@ -279,7 +254,6 @@ amazonaws_waf_regional.GetWebACL({}, context)
 amazonaws_waf_regional.GetWebACLForResource({}, context)
 ```
 
-#### Parameters
 
 ### GetXssMatchSet
 
@@ -289,7 +263,6 @@ amazonaws_waf_regional.GetWebACLForResource({}, context)
 amazonaws_waf_regional.GetXssMatchSet({}, context)
 ```
 
-#### Parameters
 
 ### ListByteMatchSets
 
@@ -299,7 +272,6 @@ amazonaws_waf_regional.GetXssMatchSet({}, context)
 amazonaws_waf_regional.ListByteMatchSets({}, context)
 ```
 
-#### Parameters
 
 ### ListIPSets
 
@@ -309,7 +281,6 @@ amazonaws_waf_regional.ListByteMatchSets({}, context)
 amazonaws_waf_regional.ListIPSets({}, context)
 ```
 
-#### Parameters
 
 ### ListResourcesForWebACL
 
@@ -319,7 +290,6 @@ amazonaws_waf_regional.ListIPSets({}, context)
 amazonaws_waf_regional.ListResourcesForWebACL({}, context)
 ```
 
-#### Parameters
 
 ### ListRules
 
@@ -329,7 +299,6 @@ amazonaws_waf_regional.ListResourcesForWebACL({}, context)
 amazonaws_waf_regional.ListRules({}, context)
 ```
 
-#### Parameters
 
 ### ListSizeConstraintSets
 
@@ -339,7 +308,6 @@ amazonaws_waf_regional.ListRules({}, context)
 amazonaws_waf_regional.ListSizeConstraintSets({}, context)
 ```
 
-#### Parameters
 
 ### ListSqlInjectionMatchSets
 
@@ -349,7 +317,6 @@ amazonaws_waf_regional.ListSizeConstraintSets({}, context)
 amazonaws_waf_regional.ListSqlInjectionMatchSets({}, context)
 ```
 
-#### Parameters
 
 ### ListWebACLs
 
@@ -359,7 +326,6 @@ amazonaws_waf_regional.ListSqlInjectionMatchSets({}, context)
 amazonaws_waf_regional.ListWebACLs({}, context)
 ```
 
-#### Parameters
 
 ### ListXssMatchSets
 
@@ -369,7 +335,6 @@ amazonaws_waf_regional.ListWebACLs({}, context)
 amazonaws_waf_regional.ListXssMatchSets({}, context)
 ```
 
-#### Parameters
 
 ### UpdateByteMatchSet
 
@@ -379,7 +344,6 @@ amazonaws_waf_regional.ListXssMatchSets({}, context)
 amazonaws_waf_regional.UpdateByteMatchSet({}, context)
 ```
 
-#### Parameters
 
 ### UpdateIPSet
 
@@ -389,7 +353,6 @@ amazonaws_waf_regional.UpdateByteMatchSet({}, context)
 amazonaws_waf_regional.UpdateIPSet({}, context)
 ```
 
-#### Parameters
 
 ### UpdateRule
 
@@ -399,7 +362,6 @@ amazonaws_waf_regional.UpdateIPSet({}, context)
 amazonaws_waf_regional.UpdateRule({}, context)
 ```
 
-#### Parameters
 
 ### UpdateSizeConstraintSet
 
@@ -409,7 +371,6 @@ amazonaws_waf_regional.UpdateRule({}, context)
 amazonaws_waf_regional.UpdateSizeConstraintSet({}, context)
 ```
 
-#### Parameters
 
 ### UpdateSqlInjectionMatchSet
 
@@ -419,7 +380,6 @@ amazonaws_waf_regional.UpdateSizeConstraintSet({}, context)
 amazonaws_waf_regional.UpdateSqlInjectionMatchSet({}, context)
 ```
 
-#### Parameters
 
 ### UpdateWebACL
 
@@ -429,7 +389,6 @@ amazonaws_waf_regional.UpdateSqlInjectionMatchSet({}, context)
 amazonaws_waf_regional.UpdateWebACL({}, context)
 ```
 
-#### Parameters
 
 ### UpdateXssMatchSet
 
@@ -439,5 +398,4 @@ amazonaws_waf_regional.UpdateWebACL({}, context)
 amazonaws_waf_regional.UpdateXssMatchSet({}, context)
 ```
 
-#### Parameters
 

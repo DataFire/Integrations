@@ -29,7 +29,6 @@ amazonaws_cloudtrail.AddTags({}, context).then(data => {
 amazonaws_cloudtrail.AddTags({}, context)
 ```
 
-#### Parameters
 
 ### CreateTrail
 
@@ -39,7 +38,6 @@ amazonaws_cloudtrail.AddTags({}, context)
 amazonaws_cloudtrail.CreateTrail({}, context)
 ```
 
-#### Parameters
 
 ### DeleteTrail
 
@@ -49,7 +47,6 @@ amazonaws_cloudtrail.CreateTrail({}, context)
 amazonaws_cloudtrail.DeleteTrail({}, context)
 ```
 
-#### Parameters
 
 ### DescribeTrails
 
@@ -59,7 +56,6 @@ amazonaws_cloudtrail.DeleteTrail({}, context)
 amazonaws_cloudtrail.DescribeTrails({}, context)
 ```
 
-#### Parameters
 
 ### GetEventSelectors
 
@@ -69,7 +65,6 @@ amazonaws_cloudtrail.DescribeTrails({}, context)
 amazonaws_cloudtrail.GetEventSelectors({}, context)
 ```
 
-#### Parameters
 
 ### GetTrailStatus
 
@@ -79,7 +74,6 @@ amazonaws_cloudtrail.GetEventSelectors({}, context)
 amazonaws_cloudtrail.GetTrailStatus({}, context)
 ```
 
-#### Parameters
 
 ### ListPublicKeys
 
@@ -89,7 +83,6 @@ amazonaws_cloudtrail.GetTrailStatus({}, context)
 amazonaws_cloudtrail.ListPublicKeys({}, context)
 ```
 
-#### Parameters
 
 ### ListTags
 
@@ -99,7 +92,6 @@ amazonaws_cloudtrail.ListPublicKeys({}, context)
 amazonaws_cloudtrail.ListTags({}, context)
 ```
 
-#### Parameters
 
 ### LookupEvents
 
@@ -121,7 +113,6 @@ amazonaws_cloudtrail.LookupEvents({}, context)
 amazonaws_cloudtrail.PutEventSelectors({}, context)
 ```
 
-#### Parameters
 
 ### RemoveTags
 
@@ -131,7 +122,6 @@ amazonaws_cloudtrail.PutEventSelectors({}, context)
 amazonaws_cloudtrail.RemoveTags({}, context)
 ```
 
-#### Parameters
 
 ### StartLogging
 
@@ -141,7 +131,6 @@ amazonaws_cloudtrail.RemoveTags({}, context)
 amazonaws_cloudtrail.StartLogging({}, context)
 ```
 
-#### Parameters
 
 ### StopLogging
 
@@ -151,7 +140,6 @@ amazonaws_cloudtrail.StartLogging({}, context)
 amazonaws_cloudtrail.StopLogging({}, context)
 ```
 
-#### Parameters
 
 ### UpdateTrail
 
@@ -161,5 +149,4 @@ amazonaws_cloudtrail.StopLogging({}, context)
 amazonaws_cloudtrail.UpdateTrail({}, context)
 ```
 
-#### Parameters
 

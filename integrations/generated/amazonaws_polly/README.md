@@ -29,7 +29,6 @@ amazonaws_polly.ListLexicons({}, context).then(data => {
 amazonaws_polly.ListLexicons({}, context)
 ```
 
-#### Parameters
 
 ### PutLexicon
 
@@ -52,7 +51,6 @@ amazonaws_polly.PutLexicon({
 amazonaws_polly.SynthesizeSpeech({}, context)
 ```
 
-#### Parameters
 
 ### DescribeVoices
 
@@ -62,5 +60,4 @@ amazonaws_polly.SynthesizeSpeech({}, context)
 amazonaws_polly.DescribeVoices({}, context)
 ```
 
-#### Parameters
 

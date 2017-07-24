@@ -29,7 +29,6 @@ All public APIs for AWS Budgets
 amazonaws_budgets.CreateBudget({}, context)
 ```
 
-#### Parameters
 
 ### CreateNotification
 
@@ -39,7 +38,6 @@ amazonaws_budgets.CreateBudget({}, context)
 amazonaws_budgets.CreateNotification({}, context)
 ```
 
-#### Parameters
 
 ### CreateSubscriber
 
@@ -49,7 +47,6 @@ amazonaws_budgets.CreateNotification({}, context)
 amazonaws_budgets.CreateSubscriber({}, context)
 ```
 
-#### Parameters
 
 ### DeleteBudget
 
@@ -59,7 +56,6 @@ amazonaws_budgets.CreateSubscriber({}, context)
 amazonaws_budgets.DeleteBudget({}, context)
 ```
 
-#### Parameters
 
 ### DeleteNotification
 
@@ -69,7 +65,6 @@ amazonaws_budgets.DeleteBudget({}, context)
 amazonaws_budgets.DeleteNotification({}, context)
 ```
 
-#### Parameters
 
 ### DeleteSubscriber
 
@@ -79,7 +74,6 @@ amazonaws_budgets.DeleteNotification({}, context)
 amazonaws_budgets.DeleteSubscriber({}, context)
 ```
 
-#### Parameters
 
 ### DescribeBudget
 
@@ -89,7 +83,6 @@ amazonaws_budgets.DeleteSubscriber({}, context)
 amazonaws_budgets.DescribeBudget({}, context)
 ```
 
-#### Parameters
 
 ### DescribeBudgets
 
@@ -99,7 +92,6 @@ amazonaws_budgets.DescribeBudget({}, context)
 amazonaws_budgets.DescribeBudgets({}, context)
 ```
 
-#### Parameters
 
 ### DescribeNotificationsForBudget
 
@@ -109,7 +101,6 @@ amazonaws_budgets.DescribeBudgets({}, context)
 amazonaws_budgets.DescribeNotificationsForBudget({}, context)
 ```
 
-#### Parameters
 
 ### DescribeSubscribersForNotification
 
@@ -119,7 +110,6 @@ amazonaws_budgets.DescribeNotificationsForBudget({}, context)
 amazonaws_budgets.DescribeSubscribersForNotification({}, context)
 ```
 
-#### Parameters
 
 ### UpdateBudget
 
@@ -129,7 +119,6 @@ amazonaws_budgets.DescribeSubscribersForNotification({}, context)
 amazonaws_budgets.UpdateBudget({}, context)
 ```
 
-#### Parameters
 
 ### UpdateNotification
 
@@ -139,7 +128,6 @@ amazonaws_budgets.UpdateBudget({}, context)
 amazonaws_budgets.UpdateNotification({}, context)
 ```
 
-#### Parameters
 
 ### UpdateSubscriber
 
@@ -149,5 +137,4 @@ amazonaws_budgets.UpdateNotification({}, context)
 amazonaws_budgets.UpdateSubscriber({}, context)
 ```
 
-#### Parameters
 

@@ -29,7 +29,6 @@ amazonaws_cloudhsm.AddTagsToResource({}, context).then(data => {
 amazonaws_cloudhsm.AddTagsToResource({}, context)
 ```
 
-#### Parameters
 
 ### CreateHapg
 
@@ -39,7 +38,6 @@ amazonaws_cloudhsm.AddTagsToResource({}, context)
 amazonaws_cloudhsm.CreateHapg({}, context)
 ```
 
-#### Parameters
 
 ### CreateHsm
 
@@ -49,7 +47,6 @@ amazonaws_cloudhsm.CreateHapg({}, context)
 amazonaws_cloudhsm.CreateHsm({}, context)
 ```
 
-#### Parameters
 
 ### CreateLunaClient
 
@@ -59,7 +56,6 @@ amazonaws_cloudhsm.CreateHsm({}, context)
 amazonaws_cloudhsm.CreateLunaClient({}, context)
 ```
 
-#### Parameters
 
 ### DeleteHapg
 
@@ -69,7 +65,6 @@ amazonaws_cloudhsm.CreateLunaClient({}, context)
 amazonaws_cloudhsm.DeleteHapg({}, context)
 ```
 
-#### Parameters
 
 ### DeleteHsm
 
@@ -79,7 +74,6 @@ amazonaws_cloudhsm.DeleteHapg({}, context)
 amazonaws_cloudhsm.DeleteHsm({}, context)
 ```
 
-#### Parameters
 
 ### DeleteLunaClient
 
@@ -89,7 +83,6 @@ amazonaws_cloudhsm.DeleteHsm({}, context)
 amazonaws_cloudhsm.DeleteLunaClient({}, context)
 ```
 
-#### Parameters
 
 ### DescribeHapg
 
@@ -99,7 +92,6 @@ amazonaws_cloudhsm.DeleteLunaClient({}, context)
 amazonaws_cloudhsm.DescribeHapg({}, context)
 ```
 
-#### Parameters
 
 ### DescribeHsm
 
@@ -109,7 +101,6 @@ amazonaws_cloudhsm.DescribeHapg({}, context)
 amazonaws_cloudhsm.DescribeHsm({}, context)
 ```
 
-#### Parameters
 
 ### DescribeLunaClient
 
@@ -119,7 +110,6 @@ amazonaws_cloudhsm.DescribeHsm({}, context)
 amazonaws_cloudhsm.DescribeLunaClient({}, context)
 ```
 
-#### Parameters
 
 ### GetConfig
 
@@ -129,7 +119,6 @@ amazonaws_cloudhsm.DescribeLunaClient({}, context)
 amazonaws_cloudhsm.GetConfig({}, context)
 ```
 
-#### Parameters
 
 ### ListAvailableZones
 
@@ -139,7 +128,6 @@ amazonaws_cloudhsm.GetConfig({}, context)
 amazonaws_cloudhsm.ListAvailableZones({}, context)
 ```
 
-#### Parameters
 
 ### ListHapgs
 
@@ -149,7 +137,6 @@ amazonaws_cloudhsm.ListAvailableZones({}, context)
 amazonaws_cloudhsm.ListHapgs({}, context)
 ```
 
-#### Parameters
 
 ### ListHsms
 
@@ -159,7 +146,6 @@ amazonaws_cloudhsm.ListHapgs({}, context)
 amazonaws_cloudhsm.ListHsms({}, context)
 ```
 
-#### Parameters
 
 ### ListLunaClients
 
@@ -169,7 +155,6 @@ amazonaws_cloudhsm.ListHsms({}, context)
 amazonaws_cloudhsm.ListLunaClients({}, context)
 ```
 
-#### Parameters
 
 ### ListTagsForResource
 
@@ -179,7 +164,6 @@ amazonaws_cloudhsm.ListLunaClients({}, context)
 amazonaws_cloudhsm.ListTagsForResource({}, context)
 ```
 
-#### Parameters
 
 ### ModifyHapg
 
@@ -189,7 +173,6 @@ amazonaws_cloudhsm.ListTagsForResource({}, context)
 amazonaws_cloudhsm.ModifyHapg({}, context)
 ```
 
-#### Parameters
 
 ### ModifyHsm
 
@@ -199,7 +182,6 @@ amazonaws_cloudhsm.ModifyHapg({}, context)
 amazonaws_cloudhsm.ModifyHsm({}, context)
 ```
 
-#### Parameters
 
 ### ModifyLunaClient
 
@@ -209,7 +191,6 @@ amazonaws_cloudhsm.ModifyHsm({}, context)
 amazonaws_cloudhsm.ModifyLunaClient({}, context)
 ```
 
-#### Parameters
 
 ### RemoveTagsFromResource
 
@@ -219,5 +200,4 @@ amazonaws_cloudhsm.ModifyLunaClient({}, context)
 amazonaws_cloudhsm.RemoveTagsFromResource({}, context)
 ```
 
-#### Parameters
 

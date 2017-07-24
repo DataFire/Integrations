@@ -29,7 +29,6 @@ amazonaws_codestar.AssociateTeamMember({}, context).then(data => {
 amazonaws_codestar.AssociateTeamMember({}, context)
 ```
 
-#### Parameters
 
 ### CreateProject
 
@@ -39,7 +38,6 @@ amazonaws_codestar.AssociateTeamMember({}, context)
 amazonaws_codestar.CreateProject({}, context)
 ```
 
-#### Parameters
 
 ### CreateUserProfile
 
@@ -49,7 +47,6 @@ amazonaws_codestar.CreateProject({}, context)
 amazonaws_codestar.CreateUserProfile({}, context)
 ```
 
-#### Parameters
 
 ### DeleteProject
 
@@ -59,7 +56,6 @@ amazonaws_codestar.CreateUserProfile({}, context)
 amazonaws_codestar.DeleteProject({}, context)
 ```
 
-#### Parameters
 
 ### DeleteUserProfile
 
@@ -69,7 +65,6 @@ amazonaws_codestar.DeleteProject({}, context)
 amazonaws_codestar.DeleteUserProfile({}, context)
 ```
 
-#### Parameters
 
 ### DescribeProject
 
@@ -79,7 +74,6 @@ amazonaws_codestar.DeleteUserProfile({}, context)
 amazonaws_codestar.DescribeProject({}, context)
 ```
 
-#### Parameters
 
 ### DescribeUserProfile
 
@@ -89,7 +83,6 @@ amazonaws_codestar.DescribeProject({}, context)
 amazonaws_codestar.DescribeUserProfile({}, context)
 ```
 
-#### Parameters
 
 ### DisassociateTeamMember
 
@@ -99,7 +92,6 @@ amazonaws_codestar.DescribeUserProfile({}, context)
 amazonaws_codestar.DisassociateTeamMember({}, context)
 ```
 
-#### Parameters
 
 ### ListProjects
 
@@ -109,7 +101,6 @@ amazonaws_codestar.DisassociateTeamMember({}, context)
 amazonaws_codestar.ListProjects({}, context)
 ```
 
-#### Parameters
 
 ### ListResources
 
@@ -119,7 +110,6 @@ amazonaws_codestar.ListProjects({}, context)
 amazonaws_codestar.ListResources({}, context)
 ```
 
-#### Parameters
 
 ### ListTeamMembers
 
@@ -129,7 +119,6 @@ amazonaws_codestar.ListResources({}, context)
 amazonaws_codestar.ListTeamMembers({}, context)
 ```
 
-#### Parameters
 
 ### ListUserProfiles
 
@@ -139,7 +128,6 @@ amazonaws_codestar.ListTeamMembers({}, context)
 amazonaws_codestar.ListUserProfiles({}, context)
 ```
 
-#### Parameters
 
 ### UpdateProject
 
@@ -149,7 +137,6 @@ amazonaws_codestar.ListUserProfiles({}, context)
 amazonaws_codestar.UpdateProject({}, context)
 ```
 
-#### Parameters
 
 ### UpdateTeamMember
 
@@ -159,7 +146,6 @@ amazonaws_codestar.UpdateProject({}, context)
 amazonaws_codestar.UpdateTeamMember({}, context)
 ```
 
-#### Parameters
 
 ### UpdateUserProfile
 
@@ -169,5 +155,4 @@ amazonaws_codestar.UpdateTeamMember({}, context)
 amazonaws_codestar.UpdateUserProfile({}, context)
 ```
 
-#### Parameters
 

@@ -29,7 +29,6 @@ amazonaws_workspaces.CreateTags({}, context).then(data => {
 amazonaws_workspaces.CreateTags({}, context)
 ```
 
-#### Parameters
 
 ### CreateWorkspaces
 
@@ -39,7 +38,6 @@ amazonaws_workspaces.CreateTags({}, context)
 amazonaws_workspaces.CreateWorkspaces({}, context)
 ```
 
-#### Parameters
 
 ### DeleteTags
 
@@ -49,7 +47,6 @@ amazonaws_workspaces.CreateWorkspaces({}, context)
 amazonaws_workspaces.DeleteTags({}, context)
 ```
 
-#### Parameters
 
 ### DescribeTags
 
@@ -59,7 +56,6 @@ amazonaws_workspaces.DeleteTags({}, context)
 amazonaws_workspaces.DescribeTags({}, context)
 ```
 
-#### Parameters
 
 ### DescribeWorkspaceBundles
 
@@ -103,7 +99,6 @@ amazonaws_workspaces.DescribeWorkspaces({}, context)
 amazonaws_workspaces.DescribeWorkspacesConnectionStatus({}, context)
 ```
 
-#### Parameters
 
 ### ModifyWorkspaceProperties
 
@@ -113,7 +108,6 @@ amazonaws_workspaces.DescribeWorkspacesConnectionStatus({}, context)
 amazonaws_workspaces.ModifyWorkspaceProperties({}, context)
 ```
 
-#### Parameters
 
 ### RebootWorkspaces
 
@@ -123,7 +117,6 @@ amazonaws_workspaces.ModifyWorkspaceProperties({}, context)
 amazonaws_workspaces.RebootWorkspaces({}, context)
 ```
 
-#### Parameters
 
 ### RebuildWorkspaces
 
@@ -133,7 +126,6 @@ amazonaws_workspaces.RebootWorkspaces({}, context)
 amazonaws_workspaces.RebuildWorkspaces({}, context)
 ```
 
-#### Parameters
 
 ### StartWorkspaces
 
@@ -143,7 +135,6 @@ amazonaws_workspaces.RebuildWorkspaces({}, context)
 amazonaws_workspaces.StartWorkspaces({}, context)
 ```
 
-#### Parameters
 
 ### StopWorkspaces
 
@@ -153,7 +144,6 @@ amazonaws_workspaces.StartWorkspaces({}, context)
 amazonaws_workspaces.StopWorkspaces({}, context)
 ```
 
-#### Parameters
 
 ### TerminateWorkspaces
 
@@ -163,5 +153,4 @@ amazonaws_workspaces.StopWorkspaces({}, context)
 amazonaws_workspaces.TerminateWorkspaces({}, context)
 ```
 
-#### Parameters
 

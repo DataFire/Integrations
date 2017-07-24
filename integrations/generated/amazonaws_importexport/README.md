@@ -29,7 +29,6 @@ amazonaws_importexport.CancelJob({}, context).then(data => {
 amazonaws_importexport.CancelJob({}, context)
 ```
 
-#### Parameters
 
 ### CreateJob
 
@@ -39,7 +38,6 @@ amazonaws_importexport.CancelJob({}, context)
 amazonaws_importexport.CreateJob({}, context)
 ```
 
-#### Parameters
 
 ### GetShippingLabel
 
@@ -49,7 +47,6 @@ amazonaws_importexport.CreateJob({}, context)
 amazonaws_importexport.GetShippingLabel({}, context)
 ```
 
-#### Parameters
 
 ### GetStatus
 
@@ -59,7 +56,6 @@ amazonaws_importexport.GetShippingLabel({}, context)
 amazonaws_importexport.GetStatus({}, context)
 ```
 
-#### Parameters
 
 ### ListJobs
 
@@ -81,5 +77,4 @@ amazonaws_importexport.ListJobs({}, context)
 amazonaws_importexport.UpdateJob({}, context)
 ```
 
-#### Parameters
 

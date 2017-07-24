@@ -29,7 +29,6 @@ amazonaws_sqs.AddPermission({}, context).then(data => {
 amazonaws_sqs.AddPermission({}, context)
 ```
 
-#### Parameters
 
 ### ChangeMessageVisibility
 
@@ -39,7 +38,6 @@ amazonaws_sqs.AddPermission({}, context)
 amazonaws_sqs.ChangeMessageVisibility({}, context)
 ```
 
-#### Parameters
 
 ### ChangeMessageVisibilityBatch
 
@@ -49,7 +47,6 @@ amazonaws_sqs.ChangeMessageVisibility({}, context)
 amazonaws_sqs.ChangeMessageVisibilityBatch({}, context)
 ```
 
-#### Parameters
 
 ### CreateQueue
 
@@ -59,7 +56,6 @@ amazonaws_sqs.ChangeMessageVisibilityBatch({}, context)
 amazonaws_sqs.CreateQueue({}, context)
 ```
 
-#### Parameters
 
 ### DeleteMessage
 
@@ -69,7 +65,6 @@ amazonaws_sqs.CreateQueue({}, context)
 amazonaws_sqs.DeleteMessage({}, context)
 ```
 
-#### Parameters
 
 ### DeleteMessageBatch
 
@@ -79,7 +74,6 @@ amazonaws_sqs.DeleteMessage({}, context)
 amazonaws_sqs.DeleteMessageBatch({}, context)
 ```
 
-#### Parameters
 
 ### DeleteQueue
 
@@ -89,7 +83,6 @@ amazonaws_sqs.DeleteMessageBatch({}, context)
 amazonaws_sqs.DeleteQueue({}, context)
 ```
 
-#### Parameters
 
 ### GetQueueAttributes
 
@@ -99,7 +92,6 @@ amazonaws_sqs.DeleteQueue({}, context)
 amazonaws_sqs.GetQueueAttributes({}, context)
 ```
 
-#### Parameters
 
 ### GetQueueUrl
 
@@ -109,7 +101,6 @@ amazonaws_sqs.GetQueueAttributes({}, context)
 amazonaws_sqs.GetQueueUrl({}, context)
 ```
 
-#### Parameters
 
 ### ListDeadLetterSourceQueues
 
@@ -119,7 +110,6 @@ amazonaws_sqs.GetQueueUrl({}, context)
 amazonaws_sqs.ListDeadLetterSourceQueues({}, context)
 ```
 
-#### Parameters
 
 ### ListQueues
 
@@ -129,7 +119,6 @@ amazonaws_sqs.ListDeadLetterSourceQueues({}, context)
 amazonaws_sqs.ListQueues({}, context)
 ```
 
-#### Parameters
 
 ### PurgeQueue
 
@@ -139,7 +128,6 @@ amazonaws_sqs.ListQueues({}, context)
 amazonaws_sqs.PurgeQueue({}, context)
 ```
 
-#### Parameters
 
 ### ReceiveMessage
 
@@ -149,7 +137,6 @@ amazonaws_sqs.PurgeQueue({}, context)
 amazonaws_sqs.ReceiveMessage({}, context)
 ```
 
-#### Parameters
 
 ### RemovePermission
 
@@ -159,7 +146,6 @@ amazonaws_sqs.ReceiveMessage({}, context)
 amazonaws_sqs.RemovePermission({}, context)
 ```
 
-#### Parameters
 
 ### SendMessage
 
@@ -169,7 +155,6 @@ amazonaws_sqs.RemovePermission({}, context)
 amazonaws_sqs.SendMessage({}, context)
 ```
 
-#### Parameters
 
 ### SendMessageBatch
 
@@ -179,7 +164,6 @@ amazonaws_sqs.SendMessage({}, context)
 amazonaws_sqs.SendMessageBatch({}, context)
 ```
 
-#### Parameters
 
 ### SetQueueAttributes
 
@@ -189,5 +173,4 @@ amazonaws_sqs.SendMessageBatch({}, context)
 amazonaws_sqs.SetQueueAttributes({}, context)
 ```
 
-#### Parameters
 

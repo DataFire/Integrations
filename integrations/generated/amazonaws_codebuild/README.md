@@ -29,7 +29,6 @@ amazonaws_codebuild.BatchGetBuilds({}, context).then(data => {
 amazonaws_codebuild.BatchGetBuilds({}, context)
 ```
 
-#### Parameters
 
 ### BatchGetProjects
 
@@ -39,7 +38,6 @@ amazonaws_codebuild.BatchGetBuilds({}, context)
 amazonaws_codebuild.BatchGetProjects({}, context)
 ```
 
-#### Parameters
 
 ### CreateProject
 
@@ -49,7 +47,6 @@ amazonaws_codebuild.BatchGetProjects({}, context)
 amazonaws_codebuild.CreateProject({}, context)
 ```
 
-#### Parameters
 
 ### DeleteProject
 
@@ -59,7 +56,6 @@ amazonaws_codebuild.CreateProject({}, context)
 amazonaws_codebuild.DeleteProject({}, context)
 ```
 
-#### Parameters
 
 ### ListBuilds
 
@@ -69,7 +65,6 @@ amazonaws_codebuild.DeleteProject({}, context)
 amazonaws_codebuild.ListBuilds({}, context)
 ```
 
-#### Parameters
 
 ### ListBuildsForProject
 
@@ -79,7 +74,6 @@ amazonaws_codebuild.ListBuilds({}, context)
 amazonaws_codebuild.ListBuildsForProject({}, context)
 ```
 
-#### Parameters
 
 ### ListCuratedEnvironmentImages
 
@@ -89,7 +83,6 @@ amazonaws_codebuild.ListBuildsForProject({}, context)
 amazonaws_codebuild.ListCuratedEnvironmentImages({}, context)
 ```
 
-#### Parameters
 
 ### ListProjects
 
@@ -99,7 +92,6 @@ amazonaws_codebuild.ListCuratedEnvironmentImages({}, context)
 amazonaws_codebuild.ListProjects({}, context)
 ```
 
-#### Parameters
 
 ### StartBuild
 
@@ -109,7 +101,6 @@ amazonaws_codebuild.ListProjects({}, context)
 amazonaws_codebuild.StartBuild({}, context)
 ```
 
-#### Parameters
 
 ### StopBuild
 
@@ -119,7 +110,6 @@ amazonaws_codebuild.StartBuild({}, context)
 amazonaws_codebuild.StopBuild({}, context)
 ```
 
-#### Parameters
 
 ### UpdateProject
 
@@ -129,5 +119,4 @@ amazonaws_codebuild.StopBuild({}, context)
 amazonaws_codebuild.UpdateProject({}, context)
 ```
 
-#### Parameters
 

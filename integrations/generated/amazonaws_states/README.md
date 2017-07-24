@@ -29,7 +29,6 @@ amazonaws_states.CreateActivity({}, context).then(data => {
 amazonaws_states.CreateActivity({}, context)
 ```
 
-#### Parameters
 
 ### CreateStateMachine
 
@@ -39,7 +38,6 @@ amazonaws_states.CreateActivity({}, context)
 amazonaws_states.CreateStateMachine({}, context)
 ```
 
-#### Parameters
 
 ### DeleteActivity
 
@@ -49,7 +47,6 @@ amazonaws_states.CreateStateMachine({}, context)
 amazonaws_states.DeleteActivity({}, context)
 ```
 
-#### Parameters
 
 ### DeleteStateMachine
 
@@ -59,7 +56,6 @@ amazonaws_states.DeleteActivity({}, context)
 amazonaws_states.DeleteStateMachine({}, context)
 ```
 
-#### Parameters
 
 ### DescribeActivity
 
@@ -69,7 +65,6 @@ amazonaws_states.DeleteStateMachine({}, context)
 amazonaws_states.DescribeActivity({}, context)
 ```
 
-#### Parameters
 
 ### DescribeExecution
 
@@ -79,7 +74,6 @@ amazonaws_states.DescribeActivity({}, context)
 amazonaws_states.DescribeExecution({}, context)
 ```
 
-#### Parameters
 
 ### DescribeStateMachine
 
@@ -89,7 +83,6 @@ amazonaws_states.DescribeExecution({}, context)
 amazonaws_states.DescribeStateMachine({}, context)
 ```
 
-#### Parameters
 
 ### GetActivityTask
 
@@ -99,7 +92,6 @@ amazonaws_states.DescribeStateMachine({}, context)
 amazonaws_states.GetActivityTask({}, context)
 ```
 
-#### Parameters
 
 ### GetExecutionHistory
 
@@ -157,7 +149,6 @@ amazonaws_states.ListStateMachines({}, context)
 amazonaws_states.SendTaskFailure({}, context)
 ```
 
-#### Parameters
 
 ### SendTaskHeartbeat
 
@@ -167,7 +158,6 @@ amazonaws_states.SendTaskFailure({}, context)
 amazonaws_states.SendTaskHeartbeat({}, context)
 ```
 
-#### Parameters
 
 ### SendTaskSuccess
 
@@ -177,7 +167,6 @@ amazonaws_states.SendTaskHeartbeat({}, context)
 amazonaws_states.SendTaskSuccess({}, context)
 ```
 
-#### Parameters
 
 ### StartExecution
 
@@ -187,7 +176,6 @@ amazonaws_states.SendTaskSuccess({}, context)
 amazonaws_states.StartExecution({}, context)
 ```
 
-#### Parameters
 
 ### StopExecution
 
@@ -197,5 +185,4 @@ amazonaws_states.StartExecution({}, context)
 amazonaws_states.StopExecution({}, context)
 ```
 
-#### Parameters
 

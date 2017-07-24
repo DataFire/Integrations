@@ -29,7 +29,6 @@ Amazon Server Migration Service automates the process of migrating servers to EC
 amazonaws_sms.CreateReplicationJob({}, context)
 ```
 
-#### Parameters
 
 ### DeleteReplicationJob
 
@@ -39,7 +38,6 @@ amazonaws_sms.CreateReplicationJob({}, context)
 amazonaws_sms.DeleteReplicationJob({}, context)
 ```
 
-#### Parameters
 
 ### DeleteServerCatalog
 
@@ -49,7 +47,6 @@ amazonaws_sms.DeleteReplicationJob({}, context)
 amazonaws_sms.DeleteServerCatalog({}, context)
 ```
 
-#### Parameters
 
 ### DisassociateConnector
 
@@ -59,7 +56,6 @@ amazonaws_sms.DeleteServerCatalog({}, context)
 amazonaws_sms.DisassociateConnector({}, context)
 ```
 
-#### Parameters
 
 ### GetConnectors
 
@@ -117,7 +113,6 @@ amazonaws_sms.GetServers({}, context)
 amazonaws_sms.ImportServerCatalog({}, context)
 ```
 
-#### Parameters
 
 ### StartOnDemandReplicationRun
 
@@ -127,7 +122,6 @@ amazonaws_sms.ImportServerCatalog({}, context)
 amazonaws_sms.StartOnDemandReplicationRun({}, context)
 ```
 
-#### Parameters
 
 ### UpdateReplicationJob
 
@@ -137,5 +131,4 @@ amazonaws_sms.StartOnDemandReplicationRun({}, context)
 amazonaws_sms.UpdateReplicationJob({}, context)
 ```
 
-#### Parameters
 

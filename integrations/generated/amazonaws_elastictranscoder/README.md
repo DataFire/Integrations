@@ -29,7 +29,6 @@ amazonaws_elastictranscoder.CreateJob({}, context).then(data => {
 amazonaws_elastictranscoder.CreateJob({}, context)
 ```
 
-#### Parameters
 
 ### ReadJob
 
@@ -154,5 +153,4 @@ amazonaws_elastictranscoder.ReadPreset({
 amazonaws_elastictranscoder.TestRole({}, context)
 ```
 
-#### Parameters
 

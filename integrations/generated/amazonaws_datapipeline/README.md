@@ -29,7 +29,6 @@ amazonaws_datapipeline.ActivatePipeline({}, context).then(data => {
 amazonaws_datapipeline.ActivatePipeline({}, context)
 ```
 
-#### Parameters
 
 ### AddTags
 
@@ -39,7 +38,6 @@ amazonaws_datapipeline.ActivatePipeline({}, context)
 amazonaws_datapipeline.AddTags({}, context)
 ```
 
-#### Parameters
 
 ### CreatePipeline
 
@@ -49,7 +47,6 @@ amazonaws_datapipeline.AddTags({}, context)
 amazonaws_datapipeline.CreatePipeline({}, context)
 ```
 
-#### Parameters
 
 ### DeactivatePipeline
 
@@ -59,7 +56,6 @@ amazonaws_datapipeline.CreatePipeline({}, context)
 amazonaws_datapipeline.DeactivatePipeline({}, context)
 ```
 
-#### Parameters
 
 ### DeletePipeline
 
@@ -69,7 +65,6 @@ amazonaws_datapipeline.DeactivatePipeline({}, context)
 amazonaws_datapipeline.DeletePipeline({}, context)
 ```
 
-#### Parameters
 
 ### DescribeObjects
 
@@ -90,7 +85,6 @@ amazonaws_datapipeline.DescribeObjects({}, context)
 amazonaws_datapipeline.DescribePipelines({}, context)
 ```
 
-#### Parameters
 
 ### EvaluateExpression
 
@@ -100,7 +94,6 @@ amazonaws_datapipeline.DescribePipelines({}, context)
 amazonaws_datapipeline.EvaluateExpression({}, context)
 ```
 
-#### Parameters
 
 ### GetPipelineDefinition
 
@@ -110,7 +103,6 @@ amazonaws_datapipeline.EvaluateExpression({}, context)
 amazonaws_datapipeline.GetPipelineDefinition({}, context)
 ```
 
-#### Parameters
 
 ### ListPipelines
 
@@ -131,7 +123,6 @@ amazonaws_datapipeline.ListPipelines({}, context)
 amazonaws_datapipeline.PollForTask({}, context)
 ```
 
-#### Parameters
 
 ### PutPipelineDefinition
 
@@ -141,7 +132,6 @@ amazonaws_datapipeline.PollForTask({}, context)
 amazonaws_datapipeline.PutPipelineDefinition({}, context)
 ```
 
-#### Parameters
 
 ### QueryObjects
 
@@ -163,7 +153,6 @@ amazonaws_datapipeline.QueryObjects({}, context)
 amazonaws_datapipeline.RemoveTags({}, context)
 ```
 
-#### Parameters
 
 ### ReportTaskProgress
 
@@ -173,7 +162,6 @@ amazonaws_datapipeline.RemoveTags({}, context)
 amazonaws_datapipeline.ReportTaskProgress({}, context)
 ```
 
-#### Parameters
 
 ### ReportTaskRunnerHeartbeat
 
@@ -183,7 +171,6 @@ amazonaws_datapipeline.ReportTaskProgress({}, context)
 amazonaws_datapipeline.ReportTaskRunnerHeartbeat({}, context)
 ```
 
-#### Parameters
 
 ### SetStatus
 
@@ -193,7 +180,6 @@ amazonaws_datapipeline.ReportTaskRunnerHeartbeat({}, context)
 amazonaws_datapipeline.SetStatus({}, context)
 ```
 
-#### Parameters
 
 ### SetTaskStatus
 
@@ -203,7 +189,6 @@ amazonaws_datapipeline.SetStatus({}, context)
 amazonaws_datapipeline.SetTaskStatus({}, context)
 ```
 
-#### Parameters
 
 ### ValidatePipelineDefinition
 
@@ -213,5 +198,4 @@ amazonaws_datapipeline.SetTaskStatus({}, context)
 amazonaws_datapipeline.ValidatePipelineDefinition({}, context)
 ```
 
-#### Parameters
 

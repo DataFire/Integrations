@@ -29,7 +29,6 @@ amazonaws_workdocs.InitiateDocumentVersionUpload({}, context).then(data => {
 amazonaws_workdocs.InitiateDocumentVersionUpload({}, context)
 ```
 
-#### Parameters
 
 ### UpdateDocument
 
@@ -95,7 +94,6 @@ amazonaws_workdocs.UpdateDocumentVersion({
 amazonaws_workdocs.CreateFolder({}, context)
 ```
 
-#### Parameters
 
 ### UpdateFolder
 

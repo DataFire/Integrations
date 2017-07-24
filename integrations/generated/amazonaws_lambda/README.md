@@ -67,7 +67,6 @@ amazonaws_lambda.UpdateEventSourceMapping({
 amazonaws_lambda.CreateFunction({}, context)
 ```
 
-#### Parameters
 
 ### ListFunctions
 
@@ -210,7 +209,6 @@ amazonaws_lambda.PublishVersion({
 amazonaws_lambda.GetAccountSettings({}, context)
 ```
 
-#### Parameters
 
 ### UntagResource
 

@@ -29,7 +29,6 @@ Provides AWS Marketplace business intelligence data on-demand.
 amazonaws_marketplacecommerceanalytics.GenerateDataSet({}, context)
 ```
 
-#### Parameters
 
 ### StartSupportDataExport
 
@@ -39,5 +38,4 @@ amazonaws_marketplacecommerceanalytics.GenerateDataSet({}, context)
 amazonaws_marketplacecommerceanalytics.StartSupportDataExport({}, context)
 ```
 
-#### Parameters
 

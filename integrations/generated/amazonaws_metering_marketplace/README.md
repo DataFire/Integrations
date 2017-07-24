@@ -29,7 +29,6 @@ amazonaws_metering_marketplace.BatchMeterUsage({}, context).then(data => {
 amazonaws_metering_marketplace.BatchMeterUsage({}, context)
 ```
 
-#### Parameters
 
 ### MeterUsage
 
@@ -39,7 +38,6 @@ amazonaws_metering_marketplace.BatchMeterUsage({}, context)
 amazonaws_metering_marketplace.MeterUsage({}, context)
 ```
 
-#### Parameters
 
 ### ResolveCustomer
 
@@ -49,5 +47,4 @@ amazonaws_metering_marketplace.MeterUsage({}, context)
 amazonaws_metering_marketplace.ResolveCustomer({}, context)
 ```
 
-#### Parameters
 

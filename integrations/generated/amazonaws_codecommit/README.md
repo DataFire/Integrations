@@ -29,7 +29,6 @@ amazonaws_codecommit.BatchGetRepositories({}, context).then(data => {
 amazonaws_codecommit.BatchGetRepositories({}, context)
 ```
 
-#### Parameters
 
 ### CreateBranch
 
@@ -39,7 +38,6 @@ amazonaws_codecommit.BatchGetRepositories({}, context)
 amazonaws_codecommit.CreateBranch({}, context)
 ```
 
-#### Parameters
 
 ### CreateRepository
 
@@ -49,7 +47,6 @@ amazonaws_codecommit.CreateBranch({}, context)
 amazonaws_codecommit.CreateRepository({}, context)
 ```
 
-#### Parameters
 
 ### DeleteRepository
 
@@ -59,7 +56,6 @@ amazonaws_codecommit.CreateRepository({}, context)
 amazonaws_codecommit.DeleteRepository({}, context)
 ```
 
-#### Parameters
 
 ### GetBlob
 
@@ -69,7 +65,6 @@ amazonaws_codecommit.DeleteRepository({}, context)
 amazonaws_codecommit.GetBlob({}, context)
 ```
 
-#### Parameters
 
 ### GetBranch
 
@@ -79,7 +74,6 @@ amazonaws_codecommit.GetBlob({}, context)
 amazonaws_codecommit.GetBranch({}, context)
 ```
 
-#### Parameters
 
 ### GetCommit
 
@@ -89,7 +83,6 @@ amazonaws_codecommit.GetBranch({}, context)
 amazonaws_codecommit.GetCommit({}, context)
 ```
 
-#### Parameters
 
 ### GetDifferences
 
@@ -111,7 +104,6 @@ amazonaws_codecommit.GetDifferences({}, context)
 amazonaws_codecommit.GetRepository({}, context)
 ```
 
-#### Parameters
 
 ### GetRepositoryTriggers
 
@@ -121,7 +113,6 @@ amazonaws_codecommit.GetRepository({}, context)
 amazonaws_codecommit.GetRepositoryTriggers({}, context)
 ```
 
-#### Parameters
 
 ### ListBranches
 
@@ -153,7 +144,6 @@ amazonaws_codecommit.ListRepositories({}, context)
 amazonaws_codecommit.PutRepositoryTriggers({}, context)
 ```
 
-#### Parameters
 
 ### TestRepositoryTriggers
 
@@ -163,7 +153,6 @@ amazonaws_codecommit.PutRepositoryTriggers({}, context)
 amazonaws_codecommit.TestRepositoryTriggers({}, context)
 ```
 
-#### Parameters
 
 ### UpdateDefaultBranch
 
@@ -173,7 +162,6 @@ amazonaws_codecommit.TestRepositoryTriggers({}, context)
 amazonaws_codecommit.UpdateDefaultBranch({}, context)
 ```
 
-#### Parameters
 
 ### UpdateRepositoryDescription
 
@@ -183,7 +171,6 @@ amazonaws_codecommit.UpdateDefaultBranch({}, context)
 amazonaws_codecommit.UpdateRepositoryDescription({}, context)
 ```
 
-#### Parameters
 
 ### UpdateRepositoryName
 
@@ -193,5 +180,4 @@ amazonaws_codecommit.UpdateRepositoryDescription({}, context)
 amazonaws_codecommit.UpdateRepositoryName({}, context)
 ```
 
-#### Parameters
 

@@ -29,7 +29,6 @@ amazonaws_codepipeline.AcknowledgeJob({}, context).then(data => {
 amazonaws_codepipeline.AcknowledgeJob({}, context)
 ```
 
-#### Parameters
 
 ### AcknowledgeThirdPartyJob
 
@@ -39,7 +38,6 @@ amazonaws_codepipeline.AcknowledgeJob({}, context)
 amazonaws_codepipeline.AcknowledgeThirdPartyJob({}, context)
 ```
 
-#### Parameters
 
 ### CreateCustomActionType
 
@@ -49,7 +47,6 @@ amazonaws_codepipeline.AcknowledgeThirdPartyJob({}, context)
 amazonaws_codepipeline.CreateCustomActionType({}, context)
 ```
 
-#### Parameters
 
 ### CreatePipeline
 
@@ -59,7 +56,6 @@ amazonaws_codepipeline.CreateCustomActionType({}, context)
 amazonaws_codepipeline.CreatePipeline({}, context)
 ```
 
-#### Parameters
 
 ### DeleteCustomActionType
 
@@ -69,7 +65,6 @@ amazonaws_codepipeline.CreatePipeline({}, context)
 amazonaws_codepipeline.DeleteCustomActionType({}, context)
 ```
 
-#### Parameters
 
 ### DeletePipeline
 
@@ -79,7 +74,6 @@ amazonaws_codepipeline.DeleteCustomActionType({}, context)
 amazonaws_codepipeline.DeletePipeline({}, context)
 ```
 
-#### Parameters
 
 ### DisableStageTransition
 
@@ -89,7 +83,6 @@ amazonaws_codepipeline.DeletePipeline({}, context)
 amazonaws_codepipeline.DisableStageTransition({}, context)
 ```
 
-#### Parameters
 
 ### EnableStageTransition
 
@@ -99,7 +92,6 @@ amazonaws_codepipeline.DisableStageTransition({}, context)
 amazonaws_codepipeline.EnableStageTransition({}, context)
 ```
 
-#### Parameters
 
 ### GetJobDetails
 
@@ -109,7 +101,6 @@ amazonaws_codepipeline.EnableStageTransition({}, context)
 amazonaws_codepipeline.GetJobDetails({}, context)
 ```
 
-#### Parameters
 
 ### GetPipeline
 
@@ -119,7 +110,6 @@ amazonaws_codepipeline.GetJobDetails({}, context)
 amazonaws_codepipeline.GetPipeline({}, context)
 ```
 
-#### Parameters
 
 ### GetPipelineExecution
 
@@ -129,7 +119,6 @@ amazonaws_codepipeline.GetPipeline({}, context)
 amazonaws_codepipeline.GetPipelineExecution({}, context)
 ```
 
-#### Parameters
 
 ### GetPipelineState
 
@@ -139,7 +128,6 @@ amazonaws_codepipeline.GetPipelineExecution({}, context)
 amazonaws_codepipeline.GetPipelineState({}, context)
 ```
 
-#### Parameters
 
 ### GetThirdPartyJobDetails
 
@@ -149,7 +137,6 @@ amazonaws_codepipeline.GetPipelineState({}, context)
 amazonaws_codepipeline.GetThirdPartyJobDetails({}, context)
 ```
 
-#### Parameters
 
 ### ListActionTypes
 
@@ -159,7 +146,6 @@ amazonaws_codepipeline.GetThirdPartyJobDetails({}, context)
 amazonaws_codepipeline.ListActionTypes({}, context)
 ```
 
-#### Parameters
 
 ### ListPipelines
 
@@ -169,7 +155,6 @@ amazonaws_codepipeline.ListActionTypes({}, context)
 amazonaws_codepipeline.ListPipelines({}, context)
 ```
 
-#### Parameters
 
 ### PollForJobs
 
@@ -179,7 +164,6 @@ amazonaws_codepipeline.ListPipelines({}, context)
 amazonaws_codepipeline.PollForJobs({}, context)
 ```
 
-#### Parameters
 
 ### PollForThirdPartyJobs
 
@@ -189,7 +173,6 @@ amazonaws_codepipeline.PollForJobs({}, context)
 amazonaws_codepipeline.PollForThirdPartyJobs({}, context)
 ```
 
-#### Parameters
 
 ### PutActionRevision
 
@@ -199,7 +182,6 @@ amazonaws_codepipeline.PollForThirdPartyJobs({}, context)
 amazonaws_codepipeline.PutActionRevision({}, context)
 ```
 
-#### Parameters
 
 ### PutApprovalResult
 
@@ -209,7 +191,6 @@ amazonaws_codepipeline.PutActionRevision({}, context)
 amazonaws_codepipeline.PutApprovalResult({}, context)
 ```
 
-#### Parameters
 
 ### PutJobFailureResult
 
@@ -219,7 +200,6 @@ amazonaws_codepipeline.PutApprovalResult({}, context)
 amazonaws_codepipeline.PutJobFailureResult({}, context)
 ```
 
-#### Parameters
 
 ### PutJobSuccessResult
 
@@ -229,7 +209,6 @@ amazonaws_codepipeline.PutJobFailureResult({}, context)
 amazonaws_codepipeline.PutJobSuccessResult({}, context)
 ```
 
-#### Parameters
 
 ### PutThirdPartyJobFailureResult
 
@@ -239,7 +218,6 @@ amazonaws_codepipeline.PutJobSuccessResult({}, context)
 amazonaws_codepipeline.PutThirdPartyJobFailureResult({}, context)
 ```
 
-#### Parameters
 
 ### PutThirdPartyJobSuccessResult
 
@@ -249,7 +227,6 @@ amazonaws_codepipeline.PutThirdPartyJobFailureResult({}, context)
 amazonaws_codepipeline.PutThirdPartyJobSuccessResult({}, context)
 ```
 
-#### Parameters
 
 ### RetryStageExecution
 
@@ -259,7 +236,6 @@ amazonaws_codepipeline.PutThirdPartyJobSuccessResult({}, context)
 amazonaws_codepipeline.RetryStageExecution({}, context)
 ```
 
-#### Parameters
 
 ### StartPipelineExecution
 
@@ -269,7 +245,6 @@ amazonaws_codepipeline.RetryStageExecution({}, context)
 amazonaws_codepipeline.StartPipelineExecution({}, context)
 ```
 
-#### Parameters
 
 ### UpdatePipeline
 
@@ -279,5 +254,4 @@ amazonaws_codepipeline.StartPipelineExecution({}, context)
 amazonaws_codepipeline.UpdatePipeline({}, context)
 ```
 
-#### Parameters
 

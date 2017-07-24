@@ -40,7 +40,6 @@ amazonaws_dynamodb.BatchGetItem({}, context)
 amazonaws_dynamodb.BatchWriteItem({}, context)
 ```
 
-#### Parameters
 
 ### CreateTable
 
@@ -50,7 +49,6 @@ amazonaws_dynamodb.BatchWriteItem({}, context)
 amazonaws_dynamodb.CreateTable({}, context)
 ```
 
-#### Parameters
 
 ### DeleteItem
 
@@ -60,7 +58,6 @@ amazonaws_dynamodb.CreateTable({}, context)
 amazonaws_dynamodb.DeleteItem({}, context)
 ```
 
-#### Parameters
 
 ### DeleteTable
 
@@ -70,7 +67,6 @@ amazonaws_dynamodb.DeleteItem({}, context)
 amazonaws_dynamodb.DeleteTable({}, context)
 ```
 
-#### Parameters
 
 ### DescribeLimits
 
@@ -80,7 +76,6 @@ amazonaws_dynamodb.DeleteTable({}, context)
 amazonaws_dynamodb.DescribeLimits({}, context)
 ```
 
-#### Parameters
 
 ### DescribeTable
 
@@ -90,7 +85,6 @@ amazonaws_dynamodb.DescribeLimits({}, context)
 amazonaws_dynamodb.DescribeTable({}, context)
 ```
 
-#### Parameters
 
 ### DescribeTimeToLive
 
@@ -100,7 +94,6 @@ amazonaws_dynamodb.DescribeTable({}, context)
 amazonaws_dynamodb.DescribeTimeToLive({}, context)
 ```
 
-#### Parameters
 
 ### GetItem
 
@@ -110,7 +103,6 @@ amazonaws_dynamodb.DescribeTimeToLive({}, context)
 amazonaws_dynamodb.GetItem({}, context)
 ```
 
-#### Parameters
 
 ### ListTables
 
@@ -132,7 +124,6 @@ amazonaws_dynamodb.ListTables({}, context)
 amazonaws_dynamodb.ListTagsOfResource({}, context)
 ```
 
-#### Parameters
 
 ### PutItem
 
@@ -142,7 +133,6 @@ amazonaws_dynamodb.ListTagsOfResource({}, context)
 amazonaws_dynamodb.PutItem({}, context)
 ```
 
-#### Parameters
 
 ### Query
 
@@ -176,7 +166,6 @@ amazonaws_dynamodb.Scan({}, context)
 amazonaws_dynamodb.TagResource({}, context)
 ```
 
-#### Parameters
 
 ### UntagResource
 
@@ -186,7 +175,6 @@ amazonaws_dynamodb.TagResource({}, context)
 amazonaws_dynamodb.UntagResource({}, context)
 ```
 
-#### Parameters
 
 ### UpdateItem
 
@@ -196,7 +184,6 @@ amazonaws_dynamodb.UntagResource({}, context)
 amazonaws_dynamodb.UpdateItem({}, context)
 ```
 
-#### Parameters
 
 ### UpdateTable
 
@@ -206,7 +193,6 @@ amazonaws_dynamodb.UpdateItem({}, context)
 amazonaws_dynamodb.UpdateTable({}, context)
 ```
 
-#### Parameters
 
 ### UpdateTimeToLive
 
@@ -216,5 +202,4 @@ amazonaws_dynamodb.UpdateTable({}, context)
 amazonaws_dynamodb.UpdateTimeToLive({}, context)
 ```
 
-#### Parameters
 

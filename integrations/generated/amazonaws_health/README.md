@@ -41,7 +41,6 @@ amazonaws_health.DescribeAffectedEntities({}, context)
 amazonaws_health.DescribeEntityAggregates({}, context)
 ```
 
-#### Parameters
 
 ### DescribeEventAggregates
 
@@ -63,7 +62,6 @@ amazonaws_health.DescribeEventAggregates({}, context)
 amazonaws_health.DescribeEventDetails({}, context)
 ```
 
-#### Parameters
 
 ### DescribeEventTypes
 

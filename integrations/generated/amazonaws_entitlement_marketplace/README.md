@@ -29,5 +29,4 @@ amazonaws_entitlement_marketplace.GetEntitlements({}, context).then(data => {
 amazonaws_entitlement_marketplace.GetEntitlements({}, context)
 ```
 
-#### Parameters
 

@@ -29,7 +29,6 @@ Amazon EMR is a web service that makes it easy to process large amounts of data 
 amazonaws_elasticmapreduce.AddInstanceFleet({}, context)
 ```
 
-#### Parameters
 
 ### AddInstanceGroups
 
@@ -39,7 +38,6 @@ amazonaws_elasticmapreduce.AddInstanceFleet({}, context)
 amazonaws_elasticmapreduce.AddInstanceGroups({}, context)
 ```
 
-#### Parameters
 
 ### AddJobFlowSteps
 
@@ -49,7 +47,6 @@ amazonaws_elasticmapreduce.AddInstanceGroups({}, context)
 amazonaws_elasticmapreduce.AddJobFlowSteps({}, context)
 ```
 
-#### Parameters
 
 ### AddTags
 
@@ -59,7 +56,6 @@ amazonaws_elasticmapreduce.AddJobFlowSteps({}, context)
 amazonaws_elasticmapreduce.AddTags({}, context)
 ```
 
-#### Parameters
 
 ### CancelSteps
 
@@ -69,7 +65,6 @@ amazonaws_elasticmapreduce.AddTags({}, context)
 amazonaws_elasticmapreduce.CancelSteps({}, context)
 ```
 
-#### Parameters
 
 ### CreateSecurityConfiguration
 
@@ -79,7 +74,6 @@ amazonaws_elasticmapreduce.CancelSteps({}, context)
 amazonaws_elasticmapreduce.CreateSecurityConfiguration({}, context)
 ```
 
-#### Parameters
 
 ### DeleteSecurityConfiguration
 
@@ -89,7 +83,6 @@ amazonaws_elasticmapreduce.CreateSecurityConfiguration({}, context)
 amazonaws_elasticmapreduce.DeleteSecurityConfiguration({}, context)
 ```
 
-#### Parameters
 
 ### DescribeCluster
 
@@ -99,7 +92,6 @@ amazonaws_elasticmapreduce.DeleteSecurityConfiguration({}, context)
 amazonaws_elasticmapreduce.DescribeCluster({}, context)
 ```
 
-#### Parameters
 
 ### DescribeJobFlows
 
@@ -109,7 +101,6 @@ amazonaws_elasticmapreduce.DescribeCluster({}, context)
 amazonaws_elasticmapreduce.DescribeJobFlows({}, context)
 ```
 
-#### Parameters
 
 ### DescribeSecurityConfiguration
 
@@ -119,7 +110,6 @@ amazonaws_elasticmapreduce.DescribeJobFlows({}, context)
 amazonaws_elasticmapreduce.DescribeSecurityConfiguration({}, context)
 ```
 
-#### Parameters
 
 ### DescribeStep
 
@@ -129,7 +119,6 @@ amazonaws_elasticmapreduce.DescribeSecurityConfiguration({}, context)
 amazonaws_elasticmapreduce.DescribeStep({}, context)
 ```
 
-#### Parameters
 
 ### ListBootstrapActions
 
@@ -194,7 +183,6 @@ amazonaws_elasticmapreduce.ListInstances({}, context)
 amazonaws_elasticmapreduce.ListSecurityConfigurations({}, context)
 ```
 
-#### Parameters
 
 ### ListSteps
 
@@ -215,7 +203,6 @@ amazonaws_elasticmapreduce.ListSteps({}, context)
 amazonaws_elasticmapreduce.ModifyInstanceFleet({}, context)
 ```
 
-#### Parameters
 
 ### ModifyInstanceGroups
 
@@ -225,7 +212,6 @@ amazonaws_elasticmapreduce.ModifyInstanceFleet({}, context)
 amazonaws_elasticmapreduce.ModifyInstanceGroups({}, context)
 ```
 
-#### Parameters
 
 ### PutAutoScalingPolicy
 
@@ -235,7 +221,6 @@ amazonaws_elasticmapreduce.ModifyInstanceGroups({}, context)
 amazonaws_elasticmapreduce.PutAutoScalingPolicy({}, context)
 ```
 
-#### Parameters
 
 ### RemoveAutoScalingPolicy
 
@@ -245,7 +230,6 @@ amazonaws_elasticmapreduce.PutAutoScalingPolicy({}, context)
 amazonaws_elasticmapreduce.RemoveAutoScalingPolicy({}, context)
 ```
 
-#### Parameters
 
 ### RemoveTags
 
@@ -255,7 +239,6 @@ amazonaws_elasticmapreduce.RemoveAutoScalingPolicy({}, context)
 amazonaws_elasticmapreduce.RemoveTags({}, context)
 ```
 
-#### Parameters
 
 ### RunJobFlow
 
@@ -265,7 +248,6 @@ amazonaws_elasticmapreduce.RemoveTags({}, context)
 amazonaws_elasticmapreduce.RunJobFlow({}, context)
 ```
 
-#### Parameters
 
 ### SetTerminationProtection
 
@@ -275,7 +257,6 @@ amazonaws_elasticmapreduce.RunJobFlow({}, context)
 amazonaws_elasticmapreduce.SetTerminationProtection({}, context)
 ```
 
-#### Parameters
 
 ### SetVisibleToAllUsers
 
@@ -285,7 +266,6 @@ amazonaws_elasticmapreduce.SetTerminationProtection({}, context)
 amazonaws_elasticmapreduce.SetVisibleToAllUsers({}, context)
 ```
 
-#### Parameters
 
 ### TerminateJobFlows
 
@@ -295,5 +275,4 @@ amazonaws_elasticmapreduce.SetVisibleToAllUsers({}, context)
 amazonaws_elasticmapreduce.TerminateJobFlows({}, context)
 ```
 
-#### Parameters
 

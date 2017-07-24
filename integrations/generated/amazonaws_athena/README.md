@@ -29,7 +29,6 @@ amazonaws_athena.BatchGetNamedQuery({}, context).then(data => {
 amazonaws_athena.BatchGetNamedQuery({}, context)
 ```
 
-#### Parameters
 
 ### BatchGetQueryExecution
 
@@ -39,7 +38,6 @@ amazonaws_athena.BatchGetNamedQuery({}, context)
 amazonaws_athena.BatchGetQueryExecution({}, context)
 ```
 
-#### Parameters
 
 ### CreateNamedQuery
 
@@ -49,7 +47,6 @@ amazonaws_athena.BatchGetQueryExecution({}, context)
 amazonaws_athena.CreateNamedQuery({}, context)
 ```
 
-#### Parameters
 
 ### DeleteNamedQuery
 
@@ -59,7 +56,6 @@ amazonaws_athena.CreateNamedQuery({}, context)
 amazonaws_athena.DeleteNamedQuery({}, context)
 ```
 
-#### Parameters
 
 ### GetNamedQuery
 
@@ -69,7 +65,6 @@ amazonaws_athena.DeleteNamedQuery({}, context)
 amazonaws_athena.GetNamedQuery({}, context)
 ```
 
-#### Parameters
 
 ### GetQueryExecution
 
@@ -79,7 +74,6 @@ amazonaws_athena.GetNamedQuery({}, context)
 amazonaws_athena.GetQueryExecution({}, context)
 ```
 
-#### Parameters
 
 ### GetQueryResults
 
@@ -125,7 +119,6 @@ amazonaws_athena.ListQueryExecutions({}, context)
 amazonaws_athena.StartQueryExecution({}, context)
 ```
 
-#### Parameters
 
 ### StopQueryExecution
 
@@ -135,5 +128,4 @@ amazonaws_athena.StartQueryExecution({}, context)
 amazonaws_athena.StopQueryExecution({}, context)
 ```
 
-#### Parameters
 

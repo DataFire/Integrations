@@ -29,7 +29,6 @@ amazonaws_inspector.AddAttributesToFindings({}, context).then(data => {
 amazonaws_inspector.AddAttributesToFindings({}, context)
 ```
 
-#### Parameters
 
 ### CreateAssessmentTarget
 
@@ -39,7 +38,6 @@ amazonaws_inspector.AddAttributesToFindings({}, context)
 amazonaws_inspector.CreateAssessmentTarget({}, context)
 ```
 
-#### Parameters
 
 ### CreateAssessmentTemplate
 
@@ -49,7 +47,6 @@ amazonaws_inspector.CreateAssessmentTarget({}, context)
 amazonaws_inspector.CreateAssessmentTemplate({}, context)
 ```
 
-#### Parameters
 
 ### CreateResourceGroup
 
@@ -59,7 +56,6 @@ amazonaws_inspector.CreateAssessmentTemplate({}, context)
 amazonaws_inspector.CreateResourceGroup({}, context)
 ```
 
-#### Parameters
 
 ### DeleteAssessmentRun
 
@@ -69,7 +65,6 @@ amazonaws_inspector.CreateResourceGroup({}, context)
 amazonaws_inspector.DeleteAssessmentRun({}, context)
 ```
 
-#### Parameters
 
 ### DeleteAssessmentTarget
 
@@ -79,7 +74,6 @@ amazonaws_inspector.DeleteAssessmentRun({}, context)
 amazonaws_inspector.DeleteAssessmentTarget({}, context)
 ```
 
-#### Parameters
 
 ### DeleteAssessmentTemplate
 
@@ -89,7 +83,6 @@ amazonaws_inspector.DeleteAssessmentTarget({}, context)
 amazonaws_inspector.DeleteAssessmentTemplate({}, context)
 ```
 
-#### Parameters
 
 ### DescribeAssessmentRuns
 
@@ -99,7 +92,6 @@ amazonaws_inspector.DeleteAssessmentTemplate({}, context)
 amazonaws_inspector.DescribeAssessmentRuns({}, context)
 ```
 
-#### Parameters
 
 ### DescribeAssessmentTargets
 
@@ -109,7 +101,6 @@ amazonaws_inspector.DescribeAssessmentRuns({}, context)
 amazonaws_inspector.DescribeAssessmentTargets({}, context)
 ```
 
-#### Parameters
 
 ### DescribeAssessmentTemplates
 
@@ -119,7 +110,6 @@ amazonaws_inspector.DescribeAssessmentTargets({}, context)
 amazonaws_inspector.DescribeAssessmentTemplates({}, context)
 ```
 
-#### Parameters
 
 ### DescribeCrossAccountAccessRole
 
@@ -129,7 +119,6 @@ amazonaws_inspector.DescribeAssessmentTemplates({}, context)
 amazonaws_inspector.DescribeCrossAccountAccessRole({}, context)
 ```
 
-#### Parameters
 
 ### DescribeFindings
 
@@ -139,7 +128,6 @@ amazonaws_inspector.DescribeCrossAccountAccessRole({}, context)
 amazonaws_inspector.DescribeFindings({}, context)
 ```
 
-#### Parameters
 
 ### DescribeResourceGroups
 
@@ -149,7 +137,6 @@ amazonaws_inspector.DescribeFindings({}, context)
 amazonaws_inspector.DescribeResourceGroups({}, context)
 ```
 
-#### Parameters
 
 ### DescribeRulesPackages
 
@@ -159,7 +146,6 @@ amazonaws_inspector.DescribeResourceGroups({}, context)
 amazonaws_inspector.DescribeRulesPackages({}, context)
 ```
 
-#### Parameters
 
 ### GetTelemetryMetadata
 
@@ -169,7 +155,6 @@ amazonaws_inspector.DescribeRulesPackages({}, context)
 amazonaws_inspector.GetTelemetryMetadata({}, context)
 ```
 
-#### Parameters
 
 ### ListAssessmentRunAgents
 
@@ -179,7 +164,6 @@ amazonaws_inspector.GetTelemetryMetadata({}, context)
 amazonaws_inspector.ListAssessmentRunAgents({}, context)
 ```
 
-#### Parameters
 
 ### ListAssessmentRuns
 
@@ -189,7 +173,6 @@ amazonaws_inspector.ListAssessmentRunAgents({}, context)
 amazonaws_inspector.ListAssessmentRuns({}, context)
 ```
 
-#### Parameters
 
 ### ListAssessmentTargets
 
@@ -199,7 +182,6 @@ amazonaws_inspector.ListAssessmentRuns({}, context)
 amazonaws_inspector.ListAssessmentTargets({}, context)
 ```
 
-#### Parameters
 
 ### ListAssessmentTemplates
 
@@ -209,7 +191,6 @@ amazonaws_inspector.ListAssessmentTargets({}, context)
 amazonaws_inspector.ListAssessmentTemplates({}, context)
 ```
 
-#### Parameters
 
 ### ListEventSubscriptions
 
@@ -219,7 +200,6 @@ amazonaws_inspector.ListAssessmentTemplates({}, context)
 amazonaws_inspector.ListEventSubscriptions({}, context)
 ```
 
-#### Parameters
 
 ### ListFindings
 
@@ -229,7 +209,6 @@ amazonaws_inspector.ListEventSubscriptions({}, context)
 amazonaws_inspector.ListFindings({}, context)
 ```
 
-#### Parameters
 
 ### ListRulesPackages
 
@@ -239,7 +218,6 @@ amazonaws_inspector.ListFindings({}, context)
 amazonaws_inspector.ListRulesPackages({}, context)
 ```
 
-#### Parameters
 
 ### ListTagsForResource
 
@@ -249,7 +227,6 @@ amazonaws_inspector.ListRulesPackages({}, context)
 amazonaws_inspector.ListTagsForResource({}, context)
 ```
 
-#### Parameters
 
 ### PreviewAgents
 
@@ -259,7 +236,6 @@ amazonaws_inspector.ListTagsForResource({}, context)
 amazonaws_inspector.PreviewAgents({}, context)
 ```
 
-#### Parameters
 
 ### RegisterCrossAccountAccessRole
 
@@ -269,7 +245,6 @@ amazonaws_inspector.PreviewAgents({}, context)
 amazonaws_inspector.RegisterCrossAccountAccessRole({}, context)
 ```
 
-#### Parameters
 
 ### RemoveAttributesFromFindings
 
@@ -279,7 +254,6 @@ amazonaws_inspector.RegisterCrossAccountAccessRole({}, context)
 amazonaws_inspector.RemoveAttributesFromFindings({}, context)
 ```
 
-#### Parameters
 
 ### SetTagsForResource
 
@@ -289,7 +263,6 @@ amazonaws_inspector.RemoveAttributesFromFindings({}, context)
 amazonaws_inspector.SetTagsForResource({}, context)
 ```
 
-#### Parameters
 
 ### StartAssessmentRun
 
@@ -299,7 +272,6 @@ amazonaws_inspector.SetTagsForResource({}, context)
 amazonaws_inspector.StartAssessmentRun({}, context)
 ```
 
-#### Parameters
 
 ### StopAssessmentRun
 
@@ -309,7 +281,6 @@ amazonaws_inspector.StartAssessmentRun({}, context)
 amazonaws_inspector.StopAssessmentRun({}, context)
 ```
 
-#### Parameters
 
 ### SubscribeToEvent
 
@@ -319,7 +290,6 @@ amazonaws_inspector.StopAssessmentRun({}, context)
 amazonaws_inspector.SubscribeToEvent({}, context)
 ```
 
-#### Parameters
 
 ### UnsubscribeFromEvent
 
@@ -329,7 +299,6 @@ amazonaws_inspector.SubscribeToEvent({}, context)
 amazonaws_inspector.UnsubscribeFromEvent({}, context)
 ```
 
-#### Parameters
 
 ### UpdateAssessmentTarget
 
@@ -339,5 +308,4 @@ amazonaws_inspector.UnsubscribeFromEvent({}, context)
 amazonaws_inspector.UpdateAssessmentTarget({}, context)
 ```
 
-#### Parameters
 

@@ -29,7 +29,6 @@ AWS X-Ray provides APIs for managing debug traces and retrieving service maps an
 amazonaws_xray.GetServiceGraph({}, context)
 ```
 
-#### Parameters
 
 ### PutTelemetryRecords
 
@@ -39,7 +38,6 @@ amazonaws_xray.GetServiceGraph({}, context)
 amazonaws_xray.PutTelemetryRecords({}, context)
 ```
 
-#### Parameters
 
 ### GetTraceGraph
 
@@ -49,7 +47,6 @@ amazonaws_xray.PutTelemetryRecords({}, context)
 amazonaws_xray.GetTraceGraph({}, context)
 ```
 
-#### Parameters
 
 ### PutTraceSegments
 
@@ -59,7 +56,6 @@ amazonaws_xray.GetTraceGraph({}, context)
 amazonaws_xray.PutTraceSegments({}, context)
 ```
 
-#### Parameters
 
 ### GetTraceSummaries
 
@@ -69,7 +65,6 @@ amazonaws_xray.PutTraceSegments({}, context)
 amazonaws_xray.GetTraceSummaries({}, context)
 ```
 
-#### Parameters
 
 ### BatchGetTraces
 
@@ -79,5 +74,4 @@ amazonaws_xray.GetTraceSummaries({}, context)
 amazonaws_xray.BatchGetTraces({}, context)
 ```
 
-#### Parameters
 
