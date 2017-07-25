@@ -10225,19 +10225,21 @@
             "public_content": "to read any public profile info and media on a user’s behalf",
             "relationships": "to follow and unfollow accounts on a user's behalf"
           },
-          "type": "oauth2"
+          "type": "oauth2",
+          "in": "query",
+          "name": "access_token"
         }
       }
     },
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/instagram.jpg"
     },
+    "actionCount": 27,
     "tags": [
       "social",
       "media"
     ],
-    "actionCount": 27,
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "jirafe": {
     "id": "jirafe",
