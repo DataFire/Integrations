@@ -1,6 +1,10 @@
 {
   "id": "bbc_rss",
+  "title": "BBC RSS",
   "security": {},
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/bbc_rss.png"
+  },
   "actionCount": 4,
   "definitions": {
     "Feed": {

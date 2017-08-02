@@ -4240,7 +4240,11 @@
   },
   "bbc_rss": {
     "id": "bbc_rss",
+    "title": "BBC RSS",
     "security": {},
+    "logo": {
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/bbc_rss.png"
+    },
     "actionCount": 4,
     "tags": [],
     "latestVersion": "2.0.2"
@@ -4880,6 +4884,7 @@
   },
   "cnn_rss": {
     "id": "cnn_rss",
+    "title": "CNN RSS",
     "security": {},
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/cnn_rss.png"
@@ -10251,6 +10256,9 @@
         }
       }
     },
+    "logo": {
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/kaltura.jpg"
+    },
     "actionCount": 746,
     "tags": [],
     "latestVersion": "2.0.2"
@@ -10680,6 +10688,7 @@
   },
   "npr_rss": {
     "id": "npr_rss",
+    "title": "NPR RSS",
     "security": {},
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/npr_rss.JPG"
@@ -10880,6 +10889,7 @@
   },
   "nytimes_rss": {
     "id": "nytimes_rss",
+    "title": "New York Times RSS",
     "security": {},
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/nytimes_rss.png"
@@ -12718,6 +12728,9 @@
     "title": "Swagger UI",
     "description": "Display Swagger UI for your DataFire API",
     "security": {},
+    "logo": {
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/swaggerui.png"
+    },
     "actionCount": 1,
     "latestVersion": "1.0.0"
   }

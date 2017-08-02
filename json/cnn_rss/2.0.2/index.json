@@ -1,5 +1,6 @@
 {
   "id": "cnn_rss",
+  "title": "CNN RSS",
   "security": {},
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/cnn_rss.png"
