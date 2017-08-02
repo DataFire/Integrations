@@ -9905,7 +9905,7 @@
     "description": "Put all those great ideas for Groupon improvements, extensions, and multiple-platform interfaces to work.",
     "security": {},
     "logo": {
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/groupon.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/groupon.png"
     },
     "tags": [],
     "actionCount": 6,
@@ -10234,11 +10234,11 @@
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/instagram.jpg"
     },
-    "actionCount": 27,
     "tags": [
       "social",
       "media"
     ],
+    "actionCount": 27,
     "latestVersion": "2.0.3"
   },
   "kaltura": {
@@ -11459,7 +11459,7 @@
     "description": "Access Rhapsody technologies and content, including metadeta, search and music player.",
     "security": {},
     "logo": {
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/rhapsody.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/rhapsody.jpg"
     },
     "tags": [],
     "actionCount": 20,
@@ -11721,7 +11721,7 @@
     "description": "Interact with Skyrock.com features: blogs, profiles, messaging, 'what's new', friends & activities!",
     "security": {},
     "logo": {
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/skyrock.jpeg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/skyrock.png"
     },
     "tags": [],
     "actionCount": 70,

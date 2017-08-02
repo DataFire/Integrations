@@ -33,7 +33,10 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/instagram.jpg"
   },
-  "actionCount": 27,
+  "tags": [
+    "social",
+    "media"
+  ],
   "definitions": {
     "CaptionData": {
       "properties": {
@@ -1536,9 +1539,5 @@
         }
       }
     }
-  ],
-  "tags": [
-    "social",
-    "media"
   ]
 }

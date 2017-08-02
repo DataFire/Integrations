@@ -4,7 +4,7 @@
   "description": "Interact with Skyrock.com features: blogs, profiles, messaging, 'what's new', friends & activities!",
   "security": {},
   "logo": {
-    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/skyrock.jpeg"
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/skyrock.png"
   },
   "tags": [],
   "actions": [
