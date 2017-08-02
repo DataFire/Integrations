@@ -28,10 +28,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_reseller.png"
   },
-  "tags": [
-    "enterprise",
-    "google"
-  ],
+  "actionCount": 19,
   "definitions": {
     "Address": {
       "description": "JSON template for address of a customer.",
@@ -1498,5 +1495,9 @@
         }
       }
     }
+  ],
+  "tags": [
+    "enterprise",
+    "google"
   ]
 }

@@ -1,7 +1,6 @@
 {
   "id": "mozilla_kinto",
   "title": "kinto",
-  "description": "",
   "security": {
     "mozilla_kinto": {
       "integration": "mozilla_kinto",
@@ -15,9 +14,7 @@
     "backgroundColor": "#FFFFFF",
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/mozilla_kinto.png"
   },
-  "tags": [
-    "cloud"
-  ],
+  "actionCount": 17,
   "actions": [
     {
       "id": "server_info",
@@ -1020,5 +1017,8 @@
         }
       }
     }
+  ],
+  "tags": [
+    "cloud"
   ]
 }

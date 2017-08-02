@@ -13,9 +13,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/ritc.jpg"
   },
-  "tags": [
-    "cloud"
-  ],
+  "actionCount": 66,
   "definitions": {
     "Action": {
       "properties": {
@@ -2766,5 +2764,8 @@
         }
       }
     }
+  ],
+  "tags": [
+    "cloud"
   ]
 }

@@ -15,9 +15,7 @@
     "backgroundColor": "#050917",
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/wavecell.jpg"
   },
-  "tags": [
-    "messaging"
-  ],
+  "actionCount": 4,
   "definitions": {
     "BulkSmsRequest": {
       "properties": {
@@ -310,5 +308,8 @@
         }
       }
     }
+  ],
+  "tags": [
+    "messaging"
   ]
 }

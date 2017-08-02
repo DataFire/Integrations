@@ -14,10 +14,7 @@
     "backgroundColor": "#FFFFFF",
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_cur.jpg"
   },
-  "tags": [
-    "cloud",
-    "aws"
-  ],
+  "actionCount": 3,
   "definitions": {
     "AWSRegion": {
       "description": "Region of customer S3 bucket.",
@@ -340,5 +337,9 @@
         }
       }
     }
+  ],
+  "tags": [
+    "cloud",
+    "aws"
   ]
 }

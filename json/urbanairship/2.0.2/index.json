@@ -6,7 +6,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/urbanairship.png"
   },
-  "tags": [],
+  "actionCount": 59,
   "actions": [
     {
       "id": "device_tokens.token.put",
@@ -1208,5 +1208,6 @@
       },
       "outputSchema": {}
     }
-  ]
+  ],
+  "tags": []
 }

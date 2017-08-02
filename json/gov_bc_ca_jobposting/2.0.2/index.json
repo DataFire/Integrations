@@ -6,9 +6,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/gov_bc_ca_jobposting.jpeg"
   },
-  "tags": [
-    "open data"
-  ],
+  "actionCount": 4,
   "definitions": {
     "Error": {
       "properties": {
@@ -284,5 +282,8 @@
         "type": "array"
       }
     }
+  ],
+  "tags": [
+    "open data"
   ]
 }

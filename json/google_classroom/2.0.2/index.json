@@ -38,10 +38,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_classroom.png"
   },
-  "tags": [
-    "education",
-    "google"
-  ],
+  "actionCount": 44,
   "definitions": {
     "Assignment": {
       "description": "Additional details for assignments.",
@@ -5034,5 +5031,9 @@
         }
       }
     }
+  ],
+  "tags": [
+    "education",
+    "google"
   ]
 }

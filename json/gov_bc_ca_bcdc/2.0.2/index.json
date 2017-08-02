@@ -45,9 +45,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/gov_bc_ca_bcdc.jpeg"
   },
-  "tags": [
-    "open data"
-  ],
+  "actionCount": 24,
   "actions": [
     {
       "id": "oauthCallback",
@@ -720,5 +718,8 @@
         }
       }
     }
+  ],
+  "tags": [
+    "open data"
   ]
 }

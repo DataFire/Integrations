@@ -1,7 +1,6 @@
 {
   "id": "amazonaws_pinpoint",
   "title": "Amazon Pinpoint",
-  "description": "",
   "security": {
     "amazonaws_pinpoint": {
       "integration": "amazonaws_pinpoint",
@@ -14,10 +13,7 @@
     "backgroundColor": "#FFFFFF",
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_pinpoint.jpg"
   },
-  "tags": [
-    "cloud",
-    "aws"
-  ],
+  "actionCount": 18,
   "definitions": {
     "APNSChannelRequest": {
       "description": "Apple Push Notification Service channel definition.",
@@ -2676,5 +2672,9 @@
         }
       }
     }
+  ],
+  "tags": [
+    "cloud",
+    "aws"
   ]
 }

@@ -6,7 +6,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apitore_text2labelbytfidfapis.jpg"
   },
-  "tags": [],
+  "actionCount": 1,
   "definitions": {
     "LabelEntity": {
       "properties": {
@@ -103,5 +103,6 @@
         "$ref": "#/definitions/LabelResponseEntity"
       }
     }
-  ]
+  ],
+  "tags": []
 }

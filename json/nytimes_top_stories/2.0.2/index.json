@@ -13,10 +13,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/nytimes_top_stories.png"
   },
-  "tags": [
-    "media",
-    "open data"
-  ],
+  "actionCount": 1,
   "definitions": {
     "Article": {
       "properties": {
@@ -212,5 +209,9 @@
         }
       }
     }
+  ],
+  "tags": [
+    "media",
+    "open data"
   ]
 }

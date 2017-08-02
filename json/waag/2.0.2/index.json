@@ -6,9 +6,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/waag.svg"
   },
-  "tags": [
-    "open data"
-  ],
+  "actionCount": 47,
   "actions": [
     {
       "id": "layers.get",
@@ -789,5 +787,8 @@
       },
       "outputSchema": {}
     }
+  ],
+  "tags": [
+    "open data"
   ]
 }

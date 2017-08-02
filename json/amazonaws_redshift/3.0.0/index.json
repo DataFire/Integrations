@@ -14,10 +14,7 @@
     "backgroundColor": "#FFFFFF",
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_redshift.jpg"
   },
-  "tags": [
-    "cloud",
-    "aws"
-  ],
+  "actionCount": 63,
   "definitions": {
     "AccessToSnapshotDeniedFault": {
       "description": "The owner of the specified snapshot has not authorized your account to access the snapshot.",
@@ -5603,5 +5600,9 @@
         }
       }
     }
+  ],
+  "tags": [
+    "cloud",
+    "aws"
   ]
 }

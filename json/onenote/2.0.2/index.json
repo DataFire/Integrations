@@ -1,12 +1,12 @@
 {
   "id": "onenote",
-  "title": "OneNote",
+  "title": "Microsoft OneNote",
   "description": "Easily capture content into OneNote with this REST API.",
   "security": {},
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/onenote.png"
   },
-  "tags": [],
+  "actionCount": 19,
   "actions": [
     {
       "id": "sections.sectionId.get",
@@ -638,5 +638,6 @@
       },
       "outputSchema": {}
     }
-  ]
+  ],
+  "tags": []
 }

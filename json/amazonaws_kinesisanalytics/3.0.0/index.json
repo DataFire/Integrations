@@ -1,7 +1,6 @@
 {
   "id": "amazonaws_kinesisanalytics",
   "title": "Amazon Kinesis Analytics",
-  "description": "",
   "security": {
     "amazonaws_kinesisanalytics": {
       "integration": "amazonaws_kinesisanalytics",
@@ -14,10 +13,7 @@
     "backgroundColor": "#FFFFFF",
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_kinesisanalytics.jpg"
   },
-  "tags": [
-    "cloud",
-    "aws"
-  ],
+  "actionCount": 13,
   "definitions": {
     "AddApplicationInputRequest": {
       "description": "<p/>",
@@ -1772,5 +1768,9 @@
         }
       }
     }
+  ],
+  "tags": [
+    "cloud",
+    "aws"
   ]
 }

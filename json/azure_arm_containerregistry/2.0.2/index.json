@@ -1,15 +1,11 @@
 {
   "id": "azure_arm_containerregistry",
   "title": "ContainerRegistryManagementClient",
-  "description": "",
   "security": {},
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_containerregistry.png"
   },
-  "tags": [
-    "cloud",
-    "azure"
-  ],
+  "actionCount": 9,
   "definitions": {
     "Registry": {
       "allOf": [
@@ -517,5 +513,9 @@
         "$ref": "#/definitions/RegistryCredentials"
       }
     }
+  ],
+  "tags": [
+    "cloud",
+    "azure"
   ]
 }

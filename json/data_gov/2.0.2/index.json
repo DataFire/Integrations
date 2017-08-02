@@ -13,7 +13,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/data_gov.png"
   },
-  "tags": [],
+  "actionCount": 3,
   "actions": [
     {
       "id": "docket",
@@ -280,5 +280,6 @@
         }
       }
     }
-  ]
+  ],
+  "tags": []
 }

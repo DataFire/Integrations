@@ -14,9 +14,7 @@
     "backgroundColor": "#161924",
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/getsandbox.png"
   },
-  "tags": [
-    "developer tools"
-  ],
+  "actionCount": 9,
   "definitions": {
     "ActivityMessage": {
       "properties": {
@@ -685,5 +683,8 @@
         }
       }
     }
+  ],
+  "tags": [
+    "developer tools"
   ]
 }

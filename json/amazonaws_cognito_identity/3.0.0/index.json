@@ -14,10 +14,7 @@
     "backgroundColor": "#FFFFFF",
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_cognito_identity.jpg"
   },
-  "tags": [
-    "cloud",
-    "aws"
-  ],
+  "actionCount": 18,
   "definitions": {
     "ARNString": {
       "maxLength": 2048,
@@ -1496,5 +1493,9 @@
         }
       }
     }
+  ],
+  "tags": [
+    "cloud",
+    "aws"
   ]
 }

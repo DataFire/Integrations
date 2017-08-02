@@ -15,13 +15,7 @@
     "backgroundColor": "#FFFFFF",
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/neutrinoapi.png"
   },
-  "tags": [
-    "email",
-    "messaging",
-    "telecom",
-    "location",
-    "text"
-  ],
+  "actionCount": 25,
   "definitions": {
     "ApiError": {
       "allOf": [
@@ -2158,5 +2152,12 @@
         }
       }
     }
+  ],
+  "tags": [
+    "email",
+    "messaging",
+    "telecom",
+    "location",
+    "text"
   ]
 }

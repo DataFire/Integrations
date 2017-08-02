@@ -27,9 +27,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_bigquerydatatransfer.png"
   },
-  "tags": [
-    "google"
-  ],
+  "actionCount": 14,
   "definitions": {
     "CheckValidCredsRequest": {
       "description": "A request to determine whether the user has valid credentials. This method\nis used to limit the number of OAuth popups in the user interface. The\nuser id is inferred from the API call context.\nIf the data source has the Google+ authorization type, this method\nreturns false, as it cannot be determined whether the credentials are\nalready valid merely based on the user id.",
@@ -1709,5 +1707,8 @@
         }
       }
     }
+  ],
+  "tags": [
+    "google"
   ]
 }

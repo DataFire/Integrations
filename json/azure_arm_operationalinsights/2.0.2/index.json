@@ -26,10 +26,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_operationalinsights.png"
   },
-  "tags": [
-    "analytics",
-    "azure"
-  ],
+  "actionCount": 13,
   "definitions": {
     "CoreSummary": {
       "description": "The core summary of a search.",
@@ -1208,5 +1205,9 @@
         }
       }
     }
+  ],
+  "tags": [
+    "analytics",
+    "azure"
   ]
 }

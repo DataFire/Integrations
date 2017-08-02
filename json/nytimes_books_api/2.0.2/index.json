@@ -13,10 +13,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/nytimes_books_api.png"
   },
-  "tags": [
-    "media",
-    "open data"
-  ],
+  "actionCount": 6,
   "definitions": {},
   "actions": [
     {
@@ -871,5 +868,9 @@
         }
       }
     }
+  ],
+  "tags": [
+    "media",
+    "open data"
   ]
 }

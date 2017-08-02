@@ -23,9 +23,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/box_upload.jpg"
   },
-  "tags": [
-    "cloud"
-  ],
+  "actionCount": 4,
   "definitions": {
     "BoxFile": {
       "allOf": [
@@ -679,5 +677,8 @@
         }
       }
     }
+  ],
+  "tags": [
+    "cloud"
   ]
 }

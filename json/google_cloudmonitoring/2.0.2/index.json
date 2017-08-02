@@ -28,9 +28,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_cloudmonitoring.png"
   },
-  "tags": [
-    "google"
-  ],
+  "actionCount": 8,
   "definitions": {
     "DeleteMetricDescriptorResponse": {
       "description": "The response of cloudmonitoring.metricDescriptors.delete.",
@@ -970,5 +968,8 @@
         }
       }
     }
+  ],
+  "tags": [
+    "google"
   ]
 }

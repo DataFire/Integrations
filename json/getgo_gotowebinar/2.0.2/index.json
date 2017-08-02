@@ -3,7 +3,7 @@
   "title": "GoToWebinar",
   "description": "The GoToWebinar API provides seamless integration of webinar registrant and attendee data into your existing infrastructure or third-party applications. The ability to register participants, as well as pull lists of registrants and attendees for a webinar, allows organizers to manage the flow of information between their primary applications without manual intervention.",
   "security": {},
-  "tags": [],
+  "actionCount": 38,
   "definitions": {
     "AccessCodes": {
       "description": "Describes the access codes for organizer, panelists and attendees",
@@ -3147,5 +3147,6 @@
         "type": "array"
       }
     }
-  ]
+  ],
+  "tags": []
 }

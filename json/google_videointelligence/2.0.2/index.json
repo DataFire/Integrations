@@ -27,9 +27,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_videointelligence.png"
   },
-  "tags": [
-    "google"
-  ],
+  "actionCount": 3,
   "definitions": {
     "GoogleCloudVideointelligenceV1beta1_AnnotateVideoProgress": {
       "description": "Video annotation progress. Included in the `metadata`\nfield of the `Operation` returned by the `GetOperation`\ncall of the `google::longrunning::Operations` service.",
@@ -458,5 +456,8 @@
         }
       }
     }
+  ],
+  "tags": [
+    "google"
   ]
 }

@@ -15,10 +15,7 @@
     "backgroundColor": "#FFFFFF",
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/wealthport.png"
   },
-  "tags": [
-    "analytics",
-    "machine learning"
-  ],
+  "actionCount": 26,
   "definitions": {
     "Archivable_Object": {
       "properties": {
@@ -1067,5 +1064,9 @@
         }
       }
     }
+  ],
+  "tags": [
+    "analytics",
+    "machine learning"
   ]
 }

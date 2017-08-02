@@ -1,15 +1,11 @@
 {
   "id": "azure_arm_insights",
   "title": "InsightsManagementClient",
-  "description": "",
   "security": {},
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_insights.png"
   },
-  "tags": [
-    "cloud",
-    "azure"
-  ],
+  "actionCount": 4,
   "definitions": {
     "LogProfileCollection": {
       "description": "Represents a collection of log profiles.",
@@ -252,5 +248,9 @@
         "$ref": "#/definitions/LogProfileResource"
       }
     }
+  ],
+  "tags": [
+    "cloud",
+    "azure"
   ]
 }

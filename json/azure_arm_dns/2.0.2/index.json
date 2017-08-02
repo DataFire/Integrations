@@ -6,11 +6,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_dns.png"
   },
-  "tags": [
-    "hosting",
-    "cloud",
-    "azure"
-  ],
+  "actionCount": 11,
   "definitions": {
     "ARecord": {
       "description": "An A record.",
@@ -1031,5 +1027,10 @@
         "$ref": "#/definitions/RecordSet"
       }
     }
+  ],
+  "tags": [
+    "hosting",
+    "cloud",
+    "azure"
   ]
 }

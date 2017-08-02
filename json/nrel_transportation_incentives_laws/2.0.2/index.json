@@ -14,9 +14,7 @@
     "backgroundColor": "#0079C5",
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/nrel_transportation_incentives_laws.png"
   },
-  "tags": [
-    "open data"
-  ],
+  "actionCount": 4,
   "definitions": {
     "Category": {
       "description": "A category that the law applies to",
@@ -600,5 +598,8 @@
         }
       }
     }
+  ],
+  "tags": [
+    "open data"
   ]
 }

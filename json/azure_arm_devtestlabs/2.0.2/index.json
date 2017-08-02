@@ -26,11 +26,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_devtestlabs.png"
   },
-  "tags": [
-    "developer tools",
-    "cloud",
-    "azure"
-  ],
+  "actionCount": 52,
   "definitions": {
     "ApplyArtifactsRequest": {
       "description": "Request body for applying artifacts to a virtual machine.",
@@ -4192,5 +4188,10 @@
         }
       }
     }
+  ],
+  "tags": [
+    "developer tools",
+    "cloud",
+    "azure"
   ]
 }

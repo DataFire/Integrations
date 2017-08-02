@@ -6,11 +6,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_iothub.png"
   },
-  "tags": [
-    "iot",
-    "cloud",
-    "azure"
-  ],
+  "actionCount": 19,
   "definitions": {
     "CloudToDeviceProperties": {
       "description": "The IoT hub cloud-to-device messaging properties.",
@@ -1561,5 +1557,10 @@
         "$ref": "#/definitions/IotHubSkuDescriptionListResult"
       }
     }
+  ],
+  "tags": [
+    "iot",
+    "cloud",
+    "azure"
   ]
 }

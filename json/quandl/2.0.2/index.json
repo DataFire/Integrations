@@ -1,6 +1,6 @@
 {
   "id": "quandl",
-  "title": "Quandl API",
+  "title": "Quandl",
   "description": "The Quandl API",
   "security": {
     "quandl": {
@@ -13,7 +13,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/quandl.png"
   },
-  "tags": [],
+  "actionCount": 8,
   "actions": [
     {
       "id": "datasets.database_code.dataset_code.metadata.get",
@@ -957,5 +957,6 @@
         }
       }
     }
-  ]
+  ],
+  "tags": []
 }

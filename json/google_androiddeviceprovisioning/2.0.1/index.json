@@ -6,9 +6,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_androiddeviceprovisioning.png"
   },
-  "tags": [
-    "google"
-  ],
+  "actionCount": 7,
   "definitions": {
     "ClaimDeviceRequest": {
       "description": "Request message to claim a device on behalf of a customer.",
@@ -878,5 +876,8 @@
         "$ref": "#/definitions/Device"
       }
     }
+  ],
+  "tags": [
+    "google"
   ]
 }

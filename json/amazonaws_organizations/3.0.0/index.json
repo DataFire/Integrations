@@ -14,10 +14,7 @@
     "backgroundColor": "#FFFFFF",
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_organizations.jpg"
   },
-  "tags": [
-    "cloud",
-    "aws"
-  ],
+  "actionCount": 39,
   "definitions": {
     "AWSOrganizationsNotInUseException": {
       "description": "Your account is not a member of an organization. To make this request, you must use the credentials of an account that belongs to an organization.",
@@ -3728,5 +3725,9 @@
         }
       }
     }
+  ],
+  "tags": [
+    "cloud",
+    "aws"
   ]
 }

@@ -7,9 +7,7 @@
     "backgroundColor": "#FFFFFF",
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/epa_gov_air.png"
   },
-  "tags": [
-    "open data"
-  ],
+  "actionCount": 8,
   "definitions": {
     "Geometry": {
       "description": "GeoJSON Geometry Object",
@@ -4459,5 +4457,8 @@
         "type": "object"
       }
     }
+  ],
+  "tags": [
+    "open data"
   ]
 }

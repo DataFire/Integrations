@@ -7,9 +7,7 @@
     "backgroundColor": "#5F6166",
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/citrix_gotomeeting.png"
   },
-  "tags": [
-    "collaboration"
-  ],
+  "actionCount": 26,
   "definitions": {
     "AttendeeByGroup": {
       "description": "Describes an attendee of a meeting instance held by an organizer within a specified group.",
@@ -2398,5 +2396,8 @@
         "type": "array"
       }
     }
+  ],
+  "tags": [
+    "collaboration"
   ]
 }

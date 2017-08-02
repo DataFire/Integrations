@@ -22,7 +22,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/soundcloud.png"
   },
-  "tags": [],
+  "actionCount": 52,
   "actions": [
     {
       "id": "tracks.json.get",
@@ -1207,5 +1207,6 @@
         }
       }
     }
-  ]
+  ],
+  "tags": []
 }

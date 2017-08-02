@@ -16,9 +16,7 @@
     "backgroundColor": "#FFFFFF",
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/bbci.svg"
   },
-  "tags": [
-    "media"
-  ],
+  "actionCount": 30,
   "definitions": {
     "added": {
       "additionalProperties": false,
@@ -3757,5 +3755,8 @@
         "$ref": "#/definitions/ibl"
       }
     }
+  ],
+  "tags": [
+    "media"
   ]
 }

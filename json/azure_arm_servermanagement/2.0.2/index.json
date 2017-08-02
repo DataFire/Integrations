@@ -26,10 +26,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_servermanagement.png"
   },
-  "tags": [
-    "developer tools",
-    "azure"
-  ],
+  "actionCount": 25,
   "definitions": {
     "EncryptionJwkResource": {
       "description": "The public key of the gateway.",
@@ -2004,5 +2001,9 @@
         }
       }
     }
+  ],
+  "tags": [
+    "developer tools",
+    "azure"
   ]
 }

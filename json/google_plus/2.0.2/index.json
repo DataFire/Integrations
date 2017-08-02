@@ -30,10 +30,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_plus.png"
   },
-  "tags": [
-    "social",
-    "google"
-  ],
+  "actionCount": 11,
   "definitions": {
     "Acl": {
       "properties": {
@@ -1798,5 +1795,9 @@
         }
       }
     }
+  ],
+  "tags": [
+    "social",
+    "google"
   ]
 }

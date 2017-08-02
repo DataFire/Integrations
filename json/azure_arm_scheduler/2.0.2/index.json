@@ -1,15 +1,11 @@
 {
   "id": "azure_arm_scheduler",
   "title": "SchedulerManagementClient",
-  "description": "",
   "security": {},
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_scheduler.png"
   },
-  "tags": [
-    "time management",
-    "azure"
-  ],
+  "actionCount": 15,
   "definitions": {
     "BasicAuthentication": {
       "allOf": [
@@ -1487,5 +1483,9 @@
       },
       "outputSchema": {}
     }
+  ],
+  "tags": [
+    "time management",
+    "azure"
   ]
 }

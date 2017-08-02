@@ -6,10 +6,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/mandrillapp.png"
   },
-  "tags": [
-    "email",
-    "marketing"
-  ],
+  "actionCount": 90,
   "definitions": {
     "api_key": {
       "properties": {
@@ -5384,5 +5381,9 @@
         "$ref": "#/definitions/whitelists_list-response"
       }
     }
+  ],
+  "tags": [
+    "email",
+    "marketing"
   ]
 }

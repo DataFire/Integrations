@@ -29,9 +29,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_surveys.png"
   },
-  "tags": [
-    "google"
-  ],
+  "actionCount": 13,
   "definitions": {
     "FieldMask": {
       "properties": {
@@ -1190,5 +1188,8 @@
         }
       }
     }
+  ],
+  "tags": [
+    "google"
   ]
 }

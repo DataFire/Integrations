@@ -26,10 +26,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_resourcehealth.png"
   },
-  "tags": [
-    "cloud",
-    "azure"
-  ],
+  "actionCount": 5,
   "definitions": {
     "ErrorResponse": {
       "description": "Error details.",
@@ -493,5 +490,9 @@
         }
       }
     }
+  ],
+  "tags": [
+    "cloud",
+    "azure"
   ]
 }

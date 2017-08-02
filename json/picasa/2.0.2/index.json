@@ -6,7 +6,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/picasa.jpg"
   },
-  "tags": [],
+  "actionCount": 14,
   "actions": [
     {
       "id": "feed.api.user.userID.get",
@@ -983,5 +983,6 @@
       },
       "outputSchema": {}
     }
-  ]
+  ],
+  "tags": []
 }

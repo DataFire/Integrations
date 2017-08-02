@@ -6,7 +6,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/patientview.png"
   },
-  "tags": [],
+  "actionCount": 15,
   "definitions": {
     "ApiKey": {
       "properties": {
@@ -1792,5 +1792,6 @@
         "uniqueItems": false
       }
     }
-  ]
+  ],
+  "tags": []
 }

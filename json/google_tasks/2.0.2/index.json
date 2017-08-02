@@ -28,10 +28,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_tasks.png"
   },
-  "tags": [
-    "time management",
-    "google"
-  ],
+  "actionCount": 16,
   "definitions": {
     "Task": {
       "properties": {
@@ -1164,5 +1161,9 @@
         }
       }
     }
+  ],
+  "tags": [
+    "time management",
+    "google"
   ]
 }

@@ -7,9 +7,7 @@
     "backgroundColor": "#FFFFFF",
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/cnab_online_herokuapp.png"
   },
-  "tags": [
-    "financial"
-  ],
+  "actionCount": 4,
   "definitions": {
     "Error": {
       "properties": {
@@ -341,5 +339,8 @@
         "type": "object"
       }
     }
+  ],
+  "tags": [
+    "financial"
   ]
 }

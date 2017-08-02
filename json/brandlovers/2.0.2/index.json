@@ -14,9 +14,7 @@
     "backgroundColor": "#E34056",
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/brandlovers.png"
   },
-  "tags": [
-    "ecommerce"
-  ],
+  "actionCount": 36,
   "definitions": {
     "Address": {
       "properties": {
@@ -2805,5 +2803,8 @@
         }
       }
     }
+  ],
+  "tags": [
+    "ecommerce"
   ]
 }

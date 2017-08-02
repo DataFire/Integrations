@@ -13,10 +13,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/inboxroute.png"
   },
-  "tags": [
-    "email",
-    "marketing"
-  ],
+  "actionCount": 8,
   "definitions": {
     "Contact": {
       "properties": {
@@ -514,5 +511,9 @@
         }
       }
     }
+  ],
+  "tags": [
+    "email",
+    "marketing"
   ]
 }

@@ -35,7 +35,7 @@
     "backgroundColor": "#F26641",
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/authentiq.svg"
   },
-  "tags": [],
+  "actionCount": 11,
   "definitions": {
     "Address": {
       "description": "OIDC Address structure",
@@ -709,5 +709,6 @@
         }
       }
     }
-  ]
+  ],
+  "tags": []
 }

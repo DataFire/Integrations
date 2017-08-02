@@ -6,9 +6,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/box_token.jpg"
   },
-  "tags": [
-    "cloud"
-  ],
+  "actionCount": 2,
   "definitions": {
     "AccessToken": {
       "properties": {
@@ -242,5 +240,8 @@
         "$ref": "#/definitions/AccessToken"
       }
     }
+  ],
+  "tags": [
+    "cloud"
   ]
 }

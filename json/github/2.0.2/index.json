@@ -46,10 +46,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/github.png"
   },
-  "tags": [
-    "collaboration",
-    "developer tools"
-  ],
+  "actionCount": 246,
   "definitions": {
     "asset": {
       "properties": {
@@ -21720,5 +21717,9 @@
         }
       }
     }
+  ],
+  "tags": [
+    "collaboration",
+    "developer tools"
   ]
 }

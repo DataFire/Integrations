@@ -13,9 +13,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/wordnik.png"
   },
-  "tags": [
-    "text"
-  ],
+  "actionCount": 28,
   "definitions": {
     "ApiTokenStatus": {
       "properties": {
@@ -2031,5 +2029,8 @@
         }
       }
     }
+  ],
+  "tags": [
+    "text"
   ]
 }

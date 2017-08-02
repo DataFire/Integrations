@@ -26,11 +26,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_cdn.png"
   },
-  "tags": [
-    "cloud",
-    "hosting",
-    "azure"
-  ],
+  "actionCount": 32,
   "definitions": {
     "CheckNameAvailabilityInput": {
       "description": "Input of CheckNameAvailability API.",
@@ -2405,5 +2401,10 @@
         }
       }
     }
+  ],
+  "tags": [
+    "cloud",
+    "hosting",
+    "azure"
   ]
 }

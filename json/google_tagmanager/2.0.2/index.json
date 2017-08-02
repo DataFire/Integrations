@@ -33,9 +33,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_tagmanager.png"
   },
-  "tags": [
-    "google"
-  ],
+  "actionCount": 52,
   "definitions": {
     "Account": {
       "description": "Represents a Google Tag Manager Account.",
@@ -4504,5 +4502,8 @@
         }
       }
     }
+  ],
+  "tags": [
+    "google"
   ]
 }

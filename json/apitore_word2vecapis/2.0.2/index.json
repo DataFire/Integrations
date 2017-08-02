@@ -6,7 +6,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apitore_word2vecapis.jpg"
   },
-  "tags": [],
+  "actionCount": 5,
   "definitions": {
     "AnalogyResponseEntity": {
       "properties": {
@@ -405,5 +405,6 @@
         "$ref": "#/definitions/WordVectorResponseEntity"
       }
     }
-  ]
+  ],
+  "tags": []
 }

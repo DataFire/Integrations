@@ -3,9 +3,7 @@
   "title": "ODWeather",
   "description": "This is the api to access the ODWeather API information",
   "security": {},
-  "tags": [
-    "open data"
-  ],
+  "actionCount": 8,
   "actions": [
     {
       "id": "compareStation",
@@ -242,5 +240,8 @@
       "inputSchema": {},
       "outputSchema": {}
     }
+  ],
+  "tags": [
+    "open data"
   ]
 }

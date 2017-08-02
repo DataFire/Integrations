@@ -6,10 +6,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_pagespeedonline.png"
   },
-  "tags": [
-    "tools",
-    "google"
-  ],
+  "actionCount": 1,
   "definitions": {
     "PagespeedApiFormatStringV2": {
       "properties": {
@@ -440,5 +437,9 @@
         "$ref": "#/definitions/Result"
       }
     }
+  ],
+  "tags": [
+    "tools",
+    "google"
   ]
 }

@@ -28,10 +28,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_youtubereporting.png"
   },
-  "tags": [
-    "analytics",
-    "google"
-  ],
+  "actionCount": 10,
   "definitions": {
     "Empty": {
       "description": "A generic empty message that you can re-use to avoid defining duplicated\nempty messages in your APIs. A typical example is to use it as the request\nor the response type of an API method. For instance:\n\n    service Foo {\n      rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);\n    }\n\nThe JSON representation for `Empty` is empty JSON object `{}`.",
@@ -1029,5 +1026,9 @@
         }
       }
     }
+  ],
+  "tags": [
+    "analytics",
+    "google"
   ]
 }

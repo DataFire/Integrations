@@ -26,11 +26,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_logic.png"
   },
-  "tags": [
-    "developer tools",
-    "cloud",
-    "azure"
-  ],
+  "actionCount": 59,
   "definitions": {
     "AS2AcknowledgementConnectionSettings": {
       "description": "The AS2 agreement acknowledegment connection settings.",
@@ -6852,5 +6848,10 @@
         }
       }
     }
+  ],
+  "tags": [
+    "developer tools",
+    "cloud",
+    "azure"
   ]
 }

@@ -27,9 +27,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_books.png"
   },
-  "tags": [
-    "google"
-  ],
+  "actionCount": 50,
   "definitions": {
     "Annotation": {
       "properties": {
@@ -5839,5 +5837,8 @@
         }
       }
     }
+  ],
+  "tags": [
+    "google"
   ]
 }

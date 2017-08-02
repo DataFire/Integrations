@@ -14,9 +14,7 @@
     "backgroundColor": "#FFFFFF",
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/channel4.gif"
   },
-  "tags": [
-    "media"
-  ],
+  "actionCount": 68,
   "definitions": {
     "ContentTypeType": {
       "additionalProperties": false,
@@ -4346,5 +4344,8 @@
         }
       }
     }
+  ],
+  "tags": [
+    "media"
   ]
 }

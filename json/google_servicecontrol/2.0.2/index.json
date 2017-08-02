@@ -28,9 +28,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_servicecontrol.png"
   },
-  "tags": [
-    "google"
-  ],
+  "actionCount": 8,
   "definitions": {
     "AllocateQuotaRequest": {
       "description": "Request message for the AllocateQuota method.",
@@ -1588,5 +1586,8 @@
         }
       }
     }
+  ],
+  "tags": [
+    "google"
   ]
 }

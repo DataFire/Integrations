@@ -13,9 +13,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/core_ac_uk.png"
   },
-  "tags": [
-    "open data"
-  ],
+  "actionCount": 17,
   "definitions": {
     "Article": {
       "properties": {
@@ -1326,5 +1324,8 @@
         }
       }
     }
+  ],
+  "tags": [
+    "open data"
   ]
 }

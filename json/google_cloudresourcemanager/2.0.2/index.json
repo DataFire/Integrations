@@ -28,9 +28,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_cloudresourcemanager.png"
   },
-  "tags": [
-    "google"
-  ],
+  "actionCount": 26,
   "definitions": {
     "Ancestor": {
       "description": "Identifying information for a single ancestor of a project.",
@@ -3005,5 +3003,8 @@
         }
       }
     }
+  ],
+  "tags": [
+    "google"
   ]
 }

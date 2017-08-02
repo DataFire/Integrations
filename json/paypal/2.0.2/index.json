@@ -1,12 +1,12 @@
 {
   "id": "paypal",
-  "title": "PayPal (Sandbox)",
+  "title": "PayPal Sandbox",
   "description": "Bring payments to apps, mobile and social with Adaptive Payments <b>(Sandbox API).</b>",
   "security": {},
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/paypal.png"
   },
-  "tags": [],
+  "actionCount": 32,
   "actions": [
     {
       "id": "Permissions.GetAdvancedPersonalData.post",
@@ -241,5 +241,6 @@
       "inputSchema": {},
       "outputSchema": {}
     }
-  ]
+  ],
+  "tags": []
 }

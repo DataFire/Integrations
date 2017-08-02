@@ -67,10 +67,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/slack.png"
   },
-  "tags": [
-    "collaboration",
-    "messaging"
-  ],
+  "actionCount": 32,
   "definitions": {
     "channalsInfo": {
       "properties": {
@@ -2638,5 +2635,9 @@
         }
       }
     }
+  ],
+  "tags": [
+    "collaboration",
+    "messaging"
   ]
 }

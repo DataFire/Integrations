@@ -1,9 +1,57 @@
 {
   "id": "bbc_rss",
-  "title": "feeds.bbci.co.uk",
-  "description": "",
   "security": {},
-  "tags": [],
+  "actionCount": 4,
+  "definitions": {
+    "Feed": {
+      "type": "object",
+      "properties": {
+        "feed": {
+          "type": "object",
+          "properties": {
+            "link": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            },
+            "feedUrl": {
+              "type": "string"
+            },
+            "entries": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "link": {
+                    "type": "string"
+                  },
+                  "title": {
+                    "type": "string"
+                  },
+                  "pubDate": {
+                    "type": "string"
+                  },
+                  "author": {
+                    "type": "string"
+                  },
+                  "content": {
+                    "type": "string"
+                  },
+                  "contentSnippet": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
   "actions": [
     {
       "id": "topStories",
@@ -41,5 +89,6 @@
         "$ref": "#/definitions/Feed"
       }
     }
-  ]
+  ],
+  "tags": []
 }

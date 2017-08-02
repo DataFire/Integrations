@@ -26,10 +26,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_appinsights.png"
   },
-  "tags": [
-    "cloud",
-    "azure"
-  ],
+  "actionCount": 1,
   "definitions": {
     "ErrorResponse": {
       "description": "Error reponse indicates Insights service is not able to process the incoming request. The reason is provided in the error message.",
@@ -116,5 +113,9 @@
         }
       }
     }
+  ],
+  "tags": [
+    "cloud",
+    "azure"
   ]
 }

@@ -1,7 +1,6 @@
 {
   "id": "ijenko",
   "title": "IoE² IoT API - to create end-user applications",
-  "description": "",
   "security": {
     "ijenko": {
       "integration": "ijenko",
@@ -15,9 +14,7 @@
     "backgroundColor": "#383D41",
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/ijenko.png"
   },
-  "tags": [
-    "iot"
-  ],
+  "actionCount": 67,
   "definitions": {
     "AccountId": {
       "description": "Unique identifier of the *Account*",
@@ -4148,5 +4145,8 @@
         }
       }
     }
+  ],
+  "tags": [
+    "iot"
   ]
 }

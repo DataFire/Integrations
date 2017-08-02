@@ -14,9 +14,7 @@
     "backgroundColor": "#FFFFFF",
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/beezup.png"
   },
-  "tags": [
-    "ecommerce"
-  ],
+  "actionCount": 17,
   "definitions": {
     "BeezUP.Common.CurrencyCode": {
       "description": "The currency code <a href=\"https://en.wikipedia.org/wiki/ISO_4217\">(ISO 4217)</a>\n",
@@ -2571,5 +2569,8 @@
         }
       }
     }
+  ],
+  "tags": [
+    "ecommerce"
   ]
 }

@@ -14,10 +14,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/zoomconnect.png"
   },
-  "tags": [
-    "messaging",
-    "marketing"
-  ],
+  "actionCount": 44,
   "definitions": {
     "Link": {
       "properties": {
@@ -1703,5 +1700,9 @@
         }
       }
     }
+  ],
+  "tags": [
+    "messaging",
+    "marketing"
   ]
 }

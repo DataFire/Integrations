@@ -6,7 +6,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/etsy.png"
   },
-  "tags": [],
+  "actionCount": 115,
   "actions": [
     {
       "id": "countries.country_id.get",
@@ -2107,5 +2107,6 @@
       "inputSchema": {},
       "outputSchema": {}
     }
-  ]
+  ],
+  "tags": []
 }

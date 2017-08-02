@@ -6,9 +6,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/peel_ci.svg"
   },
-  "tags": [
-    "media"
-  ],
+  "actionCount": 5,
   "actions": [
     {
       "id": "getRelatedHashtags",
@@ -109,5 +107,8 @@
       },
       "outputSchema": {}
     }
+  ],
+  "tags": [
+    "media"
   ]
 }

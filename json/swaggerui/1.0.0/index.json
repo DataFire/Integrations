@@ -3,7 +3,7 @@
   "title": "Swagger UI",
   "description": "Display Swagger UI for your DataFire API",
   "security": {},
-  "tags": [],
+  "actionCount": 1,
   "actions": [
     {
       "id": "get",

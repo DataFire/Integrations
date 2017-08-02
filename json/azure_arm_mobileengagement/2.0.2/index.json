@@ -26,12 +26,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_mobileengagement.png"
   },
-  "tags": [
-    "analytics",
-    "marketing",
-    "cloud",
-    "azure"
-  ],
+  "actionCount": 37,
   "definitions": {
     "AnnouncementFeedbackCriterion": {
       "allOf": [
@@ -3932,5 +3927,11 @@
         }
       }
     }
+  ],
+  "tags": [
+    "analytics",
+    "marketing",
+    "cloud",
+    "azure"
   ]
 }

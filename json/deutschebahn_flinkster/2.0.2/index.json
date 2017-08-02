@@ -7,9 +7,7 @@
     "backgroundColor": "#FFFFFF",
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/deutschebahn_flinkster.png"
   },
-  "tags": [
-    "open data"
-  ],
+  "actionCount": 10,
   "definitions": {
     "AddressJO": {
       "properties": {
@@ -974,5 +972,8 @@
         "$ref": "#/definitions/RentalObjectJO"
       }
     }
+  ],
+  "tags": [
+    "open data"
   ]
 }

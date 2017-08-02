@@ -23,7 +23,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/motaword.png"
   },
-  "tags": [],
+  "actionCount": 45,
   "definitions": {
     "Account": {
       "properties": {
@@ -2126,5 +2126,6 @@
         }
       }
     }
-  ]
+  ],
+  "tags": []
 }

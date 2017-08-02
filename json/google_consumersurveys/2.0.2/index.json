@@ -29,9 +29,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_consumersurveys.png"
   },
-  "tags": [
-    "google"
-  ],
+  "actionCount": 13,
   "definitions": {
     "FieldMask": {
       "properties": {
@@ -1130,5 +1128,8 @@
         }
       }
     }
+  ],
+  "tags": [
+    "google"
   ]
 }

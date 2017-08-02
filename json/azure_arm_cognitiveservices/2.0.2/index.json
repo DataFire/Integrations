@@ -6,11 +6,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_cognitiveservices.png"
   },
-  "tags": [
-    "machine learning",
-    "cloud",
-    "azure"
-  ],
+  "actionCount": 9,
   "definitions": {
     "CognitiveServicesAccount": {
       "description": "Cognitive Services Account is an Azure resource representing the provisioned account, its type, location and SKU.",
@@ -630,5 +626,10 @@
         "$ref": "#/definitions/CognitiveServicesAccountEnumerateSkusResult"
       }
     }
+  ],
+  "tags": [
+    "machine learning",
+    "cloud",
+    "azure"
   ]
 }

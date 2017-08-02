@@ -6,9 +6,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_partners.png"
   },
-  "tags": [
-    "google"
-  ],
+  "actionCount": 18,
   "definitions": {
     "AdWordsManagerAccountInfo": {
       "description": "Information about a particular AdWords Manager Account.\nRead more at https://support.google.com/adwords/answer/6139186",
@@ -3902,5 +3900,8 @@
         "$ref": "#/definitions/CompanyRelation"
       }
     }
+  ],
+  "tags": [
+    "google"
   ]
 }

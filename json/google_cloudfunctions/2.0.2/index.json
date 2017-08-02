@@ -27,9 +27,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_cloudfunctions.png"
   },
-  "tags": [
-    "google"
-  ],
+  "actionCount": 9,
   "definitions": {
     "CallFunctionRequest": {
       "description": "Request for the `CallFunction` method.",
@@ -1034,5 +1032,8 @@
         }
       }
     }
+  ],
+  "tags": [
+    "google"
   ]
 }

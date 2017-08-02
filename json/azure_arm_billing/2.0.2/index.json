@@ -26,10 +26,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_billing.png"
   },
-  "tags": [
-    "cloud",
-    "azure"
-  ],
+  "actionCount": 4,
   "definitions": {
     "DownloadUrl": {
       "description": "A secure URL that can be used to download a PDF invoice until the URL expires.",
@@ -344,5 +341,9 @@
         }
       }
     }
+  ],
+  "tags": [
+    "cloud",
+    "azure"
   ]
 }

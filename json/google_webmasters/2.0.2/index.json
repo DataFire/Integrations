@@ -28,9 +28,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_webmasters.png"
   },
-  "tags": [
-    "google"
-  ],
+  "actionCount": 15,
   "definitions": {
     "ApiDataRow": {
       "properties": {
@@ -1308,5 +1306,8 @@
         }
       }
     }
+  ],
+  "tags": [
+    "google"
   ]
 }

@@ -13,7 +13,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/orghunter.jpg"
   },
-  "tags": [],
+  "actionCount": 6,
   "actions": [
     {
       "id": "v1.categories.post",
@@ -179,5 +179,6 @@
         }
       }
     }
-  ]
+  ],
+  "tags": []
 }

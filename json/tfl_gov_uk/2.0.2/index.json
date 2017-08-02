@@ -14,10 +14,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/tfl_gov_uk.jpg"
   },
-  "tags": [
-    "location",
-    "open data"
-  ],
+  "actionCount": 78,
   "definitions": {
     "AccidentDetail": {
       "properties": {
@@ -5812,5 +5809,9 @@
         }
       }
     }
+  ],
+  "tags": [
+    "location",
+    "open data"
   ]
 }

@@ -35,9 +35,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_people.png"
   },
-  "tags": [
-    "google"
-  ],
+  "actionCount": 5,
   "definitions": {
     "Address": {
       "description": "A person's physical address. May be a P.O. box or street address. All fields\nare optional.",
@@ -1437,5 +1435,8 @@
         }
       }
     }
+  ],
+  "tags": [
+    "google"
   ]
 }

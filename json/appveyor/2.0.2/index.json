@@ -13,7 +13,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/appveyor.png"
   },
-  "tags": [],
+  "actionCount": 45,
   "definitions": {
     "AccessRightName": {
       "enum": [
@@ -3767,5 +3767,6 @@
         }
       }
     }
-  ]
+  ],
+  "tags": []
 }

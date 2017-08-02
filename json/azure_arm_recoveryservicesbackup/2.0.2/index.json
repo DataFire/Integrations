@@ -1,7 +1,6 @@
 {
   "id": "azure_arm_recoveryservicesbackup",
   "title": "RecoveryServicesBackupClient",
-  "description": "",
   "security": {
     "azure_arm_recoveryservicesbackup": {
       "integration": "azure_arm_recoveryservicesbackup",
@@ -26,10 +25,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_recoveryservicesbackup.png"
   },
-  "tags": [
-    "storage",
-    "azure"
-  ],
+  "actionCount": 33,
   "definitions": {
     "AzureBackupServerEngine": {
       "allOf": [
@@ -4410,5 +4406,9 @@
         }
       }
     }
+  ],
+  "tags": [
+    "storage",
+    "azure"
   ]
 }

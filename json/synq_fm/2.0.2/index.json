@@ -6,9 +6,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/synq_fm.jpg"
   },
-  "tags": [
-    "media"
-  ],
+  "actionCount": 7,
   "definitions": {
     "ErrorObject": {
       "example": {
@@ -338,5 +336,8 @@
         "type": "object"
       }
     }
+  ],
+  "tags": [
+    "media"
   ]
 }

@@ -6,7 +6,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/skyrock.png"
   },
-  "tags": [],
+  "actionCount": 70,
   "actions": [
     {
       "id": "message.reply_thread.format.post",
@@ -1970,5 +1970,6 @@
       },
       "outputSchema": {}
     }
-  ]
+  ],
+  "tags": []
 }

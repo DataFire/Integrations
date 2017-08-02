@@ -29,7 +29,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/linkedin.png"
   },
-  "tags": [],
+  "actionCount": 20,
   "actions": [
     {
       "id": "oauthCallback",
@@ -704,5 +704,6 @@
         }
       }
     }
-  ]
+  ],
+  "tags": []
 }

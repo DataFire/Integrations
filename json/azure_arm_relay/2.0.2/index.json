@@ -26,10 +26,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_relay.png"
   },
-  "tags": [
-    "cloud",
-    "azure"
-  ],
+  "actionCount": 34,
   "definitions": {
     "AuthorizationRule": {
       "allOf": [
@@ -2289,5 +2286,9 @@
         }
       }
     }
+  ],
+  "tags": [
+    "cloud",
+    "azure"
   ]
 }

@@ -6,10 +6,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_customsearch.png"
   },
-  "tags": [
-    "search",
-    "google"
-  ],
+  "actionCount": 1,
   "definitions": {
     "Context": {
       "properties": {
@@ -653,5 +650,9 @@
         "$ref": "#/definitions/Search"
       }
     }
+  ],
+  "tags": [
+    "search",
+    "google"
   ]
 }

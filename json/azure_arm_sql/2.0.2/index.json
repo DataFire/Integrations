@@ -6,10 +6,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_sql.png"
   },
-  "tags": [
-    "enterprise",
-    "azure"
-  ],
+  "actionCount": 1,
   "definitions": {
     "ProxyResource": {
       "allOf": [
@@ -175,5 +172,9 @@
         "$ref": "#/definitions/RestorePointListResult"
       }
     }
+  ],
+  "tags": [
+    "enterprise",
+    "azure"
   ]
 }

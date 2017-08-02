@@ -13,10 +13,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/nytimes_times_tags.png"
   },
-  "tags": [
-    "media",
-    "open data"
-  ],
+  "actionCount": 1,
   "actions": [
     {
       "id": "timestags.json.get",
@@ -64,5 +61,9 @@
         }
       }
     }
+  ],
+  "tags": [
+    "media",
+    "open data"
   ]
 }

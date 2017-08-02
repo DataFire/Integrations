@@ -6,9 +6,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/gov_bc_ca_geomark.jpeg"
   },
-  "tags": [
-    "open data"
-  ],
+  "actionCount": 7,
   "actions": [
     {
       "id": "geomarks.copy.post",
@@ -438,5 +436,8 @@
       },
       "outputSchema": {}
     }
+  ],
+  "tags": [
+    "open data"
   ]
 }

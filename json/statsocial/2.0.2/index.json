@@ -13,10 +13,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/statsocial.svg"
   },
-  "tags": [
-    "social",
-    "marketing"
-  ],
+  "actionCount": 17,
   "definitions": {
     "18_24": {
       "properties": {
@@ -1072,5 +1069,9 @@
         }
       }
     }
+  ],
+  "tags": [
+    "social",
+    "marketing"
   ]
 }

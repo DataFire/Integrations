@@ -7,9 +7,7 @@
     "backgroundColor": "#24292e",
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/1forge.png"
   },
-  "tags": [
-    "financial"
-  ],
+  "actionCount": 2,
   "actions": [
     {
       "id": "quotes.get",
@@ -35,5 +33,8 @@
         "type": "array"
       }
     }
+  ],
+  "tags": [
+    "financial"
   ]
 }

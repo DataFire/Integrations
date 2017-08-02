@@ -1,7 +1,6 @@
 {
   "id": "import_extraction",
   "title": "import.io",
-  "description": "",
   "security": {
     "import_extraction": {
       "integration": "import_extraction",
@@ -14,9 +13,7 @@
     "backgroundColor": "#F6248E",
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/import_extraction.svg"
   },
-  "tags": [
-    "tools"
-  ],
+  "actionCount": 1,
   "definitions": {
     "APIError": {
       "properties": {
@@ -241,5 +238,8 @@
         }
       }
     }
+  ],
+  "tags": [
+    "tools"
   ]
 }

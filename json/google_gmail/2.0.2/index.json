@@ -36,10 +36,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_gmail.png"
   },
-  "tags": [
-    "email",
-    "google"
-  ],
+  "actionCount": 65,
   "definitions": {
     "AutoForwarding": {
       "description": "Auto-forwarding settings for an account.",
@@ -4993,5 +4990,9 @@
         }
       }
     }
+  ],
+  "tags": [
+    "email",
+    "google"
   ]
 }

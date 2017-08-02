@@ -6,7 +6,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/consumerfinance_gov.png"
   },
-  "tags": [],
+  "actionCount": 6,
   "definitions": {
     "QueryResponse": {
       "description": "Response to a slice query.",
@@ -145,5 +145,6 @@
       },
       "outputSchema": {}
     }
-  ]
+  ],
+  "tags": []
 }

@@ -1,15 +1,11 @@
 {
   "id": "azure_arm_trafficmanager",
   "title": "TrafficManagerManagementClient",
-  "description": "",
   "security": {},
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_trafficmanager.png"
   },
-  "tags": [
-    "cloud",
-    "azure"
-  ],
+  "actionCount": 11,
   "definitions": {
     "CheckTrafficManagerRelativeDnsNameAvailabilityParameters": {
       "description": "Parameters supplied to check Traffic Manager name operation.",
@@ -668,5 +664,9 @@
         "$ref": "#/definitions/Endpoint"
       }
     }
+  ],
+  "tags": [
+    "cloud",
+    "azure"
   ]
 }

@@ -7,9 +7,7 @@
     "backgroundColor": "#FFFFFF",
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/epa_gov_case.png"
   },
-  "tags": [
-    "open data"
-  ],
+  "actionCount": 8,
   "definitions": {
     "crs0_Cases": {
       "description": "A summary of the violation(s), environmental problem(s), and a description of the cause of action.",
@@ -2412,5 +2410,8 @@
         "type": "object"
       }
     }
+  ],
+  "tags": [
+    "open data"
   ]
 }

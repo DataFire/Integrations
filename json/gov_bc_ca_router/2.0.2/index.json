@@ -13,9 +13,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/gov_bc_ca_router.jpeg"
   },
-  "tags": [
-    "open data"
-  ],
+  "actionCount": 4,
   "actions": [
     {
       "id": "directions.outputFormat.get",
@@ -293,5 +291,8 @@
         }
       }
     }
+  ],
+  "tags": [
+    "open data"
   ]
 }

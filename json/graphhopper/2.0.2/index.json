@@ -13,9 +13,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/graphhopper.png"
   },
-  "tags": [
-    "location"
-  ],
+  "actionCount": 2,
   "definitions": {
     "Activity": {
       "properties": {
@@ -734,5 +732,8 @@
         }
       }
     }
+  ],
+  "tags": [
+    "location"
   ]
 }

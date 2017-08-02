@@ -6,10 +6,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_machinelearning_webservices.png"
   },
-  "tags": [
-    "machine learning",
-    "azure"
-  ],
+  "actionCount": 7,
   "definitions": {
     "AssetItem": {
       "description": "Information about an asset associated with the web service.",
@@ -999,5 +996,9 @@
         "$ref": "#/definitions/WebServiceKeys"
       }
     }
+  ],
+  "tags": [
+    "machine learning",
+    "azure"
   ]
 }

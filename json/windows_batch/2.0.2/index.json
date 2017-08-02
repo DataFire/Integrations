@@ -6,7 +6,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/windows_batch.png"
   },
-  "tags": [],
+  "actionCount": 74,
   "definitions": {
     "AccountListNodeAgentSkusResult": {
       "properties": {
@@ -8452,5 +8452,6 @@
         "$ref": "#/definitions/PoolListUsageMetricsResult"
       }
     }
-  ]
+  ],
+  "tags": []
 }

@@ -1,7 +1,6 @@
 {
   "id": "amazonaws_s3",
   "title": "Amazon Simple Storage Service",
-  "description": "",
   "security": {
     "amazonaws_s3": {
       "integration": "amazonaws_s3",
@@ -14,10 +13,7 @@
     "backgroundColor": "#FFFFFF",
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_s3.jpg"
   },
-  "tags": [
-    "cloud",
-    "aws"
-  ],
+  "actionCount": 66,
   "definitions": {
     "AbortDate": {
       "format": "date-time",
@@ -5435,5 +5431,9 @@
         }
       }
     }
+  ],
+  "tags": [
+    "cloud",
+    "aws"
   ]
 }

@@ -1,12 +1,12 @@
 {
   "id": "myspace",
-  "title": "MySpace",
+  "title": "Myspace",
   "description": "Create apps and games within the MySpace platform. Monetize through advertising and virtual goods.",
   "security": {},
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/myspace.png"
   },
-  "tags": [],
+  "actionCount": 52,
   "actions": [
     {
       "id": "1.0.statusmoodcomments.personId._self.statusId.post",
@@ -2471,5 +2471,6 @@
       },
       "outputSchema": {}
     }
-  ]
+  ],
+  "tags": []
 }

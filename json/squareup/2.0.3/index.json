@@ -40,9 +40,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/squareup.png"
   },
-  "tags": [
-    "payment"
-  ],
+  "actionCount": 18,
   "definitions": {
     "Address": {
       "description": "Represents a physical address.",
@@ -3722,5 +3720,8 @@
         }
       }
     }
+  ],
+  "tags": [
+    "payment"
   ]
 }

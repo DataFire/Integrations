@@ -26,10 +26,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_network.png"
   },
-  "tags": [
-    "cloud",
-    "azure"
-  ],
+  "actionCount": 97,
   "definitions": {
     "AddressSpace": {
       "description": "AddressSpace contains an array of IP address ranges that can be used by subnets",
@@ -7952,5 +7949,9 @@
         }
       }
     }
+  ],
+  "tags": [
+    "cloud",
+    "azure"
   ]
 }

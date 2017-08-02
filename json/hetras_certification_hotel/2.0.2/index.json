@@ -1,12 +1,11 @@
 {
   "id": "hetras_certification_hotel",
   "title": "hetras Hotel API Version 0",
-  "description": "",
   "security": {},
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/hetras_certification_hotel.gif"
   },
-  "tags": [],
+  "actionCount": 19,
   "definitions": {
     "AccessControlInfo": {
       "properties": {
@@ -2635,5 +2634,6 @@
         "$ref": "#/definitions/Object"
       }
     }
-  ]
+  ],
+  "tags": []
 }

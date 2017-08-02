@@ -6,9 +6,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/cybertaxonomy_eu.jpg"
   },
-  "tags": [
-    "open data"
-  ],
+  "actionCount": 2,
   "definitions": {
     "AtomisedName": {
       "properties": {
@@ -370,5 +368,8 @@
         "$ref": "#/definitions/TnrMsg"
       }
     }
+  ],
+  "tags": [
+    "open data"
   ]
 }

@@ -14,9 +14,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/trello.svg"
   },
-  "tags": [
-    "collaboration"
-  ],
+  "actionCount": 324,
   "definitions": {
     "actions": {
       "properties": {
@@ -15973,5 +15971,8 @@
         }
       }
     }
+  ],
+  "tags": [
+    "collaboration"
   ]
 }

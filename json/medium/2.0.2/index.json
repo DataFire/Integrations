@@ -31,10 +31,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/medium.png"
   },
-  "tags": [
-    "media",
-    "social"
-  ],
+  "actionCount": 7,
   "definitions": {
     "Contibutor": {
       "description": "Contibutor",
@@ -561,5 +558,9 @@
         }
       }
     }
+  ],
+  "tags": [
+    "media",
+    "social"
   ]
 }

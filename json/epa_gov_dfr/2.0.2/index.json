@@ -7,9 +7,7 @@
     "backgroundColor": "#FFFFFF",
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/epa_gov_dfr.png"
   },
-  "tags": [
-    "open data"
-  ],
+  "actionCount": 34,
   "definitions": {
     "dfr0_Qtr12Header": {
       "description": "Header Object",
@@ -7466,5 +7464,8 @@
         "type": "object"
       }
     }
+  ],
+  "tags": [
+    "open data"
   ]
 }

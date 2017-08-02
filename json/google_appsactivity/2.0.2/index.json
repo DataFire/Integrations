@@ -31,9 +31,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_appsactivity.png"
   },
-  "tags": [
-    "google"
-  ],
+  "actionCount": 3,
   "definitions": {
     "Activity": {
       "description": "An Activity resource is a combined view of multiple events. An activity has a list of individual events and a combined view of the common fields among all events.",
@@ -470,5 +468,8 @@
         }
       }
     }
+  ],
+  "tags": [
+    "google"
   ]
 }

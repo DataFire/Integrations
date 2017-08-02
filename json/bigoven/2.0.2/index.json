@@ -15,7 +15,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/bigoven.png"
   },
-  "tags": [],
+  "actionCount": 47,
   "definitions": {
     "API2.Controllers.GroceryListController.DepartmentModel": {
       "properties": {
@@ -3055,5 +3055,6 @@
         }
       }
     }
-  ]
+  ],
+  "tags": []
 }

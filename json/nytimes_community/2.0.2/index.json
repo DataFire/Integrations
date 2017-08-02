@@ -13,10 +13,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/nytimes_community.png"
   },
-  "tags": [
-    "media",
-    "open data"
-  ],
+  "actionCount": 4,
   "definitions": {},
   "actions": [
     {
@@ -828,5 +825,9 @@
         }
       }
     }
+  ],
+  "tags": [
+    "media",
+    "open data"
   ]
 }

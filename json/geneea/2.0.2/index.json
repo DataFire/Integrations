@@ -13,9 +13,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/geneea.png"
   },
-  "tags": [
-    "text"
-  ],
+  "actionCount": 11,
   "definitions": {
     "EntitiesResponse": {
       "description": "Response for the named-entity recognition",
@@ -624,5 +622,8 @@
         }
       }
     }
+  ],
+  "tags": [
+    "text"
   ]
 }

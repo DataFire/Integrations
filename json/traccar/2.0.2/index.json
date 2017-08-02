@@ -14,9 +14,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/traccar.png"
   },
-  "tags": [
-    "location"
-  ],
+  "actionCount": 55,
   "definitions": {
     "AttributeAlias": {
       "properties": {
@@ -2072,5 +2070,8 @@
         }
       }
     }
+  ],
+  "tags": [
+    "location"
   ]
 }

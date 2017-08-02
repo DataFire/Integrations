@@ -31,10 +31,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_storage.png"
   },
-  "tags": [
-    "storage",
-    "google"
-  ],
+  "actionCount": 48,
   "definitions": {
     "Bucket": {
       "description": "A bucket.",
@@ -4393,5 +4390,9 @@
         }
       }
     }
+  ],
+  "tags": [
+    "storage",
+    "google"
   ]
 }

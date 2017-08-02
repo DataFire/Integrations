@@ -6,9 +6,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/gov_bc_ca_open511.jpeg"
   },
-  "tags": [
-    "open data"
-  ],
+  "actionCount": 4,
   "actions": [
     {
       "id": "areas.get",
@@ -150,5 +148,8 @@
       },
       "outputSchema": {}
     }
+  ],
+  "tags": [
+    "open data"
   ]
 }

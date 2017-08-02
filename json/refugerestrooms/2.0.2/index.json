@@ -7,9 +7,7 @@
     "backgroundColor": "#4C4C4C",
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/refugerestrooms.jpeg"
   },
-  "tags": [
-    "open data"
-  ],
+  "actionCount": 4,
   "actions": [
     {
       "id": "v1.restrooms.json.get",
@@ -184,5 +182,8 @@
       },
       "outputSchema": {}
     }
+  ],
+  "tags": [
+    "open data"
   ]
 }

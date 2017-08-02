@@ -13,9 +13,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/wikimedia.png"
   },
-  "tags": [
-    "media"
-  ],
+  "actionCount": 10,
   "definitions": {
     "listing": {
       "description": "The result format for listings",
@@ -729,5 +727,8 @@
         }
       }
     }
+  ],
+  "tags": [
+    "media"
   ]
 }

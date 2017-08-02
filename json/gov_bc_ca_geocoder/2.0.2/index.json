@@ -13,9 +13,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/gov_bc_ca_geocoder.jpeg"
   },
-  "tags": [
-    "open data"
-  ],
+  "actionCount": 14,
   "actions": [
     {
       "id": "addresses.outputFormat.get",
@@ -1280,5 +1278,8 @@
         }
       }
     }
+  ],
+  "tags": [
+    "open data"
   ]
 }

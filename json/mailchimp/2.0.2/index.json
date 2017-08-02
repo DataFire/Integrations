@@ -13,7 +13,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/mailchimp.jpg"
   },
-  "tags": [],
+  "actionCount": 96,
   "actions": [
     {
       "id": "_method_templates.get",
@@ -5310,5 +5310,6 @@
         }
       }
     }
-  ]
+  ],
+  "tags": []
 }

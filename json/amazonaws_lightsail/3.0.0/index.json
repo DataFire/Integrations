@@ -14,10 +14,7 @@
     "backgroundColor": "#FFFFFF",
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_lightsail.jpg"
   },
-  "tags": [
-    "cloud",
-    "aws"
-  ],
+  "actionCount": 47,
   "definitions": {
     "AccessDeniedException": {
       "description": "Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.",
@@ -3361,5 +3358,9 @@
         }
       }
     }
+  ],
+  "tags": [
+    "cloud",
+    "aws"
   ]
 }

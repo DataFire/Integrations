@@ -31,7 +31,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/heroku.png"
   },
-  "tags": [],
+  "actionCount": 32,
   "actions": [
     {
       "id": "oauthCallback",
@@ -1157,5 +1157,6 @@
         }
       }
     }
-  ]
+  ],
+  "tags": []
 }

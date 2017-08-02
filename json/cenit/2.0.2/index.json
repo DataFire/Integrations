@@ -14,7 +14,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/cenit.png"
   },
-  "tags": [],
+  "actionCount": 40,
   "definitions": {
     "connection": {
       "properties": {
@@ -1137,5 +1137,6 @@
         }
       }
     }
-  ]
+  ],
+  "tags": []
 }

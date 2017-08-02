@@ -6,7 +6,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/youphoric.png"
   },
-  "tags": [],
+  "actionCount": 2,
   "actions": [
     {
       "id": "register.php_.get",
@@ -108,5 +108,6 @@
       },
       "outputSchema": {}
     }
-  ]
+  ],
+  "tags": []
 }

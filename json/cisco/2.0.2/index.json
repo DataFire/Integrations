@@ -23,9 +23,7 @@
       }
     }
   },
-  "tags": [
-    "security"
-  ],
+  "actionCount": 19,
   "actions": [
     {
       "id": "security.advisories.cvrf.advisory.advisory_id.get",
@@ -552,5 +550,8 @@
         }
       }
     }
+  ],
+  "tags": [
+    "security"
   ]
 }

@@ -13,9 +13,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/clickmeter.svg"
   },
-  "tags": [
-    "marketing"
-  ],
+  "actionCount": 108,
   "definitions": {
     "Api.Core.Dto.Accounting.ConversionOptions": {
       "properties": {
@@ -6347,5 +6345,8 @@
         }
       }
     }
+  ],
+  "tags": [
+    "marketing"
   ]
 }

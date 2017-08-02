@@ -14,10 +14,7 @@
     "backgroundColor": "#FFFFFF",
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_cloudsearch.jpg"
   },
-  "tags": [
-    "cloud",
-    "aws"
-  ],
+  "actionCount": 24,
   "definitions": {
     "APIVersion": {
       "description": "The Amazon CloudSearch API version for a domain: 2011-02-01 or 2013-01-01.",
@@ -2232,5 +2229,9 @@
         }
       }
     }
+  ],
+  "tags": [
+    "cloud",
+    "aws"
   ]
 }

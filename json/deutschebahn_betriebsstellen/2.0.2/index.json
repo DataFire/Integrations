@@ -7,9 +7,7 @@
     "backgroundColor": "#FFFFFF",
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/deutschebahn_betriebsstellen.png"
   },
-  "tags": [
-    "open data"
-  ],
+  "actionCount": 2,
   "definitions": {
     "Error": {
       "properties": {
@@ -143,5 +141,8 @@
         "$ref": "#/definitions/Station"
       }
     }
+  ],
+  "tags": [
+    "open data"
   ]
 }

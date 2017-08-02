@@ -6,7 +6,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apitore_sentencepieceapis_wikipedia_.jpg"
   },
-  "tags": [],
+  "actionCount": 2,
   "definitions": {
     "SPTokenEntity": {
       "properties": {
@@ -114,5 +114,6 @@
         "$ref": "#/definitions/SentencePieceTokenResponseEntity"
       }
     }
-  ]
+  ],
+  "tags": []
 }

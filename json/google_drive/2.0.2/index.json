@@ -34,10 +34,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_drive.png"
   },
-  "tags": [
-    "storage",
-    "google"
-  ],
+  "actionCount": 41,
   "definitions": {
     "About": {
       "description": "Information about the user, the user's Drive, and system capabilities.",
@@ -3996,5 +3993,9 @@
         }
       }
     }
+  ],
+  "tags": [
+    "storage",
+    "google"
   ]
 }

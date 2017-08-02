@@ -6,9 +6,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/magick_nu.png"
   },
-  "tags": [
-    "financial"
-  ],
+  "actionCount": 6,
   "definitions": {
     "TradingAccount": {
       "properties": {
@@ -150,5 +148,8 @@
       },
       "outputSchema": {}
     }
+  ],
+  "tags": [
+    "financial"
   ]
 }

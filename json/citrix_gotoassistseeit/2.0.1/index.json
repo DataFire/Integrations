@@ -7,9 +7,7 @@
     "backgroundColor": "#5F6166",
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/citrix_gotoassistseeit.png"
   },
-  "tags": [
-    "support"
-  ],
+  "actionCount": 3,
   "definitions": {
     "Link": {
       "properties": {
@@ -309,5 +307,8 @@
         "$ref": "#/definitions/SessionDetails"
       }
     }
+  ],
+  "tags": [
+    "support"
   ]
 }

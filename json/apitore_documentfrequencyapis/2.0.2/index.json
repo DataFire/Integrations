@@ -6,7 +6,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apitore_documentfrequencyapis.jpg"
   },
-  "tags": [],
+  "actionCount": 1,
   "definitions": {
     "DocumentFrequencyResponseEntity": {
       "properties": {
@@ -74,5 +74,6 @@
         "$ref": "#/definitions/DocumentFrequencyResponseEntity"
       }
     }
-  ]
+  ],
+  "tags": []
 }

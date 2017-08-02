@@ -1,14 +1,11 @@
 {
   "id": "oxforddictionaries",
   "title": "Oxford Dictionaries",
-  "description": "",
   "security": {},
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/oxforddictionaries.png"
   },
-  "tags": [
-    "text"
-  ],
+  "actionCount": 27,
   "definitions": {
     "ArrayOfRelatedEntries": {
       "description": "A list of written or spoken words",
@@ -2401,5 +2398,8 @@
         "title": "WordlistResults"
       }
     }
+  ],
+  "tags": [
+    "text"
   ]
 }

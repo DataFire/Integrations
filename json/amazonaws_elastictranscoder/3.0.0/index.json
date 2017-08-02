@@ -14,10 +14,7 @@
     "backgroundColor": "#FFFFFF",
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_elastictranscoder.jpg"
   },
-  "tags": [
-    "cloud",
-    "aws"
-  ],
+  "actionCount": 11,
   "definitions": {
     "AccessControl": {
       "pattern": "(^FullControl$)|(^Read$)|(^ReadAcp$)|(^WriteAcp$)",
@@ -2240,5 +2237,9 @@
         }
       }
     }
+  ],
+  "tags": [
+    "cloud",
+    "aws"
   ]
 }

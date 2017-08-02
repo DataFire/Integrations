@@ -30,9 +30,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_servicemanagement.png"
   },
-  "tags": [
-    "google"
-  ],
+  "actionCount": 23,
   "definitions": {
     "Advice": {
       "description": "Generated advice about this change, used for providing more\ninformation about how a change will affect the existing service.",
@@ -4181,5 +4179,8 @@
         }
       }
     }
+  ],
+  "tags": [
+    "google"
   ]
 }

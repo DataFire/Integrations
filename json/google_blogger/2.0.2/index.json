@@ -28,10 +28,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_blogger.png"
   },
-  "tags": [
-    "social",
-    "google"
-  ],
+  "actionCount": 35,
   "definitions": {
     "Blog": {
       "properties": {
@@ -3266,5 +3263,9 @@
         }
       }
     }
+  ],
+  "tags": [
+    "social",
+    "google"
   ]
 }

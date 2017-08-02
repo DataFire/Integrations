@@ -14,7 +14,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/smart_me.png"
   },
-  "tags": [],
+  "actionCount": 23,
   "definitions": {
     "AccessTokenToPut": {
       "description": "Container Class for the Put action of an Access Token",
@@ -1259,5 +1259,6 @@
         }
       }
     }
-  ]
+  ],
+  "tags": []
 }

@@ -6,10 +6,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_searchconsole.png"
   },
-  "tags": [
-    "search",
-    "google"
-  ],
+  "actionCount": 1,
   "definitions": {
     "BlockedResource": {
       "description": "Blocked resource.",
@@ -219,5 +216,9 @@
         "$ref": "#/definitions/RunMobileFriendlyTestResponse"
       }
     }
+  ],
+  "tags": [
+    "search",
+    "google"
   ]
 }

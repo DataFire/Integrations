@@ -6,10 +6,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_safebrowsing.png"
   },
-  "tags": [
-    "security",
-    "google"
-  ],
+  "actionCount": 6,
   "definitions": {
     "Checksum": {
       "description": "The expected state of a client's local database.",
@@ -1122,5 +1119,9 @@
         "$ref": "#/definitions/FindThreatMatchesResponse"
       }
     }
+  ],
+  "tags": [
+    "security",
+    "google"
   ]
 }

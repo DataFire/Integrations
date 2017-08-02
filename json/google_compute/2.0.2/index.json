@@ -32,9 +32,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_compute.png"
   },
-  "tags": [
-    "google"
-  ],
+  "actionCount": 263,
   "definitions": {
     "AccessConfig": {
       "description": "An access configuration attached to an instance's network interface. Only one access config per instance is supported.",
@@ -24981,5 +24979,8 @@
         }
       }
     }
+  ],
+  "tags": [
+    "google"
   ]
 }

@@ -7,9 +7,7 @@
     "backgroundColor": "#222222",
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/idtbeyond.png"
   },
-  "tags": [
-    "telecom"
-  ],
+  "actionCount": 15,
   "definitions": {
     "Topups": {
       "properties": {
@@ -552,5 +550,8 @@
       },
       "outputSchema": {}
     }
+  ],
+  "tags": [
+    "telecom"
   ]
 }

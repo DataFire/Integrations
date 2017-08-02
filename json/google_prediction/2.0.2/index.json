@@ -31,10 +31,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_prediction.png"
   },
-  "tags": [
-    "prediction",
-    "google"
-  ],
+  "actionCount": 10,
   "definitions": {
     "Analyze": {
       "properties": {
@@ -1031,5 +1028,9 @@
         }
       }
     }
+  ],
+  "tags": [
+    "prediction",
+    "google"
   ]
 }

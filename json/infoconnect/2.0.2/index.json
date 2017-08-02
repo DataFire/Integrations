@@ -6,7 +6,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/infoconnect.jpg"
   },
-  "tags": [],
+  "actionCount": 12,
   "actions": [
     {
       "id": "v1.companies.id.get",
@@ -432,5 +432,6 @@
       },
       "outputSchema": {}
     }
-  ]
+  ],
+  "tags": []
 }

@@ -27,10 +27,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_urlshortener.png"
   },
-  "tags": [
-    "tools",
-    "google"
-  ],
+  "actionCount": 5,
   "definitions": {
     "AnalyticsSnapshot": {
       "properties": {
@@ -435,5 +432,9 @@
         }
       }
     }
+  ],
+  "tags": [
+    "tools",
+    "google"
   ]
 }

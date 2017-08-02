@@ -44,9 +44,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_fitness.png"
   },
-  "tags": [
-    "google"
-  ],
+  "actionCount": 15,
   "definitions": {
     "AggregateBucket": {
       "properties": {
@@ -1537,5 +1535,8 @@
         }
       }
     }
+  ],
+  "tags": [
+    "google"
   ]
 }

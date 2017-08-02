@@ -27,9 +27,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_androidenterprise.png"
   },
-  "tags": [
-    "google"
-  ],
+  "actionCount": 79,
   "definitions": {
     "Administrator": {
       "description": "This represents an enterprise admin who can manage the enterprise in the managed Google Play store.",
@@ -6280,5 +6278,8 @@
         }
       }
     }
+  ],
+  "tags": [
+    "google"
   ]
 }

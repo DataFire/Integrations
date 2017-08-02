@@ -7,7 +7,7 @@
     "backgroundColor": "#5F6166",
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/citrix_gototraining.png"
   },
-  "tags": [],
+  "actionCount": 22,
   "definitions": {
     "Attendance": {
       "description": "Describes the times the attendee joined and left a part of a training session.",
@@ -1272,5 +1272,6 @@
         "$ref": "#/definitions/HostUrl"
       }
     }
-  ]
+  ],
+  "tags": []
 }

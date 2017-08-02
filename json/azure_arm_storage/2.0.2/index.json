@@ -6,10 +6,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_storage.png"
   },
-  "tags": [
-    "storage",
-    "azure"
-  ],
+  "actionCount": 12,
   "definitions": {
     "AccountSasParameters": {
       "description": "The parameters to list SAS credentials of a storage account.",
@@ -1304,5 +1301,9 @@
         "$ref": "#/definitions/StorageAccountListKeysResult"
       }
     }
+  ],
+  "tags": [
+    "storage",
+    "azure"
   ]
 }

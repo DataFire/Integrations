@@ -6,10 +6,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_powerbiembedded.png"
   },
-  "tags": [
-    "cloud",
-    "azure"
-  ],
+  "actionCount": 12,
   "definitions": {
     "AzureSku": {
       "properties": {
@@ -727,5 +724,9 @@
         "$ref": "#/definitions/WorkspaceList"
       }
     }
+  ],
+  "tags": [
+    "cloud",
+    "azure"
   ]
 }

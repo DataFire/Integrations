@@ -28,10 +28,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_pubsub.png"
   },
-  "tags": [
-    "messaging",
-    "google"
-  ],
+  "actionCount": 18,
   "definitions": {
     "AcknowledgeRequest": {
       "description": "Request for the Acknowledge method.",
@@ -1864,5 +1861,9 @@
         }
       }
     }
+  ],
+  "tags": [
+    "messaging",
+    "google"
   ]
 }

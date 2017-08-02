@@ -27,10 +27,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_storagetransfer.png"
   },
-  "tags": [
-    "storage",
-    "google"
-  ],
+  "actionCount": 12,
   "definitions": {
     "AwsAccessKey": {
       "description": "AWS access key (see\n[AWS Security Credentials](http://docs.aws.amazon.com/general/latest/gr/aws-security-credentials.html)).",
@@ -1583,5 +1580,9 @@
         }
       }
     }
+  ],
+  "tags": [
+    "storage",
+    "google"
   ]
 }

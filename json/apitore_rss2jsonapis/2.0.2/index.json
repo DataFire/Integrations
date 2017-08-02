@@ -6,7 +6,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apitore_rss2jsonapis.jpg"
   },
-  "tags": [],
+  "actionCount": 1,
   "definitions": {
     "SyndEntryEntity": {
       "properties": {
@@ -137,5 +137,6 @@
         "$ref": "#/definitions/SyndFeedResponseEntity"
       }
     }
-  ]
+  ],
+  "tags": []
 }

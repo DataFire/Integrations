@@ -26,10 +26,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_servicebus.png"
   },
-  "tags": [
-    "cloud",
-    "azure"
-  ],
+  "actionCount": 38,
   "definitions": {
     "CheckNameAvailability": {
       "description": "Description of a Check Name availability request properties.",
@@ -2934,5 +2931,9 @@
         }
       }
     }
+  ],
+  "tags": [
+    "cloud",
+    "azure"
   ]
 }

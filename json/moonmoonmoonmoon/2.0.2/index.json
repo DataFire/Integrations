@@ -7,7 +7,7 @@
     "backgroundColor": "#000000",
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/moonmoonmoonmoon.png"
   },
-  "tags": [],
+  "actionCount": 2,
   "actions": [
     {
       "id": "api.hashtags.get",
@@ -75,5 +75,6 @@
       },
       "outputSchema": {}
     }
-  ]
+  ],
+  "tags": []
 }

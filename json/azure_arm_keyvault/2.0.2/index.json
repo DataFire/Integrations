@@ -6,12 +6,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_keyvault.png"
   },
-  "tags": [
-    "developer tools",
-    "cloud",
-    "security",
-    "azure"
-  ],
+  "actionCount": 5,
   "definitions": {
     "AccessPolicyEntry": {
       "description": "An identity that have access to the key vault. All identities in the array must use the same tenant ID as the key vault's tenant ID.",
@@ -493,5 +488,11 @@
         "$ref": "#/definitions/ResourceListResult"
       }
     }
+  ],
+  "tags": [
+    "developer tools",
+    "cloud",
+    "security",
+    "azure"
   ]
 }

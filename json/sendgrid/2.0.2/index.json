@@ -13,10 +13,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/sendgrid.png"
   },
-  "tags": [
-    "email",
-    "marketing"
-  ],
+  "actionCount": 231,
   "definitions": {
     "advanced_stats_clicks": {
       "properties": {
@@ -12933,5 +12930,9 @@
         }
       }
     }
+  ],
+  "tags": [
+    "email",
+    "marketing"
   ]
 }

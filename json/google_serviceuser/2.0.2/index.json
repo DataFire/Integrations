@@ -29,9 +29,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_serviceuser.png"
   },
-  "tags": [
-    "google"
-  ],
+  "actionCount": 6,
   "definitions": {
     "Api": {
       "description": "Api is a light-weight descriptor for a protocol buffer service.",
@@ -1967,5 +1965,8 @@
         }
       }
     }
+  ],
+  "tags": [
+    "google"
   ]
 }

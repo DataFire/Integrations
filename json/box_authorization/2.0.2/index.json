@@ -6,9 +6,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/box_authorization.jpg"
   },
-  "tags": [
-    "cloud"
-  ],
+  "actionCount": 1,
   "definitions": {
     "OAuthError": {
       "properties": {
@@ -65,5 +63,8 @@
       },
       "outputSchema": {}
     }
+  ],
+  "tags": [
+    "cloud"
   ]
 }

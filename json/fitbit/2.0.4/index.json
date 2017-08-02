@@ -34,7 +34,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/fitbit.png"
   },
-  "tags": [],
+  "actionCount": 69,
   "actions": [
     {
       "id": "oauthCallback",
@@ -1669,5 +1669,6 @@
         }
       }
     }
-  ]
+  ],
+  "tags": []
 }

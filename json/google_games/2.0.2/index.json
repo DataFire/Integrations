@@ -29,9 +29,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_games.png"
   },
-  "tags": [
-    "google"
-  ],
+  "actionCount": 55,
   "definitions": {
     "AchievementDefinition": {
       "description": "This is a JSON template for an achievement definition object.",
@@ -6618,5 +6616,8 @@
         }
       }
     }
+  ],
+  "tags": [
+    "google"
   ]
 }

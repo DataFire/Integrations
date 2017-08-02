@@ -29,9 +29,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_dataflow.png"
   },
-  "tags": [
-    "google"
-  ],
+  "actionCount": 30,
   "definitions": {
     "ApproximateProgress": {
       "description": "Obsolete in favor of ApproximateReportedProgress and ApproximateSplitRequest.",
@@ -6160,5 +6158,8 @@
         }
       }
     }
+  ],
+  "tags": [
+    "google"
   ]
 }

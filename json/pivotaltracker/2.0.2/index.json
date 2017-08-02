@@ -6,7 +6,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/pivotaltracker.png"
   },
-  "tags": [],
+  "actionCount": 31,
   "actions": [
     {
       "id": "tokens.active.get",
@@ -692,5 +692,6 @@
       "inputSchema": {},
       "outputSchema": {}
     }
-  ]
+  ],
+  "tags": []
 }

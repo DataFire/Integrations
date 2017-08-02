@@ -13,9 +13,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/taxamo.png"
   },
-  "tags": [
-    "payment"
-  ],
+  "actionCount": 36,
   "definitions": {
     "C": {
       "properties": {
@@ -4207,5 +4205,8 @@
         }
       }
     }
+  ],
+  "tags": [
+    "payment"
   ]
 }

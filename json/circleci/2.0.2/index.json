@@ -13,9 +13,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/circleci.png"
   },
-  "tags": [
-    "developer tools"
-  ],
+  "actionCount": 22,
   "definitions": {
     "Artifact": {
       "properties": {
@@ -1517,5 +1515,8 @@
         }
       }
     }
+  ],
+  "tags": [
+    "developer tools"
   ]
 }

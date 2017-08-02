@@ -1,13 +1,12 @@
 {
   "id": "watchful_li",
   "title": "watchful.li",
-  "description": "",
   "security": {},
   "logo": {
     "backgroundColor": "#1B4E65",
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/watchful_li.svg"
   },
-  "tags": [],
+  "actionCount": 61,
   "definitions": {
     "Audit": {
       "properties": {
@@ -2233,5 +2232,6 @@
         "$ref": "#/definitions/Version"
       }
     }
-  ]
+  ],
+  "tags": []
 }

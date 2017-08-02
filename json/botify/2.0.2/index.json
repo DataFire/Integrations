@@ -14,10 +14,7 @@
     "backgroundColor": "#1A1A1A",
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/botify.png"
   },
-  "tags": [
-    "analytics",
-    "tools"
-  ],
+  "actionCount": 26,
   "definitions": {
     "AdvancedExportStatus": {
       "properties": {
@@ -2740,5 +2737,9 @@
         }
       }
     }
+  ],
+  "tags": [
+    "analytics",
+    "tools"
   ]
 }

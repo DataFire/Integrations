@@ -51,7 +51,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/reddit.svg"
   },
-  "tags": [],
+  "actionCount": 199,
   "actions": [
     {
       "id": "oauthCallback",
@@ -7119,5 +7119,6 @@
         }
       }
     }
-  ]
+  ],
+  "tags": []
 }

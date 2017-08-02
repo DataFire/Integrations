@@ -6,9 +6,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_doubleclickbidmanager.svg"
   },
-  "tags": [
-    "google"
-  ],
+  "actionCount": 9,
   "definitions": {
     "DownloadLineItemsRequest": {
       "description": "Request to fetch stored line items.",
@@ -1649,5 +1647,8 @@
         "$ref": "#/definitions/DownloadResponse"
       }
     }
+  ],
+  "tags": [
+    "google"
   ]
 }

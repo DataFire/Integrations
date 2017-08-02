@@ -1,13 +1,12 @@
 {
   "id": "6_dot_authentiqio_appspot",
   "title": "Authentiq",
-  "description": "",
   "security": {},
   "logo": {
     "backgroundColor": "#F26641",
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/6_dot_authentiqio_appspot.svg"
   },
-  "tags": [],
+  "actionCount": 14,
   "definitions": {
     "AuthentiqID": {
       "description": "Authentiq ID in JWT format, self-signed.\n",
@@ -524,5 +523,6 @@
         "type": "object"
       }
     }
-  ]
+  ],
+  "tags": []
 }

@@ -31,9 +31,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_genomics.png"
   },
-  "tags": [
-    "google"
-  ],
+  "actionCount": 55,
   "definitions": {
     "Annotation": {
       "description": "An annotation describes a region of reference genome. The value of an\nannotation may be one of several canonical types, supplemented by arbitrary\ninfo tags. An annotation is not inherently associated with a specific\nsample or individual (though a client could choose to use annotations in\nthis way). Example canonical annotation types are `GENE` and\n`VARIANT`.",
@@ -6822,5 +6820,8 @@
         }
       }
     }
+  ],
+  "tags": [
+    "google"
   ]
 }

@@ -26,10 +26,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_documentdb.png"
   },
-  "tags": [
-    "cloud",
-    "azure"
-  ],
+  "actionCount": 12,
   "definitions": {
     "ConsistencyPolicy": {
       "description": "The consistency policy for the DocumentDB database account.",
@@ -965,5 +962,9 @@
         }
       }
     }
+  ],
+  "tags": [
+    "cloud",
+    "azure"
   ]
 }

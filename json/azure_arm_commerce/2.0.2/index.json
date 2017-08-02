@@ -1,16 +1,11 @@
 {
   "id": "azure_arm_commerce",
   "title": "UsageManagementClient",
-  "description": "",
   "security": {},
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_commerce.png"
   },
-  "tags": [
-    "ecommerce",
-    "cloud",
-    "azure"
-  ],
+  "actionCount": 2,
   "definitions": {
     "ErrorResponse": {
       "description": "Describes the format of Error response.",
@@ -422,5 +417,10 @@
         "$ref": "#/definitions/UsageAggregationListResult"
       }
     }
+  ],
+  "tags": [
+    "ecommerce",
+    "cloud",
+    "azure"
   ]
 }

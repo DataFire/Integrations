@@ -6,7 +6,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/thenounproject.png"
   },
-  "tags": [],
+  "actionCount": 13,
   "actions": [
     {
       "id": "getCollectionById",
@@ -340,5 +340,6 @@
       },
       "outputSchema": {}
     }
-  ]
+  ],
+  "tags": []
 }

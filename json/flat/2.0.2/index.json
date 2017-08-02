@@ -31,10 +31,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/flat.svg"
   },
-  "tags": [
-    "media",
-    "collaboration"
-  ],
+  "actionCount": 26,
   "definitions": {
     "ClassRoles": {
       "description": "User's Class Role (for Edu users only)",
@@ -1959,5 +1956,9 @@
         }
       }
     }
+  ],
+  "tags": [
+    "media",
+    "collaboration"
   ]
 }

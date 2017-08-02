@@ -13,10 +13,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/thetvdb.png"
   },
-  "tags": [
-    "media",
-    "open data"
-  ],
+  "actionCount": 30,
   "definitions": {
     "Auth": {
       "properties": {
@@ -1611,5 +1608,9 @@
         }
       }
     }
+  ],
+  "tags": [
+    "media",
+    "open data"
   ]
 }

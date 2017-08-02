@@ -23,9 +23,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/box_content.jpg"
   },
-  "tags": [
-    "cloud"
-  ],
+  "actionCount": 129,
   "definitions": {
     "AssignmentCounts": {
       "description": "Counts of assignments within this policy by apply-to type.",
@@ -6388,5 +6386,8 @@
         }
       }
     }
+  ],
+  "tags": [
+    "cloud"
   ]
 }

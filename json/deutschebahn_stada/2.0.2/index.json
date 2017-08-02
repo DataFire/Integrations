@@ -7,9 +7,7 @@
     "backgroundColor": "#FFFFFF",
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/deutschebahn_stada.png"
   },
-  "tags": [
-    "open data"
-  ],
+  "actionCount": 4,
   "definitions": {
     "Address": {
       "properties": {
@@ -543,5 +541,8 @@
         "$ref": "#/definitions/QueryResult"
       }
     }
+  ],
+  "tags": [
+    "open data"
   ]
 }

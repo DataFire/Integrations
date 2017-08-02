@@ -13,7 +13,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/vatapi.jpg"
   },
-  "tags": [],
+  "actionCount": 10,
   "definitions": {
     "Convert_Price": {
       "properties": {
@@ -1089,5 +1089,6 @@
         }
       }
     }
-  ]
+  ],
+  "tags": []
 }

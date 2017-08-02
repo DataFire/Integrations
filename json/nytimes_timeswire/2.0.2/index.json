@@ -13,10 +13,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/nytimes_timeswire.png"
   },
-  "tags": [
-    "media",
-    "open data"
-  ],
+  "actionCount": 3,
   "definitions": {
     "Article": {
       "properties": {
@@ -313,5 +310,9 @@
         }
       }
     }
+  ],
+  "tags": [
+    "media",
+    "open data"
   ]
 }

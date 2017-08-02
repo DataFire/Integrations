@@ -7,9 +7,7 @@
     "backgroundColor": "#185394",
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/hhs_gov.png"
   },
-  "tags": [
-    "open data"
-  ],
+  "actionCount": 32,
   "definitions": {
     "AlternateImage": {
       "properties": {
@@ -2527,5 +2525,8 @@
         "$ref": "#/definitions/MediaItems"
       }
     }
+  ],
+  "tags": [
+    "open data"
   ]
 }

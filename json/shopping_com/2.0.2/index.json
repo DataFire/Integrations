@@ -6,7 +6,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/shopping_com.jpg"
   },
-  "tags": [],
+  "actionCount": 2,
   "actions": [
     {
       "id": "GeneralSearch.get",
@@ -106,5 +106,6 @@
       },
       "outputSchema": {}
     }
-  ]
+  ],
+  "tags": []
 }

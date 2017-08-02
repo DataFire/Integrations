@@ -1,7 +1,6 @@
 {
   "id": "azure_arm_batch",
   "title": "BatchManagement",
-  "description": "",
   "security": {
     "azure_arm_batch": {
       "integration": "azure_arm_batch",
@@ -26,10 +25,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_batch.png"
   },
-  "tags": [
-    "cloud",
-    "azure"
-  ],
+  "actionCount": 19,
   "definitions": {
     "ActivateApplicationPackageParameters": {
       "description": "Parameters for an ApplicationOperations.ActivateApplicationPackage request.",
@@ -1324,5 +1320,9 @@
         }
       }
     }
+  ],
+  "tags": [
+    "cloud",
+    "azure"
   ]
 }

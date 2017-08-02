@@ -3,9 +3,7 @@
   "title": "posty_API",
   "description": "The posty_API is the core element of the posty softwarestack. It is developed to administrate a mailserver based on Postfix and Dovecot. It offers an easy REST interface which can be used in own applications or with the posty client applications, posty_CLI and posty_webUI.",
   "security": {},
-  "tags": [
-    "email"
-  ],
+  "actionCount": 28,
   "actions": [
     {
       "id": "api.v1.domains.json.get",
@@ -502,5 +500,8 @@
       },
       "outputSchema": {}
     }
+  ],
+  "tags": [
+    "email"
   ]
 }

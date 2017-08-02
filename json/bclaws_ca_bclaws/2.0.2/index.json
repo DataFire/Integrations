@@ -6,9 +6,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/bclaws_ca_bclaws.jpeg"
   },
-  "tags": [
-    "open data"
-  ],
+  "actionCount": 7,
   "actions": [
     {
       "id": "content.aspectId.get",
@@ -300,5 +298,8 @@
       },
       "outputSchema": {}
     }
+  ],
+  "tags": [
+    "open data"
   ]
 }

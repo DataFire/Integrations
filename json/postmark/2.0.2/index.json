@@ -6,7 +6,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/postmark.png"
   },
-  "tags": [],
+  "actionCount": 10,
   "actions": [
     {
       "id": "email.post",
@@ -414,5 +414,6 @@
       },
       "outputSchema": {}
     }
-  ]
+  ],
+  "tags": []
 }

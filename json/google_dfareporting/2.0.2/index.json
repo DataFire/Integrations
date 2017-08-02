@@ -29,9 +29,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_dfareporting.png"
   },
-  "tags": [
-    "google"
-  ],
+  "actionCount": 206,
   "definitions": {
     "Account": {
       "description": "Contains properties of a DCM account.",
@@ -22976,5 +22974,8 @@
         }
       }
     }
+  ],
+  "tags": [
+    "google"
   ]
 }

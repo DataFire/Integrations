@@ -6,10 +6,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_machinelearning_commitmentplans.png"
   },
-  "tags": [
-    "machine learning",
-    "azure"
-  ],
+  "actionCount": 10,
   "definitions": {
     "CommitmentAssociation": {
       "allOf": [
@@ -743,5 +740,9 @@
         "$ref": "#/definitions/PlanUsageHistoryListResult"
       }
     }
+  ],
+  "tags": [
+    "machine learning",
+    "azure"
   ]
 }

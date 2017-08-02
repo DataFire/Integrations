@@ -27,9 +27,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_clouderrorreporting.png"
   },
-  "tags": [
-    "google"
-  ],
+  "actionCount": 8,
   "definitions": {
     "DeleteEventsResponse": {
       "description": "Response message for deleting error events.",
@@ -1023,5 +1021,8 @@
         }
       }
     }
+  ],
+  "tags": [
+    "google"
   ]
 }

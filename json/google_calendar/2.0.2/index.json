@@ -28,10 +28,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_calendar.png"
   },
-  "tags": [
-    "time management",
-    "google"
-  ],
+  "actionCount": 39,
   "definitions": {
     "Acl": {
       "properties": {
@@ -3767,5 +3764,9 @@
         }
       }
     }
+  ],
+  "tags": [
+    "time management",
+    "google"
   ]
 }

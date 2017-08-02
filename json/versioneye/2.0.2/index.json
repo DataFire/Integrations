@@ -6,10 +6,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/versioneye.png"
   },
-  "tags": [
-    "open data",
-    "search"
-  ],
+  "actionCount": 44,
   "actions": [
     {
       "id": "getFacebookPing",
@@ -969,5 +966,9 @@
       },
       "outputSchema": {}
     }
+  ],
+  "tags": [
+    "open data",
+    "search"
   ]
 }

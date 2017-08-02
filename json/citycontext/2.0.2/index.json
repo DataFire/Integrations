@@ -10,9 +10,7 @@
       }
     }
   },
-  "tags": [
-    "open data"
-  ],
+  "actionCount": 3,
   "definitions": {
     "Latlon": {},
     "Location": {
@@ -317,5 +315,8 @@
         }
       }
     }
+  ],
+  "tags": [
+    "open data"
   ]
 }

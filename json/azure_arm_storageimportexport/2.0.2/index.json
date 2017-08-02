@@ -26,10 +26,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_storageimportexport.png"
   },
-  "tags": [
-    "storage",
-    "azure"
-  ],
+  "actionCount": 11,
   "definitions": {
     "BitLockerKeysListResult": {
       "description": "List of BitLocker keys for the specified import/export job.",
@@ -1246,5 +1243,9 @@
         }
       }
     }
+  ],
+  "tags": [
+    "storage",
+    "azure"
   ]
 }

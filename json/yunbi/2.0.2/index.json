@@ -6,9 +6,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/yunbi.jpg"
   },
-  "tags": [
-    "financial"
-  ],
+  "actionCount": 23,
   "actions": [
     {
       "id": "v2.addresses.address.json.get",
@@ -733,5 +731,8 @@
       },
       "outputSchema": {}
     }
+  ],
+  "tags": [
+    "financial"
   ]
 }

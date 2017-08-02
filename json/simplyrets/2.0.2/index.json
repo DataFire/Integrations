@@ -11,7 +11,7 @@
       }
     }
   },
-  "tags": [],
+  "actionCount": 4,
   "definitions": {
     "Agent": {
       "description": "SimplyRETS Agent Api",
@@ -977,5 +977,6 @@
         }
       }
     }
-  ]
+  ],
+  "tags": []
 }

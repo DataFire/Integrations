@@ -25,10 +25,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/bufferapp.png"
   },
-  "tags": [
-    "social",
-    "marketing"
-  ],
+  "actionCount": 20,
   "definitions": {
     "configuration": {
       "properties": {
@@ -1736,5 +1733,9 @@
         }
       }
     }
+  ],
+  "tags": [
+    "social",
+    "marketing"
   ]
 }

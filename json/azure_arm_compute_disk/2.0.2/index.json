@@ -6,10 +6,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_compute_disk.png"
   },
-  "tags": [
-    "cloud",
-    "azure"
-  ],
+  "actionCount": 16,
   "definitions": {
     "AccessUri": {
       "description": "A disk access SAS uri.",
@@ -1089,5 +1086,9 @@
         "$ref": "#/definitions/OperationStatusResponse"
       }
     }
+  ],
+  "tags": [
+    "cloud",
+    "azure"
   ]
 }

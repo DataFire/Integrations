@@ -27,9 +27,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_cloudbilling.png"
   },
-  "tags": [
-    "google"
-  ],
+  "actionCount": 7,
   "definitions": {
     "BillingAccount": {
       "description": "A billing account in [Google Cloud\nConsole](https://console.cloud.google.com/). You can assign a billing account\nto one or more projects.",
@@ -628,5 +626,8 @@
         }
       }
     }
+  ],
+  "tags": [
+    "google"
   ]
 }

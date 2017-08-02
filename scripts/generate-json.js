@@ -44,9 +44,10 @@ iterateIntegs((dir, name, integ) => {
     let info = {};
     if (fs.existsSync(openapiFile)) {
       let openapi = JSON.parse(fs.readFileSync(openapiFile, 'utf8'));
-      info = openapi.info;
-      info.logo = info['x-logo'];
-      info.tags = info['x-apisguru-categories'];
+      info.title = openapi.info.title;
+      info.description = openapi.info.description;
+      info.logo = openapi.info['x-logo'];
+      info.tags = (openapi.info['x-apisguru-categories'] || []).map(t => t.replace(/_/g, ' '));
     }
     if (fs.existsSync(infoFile)) {
       Object.assign(info, require(infoFile));
@@ -56,43 +57,19 @@ iterateIntegs((dir, name, integ) => {
       info.logo.url = LOGO_BASE + '/' + name + '.' + extname;
     }
     if (list[name] && !args.name) throw new Error("Duplicate name " + name);
-    list[name] = {
-      id: name,
-      title: integ.title,
-      description: integ.description,
-      security: integ.security,
-      logo: info.logo,
-      tags: (info.tags || []).map(t => t.replace(/_/g, ' ')),
-    };
-    if (name.indexOf('google_') === 0) list[name].tags.push('google');
-    if (name.indexOf('amazonaws_') === 0) list[name].tags.push('aws');
-    if (name.indexOf('azure_') === 0) list[name].tags.push('azure');
-    let details = Object.assign({}, list[name]);
-    list[name].description = truncateDescription(list[name].description);
-    list[name].actionCount = integ.allActions.length;
-    list[name].latestVersion = package.version;
+    let listDetails = list[name] = Object.assign({}, integ.getDetails(), info);
+    if (name.indexOf('google_') === 0) listDetails.tags.push('google');
+    if (name.indexOf('amazonaws_') === 0) listDetails.tags.push('aws');
+    if (name.indexOf('azure_') === 0) listDetails.tags.push('azure');
 
-    details.actions = integ.allActions.map(action => {
-      details.definitions = details.definitions || action.inputSchema.definitions;
-      let actionDetails = {
-        id: action.id.split('/')[1],
-        title: action.title,
-        description: action.description,
-        inputSchema: Object.assign({definitions: null}, action.inputSchema),
-        outputSchema: Object.assign({definitions: null}, action.outputSchema),
-      }
-      if (action.security && action.security[name]) {
-        actionDetails.security = {};
-        actionDetails.security[name] = {integration: name};
-      }
-      delete actionDetails.inputSchema.definitions;
-      delete actionDetails.outputSchema.definitions;
-      return actionDetails;
-    })
+    let details = Object.assign({}, integ.getDetails(true), listDetails);
+    listDetails.description = truncateDescription(listDetails.description);
+    listDetails.latestVersion = package.version;
+
     let integDir = path.join(OUT_DIR, name, package.version);
     maybeMkdirp(integDir);
     fs.writeFileSync(path.join(integDir, 'index.json'), JSON.stringify(details, null, 2));
-}, name => !args.name || name === args.name)
+}, name => !args.name || name === args.name);
 
 fs.writeFileSync(OUT_DIR + 'list.json', JSON.stringify(list, null, 2));
 

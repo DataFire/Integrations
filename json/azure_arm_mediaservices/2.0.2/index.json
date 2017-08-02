@@ -26,11 +26,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_mediaservices.png"
   },
-  "tags": [
-    "media",
-    "cloud",
-    "azure"
-  ],
+  "actionCount": 9,
   "definitions": {
     "ApiEndpoint": {
       "description": "The properties for a Media Services REST API endpoint.",
@@ -730,5 +726,10 @@
         }
       }
     }
+  ],
+  "tags": [
+    "media",
+    "cloud",
+    "azure"
   ]
 }

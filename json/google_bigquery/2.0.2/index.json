@@ -33,10 +33,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_bigquery.png"
   },
-  "tags": [
-    "search",
-    "google"
-  ],
+  "actionCount": 23,
   "definitions": {
     "BigtableColumn": {
       "properties": {
@@ -3276,5 +3273,9 @@
         }
       }
     }
+  ],
+  "tags": [
+    "search",
+    "google"
   ]
 }

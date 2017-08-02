@@ -15,7 +15,7 @@
     "backgroundColor": "#FFFFFF",
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apacta.png"
   },
-  "tags": [],
+  "actionCount": 123,
   "definitions": {
     "City": {
       "properties": {
@@ -6883,5 +6883,6 @@
         }
       }
     }
-  ]
+  ],
+  "tags": []
 }

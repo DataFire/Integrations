@@ -1,7 +1,6 @@
 {
   "id": "import_rss",
   "title": "import.io",
-  "description": "",
   "security": {
     "import_rss": {
       "integration": "import_rss",
@@ -14,9 +13,7 @@
     "backgroundColor": "#F6248E",
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/import_rss.svg"
   },
-  "tags": [
-    "tools"
-  ],
+  "actionCount": 1,
   "definitions": {
     "APIError": {
       "properties": {
@@ -239,5 +236,8 @@
         }
       }
     }
+  ],
+  "tags": [
+    "tools"
   ]
 }

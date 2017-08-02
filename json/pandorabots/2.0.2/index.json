@@ -10,7 +10,7 @@
       }
     }
   },
-  "tags": [],
+  "actionCount": 13,
   "actions": [
     {
       "id": "atalkBot",
@@ -499,5 +499,6 @@
         }
       }
     }
-  ]
+  ],
+  "tags": []
 }

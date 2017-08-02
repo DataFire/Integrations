@@ -6,9 +6,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/opencagedata.png"
   },
-  "tags": [
-    "location"
-  ],
+  "actionCount": 1,
   "definitions": {
     "LatLng": {
       "properties": {
@@ -213,5 +211,8 @@
         "$ref": "#/definitions/Response"
       }
     }
+  ],
+  "tags": [
+    "location"
   ]
 }
