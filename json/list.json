@@ -10241,41 +10241,6 @@
     ],
     "latestVersion": "2.0.3"
   },
-  "jirafe": {
-    "id": "jirafe",
-    "title": "Jirafe Events",
-    "description": "API endpoins for sending Jirafe events",
-    "security": {
-      "jirafe": {
-        "integration": "jirafe",
-        "fields": {
-          "access_token": "An OAuth access token",
-          "refresh_token": "An OAuth refresh token (optional)",
-          "client_id": "An OAuth client ID (optional)",
-          "client_secret": "An OAuth client secret (optional)",
-          "redirect_uri": "The callback URL for your application"
-        },
-        "oauth": {
-          "authorizationUrl": "https://account.jirafe.com/oauth2/auth_token",
-          "flow": "accessCode",
-          "scopes": {
-            "write": "Send events"
-          },
-          "tokenUrl": "https://account.jirafe.com/oauth2/code",
-          "type": "oauth2"
-        }
-      }
-    },
-    "logo": {
-      "backgroundColor": "#4BC9C5",
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/jirafe.png"
-    },
-    "tags": [
-      "marketing"
-    ],
-    "actionCount": 8,
-    "latestVersion": "2.0.2"
-  },
   "kaltura": {
     "id": "kaltura",
     "title": "Kaltura VPaaS",
