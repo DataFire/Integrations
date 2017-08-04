@@ -11,6 +11,7 @@ let integ = module.exports = new datafire.Integration({
   id: INTEGRATION_ID,
   title: openapi.info.title,
   description: openapi.info.description,
+  logo: openapi.info['x-logo'],
 });
 integ.security[INTEGRATION_ID]= {
   integration: INTEGRATION_ID,
