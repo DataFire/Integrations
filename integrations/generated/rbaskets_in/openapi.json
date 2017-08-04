@@ -10,7 +10,7 @@
       "name": "darklynx",
       "url": "https://github.com/darklynx"
     },
-    "description": "RESTful API of Request Baskets service",
+    "description": "RESTful API of [Request Baskets](https://rbaskets.in) service.\n\nRequest Baskets is an open source project of a service to collect HTTP requests and inspect them via RESTful\nAPI or web UI.\n\nCheck out the [project page](https://github.com/darklynx/request-baskets) for more detailed description.\n",
     "title": "Request Baskets",
     "version": "0.5",
     "x-logo": {

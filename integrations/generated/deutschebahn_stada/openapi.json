@@ -7,7 +7,7 @@
   "host": "api.deutschebahn.com",
   "basePath": "/stada/v2",
   "info": {
-    "description": "The API provides station data for german railway stations managed by DB Station&Service AG as described in its swagger file.",
+    "description": "An API providing master data for german railway stations by DB Station&Service AG. ",
     "title": "Stationsdatenbereitstellung",
     "version": "2.0.47",
     "x-apisguru-categories": [
