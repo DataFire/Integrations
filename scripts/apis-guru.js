@@ -41,6 +41,7 @@ const getName = (apisGuruName) => {
 }
 
 const OUT_DIR = __dirname + '/../integrations/generated';
+const DEPRECATED_DIR = __dirname + '/../integrations/deprecated';
 
 request.get(APIS_GURU_URL, {json: true}, (err, resp, body) => {
   if (err) throw err;
@@ -48,7 +49,7 @@ request.get(APIS_GURU_URL, {json: true}, (err, resp, body) => {
   if (args.new) {
     keys = keys.filter(key => {
       let {provider, name} = getName(key);
-      return !fs.existsSync(OUT_DIR + '/' + name);
+      return !fs.existsSync(OUT_DIR + '/' + name) && !fs.existsSync(DEPRECATED_DIR + '/' + name);
     })
   }
   if (args.name) {
