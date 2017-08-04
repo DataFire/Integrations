@@ -63,8 +63,10 @@ request.get(APIS_GURU_URL, {json: true}, (err, resp, body) => {
       let {name, provider} = getName(key);
       let info = body[key];
       let api = info.versions[info.preferred];
-      if (args.spec_only) {
-        updateSpec(name, api.swaggerUrl, acb)
+      if (args.info_only) {
+        updateSpec(name, api.swaggerUrl, true, acb)
+      } else if (args.spec_only) {
+        updateSpec(name, api.swaggerUrl, false, acb)
       } else {
         integrate({
           name,
@@ -79,16 +81,22 @@ request.get(APIS_GURU_URL, {json: true}, (err, resp, body) => {
   })
 })
 
-function updateSpec(name, url, callback) {
+function updateSpec(name, url, infoOnly, callback) {
+  let specFile = path.join(OUT_DIR, name, 'openapi.json');
+  if (!fs.existsSync(specFile)) return callback();
   request.get(url, {json: true}, (err, resp, newSpec) => {
     if (err) return callback(err);
-    let specFile = path.join(OUT_DIR, name, 'openapi.json');
-    let oldSpec = require(specFile);
-    oldSpec.info.title = newSpec.info.title;
-    oldSpec.info.description = newSpec.info.description;
-    oldSpec.info['x-logo'] = newSpec.info['x-logo'];
-    fs.writeFile(specFile, JSON.stringify(oldSpec, null, 2), (err) => {
-      callback(err, oldSpec);
+    let specToWrite = newSpec;
+    if (infoOnly) {
+      specToWrite = require(specFile);
+      specToWrite.info.title = newSpec.info.title;
+      specToWrite.info.description = newSpec.info.description;
+      specToWrite.info['x-logo'] = newSpec.info['x-logo'];
+    } else {
+      specToWrite = newSpec;
+    }
+    fs.writeFile(specFile, JSON.stringify(specToWrite, null, 2), (err) => {
+      callback(err, specToWrite);
     });
   })
 }
