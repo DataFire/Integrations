@@ -1,7 +1,7 @@
 {
   "id": "google_acceleratedmobilepageurl",
   "title": "Accelerated Mobile Pages (AMP) URL",
-  "description": "Retrieves the list of AMP URL (and equivalent AMP Cache URL) for a given list of public URL(s).\n",
+  "description": "Retrieves the list of AMP URLs (and equivalent AMP Cache URLs) for a given list of public URL(s).\n",
   "security": {},
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_acceleratedmobilepageurl.png"

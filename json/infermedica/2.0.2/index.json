@@ -4,8 +4,7 @@
   "description": "Empower your healthcare services with intelligent diagnostic insights of Infermedica API.",
   "security": {},
   "logo": {
-    "backgroundColor": "#1576D1",
-    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/infermedica.png"
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/infermedica.jpg"
   },
   "actionCount": 9,
   "definitions": {

@@ -5079,7 +5079,7 @@
   "deutschebahn_stada": {
     "id": "deutschebahn_stada",
     "title": "Stationsdatenbereitstellung",
-    "description": "The API provides station data for german railway stations managed by DB Station&Service AG as described in its swagger f...",
+    "description": "An API providing master data for german railway stations by DB Station&Service AG. ",
     "security": {},
     "logo": {
       "backgroundColor": "#FFFFFF",
@@ -5101,6 +5101,111 @@
       "iot"
     ],
     "latestVersion": "2.0.2"
+  },
+  "ebay_buy_browse": {
+    "id": "ebay_buy_browse",
+    "title": "Buy Browse",
+    "description": "The Buy Browse API lets shoppers search for specific items by keyword, category, product, or item aspects and retrieve t...",
+    "security": {
+      "ebay_buy_browse": {
+        "integration": "ebay_buy_browse",
+        "fields": {
+          "access_token": "An OAuth access token",
+          "refresh_token": "An OAuth refresh token (optional)",
+          "client_id": "An OAuth client ID (optional)",
+          "client_secret": "An OAuth client secret (optional)",
+          "redirect_uri": "The callback URL for your application"
+        },
+        "oauth": {
+          "description": "The security definitions for this API. Please check individual operations for applicable scopes.",
+          "flow": "application",
+          "scopes": {
+            "https://api.ebay.com/oauth/api_scope": "View public data from eBay"
+          },
+          "tokenUrl": "https://api.ebay.com/identity/v1/oauth2/token",
+          "type": "oauth2"
+        }
+      }
+    },
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/ebay_buy_browse.png"
+    },
+    "actionCount": 6,
+    "tags": [
+      "ecommerce"
+    ],
+    "latestVersion": "2.0.0"
+  },
+  "ebay_buy_marketing": {
+    "id": "ebay_buy_marketing",
+    "title": "Buy Marketing",
+    "description": "The Buy Marketing API lets shoppers discover the best selling products and assists shoppers with deciding which product ...",
+    "security": {
+      "ebay_buy_marketing": {
+        "integration": "ebay_buy_marketing",
+        "fields": {
+          "access_token": "An OAuth access token",
+          "refresh_token": "An OAuth refresh token (optional)",
+          "client_id": "An OAuth client ID (optional)",
+          "client_secret": "An OAuth client secret (optional)",
+          "redirect_uri": "The callback URL for your application"
+        },
+        "oauth": {
+          "description": "The security definitions for this API. Please check individual operations for applicable scopes.",
+          "flow": "application",
+          "scopes": {
+            "https://api.ebay.com/oauth/api_scope/buy.marketing": "Retrieve eBay product and listing data for use in marketing merchandise to buyers"
+          },
+          "tokenUrl": "https://api.ebay.com/identity/v1/oauth2/token",
+          "type": "oauth2"
+        }
+      }
+    },
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/ebay_buy_marketing.png"
+    },
+    "actionCount": 3,
+    "tags": [
+      "ecommerce"
+    ],
+    "latestVersion": "2.0.0"
+  },
+  "ebay_commerce_taxonomy": {
+    "id": "ebay_commerce_taxonomy",
+    "title": "Commerce Taxonomy",
+    "description": "The Commerce Taxonomy API helps sellers determine the best eBay category when listing their inventory and buyers to dete...",
+    "security": {
+      "ebay_commerce_taxonomy": {
+        "integration": "ebay_commerce_taxonomy",
+        "fields": {
+          "access_token": "An OAuth access token",
+          "refresh_token": "An OAuth refresh token (optional)",
+          "client_id": "An OAuth client ID (optional)",
+          "client_secret": "An OAuth client secret (optional)",
+          "redirect_uri": "The callback URL for your application"
+        },
+        "oauth": {
+          "description": "The security definitions for this API. Please check individual operations for applicable scopes.",
+          "flow": "application",
+          "scopes": {
+            "https://api.ebay.com/oauth/api_scope": "View public data from eBay"
+          },
+          "tokenUrl": "https://api.ebay.com/identity/v1/oauth2/token",
+          "type": "oauth2"
+        }
+      }
+    },
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/ebay_commerce_taxonomy.png"
+    },
+    "actionCount": 6,
+    "tags": [
+      "ecommerce"
+    ],
+    "latestVersion": "2.0.0"
   },
   "epa_gov_air": {
     "id": "epa_gov_air",
@@ -5680,7 +5785,7 @@
   "google_acceleratedmobilepageurl": {
     "id": "google_acceleratedmobilepageurl",
     "title": "Accelerated Mobile Pages (AMP) URL",
-    "description": "Retrieves the list of AMP URL (and equivalent AMP Cache URL) for a given list of public URL(s).",
+    "description": "Retrieves the list of AMP URLs (and equivalent AMP Cache URLs) for a given list of public URL(s).",
     "security": {},
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_acceleratedmobilepageurl.png"
@@ -9721,7 +9826,7 @@
       }
     },
     "logo": {
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_youtubereporting.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_youtubereporting.jpg"
     },
     "actionCount": 10,
     "tags": [
@@ -10183,8 +10288,7 @@
     "description": "Empower your healthcare services with intelligent diagnostic insights of Infermedica API.",
     "security": {},
     "logo": {
-      "backgroundColor": "#1576D1",
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/infermedica.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/infermedica.jpg"
     },
     "actionCount": 9,
     "tags": [],
@@ -11040,6 +11144,21 @@
     ],
     "latestVersion": "2.0.2"
   },
+  "openbanking_org_uk": {
+    "id": "openbanking_org_uk",
+    "title": "Open Data",
+    "description": "Latest Swagger specification for OpenData",
+    "security": {},
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/openbanking_org_uk.png"
+    },
+    "actionCount": 12,
+    "tags": [
+      "finance"
+    ],
+    "latestVersion": "2.0.0"
+  },
   "opencagedata": {
     "id": "opencagedata",
     "title": "OpenCage Geocoder",
@@ -11286,7 +11405,7 @@
   "rbaskets_in": {
     "id": "rbaskets_in",
     "title": "Request Baskets",
-    "description": "RESTful API of Request Baskets service",
+    "description": "RESTful API of [Request Baskets](https://rbaskets.in) service.",
     "security": {
       "rbaskets_in": {
         "integration": "rbaskets_in",
