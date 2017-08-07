@@ -1154,7 +1154,7 @@
     {
       "id": "entries.source_language.word_id.sentences.get",
       "title": "entries.source_language.word_id.sentences.get",
-      "description": "\nRetrieve list of sentences and list of [senses](/glossary?tag=#sense&expand) (English language only).\n  <div id=\"sentences\"></div>\n",
+      "description": "Retrieve list of sentences and list of [senses](/glossary?tag=#sense&expand) (English language only).",
       "inputSchema": {
         "type": "object",
         "properties": {
@@ -1195,7 +1195,7 @@
     {
       "id": "entries.source_lang.word_id.get",
       "title": "entries.source_lang.word_id.get",
-      "description": "\nRetrieve available [dictionary entries](/glossary?tag=#entry&expand) for a given word and language. \n\n  <div id=\"dictionary_entries\"></div>\n",
+      "description": "Retrieve available [dictionary entries](/glossary?tag=#entry&expand) for a given word and language.",
       "inputSchema": {
         "type": "object",
         "properties": {
@@ -1239,7 +1239,7 @@
     {
       "id": "entries.source_lang.word_id.antonyms.get",
       "title": "entries.source_lang.word_id.antonyms.get",
-      "description": "\nRetrieve available [antonyms](/glossary?tag=#thesaurus&expand) for a given word and language. \n\n  <div id=\"antonyms\"></div>\n",
+      "description": "Retrieve available [antonyms](/glossary?tag=#thesaurus&expand) for a given word and language.",
       "inputSchema": {
         "type": "object",
         "properties": {
@@ -1279,7 +1279,7 @@
     {
       "id": "entries.source_lang.word_id.definitions.get",
       "title": "entries.source_lang.word_id.definitions.get",
-      "description": "\nFind available [dictionary entries](/glossary?tag=#entry&expand) for given word and language. Filter results by categories. \n\n  <div id=\"dictionary_entries_filters_definitions\"></div>\n",
+      "description": "Find available [dictionary entries](/glossary?tag=#entry&expand) for given word and language. Filter results by categories.",
       "inputSchema": {
         "type": "object",
         "properties": {
@@ -1323,7 +1323,7 @@
     {
       "id": "entries.source_lang.word_id.examples.get",
       "title": "entries.source_lang.word_id.examples.get",
-      "description": "\nFind available [dictionary entries](/glossary?tag=#entry&expand) for given word and language. Filter results by categories. \n\n  <div id=\"dictionary_entries_filters_examples\"></div>\n",
+      "description": "Find available [dictionary entries](/glossary?tag=#entry&expand) for given word and language. Filter results by categories.",
       "inputSchema": {
         "type": "object",
         "properties": {
@@ -1367,7 +1367,7 @@
     {
       "id": "entries.source_lang.word_id.pronunciations.get",
       "title": "entries.source_lang.word_id.pronunciations.get",
-      "description": "\nFind available [dictionary entries](/glossary?tag=#entry&expand) for given word and language. Filter results by categories. \n\n  <div id=\"dictionary_entries_filters_pronunciations\"></div>\n",
+      "description": "Find available [dictionary entries](/glossary?tag=#entry&expand) for given word and language. Filter results by categories.",
       "inputSchema": {
         "type": "object",
         "properties": {
@@ -1411,7 +1411,7 @@
     {
       "id": "entries.source_lang.word_id.regions_region.get",
       "title": "entries.source_lang.word_id.regions_region.get",
-      "description": "\nRetrieve available [dictionary entries](/glossary?tag=#entry&expand) for given word and language. \n\n  <div id=\"dictionary_entries\"></div>\n",
+      "description": "Retrieve available [dictionary entries](/glossary?tag=#entry&expand) for given word and language.",
       "inputSchema": {
         "type": "object",
         "properties": {
@@ -1460,7 +1460,7 @@
     {
       "id": "entries.source_lang.word_id.synonyms.get",
       "title": "entries.source_lang.word_id.synonyms.get",
-      "description": "\nRetrieve available [synonyms](/glossary?tag=#thesaurus&expand) for a given word and language. \n\n  <div id=\"synonyms\"></div>\n",
+      "description": "Retrieve available [synonyms](/glossary?tag=#thesaurus&expand) for a given word and language.",
       "inputSchema": {
         "type": "object",
         "properties": {
@@ -1500,7 +1500,7 @@
     {
       "id": "entries.source_lang.word_id.synonyms_antonyms.get",
       "title": "entries.source_lang.word_id.synonyms_antonyms.get",
-      "description": "\nRetrieve available [synonyms and antonyms](/glossary?tag=#thesaurus&expand) for a given word and language. \n\n  <div id=\"synonyms_and_antonyms\"></div>\n",
+      "description": "Retrieve available [synonyms and antonyms](/glossary?tag=#thesaurus&expand) for a given word and language.",
       "inputSchema": {
         "type": "object",
         "properties": {
@@ -1540,7 +1540,7 @@
     {
       "id": "entries.source_lang.word_id.translations_target_lang.get",
       "title": "entries.source_lang.word_id.translations_target_lang.get",
-      "description": "Returns target language translations for a given word ID and source language. \nIn the event that a word in the dataset does not have a direct translation, the response will be a [definition](/glossary?tag=#entry&expand) in the target language.\n\n  <div id=\"translation\"></div>\n",
+      "description": "Returns target language translations for a given word ID and source language. In the event that a word in the dataset does not have a direct translation, the response will be a [definition](/glossary?tag=#entry&expand) in the target language.",
       "inputSchema": {
         "type": "object",
         "properties": {
@@ -1610,7 +1610,7 @@
     {
       "id": "entries.source_lang.word_id.filters.get",
       "title": "entries.source_lang.word_id.filters.get",
-      "description": "\nFind available [dictionary entries](/glossary?tag=#entry&expand) for given word and language. Filter results by categories. \n\n  <div id=\"dictionary_entries_filters\"></div>\n",
+      "description": "Find available [dictionary entries](/glossary?tag=#entry&expand) for given word and language. Filter results by categories.",
       "inputSchema": {
         "type": "object",
         "properties": {
@@ -1769,7 +1769,7 @@
     {
       "id": "inflections.source_lang.word_id.get",
       "title": "inflections.source_lang.word_id.get",
-      "description": "\nRetrieve available [lemmas](/glossary?tag=#lemma&expand) for a given [inflected](/glossary?tag=#inflection&expand) wordform. \n\n  <div id=\"lemmatron\"></div>\n",
+      "description": "Retrieve available [lemmas](/glossary?tag=#lemma&expand) for a given [inflected](/glossary?tag=#inflection&expand) wordform.",
       "inputSchema": {
         "type": "object",
         "properties": {
@@ -1813,7 +1813,7 @@
     {
       "id": "inflections.source_lang.word_id.filters.get",
       "title": "inflections.source_lang.word_id.filters.get",
-      "description": "\nRetrieve available [lemmas](/glossary?tag=#lemma&expand) for a given [inflected](/glossary?tag=#inflection&expand) wordform. Filter results by categories.  \n\n  <div id=\"lemmatron_filters\"></div>\n",
+      "description": "Retrieve available [lemmas](/glossary?tag=#lemma&expand) for a given [inflected](/glossary?tag=#inflection&expand) wordform. Filter results by categories.",
       "inputSchema": {
         "type": "object",
         "properties": {
@@ -2117,7 +2117,7 @@
     {
       "id": "search.source_lang.get",
       "title": "search.source_lang.get",
-      "description": "\nRetrieve available results for a search query and language. \n\n  <div id=\"search\"></div>\n",
+      "description": "Retrieve available results for a search query and language.",
       "inputSchema": {
         "type": "object",
         "properties": {
@@ -2180,7 +2180,7 @@
     {
       "id": "search.source_lang.translations_target_lang.get",
       "title": "search.source_lang.translations_target_lang.get",
-      "description": "\nFind available translation results  for a search query and language. \n\n  <div id=\"search_translation\"></div>\n",
+      "description": "Find available translation results for a search query and language.",
       "inputSchema": {
         "type": "object",
         "properties": {
@@ -2269,7 +2269,7 @@
     {
       "id": "wordlist.source_lang.filters_advanced.get",
       "title": "wordlist.source_lang.filters_advanced.get",
-      "description": "Advanced options for retrieving [wordlist](/glossary?tag=#wordlist&expand) - exclude filter, filter by word length or match by substring (prefix). \n\n  <div id=\"wordlist_advanced\"></div>\n",
+      "description": "Advanced options for retrieving [wordlist](/glossary?tag=#wordlist&expand) - exclude filter, filter by word length or match by substring (prefix).",
       "inputSchema": {
         "type": "object",
         "properties": {
@@ -2349,7 +2349,7 @@
     {
       "id": "wordlist.source_lang.filters_basic.get",
       "title": "wordlist.source_lang.filters_basic.get",
-      "description": "Retrieve list of words for particular [domain](/glossary?tag=#domain&expand), [lexical category](/glossary?tag=#lexicalcategory&expand), [register](/glossary?tag=#register&expand) and/or [region](/glossary?tag=#region&expand).  \n\n  <div id=\"wordlist\"></div>\n",
+      "description": "Retrieve list of words for particular [domain](/glossary?tag=#domain&expand), [lexical category](/glossary?tag=#lexicalcategory&expand), [register](/glossary?tag=#register&expand) and/or [region](/glossary?tag=#region&expand).",
       "inputSchema": {
         "type": "object",
         "properties": {

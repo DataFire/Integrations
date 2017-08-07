@@ -57,7 +57,7 @@
     {
       "id": "getTuneinLinks",
       "title": "getTuneinLinks",
-      "description": "Either use <b>tweet</b>, <b>hashtags</b>, or <b>showID</b> as the parameter. The tunein URLs that match best are returned in order of best match.<br/><br/>A <b>tweet</b> in this context is shorthand for text from a social networking conversation, e.g., it could be from Facebook, Twitter, LinkedIn, etc., and be greater than 140 characters.",
+      "description": "Either use **tweet**, **hashtags**, or **showID** as the parameter. The tunein URLs that match best are returned in order of best match.  \n\nA **tweet** in this context is shorthand for text from a social networking conversation, e.g., it could be from Facebook, Twitter, LinkedIn, etc., and be greater than 140 characters.",
       "inputSchema": {
         "type": [
           "object",

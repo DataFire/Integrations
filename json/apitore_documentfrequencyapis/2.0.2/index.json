@@ -51,7 +51,7 @@
     {
       "id": "getUsingGET",
       "title": "getUsingGET",
-      "description": "Document Frequency by JaWikipedia 2016-9-15 dump.<BR />Response<BR />&nbsp; Github: <a href=\"https://github.com/keigohtr/apitore-response-parent/tree/master/summarize-response\">summarize-response</a><BR />&nbsp; Class: com.apitore.banana.response.summarize.DocumentFrequencyResponseEntity<BR />",
+      "description": "Document Frequency by JaWikipedia 2016-9-15 dump.  \nResponse  \n  Github: [summarize-response](https://github.com/keigohtr/apitore-response-parent/tree/master/summarize-response)  \n  Class: com.apitore.banana.response.summarize.DocumentFrequencyResponseEntity",
       "inputSchema": {
         "type": "object",
         "properties": {

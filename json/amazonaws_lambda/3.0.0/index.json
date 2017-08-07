@@ -1,7 +1,7 @@
 {
   "id": "amazonaws_lambda",
   "title": "AWS Lambda",
-  "description": "<fullname>AWS Lambda</fullname> <p> <b>Overview</b> </p> <p>This is the <i>AWS Lambda API Reference</i>. The AWS Lambda Developer Guide provides additional information. For the service overview, see <a href=\"http://docs.aws.amazon.com/lambda/latest/dg/welcome.html\">What is AWS Lambda</a>, and for information about how the service works, see <a href=\"http://docs.aws.amazon.com/lambda/latest/dg/lambda-introduction.html\">AWS Lambda: How it Works</a> in the <i>AWS Lambda Developer Guide</i>.</p>",
+  "description": "AWS Lambda\n\n**Overview**\n\nThis is the _AWS Lambda API Reference_. The AWS Lambda Developer Guide provides additional information. For the service overview, see [What is AWS Lambda](http://docs.aws.amazon.com/lambda/latest/dg/welcome.html), and for information about how the service works, see [AWS Lambda: How it Works](http://docs.aws.amazon.com/lambda/latest/dg/lambda-introduction.html) in the _AWS Lambda Developer Guide_.",
   "security": {
     "amazonaws_lambda": {
       "integration": "amazonaws_lambda",

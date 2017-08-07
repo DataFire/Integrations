@@ -1,7 +1,7 @@
 {
   "id": "amazonaws_cloudhsm",
   "title": "Amazon CloudHSM",
-  "description": "<fullname>AWS CloudHSM Service</fullname>",
+  "description": "AWS CloudHSM Service",
   "security": {
     "amazonaws_cloudhsm": {
       "integration": "amazonaws_cloudhsm",

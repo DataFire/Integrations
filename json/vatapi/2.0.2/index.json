@@ -995,7 +995,7 @@
     {
       "id": "vat_number_validate",
       "title": "vat_number_validate",
-      "description": "<p>We highly recommend if you are able, to check a VAT number on your end first to save wasted API lookups. It maybe that your customer has simply entered the wrong format. <a href='http://www.braemoor.co.uk/software/vat.shtml' target='_blank'>Heres a client side way to check the format using Javascript</a></p>",
+      "description": "We highly recommend if you are able, to check a VAT number on your end first to save wasted API lookups. It maybe that your customer has simply entered the wrong format. [Heres a client side way to check the format using Javascript](http://www.braemoor.co.uk/software/vat.shtml)",
       "inputSchema": {
         "type": "object",
         "properties": {

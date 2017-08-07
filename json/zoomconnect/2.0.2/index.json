@@ -468,7 +468,7 @@
     {
       "id": "transfer",
       "title": "transfer",
-      "description": "Transfers credits between two users in the same team. The <i>account email address</i> fields as well as the <i>number of credits to transfer</i> are required. ",
+      "description": "Transfers credits between two users in the same team. The _account email address_ fields as well as the _number of credits to transfer_ are required.",
       "inputSchema": {
         "type": [
           "object",
@@ -517,7 +517,7 @@
     {
       "id": "account.user.put",
       "title": "account.user.put",
-      "description": "Creates a new sub-account in your team. The following fields are required <i>firstname, lastname, email address, contact number</i> and <i>password.</i>",
+      "description": "Creates a new sub-account in your team. The following fields are required _firstname, lastname, email address, contact number_ and _password._",
       "inputSchema": {
         "type": [
           "object",
@@ -569,7 +569,7 @@
     {
       "id": "account.user.userId.post",
       "title": "account.user.userId.post",
-      "description": "Updates a sub-account in your team. The following fields can be updated <i>firstname, lastname, contact number</i> and <i>password.</i>",
+      "description": "Updates a sub-account in your team. The following fields can be updated _firstname, lastname, contact number_ and _password._",
       "inputSchema": {
         "type": "object",
         "properties": {
@@ -1387,7 +1387,7 @@
     {
       "id": "sms.send.post",
       "title": "sms.send.post",
-      "description": "Sends a single message. The <i>recipientNumber</i> and <i>message</i> fields are required. All other fields are optional.",
+      "description": "Sends a single message. The _recipientNumber_ and _message_ fields are required. All other fields are optional.",
       "inputSchema": {
         "type": [
           "object",
@@ -1451,7 +1451,7 @@
     {
       "id": "sms.send_url_parameters.get",
       "title": "sms.send_url_parameters.get",
-      "description": "Send a single message using URL parameters.The <i>recipientNumber</i> and <i>message</i> parameters are required. All other parameters are optional.",
+      "description": "Send a single message using URL parameters.The _recipientNumber_ and _message_ parameters are required. All other parameters are optional.",
       "inputSchema": {
         "type": "object",
         "properties": {
@@ -1495,7 +1495,7 @@
     {
       "id": "sms.send_url_parameters.post",
       "title": "sms.send_url_parameters.post",
-      "description": "Send a single message using URL parameters.The <i>recipientNumber</i> and <i>message</i> parameters are required. All other parameters are optional.",
+      "description": "Send a single message using URL parameters.The _recipientNumber_ and _message_ parameters are required. All other parameters are optional.",
       "inputSchema": {
         "type": "object",
         "properties": {
@@ -1539,7 +1539,7 @@
     {
       "id": "sms.send_url.token.get",
       "title": "sms.send_url.token.get",
-      "description": "Send a single message using your unique URL.The <i>recipientNumber</i> and <i>message</i> parameters are required. All other parameters are optional.",
+      "description": "Send a single message using your unique URL.The _recipientNumber_ and _message_ parameters are required. All other parameters are optional.",
       "inputSchema": {
         "type": "object",
         "properties": {
@@ -1588,7 +1588,7 @@
     {
       "id": "sms.send_url.token.post",
       "title": "sms.send_url.token.post",
-      "description": "Send a single message using your unique URL.The <i>recipientNumber</i> and <i>message</i> parameters are required. All other parameters are optional.",
+      "description": "Send a single message using your unique URL.The _recipientNumber_ and _message_ parameters are required. All other parameters are optional.",
       "inputSchema": {
         "type": "object",
         "properties": {

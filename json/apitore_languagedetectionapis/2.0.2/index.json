@@ -76,7 +76,7 @@
     {
       "id": "getUsingGET",
       "title": "getUsingGET",
-      "description": "Language Detection.<BR />Response<BR />&nbsp; Github: <a href=\"https://github.com/keigohtr/apitore-response-parent/tree/master/langdetect-response\">langdetect-response</a><BR />&nbsp; Class: com.apitore.banana.response.org.jsoup.LanguageResponseEntity<BR />",
+      "description": "Language Detection.  \nResponse  \n  Github: [langdetect-response](https://github.com/keigohtr/apitore-response-parent/tree/master/langdetect-response)  \n  Class: com.apitore.banana.response.org.jsoup.LanguageResponseEntity",
       "inputSchema": {
         "type": "object",
         "properties": {
@@ -102,7 +102,7 @@
     {
       "id": "smGetUsingGET",
       "title": "smGetUsingGET",
-      "description": "Language Detection.<BR />Response<BR />&nbsp; Github: <a href=\"https://github.com/keigohtr/apitore-response-parent/tree/master/langdetect-response\">langdetect-response</a><BR />&nbsp; Class: com.apitore.banana.response.org.jsoup.LanguageResponseEntity<BR />",
+      "description": "Language Detection.  \nResponse  \n  Github: [langdetect-response](https://github.com/keigohtr/apitore-response-parent/tree/master/langdetect-response)  \n  Class: com.apitore.banana.response.org.jsoup.LanguageResponseEntity",
       "inputSchema": {
         "type": "object",
         "properties": {

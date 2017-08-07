@@ -1,7 +1,7 @@
 {
   "id": "amazonaws_kinesis",
   "title": "Amazon Kinesis",
-  "description": "<fullname>Amazon Kinesis Streams Service API Reference</fullname> <p>Amazon Kinesis Streams is a managed service that scales elastically for real time processing of streaming big data.</p>",
+  "description": "Amazon Kinesis Streams Service API Reference\n\nAmazon Kinesis Streams is a managed service that scales elastically for real time processing of streaming big data.",
   "security": {
     "amazonaws_kinesis": {
       "integration": "amazonaws_kinesis",

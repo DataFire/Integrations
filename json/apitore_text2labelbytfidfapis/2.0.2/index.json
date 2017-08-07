@@ -75,7 +75,7 @@
     {
       "id": "getUsingGET_1",
       "title": "getUsingGET_1",
-      "description": "Text2Label by tfidf.<BR />Response<BR />&nbsp; Github: <a href=\"https://github.com/keigohtr/apitore-response-parent/tree/master/summarize-response\">summarize-response</a><BR />&nbsp; Class: com.apitore.banana.response.summarize.LabelResponseEntity<BR />",
+      "description": "Text2Label by tfidf.  \nResponse  \n  Github: [summarize-response](https://github.com/keigohtr/apitore-response-parent/tree/master/summarize-response)  \n  Class: com.apitore.banana.response.summarize.LabelResponseEntity",
       "inputSchema": {
         "type": "object",
         "properties": {

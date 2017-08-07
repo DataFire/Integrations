@@ -1121,7 +1121,7 @@
     {
       "id": "projects.collectdTimeSeries.create",
       "title": "projects.collectdTimeSeries.create",
-      "description": "Stackdriver Monitoring Agent only: Creates a new time series.<aside class=\"caution\">This method is only for use by the Stackdriver Monitoring Agent. Use projects.timeSeries.create instead.</aside>",
+      "description": "Stackdriver Monitoring Agent only: Creates a new time series.\n\nThis method is only for use by the Stackdriver Monitoring Agent. Use projects.timeSeries.create instead.",
       "inputSchema": {
         "type": "object",
         "properties": {

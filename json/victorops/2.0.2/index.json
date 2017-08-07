@@ -1056,7 +1056,7 @@
     {
       "id": "api_public.v1.incidents.post",
       "title": "api_public.v1.incidents.post",
-      "description": "Create a new incident.\n\nThis call replicates the function of our\n<a href=\"https://help.victorops.com/knowledge-base/manual-incident-creation/\">manual incident creation process</a>\nMonitoring tools and custom integrations\nshould be configured using our\n<a href=\"https://help.victorops.com/knowledge-base/victorops-restendpoint-integration/\">REST Endpoint</a>\n\nThis API may be called a maximum of 6 times per minute.\n",
+      "description": "Create a new incident. This call replicates the function of our [manual incident creation process](https://help.victorops.com/knowledge-base/manual-incident-creation/) Monitoring tools and custom integrations should be configured using our [REST Endpoint](https://help.victorops.com/knowledge-base/victorops-restendpoint-integration/) This API may be called a maximum of 6 times per minute.",
       "inputSchema": {
         "type": "object",
         "properties": {

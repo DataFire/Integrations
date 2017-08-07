@@ -1,7 +1,7 @@
 {
   "id": "amazonaws_elastictranscoder",
   "title": "Amazon Elastic Transcoder",
-  "description": "<fullname>AWS Elastic Transcoder Service</fullname> <p>The AWS Elastic Transcoder Service.</p>",
+  "description": "AWS Elastic Transcoder Service\n\nThe AWS Elastic Transcoder Service.",
   "security": {
     "amazonaws_elastictranscoder": {
       "integration": "amazonaws_elastictranscoder",

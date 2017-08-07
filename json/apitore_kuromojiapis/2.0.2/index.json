@@ -129,7 +129,7 @@
     {
       "id": "tokenizeUsingGET_1",
       "title": "tokenizeUsingGET_1",
-      "description": "Kuromoji IPADIC NEologd dictionary.<BR />Response<BR />&nbsp; Github: <a href=\"https://github.com/keigohtr/apitore-response-parent/tree/master/kuromoji-response\">kuromoji-response</a><BR />&nbsp; Class: com.apitore.banana.response.com.atilika.kuromoji.TokenResponseEntity<BR />",
+      "description": "Kuromoji IPADIC NEologd dictionary.  \nResponse  \n  Github: [kuromoji-response](https://github.com/keigohtr/apitore-response-parent/tree/master/kuromoji-response)  \n  Class: com.apitore.banana.response.com.atilika.kuromoji.TokenResponseEntity",
       "inputSchema": {
         "type": "object",
         "properties": {
@@ -155,7 +155,7 @@
     {
       "id": "tokenizeUsingGET",
       "title": "tokenizeUsingGET",
-      "description": "Kuromoji IPADIC dictionary.<BR />Response<BR />&nbsp; Github: <a href=\"https://github.com/keigohtr/apitore-response-parent/tree/master/kuromoji-response\">kuromoji-response</a><BR />&nbsp; Class: com.apitore.banana.response.com.atilika.kuromoji.TokenResponseEntity<BR />",
+      "description": "Kuromoji IPADIC dictionary.  \nResponse  \n  Github: [kuromoji-response](https://github.com/keigohtr/apitore-response-parent/tree/master/kuromoji-response)  \n  Class: com.apitore.banana.response.com.atilika.kuromoji.TokenResponseEntity",
       "inputSchema": {
         "type": "object",
         "properties": {

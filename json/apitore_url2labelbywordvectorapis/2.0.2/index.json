@@ -75,7 +75,7 @@
     {
       "id": "getUsingGET_4",
       "title": "getUsingGET_4",
-      "description": "Url2Label by kmeans of word vectors.<BR />Response<BR />&nbsp; Github: <a href=\"https://github.com/keigohtr/apitore-response-parent/tree/master/summarize-response\">summarize-response</a><BR />&nbsp; Class: com.apitore.banana.response.summarize.LabelResponseEntity<BR />",
+      "description": "Url2Label by kmeans of word vectors.  \nResponse  \n  Github: [summarize-response](https://github.com/keigohtr/apitore-response-parent/tree/master/summarize-response)  \n  Class: com.apitore.banana.response.summarize.LabelResponseEntity",
       "inputSchema": {
         "type": "object",
         "properties": {

@@ -1,7 +1,7 @@
 {
   "id": "amazonaws_workspaces",
   "title": "Amazon WorkSpaces",
-  "description": "<fullname>Amazon WorkSpaces Service</fullname> <p>This reference provides detailed information about the Amazon WorkSpaces operations.</p>",
+  "description": "Amazon WorkSpaces Service\n\nThis reference provides detailed information about the Amazon WorkSpaces operations.",
   "security": {
     "amazonaws_workspaces": {
       "integration": "amazonaws_workspaces",

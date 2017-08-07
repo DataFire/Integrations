@@ -1,7 +1,7 @@
 {
   "id": "wealthport",
   "title": "Wealthport",
-  "description": "Wealthport provides a simple, lightweight and open Web API based on the Open API 2.0 standard (<a href=\"https://www.openapis.org\" target=\"_blank\">https://www.openapis.org</a>). Our APIs offer a variety of operations related to managing Sources, Folders, Orders and Recipes. There are operations to submit and track Jobs, upload and download data files and many more.",
+  "description": "Wealthport provides a simple, lightweight and open Web API based on the Open API 2.0 standard ([https://www.openapis.org](https://www.openapis.org)). Our APIs offer a variety of operations related to managing Sources, Folders, Orders and Recipes. There are operations to submit and track Jobs, upload and download data files and many more.",
   "security": {
     "wealthport": {
       "integration": "wealthport",
@@ -656,7 +656,7 @@
     {
       "id": "createOrder",
       "title": "createOrder",
-      "description": "Creates a new Order to be submitted.<p>Orders reference one or more Sources, e.g. uploaded files, as well as one or more Folders (which again can contain Sources).The Recipe describes what to do with the referenced sources and where to publish the processing result to.</p>",
+      "description": "Creates a new Order to be submitted.\n\nOrders reference one or more Sources, e.g. uploaded files, as well as one or more Folders (which again can contain Sources).The Recipe describes what to do with the referenced sources and where to publish the processing result to.",
       "inputSchema": {
         "type": [
           "object",
@@ -896,7 +896,7 @@
     {
       "id": "createSource",
       "title": "createSource",
-      "description": "Creates the specified Source.<p>Sources are either uploaded files or a reference to a database. They are referenced in orders to specify which data needs processing.</p><p>Most clients should probably use the Upload File API which implicitly creates a new source on successful file upload.</p>",
+      "description": "Creates the specified Source.\n\nSources are either uploaded files or a reference to a database. They are referenced in orders to specify which data needs processing.\n\nMost clients should probably use the Upload File API which implicitly creates a new source on successful file upload.",
       "inputSchema": {
         "type": [
           "object",
@@ -922,7 +922,7 @@
     {
       "id": "getUploadUrl",
       "title": "getUploadUrl",
-      "description": "Initiates a file upload and returns the URL where to upload the file to.<p>Calling this API generates a secure, unique and time-restricted URL where the file can be uploaded to. The URL is available in the <pre>Location</pre> HTTP header of the response. The temporal validity of the URL is available in the <pre>Cache-Control</pre> HTTP header of the response.Clients may perform a <pre>HTTP PUT</pre> request on the URL to upload the file using a form where a file <pre>sample.csv</pre> is passed as property <pre>file=sample.csv</pre>. For security reasons, clients must pass all HTTP headers as returned by the <pre>X-WP-Upload-Headers</pre> in the response, together with their values. This procedure ensures a secure, encrypted file upload.</p><p>Note that calling this API automatically generates a Source, there is no need to call the Create Source API.</p>",
+      "description": "Initiates a file upload and returns the URL where to upload the file to.\n\nCalling this API generates a secure, unique and time-restricted URL where the file can be uploaded to. The URL is available in the\n\nLocation\n\nHTTP header of the response. The temporal validity of the URL is available in the\n\nCache-Control\n\nHTTP header of the response.Clients may perform a\n\nHTTP PUT\n\nrequest on the URL to upload the file using a form where a file\n\nsample.csv\n\nis passed as property\n\nfile=sample.csv\n\n. For security reasons, clients must pass all HTTP headers as returned by the\n\nX-WP-Upload-Headers\n\nin the response, together with their values. This procedure ensures a secure, encrypted file upload.\n\nNote that calling this API automatically generates a Source, there is no need to call the Create Source API.",
       "inputSchema": {
         "type": "object",
         "properties": {
@@ -1041,7 +1041,7 @@
     {
       "id": "getDownloadUrl",
       "title": "getDownloadUrl",
-      "description": "Initiates a file download and returns the URL where to download the file from.<p>Calling this API generates a secure, unique and time-restricted URL where the file can be downloaded from. The URL is available in the <pre>Location</pre> HTTP header of the response. The time restriction of the URL is availablein the <pre>Cache-Control</pre> HTTP header of the response.Clients may perform a <pre>HTTP GET</pre> request on the URL to download the file.</p>",
+      "description": "Initiates a file download and returns the URL where to download the file from.\n\nCalling this API generates a secure, unique and time-restricted URL where the file can be downloaded from. The URL is available in the\n\nLocation\n\nHTTP header of the response. The time restriction of the URL is availablein the\n\nCache-Control\n\nHTTP header of the response.Clients may perform a\n\nHTTP GET\n\nrequest on the URL to download the file.",
       "inputSchema": {
         "type": "object",
         "properties": {

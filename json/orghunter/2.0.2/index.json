@@ -18,7 +18,7 @@
     {
       "id": "v1.categories.post",
       "title": "v1.categories.post",
-      "description": "<p>This operation provides a list of categories.</p>",
+      "description": "This operation provides a list of categories.",
       "inputSchema": {},
       "outputSchema": {},
       "security": {
@@ -30,7 +30,7 @@
     {
       "id": "v1.charitybasic.post",
       "title": "v1.charitybasic.post",
-      "description": "<p>This operation detail data.</p>",
+      "description": "This operation detail data.",
       "inputSchema": {
         "type": [
           "object",
@@ -54,7 +54,7 @@
     {
       "id": "v1.charityfinancial.post",
       "title": "v1.charityfinancial.post",
-      "description": "<p>This operation detail data.</p>",
+      "description": "This operation detail data.",
       "inputSchema": {
         "type": [
           "object",
@@ -78,7 +78,7 @@
     {
       "id": "v1.charitygeolocation.post",
       "title": "v1.charitygeolocation.post",
-      "description": "<p>This operation detail data.</p>",
+      "description": "This operation detail data.",
       "inputSchema": {
         "type": [
           "object",
@@ -102,7 +102,7 @@
     {
       "id": "v1.charitypremium.post",
       "title": "v1.charitypremium.post",
-      "description": "<p>This operation detail data.</p>",
+      "description": "This operation detail data.",
       "inputSchema": {
         "type": [
           "object",
@@ -126,7 +126,7 @@
     {
       "id": "v1.charitysearch.post",
       "title": "v1.charitysearch.post",
-      "description": "<p>This operation provides summary data.</p>",
+      "description": "This operation provides summary data.",
       "inputSchema": {
         "type": [
           "object",

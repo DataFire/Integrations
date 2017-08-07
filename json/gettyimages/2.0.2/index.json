@@ -2379,7 +2379,7 @@
     {
       "id": "Boards_GetAllBoards",
       "title": "Boards_GetAllBoards",
-      "description": "<b>***BETA***</b> Get all boards that the user participates in",
+      "description": "*****BETA***** Get all boards that the user participates in",
       "inputSchema": {
         "type": "object",
         "properties": {
@@ -2437,7 +2437,7 @@
     {
       "id": "Boards_CreateBoard",
       "title": "Boards_CreateBoard",
-      "description": "<b>***BETA***</b> Create a new board",
+      "description": "*****BETA***** Create a new board",
       "inputSchema": {
         "type": "object",
         "properties": {
@@ -2471,7 +2471,7 @@
     {
       "id": "Boards_DeleteBoard",
       "title": "Boards_DeleteBoard",
-      "description": "<b>***BETA***</b> Delete a board",
+      "description": "*****BETA***** Delete a board",
       "inputSchema": {
         "type": "object",
         "properties": {
@@ -2504,7 +2504,7 @@
     {
       "id": "Boards_GetBoard",
       "title": "Boards_GetBoard",
-      "description": "<b>***BETA***</b> Get assets and metadata for a specific board",
+      "description": "*****BETA***** Get assets and metadata for a specific board",
       "inputSchema": {
         "type": "object",
         "properties": {
@@ -2539,7 +2539,7 @@
     {
       "id": "Boards_UpdateBoard",
       "title": "Boards_UpdateBoard",
-      "description": "<b>***BETA***</b> Update a board",
+      "description": "*****BETA***** Update a board",
       "inputSchema": {
         "type": "object",
         "properties": {
@@ -2576,7 +2576,7 @@
     {
       "id": "Boards_RemoveAssets",
       "title": "Boards_RemoveAssets",
-      "description": "<b>***BETA***</b> Remove assets from a board",
+      "description": "*****BETA***** Remove assets from a board",
       "inputSchema": {
         "type": "object",
         "properties": {
@@ -2616,7 +2616,7 @@
     {
       "id": "Boards_AddAssets",
       "title": "Boards_AddAssets",
-      "description": "<b>***BETA***</b> Add assets to a board",
+      "description": "*****BETA***** Add assets to a board",
       "inputSchema": {
         "type": "object",
         "properties": {
@@ -2658,7 +2658,7 @@
     {
       "id": "Boards_RemoveAsset",
       "title": "Boards_RemoveAsset",
-      "description": "<b>***BETA***</b> Remove an asset from a board",
+      "description": "*****BETA***** Remove an asset from a board",
       "inputSchema": {
         "type": "object",
         "properties": {
@@ -2696,7 +2696,7 @@
     {
       "id": "Boards_AddAsset",
       "title": "Boards_AddAsset",
-      "description": "<b>***BETA***</b> Add an asset to a board",
+      "description": "*****BETA***** Add an asset to a board",
       "inputSchema": {
         "type": "object",
         "properties": {
@@ -2736,7 +2736,7 @@
     {
       "id": "Boards_GetComments",
       "title": "Boards_GetComments",
-      "description": "<b>***BETA***</b> Get comments from a board",
+      "description": "*****BETA***** Get comments from a board",
       "inputSchema": {
         "type": "object",
         "properties": {
@@ -2771,7 +2771,7 @@
     {
       "id": "Boards_AddComment",
       "title": "Boards_AddComment",
-      "description": "<b>***BETA***</b> Add a comment to a board",
+      "description": "*****BETA***** Add a comment to a board",
       "inputSchema": {
         "type": "object",
         "properties": {
@@ -2810,7 +2810,7 @@
     {
       "id": "Boards_DeleteComment",
       "title": "Boards_DeleteComment",
-      "description": "<b>***BETA***</b> Delete a comment from a board",
+      "description": "*****BETA***** Delete a comment from a board",
       "inputSchema": {
         "type": "object",
         "properties": {

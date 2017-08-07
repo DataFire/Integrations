@@ -3712,7 +3712,7 @@
     {
       "id": "getStatistic",
       "title": "getStatistic",
-      "description": "This method retrieves overall and per configuration usage statistics for specific timeframe. Statistics ordered per available configurations. Available interval values are current <b>hour</b>, <b>day</b>, <b>week</b>, <b>month</b> and <b>year</b>.",
+      "description": "This method retrieves overall and per configuration usage statistics for specific timeframe. Statistics ordered per available configurations. Available interval values are current **hour**, **day**, **week**, **month** and **year**.",
       "inputSchema": {
         "type": "object",
         "properties": {

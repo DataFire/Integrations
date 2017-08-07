@@ -114,7 +114,7 @@
     {
       "id": "rss2jsonUsingGET",
       "title": "rss2jsonUsingGET",
-      "description": "RSS to Json.<BR />Response<BR />&nbsp; Github: <a href=\"https://github.com/keigohtr/apitore-response-parent/tree/master/rome-response\">rome-response</a><BR />&nbsp; Class: com.apitore.banana.response.org.rome.SyndFeedResponseEntity<BR />",
+      "description": "RSS to Json.  \nResponse  \n  Github: [rome-response](https://github.com/keigohtr/apitore-response-parent/tree/master/rome-response)  \n  Class: com.apitore.banana.response.org.rome.SyndFeedResponseEntity",
       "inputSchema": {
         "type": "object",
         "properties": {

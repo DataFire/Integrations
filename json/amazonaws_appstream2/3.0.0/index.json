@@ -1,7 +1,7 @@
 {
   "id": "amazonaws_appstream2",
   "title": "Amazon AppStream",
-  "description": "<fullname>Amazon AppStream 2.0</fullname> <p>API documentation for Amazon AppStream 2.0.</p>",
+  "description": "Amazon AppStream 2.0\n\nAPI documentation for Amazon AppStream 2.0.",
   "security": {
     "amazonaws_appstream2": {
       "integration": "amazonaws_appstream2",

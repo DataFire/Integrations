@@ -1,7 +1,7 @@
 {
   "id": "amazonaws_models_lex",
   "title": "Amazon Lex Model Building Service",
-  "description": "<fullname>Amazon Lex Build-Time Actions</fullname> <p> Amazon Lex is an AWS service for building conversational voice and text interfaces. Use these actions to create, update, and delete conversational bots for new and existing client applications. </p>",
+  "description": "Amazon Lex Build-Time Actions\n\nAmazon Lex is an AWS service for building conversational voice and text interfaces. Use these actions to create, update, and delete conversational bots for new and existing client applications.",
   "security": {
     "amazonaws_models_lex": {
       "integration": "amazonaws_models_lex",

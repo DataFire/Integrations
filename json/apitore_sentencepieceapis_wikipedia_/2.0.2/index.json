@@ -65,7 +65,7 @@
     {
       "id": "getUsingGET",
       "title": "getUsingGET",
-      "description": "SentencePiece (bpe).<BR />Response<BR />&nbsp; Github: <a href=\"https://github.com/keigohtr/apitore-response-parent/tree/master/sentencepiece-response\">sentencepiece-response</a><BR />&nbsp; Class: com.apitore.banana.response.com.atilika.sentencepiece.SentencePieceTokenResponseEntity<BR />",
+      "description": "SentencePiece (bpe).  \nResponse  \n  Github: [sentencepiece-response](https://github.com/keigohtr/apitore-response-parent/tree/master/sentencepiece-response)  \n  Class: com.apitore.banana.response.com.atilika.sentencepiece.SentencePieceTokenResponseEntity",
       "inputSchema": {
         "type": "object",
         "properties": {
@@ -91,7 +91,7 @@
     {
       "id": "getUsingGET_1",
       "title": "getUsingGET_1",
-      "description": "SentencePiece (unigram).<BR />Response<BR />&nbsp; Github: <a href=\"https://github.com/keigohtr/apitore-response-parent/tree/master/sentencepiece-response\">sentencepiece-response</a><BR />&nbsp; Class: com.apitore.banana.response.com.atilika.sentencepiece.SentencePieceTokenResponseEntity<BR />",
+      "description": "SentencePiece (unigram).  \nResponse  \n  Github: [sentencepiece-response](https://github.com/keigohtr/apitore-response-parent/tree/master/sentencepiece-response)  \n  Class: com.apitore.banana.response.com.atilika.sentencepiece.SentencePieceTokenResponseEntity",
       "inputSchema": {
         "type": "object",
         "properties": {

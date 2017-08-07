@@ -254,7 +254,7 @@
     {
       "id": "analogyUsingGET",
       "title": "analogyUsingGET",
-      "description": "Word2Vec JaWikipedia 2016-9-15 dump.<BR />Response<BR />&nbsp; Github: <a href=\"https://github.com/keigohtr/apitore-response-parent/tree/master/word2vec-response\">word2vec-response</a><BR />&nbsp; Class: com.apitore.banana.response.word2vec.AnalogyResponseEntity<BR />",
+      "description": "Word2Vec JaWikipedia 2016-9-15 dump.  \nResponse  \n  Github: [word2vec-response](https://github.com/keigohtr/apitore-response-parent/tree/master/word2vec-response)  \n  Class: com.apitore.banana.response.word2vec.AnalogyResponseEntity",
       "inputSchema": {
         "type": "object",
         "properties": {
@@ -289,7 +289,7 @@
     {
       "id": "distanceUsingGET_1",
       "title": "distanceUsingGET_1",
-      "description": "Word2Vec JaWikipedia 2016-9-15 dump.<BR />Response<BR />&nbsp; Github: <a href=\"https://github.com/keigohtr/apitore-response-parent/tree/master/word2vec-response\">word2vec-response</a><BR />&nbsp; Class: com.apitore.banana.response.word2vec.DistanceResponseEntity<BR />",
+      "description": "Word2Vec JaWikipedia 2016-9-15 dump.  \nResponse  \n  Github: [word2vec-response](https://github.com/keigohtr/apitore-response-parent/tree/master/word2vec-response)  \n  Class: com.apitore.banana.response.word2vec.DistanceResponseEntity",
       "inputSchema": {
         "type": "object",
         "properties": {
@@ -320,7 +320,7 @@
     {
       "id": "similarityUsingGET",
       "title": "similarityUsingGET",
-      "description": "Word2Vec JaWikipedia 2016-9-15 dump.<BR />Response<BR />&nbsp; Github: <a href=\"https://github.com/keigohtr/apitore-response-parent/tree/master/word2vec-response\">word2vec-response</a><BR />&nbsp; Class: com.apitore.banana.response.word2vec.SimilarityResponseEntity<BR />",
+      "description": "Word2Vec JaWikipedia 2016-9-15 dump.  \nResponse  \n  Github: [word2vec-response](https://github.com/keigohtr/apitore-response-parent/tree/master/word2vec-response)  \n  Class: com.apitore.banana.response.word2vec.SimilarityResponseEntity",
       "inputSchema": {
         "type": "object",
         "properties": {
@@ -351,7 +351,7 @@
     {
       "id": "vec_distanceUsingGET",
       "title": "vec_distanceUsingGET",
-      "description": "Word2Vec JaWikipedia 2016-9-15 dump.<BR />Response<BR />&nbsp; Github: <a href=\"https://github.com/keigohtr/apitore-response-parent/tree/master/word2vec-response\">word2vec-response</a><BR />&nbsp; Class: com.apitore.banana.response.word2vec.DistanceResponseEntity<BR />",
+      "description": "Word2Vec JaWikipedia 2016-9-15 dump.  \nResponse  \n  Github: [word2vec-response](https://github.com/keigohtr/apitore-response-parent/tree/master/word2vec-response)  \n  Class: com.apitore.banana.response.word2vec.DistanceResponseEntity",
       "inputSchema": {
         "type": "object",
         "properties": {
@@ -382,7 +382,7 @@
     {
       "id": "wordvectorUsingGET_1",
       "title": "wordvectorUsingGET_1",
-      "description": "Word2Vec JaWikipedia 2016-9-15 dump.<BR />Response<BR />&nbsp; Github: <a href=\"https://github.com/keigohtr/apitore-response-parent/tree/master/word2vec-response\">word2vec-response</a><BR />&nbsp; Class: com.apitore.banana.response.word2vec.WordVectorResponseEntity<BR />",
+      "description": "Word2Vec JaWikipedia 2016-9-15 dump.  \nResponse  \n  Github: [word2vec-response](https://github.com/keigohtr/apitore-response-parent/tree/master/word2vec-response)  \n  Class: com.apitore.banana.response.word2vec.WordVectorResponseEntity",
       "inputSchema": {
         "type": "object",
         "properties": {

@@ -1,7 +1,7 @@
 {
   "id": "azure_arm_machinelearning_webservices",
   "title": "Azure ML Web Services Management Client",
-  "description": "These APIs allow end users to operate on Azure Machine Learning Web Services resources. They support the following operations:<ul><li>Create or update a web service</li><li>Get a web service</li><li>Patch a web service</li><li>Delete a web service</li><li>Get All Web Services in a Resource Group </li><li>Get All Web Services in a Subscription</li><li>Get Web Services Keys</li></ul>",
+  "description": "These APIs allow end users to operate on Azure Machine Learning Web Services resources. They support the following operations:\n\n*   Create or update a web service\n*   Get a web service\n*   Patch a web service\n*   Delete a web service\n*   Get All Web Services in a Resource Group\n*   Get All Web Services in a Subscription\n*   Get Web Services Keys",
   "security": {},
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_machinelearning_webservices.png"

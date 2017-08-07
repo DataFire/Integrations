@@ -3656,7 +3656,7 @@
     {
       "id": "Bookings_CreateBooking",
       "title": "Bookings_CreateBooking",
-      "description": "Create a new booking as defined in the requests payload. You can get more information about the payload if you check out the\r\n            documentation for the reservation request model.<br />\r\n            Please also have a look at the <a href=\"https://developer.hetras.com/docs/tutorials\" onfocus=\"this.blur()\">Tutorials</a>.<br />\r\n            For more details on how the API responds to errors please check our documentation on \r\n            <a href=\"https://developer.hetras.com/docs/errors/\" onfocus=\"this.blur()\">Error Handling</a>.",
+      "description": "Create a new booking as defined in the requests payload. You can get more information about the payload if you check out the documentation for the reservation request model.  \nPlease also have a look at the [Tutorials](https://developer.hetras.com/docs/tutorials).  \nFor more details on how the API responds to errors please check our documentation on [Error Handling](https://developer.hetras.com/docs/errors/).",
       "inputSchema": {
         "type": "object",
         "properties": {
@@ -3899,7 +3899,7 @@
     {
       "id": "Bookings_Patch",
       "title": "Bookings_Patch",
-      "description": "The hetras API is using this <a href=\"https://developer.hetras.com/docs/patch\" onfocus=\"this.blur()\" target=\"_blank\">Patch Specification</a>\r\n            to partially update an existing resource. Currently this call allows to update the following fields:\r\n            external_id, market_code, channel_code, subchannel_code, guarantee_type, comment, addon_services, labels, guests, contact and company.\r\n            <br /><br />\r\n            A request example:<br /><pre>\r\n            [\r\n              {\r\n                \"op\": \"replace\", \"path\": \"/addon_services\", \"value\": [\"BREAKFAST\", \"PARKING\"]\r\n              },\r\n              {\r\n                \"op\": \"add\", \"path\": \"/labels/-\", \"value\": \"MOBILE\"\r\n              },\r\n              {\r\n                \"op\": \"replace\", \"path\": \"/guests/SHOW-1234\", \"value\": { \"customer_id\": \"SHOW-1234\", \"primary\": false }\r\n              },\r\n              {\r\n                \"op\": \"add\", \"path\": \"/guests/-\", \"value\": { \"customer_id\": \"SHOW-5678\", \"primary\": true }\r\n              }\r\n            ]\r\n            </pre><br />\r\n            For more details on how the API responds to errors please check our documentation on \r\n            <a href=\"https://developer.hetras.com/docs/errors/\" onfocus=\"this.blur()\">Error Handling</a>.",
+      "description": "The hetras API is using this [Patch Specification](https://developer.hetras.com/docs/patch) to partially update an existing resource. Currently this call allows to update the following fields: external_id, market_code, channel_code, subchannel_code, guarantee_type, comment, addon_services, labels, guests, contact and company.  \n\nA request example:  \n\n            [\n              {\n                \"op\": \"replace\", \"path\": \"/addon_services\", \"value\": [\"BREAKFAST\", \"PARKING\"]\n              },\n              {\n                \"op\": \"add\", \"path\": \"/labels/-\", \"value\": \"MOBILE\"\n              },\n              {\n                \"op\": \"replace\", \"path\": \"/guests/SHOW-1234\", \"value\": { \"customer_id\": \"SHOW-1234\", \"primary\": false }\n              },\n              {\n                \"op\": \"add\", \"path\": \"/guests/-\", \"value\": { \"customer_id\": \"SHOW-5678\", \"primary\": true }\n              }\n            ]\n            \n\nFor more details on how the API responds to errors please check our documentation on [Error Handling](https://developer.hetras.com/docs/errors/).",
       "inputSchema": {
         "type": "object",
         "properties": {
@@ -3940,7 +3940,7 @@
     {
       "id": "Bookings_PostRoomAssignment",
       "title": "Bookings_PostRoomAssignment",
-      "description": "By default this API call assigns a random room, which has the proper room type, is not already assigned\r\n            to another reservation or has any maintenance status set for the stay period of the underlying reservation. If the\r\n            arrival date for the underlying reservation is the current business day dirty rooms are excluded by default. For reservation\r\n            arriving on any latter day the room condition is not taken into account.<br />\r\n            By specifiying the room selection criteria in the request body you can influence which room will be assigned. See the request model\r\n            for further details.<br />\r\n            For more details on how the API responds to errors please check our documentation on \r\n            <a href=\"https://developer.hetras.com/docs/errors/\" onfocus=\"this.blur()\">Error Handling</a>.",
+      "description": "By default this API call assigns a random room, which has the proper room type, is not already assigned to another reservation or has any maintenance status set for the stay period of the underlying reservation. If the arrival date for the underlying reservation is the current business day dirty rooms are excluded by default. For reservation arriving on any latter day the room condition is not taken into account.  \nBy specifiying the room selection criteria in the request body you can influence which room will be assigned. See the request model for further details.  \nFor more details on how the API responds to errors please check our documentation on [Error Handling](https://developer.hetras.com/docs/errors/).",
       "inputSchema": {
         "type": "object",
         "properties": {
@@ -3980,7 +3980,7 @@
     {
       "id": "Bookings_CancelReservation",
       "title": "Bookings_CancelReservation",
-      "description": "This request will cancel one specific reservation. It will show up in the hetras UI in the Cancellation and NoShow\r\n            processing screen and it will be up to the hotel staff to either charge or waive the cancellation fee.<br />\r\n            For more details on how the API responds to errors please check our documentation on \r\n            <a href=\"https://developer.hetras.com/docs/errors/\" onfocus=\"this.blur()\">Error Handling</a>.",
+      "description": "This request will cancel one specific reservation. It will show up in the hetras UI in the Cancellation and NoShow processing screen and it will be up to the hotel staff to either charge or waive the cancellation fee.  \nFor more details on how the API responds to errors please check our documentation on [Error Handling](https://developer.hetras.com/docs/errors/).",
       "inputSchema": {
         "type": "object",
         "properties": {

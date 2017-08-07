@@ -45,7 +45,7 @@
     {
       "id": "url2textUsingGET",
       "title": "url2textUsingGET",
-      "description": "Jsoup Web scraper.<BR />Response<BR />&nbsp; Github: <a href=\"https://github.com/keigohtr/apitore-response-parent/tree/master/jsoup-response\">jsoup-response</a><BR />&nbsp; Class: com.apitore.banana.response.org.jsoup.TextResponseEntity<BR />",
+      "description": "Jsoup Web scraper.  \nResponse  \n  Github: [jsoup-response](https://github.com/keigohtr/apitore-response-parent/tree/master/jsoup-response)  \n  Class: com.apitore.banana.response.org.jsoup.TextResponseEntity",
       "inputSchema": {
         "type": "object",
         "properties": {

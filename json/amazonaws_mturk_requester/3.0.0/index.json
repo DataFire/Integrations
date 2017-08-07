@@ -1,7 +1,7 @@
 {
   "id": "amazonaws_mturk_requester",
   "title": "Amazon Mechanical Turk",
-  "description": "<fullname>Amazon Mechanical Turk API Reference</fullname>",
+  "description": "Amazon Mechanical Turk API Reference",
   "security": {
     "amazonaws_mturk_requester": {
       "integration": "amazonaws_mturk_requester",

@@ -1444,7 +1444,7 @@
     {
       "id": "beacons.attachments.create",
       "title": "beacons.attachments.create",
-      "description": "Associates the given data with the specified beacon. Attachment data must\ncontain two parts:\n<ul>\n<li>A namespaced type.</li>\n<li>The actual attachment data itself.</li>\n</ul>\nThe namespaced type consists of two parts, the namespace and the type.\nThe namespace must be one of the values returned by the `namespaces`\nendpoint, while the type can be a string of any characters except for the\nforward slash (`/`) up to 100 characters in length.\n\nAttachment data can be up to 1024 bytes long.\n\nAuthenticate using an [OAuth access token](https://developers.google.com/identity/protocols/OAuth2)\nfrom a signed-in user with **Is owner** or **Can edit** permissions in the\nGoogle Developers Console project.",
+      "description": "Associates the given data with the specified beacon. Attachment data must contain two parts:\n\n*   A namespaced type.\n*   The actual attachment data itself.\n\nThe namespaced type consists of two parts, the namespace and the type. The namespace must be one of the values returned by the `namespaces` endpoint, while the type can be a string of any characters except for the forward slash (`/`) up to 100 characters in length. Attachment data can be up to 1024 bytes long. Authenticate using an [OAuth access token](https://developers.google.com/identity/protocols/OAuth2) from a signed-in user with **Is owner** or **Can edit** permissions in the Google Developers Console project.",
       "inputSchema": {
         "type": "object",
         "properties": {

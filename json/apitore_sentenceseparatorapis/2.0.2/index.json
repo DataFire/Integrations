@@ -53,7 +53,7 @@
     {
       "id": "heuristicsUsingGET",
       "title": "heuristicsUsingGET",
-      "description": "Sentence separator.<BR />Response<BR />&nbsp; Github: <a href=\"https://github.com/keigohtr/apitore-response-parent/tree/master/summarize-response\">summarize-response</a><BR />&nbsp; Class: com.apitore.banana.response.summarize.SentenceResponseEntity<BR />",
+      "description": "Sentence separator.  \nResponse  \n  Github: [summarize-response](https://github.com/keigohtr/apitore-response-parent/tree/master/summarize-response)  \n  Class: com.apitore.banana.response.summarize.SentenceResponseEntity",
       "inputSchema": {
         "type": "object",
         "properties": {

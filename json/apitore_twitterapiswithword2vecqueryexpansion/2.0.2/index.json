@@ -136,7 +136,7 @@
     {
       "id": "searchUsingGET_2",
       "title": "searchUsingGET_2",
-      "description": "Tweets search API with Word2Vec query expansion.<BR />Response<BR />&nbsp; Github: <a href=\"https://github.com/keigohtr/apitore-response-parent/tree/master/twitter-response\">twitter-response</a><BR />&nbsp; Class: com.apitore.banana.response.twitter.TwitterResponseEntity<BR />",
+      "description": "Tweets search API with Word2Vec query expansion.  \nResponse  \n  Github: [twitter-response](https://github.com/keigohtr/apitore-response-parent/tree/master/twitter-response)  \n  Class: com.apitore.banana.response.twitter.TwitterResponseEntity",
       "inputSchema": {
         "type": "object",
         "properties": {

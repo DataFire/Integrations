@@ -2062,7 +2062,7 @@
     {
       "id": "RatePlans_PatchRates",
       "title": "RatePlans_PatchRates",
-      "description": "The hetras API is using this <a href=\"https://developer.hetras.com/docs/patch\" onfocus=\"this.blur()\" target=\"_blank\">Patch Specification</a>\r\n            to partially update an existing resource. Currently this call only allows to set the base price for non-derived rateplans if the rateplan\r\n            is active and already loaded for the specified time period.\r\n            <br /><br />\r\n            A request example:<br /><pre>\r\n            [\r\n              {\r\n                \"op\": \"replace\", \"path\": \"/base_price\", \"value\": 120.00\r\n              }\r\n            ]\r\n            </pre><br />\r\n            For more details on how the API responds to errors please check our documentation on \r\n            <a href=\"https://developer.hetras.com/docs/errors/\" onfocus=\"this.blur()\">Error Handling</a>.<br />",
+      "description": "The hetras API is using this [Patch Specification](https://developer.hetras.com/docs/patch) to partially update an existing resource. Currently this call only allows to set the base price for non-derived rateplans if the rateplan is active and already loaded for the specified time period.  \n\nA request example:  \n\n            [\n              {\n                \"op\": \"replace\", \"path\": \"/base_price\", \"value\": 120.00\n              }\n            ]\n            \n\nFor more details on how the API responds to errors please check our documentation on [Error Handling](https://developer.hetras.com/docs/errors/).",
       "inputSchema": {
         "type": "object",
         "properties": {
@@ -2207,7 +2207,7 @@
     {
       "id": "RatePlans_PatchRate",
       "title": "RatePlans_PatchRate",
-      "description": "The hetras API is using this <a href=\"https://developer.hetras.com/docs/patch\" onfocus=\"this.blur()\" target=\"_blank\">Patch Specification</a>\r\n            to partially update an existing resource. Currently this call only allows to set the base price for non-derived rateplans if the rateplan\r\n            is active and already loaded for the specified business day.\r\n            <br /><br />\r\n            A request example:<br /><pre>\r\n            [\r\n              {\r\n                \"op\": \"replace\", \"path\": \"/base_price\", \"value\": 120.00\r\n              }\r\n            ]\r\n            </pre><br />\r\n            For more details on how the API responds to errors please check our documentation on \r\n            <a href=\"https://developer.hetras.com/docs/errors/\" onfocus=\"this.blur()\">Error Handling</a>.<br />",
+      "description": "The hetras API is using this [Patch Specification](https://developer.hetras.com/docs/patch) to partially update an existing resource. Currently this call only allows to set the base price for non-derived rateplans if the rateplan is active and already loaded for the specified business day.  \n\nA request example:  \n\n            [\n              {\n                \"op\": \"replace\", \"path\": \"/base_price\", \"value\": 120.00\n              }\n            ]\n            \n\nFor more details on how the API responds to errors please check our documentation on [Error Handling](https://developer.hetras.com/docs/errors/).",
       "inputSchema": {
         "type": "object",
         "properties": {
@@ -2596,7 +2596,7 @@
     {
       "id": "Rooms_PatchRoom",
       "title": "Rooms_PatchRoom",
-      "description": "The hetras API is using this <a href=\"https://developer.hetras.com/docs/patch\" onfocus=\"this.blur()\" target=\"_blank\">Patch Specification</a>\r\n            to partially update an existing resource. Currently this call only allows to modify condition and housekeeping occupancy status of the room.\r\n            <br /><br />\r\n            A request example:<br /><pre>\r\n            [\r\n              {\r\n                \"op\": \"replace\", \"path\": \"/status/condition\", \"value\": \"CleanNotInspected\"\r\n              }, {\r\n                \"op\": \"replace\", \"path\": \"/status/housekeeping_occupancy\", \"value\": \"Vacant\"\r\n              }\r\n            ]\r\n            </pre><br />\r\n            For more details on how the API responds to errors please check our documentation on \r\n            <a href=\"https://developer.hetras.com/docs/errors/\" onfocus=\"this.blur()\">Error Handling</a>.<br />",
+      "description": "The hetras API is using this [Patch Specification](https://developer.hetras.com/docs/patch) to partially update an existing resource. Currently this call only allows to modify condition and housekeeping occupancy status of the room.  \n\nA request example:  \n\n            [\n              {\n                \"op\": \"replace\", \"path\": \"/status/condition\", \"value\": \"CleanNotInspected\"\n              }, {\n                \"op\": \"replace\", \"path\": \"/status/housekeeping_occupancy\", \"value\": \"Vacant\"\n              }\n            ]\n            \n\nFor more details on how the API responds to errors please check our documentation on [Error Handling](https://developer.hetras.com/docs/errors/).",
       "inputSchema": {
         "type": "object",
         "properties": {

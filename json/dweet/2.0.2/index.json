@@ -240,7 +240,7 @@
     {
       "id": "listenForDweets",
       "title": "listenForDweets",
-      "description": "Sorry, this function uses HTTP chunked responses and cannot be tested here. Try something like: <pre>curl --raw https://dweet.io/listen/for/dweets/from/{thing}</pre>",
+      "description": "Sorry, this function uses HTTP chunked responses and cannot be tested here. Try something like:\n\ncurl --raw https://dweet.io/listen/for/dweets/from/{thing}",
       "inputSchema": {
         "type": "object",
         "properties": {

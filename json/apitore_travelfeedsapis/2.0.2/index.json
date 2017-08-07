@@ -107,7 +107,7 @@
     {
       "id": "feedUsingGET_8",
       "title": "feedUsingGET_8",
-      "description": "Travel feeds.<BR />Response<BR />&nbsp; Github: <a href=\"https://github.com/keigohtr/apitore-response-parent/tree/master/rome-response\">rome-response</a><BR />&nbsp; Class: com.apitore.banana.response.org.rome.FeedResponseEntity<BR />",
+      "description": "Travel feeds.  \nResponse  \n  Github: [rome-response](https://github.com/keigohtr/apitore-response-parent/tree/master/rome-response)  \n  Class: com.apitore.banana.response.org.rome.FeedResponseEntity",
       "inputSchema": {
         "type": "object",
         "properties": {

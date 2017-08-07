@@ -87,7 +87,7 @@
     {
       "id": "documents",
       "title": "documents",
-      "description": "This API allows users to build a query based on any of the parameters below.  If you have trouble building queries, you may wish to try them through the <a href=\"http://www.regulations.gov/#!advancedSearch\">Advanced Search</a> page on the Regulations.gov website.",
+      "description": "This API allows users to build a query based on any of the parameters below. If you have trouble building queries, you may wish to try them through the [Advanced Search](http://www.regulations.gov/#!advancedSearch) page on the Regulations.gov website.",
       "inputSchema": {
         "type": "object",
         "properties": {

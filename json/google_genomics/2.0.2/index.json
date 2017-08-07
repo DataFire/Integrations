@@ -6553,7 +6553,7 @@
     {
       "id": "datasets.getIamPolicy",
       "title": "datasets.getIamPolicy",
-      "description": "Gets the access control policy for the dataset. This is empty if the\npolicy or resource does not exist.\n\nSee <a href=\"/iam/docs/managing-policies#getting_a_policy\">Getting a\nPolicy</a> for more information.\n\nFor the definitions of datasets and other genomics resources, see\n[Fundamentals of Google\nGenomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)",
+      "description": "Gets the access control policy for the dataset. This is empty if the policy or resource does not exist. See [Getting a Policy](/iam/docs/managing-policies#getting_a_policy) for more information. For the definitions of datasets and other genomics resources, see [Fundamentals of Google Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)",
       "inputSchema": {
         "type": "object",
         "properties": {
@@ -6643,7 +6643,7 @@
     {
       "id": "datasets.setIamPolicy",
       "title": "datasets.setIamPolicy",
-      "description": "Sets the access control policy on the specified dataset. Replaces any\nexisting policy.\n\nFor the definitions of datasets and other genomics resources, see\n[Fundamentals of Google\nGenomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)\n\nSee <a href=\"/iam/docs/managing-policies#setting_a_policy\">Setting a\nPolicy</a> for more information.",
+      "description": "Sets the access control policy on the specified dataset. Replaces any existing policy. For the definitions of datasets and other genomics resources, see [Fundamentals of Google Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics) See [Setting a Policy](/iam/docs/managing-policies#setting_a_policy) for more information.",
       "inputSchema": {
         "type": "object",
         "properties": {
@@ -6733,7 +6733,7 @@
     {
       "id": "datasets.testIamPermissions",
       "title": "datasets.testIamPermissions",
-      "description": "Returns permissions that a caller has on the specified resource.\nSee <a href=\"/iam/docs/managing-policies#testing_permissions\">Testing\nPermissions</a> for more information.\n\nFor the definitions of datasets and other genomics resources, see\n[Fundamentals of Google\nGenomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)",
+      "description": "Returns permissions that a caller has on the specified resource. See [Testing Permissions](/iam/docs/managing-policies#testing_permissions) for more information. For the definitions of datasets and other genomics resources, see [Fundamentals of Google Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)",
       "inputSchema": {
         "type": "object",
         "properties": {

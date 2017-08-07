@@ -47,7 +47,7 @@
   "amazonaws_acm": {
     "id": "amazonaws_acm",
     "title": "AWS Certificate Manager",
-    "description": "AWS Certificate Manager Welcome to the AWS Certificate Manager (ACM) API documentation. You can use ACM to manage SSL/TL...",
+    "description": "AWS Certificate Manager",
     "security": {
       "amazonaws_acm": {
         "integration": "amazonaws_acm",
@@ -70,7 +70,7 @@
   "amazonaws_apigateway": {
     "id": "amazonaws_apigateway",
     "title": "Amazon API Gateway",
-    "description": "Amazon API Gateway Amazon API Gateway helps developers deliver robust, secure, and scalable mobile and web application b...",
+    "description": "Amazon API Gateway",
     "security": {
       "amazonaws_apigateway": {
         "integration": "amazonaws_apigateway",
@@ -93,7 +93,7 @@
   "amazonaws_appstream2": {
     "id": "amazonaws_appstream2",
     "title": "Amazon AppStream",
-    "description": "Amazon AppStream 2.0 API documentation for Amazon AppStream 2.0.",
+    "description": "Amazon AppStream 2.0",
     "security": {
       "amazonaws_appstream2": {
         "integration": "amazonaws_appstream2",
@@ -116,7 +116,7 @@
   "amazonaws_athena": {
     "id": "amazonaws_athena",
     "title": "Amazon Athena",
-    "description": "Amazon Athena is an interactive query service that lets you use standard SQL to analyze data directly in Amazon S3. You ...",
+    "description": "Amazon Athena is an interactive query service that lets you use standard SQL to analyze data directly in Amazon S3\\. You...",
     "security": {
       "amazonaws_athena": {
         "integration": "amazonaws_athena",
@@ -139,7 +139,7 @@
   "amazonaws_autoscaling": {
     "id": "amazonaws_autoscaling",
     "title": "Application Auto Scaling",
-    "description": "With Application Auto Scaling, you can automatically scale your AWS resources. The experience similar to that of Auto Sc...",
+    "description": "With Application Auto Scaling, you can automatically scale your AWS resources. The experience similar to that of [Auto S...",
     "security": {
       "amazonaws_autoscaling": {
         "integration": "amazonaws_autoscaling",
@@ -208,7 +208,7 @@
   "amazonaws_clouddirectory": {
     "id": "amazonaws_clouddirectory",
     "title": "Amazon CloudDirectory",
-    "description": "Amazon Cloud Directory Amazon Cloud Directory is a component of the AWS Directory Service that simplifies the developmen...",
+    "description": "Amazon Cloud Directory",
     "security": {
       "amazonaws_clouddirectory": {
         "integration": "amazonaws_clouddirectory",
@@ -231,7 +231,7 @@
   "amazonaws_cloudformation": {
     "id": "amazonaws_cloudformation",
     "title": "AWS CloudFormation",
-    "description": "AWS CloudFormation AWS CloudFormation allows you to create and manage AWS infrastructure deployments predictably and rep...",
+    "description": "AWS CloudFormation",
     "security": {
       "amazonaws_cloudformation": {
         "integration": "amazonaws_cloudformation",
@@ -254,7 +254,7 @@
   "amazonaws_cloudfront": {
     "id": "amazonaws_cloudfront",
     "title": "Amazon CloudFront",
-    "description": "Amazon CloudFront This is the Amazon CloudFront API Reference. This guide is for developers who need detailed informatio...",
+    "description": "Amazon CloudFront",
     "security": {
       "amazonaws_cloudfront": {
         "integration": "amazonaws_cloudfront",
@@ -300,7 +300,7 @@
   "amazonaws_cloudsearch": {
     "id": "amazonaws_cloudsearch",
     "title": "Amazon CloudSearch",
-    "description": "Amazon CloudSearch Configuration Service You use the Amazon CloudSearch configuration service to create, configure, and ...",
+    "description": "Amazon CloudSearch Configuration Service",
     "security": {
       "amazonaws_cloudsearch": {
         "integration": "amazonaws_cloudsearch",
@@ -323,7 +323,7 @@
   "amazonaws_cloudsearchdomain": {
     "id": "amazonaws_cloudsearchdomain",
     "title": "Amazon CloudSearch Domain",
-    "description": "You use the AmazonCloudSearch2013 API to upload documents to a search domain and search those documents.  The endpoints ...",
+    "description": "You use the AmazonCloudSearch2013 API to upload documents to a search domain and search those documents.",
     "security": {
       "amazonaws_cloudsearchdomain": {
         "integration": "amazonaws_cloudsearchdomain",
@@ -346,7 +346,7 @@
   "amazonaws_cloudtrail": {
     "id": "amazonaws_cloudtrail",
     "title": "AWS CloudTrail",
-    "description": "AWS CloudTrail This is the CloudTrail API Reference. It provides descriptions of actions, data types, common parameters,...",
+    "description": "AWS CloudTrail",
     "security": {
       "amazonaws_cloudtrail": {
         "integration": "amazonaws_cloudtrail",
@@ -369,7 +369,7 @@
   "amazonaws_codebuild": {
     "id": "amazonaws_codebuild",
     "title": "AWS CodeBuild",
-    "description": "AWS CodeBuild AWS CodeBuild is a fully managed build service in the cloud. AWS CodeBuild compiles your source code, runs...",
+    "description": "AWS CodeBuild",
     "security": {
       "amazonaws_codebuild": {
         "integration": "amazonaws_codebuild",
@@ -392,7 +392,7 @@
   "amazonaws_codecommit": {
     "id": "amazonaws_codecommit",
     "title": "AWS CodeCommit",
-    "description": "AWS CodeCommit This is the AWS CodeCommit API Reference. This reference provides descriptions of the operations and data...",
+    "description": "AWS CodeCommit",
     "security": {
       "amazonaws_codecommit": {
         "integration": "amazonaws_codecommit",
@@ -415,7 +415,7 @@
   "amazonaws_codedeploy": {
     "id": "amazonaws_codedeploy",
     "title": "AWS CodeDeploy",
-    "description": "AWS CodeDeploy AWS CodeDeploy is a deployment service that automates application deployments to Amazon EC2 instances or ...",
+    "description": "AWS CodeDeploy",
     "security": {
       "amazonaws_codedeploy": {
         "integration": "amazonaws_codedeploy",
@@ -438,7 +438,7 @@
   "amazonaws_codepipeline": {
     "id": "amazonaws_codepipeline",
     "title": "AWS CodePipeline",
-    "description": "AWS CodePipeline  Overview  This is the AWS CodePipeline API Reference. This guide provides descriptions of the actions ...",
+    "description": "AWS CodePipeline",
     "security": {
       "amazonaws_codepipeline": {
         "integration": "amazonaws_codepipeline",
@@ -461,7 +461,7 @@
   "amazonaws_codestar": {
     "id": "amazonaws_codestar",
     "title": "AWS CodeStar",
-    "description": "AWS CodeStar This is the API reference for AWS CodeStar. This reference provides descriptions of the operations and data...",
+    "description": "AWS CodeStar",
     "security": {
       "amazonaws_codestar": {
         "integration": "amazonaws_codestar",
@@ -484,7 +484,7 @@
   "amazonaws_cognito_identity": {
     "id": "amazonaws_cognito_identity",
     "title": "Amazon Cognito Identity",
-    "description": "Amazon Cognito Amazon Cognito is a web service that delivers scoped temporary credentials to mobile devices and other un...",
+    "description": "Amazon Cognito",
     "security": {
       "amazonaws_cognito_identity": {
         "integration": "amazonaws_cognito_identity",
@@ -530,7 +530,7 @@
   "amazonaws_cognito_sync": {
     "id": "amazonaws_cognito_sync",
     "title": "Amazon Cognito Sync",
-    "description": "Amazon Cognito Sync Amazon Cognito Sync provides an AWS service and client library that enable cross-device syncing of a...",
+    "description": "Amazon Cognito Sync",
     "security": {
       "amazonaws_cognito_sync": {
         "integration": "amazonaws_cognito_sync",
@@ -553,7 +553,7 @@
   "amazonaws_config": {
     "id": "amazonaws_config",
     "title": "AWS Config",
-    "description": "AWS Config AWS Config provides a way to keep track of the configurations of all the AWS resources associated with your A...",
+    "description": "AWS Config",
     "security": {
       "amazonaws_config": {
         "integration": "amazonaws_config",
@@ -599,7 +599,7 @@
   "amazonaws_data_iot": {
     "id": "amazonaws_data_iot",
     "title": "AWS IoT Data Plane",
-    "description": "AWS IoT AWS IoT-Data enables secure, bi-directional communication between Internet-connected things (such as sensors, ac...",
+    "description": "AWS IoT",
     "security": {
       "amazonaws_data_iot": {
         "integration": "amazonaws_data_iot",
@@ -714,7 +714,7 @@
   "amazonaws_discovery": {
     "id": "amazonaws_discovery",
     "title": "AWS Application Discovery Service",
-    "description": "AWS Application Discovery Service AWS Application Discovery Service helps you plan application migration projects by aut...",
+    "description": "AWS Application Discovery Service",
     "security": {
       "amazonaws_discovery": {
         "integration": "amazonaws_discovery",
@@ -737,7 +737,7 @@
   "amazonaws_dms": {
     "id": "amazonaws_dms",
     "title": "AWS Database Migration Service",
-    "description": "AWS Database Migration Service AWS Database Migration Service (AWS DMS) can migrate your data to and from the most widel...",
+    "description": "AWS Database Migration Service",
     "security": {
       "amazonaws_dms": {
         "integration": "amazonaws_dms",
@@ -760,7 +760,7 @@
   "amazonaws_ds": {
     "id": "amazonaws_ds",
     "title": "AWS Directory Service",
-    "description": "AWS Directory Service AWS Directory Service is a web service that makes it easy for you to setup and run directories in ...",
+    "description": "AWS Directory Service",
     "security": {
       "amazonaws_ds": {
         "integration": "amazonaws_ds",
@@ -783,7 +783,7 @@
   "amazonaws_dynamodb": {
     "id": "amazonaws_dynamodb",
     "title": "Amazon DynamoDB",
-    "description": "Amazon DynamoDB Amazon DynamoDB is a fully managed NoSQL database service that provides fast and predictable performance...",
+    "description": "Amazon DynamoDB",
     "security": {
       "amazonaws_dynamodb": {
         "integration": "amazonaws_dynamodb",
@@ -806,7 +806,7 @@
   "amazonaws_ec2": {
     "id": "amazonaws_ec2",
     "title": "Amazon Elastic Compute Cloud",
-    "description": "Amazon Elastic Compute Cloud Amazon Elastic Compute Cloud (Amazon EC2) provides resizable computing capacity in the Amaz...",
+    "description": "Amazon Elastic Compute Cloud",
     "security": {
       "amazonaws_ec2": {
         "integration": "amazonaws_ec2",
@@ -875,7 +875,7 @@
   "amazonaws_elasticache": {
     "id": "amazonaws_elasticache",
     "title": "Amazon ElastiCache",
-    "description": "Amazon ElastiCache Amazon ElastiCache is a web service that makes it easier to set up, operate, and scale a distributed ...",
+    "description": "Amazon ElastiCache",
     "security": {
       "amazonaws_elasticache": {
         "integration": "amazonaws_elasticache",
@@ -898,7 +898,7 @@
   "amazonaws_elasticbeanstalk": {
     "id": "amazonaws_elasticbeanstalk",
     "title": "AWS Elastic Beanstalk",
-    "description": "AWS Elastic Beanstalk AWS Elastic Beanstalk makes it easy for you to create, deploy, and manage scalable, fault-tolerant...",
+    "description": "AWS Elastic Beanstalk",
     "security": {
       "amazonaws_elasticbeanstalk": {
         "integration": "amazonaws_elasticbeanstalk",
@@ -921,7 +921,7 @@
   "amazonaws_elasticfilesystem": {
     "id": "amazonaws_elasticfilesystem",
     "title": "Amazon Elastic File System",
-    "description": "Amazon Elastic File System Amazon Elastic File System (Amazon EFS) provides simple, scalable file storage for use with A...",
+    "description": "Amazon Elastic File System",
     "security": {
       "amazonaws_elasticfilesystem": {
         "integration": "amazonaws_elasticfilesystem",
@@ -944,7 +944,7 @@
   "amazonaws_elasticloadbalancing": {
     "id": "amazonaws_elasticloadbalancing",
     "title": "Elastic Load Balancing",
-    "description": "Elastic Load Balancing A load balancer distributes incoming traffic across targets, such as your EC2 instances. This ena...",
+    "description": "Elastic Load Balancing",
     "security": {
       "amazonaws_elasticloadbalancing": {
         "integration": "amazonaws_elasticloadbalancing",
@@ -990,7 +990,7 @@
   "amazonaws_elastictranscoder": {
     "id": "amazonaws_elastictranscoder",
     "title": "Amazon Elastic Transcoder",
-    "description": "AWS Elastic Transcoder Service The AWS Elastic Transcoder Service.",
+    "description": "AWS Elastic Transcoder Service",
     "security": {
       "amazonaws_elastictranscoder": {
         "integration": "amazonaws_elastictranscoder",
@@ -1013,7 +1013,7 @@
   "amazonaws_email": {
     "id": "amazonaws_email",
     "title": "Amazon Simple Email Service",
-    "description": "Amazon Simple Email Service  This is the API Reference for Amazon Simple Email Service (Amazon SES). This documentation ...",
+    "description": "Amazon Simple Email Service",
     "security": {
       "amazonaws_email": {
         "integration": "amazonaws_email",
@@ -1036,7 +1036,7 @@
   "amazonaws_entitlement_marketplace": {
     "id": "amazonaws_entitlement_marketplace",
     "title": "AWS Marketplace Entitlement Service",
-    "description": "AWS Marketplace Entitlement Service This reference provides descriptions of the AWS Marketplace Entitlement Service API....",
+    "description": "AWS Marketplace Entitlement Service",
     "security": {
       "amazonaws_entitlement_marketplace": {
         "integration": "amazonaws_entitlement_marketplace",
@@ -1059,7 +1059,7 @@
   "amazonaws_es": {
     "id": "amazonaws_es",
     "title": "Amazon Elasticsearch Service",
-    "description": "Amazon Elasticsearch Configuration Service Use the Amazon Elasticsearch configuration API to create, configure, and mana...",
+    "description": "Amazon Elasticsearch Configuration Service",
     "security": {
       "amazonaws_es": {
         "integration": "amazonaws_es",
@@ -1105,7 +1105,7 @@
   "amazonaws_firehose": {
     "id": "amazonaws_firehose",
     "title": "Amazon Kinesis Firehose",
-    "description": "Amazon Kinesis Firehose API Reference Amazon Kinesis Firehose is a fully-managed service that delivers real-time streami...",
+    "description": "Amazon Kinesis Firehose API Reference",
     "security": {
       "amazonaws_firehose": {
         "integration": "amazonaws_firehose",
@@ -1128,7 +1128,7 @@
   "amazonaws_gamelift": {
     "id": "amazonaws_gamelift",
     "title": "Amazon GameLift",
-    "description": "Amazon GameLift Service  Amazon GameLift is a managed service for developers who need a scalable, dedicated server solut...",
+    "description": "Amazon GameLift Service",
     "security": {
       "amazonaws_gamelift": {
         "integration": "amazonaws_gamelift",
@@ -1151,7 +1151,7 @@
   "amazonaws_glacier": {
     "id": "amazonaws_glacier",
     "title": "Amazon Glacier",
-    "description": "Amazon Glacier is a storage solution for \"cold data.\" Amazon Glacier is an extremely low-cost storage service that provi...",
+    "description": "Amazon Glacier is a storage solution for \"cold data.\"",
     "security": {
       "amazonaws_glacier": {
         "integration": "amazonaws_glacier",
@@ -1197,7 +1197,7 @@
   "amazonaws_health": {
     "id": "amazonaws_health",
     "title": "AWS Health APIs and Notifications",
-    "description": "AWS Health The AWS Health API provides programmatic access to the AWS Health information that is presented in the AWS Pe...",
+    "description": "AWS Health",
     "security": {
       "amazonaws_health": {
         "integration": "amazonaws_health",
@@ -1220,7 +1220,7 @@
   "amazonaws_iam": {
     "id": "amazonaws_iam",
     "title": "AWS Identity and Access Management",
-    "description": "AWS Identity and Access Management AWS Identity and Access Management (IAM) is a web service that you can use to manage ...",
+    "description": "AWS Identity and Access Management",
     "security": {
       "amazonaws_iam": {
         "integration": "amazonaws_iam",
@@ -1266,7 +1266,7 @@
   "amazonaws_inspector": {
     "id": "amazonaws_inspector",
     "title": "Amazon Inspector",
-    "description": "Amazon Inspector Amazon Inspector enables you to analyze the behavior of your AWS resources and to identify potential se...",
+    "description": "Amazon Inspector",
     "security": {
       "amazonaws_inspector": {
         "integration": "amazonaws_inspector",
@@ -1289,7 +1289,7 @@
   "amazonaws_iot": {
     "id": "amazonaws_iot",
     "title": "AWS IoT",
-    "description": "AWS IoT AWS IoT provides secure, bi-directional communication between Internet-connected things (such as sensors, actuat...",
+    "description": "AWS IoT",
     "security": {
       "amazonaws_iot": {
         "integration": "amazonaws_iot",
@@ -1312,7 +1312,7 @@
   "amazonaws_kinesis": {
     "id": "amazonaws_kinesis",
     "title": "Amazon Kinesis",
-    "description": "Amazon Kinesis Streams Service API Reference Amazon Kinesis Streams is a managed service that scales elastically for rea...",
+    "description": "Amazon Kinesis Streams Service API Reference",
     "security": {
       "amazonaws_kinesis": {
         "integration": "amazonaws_kinesis",
@@ -1357,7 +1357,7 @@
   "amazonaws_kms": {
     "id": "amazonaws_kms",
     "title": "AWS Key Management Service",
-    "description": "AWS Key Management Service AWS Key Management Service (AWS KMS) is an encryption and key management web service. This gu...",
+    "description": "AWS Key Management Service",
     "security": {
       "amazonaws_kms": {
         "integration": "amazonaws_kms",
@@ -1380,7 +1380,7 @@
   "amazonaws_lambda": {
     "id": "amazonaws_lambda",
     "title": "AWS Lambda",
-    "description": "AWS Lambda  Overview  This is the AWS Lambda API Reference. The AWS Lambda Developer Guide provides additional informati...",
+    "description": "AWS Lambda",
     "security": {
       "amazonaws_lambda": {
         "integration": "amazonaws_lambda",
@@ -1472,7 +1472,7 @@
   "amazonaws_metering_marketplace": {
     "id": "amazonaws_metering_marketplace",
     "title": "AWSMarketplace Metering",
-    "description": "AWS Marketplace Metering Service This reference provides descriptions of the low-level AWS Marketplace Metering Service ...",
+    "description": "AWS Marketplace Metering Service",
     "security": {
       "amazonaws_metering_marketplace": {
         "integration": "amazonaws_metering_marketplace",
@@ -1518,7 +1518,7 @@
   "amazonaws_models_lex": {
     "id": "amazonaws_models_lex",
     "title": "Amazon Lex Model Building Service",
-    "description": "Amazon Lex Build-Time Actions  Amazon Lex is an AWS service for building conversational voice and text interfaces. Use t...",
+    "description": "Amazon Lex Build-Time Actions",
     "security": {
       "amazonaws_models_lex": {
         "integration": "amazonaws_models_lex",
@@ -1587,7 +1587,7 @@
   "amazonaws_opsworks": {
     "id": "amazonaws_opsworks",
     "title": "AWS OpsWorks",
-    "description": "AWS OpsWorks Welcome to the AWS OpsWorks Stacks API Reference. This guide provides descriptions, syntax, and usage examp...",
+    "description": "AWS OpsWorks",
     "security": {
       "amazonaws_opsworks": {
         "integration": "amazonaws_opsworks",
@@ -1610,7 +1610,7 @@
   "amazonaws_opsworks_cm": {
     "id": "amazonaws_opsworks_cm",
     "title": "AWS OpsWorks for Chef Automate",
-    "description": "AWS OpsWorks for Chef Automate  AWS OpsWorks for Chef Automate is a service that runs and manages configuration manageme...",
+    "description": "AWS OpsWorks for Chef Automate",
     "security": {
       "amazonaws_opsworks_cm": {
         "integration": "amazonaws_opsworks_cm",
@@ -1633,7 +1633,7 @@
   "amazonaws_organizations": {
     "id": "amazonaws_organizations",
     "title": "AWS Organizations",
-    "description": "AWS Organizations API Reference AWS Organizations is a web service that enables you to consolidate your multiple AWS acc...",
+    "description": "AWS Organizations API Reference",
     "security": {
       "amazonaws_organizations": {
         "integration": "amazonaws_organizations",
@@ -1678,7 +1678,7 @@
   "amazonaws_polly": {
     "id": "amazonaws_polly",
     "title": "Amazon Polly",
-    "description": "Amazon Polly is a web service that makes it easy to synthesize speech from text. The Amazon Polly service provides API o...",
+    "description": "Amazon Polly is a web service that makes it easy to synthesize speech from text.",
     "security": {
       "amazonaws_polly": {
         "integration": "amazonaws_polly",
@@ -1701,7 +1701,7 @@
   "amazonaws_rds": {
     "id": "amazonaws_rds",
     "title": "Amazon Relational Database Service",
-    "description": "Amazon Relational Database Service   Amazon Relational Database Service (Amazon RDS) is a web service that makes it easi...",
+    "description": "Amazon Relational Database Service",
     "security": {
       "amazonaws_rds": {
         "integration": "amazonaws_rds",
@@ -1724,7 +1724,7 @@
   "amazonaws_redshift": {
     "id": "amazonaws_redshift",
     "title": "Amazon Redshift",
-    "description": "Amazon Redshift  Overview  This is an interface reference for Amazon Redshift. It contains documentation for one of the ...",
+    "description": "Amazon Redshift",
     "security": {
       "amazonaws_redshift": {
         "integration": "amazonaws_redshift",
@@ -1883,7 +1883,7 @@
   "amazonaws_servicecatalog": {
     "id": "amazonaws_servicecatalog",
     "title": "AWS Service Catalog",
-    "description": "AWS Service Catalog  Overview   AWS Service Catalog allows organizations to create and manage catalogs of IT services th...",
+    "description": "AWS Service Catalog",
     "security": {
       "amazonaws_servicecatalog": {
         "integration": "amazonaws_servicecatalog",
@@ -1906,7 +1906,7 @@
   "amazonaws_shield": {
     "id": "amazonaws_shield",
     "title": "AWS Shield",
-    "description": "AWS Shield Advanced This is the AWS Shield Advanced API Reference. This guide is for developers who need detailed inform...",
+    "description": "AWS Shield Advanced",
     "security": {
       "amazonaws_shield": {
         "integration": "amazonaws_shield",
@@ -1975,7 +1975,7 @@
   "amazonaws_sns": {
     "id": "amazonaws_sns",
     "title": "Amazon Simple Notification Service",
-    "description": "Amazon Simple Notification Service Amazon Simple Notification Service (Amazon SNS) is a web service that enables you to ...",
+    "description": "Amazon Simple Notification Service",
     "security": {
       "amazonaws_sns": {
         "integration": "amazonaws_sns",
@@ -1998,7 +1998,7 @@
   "amazonaws_sqs": {
     "id": "amazonaws_sqs",
     "title": "Amazon Simple Queue Service",
-    "description": "Welcome to the Amazon Simple Queue Service API Reference. Amazon Simple Queue Service (Amazon SQS) is a reliable, highly...",
+    "description": "Welcome to the _Amazon Simple Queue Service API Reference_.",
     "security": {
       "amazonaws_sqs": {
         "integration": "amazonaws_sqs",
@@ -2021,7 +2021,7 @@
   "amazonaws_ssm": {
     "id": "amazonaws_ssm",
     "title": "Amazon Simple Systems Manager (SSM)",
-    "description": "Amazon EC2 Systems Manager Amazon EC2 Systems Manager is a collection of capabilities that helps you automate management...",
+    "description": "Amazon EC2 Systems Manager",
     "security": {
       "amazonaws_ssm": {
         "integration": "amazonaws_ssm",
@@ -2044,7 +2044,7 @@
   "amazonaws_states": {
     "id": "amazonaws_states",
     "title": "AWS Step Functions",
-    "description": "AWS Step Functions AWS Step Functions is a web service that enables you to coordinate the components of distributed appl...",
+    "description": "AWS Step Functions",
     "security": {
       "amazonaws_states": {
         "integration": "amazonaws_states",
@@ -2067,7 +2067,7 @@
   "amazonaws_storagegateway": {
     "id": "amazonaws_storagegateway",
     "title": "AWS Storage Gateway",
-    "description": "AWS Storage Gateway Service AWS Storage Gateway is the service that connects an on-premises software appliance with clou...",
+    "description": "AWS Storage Gateway Service",
     "security": {
       "amazonaws_storagegateway": {
         "integration": "amazonaws_storagegateway",
@@ -2090,7 +2090,7 @@
   "amazonaws_streams_dynamodb": {
     "id": "amazonaws_streams_dynamodb",
     "title": "Amazon DynamoDB Streams",
-    "description": "Amazon DynamoDB Amazon DynamoDB Streams provides API actions for accessing streams and processing stream records. To lea...",
+    "description": "Amazon DynamoDB",
     "security": {
       "amazonaws_streams_dynamodb": {
         "integration": "amazonaws_streams_dynamodb",
@@ -2113,7 +2113,7 @@
   "amazonaws_sts": {
     "id": "amazonaws_sts",
     "title": "AWS Security Token Service",
-    "description": "AWS Security Token Service The AWS Security Token Service (STS) is a web service that enables you to request temporary, ...",
+    "description": "AWS Security Token Service",
     "security": {
       "amazonaws_sts": {
         "integration": "amazonaws_sts",
@@ -2136,7 +2136,7 @@
   "amazonaws_support": {
     "id": "amazonaws_support",
     "title": "AWS Support",
-    "description": "AWS Support The AWS Support API reference is intended for programmers who need detailed information about the AWS Suppor...",
+    "description": "AWS Support",
     "security": {
       "amazonaws_support": {
         "integration": "amazonaws_support",
@@ -2159,7 +2159,7 @@
   "amazonaws_swf": {
     "id": "amazonaws_swf",
     "title": "Amazon Simple Workflow Service",
-    "description": "Amazon Simple Workflow Service The Amazon Simple Workflow Service (Amazon SWF) makes it easy to build applications that ...",
+    "description": "Amazon Simple Workflow Service",
     "security": {
       "amazonaws_swf": {
         "integration": "amazonaws_swf",
@@ -2182,7 +2182,7 @@
   "amazonaws_tagging": {
     "id": "amazonaws_tagging",
     "title": "AWS Resource Groups Tagging API",
-    "description": "Resource Groups Tagging API This guide describes the API operations for the resource groups tagging. A tag is a label th...",
+    "description": "Resource Groups Tagging API",
     "security": {
       "amazonaws_tagging": {
         "integration": "amazonaws_tagging",
@@ -2205,7 +2205,7 @@
   "amazonaws_waf": {
     "id": "amazonaws_waf",
     "title": "AWS WAF",
-    "description": "This is the AWS WAF API Reference for using AWS WAF with Amazon CloudFront. The AWS WAF actions and data types listed in...",
+    "description": "This is the _AWS WAF API Reference_ for using AWS WAF with Amazon CloudFront. The AWS WAF actions and data types listed ...",
     "security": {
       "amazonaws_waf": {
         "integration": "amazonaws_waf",
@@ -2228,7 +2228,7 @@
   "amazonaws_waf_regional": {
     "id": "amazonaws_waf_regional",
     "title": "AWS WAF Regional",
-    "description": "This is the AWS WAF Regional API Reference for using AWS WAF with Elastic Load Balancing (ELB) Application Load Balancer...",
+    "description": "This is the _AWS WAF Regional API Reference_ for using AWS WAF with Elastic Load Balancing (ELB) Application Load Balanc...",
     "security": {
       "amazonaws_waf_regional": {
         "integration": "amazonaws_waf_regional",
@@ -2251,7 +2251,7 @@
   "amazonaws_workdocs": {
     "id": "amazonaws_workdocs",
     "title": "Amazon WorkDocs",
-    "description": "The WorkDocs API is designed for the following use cases:   File Migration: File migration applications are supported fo...",
+    "description": "The WorkDocs API is designed for the following use cases:",
     "security": {
       "amazonaws_workdocs": {
         "integration": "amazonaws_workdocs",
@@ -2274,7 +2274,7 @@
   "amazonaws_workspaces": {
     "id": "amazonaws_workspaces",
     "title": "Amazon WorkSpaces",
-    "description": "Amazon WorkSpaces Service This reference provides detailed information about the Amazon WorkSpaces operations.",
+    "description": "Amazon WorkSpaces Service",
     "security": {
       "amazonaws_workspaces": {
         "integration": "amazonaws_workspaces",
@@ -4349,7 +4349,7 @@
   "bikewise": {
     "id": "bikewise",
     "title": "BikeWise API v2",
-    "description": "This is an API for accessing information about bicycling related incidents. You can find the source code on GitHub.",
+    "description": "This is an API for accessing information about bicycling related incidents. You can find the source code on [GitHub](htt...",
     "security": {},
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/bikewise.ico"
@@ -4731,7 +4731,7 @@
   "citrix_gotoassistseeit": {
     "id": "citrix_gotoassistseeit",
     "title": "GoToAssist Seeit",
-    "description": "Allows you to integrate GoToAssist Seeit into your own solutions.General notes:GoToAssist Seeit sessions are identified ...",
+    "description": "Allows you to integrate GoToAssist Seeit into your own solutions.",
     "security": {},
     "logo": {
       "backgroundColor": "#5F6166",
@@ -4856,7 +4856,7 @@
   "cloud_gov": {
     "id": "cloud_gov",
     "title": "Discovery Market Research",
-    "description": "This API drives the Discovery Market Research Tool.",
+    "description": "This API drives the [Discovery Market Research Tool](https://discovery.gsa.gov). It contains information on the vendors ...",
     "security": {},
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/cloud_gov.gif"
@@ -4908,7 +4908,7 @@
   "core_ac_uk": {
     "id": "core_ac_uk",
     "title": "CORE API v2",
-    "description": "You can use the CORE API to access the ",
+    "description": "You can use the CORE API to access the resources harvested and enriched by CORE. If you encounter any problems with the ...",
     "security": {
       "core_ac_uk": {
         "integration": "core_ac_uk",
@@ -9940,7 +9940,7 @@
   "gov_bc_ca_jobposting": {
     "id": "gov_bc_ca_jobposting",
     "title": "WorkBC Job Posting",
-    "description": "This API allows you to receive a feed of jobs from WorkBC's Job Board. Please see our data collection notice.",
+    "description": "This API allows you to receive a feed of jobs from WorkBC's Job Board. Please see our [data collection notice](https://g...",
     "security": {},
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/gov_bc_ca_jobposting.jpeg"
@@ -10683,7 +10683,7 @@
   "neowsapp": {
     "id": "neowsapp",
     "title": "NeoWs - (Near Earth Object Web Service)",
-    "description": "A web service for near earth objects. All the data is from the  NASA JPL Asteroid team. ",
+    "description": "A web service for near earth objects. All the data is from the [NASA JPL Asteroid team](http://neo.jpl.nasa.gov/). NeoWs...",
     "security": {},
     "actionCount": 5,
     "tags": [
@@ -10694,7 +10694,7 @@
   "netatmo": {
     "id": "netatmo",
     "title": "Netatmo",
-    "description": "Welcome to the Netatmo swagger on-line documentation !This site is a complement to the official Netatmo developper docum...",
+    "description": "### Welcome to the Netatmo swagger on-line documentation !",
     "security": {
       "netatmo": {
         "integration": "netatmo",
@@ -10733,7 +10733,7 @@
   "netlicensing": {
     "id": "netlicensing",
     "title": "Labs64 NetLicensing RESTful API Test Center",
-    "description": "The Labs64 NetLicensing RESTful API gives you access to NetLicensing’s core features.AuthenticationYou authenticate to t...",
+    "description": "The Labs64 [NetLicensing RESTful API](https://www.labs64.de/confluence/x/pwCo) gives you access to NetLicensing’s core f...",
     "security": {
       "netlicensing": {
         "integration": "netlicensing",
@@ -11269,7 +11269,7 @@
   "paypal": {
     "id": "paypal",
     "title": "PayPal Sandbox",
-    "description": "Bring payments to apps, mobile and social with Adaptive Payments (Sandbox API).",
+    "description": "Bring payments to apps, mobile and social with Adaptive Payments **(Sandbox API).**",
     "security": {},
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/paypal.png"
@@ -12341,7 +12341,7 @@
   "trello": {
     "id": "trello",
     "title": "Trello",
-    "description": "This document describes the REST API of Trello as published by Trello.com.",
+    "description": "This document describes the REST API of Trello as published by Trello.com. - [Official Documentation](https://trello.com...",
     "security": {
       "trello": {
         "integration": "trello",
@@ -12573,7 +12573,7 @@
   "wealthport": {
     "id": "wealthport",
     "title": "Wealthport",
-    "description": "Wealthport provides a simple, lightweight and open Web API based on the Open API 2.0 standard (https://www.openapis.org)...",
+    "description": "Wealthport provides a simple, lightweight and open Web API based on the Open API 2.0 standard ([https://www.openapis.org...",
     "security": {
       "wealthport": {
         "integration": "wealthport",

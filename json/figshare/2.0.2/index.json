@@ -5808,7 +5808,7 @@
     {
       "id": "institution_hrfeed_upload",
       "title": "institution_hrfeed_upload",
-      "description": "More info in the <a href=\"#hr_feed\">HR Feed section</a>",
+      "description": "More info in the [HR Feed section](#hr_feed)",
       "inputSchema": {
         "type": [
           "object",
