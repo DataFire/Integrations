@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const mkdirp = require('mkdirp');
+const toMarkdown = require('to-markdown');
 const datafire = require('datafire');
 const args = require('yargs').argv;
 
@@ -27,6 +28,15 @@ const truncateDescription = (desc) => {
   }
   if (desc.length > MAX_DESCRIPTION_LENGTH) {
     desc = desc.substring(0, MAX_DESCRIPTION_LENGTH) + '...';
+  }
+  return desc;
+}
+
+const sanitizeDescription = desc => {
+  if (!desc) return desc;
+  if (desc.indexOf('</') !== -1) {
+    desc = toMarkdown(desc);
+    desc = desc.replace(/<(?:.|\n)*?>/gm, '');
   }
   return desc;
 }
@@ -62,9 +72,13 @@ iterateIntegs((dir, name, integ) => {
     if (name.indexOf('amazonaws_') === 0) listDetails.tags.push('aws');
     if (name.indexOf('azure_') === 0) listDetails.tags.push('azure');
 
+    listDetails.description = sanitizeDescription(listDetails.description);
     let details = Object.assign({}, integ.getDetails(true), listDetails);
     listDetails.description = truncateDescription(listDetails.description);
     listDetails.latestVersion = package.version;
+    details.actions.forEach(action => {
+      action.description = sanitizeDescription(action.description);
+    })
 
     let integDir = path.join(OUT_DIR, name, package.version);
     maybeMkdirp(integDir);
