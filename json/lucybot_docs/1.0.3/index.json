@@ -1,0 +1,30 @@
+{
+  "id": "lucybot_docs",
+  "title": "LucyBot API Documentation",
+  "description": "",
+  "security": {},
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/lucybot_docs.svg"
+  },
+  "actionCount": 1,
+  "actions": [
+    {
+      "id": "serve",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "filename": {
+            "title": "filename",
+            "type": "string"
+          }
+        },
+        "required": [
+          "filename"
+        ]
+      },
+      "outputSchema": {}
+    }
+  ]
+}

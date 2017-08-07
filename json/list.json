@@ -12822,7 +12822,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/lucybot_docs.svg"
     },
     "actionCount": 1,
-    "latestVersion": "1.0.2"
+    "latestVersion": "1.0.3"
   },
   "mongodb": {
     "id": "mongodb",

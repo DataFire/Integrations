@@ -36,7 +36,7 @@ function initializeOpenAPI() {
 }
 
 lucybot.addAction('serve', {
-  input: [{
+  inputs: [{
     title: 'filename',
     type: 'string',
   }],
