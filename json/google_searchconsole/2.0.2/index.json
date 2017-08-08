@@ -16,7 +16,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BlockedResource"
     },
     "Image": {
       "description": "Describe image data.",
@@ -31,7 +32,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Image"
     },
     "MobileFriendlyIssue": {
       "description": "Mobile-friendly issue.",
@@ -50,7 +52,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "MobileFriendlyIssue"
     },
     "ResourceIssue": {
       "description": "Information about a resource with issue.",
@@ -60,7 +63,8 @@
           "description": "Describes a blocked resource issue."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ResourceIssue"
     },
     "RunMobileFriendlyTestRequest": {
       "description": "Mobile-friendly test request.",
@@ -74,7 +78,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RunMobileFriendlyTestRequest"
     },
     "RunMobileFriendlyTestResponse": {
       "description": "Mobile-friendly test response, including mobile-friendly issues and resource\nissues.",
@@ -111,7 +116,8 @@
           "description": "Final state of the test, can be either complete or an error."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RunMobileFriendlyTestResponse"
     },
     "TestStatus": {
       "description": "Final state of the test, including error details if necessary.",
@@ -131,7 +137,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TestStatus"
     }
   },
   "actions": [

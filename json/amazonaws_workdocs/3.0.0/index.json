@@ -18,11 +18,13 @@
   "definitions": {
     "AbortDocumentVersionUploadRequest": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "AbortDocumentVersionUploadRequest"
     },
     "ActivateUserRequest": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "ActivateUserRequest"
     },
     "ActivateUserResponse": {
       "properties": {
@@ -31,7 +33,8 @@
           "description": "The user information."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ActivateUserResponse"
     },
     "AddResourcePermissionsRequest": {
       "properties": {
@@ -43,7 +46,8 @@
       "required": [
         "Principals"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AddResourcePermissionsRequest"
     },
     "AddResourcePermissionsResponse": {
       "properties": {
@@ -52,7 +56,8 @@
           "description": "The share results."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AddResourcePermissionsResponse"
     },
     "ConcurrentModificationException": {
       "description": "The resource hierarchy is changing.",
@@ -61,7 +66,8 @@
           "$ref": "#/definitions/ErrorMessageType"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ConcurrentModificationException"
     },
     "CreateFolderRequest": {
       "properties": {
@@ -77,7 +83,8 @@
       "required": [
         "ParentFolderId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateFolderRequest"
     },
     "CreateFolderResponse": {
       "properties": {
@@ -86,7 +93,8 @@
           "description": "The metadata of the folder."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateFolderResponse"
     },
     "CreateNotificationSubscriptionRequest": {
       "properties": {
@@ -108,7 +116,8 @@
         "Protocol",
         "SubscriptionType"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateNotificationSubscriptionRequest"
     },
     "CreateNotificationSubscriptionResponse": {
       "properties": {
@@ -117,7 +126,8 @@
           "description": "The subscription."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateNotificationSubscriptionResponse"
     },
     "CreateUserRequest": {
       "properties": {
@@ -156,7 +166,8 @@
         "Surname",
         "Password"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateUserRequest"
     },
     "CreateUserResponse": {
       "properties": {
@@ -165,40 +176,49 @@
           "description": "The user information."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateUserResponse"
     },
     "DeactivateUserRequest": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DeactivateUserRequest"
     },
     "DeactivatingLastSystemUserException": {
       "description": "The last user in the organization is being deactivated.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DeactivatingLastSystemUserException"
     },
     "DeleteDocumentRequest": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DeleteDocumentRequest"
     },
     "DeleteFolderContentsRequest": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DeleteFolderContentsRequest"
     },
     "DeleteFolderRequest": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DeleteFolderRequest"
     },
     "DeleteNotificationSubscriptionRequest": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DeleteNotificationSubscriptionRequest"
     },
     "DeleteUserRequest": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DeleteUserRequest"
     },
     "DescribeDocumentVersionsRequest": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DescribeDocumentVersionsRequest"
     },
     "DescribeDocumentVersionsResponse": {
       "properties": {
@@ -211,11 +231,13 @@
           "description": "The marker to use when requesting the next set of results. If there are no additional results, the string is empty."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeDocumentVersionsResponse"
     },
     "DescribeFolderContentsRequest": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DescribeFolderContentsRequest"
     },
     "DescribeFolderContentsResponse": {
       "properties": {
@@ -232,11 +254,13 @@
           "description": "The marker to use when requesting the next set of results. If there are no additional results, the string is empty."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeFolderContentsResponse"
     },
     "DescribeNotificationSubscriptionsRequest": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DescribeNotificationSubscriptionsRequest"
     },
     "DescribeNotificationSubscriptionsResponse": {
       "properties": {
@@ -249,11 +273,13 @@
           "description": "The subscriptions."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeNotificationSubscriptionsResponse"
     },
     "DescribeResourcePermissionsRequest": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DescribeResourcePermissionsRequest"
     },
     "DescribeResourcePermissionsResponse": {
       "properties": {
@@ -266,11 +292,13 @@
           "description": "The principals."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeResourcePermissionsResponse"
     },
     "DescribeUsersRequest": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DescribeUsersRequest"
     },
     "DescribeUsersResponse": {
       "properties": {
@@ -287,12 +315,14 @@
           "description": "The users."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeUsersResponse"
     },
     "DocumentContentType": {
       "maxLength": 128,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "DocumentContentType"
     },
     "DocumentMetadata": {
       "description": "Describes the document.",
@@ -326,20 +356,23 @@
           "description": "The resource state."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DocumentMetadata"
     },
     "DocumentMetadataList": {
       "items": {
         "$ref": "#/definitions/DocumentMetadata"
       },
-      "type": "array"
+      "type": "array",
+      "title": "DocumentMetadataList"
     },
     "DocumentSourceType": {
       "enum": [
         "ORIGINAL",
         "WITH_COMMENTS"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "DocumentSourceType"
     },
     "DocumentSourceUrlMap": {
       "items": {
@@ -353,14 +386,16 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "DocumentSourceUrlMap"
     },
     "DocumentStatusType": {
       "enum": [
         "INITIALIZED",
         "ACTIVE"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "DocumentStatusType"
     },
     "DocumentThumbnailType": {
       "enum": [
@@ -368,7 +403,8 @@
         "SMALL_HQ",
         "LARGE"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "DocumentThumbnailType"
     },
     "DocumentThumbnailUrlMap": {
       "items": {
@@ -382,13 +418,15 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "DocumentThumbnailUrlMap"
     },
     "DocumentVersionIdType": {
       "maxLength": 128,
       "minLength": 1,
       "pattern": "[\\w+-.@]+",
-      "type": "string"
+      "type": "string",
+      "title": "DocumentVersionIdType"
     },
     "DocumentVersionMetadata": {
       "description": "Describes a version of a document.",
@@ -446,25 +484,29 @@
           "description": "The thumbnail of the document."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DocumentVersionMetadata"
     },
     "DocumentVersionMetadataList": {
       "items": {
         "$ref": "#/definitions/DocumentVersionMetadata"
       },
-      "type": "array"
+      "type": "array",
+      "title": "DocumentVersionMetadataList"
     },
     "DocumentVersionStatus": {
       "enum": [
         "ACTIVE"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "DocumentVersionStatus"
     },
     "EmailAddressType": {
       "maxLength": 256,
       "minLength": 1,
       "pattern": "[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}",
-      "type": "string"
+      "type": "string",
+      "title": "EmailAddressType"
     },
     "EntityAlreadyExistsException": {
       "description": "The resource already exists.",
@@ -473,13 +515,15 @@
           "$ref": "#/definitions/ErrorMessageType"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "EntityAlreadyExistsException"
     },
     "EntityIdList": {
       "items": {
         "$ref": "#/definitions/IdType"
       },
-      "type": "array"
+      "type": "array",
+      "title": "EntityIdList"
     },
     "EntityNotExistsException": {
       "description": "The resource does not exist.",
@@ -491,10 +535,12 @@
           "$ref": "#/definitions/ErrorMessageType"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "EntityNotExistsException"
     },
     "ErrorMessageType": {
-      "type": "string"
+      "type": "string",
+      "title": "ErrorMessageType"
     },
     "FailedDependencyException": {
       "description": "The AWS Directory Service cannot reach an on-premises instance. Or a dependency under the control of the organization is failing, such as a connected active directory.",
@@ -503,13 +549,15 @@
           "$ref": "#/definitions/ErrorMessageType"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "FailedDependencyException"
     },
     "FieldNamesType": {
       "maxLength": 256,
       "minLength": 1,
       "pattern": "[\\w,]+",
-      "type": "string"
+      "type": "string",
+      "title": "FieldNamesType"
     },
     "FolderContentType": {
       "enum": [
@@ -517,7 +565,8 @@
         "DOCUMENT",
         "FOLDER"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "FolderContentType"
     },
     "FolderMetadata": {
       "description": "Describes a folder.",
@@ -555,17 +604,20 @@
           "description": "The unique identifier created from the subfolders and documents of the folder."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "FolderMetadata"
     },
     "FolderMetadataList": {
       "items": {
         "$ref": "#/definitions/FolderMetadata"
       },
-      "type": "array"
+      "type": "array",
+      "title": "FolderMetadataList"
     },
     "GetDocumentPathRequest": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "GetDocumentPathRequest"
     },
     "GetDocumentPathResponse": {
       "properties": {
@@ -574,11 +626,13 @@
           "description": "The path information."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetDocumentPathResponse"
     },
     "GetDocumentRequest": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "GetDocumentRequest"
     },
     "GetDocumentResponse": {
       "properties": {
@@ -587,11 +641,13 @@
           "description": "The document object."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetDocumentResponse"
     },
     "GetDocumentVersionRequest": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "GetDocumentVersionRequest"
     },
     "GetDocumentVersionResponse": {
       "properties": {
@@ -600,11 +656,13 @@
           "description": "The version metadata."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetDocumentVersionResponse"
     },
     "GetFolderPathRequest": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "GetFolderPathRequest"
     },
     "GetFolderPathResponse": {
       "properties": {
@@ -613,11 +671,13 @@
           "description": "The path information."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetFolderPathResponse"
     },
     "GetFolderRequest": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "GetFolderRequest"
     },
     "GetFolderResponse": {
       "properties": {
@@ -626,30 +686,35 @@
           "description": "The metadata of the folder."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetFolderResponse"
     },
     "HashType": {
       "maxLength": 128,
       "minLength": 0,
       "pattern": "[&\\w+-.@]+",
-      "type": "string"
+      "type": "string",
+      "title": "HashType"
     },
     "HeaderNameType": {
       "maxLength": 256,
       "minLength": 1,
       "pattern": "[\\w-]+",
-      "type": "string"
+      "type": "string",
+      "title": "HeaderNameType"
     },
     "HeaderValueType": {
       "maxLength": 1024,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "HeaderValueType"
     },
     "IdType": {
       "maxLength": 256,
       "minLength": 1,
       "pattern": "[&\\w+-.@]+",
-      "type": "string"
+      "type": "string",
+      "title": "IdType"
     },
     "IllegalUserStateException": {
       "description": "The user is undergoing transfer of ownership.",
@@ -658,7 +723,8 @@
           "$ref": "#/definitions/ErrorMessageType"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "IllegalUserStateException"
     },
     "InitiateDocumentVersionUploadRequest": {
       "properties": {
@@ -694,7 +760,8 @@
       "required": [
         "ParentFolderId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "InitiateDocumentVersionUploadRequest"
     },
     "InitiateDocumentVersionUploadResponse": {
       "properties": {
@@ -707,7 +774,8 @@
           "description": "The upload metadata."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InitiateDocumentVersionUploadResponse"
     },
     "InvalidArgumentException": {
       "description": "The pagination marker and/or limit fields are not valid.",
@@ -716,7 +784,8 @@
           "$ref": "#/definitions/ErrorMessageType"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidArgumentException"
     },
     "InvalidOperationException": {
       "description": "The operation is invalid.",
@@ -725,7 +794,8 @@
           "$ref": "#/definitions/ErrorMessageType"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidOperationException"
     },
     "LimitExceededException": {
       "description": "You've exceeded the maximum of 100,000 folders under the parent folder.",
@@ -734,12 +804,14 @@
           "$ref": "#/definitions/ErrorMessageType"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LimitExceededException"
     },
     "LimitType": {
       "maximum": 999,
       "minimum": 1,
-      "type": "integer"
+      "type": "integer",
+      "title": "LimitType"
     },
     "LocaleType": {
       "enum": [
@@ -755,38 +827,44 @@
         "pt_BR",
         "default"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "LocaleType"
     },
     "MessageType": {
       "format": "password",
       "maxLength": 2048,
       "minLength": 0,
-      "type": "string"
+      "type": "string",
+      "title": "MessageType"
     },
     "OrderType": {
       "enum": [
         "ASCENDING",
         "DESCENDING"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "OrderType"
     },
     "OrganizationUserList": {
       "items": {
         "$ref": "#/definitions/User"
       },
-      "type": "array"
+      "type": "array",
+      "title": "OrganizationUserList"
     },
     "PageMarkerType": {
       "maxLength": 2048,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "PageMarkerType"
     },
     "PasswordType": {
       "format": "password",
       "maxLength": 32,
       "minLength": 4,
       "pattern": "[\\u0020-\\u00FF]+",
-      "type": "string"
+      "type": "string",
+      "title": "PasswordType"
     },
     "PermissionInfo": {
       "description": "Describes the permissions.",
@@ -800,17 +878,20 @@
           "description": "The type of permissions."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PermissionInfo"
     },
     "PermissionInfoList": {
       "items": {
         "$ref": "#/definitions/PermissionInfo"
       },
-      "type": "array"
+      "type": "array",
+      "title": "PermissionInfoList"
     },
     "PositiveSizeType": {
       "minimum": 0,
-      "type": "integer"
+      "type": "integer",
+      "title": "PositiveSizeType"
     },
     "Principal": {
       "description": "Describes a resource.",
@@ -828,13 +909,15 @@
           "description": "The type of resource."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Principal"
     },
     "PrincipalList": {
       "items": {
         "$ref": "#/definitions/Principal"
       },
-      "type": "array"
+      "type": "array",
+      "title": "PrincipalList"
     },
     "PrincipalType": {
       "enum": [
@@ -844,7 +927,8 @@
         "ANONYMOUS",
         "ORGANIZATION"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "PrincipalType"
     },
     "ProhibitedStateException": {
       "description": "The specified document version is not in the INITIALIZED state.",
@@ -853,27 +937,32 @@
           "$ref": "#/definitions/ErrorMessageType"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ProhibitedStateException"
     },
     "RemoveAllResourcePermissionsRequest": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "RemoveAllResourcePermissionsRequest"
     },
     "RemoveResourcePermissionRequest": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "RemoveResourcePermissionRequest"
     },
     "ResourceIdType": {
       "maxLength": 128,
       "minLength": 1,
       "pattern": "[\\w+-.@]+",
-      "type": "string"
+      "type": "string",
+      "title": "ResourceIdType"
     },
     "ResourceNameType": {
       "maxLength": 255,
       "minLength": 1,
       "pattern": "[\\u0020-\\u202D\\u202F-\\uFFFF]+",
-      "type": "string"
+      "type": "string",
+      "title": "ResourceNameType"
     },
     "ResourcePath": {
       "description": "Describes the path information of a resource.",
@@ -883,7 +972,8 @@
           "description": "The components of the resource path."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ResourcePath"
     },
     "ResourcePathComponent": {
       "description": "Describes the resource path.",
@@ -897,20 +987,23 @@
           "description": "The name of the resource path."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ResourcePathComponent"
     },
     "ResourcePathComponentList": {
       "items": {
         "$ref": "#/definitions/ResourcePathComponent"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ResourcePathComponentList"
     },
     "ResourceSortType": {
       "enum": [
         "DATE",
         "NAME"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ResourceSortType"
     },
     "ResourceStateType": {
       "enum": [
@@ -919,14 +1012,16 @@
         "RECYCLING",
         "RECYCLED"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ResourceStateType"
     },
     "RolePermissionType": {
       "enum": [
         "DIRECT",
         "INHERITED"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "RolePermissionType"
     },
     "RoleType": {
       "enum": [
@@ -935,14 +1030,16 @@
         "OWNER",
         "COOWNER"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "RoleType"
     },
     "SearchQueryType": {
       "format": "password",
       "maxLength": 512,
       "minLength": 1,
       "pattern": "[\\u0020-\\uFFFF]+",
-      "type": "string"
+      "type": "string",
+      "title": "SearchQueryType"
     },
     "ServiceUnavailableException": {
       "description": "One or more of the dependencies is unavailable.",
@@ -951,7 +1048,8 @@
           "$ref": "#/definitions/ErrorMessageType"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ServiceUnavailableException"
     },
     "SharePrincipal": {
       "description": "Describes the recipient type and ID, if available.",
@@ -974,13 +1072,15 @@
         "Type",
         "Role"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "SharePrincipal"
     },
     "SharePrincipalList": {
       "items": {
         "$ref": "#/definitions/SharePrincipal"
       },
-      "type": "array"
+      "type": "array",
+      "title": "SharePrincipalList"
     },
     "ShareResult": {
       "description": "Describes the share results of a resource.",
@@ -1006,20 +1106,23 @@
           "description": "The status message."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ShareResult"
     },
     "ShareResultsList": {
       "items": {
         "$ref": "#/definitions/ShareResult"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ShareResultsList"
     },
     "ShareStatusType": {
       "enum": [
         "SUCCESS",
         "FAILURE"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ShareStatusType"
     },
     "SignedHeaderMap": {
       "items": {
@@ -1033,10 +1136,12 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "SignedHeaderMap"
     },
     "SizeType": {
-      "type": "integer"
+      "type": "integer",
+      "title": "SizeType"
     },
     "StorageLimitExceededException": {
       "description": "The storage limit has been exceeded.",
@@ -1045,7 +1150,8 @@
           "$ref": "#/definitions/ErrorMessageType"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "StorageLimitExceededException"
     },
     "StorageLimitWillExceedException": {
       "description": "The storage limit will be exceeded.",
@@ -1054,7 +1160,8 @@
           "$ref": "#/definitions/ErrorMessageType"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "StorageLimitWillExceedException"
     },
     "StorageRuleType": {
       "description": "Describes the storage for a user.",
@@ -1068,14 +1175,16 @@
           "description": "The type of storage."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "StorageRuleType"
     },
     "StorageType": {
       "enum": [
         "UNLIMITED",
         "QUOTA"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "StorageType"
     },
     "Subscription": {
       "description": "Describes a subscription.",
@@ -1093,40 +1202,47 @@
           "description": "The ID of the subscription."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Subscription"
     },
     "SubscriptionEndPointType": {
       "maxLength": 256,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "SubscriptionEndPointType"
     },
     "SubscriptionList": {
       "items": {
         "$ref": "#/definitions/Subscription"
       },
       "maxItems": 256,
-      "type": "array"
+      "type": "array",
+      "title": "SubscriptionList"
     },
     "SubscriptionProtocolType": {
       "enum": [
         "HTTPS"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "SubscriptionProtocolType"
     },
     "SubscriptionType": {
       "enum": [
         "ALL"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "SubscriptionType"
     },
     "TimeZoneIdType": {
       "maxLength": 256,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "TimeZoneIdType"
     },
     "TimestampType": {
       "format": "date-time",
-      "type": "string"
+      "type": "string",
+      "title": "TimestampType"
     },
     "TooManySubscriptionsException": {
       "description": "You've reached the limit on the number of subscriptions for the WorkDocs instance.",
@@ -1135,12 +1251,14 @@
           "$ref": "#/definitions/ErrorMessageType"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TooManySubscriptionsException"
     },
     "UnauthorizedOperationException": {
       "description": "The operation is not permitted.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "UnauthorizedOperationException"
     },
     "UnauthorizedResourceAccessException": {
       "description": "The caller does not have access to perform the action on the resource.",
@@ -1149,7 +1267,8 @@
           "$ref": "#/definitions/ErrorMessageType"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UnauthorizedResourceAccessException"
     },
     "UpdateDocumentRequest": {
       "properties": {
@@ -1166,7 +1285,8 @@
           "description": "The resource state of the document. Note that only ACTIVE and RECYCLED are supported."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UpdateDocumentRequest"
     },
     "UpdateDocumentVersionRequest": {
       "properties": {
@@ -1175,7 +1295,8 @@
           "description": "The status of the version."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UpdateDocumentVersionRequest"
     },
     "UpdateFolderRequest": {
       "properties": {
@@ -1192,7 +1313,8 @@
           "description": "The resource state of the folder. Note that only ACTIVE and RECYCLED are accepted values from the API."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UpdateFolderRequest"
     },
     "UpdateUserRequest": {
       "properties": {
@@ -1221,7 +1343,8 @@
           "description": "The type of the user."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UpdateUserRequest"
     },
     "UpdateUserResponse": {
       "properties": {
@@ -1230,7 +1353,8 @@
           "description": "The user information."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UpdateUserResponse"
     },
     "UploadMetadata": {
       "description": "Describes the upload.",
@@ -1244,13 +1368,15 @@
           "description": "The URL of the upload."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UploadMetadata"
     },
     "UrlType": {
       "format": "password",
       "maxLength": 1024,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "UrlType"
     },
     "User": {
       "description": "Describes a user.",
@@ -1316,25 +1442,29 @@
           "description": "The login name of the user."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "User"
     },
     "UserAttributeValueType": {
       "maxLength": 64,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "UserAttributeValueType"
     },
     "UserFilterType": {
       "enum": [
         "ALL",
         "ACTIVE_PENDING"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "UserFilterType"
     },
     "UserIdsType": {
       "maxLength": 2000,
       "minLength": 1,
       "pattern": "[&\\w+-.@, ]+",
-      "type": "string"
+      "type": "string",
+      "title": "UserIdsType"
     },
     "UserSortType": {
       "enum": [
@@ -1344,7 +1474,8 @@
         "USER_STATUS",
         "STORAGE_USED"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "UserSortType"
     },
     "UserStatusType": {
       "enum": [
@@ -1352,7 +1483,8 @@
         "INACTIVE",
         "PENDING"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "UserStatusType"
     },
     "UserStorageMetadata": {
       "description": "Describes the storage for a user.",
@@ -1366,20 +1498,23 @@
           "description": "The amount of storage utilized, in bytes."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UserStorageMetadata"
     },
     "UserType": {
       "enum": [
         "USER",
         "ADMIN"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "UserType"
     },
     "UsernameType": {
       "maxLength": 256,
       "minLength": 1,
       "pattern": "[\\w\\-.]+(@[a-zA-Z0-9.\\-]+\\.[a-zA-Z]+)?",
-      "type": "string"
+      "type": "string",
+      "title": "UsernameType"
     }
   },
   "actions": [

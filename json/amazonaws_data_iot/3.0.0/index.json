@@ -24,12 +24,14 @@
           "description": "The message for the exception."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ConflictException"
     },
     "DeleteThingShadowRequest": {
       "description": "The input for the DeleteThingShadow operation.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DeleteThingShadowRequest"
     },
     "DeleteThingShadowResponse": {
       "description": "The output from the DeleteThingShadow operation.",
@@ -42,15 +44,18 @@
       "required": [
         "payload"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteThingShadowResponse"
     },
     "ErrorMessage": {
-      "type": "string"
+      "type": "string",
+      "title": "ErrorMessage"
     },
     "GetThingShadowRequest": {
       "description": "The input for the GetThingShadow operation.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "GetThingShadowRequest"
     },
     "GetThingShadowResponse": {
       "description": "The output from the GetThingShadow operation.",
@@ -60,7 +65,8 @@
           "description": "The state information, in JSON format."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetThingShadowResponse"
     },
     "InternalFailureException": {
       "description": "An unexpected error has occurred.",
@@ -70,7 +76,8 @@
           "description": "The message for the exception."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InternalFailureException"
     },
     "InvalidRequestException": {
       "description": "The request is not valid.",
@@ -80,10 +87,12 @@
           "description": "The message for the exception."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidRequestException"
     },
     "JsonDocument": {
-      "type": "string"
+      "type": "string",
+      "title": "JsonDocument"
     },
     "MethodNotAllowedException": {
       "description": "The specified combination of HTTP verb and URI is not supported.",
@@ -93,10 +102,12 @@
           "description": "The message for the exception."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "MethodNotAllowedException"
     },
     "Payload": {
-      "type": "string"
+      "type": "string",
+      "title": "Payload"
     },
     "PublishRequest": {
       "description": "The input for the Publish operation.",
@@ -106,12 +117,14 @@
           "description": "The state information, in JSON format."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PublishRequest"
     },
     "Qos": {
       "maximum": 1,
       "minimum": 0,
-      "type": "integer"
+      "type": "integer",
+      "title": "Qos"
     },
     "RequestEntityTooLargeException": {
       "description": "The payload exceeds the maximum size allowed.",
@@ -121,7 +134,8 @@
           "description": "The message for the exception."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RequestEntityTooLargeException"
     },
     "ResourceNotFoundException": {
       "description": "The specified resource does not exist.",
@@ -131,7 +145,8 @@
           "description": "The message for the exception."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ResourceNotFoundException"
     },
     "ServiceUnavailableException": {
       "description": "The service is temporarily unavailable.",
@@ -141,13 +156,15 @@
           "description": "The message for the exception."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ServiceUnavailableException"
     },
     "ThingName": {
       "maxLength": 128,
       "minLength": 1,
       "pattern": "[a-zA-Z0-9_-]+",
-      "type": "string"
+      "type": "string",
+      "title": "ThingName"
     },
     "ThrottlingException": {
       "description": "The rate exceeds the limit.",
@@ -157,10 +174,12 @@
           "description": "The message for the exception."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ThrottlingException"
     },
     "Topic": {
-      "type": "string"
+      "type": "string",
+      "title": "Topic"
     },
     "UnauthorizedException": {
       "description": "You are not authorized to perform this operation.",
@@ -170,7 +189,8 @@
           "description": "The message for the exception."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UnauthorizedException"
     },
     "UnsupportedDocumentEncodingException": {
       "description": "The document encoding is not supported.",
@@ -180,7 +200,8 @@
           "description": "The message for the exception."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UnsupportedDocumentEncodingException"
     },
     "UpdateThingShadowRequest": {
       "description": "The input for the UpdateThingShadow operation.",
@@ -193,7 +214,8 @@
       "required": [
         "payload"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateThingShadowRequest"
     },
     "UpdateThingShadowResponse": {
       "description": "The output from the UpdateThingShadow operation.",
@@ -203,10 +225,12 @@
           "description": "The state information, in JSON format."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UpdateThingShadowResponse"
     },
     "errorMessage": {
-      "type": "string"
+      "type": "string",
+      "title": "errorMessage"
     }
   },
   "actions": [

@@ -24,7 +24,8 @@
         "label",
         "score"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "LabelEntity"
     },
     "LabelResponseEntity": {
       "properties": {
@@ -68,7 +69,8 @@
         "processTime",
         "startTime"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "LabelResponseEntity"
     }
   },
   "actions": [

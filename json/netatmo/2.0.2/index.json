@@ -136,7 +136,8 @@
           "format": "int32",
           "type": "integer"
         }
-      }
+      },
+      "title": "NADashboardData"
     },
     "NADate": {
       "properties": {
@@ -148,7 +149,8 @@
           "format": "int32",
           "type": "integer"
         }
-      }
+      },
+      "title": "NADate"
     },
     "NADevice": {
       "properties": {
@@ -291,7 +293,8 @@
           "format": "int32",
           "type": "integer"
         }
-      }
+      },
+      "title": "NADevice"
     },
     "NADeviceListBody": {
       "properties": {
@@ -307,7 +310,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "NADeviceListBody"
     },
     "NADeviceListResponse": {
       "properties": {
@@ -325,7 +329,8 @@
           "format": "int32",
           "type": "integer"
         }
-      }
+      },
+      "title": "NADeviceListResponse"
     },
     "NAHeatingSystem": {
       "properties": {
@@ -335,7 +340,8 @@
         "heating_system_window_seen": {
           "type": "boolean"
         }
-      }
+      },
+      "title": "NAHeatingSystem"
     },
     "NAHouseModel": {
       "properties": {
@@ -396,7 +402,8 @@
           "format": "int32",
           "type": "integer"
         }
-      }
+      },
+      "title": "NAHouseModel"
     },
     "NAHouseModelCa": {
       "properties": {
@@ -411,7 +418,8 @@
           "format": "int32",
           "type": "integer"
         }
-      }
+      },
+      "title": "NAHouseModelCa"
     },
     "NALinkStation": {
       "properties": {
@@ -425,7 +433,8 @@
         "mac": {
           "type": "string"
         }
-      }
+      },
+      "title": "NALinkStation"
     },
     "NAMain": {
       "properties": {
@@ -492,7 +501,8 @@
           "format": "int32",
           "type": "integer"
         }
-      }
+      },
+      "title": "NAMain"
     },
     "NAMeasureBodyElem": {
       "properties": {
@@ -514,7 +524,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "NAMeasureBodyElem"
     },
     "NAMeasureResponse": {
       "properties": {
@@ -535,7 +546,8 @@
           "format": "int32",
           "type": "integer"
         }
-      }
+      },
+      "title": "NAMeasureResponse"
     },
     "NAModule": {
       "properties": {
@@ -598,7 +610,8 @@
           "description": "Included in every device or module. It defines the type of the device/module. Its values are among :\nNAMain : for the base station\nNAModule1 : for the outdoor module\nNAModule4 : for the additionnal indoor module\nNAModule3 : for the rain gauge module\nNAPlug : for the thermostat relay/plug\nNATherm1 : for the thermostat module\n",
           "type": "string"
         }
-      }
+      },
+      "title": "NAModule"
     },
     "NANewScheduleBody": {
       "properties": {
@@ -606,7 +619,8 @@
           "description": "Id of the schedule. It can be use with the method \"switchschedule\" \n",
           "type": "string"
         }
-      }
+      },
+      "title": "NANewScheduleBody"
     },
     "NANewScheduleResponse": {
       "properties": {
@@ -624,14 +638,16 @@
           "format": "int32",
           "type": "integer"
         }
-      }
+      },
+      "title": "NANewScheduleResponse"
     },
     "NAObject": {
       "properties": {
         "$id": {
           "type": "string"
         }
-      }
+      },
+      "title": "NAObject"
     },
     "NAOkResponse": {
       "properties": {
@@ -649,7 +665,8 @@
           "format": "int32",
           "type": "integer"
         }
-      }
+      },
+      "title": "NAOkResponse"
     },
     "NAPartnerDevicesResponse": {
       "properties": {
@@ -670,7 +687,8 @@
           "format": "int32",
           "type": "integer"
         }
-      }
+      },
+      "title": "NAPartnerDevicesResponse"
     },
     "NAPidAlgo": {
       "properties": {
@@ -690,7 +708,8 @@
           "format": "int32",
           "type": "integer"
         }
-      }
+      },
+      "title": "NAPidAlgo"
     },
     "NAPlace": {
       "properties": {
@@ -723,7 +742,8 @@
         "trust_location": {
           "type": "boolean"
         }
-      }
+      },
+      "title": "NAPlace"
     },
     "NAPlug": {
       "properties": {
@@ -775,7 +795,8 @@
           "format": "int32",
           "type": "integer"
         }
-      }
+      },
+      "title": "NAPlug"
     },
     "NASetpoint": {
       "properties": {
@@ -790,7 +811,8 @@
           "format": "float",
           "type": "number"
         }
-      }
+      },
+      "title": "NASetpoint"
     },
     "NASetpointLog": {
       "properties": {
@@ -801,7 +823,8 @@
           "format": "int64",
           "type": "integer"
         }
-      }
+      },
+      "title": "NASetpointLog"
     },
     "NASimpleAlgo": {
       "properties": {
@@ -809,7 +832,8 @@
           "format": "int32",
           "type": "integer"
         }
-      }
+      },
+      "title": "NASimpleAlgo"
     },
     "NAStation": {
       "properties": {
@@ -837,7 +861,8 @@
           "format": "int32",
           "type": "integer"
         }
-      }
+      },
+      "title": "NAStation"
     },
     "NAStationDataBody": {
       "properties": {
@@ -850,7 +875,8 @@
         "user": {
           "$ref": "#/definitions/NAUser"
         }
-      }
+      },
+      "title": "NAStationDataBody"
     },
     "NAStationDataResponse": {
       "properties": {
@@ -868,7 +894,8 @@
           "format": "int32",
           "type": "integer"
         }
-      }
+      },
+      "title": "NAStationDataResponse"
     },
     "NAStationModule": {
       "properties": {
@@ -923,7 +950,8 @@
           "description": "Included in every device or module. It defines the type of the device/module. Its values are among :\nNAMain : for the base station\nNAModule1 : for the outdoor module\nNAModule4 : for the additionnal indoor module\nNAModule3 : for the rain gauge module\nNAPlug : for the thermostat relay/plug\nNATherm1 : for the thermostat module\n",
           "type": "string"
         }
-      }
+      },
+      "title": "NAStationModule"
     },
     "NAThermMeasure": {
       "properties": {
@@ -939,7 +967,8 @@
           "format": "int32",
           "type": "integer"
         }
-      }
+      },
+      "title": "NAThermMeasure"
     },
     "NAThermProgram": {
       "properties": {
@@ -964,7 +993,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "NAThermProgram"
     },
     "NAThermStateBody": {
       "properties": {
@@ -1023,7 +1053,8 @@
           "format": "int32",
           "type": "integer"
         }
-      }
+      },
+      "title": "NAThermStateBody"
     },
     "NAThermStateResponse": {
       "properties": {
@@ -1041,7 +1072,8 @@
           "format": "int32",
           "type": "integer"
         }
-      }
+      },
+      "title": "NAThermStateResponse"
     },
     "NAThermostat": {
       "properties": {
@@ -1110,7 +1142,8 @@
           "description": "Included in every device or module. It defines the type of the device/module. Its values are among :\nNAMain : for the base station\nNAModule1 : for the outdoor module\nNAModule4 : for the additionnal indoor module\nNAModule3 : for the rain gauge module\nNAPlug : for the thermostat relay/plug\nNATherm1 : for the thermostat module\n",
           "type": "string"
         }
-      }
+      },
+      "title": "NAThermostat"
     },
     "NAThermostatDataBody": {
       "properties": {
@@ -1123,7 +1156,8 @@
         "user": {
           "$ref": "#/definitions/NAUser"
         }
-      }
+      },
+      "title": "NAThermostatDataBody"
     },
     "NAThermostatDataResponse": {
       "properties": {
@@ -1141,7 +1175,8 @@
           "format": "int32",
           "type": "integer"
         }
-      }
+      },
+      "title": "NAThermostatDataResponse"
     },
     "NATimeTableItem": {
       "properties": {
@@ -1153,7 +1188,8 @@
           "format": "int32",
           "type": "integer"
         }
-      }
+      },
+      "title": "NATimeTableItem"
     },
     "NAUser": {
       "properties": {
@@ -1192,7 +1228,8 @@
           "format": "int32",
           "type": "integer"
         }
-      }
+      },
+      "title": "NAUser"
     },
     "NAUserAdministrative": {
       "properties": {
@@ -1224,7 +1261,8 @@
           "description": "0 -> kph, 1 -> mph, 2 -> ms, 3 -> beaufort, 4 -> knot",
           "type": "string"
         }
-      }
+      },
+      "title": "NAUserAdministrative"
     },
     "NAUserResponse": {
       "properties": {
@@ -1242,7 +1280,8 @@
           "format": "int32",
           "type": "integer"
         }
-      }
+      },
+      "title": "NAUserResponse"
     },
     "NAWelcomeCameras": {
       "properties": {
@@ -1278,7 +1317,8 @@
           "description": "Only for scope access_camera. Address of the camera",
           "type": "string"
         }
-      }
+      },
+      "title": "NAWelcomeCameras"
     },
     "NAWelcomeEvents": {
       "properties": {
@@ -1328,7 +1368,8 @@
           "description": "Status of the video (recording, deleted or available)",
           "type": "string"
         }
-      }
+      },
+      "title": "NAWelcomeEvents"
     },
     "NAWelcomeEventsData": {
       "properties": {
@@ -1338,7 +1379,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "NAWelcomeEventsData"
     },
     "NAWelcomeEventsResponse": {
       "properties": {
@@ -1356,7 +1398,8 @@
           "format": "int32",
           "type": "integer"
         }
-      }
+      },
+      "title": "NAWelcomeEventsResponse"
     },
     "NAWelcomeFace": {
       "properties": {
@@ -1373,7 +1416,8 @@
           "format": "int32",
           "type": "integer"
         }
-      }
+      },
+      "title": "NAWelcomeFace"
     },
     "NAWelcomeGlobalInfo": {
       "properties": {
@@ -1381,7 +1425,8 @@
           "description": "show tags",
           "type": "boolean"
         }
-      }
+      },
+      "title": "NAWelcomeGlobalInfo"
     },
     "NAWelcomeHomeData": {
       "properties": {
@@ -1397,7 +1442,8 @@
         "user": {
           "$ref": "#/definitions/NAWelcomeUser"
         }
-      }
+      },
+      "title": "NAWelcomeHomeData"
     },
     "NAWelcomeHomeDataResponse": {
       "properties": {
@@ -1415,7 +1461,8 @@
           "format": "int32",
           "type": "integer"
         }
-      }
+      },
+      "title": "NAWelcomeHomeDataResponse"
     },
     "NAWelcomeHomes": {
       "properties": {
@@ -1454,7 +1501,8 @@
         "place": {
           "$ref": "#/definitions/NAWelcomePlace"
         }
-      }
+      },
+      "title": "NAWelcomeHomes"
     },
     "NAWelcomeModules": {
       "properties": {
@@ -1488,7 +1536,8 @@
           "description": "NACamDoorTag for tags",
           "type": "string"
         }
-      }
+      },
+      "title": "NAWelcomeModules"
     },
     "NAWelcomePersons": {
       "properties": {
@@ -1512,7 +1561,8 @@
           "description": "Name of the person, if pseudo is missing, person is unknown.",
           "type": "string"
         }
-      }
+      },
+      "title": "NAWelcomePersons"
     },
     "NAWelcomePersonsAwayResponse": {
       "properties": {
@@ -1527,7 +1577,8 @@
           "format": "int32",
           "type": "integer"
         }
-      }
+      },
+      "title": "NAWelcomePersonsAwayResponse"
     },
     "NAWelcomePlace": {
       "properties": {
@@ -1543,7 +1594,8 @@
           "description": "Timezone of the home.",
           "type": "string"
         }
-      }
+      },
+      "title": "NAWelcomePlace"
     },
     "NAWelcomeSnapshot": {
       "properties": {
@@ -1560,7 +1612,8 @@
           "format": "int32",
           "type": "integer"
         }
-      }
+      },
+      "title": "NAWelcomeSnapshot"
     },
     "NAWelcomeUser": {
       "properties": {
@@ -1572,7 +1625,8 @@
           "description": "user regional preferences (used for displaying date)",
           "type": "string"
         }
-      }
+      },
+      "title": "NAWelcomeUser"
     },
     "NAWelcomeWebhookResponse": {
       "properties": {
@@ -1583,7 +1637,8 @@
           "format": "double",
           "type": "number"
         }
-      }
+      },
+      "title": "NAWelcomeWebhookResponse"
     },
     "NAYearMonth": {
       "properties": {
@@ -1595,7 +1650,8 @@
           "format": "int32",
           "type": "integer"
         }
-      }
+      },
+      "title": "NAYearMonth"
     },
     "NAZone": {
       "properties": {
@@ -1614,7 +1670,8 @@
           "format": "int32",
           "type": "integer"
         }
-      }
+      },
+      "title": "NAZone"
     }
   },
   "actions": [

@@ -25,7 +25,8 @@
         "UPDATED",
         "FAILED"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "AgentUpdateStatus"
     },
     "Attribute": {
       "description": "An attribute is a name-value pair associated with an Amazon ECS object. Attributes enable you to extend the Amazon ECS data model by adding custom metadata to your resources. For more information, see <a href=\"http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-constraints.html#attributes\">Attributes</a> in the <i>Amazon EC2 Container Service Developer Guide</i>.",
@@ -50,27 +51,33 @@
       "required": [
         "name"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "Attribute"
     },
     "AttributeLimitExceededException": {
       "description": "You can apply up to 10 custom attributes per resource. You can view the attributes of a resource with <a>ListAttributes</a>. You can remove existing attributes on a resource with <a>DeleteAttributes</a>.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "AttributeLimitExceededException"
     },
     "Attributes": {
       "items": {
         "$ref": "#/definitions/Attribute"
       },
-      "type": "array"
+      "type": "array",
+      "title": "Attributes"
     },
     "Boolean": {
-      "type": "boolean"
+      "type": "boolean",
+      "title": "Boolean"
     },
     "BoxedBoolean": {
-      "type": "boolean"
+      "type": "boolean",
+      "title": "BoxedBoolean"
     },
     "BoxedInteger": {
-      "type": "integer"
+      "type": "integer",
+      "title": "BoxedInteger"
     },
     "ClientException": {
       "description": "These errors are usually caused by a client action, such as using an action or resource on behalf of a user that doesn't have permission to use the action or resource, or specifying an identifier that is not valid.",
@@ -79,7 +86,8 @@
           "$ref": "#/definitions/String"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ClientException"
     },
     "Cluster": {
       "description": "A regional grouping of one or more container instances on which you can run task requests. Each account receives a default cluster the first time you use the Amazon ECS service, but you may also create other clusters. Clusters may contain more than one instance type simultaneously.",
@@ -113,28 +121,33 @@
           "description": "The status of the cluster. The valid values are <code>ACTIVE</code> or <code>INACTIVE</code>. <code>ACTIVE</code> indicates that you can register container instances with the cluster and the associated instances can accept tasks."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Cluster"
     },
     "ClusterContainsContainerInstancesException": {
       "description": "You cannot delete a cluster that has registered container instances. You must first deregister the container instances before you can delete the cluster. For more information, see <a>DeregisterContainerInstance</a>.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "ClusterContainsContainerInstancesException"
     },
     "ClusterContainsServicesException": {
       "description": "You cannot delete a cluster that contains services. You must first update the service to reduce its desired task count to 0 and then delete the service. For more information, see <a>UpdateService</a> and <a>DeleteService</a>.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "ClusterContainsServicesException"
     },
     "ClusterNotFoundException": {
       "description": "The specified cluster could not be found. You can view your available clusters with <a>ListClusters</a>. Amazon ECS clusters are region-specific.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "ClusterNotFoundException"
     },
     "Clusters": {
       "items": {
         "$ref": "#/definitions/Cluster"
       },
-      "type": "array"
+      "type": "array",
+      "title": "Clusters"
     },
     "Container": {
       "description": "A Docker container that is part of a task.",
@@ -168,7 +181,8 @@
           "description": "The Amazon Resource Name (ARN) of the task."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Container"
     },
     "ContainerDefinition": {
       "description": "Container definitions are used in task definitions to describe the different containers that are launched as part of a task.",
@@ -278,13 +292,15 @@
           "description": "The working directory in which to run commands inside the container. This parameter maps to <code>WorkingDir</code> in the <a href=\"https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/#create-a-container\">Create a container</a> section of the <a href=\"https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/\">Docker Remote API</a> and the <code>--workdir</code> option to <a href=\"https://docs.docker.com/engine/reference/run/\">docker run</a>."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ContainerDefinition"
     },
     "ContainerDefinitions": {
       "items": {
         "$ref": "#/definitions/ContainerDefinition"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ContainerDefinitions"
     },
     "ContainerInstance": {
       "description": "An EC2 instance that is running the Amazon ECS agent and has been registered with a cluster.",
@@ -342,20 +358,23 @@
           "description": "The version information for the Amazon ECS container agent and Docker daemon running on the container instance."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ContainerInstance"
     },
     "ContainerInstanceStatus": {
       "enum": [
         "ACTIVE",
         "DRAINING"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ContainerInstanceStatus"
     },
     "ContainerInstances": {
       "items": {
         "$ref": "#/definitions/ContainerInstance"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ContainerInstances"
     },
     "ContainerOverride": {
       "description": "The overrides that should be sent to a container.",
@@ -373,19 +392,22 @@
           "description": "The name of the container that receives the override. This parameter is required if a command or environment variable is specified."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ContainerOverride"
     },
     "ContainerOverrides": {
       "items": {
         "$ref": "#/definitions/ContainerOverride"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ContainerOverrides"
     },
     "Containers": {
       "items": {
         "$ref": "#/definitions/Container"
       },
-      "type": "array"
+      "type": "array",
+      "title": "Containers"
     },
     "CreateClusterRequest": {
       "example": {
@@ -397,7 +419,8 @@
           "description": "The name of your cluster. If you do not specify a name for your cluster, you create a cluster named <code>default</code>. Up to 255 letters (uppercase and lowercase), numbers, hyphens, and underscores are allowed."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateClusterRequest"
     },
     "CreateClusterResponse": {
       "example": {
@@ -417,7 +440,8 @@
           "description": "The full description of your new cluster."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateClusterResponse"
     },
     "CreateServiceRequest": {
       "example": {
@@ -480,7 +504,8 @@
         "taskDefinition",
         "desiredCount"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateServiceRequest"
     },
     "CreateServiceResponse": {
       "example": {
@@ -527,7 +552,8 @@
           "description": "The full description of your service following the create call."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateServiceResponse"
     },
     "DeleteAttributesRequest": {
       "properties": {
@@ -543,7 +569,8 @@
       "required": [
         "attributes"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteAttributesRequest"
     },
     "DeleteAttributesResponse": {
       "properties": {
@@ -552,7 +579,8 @@
           "description": "A list of attribute objects that were successfully deleted from your resource."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DeleteAttributesResponse"
     },
     "DeleteClusterRequest": {
       "example": {
@@ -567,7 +595,8 @@
       "required": [
         "cluster"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteClusterRequest"
     },
     "DeleteClusterResponse": {
       "example": {
@@ -587,7 +616,8 @@
           "description": "The full description of the deleted cluster."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DeleteClusterResponse"
     },
     "DeleteServiceRequest": {
       "example": {
@@ -606,7 +636,8 @@
       "required": [
         "service"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteServiceRequest"
     },
     "DeleteServiceResponse": {
       "example": {},
@@ -616,7 +647,8 @@
           "description": "The full description of the deleted service."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DeleteServiceResponse"
     },
     "Deployment": {
       "description": "The details of an Amazon ECS service deployment.",
@@ -654,7 +686,8 @@
           "description": "The Unix timestamp for when the service was last updated."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Deployment"
     },
     "DeploymentConfiguration": {
       "description": "Optional deployment parameters that control how many tasks run during the deployment and the ordering of stopping and starting tasks.",
@@ -668,13 +701,15 @@
           "description": "The lower limit (as a percentage of the service's <code>desiredCount</code>) of the number of running tasks that must remain in the <code>RUNNING</code> state in a service during a deployment. The minimum healthy tasks during a deployment is the <code>desiredCount</code> multiplied by <code>minimumHealthyPercent</code>/100, rounded up to the nearest integer value."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DeploymentConfiguration"
     },
     "Deployments": {
       "items": {
         "$ref": "#/definitions/Deployment"
       },
-      "type": "array"
+      "type": "array",
+      "title": "Deployments"
     },
     "DeregisterContainerInstanceRequest": {
       "example": {
@@ -699,7 +734,8 @@
       "required": [
         "containerInstance"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeregisterContainerInstanceRequest"
     },
     "DeregisterContainerInstanceResponse": {
       "example": {},
@@ -709,7 +745,8 @@
           "description": "The container instance that was deregistered."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DeregisterContainerInstanceResponse"
     },
     "DeregisterTaskDefinitionRequest": {
       "properties": {
@@ -721,7 +758,8 @@
       "required": [
         "taskDefinition"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeregisterTaskDefinitionRequest"
     },
     "DeregisterTaskDefinitionResponse": {
       "properties": {
@@ -730,7 +768,8 @@
           "description": "The full description of the deregistered task."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DeregisterTaskDefinitionResponse"
     },
     "DescribeClustersRequest": {
       "example": {
@@ -744,7 +783,8 @@
           "description": "A list of up to 100 cluster names or full cluster Amazon Resource Name (ARN) entries. If you do not specify a cluster, the default cluster is assumed."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeClustersRequest"
     },
     "DescribeClustersResponse": {
       "example": {
@@ -767,7 +807,8 @@
           "description": "Any failures associated with the call."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeClustersResponse"
     },
     "DescribeContainerInstancesRequest": {
       "example": {
@@ -789,7 +830,8 @@
       "required": [
         "containerInstances"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeContainerInstancesRequest"
     },
     "DescribeContainerInstancesResponse": {
       "example": {
@@ -874,7 +916,8 @@
           "description": "Any failures associated with the call."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeContainerInstancesResponse"
     },
     "DescribeServicesRequest": {
       "example": {
@@ -895,7 +938,8 @@
       "required": [
         "services"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeServicesRequest"
     },
     "DescribeServicesResponse": {
       "example": {
@@ -948,7 +992,8 @@
           "description": "The list of services described."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeServicesResponse"
     },
     "DescribeTaskDefinitionRequest": {
       "example": {
@@ -963,7 +1008,8 @@
       "required": [
         "taskDefinition"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeTaskDefinitionRequest"
     },
     "DescribeTaskDefinitionResponse": {
       "example": {
@@ -1017,7 +1063,8 @@
           "description": "The full task definition description."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeTaskDefinitionResponse"
     },
     "DescribeTasksRequest": {
       "example": {
@@ -1038,7 +1085,8 @@
       "required": [
         "tasks"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeTasksRequest"
     },
     "DescribeTasksResponse": {
       "example": {
@@ -1087,7 +1135,8 @@
           "description": "The list of tasks."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeTasksResponse"
     },
     "DesiredStatus": {
       "enum": [
@@ -1095,7 +1144,8 @@
         "PENDING",
         "STOPPED"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "DesiredStatus"
     },
     "DiscoverPollEndpointRequest": {
       "properties": {
@@ -1108,7 +1158,8 @@
           "description": "The container instance ID or full Amazon Resource Name (ARN) of the container instance. The ARN contains the <code>arn:aws:ecs</code> namespace, followed by the region of the container instance, the AWS account ID of the container instance owner, the <code>container-instance</code> namespace, and then the container instance ID. For example, <code>arn:aws:ecs:<i>region</i>:<i>aws_account_id</i>:container-instance/<i>container_instance_ID</i> </code>."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DiscoverPollEndpointRequest"
     },
     "DiscoverPollEndpointResponse": {
       "properties": {
@@ -1121,7 +1172,8 @@
           "description": "The telemetry endpoint for the Amazon ECS agent."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DiscoverPollEndpointResponse"
     },
     "DockerLabelsMap": {
       "items": {
@@ -1135,17 +1187,20 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "DockerLabelsMap"
     },
     "Double": {
       "format": "double",
-      "type": "number"
+      "type": "number",
+      "title": "Double"
     },
     "EnvironmentVariables": {
       "items": {
         "$ref": "#/definitions/KeyValuePair"
       },
-      "type": "array"
+      "type": "array",
+      "title": "EnvironmentVariables"
     },
     "Failure": {
       "description": "A failed resource.",
@@ -1159,13 +1214,15 @@
           "description": "The reason for the failure."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Failure"
     },
     "Failures": {
       "items": {
         "$ref": "#/definitions/Failure"
       },
-      "type": "array"
+      "type": "array",
+      "title": "Failures"
     },
     "HostEntry": {
       "description": "Hostnames and IP address entries that are added to the <code>/etc/hosts</code> file of a container via the <code>extraHosts</code> parameter of its <a>ContainerDefinition</a>. ",
@@ -1183,13 +1240,15 @@
         "hostname",
         "ipAddress"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "HostEntry"
     },
     "HostEntryList": {
       "items": {
         "$ref": "#/definitions/HostEntry"
       },
-      "type": "array"
+      "type": "array",
+      "title": "HostEntryList"
     },
     "HostVolumeProperties": {
       "description": "Details on a container instance host volume.",
@@ -1199,15 +1258,18 @@
           "description": "The path on the host container instance that is presented to the container. If this parameter is empty, then the Docker daemon has assigned a host path for you. If the <code>host</code> parameter contains a <code>sourcePath</code> file location, then the data volume persists at the specified location on the host container instance until you delete it manually. If the <code>sourcePath</code> value does not exist on the host container instance, the Docker daemon creates it. If the location does exist, the contents of the source path folder are exported."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "HostVolumeProperties"
     },
     "Integer": {
-      "type": "integer"
+      "type": "integer",
+      "title": "Integer"
     },
     "InvalidParameterException": {
       "description": "The specified parameter is invalid. Review the available parameters for the API request.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "InvalidParameterException"
     },
     "KeyValuePair": {
       "description": "A key and value pair object.",
@@ -1221,7 +1283,8 @@
           "description": "The value of the key value pair. For environment variables, this is the value of the environment variable."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "KeyValuePair"
     },
     "ListAttributesRequest": {
       "properties": {
@@ -1253,7 +1316,8 @@
       "required": [
         "targetType"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListAttributesRequest"
     },
     "ListAttributesResponse": {
       "properties": {
@@ -1266,7 +1330,8 @@
           "description": "The <code>nextToken</code> value to include in a future <code>ListAttributes</code> request. When the results of a <code>ListAttributes</code> request exceed <code>maxResults</code>, this value can be used to retrieve the next page of results. This value is <code>null</code> when there are no more results to return."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListAttributesResponse"
     },
     "ListClustersRequest": {
       "example": {},
@@ -1280,7 +1345,8 @@
           "description": "<p>The <code>nextToken</code> value returned from a previous paginated <code>ListClusters</code> request where <code>maxResults</code> was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the <code>nextToken</code> value. This value is <code>null</code> when there are no more results to return.</p> <note> <p>This token should be treated as an opaque identifier that is only used to retrieve the next items in a list and not for other programmatic purposes.</p> </note>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListClustersRequest"
     },
     "ListClustersResponse": {
       "example": {
@@ -1299,7 +1365,8 @@
           "description": "The <code>nextToken</code> value to include in a future <code>ListClusters</code> request. When the results of a <code>ListClusters</code> request exceed <code>maxResults</code>, this value can be used to retrieve the next page of results. This value is <code>null</code> when there are no more results to return."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListClustersResponse"
     },
     "ListContainerInstancesRequest": {
       "example": {
@@ -1327,7 +1394,8 @@
           "description": "Filters the container instances by status. For example, if you specify the <code>DRAINING</code> status, the results include only container instances that have been set to <code>DRAINING</code> using <a>UpdateContainerInstancesState</a>. If you do not specify this parameter, the default is to include container instances set to <code>ACTIVE</code> and <code>DRAINING</code>."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListContainerInstancesRequest"
     },
     "ListContainerInstancesResponse": {
       "example": {
@@ -1346,7 +1414,8 @@
           "description": "The <code>nextToken</code> value to include in a future <code>ListContainerInstances</code> request. When the results of a <code>ListContainerInstances</code> request exceed <code>maxResults</code>, this value can be used to retrieve the next page of results. This value is <code>null</code> when there are no more results to return."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListContainerInstancesResponse"
     },
     "ListServicesRequest": {
       "example": {},
@@ -1364,7 +1433,8 @@
           "description": "<p>The <code>nextToken</code> value returned from a previous paginated <code>ListServices</code> request where <code>maxResults</code> was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the <code>nextToken</code> value. This value is <code>null</code> when there are no more results to return.</p> <note> <p>This token should be treated as an opaque identifier that is only used to retrieve the next items in a list and not for other programmatic purposes.</p> </note>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListServicesRequest"
     },
     "ListServicesResponse": {
       "example": {
@@ -1382,7 +1452,8 @@
           "description": "The list of full Amazon Resource Name (ARN) entries for each service associated with the specified cluster."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListServicesResponse"
     },
     "ListTaskDefinitionFamiliesRequest": {
       "example": {
@@ -1406,7 +1477,8 @@
           "description": "The task definition family status with which to filter the <code>ListTaskDefinitionFamilies</code> results. By default, both <code>ACTIVE</code> and <code>INACTIVE</code> task definition families are listed. If this parameter is set to <code>ACTIVE</code>, only task definition families that have an <code>ACTIVE</code> task definition revision are returned. If this parameter is set to <code>INACTIVE</code>, only task definition families that do not have any <code>ACTIVE</code> task definition revisions are returned. If you paginate the resulting output, be sure to keep the <code>status</code> value constant in each subsequent request."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListTaskDefinitionFamiliesRequest"
     },
     "ListTaskDefinitionFamiliesResponse": {
       "example": {
@@ -1425,7 +1497,8 @@
           "description": "The <code>nextToken</code> value to include in a future <code>ListTaskDefinitionFamilies</code> request. When the results of a <code>ListTaskDefinitionFamilies</code> request exceed <code>maxResults</code>, this value can be used to retrieve the next page of results. This value is <code>null</code> when there are no more results to return."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListTaskDefinitionFamiliesResponse"
     },
     "ListTaskDefinitionsRequest": {
       "example": {
@@ -1453,7 +1526,8 @@
           "description": "The task definition status with which to filter the <code>ListTaskDefinitions</code> results. By default, only <code>ACTIVE</code> task definitions are listed. By setting this parameter to <code>INACTIVE</code>, you can view task definitions that are <code>INACTIVE</code> as long as an active task or service still references them. If you paginate the resulting output, be sure to keep the <code>status</code> value constant in each subsequent request."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListTaskDefinitionsRequest"
     },
     "ListTaskDefinitionsResponse": {
       "example": {
@@ -1474,7 +1548,8 @@
           "description": "The list of task definition Amazon Resource Name (ARN) entries for the <code>ListTaskDefinitions</code> request."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListTaskDefinitionsResponse"
     },
     "ListTasksRequest": {
       "example": {
@@ -1515,7 +1590,8 @@
           "description": "The <code>startedBy</code> value with which to filter the task results. Specifying a <code>startedBy</code> value limits the results to tasks that were started with that value."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListTasksRequest"
     },
     "ListTasksResponse": {
       "example": {
@@ -1533,7 +1609,8 @@
           "description": "The list of task Amazon Resource Name (ARN) entries for the <code>ListTasks</code> request."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListTasksResponse"
     },
     "LoadBalancer": {
       "description": "Details on a load balancer that is used with a service.",
@@ -1555,13 +1632,15 @@
           "description": "The full Amazon Resource Name (ARN) of the Elastic Load Balancing target group associated with a service."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LoadBalancer"
     },
     "LoadBalancers": {
       "items": {
         "$ref": "#/definitions/LoadBalancer"
       },
-      "type": "array"
+      "type": "array",
+      "title": "LoadBalancers"
     },
     "LogConfiguration": {
       "description": "Log configuration options to send to a custom log driver for the container.",
@@ -1578,7 +1657,8 @@
       "required": [
         "logDriver"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "LogConfiguration"
     },
     "LogConfigurationOptionsMap": {
       "items": {
@@ -1592,7 +1672,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "LogConfigurationOptionsMap"
     },
     "LogDriver": {
       "enum": [
@@ -1604,15 +1685,18 @@
         "awslogs",
         "splunk"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "LogDriver"
     },
     "Long": {
-      "type": "integer"
+      "type": "integer",
+      "title": "Long"
     },
     "MissingVersionException": {
       "description": "Amazon ECS is unable to determine the current version of the Amazon ECS container agent on the container instance and does not have enough information to proceed with an update. This could be because the agent running on the container instance is an older or custom version that does not use our version information.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "MissingVersionException"
     },
     "MountPoint": {
       "description": "Details on a volume mount point that is used in a container definition.",
@@ -1630,13 +1714,15 @@
           "description": "The name of the volume to mount."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "MountPoint"
     },
     "MountPointList": {
       "items": {
         "$ref": "#/definitions/MountPoint"
       },
-      "type": "array"
+      "type": "array",
+      "title": "MountPointList"
     },
     "NetworkBinding": {
       "description": "Details on the network bindings between a container and its host container instance. After a task reaches the <code>RUNNING</code> status, manual and automatic host and container port assignments are visible in the <code>networkBindings</code> section of <a>DescribeTasks</a> API responses.",
@@ -1658,13 +1744,15 @@
           "description": "The protocol used for the network binding."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "NetworkBinding"
     },
     "NetworkBindings": {
       "items": {
         "$ref": "#/definitions/NetworkBinding"
       },
-      "type": "array"
+      "type": "array",
+      "title": "NetworkBindings"
     },
     "NetworkMode": {
       "enum": [
@@ -1672,12 +1760,14 @@
         "host",
         "none"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "NetworkMode"
     },
     "NoUpdateAvailableException": {
       "description": "There is no update available for this Amazon ECS container agent. This could be because the agent is already running the latest version, or it is so old that there is no update path to the current version.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "NoUpdateAvailableException"
     },
     "PlacementConstraint": {
       "description": "An object representing a constraint on task placement. For more information, see <a href=\"http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-constraints.html\">Task Placement Constraints</a> in the <i>Amazon EC2 Container Service Developer Guide</i>.",
@@ -1691,26 +1781,30 @@
           "description": "The type of constraint. Use <code>distinctInstance</code> to ensure that each task in a particular group is running on a different container instance. Use <code>memberOf</code> to restrict selection to a group of valid candidates. Note that <code>distinctInstance</code> is not supported in task definitions."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PlacementConstraint"
     },
     "PlacementConstraintType": {
       "enum": [
         "distinctInstance",
         "memberOf"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "PlacementConstraintType"
     },
     "PlacementConstraints": {
       "items": {
         "$ref": "#/definitions/PlacementConstraint"
       },
-      "type": "array"
+      "type": "array",
+      "title": "PlacementConstraints"
     },
     "PlacementStrategies": {
       "items": {
         "$ref": "#/definitions/PlacementStrategy"
       },
-      "type": "array"
+      "type": "array",
+      "title": "PlacementStrategies"
     },
     "PlacementStrategy": {
       "description": "The task placement strategy for a task or service. For more information, see <a href=\"http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-strategies.html\">Task Placement Strategies</a> in the <i>Amazon EC2 Container Service Developer Guide</i>.",
@@ -1724,7 +1818,8 @@
           "description": "The type of placement strategy. The <code>random</code> placement strategy randomly places tasks on available candidates. The <code>spread</code> placement strategy spreads placement across available candidates evenly based on the <code>field</code> parameter. The <code>binpack</code> strategy places tasks on available candidates that have the least available amount of the resource that is specified with the <code>field</code> parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task)."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PlacementStrategy"
     },
     "PlacementStrategyType": {
       "enum": [
@@ -1732,7 +1827,8 @@
         "spread",
         "binpack"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "PlacementStrategyType"
     },
     "PortMapping": {
       "description": "Port mappings allow containers to access ports on the host container instance to send or receive traffic. Port mappings are specified as part of the container definition. After a task reaches the <code>RUNNING</code> status, manual and automatic host and container port assignments are visible in the <code>networkBindings</code> section of <a>DescribeTasks</a> API responses.",
@@ -1750,13 +1846,15 @@
           "description": "The protocol used for the port mapping. Valid values are <code>tcp</code> and <code>udp</code>. The default is <code>tcp</code>."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PortMapping"
     },
     "PortMappingList": {
       "items": {
         "$ref": "#/definitions/PortMapping"
       },
-      "type": "array"
+      "type": "array",
+      "title": "PortMappingList"
     },
     "PutAttributesRequest": {
       "properties": {
@@ -1772,7 +1870,8 @@
       "required": [
         "attributes"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "PutAttributesRequest"
     },
     "PutAttributesResponse": {
       "properties": {
@@ -1781,7 +1880,8 @@
           "description": "The attributes applied to your resource."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PutAttributesResponse"
     },
     "RegisterContainerInstanceRequest": {
       "properties": {
@@ -1814,7 +1914,8 @@
           "description": "The version information for the Amazon ECS container agent and Docker daemon running on the container instance."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RegisterContainerInstanceRequest"
     },
     "RegisterContainerInstanceResponse": {
       "properties": {
@@ -1823,7 +1924,8 @@
           "description": "The container instance that was registered."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RegisterContainerInstanceResponse"
     },
     "RegisterTaskDefinitionRequest": {
       "example": {
@@ -1874,7 +1976,8 @@
         "family",
         "containerDefinitions"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "RegisterTaskDefinitionRequest"
     },
     "RegisterTaskDefinitionResponse": {
       "example": {
@@ -1908,13 +2011,15 @@
           "description": "The full description of the registered task definition."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RegisterTaskDefinitionResponse"
     },
     "RequiresAttributes": {
       "items": {
         "$ref": "#/definitions/Attribute"
       },
-      "type": "array"
+      "type": "array",
+      "title": "RequiresAttributes"
     },
     "Resource": {
       "description": "Describes the resources available for a container instance.",
@@ -1944,13 +2049,15 @@
           "description": "The type of the resource, such as <code>INTEGER</code>, <code>DOUBLE</code>, <code>LONG</code>, or <code>STRINGSET</code>."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Resource"
     },
     "Resources": {
       "items": {
         "$ref": "#/definitions/Resource"
       },
-      "type": "array"
+      "type": "array",
+      "title": "Resources"
     },
     "RunTaskRequest": {
       "example": {
@@ -1994,7 +2101,8 @@
       "required": [
         "taskDefinition"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "RunTaskRequest"
     },
     "RunTaskResponse": {
       "example": {
@@ -2033,7 +2141,8 @@
           "description": "A full description of the tasks that were run. Each task that was successfully placed on your cluster are described here."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RunTaskResponse"
     },
     "ServerException": {
       "description": "These errors are usually caused by a server issue.",
@@ -2042,7 +2151,8 @@
           "$ref": "#/definitions/String"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ServerException"
     },
     "Service": {
       "description": "Details on a service within a cluster",
@@ -2112,7 +2222,8 @@
           "description": "The task definition to use for tasks in the service. This value is specified when the service is created with <a>CreateService</a>, and it can be modified with <a>UpdateService</a>."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Service"
     },
     "ServiceEvent": {
       "description": "Details on an event associated with a service.",
@@ -2130,36 +2241,42 @@
           "description": "The event message."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ServiceEvent"
     },
     "ServiceEvents": {
       "items": {
         "$ref": "#/definitions/ServiceEvent"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ServiceEvents"
     },
     "ServiceNotActiveException": {
       "description": "The specified service is not active. You cannot update a service that is not active. If you have previously deleted a service, you can re-create it with <a>CreateService</a>.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "ServiceNotActiveException"
     },
     "ServiceNotFoundException": {
       "description": "The specified service could not be found. You can view your available services with <a>ListServices</a>. Amazon ECS services are cluster-specific and region-specific.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "ServiceNotFoundException"
     },
     "Services": {
       "items": {
         "$ref": "#/definitions/Service"
       },
-      "type": "array"
+      "type": "array",
+      "title": "Services"
     },
     "SortOrder": {
       "enum": [
         "ASC",
         "DESC"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "SortOrder"
     },
     "StartTaskRequest": {
       "properties": {
@@ -2192,7 +2309,8 @@
         "taskDefinition",
         "containerInstances"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "StartTaskRequest"
     },
     "StartTaskResponse": {
       "properties": {
@@ -2205,7 +2323,8 @@
           "description": "A full description of the tasks that were started. Each task that was successfully placed on your container instances are described here."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "StartTaskResponse"
     },
     "StopTaskRequest": {
       "properties": {
@@ -2225,7 +2344,8 @@
       "required": [
         "task"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "StopTaskRequest"
     },
     "StopTaskResponse": {
       "properties": {
@@ -2234,16 +2354,19 @@
           "description": "The task that was stopped."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "StopTaskResponse"
     },
     "String": {
-      "type": "string"
+      "type": "string",
+      "title": "String"
     },
     "StringList": {
       "items": {
         "$ref": "#/definitions/String"
       },
-      "type": "array"
+      "type": "array",
+      "title": "StringList"
     },
     "SubmitContainerStateChangeRequest": {
       "properties": {
@@ -2276,7 +2399,8 @@
           "description": "The task ID or full Amazon Resource Name (ARN) of the task that hosts the container."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SubmitContainerStateChangeRequest"
     },
     "SubmitContainerStateChangeResponse": {
       "properties": {
@@ -2285,7 +2409,8 @@
           "description": "Acknowledgement of the state change."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SubmitContainerStateChangeResponse"
     },
     "SubmitTaskStateChangeRequest": {
       "properties": {
@@ -2306,7 +2431,8 @@
           "description": "The task ID or full Amazon Resource Name (ARN) of the task in the state change request."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SubmitTaskStateChangeRequest"
     },
     "SubmitTaskStateChangeResponse": {
       "properties": {
@@ -2315,18 +2441,21 @@
           "description": "Acknowledgement of the state change."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SubmitTaskStateChangeResponse"
     },
     "TargetNotFoundException": {
       "description": "The specified target could not be found. You can view your available container instances with <a>ListContainerInstances</a>. Amazon ECS container instances are cluster-specific and region-specific.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "TargetNotFoundException"
     },
     "TargetType": {
       "enum": [
         "container-instance"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "TargetType"
     },
     "Task": {
       "description": "Details on a task in a cluster.",
@@ -2392,7 +2521,8 @@
           "description": "The version counter for the task. Every time a task experiences a change that triggers a CloudWatch event, the version counter is incremented. If you are replicating your Amazon ECS task state with CloudWatch events, you can compare the version of a task reported by the Amazon ECS APIs with the version reported in CloudWatch events for the task (inside the <code>detail</code> object) to verify that the version in your event stream is current."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Task"
     },
     "TaskDefinition": {
       "description": "Details of a task definition.",
@@ -2438,7 +2568,8 @@
           "description": "The list of volumes in a task. For more information about volume definition parameters and defaults, see <a href=\"http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html\">Amazon ECS Task Definitions</a> in the <i>Amazon EC2 Container Service Developer Guide</i>."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TaskDefinition"
     },
     "TaskDefinitionFamilyStatus": {
       "enum": [
@@ -2446,7 +2577,8 @@
         "INACTIVE",
         "ALL"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "TaskDefinitionFamilyStatus"
     },
     "TaskDefinitionPlacementConstraint": {
       "description": "An object representing a constraint on task placement in the task definition. For more information, see <a href=\"http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-constraints.html\">Task Placement Constraints</a> in the <i>Amazon EC2 Container Service Developer Guide</i>.",
@@ -2460,26 +2592,30 @@
           "description": "The type of constraint. The <code>DistinctInstance</code> constraint ensures that each task in a particular group is running on a different container instance. The <code>MemberOf</code> constraint restricts selection to be from a group of valid candidates."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TaskDefinitionPlacementConstraint"
     },
     "TaskDefinitionPlacementConstraintType": {
       "enum": [
         "memberOf"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "TaskDefinitionPlacementConstraintType"
     },
     "TaskDefinitionPlacementConstraints": {
       "items": {
         "$ref": "#/definitions/TaskDefinitionPlacementConstraint"
       },
-      "type": "array"
+      "type": "array",
+      "title": "TaskDefinitionPlacementConstraints"
     },
     "TaskDefinitionStatus": {
       "enum": [
         "ACTIVE",
         "INACTIVE"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "TaskDefinitionStatus"
     },
     "TaskOverride": {
       "description": "The overrides associated with a task.",
@@ -2493,24 +2629,28 @@
           "description": "The Amazon Resource Name (ARN) of the IAM role that containers in this task can assume. All containers in this task are granted the permissions that are specified in this role."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TaskOverride"
     },
     "Tasks": {
       "items": {
         "$ref": "#/definitions/Task"
       },
-      "type": "array"
+      "type": "array",
+      "title": "Tasks"
     },
     "Timestamp": {
       "format": "date-time",
-      "type": "string"
+      "type": "string",
+      "title": "Timestamp"
     },
     "TransportProtocol": {
       "enum": [
         "tcp",
         "udp"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "TransportProtocol"
     },
     "Ulimit": {
       "description": "The <code>ulimit</code> settings to pass to the container.",
@@ -2533,13 +2673,15 @@
         "softLimit",
         "hardLimit"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "Ulimit"
     },
     "UlimitList": {
       "items": {
         "$ref": "#/definitions/Ulimit"
       },
-      "type": "array"
+      "type": "array",
+      "title": "UlimitList"
     },
     "UlimitName": {
       "enum": [
@@ -2559,7 +2701,8 @@
         "sigpending",
         "stack"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "UlimitName"
     },
     "UpdateContainerAgentRequest": {
       "properties": {
@@ -2575,7 +2718,8 @@
       "required": [
         "containerInstance"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateContainerAgentRequest"
     },
     "UpdateContainerAgentResponse": {
       "properties": {
@@ -2584,7 +2728,8 @@
           "description": "The container instance for which the container agent was updated."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UpdateContainerAgentResponse"
     },
     "UpdateContainerInstancesStateRequest": {
       "properties": {
@@ -2605,7 +2750,8 @@
         "containerInstances",
         "status"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateContainerInstancesStateRequest"
     },
     "UpdateContainerInstancesStateResponse": {
       "properties": {
@@ -2618,12 +2764,14 @@
           "description": "Any failures associated with the call."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UpdateContainerInstancesStateResponse"
     },
     "UpdateInProgressException": {
       "description": "There is already a current Amazon ECS container agent update in progress on the specified container instance. If the container agent becomes disconnected while it is in a transitional stage, such as <code>PENDING</code> or <code>STAGING</code>, the update process can get stuck in that state. However, when the agent reconnects, it resumes where it stopped previously.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "UpdateInProgressException"
     },
     "UpdateServiceRequest": {
       "example": {
@@ -2655,7 +2803,8 @@
       "required": [
         "service"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateServiceRequest"
     },
     "UpdateServiceResponse": {
       "example": {},
@@ -2665,7 +2814,8 @@
           "description": "The full description of your service following the update call."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UpdateServiceResponse"
     },
     "VersionInfo": {
       "description": "The Docker and Amazon ECS container agent version information about a container instance.",
@@ -2683,7 +2833,8 @@
           "description": "The Docker version running on the container instance."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "VersionInfo"
     },
     "Volume": {
       "description": "A data volume used in a task definition.",
@@ -2697,7 +2848,8 @@
           "description": "The name of the volume. Up to 255 letters (uppercase and lowercase), numbers, hyphens, and underscores are allowed. This name is referenced in the <code>sourceVolume</code> parameter of container definition <code>mountPoints</code>."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Volume"
     },
     "VolumeFrom": {
       "description": "Details on a data volume from another container in the same task definition.",
@@ -2711,19 +2863,22 @@
           "description": "The name of another container within the same task definition to mount volumes from."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "VolumeFrom"
     },
     "VolumeFromList": {
       "items": {
         "$ref": "#/definitions/VolumeFrom"
       },
-      "type": "array"
+      "type": "array",
+      "title": "VolumeFromList"
     },
     "VolumeList": {
       "items": {
         "$ref": "#/definitions/Volume"
       },
-      "type": "array"
+      "type": "array",
+      "title": "VolumeList"
     }
   },
   "actions": [

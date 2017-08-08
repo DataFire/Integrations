@@ -48,7 +48,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AliasContext"
     },
     "Breakpoint": {
       "description": "Represents the breakpoint specification, status and results.",
@@ -144,7 +145,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Breakpoint"
     },
     "CloudRepoSourceContext": {
       "description": "A CloudRepoSourceContext denotes a particular revision in a cloud\nrepo (a repo hosted by the Google Cloud Platform).",
@@ -166,7 +168,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CloudRepoSourceContext"
     },
     "CloudWorkspaceId": {
       "description": "A CloudWorkspaceId is a unique identifier for a cloud workspace.\nA cloud workspace is a place associated with a repo where modified files\ncan be stored before they are committed.",
@@ -180,7 +183,8 @@
           "description": "The ID of the repo containing the workspace."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CloudWorkspaceId"
     },
     "CloudWorkspaceSourceContext": {
       "description": "A CloudWorkspaceSourceContext denotes a workspace at a particular snapshot.",
@@ -194,7 +198,8 @@
           "description": "The ID of the workspace."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CloudWorkspaceSourceContext"
     },
     "Debuggee": {
       "description": "Represents the application to debug. The application may include one or more\nreplicated processes executing the same code. Each of these processes is\nattached with a debugger agent, carrying out the debugging commands.\nThe agents attached to the same debuggee are identified by using exactly the\nsame field values when registering.",
@@ -253,12 +258,14 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Debuggee"
     },
     "Empty": {
       "description": "A generic empty message that you can re-use to avoid defining duplicated\nempty messages in your APIs. A typical example is to use it as the request\nor the response type of an API method. For instance:\n\n    service Foo {\n      rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);\n    }\n\nThe JSON representation for `Empty` is empty JSON object `{}`.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "Empty"
     },
     "ExtendedSourceContext": {
       "description": "An ExtendedSourceContext is a SourceContext combined with additional\ndetails describing the context.",
@@ -275,7 +282,8 @@
           "type": "object"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ExtendedSourceContext"
     },
     "FormatMessage": {
       "description": "Represents a message with parameters.",
@@ -292,7 +300,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "FormatMessage"
     },
     "GerritSourceContext": {
       "description": "A SourceContext referring to a Gerrit project.",
@@ -318,7 +327,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GerritSourceContext"
     },
     "GetBreakpointResponse": {
       "description": "Response for getting breakpoint information.",
@@ -328,7 +338,8 @@
           "description": "Complete breakpoint state.\nThe fields `id` and `location` are guaranteed to be set."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetBreakpointResponse"
     },
     "GitSourceContext": {
       "description": "A GitSourceContext denotes a particular revision in a third party Git\nrepository (e.g. GitHub).",
@@ -342,7 +353,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GitSourceContext"
     },
     "ListActiveBreakpointsResponse": {
       "description": "Response for listing active breakpoints.",
@@ -363,7 +375,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListActiveBreakpointsResponse"
     },
     "ListBreakpointsResponse": {
       "description": "Response for listing breakpoints.",
@@ -380,7 +393,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListBreakpointsResponse"
     },
     "ListDebuggeesResponse": {
       "description": "Response for listing debuggees.",
@@ -393,7 +407,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListDebuggeesResponse"
     },
     "ProjectRepoId": {
       "description": "Selects a repo using a Google Cloud Platform project ID\n(e.g. winged-cargo-31) and a repo name within that project.",
@@ -407,7 +422,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ProjectRepoId"
     },
     "RegisterDebuggeeRequest": {
       "description": "Request to register a debuggee.",
@@ -417,7 +433,8 @@
           "description": "Debuggee information to register.\nThe fields `project`, `uniquifier`, `description` and `agent_version`\nof the debuggee must be set."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RegisterDebuggeeRequest"
     },
     "RegisterDebuggeeResponse": {
       "description": "Response for registering a debuggee.",
@@ -427,7 +444,8 @@
           "description": "Debuggee resource.\nThe field `id` is guranteed to be set (in addition to the echoed fields)."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RegisterDebuggeeResponse"
     },
     "RepoId": {
       "description": "A unique identifier for a cloud repo.",
@@ -441,7 +459,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RepoId"
     },
     "SetBreakpointResponse": {
       "description": "Response for setting a breakpoint.",
@@ -451,7 +470,8 @@
           "description": "Breakpoint resource.\nThe field `id` is guaranteed to be set (in addition to the echoed fileds)."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SetBreakpointResponse"
     },
     "SourceContext": {
       "description": "A SourceContext is a reference to a tree of files. A SourceContext together\nwith a path point to a unique revision of a single file or directory.",
@@ -473,7 +493,8 @@
           "description": "A SourceContext referring to any third party Git repo (e.g. GitHub)."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SourceContext"
     },
     "SourceLocation": {
       "description": "Represents a location in the source code.",
@@ -488,7 +509,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SourceLocation"
     },
     "StackFrame": {
       "description": "Represents a stack frame context.",
@@ -516,7 +538,8 @@
           "description": "Source location of the call site."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "StackFrame"
     },
     "StatusMessage": {
       "description": "Represents a contextual status message.\nThe message can indicate an error or informational status, and refer to\nspecific parts of the containing object.\nFor example, the `Breakpoint.status` field can indicate an error referring\nto the `BREAKPOINT_SOURCE_LOCATION` with the message `Location not found`.",
@@ -543,7 +566,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "StatusMessage"
     },
     "UpdateActiveBreakpointRequest": {
       "description": "Request to update an active breakpoint.",
@@ -553,12 +577,14 @@
           "description": "Updated breakpoint information.\nThe field 'id' must be set."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UpdateActiveBreakpointRequest"
     },
     "UpdateActiveBreakpointResponse": {
       "description": "Response for updating an active breakpoint.\nThe message is defined to allow future extensions.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "UpdateActiveBreakpointResponse"
     },
     "Variable": {
       "description": "Represents a variable or an argument possibly of a compound object type.\nNote how the following variables are represented:\n\n1) A simple variable:\n\n    int x = 5\n\n    { name: \"x\", value: \"5\", type: \"int\" }  // Captured variable\n\n2) A compound object:\n\n    struct T {\n        int m1;\n        int m2;\n    };\n    T x = { 3, 7 };\n\n    {  // Captured variable\n        name: \"x\",\n        type: \"T\",\n        members { name: \"m1\", value: \"3\", type: \"int\" },\n        members { name: \"m2\", value: \"7\", type: \"int\" }\n    }\n\n3) A pointer where the pointee was captured:\n\n    T x = { 3, 7 };\n    T* p = &x;\n\n    {   // Captured variable\n        name: \"p\",\n        type: \"T*\",\n        value: \"0x00500500\",\n        members { name: \"m1\", value: \"3\", type: \"int\" },\n        members { name: \"m2\", value: \"7\", type: \"int\" }\n    }\n\n4) A pointer where the pointee was not captured:\n\n    T* p = new T;\n\n    {   // Captured variable\n        name: \"p\",\n        type: \"T*\",\n        value: \"0x00400400\"\n        status { is_error: true, description { format: \"unavailable\" } }\n    }\n\nThe status should describe the reason for the missing value,\nsuch as `<optimized out>`, `<inaccessible>`, `<pointers limit reached>`.\n\nNote that a null pointer should not have members.\n\n5) An unnamed value:\n\n    int* p = new int(7);\n\n    {   // Captured variable\n        name: \"p\",\n        value: \"0x00500500\",\n        type: \"int*\",\n        members { value: \"7\", type: \"int\" } }\n\n6) An unnamed pointer where the pointee was not captured:\n\n    int* p = new int(7);\n    int** pp = &p;\n\n    {  // Captured variable\n        name: \"pp\",\n        value: \"0x00500500\",\n        type: \"int**\",\n        members {\n            value: \"0x00400400\",\n            type: \"int*\"\n            status {\n                is_error: true,\n                description: { format: \"unavailable\" } }\n            }\n        }\n    }\n\nTo optimize computation, memory and network traffic, variables that\nrepeat in the output multiple times can be stored once in a shared\nvariable table and be referenced using the `var_table_index` field.  The\nvariables stored in the shared table are nameless and are essentially\na partition of the complete variable. To reconstruct the complete\nvariable, merge the referencing variable with the referenced variable.\n\nWhen using the shared variable table, the following variables:\n\n    T x = { 3, 7 };\n    T* p = &x;\n    T& r = x;\n\n    { name: \"x\", var_table_index: 3, type: \"T\" }  // Captured variables\n    { name: \"p\", value \"0x00500500\", type=\"T*\", var_table_index: 3 }\n    { name: \"r\", type=\"T&\", var_table_index: 3 }\n\n    {  // Shared variable table entry #3:\n        members { name: \"m1\", value: \"3\", type: \"int\" },\n        members { name: \"m2\", value: \"7\", type: \"int\" }\n    }\n\nNote that the pointer address is stored with the referencing variable\nand not with the referenced variable. This allows the referenced variable\nto be shared between pointers and references.\n\nThe type field is optional. The debugger agent may or may not support it.",
@@ -592,7 +618,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Variable"
     }
   },
   "actions": [

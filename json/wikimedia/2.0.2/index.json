@@ -27,7 +27,8 @@
       },
       "required": [
         "items"
-      ]
+      ],
+      "title": "listing"
     },
     "originalimage": {
       "properties": {
@@ -49,7 +50,8 @@
         "width",
         "height"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "originalimage"
     },
     "pagecounts-project": {
       "properties": {
@@ -76,7 +78,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "pagecounts-project"
     },
     "pageview-article": {
       "properties": {
@@ -109,7 +112,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "pageview-article"
     },
     "pageview-project": {
       "properties": {
@@ -139,7 +143,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "pageview-project"
     },
     "pageview-tops": {
       "properties": {
@@ -168,7 +173,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "pageview-tops"
     },
     "problem": {
       "properties": {
@@ -187,7 +193,8 @@
       },
       "required": [
         "type"
-      ]
+      ],
+      "title": "problem"
     },
     "summary": {
       "properties": {
@@ -250,7 +257,8 @@
         "lang",
         "dir"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "summary"
     },
     "thumbnail": {
       "properties": {
@@ -272,7 +280,8 @@
         "width",
         "height"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "thumbnail"
     },
     "unique-devices": {
       "properties": {
@@ -299,7 +308,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "unique-devices"
     }
   },
   "actions": [

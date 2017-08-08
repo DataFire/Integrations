@@ -20,7 +20,8 @@
           "description": "The properties of the container registry.",
           "x-ms-client-flatten": true
         }
-      }
+      },
+      "title": "Registry"
     },
     "RegistryCredentials": {
       "description": "The result of a request to get the administrator login credentials for a container registry.",
@@ -33,7 +34,8 @@
           "description": "The administrator username.",
           "type": "string"
         }
-      }
+      },
+      "title": "RegistryCredentials"
     },
     "RegistryListResult": {
       "description": "The result of a request to list container registries.",
@@ -49,7 +51,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "RegistryListResult"
     },
     "RegistryNameCheckRequest": {
       "description": "A request to check whether the container registry name is available.",
@@ -73,7 +76,8 @@
       "required": [
         "name",
         "type"
-      ]
+      ],
+      "title": "RegistryNameCheckRequest"
     },
     "RegistryNameStatus": {
       "description": "The result of a request to check the availability of a container registry name.",
@@ -90,7 +94,8 @@
           "description": "If any, the reason that the name is not available.",
           "type": "string"
         }
-      }
+      },
+      "title": "RegistryNameStatus"
     },
     "RegistryProperties": {
       "description": "The properties of a container registry.",
@@ -118,7 +123,8 @@
       },
       "required": [
         "storageAccount"
-      ]
+      ],
+      "title": "RegistryProperties"
     },
     "RegistryPropertiesUpdateParameters": {
       "description": "The parameters for updating the properties of a container registry.",
@@ -131,7 +137,8 @@
           "$ref": "#/definitions/StorageAccountProperties",
           "description": "The properties of a storage account for the container registry. If specified, the storage account must be in the same physical location as the container registry."
         }
-      }
+      },
+      "title": "RegistryPropertiesUpdateParameters"
     },
     "RegistryUpdateParameters": {
       "description": "The parameters for updating a container registry.",
@@ -148,7 +155,8 @@
           "description": "The resource tags for the container registry.",
           "type": "object"
         }
-      }
+      },
+      "title": "RegistryUpdateParameters"
     },
     "Resource": {
       "description": "An Azure resource.",
@@ -183,7 +191,8 @@
       "required": [
         "location"
       ],
-      "x-ms-azure-resource": true
+      "x-ms-azure-resource": true,
+      "title": "Resource"
     },
     "StorageAccountProperties": {
       "description": "The properties of a storage account for a container registry.",
@@ -200,7 +209,8 @@
       "required": [
         "name",
         "accessKey"
-      ]
+      ],
+      "title": "StorageAccountProperties"
     }
   },
   "actions": [

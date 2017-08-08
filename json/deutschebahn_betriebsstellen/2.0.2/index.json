@@ -19,7 +19,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Error"
     },
     "Station": {
       "properties": {
@@ -89,13 +90,15 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Station"
     },
     "StationList": {
       "items": {
         "$ref": "#/definitions/Station"
       },
-      "type": "array"
+      "type": "array",
+      "title": "StationList"
     }
   },
   "actions": [

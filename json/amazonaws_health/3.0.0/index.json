@@ -48,7 +48,8 @@
           "description": "A map of entity tags attached to the affected entity."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AffectedEntity"
     },
     "DateTimeRange": {
       "description": "A range of dates and times that is used by the <a>EventFilter</a> and <a>EntityFilter</a> objects. If <code>from</code> is set and <code>to</code> is set: match items where the timestamp (<code>startTime</code>, <code>endTime</code>, or <code>lastUpdatedTime</code>) is between <code>from</code> and <code>to</code> inclusive. If <code>from</code> is set and <code>to</code> is not set: match items where the timestamp value is equal to or after <code>from</code>. If <code>from</code> is not set and <code>to</code> is set: match items where the timestamp value is equal to or before <code>to</code>.",
@@ -62,7 +63,8 @@
           "description": "The ending date and time of a time range."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DateTimeRange"
     },
     "DescribeAffectedEntitiesRequest": {
       "properties": {
@@ -86,7 +88,8 @@
       "required": [
         "filter"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeAffectedEntitiesRequest"
     },
     "DescribeAffectedEntitiesResponse": {
       "properties": {
@@ -99,7 +102,8 @@
           "description": "If the results of a search are large, only a portion of the results are returned, and a <code>nextToken</code> pagination token is returned in the response. To retrieve the next batch of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeAffectedEntitiesResponse"
     },
     "DescribeEntityAggregatesRequest": {
       "properties": {
@@ -108,7 +112,8 @@
           "description": "A list of event ARNs (unique identifiers). For example: <code>\"arn:aws:health:us-east-1::event/AWS_EC2_MAINTENANCE_5331\", \"arn:aws:health:us-west-1::event/AWS_EBS_LOST_VOLUME_xyz\"</code> "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeEntityAggregatesRequest"
     },
     "DescribeEntityAggregatesResponse": {
       "properties": {
@@ -117,7 +122,8 @@
           "description": "The number of entities that are affected by each of the specified events."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeEntityAggregatesResponse"
     },
     "DescribeEventAggregatesRequest": {
       "properties": {
@@ -141,7 +147,8 @@
       "required": [
         "aggregateField"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeEventAggregatesRequest"
     },
     "DescribeEventAggregatesResponse": {
       "properties": {
@@ -154,13 +161,15 @@
           "description": "If the results of a search are large, only a portion of the results are returned, and a <code>nextToken</code> pagination token is returned in the response. To retrieve the next batch of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeEventAggregatesResponse"
     },
     "DescribeEventDetailsFailedSet": {
       "items": {
         "$ref": "#/definitions/EventDetailsErrorItem"
       },
-      "type": "array"
+      "type": "array",
+      "title": "DescribeEventDetailsFailedSet"
     },
     "DescribeEventDetailsRequest": {
       "properties": {
@@ -176,7 +185,8 @@
       "required": [
         "eventArns"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeEventDetailsRequest"
     },
     "DescribeEventDetailsResponse": {
       "properties": {
@@ -189,13 +199,15 @@
           "description": "Information about the events that could be retrieved."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeEventDetailsResponse"
     },
     "DescribeEventDetailsSuccessfulSet": {
       "items": {
         "$ref": "#/definitions/EventDetails"
       },
-      "type": "array"
+      "type": "array",
+      "title": "DescribeEventDetailsSuccessfulSet"
     },
     "DescribeEventTypesRequest": {
       "properties": {
@@ -216,7 +228,8 @@
           "description": "If the results of a search are large, only a portion of the results are returned, and a <code>nextToken</code> pagination token is returned in the response. To retrieve the next batch of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeEventTypesRequest"
     },
     "DescribeEventTypesResponse": {
       "properties": {
@@ -229,7 +242,8 @@
           "description": "If the results of a search are large, only a portion of the results are returned, and a <code>nextToken</code> pagination token is returned in the response. To retrieve the next batch of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeEventTypesResponse"
     },
     "DescribeEventsRequest": {
       "properties": {
@@ -250,7 +264,8 @@
           "description": "If the results of a search are large, only a portion of the results are returned, and a <code>nextToken</code> pagination token is returned in the response. To retrieve the next batch of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeEventsRequest"
     },
     "DescribeEventsResponse": {
       "properties": {
@@ -263,7 +278,8 @@
           "description": "If the results of a search are large, only a portion of the results are returned, and a <code>nextToken</code> pagination token is returned in the response. To retrieve the next batch of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeEventsResponse"
     },
     "EntityAggregate": {
       "description": "The number of entities that are affected by one or more events. Returned by the <a>DescribeEntityAggregates</a> operation.",
@@ -277,13 +293,15 @@
           "description": "The unique identifier for the event. Format: <code>arn:aws:health:<i>event-region</i>::event/<i>EVENT_TYPE_PLUS_ID</i> </code>. Example: <code>arn:aws:health:us-east-1::event/AWS_EC2_MAINTENANCE_5331</code> "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "EntityAggregate"
     },
     "EntityAggregateList": {
       "items": {
         "$ref": "#/definitions/EntityAggregate"
       },
-      "type": "array"
+      "type": "array",
+      "title": "EntityAggregateList"
     },
     "EntityFilter": {
       "description": "The values to use to filter results from the <a>DescribeAffectedEntities</a> operation.",
@@ -316,13 +334,15 @@
       "required": [
         "eventArns"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "EntityFilter"
     },
     "EntityList": {
       "items": {
         "$ref": "#/definitions/AffectedEntity"
       },
-      "type": "array"
+      "type": "array",
+      "title": "EntityList"
     },
     "Event": {
       "description": "Summary information about an event, returned by the <a>DescribeEvents</a> operation. The <a>DescribeEventDetails</a> operation also returns this information, as well as the <a>EventDescription</a> and additional event metadata.",
@@ -368,7 +388,8 @@
           "description": "The most recent status of the event. Possible values are <code>open</code>, <code>closed</code>, and <code>upcoming</code>."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Event"
     },
     "EventAggregate": {
       "description": "The number of events of each issue type. Returned by the <a>DescribeEventAggregates</a> operation.",
@@ -382,13 +403,15 @@
           "description": "The number of events of the associated issue type."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "EventAggregate"
     },
     "EventAggregateList": {
       "items": {
         "$ref": "#/definitions/EventAggregate"
       },
-      "type": "array"
+      "type": "array",
+      "title": "EventAggregateList"
     },
     "EventArnsList": {
       "items": {
@@ -396,7 +419,8 @@
       },
       "maxItems": 50,
       "minItems": 1,
-      "type": "array"
+      "type": "array",
+      "title": "EventArnsList"
     },
     "EventDescription": {
       "description": "The detailed description of the event. Included in the information returned by the <a>DescribeEventDetails</a> operation.",
@@ -406,7 +430,8 @@
           "description": "The most recent description of the event."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "EventDescription"
     },
     "EventDetails": {
       "description": "Detailed information about an event. A combination of an <a>Event</a> object, an <a>EventDescription</a> object, and additional metadata about the event. Returned by the <a>DescribeEventDetails</a> operation.",
@@ -424,7 +449,8 @@
           "description": "Additional metadata about the event."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "EventDetails"
     },
     "EventDetailsErrorItem": {
       "description": "Error information returned when a <a>DescribeEventDetails</a> operation cannot find a specified event.",
@@ -442,7 +468,8 @@
           "description": "The unique identifier for the event. Format: <code>arn:aws:health:<i>event-region</i>::event/<i>EVENT_TYPE_PLUS_ID</i> </code>. Example: <code>arn:aws:health:us-east-1::event/AWS_EC2_MAINTENANCE_5331</code> "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "EventDetailsErrorItem"
     },
     "EventFilter": {
       "description": "The values to use to filter results from the <a>DescribeEvents</a> and <a>DescribeEventAggregates</a> operations.",
@@ -500,13 +527,15 @@
           "description": "A map of entity tags attached to the affected entity."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "EventFilter"
     },
     "EventList": {
       "items": {
         "$ref": "#/definitions/Event"
       },
-      "type": "array"
+      "type": "array",
+      "title": "EventList"
     },
     "EventType": {
       "description": "Metadata about a type of event that is reported by AWS Health. Data consists of the category (for example, <code>issue</code>), the service (for example, <code>EC2</code>), and the event type code (for example, <code>AWS_EC2_SYSTEM_MAINTENANCE_EVENT</code>).",
@@ -524,7 +553,8 @@
           "description": "The AWS service that is affected by the event. For example, <code>EC2</code>, <code>RDS</code>."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "EventType"
     },
     "EventTypeCategoryList": {
       "items": {
@@ -532,7 +562,8 @@
       },
       "maxItems": 10,
       "minItems": 1,
-      "type": "array"
+      "type": "array",
+      "title": "EventTypeCategoryList"
     },
     "EventTypeCodeList": {
       "items": {
@@ -540,7 +571,8 @@
       },
       "maxItems": 10,
       "minItems": 1,
-      "type": "array"
+      "type": "array",
+      "title": "EventTypeCodeList"
     },
     "EventTypeFilter": {
       "description": "The values to use to filter results from the <a>DescribeEventTypes</a> operation.",
@@ -558,13 +590,15 @@
           "description": "The AWS services associated with the event. For example, <code>EC2</code>, <code>RDS</code>."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "EventTypeFilter"
     },
     "EventTypeList": {
       "items": {
         "$ref": "#/definitions/EventType"
       },
-      "type": "array"
+      "type": "array",
+      "title": "EventTypeList"
     },
     "InvalidPaginationToken": {
       "description": "The specified pagination token (<code>nextToken</code>) is not valid.",
@@ -573,7 +607,8 @@
           "$ref": "#/definitions/string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidPaginationToken"
     },
     "UnsupportedLocale": {
       "description": "The specified locale is not supported.",
@@ -582,27 +617,33 @@
           "$ref": "#/definitions/string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UnsupportedLocale"
     },
     "accountId": {
       "pattern": "[0-9]{12}",
-      "type": "string"
+      "type": "string",
+      "title": "accountId"
     },
     "aggregateValue": {
-      "type": "string"
+      "type": "string",
+      "title": "aggregateValue"
     },
     "availabilityZone": {
       "pattern": "[a-z]{2}\\-[0-9a-z\\-]{4,16}",
-      "type": "string"
+      "type": "string",
+      "title": "availabilityZone"
     },
     "availabilityZones": {
       "items": {
         "$ref": "#/definitions/availabilityZone"
       },
-      "type": "array"
+      "type": "array",
+      "title": "availabilityZones"
     },
     "count": {
-      "type": "integer"
+      "type": "integer",
+      "title": "count"
     },
     "dateTimeRangeList": {
       "items": {
@@ -610,11 +651,13 @@
       },
       "maxItems": 10,
       "minItems": 1,
-      "type": "array"
+      "type": "array",
+      "title": "dateTimeRangeList"
     },
     "entityArn": {
       "maxLength": 1600,
-      "type": "string"
+      "type": "string",
+      "title": "entityArn"
     },
     "entityArnList": {
       "items": {
@@ -622,7 +665,8 @@
       },
       "maxItems": 100,
       "minItems": 1,
-      "type": "array"
+      "type": "array",
+      "title": "entityArnList"
     },
     "entityStatusCode": {
       "enum": [
@@ -630,7 +674,8 @@
         "UNIMPAIRED",
         "UNKNOWN"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "entityStatusCode"
     },
     "entityStatusCodeList": {
       "items": {
@@ -638,11 +683,13 @@
       },
       "maxItems": 3,
       "minItems": 1,
-      "type": "array"
+      "type": "array",
+      "title": "entityStatusCodeList"
     },
     "entityValue": {
       "maxLength": 256,
-      "type": "string"
+      "type": "string",
+      "title": "entityValue"
     },
     "entityValueList": {
       "items": {
@@ -650,18 +697,21 @@
       },
       "maxItems": 100,
       "minItems": 1,
-      "type": "array"
+      "type": "array",
+      "title": "entityValueList"
     },
     "eventAggregateField": {
       "enum": [
         "eventTypeCategory"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "eventAggregateField"
     },
     "eventArn": {
       "maxLength": 1600,
       "pattern": "arn:aws:health:[^:]*:[^:]*:event/[\\w-]+",
-      "type": "string"
+      "type": "string",
+      "title": "eventArn"
     },
     "eventArnList": {
       "items": {
@@ -669,10 +719,12 @@
       },
       "maxItems": 10,
       "minItems": 1,
-      "type": "array"
+      "type": "array",
+      "title": "eventArnList"
     },
     "eventDescription": {
-      "type": "string"
+      "type": "string",
+      "title": "eventDescription"
     },
     "eventMetadata": {
       "items": {
@@ -686,7 +738,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "eventMetadata"
     },
     "eventStatusCode": {
       "enum": [
@@ -694,7 +747,8 @@
         "closed",
         "upcoming"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "eventStatusCode"
     },
     "eventStatusCodeList": {
       "items": {
@@ -702,12 +756,14 @@
       },
       "maxItems": 6,
       "minItems": 1,
-      "type": "array"
+      "type": "array",
+      "title": "eventStatusCodeList"
     },
     "eventType": {
       "maxLength": 100,
       "minLength": 3,
-      "type": "string"
+      "type": "string",
+      "title": "eventType"
     },
     "eventTypeCategory": {
       "enum": [
@@ -717,7 +773,8 @@
       ],
       "maxLength": 255,
       "minLength": 3,
-      "type": "string"
+      "type": "string",
+      "title": "eventTypeCategory"
     },
     "eventTypeCategoryList": {
       "items": {
@@ -725,12 +782,14 @@
       },
       "maxItems": 10,
       "minItems": 1,
-      "type": "array"
+      "type": "array",
+      "title": "eventTypeCategoryList"
     },
     "eventTypeCode": {
       "maxLength": 100,
       "minLength": 3,
-      "type": "string"
+      "type": "string",
+      "title": "eventTypeCode"
     },
     "eventTypeList": {
       "items": {
@@ -738,32 +797,39 @@
       },
       "maxItems": 10,
       "minItems": 1,
-      "type": "array"
+      "type": "array",
+      "title": "eventTypeList"
     },
     "locale": {
       "maxLength": 256,
       "minLength": 2,
-      "type": "string"
+      "type": "string",
+      "title": "locale"
     },
     "maxResults": {
       "maximum": 100,
       "minimum": 10,
-      "type": "integer"
+      "type": "integer",
+      "title": "maxResults"
     },
     "metadataKey": {
-      "type": "string"
+      "type": "string",
+      "title": "metadataKey"
     },
     "metadataValue": {
       "maxLength": 10240,
-      "type": "string"
+      "type": "string",
+      "title": "metadataValue"
     },
     "nextToken": {
       "pattern": "[a-zA-Z0-9=/+_.-]{4,512}",
-      "type": "string"
+      "type": "string",
+      "title": "nextToken"
     },
     "region": {
       "pattern": "[^:/]{2,25}",
-      "type": "string"
+      "type": "string",
+      "title": "region"
     },
     "regionList": {
       "items": {
@@ -771,12 +837,14 @@
       },
       "maxItems": 10,
       "minItems": 1,
-      "type": "array"
+      "type": "array",
+      "title": "regionList"
     },
     "service": {
       "maxLength": 30,
       "minLength": 2,
-      "type": "string"
+      "type": "string",
+      "title": "service"
     },
     "serviceList": {
       "items": {
@@ -784,21 +852,25 @@
       },
       "maxItems": 10,
       "minItems": 1,
-      "type": "array"
+      "type": "array",
+      "title": "serviceList"
     },
     "string": {
-      "type": "string"
+      "type": "string",
+      "title": "string"
     },
     "tagFilter": {
       "items": {
         "$ref": "#/definitions/tagSet"
       },
       "maxItems": 50,
-      "type": "array"
+      "type": "array",
+      "title": "tagFilter"
     },
     "tagKey": {
       "maxLength": 127,
-      "type": "string"
+      "type": "string",
+      "title": "tagKey"
     },
     "tagSet": {
       "items": {
@@ -813,15 +885,18 @@
         "type": "object"
       },
       "maxItems": 50,
-      "type": "array"
+      "type": "array",
+      "title": "tagSet"
     },
     "tagValue": {
       "maxLength": 255,
-      "type": "string"
+      "type": "string",
+      "title": "tagValue"
     },
     "timestamp": {
       "format": "date-time",
-      "type": "string"
+      "type": "string",
+      "title": "timestamp"
     }
   },
   "actions": [

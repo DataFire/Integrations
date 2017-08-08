@@ -21,7 +21,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AuthorizationValue"
     },
     "CliOption": {
       "properties": {
@@ -45,7 +46,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CliOption"
     },
     "GeneratorInput": {
       "properties": {
@@ -69,7 +71,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GeneratorInput"
     },
     "ResponseCode": {
       "properties": {
@@ -84,7 +87,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ResponseCode"
     },
     "SecuritySchemeDefinition": {
       "properties": {
@@ -95,7 +99,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SecuritySchemeDefinition"
     }
   },
   "actions": [

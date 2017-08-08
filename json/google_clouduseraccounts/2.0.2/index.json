@@ -47,7 +47,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AuditConfig"
     },
     "AuthorizedKeysView": {
       "description": "A list of authorized public keys for a user account.",
@@ -64,7 +65,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AuthorizedKeysView"
     },
     "Binding": {
       "description": "Associates `members` with a `role`.",
@@ -81,7 +83,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Binding"
     },
     "Condition": {
       "description": "A condition to be met.",
@@ -134,7 +137,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Condition"
     },
     "Group": {
       "description": "A Group resource.",
@@ -174,7 +178,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Group"
     },
     "GroupList": {
       "properties": {
@@ -203,7 +208,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GroupList"
     },
     "GroupsAddMemberRequest": {
       "properties": {
@@ -215,7 +221,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GroupsAddMemberRequest"
     },
     "GroupsRemoveMemberRequest": {
       "properties": {
@@ -227,7 +234,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GroupsRemoveMemberRequest"
     },
     "LinuxAccountViews": {
       "description": "A list of all Linux accounts for this project. This API is only used by Compute Engine virtual machines to get information about user accounts for a project or instance. Linux resources are read-only views into users and groups managed by the Compute Engine Accounts API.",
@@ -252,7 +260,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LinuxAccountViews"
     },
     "LinuxGetAuthorizedKeysViewResponse": {
       "properties": {
@@ -261,7 +270,8 @@
           "description": "[Output Only] A list of authorized public keys for a user."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LinuxGetAuthorizedKeysViewResponse"
     },
     "LinuxGetLinuxAccountViewsResponse": {
       "properties": {
@@ -270,7 +280,8 @@
           "description": "[Output Only] A list of authorized user accounts and groups."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LinuxGetLinuxAccountViewsResponse"
     },
     "LinuxGroupView": {
       "description": "A detailed view of a Linux group.",
@@ -292,7 +303,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LinuxGroupView"
     },
     "LinuxUserView": {
       "description": "A detailed view of a Linux user account.",
@@ -324,7 +336,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LinuxUserView"
     },
     "LogConfig": {
       "description": "Specifies what kind of log the caller must write",
@@ -334,7 +347,8 @@
           "description": "Counter options."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LogConfig"
     },
     "LogConfigCounterOptions": {
       "description": "Options for counters",
@@ -348,7 +362,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LogConfigCounterOptions"
     },
     "Operation": {
       "description": "An Operation resource, used to manage asynchronous API requests.",
@@ -526,7 +541,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Operation"
     },
     "OperationList": {
       "description": "Contains a list of Operation resources.",
@@ -556,7 +572,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "OperationList"
     },
     "Policy": {
       "description": "Defines an Identity and Access Management (IAM) policy. It is used to specify access control policies for Cloud Platform resources.\n\n\n\nA `Policy` consists of a list of `bindings`. A `Binding` binds a list of `members` to a `role`, where the members can be user accounts, Google groups, Google domains, and service accounts. A `role` is a named list of permissions defined by IAM.\n\n**Example**\n\n{ \"bindings\": [ { \"role\": \"roles/owner\", \"members\": [ \"user:mike@example.com\", \"group:admins@example.com\", \"domain:google.com\", \"serviceAccount:my-other-app@appspot.gserviceaccount.com\", ] }, { \"role\": \"roles/viewer\", \"members\": [\"user:sean@example.com\"] } ] }\n\nFor a description of IAM and its features, see the [IAM developer's guide](https://cloud.google.com/iam).",
@@ -597,7 +614,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Policy"
     },
     "PublicKey": {
       "description": "A public key for authenticating to guests.",
@@ -623,7 +641,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PublicKey"
     },
     "Rule": {
       "description": "A rule to be applied in a Policy.",
@@ -680,7 +699,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Rule"
     },
     "TestPermissionsRequest": {
       "properties": {
@@ -692,7 +712,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TestPermissionsRequest"
     },
     "TestPermissionsResponse": {
       "properties": {
@@ -704,7 +725,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TestPermissionsResponse"
     },
     "User": {
       "description": "A User resource.",
@@ -755,7 +777,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "User"
     },
     "UserList": {
       "properties": {
@@ -784,7 +807,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UserList"
     }
   },
   "actions": [

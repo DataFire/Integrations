@@ -31,7 +31,8 @@
         "user",
         "item",
         "type"
-      ]
+      ],
+      "title": "Action"
     },
     "AttributesName": {
       "properties": {
@@ -43,7 +44,8 @@
           "example": "attrValue2",
           "type": "string"
         }
-      }
+      },
+      "title": "AttributesName"
     },
     "Item": {
       "properties": {
@@ -62,7 +64,8 @@
       },
       "required": [
         "id"
-      ]
+      ],
+      "title": "Item"
     },
     "User": {
       "properties": {
@@ -85,7 +88,8 @@
       },
       "required": [
         "id"
-      ]
+      ],
+      "title": "User"
     }
   },
   "actions": [

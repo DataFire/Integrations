@@ -74,7 +74,8 @@
           "description": "The user type of the object.",
           "type": "string"
         }
-      }
+      },
+      "title": "AADObject"
     },
     "ADGroup": {
       "description": "Active Directory group information.",
@@ -99,7 +100,8 @@
           "description": "Whether the group is security-enable.",
           "type": "boolean"
         }
-      }
+      },
+      "title": "ADGroup"
     },
     "Application": {
       "description": "Active Directory application information.",
@@ -149,7 +151,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "Application"
     },
     "ApplicationCreateParameters": {
       "description": "Request parameters for creating a new application.",
@@ -199,7 +202,8 @@
         "availableToOtherTenants",
         "displayName",
         "identifierUris"
-      ]
+      ],
+      "title": "ApplicationCreateParameters"
     },
     "ApplicationListResult": {
       "description": "Application list operation result.",
@@ -215,7 +219,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "ApplicationListResult"
     },
     "ApplicationUpdateParameters": {
       "description": "Request parameters for updating an existing application.",
@@ -260,7 +265,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "ApplicationUpdateParameters"
     },
     "CheckGroupMembershipParameters": {
       "description": "Request parameters for IsMemberOf API call.",
@@ -277,7 +283,8 @@
       "required": [
         "groupId",
         "memberId"
-      ]
+      ],
+      "title": "CheckGroupMembershipParameters"
     },
     "CheckGroupMembershipResult": {
       "description": "Server response for IsMemberOf API call",
@@ -286,7 +293,8 @@
           "description": "True if the specified user, group, contact, or service principal has either direct or transitive membership in the specified group; otherwise, false.",
           "type": "boolean"
         }
-      }
+      },
+      "title": "CheckGroupMembershipResult"
     },
     "ErrorMessage": {
       "description": "Active Directory error message.",
@@ -296,7 +304,8 @@
           "type": "string",
           "x-ms-client-name": "message"
         }
-      }
+      },
+      "title": "ErrorMessage"
     },
     "GetObjectsParameters": {
       "description": "Request parameters for the GetObjectsByObjectIds API.",
@@ -322,7 +331,8 @@
       },
       "required": [
         "includeDirectoryObjectReferences"
-      ]
+      ],
+      "title": "GetObjectsParameters"
     },
     "GetObjectsResult": {
       "description": "The response to an Active Directory object inquiry API request.",
@@ -338,7 +348,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "GetObjectsResult"
     },
     "GraphError": {
       "description": "Active Directory error information.",
@@ -349,7 +360,8 @@
           "type": "object",
           "x-ms-client-flatten": true
         }
-      }
+      },
+      "title": "GraphError"
     },
     "GroupAddMemberParameters": {
       "description": "Request parameters for adding a member to a group.",
@@ -361,7 +373,8 @@
       },
       "required": [
         "url"
-      ]
+      ],
+      "title": "GroupAddMemberParameters"
     },
     "GroupCreateParameters": {
       "description": "Request parameters for creating a new group.",
@@ -394,7 +407,8 @@
         "mailEnabled",
         "mailNickname",
         "securityEnabled"
-      ]
+      ],
+      "title": "GroupCreateParameters"
     },
     "GroupGetMemberGroupsParameters": {
       "description": "Request parameters for GetMemberGroups API call.",
@@ -406,7 +420,8 @@
       },
       "required": [
         "securityEnabledOnly"
-      ]
+      ],
+      "title": "GroupGetMemberGroupsParameters"
     },
     "GroupGetMemberGroupsResult": {
       "description": "Server response for GetMemberGroups API call.",
@@ -418,7 +433,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "GroupGetMemberGroupsResult"
     },
     "GroupListResult": {
       "description": "Server response for Get tenant groups API call",
@@ -434,7 +450,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "GroupListResult"
     },
     "KeyCredential": {
       "description": "Active Directory Key Credential information.",
@@ -465,7 +482,8 @@
           "description": "Key value.",
           "type": "string"
         }
-      }
+      },
+      "title": "KeyCredential"
     },
     "KeyCredentialListResult": {
       "description": "KeyCredential list operation result.",
@@ -477,7 +495,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "KeyCredentialListResult"
     },
     "KeyCredentialsUpdateParameters": {
       "description": "Request parameters for a KeyCredentials update operation",
@@ -492,7 +511,8 @@
       },
       "required": [
         "value"
-      ]
+      ],
+      "title": "KeyCredentialsUpdateParameters"
     },
     "OdataError": {
       "description": "Active Directory OData error information.",
@@ -507,7 +527,8 @@
           "type": "object",
           "x-ms-client-flatten": true
         }
-      }
+      },
+      "title": "OdataError"
     },
     "PasswordCredential": {
       "description": "Active Directory Password Credential information.",
@@ -530,7 +551,8 @@
           "description": "Key value.",
           "type": "string"
         }
-      }
+      },
+      "title": "PasswordCredential"
     },
     "PasswordCredentialListResult": {
       "description": "PasswordCredential list operation result.",
@@ -542,7 +564,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "PasswordCredentialListResult"
     },
     "PasswordCredentialsUpdateParameters": {
       "description": "Request parameters for a PasswordCredentials update operation.",
@@ -557,7 +580,8 @@
       },
       "required": [
         "value"
-      ]
+      ],
+      "title": "PasswordCredentialsUpdateParameters"
     },
     "PasswordProfile": {
       "description": "The password profile associated with a user.",
@@ -573,7 +597,8 @@
       },
       "required": [
         "password"
-      ]
+      ],
+      "title": "PasswordProfile"
     },
     "ServicePrincipal": {
       "description": "Active Directory service principal information.",
@@ -601,7 +626,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "ServicePrincipal"
     },
     "ServicePrincipalCreateParameters": {
       "description": "Request parameters for creating a new service principal.",
@@ -632,7 +658,8 @@
       "required": [
         "appId",
         "accountEnabled"
-      ]
+      ],
+      "title": "ServicePrincipalCreateParameters"
     },
     "ServicePrincipalListResult": {
       "description": "Server response for get tenant service principals API call.",
@@ -648,7 +675,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "ServicePrincipalListResult"
     },
     "User": {
       "description": "Active Directory user information.",
@@ -681,7 +709,8 @@
           "description": "The principal name of the user.",
           "type": "string"
         }
-      }
+      },
+      "title": "User"
     },
     "UserCreateParameters": {
       "description": "Request parameters for creating a new work or school account user.",
@@ -717,7 +746,8 @@
         "passwordProfile",
         "userPrincipalName",
         "mailNickname"
-      ]
+      ],
+      "title": "UserCreateParameters"
     },
     "UserGetMemberGroupsParameters": {
       "description": "Request parameters for GetMemberGroups API call.",
@@ -729,7 +759,8 @@
       },
       "required": [
         "securityEnabledOnly"
-      ]
+      ],
+      "title": "UserGetMemberGroupsParameters"
     },
     "UserGetMemberGroupsResult": {
       "description": "Server response for GetMemberGroups API call.",
@@ -741,7 +772,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "UserGetMemberGroupsResult"
     },
     "UserListResult": {
       "description": "Server response for Get tenant users API call.",
@@ -757,7 +789,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "UserListResult"
     },
     "UserUpdateParameters": {
       "description": "Request parameters for updating an existing work or school account user.",
@@ -778,7 +811,8 @@
           "$ref": "#/definitions/PasswordProfile",
           "description": "The password profile of the user."
         }
-      }
+      },
+      "title": "UserUpdateParameters"
     }
   },
   "actions": [

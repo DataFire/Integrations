@@ -116,7 +116,8 @@
         }
       },
       "type": "object",
-      "x-tag": "other"
+      "x-tag": "other",
+      "title": "Account"
     },
     "Article": {
       "properties": {
@@ -196,7 +197,8 @@
         }
       },
       "type": "object",
-      "x-tag": "articles"
+      "x-tag": "articles",
+      "title": "Article"
     },
     "ArticleComplete": {
       "allOf": [
@@ -250,7 +252,8 @@
         }
       },
       "type": "object",
-      "x-tag": "articles"
+      "x-tag": "articles",
+      "title": "ArticleComplete"
     },
     "ArticleCompletePrivate": {
       "allOf": [
@@ -268,7 +271,8 @@
         }
       },
       "type": "object",
-      "x-tag": "articles"
+      "x-tag": "articles",
+      "title": "ArticleCompletePrivate"
     },
     "ArticleConfidentiality": {
       "properties": {
@@ -284,7 +288,8 @@
         }
       },
       "type": "object",
-      "x-tag": "articles"
+      "x-tag": "articles",
+      "title": "ArticleConfidentiality"
     },
     "ArticleCreate": {
       "properties": {
@@ -426,7 +431,8 @@
         "title"
       ],
       "type": "object",
-      "x-tag": "articles"
+      "x-tag": "articles",
+      "title": "ArticleCreate"
     },
     "ArticleDOI": {
       "properties": {
@@ -437,7 +443,8 @@
         }
       },
       "type": "object",
-      "x-tag": "articles"
+      "x-tag": "articles",
+      "title": "ArticleDOI"
     },
     "ArticleEmbargo": {
       "properties": {
@@ -469,7 +476,8 @@
         }
       },
       "type": "object",
-      "x-tag": "articles"
+      "x-tag": "articles",
+      "title": "ArticleEmbargo"
     },
     "ArticleEmbargoUpdater": {
       "properties": {
@@ -499,7 +507,8 @@
         }
       },
       "type": "object",
-      "x-tag": "articles"
+      "x-tag": "articles",
+      "title": "ArticleEmbargoUpdater"
     },
     "ArticleSearch": {
       "allOf": [
@@ -523,7 +532,8 @@
         }
       },
       "type": "object",
-      "x-tag": "articles"
+      "x-tag": "articles",
+      "title": "ArticleSearch"
     },
     "ArticleUpdate": {
       "properties": {
@@ -662,7 +672,8 @@
         }
       },
       "type": "object",
-      "x-tag": "articles"
+      "x-tag": "articles",
+      "title": "ArticleUpdate"
     },
     "ArticlesCreator": {
       "properties": {
@@ -684,7 +695,8 @@
         "articles"
       ],
       "type": "object",
-      "x-tag": "articles"
+      "x-tag": "articles",
+      "title": "ArticlesCreator"
     },
     "Author": {
       "properties": {
@@ -716,7 +728,8 @@
         }
       },
       "type": "object",
-      "x-tag": "authors"
+      "x-tag": "authors",
+      "title": "Author"
     },
     "AuthorComplete": {
       "allOf": [
@@ -754,7 +767,8 @@
         }
       },
       "type": "object",
-      "x-tag": "authors"
+      "x-tag": "authors",
+      "title": "AuthorComplete"
     },
     "AuthorsCreator": {
       "properties": {
@@ -781,7 +795,8 @@
         "authors"
       ],
       "type": "object",
-      "x-tag": "articles"
+      "x-tag": "articles",
+      "title": "AuthorsCreator"
     },
     "CategoriesCreator": {
       "properties": {
@@ -804,7 +819,8 @@
         "categories"
       ],
       "type": "object",
-      "x-tag": "articles"
+      "x-tag": "articles",
+      "title": "CategoriesCreator"
     },
     "Category": {
       "properties": {
@@ -827,7 +843,8 @@
         }
       },
       "type": "object",
-      "x-tag": "common"
+      "x-tag": "common",
+      "title": "Category"
     },
     "Collaborator": {
       "properties": {
@@ -848,7 +865,8 @@
         }
       },
       "type": "object",
-      "x-tag": "projects"
+      "x-tag": "projects",
+      "title": "Collaborator"
     },
     "Collection": {
       "properties": {
@@ -883,7 +901,8 @@
         }
       },
       "type": "object",
-      "x-tag": "collections"
+      "x-tag": "collections",
+      "title": "Collection"
     },
     "CollectionComplete": {
       "allOf": [
@@ -1017,7 +1036,8 @@
         }
       },
       "type": "object",
-      "x-tag": "collections"
+      "x-tag": "collections",
+      "title": "CollectionComplete"
     },
     "CollectionCreate": {
       "properties": {
@@ -1147,7 +1167,8 @@
         "title"
       ],
       "type": "object",
-      "x-tag": "collections"
+      "x-tag": "collections",
+      "title": "CollectionCreate"
     },
     "CollectionPrivateLinkCreator": {
       "properties": {
@@ -1163,7 +1184,8 @@
         }
       },
       "type": "object",
-      "x-tag": "collections"
+      "x-tag": "collections",
+      "title": "CollectionPrivateLinkCreator"
     },
     "CollectionSearch": {
       "allOf": [
@@ -1179,7 +1201,8 @@
         }
       },
       "type": "object",
-      "x-tag": "collections"
+      "x-tag": "collections",
+      "title": "CollectionSearch"
     },
     "CollectionUpdate": {
       "properties": {
@@ -1306,7 +1329,8 @@
         }
       },
       "type": "object",
-      "x-tag": "collections"
+      "x-tag": "collections",
+      "title": "CollectionUpdate"
     },
     "CommonSearch": {
       "properties": {
@@ -1396,7 +1420,8 @@
         }
       },
       "type": "object",
-      "x-tag": "common"
+      "x-tag": "common",
+      "title": "CommonSearch"
     },
     "ConfidentialityCreator": {
       "properties": {
@@ -1405,7 +1430,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ConfidentialityCreator"
     },
     "CustomArticleField": {
       "properties": {
@@ -1429,7 +1455,8 @@
         }
       },
       "type": "object",
-      "x-tag": "articles"
+      "x-tag": "articles",
+      "title": "CustomArticleField"
     },
     "ErrorMessage": {
       "properties": {
@@ -1444,7 +1471,8 @@
         }
       },
       "type": "object",
-      "x-tag": "common"
+      "x-tag": "common",
+      "title": "ErrorMessage"
     },
     "FileCreator": {
       "properties": {
@@ -1471,7 +1499,8 @@
         }
       },
       "type": "object",
-      "x-tag": "articles"
+      "x-tag": "articles",
+      "title": "FileCreator"
     },
     "Group": {
       "properties": {
@@ -1499,7 +1528,8 @@
         }
       },
       "type": "object",
-      "x-tag": "institutions"
+      "x-tag": "institutions",
+      "title": "Group"
     },
     "Institution": {
       "properties": {
@@ -1523,7 +1553,8 @@
         }
       },
       "type": "object",
-      "x-tag": "institutions"
+      "x-tag": "institutions",
+      "title": "Institution"
     },
     "License": {
       "properties": {
@@ -1546,7 +1577,8 @@
         }
       },
       "type": "object",
-      "x-tag": "institutions"
+      "x-tag": "institutions",
+      "title": "License"
     },
     "Location": {
       "properties": {
@@ -1557,7 +1589,8 @@
         }
       },
       "type": "object",
-      "x-tag": "common"
+      "x-tag": "common",
+      "title": "Location"
     },
     "PrivateArticleSearch": {
       "allOf": [
@@ -1573,7 +1606,8 @@
         }
       },
       "type": "object",
-      "x-tag": "articles"
+      "x-tag": "articles",
+      "title": "PrivateArticleSearch"
     },
     "PrivateAuthorsSearch": {
       "properties": {
@@ -1664,7 +1698,8 @@
         }
       },
       "type": "object",
-      "x-tag": "authors"
+      "x-tag": "authors",
+      "title": "PrivateAuthorsSearch"
     },
     "PrivateCollectionSearch": {
       "allOf": [
@@ -1680,7 +1715,8 @@
         }
       },
       "type": "object",
-      "x-tag": "collections"
+      "x-tag": "collections",
+      "title": "PrivateCollectionSearch"
     },
     "PrivateFile": {
       "allOf": [
@@ -1729,7 +1765,8 @@
         }
       },
       "type": "object",
-      "x-tag": "common"
+      "x-tag": "common",
+      "title": "PrivateFile"
     },
     "PrivateLink": {
       "properties": {
@@ -1750,7 +1787,8 @@
         }
       },
       "type": "object",
-      "x-tag": "articles"
+      "x-tag": "articles",
+      "title": "PrivateLink"
     },
     "PrivateLinkCreator": {
       "properties": {
@@ -1761,7 +1799,8 @@
         }
       },
       "type": "object",
-      "x-tag": "articles"
+      "x-tag": "articles",
+      "title": "PrivateLinkCreator"
     },
     "Project": {
       "properties": {
@@ -1791,7 +1830,8 @@
         }
       },
       "type": "object",
-      "x-tag": "projects"
+      "x-tag": "projects",
+      "title": "Project"
     },
     "ProjectArticle": {
       "allOf": [
@@ -1942,7 +1982,8 @@
         }
       },
       "type": "object",
-      "x-tag": "articles"
+      "x-tag": "articles",
+      "title": "ProjectArticle"
     },
     "ProjectCollaborator": {
       "properties": {
@@ -1968,7 +2009,8 @@
         }
       },
       "type": "object",
-      "x-tag": "projects"
+      "x-tag": "projects",
+      "title": "ProjectCollaborator"
     },
     "ProjectCollaboratorInvite": {
       "properties": {
@@ -2002,7 +2044,8 @@
         "role_name"
       ],
       "type": "object",
-      "x-tag": "projects"
+      "x-tag": "projects",
+      "title": "ProjectCollaboratorInvite"
     },
     "ProjectComplete": {
       "allOf": [
@@ -2038,7 +2081,8 @@
         }
       },
       "type": "object",
-      "x-tag": "projects"
+      "x-tag": "projects",
+      "title": "ProjectComplete"
     },
     "ProjectCompletePrivate": {
       "allOf": [
@@ -2114,7 +2158,8 @@
         }
       },
       "type": "object",
-      "x-tag": "projects"
+      "x-tag": "projects",
+      "title": "ProjectCompletePrivate"
     },
     "ProjectCreate": {
       "properties": {
@@ -2147,7 +2192,8 @@
         "title"
       ],
       "type": "object",
-      "x-tag": "projects"
+      "x-tag": "projects",
+      "title": "ProjectCreate"
     },
     "ProjectNote": {
       "properties": {
@@ -2185,7 +2231,8 @@
         }
       },
       "type": "object",
-      "x-tag": "projects"
+      "x-tag": "projects",
+      "title": "ProjectNote"
     },
     "ProjectNoteCreate": {
       "properties": {
@@ -2200,7 +2247,8 @@
         "text"
       ],
       "type": "object",
-      "x-tag": "projects"
+      "x-tag": "projects",
+      "title": "ProjectNoteCreate"
     },
     "ProjectNotePrivate": {
       "allOf": [
@@ -2216,7 +2264,8 @@
         }
       },
       "type": "object",
-      "x-tag": "projects"
+      "x-tag": "projects",
+      "title": "ProjectNotePrivate"
     },
     "ProjectPrivate": {
       "allOf": [
@@ -2246,7 +2295,8 @@
         }
       },
       "type": "object",
-      "x-tag": "projects"
+      "x-tag": "projects",
+      "title": "ProjectPrivate"
     },
     "ProjectUpdate": {
       "properties": {
@@ -2270,7 +2320,8 @@
         }
       },
       "type": "object",
-      "x-tag": "projects"
+      "x-tag": "projects",
+      "title": "ProjectUpdate"
     },
     "PublicFile": {
       "properties": {
@@ -2304,7 +2355,8 @@
         }
       },
       "type": "object",
-      "x-tag": "common"
+      "x-tag": "common",
+      "title": "PublicFile"
     },
     "ResponseMessage": {
       "properties": {
@@ -2315,7 +2367,8 @@
         }
       },
       "type": "object",
-      "x-tag": "common"
+      "x-tag": "common",
+      "title": "ResponseMessage"
     },
     "UploadFilePart": {
       "properties": {
@@ -2351,7 +2404,8 @@
         }
       },
       "type": "object",
-      "x-tag": "upload"
+      "x-tag": "upload",
+      "title": "UploadFilePart"
     },
     "UploadInfo": {
       "properties": {
@@ -2394,7 +2448,8 @@
         }
       },
       "type": "object",
-      "x-tag": "upload"
+      "x-tag": "upload",
+      "title": "UploadInfo"
     },
     "Version": {
       "properties": {
@@ -2412,7 +2467,8 @@
         }
       },
       "type": "object",
-      "x-tag": "articles"
+      "x-tag": "articles",
+      "title": "Version"
     }
   },
   "actions": [

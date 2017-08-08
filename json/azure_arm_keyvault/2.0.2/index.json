@@ -34,7 +34,8 @@
         "tenantId",
         "objectId",
         "permissions"
-      ]
+      ],
+      "title": "AccessPolicyEntry"
     },
     "Permissions": {
       "description": "Permissions the identity has for keys, secrets and certificates.",
@@ -111,7 +112,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "Permissions"
     },
     "Resource": {
       "description": "Key Vault resource",
@@ -146,7 +148,8 @@
         "location",
         "name"
       ],
-      "x-ms-azure-resource": true
+      "x-ms-azure-resource": true,
+      "title": "Resource"
     },
     "ResourceListResult": {
       "description": "List of vault resources.",
@@ -162,7 +165,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "ResourceListResult"
     },
     "Sku": {
       "description": "SKU details",
@@ -194,7 +198,8 @@
       "required": [
         "name",
         "family"
-      ]
+      ],
+      "title": "Sku"
     },
     "Vault": {
       "allOf": [
@@ -211,7 +216,8 @@
       },
       "required": [
         "properties"
-      ]
+      ],
+      "title": "Vault"
     },
     "VaultCreateOrUpdateParameters": {
       "description": "Parameters for creating or updating a vault",
@@ -236,7 +242,8 @@
         "location",
         "properties"
       ],
-      "x-ms-azure-resource": true
+      "x-ms-azure-resource": true,
+      "title": "VaultCreateOrUpdateParameters"
     },
     "VaultListResult": {
       "description": "List of vaults",
@@ -252,7 +259,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "VaultListResult"
     },
     "VaultProperties": {
       "description": "Properties of the vault",
@@ -295,7 +303,8 @@
         "tenantId",
         "sku",
         "accessPolicies"
-      ]
+      ],
+      "title": "VaultProperties"
     }
   },
   "actions": [

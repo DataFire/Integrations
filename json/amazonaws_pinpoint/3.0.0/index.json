@@ -27,7 +27,8 @@
           "description": "The certificate private key."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "APNSChannelRequest"
     },
     "APNSChannelResponse": {
       "description": "Apple Distribution Push Notification Service channel definition.",
@@ -65,7 +66,8 @@
           "description": "Version of channel"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "APNSChannelResponse"
     },
     "Action": {
       "enum": [
@@ -73,7 +75,8 @@
         "DEEP_LINK",
         "URL"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "Action"
     },
     "ActivitiesResponse": {
       "description": "Activities for campaign.",
@@ -83,7 +86,8 @@
           "description": "List of campaign activities"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ActivitiesResponse"
     },
     "ActivityResponse": {
       "description": "Activity definition",
@@ -141,7 +145,8 @@
           "description": "The ID of a variation of the campaign used for A/B testing."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ActivityResponse"
     },
     "ApplicationSettingsResource": {
       "description": "Application settings.",
@@ -163,7 +168,8 @@
           "description": "The default quiet time for the app. Each campaign for this app sends no messages during this time unless the campaign overrides the default with a quiet time of its own."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ApplicationSettingsResource"
     },
     "AttributeDimension": {
       "description": "Custom attibute dimension",
@@ -177,14 +183,16 @@
           "description": "The criteria values for the segment dimension. Endpoints with matching attribute values are included or excluded from the segment, depending on the setting for Type."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AttributeDimension"
     },
     "AttributeType": {
       "enum": [
         "INCLUSIVE",
         "EXCLUSIVE"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "AttributeType"
     },
     "BadRequestException": {
       "description": "Simple message object.",
@@ -198,7 +206,8 @@
           "description": "The unique message body ID."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BadRequestException"
     },
     "CampaignLimits": {
       "description": "Campaign Limits are used to limit the number of messages that can be sent to a user.",
@@ -212,7 +221,8 @@
           "description": "The maximum total number of messages that the campaign can send."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CampaignLimits"
     },
     "CampaignResponse": {
       "description": "Campaign definition",
@@ -294,7 +304,8 @@
           "description": "The campaign version number."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CampaignResponse"
     },
     "CampaignState": {
       "description": "State of the Campaign",
@@ -304,7 +315,8 @@
           "description": "The status of the campaign, or the status of a treatment that belongs to an A/B test campaign.\n\nValid values: SCHEDULED, EXECUTING, PENDING_NEXT_RUN, COMPLETED, PAUSED"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CampaignState"
     },
     "CampaignStatus": {
       "enum": [
@@ -314,7 +326,8 @@
         "COMPLETED",
         "PAUSED"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "CampaignStatus"
     },
     "CampaignsResponse": {
       "description": "List of available campaigns.",
@@ -328,14 +341,16 @@
           "description": "The string that you use in a subsequent request to get the next page of results in a paginated response."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CampaignsResponse"
     },
     "ChannelType": {
       "enum": [
         "APNS",
         "GCM"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ChannelType"
     },
     "CreateCampaignRequest": {
       "properties": {
@@ -346,7 +361,8 @@
       "required": [
         "WriteCampaignRequest"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateCampaignRequest"
     },
     "CreateCampaignResponse": {
       "properties": {
@@ -357,7 +373,8 @@
       "required": [
         "CampaignResponse"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateCampaignResponse"
     },
     "CreateImportJobRequest": {
       "properties": {
@@ -368,7 +385,8 @@
       "required": [
         "ImportJobRequest"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateImportJobRequest"
     },
     "CreateImportJobResponse": {
       "properties": {
@@ -379,7 +397,8 @@
       "required": [
         "ImportJobResponse"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateImportJobResponse"
     },
     "CreateSegmentRequest": {
       "properties": {
@@ -390,7 +409,8 @@
       "required": [
         "WriteSegmentRequest"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateSegmentRequest"
     },
     "CreateSegmentResponse": {
       "properties": {
@@ -401,11 +421,13 @@
       "required": [
         "SegmentResponse"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateSegmentResponse"
     },
     "DeleteApnsChannelRequest": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DeleteApnsChannelRequest"
     },
     "DeleteApnsChannelResponse": {
       "properties": {
@@ -416,11 +438,13 @@
       "required": [
         "APNSChannelResponse"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteApnsChannelResponse"
     },
     "DeleteCampaignRequest": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DeleteCampaignRequest"
     },
     "DeleteCampaignResponse": {
       "properties": {
@@ -431,12 +455,14 @@
       "required": [
         "CampaignResponse"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteCampaignResponse"
     },
     "DeleteEventStreamRequest": {
       "description": "DeleteEventStream Request",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DeleteEventStreamRequest"
     },
     "DeleteEventStreamResponse": {
       "description": "DeleteEventStream Response",
@@ -448,11 +474,13 @@
       "required": [
         "EventStream"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteEventStreamResponse"
     },
     "DeleteGcmChannelRequest": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DeleteGcmChannelRequest"
     },
     "DeleteGcmChannelResponse": {
       "properties": {
@@ -463,11 +491,13 @@
       "required": [
         "GCMChannelResponse"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteGcmChannelResponse"
     },
     "DeleteSegmentRequest": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DeleteSegmentRequest"
     },
     "DeleteSegmentResponse": {
       "properties": {
@@ -478,14 +508,16 @@
       "required": [
         "SegmentResponse"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteSegmentResponse"
     },
     "DimensionType": {
       "enum": [
         "INCLUSIVE",
         "EXCLUSIVE"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "DimensionType"
     },
     "Duration": {
       "enum": [
@@ -494,7 +526,8 @@
         "DAY_14",
         "DAY_30"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "Duration"
     },
     "EndpointBatchItem": {
       "description": "Endpoint update request",
@@ -548,7 +581,8 @@
           "description": "Custom user-specific attributes that your app reports to Amazon Pinpoint."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "EndpointBatchItem"
     },
     "EndpointBatchRequest": {
       "description": "Endpoint batch update request.",
@@ -558,7 +592,8 @@
           "description": "List of items to update. Maximum 100 items"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "EndpointBatchRequest"
     },
     "EndpointDemographic": {
       "description": "Endpoint demographic data",
@@ -596,7 +631,8 @@
           "description": "The timezone of the endpoint. Specified as a tz database value, such as Americas/Los_Angeles."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "EndpointDemographic"
     },
     "EndpointLocation": {
       "description": "Endpoint location data",
@@ -626,7 +662,8 @@
           "description": "The region of the endpoint location. For example, corresponds to a state in US."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "EndpointLocation"
     },
     "EndpointRequest": {
       "description": "Endpoint update request",
@@ -676,7 +713,8 @@
           "description": "Custom user-specific attributes that your app reports to Amazon Pinpoint."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "EndpointRequest"
     },
     "EndpointResponse": {
       "description": "Endpoint response",
@@ -746,7 +784,8 @@
           "description": "Custom user-specific attributes that your app reports to Amazon Pinpoint."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "EndpointResponse"
     },
     "EndpointUser": {
       "description": "Endpoint user specific custom userAttributes",
@@ -760,7 +799,8 @@
           "description": "The unique ID of the user."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "EndpointUser"
     },
     "EventStream": {
       "description": "Model for an event publishing subscription export.",
@@ -790,7 +830,8 @@
           "description": "The IAM role that authorizes Amazon Pinpoint to publish events to the stream in your account."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "EventStream"
     },
     "ForbiddenException": {
       "description": "Simple message object.",
@@ -804,14 +845,16 @@
           "description": "The unique message body ID."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ForbiddenException"
     },
     "Format": {
       "enum": [
         "CSV",
         "JSON"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "Format"
     },
     "Frequency": {
       "enum": [
@@ -821,7 +864,8 @@
         "WEEKLY",
         "MONTHLY"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "Frequency"
     },
     "GCMChannelRequest": {
       "description": "Google Cloud Messaging credentials",
@@ -831,7 +875,8 @@
           "description": "Platform credential API key from Google."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GCMChannelRequest"
     },
     "GCMChannelResponse": {
       "description": "Google Cloud Messaging channel definition",
@@ -873,11 +918,13 @@
           "description": "Version of channel"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GCMChannelResponse"
     },
     "GetApnsChannelRequest": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "GetApnsChannelRequest"
     },
     "GetApnsChannelResponse": {
       "properties": {
@@ -888,11 +935,13 @@
       "required": [
         "APNSChannelResponse"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetApnsChannelResponse"
     },
     "GetApplicationSettingsRequest": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "GetApplicationSettingsRequest"
     },
     "GetApplicationSettingsResponse": {
       "properties": {
@@ -903,11 +952,13 @@
       "required": [
         "ApplicationSettingsResource"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetApplicationSettingsResponse"
     },
     "GetCampaignActivitiesRequest": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "GetCampaignActivitiesRequest"
     },
     "GetCampaignActivitiesResponse": {
       "properties": {
@@ -918,11 +969,13 @@
       "required": [
         "ActivitiesResponse"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetCampaignActivitiesResponse"
     },
     "GetCampaignRequest": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "GetCampaignRequest"
     },
     "GetCampaignResponse": {
       "properties": {
@@ -933,11 +986,13 @@
       "required": [
         "CampaignResponse"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetCampaignResponse"
     },
     "GetCampaignVersionRequest": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "GetCampaignVersionRequest"
     },
     "GetCampaignVersionResponse": {
       "properties": {
@@ -948,11 +1003,13 @@
       "required": [
         "CampaignResponse"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetCampaignVersionResponse"
     },
     "GetCampaignVersionsRequest": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "GetCampaignVersionsRequest"
     },
     "GetCampaignVersionsResponse": {
       "properties": {
@@ -963,11 +1020,13 @@
       "required": [
         "CampaignsResponse"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetCampaignVersionsResponse"
     },
     "GetCampaignsRequest": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "GetCampaignsRequest"
     },
     "GetCampaignsResponse": {
       "properties": {
@@ -978,11 +1037,13 @@
       "required": [
         "CampaignsResponse"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetCampaignsResponse"
     },
     "GetEndpointRequest": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "GetEndpointRequest"
     },
     "GetEndpointResponse": {
       "properties": {
@@ -993,12 +1054,14 @@
       "required": [
         "EndpointResponse"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetEndpointResponse"
     },
     "GetEventStreamRequest": {
       "description": "GetEventStream Request",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "GetEventStreamRequest"
     },
     "GetEventStreamResponse": {
       "description": "GetEventStream Response",
@@ -1010,11 +1073,13 @@
       "required": [
         "EventStream"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetEventStreamResponse"
     },
     "GetGcmChannelRequest": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "GetGcmChannelRequest"
     },
     "GetGcmChannelResponse": {
       "properties": {
@@ -1025,11 +1090,13 @@
       "required": [
         "GCMChannelResponse"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetGcmChannelResponse"
     },
     "GetImportJobRequest": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "GetImportJobRequest"
     },
     "GetImportJobResponse": {
       "properties": {
@@ -1040,11 +1107,13 @@
       "required": [
         "ImportJobResponse"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetImportJobResponse"
     },
     "GetImportJobsRequest": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "GetImportJobsRequest"
     },
     "GetImportJobsResponse": {
       "properties": {
@@ -1055,11 +1124,13 @@
       "required": [
         "ImportJobsResponse"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetImportJobsResponse"
     },
     "GetSegmentImportJobsRequest": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "GetSegmentImportJobsRequest"
     },
     "GetSegmentImportJobsResponse": {
       "properties": {
@@ -1070,11 +1141,13 @@
       "required": [
         "ImportJobsResponse"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetSegmentImportJobsResponse"
     },
     "GetSegmentRequest": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "GetSegmentRequest"
     },
     "GetSegmentResponse": {
       "properties": {
@@ -1085,11 +1158,13 @@
       "required": [
         "SegmentResponse"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetSegmentResponse"
     },
     "GetSegmentVersionRequest": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "GetSegmentVersionRequest"
     },
     "GetSegmentVersionResponse": {
       "properties": {
@@ -1100,11 +1175,13 @@
       "required": [
         "SegmentResponse"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetSegmentVersionResponse"
     },
     "GetSegmentVersionsRequest": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "GetSegmentVersionsRequest"
     },
     "GetSegmentVersionsResponse": {
       "properties": {
@@ -1115,11 +1192,13 @@
       "required": [
         "SegmentsResponse"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetSegmentVersionsResponse"
     },
     "GetSegmentsRequest": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "GetSegmentsRequest"
     },
     "GetSegmentsResponse": {
       "properties": {
@@ -1130,7 +1209,8 @@
       "required": [
         "SegmentsResponse"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetSegmentsResponse"
     },
     "ImportJobRequest": {
       "properties": {
@@ -1167,7 +1247,8 @@
           "description": "A custom name for the segment created by the import job. Use if DefineSegment is true."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ImportJobRequest"
     },
     "ImportJobResource": {
       "properties": {
@@ -1204,7 +1285,8 @@
           "description": "A custom name for the segment created by the import job. Use if DefineSegment is true."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ImportJobResource"
     },
     "ImportJobResponse": {
       "properties": {
@@ -1261,7 +1343,8 @@
           "description": "The job type. Will be Import."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ImportJobResponse"
     },
     "ImportJobsResponse": {
       "description": "Import job list.",
@@ -1275,7 +1358,8 @@
           "description": "The string that you use in a subsequent request to get the next page of results in a paginated response."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ImportJobsResponse"
     },
     "InternalServerErrorException": {
       "description": "Simple message object.",
@@ -1289,7 +1373,8 @@
           "description": "The unique message body ID."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InternalServerErrorException"
     },
     "JobStatus": {
       "enum": [
@@ -1301,55 +1386,64 @@
         "FAILING",
         "FAILED"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "JobStatus"
     },
     "ListOfActivityResponse": {
       "items": {
         "$ref": "#/definitions/ActivityResponse"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ListOfActivityResponse"
     },
     "ListOfCampaignResponse": {
       "items": {
         "$ref": "#/definitions/CampaignResponse"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ListOfCampaignResponse"
     },
     "ListOfEndpointBatchItem": {
       "items": {
         "$ref": "#/definitions/EndpointBatchItem"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ListOfEndpointBatchItem"
     },
     "ListOfImportJobResponse": {
       "items": {
         "$ref": "#/definitions/ImportJobResponse"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ListOfImportJobResponse"
     },
     "ListOfSegmentResponse": {
       "items": {
         "$ref": "#/definitions/SegmentResponse"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ListOfSegmentResponse"
     },
     "ListOfTreatmentResource": {
       "items": {
         "$ref": "#/definitions/TreatmentResource"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ListOfTreatmentResource"
     },
     "ListOfWriteTreatmentResource": {
       "items": {
         "$ref": "#/definitions/WriteTreatmentResource"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ListOfWriteTreatmentResource"
     },
     "ListOf__string": {
       "items": {
         "$ref": "#/definitions/__string"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ListOf__string"
     },
     "MapOfAttributeDimension": {
       "items": {
@@ -1363,7 +1457,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "MapOfAttributeDimension"
     },
     "MapOfListOf__string": {
       "items": {
@@ -1377,7 +1472,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "MapOfListOf__string"
     },
     "MapOf__double": {
       "items": {
@@ -1391,7 +1487,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "MapOf__double"
     },
     "Message": {
       "properties": {
@@ -1432,7 +1529,8 @@
           "description": "The URL to open in the user's mobile browser. Used if the value for Action is URL."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Message"
     },
     "MessageBody": {
       "description": "Simple message object.",
@@ -1446,7 +1544,8 @@
           "description": "The unique message body ID."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "MessageBody"
     },
     "MessageConfiguration": {
       "description": "Message configuration for a campaign.",
@@ -1464,7 +1563,8 @@
           "description": "The message that the campaign delivers to GCM channels. Overrides the default message."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "MessageConfiguration"
     },
     "MethodNotAllowedException": {
       "description": "Simple message object.",
@@ -1478,7 +1578,8 @@
           "description": "The unique message body ID."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "MethodNotAllowedException"
     },
     "NotFoundException": {
       "description": "Simple message object.",
@@ -1492,7 +1593,8 @@
           "description": "The unique message body ID."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "NotFoundException"
     },
     "PutEventStreamRequest": {
       "description": "PutEventStream Request",
@@ -1505,7 +1607,8 @@
       "required": [
         "WriteEventStream"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "PutEventStreamRequest"
     },
     "PutEventStreamResponse": {
       "description": "PutEventStream Response",
@@ -1517,7 +1620,8 @@
       "required": [
         "EventStream"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "PutEventStreamResponse"
     },
     "QuietTime": {
       "description": "Quiet Time",
@@ -1531,7 +1635,8 @@
           "description": "The default start time for quiet time in ISO 8601 format."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "QuietTime"
     },
     "RecencyDimension": {
       "description": "Define how a segment based on recency of use.",
@@ -1545,14 +1650,16 @@
           "description": "The recency dimension type:\nACTIVE – Users who have used your app within the specified duration are included in the segment.\nINACTIVE – Users who have not used your app within the specified duration are included in the segment."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RecencyDimension"
     },
     "RecencyType": {
       "enum": [
         "ACTIVE",
         "INACTIVE"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "RecencyType"
     },
     "Schedule": {
       "description": "Shcedule that defines when a campaign is run.",
@@ -1582,7 +1689,8 @@
           "description": "The starting UTC offset for the schedule if the value for isLocalTime is true\n\nValid values: \nUTC\nUTC+01\nUTC+02\nUTC+03\nUTC+03:30\nUTC+04\nUTC+04:30\nUTC+05\nUTC+05:30\nUTC+05:45\nUTC+06\nUTC+06:30\nUTC+07\nUTC+08\nUTC+09\nUTC+09:30\nUTC+10\nUTC+10:30\nUTC+11\nUTC+12\nUTC+13\nUTC-02\nUTC-03\nUTC-04\nUTC-05\nUTC-06\nUTC-07\nUTC-08\nUTC-09\nUTC-10\nUTC-11"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Schedule"
     },
     "SegmentBehaviors": {
       "description": "Segment behavior dimensions",
@@ -1592,7 +1700,8 @@
           "description": "The recency of use."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SegmentBehaviors"
     },
     "SegmentDemographics": {
       "description": "Segment demographic dimensions",
@@ -1618,7 +1727,8 @@
           "description": "The device platform criteria for the segment."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SegmentDemographics"
     },
     "SegmentDimensions": {
       "description": "Segment dimensions",
@@ -1644,7 +1754,8 @@
           "description": "Custom segment user attributes."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SegmentDimensions"
     },
     "SegmentImportResource": {
       "description": "Segment import definition.",
@@ -1670,7 +1781,8 @@
           "description": "The number of endpoints that were successfully imported to create this segment."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SegmentImportResource"
     },
     "SegmentLocation": {
       "description": "Segment location dimensions",
@@ -1680,7 +1792,8 @@
           "description": "The country filter according to ISO 3166-1 Alpha-2 codes."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SegmentLocation"
     },
     "SegmentResponse": {
       "description": "Segment definition.",
@@ -1722,14 +1835,16 @@
           "description": "The segment version number."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SegmentResponse"
     },
     "SegmentType": {
       "enum": [
         "DIMENSIONAL",
         "IMPORT"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "SegmentType"
     },
     "SegmentsResponse": {
       "description": "Segments in your account.",
@@ -1743,7 +1858,8 @@
           "description": "An identifier used to retrieve the next page of results. The token is null if no additional pages exist."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SegmentsResponse"
     },
     "SetDimension": {
       "description": "Dimension specification of a segment.",
@@ -1757,7 +1873,8 @@
           "description": "The criteria values for the segment dimension. Endpoints with matching attribute values are included or excluded from the segment, depending on the setting for Type."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SetDimension"
     },
     "TooManyRequestsException": {
       "description": "Simple message object.",
@@ -1771,7 +1888,8 @@
           "description": "The unique message body ID."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TooManyRequestsException"
     },
     "TreatmentResource": {
       "description": "Treatment resource",
@@ -1805,7 +1923,8 @@
           "description": "The custom name of a variation of the campaign used for A/B testing."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TreatmentResource"
     },
     "UpdateApnsChannelRequest": {
       "properties": {
@@ -1816,7 +1935,8 @@
       "required": [
         "APNSChannelRequest"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateApnsChannelRequest"
     },
     "UpdateApnsChannelResponse": {
       "properties": {
@@ -1827,7 +1947,8 @@
       "required": [
         "APNSChannelResponse"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateApnsChannelResponse"
     },
     "UpdateApplicationSettingsRequest": {
       "properties": {
@@ -1838,7 +1959,8 @@
       "required": [
         "WriteApplicationSettingsRequest"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateApplicationSettingsRequest"
     },
     "UpdateApplicationSettingsResponse": {
       "properties": {
@@ -1849,7 +1971,8 @@
       "required": [
         "ApplicationSettingsResource"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateApplicationSettingsResponse"
     },
     "UpdateCampaignRequest": {
       "properties": {
@@ -1860,7 +1983,8 @@
       "required": [
         "WriteCampaignRequest"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateCampaignRequest"
     },
     "UpdateCampaignResponse": {
       "properties": {
@@ -1871,7 +1995,8 @@
       "required": [
         "CampaignResponse"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateCampaignResponse"
     },
     "UpdateEndpointRequest": {
       "properties": {
@@ -1882,7 +2007,8 @@
       "required": [
         "EndpointRequest"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateEndpointRequest"
     },
     "UpdateEndpointResponse": {
       "properties": {
@@ -1893,7 +2019,8 @@
       "required": [
         "MessageBody"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateEndpointResponse"
     },
     "UpdateEndpointsBatchRequest": {
       "properties": {
@@ -1904,7 +2031,8 @@
       "required": [
         "EndpointBatchRequest"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateEndpointsBatchRequest"
     },
     "UpdateEndpointsBatchResponse": {
       "properties": {
@@ -1915,7 +2043,8 @@
       "required": [
         "MessageBody"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateEndpointsBatchResponse"
     },
     "UpdateGcmChannelRequest": {
       "properties": {
@@ -1926,7 +2055,8 @@
       "required": [
         "GCMChannelRequest"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateGcmChannelRequest"
     },
     "UpdateGcmChannelResponse": {
       "properties": {
@@ -1937,7 +2067,8 @@
       "required": [
         "GCMChannelResponse"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateGcmChannelResponse"
     },
     "UpdateSegmentRequest": {
       "properties": {
@@ -1948,7 +2079,8 @@
       "required": [
         "WriteSegmentRequest"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateSegmentRequest"
     },
     "UpdateSegmentResponse": {
       "properties": {
@@ -1959,7 +2091,8 @@
       "required": [
         "SegmentResponse"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateSegmentResponse"
     },
     "WriteApplicationSettingsRequest": {
       "description": "Creating application setting request",
@@ -1973,7 +2106,8 @@
           "description": "The default quiet time for the app. Each campaign for this app sends no messages during this time unless the campaign overrides the default with a quiet time of its own."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "WriteApplicationSettingsRequest"
     },
     "WriteCampaignRequest": {
       "description": "Used to create a campaign.",
@@ -2027,7 +2161,8 @@
           "description": "The custom name of a variation of the campaign used for A/B testing."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "WriteCampaignRequest"
     },
     "WriteEventStream": {
       "description": "Request to save an EventStream.",
@@ -2045,7 +2180,8 @@
           "description": "The IAM role that authorizes Amazon Pinpoint to publish events to the stream in your account."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "WriteEventStream"
     },
     "WriteSegmentRequest": {
       "description": "Segment definition.",
@@ -2059,7 +2195,8 @@
           "description": "The name of segment"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "WriteSegmentRequest"
     },
     "WriteTreatmentResource": {
       "description": "Used to create a campaign treatment.",
@@ -2085,24 +2222,30 @@
           "description": "The custom name of a variation of the campaign used for A/B testing."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "WriteTreatmentResource"
     },
     "__boolean": {
-      "type": "boolean"
+      "type": "boolean",
+      "title": "__boolean"
     },
     "__double": {
       "format": "double",
-      "type": "number"
+      "type": "number",
+      "title": "__double"
     },
     "__integer": {
-      "type": "integer"
+      "type": "integer",
+      "title": "__integer"
     },
     "__string": {
-      "type": "string"
+      "type": "string",
+      "title": "__string"
     },
     "__timestamp": {
       "format": "date-time",
-      "type": "string"
+      "type": "string",
+      "title": "__timestamp"
     }
   },
   "actions": [

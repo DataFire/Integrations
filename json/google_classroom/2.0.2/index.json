@@ -48,7 +48,8 @@
           "description": "Drive folder where attachments from student submissions are placed.\nThis is only populated for course teachers."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Assignment"
     },
     "AssignmentSubmission": {
       "description": "Student work for an assignment.",
@@ -61,7 +62,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AssignmentSubmission"
     },
     "Attachment": {
       "description": "Attachment added to student assignment work.\n\nWhen creating attachments, setting the `form` field is not supported.",
@@ -83,7 +85,8 @@
           "description": "Youtube video attachment."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Attachment"
     },
     "Course": {
       "description": "A Course in Classroom.",
@@ -170,7 +173,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Course"
     },
     "CourseAlias": {
       "description": "Alternative identifier for a course.\n\nAn alias uniquely identifies a course. It must be unique within one of the\nfollowing scopes:\n\n* domain: A domain-scoped alias is visible to all users within the alias\ncreator's domain and can be created only by a domain admin. A domain-scoped\nalias is often used when a course has an identifier external to Classroom.\n\n* project: A project-scoped alias is visible to any request from an\napplication using the Developer Console project ID that created the alias\nand can be created by any project. A project-scoped alias is often used when\nan application has alternative identifiers. A random value can also be used\nto avoid duplicate courses in the event of transmission failures, as retrying\na request will return `ALREADY_EXISTS` if a previous one has succeeded.",
@@ -180,7 +184,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CourseAlias"
     },
     "CourseMaterial": {
       "description": "A material attached to a course as part of a material set.",
@@ -202,7 +207,8 @@
           "description": "Youtube video attachment."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CourseMaterial"
     },
     "CourseMaterialSet": {
       "description": "A set of materials that appears on the \"About\" page of the course.\nThese materials might include a syllabus, schedule, or other background\ninformation relating to the course as a whole.",
@@ -219,7 +225,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CourseMaterialSet"
     },
     "CourseWork": {
       "description": "Course work created by a teacher for students of the course.",
@@ -316,7 +323,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CourseWork"
     },
     "Date": {
       "description": "Represents a whole calendar date, e.g. date of birth. The time of day and\ntime zone are either specified elsewhere or are not significant. The date\nis relative to the Proleptic Gregorian Calendar. The day may be 0 to\nrepresent a year and month where the day is not significant, e.g. credit card\nexpiration date. The year may be 0 to represent a month and day independent\nof year, e.g. anniversary date. Related types are google.type.TimeOfDay\nand `google.protobuf.Timestamp`.",
@@ -337,7 +345,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Date"
     },
     "DriveFile": {
       "description": "Representation of a Google Drive file.",
@@ -359,7 +368,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DriveFile"
     },
     "DriveFolder": {
       "description": "Representation of a Google Drive folder.",
@@ -377,12 +387,14 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DriveFolder"
     },
     "Empty": {
       "description": "A generic empty message that you can re-use to avoid defining duplicated\nempty messages in your APIs. A typical example is to use it as the request\nor the response type of an API method. For instance:\n\n    service Foo {\n      rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);\n    }\n\nThe JSON representation for `Empty` is empty JSON object `{}`.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "Empty"
     },
     "Form": {
       "description": "Google Forms item.",
@@ -404,7 +416,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Form"
     },
     "GlobalPermission": {
       "description": "Global user permission description.",
@@ -418,7 +431,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GlobalPermission"
     },
     "Guardian": {
       "description": "Association between a student and a guardian of that student. The guardian\nmay receive information about the student's course work.",
@@ -440,7 +454,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Guardian"
     },
     "GuardianInvitation": {
       "description": "An invitation to become the guardian of a specified user, sent to a specified\nemail address.",
@@ -472,7 +487,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GuardianInvitation"
     },
     "Invitation": {
       "description": "An invitation to join a course.",
@@ -499,7 +515,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Invitation"
     },
     "Link": {
       "description": "URL item.",
@@ -517,7 +534,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Link"
     },
     "ListCourseAliasesResponse": {
       "description": "Response when listing course aliases.",
@@ -534,7 +552,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListCourseAliasesResponse"
     },
     "ListCourseWorkResponse": {
       "description": "Response when listing course work.",
@@ -551,7 +570,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListCourseWorkResponse"
     },
     "ListCoursesResponse": {
       "description": "Response when listing courses.",
@@ -568,7 +588,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListCoursesResponse"
     },
     "ListGuardianInvitationsResponse": {
       "description": "Response when listing guardian invitations.",
@@ -585,7 +606,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListGuardianInvitationsResponse"
     },
     "ListGuardiansResponse": {
       "description": "Response when listing guardians.",
@@ -602,7 +624,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListGuardiansResponse"
     },
     "ListInvitationsResponse": {
       "description": "Response when listing invitations.",
@@ -619,7 +642,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListInvitationsResponse"
     },
     "ListStudentSubmissionsResponse": {
       "description": "Response when listing student submissions.",
@@ -636,7 +660,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListStudentSubmissionsResponse"
     },
     "ListStudentsResponse": {
       "description": "Response when listing students.",
@@ -653,7 +678,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListStudentsResponse"
     },
     "ListTeachersResponse": {
       "description": "Response when listing teachers.",
@@ -670,7 +696,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListTeachersResponse"
     },
     "Material": {
       "description": "Material attached to course work.\n\nWhen creating attachments, setting the `form` field is not supported.",
@@ -692,7 +719,8 @@
           "description": "YouTube video material."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Material"
     },
     "ModifyAttachmentsRequest": {
       "description": "Request to modify the attachments of a student submission.",
@@ -705,7 +733,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ModifyAttachmentsRequest"
     },
     "MultipleChoiceQuestion": {
       "description": "Additional details for multiple-choice questions.",
@@ -718,7 +747,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "MultipleChoiceQuestion"
     },
     "MultipleChoiceSubmission": {
       "description": "Student work for a multiple-choice question.",
@@ -728,7 +758,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "MultipleChoiceSubmission"
     },
     "Name": {
       "description": "Details of the user's name.",
@@ -746,17 +777,20 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Name"
     },
     "ReclaimStudentSubmissionRequest": {
       "description": "Request to reclaim a student submission.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "ReclaimStudentSubmissionRequest"
     },
     "ReturnStudentSubmissionRequest": {
       "description": "Request to return a student submission.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "ReturnStudentSubmissionRequest"
     },
     "SharedDriveFile": {
       "description": "Drive file that is used as material for course work.",
@@ -776,7 +810,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SharedDriveFile"
     },
     "ShortAnswerSubmission": {
       "description": "Student work for a short answer question.",
@@ -786,7 +821,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ShortAnswerSubmission"
     },
     "Student": {
       "description": "Student in a course.",
@@ -808,7 +844,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Student"
     },
     "StudentSubmission": {
       "description": "Student submission for course work.\n\nStudentSubmission items are generated when a CourseWork item is created.\n\nStudentSubmissions that have never been accessed (i.e. with `state` = NEW)\nmay not have a creation time or update time.",
@@ -896,7 +933,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "StudentSubmission"
     },
     "Teacher": {
       "description": "Teacher of a course.",
@@ -914,7 +952,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Teacher"
     },
     "TimeOfDay": {
       "description": "Represents a time of day. The date and time zone are either not significant\nor are specified elsewhere. An API may choose to allow leap seconds. Related\ntypes are google.type.Date and `google.protobuf.Timestamp`.",
@@ -940,12 +979,14 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TimeOfDay"
     },
     "TurnInStudentSubmissionRequest": {
       "description": "Request to turn in a student submission.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "TurnInStudentSubmissionRequest"
     },
     "UserProfile": {
       "description": "Global information for a user.",
@@ -974,7 +1015,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UserProfile"
     },
     "YouTubeVideo": {
       "description": "YouTube video item.",
@@ -996,7 +1038,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "YouTubeVideo"
     }
   },
   "actions": [

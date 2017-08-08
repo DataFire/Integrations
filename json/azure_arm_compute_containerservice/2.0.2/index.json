@@ -20,7 +20,8 @@
           "$ref": "#/definitions/ContainerServiceProperties",
           "x-ms-client-flatten": true
         }
-      }
+      },
+      "title": "ContainerService"
     },
     "ContainerServiceAgentPoolProfile": {
       "description": "Profile for the container service agent pool.",
@@ -109,7 +110,8 @@
         "dnsPrefix",
         "count",
         "vmSize"
-      ]
+      ],
+      "title": "ContainerServiceAgentPoolProfile"
     },
     "ContainerServiceCustomProfile": {
       "description": "Properties to configure a custom container service cluster.",
@@ -121,7 +123,8 @@
       },
       "required": [
         "orchestrator"
-      ]
+      ],
+      "title": "ContainerServiceCustomProfile"
     },
     "ContainerServiceDiagnosticsProfile": {
       "properties": {
@@ -132,7 +135,8 @@
       },
       "required": [
         "vmDiagnostics"
-      ]
+      ],
+      "title": "ContainerServiceDiagnosticsProfile"
     },
     "ContainerServiceLinuxProfile": {
       "description": "Profile for Linux VMs in the container service cluster.",
@@ -150,7 +154,8 @@
       "required": [
         "adminUsername",
         "ssh"
-      ]
+      ],
+      "title": "ContainerServiceLinuxProfile"
     },
     "ContainerServiceListResult": {
       "description": "The response from the List Container Services operation.",
@@ -166,7 +171,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "ContainerServiceListResult"
     },
     "ContainerServiceMasterProfile": {
       "description": "Profile for the container service master.",
@@ -194,7 +200,8 @@
       },
       "required": [
         "dnsPrefix"
-      ]
+      ],
+      "title": "ContainerServiceMasterProfile"
     },
     "ContainerServiceOrchestratorProfile": {
       "description": "Profile for the container service orchestrator.",
@@ -216,7 +223,8 @@
       },
       "required": [
         "orchestratorType"
-      ]
+      ],
+      "title": "ContainerServiceOrchestratorProfile"
     },
     "ContainerServiceProperties": {
       "description": "Properties of the container service.",
@@ -266,7 +274,8 @@
         "masterProfile",
         "agentPoolProfiles",
         "linuxProfile"
-      ]
+      ],
+      "title": "ContainerServiceProperties"
     },
     "ContainerServiceServicePrincipalProfile": {
       "description": "Information about a service principal identity for the cluster to use for manipulating Azure APIs.",
@@ -283,7 +292,8 @@
       "required": [
         "clientId",
         "secret"
-      ]
+      ],
+      "title": "ContainerServiceServicePrincipalProfile"
     },
     "ContainerServiceSshConfiguration": {
       "description": "SSH configuration for Linux-based VMs running on Azure.",
@@ -298,7 +308,8 @@
       },
       "required": [
         "publicKeys"
-      ]
+      ],
+      "title": "ContainerServiceSshConfiguration"
     },
     "ContainerServiceSshPublicKey": {
       "description": "Contains information about SSH certificate public key data.",
@@ -310,7 +321,8 @@
       },
       "required": [
         "keyData"
-      ]
+      ],
+      "title": "ContainerServiceSshPublicKey"
     },
     "ContainerServiceVMDiagnostics": {
       "description": "Profile for diagnostics on the container service VMs.",
@@ -327,7 +339,8 @@
       },
       "required": [
         "enabled"
-      ]
+      ],
+      "title": "ContainerServiceVMDiagnostics"
     },
     "ContainerServiceWindowsProfile": {
       "description": "Profile for Windows VMs in the container service cluster.",
@@ -346,7 +359,8 @@
       "required": [
         "adminUsername",
         "adminPassword"
-      ]
+      ],
+      "title": "ContainerServiceWindowsProfile"
     },
     "Resource": {
       "description": "The Resource model definition.",
@@ -381,7 +395,8 @@
       "required": [
         "location"
       ],
-      "x-ms-azure-resource": true
+      "x-ms-azure-resource": true,
+      "title": "Resource"
     }
   },
   "actions": [

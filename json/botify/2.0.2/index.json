@@ -54,7 +54,8 @@
       "required": [
         "advanced_export_type"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AdvancedExportStatus"
     },
     "AdvancedExporter": {
       "properties": {
@@ -78,7 +79,8 @@
         "group",
         "lines"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AdvancedExporter"
     },
     "AdvancedExporters": {
       "properties": {
@@ -92,7 +94,8 @@
       "required": [
         "exporters"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AdvancedExporters"
     },
     "Analysis": {
       "properties": {
@@ -161,7 +164,8 @@
       "required": [
         "user"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "Analysis"
     },
     "AnalysisDetail": {
       "properties": {
@@ -233,7 +237,8 @@
       "required": [
         "user"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AnalysisDetail"
     },
     "AnalysisUpdateLaunch": {
       "description": "Launch Analysis Update",
@@ -248,7 +253,8 @@
       "required": [
         "refresh_features"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AnalysisUpdateLaunch"
     },
     "AnalysisUpdateSuggest": {
       "properties": {
@@ -269,7 +275,8 @@
         "add_on_features",
         "features_to_update"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AnalysisUpdateSuggest"
     },
     "CrawlOrphanURLs": {
       "properties": {
@@ -285,7 +292,8 @@
         "url",
         "visits"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CrawlOrphanURLs"
     },
     "CrawlStatistics": {
       "properties": {
@@ -342,7 +350,8 @@
         "pages_dones_4xx",
         "pages_known"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CrawlStatistics"
     },
     "CrawlStatisticsTime": {
       "properties": {
@@ -414,7 +423,8 @@
         "avg_size",
         "new_urls"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CrawlStatisticsTime"
     },
     "CrawlStatisticsTimePoint": {
       "properties": {
@@ -431,7 +441,8 @@
         "count",
         "datetime"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CrawlStatisticsTimePoint"
     },
     "CrawlStatisticsUrls": {
       "properties": {
@@ -477,7 +488,8 @@
         "date",
         "delay_first_byte"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CrawlStatisticsUrls"
     },
     "CsvExportStatus": {
       "properties": {
@@ -519,7 +531,8 @@
       "required": [
         "query"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CsvExportStatus"
     },
     "Datamodel": {
       "properties": {
@@ -547,7 +560,8 @@
         "fields",
         "groups"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "Datamodel"
     },
     "DatamodelField": {
       "properties": {
@@ -591,7 +605,8 @@
         "id",
         "permissions"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DatamodelField"
     },
     "DatamodelGroup": {
       "properties": {
@@ -606,11 +621,13 @@
         "id",
         "name"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DatamodelGroup"
     },
     "Default": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "Default"
     },
     "DefaultPayload": {
       "description": "default payload for object for all HTTP codes that are not covered individually",
@@ -633,7 +650,8 @@
           "type": "object"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DefaultPayload"
     },
     "FieldValues": {
       "properties": {
@@ -652,7 +670,8 @@
         "count",
         "results"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "FieldValues"
     },
     "FieldValuesResult": {
       "properties": {
@@ -668,7 +687,8 @@
         "value",
         "nb_urls"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "FieldValuesResult"
     },
     "LinksPercentiles": {
       "properties": {
@@ -686,7 +706,8 @@
         "domain",
         "percentiles"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "LinksPercentiles"
     },
     "LinksPercentilesItem": {
       "properties": {
@@ -723,7 +744,8 @@
         "avg",
         "id"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "LinksPercentilesItem"
     },
     "LinksTopDomains": {
       "properties": {
@@ -768,7 +790,8 @@
         "unique_follow_links",
         "unique_nofollow_links"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "LinksTopDomains"
     },
     "LinksTopDomainsSamples": {
       "properties": {
@@ -791,7 +814,8 @@
         "sources",
         "unique_links"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "LinksTopDomainsSamples"
     },
     "PageRankLost": {
       "properties": {
@@ -813,7 +837,8 @@
         "external",
         "robots_txt"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "PageRankLost"
     },
     "Project": {
       "properties": {
@@ -855,7 +880,8 @@
         "user",
         "current_settings"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "Project"
     },
     "ProjectSavedFilter": {
       "description": "Project's saved UrlFilter",
@@ -875,7 +901,8 @@
         "name",
         "filters"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ProjectSavedFilter"
     },
     "ProjectSettings": {
       "properties": {
@@ -977,7 +1004,8 @@
         "sitemaps",
         "header_settings"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ProjectSettings"
     },
     "RewritingRule": {
       "properties": {
@@ -996,7 +1024,8 @@
         "replace",
         "ignore_case"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "RewritingRule"
     },
     "SitemapsReport": {
       "properties": {
@@ -1033,7 +1062,8 @@
         "sitemaps",
         "errors"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "SitemapsReport"
     },
     "SitemapsReportOnly": {
       "properties": {
@@ -1050,7 +1080,8 @@
         "out_of_configuration",
         "in_configuration"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "SitemapsReportOnly"
     },
     "SitemapsReportSitemap": {
       "properties": {
@@ -1081,7 +1112,8 @@
       "required": [
         "url"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "SitemapsReportSitemap"
     },
     "SitemapsReportSitemapError": {
       "properties": {
@@ -1096,7 +1128,8 @@
         "type",
         "message"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "SitemapsReportSitemapError"
     },
     "SuggestedUpdatesAddOnFeatures": {
       "properties": {
@@ -1111,7 +1144,8 @@
         "name",
         "options"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "SuggestedUpdatesAddOnFeatures"
     },
     "SuggestedUpdatesFeaturesToUpdate": {
       "properties": {
@@ -1130,7 +1164,8 @@
         "previous_options",
         "new_options"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "SuggestedUpdatesFeaturesToUpdate"
     },
     "URLRewritingRules": {
       "properties": {
@@ -1151,11 +1186,13 @@
         "urls",
         "rules"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "URLRewritingRules"
     },
     "UrlDetail": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "UrlDetail"
     },
     "UrlsAgg": {
       "properties": {
@@ -1166,7 +1203,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UrlsAgg"
     },
     "UrlsAggs": {
       "properties": {
@@ -1184,13 +1222,15 @@
       "required": [
         "status"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UrlsAggs"
     },
     "UrlsAggsQueries": {
       "items": {
         "$ref": "#/definitions/UrlsAggsQuery"
       },
-      "type": "array"
+      "type": "array",
+      "title": "UrlsAggsQueries"
     },
     "UrlsAggsQuery": {
       "description": "UrlsAggs query",
@@ -1205,7 +1245,8 @@
           "type": "object"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UrlsAggsQuery"
     },
     "UrlsErrorAgg": {
       "properties": {
@@ -1220,7 +1261,8 @@
         "message",
         "error_code"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UrlsErrorAgg"
     },
     "UrlsQuery": {
       "description": "Urls query",
@@ -1241,7 +1283,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UrlsQuery"
     },
     "User": {
       "properties": {
@@ -1277,11 +1320,13 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "User"
     },
     "string": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "string"
     }
   },
   "actions": [

@@ -46,7 +46,8 @@
           "readOnly": true,
           "type": "string"
         }
-      }
+      },
+      "title": "ErrorDetails"
     },
     "ErrorResponse": {
       "description": "Error response indicates that the service is not able to process the incoming request. The reason is provided in the error message.",
@@ -56,7 +57,8 @@
           "description": "The details of the error."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ErrorResponse"
     },
     "MeterDetails": {
       "description": "The properties of the meter detail.",
@@ -98,7 +100,8 @@
           "readOnly": true,
           "type": "string"
         }
-      }
+      },
+      "title": "MeterDetails"
     },
     "Operation": {
       "description": "A Consumption REST API operation.",
@@ -129,7 +132,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Operation"
     },
     "OperationListResult": {
       "description": "Result of listing consumption operations. It contains a list of operations and a URL link to get the next set of results.",
@@ -147,7 +151,8 @@
           "readOnly": true,
           "type": "array"
         }
-      }
+      },
+      "title": "OperationListResult"
     },
     "Resource": {
       "description": "The Resource model definition.",
@@ -176,7 +181,8 @@
           "type": "string"
         }
       },
-      "x-ms-azure-resource": true
+      "x-ms-azure-resource": true,
+      "title": "Resource"
     },
     "UsageDetail": {
       "allOf": [
@@ -191,7 +197,8 @@
           "x-ms-client-flatten": true
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UsageDetail"
     },
     "UsageDetailProperties": {
       "description": "The properties of the usage detail.",
@@ -279,7 +286,8 @@
           "readOnly": true,
           "type": "string"
         }
-      }
+      },
+      "title": "UsageDetailProperties"
     },
     "UsageDetailsListResult": {
       "description": "Result of listing usage details. It contains a list of available usage details in reverse chronological order by billing period.",
@@ -297,7 +305,8 @@
           "readOnly": true,
           "type": "array"
         }
-      }
+      },
+      "title": "UsageDetailsListResult"
     }
   },
   "actions": [

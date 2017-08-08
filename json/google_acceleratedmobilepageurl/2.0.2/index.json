@@ -24,7 +24,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AmpUrl"
     },
     "AmpUrlError": {
       "description": "AMP URL Error resource for a requested URL that couldn't be found.",
@@ -50,7 +51,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AmpUrlError"
     },
     "BatchGetAmpUrlsRequest": {
       "description": "AMP URL request for a batch of URLs.",
@@ -71,7 +73,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BatchGetAmpUrlsRequest"
     },
     "BatchGetAmpUrlsResponse": {
       "description": "Batch AMP URL response.",
@@ -91,7 +94,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BatchGetAmpUrlsResponse"
     }
   },
   "actions": [

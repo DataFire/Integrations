@@ -38,7 +38,8 @@
       },
       "required": [
         "name"
-      ]
+      ],
+      "title": "CheckNameAvailability"
     },
     "CheckNameAvailabilityResult": {
       "description": "Description of a Check Name availability request properties.",
@@ -56,7 +57,8 @@
           "$ref": "#/definitions/UnavailableReason",
           "description": "The reason for unavailability of a namespace."
         }
-      }
+      },
+      "title": "CheckNameAvailabilityResult"
     },
     "EntityAvailabilityStatus": {
       "description": "Entity availability status.",
@@ -71,7 +73,8 @@
       "x-ms-enum": {
         "modelAsString": false,
         "name": "EntityAvailabilityStatus"
-      }
+      },
+      "title": "EntityAvailabilityStatus"
     },
     "EntityStatus": {
       "description": "Entity status.",
@@ -90,7 +93,8 @@
       "x-ms-enum": {
         "modelAsString": false,
         "name": "EntityStatus"
-      }
+      },
+      "title": "EntityStatus"
     },
     "MessageCountDetails": {
       "description": "Message Count Details.",
@@ -126,7 +130,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "MessageCountDetails"
     },
     "NamespaceCreateOrUpdateParameters": {
       "description": "Parameters supplied to the Create Or Update Namespace operation.",
@@ -152,7 +157,8 @@
       },
       "required": [
         "location"
-      ]
+      ],
+      "title": "NamespaceCreateOrUpdateParameters"
     },
     "NamespaceListResult": {
       "description": "The response of the List Namespace operation.",
@@ -168,7 +174,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "NamespaceListResult"
     },
     "NamespaceProperties": {
       "description": "Properties of the namespace.",
@@ -226,7 +233,8 @@
           "readOnly": true,
           "type": "string"
         }
-      }
+      },
+      "title": "NamespaceProperties"
     },
     "NamespaceResource": {
       "allOf": [
@@ -243,7 +251,8 @@
         "sku": {
           "$ref": "#/definitions/Sku"
         }
-      }
+      },
+      "title": "NamespaceResource"
     },
     "NamespaceUpdateParameters": {
       "description": "Parameters supplied to the Patch Namespace operation.",
@@ -259,7 +268,8 @@
           "description": "Resource tags",
           "type": "object"
         }
-      }
+      },
+      "title": "NamespaceUpdateParameters"
     },
     "Operation": {
       "description": "A ServiceBus REST API operation",
@@ -290,7 +300,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Operation"
     },
     "OperationListResult": {
       "description": "Result of the request to list ServiceBus operations. It contains a list of operations and a URL link to get the next set of results.",
@@ -308,7 +319,8 @@
           "readOnly": true,
           "type": "array"
         }
-      }
+      },
+      "title": "OperationListResult"
     },
     "QueueCreateOrUpdateParameters": {
       "description": "Parameters supplied to the Create Or Update Queue operation.",
@@ -328,7 +340,8 @@
       },
       "required": [
         "location"
-      ]
+      ],
+      "title": "QueueCreateOrUpdateParameters"
     },
     "QueueListResult": {
       "description": "The response to the List Queues operation.",
@@ -344,7 +357,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "QueueListResult"
     },
     "QueueProperties": {
       "description": "The Queue Properties definition.",
@@ -449,7 +463,8 @@
           "readOnly": true,
           "type": "string"
         }
-      }
+      },
+      "title": "QueueProperties"
     },
     "QueueResource": {
       "allOf": [
@@ -463,7 +478,8 @@
           "$ref": "#/definitions/QueueProperties",
           "x-ms-client-flatten": true
         }
-      }
+      },
+      "title": "QueueResource"
     },
     "RegenerateKeysParameters": {
       "description": "Parameters supplied to the Regenerate Authorization Rule operation.",
@@ -480,7 +496,8 @@
             "name": "Policykey"
           }
         }
-      }
+      },
+      "title": "RegenerateKeysParameters"
     },
     "Resource": {
       "description": "The Resource definition for other than namespace.",
@@ -505,7 +522,8 @@
           "type": "string"
         }
       },
-      "x-ms-azure-resource": true
+      "x-ms-azure-resource": true,
+      "title": "Resource"
     },
     "ResourceListKeys": {
       "description": "Namespace/ServiceBus Connection String",
@@ -530,7 +548,8 @@
           "description": "A base64-encoded 256-bit primary key for signing and validating the SAS token.",
           "type": "string"
         }
-      }
+      },
+      "title": "ResourceListKeys"
     },
     "SharedAccessAuthorizationRuleCreateOrUpdateParameters": {
       "description": "Parameters supplied to the Create Or Update Authorization Rules operation.",
@@ -547,7 +566,8 @@
           "$ref": "#/definitions/SharedAccessAuthorizationRuleProperties",
           "x-ms-client-flatten": true
         }
-      }
+      },
+      "title": "SharedAccessAuthorizationRuleCreateOrUpdateParameters"
     },
     "SharedAccessAuthorizationRuleListResult": {
       "description": "The response to the List Namespace operation.",
@@ -563,7 +583,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "SharedAccessAuthorizationRuleListResult"
     },
     "SharedAccessAuthorizationRuleProperties": {
       "description": "SharedAccessAuthorizationRule properties.",
@@ -587,7 +608,8 @@
       },
       "required": [
         "rights"
-      ]
+      ],
+      "title": "SharedAccessAuthorizationRuleProperties"
     },
     "SharedAccessAuthorizationRuleResource": {
       "allOf": [
@@ -601,7 +623,8 @@
           "$ref": "#/definitions/SharedAccessAuthorizationRuleProperties",
           "x-ms-client-flatten": true
         }
-      }
+      },
+      "title": "SharedAccessAuthorizationRuleResource"
     },
     "Sku": {
       "description": "SKU of the namespace.",
@@ -641,7 +664,8 @@
       "required": [
         "tier"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "Sku"
     },
     "SubscriptionCreateOrUpdateParameters": {
       "description": "Parameters supplied to the Create Or Update Subscription operation.",
@@ -661,7 +685,8 @@
       },
       "required": [
         "location"
-      ]
+      ],
+      "title": "SubscriptionCreateOrUpdateParameters"
     },
     "SubscriptionListResult": {
       "description": "The response to the List Subscriptions operation.",
@@ -677,7 +702,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "SubscriptionListResult"
     },
     "SubscriptionProperties": {
       "description": "Description of Subscription Resource.",
@@ -755,7 +781,8 @@
           "readOnly": true,
           "type": "string"
         }
-      }
+      },
+      "title": "SubscriptionProperties"
     },
     "SubscriptionResource": {
       "allOf": [
@@ -769,7 +796,8 @@
           "$ref": "#/definitions/SubscriptionProperties",
           "x-ms-client-flatten": true
         }
-      }
+      },
+      "title": "SubscriptionResource"
     },
     "TopicCreateOrUpdateParameters": {
       "description": "Parameters supplied to the Create Or Update Topic operation.",
@@ -789,7 +817,8 @@
       },
       "required": [
         "location"
-      ]
+      ],
+      "title": "TopicCreateOrUpdateParameters"
     },
     "TopicListResult": {
       "description": "The response to the List Topics operation.",
@@ -805,7 +834,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "TopicListResult"
     },
     "TopicProperties": {
       "description": "The Tpoic Properties definition.",
@@ -905,7 +935,8 @@
           "readOnly": true,
           "type": "string"
         }
-      }
+      },
+      "title": "TopicProperties"
     },
     "TopicResource": {
       "allOf": [
@@ -919,7 +950,8 @@
           "$ref": "#/definitions/TopicProperties",
           "x-ms-client-flatten": true
         }
-      }
+      },
+      "title": "TopicResource"
     },
     "TrackedResource": {
       "allOf": [
@@ -943,7 +975,8 @@
       },
       "required": [
         "location"
-      ]
+      ],
+      "title": "TrackedResource"
     },
     "UnavailableReason": {
       "description": "Specifies the reason for the unavailability of the service.",
@@ -959,7 +992,8 @@
       "x-ms-enum": {
         "modelAsString": true,
         "name": "UnavailableReason"
-      }
+      },
+      "title": "UnavailableReason"
     }
   },
   "actions": [

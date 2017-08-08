@@ -14,7 +14,8 @@
           "description": "Unique identifier representing a container",
           "type": "string"
         }
-      }
+      },
+      "title": "Binding"
     },
     "Certificate": {
       "properties": {
@@ -41,7 +42,8 @@
         "user_cert",
         "user_key"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "Certificate"
     },
     "CertificateRefresh": {
       "properties": {
@@ -65,7 +67,8 @@
           "description": "User's private key.",
           "type": "string"
         }
-      }
+      },
+      "title": "CertificateRefresh"
     },
     "Container": {
       "properties": {
@@ -151,7 +154,8 @@
           "description": "Number of virtual CPUs that are assigned to the container.",
           "type": "integer"
         }
-      }
+      },
+      "title": "Container"
     },
     "ContainerConfig": {
       "properties": {
@@ -257,7 +261,8 @@
           "description": "The working directory inside the container where specified commands are executed. ",
           "type": "string"
         }
-      }
+      },
+      "title": "ContainerConfig"
     },
     "ContainerId": {
       "properties": {
@@ -277,7 +282,8 @@
           "description": "Number of virtual CPUs that are assigned to the container.",
           "type": "integer"
         }
-      }
+      },
+      "title": "ContainerId"
     },
     "ContainerInfo": {
       "properties": {
@@ -358,7 +364,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "ContainerInfo"
     },
     "ContainerState": {
       "properties": {
@@ -390,7 +397,8 @@
           "description": "The current status of the container. This state can either be transient, such as BUILDING or NETWORKING, or non-transient, such as RUNNING, SHUTDOWN, CRASHED, or SUSPENDED.",
           "type": "string"
         }
-      }
+      },
+      "title": "ContainerState"
     },
     "ContainersGroupsGetListItem": {
       "properties": {
@@ -426,7 +434,8 @@
           "description": "Time when the container group is changed and updated.",
           "type": "string"
         }
-      }
+      },
+      "title": "ContainersGroupsGetListItem"
     },
     "ContainersGroupsNameOrIdGetDetails": {
       "properties": {
@@ -550,7 +559,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "ContainersGroupsNameOrIdGetDetails"
     },
     "ContainersGroupsNameOrIdMaproutePostInfo": {
       "allOf": [
@@ -560,7 +570,8 @@
         {
           "type": "object"
         }
-      ]
+      ],
+      "title": "ContainersGroupsNameOrIdMaproutePostInfo"
     },
     "ContainersGroupsNameOrIdPatchUpdatedInfo": {
       "properties": {
@@ -595,7 +606,8 @@
           },
           "type": "object"
         }
-      }
+      },
+      "title": "ContainersGroupsNameOrIdPatchUpdatedInfo"
     },
     "ContainersGroupsPostCreatedInfo": {
       "properties": {
@@ -611,7 +623,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ContainersGroupsPostCreatedInfo"
     },
     "ContainersGroupsPostRequiredAttributes": {
       "properties": {
@@ -699,7 +712,8 @@
       "required": [
         "Name",
         "Image"
-      ]
+      ],
+      "title": "ContainersGroupsPostRequiredAttributes"
     },
     "ContainersQuotaInfo": {
       "properties": {
@@ -778,7 +792,8 @@
           },
           "type": "object"
         }
-      }
+      },
+      "title": "ContainersQuotaInfo"
     },
     "ContainersQuotaList": {
       "properties": {
@@ -792,7 +807,8 @@
           "format": "int32",
           "type": "integer"
         }
-      }
+      },
+      "title": "ContainersQuotaList"
     },
     "ContainersUsageInfo": {
       "properties": {
@@ -871,7 +887,8 @@
           },
           "type": "object"
         }
-      }
+      },
+      "title": "ContainersUsageInfo"
     },
     "ContainersUsageInfoAvailableSizes": {
       "properties": {
@@ -898,7 +915,8 @@
           "format": "int32",
           "type": "integer"
         }
-      }
+      },
+      "title": "ContainersUsageInfoAvailableSizes"
     },
     "ContainersVersionGetInfo": {
       "properties": {
@@ -995,7 +1013,8 @@
           "description": "The latest API version.",
           "type": "string"
         }
-      }
+      },
+      "title": "ContainersVersionGetInfo"
     },
     "CreateContainer": {
       "properties": {
@@ -1052,7 +1071,8 @@
       },
       "required": [
         "Image"
-      ]
+      ],
+      "title": "CreateContainer"
     },
     "Fileshare": {
       "properties": {
@@ -1102,7 +1122,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Fileshare"
     },
     "FileshareParam": {
       "properties": {
@@ -1125,7 +1146,8 @@
         "fsSize",
         "fsIOPS"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "FileshareParam"
     },
     "FileshareUsage": {
       "properties": {
@@ -1146,7 +1168,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "FileshareUsage"
     },
     "FloatingIP": {
       "properties": {
@@ -1157,7 +1180,8 @@
           "description": "The public IP address that is allocated to the organization space.",
           "type": "string"
         }
-      }
+      },
+      "title": "FloatingIP"
     },
     "GetFileshareDetails": {
       "properties": {
@@ -1181,7 +1205,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetFileshareDetails"
     },
     "Group": {
       "properties": {
@@ -1193,7 +1218,8 @@
           "description": "Name of the group.",
           "type": "string"
         }
-      }
+      },
+      "title": "Group"
     },
     "HostConfig": {
       "properties": {
@@ -1226,7 +1252,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "HostConfig"
     },
     "ImageDetail": {
       "properties": {
@@ -1376,7 +1403,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ImageDetail"
     },
     "ImageInfo": {
       "properties": {
@@ -1410,7 +1438,8 @@
           "format": "int32",
           "type": "integer"
         }
-      }
+      },
+      "title": "ImageInfo"
     },
     "Namespace": {
       "properties": {
@@ -1419,7 +1448,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Namespace"
     },
     "Network": {
       "properties": {
@@ -1467,7 +1497,8 @@
           "description": "Unique identifier representing the private container network.",
           "type": "string"
         }
-      }
+      },
+      "title": "Network"
     },
     "NetworkSetting": {
       "properties": {
@@ -1514,7 +1545,8 @@
       "required": [
         "IpAddress",
         "PublicIpAddress"
-      ]
+      ],
+      "title": "NetworkSetting"
     },
     "Port": {
       "properties": {
@@ -1534,7 +1566,8 @@
           "description": "The type of IP protocol that is used for the port. It can either be `udp` or `tcp`.  ",
           "type": "string"
         }
-      }
+      },
+      "title": "Port"
     },
     "Route": {
       "description": "The public route that is mapped to the container group. You can use this route to access your container group from the Internet.",
@@ -1548,7 +1581,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Route"
     },
     "UpdateVolume": {
       "properties": {
@@ -1566,7 +1600,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "UpdateVolume"
     },
     "Volume": {
       "properties": {
@@ -1593,7 +1628,8 @@
           "description": "The name of the volume.",
           "type": "string"
         }
-      }
+      },
+      "title": "Volume"
     },
     "getContainerStatus": {
       "properties": {
@@ -1612,7 +1648,8 @@
       },
       "required": [
         "NameOrId"
-      ]
+      ],
+      "title": "getContainerStatus"
     }
   },
   "actions": [

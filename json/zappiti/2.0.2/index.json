@@ -17,7 +17,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CheckZappitiServiceRequest"
     },
     "CheckZappitiServiceResult": {
       "properties": {
@@ -25,7 +26,8 @@
           "$ref": "#/definitions/ErrorCode"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CheckZappitiServiceResult"
     },
     "ErrorCode": {
       "enum": [
@@ -38,7 +40,8 @@
         "FailToStart",
         "BadApiKey"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ErrorCode"
     },
     "InstallZappitiServiceRequest": {
       "properties": {
@@ -48,7 +51,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InstallZappitiServiceRequest"
     },
     "InstallZappitiServiceResult": {
       "properties": {
@@ -56,7 +60,8 @@
           "$ref": "#/definitions/ErrorCode"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InstallZappitiServiceResult"
     },
     "IsAliveRequest": {
       "properties": {
@@ -66,7 +71,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "IsAliveRequest"
     },
     "IsAliveResult": {
       "properties": {
@@ -74,7 +80,8 @@
           "$ref": "#/definitions/ErrorCode"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "IsAliveResult"
     },
     "LastMediaRequest": {
       "properties": {
@@ -84,7 +91,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LastMediaRequest"
     },
     "LastMediaResult": {
       "properties": {
@@ -128,7 +136,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LastMediaResult"
     },
     "StartVideoRequest": {
       "properties": {
@@ -163,7 +172,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "StartVideoRequest"
     },
     "StartVideoResult": {
       "properties": {
@@ -171,7 +181,8 @@
           "$ref": "#/definitions/ErrorCode"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "StartVideoResult"
     },
     "StartZappitiServiceRequest": {
       "properties": {
@@ -181,7 +192,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "StartZappitiServiceRequest"
     },
     "StartZappitiServiceResult": {
       "properties": {
@@ -189,7 +201,8 @@
           "$ref": "#/definitions/ErrorCode"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "StartZappitiServiceResult"
     }
   },
   "actions": [

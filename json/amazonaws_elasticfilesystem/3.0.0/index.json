@@ -17,7 +17,8 @@
   "actionCount": 8,
   "definitions": {
     "AwsAccountId": {
-      "type": "string"
+      "type": "string",
+      "title": "AwsAccountId"
     },
     "BadRequest": {
       "description": "Returned if the request is malformed or contains an error such as an invalid parameter value or a missing required parameter.",
@@ -32,7 +33,8 @@
       "required": [
         "ErrorCode"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "BadRequest"
     },
     "CreateFileSystemRequest": {
       "example": {
@@ -52,7 +54,8 @@
       "required": [
         "CreationToken"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateFileSystemRequest"
     },
     "CreateMountTargetRequest": {
       "description": "<p/>",
@@ -82,7 +85,8 @@
         "FileSystemId",
         "SubnetId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateMountTargetRequest"
     },
     "CreateTagsRequest": {
       "description": "<p/>",
@@ -104,12 +108,14 @@
       "required": [
         "Tags"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateTagsRequest"
     },
     "CreationToken": {
       "maxLength": 64,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "CreationToken"
     },
     "DeleteFileSystemRequest": {
       "description": "<p/>",
@@ -117,7 +123,8 @@
         "FileSystemId": "fs-01234567"
       },
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DeleteFileSystemRequest"
     },
     "DeleteMountTargetRequest": {
       "description": "<p/>",
@@ -125,7 +132,8 @@
         "MountTargetId": "fsmt-12340abc"
       },
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DeleteMountTargetRequest"
     },
     "DeleteTagsRequest": {
       "description": "<p/>",
@@ -144,7 +152,8 @@
       "required": [
         "TagKeys"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteTagsRequest"
     },
     "DependencyTimeout": {
       "description": "The service timed out trying to fulfill the request, and the client should try the call again.",
@@ -159,13 +168,15 @@
       "required": [
         "ErrorCode"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DependencyTimeout"
     },
     "DescribeFileSystemsRequest": {
       "description": "<p/>",
       "example": {},
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DescribeFileSystemsRequest"
     },
     "DescribeFileSystemsResponse": {
       "example": {
@@ -199,7 +210,8 @@
           "description": "Present if there are more file systems than returned in the response (String). You can use the <code>NextMarker</code> in the subsequent request to fetch the descriptions."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeFileSystemsResponse"
     },
     "DescribeMountTargetSecurityGroupsRequest": {
       "description": "<p/>",
@@ -207,7 +219,8 @@
         "MountTargetId": "fsmt-12340abc"
       },
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DescribeMountTargetSecurityGroupsRequest"
     },
     "DescribeMountTargetSecurityGroupsResponse": {
       "example": {
@@ -224,7 +237,8 @@
       "required": [
         "SecurityGroups"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeMountTargetSecurityGroupsResponse"
     },
     "DescribeMountTargetsRequest": {
       "description": "<p/>",
@@ -232,7 +246,8 @@
         "FileSystemId": "fs-01234567"
       },
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DescribeMountTargetsRequest"
     },
     "DescribeMountTargetsResponse": {
       "description": "<p/>",
@@ -263,7 +278,8 @@
           "description": "If a value is present, there are more mount targets to return. In a subsequent request, you can provide <code>Marker</code> in your request with this value to retrieve the next set of mount targets."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeMountTargetsResponse"
     },
     "DescribeTagsRequest": {
       "description": "<p/>",
@@ -271,7 +287,8 @@
         "FileSystemId": "fs-01234567"
       },
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DescribeTagsRequest"
     },
     "DescribeTagsResponse": {
       "description": "<p/>",
@@ -300,14 +317,17 @@
       "required": [
         "Tags"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeTagsResponse"
     },
     "ErrorCode": {
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "ErrorCode"
     },
     "ErrorMessage": {
-      "type": "string"
+      "type": "string",
+      "title": "ErrorMessage"
     },
     "FileSystemAlreadyExists": {
       "description": "Returned if the file system you are trying to create already exists, with the creation token you provided.",
@@ -326,7 +346,8 @@
         "ErrorCode",
         "FileSystemId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "FileSystemAlreadyExists"
     },
     "FileSystemDescription": {
       "description": "Description of the file system.",
@@ -390,16 +411,19 @@
         "SizeInBytes",
         "PerformanceMode"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "FileSystemDescription"
     },
     "FileSystemDescriptions": {
       "items": {
         "$ref": "#/definitions/FileSystemDescription"
       },
-      "type": "array"
+      "type": "array",
+      "title": "FileSystemDescriptions"
     },
     "FileSystemId": {
-      "type": "string"
+      "type": "string",
+      "title": "FileSystemId"
     },
     "FileSystemInUse": {
       "description": "Returned if a file system has mount targets.",
@@ -414,7 +438,8 @@
       "required": [
         "ErrorCode"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "FileSystemInUse"
     },
     "FileSystemLimitExceeded": {
       "description": "Returned if the AWS account has already created maximum number of file systems allowed per account.",
@@ -429,7 +454,8 @@
       "required": [
         "ErrorCode"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "FileSystemLimitExceeded"
     },
     "FileSystemNotFound": {
       "description": "Returned if the specified <code>FileSystemId</code> does not exist in the requester's AWS account.",
@@ -444,7 +470,8 @@
       "required": [
         "ErrorCode"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "FileSystemNotFound"
     },
     "FileSystemSize": {
       "description": "Latest known metered size (in bytes) of data stored in the file system, in its <code>Value</code> field, and the time at which that size was determined in its <code>Timestamp</code> field. Note that the value does not represent the size of a consistent snapshot of the file system, but it is eventually consistent when there are no writes to the file system. That is, the value will represent the actual size only if the file system is not modified for a period longer than a couple of hours. Otherwise, the value is not necessarily the exact size the file system was at any instant in time.",
@@ -461,11 +488,13 @@
       "required": [
         "Value"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "FileSystemSize"
     },
     "FileSystemSizeValue": {
       "minimum": 0,
-      "type": "integer"
+      "type": "integer",
+      "title": "FileSystemSizeValue"
     },
     "IncorrectFileSystemLifeCycleState": {
       "description": "Returned if the file system's life cycle state is not \"created\".",
@@ -480,7 +509,8 @@
       "required": [
         "ErrorCode"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "IncorrectFileSystemLifeCycleState"
     },
     "IncorrectMountTargetState": {
       "description": "Returned if the mount target is not in the correct state for the operation.",
@@ -495,7 +525,8 @@
       "required": [
         "ErrorCode"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "IncorrectMountTargetState"
     },
     "InternalServerError": {
       "description": "Returned if an error occurred on the server side.",
@@ -510,10 +541,12 @@
       "required": [
         "ErrorCode"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "InternalServerError"
     },
     "IpAddress": {
-      "type": "string"
+      "type": "string",
+      "title": "IpAddress"
     },
     "IpAddressInUse": {
       "description": "Returned if the request specified an <code>IpAddress</code> that is already in use in the subnet.",
@@ -528,7 +561,8 @@
       "required": [
         "ErrorCode"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "IpAddressInUse"
     },
     "LifeCycleState": {
       "enum": [
@@ -537,14 +571,17 @@
         "deleting",
         "deleted"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "LifeCycleState"
     },
     "Marker": {
-      "type": "string"
+      "type": "string",
+      "title": "Marker"
     },
     "MaxItems": {
       "minimum": 1,
-      "type": "integer"
+      "type": "integer",
+      "title": "MaxItems"
     },
     "ModifyMountTargetSecurityGroupsRequest": {
       "description": "<p/>",
@@ -560,7 +597,8 @@
           "description": "Array of up to five VPC security group IDs."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ModifyMountTargetSecurityGroupsRequest"
     },
     "MountTargetConflict": {
       "description": "Returned if the mount target would violate one of the specified restrictions based on the file system's existing mount targets.",
@@ -575,11 +613,13 @@
       "required": [
         "ErrorCode"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "MountTargetConflict"
     },
     "MountTargetCount": {
       "minimum": 0,
-      "type": "integer"
+      "type": "integer",
+      "title": "MountTargetCount"
     },
     "MountTargetDescription": {
       "description": "Provides a description of a mount target.",
@@ -628,16 +668,19 @@
         "SubnetId",
         "LifeCycleState"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "MountTargetDescription"
     },
     "MountTargetDescriptions": {
       "items": {
         "$ref": "#/definitions/MountTargetDescription"
       },
-      "type": "array"
+      "type": "array",
+      "title": "MountTargetDescriptions"
     },
     "MountTargetId": {
-      "type": "string"
+      "type": "string",
+      "title": "MountTargetId"
     },
     "MountTargetNotFound": {
       "description": "Returned if there is no mount target with the specified ID found in the caller's account.",
@@ -652,10 +695,12 @@
       "required": [
         "ErrorCode"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "MountTargetNotFound"
     },
     "NetworkInterfaceId": {
-      "type": "string"
+      "type": "string",
+      "title": "NetworkInterfaceId"
     },
     "NetworkInterfaceLimitExceeded": {
       "description": " The calling account has reached the ENI limit for the specific AWS region. Client should try to delete some ENIs or get its account limit raised. For more information, see <a href=\"http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Appendix_Limits.html\">Amazon VPC Limits</a> in the Amazon Virtual Private Cloud User Guide (see the Network interfaces per VPC entry in the table). ",
@@ -670,7 +715,8 @@
       "required": [
         "ErrorCode"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "NetworkInterfaceLimitExceeded"
     },
     "NoFreeAddressesInSubnet": {
       "description": "Returned if <code>IpAddress</code> was not specified in the request and there are no free IP addresses in the subnet.",
@@ -685,17 +731,20 @@
       "required": [
         "ErrorCode"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "NoFreeAddressesInSubnet"
     },
     "PerformanceMode": {
       "enum": [
         "generalPurpose",
         "maxIO"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "PerformanceMode"
     },
     "SecurityGroup": {
-      "type": "string"
+      "type": "string",
+      "title": "SecurityGroup"
     },
     "SecurityGroupLimitExceeded": {
       "description": "Returned if the size of <code>SecurityGroups</code> specified in the request is greater than five.",
@@ -710,7 +759,8 @@
       "required": [
         "ErrorCode"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "SecurityGroupLimitExceeded"
     },
     "SecurityGroupNotFound": {
       "description": "Returned if one of the specified security groups does not exist in the subnet's VPC.",
@@ -725,17 +775,20 @@
       "required": [
         "ErrorCode"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "SecurityGroupNotFound"
     },
     "SecurityGroups": {
       "items": {
         "$ref": "#/definitions/SecurityGroup"
       },
       "maxItems": 5,
-      "type": "array"
+      "type": "array",
+      "title": "SecurityGroups"
     },
     "SubnetId": {
-      "type": "string"
+      "type": "string",
+      "title": "SubnetId"
     },
     "SubnetNotFound": {
       "description": "Returned if there is no subnet with ID <code>SubnetId</code> provided in the request.",
@@ -750,7 +803,8 @@
       "required": [
         "ErrorCode"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "SubnetNotFound"
     },
     "Tag": {
       "description": "A tag is a key-value pair. Allowed characters: letters, whitespace, and numbers, representable in UTF-8, and the following characters:<code> + - = . _ : /</code> ",
@@ -768,32 +822,38 @@
         "Key",
         "Value"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "Tag"
     },
     "TagKey": {
       "maxLength": 128,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "TagKey"
     },
     "TagKeys": {
       "items": {
         "$ref": "#/definitions/TagKey"
       },
-      "type": "array"
+      "type": "array",
+      "title": "TagKeys"
     },
     "TagValue": {
       "maxLength": 256,
-      "type": "string"
+      "type": "string",
+      "title": "TagValue"
     },
     "Tags": {
       "items": {
         "$ref": "#/definitions/Tag"
       },
-      "type": "array"
+      "type": "array",
+      "title": "Tags"
     },
     "Timestamp": {
       "format": "date-time",
-      "type": "string"
+      "type": "string",
+      "title": "Timestamp"
     },
     "UnsupportedAvailabilityZone": {
       "description": "",
@@ -808,7 +868,8 @@
       "required": [
         "ErrorCode"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UnsupportedAvailabilityZone"
     }
   },
   "actions": [

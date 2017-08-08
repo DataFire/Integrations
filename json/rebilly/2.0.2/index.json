@@ -52,7 +52,8 @@
           "type": "object"
         }
       ],
-      "description": "A1Gateway config"
+      "description": "A1Gateway config",
+      "title": "A1Gateway"
     },
     "AcquirerName": {
       "description": "Acquirer name",
@@ -121,7 +122,8 @@
         "Wirecard",
         "WorldPay"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "AcquirerName"
     },
     "AmexVPC": {
       "allOf": [
@@ -172,7 +174,8 @@
           "type": "object"
         }
       ],
-      "description": "AmexVPC config"
+      "description": "AmexVPC config",
+      "title": "AmexVPC"
     },
     "AmountAdjustment": {
       "discriminator": "method",
@@ -189,7 +192,8 @@
       "required": [
         "method"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AmountAdjustment"
     },
     "ApiKey": {
       "description": "API secret Key.",
@@ -246,7 +250,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ApiKey"
     },
     "ApiTracking": {
       "description": "Tracking API Requests.",
@@ -377,7 +382,8 @@
         }
       },
       "readOnly": true,
-      "type": "object"
+      "type": "object",
+      "title": "ApiTracking"
     },
     "ApprovalUrlLink": {
       "allOf": [
@@ -397,7 +403,8 @@
       "required": [
         "rel"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ApprovalUrlLink"
     },
     "Attachment": {
       "properties": {
@@ -480,7 +487,8 @@
         "relatedId",
         "relatedType"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "Attachment"
     },
     "AttachmentResourceLink": {
       "allOf": [
@@ -508,7 +516,8 @@
       "required": [
         "rel"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AttachmentResourceLink"
     },
     "AuthenticationOptions": {
       "properties": {
@@ -529,7 +538,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AuthenticationOptions"
     },
     "AuthenticationToken": {
       "properties": {
@@ -587,7 +597,8 @@
         "username",
         "password"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AuthenticationToken"
     },
     "AuthorizeNet": {
       "allOf": [
@@ -621,7 +632,8 @@
           "type": "object"
         }
       ],
-      "description": "AuthorizeNet Gateway config"
+      "description": "AuthorizeNet Gateway config",
+      "title": "AuthorizeNet"
     },
     "BankAccount": {
       "properties": {
@@ -716,7 +728,8 @@
           "description": "Bank Account updated time"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BankAccount"
     },
     "BankAccountLink": {
       "allOf": [
@@ -736,7 +749,8 @@
       "required": [
         "rel"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "BankAccountLink"
     },
     "Beanstream": {
       "allOf": [
@@ -770,7 +784,8 @@
           "type": "object"
         }
       ],
-      "description": "Beanstream Gateway config"
+      "description": "Beanstream Gateway config",
+      "title": "Beanstream"
     },
     "BillingContactLink": {
       "allOf": [
@@ -790,7 +805,8 @@
       "required": [
         "rel"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "BillingContactLink"
     },
     "Blacklist": {
       "properties": {
@@ -858,7 +874,8 @@
         "type",
         "value"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "Blacklist"
     },
     "BraintreePayments": {
       "allOf": [
@@ -904,7 +921,8 @@
           "type": "object"
         }
       ],
-      "description": "BraintreePayments Gateway config"
+      "description": "BraintreePayments Gateway config",
+      "title": "BraintreePayments"
     },
     "CardinalCommerce": {
       "allOf": [
@@ -935,7 +953,8 @@
           "type": "object"
         }
       ],
-      "description": "CardinalCommerce Mpi Credentials"
+      "description": "CardinalCommerce Mpi Credentials",
+      "title": "CardinalCommerce"
     },
     "Cashflows": {
       "allOf": [
@@ -969,7 +988,8 @@
           "type": "object"
         }
       ],
-      "description": "Cashflows Gateway config"
+      "description": "Cashflows Gateway config",
+      "title": "Cashflows"
     },
     "Cayan": {
       "allOf": [
@@ -1008,7 +1028,8 @@
           "type": "object"
         }
       ],
-      "description": "Cayan Gateway config"
+      "description": "Cayan Gateway config",
+      "title": "Cayan"
     },
     "Chase": {
       "allOf": [
@@ -1058,7 +1079,8 @@
           "type": "object"
         }
       ],
-      "description": "Chase Gateway config"
+      "description": "Chase Gateway config",
+      "title": "Chase"
     },
     "CheckoutPage": {
       "properties": {
@@ -1132,7 +1154,8 @@
         "websiteId",
         "uriPath"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CheckoutPage"
     },
     "ChinaUnionPay": {
       "allOf": [
@@ -1181,7 +1204,8 @@
           "type": "object"
         }
       ],
-      "description": "China Union Pay Gateway config"
+      "description": "China Union Pay Gateway config",
+      "title": "ChinaUnionPay"
     },
     "CommonScheduleInstruction": {
       "description": "The calculation instruction of scheduled time",
@@ -1201,7 +1225,8 @@
       "required": [
         "method"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CommonScheduleInstruction"
     },
     "Condition": {
       "discriminator": "op",
@@ -1226,7 +1251,8 @@
       "required": [
         "op"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "Condition"
     },
     "Contact": {
       "properties": {
@@ -1328,7 +1354,8 @@
           "description": "The contact updated time"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Contact"
     },
     "ContactLink": {
       "allOf": [
@@ -1348,7 +1375,8 @@
       "required": [
         "rel"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ContactLink"
     },
     "Coupon": {
       "description": "Coupons and Discounts",
@@ -1436,7 +1464,8 @@
         "discount",
         "issuedTime"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "Coupon"
     },
     "CouponRedemption": {
       "description": "Coupons redemption log",
@@ -1505,7 +1534,8 @@
           "description": "Coupon's redemption code"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CouponRedemption"
     },
     "CouponRestriction": {
       "allOf": [
@@ -1532,7 +1562,8 @@
         }
       ],
       "description": "Coupon restrictions",
-      "type": "object"
+      "type": "object",
+      "title": "CouponRestriction"
     },
     "Credential": {
       "properties": {
@@ -1584,7 +1615,8 @@
         "password",
         "customerId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "Credential"
     },
     "Credorax": {
       "allOf": [
@@ -1618,7 +1650,8 @@
           "type": "object"
         }
       ],
-      "description": "Credorax Gateway config"
+      "description": "Credorax Gateway config",
+      "title": "Credorax"
     },
     "CustomEvent": {
       "properties": {
@@ -1674,7 +1707,8 @@
         "chronology",
         "scheduleInstruction"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CustomEvent"
     },
     "CustomEventScheduleInstruction": {
       "description": "The calculation instruction of scheduled time",
@@ -1692,7 +1726,8 @@
       "required": [
         "method"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CustomEventScheduleInstruction"
     },
     "CustomField": {
       "description": "A separate Custom Field schema",
@@ -1738,7 +1773,8 @@
         "name",
         "type"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CustomField"
     },
     "Customer": {
       "properties": {
@@ -1813,7 +1849,8 @@
           "description": "The customer updated time"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Customer"
     },
     "CustomerLink": {
       "allOf": [
@@ -1833,7 +1870,8 @@
       "required": [
         "rel"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CustomerLink"
     },
     "DataCash": {
       "allOf": [
@@ -1885,7 +1923,8 @@
           "type": "object"
         }
       ],
-      "description": "DataCash Gateway config"
+      "description": "DataCash Gateway config",
+      "title": "DataCash"
     },
     "DataCashMpi": {
       "allOf": [
@@ -1893,7 +1932,8 @@
           "$ref": "#/definitions/DataCashMpis"
         }
       ],
-      "description": "DataCash Integrated"
+      "description": "DataCash Integrated",
+      "title": "DataCashMpi"
     },
     "DataCashMpis": {
       "description": "DataCash Mpis",
@@ -1912,7 +1952,8 @@
       },
       "required": [
         "name"
-      ]
+      ],
+      "title": "DataCashMpis"
     },
     "DayOfWeek": {
       "enum": [
@@ -1924,7 +1965,8 @@
         "Friday",
         "Saturday"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "DayOfWeek"
     },
     "DefaultPaymentInstrumentLink": {
       "allOf": [
@@ -1944,7 +1986,8 @@
       "required": [
         "rel"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DefaultPaymentInstrumentLink"
     },
     "DeliveryContactLink": {
       "allOf": [
@@ -1964,7 +2007,8 @@
       "required": [
         "rel"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeliveryContactLink"
     },
     "Dengi": {
       "allOf": [
@@ -2004,7 +2048,8 @@
           "type": "object"
         }
       ],
-      "description": "Dengi Gateway config"
+      "description": "Dengi Gateway config",
+      "title": "Dengi"
     },
     "Discount": {
       "discriminator": "type",
@@ -2018,7 +2063,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Discount"
     },
     "Dispute": {
       "properties": {
@@ -2285,7 +2331,8 @@
         "status",
         "reasonCode"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "Dispute"
     },
     "DisputeEvidence": {
       "properties": {
@@ -2318,7 +2365,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DisputeEvidence"
     },
     "EMerchantPay": {
       "allOf": [
@@ -2355,7 +2403,8 @@
           "type": "object"
         }
       ],
-      "description": "EMerchantPay Gateway config"
+      "description": "EMerchantPay Gateway config",
+      "title": "EMerchantPay"
     },
     "EMerchantPayMpis": {
       "description": "EMerchantPay Mpis",
@@ -2374,7 +2423,8 @@
       },
       "required": [
         "name"
-      ]
+      ],
+      "title": "EMerchantPayMpis"
     },
     "Email": {
       "properties": {
@@ -2387,7 +2437,8 @@
       "required": [
         "email"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "Email"
     },
     "EmailNotification": {
       "properties": {
@@ -2442,7 +2493,8 @@
         "bodyText",
         "bodyHtml"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "EmailNotification"
     },
     "Error": {
       "properties": {
@@ -2455,7 +2507,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Error"
     },
     "EventType": {
       "description": "Rebilly event type",
@@ -2471,7 +2524,8 @@
         "risk-score-changed"
       ],
       "readOnly": true,
-      "type": "string"
+      "type": "string",
+      "title": "EventType"
     },
     "File": {
       "properties": {
@@ -2567,7 +2621,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "File"
     },
     "FileLink": {
       "allOf": [
@@ -2587,7 +2642,8 @@
       "required": [
         "rel"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "FileLink"
     },
     "Flexepin": {
       "allOf": [
@@ -2621,7 +2677,8 @@
           "type": "object"
         }
       ],
-      "description": "Flexepin Gateway config"
+      "description": "Flexepin Gateway config",
+      "title": "Flexepin"
     },
     "Forte": {
       "allOf": [
@@ -2666,7 +2723,8 @@
           "type": "object"
         }
       ],
-      "description": "Forte Gateway config"
+      "description": "Forte Gateway config",
+      "title": "Forte"
     },
     "FundSend": {
       "allOf": [
@@ -2700,7 +2758,8 @@
           "type": "object"
         }
       ],
-      "description": "FundSend Gateway config"
+      "description": "FundSend Gateway config",
+      "title": "FundSend"
     },
     "GET": {
       "allOf": [
@@ -2728,7 +2787,8 @@
           "type": "object"
         }
       ],
-      "description": "GET Gateway config"
+      "description": "GET Gateway config",
+      "title": "GET"
     },
     "GatewayAccount": {
       "discriminator": "gatewayName",
@@ -2902,7 +2962,8 @@
         "acceptedCurrencies",
         "organizationId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GatewayAccount"
     },
     "GatewayAccountLink": {
       "allOf": [
@@ -2922,7 +2983,8 @@
       "required": [
         "rel"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GatewayAccountLink"
     },
     "GatewayAccountPickInstruction": {
       "discriminator": "method",
@@ -2938,7 +3000,8 @@
       "required": [
         "method"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GatewayAccountPickInstruction"
     },
     "GatewayName": {
       "description": "The gateway name",
@@ -2990,7 +3053,8 @@
         "Wirecard",
         "Worldpay"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "GatewayName"
     },
     "GenericRestriction": {
       "description": "All restriction",
@@ -3001,7 +3065,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GenericRestriction"
     },
     "GlobalCollect": {
       "allOf": [
@@ -3047,7 +3112,8 @@
           "type": "object"
         }
       ],
-      "description": "GlobalCollect Gateway config"
+      "description": "GlobalCollect Gateway config",
+      "title": "GlobalCollect"
     },
     "GlobalCollectMpi": {
       "allOf": [
@@ -3055,7 +3121,8 @@
           "$ref": "#/definitions/GlobalCollectMpis"
         }
       ],
-      "description": "GlobalCollect Integrated"
+      "description": "GlobalCollect Integrated",
+      "title": "GlobalCollectMpi"
     },
     "GlobalCollectMpis": {
       "description": "GlobalCollect Mpis",
@@ -3074,7 +3141,8 @@
       },
       "required": [
         "name"
-      ]
+      ],
+      "title": "GlobalCollectMpis"
     },
     "GlobalOne": {
       "allOf": [
@@ -3108,7 +3176,8 @@
           "type": "object"
         }
       ],
-      "description": "GlobalOne Gateway config"
+      "description": "GlobalOne Gateway config",
+      "title": "GlobalOne"
     },
     "GlobalWebhook": {
       "properties": {
@@ -3189,7 +3258,8 @@
         "url",
         "credentialHash"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GlobalWebhook"
     },
     "GlobalWebhookEventType": {
       "description": "Rebilly webhooks event type",
@@ -3207,7 +3277,8 @@
         "dispute-created",
         "suspended-payment-completed"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "GlobalWebhookEventType"
     },
     "Ilixium": {
       "allOf": [
@@ -3249,7 +3320,8 @@
           "type": "object"
         }
       ],
-      "description": "Ilixium Gateway config"
+      "description": "Ilixium Gateway config",
+      "title": "Ilixium"
     },
     "IlixiumMpi": {
       "allOf": [
@@ -3257,7 +3329,8 @@
           "$ref": "#/definitions/IlixiumMpis"
         }
       ],
-      "description": "Ilixium Integrated"
+      "description": "Ilixium Integrated",
+      "title": "IlixiumMpi"
     },
     "IlixiumMpis": {
       "description": "IlixiumMpis Mpis",
@@ -3276,7 +3349,8 @@
       },
       "required": [
         "name"
-      ]
+      ],
+      "title": "IlixiumMpis"
     },
     "InvalidError": {
       "allOf": [
@@ -3294,7 +3368,8 @@
           },
           "type": "object"
         }
-      ]
+      ],
+      "title": "InvalidError"
     },
     "Invoice": {
       "properties": {
@@ -3483,7 +3558,8 @@
         "websiteId",
         "currency"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "Invoice"
     },
     "InvoiceDiscount": {
       "properties": {
@@ -3514,7 +3590,8 @@
         }
       },
       "readOnly": true,
-      "type": "object"
+      "type": "object",
+      "title": "InvoiceDiscount"
     },
     "InvoiceIssue": {
       "properties": {
@@ -3523,7 +3600,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvoiceIssue"
     },
     "InvoiceItem": {
       "properties": {
@@ -3601,7 +3679,8 @@
         "type",
         "unitPrice"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "InvoiceItem"
     },
     "InvoiceTax": {
       "properties": {
@@ -3616,7 +3695,8 @@
         }
       },
       "readOnly": true,
-      "type": "object"
+      "type": "object",
+      "title": "InvoiceTax"
     },
     "ItemsLink": {
       "allOf": [
@@ -3636,7 +3716,8 @@
       "required": [
         "rel"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ItemsLink"
     },
     "JetPay": {
       "allOf": [
@@ -3664,7 +3745,8 @@
           "type": "object"
         }
       ],
-      "description": "JetPay Gateway config"
+      "description": "JetPay Gateway config",
+      "title": "JetPay"
     },
     "Layout": {
       "properties": {
@@ -3718,7 +3800,8 @@
       "required": [
         "name"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "Layout"
     },
     "LayoutItem": {
       "properties": {
@@ -3752,7 +3835,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LayoutItem"
     },
     "LeadSource": {
       "properties": {
@@ -3850,7 +3934,8 @@
           "description": "LeadSource updated time"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LeadSource"
     },
     "LeadSourceLink": {
       "allOf": [
@@ -3870,7 +3955,8 @@
       "required": [
         "rel"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "LeadSourceLink"
     },
     "List": {
       "properties": {
@@ -3933,7 +4019,8 @@
         "name",
         "values"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "List"
     },
     "Method": {
       "description": "The payment method",
@@ -3949,7 +4036,8 @@
         "WeChat Pay",
         "Flexepin"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "Method"
     },
     "Moneris": {
       "allOf": [
@@ -3983,7 +4071,8 @@
           "type": "object"
         }
       ],
-      "description": "Moneris Gateway config"
+      "description": "Moneris Gateway config",
+      "title": "Moneris"
     },
     "MpiName": {
       "description": "The Merchant plug-in Name",
@@ -3997,7 +4086,8 @@
         "CardinalCommerce",
         "Other"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "MpiName"
     },
     "NMI": {
       "allOf": [
@@ -4031,7 +4121,8 @@
           "type": "object"
         }
       ],
-      "description": "NMI Gateway config"
+      "description": "NMI Gateway config",
+      "title": "NMI"
     },
     "NewLink": {
       "properties": {
@@ -4043,7 +4134,8 @@
       "required": [
         "href"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "NewLink"
     },
     "Note": {
       "properties": {
@@ -4130,7 +4222,8 @@
         "relatedType",
         "relatedId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "Note"
     },
     "NotesLink": {
       "allOf": [
@@ -4150,7 +4243,8 @@
       "required": [
         "rel"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "NotesLink"
     },
     "OchaPay": {
       "allOf": [
@@ -4190,7 +4284,8 @@
           "type": "object"
         }
       ],
-      "description": "OchaPay Gateway config"
+      "description": "OchaPay Gateway config",
+      "title": "OchaPay"
     },
     "OnBoardingUrlLink": {
       "allOf": [
@@ -4210,7 +4305,8 @@
       "required": [
         "rel"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "OnBoardingUrlLink"
     },
     "OnOff": {
       "default": "active",
@@ -4218,7 +4314,8 @@
         "active",
         "inactive"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "OnOff"
     },
     "Optimal": {
       "allOf": [
@@ -4260,7 +4357,8 @@
           "type": "object"
         }
       ],
-      "description": "Optimal Gateway config"
+      "description": "Optimal Gateway config",
+      "title": "Optimal"
     },
     "OptimalMpi": {
       "allOf": [
@@ -4268,7 +4366,8 @@
           "$ref": "#/definitions/OptimalMpis"
         }
       ],
-      "description": "Optimal Integrated"
+      "description": "Optimal Integrated",
+      "title": "OptimalMpi"
     },
     "OptimalMpis": {
       "description": "Optimal Mpis",
@@ -4287,7 +4386,8 @@
       },
       "required": [
         "name"
-      ]
+      ],
+      "title": "OptimalMpis"
     },
     "Organization": {
       "properties": {
@@ -4364,7 +4464,8 @@
         "name",
         "country"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "Organization"
     },
     "OrganizationLink": {
       "allOf": [
@@ -4384,7 +4485,8 @@
       "required": [
         "rel"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "OrganizationLink"
     },
     "Other": {
       "allOf": [
@@ -4404,7 +4506,8 @@
           "$ref": "#/definitions/WorldpayMpis"
         }
       ],
-      "description": "Other"
+      "description": "Other",
+      "title": "Other"
     },
     "PandaGateway": {
       "allOf": [
@@ -4443,7 +4546,8 @@
           "type": "object"
         }
       ],
-      "description": "Panda Gateway config"
+      "description": "Panda Gateway config",
+      "title": "PandaGateway"
     },
     "ParentTransactionLink": {
       "allOf": [
@@ -4463,7 +4567,8 @@
       "required": [
         "rel"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ParentTransactionLink"
     },
     "PayPal": {
       "allOf": [
@@ -4497,7 +4602,8 @@
           "type": "object"
         }
       ],
-      "description": "PayPal Gateway config"
+      "description": "PayPal Gateway config",
+      "title": "PayPal"
     },
     "PayR": {
       "allOf": [
@@ -4531,7 +4637,8 @@
           "type": "object"
         }
       ],
-      "description": "PayR Gateway config"
+      "description": "PayR Gateway config",
+      "title": "PayR"
     },
     "Payeezy": {
       "allOf": [
@@ -4576,7 +4683,8 @@
           "type": "object"
         }
       ],
-      "description": "Payeezy Gateway config"
+      "description": "Payeezy Gateway config",
+      "title": "Payeezy"
     },
     "Payment": {
       "properties": {
@@ -4738,7 +4846,8 @@
         "currency",
         "amount"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "Payment"
     },
     "PaymentCard": {
       "properties": {
@@ -4883,7 +4992,8 @@
           "description": "Card updated time"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PaymentCard"
     },
     "PaymentCardLink": {
       "allOf": [
@@ -4903,7 +5013,8 @@
       "required": [
         "rel"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "PaymentCardLink"
     },
     "PaymentCardMigrationRequest": {
       "properties": {
@@ -4941,7 +5052,8 @@
         "toGatewayAccountId",
         "paymentCardIds"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "PaymentCardMigrationRequest"
     },
     "PaymentCardMigrationResponse": {
       "properties": {
@@ -4950,7 +5062,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PaymentCardMigrationResponse"
     },
     "PaymentInstrument": {
       "discriminator": "method",
@@ -4962,7 +5075,8 @@
       "required": [
         "method"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "PaymentInstrument"
     },
     "PaymentLink": {
       "allOf": [
@@ -4982,7 +5096,8 @@
       "required": [
         "rel"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "PaymentLink"
     },
     "PaymentRetry": {
       "properties": {
@@ -5027,7 +5142,8 @@
         "afterAttemptPolicy",
         "afterRetryEndPolicy"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "PaymentRetry"
     },
     "PaymentToken": {
       "properties": {
@@ -5106,7 +5222,8 @@
         "firstName",
         "lastName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "PaymentToken"
     },
     "PaymentTokenInstrument": {
       "description": "Payment Token instrument object",
@@ -5144,7 +5261,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PaymentTokenInstrument"
     },
     "Payvision": {
       "allOf": [
@@ -5191,7 +5309,8 @@
           "type": "object"
         }
       ],
-      "description": "Payvision Gateway config"
+      "description": "Payvision Gateway config",
+      "title": "Payvision"
     },
     "PayvisionMpi": {
       "allOf": [
@@ -5199,7 +5318,8 @@
           "$ref": "#/definitions/PayvisionMpis"
         }
       ],
-      "description": "Payvision Integrated"
+      "description": "Payvision Integrated",
+      "title": "PayvisionMpi"
     },
     "PayvisionMpis": {
       "description": "Payvision Mpis",
@@ -5220,7 +5340,8 @@
       },
       "required": [
         "name"
-      ]
+      ],
+      "title": "PayvisionMpis"
     },
     "Plan": {
       "properties": {
@@ -5364,7 +5485,8 @@
         "name",
         "currency"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "Plan"
     },
     "PlanLink": {
       "allOf": [
@@ -5384,7 +5506,8 @@
       "required": [
         "rel"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "PlanLink"
     },
     "Plugnpay": {
       "allOf": [
@@ -5418,7 +5541,8 @@
           "type": "object"
         }
       ],
-      "description": "Plugnpay Gateway config"
+      "description": "Plugnpay Gateway config",
+      "title": "Plugnpay"
     },
     "PriceBasedShippingRate": {
       "properties": {
@@ -5465,7 +5589,8 @@
         "currency",
         "price"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "PriceBasedShippingRate"
     },
     "Product": {
       "description": "Your product includes digital goods, services, and physical goods.\nProducts appear on invoice line items. If you set a tax category identifier,\ntaxes will be calculated upon invoice generation.\n",
@@ -5546,7 +5671,8 @@
       "required": [
         "name"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "Product"
     },
     "Profile": {
       "properties": {
@@ -5624,7 +5750,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Profile"
     },
     "RPN": {
       "allOf": [
@@ -5658,7 +5785,8 @@
           "type": "object"
         }
       ],
-      "description": "RPN Gateway config"
+      "description": "RPN Gateway config",
+      "title": "RPN"
     },
     "RealTime": {
       "allOf": [
@@ -5692,7 +5820,8 @@
           "type": "object"
         }
       ],
-      "description": "RealTime Gateway config"
+      "description": "RealTime Gateway config",
+      "title": "RealTime"
     },
     "Realex": {
       "allOf": [
@@ -5737,7 +5866,8 @@
           "type": "object"
         }
       ],
-      "description": "Realex Gateway config"
+      "description": "Realex Gateway config",
+      "title": "Realex"
     },
     "RebillyProcessor": {
       "allOf": [
@@ -5745,7 +5875,8 @@
           "$ref": "#/definitions/GatewayAccount"
         }
       ],
-      "description": "RebillyProcessor Gateway config"
+      "description": "RebillyProcessor Gateway config",
+      "title": "RebillyProcessor"
     },
     "RedemptionRestriction": {
       "allOf": [
@@ -5770,7 +5901,8 @@
         }
       ],
       "description": "Redemption restrictions",
-      "type": "object"
+      "type": "object",
+      "title": "RedemptionRestriction"
     },
     "RedirectUrls": {
       "description": "The redirect URIs",
@@ -5798,7 +5930,8 @@
         "decline",
         "cancel"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "RedirectUrls"
     },
     "Redsys": {
       "allOf": [
@@ -5833,7 +5966,8 @@
           "type": "object"
         }
       ],
-      "description": "Redsys Gateway config"
+      "description": "Redsys Gateway config",
+      "title": "Redsys"
     },
     "ResetPassword": {
       "properties": {
@@ -5846,7 +5980,8 @@
       "required": [
         "newPassword"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ResetPassword"
     },
     "ResetPasswordToken": {
       "properties": {
@@ -5890,17 +6025,20 @@
         "username",
         "password"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ResetPasswordToken"
     },
     "ResourceCustomFields": {
       "description": "\"Custom Fields list as a map `{\"custom field name\": \"custom field value\", ...}\"`.\nThe format must follow the saved format (see Custom Fields section for the formats).\n",
-      "type": "object"
+      "type": "object",
+      "title": "ResourceCustomFields"
     },
     "ResourceId": {
       "description": "The resource ID. Defaults to UUID v4",
       "example": "4f6cf35x-2c4y-483z-a0a9-158621f77a21",
       "maxLength": 50,
-      "type": "string"
+      "type": "string",
+      "title": "ResourceId"
     },
     "RetriedTransactionLink": {
       "allOf": [
@@ -5920,7 +6058,8 @@
       "required": [
         "rel"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "RetriedTransactionLink"
     },
     "Rule": {
       "description": "The rule",
@@ -5951,7 +6090,8 @@
         "name",
         "actions"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "Rule"
     },
     "RuleAction": {
       "discriminator": "name",
@@ -5979,7 +6119,8 @@
       "required": [
         "name"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "RuleAction"
     },
     "RuleSet": {
       "description": "Set of rules for particular event",
@@ -6013,7 +6154,8 @@
       "required": [
         "rules"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "RuleSet"
     },
     "RuleSetHistoryItem": {
       "description": "Version of rules",
@@ -6041,7 +6183,8 @@
         }
       },
       "readOnly": true,
-      "type": "object"
+      "type": "object",
+      "title": "RuleSetHistoryItem"
     },
     "RuleSetVersion": {
       "description": "Version of rules",
@@ -6072,7 +6215,8 @@
         }
       },
       "readOnly": true,
-      "type": "object"
+      "type": "object",
+      "title": "RuleSetVersion"
     },
     "RuleSetVersionLink": {
       "allOf": [
@@ -6092,7 +6236,8 @@
       "required": [
         "rel"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "RuleSetVersionLink"
     },
     "Sagepay": {
       "allOf": [
@@ -6126,7 +6271,8 @@
           "type": "object"
         }
       ],
-      "description": "Sagepay Gateway config"
+      "description": "Sagepay Gateway config",
+      "title": "Sagepay"
     },
     "SelfLink": {
       "allOf": [
@@ -6146,7 +6292,8 @@
       "required": [
         "rel"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "SelfLink"
     },
     "SendPreviewWebhook": {
       "allOf": [
@@ -6154,7 +6301,8 @@
           "$ref": "#/definitions/Webhook"
         }
       ],
-      "description": "Trigger a test webhook"
+      "description": "Trigger a test webhook",
+      "title": "SendPreviewWebhook"
     },
     "SendTestEmail": {
       "allOf": [
@@ -6162,13 +6310,15 @@
           "$ref": "#/definitions/EmailNotification"
         }
       ],
-      "description": "Send a test email"
+      "description": "Send a test email",
+      "title": "SendTestEmail"
     },
     "ServerTimestamp": {
       "description": "Read-only timestamp, automatically assigned on back-end.",
       "format": "date-time",
       "readOnly": true,
-      "type": "string"
+      "type": "string",
+      "title": "ServerTimestamp"
     },
     "Session": {
       "properties": {
@@ -6239,7 +6389,8 @@
       "required": [
         "permissions"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "Session"
     },
     "ShippingZone": {
       "properties": {
@@ -6314,7 +6465,8 @@
       "required": [
         "name"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ShippingZone"
     },
     "Signin": {
       "properties": {
@@ -6337,7 +6489,8 @@
         "email",
         "password"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "Signin"
     },
     "Signup": {
       "properties": {
@@ -6398,7 +6551,8 @@
         "password",
         "website"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "Signup"
     },
     "SmtpAuthorization": {
       "discriminator": "type",
@@ -6414,7 +6568,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SmtpAuthorization"
     },
     "SmtpCredential": {
       "description": "SMTP Credential",
@@ -6467,7 +6622,8 @@
       "required": [
         "host"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "SmtpCredential"
     },
     "Status": {
       "properties": {
@@ -6488,7 +6644,8 @@
           "description": "Current time"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Status"
     },
     "Stripe": {
       "allOf": [
@@ -6517,7 +6674,8 @@
           "type": "object"
         }
       ],
-      "description": "Stripe Gateway config"
+      "description": "Stripe Gateway config",
+      "title": "Stripe"
     },
     "Subscription": {
       "properties": {
@@ -6726,7 +6884,8 @@
         "planId",
         "websiteId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "Subscription"
     },
     "SubscriptionCancel": {
       "properties": {
@@ -6773,7 +6932,8 @@
         "canceledBy",
         "cancelCategory"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "SubscriptionCancel"
     },
     "SubscriptionLink": {
       "allOf": [
@@ -6793,7 +6953,8 @@
       "required": [
         "rel"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "SubscriptionLink"
     },
     "SubscriptionSwitch": {
       "properties": {
@@ -6831,7 +6992,8 @@
         "planId",
         "policy"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "SubscriptionSwitch"
     },
     "SubscriptionTracking": {
       "description": "Tracking subscription log",
@@ -6893,7 +7055,8 @@
         }
       },
       "readOnly": true,
-      "type": "object"
+      "type": "object",
+      "title": "SubscriptionTracking"
     },
     "SystemEvent": {
       "description": "The application event",
@@ -6925,7 +7088,8 @@
         }
       },
       "readOnly": true,
-      "type": "object"
+      "type": "object",
+      "title": "SystemEvent"
     },
     "TaxCategory": {
       "properties": {
@@ -6969,7 +7133,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TaxCategory"
     },
     "ThreeDSecure": {
       "properties": {
@@ -7097,7 +7262,8 @@
         "currency",
         "amount"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ThreeDSecure"
     },
     "ThreeDSecureResult": {
       "properties": {
@@ -7136,12 +7302,14 @@
         "authenticated",
         "liability"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ThreeDSecureResult"
     },
     "Time": {
       "format": "date-time",
       "pattern": "^([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9](Z(\\+|\\-)([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9])?$",
-      "type": "string"
+      "type": "string",
+      "title": "Time"
     },
     "TimeUnit": {
       "enum": [
@@ -7158,7 +7326,8 @@
         "year",
         "years"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "TimeUnit"
     },
     "Transaction": {
       "properties": {
@@ -7570,7 +7739,8 @@
           "readOnly": true
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Transaction"
     },
     "TransactionGatewayLog": {
       "properties": {
@@ -7618,7 +7788,8 @@
         }
       },
       "readOnly": true,
-      "type": "object"
+      "type": "object",
+      "title": "TransactionGatewayLog"
     },
     "TransactionLink": {
       "allOf": [
@@ -7638,7 +7809,8 @@
       "required": [
         "rel"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "TransactionLink"
     },
     "TransactionRefund": {
       "properties": {
@@ -7651,7 +7823,8 @@
       "required": [
         "amount"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "TransactionRefund"
     },
     "UPayCard": {
       "allOf": [
@@ -7691,7 +7864,8 @@
           "type": "object"
         }
       ],
-      "description": "UPayCard Gateway config"
+      "description": "UPayCard Gateway config",
+      "title": "UPayCard"
     },
     "USAePay": {
       "allOf": [
@@ -7726,7 +7900,8 @@
           "type": "object"
         }
       ],
-      "description": "USAePay Gateway config"
+      "description": "USAePay Gateway config",
+      "title": "USAePay"
     },
     "UpdatePassword": {
       "properties": {
@@ -7741,7 +7916,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UpdatePassword"
     },
     "User": {
       "properties": {
@@ -7874,7 +8050,8 @@
         "firstName",
         "lastName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "User"
     },
     "UserPasswordAuthorization": {
       "properties": {
@@ -7890,7 +8067,8 @@
         "username",
         "password"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UserPasswordAuthorization"
     },
     "UserPermissions": {
       "example": [
@@ -7992,7 +8170,8 @@
         "type": "object"
       },
       "minItems": 1,
-      "type": "array"
+      "type": "array",
+      "title": "UserPermissions"
     },
     "VantivLitle": {
       "allOf": [
@@ -8034,7 +8213,8 @@
           "type": "object"
         }
       ],
-      "description": "VantivLitle Gateway config"
+      "description": "VantivLitle Gateway config",
+      "title": "VantivLitle"
     },
     "VantivLitleMpis": {
       "description": "VantivLitle Mpis",
@@ -8053,7 +8233,8 @@
       },
       "required": [
         "name"
-      ]
+      ],
+      "title": "VantivLitleMpis"
     },
     "Walpay": {
       "allOf": [
@@ -8090,7 +8271,8 @@
           "type": "object"
         }
       ],
-      "description": "Walpay Gateway config"
+      "description": "Walpay Gateway config",
+      "title": "Walpay"
     },
     "WalpayMpis": {
       "description": "WalpayMpis Mpis",
@@ -8109,7 +8291,8 @@
       },
       "required": [
         "name"
-      ]
+      ],
+      "title": "WalpayMpis"
     },
     "Webhook": {
       "properties": {
@@ -8156,7 +8339,8 @@
         "method",
         "url"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "Webhook"
     },
     "WebhookAuthorization": {
       "discriminator": "type",
@@ -8176,7 +8360,8 @@
       "required": [
         "type"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "WebhookAuthorization"
     },
     "WebhookCredential": {
       "description": "Webhook credential",
@@ -8200,7 +8385,8 @@
       "required": [
         "host"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "WebhookCredential"
     },
     "WebhookHeader": {
       "properties": {
@@ -8222,7 +8408,8 @@
         "name",
         "value"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "WebhookHeader"
     },
     "Website": {
       "properties": {
@@ -8297,7 +8484,8 @@
         "servicePhone",
         "serviceEmail"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "Website"
     },
     "WebsiteLink": {
       "allOf": [
@@ -8317,7 +8505,8 @@
       "required": [
         "rel"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "WebsiteLink"
     },
     "WebsiteWebhook": {
       "properties": {
@@ -8339,7 +8528,8 @@
         "webHookUsername",
         "webHookPassword"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "WebsiteWebhook"
     },
     "WebsiteWebhookTracking": {
       "description": "Webhook Tracking Requests.",
@@ -8416,7 +8606,8 @@
         }
       },
       "readOnly": true,
-      "type": "object"
+      "type": "object",
+      "title": "WebsiteWebhookTracking"
     },
     "Wirecard": {
       "allOf": [
@@ -8464,7 +8655,8 @@
           "type": "object"
         }
       ],
-      "description": "Wirecard Gateway config"
+      "description": "Wirecard Gateway config",
+      "title": "Wirecard"
     },
     "WirecardMpi": {
       "allOf": [
@@ -8472,7 +8664,8 @@
           "$ref": "#/definitions/WirecardMpis"
         }
       ],
-      "description": "Wirecard Integrated"
+      "description": "Wirecard Integrated",
+      "title": "WirecardMpi"
     },
     "WirecardMpis": {
       "description": "Wirecard Mpis",
@@ -8491,7 +8684,8 @@
       },
       "required": [
         "name"
-      ]
+      ],
+      "title": "WirecardMpis"
     },
     "Worldpay": {
       "allOf": [
@@ -8529,7 +8723,8 @@
           "type": "object"
         }
       ],
-      "description": "Worldpay Gateway config"
+      "description": "Worldpay Gateway config",
+      "title": "Worldpay"
     },
     "WorldpayMpis": {
       "description": "Worldpay Mpis",
@@ -8548,7 +8743,8 @@
       },
       "required": [
         "name"
-      ]
+      ],
+      "title": "WorldpayMpis"
     },
     "ach": {
       "allOf": [
@@ -8580,7 +8776,8 @@
           "type": "object"
         }
       ],
-      "description": "ACH payment instrument object"
+      "description": "ACH payment instrument object",
+      "title": "ach"
     },
     "and": {
       "allOf": [
@@ -8592,14 +8789,16 @@
         }
       ],
       "description": "Logical AND",
-      "type": "object"
+      "type": "object",
+      "title": "and"
     },
     "auto": {
       "allOf": [
         {
           "$ref": "#/definitions/CommonScheduleInstruction"
         }
-      ]
+      ],
+      "title": "auto"
     },
     "basic": {
       "allOf": [
@@ -8622,7 +8821,8 @@
           ],
           "type": "object"
         }
-      ]
+      ],
+      "title": "basic"
     },
     "between": {
       "allOf": [
@@ -8650,7 +8850,8 @@
         }
       ],
       "description": "Between condition",
-      "type": "object"
+      "type": "object",
+      "title": "between"
     },
     "blacklist": {
       "allOf": [
@@ -8681,7 +8882,8 @@
           "type": "object"
         }
       ],
-      "description": "Add customer data to blacklist"
+      "description": "Add customer data to blacklist",
+      "title": "blacklist"
     },
     "cancel-scheduled-payments": {
       "allOf": [
@@ -8689,7 +8891,8 @@
           "$ref": "#/definitions/RuleAction"
         }
       ],
-      "description": ""
+      "description": "",
+      "title": "cancel-scheduled-payments"
     },
     "cash": {
       "allOf": [
@@ -8706,7 +8909,8 @@
           "type": "object"
         }
       ],
-      "description": "Cash payment instrument object"
+      "description": "Cash payment instrument object",
+      "title": "cash"
     },
     "compare": {
       "properties": {
@@ -8721,7 +8925,8 @@
         "path",
         "value"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "compare"
     },
     "cram-md5": {
       "allOf": [
@@ -8731,7 +8936,8 @@
         {
           "$ref": "#/definitions/UserPasswordAuthorization"
         }
-      ]
+      ],
+      "title": "cram-md5"
     },
     "date-interval": {
       "allOf": [
@@ -8758,7 +8964,8 @@
           ],
           "type": "object"
         }
-      ]
+      ],
+      "title": "date-interval"
     },
     "day-of-month": {
       "allOf": [
@@ -8785,7 +8992,8 @@
           ],
           "type": "object"
         }
-      ]
+      ],
+      "title": "day-of-month"
     },
     "day-of-week": {
       "allOf": [
@@ -8818,7 +9026,8 @@
           ],
           "type": "object"
         }
-      ]
+      ],
+      "title": "day-of-week"
     },
     "digest": {
       "allOf": [
@@ -8841,7 +9050,8 @@
           ],
           "type": "object"
         }
-      ]
+      ],
+      "title": "digest"
     },
     "discount": {
       "allOf": [
@@ -8870,7 +9080,8 @@
           ],
           "type": "object"
         }
-      ]
+      ],
+      "title": "discount"
     },
     "discounts-per-redemption": {
       "allOf": [
@@ -8890,7 +9101,8 @@
           "type": "object"
         }
       ],
-      "description": "discounts-per-redemption restrictions"
+      "description": "discounts-per-redemption restrictions",
+      "title": "discounts-per-redemption"
     },
     "equals": {
       "allOf": [
@@ -8902,7 +9114,8 @@
         }
       ],
       "description": "Equals condition",
-      "type": "object"
+      "type": "object",
+      "title": "equals"
     },
     "fixed": {
       "allOf": [
@@ -8928,7 +9141,8 @@
           "type": "object"
         }
       ],
-      "description": "Coupon fixed amount discount"
+      "description": "Coupon fixed amount discount",
+      "title": "fixed"
     },
     "gateway-account-weights": {
       "allOf": [
@@ -8964,7 +9178,8 @@
           ],
           "type": "object"
         }
-      ]
+      ],
+      "title": "gateway-account-weights"
     },
     "gateway-acquirer-weights": {
       "allOf": [
@@ -9004,7 +9219,8 @@
           ],
           "type": "object"
         }
-      ]
+      ],
+      "title": "gateway-acquirer-weights"
     },
     "gt": {
       "allOf": [
@@ -9016,7 +9232,8 @@
         }
       ],
       "description": "Greater than condition",
-      "type": "object"
+      "type": "object",
+      "title": "gt"
     },
     "gte": {
       "allOf": [
@@ -9028,7 +9245,8 @@
         }
       ],
       "description": "Greater than or equals condition",
-      "type": "object"
+      "type": "object",
+      "title": "gte"
     },
     "guess-payment-card-expiration": {
       "allOf": [
@@ -9036,7 +9254,8 @@
           "$ref": "#/definitions/RuleAction"
         }
       ],
-      "description": ""
+      "description": "",
+      "title": "guess-payment-card-expiration"
     },
     "iCheque": {
       "allOf": [
@@ -9070,14 +9289,16 @@
           "type": "object"
         }
       ],
-      "description": "iCheque Gateway config"
+      "description": "iCheque Gateway config",
+      "title": "iCheque"
     },
     "immediately": {
       "allOf": [
         {
           "$ref": "#/definitions/CommonScheduleInstruction"
         }
-      ]
+      ],
+      "title": "immediately"
     },
     "in": {
       "allOf": [
@@ -9104,7 +9325,8 @@
         }
       ],
       "description": "In condition",
-      "type": "object"
+      "type": "object",
+      "title": "in"
     },
     "logical": {
       "properties": {
@@ -9119,7 +9341,8 @@
       "required": [
         "conditions"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "logical"
     },
     "logical-not": {
       "example": {
@@ -9138,7 +9361,8 @@
       "required": [
         "condition"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "logical-not"
     },
     "login": {
       "allOf": [
@@ -9148,7 +9372,8 @@
         {
           "$ref": "#/definitions/UserPasswordAuthorization"
         }
-      ]
+      ],
+      "title": "login"
     },
     "lt": {
       "allOf": [
@@ -9160,7 +9385,8 @@
         }
       ],
       "description": "Less than condition",
-      "type": "object"
+      "type": "object",
+      "title": "lt"
     },
     "lte": {
       "allOf": [
@@ -9172,7 +9398,8 @@
         }
       ],
       "description": "Less than or equals condition",
-      "type": "object"
+      "type": "object",
+      "title": "lte"
     },
     "minimum-order-amount": {
       "allOf": [
@@ -9197,7 +9424,8 @@
           "type": "object"
         }
       ],
-      "description": "minimum-order-amount restrictions"
+      "description": "minimum-order-amount restrictions",
+      "title": "minimum-order-amount"
     },
     "none": {
       "allOf": [
@@ -9210,7 +9438,8 @@
         {
           "$ref": "#/definitions/WebhookAuthorization"
         }
-      ]
+      ],
+      "title": "none"
     },
     "not": {
       "allOf": [
@@ -9222,7 +9451,8 @@
         }
       ],
       "description": "Logical NOT",
-      "type": "object"
+      "type": "object",
+      "title": "not"
     },
     "oauth1": {
       "allOf": [
@@ -9252,7 +9482,8 @@
           ],
           "type": "object"
         }
-      ]
+      ],
+      "title": "oauth1"
     },
     "or": {
       "allOf": [
@@ -9264,7 +9495,8 @@
         }
       ],
       "description": "Logical OR",
-      "type": "object"
+      "type": "object",
+      "title": "or"
     },
     "partial": {
       "allOf": [
@@ -9293,7 +9525,8 @@
           ],
           "type": "object"
         }
-      ]
+      ],
+      "title": "partial"
     },
     "payment-card": {
       "allOf": [
@@ -9325,7 +9558,8 @@
           "type": "object"
         }
       ],
-      "description": "Payment card payment instrument object"
+      "description": "Payment card payment instrument object",
+      "title": "payment-card"
     },
     "paypal": {
       "allOf": [
@@ -9357,7 +9591,8 @@
           "type": "object"
         }
       ],
-      "description": "PayPal payment instrument object"
+      "description": "PayPal payment instrument object",
+      "title": "paypal"
     },
     "percent": {
       "allOf": [
@@ -9378,7 +9613,8 @@
           "type": "object"
         }
       ],
-      "description": "Coupon percent discount"
+      "description": "Coupon percent discount",
+      "title": "percent"
     },
     "pick-gateway-account": {
       "allOf": [
@@ -9397,7 +9633,8 @@
           "type": "object"
         }
       ],
-      "description": ""
+      "description": "",
+      "title": "pick-gateway-account"
     },
     "plain": {
       "allOf": [
@@ -9407,7 +9644,8 @@
         {
           "$ref": "#/definitions/UserPasswordAuthorization"
         }
-      ]
+      ],
+      "title": "plain"
     },
     "redemptions-per-customer": {
       "allOf": [
@@ -9427,7 +9665,8 @@
           "type": "object"
         }
       ],
-      "description": "Quantity per Customer restrictions"
+      "description": "Quantity per Customer restrictions",
+      "title": "redemptions-per-customer"
     },
     "restrict-to-invoices": {
       "allOf": [
@@ -9450,7 +9689,8 @@
           "type": "object"
         }
       ],
-      "description": "restrict-to-invoices restrictions"
+      "description": "restrict-to-invoices restrictions",
+      "title": "restrict-to-invoices"
     },
     "restrict-to-plans": {
       "allOf": [
@@ -9473,7 +9713,8 @@
           "type": "object"
         }
       ],
-      "description": "restrict-to-plans restrictions"
+      "description": "restrict-to-plans restrictions",
+      "title": "restrict-to-plans"
     },
     "restrict-to-subscriptions": {
       "allOf": [
@@ -9496,7 +9737,8 @@
           "type": "object"
         }
       ],
-      "description": "restrict-to-subscriptions restrictions"
+      "description": "restrict-to-subscriptions restrictions",
+      "title": "restrict-to-subscriptions"
     },
     "schedule-payment": {
       "allOf": [
@@ -9524,7 +9766,8 @@
           "type": "object"
         }
       ],
-      "description": ""
+      "description": "",
+      "title": "schedule-payment"
     },
     "schedule-payment-retry": {
       "allOf": [
@@ -9535,7 +9778,8 @@
           "$ref": "#/definitions/PaymentRetry"
         }
       ],
-      "description": ""
+      "description": "",
+      "title": "schedule-payment-retry"
     },
     "send-email": {
       "allOf": [
@@ -9546,7 +9790,8 @@
           "$ref": "#/definitions/EmailNotification"
         }
       ],
-      "description": ""
+      "description": "",
+      "title": "send-email"
     },
     "stop-subscriptions": {
       "allOf": [
@@ -9554,7 +9799,8 @@
           "$ref": "#/definitions/RuleAction"
         }
       ],
-      "description": "Stop active subscriptions"
+      "description": "Stop active subscriptions",
+      "title": "stop-subscriptions"
     },
     "total-redemptions": {
       "allOf": [
@@ -9574,7 +9820,8 @@
           "type": "object"
         }
       ],
-      "description": "total-redemptions restrictions"
+      "description": "total-redemptions restrictions",
+      "title": "total-redemptions"
     },
     "trigger-webhook": {
       "allOf": [
@@ -9585,7 +9832,8 @@
           "$ref": "#/definitions/Webhook"
         }
       ],
-      "description": ""
+      "description": "",
+      "title": "trigger-webhook"
     },
     "vegaaH": {
       "allOf": [
@@ -9619,7 +9867,8 @@
           "type": "object"
         }
       ],
-      "description": "vegaaH Gateway config"
+      "description": "vegaaH Gateway config",
+      "title": "vegaaH"
     }
   },
   "actions": [

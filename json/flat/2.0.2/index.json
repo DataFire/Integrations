@@ -39,7 +39,8 @@
         "teacher",
         "student"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ClassRoles"
     },
     "FlatErrorResponse": {
       "example": {
@@ -65,7 +66,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "FlatErrorResponse"
     },
     "FlatLocales": {
       "default": "en",
@@ -79,7 +81,8 @@
         "ro",
         "nl"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "FlatLocales"
     },
     "Group": {
       "description": "A group of users",
@@ -128,7 +131,8 @@
           "type": "number"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Group"
     },
     "OrganizationRoles": {
       "description": "User's Organization Role (for Edu users only)",
@@ -138,7 +142,8 @@
         "teacher",
         "user"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "OrganizationRoles"
     },
     "ScoreCollaborator": {
       "description": "A collaborator of a score. The `userEmail` and `group` are only available if the requesting user is a collaborator of the related score (in this case these permissions will eventualy not be listed and exposed publicly).\n",
@@ -185,7 +190,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ScoreCollaborator"
     },
     "ScoreCollaboratorCreation": {
       "description": "A collaborator of a score. The `userEmail` and `group` are only available if the requesting user is a collaborator of the related score (in this case these permissions will eventualy not be listed and exposed publicly).\n",
@@ -224,7 +230,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ScoreCollaboratorCreation"
     },
     "ScoreComment": {
       "description": "Comment added on a sheet music",
@@ -329,7 +336,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ScoreComment"
     },
     "ScoreCommentContext": {
       "description": "The context of the comment (for inline/contextualized comments). A context will include all the information related to the location of the comment (i.e. score parts, range of measure, time position).\n",
@@ -384,7 +392,8 @@
         "startDpq",
         "stopDpq"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ScoreCommentContext"
     },
     "ScoreCommentCreation": {
       "description": "Creation of a comment",
@@ -441,7 +450,8 @@
       "required": [
         "comment"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ScoreCommentCreation"
     },
     "ScoreCommentUpdate": {
       "description": "Update of a comment",
@@ -488,7 +498,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ScoreCommentUpdate"
     },
     "ScoreCommentsCounts": {
       "description": "A computed version of the total, unique, weekly and monthly number of\ncomments added on the documents (this doesn't include inline comments).\n",
@@ -516,7 +527,8 @@
           "type": "number"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ScoreCommentsCounts"
     },
     "ScoreCreation": {
       "description": "A new created score",
@@ -551,19 +563,22 @@
       "required": [
         "privacy"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ScoreCreation"
     },
     "ScoreData": {
       "description": "The data of the score file. It must be a MusicXML 3 file (`vnd.recordare.musicxml` or `vnd.recordare.musicxml+xml`), a MIDI file (`audio/midi`) or a Flat.json (aka Adagio.json) file.\n\nBinary payloads (`vnd.recordare.musicxml` and `audio/midi`) can be encoded in Base64, in this case the `dataEncoding` property must match the encoding used for the API request.\n",
       "example": "<score-partwise version=\"3.0\"></score-partwise>",
-      "type": "string"
+      "type": "string",
+      "title": "ScoreData"
     },
     "ScoreDataEncoding": {
       "description": "The optional encoding of the score data. This property must match the encoding used for the `data` property.",
       "enum": [
         "base64"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ScoreDataEncoding"
     },
     "ScoreDetails": {
       "allOf": [
@@ -697,11 +712,13 @@
           "weekly": 0
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ScoreDetails"
     },
     "ScoreFork": {
       "description": "Options to fork the score",
-      "type": "object"
+      "type": "object",
+      "title": "ScoreFork"
     },
     "ScoreLikesCounts": {
       "description": "A computed version of the weekly, monthly and total of number of likes\nfor a score\n",
@@ -724,7 +741,8 @@
           "type": "number"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ScoreLikesCounts"
     },
     "ScoreModification": {
       "description": "Edit the score metadata",
@@ -746,7 +764,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ScoreModification"
     },
     "ScorePrivacy": {
       "description": "The score main privacy mode.\n\n- `public`: The score is public on the Internet. This one can be accessible at the url `https://flat.io/score/{score}` and can be modified and administred by specified collaborators users.\n- `private`: The score is private and can be only accessed, modified and administred by specified collaborators users.\n- `privateLink`: The score is private but can be accessed using a private link `htmlUrl` or the private key in the property `sharingKey`.\n- `organizationPublic`: _Available only with [Flat for Education](https://flat.io/edu)._ The score is public in the organization: users of the same organization can access to this one. The score can be modified and administred by specified collaborators users.\n\nThe score can also be individually shared to a set of users or groups using the different collaborators API methods.\n\nWhen a file is synchronized from an external source (e.g. Google Drive) and the sharing options are changed on the source, Flat will chose the best privacy mode for the file.\n\nWhen using a [Flat for Education](https://flat.io/edu) account, some of the modes may not be available if disabled by an administrator of the organization (e.g. by default the `public` mode is not available).\n",
@@ -756,7 +775,8 @@
         "organizationPublic",
         "privateLink"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ScorePrivacy"
     },
     "ScoreRevision": {
       "description": "A score revision metadata",
@@ -803,7 +823,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ScoreRevision"
     },
     "ScoreRevisionCreation": {
       "description": "A new created revision",
@@ -842,7 +863,8 @@
       "required": [
         "data"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ScoreRevisionCreation"
     },
     "ScoreRevisionStatistics": {
       "description": "The statistics related to the score revision (additions and deletions)\n",
@@ -860,7 +882,8 @@
           "type": "number"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ScoreRevisionStatistics"
     },
     "ScoreRights": {
       "description": "The rights of the current user on a score",
@@ -884,7 +907,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ScoreRights"
     },
     "ScoreSource": {
       "example": {
@@ -896,7 +920,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ScoreSource"
     },
     "ScoreSummary": {
       "description": "A summary of the score details",
@@ -938,7 +963,8 @@
           "$ref": "#/definitions/UserPublicSummary"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ScoreSummary"
     },
     "ScoreViewsCounts": {
       "description": "A computed version of the total, weekly, and monthly number of views of\nthe score\n",
@@ -961,7 +987,8 @@
           "type": "number"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ScoreViewsCounts"
     },
     "UserBasics": {
       "discriminator": "userType",
@@ -999,7 +1026,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UserBasics"
     },
     "UserDetails": {
       "allOf": [
@@ -1032,7 +1060,8 @@
         }
       ],
       "description": "User details",
-      "type": "object"
+      "type": "object",
+      "title": "UserDetails"
     },
     "UserPublic": {
       "allOf": [
@@ -1088,7 +1117,8 @@
         "printableName": "Flat Team",
         "registrationDate": "2015-01-19T00:22:02.387Z",
         "username": "flat"
-      }
+      },
+      "title": "UserPublic"
     },
     "UserPublicSummary": {
       "allOf": [
@@ -1127,7 +1157,8 @@
         "picture": "https://flat.io/img/logo_flat.svg",
         "printableName": "Flat Team",
         "username": "flat"
-      }
+      },
+      "title": "UserPublicSummary"
     }
   },
   "actions": [

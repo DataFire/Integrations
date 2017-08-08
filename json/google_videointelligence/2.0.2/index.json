@@ -40,7 +40,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GoogleCloudVideointelligenceV1beta1_AnnotateVideoProgress"
     },
     "GoogleCloudVideointelligenceV1beta1_AnnotateVideoRequest": {
       "description": "Video annotation request.",
@@ -78,7 +79,8 @@
           "description": "Additional video context and/or feature-specific parameters."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GoogleCloudVideointelligenceV1beta1_AnnotateVideoRequest"
     },
     "GoogleCloudVideointelligenceV1beta1_AnnotateVideoResponse": {
       "description": "Video annotation response. Included in the `response`\nfield of the `Operation` returned by the `GetOperation`\ncall of the `google::longrunning::Operations` service.",
@@ -91,7 +93,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GoogleCloudVideointelligenceV1beta1_AnnotateVideoResponse"
     },
     "GoogleCloudVideointelligenceV1beta1_LabelAnnotation": {
       "description": "Label annotation.",
@@ -112,7 +115,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GoogleCloudVideointelligenceV1beta1_LabelAnnotation"
     },
     "GoogleCloudVideointelligenceV1beta1_LabelLocation": {
       "description": "Label location.",
@@ -138,7 +142,8 @@
           "description": "Video segment. Set to [-1, -1] for video-level labels.\nSet to [timestamp, timestamp] for frame-level labels.\nOtherwise, corresponds to one of `AnnotateSpec.segments`\n(if specified) or to shot boundaries (if requested)."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GoogleCloudVideointelligenceV1beta1_LabelLocation"
     },
     "GoogleCloudVideointelligenceV1beta1_VideoAnnotationProgress": {
       "description": "Annotation progress for a single video.",
@@ -163,7 +168,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GoogleCloudVideointelligenceV1beta1_VideoAnnotationProgress"
     },
     "GoogleCloudVideointelligenceV1beta1_VideoAnnotationResults": {
       "description": "Annotation results for a single video.",
@@ -191,7 +197,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GoogleCloudVideointelligenceV1beta1_VideoAnnotationResults"
     },
     "GoogleCloudVideointelligenceV1beta1_VideoContext": {
       "description": "Video context and/or feature-specific parameters.",
@@ -222,7 +229,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GoogleCloudVideointelligenceV1beta1_VideoContext"
     },
     "GoogleCloudVideointelligenceV1beta1_VideoSegment": {
       "description": "Video segment.",
@@ -238,7 +246,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GoogleCloudVideointelligenceV1beta1_VideoSegment"
     },
     "GoogleLongrunning_Operation": {
       "description": "This resource represents a long-running operation that is the result of a\nnetwork API call.",
@@ -270,7 +279,8 @@
           "type": "object"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GoogleLongrunning_Operation"
     },
     "GoogleRpc_Status": {
       "description": "The `Status` type defines a logical error model that is suitable for different\nprogramming environments, including REST APIs and RPC APIs. It is used by\n[gRPC](https://github.com/grpc). The error model is designed to be:\n\n- Simple to use and understand for most users\n- Flexible enough to meet unexpected needs\n\n# Overview\n\nThe `Status` message contains three pieces of data: error code, error message,\nand error details. The error code should be an enum value of\ngoogle.rpc.Code, but it may accept additional error codes if needed.  The\nerror message should be a developer-facing English message that helps\ndevelopers *understand* and *resolve* the error. If a localized user-facing\nerror message is needed, put the localized message in the error details or\nlocalize it in the client. The optional error details may contain arbitrary\ninformation about the error. There is a predefined set of error detail types\nin the package `google.rpc` that can be used for common error conditions.\n\n# Language mapping\n\nThe `Status` message is the logical representation of the error model, but it\nis not necessarily the actual wire format. When the `Status` message is\nexposed in different client libraries and different wire protocols, it can be\nmapped differently. For example, it will likely be mapped to some exceptions\nin Java, but more likely mapped to some error codes in C.\n\n# Other uses\n\nThe error model and the `Status` message can be used in a variety of\nenvironments, either with or without APIs, to provide a\nconsistent developer experience across different environments.\n\nExample uses of this error model include:\n\n- Partial errors. If a service needs to return partial errors to the client,\n    it may embed the `Status` in the normal response to indicate the partial\n    errors.\n\n- Workflow errors. A typical workflow has multiple steps. Each step may\n    have a `Status` message for error reporting.\n\n- Batch operations. If a client uses batch request and batch response, the\n    `Status` message should be used directly inside batch response, one for\n    each error sub-response.\n\n- Asynchronous operations. If an API call embeds asynchronous operation\n    results in its response, the status of those operations should be\n    represented directly using the `Status` message.\n\n- Logging. If some API errors are stored in logs, the message `Status` could\n    be used directly after any stripping needed for security/privacy reasons.",
@@ -295,7 +305,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GoogleRpc_Status"
     }
   },
   "actions": [

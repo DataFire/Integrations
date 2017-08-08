@@ -37,7 +37,8 @@
         "pubDate",
         "title"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "SyndEntryEntity"
     },
     "SyndFeedResponseEntity": {
       "properties": {
@@ -107,7 +108,8 @@
         "startTime",
         "title"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "SyndFeedResponseEntity"
     }
   },
   "actions": [

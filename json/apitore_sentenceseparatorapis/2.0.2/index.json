@@ -46,7 +46,8 @@
         "startTime",
         "text"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "SentenceResponseEntity"
     }
   },
   "actions": [

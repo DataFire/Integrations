@@ -18,14 +18,16 @@
   "definitions": {
     "AccountId": {
       "pattern": "\\(\\?i\\)all\\|[0-9]\\{12\\}",
-      "type": "string"
+      "type": "string",
+      "title": "AccountId"
     },
     "AccountIdList": {
       "items": {
         "$ref": "#/definitions/AccountId"
       },
       "maxItems": 20,
-      "type": "array"
+      "type": "array",
+      "title": "AccountIdList"
     },
     "Activation": {
       "description": "An activation registers one or more on-premises servers or virtual machines (VMs) with AWS so that you can configure those servers or VMs using Run Command. A server or VM that has been registered with AWS is called a managed instance.",
@@ -67,27 +69,32 @@
           "description": "The number of managed instances already registered with this activation."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Activation"
     },
     "ActivationCode": {
       "maxLength": 250,
       "minLength": 20,
-      "type": "string"
+      "type": "string",
+      "title": "ActivationCode"
     },
     "ActivationDescription": {
       "maxLength": 256,
       "minLength": 0,
-      "type": "string"
+      "type": "string",
+      "title": "ActivationDescription"
     },
     "ActivationId": {
       "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
-      "type": "string"
+      "type": "string",
+      "title": "ActivationId"
     },
     "ActivationList": {
       "items": {
         "$ref": "#/definitions/Activation"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ActivationList"
     },
     "AddTagsToResourceRequest": {
       "properties": {
@@ -109,15 +116,18 @@
         "ResourceId",
         "Tags"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AddTagsToResourceRequest"
     },
     "AddTagsToResourceResult": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "AddTagsToResourceResult"
     },
     "AgentErrorCode": {
       "maxLength": 10,
-      "type": "string"
+      "type": "string",
+      "title": "AgentErrorCode"
     },
     "AlreadyExistsException": {
       "description": "Error returned if an attempt is made to register a patch group with a patch baseline that is already registered with a different patch baseline.",
@@ -126,17 +136,20 @@
           "$ref": "#/definitions/String"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AlreadyExistsException"
     },
     "ApproveAfterDays": {
       "maximum": 100,
       "minimum": 0,
-      "type": "integer"
+      "type": "integer",
+      "title": "ApproveAfterDays"
     },
     "AssociatedInstances": {
       "description": "You must disassociate a document from all instances before you can delete it.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "AssociatedInstances"
     },
     "Association": {
       "description": "Describes an association of a Systems Manager document and an instance.",
@@ -174,12 +187,14 @@
           "description": "The instances targeted by the request to create an association. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Association"
     },
     "AssociationAlreadyExists": {
       "description": "The specified association already exists.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "AssociationAlreadyExists"
     },
     "AssociationDescription": {
       "description": "Describes the parameters for a document.",
@@ -241,13 +256,15 @@
           "description": "The instances targeted by the request. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AssociationDescription"
     },
     "AssociationDescriptionList": {
       "items": {
         "$ref": "#/definitions/AssociationDescription"
       },
-      "type": "array"
+      "type": "array",
+      "title": "AssociationDescriptionList"
     },
     "AssociationDoesNotExist": {
       "description": "The specified association does not exist.",
@@ -256,7 +273,8 @@
           "$ref": "#/definitions/String"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AssociationDoesNotExist"
     },
     "AssociationFilter": {
       "description": "Describes a filter.",
@@ -274,7 +292,8 @@
         "key",
         "value"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AssociationFilter"
     },
     "AssociationFilterKey": {
       "enum": [
@@ -285,33 +304,39 @@
         "LastExecutedBefore",
         "LastExecutedAfter"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "AssociationFilterKey"
     },
     "AssociationFilterList": {
       "items": {
         "$ref": "#/definitions/AssociationFilter"
       },
       "minItems": 1,
-      "type": "array"
+      "type": "array",
+      "title": "AssociationFilterList"
     },
     "AssociationFilterValue": {
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "AssociationFilterValue"
     },
     "AssociationId": {
       "pattern": "[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}",
-      "type": "string"
+      "type": "string",
+      "title": "AssociationId"
     },
     "AssociationLimitExceeded": {
       "description": "You can have at most 2,000 active associations.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "AssociationLimitExceeded"
     },
     "AssociationList": {
       "items": {
         "$ref": "#/definitions/Association"
       },
-      "type": "array"
+      "type": "array",
+      "title": "AssociationList"
     },
     "AssociationOverview": {
       "description": "Information about the association.",
@@ -329,7 +354,8 @@
           "description": "The status of the association. Status can be: <code>Pending</code>, <code>Success</code>, or <code>Failed</code>."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AssociationOverview"
     },
     "AssociationStatus": {
       "description": "Describes an association status.",
@@ -356,7 +382,8 @@
         "Name",
         "Message"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AssociationStatus"
     },
     "AssociationStatusAggregatedCount": {
       "items": {
@@ -370,7 +397,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "AssociationStatusAggregatedCount"
     },
     "AssociationStatusName": {
       "enum": [
@@ -378,21 +406,25 @@
         "Success",
         "Failed"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "AssociationStatusName"
     },
     "AttributeName": {
       "maxLength": 64,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "AttributeName"
     },
     "AttributeValue": {
       "maxLength": 1024,
       "minLength": 0,
-      "type": "string"
+      "type": "string",
+      "title": "AttributeValue"
     },
     "AutomationActionName": {
       "pattern": "^aws:[a-zA-Z]{3,25}$",
-      "type": "string"
+      "type": "string",
+      "title": "AutomationActionName"
     },
     "AutomationDefinitionNotFoundException": {
       "description": "An Automation document with the specified name could not be found.",
@@ -401,7 +433,8 @@
           "$ref": "#/definitions/String"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AutomationDefinitionNotFoundException"
     },
     "AutomationDefinitionVersionNotFoundException": {
       "description": "An Automation document with the specified name and version could not be found.",
@@ -410,7 +443,8 @@
           "$ref": "#/definitions/String"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AutomationDefinitionVersionNotFoundException"
     },
     "AutomationExecution": {
       "description": "Detailed information about the current state of an individual Automation execution.",
@@ -456,7 +490,8 @@
           "description": "A list of details about the current state of all steps that comprise an execution. An Automation document contains a list of steps that are executed in order."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AutomationExecution"
     },
     "AutomationExecutionFilter": {
       "description": "A filter used to match specific automation executions. This is used to limit the scope of Automation execution information returned.",
@@ -474,14 +509,16 @@
         "Key",
         "Values"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AutomationExecutionFilter"
     },
     "AutomationExecutionFilterKey": {
       "enum": [
         "DocumentNamePrefix",
         "ExecutionStatus"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "AutomationExecutionFilterKey"
     },
     "AutomationExecutionFilterList": {
       "items": {
@@ -489,12 +526,14 @@
       },
       "maxItems": 10,
       "minItems": 1,
-      "type": "array"
+      "type": "array",
+      "title": "AutomationExecutionFilterList"
     },
     "AutomationExecutionFilterValue": {
       "maxLength": 150,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "AutomationExecutionFilterValue"
     },
     "AutomationExecutionFilterValueList": {
       "items": {
@@ -502,12 +541,14 @@
       },
       "maxItems": 10,
       "minItems": 1,
-      "type": "array"
+      "type": "array",
+      "title": "AutomationExecutionFilterValueList"
     },
     "AutomationExecutionId": {
       "maxLength": 36,
       "minLength": 36,
-      "type": "string"
+      "type": "string",
+      "title": "AutomationExecutionId"
     },
     "AutomationExecutionLimitExceededException": {
       "description": "The number of simultaneously running Automation executions exceeded the allowable limit.",
@@ -516,7 +557,8 @@
           "$ref": "#/definitions/String"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AutomationExecutionLimitExceededException"
     },
     "AutomationExecutionMetadata": {
       "description": "Details about a specific Automation execution.",
@@ -558,7 +600,8 @@
           "description": "The list of execution outputs as defined in the Automation document."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AutomationExecutionMetadata"
     },
     "AutomationExecutionMetadataList": {
       "items": {
@@ -566,7 +609,8 @@
       },
       "maxItems": 50,
       "minItems": 0,
-      "type": "array"
+      "type": "array",
+      "title": "AutomationExecutionMetadataList"
     },
     "AutomationExecutionNotFoundException": {
       "description": "There is no automation execution information for the requested automation execution ID.",
@@ -575,7 +619,8 @@
           "$ref": "#/definitions/String"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AutomationExecutionNotFoundException"
     },
     "AutomationExecutionStatus": {
       "enum": [
@@ -586,12 +631,14 @@
         "Cancelled",
         "Failed"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "AutomationExecutionStatus"
     },
     "AutomationParameterKey": {
       "maxLength": 30,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "AutomationParameterKey"
     },
     "AutomationParameterMap": {
       "items": {
@@ -607,12 +654,14 @@
       },
       "maxItems": 200,
       "minItems": 1,
-      "type": "array"
+      "type": "array",
+      "title": "AutomationParameterMap"
     },
     "AutomationParameterValue": {
       "maxLength": 512,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "AutomationParameterValue"
     },
     "AutomationParameterValueList": {
       "items": {
@@ -620,30 +669,36 @@
       },
       "maxItems": 10,
       "minItems": 0,
-      "type": "array"
+      "type": "array",
+      "title": "AutomationParameterValueList"
     },
     "BaselineDescription": {
       "maxLength": 1024,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "BaselineDescription"
     },
     "BaselineId": {
       "maxLength": 128,
       "minLength": 20,
       "pattern": "^[a-zA-Z0-9_\\-:/]{20,128}$",
-      "type": "string"
+      "type": "string",
+      "title": "BaselineId"
     },
     "BaselineName": {
       "maxLength": 128,
       "minLength": 3,
       "pattern": "^[a-zA-Z0-9_\\-.]{3,128}$",
-      "type": "string"
+      "type": "string",
+      "title": "BaselineName"
     },
     "BatchErrorMessage": {
-      "type": "string"
+      "type": "string",
+      "title": "BatchErrorMessage"
     },
     "Boolean": {
-      "type": "boolean"
+      "type": "boolean",
+      "title": "Boolean"
     },
     "CancelCommandRequest": {
       "description": "<p/>",
@@ -660,17 +715,20 @@
       "required": [
         "CommandId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CancelCommandRequest"
     },
     "CancelCommandResult": {
       "description": "Whether or not the command was successfully canceled. There is no guarantee that a request can be canceled.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "CancelCommandResult"
     },
     "ClientToken": {
       "maxLength": 64,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "ClientToken"
     },
     "Command": {
       "description": "Describes a command request.",
@@ -756,7 +814,8 @@
           "description": "An array of search criteria that targets instances using a <code>Key</code>,<code>Value</code> combination that you specify. <code>Targets</code> is required if you don't provide one or more instance IDs in the call."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Command"
     },
     "CommandFilter": {
       "description": "Describes a command filter.",
@@ -774,7 +833,8 @@
         "key",
         "value"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CommandFilter"
     },
     "CommandFilterKey": {
       "enum": [
@@ -782,7 +842,8 @@
         "InvokedBefore",
         "Status"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "CommandFilterKey"
     },
     "CommandFilterList": {
       "items": {
@@ -790,16 +851,19 @@
       },
       "maxItems": 3,
       "minItems": 1,
-      "type": "array"
+      "type": "array",
+      "title": "CommandFilterList"
     },
     "CommandFilterValue": {
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "CommandFilterValue"
     },
     "CommandId": {
       "maxLength": 36,
       "minLength": 36,
-      "type": "string"
+      "type": "string",
+      "title": "CommandId"
     },
     "CommandInvocation": {
       "description": "An invocation is copy of a command sent to a specific instance. A command can apply to one or more instances. A command invocation applies to one instance. For example, if a user executes SendCommand against three instances, then a command invocation is created for each requested instance ID. A command invocation returns status and detail information about a command you executed. ",
@@ -860,13 +924,15 @@
           "description": " Gets the trace output sent by the agent. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CommandInvocation"
     },
     "CommandInvocationList": {
       "items": {
         "$ref": "#/definitions/CommandInvocation"
       },
-      "type": "array"
+      "type": "array",
+      "title": "CommandInvocationList"
     },
     "CommandInvocationStatus": {
       "enum": [
@@ -879,18 +945,21 @@
         "Failed",
         "Cancelling"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "CommandInvocationStatus"
     },
     "CommandList": {
       "items": {
         "$ref": "#/definitions/Command"
       },
-      "type": "array"
+      "type": "array",
+      "title": "CommandList"
     },
     "CommandMaxResults": {
       "maximum": 50,
       "minimum": 1,
-      "type": "integer"
+      "type": "integer",
+      "title": "CommandMaxResults"
     },
     "CommandPlugin": {
       "description": "Describes plugin details.",
@@ -944,21 +1013,25 @@
           "description": "<p>A detailed status of the plugin execution. <code>StatusDetails</code> includes more information than <code>Status</code> because it includes states resulting from error and concurrency control parameters. <code>StatusDetails</code> can show different results than <code>Status</code>. For more information about these statuses, see <a href=\"http://docs.aws.amazon.com/systems-manager/latest/userguide/monitor-about-status.html\">Run Command Status</a>. <code>StatusDetails</code> can be one of the following values:</p> <ul> <li> <p>Pending – The command has not been sent to the instance.</p> </li> <li> <p>In Progress – The command has been sent to the instance but has not reached a terminal state.</p> </li> <li> <p>Success – The execution of the command or plugin was successfully completed. This is a terminal state.</p> </li> <li> <p>Delivery Timed Out – The command was not delivered to the instance before the delivery timeout expired. Delivery timeouts do not count against the parent command’s <code>MaxErrors</code> limit, but they do contribute to whether the parent command status is <code>Success</code> or <code>Incomplete</code>. This is a terminal state.</p> </li> <li> <p>Execution Timed Out – Command execution started on the instance, but the execution was not complete before the execution timeout expired. Execution timeouts count against the <code>MaxErrors</code> limit of the parent command. This is a terminal state.</p> </li> <li> <p>Failed – The command was not successful on the instance. For a plugin, this indicates that the result code was not zero. For a command invocation, this indicates that the result code for one or more plugins was not zero. Invocation failures count against the <code>MaxErrors</code> limit of the parent command. This is a terminal state.</p> </li> <li> <p>Canceled – The command was terminated before it was completed. This is a terminal state.</p> </li> <li> <p>Undeliverable – The command can't be delivered to the instance. The instance might not exist, or it might not be responding. Undeliverable invocations don't count against the parent command’s <code>MaxErrors</code> limit, and they don't contribute to whether the parent command status is <code>Success</code> or <code>Incomplete</code>. This is a terminal state.</p> </li> <li> <p>Terminated – The parent command exceeded its <code>MaxErrors</code> limit and subsequent command invocations were canceled by the system. This is a terminal state.</p> </li> </ul>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CommandPlugin"
     },
     "CommandPluginList": {
       "items": {
         "$ref": "#/definitions/CommandPlugin"
       },
-      "type": "array"
+      "type": "array",
+      "title": "CommandPluginList"
     },
     "CommandPluginName": {
       "minLength": 4,
-      "type": "string"
+      "type": "string",
+      "title": "CommandPluginName"
     },
     "CommandPluginOutput": {
       "maxLength": 2500,
-      "type": "string"
+      "type": "string",
+      "title": "CommandPluginOutput"
     },
     "CommandPluginStatus": {
       "enum": [
@@ -969,7 +1042,8 @@
         "Cancelled",
         "Failed"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "CommandPluginStatus"
     },
     "CommandStatus": {
       "enum": [
@@ -981,19 +1055,23 @@
         "TimedOut",
         "Cancelling"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "CommandStatus"
     },
     "Comment": {
       "maxLength": 100,
-      "type": "string"
+      "type": "string",
+      "title": "Comment"
     },
     "CompletedCount": {
-      "type": "integer"
+      "type": "integer",
+      "title": "CompletedCount"
     },
     "ComputerName": {
       "maxLength": 255,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "ComputerName"
     },
     "CreateActivationRequest": {
       "properties": {
@@ -1021,7 +1099,8 @@
       "required": [
         "IamRole"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateActivationRequest"
     },
     "CreateActivationResult": {
       "properties": {
@@ -1034,7 +1113,8 @@
           "description": "The ID number generated by the system when it processed the activation. The activation ID functions like a user name."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateActivationResult"
     },
     "CreateAssociationBatchRequest": {
       "properties": {
@@ -1046,14 +1126,16 @@
       "required": [
         "Entries"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateAssociationBatchRequest"
     },
     "CreateAssociationBatchRequestEntries": {
       "items": {
         "$ref": "#/definitions/CreateAssociationBatchRequestEntry"
       },
       "minItems": 1,
-      "type": "array"
+      "type": "array",
+      "title": "CreateAssociationBatchRequestEntries"
     },
     "CreateAssociationBatchRequestEntry": {
       "description": " Describes the association of a Systems Manager document and an instance.",
@@ -1090,7 +1172,8 @@
       "required": [
         "Name"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateAssociationBatchRequestEntry"
     },
     "CreateAssociationBatchResult": {
       "properties": {
@@ -1103,7 +1186,8 @@
           "description": "Information about the associations that succeeded."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateAssociationBatchResult"
     },
     "CreateAssociationRequest": {
       "properties": {
@@ -1139,7 +1223,8 @@
       "required": [
         "Name"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateAssociationRequest"
     },
     "CreateAssociationResult": {
       "properties": {
@@ -1148,7 +1233,8 @@
           "description": "Information about the association."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateAssociationResult"
     },
     "CreateDocumentRequest": {
       "properties": {
@@ -1169,7 +1255,8 @@
         "Content",
         "Name"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateDocumentRequest"
     },
     "CreateDocumentResult": {
       "properties": {
@@ -1178,7 +1265,8 @@
           "description": "Information about the Systems Manager document."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateDocumentResult"
     },
     "CreateMaintenanceWindowRequest": {
       "properties": {
@@ -1214,7 +1302,8 @@
         "Cutoff",
         "AllowUnassociatedTargets"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateMaintenanceWindowRequest"
     },
     "CreateMaintenanceWindowResult": {
       "properties": {
@@ -1223,7 +1312,8 @@
           "description": "The ID of the created Maintenance Window."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateMaintenanceWindowResult"
     },
     "CreatePatchBaselineRequest": {
       "properties": {
@@ -1259,7 +1349,8 @@
       "required": [
         "Name"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreatePatchBaselineRequest"
     },
     "CreatePatchBaselineResult": {
       "properties": {
@@ -1268,11 +1359,13 @@
           "description": "The ID of the created patch baseline."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreatePatchBaselineResult"
     },
     "CreatedDate": {
       "format": "date-time",
-      "type": "string"
+      "type": "string",
+      "title": "CreatedDate"
     },
     "CustomSchemaCountLimitExceededException": {
       "description": "You have exceeded the limit for custom schemas. Delete one or more custom schemas and try again.",
@@ -1281,20 +1374,24 @@
           "$ref": "#/definitions/String"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CustomSchemaCountLimitExceededException"
     },
     "DateTime": {
       "format": "date-time",
-      "type": "string"
+      "type": "string",
+      "title": "DateTime"
     },
     "DefaultBaseline": {
-      "type": "boolean"
+      "type": "boolean",
+      "title": "DefaultBaseline"
     },
     "DefaultInstanceName": {
       "maxLength": 256,
       "minLength": 0,
       "pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$",
-      "type": "string"
+      "type": "string",
+      "title": "DefaultInstanceName"
     },
     "DeleteActivationRequest": {
       "properties": {
@@ -1306,11 +1403,13 @@
       "required": [
         "ActivationId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteActivationRequest"
     },
     "DeleteActivationResult": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DeleteActivationResult"
     },
     "DeleteAssociationRequest": {
       "properties": {
@@ -1327,11 +1426,13 @@
           "description": "The name of the Systems Manager document."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DeleteAssociationRequest"
     },
     "DeleteAssociationResult": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DeleteAssociationResult"
     },
     "DeleteDocumentRequest": {
       "properties": {
@@ -1343,11 +1444,13 @@
       "required": [
         "Name"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteDocumentRequest"
     },
     "DeleteDocumentResult": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DeleteDocumentResult"
     },
     "DeleteMaintenanceWindowRequest": {
       "properties": {
@@ -1359,7 +1462,8 @@
       "required": [
         "WindowId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteMaintenanceWindowRequest"
     },
     "DeleteMaintenanceWindowResult": {
       "properties": {
@@ -1368,7 +1472,8 @@
           "description": "The ID of the deleted Maintenance Window."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DeleteMaintenanceWindowResult"
     },
     "DeleteParameterRequest": {
       "properties": {
@@ -1380,11 +1485,13 @@
       "required": [
         "Name"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteParameterRequest"
     },
     "DeleteParameterResult": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DeleteParameterResult"
     },
     "DeletePatchBaselineRequest": {
       "properties": {
@@ -1396,7 +1503,8 @@
       "required": [
         "BaselineId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeletePatchBaselineRequest"
     },
     "DeletePatchBaselineResult": {
       "properties": {
@@ -1405,7 +1513,8 @@
           "description": "The ID of the deleted patch baseline."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DeletePatchBaselineResult"
     },
     "DeregisterManagedInstanceRequest": {
       "properties": {
@@ -1417,11 +1526,13 @@
       "required": [
         "InstanceId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeregisterManagedInstanceRequest"
     },
     "DeregisterManagedInstanceResult": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DeregisterManagedInstanceResult"
     },
     "DeregisterPatchBaselineForPatchGroupRequest": {
       "properties": {
@@ -1438,7 +1549,8 @@
         "BaselineId",
         "PatchGroup"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeregisterPatchBaselineForPatchGroupRequest"
     },
     "DeregisterPatchBaselineForPatchGroupResult": {
       "properties": {
@@ -1451,7 +1563,8 @@
           "description": "The name of the patch group deregistered from the patch baseline."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DeregisterPatchBaselineForPatchGroupResult"
     },
     "DeregisterTargetFromMaintenanceWindowRequest": {
       "properties": {
@@ -1468,7 +1581,8 @@
         "WindowId",
         "WindowTargetId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeregisterTargetFromMaintenanceWindowRequest"
     },
     "DeregisterTargetFromMaintenanceWindowResult": {
       "properties": {
@@ -1481,7 +1595,8 @@
           "description": "The ID of the removed target definition."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DeregisterTargetFromMaintenanceWindowResult"
     },
     "DeregisterTaskFromMaintenanceWindowRequest": {
       "properties": {
@@ -1498,7 +1613,8 @@
         "WindowId",
         "WindowTaskId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeregisterTaskFromMaintenanceWindowRequest"
     },
     "DeregisterTaskFromMaintenanceWindowResult": {
       "properties": {
@@ -1511,7 +1627,8 @@
           "description": "The ID of the task removed from the Maintenance Window."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DeregisterTaskFromMaintenanceWindowResult"
     },
     "DescribeActivationsFilter": {
       "description": "Filter for the DescribeActivation API.",
@@ -1525,7 +1642,8 @@
           "description": "The filter values."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeActivationsFilter"
     },
     "DescribeActivationsFilterKeys": {
       "enum": [
@@ -1533,13 +1651,15 @@
         "DefaultInstanceName",
         "IamRole"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "DescribeActivationsFilterKeys"
     },
     "DescribeActivationsFilterList": {
       "items": {
         "$ref": "#/definitions/DescribeActivationsFilter"
       },
-      "type": "array"
+      "type": "array",
+      "title": "DescribeActivationsFilterList"
     },
     "DescribeActivationsRequest": {
       "properties": {
@@ -1556,7 +1676,8 @@
           "description": "A token to start the list. Use this token to get the next set of results. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeActivationsRequest"
     },
     "DescribeActivationsResult": {
       "properties": {
@@ -1569,7 +1690,8 @@
           "description": " The token for the next set of items to return. Use this token to get the next set of results. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeActivationsResult"
     },
     "DescribeAssociationRequest": {
       "properties": {
@@ -1586,7 +1708,8 @@
           "description": "The name of the SSM document."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeAssociationRequest"
     },
     "DescribeAssociationResult": {
       "properties": {
@@ -1595,7 +1718,8 @@
           "description": "Information about the association."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeAssociationResult"
     },
     "DescribeAutomationExecutionsRequest": {
       "properties": {
@@ -1612,7 +1736,8 @@
           "description": "The token for the next set of items to return. (You received this token from a previous call.)"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeAutomationExecutionsRequest"
     },
     "DescribeAutomationExecutionsResult": {
       "properties": {
@@ -1625,7 +1750,8 @@
           "description": "The token to use when requesting the next set of items. If there are no additional items to return, the string is empty."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeAutomationExecutionsResult"
     },
     "DescribeAvailablePatchesRequest": {
       "properties": {
@@ -1642,7 +1768,8 @@
           "description": "The token for the next set of items to return. (You received this token from a previous call.)"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeAvailablePatchesRequest"
     },
     "DescribeAvailablePatchesResult": {
       "properties": {
@@ -1655,7 +1782,8 @@
           "description": "An array of patches. Each entry in the array is a patch structure."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeAvailablePatchesResult"
     },
     "DescribeDocumentPermissionRequest": {
       "properties": {
@@ -1672,7 +1800,8 @@
         "Name",
         "PermissionType"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeDocumentPermissionRequest"
     },
     "DescribeDocumentPermissionResponse": {
       "properties": {
@@ -1681,7 +1810,8 @@
           "description": "The account IDs that have permission to use this document. The ID can be either an AWS account or <i>All</i>."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeDocumentPermissionResponse"
     },
     "DescribeDocumentRequest": {
       "properties": {
@@ -1697,7 +1827,8 @@
       "required": [
         "Name"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeDocumentRequest"
     },
     "DescribeDocumentResult": {
       "properties": {
@@ -1706,7 +1837,8 @@
           "description": "Information about the SSM document."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeDocumentResult"
     },
     "DescribeEffectiveInstanceAssociationsRequest": {
       "properties": {
@@ -1726,7 +1858,8 @@
       "required": [
         "InstanceId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeEffectiveInstanceAssociationsRequest"
     },
     "DescribeEffectiveInstanceAssociationsResult": {
       "properties": {
@@ -1739,7 +1872,8 @@
           "description": "The token to use when requesting the next set of items. If there are no additional items to return, the string is empty."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeEffectiveInstanceAssociationsResult"
     },
     "DescribeEffectivePatchesForPatchBaselineRequest": {
       "properties": {
@@ -1759,7 +1893,8 @@
       "required": [
         "BaselineId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeEffectivePatchesForPatchBaselineRequest"
     },
     "DescribeEffectivePatchesForPatchBaselineResult": {
       "properties": {
@@ -1772,7 +1907,8 @@
           "description": "The token to use when requesting the next set of items. If there are no additional items to return, the string is empty."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeEffectivePatchesForPatchBaselineResult"
     },
     "DescribeInstanceAssociationsStatusRequest": {
       "properties": {
@@ -1792,7 +1928,8 @@
       "required": [
         "InstanceId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeInstanceAssociationsStatusRequest"
     },
     "DescribeInstanceAssociationsStatusResult": {
       "properties": {
@@ -1805,7 +1942,8 @@
           "description": "The token to use when requesting the next set of items. If there are no additional items to return, the string is empty."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeInstanceAssociationsStatusResult"
     },
     "DescribeInstanceInformationRequest": {
       "properties": {
@@ -1826,7 +1964,8 @@
           "description": "The token for the next set of items to return. (You received this token from a previous call.)"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeInstanceInformationRequest"
     },
     "DescribeInstanceInformationResult": {
       "properties": {
@@ -1839,7 +1978,8 @@
           "description": "The token to use when requesting the next set of items. If there are no additional items to return, the string is empty. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeInstanceInformationResult"
     },
     "DescribeInstancePatchStatesForPatchGroupRequest": {
       "properties": {
@@ -1863,7 +2003,8 @@
       "required": [
         "PatchGroup"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeInstancePatchStatesForPatchGroupRequest"
     },
     "DescribeInstancePatchStatesForPatchGroupResult": {
       "properties": {
@@ -1876,7 +2017,8 @@
           "description": "The token to use when requesting the next set of items. If there are no additional items to return, the string is empty."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeInstancePatchStatesForPatchGroupResult"
     },
     "DescribeInstancePatchStatesRequest": {
       "properties": {
@@ -1896,7 +2038,8 @@
       "required": [
         "InstanceIds"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeInstancePatchStatesRequest"
     },
     "DescribeInstancePatchStatesResult": {
       "properties": {
@@ -1909,7 +2052,8 @@
           "description": "The token to use when requesting the next set of items. If there are no additional items to return, the string is empty."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeInstancePatchStatesResult"
     },
     "DescribeInstancePatchesRequest": {
       "properties": {
@@ -1933,7 +2077,8 @@
       "required": [
         "InstanceId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeInstancePatchesRequest"
     },
     "DescribeInstancePatchesResult": {
       "properties": {
@@ -1946,7 +2091,8 @@
           "description": "<p>Each entry in the array is a structure containing:</p> <p>Title (string)</p> <p>KBId (string)</p> <p>Classification (string)</p> <p>Severity (string)</p> <p>State (string – “INSTALLED”, “INSTALLED_OTHER”, “MISSING”, “NOT_APPLICABLE”, “FAILED”)</p> <p>InstalledTime (DateTime)</p> <p>InstalledBy (string)</p>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeInstancePatchesResult"
     },
     "DescribeMaintenanceWindowExecutionTaskInvocationsRequest": {
       "properties": {
@@ -1975,7 +2121,8 @@
         "WindowExecutionId",
         "TaskId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeMaintenanceWindowExecutionTaskInvocationsRequest"
     },
     "DescribeMaintenanceWindowExecutionTaskInvocationsResult": {
       "properties": {
@@ -1988,7 +2135,8 @@
           "description": "Information about the task invocation results per invocation."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeMaintenanceWindowExecutionTaskInvocationsResult"
     },
     "DescribeMaintenanceWindowExecutionTasksRequest": {
       "properties": {
@@ -2012,7 +2160,8 @@
       "required": [
         "WindowExecutionId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeMaintenanceWindowExecutionTasksRequest"
     },
     "DescribeMaintenanceWindowExecutionTasksResult": {
       "properties": {
@@ -2025,7 +2174,8 @@
           "description": "Information about the task executions."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeMaintenanceWindowExecutionTasksResult"
     },
     "DescribeMaintenanceWindowExecutionsRequest": {
       "properties": {
@@ -2049,7 +2199,8 @@
       "required": [
         "WindowId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeMaintenanceWindowExecutionsRequest"
     },
     "DescribeMaintenanceWindowExecutionsResult": {
       "properties": {
@@ -2062,7 +2213,8 @@
           "description": "Information about the Maintenance Windows execution."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeMaintenanceWindowExecutionsResult"
     },
     "DescribeMaintenanceWindowTargetsRequest": {
       "properties": {
@@ -2086,7 +2238,8 @@
       "required": [
         "WindowId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeMaintenanceWindowTargetsRequest"
     },
     "DescribeMaintenanceWindowTargetsResult": {
       "properties": {
@@ -2099,7 +2252,8 @@
           "description": "Information about the targets in the Maintenance Window."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeMaintenanceWindowTargetsResult"
     },
     "DescribeMaintenanceWindowTasksRequest": {
       "properties": {
@@ -2123,7 +2277,8 @@
       "required": [
         "WindowId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeMaintenanceWindowTasksRequest"
     },
     "DescribeMaintenanceWindowTasksResult": {
       "properties": {
@@ -2136,7 +2291,8 @@
           "description": "Information about the tasks in the Maintenance Window."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeMaintenanceWindowTasksResult"
     },
     "DescribeMaintenanceWindowsRequest": {
       "properties": {
@@ -2153,7 +2309,8 @@
           "description": "The token for the next set of items to return. (You received this token from a previous call.)"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeMaintenanceWindowsRequest"
     },
     "DescribeMaintenanceWindowsResult": {
       "properties": {
@@ -2166,7 +2323,8 @@
           "description": "Information about the Maintenance Windows."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeMaintenanceWindowsResult"
     },
     "DescribeParametersRequest": {
       "properties": {
@@ -2183,7 +2341,8 @@
           "description": "The token for the next set of items to return. (You received this token from a previous call.)"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeParametersRequest"
     },
     "DescribeParametersResult": {
       "properties": {
@@ -2196,7 +2355,8 @@
           "description": "Parameters returned by the request."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeParametersResult"
     },
     "DescribePatchBaselinesRequest": {
       "properties": {
@@ -2213,7 +2373,8 @@
           "description": "The token for the next set of items to return. (You received this token from a previous call.)"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribePatchBaselinesRequest"
     },
     "DescribePatchBaselinesResult": {
       "properties": {
@@ -2226,7 +2387,8 @@
           "description": "The token to use when requesting the next set of items. If there are no additional items to return, the string is empty."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribePatchBaselinesResult"
     },
     "DescribePatchGroupStateRequest": {
       "properties": {
@@ -2238,7 +2400,8 @@
       "required": [
         "PatchGroup"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribePatchGroupStateRequest"
     },
     "DescribePatchGroupStateResult": {
       "properties": {
@@ -2267,7 +2430,8 @@
           "description": "The number of instances with patches that aren’t applicable."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribePatchGroupStateResult"
     },
     "DescribePatchGroupsRequest": {
       "properties": {
@@ -2280,7 +2444,8 @@
           "description": "The token for the next set of items to return. (You received this token from a previous call.)"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribePatchGroupsRequest"
     },
     "DescribePatchGroupsResult": {
       "properties": {
@@ -2293,14 +2458,17 @@
           "description": "The token to use when requesting the next set of items. If there are no additional items to return, the string is empty."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribePatchGroupsResult"
     },
     "DescriptionInDocument": {
-      "type": "string"
+      "type": "string",
+      "title": "DescriptionInDocument"
     },
     "DocumentARN": {
       "pattern": "^[a-zA-Z0-9_\\-.:/]{3,128}$",
-      "type": "string"
+      "type": "string",
+      "title": "DocumentARN"
     },
     "DocumentAlreadyExists": {
       "description": "The specified document already exists.",
@@ -2309,11 +2477,13 @@
           "$ref": "#/definitions/String"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DocumentAlreadyExists"
     },
     "DocumentContent": {
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "DocumentContent"
     },
     "DocumentDefaultVersionDescription": {
       "description": "A default version of a document.",
@@ -2327,7 +2497,8 @@
           "description": "The name of the document."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DocumentDefaultVersionDescription"
     },
     "DocumentDescription": {
       "description": " Describes an SSM document. ",
@@ -2393,7 +2564,8 @@
           "description": "The status of the SSM document."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DocumentDescription"
     },
     "DocumentFilter": {
       "description": "Describes a filter.",
@@ -2411,7 +2583,8 @@
         "key",
         "value"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DocumentFilter"
     },
     "DocumentFilterKey": {
       "enum": [
@@ -2420,29 +2593,34 @@
         "PlatformTypes",
         "DocumentType"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "DocumentFilterKey"
     },
     "DocumentFilterList": {
       "items": {
         "$ref": "#/definitions/DocumentFilter"
       },
       "minItems": 1,
-      "type": "array"
+      "type": "array",
+      "title": "DocumentFilterList"
     },
     "DocumentFilterValue": {
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "DocumentFilterValue"
     },
     "DocumentHash": {
       "maxLength": 256,
-      "type": "string"
+      "type": "string",
+      "title": "DocumentHash"
     },
     "DocumentHashType": {
       "enum": [
         "Sha256",
         "Sha1"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "DocumentHashType"
     },
     "DocumentIdentifier": {
       "description": "Describes the name of an SSM document.",
@@ -2472,13 +2650,15 @@
           "description": "The schema version."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DocumentIdentifier"
     },
     "DocumentIdentifierList": {
       "items": {
         "$ref": "#/definitions/DocumentIdentifier"
       },
-      "type": "array"
+      "type": "array",
+      "title": "DocumentIdentifierList"
     },
     "DocumentLimitExceeded": {
       "description": "You can have at most 200 active SSM documents.",
@@ -2487,14 +2667,17 @@
           "$ref": "#/definitions/String"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DocumentLimitExceeded"
     },
     "DocumentName": {
       "pattern": "^[a-zA-Z0-9_\\-.]{3,128}$",
-      "type": "string"
+      "type": "string",
+      "title": "DocumentName"
     },
     "DocumentOwner": {
-      "type": "string"
+      "type": "string",
+      "title": "DocumentOwner"
     },
     "DocumentParameter": {
       "description": "Parameters specified in a System Manager document that execute on the server when the command is run. ",
@@ -2516,29 +2699,35 @@
           "description": "The type of parameter. The type can be either “String” or “StringList”."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DocumentParameter"
     },
     "DocumentParameterDefaultValue": {
-      "type": "string"
+      "type": "string",
+      "title": "DocumentParameterDefaultValue"
     },
     "DocumentParameterDescrption": {
-      "type": "string"
+      "type": "string",
+      "title": "DocumentParameterDescrption"
     },
     "DocumentParameterList": {
       "items": {
         "$ref": "#/definitions/DocumentParameter"
       },
-      "type": "array"
+      "type": "array",
+      "title": "DocumentParameterList"
     },
     "DocumentParameterName": {
-      "type": "string"
+      "type": "string",
+      "title": "DocumentParameterName"
     },
     "DocumentParameterType": {
       "enum": [
         "String",
         "StringList"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "DocumentParameterType"
     },
     "DocumentPermissionLimit": {
       "description": "The document cannot be shared with more AWS user accounts. You can share a document with a maximum of 20 accounts. You can publicly share up to five documents. If you need to increase this limit, contact AWS Support.",
@@ -2547,20 +2736,24 @@
           "$ref": "#/definitions/String"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DocumentPermissionLimit"
     },
     "DocumentPermissionType": {
       "enum": [
         "Share"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "DocumentPermissionType"
     },
     "DocumentSchemaVersion": {
       "pattern": "([0-9]+)\\.([0-9]+)",
-      "type": "string"
+      "type": "string",
+      "title": "DocumentSchemaVersion"
     },
     "DocumentSha1": {
-      "type": "string"
+      "type": "string",
+      "title": "DocumentSha1"
     },
     "DocumentStatus": {
       "enum": [
@@ -2569,7 +2762,8 @@
         "Updating",
         "Deleting"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "DocumentStatus"
     },
     "DocumentType": {
       "enum": [
@@ -2577,11 +2771,13 @@
         "Policy",
         "Automation"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "DocumentType"
     },
     "DocumentVersion": {
       "pattern": "([$]LATEST|[$]DEFAULT|^[1-9][0-9]*$)",
-      "type": "string"
+      "type": "string",
+      "title": "DocumentVersion"
     },
     "DocumentVersionInfo": {
       "description": "Version information about the document.",
@@ -2603,7 +2799,8 @@
           "description": "The document name."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DocumentVersionInfo"
     },
     "DocumentVersionLimitExceeded": {
       "description": "The document has too many versions. Delete one or more document versions and try again.",
@@ -2612,18 +2809,21 @@
           "$ref": "#/definitions/String"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DocumentVersionLimitExceeded"
     },
     "DocumentVersionList": {
       "items": {
         "$ref": "#/definitions/DocumentVersionInfo"
       },
       "minItems": 1,
-      "type": "array"
+      "type": "array",
+      "title": "DocumentVersionList"
     },
     "DocumentVersionNumber": {
       "pattern": "(^[1-9][0-9]*$)",
-      "type": "string"
+      "type": "string",
+      "title": "DocumentVersionNumber"
     },
     "DoesNotExistException": {
       "description": "Error returned when the ID specified for a resource (e.g. a Maintenance Window) doesn’t exist.",
@@ -2632,7 +2832,8 @@
           "$ref": "#/definitions/String"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DoesNotExistException"
     },
     "DuplicateDocumentContent": {
       "description": "The content of the association document matches another document. Change the content of the document and try again.",
@@ -2641,17 +2842,20 @@
           "$ref": "#/definitions/String"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DuplicateDocumentContent"
     },
     "DuplicateInstanceId": {
       "description": "You cannot specify an instance ID in more than one association.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DuplicateInstanceId"
     },
     "EffectiveInstanceAssociationMaxResults": {
       "maximum": 5,
       "minimum": 1,
-      "type": "integer"
+      "type": "integer",
+      "title": "EffectiveInstanceAssociationMaxResults"
     },
     "EffectivePatch": {
       "description": "The EffectivePatch structure defines metadata about a patch along with the approval state of the patch in a particular patch baseline. The approval state includes information about whether the patch is currently approved, due to be approved by a rule, explicitly approved, or explicitly rejected and the date the patch was or will be approved.",
@@ -2665,20 +2869,24 @@
           "description": "The status of the patch in a patch baseline. This includes information about whether the patch is currently approved, due to be approved by a rule, explicitly approved, or explicitly rejected and the date the patch was or will be approved."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "EffectivePatch"
     },
     "EffectivePatchList": {
       "items": {
         "$ref": "#/definitions/EffectivePatch"
       },
-      "type": "array"
+      "type": "array",
+      "title": "EffectivePatchList"
     },
     "ErrorCount": {
-      "type": "integer"
+      "type": "integer",
+      "title": "ErrorCount"
     },
     "ExpirationDate": {
       "format": "date-time",
-      "type": "string"
+      "type": "string",
+      "title": "ExpirationDate"
     },
     "FailedCreateAssociation": {
       "description": "Describes a failed association.",
@@ -2696,13 +2904,15 @@
           "description": "A description of the failure."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "FailedCreateAssociation"
     },
     "FailedCreateAssociationList": {
       "items": {
         "$ref": "#/definitions/FailedCreateAssociation"
       },
-      "type": "array"
+      "type": "array",
+      "title": "FailedCreateAssociationList"
     },
     "Fault": {
       "enum": [
@@ -2710,7 +2920,8 @@
         "Server",
         "Unknown"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "Fault"
     },
     "GetAutomationExecutionRequest": {
       "properties": {
@@ -2722,7 +2933,8 @@
       "required": [
         "AutomationExecutionId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetAutomationExecutionRequest"
     },
     "GetAutomationExecutionResult": {
       "properties": {
@@ -2731,7 +2943,8 @@
           "description": "Detailed information about the current state of an automation execution."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetAutomationExecutionResult"
     },
     "GetCommandInvocationRequest": {
       "properties": {
@@ -2752,7 +2965,8 @@
         "CommandId",
         "InstanceId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetCommandInvocationRequest"
     },
     "GetCommandInvocationResult": {
       "properties": {
@@ -2817,11 +3031,13 @@
           "description": "<p>A detailed status of the command execution for an invocation. <code>StatusDetails</code> includes more information than <code>Status</code> because it includes states resulting from error and concurrency control parameters. <code>StatusDetails</code> can show different results than <code>Status</code>. For more information about these statuses, see <a href=\"http://docs.aws.amazon.com/systems-manager/latest/userguide/monitor-about-status.html\">Run Command Status</a>. <code>StatusDetails</code> can be one of the following values:</p> <ul> <li> <p>Pending – The command has not been sent to the instance.</p> </li> <li> <p>In Progress – The command has been sent to the instance but has not reached a terminal state.</p> </li> <li> <p>Delayed – The system attempted to send the command to the target, but the target was not available. The instance might not be available because of network issues, the instance was stopped, etc. The system will try to deliver the command again.</p> </li> <li> <p>Success – The command or plugin was executed successfully. This is a terminal state.</p> </li> <li> <p>Delivery Timed Out – The command was not delivered to the instance before the delivery timeout expired. Delivery timeouts do not count against the parent command’s <code>MaxErrors</code> limit, but they do contribute to whether the parent command status is <code>Success</code> or <code>Incomplete</code>. This is a terminal state.</p> </li> <li> <p>Execution Timed Out – The command started to execute on the instance, but the execution was not complete before the timeout expired. Execution timeouts count against the <code>MaxErrors</code> limit of the parent command. This is a terminal state.</p> </li> <li> <p>Failed – The command wasn't executed successfully on the instance. For a plugin, this indicates that the result code was not zero. For a command invocation, this indicates that the result code for one or more plugins was not zero. Invocation failures count against the <code>MaxErrors</code> limit of the parent command. This is a terminal state.</p> </li> <li> <p>Canceled – The command was terminated before it was completed. This is a terminal state.</p> </li> <li> <p>Undeliverable – The command can't be delivered to the instance. The instance might not exist or might not be responding. Undeliverable invocations don't count against the parent command’s <code>MaxErrors</code> limit and don't contribute to whether the parent command status is <code>Success</code> or <code>Incomplete</code>. This is a terminal state.</p> </li> <li> <p>Terminated – The parent command exceeded its <code>MaxErrors</code> limit and subsequent command invocations were canceled by the system. This is a terminal state.</p> </li> </ul>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetCommandInvocationResult"
     },
     "GetDefaultPatchBaselineRequest": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "GetDefaultPatchBaselineRequest"
     },
     "GetDefaultPatchBaselineResult": {
       "properties": {
@@ -2830,7 +3046,8 @@
           "description": "The ID of the default patch baseline."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetDefaultPatchBaselineResult"
     },
     "GetDeployablePatchSnapshotForInstanceRequest": {
       "properties": {
@@ -2847,7 +3064,8 @@
         "InstanceId",
         "SnapshotId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetDeployablePatchSnapshotForInstanceRequest"
     },
     "GetDeployablePatchSnapshotForInstanceResult": {
       "properties": {
@@ -2864,7 +3082,8 @@
           "description": "The user-defined snapshot ID."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetDeployablePatchSnapshotForInstanceResult"
     },
     "GetDocumentRequest": {
       "properties": {
@@ -2880,7 +3099,8 @@
       "required": [
         "Name"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetDocumentRequest"
     },
     "GetDocumentResult": {
       "properties": {
@@ -2901,7 +3121,8 @@
           "description": "The name of the SSM document."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetDocumentResult"
     },
     "GetInventoryRequest": {
       "properties": {
@@ -2922,7 +3143,8 @@
           "description": "The list of inventory item types to return."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetInventoryRequest"
     },
     "GetInventoryResult": {
       "properties": {
@@ -2935,12 +3157,14 @@
           "description": "The token to use when requesting the next set of items. If there are no additional items to return, the string is empty."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetInventoryResult"
     },
     "GetInventorySchemaMaxResults": {
       "maximum": 200,
       "minimum": 50,
-      "type": "integer"
+      "type": "integer",
+      "title": "GetInventorySchemaMaxResults"
     },
     "GetInventorySchemaRequest": {
       "properties": {
@@ -2957,7 +3181,8 @@
           "description": "The type of inventory item to return."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetInventorySchemaRequest"
     },
     "GetInventorySchemaResult": {
       "properties": {
@@ -2970,7 +3195,8 @@
           "description": "Inventory schemas returned by the request."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetInventorySchemaResult"
     },
     "GetMaintenanceWindowExecutionRequest": {
       "properties": {
@@ -2982,7 +3208,8 @@
       "required": [
         "WindowExecutionId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetMaintenanceWindowExecutionRequest"
     },
     "GetMaintenanceWindowExecutionResult": {
       "properties": {
@@ -3011,7 +3238,8 @@
           "description": "The ID of the Maintenance Window execution."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetMaintenanceWindowExecutionResult"
     },
     "GetMaintenanceWindowExecutionTaskRequest": {
       "properties": {
@@ -3028,7 +3256,8 @@
         "WindowExecutionId",
         "TaskId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetMaintenanceWindowExecutionTaskRequest"
     },
     "GetMaintenanceWindowExecutionTaskResult": {
       "properties": {
@@ -3085,7 +3314,8 @@
           "description": "The ID of the Maintenance Window execution that includes the task."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetMaintenanceWindowExecutionTaskResult"
     },
     "GetMaintenanceWindowRequest": {
       "properties": {
@@ -3097,7 +3327,8 @@
       "required": [
         "WindowId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetMaintenanceWindowRequest"
     },
     "GetMaintenanceWindowResult": {
       "properties": {
@@ -3138,7 +3369,8 @@
           "description": "The ID of the created Maintenance Window."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetMaintenanceWindowResult"
     },
     "GetParameterHistoryRequest": {
       "properties": {
@@ -3162,7 +3394,8 @@
       "required": [
         "Name"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetParameterHistoryRequest"
     },
     "GetParameterHistoryResult": {
       "properties": {
@@ -3175,7 +3408,8 @@
           "description": "A list of parameters returned by the request."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetParameterHistoryResult"
     },
     "GetParametersRequest": {
       "properties": {
@@ -3191,7 +3425,8 @@
       "required": [
         "Names"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetParametersRequest"
     },
     "GetParametersResult": {
       "properties": {
@@ -3204,7 +3439,8 @@
           "description": "A list of details for a parameter."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetParametersResult"
     },
     "GetPatchBaselineForPatchGroupRequest": {
       "properties": {
@@ -3216,7 +3452,8 @@
       "required": [
         "PatchGroup"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetPatchBaselineForPatchGroupRequest"
     },
     "GetPatchBaselineForPatchGroupResult": {
       "properties": {
@@ -3229,7 +3466,8 @@
           "description": "The name of the patch group."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetPatchBaselineForPatchGroupResult"
     },
     "GetPatchBaselineRequest": {
       "properties": {
@@ -3241,7 +3479,8 @@
       "required": [
         "BaselineId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetPatchBaselineRequest"
     },
     "GetPatchBaselineResult": {
       "properties": {
@@ -3286,16 +3525,19 @@
           "description": "A list of explicitly rejected patches for the baseline."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetPatchBaselineResult"
     },
     "IPAddress": {
       "maxLength": 46,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "IPAddress"
     },
     "IamRole": {
       "maxLength": 64,
-      "type": "string"
+      "type": "string",
+      "title": "IamRole"
     },
     "IdempotentParameterMismatch": {
       "description": "Error returned when an idempotent operation is retried and the parameters don’t match the original call to the API with the same idempotency token. ",
@@ -3304,7 +3546,8 @@
           "$ref": "#/definitions/String"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "IdempotentParameterMismatch"
     },
     "InstanceAggregatedAssociationOverview": {
       "description": "Status information about the aggregated associations.",
@@ -3318,7 +3561,8 @@
           "description": "The number of associations for the instance(s)."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InstanceAggregatedAssociationOverview"
     },
     "InstanceAssociation": {
       "description": "One or more association documents on the instance. ",
@@ -3336,18 +3580,21 @@
           "description": "The instance ID."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InstanceAssociation"
     },
     "InstanceAssociationExecutionSummary": {
       "maxLength": 512,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "InstanceAssociationExecutionSummary"
     },
     "InstanceAssociationList": {
       "items": {
         "$ref": "#/definitions/InstanceAssociation"
       },
-      "type": "array"
+      "type": "array",
+      "title": "InstanceAssociationList"
     },
     "InstanceAssociationOutputLocation": {
       "description": "An Amazon S3 bucket where you want to store the results of this request.",
@@ -3357,7 +3604,8 @@
           "description": "An Amazon S3 bucket where you want to store the results of this request."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InstanceAssociationOutputLocation"
     },
     "InstanceAssociationOutputUrl": {
       "description": "The URL of Amazon S3 bucket where you want to store the results of this request.",
@@ -3367,7 +3615,8 @@
           "description": "The URL of Amazon S3 bucket where you want to store the results of this request."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InstanceAssociationOutputUrl"
     },
     "InstanceAssociationStatusAggregatedCount": {
       "items": {
@@ -3381,7 +3630,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "InstanceAssociationStatusAggregatedCount"
     },
     "InstanceAssociationStatusInfo": {
       "description": "Status information about the instance association.",
@@ -3427,20 +3677,24 @@
           "description": "Status information about the instance association."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InstanceAssociationStatusInfo"
     },
     "InstanceAssociationStatusInfos": {
       "items": {
         "$ref": "#/definitions/InstanceAssociationStatusInfo"
       },
-      "type": "array"
+      "type": "array",
+      "title": "InstanceAssociationStatusInfos"
     },
     "InstanceCount": {
-      "type": "integer"
+      "type": "integer",
+      "title": "InstanceCount"
     },
     "InstanceId": {
       "pattern": "(^i-(\\w{8}|\\w{17})$)|(^mi-\\w{17}$)",
-      "type": "string"
+      "type": "string",
+      "title": "InstanceId"
     },
     "InstanceIdList": {
       "items": {
@@ -3448,7 +3702,8 @@
       },
       "maxItems": 50,
       "minItems": 0,
-      "type": "array"
+      "type": "array",
+      "title": "InstanceIdList"
     },
     "InstanceInformation": {
       "description": "Describes a filter for a specific list of instances. ",
@@ -3530,7 +3785,8 @@
           "description": "The type of instance. Instances are either EC2 instances or managed instances. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InstanceInformation"
     },
     "InstanceInformationFilter": {
       "description": "Describes a filter for a specific list of instances. ",
@@ -3548,7 +3804,8 @@
         "key",
         "valueSet"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "InstanceInformationFilter"
     },
     "InstanceInformationFilterKey": {
       "enum": [
@@ -3561,18 +3818,21 @@
         "ResourceType",
         "AssociationStatus"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "InstanceInformationFilterKey"
     },
     "InstanceInformationFilterList": {
       "items": {
         "$ref": "#/definitions/InstanceInformationFilter"
       },
       "minItems": 0,
-      "type": "array"
+      "type": "array",
+      "title": "InstanceInformationFilterList"
     },
     "InstanceInformationFilterValue": {
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "InstanceInformationFilterValue"
     },
     "InstanceInformationFilterValueSet": {
       "items": {
@@ -3580,13 +3840,15 @@
       },
       "maxItems": 100,
       "minItems": 1,
-      "type": "array"
+      "type": "array",
+      "title": "InstanceInformationFilterValueSet"
     },
     "InstanceInformationList": {
       "items": {
         "$ref": "#/definitions/InstanceInformation"
       },
-      "type": "array"
+      "type": "array",
+      "title": "InstanceInformationList"
     },
     "InstanceInformationStringFilter": {
       "description": "The filters to describe or get information about your managed instances.",
@@ -3604,18 +3866,21 @@
         "Key",
         "Values"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "InstanceInformationStringFilter"
     },
     "InstanceInformationStringFilterKey": {
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "InstanceInformationStringFilterKey"
     },
     "InstanceInformationStringFilterList": {
       "items": {
         "$ref": "#/definitions/InstanceInformationStringFilter"
       },
       "minItems": 0,
-      "type": "array"
+      "type": "array",
+      "title": "InstanceInformationStringFilterList"
     },
     "InstancePatchState": {
       "description": "Defines the high-level patch compliance state for a managed instance, providing information about the number of installed, missing, not applicable, and failed patches along with metadata about the operation when this information was gathered for the instance.",
@@ -3681,7 +3946,8 @@
         "OperationEndTime",
         "Operation"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "InstancePatchState"
     },
     "InstancePatchStateFilter": {
       "description": "Defines a filter used in DescribeInstancePatchStatesForPatchGroup used to scope down the information returned by the API.",
@@ -3704,12 +3970,14 @@
         "Values",
         "Type"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "InstancePatchStateFilter"
     },
     "InstancePatchStateFilterKey": {
       "maxLength": 200,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "InstancePatchStateFilterKey"
     },
     "InstancePatchStateFilterList": {
       "items": {
@@ -3717,10 +3985,12 @@
       },
       "maxItems": 4,
       "minItems": 0,
-      "type": "array"
+      "type": "array",
+      "title": "InstancePatchStateFilterList"
     },
     "InstancePatchStateFilterValue": {
-      "type": "string"
+      "type": "string",
+      "title": "InstancePatchStateFilterValue"
     },
     "InstancePatchStateFilterValues": {
       "items": {
@@ -3728,13 +3998,15 @@
       },
       "maxItems": 1,
       "minItems": 1,
-      "type": "array"
+      "type": "array",
+      "title": "InstancePatchStateFilterValues"
     },
     "InstancePatchStateList": {
       "items": {
         "$ref": "#/definitions/InstancePatchState"
       },
-      "type": "array"
+      "type": "array",
+      "title": "InstancePatchStateList"
     },
     "InstancePatchStateOperatorType": {
       "enum": [
@@ -3743,7 +4015,8 @@
         "LessThan",
         "GreaterThan"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "InstancePatchStateOperatorType"
     },
     "InstancePatchStatesList": {
       "items": {
@@ -3751,14 +4024,17 @@
       },
       "maxItems": 5,
       "minItems": 1,
-      "type": "array"
+      "type": "array",
+      "title": "InstancePatchStatesList"
     },
     "InstanceTagName": {
       "maxLength": 255,
-      "type": "string"
+      "type": "string",
+      "title": "InstanceTagName"
     },
     "Integer": {
-      "type": "integer"
+      "type": "integer",
+      "title": "Integer"
     },
     "InternalServerError": {
       "description": "An error occurred on the server side.",
@@ -3767,7 +4043,8 @@
           "$ref": "#/definitions/String"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InternalServerError"
     },
     "InvalidActivation": {
       "description": "The activation is not valid. The activation might have been deleted, or the ActivationId and the ActivationCode do not match.",
@@ -3776,7 +4053,8 @@
           "$ref": "#/definitions/String"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidActivation"
     },
     "InvalidActivationId": {
       "description": "The activation ID is not valid. Verify the you entered the correct ActivationId or ActivationCode and try again.",
@@ -3785,7 +4063,8 @@
           "$ref": "#/definitions/String"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidActivationId"
     },
     "InvalidAutomationExecutionParametersException": {
       "description": "The supplied parameters for invoking the specified Automation document are incorrect. For example, they may not match the set of parameters permitted for the specified Automation document.",
@@ -3794,11 +4073,13 @@
           "$ref": "#/definitions/String"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidAutomationExecutionParametersException"
     },
     "InvalidCommandId": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "InvalidCommandId"
     },
     "InvalidDocument": {
       "description": "The specified document does not exist.",
@@ -3808,7 +4089,8 @@
           "description": "The document does not exist or the document is not available to the user. This exception can be issued by CreateAssociation, CreateAssociationBatch, DeleteAssociation, DeleteDocument, DescribeAssociation, DescribeDocument, GetDocument, SendCommand, or UpdateAssociationStatus. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidDocument"
     },
     "InvalidDocumentContent": {
       "description": "The content for the document is not valid.",
@@ -3818,7 +4100,8 @@
           "description": "A description of the validation error."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidDocumentContent"
     },
     "InvalidDocumentOperation": {
       "description": "You attempted to delete a document while it is still shared. You must stop sharing the document before you can delete it.",
@@ -3827,7 +4110,8 @@
           "$ref": "#/definitions/String"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidDocumentOperation"
     },
     "InvalidDocumentSchemaVersion": {
       "description": "The version of the document schema is not supported.",
@@ -3836,7 +4120,8 @@
           "$ref": "#/definitions/String"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidDocumentSchemaVersion"
     },
     "InvalidDocumentVersion": {
       "description": "The document version is not valid or does not exist.",
@@ -3845,7 +4130,8 @@
           "$ref": "#/definitions/String"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidDocumentVersion"
     },
     "InvalidFilter": {
       "description": "The filter name is not valid. Verify the you entered the correct name and try again.",
@@ -3854,12 +4140,14 @@
           "$ref": "#/definitions/String"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidFilter"
     },
     "InvalidFilterKey": {
       "description": "The specified key is not valid.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "InvalidFilterKey"
     },
     "InvalidFilterValue": {
       "description": "The filter value is not valid. Verify the value and try again.",
@@ -3868,7 +4156,8 @@
           "$ref": "#/definitions/String"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidFilterValue"
     },
     "InvalidInstanceId": {
       "description": "<p>The following problems can cause this exception:</p> <p>You do not have permission to access the instance.</p> <p>The SSM Agent is not running. On managed instances and Linux instances, verify that the SSM Agent is running. On EC2 Windows instances, verify that the EC2Config service is running.</p> <p>The SSM Agent or EC2Config service is not registered to the SSM endpoint. Try reinstalling the SSM Agent or EC2Config service.</p> <p>The instance is not in valid state. Valid states are: Running, Pending, Stopped, Stopping. Invalid states are: Shutting-down and Terminated.</p>",
@@ -3877,7 +4166,8 @@
           "$ref": "#/definitions/String"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidInstanceId"
     },
     "InvalidInstanceInformationFilterValue": {
       "description": "The specified filter value is not valid.",
@@ -3886,7 +4176,8 @@
           "$ref": "#/definitions/String"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidInstanceInformationFilterValue"
     },
     "InvalidItemContentException": {
       "description": "One or more content items is not valid.",
@@ -3898,7 +4189,8 @@
           "$ref": "#/definitions/InventoryItemTypeName"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidItemContentException"
     },
     "InvalidKeyId": {
       "description": "The query key ID is not valid.",
@@ -3907,7 +4199,8 @@
           "$ref": "#/definitions/String"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidKeyId"
     },
     "InvalidNextToken": {
       "description": "The specified token is not valid.",
@@ -3916,7 +4209,8 @@
           "$ref": "#/definitions/String"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidNextToken"
     },
     "InvalidNotificationConfig": {
       "description": "One or more configuration items is not valid. Verify that a valid Amazon Resource Name (ARN) was provided for an Amazon SNS topic.",
@@ -3925,17 +4219,20 @@
           "$ref": "#/definitions/String"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidNotificationConfig"
     },
     "InvalidOutputFolder": {
       "description": "The S3 bucket does not exist.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "InvalidOutputFolder"
     },
     "InvalidOutputLocation": {
       "description": "The output location is not valid or does not exist.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "InvalidOutputLocation"
     },
     "InvalidParameters": {
       "description": "You must specify values for all required parameters in the SSM document. You can only supply values to parameters defined in the SSM document.",
@@ -3944,7 +4241,8 @@
           "$ref": "#/definitions/String"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidParameters"
     },
     "InvalidPermissionType": {
       "description": "The permission type is not supported. <i>Share</i> is the only supported permission type.",
@@ -3953,22 +4251,26 @@
           "$ref": "#/definitions/String"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidPermissionType"
     },
     "InvalidPluginName": {
       "description": "The plugin name is not valid.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "InvalidPluginName"
     },
     "InvalidResourceId": {
       "description": "The resource ID is not valid. Verify that you entered the correct ID and try again.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "InvalidResourceId"
     },
     "InvalidResourceType": {
       "description": "The resource type is not valid. If you are attempting to tag an instance, the instance must be a registered, managed instance.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "InvalidResourceType"
     },
     "InvalidResultAttributeException": {
       "description": "The specified inventory item result attribute is not valid.",
@@ -3977,7 +4279,8 @@
           "$ref": "#/definitions/String"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidResultAttributeException"
     },
     "InvalidRole": {
       "description": "The role name can't contain invalid characters. Also verify that you specified an IAM role for notifications that includes the required trust policy. For information about configuring the IAM role for Run Command notifications, see <a href=\"http://docs.aws.amazon.com/systems-manager/latest/userguide/rc-sns-notifications.html\">Configuring Amazon SNS Notifications for Run Command</a> in the <i>Amazon EC2 Systems Manager User Guide</i>.",
@@ -3986,7 +4289,8 @@
           "$ref": "#/definitions/String"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidRole"
     },
     "InvalidSchedule": {
       "description": "The schedule is invalid. Verify your cron or rate expression and try again.",
@@ -3995,7 +4299,8 @@
           "$ref": "#/definitions/String"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidSchedule"
     },
     "InvalidTarget": {
       "description": "The target is not valid or does not exist. It might not be configured for EC2 Systems Manager or you might not have permission to perform the operation.",
@@ -4004,7 +4309,8 @@
           "$ref": "#/definitions/String"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidTarget"
     },
     "InvalidTypeNameException": {
       "description": "The parameter type name is not valid.",
@@ -4013,7 +4319,8 @@
           "$ref": "#/definitions/String"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidTypeNameException"
     },
     "InvalidUpdate": {
       "description": "The update is not valid.",
@@ -4022,14 +4329,16 @@
           "$ref": "#/definitions/String"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidUpdate"
     },
     "InventoryAttributeDataType": {
       "enum": [
         "string",
         "number"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "InventoryAttributeDataType"
     },
     "InventoryFilter": {
       "description": "One or more filters. Use a filter to return a more specific list of results.",
@@ -4051,12 +4360,14 @@
         "Key",
         "Values"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "InventoryFilter"
     },
     "InventoryFilterKey": {
       "maxLength": 200,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "InventoryFilterKey"
     },
     "InventoryFilterList": {
       "items": {
@@ -4064,10 +4375,12 @@
       },
       "maxItems": 5,
       "minItems": 1,
-      "type": "array"
+      "type": "array",
+      "title": "InventoryFilterList"
     },
     "InventoryFilterValue": {
-      "type": "string"
+      "type": "string",
+      "title": "InventoryFilterValue"
     },
     "InventoryFilterValueList": {
       "items": {
@@ -4075,7 +4388,8 @@
       },
       "maxItems": 20,
       "minItems": 1,
-      "type": "array"
+      "type": "array",
+      "title": "InventoryFilterValueList"
     },
     "InventoryItem": {
       "description": "Information collected from managed instances based on your inventory policy document",
@@ -4106,7 +4420,8 @@
         "SchemaVersion",
         "CaptureTime"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "InventoryItem"
     },
     "InventoryItemAttribute": {
       "description": "Attributes are the entries within the inventory item content. It contains name and value.",
@@ -4124,7 +4439,8 @@
         "Name",
         "DataType"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "InventoryItemAttribute"
     },
     "InventoryItemAttributeList": {
       "items": {
@@ -4132,18 +4448,22 @@
       },
       "maxItems": 50,
       "minItems": 1,
-      "type": "array"
+      "type": "array",
+      "title": "InventoryItemAttributeList"
     },
     "InventoryItemAttributeName": {
-      "type": "string"
+      "type": "string",
+      "title": "InventoryItemAttributeName"
     },
     "InventoryItemCaptureTime": {
       "pattern": "^(20)[0-9][0-9]-(0[1-9]|1[012])-([12][0-9]|3[01]|0[1-9])(T)(2[0-3]|[0-1][0-9])(:[0-5][0-9])(:[0-5][0-9])(Z)$",
-      "type": "string"
+      "type": "string",
+      "title": "InventoryItemCaptureTime"
     },
     "InventoryItemContentHash": {
       "maxLength": 256,
-      "type": "string"
+      "type": "string",
+      "title": "InventoryItemContentHash"
     },
     "InventoryItemEntry": {
       "items": {
@@ -4159,7 +4479,8 @@
       },
       "maxItems": 50,
       "minItems": 0,
-      "type": "array"
+      "type": "array",
+      "title": "InventoryItemEntry"
     },
     "InventoryItemEntryList": {
       "items": {
@@ -4167,7 +4488,8 @@
       },
       "maxItems": 10000,
       "minItems": 0,
-      "type": "array"
+      "type": "array",
+      "title": "InventoryItemEntryList"
     },
     "InventoryItemList": {
       "items": {
@@ -4175,7 +4497,8 @@
       },
       "maxItems": 30,
       "minItems": 1,
-      "type": "array"
+      "type": "array",
+      "title": "InventoryItemList"
     },
     "InventoryItemSchema": {
       "description": "The inventory item schema definition. Users can use this to compose inventory query filters.",
@@ -4197,28 +4520,33 @@
         "TypeName",
         "Attributes"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "InventoryItemSchema"
     },
     "InventoryItemSchemaResultList": {
       "items": {
         "$ref": "#/definitions/InventoryItemSchema"
       },
-      "type": "array"
+      "type": "array",
+      "title": "InventoryItemSchemaResultList"
     },
     "InventoryItemSchemaVersion": {
       "pattern": "^([0-9]{1,6})(\\.[0-9]{1,6})$",
-      "type": "string"
+      "type": "string",
+      "title": "InventoryItemSchemaVersion"
     },
     "InventoryItemTypeName": {
       "maxLength": 100,
       "minLength": 1,
       "pattern": "^(AWS|Custom):.*$",
-      "type": "string"
+      "type": "string",
+      "title": "InventoryItemTypeName"
     },
     "InventoryItemTypeNameFilter": {
       "maxLength": 100,
       "minLength": 0,
-      "type": "string"
+      "type": "string",
+      "title": "InventoryItemTypeNameFilter"
     },
     "InventoryQueryOperatorType": {
       "enum": [
@@ -4228,7 +4556,8 @@
         "LessThan",
         "GreaterThan"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "InventoryQueryOperatorType"
     },
     "InventoryResultEntity": {
       "description": "Inventory query results.",
@@ -4242,16 +4571,19 @@
           "description": "ID of the inventory result entity. For example, for managed instance inventory the result will be the managed instance ID. For EC2 instance inventory, the result will be the instance ID. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InventoryResultEntity"
     },
     "InventoryResultEntityId": {
-      "type": "string"
+      "type": "string",
+      "title": "InventoryResultEntityId"
     },
     "InventoryResultEntityList": {
       "items": {
         "$ref": "#/definitions/InventoryResultEntity"
       },
-      "type": "array"
+      "type": "array",
+      "title": "InventoryResultEntityList"
     },
     "InventoryResultItem": {
       "description": "The inventory result item.",
@@ -4282,10 +4614,12 @@
         "SchemaVersion",
         "Content"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "InventoryResultItem"
     },
     "InventoryResultItemKey": {
-      "type": "string"
+      "type": "string",
+      "title": "InventoryResultItemKey"
     },
     "InventoryResultItemMap": {
       "items": {
@@ -4299,16 +4633,19 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "InventoryResultItemMap"
     },
     "InvocationDoesNotExist": {
       "description": "The command ID and instance ID you specified did not match any invocations. Verify the command ID adn the instance ID and try again. ",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "InvocationDoesNotExist"
     },
     "InvocationTraceOutput": {
       "maxLength": 2500,
-      "type": "string"
+      "type": "string",
+      "title": "InvocationTraceOutput"
     },
     "ItemContentMismatchException": {
       "description": "The inventory item has invalid content. ",
@@ -4320,7 +4657,8 @@
           "$ref": "#/definitions/InventoryItemTypeName"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ItemContentMismatchException"
     },
     "ItemSizeLimitExceededException": {
       "description": "The inventory item size has exceeded the size limit.",
@@ -4332,13 +4670,15 @@
           "$ref": "#/definitions/InventoryItemTypeName"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ItemSizeLimitExceededException"
     },
     "KeyList": {
       "items": {
         "$ref": "#/definitions/TagKey"
       },
-      "type": "array"
+      "type": "array",
+      "title": "KeyList"
     },
     "ListAssociationsRequest": {
       "properties": {
@@ -4355,7 +4695,8 @@
           "description": "The token for the next set of items to return. (You received this token from a previous call.)"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListAssociationsRequest"
     },
     "ListAssociationsResult": {
       "properties": {
@@ -4368,7 +4709,8 @@
           "description": "The token to use when requesting the next set of items. If there are no additional items to return, the string is empty."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListAssociationsResult"
     },
     "ListCommandInvocationsRequest": {
       "properties": {
@@ -4397,7 +4739,8 @@
           "description": "(Optional) The token for the next set of items to return. (You received this token from a previous call.)"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListCommandInvocationsRequest"
     },
     "ListCommandInvocationsResult": {
       "properties": {
@@ -4410,7 +4753,8 @@
           "description": "(Optional) The token for the next set of items to return. (You received this token from a previous call.)"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListCommandInvocationsResult"
     },
     "ListCommandsRequest": {
       "properties": {
@@ -4435,7 +4779,8 @@
           "description": "(Optional) The token for the next set of items to return. (You received this token from a previous call.)"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListCommandsRequest"
     },
     "ListCommandsResult": {
       "properties": {
@@ -4448,7 +4793,8 @@
           "description": "(Optional) The token for the next set of items to return. (You received this token from a previous call.)"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListCommandsResult"
     },
     "ListDocumentVersionsRequest": {
       "properties": {
@@ -4468,7 +4814,8 @@
       "required": [
         "Name"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListDocumentVersionsRequest"
     },
     "ListDocumentVersionsResult": {
       "properties": {
@@ -4481,7 +4828,8 @@
           "description": "The token to use when requesting the next set of items. If there are no additional items to return, the string is empty."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListDocumentVersionsResult"
     },
     "ListDocumentsRequest": {
       "properties": {
@@ -4498,7 +4846,8 @@
           "description": "The token for the next set of items to return. (You received this token from a previous call.)"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListDocumentsRequest"
     },
     "ListDocumentsResult": {
       "properties": {
@@ -4511,7 +4860,8 @@
           "description": "The token to use when requesting the next set of items. If there are no additional items to return, the string is empty."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListDocumentsResult"
     },
     "ListInventoryEntriesRequest": {
       "properties": {
@@ -4540,7 +4890,8 @@
         "InstanceId",
         "TypeName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListInventoryEntriesRequest"
     },
     "ListInventoryEntriesResult": {
       "properties": {
@@ -4569,7 +4920,8 @@
           "description": "The type of inventory item returned by the request."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListInventoryEntriesResult"
     },
     "ListTagsForResourceRequest": {
       "properties": {
@@ -4586,7 +4938,8 @@
         "ResourceType",
         "ResourceId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListTagsForResourceRequest"
     },
     "ListTagsForResourceResult": {
       "properties": {
@@ -4595,7 +4948,8 @@
           "description": "A list of tags."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListTagsForResourceResult"
     },
     "LoggingInfo": {
       "description": "Information about an Amazon S3 bucket to write instance-level logs to.",
@@ -4617,23 +4971,28 @@
         "S3BucketName",
         "S3Region"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "LoggingInfo"
     },
     "MaintenanceWindowAllowUnassociatedTargets": {
-      "type": "boolean"
+      "type": "boolean",
+      "title": "MaintenanceWindowAllowUnassociatedTargets"
     },
     "MaintenanceWindowCutoff": {
       "maximum": 23,
       "minimum": 0,
-      "type": "integer"
+      "type": "integer",
+      "title": "MaintenanceWindowCutoff"
     },
     "MaintenanceWindowDurationHours": {
       "maximum": 24,
       "minimum": 1,
-      "type": "integer"
+      "type": "integer",
+      "title": "MaintenanceWindowDurationHours"
     },
     "MaintenanceWindowEnabled": {
-      "type": "boolean"
+      "type": "boolean",
+      "title": "MaintenanceWindowEnabled"
     },
     "MaintenanceWindowExecution": {
       "description": "Describes the information about an execution of a Maintenance Window. ",
@@ -4663,19 +5022,22 @@
           "description": "The ID of the Maintenance Window."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "MaintenanceWindowExecution"
     },
     "MaintenanceWindowExecutionId": {
       "maxLength": 36,
       "minLength": 36,
       "pattern": "^[0-9a-fA-F]{8}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{12}$",
-      "type": "string"
+      "type": "string",
+      "title": "MaintenanceWindowExecutionId"
     },
     "MaintenanceWindowExecutionList": {
       "items": {
         "$ref": "#/definitions/MaintenanceWindowExecution"
       },
-      "type": "array"
+      "type": "array",
+      "title": "MaintenanceWindowExecutionList"
     },
     "MaintenanceWindowExecutionStatus": {
       "enum": [
@@ -4688,27 +5050,32 @@
         "CANCELLED",
         "SKIPPED_OVERLAPPING"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "MaintenanceWindowExecutionStatus"
     },
     "MaintenanceWindowExecutionStatusDetails": {
       "maxLength": 250,
       "minLength": 0,
-      "type": "string"
+      "type": "string",
+      "title": "MaintenanceWindowExecutionStatusDetails"
     },
     "MaintenanceWindowExecutionTaskExecutionId": {
-      "type": "string"
+      "type": "string",
+      "title": "MaintenanceWindowExecutionTaskExecutionId"
     },
     "MaintenanceWindowExecutionTaskId": {
       "maxLength": 36,
       "minLength": 36,
       "pattern": "^[0-9a-fA-F]{8}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{12}$",
-      "type": "string"
+      "type": "string",
+      "title": "MaintenanceWindowExecutionTaskId"
     },
     "MaintenanceWindowExecutionTaskIdList": {
       "items": {
         "$ref": "#/definitions/MaintenanceWindowExecutionTaskId"
       },
-      "type": "array"
+      "type": "array",
+      "title": "MaintenanceWindowExecutionTaskIdList"
     },
     "MaintenanceWindowExecutionTaskIdentity": {
       "description": "Information about a task execution performed as part of a Maintenance Window execution.",
@@ -4746,19 +5113,22 @@
           "description": "The ID of the Maintenance Window execution that ran the task."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "MaintenanceWindowExecutionTaskIdentity"
     },
     "MaintenanceWindowExecutionTaskIdentityList": {
       "items": {
         "$ref": "#/definitions/MaintenanceWindowExecutionTaskIdentity"
       },
-      "type": "array"
+      "type": "array",
+      "title": "MaintenanceWindowExecutionTaskIdentityList"
     },
     "MaintenanceWindowExecutionTaskInvocationId": {
       "maxLength": 36,
       "minLength": 36,
       "pattern": "^[0-9a-fA-F]{8}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{12}$",
-      "type": "string"
+      "type": "string",
+      "title": "MaintenanceWindowExecutionTaskInvocationId"
     },
     "MaintenanceWindowExecutionTaskInvocationIdentity": {
       "description": "Describes the information about a task invocation for a particular target as part of a task execution performed as part of a Maintenance Window execution.",
@@ -4808,17 +5178,20 @@
           "description": "The ID of the target definition in this Maintenance Window the invocation was performed for."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "MaintenanceWindowExecutionTaskInvocationIdentity"
     },
     "MaintenanceWindowExecutionTaskInvocationIdentityList": {
       "items": {
         "$ref": "#/definitions/MaintenanceWindowExecutionTaskInvocationIdentity"
       },
-      "type": "array"
+      "type": "array",
+      "title": "MaintenanceWindowExecutionTaskInvocationIdentityList"
     },
     "MaintenanceWindowExecutionTaskInvocationParameters": {
       "format": "password",
-      "type": "string"
+      "type": "string",
+      "title": "MaintenanceWindowExecutionTaskInvocationParameters"
     },
     "MaintenanceWindowFilter": {
       "description": "Filter used in the request.",
@@ -4832,12 +5205,14 @@
           "description": "The filter values."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "MaintenanceWindowFilter"
     },
     "MaintenanceWindowFilterKey": {
       "maxLength": 128,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "MaintenanceWindowFilterKey"
     },
     "MaintenanceWindowFilterList": {
       "items": {
@@ -4845,24 +5220,28 @@
       },
       "maxItems": 5,
       "minItems": 0,
-      "type": "array"
+      "type": "array",
+      "title": "MaintenanceWindowFilterList"
     },
     "MaintenanceWindowFilterValue": {
       "maxLength": 256,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "MaintenanceWindowFilterValue"
     },
     "MaintenanceWindowFilterValues": {
       "items": {
         "$ref": "#/definitions/MaintenanceWindowFilterValue"
       },
-      "type": "array"
+      "type": "array",
+      "title": "MaintenanceWindowFilterValues"
     },
     "MaintenanceWindowId": {
       "maxLength": 20,
       "minLength": 20,
       "pattern": "^mw-[0-9a-f]{17}$",
-      "type": "string"
+      "type": "string",
+      "title": "MaintenanceWindowId"
     },
     "MaintenanceWindowIdentity": {
       "description": "Information about the Maintenance Window.",
@@ -4888,35 +5267,41 @@
           "description": "The ID of the Maintenance Window."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "MaintenanceWindowIdentity"
     },
     "MaintenanceWindowIdentityList": {
       "items": {
         "$ref": "#/definitions/MaintenanceWindowIdentity"
       },
-      "type": "array"
+      "type": "array",
+      "title": "MaintenanceWindowIdentityList"
     },
     "MaintenanceWindowMaxResults": {
       "maximum": 100,
       "minimum": 10,
-      "type": "integer"
+      "type": "integer",
+      "title": "MaintenanceWindowMaxResults"
     },
     "MaintenanceWindowName": {
       "maxLength": 128,
       "minLength": 3,
       "pattern": "^[a-zA-Z0-9_\\-.]{3,128}$",
-      "type": "string"
+      "type": "string",
+      "title": "MaintenanceWindowName"
     },
     "MaintenanceWindowResourceType": {
       "enum": [
         "INSTANCE"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "MaintenanceWindowResourceType"
     },
     "MaintenanceWindowSchedule": {
       "maxLength": 256,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "MaintenanceWindowSchedule"
     },
     "MaintenanceWindowTarget": {
       "description": "The target registered with the Maintenance Window.",
@@ -4942,19 +5327,22 @@
           "description": "The ID of the target."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "MaintenanceWindowTarget"
     },
     "MaintenanceWindowTargetId": {
       "maxLength": 36,
       "minLength": 36,
       "pattern": "^[0-9a-fA-F]{8}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{12}$",
-      "type": "string"
+      "type": "string",
+      "title": "MaintenanceWindowTargetId"
     },
     "MaintenanceWindowTargetList": {
       "items": {
         "$ref": "#/definitions/MaintenanceWindowTarget"
       },
-      "type": "array"
+      "type": "array",
+      "title": "MaintenanceWindowTargetList"
     },
     "MaintenanceWindowTask": {
       "description": "Information about a task defined for a Maintenance Window.",
@@ -5004,35 +5392,41 @@
           "description": "The task ID."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "MaintenanceWindowTask"
     },
     "MaintenanceWindowTaskArn": {
       "maxLength": 1600,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "MaintenanceWindowTaskArn"
     },
     "MaintenanceWindowTaskId": {
       "maxLength": 36,
       "minLength": 36,
       "pattern": "^[0-9a-fA-F]{8}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{12}$",
-      "type": "string"
+      "type": "string",
+      "title": "MaintenanceWindowTaskId"
     },
     "MaintenanceWindowTaskList": {
       "items": {
         "$ref": "#/definitions/MaintenanceWindowTask"
       },
-      "type": "array"
+      "type": "array",
+      "title": "MaintenanceWindowTaskList"
     },
     "MaintenanceWindowTaskParameterName": {
       "maxLength": 255,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "MaintenanceWindowTaskParameterName"
     },
     "MaintenanceWindowTaskParameterValue": {
       "format": "password",
       "maxLength": 255,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "MaintenanceWindowTaskParameterValue"
     },
     "MaintenanceWindowTaskParameterValueExpression": {
       "description": "Defines the values for a task parameter.",
@@ -5042,13 +5436,15 @@
           "description": "This field contains an array of 0 or more strings, each 1 to 255 characters in length."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "MaintenanceWindowTaskParameterValueExpression"
     },
     "MaintenanceWindowTaskParameterValueList": {
       "items": {
         "$ref": "#/definitions/MaintenanceWindowTaskParameterValue"
       },
-      "type": "array"
+      "type": "array",
+      "title": "MaintenanceWindowTaskParameterValueList"
     },
     "MaintenanceWindowTaskParameters": {
       "items": {
@@ -5062,37 +5458,44 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "MaintenanceWindowTaskParameters"
     },
     "MaintenanceWindowTaskParametersList": {
       "items": {
         "$ref": "#/definitions/MaintenanceWindowTaskParameters"
       },
-      "type": "array"
+      "type": "array",
+      "title": "MaintenanceWindowTaskParametersList"
     },
     "MaintenanceWindowTaskPriority": {
       "minimum": 0,
-      "type": "integer"
+      "type": "integer",
+      "title": "MaintenanceWindowTaskPriority"
     },
     "MaintenanceWindowTaskTargetId": {
       "maxLength": 36,
-      "type": "string"
+      "type": "string",
+      "title": "MaintenanceWindowTaskTargetId"
     },
     "MaintenanceWindowTaskType": {
       "enum": [
         "RUN_COMMAND"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "MaintenanceWindowTaskType"
     },
     "ManagedInstanceId": {
       "pattern": "^mi-[0-9a-f]{17}$",
-      "type": "string"
+      "type": "string",
+      "title": "ManagedInstanceId"
     },
     "MaxConcurrency": {
       "maxLength": 7,
       "minLength": 1,
       "pattern": "^([1-9][0-9]*|[1-9][0-9]%|[1-9]%|100%)$",
-      "type": "string"
+      "type": "string",
+      "title": "MaxConcurrency"
     },
     "MaxDocumentSizeExceeded": {
       "description": "The size limit of a document is 64 KB.",
@@ -5101,23 +5504,27 @@
           "$ref": "#/definitions/String"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "MaxDocumentSizeExceeded"
     },
     "MaxErrors": {
       "maxLength": 7,
       "minLength": 1,
       "pattern": "^([1-9][0-9]*|[0]|[1-9][0-9]%|[0-9]%|100%)$",
-      "type": "string"
+      "type": "string",
+      "title": "MaxErrors"
     },
     "MaxResults": {
       "maximum": 50,
       "minimum": 1,
-      "type": "integer"
+      "type": "integer",
+      "title": "MaxResults"
     },
     "MaxResultsEC2Compatible": {
       "maximum": 50,
       "minimum": 5,
-      "type": "integer"
+      "type": "integer",
+      "title": "MaxResultsEC2Compatible"
     },
     "ModifyDocumentPermissionRequest": {
       "properties": {
@@ -5142,14 +5549,17 @@
         "Name",
         "PermissionType"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ModifyDocumentPermissionRequest"
     },
     "ModifyDocumentPermissionResponse": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "ModifyDocumentPermissionResponse"
     },
     "NextToken": {
-      "type": "string"
+      "type": "string",
+      "title": "NextToken"
     },
     "NormalStringMap": {
       "items": {
@@ -5163,10 +5573,12 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "NormalStringMap"
     },
     "NotificationArn": {
-      "type": "string"
+      "type": "string",
+      "title": "NotificationArn"
     },
     "NotificationConfig": {
       "description": "Configurations for sending notifications.",
@@ -5184,7 +5596,8 @@
           "description": "Command: Receive notification when the status of a command changes. Invocation: For commands sent to multiple instances, receive notification on a per-instance basis when the status of a command changes. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "NotificationConfig"
     },
     "NotificationEvent": {
       "enum": [
@@ -5195,38 +5608,44 @@
         "Cancelled",
         "Failed"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "NotificationEvent"
     },
     "NotificationEventList": {
       "items": {
         "$ref": "#/definitions/NotificationEvent"
       },
-      "type": "array"
+      "type": "array",
+      "title": "NotificationEventList"
     },
     "NotificationType": {
       "enum": [
         "Command",
         "Invocation"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "NotificationType"
     },
     "OwnerInformation": {
       "format": "password",
       "maxLength": 128,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "OwnerInformation"
     },
     "PSParameterName": {
       "maxLength": 1024,
       "minLength": 1,
       "pattern": "^(?!^([aA][wW][sS]|[sS][sS][mM]))(?=^[a-zA-Z0-9_.-]*$).*$",
-      "type": "string"
+      "type": "string",
+      "title": "PSParameterName"
     },
     "PSParameterValue": {
       "maxLength": 4096,
       "minLength": 1,
       "pattern": "^(?:(?!(\\{\\{.*\\}\\})).)*$",
-      "type": "string"
+      "type": "string",
+      "title": "PSParameterValue"
     },
     "Parameter": {
       "description": "An Amazon EC2 Systems Manager parameter in Parameter Store.",
@@ -5244,7 +5663,8 @@
           "description": "The parameter value."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Parameter"
     },
     "ParameterAlreadyExists": {
       "description": "The parameter already exists. You can't create duplicate parameters.",
@@ -5253,12 +5673,14 @@
           "$ref": "#/definitions/String"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ParameterAlreadyExists"
     },
     "ParameterDescription": {
       "maxLength": 1024,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "ParameterDescription"
     },
     "ParameterHistory": {
       "description": "Information about parameter usage.",
@@ -5292,19 +5714,22 @@
           "description": "The parameter value."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ParameterHistory"
     },
     "ParameterHistoryList": {
       "items": {
         "$ref": "#/definitions/ParameterHistory"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ParameterHistoryList"
     },
     "ParameterKeyId": {
       "maxLength": 256,
       "minLength": 1,
       "pattern": "^([a-zA-Z0-9:/_-]+)$",
-      "type": "string"
+      "type": "string",
+      "title": "ParameterKeyId"
     },
     "ParameterLimitExceeded": {
       "description": "You have exceeded the number of parameters for this AWS account. Delete one or more parameters and try again.",
@@ -5313,13 +5738,15 @@
           "$ref": "#/definitions/String"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ParameterLimitExceeded"
     },
     "ParameterList": {
       "items": {
         "$ref": "#/definitions/Parameter"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ParameterList"
     },
     "ParameterMetadata": {
       "description": "Metada includes information like the ARN of the last user and the date/time the parameter was last used.",
@@ -5349,16 +5776,19 @@
           "description": "The type of parameter. Valid parameter types include the following: String, String list, Secure string."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ParameterMetadata"
     },
     "ParameterMetadataList": {
       "items": {
         "$ref": "#/definitions/ParameterMetadata"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ParameterMetadataList"
     },
     "ParameterName": {
-      "type": "string"
+      "type": "string",
+      "title": "ParameterName"
     },
     "ParameterNameList": {
       "items": {
@@ -5366,7 +5796,8 @@
       },
       "maxItems": 10,
       "minItems": 1,
-      "type": "array"
+      "type": "array",
+      "title": "ParameterNameList"
     },
     "ParameterNotFound": {
       "description": "The parameter could not be found. Verify the name and try again.",
@@ -5375,7 +5806,8 @@
           "$ref": "#/definitions/String"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ParameterNotFound"
     },
     "ParameterType": {
       "enum": [
@@ -5383,16 +5815,19 @@
         "StringList",
         "SecureString"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ParameterType"
     },
     "ParameterValue": {
-      "type": "string"
+      "type": "string",
+      "title": "ParameterValue"
     },
     "ParameterValueList": {
       "items": {
         "$ref": "#/definitions/ParameterValue"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ParameterValueList"
     },
     "Parameters": {
       "items": {
@@ -5406,7 +5841,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "Parameters"
     },
     "ParametersFilter": {
       "description": "One or more filters. Use a filter to return a more specific list of results.",
@@ -5423,7 +5859,8 @@
       "required": [
         "Values"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ParametersFilter"
     },
     "ParametersFilterKey": {
       "enum": [
@@ -5431,18 +5868,21 @@
         "Type",
         "KeyId"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ParametersFilterKey"
     },
     "ParametersFilterList": {
       "items": {
         "$ref": "#/definitions/ParametersFilter"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ParametersFilterList"
     },
     "ParametersFilterValue": {
       "maxLength": 100,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "ParametersFilterValue"
     },
     "ParametersFilterValueList": {
       "items": {
@@ -5450,7 +5890,8 @@
       },
       "maxItems": 50,
       "minItems": 1,
-      "type": "array"
+      "type": "array",
+      "title": "ParametersFilterValueList"
     },
     "Patch": {
       "description": "Represents metadata about a patch.",
@@ -5508,7 +5949,8 @@
           "description": "The name of the vendor providing the patch."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Patch"
     },
     "PatchBaselineIdentity": {
       "description": "Defines the basic information about a patch baseline.",
@@ -5530,21 +5972,25 @@
           "description": "Whether this is the default baseline."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PatchBaselineIdentity"
     },
     "PatchBaselineIdentityList": {
       "items": {
         "$ref": "#/definitions/PatchBaselineIdentity"
       },
-      "type": "array"
+      "type": "array",
+      "title": "PatchBaselineIdentityList"
     },
     "PatchBaselineMaxResults": {
       "maximum": 100,
       "minimum": 1,
-      "type": "integer"
+      "type": "integer",
+      "title": "PatchBaselineMaxResults"
     },
     "PatchClassification": {
-      "type": "string"
+      "type": "string",
+      "title": "PatchClassification"
     },
     "PatchComplianceData": {
       "description": "Information about the state of a patch on a particular instance as it relates to the patch baseline used to patch the instance.",
@@ -5582,13 +6028,15 @@
         "State",
         "InstalledTime"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "PatchComplianceData"
     },
     "PatchComplianceDataList": {
       "items": {
         "$ref": "#/definitions/PatchComplianceData"
       },
-      "type": "array"
+      "type": "array",
+      "title": "PatchComplianceDataList"
     },
     "PatchComplianceDataState": {
       "enum": [
@@ -5598,15 +6046,18 @@
         "NOT_APPLICABLE",
         "FAILED"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "PatchComplianceDataState"
     },
     "PatchComplianceMaxResults": {
       "maximum": 100,
       "minimum": 10,
-      "type": "integer"
+      "type": "integer",
+      "title": "PatchComplianceMaxResults"
     },
     "PatchContentUrl": {
-      "type": "string"
+      "type": "string",
+      "title": "PatchContentUrl"
     },
     "PatchDeploymentStatus": {
       "enum": [
@@ -5615,13 +6066,16 @@
         "EXPLICIT_APPROVED",
         "EXPLICIT_REJECTED"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "PatchDeploymentStatus"
     },
     "PatchDescription": {
-      "type": "string"
+      "type": "string",
+      "title": "PatchDescription"
     },
     "PatchFailedCount": {
-      "type": "integer"
+      "type": "integer",
+      "title": "PatchFailedCount"
     },
     "PatchFilter": {
       "description": "Defines a patch filter.",
@@ -5639,7 +6093,8 @@
         "Key",
         "Values"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "PatchFilter"
     },
     "PatchFilterGroup": {
       "description": "A set of patch filters, typically used for approval rules.",
@@ -5652,7 +6107,8 @@
       "required": [
         "PatchFilters"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "PatchFilterGroup"
     },
     "PatchFilterKey": {
       "enum": [
@@ -5661,7 +6117,8 @@
         "MSRC_SEVERITY",
         "PATCH_ID"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "PatchFilterKey"
     },
     "PatchFilterList": {
       "items": {
@@ -5669,12 +6126,14 @@
       },
       "maxItems": 4,
       "minItems": 0,
-      "type": "array"
+      "type": "array",
+      "title": "PatchFilterList"
     },
     "PatchFilterValue": {
       "maxLength": 64,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "PatchFilterValue"
     },
     "PatchFilterValueList": {
       "items": {
@@ -5682,19 +6141,22 @@
       },
       "maxItems": 20,
       "minItems": 1,
-      "type": "array"
+      "type": "array",
+      "title": "PatchFilterValueList"
     },
     "PatchGroup": {
       "maxLength": 256,
       "minLength": 1,
       "pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$",
-      "type": "string"
+      "type": "string",
+      "title": "PatchGroup"
     },
     "PatchGroupList": {
       "items": {
         "$ref": "#/definitions/PatchGroup"
       },
-      "type": "array"
+      "type": "array",
+      "title": "PatchGroupList"
     },
     "PatchGroupPatchBaselineMapping": {
       "description": "The mapping between a patch group and the patch baseline the patch group is registered with.",
@@ -5708,17 +6170,20 @@
           "description": "The name of the patch group registered with the patch baseline."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PatchGroupPatchBaselineMapping"
     },
     "PatchGroupPatchBaselineMappingList": {
       "items": {
         "$ref": "#/definitions/PatchGroupPatchBaselineMapping"
       },
-      "type": "array"
+      "type": "array",
+      "title": "PatchGroupPatchBaselineMappingList"
     },
     "PatchId": {
       "pattern": "(^KB[0-9]{1,7}$)|(^MS[0-9]{2}\\-[0-9]{3}$)",
-      "type": "string"
+      "type": "string",
+      "title": "PatchId"
     },
     "PatchIdList": {
       "items": {
@@ -5726,56 +6191,70 @@
       },
       "maxItems": 50,
       "minItems": 0,
-      "type": "array"
+      "type": "array",
+      "title": "PatchIdList"
     },
     "PatchInstalledCount": {
-      "type": "integer"
+      "type": "integer",
+      "title": "PatchInstalledCount"
     },
     "PatchInstalledOtherCount": {
-      "type": "integer"
+      "type": "integer",
+      "title": "PatchInstalledOtherCount"
     },
     "PatchInstalledTime": {
       "format": "date-time",
-      "type": "string"
+      "type": "string",
+      "title": "PatchInstalledTime"
     },
     "PatchKbNumber": {
-      "type": "string"
+      "type": "string",
+      "title": "PatchKbNumber"
     },
     "PatchLanguage": {
-      "type": "string"
+      "type": "string",
+      "title": "PatchLanguage"
     },
     "PatchList": {
       "items": {
         "$ref": "#/definitions/Patch"
       },
-      "type": "array"
+      "type": "array",
+      "title": "PatchList"
     },
     "PatchMissingCount": {
-      "type": "integer"
+      "type": "integer",
+      "title": "PatchMissingCount"
     },
     "PatchMsrcNumber": {
-      "type": "string"
+      "type": "string",
+      "title": "PatchMsrcNumber"
     },
     "PatchMsrcSeverity": {
-      "type": "string"
+      "type": "string",
+      "title": "PatchMsrcSeverity"
     },
     "PatchNotApplicableCount": {
-      "type": "integer"
+      "type": "integer",
+      "title": "PatchNotApplicableCount"
     },
     "PatchOperationEndTime": {
       "format": "date-time",
-      "type": "string"
+      "type": "string",
+      "title": "PatchOperationEndTime"
     },
     "PatchOperationStartTime": {
       "format": "date-time",
-      "type": "string"
+      "type": "string",
+      "title": "PatchOperationStartTime"
     },
     "PatchOperationType": {
       "enum": [
         "Scan",
         "Install"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "PatchOperationType"
     },
     "PatchOrchestratorFilter": {
       "description": "Defines a filter used in Patch Manager APIs.",
@@ -5789,12 +6268,14 @@
           "description": "The value for the filter."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PatchOrchestratorFilter"
     },
     "PatchOrchestratorFilterKey": {
       "maxLength": 128,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "PatchOrchestratorFilterKey"
     },
     "PatchOrchestratorFilterList": {
       "items": {
@@ -5802,24 +6283,29 @@
       },
       "maxItems": 5,
       "minItems": 0,
-      "type": "array"
+      "type": "array",
+      "title": "PatchOrchestratorFilterList"
     },
     "PatchOrchestratorFilterValue": {
       "maxLength": 256,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "PatchOrchestratorFilterValue"
     },
     "PatchOrchestratorFilterValues": {
       "items": {
         "$ref": "#/definitions/PatchOrchestratorFilterValue"
       },
-      "type": "array"
+      "type": "array",
+      "title": "PatchOrchestratorFilterValues"
     },
     "PatchProduct": {
-      "type": "string"
+      "type": "string",
+      "title": "PatchProduct"
     },
     "PatchProductFamily": {
-      "type": "string"
+      "type": "string",
+      "title": "PatchProductFamily"
     },
     "PatchRule": {
       "description": "Defines an approval rule for a patch baseline.",
@@ -5837,7 +6323,8 @@
         "PatchFilterGroup",
         "ApproveAfterDays"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "PatchRule"
     },
     "PatchRuleGroup": {
       "description": "A set of rules defining the approval rules for a patch baseline.",
@@ -5850,7 +6337,8 @@
       "required": [
         "PatchRules"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "PatchRuleGroup"
     },
     "PatchRuleList": {
       "items": {
@@ -5858,10 +6346,12 @@
       },
       "maxItems": 10,
       "minItems": 0,
-      "type": "array"
+      "type": "array",
+      "title": "PatchRuleList"
     },
     "PatchSeverity": {
-      "type": "string"
+      "type": "string",
+      "title": "PatchSeverity"
     },
     "PatchStatus": {
       "description": "Information about the approval status of a patch.",
@@ -5875,13 +6365,16 @@
           "description": "The approval status of a patch (APPROVED, PENDING_APPROVAL, EXPLICIT_APPROVED, EXPLICIT_REJECTED)."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PatchStatus"
     },
     "PatchTitle": {
-      "type": "string"
+      "type": "string",
+      "title": "PatchTitle"
     },
     "PatchVendor": {
-      "type": "string"
+      "type": "string",
+      "title": "PatchVendor"
     },
     "PingStatus": {
       "enum": [
@@ -5889,20 +6382,23 @@
         "ConnectionLost",
         "Inactive"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "PingStatus"
     },
     "PlatformType": {
       "enum": [
         "Windows",
         "Linux"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "PlatformType"
     },
     "PlatformTypeList": {
       "items": {
         "$ref": "#/definitions/PlatformType"
       },
-      "type": "array"
+      "type": "array",
+      "title": "PlatformTypeList"
     },
     "PutInventoryRequest": {
       "properties": {
@@ -5919,11 +6415,13 @@
         "InstanceId",
         "Items"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "PutInventoryRequest"
     },
     "PutInventoryResult": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "PutInventoryResult"
     },
     "PutParameterRequest": {
       "properties": {
@@ -5957,11 +6455,13 @@
         "Value",
         "Type"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "PutParameterRequest"
     },
     "PutParameterResult": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "PutParameterResult"
     },
     "RegisterDefaultPatchBaselineRequest": {
       "properties": {
@@ -5973,7 +6473,8 @@
       "required": [
         "BaselineId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "RegisterDefaultPatchBaselineRequest"
     },
     "RegisterDefaultPatchBaselineResult": {
       "properties": {
@@ -5982,7 +6483,8 @@
           "description": "The ID of the default patch baseline."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RegisterDefaultPatchBaselineResult"
     },
     "RegisterPatchBaselineForPatchGroupRequest": {
       "properties": {
@@ -5999,7 +6501,8 @@
         "BaselineId",
         "PatchGroup"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "RegisterPatchBaselineForPatchGroupRequest"
     },
     "RegisterPatchBaselineForPatchGroupResult": {
       "properties": {
@@ -6012,7 +6515,8 @@
           "description": "The name of the patch group registered with the patch baseline."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RegisterPatchBaselineForPatchGroupResult"
     },
     "RegisterTargetWithMaintenanceWindowRequest": {
       "properties": {
@@ -6042,7 +6546,8 @@
         "ResourceType",
         "Targets"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "RegisterTargetWithMaintenanceWindowRequest"
     },
     "RegisterTargetWithMaintenanceWindowResult": {
       "properties": {
@@ -6051,7 +6556,8 @@
           "description": "The ID of the target definition in this Maintenance Window."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RegisterTargetWithMaintenanceWindowResult"
     },
     "RegisterTaskWithMaintenanceWindowRequest": {
       "properties": {
@@ -6109,7 +6615,8 @@
         "MaxConcurrency",
         "MaxErrors"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "RegisterTaskWithMaintenanceWindowRequest"
     },
     "RegisterTaskWithMaintenanceWindowResult": {
       "properties": {
@@ -6118,17 +6625,20 @@
           "description": "The id of the task in the Maintenance Window."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RegisterTaskWithMaintenanceWindowResult"
     },
     "RegistrationLimit": {
       "maximum": 1000,
       "minimum": 1,
-      "type": "integer"
+      "type": "integer",
+      "title": "RegistrationLimit"
     },
     "RegistrationsCount": {
       "maximum": 1000,
       "minimum": 1,
-      "type": "integer"
+      "type": "integer",
+      "title": "RegistrationsCount"
     },
     "RemoveTagsFromResourceRequest": {
       "properties": {
@@ -6150,14 +6660,17 @@
         "ResourceId",
         "TagKeys"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "RemoveTagsFromResourceRequest"
     },
     "RemoveTagsFromResourceResult": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "RemoveTagsFromResourceResult"
     },
     "ResourceId": {
-      "type": "string"
+      "type": "string",
+      "title": "ResourceId"
     },
     "ResourceInUseException": {
       "description": "Error returned if an attempt is made to delete a patch baseline that is registered for a patch group.",
@@ -6166,7 +6679,8 @@
           "$ref": "#/definitions/String"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ResourceInUseException"
     },
     "ResourceLimitExceededException": {
       "description": "Error returned when the caller has exceeded the default resource limits (e.g. too many Maintenance Windows have been created).",
@@ -6175,7 +6689,8 @@
           "$ref": "#/definitions/String"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ResourceLimitExceededException"
     },
     "ResourceType": {
       "enum": [
@@ -6183,7 +6698,8 @@
         "Document",
         "EC2Instance"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ResourceType"
     },
     "ResourceTypeForTagging": {
       "enum": [
@@ -6191,10 +6707,12 @@
         "MaintenanceWindow",
         "Parameter"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ResourceTypeForTagging"
     },
     "ResponseCode": {
-      "type": "integer"
+      "type": "integer",
+      "title": "ResponseCode"
     },
     "ResultAttribute": {
       "description": "The inventory item result attribute.",
@@ -6207,7 +6725,8 @@
       "required": [
         "TypeName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ResultAttribute"
     },
     "ResultAttributeList": {
       "items": {
@@ -6215,16 +6734,19 @@
       },
       "maxItems": 1,
       "minItems": 1,
-      "type": "array"
+      "type": "array",
+      "title": "ResultAttributeList"
     },
     "S3BucketName": {
       "maxLength": 63,
       "minLength": 3,
-      "type": "string"
+      "type": "string",
+      "title": "S3BucketName"
     },
     "S3KeyPrefix": {
       "maxLength": 500,
-      "type": "string"
+      "type": "string",
+      "title": "S3KeyPrefix"
     },
     "S3OutputLocation": {
       "description": "An Amazon S3 bucket where you want to store the results of this request.",
@@ -6242,7 +6764,8 @@
           "description": "The Amazon S3 region where the association information is stored."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "S3OutputLocation"
     },
     "S3OutputUrl": {
       "description": "A URL for the Amazon S3 bucket where you want to store the results of this request.",
@@ -6252,17 +6775,20 @@
           "description": "A URL for an Amazon S3 bucket where you want to store the results of this request."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "S3OutputUrl"
     },
     "S3Region": {
       "maxLength": 20,
       "minLength": 3,
-      "type": "string"
+      "type": "string",
+      "title": "S3Region"
     },
     "ScheduleExpression": {
       "maxLength": 256,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "ScheduleExpression"
     },
     "SendCommandRequest": {
       "properties": {
@@ -6330,7 +6856,8 @@
       "required": [
         "DocumentName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "SendCommandRequest"
     },
     "SendCommandResult": {
       "properties": {
@@ -6339,27 +6866,33 @@
           "description": "The request as it was received by Systems Manager. Also provides the command ID which can be used future references to this request."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SendCommandResult"
     },
     "ServiceRole": {
-      "type": "string"
+      "type": "string",
+      "title": "ServiceRole"
     },
     "SnapshotDownloadUrl": {
-      "type": "string"
+      "type": "string",
+      "title": "SnapshotDownloadUrl"
     },
     "SnapshotId": {
       "maxLength": 36,
       "minLength": 36,
       "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
-      "type": "string"
+      "type": "string",
+      "title": "SnapshotId"
     },
     "StandardErrorContent": {
       "maxLength": 8000,
-      "type": "string"
+      "type": "string",
+      "title": "StandardErrorContent"
     },
     "StandardOutputContent": {
       "maxLength": 24000,
-      "type": "string"
+      "type": "string",
+      "title": "StandardOutputContent"
     },
     "StartAutomationExecutionRequest": {
       "properties": {
@@ -6379,7 +6912,8 @@
       "required": [
         "DocumentName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "StartAutomationExecutionRequest"
     },
     "StartAutomationExecutionResult": {
       "properties": {
@@ -6388,29 +6922,35 @@
           "description": "The unique ID of a newly scheduled automation execution."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "StartAutomationExecutionResult"
     },
     "StatusAdditionalInfo": {
       "maxLength": 1024,
-      "type": "string"
+      "type": "string",
+      "title": "StatusAdditionalInfo"
     },
     "StatusDetails": {
       "maxLength": 100,
       "minLength": 0,
-      "type": "string"
+      "type": "string",
+      "title": "StatusDetails"
     },
     "StatusMessage": {
       "maxLength": 1024,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "StatusMessage"
     },
     "StatusName": {
-      "type": "string"
+      "type": "string",
+      "title": "StatusName"
     },
     "StatusUnchanged": {
       "description": "The updated status is the same as the current status.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "StatusUnchanged"
     },
     "StepExecution": {
       "description": "Detailed information about an the execution state of an Automation step.",
@@ -6456,7 +6996,8 @@
           "description": "The execution status for this step. Valid values include: <code>Pending</code>, <code>InProgress</code>, <code>Success</code>, <code>Cancelled</code>, <code>Failed</code>, and <code>TimedOut</code>."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "StepExecution"
     },
     "StepExecutionList": {
       "items": {
@@ -6464,7 +7005,8 @@
       },
       "maxItems": 100,
       "minItems": 0,
-      "type": "array"
+      "type": "array",
+      "title": "StepExecutionList"
     },
     "StopAutomationExecutionRequest": {
       "properties": {
@@ -6476,24 +7018,29 @@
       "required": [
         "AutomationExecutionId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "StopAutomationExecutionRequest"
     },
     "StopAutomationExecutionResult": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "StopAutomationExecutionResult"
     },
     "String": {
-      "type": "string"
+      "type": "string",
+      "title": "String"
     },
     "StringDateTime": {
       "pattern": "^([\\-]?\\d{4}(?!\\d{2}\\b))((-?)((0[1-9]|1[0-2])(\\3([12]\\d|0[1-9]|3[01]))?|W([0-4]\\d|5[0-2])(-?[1-7])?|(00[1-9]|0[1-9]\\d|[12]\\d{2}|3([0-5]\\d|6[1-6])))([T\\s]((([01]\\d|2[0-3])((:?)[0-5]\\d)?|24\\:?00)([\\.,]\\d(?!:))?)?(\\17[0-5]\\d([\\.,]\\d)?)?([zZ]|([\\-])([01]\\d|2[0-3]):?([0-5]\\d)?)?)?)?$",
-      "type": "string"
+      "type": "string",
+      "title": "StringDateTime"
     },
     "StringList": {
       "items": {
         "$ref": "#/definitions/String"
       },
-      "type": "array"
+      "type": "array",
+      "title": "StringList"
     },
     "Tag": {
       "description": "Metadata that you assign to your managed instances. Tags enable you to categorize your managed instances in different ways, for example, by purpose, owner, or environment.",
@@ -6511,25 +7058,29 @@
         "Key",
         "Value"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "Tag"
     },
     "TagKey": {
       "maxLength": 128,
       "minLength": 1,
       "pattern": "^\\(\\?!^\\(\\?i\\)aws:\\)\\(\\?=^[\\p\\{L\\}\\p\\{Z\\}\\p\\{N\\}_.:/=\\+\\-@]*$\\).*$",
-      "type": "string"
+      "type": "string",
+      "title": "TagKey"
     },
     "TagList": {
       "items": {
         "$ref": "#/definitions/Tag"
       },
-      "type": "array"
+      "type": "array",
+      "title": "TagList"
     },
     "TagValue": {
       "maxLength": 256,
       "minLength": 1,
       "pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$",
-      "type": "string"
+      "type": "string",
+      "title": "TagValue"
     },
     "Target": {
       "description": "An array of search criteria that targets instances using a <code>Key</code>,<code>Value</code> combination that you specify. <code>Targets</code> is required if you don't provide one or more instance IDs in the call.",
@@ -6543,19 +7094,23 @@
           "description": "User-defined criteria that maps to <code>Key</code>. For example, if you specified <code>tag:ServerRole</code>, you could specify <code>value:WebServer</code> to execute a command on instances that include Amazon EC2 tags of ServerRole,WebServer. For more information about how to send commands that target instances using <code>Key</code>,<code>Value</code> parameters, see <a href=\"http://docs.aws.amazon.com/systems-manager/latest/userguide/run-command.html\">Executing a Command Using Systems Manager Run Command</a>."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Target"
     },
     "TargetCount": {
-      "type": "integer"
+      "type": "integer",
+      "title": "TargetCount"
     },
     "TargetKey": {
       "maxLength": 128,
       "minLength": 1,
       "pattern": "^[\\p{L}\\p{Z}\\p{N}_.:/=\\-@]*$",
-      "type": "string"
+      "type": "string",
+      "title": "TargetKey"
     },
     "TargetValue": {
-      "type": "string"
+      "type": "string",
+      "title": "TargetValue"
     },
     "TargetValues": {
       "items": {
@@ -6563,7 +7118,8 @@
       },
       "maxItems": 50,
       "minItems": 0,
-      "type": "array"
+      "type": "array",
+      "title": "TargetValues"
     },
     "Targets": {
       "items": {
@@ -6571,17 +7127,20 @@
       },
       "maxItems": 5,
       "minItems": 0,
-      "type": "array"
+      "type": "array",
+      "title": "Targets"
     },
     "TimeoutSeconds": {
       "maximum": 2592000,
       "minimum": 30,
-      "type": "integer"
+      "type": "integer",
+      "title": "TimeoutSeconds"
     },
     "TooManyTagsError": {
       "description": "The <code>Targets</code> parameter includes too many tags. Remove one or more tags and try the command again.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "TooManyTagsError"
     },
     "TooManyUpdates": {
       "description": "There are concurrent updates for a resource that supports one update at a time.",
@@ -6590,7 +7149,8 @@
           "$ref": "#/definitions/String"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TooManyUpdates"
     },
     "TotalSizeLimitExceededException": {
       "description": "The size of inventory data has exceeded the total size limit for the resource.",
@@ -6599,7 +7159,8 @@
           "$ref": "#/definitions/String"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TotalSizeLimitExceededException"
     },
     "UnsupportedInventorySchemaVersionException": {
       "description": "Inventory item type schema version has to match supported versions in the service. Check output of <code>GetInventorySchema</code> to see the available schema version for each type.",
@@ -6608,7 +7169,8 @@
           "$ref": "#/definitions/String"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UnsupportedInventorySchemaVersionException"
     },
     "UnsupportedParameterType": {
       "description": "The parameter type is not supported.",
@@ -6617,7 +7179,8 @@
           "$ref": "#/definitions/String"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UnsupportedParameterType"
     },
     "UnsupportedPlatformType": {
       "description": "The document does not support the platform type of the given instance ID(s). For example, you sent an document for a Windows instance to a Linux instance.",
@@ -6626,7 +7189,8 @@
           "$ref": "#/definitions/String"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UnsupportedPlatformType"
     },
     "UpdateAssociationRequest": {
       "properties": {
@@ -6654,7 +7218,8 @@
       "required": [
         "AssociationId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateAssociationRequest"
     },
     "UpdateAssociationResult": {
       "properties": {
@@ -6663,7 +7228,8 @@
           "description": "The description of the association that was updated."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UpdateAssociationResult"
     },
     "UpdateAssociationStatusRequest": {
       "properties": {
@@ -6685,7 +7251,8 @@
         "InstanceId",
         "AssociationStatus"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateAssociationStatusRequest"
     },
     "UpdateAssociationStatusResult": {
       "properties": {
@@ -6694,7 +7261,8 @@
           "description": "Information about the association."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UpdateAssociationStatusResult"
     },
     "UpdateDocumentDefaultVersionRequest": {
       "properties": {
@@ -6711,7 +7279,8 @@
         "Name",
         "DocumentVersion"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateDocumentDefaultVersionRequest"
     },
     "UpdateDocumentDefaultVersionResult": {
       "properties": {
@@ -6720,7 +7289,8 @@
           "description": "The description of a custom document that you want to set as the default version."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UpdateDocumentDefaultVersionResult"
     },
     "UpdateDocumentRequest": {
       "properties": {
@@ -6741,7 +7311,8 @@
         "Content",
         "Name"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateDocumentRequest"
     },
     "UpdateDocumentResult": {
       "properties": {
@@ -6750,7 +7321,8 @@
           "description": "A description of the document that was updated."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UpdateDocumentResult"
     },
     "UpdateMaintenanceWindowRequest": {
       "properties": {
@@ -6786,7 +7358,8 @@
       "required": [
         "WindowId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateMaintenanceWindowRequest"
     },
     "UpdateMaintenanceWindowResult": {
       "properties": {
@@ -6819,7 +7392,8 @@
           "description": "The ID of the created Maintenance Window."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UpdateMaintenanceWindowResult"
     },
     "UpdateManagedInstanceRoleRequest": {
       "properties": {
@@ -6836,11 +7410,13 @@
         "InstanceId",
         "IamRole"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateManagedInstanceRoleRequest"
     },
     "UpdateManagedInstanceRoleResult": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "UpdateManagedInstanceRoleResult"
     },
     "UpdatePatchBaselineRequest": {
       "properties": {
@@ -6876,7 +7452,8 @@
       "required": [
         "BaselineId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdatePatchBaselineRequest"
     },
     "UpdatePatchBaselineResult": {
       "properties": {
@@ -6917,14 +7494,17 @@
           "description": "A list of explicitly rejected patches for the baseline."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UpdatePatchBaselineResult"
     },
     "Url": {
-      "type": "string"
+      "type": "string",
+      "title": "Url"
     },
     "Version": {
       "pattern": "^[0-9]{1,6}(\\.[0-9]{1,6}){2,3}$",
-      "type": "string"
+      "type": "string",
+      "title": "Version"
     }
   },
   "actions": [

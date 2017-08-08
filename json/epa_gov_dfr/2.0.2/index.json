@@ -183,7 +183,8 @@
         "Qtr12Start",
         "Qtr12End"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "dfr0_Qtr12Header"
     },
     "dfr0_Qtr12Status": {
       "description": "Status Object",
@@ -282,7 +283,8 @@
         "Qtr11Status",
         "Qtr12Status"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "dfr0_Qtr12Status"
     },
     "dfr0_Qtr13Header": {
       "description": "Header Object",
@@ -472,7 +474,8 @@
         "Qtr13Start",
         "Qtr13End"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "dfr0_Qtr13Header"
     },
     "dfr0_Qtr13Status": {
       "description": "Status Object",
@@ -578,7 +581,8 @@
         "Qtr12Status",
         "Qtr13Status"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "dfr0_Qtr13Status"
     },
     "dfr10_CWACSCompliance": {
       "description": "CWA CS Compliance Object",
@@ -594,7 +598,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "dfr10_CWACSCompliance"
     },
     "dfr10_Violation": {
       "description": "Violation Object",
@@ -779,7 +784,8 @@
         "Qtr13Status",
         "Qtr13Value"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "dfr10_Violation"
     },
     "dfr10_Violations": {
       "description": "Violations Object",
@@ -795,7 +801,8 @@
       "required": [
         "Violations"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "dfr10_Violations"
     },
     "dfr1_Results": {
       "description": "Results Object",
@@ -813,7 +820,8 @@
       "required": [
         "Message"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "dfr1_Results"
     },
     "dfr2_Results": {
       "description": "Results Object",
@@ -831,7 +839,8 @@
       "required": [
         "Message"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "dfr2_Results"
     },
     "dfr3_Results": {
       "description": "Results Object",
@@ -849,7 +858,8 @@
       "required": [
         "Message"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "dfr3_Results"
     },
     "dfr4_MapData": {
       "description": "Map Data Object",
@@ -899,7 +909,8 @@
         "NAME",
         "PUV"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "dfr4_MapData"
     },
     "dfr4_MultipleFRSFacilities": {
       "description": "Multiple FRS Facilities Object",
@@ -912,7 +923,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "dfr4_MultipleFRSFacilities"
     },
     "dfr4_NAICS": {
       "description": "NAICS Object",
@@ -928,7 +940,8 @@
       "required": [
         "Sources"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "dfr4_NAICS"
     },
     "dfr4_Permits": {
       "description": "Permits Object",
@@ -1118,7 +1131,8 @@
       "type": "object",
       "xml": {
         "name": "Permits"
-      }
+      },
+      "title": "dfr4_Permits"
     },
     "dfr4_ProgramDates": {
       "description": "Program Dates Object",
@@ -1150,7 +1164,8 @@
       "type": "object",
       "xml": {
         "name": "ProgramDates"
-      }
+      },
+      "title": "dfr4_ProgramDates"
     },
     "dfr4_RegistryIDs": {
       "description": "Registry IDs Object",
@@ -1202,7 +1217,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "dfr4_RegistryIDs"
     },
     "dfr4_Reports": {
       "description": "Reports Object",
@@ -1216,7 +1232,8 @@
       "required": [
         "HasPollRpt"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "dfr4_Reports"
     },
     "dfr4_Results": {
       "description": "Results Object",
@@ -1341,7 +1358,8 @@
       "required": [
         "Message"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "dfr4_Results"
     },
     "dfr4_SIC": {
       "description": "SIC Object",
@@ -1357,7 +1375,8 @@
       "required": [
         "Sources"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "dfr4_SIC"
     },
     "dfr4_SICCodes": {
       "description": "SIC Codes Object",
@@ -1396,7 +1415,8 @@
       "type": "object",
       "xml": {
         "name": "SICCodes"
-      }
+      },
+      "title": "dfr4_SICCodes"
     },
     "dfr4_Sources": {
       "description": "Source Object",
@@ -1414,7 +1434,8 @@
       "type": "object",
       "xml": {
         "name": "Sources"
-      }
+      },
+      "title": "dfr4_Sources"
     },
     "dfr4_Summaries": {
       "description": "Summaries Object",
@@ -1500,7 +1521,8 @@
       "type": "object",
       "xml": {
         "name": "Summaries"
-      }
+      },
+      "title": "dfr4_Summaries"
     },
     "dfr4_nnnPermits": {
       "description": "Permits by Statute Object",
@@ -1560,7 +1582,8 @@
       "type": "object",
       "xml": {
         "name": "Permits"
-      }
+      },
+      "title": "dfr4_nnnPermits"
     },
     "dfr5_AirCompliance": {
       "description": "Air Compliance Object",
@@ -1580,7 +1603,8 @@
         "Header",
         "Sources"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "dfr5_AirCompliance"
     },
     "dfr6_AirQuality": {
       "description": "Air Quality Object",
@@ -1630,7 +1654,8 @@
         "ParticulateMatter1997Area",
         "ParticulateMatter2006Area"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "dfr6_AirQuality"
     },
     "dfr7_CWA3YrCompliance": {
       "description": "CWA 3-Year Compliance Object",
@@ -1646,7 +1671,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "dfr7_CWA3YrCompliance"
     },
     "dfr7_Sources": {
       "description": "CWA 3-Year Compliance Sources Object",
@@ -1662,7 +1688,8 @@
       "required": [
         "Status"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "dfr7_Sources"
     },
     "dfr8_CWAEffluentALRExceedences": {
       "description": "CWA Effluent ALR Exceedences Object",
@@ -1678,7 +1705,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "dfr8_CWAEffluentALRExceedences"
     },
     "dfr8_Parameters": {
       "description": "Parameter Object",
@@ -1784,7 +1812,8 @@
         "Qtr12Value",
         "Qtr13Value"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "dfr8_Parameters"
     },
     "dfr8_Sources": {
       "description": "Sources Object",
@@ -1800,7 +1829,8 @@
       "required": [
         "Parameters"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "dfr8_Sources"
     },
     "dfr9_CWAEffluentCompliance": {
       "description": "CWA Effluent Compliance Object",
@@ -1816,7 +1846,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "dfr9_CWAEffluentCompliance"
     },
     "dfr9_Parameter": {
       "description": "CWA Effluent Compliance Parameter Object",
@@ -2013,7 +2044,8 @@
         "Qtr13Status",
         "Qtr13Value"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "dfr9_Parameter"
     },
     "dfr9_Parameters": {
       "description": "CWA Effluent Compliance Parameters Object",
@@ -2026,7 +2058,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "dfr9_Parameters"
     },
     "dfrA_CWAPSCompliance": {
       "description": "CWA PS Compliance Object",
@@ -2042,7 +2075,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "dfrA_CWAPSCompliance"
     },
     "dfrA_Violation": {
       "description": "CWA PS Compliance Violation Object",
@@ -2227,7 +2261,8 @@
         "Qtr13Status",
         "Qtr13Value"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "dfrA_Violation"
     },
     "dfrA_Violations": {
       "description": "CWA PS Compliance Violations Object",
@@ -2243,7 +2278,8 @@
       "required": [
         "Violations"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "dfrA_Violations"
     },
     "dfrB_CWARNCCompliance": {
       "description": "CWA RNC Compliance Object",
@@ -2259,7 +2295,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "dfrB_CWARNCCompliance"
     },
     "dfrB_Statuses": {
       "description": "CWA RNC Compliance Statuses Object",
@@ -2272,7 +2309,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "dfrB_Statuses"
     },
     "dfrC_CWASECompliance": {
       "description": "CWA SE Compliance Object",
@@ -2288,7 +2326,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "dfrC_CWASECompliance"
     },
     "dfrC_Sources.Violation": {
       "description": "CWA SE Compliance Violation Object",
@@ -2473,7 +2512,8 @@
         "Qtr13Status",
         "Qtr13Value"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "dfrC_Sources.Violation"
     },
     "dfrC_Violations": {
       "description": "CWA SE Compliance Violations Object",
@@ -2489,7 +2529,8 @@
       "required": [
         "Violations"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "dfrC_Violations"
     },
     "dfrD_ComplianceSummary": {
       "description": "Compliance Summary Object",
@@ -2513,7 +2554,8 @@
         "ProgramDates",
         "Source"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "dfrD_ComplianceSummary"
     },
     "dfrD_Source": {
       "description": "Source Object",
@@ -2561,7 +2603,8 @@
         "CurrentAsOf",
         "QtrsInNC"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "dfrD_Source"
     },
     "dfrE_Demographics": {
       "description": "Demographics Object",
@@ -2791,7 +2834,8 @@
         "Income50to75k",
         "Income75kPlus"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "dfrE_Demographics"
     },
     "dfrF_EnforcementComplianceSummaries": {
       "description": "Enforcement Compliance Summaries Object",
@@ -2815,7 +2859,8 @@
         "ProgramDates",
         "Summaries"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "dfrF_EnforcementComplianceSummaries"
     },
     "dfrF_ProgramDate": {
       "description": "Program Date Object",
@@ -2849,7 +2894,8 @@
         "StartDate5Yr",
         "EndDate"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "dfrF_ProgramDate"
     },
     "dfrG_Action": {
       "description": "Action Object",
@@ -2906,7 +2952,8 @@
       "type": "object",
       "xml": {
         "name": "Action"
-      }
+      },
+      "title": "dfrG_Action"
     },
     "dfrG_CopperSamples": {
       "description": "Copper Samples",
@@ -2930,7 +2977,8 @@
         "CU90Units",
         "CU90Dates"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "dfrG_CopperSamples"
     },
     "dfrG_FormalActions": {
       "description": "Formal Actions Object",
@@ -2949,7 +2997,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "dfrG_FormalActions"
     },
     "dfrG_LeadAndCopperRule5Yr": {
       "description": "Lead and Copper Rule Object",
@@ -3020,7 +3069,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "dfrG_LeadAndCopperRule5Yr"
     },
     "dfrG_LeadSamples": {
       "description": "Lead Samples",
@@ -3044,7 +3094,8 @@
         "PB90Units",
         "PB90Dates"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "dfrG_LeadSamples"
     },
     "dfrH_Action": {
       "description": "Action Object",
@@ -3149,7 +3200,8 @@
         "SepCost",
         "CompActionCost"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "dfrH_Action"
     },
     "dfrH_ICISFormalActions": {
       "description": "ICIS Formal Actions Object",
@@ -3168,7 +3220,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "dfrH_ICISFormalActions"
     },
     "dfrI_InspectionEnforcementSummary": {
       "description": "Inspection Enforcement Summary Object",
@@ -3188,7 +3241,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "dfrI_InspectionEnforcementSummary"
     },
     "dfrI_Source": {
       "description": "Source Object",
@@ -3244,7 +3298,8 @@
         "FormalEnfActCount",
         "TotalPenalties"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "dfrI_Source"
     },
     "dfrJ_MapOutput": {
       "description": "Map Output Object",
@@ -3286,7 +3341,8 @@
         "CenterLongitude",
         "MapData"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "dfrJ_MapOutput"
     },
     "dfrK_Notice": {
       "description": "Notice Object",
@@ -3343,7 +3399,8 @@
       "type": "object",
       "xml": {
         "name": "Notice"
-      }
+      },
+      "title": "dfrK_Notice"
     },
     "dfrK_Notices": {
       "description": "Notices Object",
@@ -3367,7 +3424,8 @@
         "ProgramDates",
         "Notice"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "dfrK_Notices"
     },
     "dfrL_RCRACompliance": {
       "description": "Resource Conservation and Recovery Act Compliance Object",
@@ -3550,7 +3608,8 @@
         "Qtr12Start",
         "Qtr12End"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "dfrL_RCRACompliance"
     },
     "dfrL_Source": {
       "description": "Source Object",
@@ -3566,7 +3625,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "dfrL_Source"
     },
     "dfrL_Violations": {
       "description": "Violations Object",
@@ -3678,7 +3738,8 @@
         "Qtr11Status",
         "Qtr12Status"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "dfrL_Violations"
     },
     "dfrM_RulesViolated": {
       "description": "Rules Violated Object",
@@ -3789,7 +3850,8 @@
         "Qtr12Status",
         "Qtr13Status"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "dfrM_RulesViolated"
     },
     "dfrM_SDWISCompliance": {
       "description": "SDWIS Compliance Object",
@@ -3958,7 +4020,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "dfrM_SDWISCompliance"
     },
     "dfrM_Source": {
       "description": "Source Object",
@@ -3977,7 +4040,8 @@
         "Status",
         "RulesViolated"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "dfrM_Source"
     },
     "dfrN_SanitarySurvey": {
       "description": "Sanitary Survey Object",
@@ -4065,7 +4129,8 @@
         "Financial",
         "Treatment"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "dfrN_SanitarySurvey"
     },
     "dfrN_SanitarySurveys": {
       "description": "Sanitary Surveys Object",
@@ -4078,7 +4143,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "dfrN_SanitarySurveys"
     },
     "dfrN_Source": {
       "description": "Source Object",
@@ -4094,7 +4160,8 @@
       "required": [
         "SanitarySurvey"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "dfrN_Source"
     },
     "dfrO_SiteVisit": {
       "description": "Site Visit Object",
@@ -4183,7 +4250,8 @@
         "Financial",
         "Treatment"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "dfrO_SiteVisit"
     },
     "dfrO_SiteVisits": {
       "description": "Site Visits Object",
@@ -4196,7 +4264,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "dfrO_SiteVisits"
     },
     "dfrO_Source": {
       "description": "Source Object",
@@ -4212,7 +4281,8 @@
       "required": [
         "SiteVisit"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "dfrO_Source"
     },
     "dfrP_SpatialMetadata": {
       "description": "Spatial Metadata Object",
@@ -4278,7 +4348,8 @@
         "CoordinateSourceSystem",
         "CoordinateSourceSystemId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "dfrP_SpatialMetadata"
     },
     "dfrQ_TRIHistory": {
       "description": "TRI History Object",
@@ -4294,7 +4365,8 @@
       "required": [
         "Sources"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "dfrQ_TRIHistory"
     },
     "dfrR_Chemicals": {
       "description": "Chemicals Object",
@@ -4374,7 +4446,8 @@
       "type": "object",
       "xml": {
         "name": "Chemical"
-      }
+      },
+      "title": "dfrR_Chemicals"
     },
     "dfrR_Header": {
       "description": "Header Object",
@@ -4439,7 +4512,8 @@
       "type": "object",
       "xml": {
         "name": "Header"
-      }
+      },
+      "title": "dfrR_Header"
     },
     "dfrR_TRIReleases": {
       "description": "TRI Releases Object",
@@ -4463,7 +4537,8 @@
         "Header",
         "Chemicals"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "dfrR_TRIReleases"
     },
     "dfrS_Tribes": {
       "description": "Tribes Object",
@@ -4496,7 +4571,8 @@
         "TribeName",
         "DistanceToArea"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "dfrS_Tribes"
     },
     "dfrT_ViolationsEnforcementActions": {
       "description": "Violations Enforcement Actions Object",
@@ -4509,7 +4585,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "dfrT_ViolationsEnforcementActions"
     },
     "dfrU_Source": {
       "description": "Source Object",
@@ -4644,7 +4721,8 @@
         "BeachCloseLast2yrsFlg",
         "EsaAquaticSpeciesFlg"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "dfrU_Source"
     },
     "dfrU_WaterQuality": {
       "description": "Water Quality Object",
@@ -4657,7 +4735,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "dfrU_WaterQuality"
     },
     "dfrV_ComplianceHistory": {
       "description": "Compliance History Object",
@@ -4677,7 +4756,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "dfrV_ComplianceHistory"
     },
     "dfrV_Inspection": {
       "description": "Inspection Object",
@@ -4739,7 +4819,8 @@
         "CMSFlag",
         "Finding"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "dfrV_Inspection"
     },
     "dfrW1_Results": {
       "description": "Results Object",
@@ -4757,7 +4838,8 @@
       "required": [
         "Message"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "dfrW1_Results"
     },
     "dfrW2_Results": {
       "description": "Results Object",
@@ -4775,7 +4857,8 @@
       "required": [
         "Message"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "dfrW2_Results"
     },
     "dfrW_Results": {
       "description": "Results Object",
@@ -4793,7 +4876,8 @@
       "required": [
         "Message"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "dfrW_Results"
     },
     "dfrY_Results": {
       "description": "Results Object",
@@ -4811,7 +4895,8 @@
       "required": [
         "Message"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "dfrY_Results"
     },
     "dfrZ_Results": {
       "description": "Results Object",
@@ -4829,7 +4914,8 @@
       "required": [
         "Message"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "dfrZ_Results"
     },
     "dfra1_Results": {
       "description": "Results Object",
@@ -4847,7 +4933,8 @@
       "required": [
         "Message"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "dfra1_Results"
     },
     "dfra2_Results": {
       "description": "Results Object",
@@ -4865,7 +4952,8 @@
       "required": [
         "Message"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "dfra2_Results"
     },
     "dfra_Results": {
       "description": "Results Object",
@@ -4883,7 +4971,8 @@
       "required": [
         "Message"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "dfra_Results"
     },
     "dfrb_Results": {
       "description": "Results Object",
@@ -4905,7 +4994,8 @@
       "required": [
         "Message"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "dfrb_Results"
     },
     "dfrc_AFSProgram": {
       "description": "AFS Program Object",
@@ -5009,7 +5099,8 @@
         "Qtr11Status",
         "Qtr12Status"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "dfrc_AFSProgram"
     },
     "dfrc_FRVProgramsPollutant": {
       "description": "FRV Programs Pollutant Object",
@@ -5132,7 +5223,8 @@
         "Qtr12Status",
         "Agency"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "dfrc_FRVProgramsPollutant"
     },
     "dfrc_HPVProgramsPollutant": {
       "description": "HPV Programs Pollutant Object",
@@ -5255,7 +5347,8 @@
         "Qtr12Status",
         "Agency"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "dfrc_HPVProgramsPollutant"
     },
     "dfrc_Source": {
       "description": "Source Object",
@@ -5293,7 +5386,8 @@
         "FRVProgramsPollutants",
         "AFSPrograms"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "dfrc_Source"
     },
     "dfrd_EnforcementActions": {
       "description": "Enforcement Actions Object",
@@ -5333,7 +5427,8 @@
         "EnforcementId",
         "Agency"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "dfrd_EnforcementActions"
     },
     "dfrd_Source": {
       "description": "Source Object",
@@ -5349,7 +5444,8 @@
       "required": [
         "Violations"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "dfrd_Source"
     },
     "dfrd_Violations": {
       "description": "Violations Object",
@@ -5446,7 +5542,8 @@
         "ResolvedDate",
         "EnforcementActions"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "dfrd_Violations"
     },
     "dfre_ReleaseYear": {
       "description": "Release Year Object",
@@ -5520,7 +5617,8 @@
       "type": "object",
       "xml": {
         "name": "ReleaseYear"
-      }
+      },
+      "title": "dfre_ReleaseYear"
     },
     "dfre_Source": {
       "description": "Source Object",
@@ -5536,7 +5634,8 @@
       "required": [
         "ReleaseYear"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "dfre_Source"
     },
     "dfrf_Results": {
       "description": "Results Object",
@@ -5554,7 +5653,8 @@
       "required": [
         "Message"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "dfrf_Results"
     },
     "dfrg1_Results": {
       "description": "Results Object",
@@ -5579,7 +5679,8 @@
       "required": [
         "Message"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "dfrg1_Results"
     },
     "dfrg2_Results": {
       "description": "Results Object",
@@ -5597,7 +5698,8 @@
       "required": [
         "Message"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "dfrg2_Results"
     },
     "dfrg3_Results": {
       "description": "Results Object",
@@ -5615,7 +5717,8 @@
       "required": [
         "Message"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "dfrg3_Results"
     },
     "dfrg_Results": {
       "description": "Results Object",
@@ -5633,7 +5736,8 @@
       "required": [
         "Message"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "dfrg_Results"
     },
     "dfrh_Results": {
       "description": "Results Object",
@@ -5651,7 +5755,8 @@
       "required": [
         "Message"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "dfrh_Results"
     },
     "dfri_Results": {
       "description": "Results Object",
@@ -5669,7 +5774,8 @@
       "required": [
         "Message"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "dfri_Results"
     },
     "dfrj_Results": {
       "description": "Results Object",
@@ -5687,7 +5793,8 @@
       "required": [
         "Message"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "dfrj_Results"
     },
     "dfrk_Results": {
       "description": "Results Object",
@@ -5702,7 +5809,8 @@
       "required": [
         "Message"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "dfrk_Results"
     },
     "dfrl_Results": {
       "description": "Results Object",
@@ -5720,7 +5828,8 @@
       "required": [
         "Message"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "dfrl_Results"
     },
     "dfrm_Results": {
       "description": "Results Object",
@@ -5738,7 +5847,8 @@
       "required": [
         "Message"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "dfrm_Results"
     },
     "dfrn_Results": {
       "description": "Results Object",
@@ -5756,7 +5866,8 @@
       "required": [
         "Message"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "dfrn_Results"
     },
     "dfro_Results": {
       "description": "Results Object",
@@ -5778,7 +5889,8 @@
       "required": [
         "Message"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "dfro_Results"
     },
     "dfrp_Results": {
       "description": "Results Object",
@@ -5796,7 +5908,8 @@
       "required": [
         "Message"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "dfrp_Results"
     },
     "dfrq_Results": {
       "description": "Results Object",
@@ -5814,7 +5927,8 @@
       "required": [
         "Message"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "dfrq_Results"
     },
     "dfrs_Results": {
       "description": "Results Object",
@@ -5832,7 +5946,8 @@
       "required": [
         "Message"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "dfrs_Results"
     },
     "dfrt_Results": {
       "description": "Root Object",
@@ -5850,7 +5965,8 @@
       "required": [
         "Message"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "dfrt_Results"
     },
     "dfru_Results": {
       "description": "Results Object",
@@ -5868,7 +5984,8 @@
       "required": [
         "Message"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "dfru_Results"
     },
     "dfrv_Results": {
       "description": "Results Object",
@@ -5886,7 +6003,8 @@
       "required": [
         "Message"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "dfrv_Results"
     },
     "dfrw_Results": {
       "description": "Results Object",
@@ -5904,7 +6022,8 @@
       "required": [
         "Message"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "dfrw_Results"
     },
     "dfrx_Results": {
       "description": "Results Object",
@@ -5922,7 +6041,8 @@
       "required": [
         "Message"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "dfrx_Results"
     },
     "dfrz_NAICS": {
       "description": "NAICS Sources Object",
@@ -5941,7 +6061,8 @@
       "type": "object",
       "xml": {
         "name": "Sources"
-      }
+      },
+      "title": "dfrz_NAICS"
     },
     "dfrz_NAICSCodes": {
       "description": "NAICS Codes Object",
@@ -5980,7 +6101,8 @@
       "type": "object",
       "xml": {
         "name": "NAICSCodes"
-      }
+      },
+      "title": "dfrz_NAICSCodes"
     }
   },
   "actions": [

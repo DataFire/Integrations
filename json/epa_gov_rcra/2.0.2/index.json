@@ -32,7 +32,8 @@
         "type",
         "coordinates"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "Geometry"
     },
     "met_Results": {
       "description": "Results Object",
@@ -54,7 +55,8 @@
       "required": [
         "Message"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "met_Results"
     },
     "met_ResultsColumns": {
       "description": "Results Column Object",
@@ -97,7 +99,8 @@
         "ObjectName",
         "Description"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "met_ResultsColumns"
     },
     "qp0_QueryParameters": {
       "description": "Query Parameters Object",
@@ -119,7 +122,8 @@
         "QP",
         "QV"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "qp0_QueryParameters"
     },
     "rcr1_Facilities": {
       "description": "Facilities Object",
@@ -676,7 +680,8 @@
         "CalculatedAccuracyMeters",
         "Map"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "rcr1_Facilities"
     },
     "rcr1_MapData": {
       "description": "Map Data Object",
@@ -751,7 +756,8 @@
         "FormalCount",
         "InformalCount"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "rcr1_MapData"
     },
     "rcr1_MapOutput": {
       "description": "Map Output Object",
@@ -788,7 +794,8 @@
         "PopUpBaseURL",
         "MapData"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "rcr1_MapOutput"
     },
     "rcr1_Results": {
       "description": "Results Object",
@@ -885,7 +892,8 @@
         "QueryID",
         "PageNo"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "rcr1_Results"
     },
     "rcr2_ClusterData": {
       "description": "Cluster Data Object",
@@ -997,7 +1005,8 @@
         "INSPRows",
         "TotalPenalties"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "rcr2_ClusterData"
     },
     "rcr2_ClusterOutput": {
       "description": "Cluster Output Object",
@@ -1013,7 +1022,8 @@
       "required": [
         "ClusterData"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "rcr2_ClusterOutput"
     },
     "rcr2_Facilities": {
       "description": "Facilities Object",
@@ -1577,7 +1587,8 @@
         "CalculatedAccuracyMeters",
         "Map"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "rcr2_Facilities"
     },
     "rcr2_Results": {
       "description": "Results Object",
@@ -1702,7 +1713,8 @@
         "ServiceBaseURL",
         "QueryParameters"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "rcr2_Results"
     },
     "rcr3_MapData": {
       "description": "Map Data Object",
@@ -1777,7 +1789,8 @@
         "FormalCount",
         "InformalCount"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "rcr3_MapData"
     },
     "rcr3_MapOutput": {
       "description": "Map Output Object",
@@ -1814,7 +1827,8 @@
         "PopUpBaseURL",
         "MapData"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "rcr3_MapOutput"
     },
     "rcr4_Results": {
       "description": "Results Object",
@@ -1858,7 +1872,8 @@
         "Facilities",
         "PageNo"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "rcr4_Results"
     },
     "rcr5_Feature": {
       "description": "GeoJSON Feature Object",
@@ -1881,7 +1896,8 @@
         "geometry",
         "properties"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "rcr5_Feature"
     },
     "rcr5_FeatureCollection": {
       "description": "GeoJSON Feature Collection Object",
@@ -1905,7 +1921,8 @@
         "type",
         "features"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "rcr5_FeatureCollection"
     },
     "rcr5_properties": {
       "description": "GeoJSON Properties Object",
@@ -2451,7 +2468,8 @@
         "CalculatedAccuracyMeters",
         "Map"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "rcr5_properties"
     }
   },
   "actions": [

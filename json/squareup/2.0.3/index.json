@@ -358,7 +358,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Address"
     },
     "CaptureTransactionRequest": {
       "description": "",
@@ -372,7 +373,8 @@
         "php": "/sdk_samples/CaptureTransaction/CaptureTransactionRequest.php",
         "python": "/sdk_samples/CaptureTransaction/CaptureTransactionRequest.python",
         "ruby": "/sdk_samples/CaptureTransaction/CaptureTransactionRequest.ruby"
-      }
+      },
+      "title": "CaptureTransactionRequest"
     },
     "CaptureTransactionResponse": {
       "description": "Defines the fields that are included in the response body of\na request to the [CaptureTransaction](#endpoint-capturetransaction) endpoint.",
@@ -392,7 +394,8 @@
         "php": "/sdk_samples/CaptureTransaction/CaptureTransactionResponse.php",
         "python": "/sdk_samples/CaptureTransaction/CaptureTransactionResponse.python",
         "ruby": "/sdk_samples/CaptureTransaction/CaptureTransactionResponse.ruby"
-      }
+      },
+      "title": "CaptureTransactionResponse"
     },
     "Card": {
       "description": "Represents the non-confidential details of a credit card.",
@@ -439,7 +442,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Card"
     },
     "CardBrand": {
       "description": "Indicates a credit card's brand, such as `VISA`.",
@@ -454,7 +458,8 @@
         "CHINA_UNIONPAY",
         "SQUARE_GIFT_CARD"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "CardBrand"
     },
     "ChargeRequest": {
       "description": "Defines the parameters that can be included in the body of\na request to the [Charge](#endpoint-charge) endpoint.",
@@ -543,7 +548,8 @@
         "php": "/sdk_samples/Charge/ChargeRequest.php",
         "python": "/sdk_samples/Charge/ChargeRequest.python",
         "ruby": "/sdk_samples/Charge/ChargeRequest.ruby"
-      }
+      },
+      "title": "ChargeRequest"
     },
     "ChargeResponse": {
       "description": "Defines the fields that are included in the response body of\na request to the [Charge](#endpoint-charge) endpoint.\n\nOne of `errors` or `transaction` is present in a given response (never both).",
@@ -597,7 +603,8 @@
         "php": "/sdk_samples/Charge/ChargeResponse.php",
         "python": "/sdk_samples/Charge/ChargeResponse.python",
         "ruby": "/sdk_samples/Charge/ChargeResponse.ruby"
-      }
+      },
+      "title": "ChargeResponse"
     },
     "Checkout": {
       "description": "Square Checkout lets merchants accept online payments for supported\npayment types using a checkout workflow hosted on squareup.com.",
@@ -639,7 +646,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Checkout"
     },
     "Country": {
       "description": "Indicates the country associated with another entity, such as a business.\nValues are in [ISO 3166-1-alpha-2 format](http://www.iso.org/iso/home/standards/country_codes.htm).",
@@ -895,7 +903,8 @@
         "ZM",
         "ZW"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "Country"
     },
     "CreateCheckoutRequest": {
       "description": "Defines the parameters that can be included in the body of\na request to the [CreateCheckout](#endpoint-createcheckout) endpoint.",
@@ -977,7 +986,8 @@
         "idempotency_key",
         "order"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateCheckoutRequest"
     },
     "CreateCheckoutResponse": {
       "description": "Defines the fields that are included in the response body of\na request to the [CreateCheckout](#endpoint-createcheckout) endpoint.",
@@ -1050,7 +1060,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateCheckoutResponse"
     },
     "CreateCustomerCardRequest": {
       "description": "Defines the fields that are included in the request body of a request\nto the [CreateCustomerCard](#endpoint-createcustomercard) endpoint.",
@@ -1092,7 +1103,8 @@
         "php": "/sdk_samples/CreateCustomerCard/CreateCustomerCardRequest.php",
         "python": "/sdk_samples/CreateCustomerCard/CreateCustomerCardRequest.python",
         "ruby": "/sdk_samples/CreateCustomerCard/CreateCustomerCardRequest.ruby"
-      }
+      },
+      "title": "CreateCustomerCardRequest"
     },
     "CreateCustomerCardResponse": {
       "description": "Defines the fields that are included in the response body of\na request to the [CreateCustomerCard](#endpoint-createcustomercard) endpoint.\n\nOne of `errors` or `card` is present in a given response (never both).",
@@ -1133,7 +1145,8 @@
         "php": "/sdk_samples/CreateCustomerCard/CreateCustomerCardResponse.php",
         "python": "/sdk_samples/CreateCustomerCard/CreateCustomerCardResponse.python",
         "ruby": "/sdk_samples/CreateCustomerCard/CreateCustomerCardResponse.ruby"
-      }
+      },
+      "title": "CreateCustomerCardResponse"
     },
     "CreateCustomerRequest": {
       "description": "Defines the body parameters that can be provided in a request to the\n[CreateCustomer](#endpoint-createcustomer) endpoint.",
@@ -1200,7 +1213,8 @@
         "php": "/sdk_samples/CreateCustomer/CreateCustomerRequest.php",
         "python": "/sdk_samples/CreateCustomer/CreateCustomerRequest.python",
         "ruby": "/sdk_samples/CreateCustomer/CreateCustomerRequest.ruby"
-      }
+      },
+      "title": "CreateCustomerRequest"
     },
     "CreateCustomerResponse": {
       "description": "Defines the fields that are included in the response body of\na request to the [CreateCustomer](#endpoint-createcustomer) endpoint.\n\nOne of `errors` or `customer` is present in a given response (never both).",
@@ -1244,7 +1258,8 @@
         "php": "/sdk_samples/CreateCustomer/CreateCustomerResponse.php",
         "python": "/sdk_samples/CreateCustomer/CreateCustomerResponse.python",
         "ruby": "/sdk_samples/CreateCustomer/CreateCustomerResponse.ruby"
-      }
+      },
+      "title": "CreateCustomerResponse"
     },
     "CreateOrderRequest": {
       "description": "Defines the parameters that can be included in the body of\na request to the [CreateOrder](#endpoint-createorder) endpoint.",
@@ -1291,7 +1306,8 @@
         "idempotency_key",
         "order"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateOrderRequest"
     },
     "CreateOrderRequestLineItem": {
       "description": "Represents a line item to include in an order. Each line item describes\na different product to purchase, with its own quantity and price details.",
@@ -1317,7 +1333,8 @@
         "quantity",
         "base_price_money"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateOrderRequestLineItem"
     },
     "CreateOrderRequestOrder": {
       "description": "The object describes the order.",
@@ -1338,7 +1355,8 @@
       "required": [
         "line_items"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateOrderRequestOrder"
     },
     "CreateRefundRequest": {
       "description": "Defines the body parameters that can be included in\na request to the [CreateRefund](#endpoint-createrefund) endpoint.",
@@ -1383,7 +1401,8 @@
         "php": "/sdk_samples/CreateRefund/CreateRefundRequest.php",
         "python": "/sdk_samples/CreateRefund/CreateRefundRequest.python",
         "ruby": "/sdk_samples/CreateRefund/CreateRefundRequest.ruby"
-      }
+      },
+      "title": "CreateRefundRequest"
     },
     "CreateRefundResponse": {
       "description": "Defines the fields that are included in the response body of\na request to the [CreateRefund](#endpoint-createrefund) endpoint.\n\nOne of `errors` or `refund` is present in a given response (never both).",
@@ -1421,7 +1440,8 @@
         "php": "/sdk_samples/CreateRefund/CreateRefundResponse.php",
         "python": "/sdk_samples/CreateRefund/CreateRefundResponse.python",
         "ruby": "/sdk_samples/CreateRefund/CreateRefundResponse.ruby"
-      }
+      },
+      "title": "CreateRefundResponse"
     },
     "Currency": {
       "description": "Indicates the associated currency for an amount of money. Values correspond\nto [ISO 4217](https://wikipedia.org/wiki/ISO_4217).",
@@ -1607,7 +1627,8 @@
         "ZMW",
         "BTC"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "Currency"
     },
     "Customer": {
       "description": "Represents one of a business's customers, which can have one or more\ncards on file associated with it.",
@@ -1684,7 +1705,8 @@
         "created_at",
         "updated_at"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "Customer"
     },
     "CustomerGroupInfo": {
       "description": "Contains some brief information about a customer group with its identifier included.",
@@ -1702,7 +1724,8 @@
         "id",
         "name"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CustomerGroupInfo"
     },
     "CustomerPreferences": {
       "description": "Represents a particular customer's preferences.",
@@ -1712,7 +1735,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CustomerPreferences"
     },
     "DeleteCustomerCardRequest": {
       "description": "",
@@ -1726,7 +1750,8 @@
         "php": "/sdk_samples/DeleteCustomerCard/DeleteCustomerCardRequest.php",
         "python": "/sdk_samples/DeleteCustomerCard/DeleteCustomerCardRequest.python",
         "ruby": "/sdk_samples/DeleteCustomerCard/DeleteCustomerCardRequest.ruby"
-      }
+      },
+      "title": "DeleteCustomerCardRequest"
     },
     "DeleteCustomerCardResponse": {
       "description": "Defines the fields that are included in the response body of\na request to the [DeleteCustomerCard](#endpoint-deletecustomercard) endpoint.",
@@ -1746,7 +1771,8 @@
         "php": "/sdk_samples/DeleteCustomerCard/DeleteCustomerCardResponse.php",
         "python": "/sdk_samples/DeleteCustomerCard/DeleteCustomerCardResponse.python",
         "ruby": "/sdk_samples/DeleteCustomerCard/DeleteCustomerCardResponse.ruby"
-      }
+      },
+      "title": "DeleteCustomerCardResponse"
     },
     "DeleteCustomerRequest": {
       "description": "",
@@ -1760,7 +1786,8 @@
         "php": "/sdk_samples/DeleteCustomer/DeleteCustomerRequest.php",
         "python": "/sdk_samples/DeleteCustomer/DeleteCustomerRequest.python",
         "ruby": "/sdk_samples/DeleteCustomer/DeleteCustomerRequest.ruby"
-      }
+      },
+      "title": "DeleteCustomerRequest"
     },
     "DeleteCustomerResponse": {
       "description": "Defines the fields that are included in the response body of\na request to the [DeleteCustomer](#endpoint-deletecustomer) endpoint.",
@@ -1780,7 +1807,8 @@
         "php": "/sdk_samples/DeleteCustomer/DeleteCustomerResponse.php",
         "python": "/sdk_samples/DeleteCustomer/DeleteCustomerResponse.python",
         "ruby": "/sdk_samples/DeleteCustomer/DeleteCustomerResponse.ruby"
-      }
+      },
+      "title": "DeleteCustomerResponse"
     },
     "Error": {
       "description": "Represents an error encountered during a request to the Connect API.\n\nSee [Handling errors](#handlingerrors) for more information.",
@@ -1889,7 +1917,8 @@
         "category",
         "code"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "Error"
     },
     "ErrorCategory": {
       "description": "Indicates which high-level category of error has occurred during a\nrequest to the Connect API.",
@@ -1901,7 +1930,8 @@
         "PAYMENT_METHOD_ERROR",
         "REFUND_ERROR"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ErrorCategory"
     },
     "ErrorCode": {
       "description": "Indicates specific errors that can occur during a request to the\nConnect API.",
@@ -1980,7 +2010,8 @@
         "NOT_IMPLEMENTED",
         "SERVICE_UNAVAILABLE"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ErrorCode"
     },
     "ListCustomersRequest": {
       "description": "Defines the query parameters that can be provided in a request to the\n[ListCustomers](#endpoint-listcustomers) endpoint.",
@@ -1999,7 +2030,8 @@
         "php": "/sdk_samples/ListCustomers/ListCustomersRequest.php",
         "python": "/sdk_samples/ListCustomers/ListCustomersRequest.python",
         "ruby": "/sdk_samples/ListCustomers/ListCustomersRequest.ruby"
-      }
+      },
+      "title": "ListCustomersRequest"
     },
     "ListCustomersResponse": {
       "description": "Defines the fields that are included in the response body of\na request to the [ListCustomers](#endpoint-listcustomers) endpoint.\n\nOne of `errors` or `customers` is present in a given response (never both).",
@@ -2058,7 +2090,8 @@
         "php": "/sdk_samples/ListCustomers/ListCustomersResponse.php",
         "python": "/sdk_samples/ListCustomers/ListCustomersResponse.python",
         "ruby": "/sdk_samples/ListCustomers/ListCustomersResponse.ruby"
-      }
+      },
+      "title": "ListCustomersResponse"
     },
     "ListLocationsRequest": {
       "description": "",
@@ -2072,7 +2105,8 @@
         "php": "/sdk_samples/ListLocations/ListLocationsRequest.php",
         "python": "/sdk_samples/ListLocations/ListLocationsRequest.python",
         "ruby": "/sdk_samples/ListLocations/ListLocationsRequest.ruby"
-      }
+      },
+      "title": "ListLocationsRequest"
     },
     "ListLocationsResponse": {
       "description": "Defines the fields that are included in the response body of\na request to the [ListLocations](#endpoint-listlocations) endpoint.\n\nOne of `errors` or `locations` is present in a given response (never both).",
@@ -2117,7 +2151,8 @@
         "php": "/sdk_samples/ListLocations/ListLocationsResponse.php",
         "python": "/sdk_samples/ListLocations/ListLocationsResponse.python",
         "ruby": "/sdk_samples/ListLocations/ListLocationsResponse.ruby"
-      }
+      },
+      "title": "ListLocationsResponse"
     },
     "ListRefundsRequest": {
       "description": "Defines the query parameters that can be included in\na request to the [ListRefunds](#endpoint-listrefunds) endpoint.",
@@ -2152,7 +2187,8 @@
         "php": "/sdk_samples/ListRefunds/ListRefundsRequest.php",
         "python": "/sdk_samples/ListRefunds/ListRefundsRequest.python",
         "ruby": "/sdk_samples/ListRefunds/ListRefundsRequest.ruby"
-      }
+      },
+      "title": "ListRefundsRequest"
     },
     "ListRefundsResponse": {
       "description": "Defines the fields that are included in the response body of\na request to the [ListRefunds](#endpoint-listrefunds) endpoint.\n\nOne of `errors` or `refunds` is present in a given response (never both).",
@@ -2199,7 +2235,8 @@
         "php": "/sdk_samples/ListRefunds/ListRefundsResponse.php",
         "python": "/sdk_samples/ListRefunds/ListRefundsResponse.python",
         "ruby": "/sdk_samples/ListRefunds/ListRefundsResponse.ruby"
-      }
+      },
+      "title": "ListRefundsResponse"
     },
     "ListTransactionsRequest": {
       "description": "Defines the query parameters that can be included in\na request to the [ListTransactions](#endpoint-listtransactions) endpoint.",
@@ -2234,7 +2271,8 @@
         "php": "/sdk_samples/ListTransactions/ListTransactionsRequest.php",
         "python": "/sdk_samples/ListTransactions/ListTransactionsRequest.python",
         "ruby": "/sdk_samples/ListTransactions/ListTransactionsRequest.ruby"
-      }
+      },
+      "title": "ListTransactionsRequest"
     },
     "ListTransactionsResponse": {
       "description": "Defines the fields that are included in the response body of\na request to the [ListTransactions](#endpoint-listtransactions) endpoint.\n\nOne of `errors` or `transactions` is present in a given response (never both).",
@@ -2301,7 +2339,8 @@
         "php": "/sdk_samples/ListTransactions/ListTransactionsResponse.php",
         "python": "/sdk_samples/ListTransactions/ListTransactionsResponse.python",
         "ruby": "/sdk_samples/ListTransactions/ListTransactionsResponse.ruby"
-      }
+      },
+      "title": "ListTransactionsResponse"
     },
     "Location": {
       "description": "Represents one of a business's locations.",
@@ -2333,14 +2372,16 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Location"
     },
     "LocationCapability": {
       "description": "Indicates account capabilities that a business's location might or\nmight not have enabled.",
       "enum": [
         "CREDIT_CARD_PROCESSING"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "LocationCapability"
     },
     "Money": {
       "description": "Represents an amount of money.\n\n__Important:__ Unlike version 1 of the Connect API, __all monetary amounts\nreturned by v2 endpoints are positive.__ (In v1, monetary amounts are negative\nif they represent money being paid _by_ a merchant, instead of money being\npaid _to_ a merchant.)",
@@ -2537,7 +2578,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Money"
     },
     "Order": {
       "description": "Contains all information related to a single order to process with Square,\nincluding line items that specify the products to purchase",
@@ -2566,7 +2608,8 @@
           "description": "The total amount of money to collect for the order."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Order"
     },
     "OrderLineItem": {
       "description": "Represents a line item in an order. Each line item describes a different\nproduct to purchase, with its own quantity and price details.",
@@ -2592,7 +2635,8 @@
           "description": "The total amount of money to collect for this line item."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "OrderLineItem"
     },
     "Refund": {
       "description": "Represents a refund processed for a Square transaction.",
@@ -2649,7 +2693,8 @@
         "amount_money",
         "status"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "Refund"
     },
     "RefundStatus": {
       "description": "Indicates a refund's current status.",
@@ -2659,7 +2704,8 @@
         "REJECTED",
         "FAILED"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "RefundStatus"
     },
     "RetrieveCustomerRequest": {
       "description": "",
@@ -2673,7 +2719,8 @@
         "php": "/sdk_samples/RetrieveCustomer/RetrieveCustomerRequest.php",
         "python": "/sdk_samples/RetrieveCustomer/RetrieveCustomerRequest.python",
         "ruby": "/sdk_samples/RetrieveCustomer/RetrieveCustomerRequest.ruby"
-      }
+      },
+      "title": "RetrieveCustomerRequest"
     },
     "RetrieveCustomerResponse": {
       "description": "Defines the fields that are included in the response body of\na request to the [RetrieveCustomer](#endpoint-retrievecustomer) endpoint.\n\nOne of `errors` or `customer` is present in a given response (never both).",
@@ -2723,7 +2770,8 @@
         "php": "/sdk_samples/RetrieveCustomer/RetrieveCustomerResponse.php",
         "python": "/sdk_samples/RetrieveCustomer/RetrieveCustomerResponse.python",
         "ruby": "/sdk_samples/RetrieveCustomer/RetrieveCustomerResponse.ruby"
-      }
+      },
+      "title": "RetrieveCustomerResponse"
     },
     "RetrieveTransactionRequest": {
       "description": "",
@@ -2737,7 +2785,8 @@
         "php": "/sdk_samples/RetrieveTransaction/RetrieveTransactionRequest.php",
         "python": "/sdk_samples/RetrieveTransaction/RetrieveTransactionRequest.python",
         "ruby": "/sdk_samples/RetrieveTransaction/RetrieveTransactionRequest.ruby"
-      }
+      },
+      "title": "RetrieveTransactionRequest"
     },
     "RetrieveTransactionResponse": {
       "description": "Defines the fields that are included in the response body of\na request to the [RetrieveTransaction](#endpont-retrievetransaction) endpoint.\n\nOne of `errors` or `transaction` is present in a given response (never both).",
@@ -2795,7 +2844,8 @@
         "php": "/sdk_samples/RetrieveTransaction/RetrieveTransactionResponse.php",
         "python": "/sdk_samples/RetrieveTransaction/RetrieveTransactionResponse.python",
         "ruby": "/sdk_samples/RetrieveTransaction/RetrieveTransactionResponse.ruby"
-      }
+      },
+      "title": "RetrieveTransactionResponse"
     },
     "SortOrder": {
       "description": "The order (e.g., chronological or alphabetical) in which results from a request are returned.",
@@ -2803,7 +2853,8 @@
         "DESC",
         "ASC"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "SortOrder"
     },
     "Tender": {
       "description": "Represents a tender (i.e., a method of payment) used in a Square transaction.",
@@ -2864,7 +2915,8 @@
       "required": [
         "type"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "Tender"
     },
     "TenderCardDetails": {
       "description": "Represents additional details of a tender with `type` `CARD` or `SQUARE_GIFT_CARD`",
@@ -2895,7 +2947,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TenderCardDetails"
     },
     "TenderCardDetailsEntryMethod": {
       "description": "Indicates the method used to enter the card's details.",
@@ -2906,7 +2959,8 @@
         "ON_FILE",
         "CONTACTLESS"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "TenderCardDetailsEntryMethod"
     },
     "TenderCardDetailsStatus": {
       "description": "Indicates the card transaction's current status.",
@@ -2916,7 +2970,8 @@
         "VOIDED",
         "FAILED"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "TenderCardDetailsStatus"
     },
     "TenderCashDetails": {
       "description": "Represents the details of a tender with `type` `CASH`.",
@@ -2930,7 +2985,8 @@
           "description": "The amount of change returned to the buyer."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TenderCashDetails"
     },
     "TenderType": {
       "description": "Indicates a tender's type.",
@@ -2942,7 +2998,8 @@
         "NO_SALE",
         "OTHER"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "TenderType"
     },
     "Transaction": {
       "description": "Represents a transaction processed with Square, either with the\nConnect API or with Square Register.\n\nThe `tenders` field of this object lists all methods of payment used to pay in\nthe transaction.",
@@ -3004,7 +3061,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Transaction"
     },
     "TransactionProduct": {
       "description": "Indicates the Square product used to process a transaction.",
@@ -3018,7 +3076,8 @@
         "PAYROLL",
         "OTHER"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "TransactionProduct"
     },
     "UpdateCustomerRequest": {
       "description": "Defines the body parameters that can be provided in a request to the\n[UpdateCustomer](#endpoint-updatecustomer) endpoint.",
@@ -3074,7 +3133,8 @@
         "php": "/sdk_samples/UpdateCustomer/UpdateCustomerRequest.php",
         "python": "/sdk_samples/UpdateCustomer/UpdateCustomerRequest.python",
         "ruby": "/sdk_samples/UpdateCustomer/UpdateCustomerRequest.ruby"
-      }
+      },
+      "title": "UpdateCustomerRequest"
     },
     "UpdateCustomerResponse": {
       "description": "Defines the fields that are included in the response body of\na request to the [UpdateCustomer](#endpoint-updatecustomer) endpoint.\n\nOne of `errors` or `customer` is present in a given response (never both).",
@@ -3123,7 +3183,8 @@
         "php": "/sdk_samples/UpdateCustomer/UpdateCustomerResponse.php",
         "python": "/sdk_samples/UpdateCustomer/UpdateCustomerResponse.python",
         "ruby": "/sdk_samples/UpdateCustomer/UpdateCustomerResponse.ruby"
-      }
+      },
+      "title": "UpdateCustomerResponse"
     },
     "VoidTransactionRequest": {
       "description": "",
@@ -3137,7 +3198,8 @@
         "php": "/sdk_samples/VoidTransaction/VoidTransactionRequest.php",
         "python": "/sdk_samples/VoidTransaction/VoidTransactionRequest.python",
         "ruby": "/sdk_samples/VoidTransaction/VoidTransactionRequest.ruby"
-      }
+      },
+      "title": "VoidTransactionRequest"
     },
     "VoidTransactionResponse": {
       "description": "Defines the fields that are included in the response body of\na request to the [CaptureTransaction](#endpoint-capturetransaction) endpoint.",
@@ -3157,7 +3219,8 @@
         "php": "/sdk_samples/VoidTransaction/VoidTransactionResponse.php",
         "python": "/sdk_samples/VoidTransaction/VoidTransactionResponse.python",
         "ruby": "/sdk_samples/VoidTransaction/VoidTransactionResponse.ruby"
-      }
+      },
+      "title": "VoidTransactionResponse"
     }
   },
   "actions": [

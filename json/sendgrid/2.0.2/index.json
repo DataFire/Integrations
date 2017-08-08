@@ -66,7 +66,8 @@
         "date",
         "stats"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "advanced_stats_clicks"
     },
     "advanced_stats_country": {
       "properties": {
@@ -129,7 +130,8 @@
         "date",
         "stats"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "advanced_stats_country"
     },
     "advanced_stats_mailbox_provider": {
       "properties": {
@@ -222,7 +224,8 @@
         "date",
         "stats"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "advanced_stats_mailbox_provider"
     },
     "advanced_stats_opens": {
       "properties": {
@@ -275,7 +278,8 @@
         "date",
         "stats"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "advanced_stats_opens"
     },
     "api_key_name_id": {
       "example": {
@@ -292,7 +296,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "api_key_name_id"
     },
     "api_key_name_id_scopes": {
       "allOf": [
@@ -319,7 +324,8 @@
           "user.profile.read",
           "user.profile.update"
         ]
-      }
+      },
+      "title": "api_key_name_id_scopes"
     },
     "campaign_request": {
       "example": {
@@ -432,7 +438,8 @@
       "required": [
         "title"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "campaign_request"
     },
     "campaign_response": {
       "allOf": [
@@ -454,7 +461,8 @@
           ],
           "type": "object"
         }
-      ]
+      ],
+      "title": "campaign_response"
     },
     "category_stats": {
       "example": {
@@ -621,7 +629,8 @@
       "required": [
         "date"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "category_stats"
     },
     "contactdb_custom_field": {
       "example": {
@@ -784,7 +793,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "contactdb_recipient"
     },
     "contactdb_recipient_count": {
       "example": {
@@ -799,7 +809,8 @@
       "required": [
         "recipient_count"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "contactdb_recipient_count"
     },
     "contactdb_recipient_response": {
       "example": {
@@ -878,7 +889,8 @@
         "persisted_recipients",
         "updated_count"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "contactdb_recipient_response"
     },
     "contactdb_segments": {
       "example": {
@@ -966,7 +978,8 @@
         "value",
         "operator"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "contactdb_segments_conditions"
     },
     "contactdb_segments_with_id": {
       "allOf": [
@@ -985,7 +998,8 @@
         {
           "$ref": "#/definitions/contactdb_segments"
         }
-      ]
+      ],
+      "title": "contactdb_segments_with_id"
     },
     "contacts": {
       "properties": {
@@ -1023,7 +1037,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "contacts"
     },
     "credentials": {
       "example": {
@@ -1057,7 +1072,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "credentials"
     },
     "email_object": {
       "properties": {
@@ -1073,7 +1089,8 @@
       "required": [
         "email"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "email_object"
     },
     "errors": {
       "properties": {
@@ -1097,7 +1114,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "errors"
     },
     "event_webhook_settings": {
       "properties": {
@@ -1169,7 +1187,8 @@
         "click",
         "dropped"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "event_webhook_settings"
     },
     "global:ErrorResponse": {
       "example": {
@@ -1204,13 +1223,16 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "global:ErrorResponse"
     },
     "global:empty_request": {
-      "type": "null"
+      "type": "null",
+      "title": "global:empty_request"
     },
     "global:id": {
-      "type": "integer"
+      "type": "integer",
+      "title": "global:id"
     },
     "google_analytics_settings": {
       "example": {
@@ -1247,7 +1269,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "google_analytics_settings"
     },
     "ip_pool": {
       "properties": {
@@ -1260,7 +1283,8 @@
       "required": [
         "name"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ip_pool"
     },
     "ip_warmup_response": {
       "example": [
@@ -1286,7 +1310,8 @@
         ],
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ip_warmup_response"
     },
     "ip_whitelabel": {
       "example": {
@@ -1403,7 +1428,8 @@
         "legacy",
         "a_record"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ip_whitelabel"
     },
     "link_whitelabel": {
       "properties": {
@@ -1545,7 +1571,8 @@
         "legacy",
         "dns"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "link_whitelabel"
     },
     "mail_batch_id": {
       "example": {
@@ -1560,7 +1587,8 @@
       "required": [
         "batch_id"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "mail_batch_id"
     },
     "mail_settings_address_whitelabel": {
       "example": {
@@ -1583,7 +1611,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "mail_settings_address_whitelabel"
     },
     "mail_settings_bcc": {
       "example": {
@@ -1600,7 +1629,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "mail_settings_bcc"
     },
     "mail_settings_bounce_purge": {
       "example": {
@@ -1627,7 +1657,8 @@
           ]
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "mail_settings_bounce_purge"
     },
     "mail_settings_footer": {
       "example": {
@@ -1649,7 +1680,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "mail_settings_footer"
     },
     "mail_settings_forward_bounce": {
       "example": {
@@ -1668,7 +1700,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "mail_settings_forward_bounce"
     },
     "mail_settings_forward_spam": {
       "example": {
@@ -1685,7 +1718,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "mail_settings_forward_spam"
     },
     "mail_settings_patch": {
       "example": {
@@ -1702,7 +1736,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "mail_settings_patch"
     },
     "mail_settings_spam_check": {
       "example": {
@@ -1730,7 +1765,8 @@
       "required": [
         "enabled"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "mail_settings_spam_check"
     },
     "mail_settings_template": {
       "example": {
@@ -1747,7 +1783,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "mail_settings_template"
     },
     "monitor": {
       "example": {
@@ -1797,7 +1834,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "parse-setting"
     },
     "partner_settings_new_relic": {
       "properties": {
@@ -1818,7 +1856,8 @@
         "enabled",
         "license_key"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "partner_settings_new_relic"
     },
     "senderID": {
       "example": {
@@ -1928,7 +1967,8 @@
         "city",
         "country"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "senderID"
     },
     "stats": {
       "items": {
@@ -2027,7 +2067,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "stats"
     },
     "subscription_tracking_settings": {
       "properties": {
@@ -2056,7 +2097,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "subscription_tracking_settings"
     },
     "subuser": {
       "example": {
@@ -2138,7 +2180,8 @@
         "user_id",
         "email"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "subuser_post"
     },
     "subuser_stats": {
       "properties": {
@@ -2241,7 +2284,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "subuser_stats"
     },
     "suppression_bounce": {
       "example": {
@@ -2267,7 +2311,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "suppression_bounce"
     },
     "suppression_group": {
       "properties": {
@@ -2299,7 +2344,8 @@
         "name",
         "description"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "suppression_group"
     },
     "suppression_group_unsubscribes": {
       "allOf": [
@@ -2318,7 +2364,8 @@
           ]
         }
       ],
-      "type": "object"
+      "type": "object",
+      "title": "suppression_group_unsubscribes"
     },
     "transactional_template": {
       "properties": {
@@ -2343,7 +2390,8 @@
         "id",
         "name"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "transactional_template"
     },
     "transactional_template_version": {
       "properties": {
@@ -2384,7 +2432,8 @@
         "plain_content",
         "subject"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "transactional_template_version"
     },
     "user_profile": {
       "example": {
@@ -2446,7 +2495,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "user_profile"
     },
     "user_scheduled_send_status": {
       "allOf": [
@@ -2470,7 +2520,8 @@
           ],
           "type": "object"
         }
-      ]
+      ],
+      "title": "user_scheduled_send_status"
     },
     "whitelabel::domain": {
       "properties": {
@@ -2632,7 +2683,8 @@
         "valid",
         "dns"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "whitelabel::domain"
     },
     "whitelabel:domain_spf": {
       "properties": {
@@ -2820,7 +2872,8 @@
         "valid",
         "dns"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "whitelabel:domain_spf"
     }
   },
   "actions": [

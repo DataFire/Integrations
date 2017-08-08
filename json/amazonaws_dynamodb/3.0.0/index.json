@@ -22,7 +22,8 @@
         "PUT",
         "DELETE"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "AttributeAction"
     },
     "AttributeDefinition": {
       "description": "Represents an attribute for describing the key schema for the table and indexes.",
@@ -40,13 +41,15 @@
         "AttributeName",
         "AttributeType"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AttributeDefinition"
     },
     "AttributeDefinitions": {
       "items": {
         "$ref": "#/definitions/AttributeDefinition"
       },
-      "type": "array"
+      "type": "array",
+      "title": "AttributeDefinitions"
     },
     "AttributeMap": {
       "items": {
@@ -60,18 +63,21 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "AttributeMap"
     },
     "AttributeName": {
       "maxLength": 65535,
-      "type": "string"
+      "type": "string",
+      "title": "AttributeName"
     },
     "AttributeNameList": {
       "items": {
         "$ref": "#/definitions/AttributeName"
       },
       "minItems": 1,
-      "type": "array"
+      "type": "array",
+      "title": "AttributeNameList"
     },
     "AttributeUpdates": {
       "items": {
@@ -85,7 +91,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "AttributeUpdates"
     },
     "AttributeValue": {
       "description": "<p>Represents the data for an attribute.</p> <p>Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.</p> <p>For more information, see <a href=\"http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes\">Data Types</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>",
@@ -131,13 +138,15 @@
           "description": "<p>An attribute of type String Set. For example:</p> <p> <code>\"SS\": [\"Giraffe\", \"Hippo\" ,\"Zebra\"]</code> </p>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AttributeValue"
     },
     "AttributeValueList": {
       "items": {
         "$ref": "#/definitions/AttributeValue"
       },
-      "type": "array"
+      "type": "array",
+      "title": "AttributeValueList"
     },
     "AttributeValueUpdate": {
       "description": "<p>For the <code>UpdateItem</code> operation, represents the attributes to be modified, the action to perform on each, and the new value for each.</p> <note> <p>You cannot use <code>UpdateItem</code> to update any primary key attributes. Instead, you will need to delete the item, and then use <code>PutItem</code> to create a new item with new attributes.</p> </note> <p>Attribute values cannot be null; string and binary type attributes must have lengths greater than zero; and set type attributes must not be empty. Requests with empty values will be rejected with a <code>ValidationException</code> exception.</p>",
@@ -151,10 +160,12 @@
           "description": "<p>Represents the data for an attribute.</p> <p>Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.</p> <p>For more information, see <a href=\"http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes\">Data TYpes</a> in the <i>Amazon DynamoDB Developer Guide</i>. </p>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AttributeValueUpdate"
     },
     "Backfilling": {
-      "type": "boolean"
+      "type": "boolean",
+      "title": "Backfilling"
     },
     "BatchGetItemInput": {
       "description": "Represents the input of a <code>BatchGetItem</code> operation.",
@@ -203,7 +214,8 @@
       "required": [
         "RequestItems"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "BatchGetItemInput"
     },
     "BatchGetItemOutput": {
       "description": "Represents the output of a <code>BatchGetItem</code> operation.",
@@ -242,7 +254,8 @@
           "description": "<p>A map of tables and their respective keys that were not processed with the current response. The <code>UnprocessedKeys</code> value is in the same form as <code>RequestItems</code>, so the value can be provided directly to a subsequent <code>BatchGetItem</code> operation. For more information, see <code>RequestItems</code> in the Request Parameters section.</p> <p>Each element consists of:</p> <ul> <li> <p> <code>Keys</code> - An array of primary key attribute values that define specific items in the table.</p> </li> <li> <p> <code>ProjectionExpression</code> - One or more attributes to be retrieved from the table or index. By default, all attributes are returned. If a requested attribute is not found, it does not appear in the result.</p> </li> <li> <p> <code>ConsistentRead</code> - The consistency of a read operation. If set to <code>true</code>, then a strongly consistent read is used; otherwise, an eventually consistent read is used.</p> </li> </ul> <p>If there are no unprocessed keys remaining, the response contains an empty <code>UnprocessedKeys</code> map.</p>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BatchGetItemOutput"
     },
     "BatchGetRequestMap": {
       "items": {
@@ -258,7 +271,8 @@
       },
       "maxItems": 100,
       "minItems": 1,
-      "type": "array"
+      "type": "array",
+      "title": "BatchGetRequestMap"
     },
     "BatchGetResponseMap": {
       "items": {
@@ -272,7 +286,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "BatchGetResponseMap"
     },
     "BatchWriteItemInput": {
       "description": "Represents the input of a <code>BatchWriteItem</code> operation.",
@@ -343,7 +358,8 @@
       "required": [
         "RequestItems"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "BatchWriteItemInput"
     },
     "BatchWriteItemOutput": {
       "description": "Represents the output of a <code>BatchWriteItem</code> operation.",
@@ -362,7 +378,8 @@
           "description": "<p>A map of tables and requests against those tables that were not processed. The <code>UnprocessedItems</code> value is in the same form as <code>RequestItems</code>, so you can provide this value directly to a subsequent <code>BatchGetItem</code> operation. For more information, see <code>RequestItems</code> in the Request Parameters section.</p> <p>Each <code>UnprocessedItems</code> entry consists of a table name and, for that table, a list of operations to perform (<code>DeleteRequest</code> or <code>PutRequest</code>).</p> <ul> <li> <p> <code>DeleteRequest</code> - Perform a <code>DeleteItem</code> operation on the specified item. The item to be deleted is identified by a <code>Key</code> subelement:</p> <ul> <li> <p> <code>Key</code> - A map of primary key attribute values that uniquely identify the item. Each entry in this map consists of an attribute name and an attribute value.</p> </li> </ul> </li> <li> <p> <code>PutRequest</code> - Perform a <code>PutItem</code> operation on the specified item. The item to be put is identified by an <code>Item</code> subelement:</p> <ul> <li> <p> <code>Item</code> - A map of attributes and their values. Each entry in this map consists of an attribute name and an attribute value. Attribute values must not be null; string and binary type attributes must have lengths greater than zero; and set type attributes must not be empty. Requests that contain empty values will be rejected with a <code>ValidationException</code> exception.</p> <p>If you specify any attributes that are part of an index key, then the data types for those attributes must match those of the schema in the table's attribute definition.</p> </li> </ul> </li> </ul> <p>If there are no unprocessed items remaining, the response contains an empty <code>UnprocessedItems</code> map.</p>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BatchWriteItemOutput"
     },
     "BatchWriteItemRequestMap": {
       "items": {
@@ -378,22 +395,27 @@
       },
       "maxItems": 25,
       "minItems": 1,
-      "type": "array"
+      "type": "array",
+      "title": "BatchWriteItemRequestMap"
     },
     "BinaryAttributeValue": {
-      "type": "string"
+      "type": "string",
+      "title": "BinaryAttributeValue"
     },
     "BinarySetAttributeValue": {
       "items": {
         "$ref": "#/definitions/BinaryAttributeValue"
       },
-      "type": "array"
+      "type": "array",
+      "title": "BinarySetAttributeValue"
     },
     "BooleanAttributeValue": {
-      "type": "boolean"
+      "type": "boolean",
+      "title": "BooleanAttributeValue"
     },
     "BooleanObject": {
-      "type": "boolean"
+      "type": "boolean",
+      "title": "BooleanObject"
     },
     "Capacity": {
       "description": "Represents the amount of provisioned throughput capacity consumed on a table or an index.",
@@ -403,7 +425,8 @@
           "description": "The total number of capacity units consumed on a table or an index."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Capacity"
     },
     "ComparisonOperator": {
       "enum": [
@@ -421,7 +444,8 @@
         "NOT_CONTAINS",
         "BEGINS_WITH"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ComparisonOperator"
     },
     "Condition": {
       "description": "<p>Represents the selection criteria for a <code>Query</code> or <code>Scan</code> operation:</p> <ul> <li> <p>For a <code>Query</code> operation, <code>Condition</code> is used for specifying the <code>KeyConditions</code> to use when querying a table or an index. For <code>KeyConditions</code>, only the following comparison operators are supported:</p> <p> <code>EQ | LE | LT | GE | GT | BEGINS_WITH | BETWEEN</code> </p> <p> <code>Condition</code> is also used in a <code>QueryFilter</code>, which evaluates the query results and returns only the desired values.</p> </li> <li> <p>For a <code>Scan</code> operation, <code>Condition</code> is used in a <code>ScanFilter</code>, which evaluates the scan results and returns only the desired values.</p> </li> </ul>",
@@ -438,10 +462,12 @@
       "required": [
         "ComparisonOperator"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "Condition"
     },
     "ConditionExpression": {
-      "type": "string"
+      "type": "string",
+      "title": "ConditionExpression"
     },
     "ConditionalCheckFailedException": {
       "description": "A condition specified in the operation could not be evaluated.",
@@ -451,17 +477,20 @@
           "description": "The conditional request failed."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ConditionalCheckFailedException"
     },
     "ConditionalOperator": {
       "enum": [
         "AND",
         "OR"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ConditionalOperator"
     },
     "ConsistentRead": {
-      "type": "boolean"
+      "type": "boolean",
+      "title": "ConsistentRead"
     },
     "ConsumedCapacity": {
       "description": "The capacity units consumed by an operation. The data returned includes the total provisioned throughput consumed, along with statistics for the table and any indexes involved in the operation. <code>ConsumedCapacity</code> is only returned if the request asked for it. For more information, see <a href=\"http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html\">Provisioned Throughput</a> in the <i>Amazon DynamoDB Developer Guide</i>.",
@@ -487,17 +516,20 @@
           "description": "The name of the table that was affected by the operation."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ConsumedCapacity"
     },
     "ConsumedCapacityMultiple": {
       "items": {
         "$ref": "#/definitions/ConsumedCapacity"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ConsumedCapacityMultiple"
     },
     "ConsumedCapacityUnits": {
       "format": "double",
-      "type": "number"
+      "type": "number",
+      "title": "ConsumedCapacityUnits"
     },
     "CreateGlobalSecondaryIndexAction": {
       "description": "Represents a new global secondary index to be added to an existing table.",
@@ -525,7 +557,8 @@
         "Projection",
         "ProvisionedThroughput"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateGlobalSecondaryIndexAction"
     },
     "CreateTableInput": {
       "description": "Represents the input of a <code>CreateTable</code> operation.",
@@ -592,7 +625,8 @@
         "KeySchema",
         "ProvisionedThroughput"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateTableInput"
     },
     "CreateTableOutput": {
       "description": "Represents the output of a <code>CreateTable</code> operation.",
@@ -635,11 +669,13 @@
           "description": "Represents the properties of the table."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateTableOutput"
     },
     "Date": {
       "format": "date-time",
-      "type": "string"
+      "type": "string",
+      "title": "Date"
     },
     "DeleteGlobalSecondaryIndexAction": {
       "description": "Represents a global secondary index to be deleted from an existing table.",
@@ -652,7 +688,8 @@
       "required": [
         "IndexName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteGlobalSecondaryIndexAction"
     },
     "DeleteItemInput": {
       "description": "Represents the input of a <code>DeleteItem</code> operation.",
@@ -712,7 +749,8 @@
         "TableName",
         "Key"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteItemInput"
     },
     "DeleteItemOutput": {
       "description": "Represents the output of a <code>DeleteItem</code> operation.",
@@ -736,7 +774,8 @@
           "description": "<p>Information about item collections, if any, that were affected by the <code>DeleteItem</code> operation. <code>ItemCollectionMetrics</code> is only returned if the <code>ReturnItemCollectionMetrics</code> parameter was specified. If the table does not have any local secondary indexes, this information is not returned in the response.</p> <p>Each <code>ItemCollectionMetrics</code> element consists of:</p> <ul> <li> <p> <code>ItemCollectionKey</code> - The partition key value of the item collection. This is the same as the partition key value of the item itself.</p> </li> <li> <p> <code>SizeEstimateRange</code> - An estimate of item collection size, in gigabytes. This value is a two-element array containing a lower bound and an upper bound for the estimate. The estimate includes the size of all the items in the table, plus the size of all attributes projected into all of the local secondary indexes on that table. Use this estimate to measure whether a local secondary index is approaching its size limit.</p> <p>The estimate is subject to change over time; therefore, do not rely on the precision or accuracy of the estimate.</p> </li> </ul>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DeleteItemOutput"
     },
     "DeleteRequest": {
       "description": "Represents a request to perform a <code>DeleteItem</code> operation on an item.",
@@ -749,7 +788,8 @@
       "required": [
         "Key"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteRequest"
     },
     "DeleteTableInput": {
       "description": "Represents the input of a <code>DeleteTable</code> operation.",
@@ -765,7 +805,8 @@
       "required": [
         "TableName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteTableInput"
     },
     "DeleteTableOutput": {
       "description": "Represents the output of a <code>DeleteTable</code> operation.",
@@ -788,13 +829,15 @@
           "description": "Represents the properties of a table."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DeleteTableOutput"
     },
     "DescribeLimitsInput": {
       "description": "Represents the input of a <code>DescribeLimits</code> operation. Has no content.",
       "example": {},
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DescribeLimitsInput"
     },
     "DescribeLimitsOutput": {
       "description": "Represents the output of a <code>DescribeLimits</code> operation.",
@@ -822,7 +865,8 @@
           "description": "The maximum write capacity units that your account allows you to provision for a new table that you are creating in this region, including the write capacity units provisioned for its global secondary indexes (GSIs)."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeLimitsOutput"
     },
     "DescribeTableInput": {
       "description": "Represents the input of a <code>DescribeTable</code> operation.",
@@ -838,7 +882,8 @@
       "required": [
         "TableName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeTableInput"
     },
     "DescribeTableOutput": {
       "description": "Represents the output of a <code>DescribeTable</code> operation.",
@@ -882,7 +927,8 @@
           "description": "The properties of the table."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeTableOutput"
     },
     "DescribeTimeToLiveInput": {
       "properties": {
@@ -894,7 +940,8 @@
       "required": [
         "TableName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeTimeToLiveInput"
     },
     "DescribeTimeToLiveOutput": {
       "properties": {
@@ -903,10 +950,12 @@
           "description": "<p/>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeTimeToLiveOutput"
     },
     "ErrorMessage": {
-      "type": "string"
+      "type": "string",
+      "title": "ErrorMessage"
     },
     "ExpectedAttributeMap": {
       "items": {
@@ -920,7 +969,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ExpectedAttributeMap"
     },
     "ExpectedAttributeValue": {
       "description": "<p>Represents a condition to be compared with an attribute value. This condition can be used with <code>DeleteItem</code>, <code>PutItem</code> or <code>UpdateItem</code> operations; if the comparison evaluates to true, the operation succeeds; if not, the operation fails. You can use <code>ExpectedAttributeValue</code> in one of two different ways:</p> <ul> <li> <p>Use <code>AttributeValueList</code> to specify one or more values to compare against an attribute. Use <code>ComparisonOperator</code> to specify how you want to perform the comparison. If the comparison evaluates to true, then the conditional operation succeeds.</p> </li> <li> <p>Use <code>Value</code> to specify a value that DynamoDB will compare against an attribute. If the values match, then <code>ExpectedAttributeValue</code> evaluates to true and the conditional operation succeeds. Optionally, you can also set <code>Exists</code> to false, indicating that you <i>do not</i> expect to find the attribute value in the table. In this case, the conditional operation succeeds only if the comparison evaluates to false.</p> </li> </ul> <p> <code>Value</code> and <code>Exists</code> are incompatible with <code>AttributeValueList</code> and <code>ComparisonOperator</code>. Note that if you use both sets of parameters at once, DynamoDB will return a <code>ValidationException</code> exception.</p>",
@@ -942,7 +992,8 @@
           "description": "<p>Represents the data for the expected attribute.</p> <p>Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.</p> <p>For more information, see <a href=\"http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes\">Data Types</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ExpectedAttributeValue"
     },
     "ExpressionAttributeNameMap": {
       "items": {
@@ -956,10 +1007,12 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ExpressionAttributeNameMap"
     },
     "ExpressionAttributeNameVariable": {
-      "type": "string"
+      "type": "string",
+      "title": "ExpressionAttributeNameVariable"
     },
     "ExpressionAttributeValueMap": {
       "items": {
@@ -973,10 +1026,12 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ExpressionAttributeValueMap"
     },
     "ExpressionAttributeValueVariable": {
-      "type": "string"
+      "type": "string",
+      "title": "ExpressionAttributeValueVariable"
     },
     "FilterConditionMap": {
       "items": {
@@ -990,7 +1045,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "FilterConditionMap"
     },
     "GetItemInput": {
       "description": "Represents the input of a <code>GetItem</code> operation.",
@@ -1038,7 +1094,8 @@
         "TableName",
         "Key"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetItemInput"
     },
     "GetItemOutput": {
       "description": "Represents the output of a <code>GetItem</code> operation.",
@@ -1065,7 +1122,8 @@
           "description": "A map of attribute names to <code>AttributeValue</code> objects, as specified by <code>ProjectionExpression</code>."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetItemOutput"
     },
     "GlobalSecondaryIndex": {
       "description": "Represents the properties of a global secondary index.",
@@ -1093,7 +1151,8 @@
         "Projection",
         "ProvisionedThroughput"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GlobalSecondaryIndex"
     },
     "GlobalSecondaryIndexDescription": {
       "description": "Represents the properties of a global secondary index.",
@@ -1135,19 +1194,22 @@
           "description": "<p>Represents the provisioned throughput settings for the specified global secondary index.</p> <p>For current minimum and maximum provisioned throughput values, see <a href=\"http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html\">Limits</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GlobalSecondaryIndexDescription"
     },
     "GlobalSecondaryIndexDescriptionList": {
       "items": {
         "$ref": "#/definitions/GlobalSecondaryIndexDescription"
       },
-      "type": "array"
+      "type": "array",
+      "title": "GlobalSecondaryIndexDescriptionList"
     },
     "GlobalSecondaryIndexList": {
       "items": {
         "$ref": "#/definitions/GlobalSecondaryIndex"
       },
-      "type": "array"
+      "type": "array",
+      "title": "GlobalSecondaryIndexList"
     },
     "GlobalSecondaryIndexUpdate": {
       "description": "<p>Represents one of the following:</p> <ul> <li> <p>A new global secondary index to be added to an existing table.</p> </li> <li> <p>New provisioned throughput parameters for an existing global secondary index.</p> </li> <li> <p>An existing global secondary index to be removed from an existing table.</p> </li> </ul>",
@@ -1165,19 +1227,22 @@
           "description": "The name of an existing global secondary index, along with new provisioned throughput settings to be applied to that index."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GlobalSecondaryIndexUpdate"
     },
     "GlobalSecondaryIndexUpdateList": {
       "items": {
         "$ref": "#/definitions/GlobalSecondaryIndexUpdate"
       },
-      "type": "array"
+      "type": "array",
+      "title": "GlobalSecondaryIndexUpdateList"
     },
     "IndexName": {
       "maxLength": 255,
       "minLength": 3,
       "pattern": "[a-zA-Z0-9_.-]+",
-      "type": "string"
+      "type": "string",
+      "title": "IndexName"
     },
     "IndexStatus": {
       "enum": [
@@ -1186,10 +1251,12 @@
         "DELETING",
         "ACTIVE"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "IndexStatus"
     },
     "Integer": {
-      "type": "integer"
+      "type": "integer",
+      "title": "Integer"
     },
     "InternalServerError": {
       "description": "An error occurred on the server side.",
@@ -1199,7 +1266,8 @@
           "description": "The server encountered an internal error trying to fulfill the request."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InternalServerError"
     },
     "ItemCollectionKeyAttributeMap": {
       "items": {
@@ -1213,7 +1281,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ItemCollectionKeyAttributeMap"
     },
     "ItemCollectionMetrics": {
       "description": "Information about item collections, if any, that were affected by the operation. <code>ItemCollectionMetrics</code> is only returned if the request asked for it. If the table does not have any local secondary indexes, this information is not returned in the response.",
@@ -1227,13 +1296,15 @@
           "description": "<p>An estimate of item collection size, in gigabytes. This value is a two-element array containing a lower bound and an upper bound for the estimate. The estimate includes the size of all the items in the table, plus the size of all attributes projected into all of the local secondary indexes on that table. Use this estimate to measure whether a local secondary index is approaching its size limit.</p> <p>The estimate is subject to change over time; therefore, do not rely on the precision or accuracy of the estimate.</p>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ItemCollectionMetrics"
     },
     "ItemCollectionMetricsMultiple": {
       "items": {
         "$ref": "#/definitions/ItemCollectionMetrics"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ItemCollectionMetricsMultiple"
     },
     "ItemCollectionMetricsPerTable": {
       "items": {
@@ -1247,17 +1318,20 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ItemCollectionMetricsPerTable"
     },
     "ItemCollectionSizeEstimateBound": {
       "format": "double",
-      "type": "number"
+      "type": "number",
+      "title": "ItemCollectionSizeEstimateBound"
     },
     "ItemCollectionSizeEstimateRange": {
       "items": {
         "$ref": "#/definitions/ItemCollectionSizeEstimateBound"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ItemCollectionSizeEstimateRange"
     },
     "ItemCollectionSizeLimitExceededException": {
       "description": "An item collection is too large. This exception is only returned for tables that have one or more local secondary indexes.",
@@ -1267,13 +1341,15 @@
           "description": "The total size of an item collection has exceeded the maximum limit of 10 gigabytes."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ItemCollectionSizeLimitExceededException"
     },
     "ItemList": {
       "items": {
         "$ref": "#/definitions/AttributeMap"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ItemList"
     },
     "Key": {
       "items": {
@@ -1287,7 +1363,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "Key"
     },
     "KeyConditions": {
       "items": {
@@ -1301,10 +1378,12 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "KeyConditions"
     },
     "KeyExpression": {
-      "type": "string"
+      "type": "string",
+      "title": "KeyExpression"
     },
     "KeyList": {
       "items": {
@@ -1312,7 +1391,8 @@
       },
       "maxItems": 100,
       "minItems": 1,
-      "type": "array"
+      "type": "array",
+      "title": "KeyList"
     },
     "KeySchema": {
       "items": {
@@ -1320,12 +1400,14 @@
       },
       "maxItems": 2,
       "minItems": 1,
-      "type": "array"
+      "type": "array",
+      "title": "KeySchema"
     },
     "KeySchemaAttributeName": {
       "maxLength": 255,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "KeySchemaAttributeName"
     },
     "KeySchemaElement": {
       "description": "<p>Represents <i>a single element</i> of a key schema. A key schema specifies the attributes that make up the primary key of a table, or the key attributes of an index.</p> <p>A <code>KeySchemaElement</code> represents exactly one attribute of the primary key. For example, a simple primary key would be represented by one <code>KeySchemaElement</code> (for the partition key). A composite primary key would require one <code>KeySchemaElement</code> for the partition key, and another <code>KeySchemaElement</code> for the sort key.</p> <p>A <code>KeySchemaElement</code> must be a scalar, top-level attribute (not a nested attribute). The data type must be one of String, Number, or Binary. The attribute cannot be nested within a List or a Map.</p>",
@@ -1343,14 +1425,16 @@
         "AttributeName",
         "KeyType"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "KeySchemaElement"
     },
     "KeyType": {
       "enum": [
         "HASH",
         "RANGE"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "KeyType"
     },
     "KeysAndAttributes": {
       "description": "<p>Represents a set of primary keys and, for each key, the attributes to retrieve from the table.</p> <p>For each primary key, you must provide <i>all</i> of the key attributes. For example, with a simple primary key, you only need to provide the partition key. For a composite primary key, you must provide <i>both</i> the partition key and the sort key.</p>",
@@ -1379,7 +1463,8 @@
       "required": [
         "Keys"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "KeysAndAttributes"
     },
     "LimitExceededException": {
       "description": "<p>The number of concurrent table requests (cumulative number of tables in the <code>CREATING</code>, <code>DELETING</code> or <code>UPDATING</code> state) exceeds the maximum allowed of 10.</p> <p>Also, for tables with secondary indexes, only one of those tables can be in the <code>CREATING</code> state at any point in time. Do not attempt to create more than one such table simultaneously.</p> <p>The total limit of tables in the <code>ACTIVE</code> state is 250.</p>",
@@ -1389,13 +1474,15 @@
           "description": "Too many operations for a given subscriber."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LimitExceededException"
     },
     "ListAttributeValue": {
       "items": {
         "$ref": "#/definitions/AttributeValue"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ListAttributeValue"
     },
     "ListTablesInput": {
       "description": "Represents the input of a <code>ListTables</code> operation.",
@@ -1410,12 +1497,14 @@
           "description": "A maximum number of table names to return. If this parameter is not specified, the limit is 100."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListTablesInput"
     },
     "ListTablesInputLimit": {
       "maximum": 100,
       "minimum": 1,
-      "type": "integer"
+      "type": "integer",
+      "title": "ListTablesInputLimit"
     },
     "ListTablesOutput": {
       "description": "Represents the output of a <code>ListTables</code> operation.",
@@ -1437,7 +1526,8 @@
           "description": "<p>The names of the tables associated with the current account at the current endpoint. The maximum size of this array is 100.</p> <p>If <code>LastEvaluatedTableName</code> also appears in the output, you can use this value as the <code>ExclusiveStartTableName</code> parameter in a subsequent <code>ListTables</code> request and obtain the next page of results.</p>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListTablesOutput"
     },
     "ListTagsOfResourceInput": {
       "properties": {
@@ -1453,7 +1543,8 @@
       "required": [
         "ResourceArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListTagsOfResourceInput"
     },
     "ListTagsOfResourceOutput": {
       "properties": {
@@ -1466,7 +1557,8 @@
           "description": "The tags currently associated with the Amazon DynamoDB resource."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListTagsOfResourceOutput"
     },
     "LocalSecondaryIndex": {
       "description": "Represents the properties of a local secondary index.",
@@ -1489,7 +1581,8 @@
         "KeySchema",
         "Projection"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "LocalSecondaryIndex"
     },
     "LocalSecondaryIndexDescription": {
       "description": "Represents the properties of a local secondary index.",
@@ -1519,22 +1612,26 @@
           "description": "Represents attributes that are copied (projected) from the table into the global secondary index. These are in addition to the primary key attributes and index key attributes, which are automatically projected. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LocalSecondaryIndexDescription"
     },
     "LocalSecondaryIndexDescriptionList": {
       "items": {
         "$ref": "#/definitions/LocalSecondaryIndexDescription"
       },
-      "type": "array"
+      "type": "array",
+      "title": "LocalSecondaryIndexDescriptionList"
     },
     "LocalSecondaryIndexList": {
       "items": {
         "$ref": "#/definitions/LocalSecondaryIndex"
       },
-      "type": "array"
+      "type": "array",
+      "title": "LocalSecondaryIndexList"
     },
     "Long": {
-      "type": "integer"
+      "type": "integer",
+      "title": "Long"
     },
     "MapAttributeValue": {
       "items": {
@@ -1548,15 +1645,18 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "MapAttributeValue"
     },
     "NextTokenString": {
-      "type": "string"
+      "type": "string",
+      "title": "NextTokenString"
     },
     "NonKeyAttributeName": {
       "maxLength": 255,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "NonKeyAttributeName"
     },
     "NonKeyAttributeNameList": {
       "items": {
@@ -1564,27 +1664,33 @@
       },
       "maxItems": 20,
       "minItems": 1,
-      "type": "array"
+      "type": "array",
+      "title": "NonKeyAttributeNameList"
     },
     "NullAttributeValue": {
-      "type": "boolean"
+      "type": "boolean",
+      "title": "NullAttributeValue"
     },
     "NumberAttributeValue": {
-      "type": "string"
+      "type": "string",
+      "title": "NumberAttributeValue"
     },
     "NumberSetAttributeValue": {
       "items": {
         "$ref": "#/definitions/NumberAttributeValue"
       },
-      "type": "array"
+      "type": "array",
+      "title": "NumberSetAttributeValue"
     },
     "PositiveIntegerObject": {
       "minimum": 1,
-      "type": "integer"
+      "type": "integer",
+      "title": "PositiveIntegerObject"
     },
     "PositiveLongObject": {
       "minimum": 1,
-      "type": "integer"
+      "type": "integer",
+      "title": "PositiveLongObject"
     },
     "Projection": {
       "description": "Represents attributes that are copied (projected) from the table into an index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.",
@@ -1598,10 +1704,12 @@
           "description": "<p>The set of attributes that are projected into the index:</p> <ul> <li> <p> <code>KEYS_ONLY</code> - Only the index and primary keys are projected into the index.</p> </li> <li> <p> <code>INCLUDE</code> - Only the specified table attributes are projected into the index. The list of projected attributes are in <code>NonKeyAttributes</code>.</p> </li> <li> <p> <code>ALL</code> - All of the table attributes are projected into the index.</p> </li> </ul>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Projection"
     },
     "ProjectionExpression": {
-      "type": "string"
+      "type": "string",
+      "title": "ProjectionExpression"
     },
     "ProjectionType": {
       "enum": [
@@ -1609,7 +1717,8 @@
         "KEYS_ONLY",
         "INCLUDE"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ProjectionType"
     },
     "ProvisionedThroughput": {
       "description": "<p>Represents the provisioned throughput settings for a specified table or index. The settings can be modified using the <code>UpdateTable</code> operation.</p> <p>For current minimum and maximum provisioned throughput values, see <a href=\"http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html\">Limits</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>",
@@ -1627,7 +1736,8 @@
         "ReadCapacityUnits",
         "WriteCapacityUnits"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ProvisionedThroughput"
     },
     "ProvisionedThroughputDescription": {
       "description": "Represents the provisioned throughput settings for the table, consisting of read and write capacity units, along with data about increases and decreases.",
@@ -1653,7 +1763,8 @@
           "description": "The maximum number of writes consumed per second before DynamoDB returns a <code>ThrottlingException</code>."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ProvisionedThroughputDescription"
     },
     "ProvisionedThroughputExceededException": {
       "description": "Your request rate is too high. The AWS SDKs for DynamoDB automatically retry requests that receive this exception. Your request is eventually successful, unless your retry queue is too large to finish. Reduce the frequency of requests and use exponential backoff. For more information, go to <a href=\"http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff\">Error Retries and Exponential Backoff</a> in the <i>Amazon DynamoDB Developer Guide</i>.",
@@ -1663,7 +1774,8 @@
           "description": "You exceeded your maximum allowed provisioned throughput."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ProvisionedThroughputExceededException"
     },
     "PutItemInput": {
       "description": "Represents the input of a <code>PutItem</code> operation.",
@@ -1727,7 +1839,8 @@
         "TableName",
         "Item"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "PutItemInput"
     },
     "PutItemInputAttributeMap": {
       "items": {
@@ -1741,7 +1854,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "PutItemInputAttributeMap"
     },
     "PutItemOutput": {
       "description": "Represents the output of a <code>PutItem</code> operation.",
@@ -1765,7 +1879,8 @@
           "description": "<p>Information about item collections, if any, that were affected by the <code>PutItem</code> operation. <code>ItemCollectionMetrics</code> is only returned if the <code>ReturnItemCollectionMetrics</code> parameter was specified. If the table does not have any local secondary indexes, this information is not returned in the response.</p> <p>Each <code>ItemCollectionMetrics</code> element consists of:</p> <ul> <li> <p> <code>ItemCollectionKey</code> - The partition key value of the item collection. This is the same as the partition key value of the item itself.</p> </li> <li> <p> <code>SizeEstimateRange</code> - An estimate of item collection size, in gigabytes. This value is a two-element array containing a lower bound and an upper bound for the estimate. The estimate includes the size of all the items in the table, plus the size of all attributes projected into all of the local secondary indexes on that table. Use this estimate to measure whether a local secondary index is approaching its size limit.</p> <p>The estimate is subject to change over time; therefore, do not rely on the precision or accuracy of the estimate.</p> </li> </ul>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PutItemOutput"
     },
     "PutRequest": {
       "description": "Represents a request to perform a <code>PutItem</code> operation on an item.",
@@ -1778,7 +1893,8 @@
       "required": [
         "Item"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "PutRequest"
     },
     "QueryInput": {
       "description": "Represents the input of a <code>Query</code> operation.",
@@ -1864,7 +1980,8 @@
       "required": [
         "TableName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "QueryInput"
     },
     "QueryOutput": {
       "description": "Represents the output of a <code>Query</code> operation.",
@@ -1902,12 +2019,14 @@
           "description": "<p>The number of items evaluated, before any <code>QueryFilter</code> is applied. A high <code>ScannedCount</code> value with few, or no, <code>Count</code> results indicates an inefficient <code>Query</code> operation. For more information, see <a href=\"http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html#Count\">Count and ScannedCount</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p> <p>If you did not use a filter in the request, then <code>ScannedCount</code> is the same as <code>Count</code>.</p>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "QueryOutput"
     },
     "ResourceArnString": {
       "maxLength": 1283,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "ResourceArnString"
     },
     "ResourceInUseException": {
       "description": "The operation conflicts with the resource's availability. For example, you attempted to recreate an existing table, or tried to delete a table currently in the <code>CREATING</code> state.",
@@ -1917,7 +2036,8 @@
           "description": "The resource which is being attempted to be changed is in use."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ResourceInUseException"
     },
     "ResourceNotFoundException": {
       "description": "The operation tried to access a nonexistent table or index. The resource might not be specified correctly, or its status might not be <code>ACTIVE</code>.",
@@ -1927,7 +2047,8 @@
           "description": "The resource which is being requested does not exist."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ResourceNotFoundException"
     },
     "ReturnConsumedCapacity": {
       "description": "<p>Determines the level of detail about provisioned throughput consumption that is returned in the response:</p> <ul> <li> <p> <code>INDEXES</code> - The response includes the aggregate <code>ConsumedCapacity</code> for the operation, together with <code>ConsumedCapacity</code> for each table and secondary index that was accessed.</p> <p>Note that some operations, such as <code>GetItem</code> and <code>BatchGetItem</code>, do not access any indexes at all. In these cases, specifying <code>INDEXES</code> will only return <code>ConsumedCapacity</code> information for table(s).</p> </li> <li> <p> <code>TOTAL</code> - The response includes only the aggregate <code>ConsumedCapacity</code> for the operation.</p> </li> <li> <p> <code>NONE</code> - No <code>ConsumedCapacity</code> details are included in the response.</p> </li> </ul>",
@@ -1936,14 +2057,16 @@
         "TOTAL",
         "NONE"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ReturnConsumedCapacity"
     },
     "ReturnItemCollectionMetrics": {
       "enum": [
         "SIZE",
         "NONE"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ReturnItemCollectionMetrics"
     },
     "ReturnValue": {
       "enum": [
@@ -1953,7 +2076,8 @@
         "ALL_NEW",
         "UPDATED_NEW"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ReturnValue"
     },
     "ScalarAttributeType": {
       "enum": [
@@ -1961,7 +2085,8 @@
         "N",
         "B"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ScalarAttributeType"
     },
     "ScanInput": {
       "description": "Represents the input of a <code>Scan</code> operation.",
@@ -2047,7 +2172,8 @@
       "required": [
         "TableName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ScanInput"
     },
     "ScanOutput": {
       "description": "Represents the output of a <code>Scan</code> operation.",
@@ -2096,17 +2222,20 @@
           "description": "<p>The number of items evaluated, before any <code>ScanFilter</code> is applied. A high <code>ScannedCount</code> value with few, or no, <code>Count</code> results indicates an inefficient <code>Scan</code> operation. For more information, see <a href=\"http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html#Count\">Count and ScannedCount</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p> <p>If you did not use a filter in the request, then <code>ScannedCount</code> is the same as <code>Count</code>.</p>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ScanOutput"
     },
     "ScanSegment": {
       "maximum": 999999,
       "minimum": 0,
-      "type": "integer"
+      "type": "integer",
+      "title": "ScanSegment"
     },
     "ScanTotalSegments": {
       "maximum": 1000000,
       "minimum": 1,
-      "type": "integer"
+      "type": "integer",
+      "title": "ScanTotalSegments"
     },
     "SecondaryIndexesCapacityMap": {
       "items": {
@@ -2120,7 +2249,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "SecondaryIndexesCapacityMap"
     },
     "Select": {
       "enum": [
@@ -2129,15 +2259,18 @@
         "SPECIFIC_ATTRIBUTES",
         "COUNT"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "Select"
     },
     "StreamArn": {
       "maxLength": 1024,
       "minLength": 37,
-      "type": "string"
+      "type": "string",
+      "title": "StreamArn"
     },
     "StreamEnabled": {
-      "type": "boolean"
+      "type": "boolean",
+      "title": "StreamEnabled"
     },
     "StreamSpecification": {
       "description": "Represents the DynamoDB Streams configuration for a table in DynamoDB.",
@@ -2151,7 +2284,8 @@
           "description": "<p> When an item in the table is modified, <code>StreamViewType</code> determines what information is written to the stream for this table. Valid values for <code>StreamViewType</code> are:</p> <ul> <li> <p> <code>KEYS_ONLY</code> - Only the key attributes of the modified item are written to the stream.</p> </li> <li> <p> <code>NEW_IMAGE</code> - The entire item, as it appears after it was modified, is written to the stream.</p> </li> <li> <p> <code>OLD_IMAGE</code> - The entire item, as it appeared before it was modified, is written to the stream.</p> </li> <li> <p> <code>NEW_AND_OLD_IMAGES</code> - Both the new and the old item images of the item are written to the stream.</p> </li> </ul>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "StreamSpecification"
     },
     "StreamViewType": {
       "enum": [
@@ -2160,19 +2294,23 @@
         "NEW_AND_OLD_IMAGES",
         "KEYS_ONLY"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "StreamViewType"
     },
     "String": {
-      "type": "string"
+      "type": "string",
+      "title": "String"
     },
     "StringAttributeValue": {
-      "type": "string"
+      "type": "string",
+      "title": "StringAttributeValue"
     },
     "StringSetAttributeValue": {
       "items": {
         "$ref": "#/definitions/StringAttributeValue"
       },
-      "type": "array"
+      "type": "array",
+      "title": "StringSetAttributeValue"
     },
     "TableDescription": {
       "description": "Represents the properties of a table.",
@@ -2234,19 +2372,22 @@
           "description": "<p>The current state of the table:</p> <ul> <li> <p> <code>CREATING</code> - The table is being created.</p> </li> <li> <p> <code>UPDATING</code> - The table is being updated.</p> </li> <li> <p> <code>DELETING</code> - The table is being deleted.</p> </li> <li> <p> <code>ACTIVE</code> - The table is ready for use.</p> </li> </ul>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TableDescription"
     },
     "TableName": {
       "maxLength": 255,
       "minLength": 3,
       "pattern": "[a-zA-Z0-9_.-]+",
-      "type": "string"
+      "type": "string",
+      "title": "TableName"
     },
     "TableNameList": {
       "items": {
         "$ref": "#/definitions/TableName"
       },
-      "type": "array"
+      "type": "array",
+      "title": "TableNameList"
     },
     "TableStatus": {
       "enum": [
@@ -2255,7 +2396,8 @@
         "DELETING",
         "ACTIVE"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "TableStatus"
     },
     "Tag": {
       "description": "<p>Describes a tag. A tag is a key-value pair. You can add up to 50 tags to a single DynamoDB table. </p> <p> AWS-assigned tag names and values are automatically assigned the aws: prefix, which the user cannot assign. AWS-assigned tag names do not count towards the tag limit of 50. User-assigned tag names have the prefix user: in the Cost Allocation Report. You cannot backdate the application of a tag. </p> <p>For an overview on tagging DynamoDB resources, see <a href=\"http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Tagging.html\">Tagging for DynamoDB</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>",
@@ -2273,24 +2415,28 @@
         "Key",
         "Value"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "Tag"
     },
     "TagKeyList": {
       "items": {
         "$ref": "#/definitions/TagKeyString"
       },
-      "type": "array"
+      "type": "array",
+      "title": "TagKeyList"
     },
     "TagKeyString": {
       "maxLength": 128,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "TagKeyString"
     },
     "TagList": {
       "items": {
         "$ref": "#/definitions/Tag"
       },
-      "type": "array"
+      "type": "array",
+      "title": "TagList"
     },
     "TagResourceInput": {
       "properties": {
@@ -2307,17 +2453,20 @@
         "ResourceArn",
         "Tags"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "TagResourceInput"
     },
     "TagValueString": {
       "maxLength": 256,
       "minLength": 0,
-      "type": "string"
+      "type": "string",
+      "title": "TagValueString"
     },
     "TimeToLiveAttributeName": {
       "maxLength": 255,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "TimeToLiveAttributeName"
     },
     "TimeToLiveDescription": {
       "description": "The description of the Time to Live (TTL) status on the specified table. ",
@@ -2331,10 +2480,12 @@
           "description": " The Time to Live status for the table."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TimeToLiveDescription"
     },
     "TimeToLiveEnabled": {
-      "type": "boolean"
+      "type": "boolean",
+      "title": "TimeToLiveEnabled"
     },
     "TimeToLiveSpecification": {
       "description": "Represents the settings used to enable or disable Time to Live for the specified table.",
@@ -2352,7 +2503,8 @@
         "Enabled",
         "AttributeName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "TimeToLiveSpecification"
     },
     "TimeToLiveStatus": {
       "enum": [
@@ -2361,7 +2513,8 @@
         "ENABLED",
         "DISABLED"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "TimeToLiveStatus"
     },
     "UntagResourceInput": {
       "properties": {
@@ -2378,10 +2531,12 @@
         "ResourceArn",
         "TagKeys"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UntagResourceInput"
     },
     "UpdateExpression": {
-      "type": "string"
+      "type": "string",
+      "title": "UpdateExpression"
     },
     "UpdateGlobalSecondaryIndexAction": {
       "description": "Represents the new provisioned throughput settings to be applied to a global secondary index.",
@@ -2399,7 +2554,8 @@
         "IndexName",
         "ProvisionedThroughput"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateGlobalSecondaryIndexAction"
     },
     "UpdateItemInput": {
       "description": "Represents the input of an <code>UpdateItem</code> operation.",
@@ -2481,7 +2637,8 @@
         "TableName",
         "Key"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateItemInput"
     },
     "UpdateItemOutput": {
       "description": "Represents the output of an <code>UpdateItem</code> operation.",
@@ -2512,7 +2669,8 @@
           "description": "<p>Information about item collections, if any, that were affected by the <code>UpdateItem</code> operation. <code>ItemCollectionMetrics</code> is only returned if the <code>ReturnItemCollectionMetrics</code> parameter was specified. If the table does not have any local secondary indexes, this information is not returned in the response.</p> <p>Each <code>ItemCollectionMetrics</code> element consists of:</p> <ul> <li> <p> <code>ItemCollectionKey</code> - The partition key value of the item collection. This is the same as the partition key value of the item itself.</p> </li> <li> <p> <code>SizeEstimateRange</code> - An estimate of item collection size, in gigabytes. This value is a two-element array containing a lower bound and an upper bound for the estimate. The estimate includes the size of all the items in the table, plus the size of all attributes projected into all of the local secondary indexes on that table. Use this estimate to measure whether a local secondary index is approaching its size limit.</p> <p>The estimate is subject to change over time; therefore, do not rely on the precision or accuracy of the estimate.</p> </li> </ul>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UpdateItemOutput"
     },
     "UpdateTableInput": {
       "description": "Represents the input of an <code>UpdateTable</code> operation.",
@@ -2548,7 +2706,8 @@
       "required": [
         "TableName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateTableInput"
     },
     "UpdateTableOutput": {
       "description": "Represents the output of an <code>UpdateTable</code> operation.",
@@ -2593,7 +2752,8 @@
           "description": "Represents the properties of the table."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UpdateTableOutput"
     },
     "UpdateTimeToLiveInput": {
       "description": "Represents the input of an <code>UpdateTimeToLive</code> operation.",
@@ -2611,7 +2771,8 @@
         "TableName",
         "TimeToLiveSpecification"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateTimeToLiveInput"
     },
     "UpdateTimeToLiveOutput": {
       "properties": {
@@ -2620,7 +2781,8 @@
           "description": "Represents the output of an <code>UpdateTimeToLive</code> operation."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UpdateTimeToLiveOutput"
     },
     "WriteRequest": {
       "description": "Represents an operation to perform - either <code>DeleteItem</code> or <code>PutItem</code>. You can only request one of these operations, not both, in a single <code>WriteRequest</code>. If you do need to perform both of these operations, you will need to provide two separate <code>WriteRequest</code> objects.",
@@ -2634,7 +2796,8 @@
           "description": "A request to perform a <code>PutItem</code> operation."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "WriteRequest"
     },
     "WriteRequests": {
       "items": {
@@ -2642,7 +2805,8 @@
       },
       "maxItems": 25,
       "minItems": 1,
-      "type": "array"
+      "type": "array",
+      "title": "WriteRequests"
     }
   },
   "actions": [

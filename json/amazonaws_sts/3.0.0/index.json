@@ -58,7 +58,8 @@
         "RoleArn",
         "RoleSessionName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AssumeRoleRequest"
     },
     "AssumeRoleResponse": {
       "description": "Contains the response to a successful <a>AssumeRole</a> request, including temporary AWS credentials that can be used to make AWS requests. ",
@@ -89,7 +90,8 @@
           "description": "A percentage value that indicates the size of the policy in packed form. The service rejects any policy with a packed size greater than 100 percent, which means the policy exceeded the allowed space."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AssumeRoleResponse"
     },
     "AssumeRoleWithSAMLRequest": {
       "properties": {
@@ -119,7 +121,8 @@
         "PrincipalArn",
         "SAMLAssertion"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AssumeRoleWithSAMLRequest"
     },
     "AssumeRoleWithSAMLResponse": {
       "description": "Contains the response to a successful <a>AssumeRoleWithSAML</a> request, including temporary AWS credentials that can be used to make AWS requests. ",
@@ -157,7 +160,8 @@
           "description": "<p> The format of the name ID, as defined by the <code>Format</code> attribute in the <code>NameID</code> element of the SAML assertion. Typical examples of the format are <code>transient</code> or <code>persistent</code>. </p> <p> If the format includes the prefix <code>urn:oasis:names:tc:SAML:2.0:nameid-format</code>, that prefix is removed. For example, <code>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</code> is returned as <code>transient</code>. If the format includes any other prefix, the format is returned with no modifications.</p>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AssumeRoleWithSAMLResponse"
     },
     "AssumeRoleWithWebIdentityRequest": {
       "example": {
@@ -198,7 +202,8 @@
         "RoleSessionName",
         "WebIdentityToken"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AssumeRoleWithWebIdentityRequest"
     },
     "AssumeRoleWithWebIdentityResponse": {
       "description": "Contains the response to a successful <a>AssumeRoleWithWebIdentity</a> request, including temporary AWS credentials that can be used to make AWS requests. ",
@@ -244,7 +249,8 @@
           "description": "The unique user identifier that is returned by the identity provider. This identifier is associated with the <code>WebIdentityToken</code> that was submitted with the <code>AssumeRoleWithWebIdentity</code> call. The identifier is typically unique to the user and the application that acquired the <code>WebIdentityToken</code> (pairwise identifier). For OpenID Connect ID tokens, this field contains the value returned by the identity provider as the token's <code>sub</code> (Subject) claim. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AssumeRoleWithWebIdentityResponse"
     },
     "AssumedRoleUser": {
       "description": "The identifiers for the temporary security credentials that the operation returns.",
@@ -262,10 +268,12 @@
         "AssumedRoleId",
         "Arn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AssumedRoleUser"
     },
     "Audience": {
-      "type": "string"
+      "type": "string",
+      "title": "Audience"
     },
     "Credentials": {
       "description": "AWS credentials for API authentication.",
@@ -293,7 +301,8 @@
         "SessionToken",
         "Expiration"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "Credentials"
     },
     "DecodeAuthorizationMessageRequest": {
       "example": {
@@ -308,7 +317,8 @@
       "required": [
         "EncodedMessage"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DecodeAuthorizationMessageRequest"
     },
     "DecodeAuthorizationMessageResponse": {
       "description": "A document that contains additional information about the authorization status of a request from an encoded message that is returned in response to an AWS request.",
@@ -321,7 +331,8 @@
           "description": "An XML document that contains the decoded message."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DecodeAuthorizationMessageResponse"
     },
     "ExpiredTokenException": {
       "description": "The web identity token that was passed is expired or is not valid. Get a new identity token from the identity provider and then retry the request.",
@@ -330,7 +341,8 @@
           "$ref": "#/definitions/expiredIdentityTokenMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ExpiredTokenException"
     },
     "FederatedUser": {
       "description": "Identifiers for the federated user that is associated with the credentials.",
@@ -348,12 +360,14 @@
         "FederatedUserId",
         "Arn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "FederatedUser"
     },
     "GetCallerIdentityRequest": {
       "example": {},
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "GetCallerIdentityRequest"
     },
     "GetCallerIdentityResponse": {
       "description": "Contains the response to a successful <a>GetCallerIdentity</a> request, including information about the entity making the request.",
@@ -376,7 +390,8 @@
           "description": "The unique identifier of the calling entity. The exact value depends on the type of entity making the call. The values returned are those listed in the <b>aws:userid</b> column in the <a href=\"http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_variables.html#principaltable\">Principal table</a> found on the <b>Policy Variables</b> reference page in the <i>IAM User Guide</i>."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetCallerIdentityResponse"
     },
     "GetFederationTokenRequest": {
       "example": {
@@ -401,7 +416,8 @@
       "required": [
         "Name"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetFederationTokenRequest"
     },
     "GetFederationTokenResponse": {
       "description": "Contains the response to a successful <a>GetFederationToken</a> request, including temporary AWS credentials that can be used to make AWS requests. ",
@@ -432,7 +448,8 @@
           "description": "A percentage value indicating the size of the policy in packed form. The service rejects policies for which the packed size is greater than 100 percent of the allowed value."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetFederationTokenResponse"
     },
     "GetSessionTokenRequest": {
       "example": {
@@ -454,7 +471,8 @@
           "description": "<p>The value provided by the MFA device, if MFA is required. If any policy requires the IAM user to submit an MFA code, specify this value. If MFA authentication is required, and the user does not provide a code when requesting a set of temporary security credentials, the user will receive an \"access denied\" response when requesting resources that require MFA authentication.</p> <p>The format for this parameter, as described by its regex pattern, is a sequence of six numeric digits.</p>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetSessionTokenRequest"
     },
     "GetSessionTokenResponse": {
       "description": "Contains the response to a successful <a>GetSessionToken</a> request, including temporary AWS credentials that can be used to make AWS requests. ",
@@ -472,7 +490,8 @@
           "description": "<p>The temporary security credentials, which include an access key ID, a secret access key, and a security (or session) token.</p> <p> <b>Note:</b> The size of the security token that STS APIs return is not fixed. We strongly recommend that you make no assumptions about the maximum size. As of this writing, the typical size is less than 4096 bytes, but that can vary. Also, future updates to AWS might require larger sizes.</p>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetSessionTokenResponse"
     },
     "IDPCommunicationErrorException": {
       "description": "The request could not be fulfilled because the non-AWS identity provider (IDP) that was asked to verify the incoming identity token could not be reached. This is often a transient error caused by network conditions. Retry the request a limited number of times so that you don't exceed the request rate. If the error persists, the non-AWS identity provider might be down or not responding.",
@@ -481,7 +500,8 @@
           "$ref": "#/definitions/idpCommunicationErrorMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "IDPCommunicationErrorException"
     },
     "IDPRejectedClaimException": {
       "description": "<p>The identity provider (IdP) reported that authentication failed. This might be because the claim is invalid.</p> <p>If this error is returned for the <code>AssumeRoleWithWebIdentity</code> operation, it can also mean that the claim has expired or has been explicitly revoked. </p>",
@@ -490,7 +510,8 @@
           "$ref": "#/definitions/idpRejectedClaimMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "IDPRejectedClaimException"
     },
     "InvalidAuthorizationMessageException": {
       "description": "The error returned if the message passed to <code>DecodeAuthorizationMessage</code> was invalid. This can happen if the token contains invalid characters, such as linebreaks. ",
@@ -499,7 +520,8 @@
           "$ref": "#/definitions/invalidAuthorizationMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidAuthorizationMessageException"
     },
     "InvalidIdentityTokenException": {
       "description": "The web identity token that was passed could not be validated by AWS. Get a new identity token from the identity provider and then retry the request.",
@@ -508,10 +530,12 @@
           "$ref": "#/definitions/invalidIdentityTokenMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidIdentityTokenException"
     },
     "Issuer": {
-      "type": "string"
+      "type": "string",
+      "title": "Issuer"
     },
     "MalformedPolicyDocumentException": {
       "description": "The request was rejected because the policy document was malformed. The error message describes the specific error.",
@@ -520,10 +544,12 @@
           "$ref": "#/definitions/malformedPolicyDocumentMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "MalformedPolicyDocumentException"
     },
     "NameQualifier": {
-      "type": "string"
+      "type": "string",
+      "title": "NameQualifier"
     },
     "PackedPolicyTooLargeException": {
       "description": "The request was rejected because the policy document was too large. The error message describes how big the policy document is, in packed form, as a percentage of what the API allows.",
@@ -532,7 +558,8 @@
           "$ref": "#/definitions/packedPolicyTooLargeMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PackedPolicyTooLargeException"
     },
     "RegionDisabledException": {
       "description": "STS is not activated in the requested region for the account that is being asked to generate credentials. The account administrator must use the IAM console to activate STS in that region. For more information, see <a href=\"http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html\">Activating and Deactivating AWS STS in an AWS Region</a> in the <i>IAM User Guide</i>.",
@@ -541,155 +568,190 @@
           "$ref": "#/definitions/regionDisabledMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RegionDisabledException"
     },
     "SAMLAssertionType": {
       "maxLength": 50000,
       "minLength": 4,
-      "type": "string"
+      "type": "string",
+      "title": "SAMLAssertionType"
     },
     "Subject": {
-      "type": "string"
+      "type": "string",
+      "title": "Subject"
     },
     "SubjectType": {
-      "type": "string"
+      "type": "string",
+      "title": "SubjectType"
     },
     "accessKeyIdType": {
       "maxLength": 32,
       "minLength": 16,
       "pattern": "[\\w]*",
-      "type": "string"
+      "type": "string",
+      "title": "accessKeyIdType"
     },
     "accessKeySecretType": {
-      "type": "string"
+      "type": "string",
+      "title": "accessKeySecretType"
     },
     "accountType": {
-      "type": "string"
+      "type": "string",
+      "title": "accountType"
     },
     "arnType": {
       "maxLength": 2048,
       "minLength": 20,
       "pattern": "[\\u0009\\u000A\\u000D\\u0020-\\u007E\\u0085\\u00A0-\\uD7FF\\uE000-\\uFFFD\\u10000-\\u10FFFF]+",
-      "type": "string"
+      "type": "string",
+      "title": "arnType"
     },
     "assumedRoleIdType": {
       "maxLength": 96,
       "minLength": 2,
       "pattern": "[\\w+=,.@:-]*",
-      "type": "string"
+      "type": "string",
+      "title": "assumedRoleIdType"
     },
     "clientTokenType": {
       "maxLength": 2048,
       "minLength": 4,
-      "type": "string"
+      "type": "string",
+      "title": "clientTokenType"
     },
     "dateType": {
       "format": "date-time",
-      "type": "string"
+      "type": "string",
+      "title": "dateType"
     },
     "decodedMessageType": {
-      "type": "string"
+      "type": "string",
+      "title": "decodedMessageType"
     },
     "durationSecondsType": {
       "maximum": 129600,
       "minimum": 900,
-      "type": "integer"
+      "type": "integer",
+      "title": "durationSecondsType"
     },
     "encodedMessageType": {
       "maxLength": 10240,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "encodedMessageType"
     },
     "expiredIdentityTokenMessage": {
-      "type": "string"
+      "type": "string",
+      "title": "expiredIdentityTokenMessage"
     },
     "externalIdType": {
       "maxLength": 1224,
       "minLength": 2,
       "pattern": "[\\w+=,.@:\\/-]*",
-      "type": "string"
+      "type": "string",
+      "title": "externalIdType"
     },
     "federatedIdType": {
       "maxLength": 96,
       "minLength": 2,
       "pattern": "[\\w+=,.@\\:-]*",
-      "type": "string"
+      "type": "string",
+      "title": "federatedIdType"
     },
     "idpCommunicationErrorMessage": {
-      "type": "string"
+      "type": "string",
+      "title": "idpCommunicationErrorMessage"
     },
     "idpRejectedClaimMessage": {
-      "type": "string"
+      "type": "string",
+      "title": "idpRejectedClaimMessage"
     },
     "invalidAuthorizationMessage": {
-      "type": "string"
+      "type": "string",
+      "title": "invalidAuthorizationMessage"
     },
     "invalidIdentityTokenMessage": {
-      "type": "string"
+      "type": "string",
+      "title": "invalidIdentityTokenMessage"
     },
     "malformedPolicyDocumentMessage": {
-      "type": "string"
+      "type": "string",
+      "title": "malformedPolicyDocumentMessage"
     },
     "nonNegativeIntegerType": {
       "minimum": 0,
-      "type": "integer"
+      "type": "integer",
+      "title": "nonNegativeIntegerType"
     },
     "packedPolicyTooLargeMessage": {
-      "type": "string"
+      "type": "string",
+      "title": "packedPolicyTooLargeMessage"
     },
     "regionDisabledMessage": {
-      "type": "string"
+      "type": "string",
+      "title": "regionDisabledMessage"
     },
     "roleDurationSecondsType": {
       "maximum": 3600,
       "minimum": 900,
-      "type": "integer"
+      "type": "integer",
+      "title": "roleDurationSecondsType"
     },
     "roleSessionNameType": {
       "maxLength": 64,
       "minLength": 2,
       "pattern": "[\\w+=,.@-]*",
-      "type": "string"
+      "type": "string",
+      "title": "roleSessionNameType"
     },
     "serialNumberType": {
       "maxLength": 256,
       "minLength": 9,
       "pattern": "[\\w+=/:,.@-]*",
-      "type": "string"
+      "type": "string",
+      "title": "serialNumberType"
     },
     "sessionPolicyDocumentType": {
       "maxLength": 2048,
       "minLength": 1,
       "pattern": "[\\u0009\\u000A\\u000D\\u0020-\\u00FF]+",
-      "type": "string"
+      "type": "string",
+      "title": "sessionPolicyDocumentType"
     },
     "tokenCodeType": {
       "maxLength": 6,
       "minLength": 6,
       "pattern": "[\\d]*",
-      "type": "string"
+      "type": "string",
+      "title": "tokenCodeType"
     },
     "tokenType": {
-      "type": "string"
+      "type": "string",
+      "title": "tokenType"
     },
     "urlType": {
       "maxLength": 2048,
       "minLength": 4,
-      "type": "string"
+      "type": "string",
+      "title": "urlType"
     },
     "userIdType": {
-      "type": "string"
+      "type": "string",
+      "title": "userIdType"
     },
     "userNameType": {
       "maxLength": 32,
       "minLength": 2,
       "pattern": "[\\w+=,.@-]*",
-      "type": "string"
+      "type": "string",
+      "title": "userNameType"
     },
     "webIdentitySubjectType": {
       "maxLength": 255,
       "minLength": 6,
-      "type": "string"
+      "type": "string",
+      "title": "webIdentitySubjectType"
     }
   },
   "actions": [

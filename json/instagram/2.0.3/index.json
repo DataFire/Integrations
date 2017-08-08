@@ -54,7 +54,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CaptionData"
     },
     "CommentEntry": {
       "properties": {
@@ -75,7 +76,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CommentEntry"
     },
     "CommentsCollection": {
       "properties": {
@@ -91,7 +93,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CommentsCollection"
     },
     "CommentsResponse": {
       "properties": {
@@ -107,7 +110,8 @@
           "description": "Response meta-data"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CommentsResponse"
     },
     "CursorPaginationInfo": {
       "properties": {
@@ -120,7 +124,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CursorPaginationInfo"
     },
     "IdPaginationInfo": {
       "properties": {
@@ -133,7 +138,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "IdPaginationInfo"
     },
     "ImageInfo": {
       "properties": {
@@ -150,7 +156,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ImageInfo"
     },
     "ImagesData": {
       "properties": {
@@ -167,7 +174,8 @@
           "description": "Thumbnail of the image"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ImagesData"
     },
     "LikesCollection": {
       "properties": {
@@ -183,7 +191,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LikesCollection"
     },
     "LocationInfo": {
       "properties": {
@@ -206,7 +215,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LocationInfo"
     },
     "LocationInfoResponse": {
       "properties": {
@@ -219,7 +229,8 @@
           "description": "Response meta-data"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LocationInfoResponse"
     },
     "LocationSearchResponse": {
       "properties": {
@@ -235,7 +246,8 @@
           "description": "Response meta-data"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LocationSearchResponse"
     },
     "MediaEntry": {
       "properties": {
@@ -314,7 +326,8 @@
           "description": "Videos data in different resolutions, applied for 'video' type"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "MediaEntry"
     },
     "MediaEntryResponse": {
       "properties": {
@@ -327,7 +340,8 @@
           "description": "Response meta-data"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "MediaEntryResponse"
     },
     "MediaListResponse": {
       "properties": {
@@ -347,7 +361,8 @@
           "description": "Information for pagination"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "MediaListResponse"
     },
     "MediaSearchResponse": {
       "properties": {
@@ -363,7 +378,8 @@
           "description": "Response meta-data"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "MediaSearchResponse"
     },
     "MetaData": {
       "properties": {
@@ -373,7 +389,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "MetaData"
     },
     "Position": {
       "properties": {
@@ -388,7 +405,8 @@
           "type": "number"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Position"
     },
     "RelationshipInfo": {
       "properties": {
@@ -415,7 +433,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RelationshipInfo"
     },
     "RelationshipPostResponse": {
       "properties": {
@@ -428,7 +447,8 @@
           "description": "Response meta-data"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RelationshipPostResponse"
     },
     "RelationshipResponse": {
       "properties": {
@@ -441,7 +461,8 @@
           "description": "Response meta-data"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RelationshipResponse"
     },
     "RelationshipStatus": {
       "properties": {
@@ -455,7 +476,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RelationshipStatus"
     },
     "StatusResponse": {
       "properties": {
@@ -468,7 +490,8 @@
           "description": "Response meta-data"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "StatusResponse"
     },
     "TagInfo": {
       "properties": {
@@ -482,7 +505,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TagInfo"
     },
     "TagInfoResponse": {
       "properties": {
@@ -495,7 +519,8 @@
           "description": "Response meta-data"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TagInfoResponse"
     },
     "TagMediaListResponse": {
       "properties": {
@@ -515,7 +540,8 @@
           "description": "Information for pagination"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TagMediaListResponse"
     },
     "TagPaginationInfo": {
       "properties": {
@@ -544,7 +570,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TagPaginationInfo"
     },
     "TagSearchResponse": {
       "properties": {
@@ -560,7 +587,8 @@
           "description": "Response meta-data"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TagSearchResponse"
     },
     "UserCounts": {
       "properties": {
@@ -580,7 +608,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UserCounts"
     },
     "UserInPhoto": {
       "properties": {
@@ -593,7 +622,8 @@
           "description": "User who is indicated on the photo"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UserInPhoto"
     },
     "UserInfo": {
       "properties": {
@@ -626,7 +656,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UserInfo"
     },
     "UserResponse": {
       "properties": {
@@ -639,7 +670,8 @@
           "description": "Response meta-data"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UserResponse"
     },
     "UserShortInfo": {
       "properties": {
@@ -660,7 +692,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UserShortInfo"
     },
     "UsersInfoResponse": {
       "properties": {
@@ -676,7 +709,8 @@
           "description": "Response meta-data"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UsersInfoResponse"
     },
     "UsersPagingResponse": {
       "properties": {
@@ -696,7 +730,8 @@
           "description": "Information for pagination"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UsersPagingResponse"
     },
     "VideosData": {
       "properties": {
@@ -709,7 +744,8 @@
           "description": "Video in standard resolution"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "VideosData"
     }
   },
   "actions": [

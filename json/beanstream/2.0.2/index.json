@@ -46,7 +46,8 @@
           "description": "characters (2)",
           "type": "string"
         }
-      }
+      },
+      "title": "Address"
     },
     "Adjustment": {
       "properties": {
@@ -75,7 +76,8 @@
         "url": {
           "type": "string"
         }
-      }
+      },
+      "title": "Adjustment"
     },
     "BeanstreamException": {
       "properties": {
@@ -99,7 +101,8 @@
         "reference": {
           "type": "string"
         }
-      }
+      },
+      "title": "BeanstreamException"
     },
     "Card": {
       "properties": {
@@ -138,7 +141,8 @@
         "number",
         "expiry_month",
         "expiry_year"
-      ]
+      ],
+      "title": "Card"
     },
     "CardGetTransactionResponse": {
       "properties": {
@@ -170,7 +174,8 @@
           "description": "digits (4)",
           "type": "string"
         }
-      }
+      },
+      "title": "CardGetTransactionResponse"
     },
     "CardPurchaseResponse": {
       "properties": {
@@ -194,7 +199,8 @@
           "description": "digits (1)",
           "type": "integer"
         }
-      }
+      },
+      "title": "CardPurchaseResponse"
     },
     "CreateProfileBody": {
       "properties": {
@@ -218,7 +224,8 @@
         "token": {
           "$ref": "#/definitions/ProfileFromToken"
         }
-      }
+      },
+      "title": "CreateProfileBody"
     },
     "Criteria": {
       "properties": {
@@ -235,7 +242,8 @@
           "description": "The value you want to match against.",
           "type": "string"
         }
-      }
+      },
+      "title": "Criteria"
     },
     "Custom": {
       "properties": {
@@ -259,7 +267,8 @@
           "description": "alphanumeric (256)",
           "type": "string"
         }
-      }
+      },
+      "title": "Custom"
     },
     "Detail": {
       "properties": {
@@ -269,7 +278,8 @@
         "message": {
           "type": "string"
         }
-      }
+      },
+      "title": "Detail"
     },
     "GetProfileDefaultCard": {
       "properties": {
@@ -293,7 +303,8 @@
           "description": "masked credit card number alphanumeric(20)",
           "type": "string"
         }
-      }
+      },
+      "title": "GetProfileDefaultCard"
     },
     "Link": {
       "properties": {
@@ -309,7 +320,8 @@
           "description": "characters (16). Eg. \"void\" or \"return\"",
           "type": "string"
         }
-      }
+      },
+      "title": "Link"
     },
     "PaymentProfile": {
       "properties": {
@@ -360,7 +372,8 @@
         "velocity_group": {
           "type": "string"
         }
-      }
+      },
+      "title": "PaymentProfile"
     },
     "PaymentRequest": {
       "properties": {
@@ -420,7 +433,8 @@
       "required": [
         "amount",
         "payment_method"
-      ]
+      ],
+      "title": "PaymentRequest"
     },
     "PaymentResponse": {
       "properties": {
@@ -469,7 +483,8 @@
           "description": "characters (16)",
           "type": "string"
         }
-      }
+      },
+      "title": "PaymentResponse"
     },
     "ProfileCard": {
       "properties": {
@@ -489,7 +504,8 @@
           "description": "Credit card number. digits(20)",
           "type": "string"
         }
-      }
+      },
+      "title": "ProfileCard"
     },
     "ProfileCards": {
       "properties": {
@@ -517,7 +533,8 @@
           "description": "digits(20)",
           "type": "string"
         }
-      }
+      },
+      "title": "ProfileCards"
     },
     "ProfileFromCard": {
       "properties": {
@@ -551,7 +568,8 @@
         "number",
         "expiry_month",
         "expiry_year"
-      ]
+      ],
+      "title": "ProfileFromCard"
     },
     "ProfileFromToken": {
       "properties": {
@@ -567,7 +585,8 @@
       "required": [
         "name",
         "code"
-      ]
+      ],
+      "title": "ProfileFromToken"
     },
     "ProfileGetCards": {
       "properties": {
@@ -590,7 +609,8 @@
           "description": "alphanumeric(64)",
           "type": "string"
         }
-      }
+      },
+      "title": "ProfileGetCards"
     },
     "ProfilePurchase": {
       "properties": {
@@ -610,7 +630,8 @@
       "required": [
         "customer_code",
         "card_id"
-      ]
+      ],
+      "title": "ProfilePurchase"
     },
     "ProfileResponse": {
       "properties": {
@@ -625,7 +646,8 @@
         "message": {
           "type": "string"
         }
-      }
+      },
+      "title": "ProfileResponse"
     },
     "ProfileToken": {
       "properties": {
@@ -637,7 +659,8 @@
           "description": "Name of cardholder. alphanumeric(64)",
           "type": "string"
         }
-      }
+      },
+      "title": "ProfileToken"
     },
     "Return": {
       "properties": {
@@ -653,7 +676,8 @@
       },
       "required": [
         "amount"
-      ]
+      ],
+      "title": "Return"
     },
     "SearchQuery": {
       "properties": {
@@ -695,7 +719,8 @@
         "end_date",
         "start_row",
         "end_row"
-      ]
+      ],
+      "title": "SearchQuery"
     },
     "SearchRecord": {
       "properties": {
@@ -862,7 +887,8 @@
           "format": "integer",
           "type": "number"
         }
-      }
+      },
+      "title": "SearchRecord"
     },
     "SearchResult": {
       "properties": {
@@ -872,7 +898,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "SearchResult"
     },
     "TokenPurchase": {
       "properties": {
@@ -892,7 +919,8 @@
       "required": [
         "code",
         "name"
-      ]
+      ],
+      "title": "TokenPurchase"
     },
     "TokenRequest": {
       "properties": {
@@ -918,7 +946,8 @@
         "expiry_month",
         "expiry_year",
         "cvd"
-      ]
+      ],
+      "title": "TokenRequest"
     },
     "TokenResponse": {
       "properties": {
@@ -941,7 +970,8 @@
       },
       "required": [
         "token"
-      ]
+      ],
+      "title": "TokenResponse"
     },
     "Transaction": {
       "properties": {
@@ -1017,7 +1047,8 @@
         "type": {
           "type": "string"
         }
-      }
+      },
+      "title": "Transaction"
     },
     "UpdateProfileBody": {
       "properties": {
@@ -1038,7 +1069,8 @@
           "description": "characters(2)",
           "type": "string"
         }
-      }
+      },
+      "title": "UpdateProfileBody"
     },
     "Void": {
       "properties": {
@@ -1050,7 +1082,8 @@
       },
       "required": [
         "amount"
-      ]
+      ],
+      "title": "Void"
     }
   },
   "actions": [

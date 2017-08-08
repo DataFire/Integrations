@@ -68,7 +68,8 @@
         "state",
         "countryId",
         "zipCode"
-      ]
+      ],
+      "title": "Address"
     },
     "ControlledStock": {
       "properties": {
@@ -88,7 +89,8 @@
       },
       "required": [
         "quantity"
-      ]
+      ],
+      "title": "ControlledStock"
     },
     "Courier": {
       "properties": {
@@ -103,7 +105,8 @@
       },
       "required": [
         "name"
-      ]
+      ],
+      "title": "Courier"
     },
     "Customer": {
       "properties": {
@@ -141,7 +144,8 @@
         "documentNumber",
         "type",
         "phones"
-      ]
+      ],
+      "title": "Customer"
     },
     "CustomerReference": {
       "properties": {
@@ -153,7 +157,8 @@
           "description": "Customer phone mumber",
           "type": "string"
         }
-      }
+      },
+      "title": "CustomerReference"
     },
     "Dimensions": {
       "properties": {
@@ -179,7 +184,8 @@
         "length",
         "width",
         "height"
-      ]
+      ],
+      "title": "Dimensions"
     },
     "Error": {
       "properties": {
@@ -199,7 +205,8 @@
       "required": [
         "type",
         "message"
-      ]
+      ],
+      "title": "Error"
     },
     "Freight": {
       "properties": {
@@ -244,7 +251,8 @@
         "transitTime",
         "crossDockingTime",
         "additionalInfo"
-      ]
+      ],
+      "title": "Freight"
     },
     "GetOrders": {
       "properties": {
@@ -264,7 +272,8 @@
       "required": [
         "orders",
         "metadata"
-      ]
+      ],
+      "title": "GetOrders"
     },
     "GetOrdersShipments": {
       "properties": {
@@ -282,7 +291,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "GetOrdersShipments"
     },
     "GetProduct": {
       "properties": {
@@ -375,7 +385,8 @@
         "stock",
         "images",
         "status"
-      ]
+      ],
+      "title": "GetProduct"
     },
     "GetProductsResponse": {
       "properties": {
@@ -392,7 +403,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "GetProductsResponse"
     },
     "GetProductsStatusSelling": {
       "properties": {
@@ -412,7 +424,8 @@
       "required": [
         "sellerItems",
         "metadata"
-      ]
+      ],
+      "title": "GetProductsStatusSelling"
     },
     "GetSellerProductStatus": {
       "properties": {
@@ -443,7 +456,8 @@
         "status",
         "price",
         "stock"
-      ]
+      ],
+      "title": "GetSellerProductStatus"
     },
     "GetSellerProductsStatus": {
       "properties": {
@@ -461,7 +475,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "GetSellerProductsStatus"
     },
     "GetTicketMessages": {
       "properties": {
@@ -480,7 +495,8 @@
       },
       "required": [
         "metadata"
-      ]
+      ],
+      "title": "GetTicketMessages"
     },
     "GetTickets": {
       "properties": {
@@ -496,7 +512,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "GetTickets"
     },
     "GiftCard": {
       "properties": {
@@ -517,7 +534,8 @@
         "from",
         "to",
         "message"
-      ]
+      ],
+      "title": "GiftCard"
     },
     "GiftWrap": {
       "properties": {
@@ -537,7 +555,8 @@
       "required": [
         "available",
         "value"
-      ]
+      ],
+      "title": "GiftWrap"
     },
     "Image": {
       "properties": {
@@ -558,7 +577,8 @@
         "type",
         "main",
         "url"
-      ]
+      ],
+      "title": "Image"
     },
     "Invoice": {
       "properties": {
@@ -596,7 +616,8 @@
         "number",
         "serie",
         "accessKey"
-      ]
+      ],
+      "title": "Invoice"
     },
     "Metadata": {
       "properties": {
@@ -612,7 +633,8 @@
       "required": [
         "key",
         "value"
-      ]
+      ],
+      "title": "Metadata"
     },
     "NewTicket": {
       "properties": {
@@ -648,7 +670,8 @@
         "from",
         "body",
         "type"
-      ]
+      ],
+      "title": "NewTicket"
     },
     "NewTicketMessage": {
       "properties": {
@@ -664,7 +687,8 @@
       "required": [
         "visibility",
         "body"
-      ]
+      ],
+      "title": "NewTicketMessage"
     },
     "NewTrackingRefund": {
       "properties": {
@@ -706,7 +730,8 @@
       "required": [
         "items",
         "info"
-      ]
+      ],
+      "title": "NewTrackingRefund"
     },
     "Newshipmentstatus": {
       "properties": {
@@ -751,7 +776,8 @@
         "sellerShipmentId",
         "courier",
         "invoice"
-      ]
+      ],
+      "title": "Newshipmentstatus"
     },
     "Order": {
       "properties": {
@@ -842,7 +868,8 @@
         "items",
         "shippingAddress",
         "shipments"
-      ]
+      ],
+      "title": "Order"
     },
     "OrderGiftWrap": {
       "properties": {
@@ -865,7 +892,8 @@
       "required": [
         "available",
         "value"
-      ]
+      ],
+      "title": "OrderGiftWrap"
     },
     "OrderItem": {
       "properties": {
@@ -910,7 +938,8 @@
         "freight",
         "salePrice",
         "sent"
-      ]
+      ],
+      "title": "OrderItem"
     },
     "OrderItemReference": {
       "properties": {
@@ -926,7 +955,8 @@
       "required": [
         "skuSellerId",
         "quantity"
-      ]
+      ],
+      "title": "OrderItemReference"
     },
     "OrderShippment": {
       "properties": {
@@ -971,7 +1001,8 @@
           "description": "Courier tracking URL",
           "type": "string"
         }
-      }
+      },
+      "title": "OrderShippment"
     },
     "OrderShippmentStatus": {
       "properties": {
@@ -999,7 +1030,8 @@
           "description": "Courier tracking URL",
           "type": "string"
         }
-      }
+      },
+      "title": "OrderShippmentStatus"
     },
     "OrdersShipments": {
       "properties": {
@@ -1009,7 +1041,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "OrdersShipments"
     },
     "Phone": {
       "properties": {
@@ -1025,7 +1058,8 @@
       "required": [
         "number",
         "type"
-      ]
+      ],
+      "title": "Phone"
     },
     "Product": {
       "properties": {
@@ -1112,7 +1146,8 @@
         "stock",
         "images",
         "attributes"
-      ]
+      ],
+      "title": "Product"
     },
     "ProductAttribute": {
       "properties": {
@@ -1128,7 +1163,8 @@
       "required": [
         "name",
         "value"
-      ]
+      ],
+      "title": "ProductAttribute"
     },
     "ProductPrice": {
       "properties": {
@@ -1144,7 +1180,8 @@
       "required": [
         "default",
         "offer"
-      ]
+      ],
+      "title": "ProductPrice"
     },
     "ProductReference": {
       "properties": {
@@ -1160,7 +1197,8 @@
       "required": [
         "id",
         "href"
-      ]
+      ],
+      "title": "ProductReference"
     },
     "ProductSiteReference": {
       "properties": {
@@ -1176,7 +1214,8 @@
       "required": [
         "url",
         "skuSellerId"
-      ]
+      ],
+      "title": "ProductSiteReference"
     },
     "ProductStatusUpdate": {
       "properties": {
@@ -1192,7 +1231,8 @@
       "required": [
         "skuSellerId",
         "active"
-      ]
+      ],
+      "title": "ProductStatusUpdate"
     },
     "ProductStock": {
       "properties": {
@@ -1211,7 +1251,8 @@
       "required": [
         "skuSellerId",
         "stocks"
-      ]
+      ],
+      "title": "ProductStock"
     },
     "ProductUpdate": {
       "properties": {
@@ -1290,7 +1331,8 @@
       },
       "required": [
         "skuSellerId"
-      ]
+      ],
+      "title": "ProductUpdate"
     },
     "Promotion": {
       "properties": {
@@ -1313,7 +1355,8 @@
       },
       "required": [
         "id"
-      ]
+      ],
+      "title": "Promotion"
     },
     "Seller": {
       "properties": {
@@ -1325,7 +1368,8 @@
           "description": "Seller name in the Brand Lovers Marketplace",
           "type": "string"
         }
-      }
+      },
+      "title": "Seller"
     },
     "SellerItem": {
       "properties": {
@@ -1410,7 +1454,8 @@
         "product",
         "images",
         "dimensions"
-      ]
+      ],
+      "title": "SellerItem"
     },
     "SellerItemPrices": {
       "properties": {
@@ -1425,7 +1470,8 @@
       "required": [
         "skuSellerId",
         "price"
-      ]
+      ],
+      "title": "SellerItemPrices"
     },
     "SellerItemStatus": {
       "properties": {
@@ -1436,7 +1482,8 @@
       },
       "required": [
         "active"
-      ]
+      ],
+      "title": "SellerItemStatus"
     },
     "Shippment": {
       "properties": {
@@ -1494,7 +1541,8 @@
         "sellerShipmentId",
         "invoice",
         "courier"
-      ]
+      ],
+      "title": "Shippment"
     },
     "Stock": {
       "properties": {
@@ -1510,7 +1558,8 @@
       },
       "required": [
         "quantity"
-      ]
+      ],
+      "title": "Stock"
     },
     "Ticket": {
       "properties": {
@@ -1567,7 +1616,8 @@
           "format": "date-time",
           "type": "string"
         }
-      }
+      },
+      "title": "Ticket"
     },
     "TicketMessage": {
       "properties": {
@@ -1594,7 +1644,8 @@
         "id",
         "body",
         "visibility"
-      ]
+      ],
+      "title": "TicketMessage"
     },
     "TicketStatus": {
       "properties": {
@@ -1605,7 +1656,8 @@
       },
       "required": [
         "ticketStatus"
-      ]
+      ],
+      "title": "TicketStatus"
     }
   },
   "actions": [

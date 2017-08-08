@@ -32,19 +32,22 @@
         "Type",
         "TargetGroupArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "Action"
     },
     "ActionTypeEnum": {
       "enum": [
         "forward"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ActionTypeEnum"
     },
     "Actions": {
       "items": {
         "$ref": "#/definitions/Action"
       },
-      "type": "array"
+      "type": "array",
+      "title": "Actions"
     },
     "AddTagsInput": {
       "example": {
@@ -76,11 +79,13 @@
         "ResourceArns",
         "Tags"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AddTagsInput"
     },
     "AddTagsOutput": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "AddTagsOutput"
     },
     "AvailabilityZone": {
       "description": "Information about an Availability Zone.",
@@ -94,16 +99,19 @@
           "description": "The name of the Availability Zone."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AvailabilityZone"
     },
     "AvailabilityZones": {
       "items": {
         "$ref": "#/definitions/AvailabilityZone"
       },
-      "type": "array"
+      "type": "array",
+      "title": "AvailabilityZones"
     },
     "CanonicalHostedZoneId": {
-      "type": "string"
+      "type": "string",
+      "title": "CanonicalHostedZoneId"
     },
     "Certificate": {
       "description": "Information about an SSL server certificate deployed on a load balancer.",
@@ -113,21 +121,25 @@
           "description": "The Amazon Resource Name (ARN) of the certificate."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Certificate"
     },
     "CertificateArn": {
-      "type": "string"
+      "type": "string",
+      "title": "CertificateArn"
     },
     "CertificateList": {
       "items": {
         "$ref": "#/definitions/Certificate"
       },
-      "type": "array"
+      "type": "array",
+      "title": "CertificateList"
     },
     "CertificateNotFoundException": {
       "description": "The specified certificate does not exist.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "CertificateNotFoundException"
     },
     "Cipher": {
       "description": "Information about a cipher used in a policy.",
@@ -141,23 +153,28 @@
           "description": "The priority of the cipher."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Cipher"
     },
     "CipherName": {
-      "type": "string"
+      "type": "string",
+      "title": "CipherName"
     },
     "CipherPriority": {
-      "type": "integer"
+      "type": "integer",
+      "title": "CipherPriority"
     },
     "Ciphers": {
       "items": {
         "$ref": "#/definitions/Cipher"
       },
-      "type": "array"
+      "type": "array",
+      "title": "Ciphers"
     },
     "ConditionFieldName": {
       "maxLength": 64,
-      "type": "string"
+      "type": "string",
+      "title": "ConditionFieldName"
     },
     "CreateListenerInput": {
       "example": {
@@ -209,7 +226,8 @@
         "Port",
         "DefaultActions"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateListenerInput"
     },
     "CreateListenerOutput": {
       "example": {
@@ -240,7 +258,8 @@
           "description": "Information about the listener."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateListenerOutput"
     },
     "CreateLoadBalancerInput": {
       "example": {
@@ -282,7 +301,8 @@
         "Name",
         "Subnets"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateLoadBalancerInput"
     },
     "CreateLoadBalancerOutput": {
       "example": {
@@ -321,7 +341,8 @@
           "description": "Information about the load balancer."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateLoadBalancerOutput"
     },
     "CreateRuleInput": {
       "example": {
@@ -366,7 +387,8 @@
         "Priority",
         "Actions"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateRuleInput"
     },
     "CreateRuleOutput": {
       "example": {
@@ -398,7 +420,8 @@
           "description": "Information about the rule."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateRuleOutput"
     },
     "CreateTargetGroupInput": {
       "example": {
@@ -463,7 +486,8 @@
         "Port",
         "VpcId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateTargetGroupInput"
     },
     "CreateTargetGroupOutput": {
       "example": {
@@ -493,14 +517,17 @@
           "description": "Information about the target group."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateTargetGroupOutput"
     },
     "CreatedTime": {
       "format": "date-time",
-      "type": "string"
+      "type": "string",
+      "title": "CreatedTime"
     },
     "DNSName": {
-      "type": "string"
+      "type": "string",
+      "title": "DNSName"
     },
     "DeleteListenerInput": {
       "example": {
@@ -515,11 +542,13 @@
       "required": [
         "ListenerArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteListenerInput"
     },
     "DeleteListenerOutput": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DeleteListenerOutput"
     },
     "DeleteLoadBalancerInput": {
       "example": {
@@ -534,11 +563,13 @@
       "required": [
         "LoadBalancerArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteLoadBalancerInput"
     },
     "DeleteLoadBalancerOutput": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DeleteLoadBalancerOutput"
     },
     "DeleteRuleInput": {
       "example": {
@@ -553,11 +584,13 @@
       "required": [
         "RuleArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteRuleInput"
     },
     "DeleteRuleOutput": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DeleteRuleOutput"
     },
     "DeleteTargetGroupInput": {
       "example": {
@@ -572,11 +605,13 @@
       "required": [
         "TargetGroupArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteTargetGroupInput"
     },
     "DeleteTargetGroupOutput": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DeleteTargetGroupOutput"
     },
     "DeregisterTargetsInput": {
       "example": {
@@ -601,11 +636,13 @@
         "TargetGroupArn",
         "Targets"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeregisterTargetsInput"
     },
     "DeregisterTargetsOutput": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DeregisterTargetsOutput"
     },
     "DescribeAccountLimitsInput": {
       "properties": {
@@ -618,7 +655,8 @@
           "description": "The maximum number of results to return with this call."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeAccountLimitsInput"
     },
     "DescribeAccountLimitsOutput": {
       "properties": {
@@ -631,7 +669,8 @@
           "description": "The marker to use when requesting the next set of results. If there are no additional results, the string is empty."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeAccountLimitsOutput"
     },
     "DescribeListenersInput": {
       "example": {
@@ -657,7 +696,8 @@
           "description": "The maximum number of results to return with this call."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeListenersInput"
     },
     "DescribeListenersOutput": {
       "example": {
@@ -686,7 +726,8 @@
           "description": "The marker to use when requesting the next set of results. If there are no additional results, the string is empty."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeListenersOutput"
     },
     "DescribeLoadBalancerAttributesInput": {
       "example": {
@@ -701,7 +742,8 @@
       "required": [
         "LoadBalancerArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeLoadBalancerAttributesInput"
     },
     "DescribeLoadBalancerAttributesOutput": {
       "example": {
@@ -734,7 +776,8 @@
           "description": "Information about the load balancer attributes."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeLoadBalancerAttributesOutput"
     },
     "DescribeLoadBalancersInput": {
       "example": {
@@ -760,7 +803,8 @@
           "description": "The maximum number of results to return with this call."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeLoadBalancersInput"
     },
     "DescribeLoadBalancersOutput": {
       "example": {
@@ -803,7 +847,8 @@
           "description": "The marker to use when requesting the next set of results. If there are no additional results, the string is empty."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeLoadBalancersOutput"
     },
     "DescribeRulesInput": {
       "example": {
@@ -821,7 +866,8 @@
           "description": "The Amazon Resource Names (ARN) of the rules."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeRulesInput"
     },
     "DescribeRulesOutput": {
       "example": {
@@ -853,7 +899,8 @@
           "description": "Information about the rules."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeRulesOutput"
     },
     "DescribeSSLPoliciesInput": {
       "example": {
@@ -875,7 +922,8 @@
           "description": "The maximum number of results to return with this call."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeSSLPoliciesInput"
     },
     "DescribeSSLPoliciesOutput": {
       "example": {
@@ -978,7 +1026,8 @@
           "description": "Information about the policies."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeSSLPoliciesOutput"
     },
     "DescribeTagsInput": {
       "example": {
@@ -995,7 +1044,8 @@
       "required": [
         "ResourceArns"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeTagsInput"
     },
     "DescribeTagsOutput": {
       "example": {
@@ -1021,7 +1071,8 @@
           "description": "Information about the tags."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeTagsOutput"
     },
     "DescribeTargetGroupAttributesInput": {
       "example": {
@@ -1036,7 +1087,8 @@
       "required": [
         "TargetGroupArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeTargetGroupAttributesInput"
     },
     "DescribeTargetGroupAttributesOutput": {
       "example": {
@@ -1065,7 +1117,8 @@
           "description": "Information about the target group attributes"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeTargetGroupAttributesOutput"
     },
     "DescribeTargetGroupsInput": {
       "example": {
@@ -1095,7 +1148,8 @@
           "description": "The Amazon Resource Names (ARN) of the target groups."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeTargetGroupsInput"
     },
     "DescribeTargetGroupsOutput": {
       "example": {
@@ -1132,7 +1186,8 @@
           "description": "Information about the target groups."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeTargetGroupsOutput"
     },
     "DescribeTargetHealthInput": {
       "example": {
@@ -1157,7 +1212,8 @@
       "required": [
         "TargetGroupArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeTargetHealthInput"
     },
     "DescribeTargetHealthOutput": {
       "example": {
@@ -1180,96 +1236,116 @@
           "description": "Information about the health of the targets."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeTargetHealthOutput"
     },
     "Description": {
-      "type": "string"
+      "type": "string",
+      "title": "Description"
     },
     "DuplicateListenerException": {
       "description": "A listener with the specified port already exists.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DuplicateListenerException"
     },
     "DuplicateLoadBalancerNameException": {
       "description": "A load balancer with the specified name already exists.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DuplicateLoadBalancerNameException"
     },
     "DuplicateTagKeysException": {
       "description": "A tag key was specified more than once.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DuplicateTagKeysException"
     },
     "DuplicateTargetGroupNameException": {
       "description": "A target group with the specified name already exists.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DuplicateTargetGroupNameException"
     },
     "HealthCheckIntervalSeconds": {
       "maximum": 300,
       "minimum": 5,
-      "type": "integer"
+      "type": "integer",
+      "title": "HealthCheckIntervalSeconds"
     },
     "HealthCheckPort": {
-      "type": "string"
+      "type": "string",
+      "title": "HealthCheckPort"
     },
     "HealthCheckThresholdCount": {
       "maximum": 10,
       "minimum": 2,
-      "type": "integer"
+      "type": "integer",
+      "title": "HealthCheckThresholdCount"
     },
     "HealthCheckTimeoutSeconds": {
       "maximum": 60,
       "minimum": 2,
-      "type": "integer"
+      "type": "integer",
+      "title": "HealthCheckTimeoutSeconds"
     },
     "HealthUnavailableException": {
       "description": "The health of the specified targets could not be retrieved due to an internal error.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "HealthUnavailableException"
     },
     "HttpCode": {
-      "type": "string"
+      "type": "string",
+      "title": "HttpCode"
     },
     "IncompatibleProtocolsException": {
       "description": "The specified configuration is not valid with this protocol.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "IncompatibleProtocolsException"
     },
     "InvalidConfigurationRequestException": {
       "description": "The requested configuration is not valid.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "InvalidConfigurationRequestException"
     },
     "InvalidSchemeException": {
       "description": "The requested scheme is not valid.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "InvalidSchemeException"
     },
     "InvalidSecurityGroupException": {
       "description": "The specified security group does not exist.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "InvalidSecurityGroupException"
     },
     "InvalidSubnetException": {
       "description": "The specified subnet is out of available addresses.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "InvalidSubnetException"
     },
     "InvalidTargetException": {
       "description": "The specified target does not exist or is not in the same VPC as the target group.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "InvalidTargetException"
     },
     "IpAddressType": {
       "enum": [
         "ipv4",
         "dualstack"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "IpAddressType"
     },
     "IsDefault": {
-      "type": "boolean"
+      "type": "boolean",
+      "title": "IsDefault"
     },
     "Limit": {
       "description": "Information about an Elastic Load Balancing resource limit for your AWS account.",
@@ -1283,19 +1359,22 @@
           "description": "<p>The name of the limit. The possible values are:</p> <ul> <li> <p>application-load-balancers</p> </li> <li> <p>listeners-per-application-load-balancer</p> </li> <li> <p>rules-per-application-load-balancer</p> </li> <li> <p>target-groups</p> </li> <li> <p>targets-per-application-load-balancer</p> </li> </ul>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Limit"
     },
     "Limits": {
       "items": {
         "$ref": "#/definitions/Limit"
       },
-      "type": "array"
+      "type": "array",
+      "title": "Limits"
     },
     "ListOfString": {
       "items": {
         "$ref": "#/definitions/StringValue"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ListOfString"
     },
     "Listener": {
       "description": "Information about a listener.",
@@ -1329,27 +1408,32 @@
           "description": "The security policy that defines which ciphers and protocols are supported. The default is the current predefined security policy."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Listener"
     },
     "ListenerArn": {
-      "type": "string"
+      "type": "string",
+      "title": "ListenerArn"
     },
     "ListenerArns": {
       "items": {
         "$ref": "#/definitions/ListenerArn"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ListenerArns"
     },
     "ListenerNotFoundException": {
       "description": "The specified listener does not exist.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "ListenerNotFoundException"
     },
     "Listeners": {
       "items": {
         "$ref": "#/definitions/Listener"
       },
-      "type": "array"
+      "type": "array",
+      "title": "Listeners"
     },
     "LoadBalancer": {
       "description": "Information about a load balancer.",
@@ -1403,16 +1487,19 @@
           "description": "The ID of the VPC for the load balancer."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LoadBalancer"
     },
     "LoadBalancerArn": {
-      "type": "string"
+      "type": "string",
+      "title": "LoadBalancerArn"
     },
     "LoadBalancerArns": {
       "items": {
         "$ref": "#/definitions/LoadBalancerArn"
       },
-      "type": "array"
+      "type": "array",
+      "title": "LoadBalancerArns"
     },
     "LoadBalancerAttribute": {
       "description": "Information about a load balancer attribute.",
@@ -1426,44 +1513,52 @@
           "description": "The value of the attribute."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LoadBalancerAttribute"
     },
     "LoadBalancerAttributeKey": {
       "maxLength": 256,
       "pattern": "^[a-zA-Z0-9._]+$",
-      "type": "string"
+      "type": "string",
+      "title": "LoadBalancerAttributeKey"
     },
     "LoadBalancerAttributeValue": {
       "maxLength": 1024,
-      "type": "string"
+      "type": "string",
+      "title": "LoadBalancerAttributeValue"
     },
     "LoadBalancerAttributes": {
       "items": {
         "$ref": "#/definitions/LoadBalancerAttribute"
       },
       "maxItems": 20,
-      "type": "array"
+      "type": "array",
+      "title": "LoadBalancerAttributes"
     },
     "LoadBalancerName": {
-      "type": "string"
+      "type": "string",
+      "title": "LoadBalancerName"
     },
     "LoadBalancerNames": {
       "items": {
         "$ref": "#/definitions/LoadBalancerName"
       },
-      "type": "array"
+      "type": "array",
+      "title": "LoadBalancerNames"
     },
     "LoadBalancerNotFoundException": {
       "description": "The specified load balancer does not exist.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "LoadBalancerNotFoundException"
     },
     "LoadBalancerSchemeEnum": {
       "enum": [
         "internet-facing",
         "internal"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "LoadBalancerSchemeEnum"
     },
     "LoadBalancerState": {
       "description": "Information about the state of the load balancer.",
@@ -1477,7 +1572,8 @@
           "description": "A description of the state."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LoadBalancerState"
     },
     "LoadBalancerStateEnum": {
       "enum": [
@@ -1485,22 +1581,26 @@
         "provisioning",
         "failed"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "LoadBalancerStateEnum"
     },
     "LoadBalancerTypeEnum": {
       "enum": [
         "application"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "LoadBalancerTypeEnum"
     },
     "LoadBalancers": {
       "items": {
         "$ref": "#/definitions/LoadBalancer"
       },
-      "type": "array"
+      "type": "array",
+      "title": "LoadBalancers"
     },
     "Marker": {
-      "type": "string"
+      "type": "string",
+      "title": "Marker"
     },
     "Matcher": {
       "description": "Information to use when checking for a successful response from a target.",
@@ -1513,10 +1613,12 @@
       "required": [
         "HttpCode"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "Matcher"
     },
     "Max": {
-      "type": "string"
+      "type": "string",
+      "title": "Max"
     },
     "ModifyListenerInput": {
       "example": {
@@ -1556,7 +1658,8 @@
       "required": [
         "ListenerArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ModifyListenerInput"
     },
     "ModifyListenerOutput": {
       "example": {
@@ -1587,7 +1690,8 @@
           "description": "Information about the modified listeners."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ModifyListenerOutput"
     },
     "ModifyLoadBalancerAttributesInput": {
       "example": {
@@ -1621,7 +1725,8 @@
         "LoadBalancerArn",
         "Attributes"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ModifyLoadBalancerAttributesInput"
     },
     "ModifyLoadBalancerAttributesOutput": {
       "example": {
@@ -1654,7 +1759,8 @@
           "description": "Information about the load balancer attributes."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ModifyLoadBalancerAttributesOutput"
     },
     "ModifyRuleInput": {
       "example": {
@@ -1685,7 +1791,8 @@
       "required": [
         "RuleArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ModifyRuleInput"
     },
     "ModifyRuleOutput": {
       "example": {
@@ -1717,7 +1824,8 @@
           "description": "Information about the rule."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ModifyRuleOutput"
     },
     "ModifyTargetGroupAttributesInput": {
       "example": {
@@ -1743,7 +1851,8 @@
         "TargetGroupArn",
         "Attributes"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ModifyTargetGroupAttributesInput"
     },
     "ModifyTargetGroupAttributesOutput": {
       "example": {
@@ -1772,7 +1881,8 @@
           "description": "Information about the attributes."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ModifyTargetGroupAttributesOutput"
     },
     "ModifyTargetGroupInput": {
       "example": {
@@ -1821,7 +1931,8 @@
       "required": [
         "TargetGroupArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ModifyTargetGroupInput"
     },
     "ModifyTargetGroupOutput": {
       "example": {
@@ -1853,42 +1964,50 @@
           "description": "Information about the target group."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ModifyTargetGroupOutput"
     },
     "Name": {
-      "type": "string"
+      "type": "string",
+      "title": "Name"
     },
     "OperationNotPermittedException": {
       "description": "This operation is not allowed.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "OperationNotPermittedException"
     },
     "PageSize": {
       "maximum": 400,
       "minimum": 1,
-      "type": "integer"
+      "type": "integer",
+      "title": "PageSize"
     },
     "Path": {
       "maxLength": 1024,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "Path"
     },
     "Port": {
       "maximum": 65535,
       "minimum": 1,
-      "type": "integer"
+      "type": "integer",
+      "title": "Port"
     },
     "PriorityInUseException": {
       "description": "The specified priority is in use.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "PriorityInUseException"
     },
     "ProtocolEnum": {
       "enum": [
         "HTTP",
         "HTTPS"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ProtocolEnum"
     },
     "RegisterTargetsInput": {
       "example": {
@@ -1918,11 +2037,13 @@
         "TargetGroupArn",
         "Targets"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "RegisterTargetsInput"
     },
     "RegisterTargetsOutput": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "RegisterTargetsOutput"
     },
     "RemoveTagsInput": {
       "example": {
@@ -1948,25 +2069,30 @@
         "ResourceArns",
         "TagKeys"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "RemoveTagsInput"
     },
     "RemoveTagsOutput": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "RemoveTagsOutput"
     },
     "ResourceArn": {
-      "type": "string"
+      "type": "string",
+      "title": "ResourceArn"
     },
     "ResourceArns": {
       "items": {
         "$ref": "#/definitions/ResourceArn"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ResourceArns"
     },
     "ResourceInUseException": {
       "description": "A specified resource is in use.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "ResourceInUseException"
     },
     "Rule": {
       "description": "Information about a rule.",
@@ -1992,16 +2118,19 @@
           "description": "The Amazon Resource Name (ARN) of the rule."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Rule"
     },
     "RuleArn": {
-      "type": "string"
+      "type": "string",
+      "title": "RuleArn"
     },
     "RuleArns": {
       "items": {
         "$ref": "#/definitions/RuleArn"
       },
-      "type": "array"
+      "type": "array",
+      "title": "RuleArns"
     },
     "RuleCondition": {
       "description": "Information about a condition for a rule.",
@@ -2015,29 +2144,34 @@
           "description": "<p>The condition value.</p> <p>If the field name is <code>host-header</code>, you can specify a single host name (for example, my.example.com). A host name is case insensitive, can be up to 128 characters in length, and can contain any of the following characters. Note that you can include up to three wildcard characters.</p> <ul> <li> <p>A-Z, a-z, 0-9</p> </li> <li> <p>- .</p> </li> <li> <p>* (matches 0 or more characters)</p> </li> <li> <p>? (matches exactly 1 character)</p> </li> </ul> <p>If the field name is <code>path-pattern</code>, you can specify a single path pattern (for example, /img/*). A path pattern is case sensitive, can be up to 128 characters in length, and can contain any of the following characters. Note that you can include up to three wildcard characters.</p> <ul> <li> <p>A-Z, a-z, 0-9</p> </li> <li> <p>_ - . $ / ~ \" ' @ : +</p> </li> <li> <p>&amp; (using &amp;amp;)</p> </li> <li> <p>* (matches 0 or more characters)</p> </li> <li> <p>? (matches exactly 1 character)</p> </li> </ul>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RuleCondition"
     },
     "RuleConditionList": {
       "items": {
         "$ref": "#/definitions/RuleCondition"
       },
-      "type": "array"
+      "type": "array",
+      "title": "RuleConditionList"
     },
     "RuleNotFoundException": {
       "description": "The specified rule does not exist.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "RuleNotFoundException"
     },
     "RulePriority": {
       "maximum": 99999,
       "minimum": 1,
-      "type": "integer"
+      "type": "integer",
+      "title": "RulePriority"
     },
     "RulePriorityList": {
       "items": {
         "$ref": "#/definitions/RulePriorityPair"
       },
-      "type": "array"
+      "type": "array",
+      "title": "RulePriorityList"
     },
     "RulePriorityPair": {
       "description": "Information about the priorities for the rules for a listener.",
@@ -2051,27 +2185,32 @@
           "description": "The Amazon Resource Name (ARN) of the rule."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RulePriorityPair"
     },
     "Rules": {
       "items": {
         "$ref": "#/definitions/Rule"
       },
-      "type": "array"
+      "type": "array",
+      "title": "Rules"
     },
     "SSLPolicyNotFoundException": {
       "description": "The specified SSL policy does not exist.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "SSLPolicyNotFoundException"
     },
     "SecurityGroupId": {
-      "type": "string"
+      "type": "string",
+      "title": "SecurityGroupId"
     },
     "SecurityGroups": {
       "items": {
         "$ref": "#/definitions/SecurityGroupId"
       },
-      "type": "array"
+      "type": "array",
+      "title": "SecurityGroups"
     },
     "SetIpAddressTypeInput": {
       "properties": {
@@ -2088,7 +2227,8 @@
         "LoadBalancerArn",
         "IpAddressType"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "SetIpAddressTypeInput"
     },
     "SetIpAddressTypeOutput": {
       "properties": {
@@ -2097,7 +2237,8 @@
           "description": "The IP address type."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SetIpAddressTypeOutput"
     },
     "SetRulePrioritiesInput": {
       "example": {
@@ -2117,7 +2258,8 @@
       "required": [
         "RulePriorities"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "SetRulePrioritiesInput"
     },
     "SetRulePrioritiesOutput": {
       "example": {
@@ -2149,7 +2291,8 @@
           "description": "Information about the rules."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SetRulePrioritiesOutput"
     },
     "SetSecurityGroupsInput": {
       "example": {
@@ -2172,7 +2315,8 @@
         "LoadBalancerArn",
         "SecurityGroups"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "SetSecurityGroupsInput"
     },
     "SetSecurityGroupsOutput": {
       "example": {
@@ -2186,7 +2330,8 @@
           "description": "The IDs of the security groups associated with the load balancer."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SetSecurityGroupsOutput"
     },
     "SetSubnetsInput": {
       "example": {
@@ -2210,7 +2355,8 @@
         "LoadBalancerArn",
         "Subnets"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "SetSubnetsInput"
     },
     "SetSubnetsOutput": {
       "example": {
@@ -2231,13 +2377,15 @@
           "description": "Information about the subnet and Availability Zone."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SetSubnetsOutput"
     },
     "SslPolicies": {
       "items": {
         "$ref": "#/definitions/SslPolicy"
       },
-      "type": "array"
+      "type": "array",
+      "title": "SslPolicies"
     },
     "SslPolicy": {
       "description": "Information about a policy used for SSL negotiation.",
@@ -2255,48 +2403,59 @@
           "description": "The protocols."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SslPolicy"
     },
     "SslPolicyName": {
-      "type": "string"
+      "type": "string",
+      "title": "SslPolicyName"
     },
     "SslPolicyNames": {
       "items": {
         "$ref": "#/definitions/SslPolicyName"
       },
-      "type": "array"
+      "type": "array",
+      "title": "SslPolicyNames"
     },
     "SslProtocol": {
-      "type": "string"
+      "type": "string",
+      "title": "SslProtocol"
     },
     "SslProtocols": {
       "items": {
         "$ref": "#/definitions/SslProtocol"
       },
-      "type": "array"
+      "type": "array",
+      "title": "SslProtocols"
     },
     "StateReason": {
-      "type": "string"
+      "type": "string",
+      "title": "StateReason"
     },
     "String": {
-      "type": "string"
+      "type": "string",
+      "title": "String"
     },
     "StringValue": {
-      "type": "string"
+      "type": "string",
+      "title": "StringValue"
     },
     "SubnetId": {
-      "type": "string"
+      "type": "string",
+      "title": "SubnetId"
     },
     "SubnetNotFoundException": {
       "description": "The specified subnet does not exist.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "SubnetNotFoundException"
     },
     "Subnets": {
       "items": {
         "$ref": "#/definitions/SubnetId"
       },
-      "type": "array"
+      "type": "array",
+      "title": "Subnets"
     },
     "Tag": {
       "description": "Information about a tag.",
@@ -2313,7 +2472,8 @@
       "required": [
         "Key"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "Tag"
     },
     "TagDescription": {
       "description": "The tags associated with a resource.",
@@ -2327,38 +2487,44 @@
           "description": "Information about the tags."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TagDescription"
     },
     "TagDescriptions": {
       "items": {
         "$ref": "#/definitions/TagDescription"
       },
-      "type": "array"
+      "type": "array",
+      "title": "TagDescriptions"
     },
     "TagKey": {
       "maxLength": 128,
       "minLength": 1,
       "pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$",
-      "type": "string"
+      "type": "string",
+      "title": "TagKey"
     },
     "TagKeys": {
       "items": {
         "$ref": "#/definitions/TagKey"
       },
-      "type": "array"
+      "type": "array",
+      "title": "TagKeys"
     },
     "TagList": {
       "items": {
         "$ref": "#/definitions/Tag"
       },
       "minItems": 1,
-      "type": "array"
+      "type": "array",
+      "title": "TagList"
     },
     "TagValue": {
       "maxLength": 256,
       "minLength": 0,
       "pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$",
-      "type": "string"
+      "type": "string",
+      "title": "TagValue"
     },
     "TargetDescription": {
       "description": "Information about a target.",
@@ -2375,13 +2541,15 @@
       "required": [
         "Id"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "TargetDescription"
     },
     "TargetDescriptions": {
       "items": {
         "$ref": "#/definitions/TargetDescription"
       },
-      "type": "array"
+      "type": "array",
+      "title": "TargetDescriptions"
     },
     "TargetGroup": {
       "description": "Information about a target group.",
@@ -2443,21 +2611,25 @@
           "description": "The ID of the VPC for the targets."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TargetGroup"
     },
     "TargetGroupArn": {
-      "type": "string"
+      "type": "string",
+      "title": "TargetGroupArn"
     },
     "TargetGroupArns": {
       "items": {
         "$ref": "#/definitions/TargetGroupArn"
       },
-      "type": "array"
+      "type": "array",
+      "title": "TargetGroupArns"
     },
     "TargetGroupAssociationLimitException": {
       "description": "You've reached the limit on the number of load balancers per target group.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "TargetGroupAssociationLimitException"
     },
     "TargetGroupAttribute": {
       "description": "Information about a target group attribute.",
@@ -2471,41 +2643,49 @@
           "description": "The value of the attribute."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TargetGroupAttribute"
     },
     "TargetGroupAttributeKey": {
       "maxLength": 256,
       "pattern": "^[a-zA-Z0-9._]+$",
-      "type": "string"
+      "type": "string",
+      "title": "TargetGroupAttributeKey"
     },
     "TargetGroupAttributeValue": {
-      "type": "string"
+      "type": "string",
+      "title": "TargetGroupAttributeValue"
     },
     "TargetGroupAttributes": {
       "items": {
         "$ref": "#/definitions/TargetGroupAttribute"
       },
-      "type": "array"
+      "type": "array",
+      "title": "TargetGroupAttributes"
     },
     "TargetGroupName": {
-      "type": "string"
+      "type": "string",
+      "title": "TargetGroupName"
     },
     "TargetGroupNames": {
       "items": {
         "$ref": "#/definitions/TargetGroupName"
       },
-      "type": "array"
+      "type": "array",
+      "title": "TargetGroupNames"
     },
     "TargetGroupNotFoundException": {
       "description": "The specified target group does not exist.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "TargetGroupNotFoundException"
     },
     "TargetGroups": {
       "items": {
         "$ref": "#/definitions/TargetGroup"
       },
-      "type": "array"
+      "type": "array",
+      "title": "TargetGroups"
     },
     "TargetHealth": {
       "description": "Information about the current health of a target.",
@@ -2523,7 +2703,8 @@
           "description": "The state of the target."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TargetHealth"
     },
     "TargetHealthDescription": {
       "description": "Information about the health of a target.",
@@ -2541,13 +2722,15 @@
           "description": "The health information for the target."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TargetHealthDescription"
     },
     "TargetHealthDescriptions": {
       "items": {
         "$ref": "#/definitions/TargetHealthDescription"
       },
-      "type": "array"
+      "type": "array",
+      "title": "TargetHealthDescriptions"
     },
     "TargetHealthReasonEnum": {
       "enum": [
@@ -2562,7 +2745,8 @@
         "Target.InvalidState",
         "Elb.InternalError"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "TargetHealthReasonEnum"
     },
     "TargetHealthStateEnum": {
       "enum": [
@@ -2572,61 +2756,74 @@
         "unused",
         "draining"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "TargetHealthStateEnum"
     },
     "TargetId": {
-      "type": "string"
+      "type": "string",
+      "title": "TargetId"
     },
     "TooManyCertificatesException": {
       "description": "You've reached the limit on the number of certificates per listener.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "TooManyCertificatesException"
     },
     "TooManyListenersException": {
       "description": "You've reached the limit on the number of listeners per load balancer.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "TooManyListenersException"
     },
     "TooManyLoadBalancersException": {
       "description": "You've reached the limit on the number of load balancers for your AWS account.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "TooManyLoadBalancersException"
     },
     "TooManyRegistrationsForTargetIdException": {
       "description": "You've reached the limit on the number of times a target can be registered with a load balancer.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "TooManyRegistrationsForTargetIdException"
     },
     "TooManyRulesException": {
       "description": "You've reached the limit on the number of rules per load balancer.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "TooManyRulesException"
     },
     "TooManyTagsException": {
       "description": "You've reached the limit on the number of tags per load balancer.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "TooManyTagsException"
     },
     "TooManyTargetGroupsException": {
       "description": "You've reached the limit on the number of target groups for your AWS account.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "TooManyTargetGroupsException"
     },
     "TooManyTargetsException": {
       "description": "You've reached the limit on the number of targets.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "TooManyTargetsException"
     },
     "UnsupportedProtocolException": {
       "description": "The specified protocol is not supported.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "UnsupportedProtocolException"
     },
     "VpcId": {
-      "type": "string"
+      "type": "string",
+      "title": "VpcId"
     },
     "ZoneName": {
-      "type": "string"
+      "type": "string",
+      "title": "ZoneName"
     }
   },
   "actions": [

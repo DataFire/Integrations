@@ -38,7 +38,8 @@
         "type",
         "programme"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "added"
     },
     "broadcast": {
       "additionalProperties": false,
@@ -119,7 +120,8 @@
         "version_id",
         "service_id"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "broadcast"
     },
     "category": {
       "additionalProperties": false,
@@ -167,7 +169,8 @@
         "type",
         "kind"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "category"
     },
     "channel": {
       "additionalProperties": false,
@@ -204,7 +207,8 @@
         "master_brand_id",
         "master_brand_title"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "channel"
     },
     "clip": {
       "additionalProperties": false,
@@ -455,7 +459,8 @@
         "versions",
         "master_brand"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "clip"
     },
     "episode": {
       "additionalProperties": false,
@@ -967,7 +972,8 @@
         "lexical_sort_letter",
         "requires_sign_in"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "episode"
     },
     "group": {
       "additionalProperties": false,
@@ -1080,7 +1086,8 @@
         "id",
         "type"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "group"
     },
     "ibl": {
       "additionalProperties": false,
@@ -1653,7 +1660,8 @@
         "schema",
         "version"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ibl"
     },
     "master_brand": {
       "additionalProperties": false,
@@ -1693,7 +1701,8 @@
         "titles",
         "attribution"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "master_brand"
     },
     "programme": {
       "additionalProperties": false,
@@ -1823,7 +1832,8 @@
         "count",
         "initial_children"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "programme"
     },
     "promotion": {
       "additionalProperties": false,
@@ -1898,7 +1908,8 @@
         "id",
         "type"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "promotion"
     },
     "region": {
       "additionalProperties": false,
@@ -1931,7 +1942,8 @@
         "title",
         "kind"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "region"
     },
     "search_group": {
       "additionalProperties": false,
@@ -1953,7 +1965,8 @@
         "type",
         "episode"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "search_group"
     },
     "store_version": {
       "additionalProperties": false,
@@ -2080,7 +2093,8 @@
         "duration",
         "kind"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "store_version"
     },
     "trailer": {
       "additionalProperties": false,
@@ -2114,7 +2128,8 @@
         "kind",
         "version_id"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "trailer"
     },
     "user_recommendation": {
       "additionalProperties": false,
@@ -2136,7 +2151,8 @@
         "type",
         "episode"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "user_recommendation"
     },
     "version": {
       "additionalProperties": false,
@@ -2276,7 +2292,8 @@
         "kind",
         "availability"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "version"
     },
     "watching": {
       "additionalProperties": false,
@@ -2325,7 +2342,8 @@
         "version",
         "has_next"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "watching"
     }
   },
   "actions": [

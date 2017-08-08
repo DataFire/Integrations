@@ -29,7 +29,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ExportResultV2"
     },
     "RequestApplicationExportResultV2": {
       "properties": {
@@ -45,9 +46,12 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RequestApplicationExportResultV2"
     },
-    "WebhookResultV2": {}
+    "WebhookResultV2": {
+      "title": "WebhookResultV2"
+    }
   },
   "actions": [
     {

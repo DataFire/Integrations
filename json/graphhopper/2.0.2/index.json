@@ -82,7 +82,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Activity"
     },
     "Address": {
       "properties": {
@@ -101,7 +102,8 @@
           "type": "number"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Address"
     },
     "Algorithm": {
       "properties": {
@@ -120,7 +122,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Algorithm"
     },
     "Break": {
       "properties": {
@@ -158,7 +161,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Break"
     },
     "CostMatrix": {
       "properties": {
@@ -179,7 +183,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CostMatrix"
     },
     "JobId": {
       "properties": {
@@ -188,7 +193,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "JobId"
     },
     "Objective": {
       "properties": {
@@ -210,7 +216,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Objective"
     },
     "Relation": {
       "properties": {
@@ -231,7 +238,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Relation"
     },
     "Request": {
       "properties": {
@@ -288,7 +296,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Request"
     },
     "Response": {
       "properties": {
@@ -327,7 +336,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Response"
     },
     "Route": {
       "properties": {
@@ -363,7 +373,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Route"
     },
     "Service": {
       "properties": {
@@ -427,7 +438,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Service"
     },
     "Shipment": {
       "properties": {
@@ -473,7 +485,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Shipment"
     },
     "Solution": {
       "properties": {
@@ -546,7 +559,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Solution"
     },
     "Stop": {
       "properties": {
@@ -566,7 +580,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Stop"
     },
     "TimeWindow": {
       "properties": {
@@ -581,7 +596,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TimeWindow"
     },
     "Vehicle": {
       "properties": {
@@ -624,7 +640,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Vehicle"
     },
     "VehicleType": {
       "properties": {
@@ -667,7 +684,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "VehicleType"
     }
   },
   "actions": [

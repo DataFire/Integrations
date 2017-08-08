@@ -69,7 +69,8 @@
         "type",
         "locationInfo"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AssetItem"
     },
     "AssetLocation": {
       "description": "Describes the access location for a web service asset.",
@@ -87,7 +88,8 @@
       "required": [
         "uri"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AssetLocation"
     },
     "ColumnSpecification": {
       "description": "Swagger 2.0 schema for a column within the data table representing a web service input or output. See Swagger specification: http://swagger.io/specification/",
@@ -152,7 +154,8 @@
       "required": [
         "type"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ColumnSpecification"
     },
     "CommitmentPlan": {
       "description": "Information about the machine learning commitment plan associated with the web service.",
@@ -165,7 +168,8 @@
       "required": [
         "id"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CommitmentPlan"
     },
     "DiagnosticsConfiguration": {
       "description": "Diagnostics settings for an Azure ML web service.",
@@ -192,7 +196,8 @@
       "required": [
         "level"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DiagnosticsConfiguration"
     },
     "ExampleRequest": {
       "description": "Sample input data for the service's input(s).",
@@ -218,7 +223,8 @@
           "type": "object"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ExampleRequest"
     },
     "GraphEdge": {
       "description": "Defines an edge within the web service's graph.",
@@ -240,7 +246,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GraphEdge"
     },
     "GraphNode": {
       "description": "Specifies a node in the web service graph. The node can either be an input, output or asset node, so only one of the corresponding id properties is populated at any given time.",
@@ -265,7 +272,8 @@
           "type": "object"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GraphNode"
     },
     "GraphPackage": {
       "description": "Defines the graph of modules making up the machine learning solution.",
@@ -292,7 +300,8 @@
           "type": "object"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GraphPackage"
     },
     "GraphParameter": {
       "description": "Defines a global parameter in the graph.",
@@ -335,7 +344,8 @@
         "type",
         "links"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GraphParameter"
     },
     "GraphParameterLink": {
       "description": "Association link for a graph global parameter to a node in the graph.",
@@ -353,7 +363,8 @@
         "nodeId",
         "parameterKey"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GraphParameterLink"
     },
     "InputPort": {
       "description": "Asset input port",
@@ -371,7 +382,8 @@
           }
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InputPort"
     },
     "MachineLearningWorkspace": {
       "description": "Information about the machine learning workspace containing the experiment that is source for the web service.",
@@ -384,7 +396,8 @@
       "required": [
         "id"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "MachineLearningWorkspace"
     },
     "ModeValueInfo": {
       "description": "Nested parameter definition.",
@@ -401,7 +414,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ModeValueInfo"
     },
     "ModuleAssetParameter": {
       "description": "Parameter definition for a module asset.",
@@ -422,7 +436,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ModuleAssetParameter"
     },
     "OutputPort": {
       "description": "Asset output port",
@@ -440,7 +455,8 @@
           }
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "OutputPort"
     },
     "PaginatedWebServicesList": {
       "description": "Paginated list of web services.",
@@ -457,7 +473,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PaginatedWebServicesList"
     },
     "RealtimeConfiguration": {
       "description": "Holds the available configuration options for an Azure ML web service endpoint.",
@@ -469,7 +486,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RealtimeConfiguration"
     },
     "Resource": {
       "properties": {
@@ -502,7 +520,8 @@
       "required": [
         "location"
       ],
-      "x-ms-azure-resource": true
+      "x-ms-azure-resource": true,
+      "title": "Resource"
     },
     "ServiceInputOutputSpecification": {
       "description": "The swagger 2.0 schema describing the service's inputs or outputs. See Swagger specification: http://swagger.io/specification/",
@@ -532,7 +551,8 @@
         "type",
         "properties"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ServiceInputOutputSpecification"
     },
     "StorageAccount": {
       "description": "Access information for a storage account.",
@@ -546,7 +566,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "StorageAccount"
     },
     "TableSpecification": {
       "description": "The swagger 2.0 schema describing a single service input or output. See Swagger specification: http://swagger.io/specification/",
@@ -579,7 +600,8 @@
       "required": [
         "type"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "TableSpecification"
     },
     "WebService": {
       "allOf": [
@@ -597,7 +619,8 @@
       "required": [
         "properties"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "WebService"
     },
     "WebServiceKeys": {
       "description": "Access keys for the web service calls.",
@@ -611,7 +634,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "WebServiceKeys"
     },
     "WebServiceProperties": {
       "description": "The set of properties specific to the Azure ML web service resource.",
@@ -726,7 +750,8 @@
       "required": [
         "packageType"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "WebServiceProperties"
     },
     "WebServicePropertiesForGraph": {
       "allOf": [
@@ -741,7 +766,8 @@
           "description": "The definition of the graph package making up this web service."
         }
       },
-      "x-ms-discriminator-value": "Graph"
+      "x-ms-discriminator-value": "Graph",
+      "title": "WebServicePropertiesForGraph"
     }
   },
   "actions": [

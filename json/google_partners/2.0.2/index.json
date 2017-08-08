@@ -21,7 +21,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AdWordsManagerAccountInfo"
     },
     "Analytics": {
       "description": "Analytics data for a `Company` within a single day.",
@@ -43,7 +44,8 @@
           "description": "Instances of users seeing the `Company` in Google Partners Search results\non the specified date."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Analytics"
     },
     "AnalyticsDataPoint": {
       "description": "Details of the analytics events for a `Company` within a single day.",
@@ -61,7 +63,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AnalyticsDataPoint"
     },
     "AnalyticsSummary": {
       "description": "Analytics aggregated data for a `Company` for a given date range.",
@@ -82,7 +85,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AnalyticsSummary"
     },
     "AvailableOffer": {
       "description": "Available Offers to be distributed.",
@@ -161,7 +165,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AvailableOffer"
     },
     "Certification": {
       "description": "A user's information on a specific certification.",
@@ -203,7 +208,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Certification"
     },
     "CertificationExamStatus": {
       "description": "Status for a Google Partners certification exam.",
@@ -231,7 +237,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CertificationExamStatus"
     },
     "CertificationStatus": {
       "description": "Google Partners certification status.",
@@ -271,7 +278,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CertificationStatus"
     },
     "Company": {
       "description": "A company resource in the Google Partners API. Once certified, it qualifies\nfor being searched by advertisers.",
@@ -438,7 +446,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Company"
     },
     "CompanyRelation": {
       "description": "A CompanyRelation resource representing information about a user's\naffiliation and standing with a company in Partners.",
@@ -530,7 +539,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CompanyRelation"
     },
     "CountryOfferInfo": {
       "description": "Offer info by country.",
@@ -558,7 +568,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CountryOfferInfo"
     },
     "CreateLeadRequest": {
       "description": "Request message for CreateLead.",
@@ -576,7 +587,8 @@
           "description": "Current request metadata."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateLeadRequest"
     },
     "CreateLeadResponse": {
       "description": "Response message for CreateLead.",
@@ -600,7 +612,8 @@
           "description": "Current response metadata."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateLeadResponse"
     },
     "Date": {
       "description": "Represents a whole calendar date, e.g. date of birth. The time of day and\ntime zone are either specified elsewhere or are not significant. The date\nis relative to the Proleptic Gregorian Calendar. The day may be 0 to\nrepresent a year and month where the day is not significant, e.g. credit card\nexpiration date. The year may be 0 to represent a month and day independent\nof year, e.g. anniversary date. Related types are google.type.TimeOfDay\nand `google.protobuf.Timestamp`.",
@@ -621,7 +634,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Date"
     },
     "DebugInfo": {
       "description": "Debug information about this request.",
@@ -639,12 +653,14 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DebugInfo"
     },
     "Empty": {
       "description": "A generic empty message that you can re-use to avoid defining duplicated\nempty messages in your APIs. A typical example is to use it as the request\nor the response type of an API method. For instance:\n\n    service Foo {\n      rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);\n    }\n\nThe JSON representation for `Empty` is empty JSON object `{}`.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "Empty"
     },
     "EventData": {
       "description": "Key value data pair for an event.",
@@ -701,7 +717,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "EventData"
     },
     "ExamStatus": {
       "description": "A user's information on a specific exam.",
@@ -747,7 +764,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ExamStatus"
     },
     "ExamToken": {
       "description": "A token that allows a user to take an exam.",
@@ -779,7 +797,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ExamToken"
     },
     "GetCompanyResponse": {
       "description": "Response message for GetCompany.",
@@ -793,7 +812,8 @@
           "description": "Current response metadata."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetCompanyResponse"
     },
     "GetPartnersStatusResponse": {
       "description": "Response message for\nGetPartnersStatus.",
@@ -803,7 +823,8 @@
           "description": "Current response metadata."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetPartnersStatusResponse"
     },
     "HistoricalOffer": {
       "description": "Historical information about a Google Partners Offer.",
@@ -874,7 +895,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "HistoricalOffer"
     },
     "LatLng": {
       "description": "An object representing a latitude/longitude pair. This is expressed as a pair\nof doubles representing degrees latitude and degrees longitude. Unless\nspecified otherwise, this must conform to the\n<a href=\"http://www.unoosa.org/pdf/icg/2012/template/WGS_84.pdf\">WGS84\nstandard</a>. Values must be within normalized ranges.\n\nExample of normalization code in Python:\n\n    def NormalizeLongitude(longitude):\n      \"\"\"Wraps decimal degrees longitude to [-180.0, 180.0].\"\"\"\n      q, r = divmod(longitude, 360.0)\n      if r > 180.0 or (r == 180.0 and q <= -1.0):\n        return r - 360.0\n      return r\n\n    def NormalizeLatLng(latitude, longitude):\n      \"\"\"Wraps decimal degrees latitude and longitude to\n      [-90.0, 90.0] and [-180.0, 180.0], respectively.\"\"\"\n      r = latitude % 360.0\n      if r <= 90.0:\n        return r, NormalizeLongitude(longitude)\n      elif r >= 270.0:\n        return r - 360, NormalizeLongitude(longitude)\n      else:\n        return 180 - r, NormalizeLongitude(longitude + 180.0)\n\n    assert 180.0 == NormalizeLongitude(180.0)\n    assert -180.0 == NormalizeLongitude(-180.0)\n    assert -179.0 == NormalizeLongitude(181.0)\n    assert (0.0, 0.0) == NormalizeLatLng(360.0, 0.0)\n    assert (0.0, 0.0) == NormalizeLatLng(-360.0, 0.0)\n    assert (85.0, 180.0) == NormalizeLatLng(95.0, 0.0)\n    assert (-85.0, -170.0) == NormalizeLatLng(-95.0, 10.0)\n    assert (90.0, 10.0) == NormalizeLatLng(90.0, 10.0)\n    assert (-90.0, -10.0) == NormalizeLatLng(-90.0, -10.0)\n    assert (0.0, -170.0) == NormalizeLatLng(-180.0, 10.0)\n    assert (0.0, -170.0) == NormalizeLatLng(180.0, 10.0)\n    assert (-90.0, 10.0) == NormalizeLatLng(270.0, 10.0)\n    assert (90.0, 10.0) == NormalizeLatLng(-270.0, 10.0)\n\nThe code in logs/storage/validator/logs_validator_traits.cc treats this type\nas if it were annotated as ST_LOCATION.",
@@ -890,7 +912,8 @@
           "type": "number"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LatLng"
     },
     "Lead": {
       "description": "A lead resource that represents an advertiser contact for a `Company`. These\nare usually generated via Google Partner Search (the advertiser portal).",
@@ -978,7 +1001,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Lead"
     },
     "ListAnalyticsResponse": {
       "description": "Response message for\nListAnalytics.",
@@ -1003,7 +1027,8 @@
           "description": "Current response metadata."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListAnalyticsResponse"
     },
     "ListCompaniesResponse": {
       "description": "Response message for\nListCompanies.",
@@ -1024,7 +1049,8 @@
           "description": "Current response metadata."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListCompaniesResponse"
     },
     "ListLeadsResponse": {
       "description": "Response message for ListLeads.",
@@ -1050,7 +1076,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListLeadsResponse"
     },
     "ListOffersHistoryResponse": {
       "description": "Response for ListOfferHistory.",
@@ -1084,7 +1111,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListOffersHistoryResponse"
     },
     "ListOffersResponse": {
       "description": "Response for ListOffer.",
@@ -1111,7 +1139,8 @@
           "description": "Current response metadata."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListOffersResponse"
     },
     "ListUserStatesResponse": {
       "description": "Response message for\nListUserStates.",
@@ -1132,7 +1161,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListUserStatesResponse"
     },
     "LocalizedCompanyInfo": {
       "description": "The localized company information.",
@@ -1157,7 +1187,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LocalizedCompanyInfo"
     },
     "Location": {
       "description": "A location with address and geographic coordinates. May optionally contain a\ndetailed (multi-field) version of the address.",
@@ -1206,7 +1237,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Location"
     },
     "LogMessageRequest": {
       "description": "Request message for\nLogClientMessage.",
@@ -1238,7 +1270,8 @@
           "description": "Current request metadata."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LogMessageRequest"
     },
     "LogMessageResponse": {
       "description": "Response message for\nLogClientMessage.",
@@ -1248,7 +1281,8 @@
           "description": "Current response metadata."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LogMessageResponse"
     },
     "LogUserEventRequest": {
       "description": "Request message for\nLogUserEvent.",
@@ -1467,7 +1501,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LogUserEventRequest"
     },
     "LogUserEventResponse": {
       "description": "Response message for\nLogUserEvent.",
@@ -1477,7 +1512,8 @@
           "description": "Current response metadata."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LogUserEventResponse"
     },
     "Money": {
       "description": "Represents an amount of money with its currency type.",
@@ -1497,7 +1533,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Money"
     },
     "OfferCustomer": {
       "description": "Customers qualified for an offer.",
@@ -1548,7 +1585,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "OfferCustomer"
     },
     "OptIns": {
       "description": "A set of opt-ins for a user.",
@@ -1574,7 +1612,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "OptIns"
     },
     "PublicProfile": {
       "description": "Basic information from a public profile.",
@@ -1600,7 +1639,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PublicProfile"
     },
     "Rank": {
       "description": "Information related to ranking of results.",
@@ -1619,7 +1659,8 @@
           "type": "number"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Rank"
     },
     "RecaptchaChallenge": {
       "description": "<a href=\"https://www.google.com/recaptcha/\">reCaptcha</a> challenge info.",
@@ -1633,7 +1674,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RecaptchaChallenge"
     },
     "RequestMetadata": {
       "description": "Common data that is in each API request.",
@@ -1662,7 +1704,8 @@
           "description": "Values to use instead of the user's respective defaults for the current\nrequest. These are only honored by whitelisted products."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RequestMetadata"
     },
     "ResponseMetadata": {
       "description": "Common data that is in each API response.",
@@ -1672,7 +1715,8 @@
           "description": "Debug information about this request."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ResponseMetadata"
     },
     "SpecializationStatus": {
       "description": "Agency specialization status",
@@ -1700,7 +1744,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SpecializationStatus"
     },
     "TrafficSource": {
       "description": "Source of traffic for the current request.",
@@ -1714,7 +1759,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TrafficSource"
     },
     "User": {
       "description": "A resource representing a user of the Partners platform.",
@@ -1773,7 +1819,8 @@
           "description": "Information about a user's external public profile outside Google Partners."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "User"
     },
     "UserOverrides": {
       "description": "Values to use instead of the user's respective defaults. These are only\nhonored by whitelisted products.",
@@ -1787,7 +1834,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UserOverrides"
     },
     "UserProfile": {
       "description": "The profile information of a Partners user.",
@@ -1865,7 +1913,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UserProfile"
     }
   },
   "actions": [

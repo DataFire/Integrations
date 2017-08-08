@@ -205,7 +205,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "channalsInfo"
     },
     "channels": {
       "properties": {
@@ -276,7 +277,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "channels"
     },
     "channelsHistory": {
       "properties": {
@@ -346,7 +348,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "channelsHistory"
     },
     "channelsInvite": {
       "properties": {
@@ -446,7 +449,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "channelsInvite"
     },
     "chatOk": {
       "properties": {
@@ -460,7 +464,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "chatOk"
     },
     "chatUpdate": {
       "properties": {
@@ -477,7 +482,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "chatUpdate"
     },
     "emojiList": {
       "properties": {
@@ -499,7 +505,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "emojiList"
     },
     "fileObj": {
       "properties": {
@@ -510,7 +517,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "fileObj"
     },
     "files": {
       "properties": {
@@ -646,7 +654,8 @@
           "type": "object"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "files"
     },
     "groups": {
       "properties": {
@@ -714,7 +723,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "groups"
     },
     "ims": {
       "properties": {
@@ -742,7 +752,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ims"
     },
     "ok": {
       "properties": {
@@ -750,7 +761,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ok"
     },
     "purpose": {
       "properties": {
@@ -761,7 +773,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "purpose"
     },
     "searchAll": {
       "properties": {
@@ -899,7 +912,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "searchAll"
     },
     "searchFiles": {
       "properties": {
@@ -1084,7 +1098,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "searchFiles"
     },
     "searchMessages": {
       "properties": {
@@ -1336,7 +1351,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "searchMessages"
     },
     "starList": {
       "properties": {
@@ -1416,7 +1432,8 @@
           "type": "object"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "starList"
     },
     "topic": {
       "properties": {
@@ -1427,7 +1444,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "topic"
     },
     "user": {
       "properties": {
@@ -1450,7 +1468,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "user"
     },
     "usersList": {
       "properties": {
@@ -1525,7 +1544,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "usersList"
     }
   },
   "actions": [

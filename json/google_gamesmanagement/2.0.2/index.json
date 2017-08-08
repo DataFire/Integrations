@@ -46,7 +46,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AchievementResetAllResponse"
     },
     "AchievementResetMultipleForAllRequest": {
       "description": "This is a JSON template for multiple achievements reset all request.",
@@ -64,7 +65,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AchievementResetMultipleForAllRequest"
     },
     "AchievementResetResponse": {
       "description": "This is a JSON template for an achievement reset response.",
@@ -87,7 +89,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AchievementResetResponse"
     },
     "EventsResetMultipleForAllRequest": {
       "description": "This is a JSON template for multiple events reset all request.",
@@ -105,7 +108,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "EventsResetMultipleForAllRequest"
     },
     "GamesPlayedResource": {
       "description": "This is a JSON template for metadata about a player playing a game with the currently authenticated user.",
@@ -120,7 +124,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GamesPlayedResource"
     },
     "GamesPlayerExperienceInfoResource": {
       "description": "This is a JSON template for 1P/3P metadata about the player's experience.",
@@ -144,7 +149,8 @@
           "description": "The next level of the player. If the current level is the maximum level, this should be same as the current level."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GamesPlayerExperienceInfoResource"
     },
     "GamesPlayerLevelResource": {
       "description": "This is a JSON template for 1P/3P metadata about a user's level.",
@@ -165,7 +171,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GamesPlayerLevelResource"
     },
     "HiddenPlayer": {
       "description": "This is a JSON template for the HiddenPlayer resource.",
@@ -185,7 +192,8 @@
           "description": "The player information."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "HiddenPlayer"
     },
     "HiddenPlayerList": {
       "description": "This is a JSON template for a list of hidden players.",
@@ -207,7 +215,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "HiddenPlayerList"
     },
     "Player": {
       "description": "This is a JSON template for a Player resource.",
@@ -272,7 +281,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Player"
     },
     "PlayerScoreResetAllResponse": {
       "description": "This is a JSON template for a list of leaderboard reset resources.",
@@ -290,7 +300,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PlayerScoreResetAllResponse"
     },
     "PlayerScoreResetResponse": {
       "description": "This is a JSON template for a list of reset leaderboard entry resources.",
@@ -312,7 +323,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PlayerScoreResetResponse"
     },
     "ProfileSettings": {
       "description": "This is a JSON template for profile settings",
@@ -327,7 +339,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ProfileSettings"
     },
     "QuestsResetMultipleForAllRequest": {
       "description": "This is a JSON template for multiple quests reset all request.",
@@ -345,7 +358,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "QuestsResetMultipleForAllRequest"
     },
     "ScoresResetMultipleForAllRequest": {
       "description": "This is a JSON template for multiple scores reset all request.",
@@ -363,7 +377,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ScoresResetMultipleForAllRequest"
     }
   },
   "actions": [

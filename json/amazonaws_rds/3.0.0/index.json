@@ -24,7 +24,8 @@
           "description": "A list of <a>AccountQuota</a> objects. Within this list, each quota has a name, a count of usage toward the quota maximum, and a maximum value for the quota."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AccountAttributesMessage"
     },
     "AccountQuota": {
       "description": "Describes a quota for an AWS account, for example, the number of DB instances allowed.",
@@ -42,13 +43,15 @@
           "description": "The amount currently used toward the quota maximum."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AccountQuota"
     },
     "AccountQuotaList": {
       "items": {
         "$ref": "#/definitions/AccountQuota"
       },
-      "type": "array"
+      "type": "array",
+      "title": "AccountQuotaList"
     },
     "AddRoleToDBClusterMessage": {
       "properties": {
@@ -65,7 +68,8 @@
         "DBClusterIdentifier",
         "RoleArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AddRoleToDBClusterMessage"
     },
     "AddSourceIdentifierToSubscriptionMessage": {
       "description": "<p/>",
@@ -83,7 +87,8 @@
         "SubscriptionName",
         "SourceIdentifier"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AddSourceIdentifierToSubscriptionMessage"
     },
     "AddSourceIdentifierToSubscriptionResult": {
       "properties": {
@@ -91,7 +96,8 @@
           "$ref": "#/definitions/EventSubscription"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AddSourceIdentifierToSubscriptionResult"
     },
     "AddTagsToResourceMessage": {
       "description": "<p/>",
@@ -109,14 +115,16 @@
         "ResourceName",
         "Tags"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AddTagsToResourceMessage"
     },
     "ApplyMethod": {
       "enum": [
         "immediate",
         "pending-reboot"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ApplyMethod"
     },
     "ApplyPendingMaintenanceActionMessage": {
       "description": "<p/>",
@@ -139,7 +147,8 @@
         "ApplyAction",
         "OptInType"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ApplyPendingMaintenanceActionMessage"
     },
     "ApplyPendingMaintenanceActionResult": {
       "properties": {
@@ -147,28 +156,33 @@
           "$ref": "#/definitions/ResourcePendingMaintenanceActions"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ApplyPendingMaintenanceActionResult"
     },
     "AttributeValueList": {
       "items": {
         "$ref": "#/definitions/String"
       },
-      "type": "array"
+      "type": "array",
+      "title": "AttributeValueList"
     },
     "AuthorizationAlreadyExistsFault": {
       "description": "The specified CIDRIP or EC2 security group is already authorized for the specified DB security group.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "AuthorizationAlreadyExistsFault"
     },
     "AuthorizationNotFoundFault": {
       "description": "<p>Specified CIDRIP or EC2 security group is not authorized for the specified DB security group.</p> <p>RDS may not also be authorized via IAM to perform necessary actions on your behalf.</p>",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "AuthorizationNotFoundFault"
     },
     "AuthorizationQuotaExceededFault": {
       "description": "DB security group authorization quota has been reached.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "AuthorizationQuotaExceededFault"
     },
     "AuthorizeDBSecurityGroupIngressMessage": {
       "description": "<p/>",
@@ -197,7 +211,8 @@
       "required": [
         "DBSecurityGroupName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AuthorizeDBSecurityGroupIngressMessage"
     },
     "AuthorizeDBSecurityGroupIngressResult": {
       "properties": {
@@ -205,7 +220,8 @@
           "$ref": "#/definitions/DBSecurityGroup"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AuthorizeDBSecurityGroupIngressResult"
     },
     "AvailabilityZone": {
       "description": "<p>Contains Availability Zone information.</p> <p> This data type is used as an element in the following data type:</p> <ul> <li> <p> <a>OrderableDBInstanceOption</a> </p> </li> </ul>",
@@ -215,25 +231,30 @@
           "description": "The name of the availability zone."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AvailabilityZone"
     },
     "AvailabilityZoneList": {
       "items": {
         "$ref": "#/definitions/AvailabilityZone"
       },
-      "type": "array"
+      "type": "array",
+      "title": "AvailabilityZoneList"
     },
     "AvailabilityZones": {
       "items": {
         "$ref": "#/definitions/String"
       },
-      "type": "array"
+      "type": "array",
+      "title": "AvailabilityZones"
     },
     "Boolean": {
-      "type": "boolean"
+      "type": "boolean",
+      "title": "Boolean"
     },
     "BooleanOptional": {
-      "type": "boolean"
+      "type": "boolean",
+      "title": "BooleanOptional"
     },
     "Certificate": {
       "description": "A CA certificate for an AWS account.",
@@ -263,13 +284,15 @@
           "description": "The final date that the certificate continues to be valid."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Certificate"
     },
     "CertificateList": {
       "items": {
         "$ref": "#/definitions/Certificate"
       },
-      "type": "array"
+      "type": "array",
+      "title": "CertificateList"
     },
     "CertificateMessage": {
       "description": "Data returned by the <b>DescribeCertificates</b> action.",
@@ -283,12 +306,14 @@
           "description": " An optional pagination token provided by a previous <a>DescribeCertificates</a> request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code> . "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CertificateMessage"
     },
     "CertificateNotFoundFault": {
       "description": " <i>CertificateIdentifier</i> does not refer to an existing certificate. ",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "CertificateNotFoundFault"
     },
     "CharacterSet": {
       "description": " This data type is used as a response element in the action <a>DescribeDBEngineVersions</a>. ",
@@ -302,7 +327,8 @@
           "description": "The name of the character set."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CharacterSet"
     },
     "CopyDBClusterParameterGroupMessage": {
       "properties": {
@@ -327,7 +353,8 @@
         "TargetDBClusterParameterGroupIdentifier",
         "TargetDBClusterParameterGroupDescription"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CopyDBClusterParameterGroupMessage"
     },
     "CopyDBClusterParameterGroupResult": {
       "properties": {
@@ -335,7 +362,8 @@
           "$ref": "#/definitions/DBClusterParameterGroup"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CopyDBClusterParameterGroupResult"
     },
     "CopyDBClusterSnapshotMessage": {
       "description": "<p/>",
@@ -372,7 +400,8 @@
         "SourceDBClusterSnapshotIdentifier",
         "TargetDBClusterSnapshotIdentifier"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CopyDBClusterSnapshotMessage"
     },
     "CopyDBClusterSnapshotResult": {
       "properties": {
@@ -380,7 +409,8 @@
           "$ref": "#/definitions/DBClusterSnapshot"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CopyDBClusterSnapshotResult"
     },
     "CopyDBParameterGroupMessage": {
       "description": "<p/>",
@@ -406,7 +436,8 @@
         "TargetDBParameterGroupIdentifier",
         "TargetDBParameterGroupDescription"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CopyDBParameterGroupMessage"
     },
     "CopyDBParameterGroupResult": {
       "properties": {
@@ -414,7 +445,8 @@
           "$ref": "#/definitions/DBParameterGroup"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CopyDBParameterGroupResult"
     },
     "CopyDBSnapshotMessage": {
       "description": "<p/>",
@@ -451,7 +483,8 @@
         "SourceDBSnapshotIdentifier",
         "TargetDBSnapshotIdentifier"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CopyDBSnapshotMessage"
     },
     "CopyDBSnapshotResult": {
       "properties": {
@@ -459,7 +492,8 @@
           "$ref": "#/definitions/DBSnapshot"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CopyDBSnapshotResult"
     },
     "CopyOptionGroupMessage": {
       "description": "<p/>",
@@ -485,7 +519,8 @@
         "TargetOptionGroupIdentifier",
         "TargetOptionGroupDescription"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CopyOptionGroupMessage"
     },
     "CopyOptionGroupResult": {
       "properties": {
@@ -493,7 +528,8 @@
           "$ref": "#/definitions/OptionGroup"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CopyOptionGroupResult"
     },
     "CreateDBClusterMessage": {
       "description": "<p/>",
@@ -594,7 +630,8 @@
         "DBClusterIdentifier",
         "Engine"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateDBClusterMessage"
     },
     "CreateDBClusterParameterGroupMessage": {
       "description": "<p/>",
@@ -620,7 +657,8 @@
         "DBParameterGroupFamily",
         "Description"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateDBClusterParameterGroupMessage"
     },
     "CreateDBClusterParameterGroupResult": {
       "properties": {
@@ -628,7 +666,8 @@
           "$ref": "#/definitions/DBClusterParameterGroup"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateDBClusterParameterGroupResult"
     },
     "CreateDBClusterResult": {
       "properties": {
@@ -636,7 +675,8 @@
           "$ref": "#/definitions/DBCluster"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateDBClusterResult"
     },
     "CreateDBClusterSnapshotMessage": {
       "description": "<p/>",
@@ -658,7 +698,8 @@
         "DBClusterSnapshotIdentifier",
         "DBClusterIdentifier"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateDBClusterSnapshotMessage"
     },
     "CreateDBClusterSnapshotResult": {
       "properties": {
@@ -666,7 +707,8 @@
           "$ref": "#/definitions/DBClusterSnapshot"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateDBClusterSnapshotResult"
     },
     "CreateDBInstanceMessage": {
       "description": "<p/>",
@@ -832,7 +874,8 @@
         "DBInstanceClass",
         "Engine"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateDBInstanceMessage"
     },
     "CreateDBInstanceReadReplicaMessage": {
       "properties": {
@@ -916,7 +959,8 @@
         "DBInstanceIdentifier",
         "SourceDBInstanceIdentifier"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateDBInstanceReadReplicaMessage"
     },
     "CreateDBInstanceReadReplicaResult": {
       "properties": {
@@ -924,7 +968,8 @@
           "$ref": "#/definitions/DBInstance"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateDBInstanceReadReplicaResult"
     },
     "CreateDBInstanceResult": {
       "properties": {
@@ -932,7 +977,8 @@
           "$ref": "#/definitions/DBInstance"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateDBInstanceResult"
     },
     "CreateDBParameterGroupMessage": {
       "description": "<p/>",
@@ -958,7 +1004,8 @@
         "DBParameterGroupFamily",
         "Description"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateDBParameterGroupMessage"
     },
     "CreateDBParameterGroupResult": {
       "properties": {
@@ -966,7 +1013,8 @@
           "$ref": "#/definitions/DBParameterGroup"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateDBParameterGroupResult"
     },
     "CreateDBSecurityGroupMessage": {
       "description": "<p/>",
@@ -987,7 +1035,8 @@
         "DBSecurityGroupName",
         "DBSecurityGroupDescription"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateDBSecurityGroupMessage"
     },
     "CreateDBSecurityGroupResult": {
       "properties": {
@@ -995,7 +1044,8 @@
           "$ref": "#/definitions/DBSecurityGroup"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateDBSecurityGroupResult"
     },
     "CreateDBSnapshotMessage": {
       "description": "<p/>",
@@ -1016,7 +1066,8 @@
         "DBSnapshotIdentifier",
         "DBInstanceIdentifier"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateDBSnapshotMessage"
     },
     "CreateDBSnapshotResult": {
       "properties": {
@@ -1024,7 +1075,8 @@
           "$ref": "#/definitions/DBSnapshot"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateDBSnapshotResult"
     },
     "CreateDBSubnetGroupMessage": {
       "description": "<p/>",
@@ -1050,7 +1102,8 @@
         "DBSubnetGroupDescription",
         "SubnetIds"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateDBSubnetGroupMessage"
     },
     "CreateDBSubnetGroupResult": {
       "properties": {
@@ -1058,7 +1111,8 @@
           "$ref": "#/definitions/DBSubnetGroup"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateDBSubnetGroupResult"
     },
     "CreateEventSubscriptionMessage": {
       "description": "<p/>",
@@ -1095,7 +1149,8 @@
         "SubscriptionName",
         "SnsTopicArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateEventSubscriptionMessage"
     },
     "CreateEventSubscriptionResult": {
       "properties": {
@@ -1103,7 +1158,8 @@
           "$ref": "#/definitions/EventSubscription"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateEventSubscriptionResult"
     },
     "CreateOptionGroupMessage": {
       "description": "<p/>",
@@ -1134,7 +1190,8 @@
         "MajorEngineVersion",
         "OptionGroupDescription"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateOptionGroupMessage"
     },
     "CreateOptionGroupResult": {
       "properties": {
@@ -1142,7 +1199,8 @@
           "$ref": "#/definitions/OptionGroup"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateOptionGroupResult"
     },
     "DBCluster": {
       "description": "<p>Contains the result of a successful invocation of the following actions:</p> <ul> <li> <p> <a>CreateDBCluster</a> </p> </li> <li> <p> <a>DeleteDBCluster</a> </p> </li> <li> <p> <a>FailoverDBCluster</a> </p> </li> <li> <p> <a>ModifyDBCluster</a> </p> </li> <li> <p> <a>RestoreDBClusterFromSnapshot</a> </p> </li> <li> <p> <a>RestoreDBClusterToPointInTime</a> </p> </li> </ul> <p>This data type is used as a response element in the <a>DescribeDBClusters</a> action.</p>",
@@ -1284,18 +1342,21 @@
           "description": "Provides a list of VPC security groups that the DB cluster belongs to."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DBCluster"
     },
     "DBClusterAlreadyExistsFault": {
       "description": "User already has a DB cluster with the given identifier.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DBClusterAlreadyExistsFault"
     },
     "DBClusterList": {
       "items": {
         "$ref": "#/definitions/DBCluster"
       },
-      "type": "array"
+      "type": "array",
+      "title": "DBClusterList"
     },
     "DBClusterMember": {
       "description": "Contains information about an instance that is part of a DB cluster.",
@@ -1317,13 +1378,15 @@
           "description": "A value that specifies the order in which an Aurora Replica is promoted to the primary instance after a failure of the existing primary instance. For more information, see <a href=\"http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Aurora.Managing.html#Aurora.Managing.FaultTolerance\"> Fault Tolerance for an Aurora DB Cluster</a>. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DBClusterMember"
     },
     "DBClusterMemberList": {
       "items": {
         "$ref": "#/definitions/DBClusterMember"
       },
-      "type": "array"
+      "type": "array",
+      "title": "DBClusterMemberList"
     },
     "DBClusterMessage": {
       "description": "Contains the result of a successful invocation of the <a>DescribeDBClusters</a> action.",
@@ -1337,18 +1400,21 @@
           "description": "A pagination token that can be used in a subsequent DescribeDBClusters request."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DBClusterMessage"
     },
     "DBClusterNotFoundFault": {
       "description": " <i>DBClusterIdentifier</i> does not refer to an existing DB cluster. ",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DBClusterNotFoundFault"
     },
     "DBClusterOptionGroupMemberships": {
       "items": {
         "$ref": "#/definitions/DBClusterOptionGroupStatus"
       },
-      "type": "array"
+      "type": "array",
+      "title": "DBClusterOptionGroupMemberships"
     },
     "DBClusterOptionGroupStatus": {
       "description": "Contains status information for a DB cluster option group.",
@@ -1362,7 +1428,8 @@
           "description": "Specifies the status of the DB cluster option group."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DBClusterOptionGroupStatus"
     },
     "DBClusterParameterGroup": {
       "description": "<p>Contains the result of a successful invocation of the <a>CreateDBClusterParameterGroup</a> or <a>CopyDBClusterParameterGroup</a> action. </p> <p>This data type is used as a request parameter in the <a>DeleteDBClusterParameterGroup</a> action, and as a response element in the <a>DescribeDBClusterParameterGroups</a> action. </p>",
@@ -1384,7 +1451,8 @@
           "description": "Provides the customer-specified description for this DB cluster parameter group."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DBClusterParameterGroup"
     },
     "DBClusterParameterGroupDetails": {
       "description": "Provides details about a DB cluster parameter group including the parameters in the DB cluster parameter group.",
@@ -1398,13 +1466,15 @@
           "description": "Provides a list of parameters for the DB cluster parameter group."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DBClusterParameterGroupDetails"
     },
     "DBClusterParameterGroupList": {
       "items": {
         "$ref": "#/definitions/DBClusterParameterGroup"
       },
-      "type": "array"
+      "type": "array",
+      "title": "DBClusterParameterGroupList"
     },
     "DBClusterParameterGroupNameMessage": {
       "description": "<p/>",
@@ -1414,12 +1484,14 @@
           "description": "<p>The name of the DB cluster parameter group.</p> <p>Constraints:</p> <ul> <li> <p>Must be 1 to 255 alphanumeric characters</p> </li> <li> <p>First character must be a letter</p> </li> <li> <p>Cannot end with a hyphen or contain two consecutive hyphens</p> </li> </ul> <note> <p>This value is stored as a lowercase string.</p> </note>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DBClusterParameterGroupNameMessage"
     },
     "DBClusterParameterGroupNotFoundFault": {
       "description": " <i>DBClusterParameterGroupName</i> does not refer to an existing DB Cluster parameter group. ",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DBClusterParameterGroupNotFoundFault"
     },
     "DBClusterParameterGroupsMessage": {
       "description": "<p/>",
@@ -1433,12 +1505,14 @@
           "description": " An optional pagination token provided by a previous <code>DescribeDBClusterParameterGroups</code> request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DBClusterParameterGroupsMessage"
     },
     "DBClusterQuotaExceededFault": {
       "description": "User attempted to create a new DB cluster and the user has already reached the maximum allowed DB cluster quota.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DBClusterQuotaExceededFault"
     },
     "DBClusterRole": {
       "description": "Describes an AWS Identity and Access Management (IAM) role that is associated with a DB cluster.",
@@ -1452,28 +1526,33 @@
           "description": "<p>Describes the state of association between the IAM role and the DB cluster. The Status property returns one of the following values:</p> <ul> <li> <p> <code>ACTIVE</code> - the IAM role ARN is associated with the DB cluster and can be used to access other AWS services on your behalf.</p> </li> <li> <p> <code>PENDING</code> - the IAM role ARN is being associated with the DB cluster.</p> </li> <li> <p> <code>INVALID</code> - the IAM role ARN is associated with the DB cluster, but the DB cluster is unable to assume the IAM role in order to access other AWS services on your behalf.</p> </li> </ul>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DBClusterRole"
     },
     "DBClusterRoleAlreadyExistsFault": {
       "description": "The specified IAM role Amazon Resource Name (ARN) is already associated with the specified DB cluster.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DBClusterRoleAlreadyExistsFault"
     },
     "DBClusterRoleNotFoundFault": {
       "description": "The specified IAM role Amazon Resource Name (ARN) is not associated with the specified DB cluster.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DBClusterRoleNotFoundFault"
     },
     "DBClusterRoleQuotaExceededFault": {
       "description": "You have exceeded the maximum number of IAM roles that can be associated with the specified DB cluster.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DBClusterRoleQuotaExceededFault"
     },
     "DBClusterRoles": {
       "items": {
         "$ref": "#/definitions/DBClusterRole"
       },
-      "type": "array"
+      "type": "array",
+      "title": "DBClusterRoles"
     },
     "DBClusterSnapshot": {
       "description": "<p>Contains the result of a successful invocation of the following actions:</p> <ul> <li> <p> <a>CreateDBClusterSnapshot</a> </p> </li> <li> <p> <a>DeleteDBClusterSnapshot</a> </p> </li> </ul> <p>This data type is used as a response element in the <a>DescribeDBClusterSnapshots</a> action.</p>",
@@ -1559,12 +1638,14 @@
           "description": "Provides the VPC ID associated with the DB cluster snapshot."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DBClusterSnapshot"
     },
     "DBClusterSnapshotAlreadyExistsFault": {
       "description": "User already has a DB cluster snapshot with the given identifier.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DBClusterSnapshotAlreadyExistsFault"
     },
     "DBClusterSnapshotAttribute": {
       "description": "<p>Contains the name and values of a manual DB cluster snapshot attribute.</p> <p>Manual DB cluster snapshot attributes are used to authorize other AWS accounts to restore a manual DB cluster snapshot. For more information, see the <a>ModifyDBClusterSnapshotAttribute</a> API action.</p>",
@@ -1578,13 +1659,15 @@
           "description": "<p>The value(s) for the manual DB cluster snapshot attribute.</p> <p>If the <code>AttributeName</code> field is set to <code>restore</code>, then this element returns a list of IDs of the AWS accounts that are authorized to copy or restore the manual DB cluster snapshot. If a value of <code>all</code> is in the list, then the manual DB cluster snapshot is public and available for any AWS account to copy or restore.</p>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DBClusterSnapshotAttribute"
     },
     "DBClusterSnapshotAttributeList": {
       "items": {
         "$ref": "#/definitions/DBClusterSnapshotAttribute"
       },
-      "type": "array"
+      "type": "array",
+      "title": "DBClusterSnapshotAttributeList"
     },
     "DBClusterSnapshotAttributesResult": {
       "description": "<p>Contains the results of a successful call to the <a>DescribeDBClusterSnapshotAttributes</a> API action.</p> <p>Manual DB cluster snapshot attributes are used to authorize other AWS accounts to copy or restore a manual DB cluster snapshot. For more information, see the <a>ModifyDBClusterSnapshotAttribute</a> API action.</p>",
@@ -1598,13 +1681,15 @@
           "description": "The identifier of the manual DB cluster snapshot that the attributes apply to."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DBClusterSnapshotAttributesResult"
     },
     "DBClusterSnapshotList": {
       "items": {
         "$ref": "#/definitions/DBClusterSnapshot"
       },
-      "type": "array"
+      "type": "array",
+      "title": "DBClusterSnapshotList"
     },
     "DBClusterSnapshotMessage": {
       "description": " Provides a list of DB cluster snapshots for the user as the result of a call to the <a>DescribeDBClusterSnapshots</a> action. ",
@@ -1618,12 +1703,14 @@
           "description": " An optional pagination token provided by a previous <a>DescribeDBClusterSnapshots</a> request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DBClusterSnapshotMessage"
     },
     "DBClusterSnapshotNotFoundFault": {
       "description": " <i>DBClusterSnapshotIdentifier</i> does not refer to an existing DB cluster snapshot. ",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DBClusterSnapshotNotFoundFault"
     },
     "DBEngineVersion": {
       "description": " This data type is used as a response element in the action <a>DescribeDBEngineVersions</a>. ",
@@ -1665,13 +1752,15 @@
           "description": "A list of engine versions that this database engine version can be upgraded to."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DBEngineVersion"
     },
     "DBEngineVersionList": {
       "items": {
         "$ref": "#/definitions/DBEngineVersion"
       },
-      "type": "array"
+      "type": "array",
+      "title": "DBEngineVersionList"
     },
     "DBEngineVersionMessage": {
       "description": " Contains the result of a successful invocation of the <a>DescribeDBEngineVersions</a> action. ",
@@ -1685,7 +1774,8 @@
           "description": " An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DBEngineVersionMessage"
     },
     "DBInstance": {
       "description": "<p>Contains the result of a successful invocation of the following actions:</p> <ul> <li> <p> <a>CreateDBInstance</a> </p> </li> <li> <p> <a>DeleteDBInstance</a> </p> </li> <li> <p> <a>ModifyDBInstance</a> </p> </li> </ul> <p>This data type is used as a response element in the <a>DescribeDBInstances</a> action.</p>",
@@ -1887,18 +1977,21 @@
           "description": "Provides a list of VPC security group elements that the DB instance belongs to."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DBInstance"
     },
     "DBInstanceAlreadyExistsFault": {
       "description": "User already has a DB instance with the given identifier.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DBInstanceAlreadyExistsFault"
     },
     "DBInstanceList": {
       "items": {
         "$ref": "#/definitions/DBInstance"
       },
-      "type": "array"
+      "type": "array",
+      "title": "DBInstanceList"
     },
     "DBInstanceMessage": {
       "description": " Contains the result of a successful invocation of the <a>DescribeDBInstances</a> action. ",
@@ -1912,12 +2005,14 @@
           "description": " An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code> . "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DBInstanceMessage"
     },
     "DBInstanceNotFoundFault": {
       "description": " <i>DBInstanceIdentifier</i> does not refer to an existing DB instance. ",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DBInstanceNotFoundFault"
     },
     "DBInstanceStatusInfo": {
       "description": "Provides a list of status information for a DB instance.",
@@ -1939,18 +2034,21 @@
           "description": "This value is currently \"read replication.\""
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DBInstanceStatusInfo"
     },
     "DBInstanceStatusInfoList": {
       "items": {
         "$ref": "#/definitions/DBInstanceStatusInfo"
       },
-      "type": "array"
+      "type": "array",
+      "title": "DBInstanceStatusInfoList"
     },
     "DBLogFileNotFoundFault": {
       "description": " <i>LogFileName</i> does not refer to an existing DB log file.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DBLogFileNotFoundFault"
     },
     "DBParameterGroup": {
       "description": "<p>Contains the result of a successful invocation of the <a>CreateDBParameterGroup</a> action. </p> <p>This data type is used as a request parameter in the <a>DeleteDBParameterGroup</a> action, and as a response element in the <a>DescribeDBParameterGroups</a> action. </p>",
@@ -1972,12 +2070,14 @@
           "description": "Provides the customer-specified description for this DB parameter group."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DBParameterGroup"
     },
     "DBParameterGroupAlreadyExistsFault": {
       "description": "A DB parameter group with the same name exists.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DBParameterGroupAlreadyExistsFault"
     },
     "DBParameterGroupDetails": {
       "description": " Contains the result of a successful invocation of the <a>DescribeDBParameters</a> action. ",
@@ -1991,13 +2091,15 @@
           "description": " A list of <a>Parameter</a> values. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DBParameterGroupDetails"
     },
     "DBParameterGroupList": {
       "items": {
         "$ref": "#/definitions/DBParameterGroup"
       },
-      "type": "array"
+      "type": "array",
+      "title": "DBParameterGroupList"
     },
     "DBParameterGroupNameMessage": {
       "description": " Contains the result of a successful invocation of the <a>ModifyDBParameterGroup</a> or <a>ResetDBParameterGroup</a> action. ",
@@ -2007,17 +2109,20 @@
           "description": "Provides the name of the DB parameter group."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DBParameterGroupNameMessage"
     },
     "DBParameterGroupNotFoundFault": {
       "description": " <i>DBParameterGroupName</i> does not refer to an existing DB parameter group. ",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DBParameterGroupNotFoundFault"
     },
     "DBParameterGroupQuotaExceededFault": {
       "description": "Request would result in user exceeding the allowed number of DB parameter groups.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DBParameterGroupQuotaExceededFault"
     },
     "DBParameterGroupStatus": {
       "description": "<p>The status of the DB parameter group.</p> <p>This data type is used as a response element in the following actions:</p> <ul> <li> <p> <a>CreateDBInstance</a> </p> </li> <li> <p> <a>CreateDBInstanceReadReplica</a> </p> </li> <li> <p> <a>DeleteDBInstance</a> </p> </li> <li> <p> <a>ModifyDBInstance</a> </p> </li> <li> <p> <a>RebootDBInstance</a> </p> </li> <li> <p> <a>RestoreDBInstanceFromDBSnapshot</a> </p> </li> </ul>",
@@ -2031,13 +2136,15 @@
           "description": "The status of parameter updates."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DBParameterGroupStatus"
     },
     "DBParameterGroupStatusList": {
       "items": {
         "$ref": "#/definitions/DBParameterGroupStatus"
       },
-      "type": "array"
+      "type": "array",
+      "title": "DBParameterGroupStatusList"
     },
     "DBParameterGroupsMessage": {
       "description": " Contains the result of a successful invocation of the <a>DescribeDBParameterGroups</a> action. ",
@@ -2051,7 +2158,8 @@
           "description": " An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DBParameterGroupsMessage"
     },
     "DBSecurityGroup": {
       "description": "<p>Contains the result of a successful invocation of the following actions:</p> <ul> <li> <p> <a>DescribeDBSecurityGroups</a> </p> </li> <li> <p> <a>AuthorizeDBSecurityGroupIngress</a> </p> </li> <li> <p> <a>CreateDBSecurityGroup</a> </p> </li> <li> <p> <a>RevokeDBSecurityGroupIngress</a> </p> </li> </ul> <p>This data type is used as a response element in the <a>DescribeDBSecurityGroups</a> action.</p>",
@@ -2085,12 +2193,14 @@
           "description": "Provides the VpcId of the DB security group."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DBSecurityGroup"
     },
     "DBSecurityGroupAlreadyExistsFault": {
       "description": " A DB security group with the name specified in <i>DBSecurityGroupName</i> already exists. ",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DBSecurityGroupAlreadyExistsFault"
     },
     "DBSecurityGroupMembership": {
       "description": "<p>This data type is used as a response element in the following actions:</p> <ul> <li> <p> <a>ModifyDBInstance</a> </p> </li> <li> <p> <a>RebootDBInstance</a> </p> </li> <li> <p> <a>RestoreDBInstanceFromDBSnapshot</a> </p> </li> <li> <p> <a>RestoreDBInstanceToPointInTime</a> </p> </li> </ul>",
@@ -2104,13 +2214,15 @@
           "description": "The status of the DB security group."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DBSecurityGroupMembership"
     },
     "DBSecurityGroupMembershipList": {
       "items": {
         "$ref": "#/definitions/DBSecurityGroupMembership"
       },
-      "type": "array"
+      "type": "array",
+      "title": "DBSecurityGroupMembershipList"
     },
     "DBSecurityGroupMessage": {
       "description": " Contains the result of a successful invocation of the <a>DescribeDBSecurityGroups</a> action. ",
@@ -2124,34 +2236,40 @@
           "description": " An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DBSecurityGroupMessage"
     },
     "DBSecurityGroupNameList": {
       "items": {
         "$ref": "#/definitions/String"
       },
-      "type": "array"
+      "type": "array",
+      "title": "DBSecurityGroupNameList"
     },
     "DBSecurityGroupNotFoundFault": {
       "description": " <i>DBSecurityGroupName</i> does not refer to an existing DB security group. ",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DBSecurityGroupNotFoundFault"
     },
     "DBSecurityGroupNotSupportedFault": {
       "description": "A DB security group is not allowed for this action.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DBSecurityGroupNotSupportedFault"
     },
     "DBSecurityGroupQuotaExceededFault": {
       "description": "Request would result in user exceeding the allowed number of DB security groups.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DBSecurityGroupQuotaExceededFault"
     },
     "DBSecurityGroups": {
       "items": {
         "$ref": "#/definitions/DBSecurityGroup"
       },
-      "type": "array"
+      "type": "array",
+      "title": "DBSecurityGroups"
     },
     "DBSnapshot": {
       "description": "<p>Contains the result of a successful invocation of the following actions:</p> <ul> <li> <p> <a>CreateDBSnapshot</a> </p> </li> <li> <p> <a>DeleteDBSnapshot</a> </p> </li> </ul> <p>This data type is used as a response element in the <a>DescribeDBSnapshots</a> action.</p>",
@@ -2261,12 +2379,14 @@
           "description": "Provides the VPC ID associated with the DB snapshot."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DBSnapshot"
     },
     "DBSnapshotAlreadyExistsFault": {
       "description": " <i>DBSnapshotIdentifier</i> is already used by an existing snapshot. ",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DBSnapshotAlreadyExistsFault"
     },
     "DBSnapshotAttribute": {
       "description": "<p>Contains the name and values of a manual DB snapshot attribute</p> <p>Manual DB snapshot attributes are used to authorize other AWS accounts to restore a manual DB snapshot. For more information, see the <a>ModifyDBSnapshotAttribute</a> API.</p>",
@@ -2280,13 +2400,15 @@
           "description": "<p>The value or values for the manual DB snapshot attribute.</p> <p>If the <code>AttributeName</code> field is set to <code>restore</code>, then this element returns a list of IDs of the AWS accounts that are authorized to copy or restore the manual DB snapshot. If a value of <code>all</code> is in the list, then the manual DB snapshot is public and available for any AWS account to copy or restore.</p>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DBSnapshotAttribute"
     },
     "DBSnapshotAttributeList": {
       "items": {
         "$ref": "#/definitions/DBSnapshotAttribute"
       },
-      "type": "array"
+      "type": "array",
+      "title": "DBSnapshotAttributeList"
     },
     "DBSnapshotAttributesResult": {
       "description": "<p>Contains the results of a successful call to the <a>DescribeDBSnapshotAttributes</a> API action.</p> <p>Manual DB snapshot attributes are used to authorize other AWS accounts to copy or restore a manual DB snapshot. For more information, see the <a>ModifyDBSnapshotAttribute</a> API action.</p>",
@@ -2300,13 +2422,15 @@
           "description": "The identifier of the manual DB snapshot that the attributes apply to."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DBSnapshotAttributesResult"
     },
     "DBSnapshotList": {
       "items": {
         "$ref": "#/definitions/DBSnapshot"
       },
-      "type": "array"
+      "type": "array",
+      "title": "DBSnapshotList"
     },
     "DBSnapshotMessage": {
       "description": " Contains the result of a successful invocation of the <a>DescribeDBSnapshots</a> action. ",
@@ -2320,12 +2444,14 @@
           "description": " An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DBSnapshotMessage"
     },
     "DBSnapshotNotFoundFault": {
       "description": " <i>DBSnapshotIdentifier</i> does not refer to an existing DB snapshot. ",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DBSnapshotNotFoundFault"
     },
     "DBSubnetGroup": {
       "description": "<p>Contains the result of a successful invocation of the following actions:</p> <ul> <li> <p> <a>CreateDBSubnetGroup</a> </p> </li> <li> <p> <a>ModifyDBSubnetGroup</a> </p> </li> <li> <p> <a>DescribeDBSubnetGroups</a> </p> </li> <li> <p> <a>DeleteDBSubnetGroup</a> </p> </li> </ul> <p>This data type is used as a response element in the <a>DescribeDBSubnetGroups</a> action.</p>",
@@ -2355,17 +2481,20 @@
           "description": "Provides the VpcId of the DB subnet group."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DBSubnetGroup"
     },
     "DBSubnetGroupAlreadyExistsFault": {
       "description": " <i>DBSubnetGroupName</i> is already used by an existing DB subnet group. ",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DBSubnetGroupAlreadyExistsFault"
     },
     "DBSubnetGroupDoesNotCoverEnoughAZs": {
       "description": "Subnets in the DB subnet group should cover at least two Availability Zones unless there is only one Availability Zone.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DBSubnetGroupDoesNotCoverEnoughAZs"
     },
     "DBSubnetGroupMessage": {
       "description": " Contains the result of a successful invocation of the <a>DescribeDBSubnetGroups</a> action. ",
@@ -2379,38 +2508,45 @@
           "description": " An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DBSubnetGroupMessage"
     },
     "DBSubnetGroupNotAllowedFault": {
       "description": "Indicates that the DBSubnetGroup should not be specified while creating read replicas that lie in the same region as the source instance.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DBSubnetGroupNotAllowedFault"
     },
     "DBSubnetGroupNotFoundFault": {
       "description": " <i>DBSubnetGroupName</i> does not refer to an existing DB subnet group. ",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DBSubnetGroupNotFoundFault"
     },
     "DBSubnetGroupQuotaExceededFault": {
       "description": "Request would result in user exceeding the allowed number of DB subnet groups.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DBSubnetGroupQuotaExceededFault"
     },
     "DBSubnetGroups": {
       "items": {
         "$ref": "#/definitions/DBSubnetGroup"
       },
-      "type": "array"
+      "type": "array",
+      "title": "DBSubnetGroups"
     },
     "DBSubnetQuotaExceededFault": {
       "description": "Request would result in user exceeding the allowed number of subnets in a DB subnet groups.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DBSubnetQuotaExceededFault"
     },
     "DBUpgradeDependencyFailureFault": {
       "description": "The DB upgrade failed because a resource the DB depends on could not be modified.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DBUpgradeDependencyFailureFault"
     },
     "DeleteDBClusterMessage": {
       "description": "<p/>",
@@ -2431,7 +2567,8 @@
       "required": [
         "DBClusterIdentifier"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteDBClusterMessage"
     },
     "DeleteDBClusterParameterGroupMessage": {
       "description": "<p/>",
@@ -2444,7 +2581,8 @@
       "required": [
         "DBClusterParameterGroupName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteDBClusterParameterGroupMessage"
     },
     "DeleteDBClusterResult": {
       "properties": {
@@ -2452,7 +2590,8 @@
           "$ref": "#/definitions/DBCluster"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DeleteDBClusterResult"
     },
     "DeleteDBClusterSnapshotMessage": {
       "description": "<p/>",
@@ -2465,7 +2604,8 @@
       "required": [
         "DBClusterSnapshotIdentifier"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteDBClusterSnapshotMessage"
     },
     "DeleteDBClusterSnapshotResult": {
       "properties": {
@@ -2473,7 +2613,8 @@
           "$ref": "#/definitions/DBClusterSnapshot"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DeleteDBClusterSnapshotResult"
     },
     "DeleteDBInstanceMessage": {
       "description": "<p/>",
@@ -2494,7 +2635,8 @@
       "required": [
         "DBInstanceIdentifier"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteDBInstanceMessage"
     },
     "DeleteDBInstanceResult": {
       "properties": {
@@ -2502,7 +2644,8 @@
           "$ref": "#/definitions/DBInstance"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DeleteDBInstanceResult"
     },
     "DeleteDBParameterGroupMessage": {
       "description": "<p/>",
@@ -2515,7 +2658,8 @@
       "required": [
         "DBParameterGroupName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteDBParameterGroupMessage"
     },
     "DeleteDBSecurityGroupMessage": {
       "description": "<p/>",
@@ -2528,7 +2672,8 @@
       "required": [
         "DBSecurityGroupName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteDBSecurityGroupMessage"
     },
     "DeleteDBSnapshotMessage": {
       "description": "<p/>",
@@ -2541,7 +2686,8 @@
       "required": [
         "DBSnapshotIdentifier"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteDBSnapshotMessage"
     },
     "DeleteDBSnapshotResult": {
       "properties": {
@@ -2549,7 +2695,8 @@
           "$ref": "#/definitions/DBSnapshot"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DeleteDBSnapshotResult"
     },
     "DeleteDBSubnetGroupMessage": {
       "description": "<p/>",
@@ -2562,7 +2709,8 @@
       "required": [
         "DBSubnetGroupName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteDBSubnetGroupMessage"
     },
     "DeleteEventSubscriptionMessage": {
       "description": "<p/>",
@@ -2575,7 +2723,8 @@
       "required": [
         "SubscriptionName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteEventSubscriptionMessage"
     },
     "DeleteEventSubscriptionResult": {
       "properties": {
@@ -2583,7 +2732,8 @@
           "$ref": "#/definitions/EventSubscription"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DeleteEventSubscriptionResult"
     },
     "DeleteOptionGroupMessage": {
       "description": "<p/>",
@@ -2596,12 +2746,14 @@
       "required": [
         "OptionGroupName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteOptionGroupMessage"
     },
     "DescribeAccountAttributesMessage": {
       "description": "<p/>",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DescribeAccountAttributesMessage"
     },
     "DescribeCertificatesMessage": {
       "description": "<p/>",
@@ -2623,7 +2775,8 @@
           "description": "<p> The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination token called a marker is included in the response so that the remaining results can be retrieved. </p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeCertificatesMessage"
     },
     "DescribeDBClusterParameterGroupsMessage": {
       "description": "<p/>",
@@ -2645,7 +2798,8 @@
           "description": "<p> The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination token called a marker is included in the response so that the remaining results can be retrieved. </p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeDBClusterParameterGroupsMessage"
     },
     "DescribeDBClusterParametersMessage": {
       "description": "<p/>",
@@ -2674,7 +2828,8 @@
       "required": [
         "DBClusterParameterGroupName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeDBClusterParametersMessage"
     },
     "DescribeDBClusterSnapshotAttributesMessage": {
       "description": "<p/>",
@@ -2687,7 +2842,8 @@
       "required": [
         "DBClusterSnapshotIdentifier"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeDBClusterSnapshotAttributesMessage"
     },
     "DescribeDBClusterSnapshotAttributesResult": {
       "properties": {
@@ -2695,7 +2851,8 @@
           "$ref": "#/definitions/DBClusterSnapshotAttributesResult"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeDBClusterSnapshotAttributesResult"
     },
     "DescribeDBClusterSnapshotsMessage": {
       "description": "<p/>",
@@ -2733,7 +2890,8 @@
           "description": "<p>The type of DB cluster snapshots to be returned. You can specify one of the following values:</p> <ul> <li> <p> <code>automated</code> - Return all DB cluster snapshots that have been automatically taken by Amazon RDS for my AWS account.</p> </li> <li> <p> <code>manual</code> - Return all DB cluster snapshots that have been taken by my AWS account.</p> </li> <li> <p> <code>shared</code> - Return all manual DB cluster snapshots that have been shared to my AWS account.</p> </li> <li> <p> <code>public</code> - Return all DB cluster snapshots that have been marked as public.</p> </li> </ul> <p>If you don't specify a <code>SnapshotType</code> value, then both automated and manual DB cluster snapshots are returned. You can include shared DB cluster snapshots with these results by setting the <code>IncludeShared</code> parameter to <code>true</code>. You can include public DB cluster snapshots with these results by setting the <code>IncludePublic</code> parameter to <code>true</code>.</p> <p>The <code>IncludeShared</code> and <code>IncludePublic</code> parameters don't apply for <code>SnapshotType</code> values of <code>manual</code> or <code>automated</code>. The <code>IncludePublic</code> parameter doesn't apply when <code>SnapshotType</code> is set to <code>shared</code>. The <code>IncludeShared</code> parameter doesn't apply when <code>SnapshotType</code> is set to <code>public</code>.</p>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeDBClusterSnapshotsMessage"
     },
     "DescribeDBClustersMessage": {
       "description": "<p/>",
@@ -2755,7 +2913,8 @@
           "description": "<p>The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination token called a marker is included in the response so that the remaining results can be retrieved. </p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeDBClustersMessage"
     },
     "DescribeDBEngineVersionsMessage": {
       "properties": {
@@ -2796,7 +2955,8 @@
           "description": "<p> The maximum number of records to include in the response. If more than the <code>MaxRecords</code> value is available, a pagination token called a marker is included in the response so that the following results can be retrieved. </p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeDBEngineVersionsMessage"
     },
     "DescribeDBInstancesMessage": {
       "description": "<p/>",
@@ -2818,7 +2978,8 @@
           "description": "<p> The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination token called a marker is included in the response so that the remaining results can be retrieved. </p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeDBInstancesMessage"
     },
     "DescribeDBLogFilesDetails": {
       "description": "This data type is used as a response element to <a>DescribeDBLogFiles</a>.",
@@ -2836,13 +2997,15 @@
           "description": "The size, in bytes, of the log file for the specified DB instance."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeDBLogFilesDetails"
     },
     "DescribeDBLogFilesList": {
       "items": {
         "$ref": "#/definitions/DescribeDBLogFilesDetails"
       },
-      "type": "array"
+      "type": "array",
+      "title": "DescribeDBLogFilesList"
     },
     "DescribeDBLogFilesMessage": {
       "description": "<p/>",
@@ -2879,7 +3042,8 @@
       "required": [
         "DBInstanceIdentifier"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeDBLogFilesMessage"
     },
     "DescribeDBLogFilesResponse": {
       "description": " The response from a call to <a>DescribeDBLogFiles</a>. ",
@@ -2893,7 +3057,8 @@
           "description": "A pagination token that can be used in a subsequent DescribeDBLogFiles request."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeDBLogFilesResponse"
     },
     "DescribeDBParameterGroupsMessage": {
       "description": "<p/>",
@@ -2915,7 +3080,8 @@
           "description": "<p> The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination token called a marker is included in the response so that the remaining results can be retrieved. </p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeDBParameterGroupsMessage"
     },
     "DescribeDBParametersMessage": {
       "properties": {
@@ -2943,7 +3109,8 @@
       "required": [
         "DBParameterGroupName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeDBParametersMessage"
     },
     "DescribeDBSecurityGroupsMessage": {
       "description": "<p/>",
@@ -2965,7 +3132,8 @@
           "description": "<p> The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination token called a marker is included in the response so that the remaining results can be retrieved. </p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeDBSecurityGroupsMessage"
     },
     "DescribeDBSnapshotAttributesMessage": {
       "description": "<p/>",
@@ -2978,7 +3146,8 @@
       "required": [
         "DBSnapshotIdentifier"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeDBSnapshotAttributesMessage"
     },
     "DescribeDBSnapshotAttributesResult": {
       "properties": {
@@ -2986,7 +3155,8 @@
           "$ref": "#/definitions/DBSnapshotAttributesResult"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeDBSnapshotAttributesResult"
     },
     "DescribeDBSnapshotsMessage": {
       "description": "<p/>",
@@ -3024,7 +3194,8 @@
           "description": "<p>The type of snapshots to be returned. You can specify one of the following values:</p> <ul> <li> <p> <code>automated</code> - Return all DB snapshots that have been automatically taken by Amazon RDS for my AWS account.</p> </li> <li> <p> <code>manual</code> - Return all DB snapshots that have been taken by my AWS account.</p> </li> <li> <p> <code>shared</code> - Return all manual DB snapshots that have been shared to my AWS account.</p> </li> <li> <p> <code>public</code> - Return all DB snapshots that have been marked as public.</p> </li> </ul> <p>If you don't specify a <code>SnapshotType</code> value, then both automated and manual snapshots are returned. Shared and public DB snapshots are not included in the returned results by default. You can include shared snapshots with these results by setting the <code>IncludeShared</code> parameter to <code>true</code>. You can include public snapshots with these results by setting the <code>IncludePublic</code> parameter to <code>true</code>.</p> <p>The <code>IncludeShared</code> and <code>IncludePublic</code> parameters don't apply for <code>SnapshotType</code> values of <code>manual</code> or <code>automated</code>. The <code>IncludePublic</code> parameter doesn't apply when <code>SnapshotType</code> is set to <code>shared</code>. The <code>IncludeShared</code> parameter doesn't apply when <code>SnapshotType</code> is set to <code>public</code>.</p>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeDBSnapshotsMessage"
     },
     "DescribeDBSubnetGroupsMessage": {
       "description": "<p/>",
@@ -3046,7 +3217,8 @@
           "description": "<p> The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination token called a marker is included in the response so that the remaining results can be retrieved. </p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeDBSubnetGroupsMessage"
     },
     "DescribeEngineDefaultClusterParametersMessage": {
       "description": "<p/>",
@@ -3071,7 +3243,8 @@
       "required": [
         "DBParameterGroupFamily"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeEngineDefaultClusterParametersMessage"
     },
     "DescribeEngineDefaultClusterParametersResult": {
       "properties": {
@@ -3079,7 +3252,8 @@
           "$ref": "#/definitions/EngineDefaults"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeEngineDefaultClusterParametersResult"
     },
     "DescribeEngineDefaultParametersMessage": {
       "description": "<p/>",
@@ -3104,7 +3278,8 @@
       "required": [
         "DBParameterGroupFamily"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeEngineDefaultParametersMessage"
     },
     "DescribeEngineDefaultParametersResult": {
       "properties": {
@@ -3112,7 +3287,8 @@
           "$ref": "#/definitions/EngineDefaults"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeEngineDefaultParametersResult"
     },
     "DescribeEventCategoriesMessage": {
       "description": "<p/>",
@@ -3126,7 +3302,8 @@
           "description": "<p>The type of source that will be generating the events.</p> <p>Valid values: db-instance | db-parameter-group | db-security-group | db-snapshot</p>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeEventCategoriesMessage"
     },
     "DescribeEventSubscriptionsMessage": {
       "description": "<p/>",
@@ -3148,7 +3325,8 @@
           "description": "The name of the RDS event notification subscription you want to describe."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeEventSubscriptionsMessage"
     },
     "DescribeEventsMessage": {
       "description": "<p/>",
@@ -3190,7 +3368,8 @@
           "description": "<p> The beginning of the time interval to retrieve events for, specified in ISO 8601 format. For more information about ISO 8601, go to the <a href=\"http://en.wikipedia.org/wiki/ISO_8601\">ISO8601 Wikipedia page.</a> </p> <p>Example: 2009-07-08T18:00Z</p>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeEventsMessage"
     },
     "DescribeOptionGroupOptionsMessage": {
       "description": "<p/>",
@@ -3219,7 +3398,8 @@
       "required": [
         "EngineName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeOptionGroupOptionsMessage"
     },
     "DescribeOptionGroupsMessage": {
       "description": "<p/>",
@@ -3249,7 +3429,8 @@
           "description": "The name of the option group to describe. Cannot be supplied together with EngineName or MajorEngineVersion."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeOptionGroupsMessage"
     },
     "DescribeOrderableDBInstanceOptionsMessage": {
       "description": "<p/>",
@@ -3290,7 +3471,8 @@
       "required": [
         "Engine"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeOrderableDBInstanceOptionsMessage"
     },
     "DescribePendingMaintenanceActionsMessage": {
       "description": "<p/>",
@@ -3312,7 +3494,8 @@
           "description": "The ARN of a resource to return pending maintenance actions for."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribePendingMaintenanceActionsMessage"
     },
     "DescribeReservedDBInstancesMessage": {
       "description": "<p/>",
@@ -3358,7 +3541,8 @@
           "description": "The offering identifier filter value. Specify this parameter to show only purchased reservations matching the specified offering identifier."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeReservedDBInstancesMessage"
     },
     "DescribeReservedDBInstancesOfferingsMessage": {
       "description": "<p/>",
@@ -3400,7 +3584,8 @@
           "description": "<p>The offering identifier filter value. Specify this parameter to show only the available offering that matches the specified reservation identifier.</p> <p>Example: <code>438012d3-4052-4cc7-b2e3-8d3372e0e706</code> </p>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeReservedDBInstancesOfferingsMessage"
     },
     "DescribeSourceRegionsMessage": {
       "description": "<p/>",
@@ -3422,7 +3607,8 @@
           "description": "<p>The source region name. For example, <code>us-east-1</code>.</p> <p>Constraints:</p> <ul> <li> <p>Must specify a valid AWS Region name.</p> </li> </ul>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeSourceRegionsMessage"
     },
     "DomainMembership": {
       "description": "An Active Directory Domain membership record associated with the DB instance.",
@@ -3444,23 +3630,27 @@
           "description": "The status of the DB instance's Active Directory Domain membership, such as joined, pending-join, failed etc)."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DomainMembership"
     },
     "DomainMembershipList": {
       "description": "List of Active Directory Domain membership records associated with a DB instance.",
       "items": {
         "$ref": "#/definitions/DomainMembership"
       },
-      "type": "array"
+      "type": "array",
+      "title": "DomainMembershipList"
     },
     "DomainNotFoundFault": {
       "description": " <i>Domain</i> does not refer to an existing Active Directory Domain. ",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DomainNotFoundFault"
     },
     "Double": {
       "format": "double",
-      "type": "number"
+      "type": "number",
+      "title": "Double"
     },
     "DownloadDBLogFilePortionDetails": {
       "description": "This data type is used as a response element to <a>DownloadDBLogFilePortion</a>.",
@@ -3478,7 +3668,8 @@
           "description": "A pagination token that can be used in a subsequent DownloadDBLogFilePortion request."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DownloadDBLogFilePortionDetails"
     },
     "DownloadDBLogFilePortionMessage": {
       "description": "<p/>",
@@ -3504,7 +3695,8 @@
         "DBInstanceIdentifier",
         "LogFileName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DownloadDBLogFilePortionMessage"
     },
     "EC2SecurityGroup": {
       "description": "<p>This data type is used as a response element in the following actions:</p> <ul> <li> <p> <a>AuthorizeDBSecurityGroupIngress</a> </p> </li> <li> <p> <a>DescribeDBSecurityGroups</a> </p> </li> <li> <p> <a>RevokeDBSecurityGroupIngress</a> </p> </li> </ul>",
@@ -3526,13 +3718,15 @@
           "description": "Provides the status of the EC2 security group. Status can be \"authorizing\", \"authorized\", \"revoking\", and \"revoked\"."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "EC2SecurityGroup"
     },
     "EC2SecurityGroupList": {
       "items": {
         "$ref": "#/definitions/EC2SecurityGroup"
       },
-      "type": "array"
+      "type": "array",
+      "title": "EC2SecurityGroupList"
     },
     "Endpoint": {
       "description": "<p>This data type is used as a response element in the following actions:</p> <ul> <li> <p> <a>CreateDBInstance</a> </p> </li> <li> <p> <a>DescribeDBInstances</a> </p> </li> <li> <p> <a>DeleteDBInstance</a> </p> </li> </ul>",
@@ -3550,7 +3744,8 @@
           "description": "Specifies the port that the database engine is listening on."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Endpoint"
     },
     "EngineDefaults": {
       "description": " Contains the result of a successful invocation of the <a>DescribeEngineDefaultParameters</a> action. ",
@@ -3568,7 +3763,8 @@
           "description": "Contains a list of engine default parameters."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "EngineDefaults"
     },
     "Event": {
       "description": " This data type is used as a response element in the <a>DescribeEvents</a> action. ",
@@ -3598,13 +3794,15 @@
           "description": "Specifies the source type for this event."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Event"
     },
     "EventCategoriesList": {
       "items": {
         "$ref": "#/definitions/String"
       },
-      "type": "array"
+      "type": "array",
+      "title": "EventCategoriesList"
     },
     "EventCategoriesMap": {
       "description": "Contains the results of a successful invocation of the <a>DescribeEventCategories</a> action.",
@@ -3618,13 +3816,15 @@
           "description": "The source type that the returned categories belong to"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "EventCategoriesMap"
     },
     "EventCategoriesMapList": {
       "items": {
         "$ref": "#/definitions/EventCategoriesMap"
       },
-      "type": "array"
+      "type": "array",
+      "title": "EventCategoriesMapList"
     },
     "EventCategoriesMessage": {
       "description": "Data returned from the <b>DescribeEventCategories</b> action.",
@@ -3634,13 +3834,15 @@
           "description": "A list of EventCategoriesMap data types."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "EventCategoriesMessage"
     },
     "EventList": {
       "items": {
         "$ref": "#/definitions/Event"
       },
-      "type": "array"
+      "type": "array",
+      "title": "EventList"
     },
     "EventSubscription": {
       "description": "Contains the results of a successful invocation of the <a>DescribeEventSubscriptions</a> action.",
@@ -3686,18 +3888,21 @@
           "description": "The time the RDS event notification subscription was created."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "EventSubscription"
     },
     "EventSubscriptionQuotaExceededFault": {
       "description": "You have reached the maximum number of event subscriptions.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "EventSubscriptionQuotaExceededFault"
     },
     "EventSubscriptionsList": {
       "items": {
         "$ref": "#/definitions/EventSubscription"
       },
-      "type": "array"
+      "type": "array",
+      "title": "EventSubscriptionsList"
     },
     "EventSubscriptionsMessage": {
       "description": "Data returned by the <b>DescribeEventSubscriptions</b> action.",
@@ -3711,7 +3916,8 @@
           "description": " An optional pagination token provided by a previous DescribeOrderableDBInstanceOptions request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "EventSubscriptionsMessage"
     },
     "EventsMessage": {
       "description": " Contains the result of a successful invocation of the <a>DescribeEvents</a> action. ",
@@ -3725,7 +3931,8 @@
           "description": " An optional pagination token provided by a previous Events request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code> . "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "EventsMessage"
     },
     "FailoverDBClusterMessage": {
       "description": "<p/>",
@@ -3739,7 +3946,8 @@
           "description": "<p>The name of the instance to promote to the primary instance.</p> <p>You must specify the instance identifier for an Aurora Replica in the DB cluster. For example, <code>mydbcluster-replica1</code>.</p>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "FailoverDBClusterMessage"
     },
     "FailoverDBClusterResult": {
       "properties": {
@@ -3747,7 +3955,8 @@
           "$ref": "#/definitions/DBCluster"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "FailoverDBClusterResult"
     },
     "Filter": {
       "description": "This type is not currently supported.",
@@ -3765,19 +3974,22 @@
         "Name",
         "Values"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "Filter"
     },
     "FilterList": {
       "items": {
         "$ref": "#/definitions/Filter"
       },
-      "type": "array"
+      "type": "array",
+      "title": "FilterList"
     },
     "FilterValueList": {
       "items": {
         "$ref": "#/definitions/String"
       },
-      "type": "array"
+      "type": "array",
+      "title": "FilterValueList"
     },
     "IPRange": {
       "description": " This data type is used as a response element in the <a>DescribeDBSecurityGroups</a> action. ",
@@ -3791,125 +4003,150 @@
           "description": "Specifies the status of the IP range. Status can be \"authorizing\", \"authorized\", \"revoking\", and \"revoked\"."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "IPRange"
     },
     "IPRangeList": {
       "items": {
         "$ref": "#/definitions/IPRange"
       },
-      "type": "array"
+      "type": "array",
+      "title": "IPRangeList"
     },
     "InstanceQuotaExceededFault": {
       "description": "Request would result in user exceeding the allowed number of DB instances.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "InstanceQuotaExceededFault"
     },
     "InsufficientDBClusterCapacityFault": {
       "description": "The DB cluster does not have enough capacity for the current operation.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "InsufficientDBClusterCapacityFault"
     },
     "InsufficientDBInstanceCapacityFault": {
       "description": "Specified DB instance class is not available in the specified Availability Zone.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "InsufficientDBInstanceCapacityFault"
     },
     "InsufficientStorageClusterCapacityFault": {
       "description": "There is insufficient storage available for the current action. You may be able to resolve this error by updating your subnet group to use different Availability Zones that have more storage available.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "InsufficientStorageClusterCapacityFault"
     },
     "Integer": {
-      "type": "integer"
+      "type": "integer",
+      "title": "Integer"
     },
     "IntegerOptional": {
-      "type": "integer"
+      "type": "integer",
+      "title": "IntegerOptional"
     },
     "InvalidDBClusterSnapshotStateFault": {
       "description": "The supplied value is not a valid DB cluster snapshot state.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "InvalidDBClusterSnapshotStateFault"
     },
     "InvalidDBClusterStateFault": {
       "description": "The DB cluster is not in a valid state.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "InvalidDBClusterStateFault"
     },
     "InvalidDBInstanceStateFault": {
       "description": " The specified DB instance is not in the <i>available</i> state. ",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "InvalidDBInstanceStateFault"
     },
     "InvalidDBParameterGroupStateFault": {
       "description": "The DB parameter group is in use or is in an invalid state. If you are attempting to delete the parameter group, you cannot delete it when the parameter group is in this state.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "InvalidDBParameterGroupStateFault"
     },
     "InvalidDBSecurityGroupStateFault": {
       "description": "The state of the DB security group does not allow deletion.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "InvalidDBSecurityGroupStateFault"
     },
     "InvalidDBSnapshotStateFault": {
       "description": "The state of the DB snapshot does not allow deletion.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "InvalidDBSnapshotStateFault"
     },
     "InvalidDBSubnetGroupFault": {
       "description": "Indicates the DBSubnetGroup does not belong to the same VPC as that of an existing cross region read replica of the same source instance.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "InvalidDBSubnetGroupFault"
     },
     "InvalidDBSubnetGroupStateFault": {
       "description": "The DB subnet group cannot be deleted because it is in use.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "InvalidDBSubnetGroupStateFault"
     },
     "InvalidDBSubnetStateFault": {
       "description": " The DB subnet is not in the <i>available</i> state. ",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "InvalidDBSubnetStateFault"
     },
     "InvalidEventSubscriptionStateFault": {
       "description": "This error can occur if someone else is modifying a subscription. You should retry the action.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "InvalidEventSubscriptionStateFault"
     },
     "InvalidOptionGroupStateFault": {
       "description": " The option group is not in the <i>available</i> state. ",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "InvalidOptionGroupStateFault"
     },
     "InvalidRestoreFault": {
       "description": "Cannot restore from vpc backup to non-vpc DB instance.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "InvalidRestoreFault"
     },
     "InvalidS3BucketFault": {
       "description": "The specified Amazon S3 bucket name could not be found or Amazon RDS is not authorized to access the specified Amazon S3 bucket. Verify the <b>SourceS3BucketName</b> and <b>S3IngestionRoleArn</b> values and try again.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "InvalidS3BucketFault"
     },
     "InvalidSubnet": {
       "description": "The requested subnet is invalid, or multiple subnets were requested that are not all in a common VPC.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "InvalidSubnet"
     },
     "InvalidVPCNetworkStateFault": {
       "description": "DB subnet group does not cover all Availability Zones after it is created because users' change.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "InvalidVPCNetworkStateFault"
     },
     "KMSKeyNotAccessibleFault": {
       "description": "Error accessing KMS key.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "KMSKeyNotAccessibleFault"
     },
     "KeyList": {
       "items": {
         "$ref": "#/definitions/String"
       },
-      "type": "array"
+      "type": "array",
+      "title": "KeyList"
     },
     "ListTagsForResourceMessage": {
       "description": "<p/>",
@@ -3926,10 +4163,12 @@
       "required": [
         "ResourceName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListTagsForResourceMessage"
     },
     "Long": {
-      "type": "integer"
+      "type": "integer",
+      "title": "Long"
     },
     "ModifyDBClusterMessage": {
       "description": "<p/>",
@@ -3986,7 +4225,8 @@
       "required": [
         "DBClusterIdentifier"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ModifyDBClusterMessage"
     },
     "ModifyDBClusterParameterGroupMessage": {
       "description": "<p/>",
@@ -4004,7 +4244,8 @@
         "DBClusterParameterGroupName",
         "Parameters"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ModifyDBClusterParameterGroupMessage"
     },
     "ModifyDBClusterResult": {
       "properties": {
@@ -4012,7 +4253,8 @@
           "$ref": "#/definitions/DBCluster"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ModifyDBClusterResult"
     },
     "ModifyDBClusterSnapshotAttributeMessage": {
       "description": "<p/>",
@@ -4038,7 +4280,8 @@
         "DBClusterSnapshotIdentifier",
         "AttributeName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ModifyDBClusterSnapshotAttributeMessage"
     },
     "ModifyDBClusterSnapshotAttributeResult": {
       "properties": {
@@ -4046,7 +4289,8 @@
           "$ref": "#/definitions/DBClusterSnapshotAttributesResult"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ModifyDBClusterSnapshotAttributeResult"
     },
     "ModifyDBInstanceMessage": {
       "description": "<p/>",
@@ -4187,7 +4431,8 @@
       "required": [
         "DBInstanceIdentifier"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ModifyDBInstanceMessage"
     },
     "ModifyDBInstanceResult": {
       "properties": {
@@ -4195,7 +4440,8 @@
           "$ref": "#/definitions/DBInstance"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ModifyDBInstanceResult"
     },
     "ModifyDBParameterGroupMessage": {
       "description": "<p/>",
@@ -4213,7 +4459,8 @@
         "DBParameterGroupName",
         "Parameters"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ModifyDBParameterGroupMessage"
     },
     "ModifyDBSnapshotAttributeMessage": {
       "description": "<p/>",
@@ -4239,7 +4486,8 @@
         "DBSnapshotIdentifier",
         "AttributeName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ModifyDBSnapshotAttributeMessage"
     },
     "ModifyDBSnapshotAttributeResult": {
       "properties": {
@@ -4247,7 +4495,8 @@
           "$ref": "#/definitions/DBSnapshotAttributesResult"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ModifyDBSnapshotAttributeResult"
     },
     "ModifyDBSnapshotMessage": {
       "properties": {
@@ -4263,7 +4512,8 @@
       "required": [
         "DBSnapshotIdentifier"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ModifyDBSnapshotMessage"
     },
     "ModifyDBSnapshotResult": {
       "properties": {
@@ -4271,7 +4521,8 @@
           "$ref": "#/definitions/DBSnapshot"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ModifyDBSnapshotResult"
     },
     "ModifyDBSubnetGroupMessage": {
       "description": "<p/>",
@@ -4293,7 +4544,8 @@
         "DBSubnetGroupName",
         "SubnetIds"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ModifyDBSubnetGroupMessage"
     },
     "ModifyDBSubnetGroupResult": {
       "properties": {
@@ -4301,7 +4553,8 @@
           "$ref": "#/definitions/DBSubnetGroup"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ModifyDBSubnetGroupResult"
     },
     "ModifyEventSubscriptionMessage": {
       "description": "<p/>",
@@ -4330,7 +4583,8 @@
       "required": [
         "SubscriptionName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ModifyEventSubscriptionMessage"
     },
     "ModifyEventSubscriptionResult": {
       "properties": {
@@ -4338,7 +4592,8 @@
           "$ref": "#/definitions/EventSubscription"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ModifyEventSubscriptionResult"
     },
     "ModifyOptionGroupMessage": {
       "description": "<p/>",
@@ -4363,7 +4618,8 @@
       "required": [
         "OptionGroupName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ModifyOptionGroupMessage"
     },
     "ModifyOptionGroupResult": {
       "properties": {
@@ -4371,7 +4627,8 @@
           "$ref": "#/definitions/OptionGroup"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ModifyOptionGroupResult"
     },
     "Option": {
       "description": "Option details.",
@@ -4413,7 +4670,8 @@
           "description": "If the option requires access to a port, then this VPC security group allows access to the port."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Option"
     },
     "OptionConfiguration": {
       "description": "A list of all available options",
@@ -4446,13 +4704,15 @@
       "required": [
         "OptionName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "OptionConfiguration"
     },
     "OptionConfigurationList": {
       "items": {
         "$ref": "#/definitions/OptionConfiguration"
       },
-      "type": "array"
+      "type": "array",
+      "title": "OptionConfigurationList"
     },
     "OptionGroup": {
       "description": "<p/>",
@@ -4490,12 +4750,14 @@
           "description": "If <b>AllowsVpcAndNonVpcInstanceMemberships</b> is <code>false</code>, this field is blank. If <b>AllowsVpcAndNonVpcInstanceMemberships</b> is <code>true</code> and this field is blank, then this option group can be applied to both VPC and non-VPC instances. If this field contains a value, then this option group can only be applied to instances that are in the VPC indicated by this field. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "OptionGroup"
     },
     "OptionGroupAlreadyExistsFault": {
       "description": "The option group you are trying to create already exists.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "OptionGroupAlreadyExistsFault"
     },
     "OptionGroupMembership": {
       "description": "Provides information on the option groups the DB instance is a member of.",
@@ -4509,18 +4771,21 @@
           "description": "The status of the DB instance's option group membership. Valid values are: <code>in-sync</code>, <code>pending-apply</code>, <code>pending-removal</code>, <code>pending-maintenance-apply</code>, <code>pending-maintenance-removal</code>, <code>applying</code>, <code>removing</code>, and <code>failed</code>. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "OptionGroupMembership"
     },
     "OptionGroupMembershipList": {
       "items": {
         "$ref": "#/definitions/OptionGroupMembership"
       },
-      "type": "array"
+      "type": "array",
+      "title": "OptionGroupMembershipList"
     },
     "OptionGroupNotFoundFault": {
       "description": "The specified option group could not be found.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "OptionGroupNotFoundFault"
     },
     "OptionGroupOption": {
       "description": "Available option.",
@@ -4578,7 +4843,8 @@
           "description": "Specifies whether the option requires a port."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "OptionGroupOption"
     },
     "OptionGroupOptionSetting": {
       "description": "Option group option settings are used to display settings available for each option with their default values and other information. These values are used with the DescribeOptionGroupOptions action.",
@@ -4608,26 +4874,30 @@
           "description": "The name of the option group option."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "OptionGroupOptionSetting"
     },
     "OptionGroupOptionSettingsList": {
       "items": {
         "$ref": "#/definitions/OptionGroupOptionSetting"
       },
-      "type": "array"
+      "type": "array",
+      "title": "OptionGroupOptionSettingsList"
     },
     "OptionGroupOptionVersionsList": {
       "items": {
         "$ref": "#/definitions/OptionVersion"
       },
-      "type": "array"
+      "type": "array",
+      "title": "OptionGroupOptionVersionsList"
     },
     "OptionGroupOptionsList": {
       "description": "List of available option group options.",
       "items": {
         "$ref": "#/definitions/OptionGroupOption"
       },
-      "type": "array"
+      "type": "array",
+      "title": "OptionGroupOptionsList"
     },
     "OptionGroupOptionsMessage": {
       "description": "<p/>",
@@ -4640,12 +4910,14 @@
           "$ref": "#/definitions/OptionGroupOptionsList"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "OptionGroupOptionsMessage"
     },
     "OptionGroupQuotaExceededFault": {
       "description": "The quota of 20 option groups was exceeded for this AWS account.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "OptionGroupQuotaExceededFault"
     },
     "OptionGroups": {
       "description": "List of option groups.",
@@ -4659,19 +4931,22 @@
           "description": "List of option groups."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "OptionGroups"
     },
     "OptionGroupsList": {
       "items": {
         "$ref": "#/definitions/OptionGroup"
       },
-      "type": "array"
+      "type": "array",
+      "title": "OptionGroupsList"
     },
     "OptionNamesList": {
       "items": {
         "$ref": "#/definitions/String"
       },
-      "type": "array"
+      "type": "array",
+      "title": "OptionNamesList"
     },
     "OptionSetting": {
       "description": "Option settings are the actual settings being applied or configured for that option. It is used when you modify an option group or describe option groups. For example, the NATIVE_NETWORK_ENCRYPTION option has a setting called SQLNET.ENCRYPTION_SERVER that can have several different values.",
@@ -4713,19 +4988,22 @@
           "description": "The current value of the option setting."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "OptionSetting"
     },
     "OptionSettingConfigurationList": {
       "items": {
         "$ref": "#/definitions/OptionSetting"
       },
-      "type": "array"
+      "type": "array",
+      "title": "OptionSettingConfigurationList"
     },
     "OptionSettingsList": {
       "items": {
         "$ref": "#/definitions/OptionSetting"
       },
-      "type": "array"
+      "type": "array",
+      "title": "OptionSettingsList"
     },
     "OptionVersion": {
       "description": "The version for an option. Option group option versions are returned by the <a>DescribeOptionGroupOptions</a> action.",
@@ -4739,25 +5017,29 @@
           "description": "The version of the option."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "OptionVersion"
     },
     "OptionsConflictsWith": {
       "items": {
         "$ref": "#/definitions/String"
       },
-      "type": "array"
+      "type": "array",
+      "title": "OptionsConflictsWith"
     },
     "OptionsDependedOn": {
       "items": {
         "$ref": "#/definitions/String"
       },
-      "type": "array"
+      "type": "array",
+      "title": "OptionsDependedOn"
     },
     "OptionsList": {
       "items": {
         "$ref": "#/definitions/Option"
       },
-      "type": "array"
+      "type": "array",
+      "title": "OptionsList"
     },
     "OrderableDBInstanceOption": {
       "description": "<p>Contains a list of available options for a DB instance</p> <p> This data type is used as a response element in the <a>DescribeOrderableDBInstanceOptions</a> action. </p>",
@@ -4815,13 +5097,15 @@
           "description": "Indicates whether this is a VPC orderable DB instance."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "OrderableDBInstanceOption"
     },
     "OrderableDBInstanceOptionsList": {
       "items": {
         "$ref": "#/definitions/OrderableDBInstanceOption"
       },
-      "type": "array"
+      "type": "array",
+      "title": "OrderableDBInstanceOptionsList"
     },
     "OrderableDBInstanceOptionsMessage": {
       "description": " Contains the result of a successful invocation of the <a>DescribeOrderableDBInstanceOptions</a> action. ",
@@ -4835,7 +5119,8 @@
           "description": "An <a>OrderableDBInstanceOption</a> structure containing information about orderable options for the DB instance."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "OrderableDBInstanceOptionsMessage"
     },
     "Parameter": {
       "description": "<p> This data type is used as a request parameter in the <a>ModifyDBParameterGroup</a> and <a>ResetDBParameterGroup</a> actions. </p> <p>This data type is used as a response element in the <a>DescribeEngineDefaultParameters</a> and <a>DescribeDBParameters</a> actions.</p>",
@@ -4881,13 +5166,15 @@
           "description": "Indicates the source of the parameter value."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Parameter"
     },
     "ParametersList": {
       "items": {
         "$ref": "#/definitions/Parameter"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ParametersList"
     },
     "PendingMaintenanceAction": {
       "description": "Provides information about a pending maintenance action for a resource.",
@@ -4917,19 +5204,22 @@
           "description": "Indicates the type of opt-in request that has been received for the resource."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PendingMaintenanceAction"
     },
     "PendingMaintenanceActionDetails": {
       "items": {
         "$ref": "#/definitions/PendingMaintenanceAction"
       },
-      "type": "array"
+      "type": "array",
+      "title": "PendingMaintenanceActionDetails"
     },
     "PendingMaintenanceActions": {
       "items": {
         "$ref": "#/definitions/ResourcePendingMaintenanceActions"
       },
-      "type": "array"
+      "type": "array",
+      "title": "PendingMaintenanceActions"
     },
     "PendingMaintenanceActionsMessage": {
       "description": "Data returned from the <b>DescribePendingMaintenanceActions</b> action.",
@@ -4943,7 +5233,8 @@
           "description": "A list of the pending maintenance actions for the resource."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PendingMaintenanceActionsMessage"
     },
     "PendingModifiedValues": {
       "description": " This data type is used as a response element in the <a>ModifyDBInstance</a> action. ",
@@ -5001,12 +5292,14 @@
           "description": "Specifies the storage type to be associated with the DB instance."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PendingModifiedValues"
     },
     "PointInTimeRestoreNotEnabledFault": {
       "description": " <i>SourceDBInstanceIdentifier</i> refers to a DB instance with <i>BackupRetentionPeriod</i> equal to 0. ",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "PointInTimeRestoreNotEnabledFault"
     },
     "PromoteReadReplicaDBClusterMessage": {
       "description": "<p/>",
@@ -5019,7 +5312,8 @@
       "required": [
         "DBClusterIdentifier"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "PromoteReadReplicaDBClusterMessage"
     },
     "PromoteReadReplicaDBClusterResult": {
       "properties": {
@@ -5027,7 +5321,8 @@
           "$ref": "#/definitions/DBCluster"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PromoteReadReplicaDBClusterResult"
     },
     "PromoteReadReplicaMessage": {
       "description": "<p/>",
@@ -5048,7 +5343,8 @@
       "required": [
         "DBInstanceIdentifier"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "PromoteReadReplicaMessage"
     },
     "PromoteReadReplicaResult": {
       "properties": {
@@ -5056,12 +5352,14 @@
           "$ref": "#/definitions/DBInstance"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PromoteReadReplicaResult"
     },
     "ProvisionedIopsNotAvailableInAZFault": {
       "description": "Provisioned IOPS not available in the specified Availability Zone.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "ProvisionedIopsNotAvailableInAZFault"
     },
     "PurchaseReservedDBInstancesOfferingMessage": {
       "description": "<p/>",
@@ -5085,7 +5383,8 @@
       "required": [
         "ReservedDBInstancesOfferingId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "PurchaseReservedDBInstancesOfferingMessage"
     },
     "PurchaseReservedDBInstancesOfferingResult": {
       "properties": {
@@ -5093,25 +5392,29 @@
           "$ref": "#/definitions/ReservedDBInstance"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PurchaseReservedDBInstancesOfferingResult"
     },
     "ReadReplicaDBClusterIdentifierList": {
       "items": {
         "$ref": "#/definitions/String"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ReadReplicaDBClusterIdentifierList"
     },
     "ReadReplicaDBInstanceIdentifierList": {
       "items": {
         "$ref": "#/definitions/String"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ReadReplicaDBInstanceIdentifierList"
     },
     "ReadReplicaIdentifierList": {
       "items": {
         "$ref": "#/definitions/String"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ReadReplicaIdentifierList"
     },
     "RebootDBInstanceMessage": {
       "description": "<p/>",
@@ -5128,7 +5431,8 @@
       "required": [
         "DBInstanceIdentifier"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "RebootDBInstanceMessage"
     },
     "RebootDBInstanceResult": {
       "properties": {
@@ -5136,7 +5440,8 @@
           "$ref": "#/definitions/DBInstance"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RebootDBInstanceResult"
     },
     "RecurringCharge": {
       "description": " This data type is used as a response element in the <a>DescribeReservedDBInstances</a> and <a>DescribeReservedDBInstancesOfferings</a> actions. ",
@@ -5150,13 +5455,15 @@
           "description": "The frequency of the recurring charge."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RecurringCharge"
     },
     "RecurringChargeList": {
       "items": {
         "$ref": "#/definitions/RecurringCharge"
       },
-      "type": "array"
+      "type": "array",
+      "title": "RecurringChargeList"
     },
     "RemoveRoleFromDBClusterMessage": {
       "properties": {
@@ -5173,7 +5480,8 @@
         "DBClusterIdentifier",
         "RoleArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "RemoveRoleFromDBClusterMessage"
     },
     "RemoveSourceIdentifierFromSubscriptionMessage": {
       "description": "<p/>",
@@ -5191,7 +5499,8 @@
         "SubscriptionName",
         "SourceIdentifier"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "RemoveSourceIdentifierFromSubscriptionMessage"
     },
     "RemoveSourceIdentifierFromSubscriptionResult": {
       "properties": {
@@ -5199,7 +5508,8 @@
           "$ref": "#/definitions/EventSubscription"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RemoveSourceIdentifierFromSubscriptionResult"
     },
     "RemoveTagsFromResourceMessage": {
       "description": "<p/>",
@@ -5217,7 +5527,8 @@
         "ResourceName",
         "TagKeys"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "RemoveTagsFromResourceMessage"
     },
     "ReservedDBInstance": {
       "description": " This data type is used as a response element in the <a>DescribeReservedDBInstances</a> and <a>PurchaseReservedDBInstancesOffering</a> actions. ",
@@ -5283,18 +5594,21 @@
           "description": "The hourly price charged for this reserved DB instance."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ReservedDBInstance"
     },
     "ReservedDBInstanceAlreadyExistsFault": {
       "description": "User already has a reservation with the given identifier.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "ReservedDBInstanceAlreadyExistsFault"
     },
     "ReservedDBInstanceList": {
       "items": {
         "$ref": "#/definitions/ReservedDBInstance"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ReservedDBInstanceList"
     },
     "ReservedDBInstanceMessage": {
       "description": " Contains the result of a successful invocation of the <a>DescribeReservedDBInstances</a> action. ",
@@ -5308,17 +5622,20 @@
           "description": "A list of reserved DB instances."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ReservedDBInstanceMessage"
     },
     "ReservedDBInstanceNotFoundFault": {
       "description": "The specified reserved DB Instance not found.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "ReservedDBInstanceNotFoundFault"
     },
     "ReservedDBInstanceQuotaExceededFault": {
       "description": "Request would exceed the user's DB Instance quota.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "ReservedDBInstanceQuotaExceededFault"
     },
     "ReservedDBInstancesOffering": {
       "description": " This data type is used as a response element in the <a>DescribeReservedDBInstancesOfferings</a> action. ",
@@ -5364,13 +5681,15 @@
           "description": "The hourly price charged for this offering."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ReservedDBInstancesOffering"
     },
     "ReservedDBInstancesOfferingList": {
       "items": {
         "$ref": "#/definitions/ReservedDBInstancesOffering"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ReservedDBInstancesOfferingList"
     },
     "ReservedDBInstancesOfferingMessage": {
       "description": " Contains the result of a successful invocation of the <a>DescribeReservedDBInstancesOfferings</a> action. ",
@@ -5384,12 +5703,14 @@
           "description": "A list of reserved DB instance offerings."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ReservedDBInstancesOfferingMessage"
     },
     "ReservedDBInstancesOfferingNotFoundFault": {
       "description": "Specified offering does not exist.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "ReservedDBInstancesOfferingNotFoundFault"
     },
     "ResetDBClusterParameterGroupMessage": {
       "description": "<p/>",
@@ -5410,7 +5731,8 @@
       "required": [
         "DBClusterParameterGroupName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ResetDBClusterParameterGroupMessage"
     },
     "ResetDBParameterGroupMessage": {
       "description": "<p/>",
@@ -5431,12 +5753,14 @@
       "required": [
         "DBParameterGroupName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ResetDBParameterGroupMessage"
     },
     "ResourceNotFoundFault": {
       "description": "The specified resource ID was not found.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "ResourceNotFoundFault"
     },
     "ResourcePendingMaintenanceActions": {
       "description": "Describes the pending maintenance actions for a resource.",
@@ -5450,7 +5774,8 @@
           "description": "The ARN of the resource that has pending maintenance actions."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ResourcePendingMaintenanceActions"
     },
     "RestoreDBClusterFromS3Message": {
       "properties": {
@@ -5564,7 +5889,8 @@
         "S3BucketName",
         "S3IngestionRoleArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "RestoreDBClusterFromS3Message"
     },
     "RestoreDBClusterFromS3Result": {
       "properties": {
@@ -5572,7 +5898,8 @@
           "$ref": "#/definitions/DBCluster"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RestoreDBClusterFromS3Result"
     },
     "RestoreDBClusterFromSnapshotMessage": {
       "description": "<p/>",
@@ -5635,7 +5962,8 @@
         "SnapshotIdentifier",
         "Engine"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "RestoreDBClusterFromSnapshotMessage"
     },
     "RestoreDBClusterFromSnapshotResult": {
       "properties": {
@@ -5643,7 +5971,8 @@
           "$ref": "#/definitions/DBCluster"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RestoreDBClusterFromSnapshotResult"
     },
     "RestoreDBClusterToPointInTimeMessage": {
       "description": "<p/>",
@@ -5696,7 +6025,8 @@
         "DBClusterIdentifier",
         "SourceDBClusterIdentifier"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "RestoreDBClusterToPointInTimeMessage"
     },
     "RestoreDBClusterToPointInTimeResult": {
       "properties": {
@@ -5704,7 +6034,8 @@
           "$ref": "#/definitions/DBCluster"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RestoreDBClusterToPointInTimeResult"
     },
     "RestoreDBInstanceFromDBSnapshotMessage": {
       "description": "<p/>",
@@ -5801,7 +6132,8 @@
         "DBInstanceIdentifier",
         "DBSnapshotIdentifier"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "RestoreDBInstanceFromDBSnapshotMessage"
     },
     "RestoreDBInstanceFromDBSnapshotResult": {
       "properties": {
@@ -5809,7 +6141,8 @@
           "$ref": "#/definitions/DBInstance"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RestoreDBInstanceFromDBSnapshotResult"
     },
     "RestoreDBInstanceToPointInTimeMessage": {
       "description": "<p/>",
@@ -5914,7 +6247,8 @@
         "SourceDBInstanceIdentifier",
         "TargetDBInstanceIdentifier"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "RestoreDBInstanceToPointInTimeMessage"
     },
     "RestoreDBInstanceToPointInTimeResult": {
       "properties": {
@@ -5922,7 +6256,8 @@
           "$ref": "#/definitions/DBInstance"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RestoreDBInstanceToPointInTimeResult"
     },
     "RevokeDBSecurityGroupIngressMessage": {
       "description": "<p/>",
@@ -5951,7 +6286,8 @@
       "required": [
         "DBSecurityGroupName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "RevokeDBSecurityGroupIngressMessage"
     },
     "RevokeDBSecurityGroupIngressResult": {
       "properties": {
@@ -5959,43 +6295,51 @@
           "$ref": "#/definitions/DBSecurityGroup"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RevokeDBSecurityGroupIngressResult"
     },
     "SNSInvalidTopicFault": {
       "description": "SNS has responded that there is a problem with the SND topic specified.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "SNSInvalidTopicFault"
     },
     "SNSNoAuthorizationFault": {
       "description": "You do not have permission to publish to the SNS topic ARN.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "SNSNoAuthorizationFault"
     },
     "SNSTopicArnNotFoundFault": {
       "description": "The SNS topic ARN does not exist.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "SNSTopicArnNotFoundFault"
     },
     "SharedSnapshotQuotaExceededFault": {
       "description": "You have exceeded the maximum number of accounts that you can share a manual DB snapshot with.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "SharedSnapshotQuotaExceededFault"
     },
     "SnapshotQuotaExceededFault": {
       "description": "Request would result in user exceeding the allowed number of DB snapshots.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "SnapshotQuotaExceededFault"
     },
     "SourceIdsList": {
       "items": {
         "$ref": "#/definitions/String"
       },
-      "type": "array"
+      "type": "array",
+      "title": "SourceIdsList"
     },
     "SourceNotFoundFault": {
       "description": "The requested source could not be found.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "SourceNotFoundFault"
     },
     "SourceRegion": {
       "description": "Contains an AWS Region name as the result of a successful call to the <a>DescribeSourceRegions</a> action.",
@@ -6013,13 +6357,15 @@
           "description": "The status of the source region."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SourceRegion"
     },
     "SourceRegionList": {
       "items": {
         "$ref": "#/definitions/SourceRegion"
       },
-      "type": "array"
+      "type": "array",
+      "title": "SourceRegionList"
     },
     "SourceRegionMessage": {
       "description": "Contains the result of a successful invocation of the <a>DescribeSourceRegions</a> action.",
@@ -6033,7 +6379,8 @@
           "description": "A list of SourceRegion instances that contains each source AWS Region that the current region can get a Read Replica or a DB snapshot from."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SourceRegionMessage"
     },
     "SourceType": {
       "enum": [
@@ -6044,20 +6391,24 @@
         "db-cluster",
         "db-cluster-snapshot"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "SourceType"
     },
     "StorageQuotaExceededFault": {
       "description": "Request would result in user exceeding the allowed amount of storage available across all DB instances.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "StorageQuotaExceededFault"
     },
     "StorageTypeNotSupportedFault": {
       "description": " <i>StorageType</i> specified cannot be associated with the DB Instance. ",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "StorageTypeNotSupportedFault"
     },
     "String": {
-      "type": "string"
+      "type": "string",
+      "title": "String"
     },
     "Subnet": {
       "description": " This data type is used as a response element in the <a>DescribeDBSubnetGroups</a> action. ",
@@ -6074,55 +6425,65 @@
           "description": "Specifies the status of the subnet."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Subnet"
     },
     "SubnetAlreadyInUse": {
       "description": "The DB subnet is already in use in the Availability Zone.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "SubnetAlreadyInUse"
     },
     "SubnetIdentifierList": {
       "items": {
         "$ref": "#/definitions/String"
       },
-      "type": "array"
+      "type": "array",
+      "title": "SubnetIdentifierList"
     },
     "SubnetList": {
       "items": {
         "$ref": "#/definitions/Subnet"
       },
-      "type": "array"
+      "type": "array",
+      "title": "SubnetList"
     },
     "SubscriptionAlreadyExistFault": {
       "description": "The supplied subscription name already exists.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "SubscriptionAlreadyExistFault"
     },
     "SubscriptionCategoryNotFoundFault": {
       "description": "The supplied category does not exist.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "SubscriptionCategoryNotFoundFault"
     },
     "SubscriptionNotFoundFault": {
       "description": "The subscription name does not exist.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "SubscriptionNotFoundFault"
     },
     "SupportedCharacterSetsList": {
       "items": {
         "$ref": "#/definitions/CharacterSet"
       },
-      "type": "array"
+      "type": "array",
+      "title": "SupportedCharacterSetsList"
     },
     "SupportedTimezonesList": {
       "items": {
         "$ref": "#/definitions/Timezone"
       },
-      "type": "array"
+      "type": "array",
+      "title": "SupportedTimezonesList"
     },
     "TStamp": {
       "format": "date-time",
-      "type": "string"
+      "type": "string",
+      "title": "TStamp"
     },
     "Tag": {
       "description": "Metadata assigned to an Amazon RDS resource consisting of a key-value pair.",
@@ -6136,14 +6497,16 @@
           "description": "A value is the optional value of the tag. The string value can be from 1 to 256 Unicode characters in length and cannot be prefixed with \"aws:\" or \"rds:\". The string can only contain only the set of Unicode letters, digits, white-space, '_', '.', '/', '=', '+', '-' (Java regex: \"^([\\\\p{L}\\\\p{Z}\\\\p{N}_.:/=+\\\\-]*)$\")."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Tag"
     },
     "TagList": {
       "description": "A list of tags.",
       "items": {
         "$ref": "#/definitions/Tag"
       },
-      "type": "array"
+      "type": "array",
+      "title": "TagList"
     },
     "TagListMessage": {
       "description": "<p/>",
@@ -6153,7 +6516,8 @@
           "description": "List of tags returned by the ListTagsForResource operation."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TagListMessage"
     },
     "Timezone": {
       "description": "A time zone associated with a <a>DBInstance</a> or a <a>DBSnapshot</a>. This data type is an element in the response to the <a>DescribeDBInstances</a>, the <a>DescribeDBSnapshots</a>, and the <a>DescribeDBEngineVersions</a> actions. ",
@@ -6163,7 +6527,8 @@
           "description": "The name of the time zone."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Timezone"
     },
     "UpgradeTarget": {
       "description": "The version of the database engine that a DB instance can be upgraded to.",
@@ -6189,19 +6554,22 @@
           "description": "A value that indicates whether a database engine will be upgraded to a major version."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UpgradeTarget"
     },
     "ValidUpgradeTargetList": {
       "items": {
         "$ref": "#/definitions/UpgradeTarget"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ValidUpgradeTargetList"
     },
     "VpcSecurityGroupIdList": {
       "items": {
         "$ref": "#/definitions/String"
       },
-      "type": "array"
+      "type": "array",
+      "title": "VpcSecurityGroupIdList"
     },
     "VpcSecurityGroupMembership": {
       "description": "This data type is used as a response element for queries on VPC security group membership.",
@@ -6215,13 +6583,15 @@
           "description": "The name of the VPC security group."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "VpcSecurityGroupMembership"
     },
     "VpcSecurityGroupMembershipList": {
       "items": {
         "$ref": "#/definitions/VpcSecurityGroupMembership"
       },
-      "type": "array"
+      "type": "array",
+      "title": "VpcSecurityGroupMembershipList"
     }
   },
   "actions": [

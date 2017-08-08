@@ -18,7 +18,8 @@
   "definitions": {
     "AmiId": {
       "description": "The AMI id for the image resulting from a Replication Run.",
-      "type": "string"
+      "type": "string",
+      "title": "AmiId"
     },
     "Connector": {
       "description": "Object representing a Connector",
@@ -54,32 +55,37 @@
           "$ref": "#/definitions/VmManagerType"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Connector"
     },
     "ConnectorCapability": {
       "description": "Capabilities for a Connector",
       "enum": [
         "VSPHERE"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ConnectorCapability"
     },
     "ConnectorCapabilityList": {
       "description": "List of Connector Capabilities",
       "items": {
         "$ref": "#/definitions/ConnectorCapability"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ConnectorCapabilityList"
     },
     "ConnectorId": {
       "description": "Unique Identifier for Connector",
-      "type": "string"
+      "type": "string",
+      "title": "ConnectorId"
     },
     "ConnectorList": {
       "description": "List of connectors",
       "items": {
         "$ref": "#/definitions/Connector"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ConnectorList"
     },
     "ConnectorStatus": {
       "description": "Status of on-premise Connector",
@@ -87,11 +93,13 @@
         "HEALTHY",
         "UNHEALTHY"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ConnectorStatus"
     },
     "ConnectorVersion": {
       "description": "Connector version string",
-      "type": "string"
+      "type": "string",
+      "title": "ConnectorVersion"
     },
     "CreateReplicationJobRequest": {
       "properties": {
@@ -119,7 +127,8 @@
         "seedReplicationTime",
         "frequency"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateReplicationJobRequest"
     },
     "CreateReplicationJobResponse": {
       "properties": {
@@ -127,7 +136,8 @@
           "$ref": "#/definitions/ReplicationJobId"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateReplicationJobResponse"
     },
     "DeleteReplicationJobRequest": {
       "properties": {
@@ -138,23 +148,28 @@
       "required": [
         "replicationJobId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteReplicationJobRequest"
     },
     "DeleteReplicationJobResponse": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DeleteReplicationJobResponse"
     },
     "DeleteServerCatalogRequest": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DeleteServerCatalogRequest"
     },
     "DeleteServerCatalogResponse": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DeleteServerCatalogResponse"
     },
     "Description": {
       "description": "The description for a Replication Job/Run.",
-      "type": "string"
+      "type": "string",
+      "title": "Description"
     },
     "DisassociateConnectorRequest": {
       "properties": {
@@ -165,19 +180,23 @@
       "required": [
         "connectorId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DisassociateConnectorRequest"
     },
     "DisassociateConnectorResponse": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DisassociateConnectorResponse"
     },
     "ErrorMessage": {
       "description": "Error Message string",
-      "type": "string"
+      "type": "string",
+      "title": "ErrorMessage"
     },
     "Frequency": {
       "description": "Interval between Replication Runs. This value is specified in hours, and represents the time between consecutive Replication Runs.",
-      "type": "integer"
+      "type": "integer",
+      "title": "Frequency"
     },
     "GetConnectorsRequest": {
       "properties": {
@@ -188,7 +207,8 @@
           "$ref": "#/definitions/NextToken"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetConnectorsRequest"
     },
     "GetConnectorsResponse": {
       "properties": {
@@ -199,7 +219,8 @@
           "$ref": "#/definitions/NextToken"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetConnectorsResponse"
     },
     "GetReplicationJobsRequest": {
       "properties": {
@@ -213,7 +234,8 @@
           "$ref": "#/definitions/ReplicationJobId"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetReplicationJobsRequest"
     },
     "GetReplicationJobsResponse": {
       "properties": {
@@ -224,7 +246,8 @@
           "$ref": "#/definitions/ReplicationJobList"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetReplicationJobsResponse"
     },
     "GetReplicationRunsRequest": {
       "properties": {
@@ -241,7 +264,8 @@
       "required": [
         "replicationJobId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetReplicationRunsRequest"
     },
     "GetReplicationRunsResponse": {
       "properties": {
@@ -255,7 +279,8 @@
           "$ref": "#/definitions/ReplicationRunList"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetReplicationRunsResponse"
     },
     "GetServersRequest": {
       "properties": {
@@ -266,7 +291,8 @@
           "$ref": "#/definitions/NextToken"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetServersRequest"
     },
     "GetServersResponse": {
       "properties": {
@@ -283,15 +309,18 @@
           "$ref": "#/definitions/ServerList"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetServersResponse"
     },
     "ImportServerCatalogRequest": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "ImportServerCatalogRequest"
     },
     "ImportServerCatalogResponse": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "ImportServerCatalogResponse"
     },
     "InternalError": {
       "description": "An internal error has occured.",
@@ -300,7 +329,8 @@
           "$ref": "#/definitions/ErrorMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InternalError"
     },
     "InvalidParameterException": {
       "description": "A parameter specified in the request is not valid, is unsupported, or cannot be used.",
@@ -309,11 +339,13 @@
           "$ref": "#/definitions/ErrorMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidParameterException"
     },
     "IpAddress": {
       "description": "Internet Protocol (IP) Address",
-      "type": "string"
+      "type": "string",
+      "title": "IpAddress"
     },
     "LicenseType": {
       "description": "The license type to be used for the Amazon Machine Image (AMI) created after a successful ReplicationRun.",
@@ -321,15 +353,18 @@
         "AWS",
         "BYOL"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "LicenseType"
     },
     "MacAddress": {
       "description": "Hardware (MAC) address",
-      "type": "string"
+      "type": "string",
+      "title": "MacAddress"
     },
     "MaxResults": {
       "description": "The maximum number of results to return in one API call. If left empty, this will default to 50.",
-      "type": "integer"
+      "type": "integer",
+      "title": "MaxResults"
     },
     "MissingRequiredParameterException": {
       "description": "The request is missing a required parameter. Ensure that you have supplied all the required parameters for the request.",
@@ -338,11 +373,13 @@
           "$ref": "#/definitions/ErrorMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "MissingRequiredParameterException"
     },
     "NextToken": {
       "description": "Pagination token to pass as input to API call",
-      "type": "string"
+      "type": "string",
+      "title": "NextToken"
     },
     "NoConnectorsAvailableException": {
       "description": "No connectors are available to handle this request. Please associate connector(s) and verify any existing connectors are healthy and can respond to requests.",
@@ -351,7 +388,8 @@
           "$ref": "#/definitions/ErrorMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "NoConnectorsAvailableException"
     },
     "OperationNotPermittedException": {
       "description": "The specified operation is not allowed. This error can occur for a number of reasons; for example, you might be trying to start a Replication Run before seed Replication Run.",
@@ -360,7 +398,8 @@
           "$ref": "#/definitions/ErrorMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "OperationNotPermittedException"
     },
     "ReplicationJob": {
       "description": "Object representing a Replication Job",
@@ -408,7 +447,8 @@
           "$ref": "#/definitions/VmServer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ReplicationJob"
     },
     "ReplicationJobAlreadyExistsException": {
       "description": "An active Replication Job already exists for the specified server.",
@@ -417,18 +457,21 @@
           "$ref": "#/definitions/ErrorMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ReplicationJobAlreadyExistsException"
     },
     "ReplicationJobId": {
       "description": "The unique identifier for a Replication Job.",
-      "type": "string"
+      "type": "string",
+      "title": "ReplicationJobId"
     },
     "ReplicationJobList": {
       "description": "List of Replication Jobs",
       "items": {
         "$ref": "#/definitions/ReplicationJob"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ReplicationJobList"
     },
     "ReplicationJobNotFoundException": {
       "description": "The specified Replication Job cannot be found.",
@@ -437,7 +480,8 @@
           "$ref": "#/definitions/ErrorMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ReplicationJobNotFoundException"
     },
     "ReplicationJobState": {
       "description": "Current state of Replication Job",
@@ -448,15 +492,18 @@
         "DELETING",
         "DELETED"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ReplicationJobState"
     },
     "ReplicationJobStatusMessage": {
       "description": "String describing current status of Replication Job",
-      "type": "string"
+      "type": "string",
+      "title": "ReplicationJobStatusMessage"
     },
     "ReplicationJobTerminated": {
       "description": "An indicator of the Replication Job being deleted or failed.",
-      "type": "boolean"
+      "type": "boolean",
+      "title": "ReplicationJobTerminated"
     },
     "ReplicationRun": {
       "description": "Object representing a Replication Run",
@@ -486,11 +533,13 @@
           "$ref": "#/definitions/ReplicationRunType"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ReplicationRun"
     },
     "ReplicationRunId": {
       "description": "The unique identifier for a Replication Run.",
-      "type": "string"
+      "type": "string",
+      "title": "ReplicationRunId"
     },
     "ReplicationRunLimitExceededException": {
       "description": "This user has exceeded the maximum allowed Replication Run limit.",
@@ -499,14 +548,16 @@
           "$ref": "#/definitions/ErrorMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ReplicationRunLimitExceededException"
     },
     "ReplicationRunList": {
       "description": "List of Replication Runs",
       "items": {
         "$ref": "#/definitions/ReplicationRun"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ReplicationRunList"
     },
     "ReplicationRunState": {
       "description": "Current state of Replication Run",
@@ -519,11 +570,13 @@
         "DELETING",
         "DELETED"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ReplicationRunState"
     },
     "ReplicationRunStatusMessage": {
       "description": "String describing current status of Replication Run",
-      "type": "string"
+      "type": "string",
+      "title": "ReplicationRunStatusMessage"
     },
     "ReplicationRunType": {
       "description": "Type of Replication Run",
@@ -531,11 +584,13 @@
         "ON_DEMAND",
         "AUTOMATIC"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ReplicationRunType"
     },
     "RoleName": {
       "description": "Name of service role in customer's account to be used by SMS service.",
-      "type": "string"
+      "type": "string",
+      "title": "RoleName"
     },
     "Server": {
       "description": "Object representing a server",
@@ -556,7 +611,8 @@
           "$ref": "#/definitions/VmServer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Server"
     },
     "ServerCannotBeReplicatedException": {
       "description": "The provided server cannot be replicated.",
@@ -565,7 +621,8 @@
           "$ref": "#/definitions/ErrorMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ServerCannotBeReplicatedException"
     },
     "ServerCatalogStatus": {
       "description": "Status of Server catalog",
@@ -576,25 +633,29 @@
         "DELETED",
         "EXPIRED"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ServerCatalogStatus"
     },
     "ServerId": {
       "description": "Unique Identifier for a server",
-      "type": "string"
+      "type": "string",
+      "title": "ServerId"
     },
     "ServerList": {
       "description": "List of servers from catalog",
       "items": {
         "$ref": "#/definitions/Server"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ServerList"
     },
     "ServerType": {
       "description": "Type of server.",
       "enum": [
         "VIRTUAL_MACHINE"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ServerType"
     },
     "StartOnDemandReplicationRunRequest": {
       "properties": {
@@ -608,7 +669,8 @@
       "required": [
         "replicationJobId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "StartOnDemandReplicationRunRequest"
     },
     "StartOnDemandReplicationRunResponse": {
       "properties": {
@@ -616,12 +678,14 @@
           "$ref": "#/definitions/ReplicationRunId"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "StartOnDemandReplicationRunResponse"
     },
     "Timestamp": {
       "description": "Timestamp of an operation",
       "format": "date-time",
-      "type": "string"
+      "type": "string",
+      "title": "Timestamp"
     },
     "UnauthorizedOperationException": {
       "description": "This user does not have permissions to perform this operation.",
@@ -630,7 +694,8 @@
           "$ref": "#/definitions/ErrorMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UnauthorizedOperationException"
     },
     "UpdateReplicationJobRequest": {
       "properties": {
@@ -656,38 +721,46 @@
       "required": [
         "replicationJobId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateReplicationJobRequest"
     },
     "UpdateReplicationJobResponse": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "UpdateReplicationJobResponse"
     },
     "VmId": {
       "description": "Unique Identifier for a VM",
-      "type": "string"
+      "type": "string",
+      "title": "VmId"
     },
     "VmManagerId": {
       "description": "Unique Identifier for VM Manager",
-      "type": "string"
+      "type": "string",
+      "title": "VmManagerId"
     },
     "VmManagerName": {
       "description": "VM Manager Name",
-      "type": "string"
+      "type": "string",
+      "title": "VmManagerName"
     },
     "VmManagerType": {
       "description": "VM Management Product",
       "enum": [
         "VSPHERE"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "VmManagerType"
     },
     "VmName": {
       "description": "Name of Virtual Machine",
-      "type": "string"
+      "type": "string",
+      "title": "VmName"
     },
     "VmPath": {
       "description": "Path to VM",
-      "type": "string"
+      "type": "string",
+      "title": "VmPath"
     },
     "VmServer": {
       "description": "Object representing a VM server",
@@ -708,7 +781,8 @@
           "$ref": "#/definitions/VmServerAddress"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "VmServer"
     },
     "VmServerAddress": {
       "description": "Object representing a server's location",
@@ -720,7 +794,8 @@
           "$ref": "#/definitions/VmManagerId"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "VmServerAddress"
     }
   },
   "actions": [

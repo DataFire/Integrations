@@ -23,7 +23,8 @@
         "CANCEL_AND_WAIT",
         "CONTINUE"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ActionOnFailure"
     },
     "AddInstanceFleetInput": {
       "properties": {
@@ -40,7 +41,8 @@
         "ClusterId",
         "InstanceFleet"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AddInstanceFleetInput"
     },
     "AddInstanceFleetOutput": {
       "properties": {
@@ -53,7 +55,8 @@
           "description": "The unique identifier of the instance fleet."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AddInstanceFleetOutput"
     },
     "AddInstanceGroupsInput": {
       "description": "Input to an AddInstanceGroups call.",
@@ -71,7 +74,8 @@
         "InstanceGroups",
         "JobFlowId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AddInstanceGroupsInput"
     },
     "AddInstanceGroupsOutput": {
       "description": "Output from an AddInstanceGroups call.",
@@ -85,7 +89,8 @@
           "description": "The job flow ID in which the instance groups are added."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AddInstanceGroupsOutput"
     },
     "AddJobFlowStepsInput": {
       "description": " The input argument to the <a>AddJobFlowSteps</a> operation. ",
@@ -103,7 +108,8 @@
         "JobFlowId",
         "Steps"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AddJobFlowStepsInput"
     },
     "AddJobFlowStepsOutput": {
       "description": " The output for the <a>AddJobFlowSteps</a> operation. ",
@@ -113,7 +119,8 @@
           "description": "The identifiers of the list of steps added to the job flow."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AddJobFlowStepsOutput"
     },
     "AddTagsInput": {
       "description": "This input identifies a cluster and a list of tags to attach.",
@@ -131,12 +138,14 @@
         "ResourceId",
         "Tags"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AddTagsInput"
     },
     "AddTagsOutput": {
       "description": "This output indicates the result of adding tags to a resource.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "AddTagsOutput"
     },
     "AdjustmentType": {
       "enum": [
@@ -144,7 +153,8 @@
         "PERCENT_CHANGE_IN_CAPACITY",
         "EXACT_CAPACITY"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "AdjustmentType"
     },
     "Application": {
       "description": "<p>An application is any Amazon or third-party software that you can add to the cluster. This structure contains a list of strings that indicates the software to use with the cluster and accepts a user argument list. Amazon EMR accepts and forwards the argument list to the corresponding installation script as bootstrap action argument. For more information, see <a href=\"http://docs.aws.amazon.com/ElasticMapReduce/latest/ManagementGuide/emr-mapr.html\">Using the MapR Distribution for Hadoop</a>. Currently supported values are:</p> <ul> <li> <p>\"mapr-m3\" - launch the cluster using MapR M3 Edition.</p> </li> <li> <p>\"mapr-m5\" - launch the cluster using MapR M5 Edition.</p> </li> <li> <p>\"mapr\" with the user arguments specifying \"--edition,m3\" or \"--edition,m5\" - launch the cluster using MapR M3 or M5 Edition, respectively.</p> </li> </ul> <note> <p>In Amazon EMR releases 4.0 and greater, the only accepted parameter is the application name. To pass arguments to applications, you supply a configuration for each application.</p> </note>",
@@ -166,13 +176,15 @@
           "description": "The version of the application."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Application"
     },
     "ApplicationList": {
       "items": {
         "$ref": "#/definitions/Application"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ApplicationList"
     },
     "AutoScalingPolicy": {
       "description": "An automatic scaling policy for a core instance group or task instance group in an Amazon EMR cluster. An automatic scaling policy defines how an instance group dynamically adds and terminates EC2 instances in response to the value of a CloudWatch metric. See <a>PutAutoScalingPolicy</a>.",
@@ -190,7 +202,8 @@
         "Constraints",
         "Rules"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AutoScalingPolicy"
     },
     "AutoScalingPolicyDescription": {
       "description": "An automatic scaling policy for a core instance group or task instance group in an Amazon EMR cluster. The automatic scaling policy defines how an instance group dynamically adds and terminates EC2 instances in response to the value of a CloudWatch metric. See <a>PutAutoScalingPolicy</a>.",
@@ -208,7 +221,8 @@
           "description": "The status of an automatic scaling policy. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AutoScalingPolicyDescription"
     },
     "AutoScalingPolicyState": {
       "enum": [
@@ -219,7 +233,8 @@
         "DETACHED",
         "FAILED"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "AutoScalingPolicyState"
     },
     "AutoScalingPolicyStateChangeReason": {
       "description": "The reason for an <a>AutoScalingPolicyStatus</a> change.",
@@ -233,7 +248,8 @@
           "description": "A friendly, more verbose message that accompanies an automatic scaling policy state change."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AutoScalingPolicyStateChangeReason"
     },
     "AutoScalingPolicyStateChangeReasonCode": {
       "enum": [
@@ -241,7 +257,8 @@
         "PROVISION_FAILURE",
         "CLEANUP_FAILURE"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "AutoScalingPolicyStateChangeReasonCode"
     },
     "AutoScalingPolicyStatus": {
       "description": "The status of an automatic scaling policy. ",
@@ -255,13 +272,16 @@
           "description": "The reason for a change in status."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AutoScalingPolicyStatus"
     },
     "Boolean": {
-      "type": "boolean"
+      "type": "boolean",
+      "title": "Boolean"
     },
     "BooleanObject": {
-      "type": "boolean"
+      "type": "boolean",
+      "title": "BooleanObject"
     },
     "BootstrapActionConfig": {
       "description": "Configuration of a bootstrap action.",
@@ -279,13 +299,15 @@
         "Name",
         "ScriptBootstrapAction"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "BootstrapActionConfig"
     },
     "BootstrapActionConfigList": {
       "items": {
         "$ref": "#/definitions/BootstrapActionConfig"
       },
-      "type": "array"
+      "type": "array",
+      "title": "BootstrapActionConfigList"
     },
     "BootstrapActionDetail": {
       "description": "Reports the configuration of a bootstrap action in a cluster (job flow).",
@@ -295,13 +317,15 @@
           "description": "A description of the bootstrap action."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BootstrapActionDetail"
     },
     "BootstrapActionDetailList": {
       "items": {
         "$ref": "#/definitions/BootstrapActionDetail"
       },
-      "type": "array"
+      "type": "array",
+      "title": "BootstrapActionDetailList"
     },
     "CancelStepsInfo": {
       "description": "Specification of the status of a CancelSteps request. Available only in Amazon EMR version 4.8.0 and later, excluding version 5.0.0.",
@@ -319,13 +343,15 @@
           "description": "The encrypted StepId of a step."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CancelStepsInfo"
     },
     "CancelStepsInfoList": {
       "items": {
         "$ref": "#/definitions/CancelStepsInfo"
       },
-      "type": "array"
+      "type": "array",
+      "title": "CancelStepsInfoList"
     },
     "CancelStepsInput": {
       "description": "The input argument to the <a>CancelSteps</a> operation.",
@@ -339,7 +365,8 @@
           "description": "The list of <code>StepIDs</code> to cancel. Use <a>ListSteps</a> to get steps and their states for the specified cluster."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CancelStepsInput"
     },
     "CancelStepsOutput": {
       "description": " The output for the <a>CancelSteps</a> operation. ",
@@ -349,14 +376,16 @@
           "description": "A list of <a>CancelStepsInfo</a>, which shows the status of specified cancel requests for each <code>StepID</code> specified."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CancelStepsOutput"
     },
     "CancelStepsRequestStatus": {
       "enum": [
         "SUBMITTED",
         "FAILED"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "CancelStepsRequestStatus"
     },
     "CloudWatchAlarmDefinition": {
       "description": "The definition of a CloudWatch metric alarm, which determines when an automatic scaling activity is triggered. When the defined alarm conditions are satisfied, scaling activity begins.",
@@ -404,7 +433,8 @@
         "Period",
         "Threshold"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CloudWatchAlarmDefinition"
     },
     "Cluster": {
       "description": "The detailed description of the cluster.",
@@ -494,10 +524,12 @@
           "description": "Indicates whether the cluster is visible to all IAM users of the AWS account associated with the cluster. If this value is set to <code>true</code>, all IAM users of that AWS account can view and manage the cluster if they have the proper policy permissions set. If this value is <code>false</code>, only the IAM user that created the cluster can view and manage it. This value can be changed using the <a>SetVisibleToAllUsers</a> action."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Cluster"
     },
     "ClusterId": {
-      "type": "string"
+      "type": "string",
+      "title": "ClusterId"
     },
     "ClusterState": {
       "enum": [
@@ -509,7 +541,8 @@
         "TERMINATED",
         "TERMINATED_WITH_ERRORS"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ClusterState"
     },
     "ClusterStateChangeReason": {
       "description": "The reason that the cluster changed to its current state.",
@@ -523,7 +556,8 @@
           "description": "The descriptive message for the state change reason."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ClusterStateChangeReason"
     },
     "ClusterStateChangeReasonCode": {
       "enum": [
@@ -535,13 +569,15 @@
         "STEP_FAILURE",
         "ALL_STEPS_COMPLETED"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ClusterStateChangeReasonCode"
     },
     "ClusterStateList": {
       "items": {
         "$ref": "#/definitions/ClusterState"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ClusterStateList"
     },
     "ClusterStatus": {
       "description": "The detailed status of the cluster.",
@@ -559,7 +595,8 @@
           "description": "A timeline that represents the status of a cluster over the lifetime of the cluster."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ClusterStatus"
     },
     "ClusterSummary": {
       "description": "The summary description of the cluster.",
@@ -581,13 +618,15 @@
           "description": "The details about the current status of the cluster."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ClusterSummary"
     },
     "ClusterSummaryList": {
       "items": {
         "$ref": "#/definitions/ClusterSummary"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ClusterSummaryList"
     },
     "ClusterTimeline": {
       "description": "Represents the timeline of the cluster's lifecycle.",
@@ -605,7 +644,8 @@
           "description": "The date and time when the cluster was ready to execute steps."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ClusterTimeline"
     },
     "Command": {
       "description": "An entity describing an executable that runs on a cluster.",
@@ -623,13 +663,15 @@
           "description": "The Amazon S3 location of the command script."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Command"
     },
     "CommandList": {
       "items": {
         "$ref": "#/definitions/Command"
       },
-      "type": "array"
+      "type": "array",
+      "title": "CommandList"
     },
     "ComparisonOperator": {
       "enum": [
@@ -638,7 +680,8 @@
         "LESS_THAN",
         "LESS_THAN_OR_EQUAL"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ComparisonOperator"
     },
     "Configuration": {
       "description": "<note> <p>Amazon EMR releases 4.x or later.</p> </note> <p>An optional configuration specification to be used when provisioning cluster instances, which can include configurations for applications and software bundled with Amazon EMR. A configuration consists of a classification, properties, and optional nested configurations. A classification refers to an application-specific configuration file. Properties are the settings you want to change in that file. For more information, see <a href=\"http://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html\">Configuring Applications</a>.</p>",
@@ -656,13 +699,15 @@
           "description": "A set of properties specified within a configuration classification."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Configuration"
     },
     "ConfigurationList": {
       "items": {
         "$ref": "#/definitions/Configuration"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ConfigurationList"
     },
     "CreateSecurityConfigurationInput": {
       "properties": {
@@ -679,7 +724,8 @@
         "Name",
         "SecurityConfiguration"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateSecurityConfigurationInput"
     },
     "CreateSecurityConfigurationOutput": {
       "properties": {
@@ -696,11 +742,13 @@
         "Name",
         "CreationDateTime"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateSecurityConfigurationOutput"
     },
     "Date": {
       "format": "date-time",
-      "type": "string"
+      "type": "string",
+      "title": "Date"
     },
     "DeleteSecurityConfigurationInput": {
       "properties": {
@@ -712,11 +760,13 @@
       "required": [
         "Name"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteSecurityConfigurationInput"
     },
     "DeleteSecurityConfigurationOutput": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DeleteSecurityConfigurationOutput"
     },
     "DescribeClusterInput": {
       "description": "This input determines which cluster to describe.",
@@ -729,7 +779,8 @@
       "required": [
         "ClusterId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeClusterInput"
     },
     "DescribeClusterOutput": {
       "description": "This output contains the description of the cluster.",
@@ -739,7 +790,8 @@
           "description": "This output contains the details for the requested cluster."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeClusterOutput"
     },
     "DescribeJobFlowsInput": {
       "description": " The input for the <a>DescribeJobFlows</a> operation. ",
@@ -761,7 +813,8 @@
           "description": "Return only job flows whose state is contained in this list."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeJobFlowsInput"
     },
     "DescribeJobFlowsOutput": {
       "description": " The output for the <a>DescribeJobFlows</a> operation. ",
@@ -771,7 +824,8 @@
           "description": "A list of job flows matching the parameters supplied."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeJobFlowsOutput"
     },
     "DescribeSecurityConfigurationInput": {
       "properties": {
@@ -783,7 +837,8 @@
       "required": [
         "Name"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeSecurityConfigurationInput"
     },
     "DescribeSecurityConfigurationOutput": {
       "properties": {
@@ -800,7 +855,8 @@
           "description": "The security configuration details in JSON format."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeSecurityConfigurationOutput"
     },
     "DescribeStepInput": {
       "description": "This input determines which step to describe.",
@@ -818,7 +874,8 @@
         "ClusterId",
         "StepId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeStepInput"
     },
     "DescribeStepOutput": {
       "description": "This output contains the description of the cluster step.",
@@ -828,19 +885,22 @@
           "description": "The step details for the requested step identifier."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeStepOutput"
     },
     "EC2InstanceIdsList": {
       "items": {
         "$ref": "#/definitions/InstanceId"
       },
-      "type": "array"
+      "type": "array",
+      "title": "EC2InstanceIdsList"
     },
     "EC2InstanceIdsToTerminateList": {
       "items": {
         "$ref": "#/definitions/InstanceId"
       },
-      "type": "array"
+      "type": "array",
+      "title": "EC2InstanceIdsToTerminateList"
     },
     "EbsBlockDevice": {
       "description": "Configuration of requested EBS block device associated with the instance group.",
@@ -854,7 +914,8 @@
           "description": "EBS volume specifications such as volume type, IOPS, and size (GiB) that will be requested for the EBS volume attached to an EC2 instance in the cluster."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "EbsBlockDevice"
     },
     "EbsBlockDeviceConfig": {
       "description": "Configuration of requested EBS block device associated with the instance group with count of volumes that will be associated to every instance.",
@@ -871,19 +932,22 @@
       "required": [
         "VolumeSpecification"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "EbsBlockDeviceConfig"
     },
     "EbsBlockDeviceConfigList": {
       "items": {
         "$ref": "#/definitions/EbsBlockDeviceConfig"
       },
-      "type": "array"
+      "type": "array",
+      "title": "EbsBlockDeviceConfigList"
     },
     "EbsBlockDeviceList": {
       "items": {
         "$ref": "#/definitions/EbsBlockDevice"
       },
-      "type": "array"
+      "type": "array",
+      "title": "EbsBlockDeviceList"
     },
     "EbsConfiguration": {
       "description": "The Amazon EBS configuration of a cluster instance.",
@@ -897,7 +961,8 @@
           "description": "Indicates whether an Amazon EBS volume is EBS-optimized."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "EbsConfiguration"
     },
     "EbsVolume": {
       "description": "EBS block device that's attached to an EC2 instance.",
@@ -911,13 +976,15 @@
           "description": "The volume identifier of the EBS volume."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "EbsVolume"
     },
     "EbsVolumeList": {
       "items": {
         "$ref": "#/definitions/EbsVolume"
       },
-      "type": "array"
+      "type": "array",
+      "title": "EbsVolumeList"
     },
     "Ec2InstanceAttributes": {
       "description": "Provides information about the EC2 instances in a cluster grouped by category. For example, key name, subnet ID, IAM instance profile, and so on.",
@@ -967,15 +1034,18 @@
           "description": "The identifier of the Amazon EC2 security group for the Amazon EMR service to access clusters in VPC private subnets."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Ec2InstanceAttributes"
     },
     "ErrorCode": {
       "maxLength": 256,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "ErrorCode"
     },
     "ErrorMessage": {
-      "type": "string"
+      "type": "string",
+      "title": "ErrorMessage"
     },
     "FailureDetails": {
       "description": "The details of the step failure. The service attempts to detect the root cause for many common failures.",
@@ -993,7 +1063,8 @@
           "description": "The reason for the step failure. In the case where the service cannot successfully determine the root cause of the failure, it returns \"Unknown Error\" as a reason."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "FailureDetails"
     },
     "HadoopJarStepConfig": {
       "description": "A job flow step consisting of a JAR file whose main function will be executed. The main function submits a job for Hadoop to execute and waits for the job to finish or fail.",
@@ -1018,7 +1089,8 @@
       "required": [
         "Jar"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "HadoopJarStepConfig"
     },
     "HadoopStepConfig": {
       "description": "A cluster step consisting of a JAR file whose main function will be executed. The main function submits a job for Hadoop to execute and waits for the job to finish or fail.",
@@ -1040,7 +1112,8 @@
           "description": "The list of Java properties that are set when the step runs. You can use these properties to pass key value pairs to your main function."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "HadoopStepConfig"
     },
     "Instance": {
       "description": "Represents an EC2 instance provisioned as part of cluster.",
@@ -1094,14 +1167,16 @@
           "description": "The current status of the instance."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Instance"
     },
     "InstanceCollectionType": {
       "enum": [
         "INSTANCE_FLEET",
         "INSTANCE_GROUP"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "InstanceCollectionType"
     },
     "InstanceFleet": {
       "description": "<p>Describes an instance fleet, which is a group of EC2 instances that host a particular node type (master, core, or task) in an Amazon EMR cluster. Instance fleets can consist of a mix of instance types and On-Demand and Spot instances, which are provisioned to meet a defined target capacity. </p> <note> <p>The instance fleet configuration is available only in Amazon EMR versions 4.8.0 and later, excluding 5.0.x versions.</p> </note>",
@@ -1147,7 +1222,8 @@
           "description": "<p>The target capacity of Spot units for the instance fleet, which determines how many Spot instances to provision. When the instance fleet launches, Amazon EMR tries to provision Spot instances as specified by <a>InstanceTypeConfig</a>. Each instance configuration has a specified <code>WeightedCapacity</code>. When a Spot instance is provisioned, the <code>WeightedCapacity</code> units count toward the target capacity. Amazon EMR provisions instances until the target capacity is totally fulfilled, even if this results in an overage. For example, if there are 2 units remaining to fulfill capacity, and Amazon EMR can only provision an instance with a <code>WeightedCapacity</code> of 5 units, the instance is provisioned, and the target capacity is exceeded by 3 units. You can use <a>InstanceFleet$ProvisionedSpotCapacity</a> to determine the Spot capacity units that have been provisioned for the instance fleet.</p> <note> <p>If not specified or set to 0, only On-Demand instances are provisioned for the instance fleet. At least one of <code>TargetSpotCapacity</code> and <code>TargetOnDemandCapacity</code> should be greater than 0. For a master instance fleet, only one of <code>TargetSpotCapacity</code> and <code>TargetOnDemandCapacity</code> can be specified, and its value must be 1.</p> </note>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InstanceFleet"
     },
     "InstanceFleetConfig": {
       "description": "<p>The configuration that defines an instance fleet.</p> <note> <p>The instance fleet configuration is available only in Amazon EMR versions 4.8.0 and later, excluding 5.0.x versions.</p> </note>",
@@ -1180,22 +1256,26 @@
       "required": [
         "InstanceFleetType"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "InstanceFleetConfig"
     },
     "InstanceFleetConfigList": {
       "items": {
         "$ref": "#/definitions/InstanceFleetConfig"
       },
-      "type": "array"
+      "type": "array",
+      "title": "InstanceFleetConfigList"
     },
     "InstanceFleetId": {
-      "type": "string"
+      "type": "string",
+      "title": "InstanceFleetId"
     },
     "InstanceFleetList": {
       "items": {
         "$ref": "#/definitions/InstanceFleet"
       },
-      "type": "array"
+      "type": "array",
+      "title": "InstanceFleetList"
     },
     "InstanceFleetModifyConfig": {
       "description": "<p>Configuration parameters for an instance fleet modification request.</p> <note> <p>The instance fleet configuration is available only in Amazon EMR versions 4.8.0 and later, excluding 5.0.x versions.</p> </note>",
@@ -1216,7 +1296,8 @@
       "required": [
         "InstanceFleetId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "InstanceFleetModifyConfig"
     },
     "InstanceFleetProvisioningSpecifications": {
       "description": "<p>The launch specification for Spot instances in the fleet, which determines the defined duration and provisioning timeout behavior.</p> <note> <p>The instance fleet configuration is available only in Amazon EMR versions 4.8.0 and later, excluding 5.0.x versions.</p> </note>",
@@ -1229,7 +1310,8 @@
       "required": [
         "SpotSpecification"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "InstanceFleetProvisioningSpecifications"
     },
     "InstanceFleetState": {
       "enum": [
@@ -1241,7 +1323,8 @@
         "TERMINATING",
         "TERMINATED"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "InstanceFleetState"
     },
     "InstanceFleetStateChangeReason": {
       "description": "<p>Provides status change reason details for the instance fleet.</p> <note> <p>The instance fleet configuration is available only in Amazon EMR versions 4.8.0 and later, excluding 5.0.x versions.</p> </note>",
@@ -1255,7 +1338,8 @@
           "description": "An explanatory message."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InstanceFleetStateChangeReason"
     },
     "InstanceFleetStateChangeReasonCode": {
       "enum": [
@@ -1264,7 +1348,8 @@
         "INSTANCE_FAILURE",
         "CLUSTER_TERMINATED"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "InstanceFleetStateChangeReasonCode"
     },
     "InstanceFleetStatus": {
       "description": "<p>The status of the instance fleet.</p> <note> <p>The instance fleet configuration is available only in Amazon EMR versions 4.8.0 and later, excluding 5.0.x versions.</p> </note>",
@@ -1282,7 +1367,8 @@
           "description": "Provides historical timestamps for the instance fleet, including the time of creation, the time it became ready to run jobs, and the time of termination."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InstanceFleetStatus"
     },
     "InstanceFleetTimeline": {
       "description": "<p>Provides historical timestamps for the instance fleet, including the time of creation, the time it became ready to run jobs, and the time of termination.</p> <note> <p>The instance fleet configuration is available only in Amazon EMR versions 4.8.0 and later, excluding 5.0.x versions.</p> </note>",
@@ -1300,7 +1386,8 @@
           "description": "The time and date the instance fleet was ready to run jobs."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InstanceFleetTimeline"
     },
     "InstanceFleetType": {
       "enum": [
@@ -1308,7 +1395,8 @@
         "CORE",
         "TASK"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "InstanceFleetType"
     },
     "InstanceGroup": {
       "description": "This entity represents an instance group, which is a group of instances that have common purpose. For example, CORE instance group is used for HDFS.",
@@ -1370,7 +1458,8 @@
           "description": "The current status of the instance group."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InstanceGroup"
     },
     "InstanceGroupConfig": {
       "description": "Configuration defining a new instance group.",
@@ -1417,13 +1506,15 @@
         "InstanceType",
         "InstanceCount"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "InstanceGroupConfig"
     },
     "InstanceGroupConfigList": {
       "items": {
         "$ref": "#/definitions/InstanceGroupConfig"
       },
-      "type": "array"
+      "type": "array",
+      "title": "InstanceGroupConfigList"
     },
     "InstanceGroupDetail": {
       "description": "Detailed information about an instance group.",
@@ -1494,28 +1585,33 @@
         "State",
         "CreationDateTime"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "InstanceGroupDetail"
     },
     "InstanceGroupDetailList": {
       "items": {
         "$ref": "#/definitions/InstanceGroupDetail"
       },
-      "type": "array"
+      "type": "array",
+      "title": "InstanceGroupDetailList"
     },
     "InstanceGroupId": {
-      "type": "string"
+      "type": "string",
+      "title": "InstanceGroupId"
     },
     "InstanceGroupIdsList": {
       "items": {
         "$ref": "#/definitions/XmlStringMaxLen256"
       },
-      "type": "array"
+      "type": "array",
+      "title": "InstanceGroupIdsList"
     },
     "InstanceGroupList": {
       "items": {
         "$ref": "#/definitions/InstanceGroup"
       },
-      "type": "array"
+      "type": "array",
+      "title": "InstanceGroupList"
     },
     "InstanceGroupModifyConfig": {
       "description": "Modify an instance group size.",
@@ -1540,13 +1636,15 @@
       "required": [
         "InstanceGroupId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "InstanceGroupModifyConfig"
     },
     "InstanceGroupModifyConfigList": {
       "items": {
         "$ref": "#/definitions/InstanceGroupModifyConfig"
       },
-      "type": "array"
+      "type": "array",
+      "title": "InstanceGroupModifyConfigList"
     },
     "InstanceGroupState": {
       "enum": [
@@ -1561,7 +1659,8 @@
         "SHUTTING_DOWN",
         "ENDED"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "InstanceGroupState"
     },
     "InstanceGroupStateChangeReason": {
       "description": "The status change reason details for the instance group.",
@@ -1575,7 +1674,8 @@
           "description": "The status change reason description."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InstanceGroupStateChangeReason"
     },
     "InstanceGroupStateChangeReasonCode": {
       "enum": [
@@ -1584,7 +1684,8 @@
         "INSTANCE_FAILURE",
         "CLUSTER_TERMINATED"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "InstanceGroupStateChangeReasonCode"
     },
     "InstanceGroupStatus": {
       "description": "The details of the instance group status.",
@@ -1602,7 +1703,8 @@
           "description": "The timeline of the instance group status over time."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InstanceGroupStatus"
     },
     "InstanceGroupTimeline": {
       "description": "The timeline of the instance group lifecycle.",
@@ -1620,7 +1722,8 @@
           "description": "The date and time when the instance group became ready to perform tasks."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InstanceGroupTimeline"
     },
     "InstanceGroupType": {
       "enum": [
@@ -1628,22 +1731,26 @@
         "CORE",
         "TASK"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "InstanceGroupType"
     },
     "InstanceGroupTypeList": {
       "items": {
         "$ref": "#/definitions/InstanceGroupType"
       },
-      "type": "array"
+      "type": "array",
+      "title": "InstanceGroupTypeList"
     },
     "InstanceId": {
-      "type": "string"
+      "type": "string",
+      "title": "InstanceId"
     },
     "InstanceList": {
       "items": {
         "$ref": "#/definitions/Instance"
       },
-      "type": "array"
+      "type": "array",
+      "title": "InstanceList"
     },
     "InstanceResizePolicy": {
       "description": "Custom policy for requesting termination protection or termination of specific instances when shrinking an instance group.",
@@ -1661,7 +1768,8 @@
           "description": "Specific list of instances to be terminated when shrinking an instance group."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InstanceResizePolicy"
     },
     "InstanceRoleType": {
       "enum": [
@@ -1669,7 +1777,8 @@
         "CORE",
         "TASK"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "InstanceRoleType"
     },
     "InstanceState": {
       "enum": [
@@ -1679,7 +1788,8 @@
         "RUNNING",
         "TERMINATED"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "InstanceState"
     },
     "InstanceStateChangeReason": {
       "description": "The details of the status change reason for the instance.",
@@ -1693,7 +1803,8 @@
           "description": "The status change reason description."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InstanceStateChangeReason"
     },
     "InstanceStateChangeReasonCode": {
       "enum": [
@@ -1703,13 +1814,15 @@
         "BOOTSTRAP_FAILURE",
         "CLUSTER_TERMINATED"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "InstanceStateChangeReasonCode"
     },
     "InstanceStateList": {
       "items": {
         "$ref": "#/definitions/InstanceState"
       },
-      "type": "array"
+      "type": "array",
+      "title": "InstanceStateList"
     },
     "InstanceStatus": {
       "description": "The instance status details.",
@@ -1727,7 +1840,8 @@
           "description": "The timeline of the instance status over time."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InstanceStatus"
     },
     "InstanceTimeline": {
       "description": "The timeline of the instance lifecycle.",
@@ -1745,13 +1859,15 @@
           "description": "The date and time when the instance was ready to perform tasks."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InstanceTimeline"
     },
     "InstanceType": {
       "maxLength": 256,
       "minLength": 1,
       "type": "string",
-      "x-pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*"
+      "x-pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+      "title": "InstanceType"
     },
     "InstanceTypeConfig": {
       "description": "<p>An instance type configuration for each instance type in an instance fleet, which determines the EC2 instances Amazon EMR attempts to provision to fulfill On-Demand and Spot target capacities. There can be a maximum of 5 instance type configurations in a fleet.</p> <note> <p>The instance fleet configuration is available only in Amazon EMR versions 4.8.0 and later, excluding 5.0.x versions.</p> </note>",
@@ -1784,13 +1900,15 @@
       "required": [
         "InstanceType"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "InstanceTypeConfig"
     },
     "InstanceTypeConfigList": {
       "items": {
         "$ref": "#/definitions/InstanceTypeConfig"
       },
-      "type": "array"
+      "type": "array",
+      "title": "InstanceTypeConfigList"
     },
     "InstanceTypeSpecification": {
       "description": "<p>The configuration specification for each instance type in an instance fleet.</p> <note> <p>The instance fleet configuration is available only in Amazon EMR versions 4.8.0 and later, excluding 5.0.x versions.</p> </note>",
@@ -1824,21 +1942,25 @@
           "description": "The number of units that a provisioned instance of this type provides toward fulfilling the target capacities defined in <a>InstanceFleetConfig</a>. Capacity values represent performance characteristics such as vCPUs, memory, or I/O. If not specified, the default value is 1."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InstanceTypeSpecification"
     },
     "InstanceTypeSpecificationList": {
       "items": {
         "$ref": "#/definitions/InstanceTypeSpecification"
       },
-      "type": "array"
+      "type": "array",
+      "title": "InstanceTypeSpecificationList"
     },
     "Integer": {
-      "type": "integer"
+      "type": "integer",
+      "title": "Integer"
     },
     "InternalServerError": {
       "description": "Indicates that an error occurred while processing the request and that the request was not completed.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "InternalServerError"
     },
     "InternalServerException": {
       "description": "This exception occurs when there is an internal failure in the EMR service.",
@@ -1848,7 +1970,8 @@
           "description": "The message associated with the exception."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InternalServerException"
     },
     "InvalidRequestException": {
       "description": "This exception occurs when there is something wrong with user input.",
@@ -1862,7 +1985,8 @@
           "description": "The message associated with the exception."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidRequestException"
     },
     "JobFlowDetail": {
       "description": "A description of a cluster (job flow).",
@@ -1930,13 +2054,15 @@
         "ExecutionStatusDetail",
         "Instances"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "JobFlowDetail"
     },
     "JobFlowDetailList": {
       "items": {
         "$ref": "#/definitions/JobFlowDetail"
       },
-      "type": "array"
+      "type": "array",
+      "title": "JobFlowDetailList"
     },
     "JobFlowExecutionState": {
       "description": "The type of instance.",
@@ -1950,13 +2076,15 @@
         "COMPLETED",
         "FAILED"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "JobFlowExecutionState"
     },
     "JobFlowExecutionStateList": {
       "items": {
         "$ref": "#/definitions/JobFlowExecutionState"
       },
-      "type": "array"
+      "type": "array",
+      "title": "JobFlowExecutionStateList"
     },
     "JobFlowExecutionStatusDetail": {
       "description": "Describes the status of the cluster (job flow).",
@@ -1990,7 +2118,8 @@
         "State",
         "CreationDateTime"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "JobFlowExecutionStatusDetail"
     },
     "JobFlowInstancesConfig": {
       "description": "A description of the Amazon EC2 instance on which the cluster (job flow) runs. A valid JobFlowInstancesConfig must contain either InstanceGroups or InstanceFleets, which is the recommended configuration. They cannot be used together. You may also have MasterInstanceType, SlaveInstanceType, and InstanceCount (all three must be present), but we don't recommend this configuration.",
@@ -2064,7 +2193,8 @@
           "description": "Specifies whether to lock the cluster to prevent the Amazon EC2 instances from being terminated by API call, user intervention, or in the event of a job-flow error."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "JobFlowInstancesConfig"
     },
     "JobFlowInstancesDetail": {
       "description": "Specify the type of Amazon EC2 instances that the cluster (job flow) runs on.",
@@ -2127,7 +2257,8 @@
         "SlaveInstanceType",
         "InstanceCount"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "JobFlowInstancesDetail"
     },
     "KeyValue": {
       "description": "A key value pair.",
@@ -2141,13 +2272,15 @@
           "description": "The value part of the identified key."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "KeyValue"
     },
     "KeyValueList": {
       "items": {
         "$ref": "#/definitions/KeyValue"
       },
-      "type": "array"
+      "type": "array",
+      "title": "KeyValueList"
     },
     "ListBootstrapActionsInput": {
       "description": "This input determines which bootstrap actions to retrieve.",
@@ -2164,7 +2297,8 @@
       "required": [
         "ClusterId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListBootstrapActionsInput"
     },
     "ListBootstrapActionsOutput": {
       "description": "This output contains the bootstrap actions detail.",
@@ -2178,7 +2312,8 @@
           "description": "The pagination token that indicates the next set of results to retrieve."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListBootstrapActionsOutput"
     },
     "ListClustersInput": {
       "description": "This input determines how the ListClusters action filters the list of clusters that it returns.",
@@ -2200,7 +2335,8 @@
           "description": "The pagination token that indicates the next set of results to retrieve."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListClustersInput"
     },
     "ListClustersOutput": {
       "description": "This contains a ClusterSummaryList with the cluster details; for example, the cluster IDs, names, and status.",
@@ -2214,7 +2350,8 @@
           "description": "The pagination token that indicates the next set of results to retrieve."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListClustersOutput"
     },
     "ListInstanceFleetsInput": {
       "properties": {
@@ -2230,7 +2367,8 @@
       "required": [
         "ClusterId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListInstanceFleetsInput"
     },
     "ListInstanceFleetsOutput": {
       "properties": {
@@ -2243,7 +2381,8 @@
           "description": "The pagination token that indicates the next set of results to retrieve."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListInstanceFleetsOutput"
     },
     "ListInstanceGroupsInput": {
       "description": "This input determines which instance groups to retrieve.",
@@ -2260,7 +2399,8 @@
       "required": [
         "ClusterId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListInstanceGroupsInput"
     },
     "ListInstanceGroupsOutput": {
       "description": "This input determines which instance groups to retrieve.",
@@ -2274,7 +2414,8 @@
           "description": "The pagination token that indicates the next set of results to retrieve."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListInstanceGroupsOutput"
     },
     "ListInstancesInput": {
       "description": "This input determines which instances to list.",
@@ -2311,7 +2452,8 @@
       "required": [
         "ClusterId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListInstancesInput"
     },
     "ListInstancesOutput": {
       "description": "This output contains the list of instances.",
@@ -2325,7 +2467,8 @@
           "description": "The pagination token that indicates the next set of results to retrieve."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListInstancesOutput"
     },
     "ListSecurityConfigurationsInput": {
       "properties": {
@@ -2334,7 +2477,8 @@
           "description": "The pagination token that indicates the set of results to retrieve."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListSecurityConfigurationsInput"
     },
     "ListSecurityConfigurationsOutput": {
       "properties": {
@@ -2347,7 +2491,8 @@
           "description": "The creation date and time, and name, of each security configuration."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListSecurityConfigurationsOutput"
     },
     "ListStepsInput": {
       "description": "This input determines which steps to list.",
@@ -2372,7 +2517,8 @@
       "required": [
         "ClusterId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListStepsInput"
     },
     "ListStepsOutput": {
       "description": "This output contains the list of steps returned in reverse order. This means that the last step is the first element in the list.",
@@ -2386,17 +2532,20 @@
           "description": "The filtered list of steps for the cluster."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListStepsOutput"
     },
     "Marker": {
-      "type": "string"
+      "type": "string",
+      "title": "Marker"
     },
     "MarketType": {
       "enum": [
         "ON_DEMAND",
         "SPOT"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "MarketType"
     },
     "MetricDimension": {
       "description": "A CloudWatch dimension, which is specified using a <code>Key</code> (known as a <code>Name</code> in CloudWatch), <code>Value</code> pair. By default, Amazon EMR uses one dimension whose <code>Key</code> is <code>JobFlowID</code> and <code>Value</code> is a variable representing the cluster ID, which is <code>${emr.clusterId}</code>. This enables the rule to bootstrap when the cluster ID becomes available.",
@@ -2410,13 +2559,15 @@
           "description": "The dimension value."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "MetricDimension"
     },
     "MetricDimensionList": {
       "items": {
         "$ref": "#/definitions/MetricDimension"
       },
-      "type": "array"
+      "type": "array",
+      "title": "MetricDimensionList"
     },
     "ModifyInstanceFleetInput": {
       "properties": {
@@ -2433,7 +2584,8 @@
         "ClusterId",
         "InstanceFleet"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ModifyInstanceFleetInput"
     },
     "ModifyInstanceGroupsInput": {
       "description": "Change the size of some instance groups.",
@@ -2447,18 +2599,21 @@
           "description": "Instance groups to change."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ModifyInstanceGroupsInput"
     },
     "NewSupportedProductsList": {
       "items": {
         "$ref": "#/definitions/SupportedProductConfig"
       },
-      "type": "array"
+      "type": "array",
+      "title": "NewSupportedProductsList"
     },
     "NonNegativeDouble": {
       "format": "double",
       "minimum": 0,
-      "type": "number"
+      "type": "number",
+      "title": "NonNegativeDouble"
     },
     "PlacementType": {
       "description": "The Amazon EC2 Availability Zone configuration of the cluster (job flow).",
@@ -2472,7 +2627,8 @@
           "description": "<p>When multiple Availability Zones are specified, Amazon EMR evaluates them and launches instances in the optimal Availability Zone. <code>AvailabilityZones</code> is used for instance fleets, while <code>AvailabilityZone</code> (singular) is used for uniform instance groups.</p> <note> <p>The instance fleet configuration is available only in Amazon EMR versions 4.8.0 and later, excluding 5.0.x versions.</p> </note>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PlacementType"
     },
     "PutAutoScalingPolicyInput": {
       "properties": {
@@ -2494,7 +2650,8 @@
         "InstanceGroupId",
         "AutoScalingPolicy"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "PutAutoScalingPolicyInput"
     },
     "PutAutoScalingPolicyOutput": {
       "properties": {
@@ -2511,7 +2668,8 @@
           "description": "Specifies the ID of the instance group to which the scaling policy is applied."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PutAutoScalingPolicyOutput"
     },
     "RemoveAutoScalingPolicyInput": {
       "properties": {
@@ -2528,11 +2686,13 @@
         "ClusterId",
         "InstanceGroupId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "RemoveAutoScalingPolicyInput"
     },
     "RemoveAutoScalingPolicyOutput": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "RemoveAutoScalingPolicyOutput"
     },
     "RemoveTagsInput": {
       "description": "This input identifies a cluster and a list of tags to remove.",
@@ -2550,15 +2710,18 @@
         "ResourceId",
         "TagKeys"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "RemoveTagsInput"
     },
     "RemoveTagsOutput": {
       "description": "This output indicates the result of removing tags from a resource.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "RemoveTagsOutput"
     },
     "ResourceId": {
-      "type": "string"
+      "type": "string",
+      "title": "ResourceId"
     },
     "RunJobFlowInput": {
       "description": " Input to the <a>RunJobFlow</a> operation. ",
@@ -2644,7 +2807,8 @@
         "Name",
         "Instances"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "RunJobFlowInput"
     },
     "RunJobFlowOutput": {
       "description": " The result of the <a>RunJobFlow</a> operation. ",
@@ -2654,14 +2818,16 @@
           "description": "An unique identifier for the job flow."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RunJobFlowOutput"
     },
     "ScaleDownBehavior": {
       "enum": [
         "TERMINATE_AT_INSTANCE_HOUR",
         "TERMINATE_AT_TASK_COMPLETION"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ScaleDownBehavior"
     },
     "ScalingAction": {
       "description": "The type of adjustment the automatic scaling activity makes when triggered, and the periodicity of the adjustment.",
@@ -2678,7 +2844,8 @@
       "required": [
         "SimpleScalingPolicyConfiguration"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ScalingAction"
     },
     "ScalingConstraints": {
       "description": "The upper and lower EC2 instance limits for an automatic scaling policy. Automatic scaling activities triggered by automatic scaling rules will not cause an instance group to grow above or below these limits.",
@@ -2696,7 +2863,8 @@
         "MinCapacity",
         "MaxCapacity"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ScalingConstraints"
     },
     "ScalingRule": {
       "description": "A scale-in or scale-out rule that defines scaling activity, including the CloudWatch metric alarm that triggers activity, how EC2 instances are added or removed, and the periodicity of adjustments. The automatic scaling policy for an instance group can comprise one or more automatic scaling rules.",
@@ -2723,13 +2891,15 @@
         "Action",
         "Trigger"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ScalingRule"
     },
     "ScalingRuleList": {
       "items": {
         "$ref": "#/definitions/ScalingRule"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ScalingRuleList"
     },
     "ScalingTrigger": {
       "description": "The conditions that trigger an automatic scaling activity.",
@@ -2742,7 +2912,8 @@
       "required": [
         "CloudWatchAlarmDefinition"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ScalingTrigger"
     },
     "ScriptBootstrapActionConfig": {
       "description": "Configuration of the script to run during a bootstrap action.",
@@ -2759,13 +2930,15 @@
       "required": [
         "Path"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ScriptBootstrapActionConfig"
     },
     "SecurityConfigurationList": {
       "items": {
         "$ref": "#/definitions/SecurityConfigurationSummary"
       },
-      "type": "array"
+      "type": "array",
+      "title": "SecurityConfigurationList"
     },
     "SecurityConfigurationSummary": {
       "description": "The creation date and time, and name, of a security configuration.",
@@ -2779,13 +2952,15 @@
           "description": "The name of the security configuration."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SecurityConfigurationSummary"
     },
     "SecurityGroupsList": {
       "items": {
         "$ref": "#/definitions/XmlStringMaxLen256"
       },
-      "type": "array"
+      "type": "array",
+      "title": "SecurityGroupsList"
     },
     "SetTerminationProtectionInput": {
       "description": " The input argument to the <a>TerminationProtection</a> operation. ",
@@ -2803,7 +2978,8 @@
         "JobFlowIds",
         "TerminationProtected"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "SetTerminationProtectionInput"
     },
     "SetVisibleToAllUsersInput": {
       "description": "The input to the SetVisibleToAllUsers action.",
@@ -2821,7 +2997,8 @@
         "JobFlowIds",
         "VisibleToAllUsers"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "SetVisibleToAllUsersInput"
     },
     "ShrinkPolicy": {
       "description": "Policy for customizing shrink operations. Allows configuration of decommissioning timeout and targeted instance shrinking.",
@@ -2835,7 +3012,8 @@
           "description": "Custom policy for requesting termination protection or termination of specific instances when shrinking an instance group."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ShrinkPolicy"
     },
     "SimpleScalingPolicyConfiguration": {
       "description": "An automatic scaling configuration, which describes how the policy adds or removes instances, the cooldown period, and the number of EC2 instances that will be added each time the CloudWatch metric alarm condition is satisfied.",
@@ -2856,7 +3034,8 @@
       "required": [
         "ScalingAdjustment"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "SimpleScalingPolicyConfiguration"
     },
     "SpotProvisioningSpecification": {
       "description": "<p>The launch specification for Spot instances in the instance fleet, which determines the defined duration and provisioning timeout behavior.</p> <note> <p>The instance fleet configuration is available only in Amazon EMR versions 4.8.0 and later, excluding 5.0.x versions.</p> </note>",
@@ -2878,14 +3057,16 @@
         "TimeoutDurationMinutes",
         "TimeoutAction"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "SpotProvisioningSpecification"
     },
     "SpotProvisioningTimeoutAction": {
       "enum": [
         "SWITCH_TO_ON_DEMAND",
         "TERMINATE_CLUSTER"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "SpotProvisioningTimeoutAction"
     },
     "Statistic": {
       "enum": [
@@ -2895,7 +3076,8 @@
         "MINIMUM",
         "MAXIMUM"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "Statistic"
     },
     "Step": {
       "description": "This represents a step in a cluster.",
@@ -2921,7 +3103,8 @@
           "description": "The current execution status details of the cluster step."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Step"
     },
     "StepConfig": {
       "description": "Specification of a cluster (job flow) step.",
@@ -2943,13 +3126,15 @@
         "Name",
         "HadoopJarStep"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "StepConfig"
     },
     "StepConfigList": {
       "items": {
         "$ref": "#/definitions/StepConfig"
       },
-      "type": "array"
+      "type": "array",
+      "title": "StepConfigList"
     },
     "StepDetail": {
       "description": "Combines the execution state and configuration of a step.",
@@ -2967,13 +3152,15 @@
         "StepConfig",
         "ExecutionStatusDetail"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "StepDetail"
     },
     "StepDetailList": {
       "items": {
         "$ref": "#/definitions/StepDetail"
       },
-      "type": "array"
+      "type": "array",
+      "title": "StepDetailList"
     },
     "StepExecutionState": {
       "enum": [
@@ -2985,7 +3172,8 @@
         "FAILED",
         "INTERRUPTED"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "StepExecutionState"
     },
     "StepExecutionStatusDetail": {
       "description": "The execution state of a step.",
@@ -3015,16 +3203,19 @@
         "State",
         "CreationDateTime"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "StepExecutionStatusDetail"
     },
     "StepId": {
-      "type": "string"
+      "type": "string",
+      "title": "StepId"
     },
     "StepIdsList": {
       "items": {
         "$ref": "#/definitions/XmlStringMaxLen256"
       },
-      "type": "array"
+      "type": "array",
+      "title": "StepIdsList"
     },
     "StepState": {
       "enum": [
@@ -3036,7 +3227,8 @@
         "FAILED",
         "INTERRUPTED"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "StepState"
     },
     "StepStateChangeReason": {
       "description": "The details of the step state change reason.",
@@ -3050,19 +3242,22 @@
           "description": "The descriptive message for the state change reason."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "StepStateChangeReason"
     },
     "StepStateChangeReasonCode": {
       "enum": [
         "NONE"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "StepStateChangeReasonCode"
     },
     "StepStateList": {
       "items": {
         "$ref": "#/definitions/StepState"
       },
-      "type": "array"
+      "type": "array",
+      "title": "StepStateList"
     },
     "StepStatus": {
       "description": "The execution status details of the cluster step.",
@@ -3084,7 +3279,8 @@
           "description": "The timeline of the cluster step status over time."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "StepStatus"
     },
     "StepSummary": {
       "description": "The summary of the cluster step.",
@@ -3110,13 +3306,15 @@
           "description": "The current execution status details of the cluster step."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "StepSummary"
     },
     "StepSummaryList": {
       "items": {
         "$ref": "#/definitions/StepSummary"
       },
-      "type": "array"
+      "type": "array",
+      "title": "StepSummaryList"
     },
     "StepTimeline": {
       "description": "The timeline of the cluster step lifecycle.",
@@ -3134,16 +3332,19 @@
           "description": "The date and time when the cluster step execution started."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "StepTimeline"
     },
     "String": {
-      "type": "string"
+      "type": "string",
+      "title": "String"
     },
     "StringList": {
       "items": {
         "$ref": "#/definitions/String"
       },
-      "type": "array"
+      "type": "array",
+      "title": "StringList"
     },
     "StringMap": {
       "items": {
@@ -3157,7 +3358,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "StringMap"
     },
     "SupportedProductConfig": {
       "description": "The list of supported product configurations which allow user-supplied arguments. EMR accepts these arguments and forwards them to the corresponding installation script as bootstrap action arguments.",
@@ -3171,13 +3373,15 @@
           "description": "The name of the product configuration."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SupportedProductConfig"
     },
     "SupportedProductsList": {
       "items": {
         "$ref": "#/definitions/XmlStringMaxLen256"
       },
-      "type": "array"
+      "type": "array",
+      "title": "SupportedProductsList"
     },
     "Tag": {
       "description": "A key/value pair containing user-defined metadata that you can associate with an Amazon EMR resource. Tags make it easier to associate clusters in various ways, such as grouping clusters to track your Amazon EMR resource allocation costs. For more information, see <a href=\"http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/emr-plan-tags.html\">Tagging Amazon EMR Resources</a>. ",
@@ -3191,13 +3395,15 @@
           "description": "A user-defined value, which is optional in a tag. For more information, see <a href=\"http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/emr-plan-tags.html\">Tagging Amazon EMR Resources</a>. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Tag"
     },
     "TagList": {
       "items": {
         "$ref": "#/definitions/Tag"
       },
-      "type": "array"
+      "type": "array",
+      "title": "TagList"
     },
     "TerminateJobFlowsInput": {
       "description": " Input to the <a>TerminateJobFlows</a> operation. ",
@@ -3210,7 +3416,8 @@
       "required": [
         "JobFlowIds"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "TerminateJobFlowsInput"
     },
     "Unit": {
       "enum": [
@@ -3242,7 +3449,8 @@
         "TERA_BITS_PER_SECOND",
         "COUNT_PER_SECOND"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "Unit"
     },
     "VolumeSpecification": {
       "description": "EBS volume specifications such as volume type, IOPS, and size (GiB) that will be requested for the EBS volume attached to an EC2 instance in the cluster.",
@@ -3264,35 +3472,41 @@
         "VolumeType",
         "SizeInGB"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "VolumeSpecification"
     },
     "WholeNumber": {
       "minimum": 0,
-      "type": "integer"
+      "type": "integer",
+      "title": "WholeNumber"
     },
     "XmlString": {
       "maxLength": 10280,
       "minLength": 0,
       "type": "string",
-      "x-pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*"
+      "x-pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+      "title": "XmlString"
     },
     "XmlStringList": {
       "items": {
         "$ref": "#/definitions/XmlString"
       },
-      "type": "array"
+      "type": "array",
+      "title": "XmlStringList"
     },
     "XmlStringMaxLen256": {
       "maxLength": 256,
       "minLength": 0,
       "type": "string",
-      "x-pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*"
+      "x-pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+      "title": "XmlStringMaxLen256"
     },
     "XmlStringMaxLen256List": {
       "items": {
         "$ref": "#/definitions/XmlStringMaxLen256"
       },
-      "type": "array"
+      "type": "array",
+      "title": "XmlStringMaxLen256List"
     }
   },
   "actions": [

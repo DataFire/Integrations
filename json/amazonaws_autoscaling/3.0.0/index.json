@@ -22,7 +22,8 @@
         "PercentChangeInCapacity",
         "ExactCapacity"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "AdjustmentType"
     },
     "Alarm": {
       "description": "Represents a CloudWatch alarm associated with a scaling policy.",
@@ -40,13 +41,15 @@
         "AlarmName",
         "AlarmARN"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "Alarm"
     },
     "Alarms": {
       "items": {
         "$ref": "#/definitions/Alarm"
       },
-      "type": "array"
+      "type": "array",
+      "title": "Alarms"
     },
     "ConcurrentUpdateException": {
       "description": "Concurrent updates caused an exception, for example, if you request an update to an Application Auto Scaling resource that already has a pending update.",
@@ -55,10 +58,12 @@
           "$ref": "#/definitions/ErrorMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ConcurrentUpdateException"
     },
     "Cooldown": {
-      "type": "integer"
+      "type": "integer",
+      "title": "Cooldown"
     },
     "DeleteScalingPolicyRequest": {
       "example": {
@@ -91,12 +96,14 @@
         "ResourceId",
         "ScalableDimension"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteScalingPolicyRequest"
     },
     "DeleteScalingPolicyResponse": {
       "example": {},
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DeleteScalingPolicyResponse"
     },
     "DeregisterScalableTargetRequest": {
       "example": {
@@ -123,12 +130,14 @@
         "ResourceId",
         "ScalableDimension"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeregisterScalableTargetRequest"
     },
     "DeregisterScalableTargetResponse": {
       "example": {},
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DeregisterScalableTargetResponse"
     },
     "DescribeScalableTargetsRequest": {
       "example": {
@@ -159,7 +168,8 @@
       "required": [
         "ServiceNamespace"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeScalableTargetsRequest"
     },
     "DescribeScalableTargetsResponse": {
       "example": {
@@ -185,7 +195,8 @@
           "description": "The list of scalable targets that matches the request parameters."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeScalableTargetsResponse"
     },
     "DescribeScalingActivitiesRequest": {
       "example": {
@@ -218,7 +229,8 @@
       "required": [
         "ServiceNamespace"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeScalingActivitiesRequest"
     },
     "DescribeScalingActivitiesResponse": {
       "example": {
@@ -247,7 +259,8 @@
           "description": "A list of scaling activity objects."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeScalingActivitiesResponse"
     },
     "DescribeScalingPoliciesRequest": {
       "example": {
@@ -282,7 +295,8 @@
       "required": [
         "ServiceNamespace"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeScalingPoliciesRequest"
     },
     "DescribeScalingPoliciesResponse": {
       "example": {
@@ -325,10 +339,12 @@
           "description": "A list of scaling policy objects."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeScalingPoliciesResponse"
     },
     "ErrorMessage": {
-      "type": "string"
+      "type": "string",
+      "title": "ErrorMessage"
     },
     "FailedResourceAccessException": {
       "description": "Failed access to resources caused an exception. This exception currently only applies to <a>DescribeScalingPolicies</a>. It is thrown when Application Auto Scaling is unable to retrieve the alarms associated with a scaling policy due to a client error, for example, if the role ARN specified for a scalable target does not have the proper permissions to call the CloudWatch <a href=\"http://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DescribeAlarms.html\">DescribeAlarms</a> API operation on behalf of your account.",
@@ -337,7 +353,8 @@
           "$ref": "#/definitions/ErrorMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "FailedResourceAccessException"
     },
     "InternalServiceException": {
       "description": "The service encountered an internal error.",
@@ -346,7 +363,8 @@
           "$ref": "#/definitions/ErrorMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InternalServiceException"
     },
     "InvalidNextTokenException": {
       "description": "The next token supplied was invalid.",
@@ -355,7 +373,8 @@
           "$ref": "#/definitions/ErrorMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidNextTokenException"
     },
     "LimitExceededException": {
       "description": "Your account exceeded a limit. This exception is thrown when a per-account resource limit is exceeded. For more information, see <a href=\"http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_as-app\">Application Auto Scaling Limits</a>.",
@@ -364,10 +383,12 @@
           "$ref": "#/definitions/ErrorMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LimitExceededException"
     },
     "MaxResults": {
-      "type": "integer"
+      "type": "integer",
+      "title": "MaxResults"
     },
     "MetricAggregationType": {
       "enum": [
@@ -375,14 +396,17 @@
         "Minimum",
         "Maximum"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "MetricAggregationType"
     },
     "MetricScale": {
       "format": "double",
-      "type": "number"
+      "type": "number",
+      "title": "MetricScale"
     },
     "MinAdjustmentMagnitude": {
-      "type": "integer"
+      "type": "integer",
+      "title": "MinAdjustmentMagnitude"
     },
     "ObjectNotFoundException": {
       "description": "The specified object could not be found. For any <code>Put</code> or <code>Register</code> API operation, which depends on the existence of a scalable target, this exception is thrown if the scalable target with the specified service namespace, resource ID, and scalable dimension does not exist. For any <code>Delete</code> or <code>Deregister</code> API operation, this exception is thrown if the resource that is to be deleted or deregistered cannot be found.",
@@ -391,19 +415,22 @@
           "$ref": "#/definitions/ErrorMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ObjectNotFoundException"
     },
     "PolicyName": {
       "maxLength": 256,
       "minLength": 1,
       "pattern": "\\p{Print}+",
-      "type": "string"
+      "type": "string",
+      "title": "PolicyName"
     },
     "PolicyType": {
       "enum": [
         "StepScaling"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "PolicyType"
     },
     "PutScalingPolicyRequest": {
       "example": {
@@ -455,7 +482,8 @@
         "ResourceId",
         "ScalableDimension"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "PutScalingPolicyRequest"
     },
     "PutScalingPolicyResponse": {
       "example": {
@@ -470,7 +498,8 @@
       "required": [
         "PolicyARN"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "PutScalingPolicyResponse"
     },
     "RegisterScalableTargetRequest": {
       "example": {
@@ -512,31 +541,37 @@
         "ResourceId",
         "ScalableDimension"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "RegisterScalableTargetRequest"
     },
     "RegisterScalableTargetResponse": {
       "example": {},
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "RegisterScalableTargetResponse"
     },
     "ResourceCapacity": {
-      "type": "integer"
+      "type": "integer",
+      "title": "ResourceCapacity"
     },
     "ResourceId": {
       "type": "string",
-      "x-pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*"
+      "x-pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+      "title": "ResourceId"
     },
     "ResourceIdMaxLen1600": {
       "maxLength": 1600,
       "minLength": 1,
       "type": "string",
-      "x-pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*"
+      "x-pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+      "title": "ResourceIdMaxLen1600"
     },
     "ResourceIdsMaxLen1600": {
       "items": {
         "$ref": "#/definitions/ResourceIdMaxLen1600"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ResourceIdsMaxLen1600"
     },
     "ScalableDimension": {
       "enum": [
@@ -545,7 +580,8 @@
         "elasticmapreduce:instancegroup:InstanceCount",
         "appstream:fleet:DesiredCapacity"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ScalableDimension"
     },
     "ScalableTarget": {
       "description": "Represents a scalable target.",
@@ -588,19 +624,22 @@
         "RoleARN",
         "CreationTime"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ScalableTarget"
     },
     "ScalableTargets": {
       "items": {
         "$ref": "#/definitions/ScalableTarget"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ScalableTargets"
     },
     "ScalingActivities": {
       "items": {
         "$ref": "#/definitions/ScalingActivity"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ScalingActivities"
     },
     "ScalingActivity": {
       "description": "Represents a scaling activity.",
@@ -660,7 +699,8 @@
         "StartTime",
         "StatusCode"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ScalingActivity"
     },
     "ScalingActivityStatusCode": {
       "enum": [
@@ -671,16 +711,19 @@
         "Unfulfilled",
         "Failed"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ScalingActivityStatusCode"
     },
     "ScalingAdjustment": {
-      "type": "integer"
+      "type": "integer",
+      "title": "ScalingAdjustment"
     },
     "ScalingPolicies": {
       "items": {
         "$ref": "#/definitions/ScalingPolicy"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ScalingPolicies"
     },
     "ScalingPolicy": {
       "description": "Represents a scaling policy.",
@@ -731,7 +774,8 @@
         "PolicyType",
         "CreationTime"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ScalingPolicy"
     },
     "ServiceNamespace": {
       "enum": [
@@ -740,7 +784,8 @@
         "ec2",
         "appstream"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ServiceNamespace"
     },
     "StepAdjustment": {
       "description": "<p>Represents a step adjustment for a <a>StepScalingPolicyConfiguration</a>. Describes an adjustment based on the difference between the value of the aggregated CloudWatch metric and the breach threshold that you've defined for the alarm. </p> <p>For the following examples, suppose that you have an alarm with a breach threshold of 50:</p> <ul> <li> <p>To trigger the adjustment when the metric is greater than or equal to 50 and less than 60, specify a lower bound of 0 and an upper bound of 10.</p> </li> <li> <p>To trigger the adjustment when the metric is greater than 40 and less than or equal to 50, specify a lower bound of -10 and an upper bound of 0.</p> </li> </ul> <p>There are a few rules for the step adjustments for your step policy:</p> <ul> <li> <p>The ranges of your step adjustments can't overlap or have a gap.</p> </li> <li> <p>At most one step adjustment can have a null lower bound. If one step adjustment has a negative lower bound, then there must be a step adjustment with a null lower bound.</p> </li> <li> <p>At most one step adjustment can have a null upper bound. If one step adjustment has a positive upper bound, then there must be a step adjustment with a null upper bound.</p> </li> <li> <p>The upper and lower bound can't be null in the same step adjustment.</p> </li> </ul>",
@@ -761,13 +806,15 @@
       "required": [
         "ScalingAdjustment"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "StepAdjustment"
     },
     "StepAdjustments": {
       "items": {
         "$ref": "#/definitions/StepAdjustment"
       },
-      "type": "array"
+      "type": "array",
+      "title": "StepAdjustments"
     },
     "StepScalingPolicyConfiguration": {
       "description": "Represents a step scaling policy configuration.",
@@ -793,11 +840,13 @@
           "description": "A set of adjustments that enable you to scale based on the size of the alarm breach."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "StepScalingPolicyConfiguration"
     },
     "TimestampType": {
       "format": "date-time",
-      "type": "string"
+      "type": "string",
+      "title": "TimestampType"
     },
     "ValidationException": {
       "description": "An exception was thrown for a validation issue. Review the available parameters for the API request.",
@@ -806,11 +855,13 @@
           "$ref": "#/definitions/ErrorMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ValidationException"
     },
     "XmlString": {
       "type": "string",
-      "x-pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*"
+      "x-pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+      "title": "XmlString"
     }
   },
   "actions": [

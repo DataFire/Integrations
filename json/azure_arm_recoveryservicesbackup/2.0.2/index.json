@@ -35,7 +35,8 @@
       ],
       "description": "The backup engine type when Azure Backup Server is used to manage the backups.",
       "type": "object",
-      "x-ms-discriminator-value": "AzureBackupServerEngine"
+      "x-ms-discriminator-value": "AzureBackupServerEngine",
+      "title": "AzureBackupServerEngine"
     },
     "AzureIaaSClassicComputeVMContainer": {
       "allOf": [
@@ -45,7 +46,8 @@
       ],
       "description": "IaaS VM workload-specific backup item representing a classic-deployed virtual machine.",
       "type": "object",
-      "x-ms-discriminator-value": "Microsoft.ClassicCompute/virtualMachines"
+      "x-ms-discriminator-value": "Microsoft.ClassicCompute/virtualMachines",
+      "title": "AzureIaaSClassicComputeVMContainer"
     },
     "AzureIaaSClassicComputeVMProtectableItem": {
       "allOf": [
@@ -55,7 +57,8 @@
       ],
       "description": "IaaS VM workload-specific backup item representing a classic VM.",
       "type": "object",
-      "x-ms-discriminator-value": "Microsoft.ClassicCompute/virtualMachines"
+      "x-ms-discriminator-value": "Microsoft.ClassicCompute/virtualMachines",
+      "title": "AzureIaaSClassicComputeVMProtectableItem"
     },
     "AzureIaaSClassicComputeVMProtectedItem": {
       "allOf": [
@@ -65,7 +68,8 @@
       ],
       "description": "IaaS VM workload-specific backup item representing the classic VM.",
       "type": "object",
-      "x-ms-discriminator-value": "Microsoft.ClassicCompute/virtualMachines"
+      "x-ms-discriminator-value": "Microsoft.ClassicCompute/virtualMachines",
+      "title": "AzureIaaSClassicComputeVMProtectedItem"
     },
     "AzureIaaSComputeVMContainer": {
       "allOf": [
@@ -75,7 +79,8 @@
       ],
       "description": "IaaS VM workload-specific backup item representing a Resource Manager-deployed virtual machine.",
       "type": "object",
-      "x-ms-discriminator-value": "Microsoft.Compute/virtualMachines"
+      "x-ms-discriminator-value": "Microsoft.Compute/virtualMachines",
+      "title": "AzureIaaSComputeVMContainer"
     },
     "AzureIaaSComputeVMProtectableItem": {
       "allOf": [
@@ -85,7 +90,8 @@
       ],
       "description": "IaaS VM workload-specific backup item representing a Resource Manager VM.",
       "type": "object",
-      "x-ms-discriminator-value": "Microsoft.Compute/virtualMachines"
+      "x-ms-discriminator-value": "Microsoft.Compute/virtualMachines",
+      "title": "AzureIaaSComputeVMProtectableItem"
     },
     "AzureIaaSComputeVMProtectedItem": {
       "allOf": [
@@ -95,7 +101,8 @@
       ],
       "description": "IaaS VM workload-specific backup item representing the Resource Manager VM.",
       "type": "object",
-      "x-ms-discriminator-value": "Microsoft.Compute/virtualMachines"
+      "x-ms-discriminator-value": "Microsoft.Compute/virtualMachines",
+      "title": "AzureIaaSComputeVMProtectedItem"
     },
     "AzureIaaSVMErrorInfo": {
       "description": "Azure IaaS VM workload-specific error information.",
@@ -121,7 +128,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AzureIaaSVMErrorInfo"
     },
     "AzureIaaSVMJob": {
       "allOf": [
@@ -169,7 +177,8 @@
         }
       },
       "type": "object",
-      "x-ms-discriminator-value": "AzureIaaSVMJob"
+      "x-ms-discriminator-value": "AzureIaaSVMJob",
+      "title": "AzureIaaSVMJob"
     },
     "AzureIaaSVMJobExtendedInfo": {
       "description": "Additional information for the Azure IaaS VM workload-specific job.",
@@ -198,7 +207,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AzureIaaSVMJobExtendedInfo"
     },
     "AzureIaaSVMJobTaskDetails": {
       "description": "Azure IaaS VM workload-specific job task details.",
@@ -236,7 +246,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AzureIaaSVMJobTaskDetails"
     },
     "AzureIaaSVMProtectedItem": {
       "allOf": [
@@ -289,7 +300,8 @@
         }
       },
       "type": "object",
-      "x-ms-discriminator-value": "AzureIaaSVMProtectedItem"
+      "x-ms-discriminator-value": "AzureIaaSVMProtectedItem",
+      "title": "AzureIaaSVMProtectedItem"
     },
     "AzureIaaSVMProtectedItemExtendedInfo": {
       "description": "Additional information for the Azure VM (also known as IaaS VM)-specific backup item.",
@@ -309,7 +321,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AzureIaaSVMProtectedItemExtendedInfo"
     },
     "AzureIaaSVMProtectionPolicy": {
       "allOf": [
@@ -329,7 +342,8 @@
         }
       },
       "type": "object",
-      "x-ms-discriminator-value": "AzureIaasVM"
+      "x-ms-discriminator-value": "AzureIaasVM",
+      "title": "AzureIaaSVMProtectionPolicy"
     },
     "AzureSqlContainer": {
       "allOf": [
@@ -339,7 +353,8 @@
       ],
       "description": "Azure SQL workload-specific container.",
       "type": "object",
-      "x-ms-discriminator-value": "AzureSqlContainer"
+      "x-ms-discriminator-value": "AzureSqlContainer",
+      "title": "AzureSqlContainer"
     },
     "AzureSqlProtectedItem": {
       "allOf": [
@@ -375,7 +390,8 @@
         }
       },
       "type": "object",
-      "x-ms-discriminator-value": "Microsoft.Sql/servers/databases"
+      "x-ms-discriminator-value": "Microsoft.Sql/servers/databases",
+      "title": "AzureSqlProtectedItem"
     },
     "AzureSqlProtectedItemExtendedInfo": {
       "description": "Additional information for the Azure SQL specific backup item.",
@@ -395,7 +411,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AzureSqlProtectedItemExtendedInfo"
     },
     "AzureSqlProtectionPolicy": {
       "allOf": [
@@ -411,7 +428,8 @@
         }
       },
       "type": "object",
-      "x-ms-discriminator-value": "AzureSql"
+      "x-ms-discriminator-value": "AzureSql",
+      "title": "AzureSqlProtectionPolicy"
     },
     "BEKDetails": {
       "description": "BEK is Bitlocker Encrpytion Key.",
@@ -429,7 +447,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BEKDetails"
     },
     "BMSBackupEngineQueryObject": {
       "description": "The query parameters used to GET the list of backup engines.",
@@ -451,7 +470,8 @@
           }
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BMSBackupEngineQueryObject"
     },
     "BMSContainerQueryObject": {
       "description": "The query filters that can be used with the list containers API.",
@@ -481,7 +501,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BMSContainerQueryObject"
     },
     "BMSPOQueryObject": {
       "description": "Filters the list of backup items.",
@@ -511,7 +532,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BMSPOQueryObject"
     },
     "BMSRPQueryObject": {
       "description": "Filters the list of backup copies based on the property.",
@@ -527,7 +549,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BMSRPQueryObject"
     },
     "BackupEngineBase": {
       "description": "The base backup engine class. All workload-specific backup engines derive from this class.",
@@ -574,7 +597,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BackupEngineBase"
     },
     "BackupEngineBaseResource": {
       "allOf": [
@@ -587,7 +611,8 @@
         "properties": {
           "$ref": "#/definitions/BackupEngineBase"
         }
-      }
+      },
+      "title": "BackupEngineBaseResource"
     },
     "BackupEngineBaseResourceList": {
       "allOf": [
@@ -605,7 +630,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BackupEngineBaseResourceList"
     },
     "BackupRequest": {
       "description": "The base class for a backup request. Workload-specific backup requests are derived from this class.",
@@ -616,7 +642,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BackupRequest"
     },
     "BackupRequestResource": {
       "allOf": [
@@ -629,7 +656,8 @@
         "properties": {
           "$ref": "#/definitions/BackupRequest"
         }
-      }
+      },
+      "title": "BackupRequestResource"
     },
     "ClientScriptForConnect": {
       "description": "Client script details for the file or folder restore.",
@@ -647,7 +675,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ClientScriptForConnect"
     },
     "DailyRetentionFormat": {
       "description": "Daily retention format.",
@@ -660,7 +689,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DailyRetentionFormat"
     },
     "DailyRetentionSchedule": {
       "description": "Daily retention schedule.",
@@ -678,7 +708,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DailyRetentionSchedule"
     },
     "Day": {
       "description": "Day of the week.",
@@ -691,7 +722,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Day"
     },
     "DpmBackupEngine": {
       "allOf": [
@@ -701,7 +733,8 @@
       ],
       "description": "The backup engine type when Data Protection Manager (DPM) is used to manage backups.",
       "type": "object",
-      "x-ms-discriminator-value": "DpmBackupEngine"
+      "x-ms-discriminator-value": "DpmBackupEngine",
+      "title": "DpmBackupEngine"
     },
     "DpmErrorInfo": {
       "description": "DPM workload-specific error information.",
@@ -718,7 +751,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DpmErrorInfo"
     },
     "DpmJob": {
       "allOf": [
@@ -778,7 +812,8 @@
         }
       },
       "type": "object",
-      "x-ms-discriminator-value": "DpmJob"
+      "x-ms-discriminator-value": "DpmJob",
+      "title": "DpmJob"
     },
     "DpmJobExtendedInfo": {
       "description": "Additional information on the DPM workload-specific job.",
@@ -802,7 +837,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DpmJobExtendedInfo"
     },
     "DpmJobTaskDetails": {
       "description": "DPM workload-specific job task details.",
@@ -831,7 +867,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DpmJobTaskDetails"
     },
     "EncryptionDetails": {
       "description": "Details needed if the VM was encrypted at the time of backup.",
@@ -857,7 +894,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "EncryptionDetails"
     },
     "ExportJobsOperationResultInfo": {
       "allOf": [
@@ -877,7 +915,8 @@
         }
       },
       "type": "object",
-      "x-ms-discriminator-value": "ExportJobsOperationResultInfo"
+      "x-ms-discriminator-value": "ExportJobsOperationResultInfo",
+      "title": "ExportJobsOperationResultInfo"
     },
     "GenericRecoveryPoint": {
       "allOf": [
@@ -906,7 +945,8 @@
         }
       },
       "type": "object",
-      "x-ms-discriminator-value": "GenericRecoveryPoint"
+      "x-ms-discriminator-value": "GenericRecoveryPoint",
+      "title": "GenericRecoveryPoint"
     },
     "GetProtectedItemQueryObject": {
       "description": "This object filters the list of backup items.",
@@ -916,7 +956,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetProtectedItemQueryObject"
     },
     "ILRRequest": {
       "description": "Parameters to restore file or folders API.",
@@ -927,7 +968,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ILRRequest"
     },
     "ILRRequestResource": {
       "allOf": [
@@ -940,7 +982,8 @@
         "properties": {
           "$ref": "#/definitions/ILRRequest"
         }
-      }
+      },
+      "title": "ILRRequestResource"
     },
     "IaaSVMContainer": {
       "allOf": [
@@ -964,7 +1007,8 @@
         }
       },
       "type": "object",
-      "x-ms-discriminator-value": "IaaSVMContainer"
+      "x-ms-discriminator-value": "IaaSVMContainer",
+      "title": "IaaSVMContainer"
     },
     "IaaSVMProtectableItem": {
       "allOf": [
@@ -979,7 +1023,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "IaaSVMProtectableItem"
     },
     "IaasVMBackupRequest": {
       "allOf": [
@@ -996,7 +1041,8 @@
         }
       },
       "type": "object",
-      "x-ms-discriminator-value": "IaasVMBackupRequest"
+      "x-ms-discriminator-value": "IaasVMBackupRequest",
+      "title": "IaasVMBackupRequest"
     },
     "IaasVMILRRegistrationRequest": {
       "allOf": [
@@ -1024,7 +1070,8 @@
         }
       },
       "type": "object",
-      "x-ms-discriminator-value": "IaasVMILRRegistrationRequest"
+      "x-ms-discriminator-value": "IaasVMILRRegistrationRequest",
+      "title": "IaasVMILRRegistrationRequest"
     },
     "IaasVMRecoveryPoint": {
       "allOf": [
@@ -1065,7 +1112,8 @@
         }
       },
       "type": "object",
-      "x-ms-discriminator-value": "IaasVMRecoveryPoint"
+      "x-ms-discriminator-value": "IaasVMRecoveryPoint",
+      "title": "IaasVMRecoveryPoint"
     },
     "IaasVMRestoreRequest": {
       "allOf": [
@@ -1139,7 +1187,8 @@
         }
       },
       "type": "object",
-      "x-ms-discriminator-value": "IaasVMRestoreRequest"
+      "x-ms-discriminator-value": "IaasVMRestoreRequest",
+      "title": "IaasVMRestoreRequest"
     },
     "InstantItemRecoveryTarget": {
       "description": "Target details for the file or folder restore.",
@@ -1152,7 +1201,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InstantItemRecoveryTarget"
     },
     "Job": {
       "description": "Defines workload-agnostic properties for a job.",
@@ -1205,7 +1255,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Job"
     },
     "JobQueryObject": {
       "description": "The filters to list the jobs.",
@@ -1274,7 +1325,8 @@
           }
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "JobQueryObject"
     },
     "JobResource": {
       "allOf": [
@@ -1287,7 +1339,8 @@
         "properties": {
           "$ref": "#/definitions/Job"
         }
-      }
+      },
+      "title": "JobResource"
     },
     "JobResourceList": {
       "allOf": [
@@ -1305,7 +1358,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "JobResourceList"
     },
     "KEKDetails": {
       "description": "The Key Encryption Key (KEK) is the encryption key for the Bitlocker Encryption Key (BEK).",
@@ -1323,7 +1377,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "KEKDetails"
     },
     "KeyAndSecretDetails": {
       "description": "BEK stands for Bitlocker Encryption Key.\r\n KEK stands for Key Encryption Key. KEK is the encryption key used to protect the Secret for the BEK\r\n  If the VM is encrypted, then the service stores the following details :\r\n  1. Secret(BEK) - Url + Backup Data + vaultID.\r\n            2. Key(KEK) - Url + Backup Data + vaultID.\r\n   It is possible for the BEK and KEK to have different vaultIDs.",
@@ -1337,7 +1392,8 @@
           "description": "The Key Encryption Key (KEK) is the encryption key for the Bitlocker Encryption Key (BEK)."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "KeyAndSecretDetails"
     },
     "LongTermRetentionPolicy": {
       "allOf": [
@@ -1365,7 +1421,8 @@
         }
       },
       "type": "object",
-      "x-ms-discriminator-value": "LongTermRetentionPolicy"
+      "x-ms-discriminator-value": "LongTermRetentionPolicy",
+      "title": "LongTermRetentionPolicy"
     },
     "LongTermSchedulePolicy": {
       "allOf": [
@@ -1374,7 +1431,8 @@
         }
       ],
       "description": "Long-term policy schedule.",
-      "type": "object"
+      "type": "object",
+      "title": "LongTermSchedulePolicy"
     },
     "MabContainer": {
       "allOf": [
@@ -1408,7 +1466,8 @@
         }
       },
       "type": "object",
-      "x-ms-discriminator-value": "MABWindowsContainer"
+      "x-ms-discriminator-value": "MABWindowsContainer",
+      "title": "MabContainer"
     },
     "MabContainerExtendedInfo": {
       "description": "Additional information for the container.",
@@ -1452,7 +1511,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "MabContainerExtendedInfo"
     },
     "MabErrorInfo": {
       "description": "Azure Backup Server workload-specific error information.",
@@ -1469,7 +1529,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "MabErrorInfo"
     },
     "MabFileFolderProtectedItem": {
       "allOf": [
@@ -1504,7 +1565,8 @@
         }
       },
       "type": "object",
-      "x-ms-discriminator-value": "MabFileFolderProtectedItem"
+      "x-ms-discriminator-value": "MabFileFolderProtectedItem",
+      "title": "MabFileFolderProtectedItem"
     },
     "MabFileFolderProtectedItemExtendedInfo": {
       "description": "Additional information for the backup item.",
@@ -1525,7 +1587,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "MabFileFolderProtectedItemExtendedInfo"
     },
     "MabJob": {
       "allOf": [
@@ -1612,7 +1675,8 @@
         }
       },
       "type": "object",
-      "x-ms-discriminator-value": "MabJob"
+      "x-ms-discriminator-value": "MabJob",
+      "title": "MabJob"
     },
     "MabJobExtendedInfo": {
       "description": "Additional information for the Azure Backup Server workload-specific job.",
@@ -1636,7 +1700,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "MabJobExtendedInfo"
     },
     "MabJobTaskDetails": {
       "description": "Azure Backup Server workload-specific job task details.",
@@ -1665,7 +1730,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "MabJobTaskDetails"
     },
     "MabProtectionPolicy": {
       "allOf": [
@@ -1685,7 +1751,8 @@
         }
       },
       "type": "object",
-      "x-ms-discriminator-value": "MAB"
+      "x-ms-discriminator-value": "MAB",
+      "title": "MabProtectionPolicy"
     },
     "MonthlyRetentionSchedule": {
       "description": "The monthly retention schedule.",
@@ -1724,11 +1791,13 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "MonthlyRetentionSchedule"
     },
     "Object": {
       "description": "Base of all objects.",
-      "type": "object"
+      "type": "object",
+      "title": "Object"
     },
     "OperationResultInfo": {
       "allOf": [
@@ -1747,7 +1816,8 @@
         }
       },
       "type": "object",
-      "x-ms-discriminator-value": "OperationResultInfo"
+      "x-ms-discriminator-value": "OperationResultInfo",
+      "title": "OperationResultInfo"
     },
     "OperationResultInfoBase": {
       "description": "The base class for operation result information.",
@@ -1758,7 +1828,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "OperationResultInfoBase"
     },
     "OperationResultInfoBaseResource": {
       "allOf": [
@@ -1771,7 +1842,8 @@
         "properties": {
           "$ref": "#/definitions/OperationResultInfoBase"
         }
-      }
+      },
+      "title": "OperationResultInfoBaseResource"
     },
     "OperationStatus": {
       "description": "Operation status.",
@@ -1818,7 +1890,8 @@
           }
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "OperationStatus"
     },
     "OperationStatusError": {
       "description": "Error information associated with the operation status call.",
@@ -1832,7 +1905,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "OperationStatusError"
     },
     "OperationStatusExtendedInfo": {
       "description": "The base class for additional information about the operation status.",
@@ -1843,7 +1917,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "OperationStatusExtendedInfo"
     },
     "OperationStatusJobExtendedInfo": {
       "allOf": [
@@ -1859,7 +1934,8 @@
         }
       },
       "type": "object",
-      "x-ms-discriminator-value": "OperationStatusJobExtendedInfo"
+      "x-ms-discriminator-value": "OperationStatusJobExtendedInfo",
+      "title": "OperationStatusJobExtendedInfo"
     },
     "OperationStatusJobsExtendedInfo": {
       "allOf": [
@@ -1885,7 +1961,8 @@
         }
       },
       "type": "object",
-      "x-ms-discriminator-value": "OperationStatusJobsExtendedInfo"
+      "x-ms-discriminator-value": "OperationStatusJobsExtendedInfo",
+      "title": "OperationStatusJobsExtendedInfo"
     },
     "OperationStatusProvisionILRExtendedInfo": {
       "allOf": [
@@ -1901,7 +1978,8 @@
         }
       },
       "type": "object",
-      "x-ms-discriminator-value": "OperationStatusProvisionILRExtendedInfo"
+      "x-ms-discriminator-value": "OperationStatusProvisionILRExtendedInfo",
+      "title": "OperationStatusProvisionILRExtendedInfo"
     },
     "OperationWorkerResponse": {
       "description": "The base class for operation result responses.",
@@ -1974,7 +2052,8 @@
           }
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "OperationWorkerResponse"
     },
     "ProtectedItem": {
       "description": "The base class for backup items.",
@@ -2032,7 +2111,8 @@
           }
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ProtectedItem"
     },
     "ProtectedItemQueryObject": {
       "description": "Filters the list of backup items.",
@@ -2080,7 +2160,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ProtectedItemQueryObject"
     },
     "ProtectedItemResource": {
       "allOf": [
@@ -2093,7 +2174,8 @@
         "properties": {
           "$ref": "#/definitions/ProtectedItem"
         }
-      }
+      },
+      "title": "ProtectedItemResource"
     },
     "ProtectedItemResourceList": {
       "allOf": [
@@ -2111,7 +2193,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ProtectedItemResourceList"
     },
     "ProtectionContainer": {
       "description": "The base class for a container with backup items. Containers with specific workloads are derived from this class.",
@@ -2155,7 +2238,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ProtectionContainer"
     },
     "ProtectionContainerResource": {
       "allOf": [
@@ -2168,7 +2252,8 @@
         "properties": {
           "$ref": "#/definitions/ProtectionContainer"
         }
-      }
+      },
+      "title": "ProtectionContainerResource"
     },
     "ProtectionContainerResourceList": {
       "allOf": [
@@ -2186,7 +2271,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ProtectionContainerResourceList"
     },
     "ProtectionPolicy": {
       "description": "The base class for a backup policy. Workload-specific backup policies are derived from this class.",
@@ -2202,7 +2288,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ProtectionPolicy"
     },
     "ProtectionPolicyQueryObject": {
       "description": "This object filters the list of backup policies.",
@@ -2224,7 +2311,8 @@
           }
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ProtectionPolicyQueryObject"
     },
     "ProtectionPolicyResource": {
       "allOf": [
@@ -2237,7 +2325,8 @@
         "properties": {
           "$ref": "#/definitions/ProtectionPolicy"
         }
-      }
+      },
+      "title": "ProtectionPolicyResource"
     },
     "ProtectionPolicyResourceList": {
       "allOf": [
@@ -2255,7 +2344,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ProtectionPolicyResourceList"
     },
     "RecoveryPoint": {
       "description": "The base class for backup copies. Workload-specific backup copies are derived from this class.",
@@ -2266,7 +2356,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RecoveryPoint"
     },
     "RecoveryPointResource": {
       "allOf": [
@@ -2279,7 +2370,8 @@
         "properties": {
           "$ref": "#/definitions/RecoveryPoint"
         }
-      }
+      },
+      "title": "RecoveryPointResource"
     },
     "RecoveryPointResourceList": {
       "allOf": [
@@ -2297,7 +2389,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RecoveryPointResourceList"
     },
     "Resource": {
       "description": "Base for all resources.",
@@ -2331,7 +2424,8 @@
         }
       },
       "type": "object",
-      "x-ms-azure-resource": true
+      "x-ms-azure-resource": true,
+      "title": "Resource"
     },
     "ResourceList": {
       "description": "Base for all lists of resources.",
@@ -2341,7 +2435,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ResourceList"
     },
     "RestoreRequest": {
       "description": "The base class for restore requests. Workload-specific restore requests are derived from this class.",
@@ -2352,7 +2447,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RestoreRequest"
     },
     "RestoreRequestResource": {
       "allOf": [
@@ -2365,7 +2461,8 @@
         "properties": {
           "$ref": "#/definitions/RestoreRequest"
         }
-      }
+      },
+      "title": "RestoreRequestResource"
     },
     "RetentionDuration": {
       "description": "Retention duration.",
@@ -2391,7 +2488,8 @@
           }
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RetentionDuration"
     },
     "RetentionPolicy": {
       "description": "The base class for retention policy.",
@@ -2402,7 +2500,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RetentionPolicy"
     },
     "SchedulePolicy": {
       "description": "The base class for backup schedules.",
@@ -2413,7 +2512,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SchedulePolicy"
     },
     "SimpleRetentionPolicy": {
       "allOf": [
@@ -2429,7 +2529,8 @@
         }
       },
       "type": "object",
-      "x-ms-discriminator-value": "SimpleRetentionPolicy"
+      "x-ms-discriminator-value": "SimpleRetentionPolicy",
+      "title": "SimpleRetentionPolicy"
     },
     "SimpleSchedulePolicy": {
       "allOf": [
@@ -2487,7 +2588,8 @@
         }
       },
       "type": "object",
-      "x-ms-discriminator-value": "SimpleSchedulePolicy"
+      "x-ms-discriminator-value": "SimpleSchedulePolicy",
+      "title": "SimpleSchedulePolicy"
     },
     "WeeklyRetentionFormat": {
       "description": "Weekly retention format.",
@@ -2531,7 +2633,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "WeeklyRetentionFormat"
     },
     "WeeklyRetentionSchedule": {
       "description": "Weekly retention schedule.",
@@ -2569,7 +2672,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "WeeklyRetentionSchedule"
     },
     "WorkloadProtectableItem": {
       "description": "The base class for backup item. Workload-specific backup items are derived from this class.",
@@ -2602,7 +2706,8 @@
           }
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "WorkloadProtectableItem"
     },
     "WorkloadProtectableItemResource": {
       "allOf": [
@@ -2615,7 +2720,8 @@
         "properties": {
           "$ref": "#/definitions/WorkloadProtectableItem"
         }
-      }
+      },
+      "title": "WorkloadProtectableItemResource"
     },
     "WorkloadProtectableItemResourceList": {
       "allOf": [
@@ -2633,7 +2739,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "WorkloadProtectableItemResourceList"
     },
     "YearlyRetentionSchedule": {
       "description": "Yearly retention schedule.",
@@ -2698,7 +2805,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "YearlyRetentionSchedule"
     }
   },
   "actions": [

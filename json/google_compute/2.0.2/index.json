@@ -59,7 +59,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AccessConfig"
     },
     "Address": {
       "description": "A reserved address resource.",
@@ -115,7 +116,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Address"
     },
     "AddressAggregatedList": {
       "properties": {
@@ -145,7 +147,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AddressAggregatedList"
     },
     "AddressList": {
       "description": "Contains a list of addresses.",
@@ -175,7 +178,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AddressList"
     },
     "AddressesScopedList": {
       "properties": {
@@ -237,7 +241,8 @@
           "type": "object"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AddressesScopedList"
     },
     "AttachedDisk": {
       "description": "An instance-attached disk resource.",
@@ -308,7 +313,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AttachedDisk"
     },
     "AttachedDiskInitializeParams": {
       "description": "[Input Only] Specifies the parameters for a new disk that will be created alongside the new instance. Use initialization parameters to create boot disks or local SSDs attached to the new instance.\n\nThis property is mutually exclusive with the source property; you can only define one or the other, but not both.",
@@ -335,7 +341,8 @@
           "description": "The customer-supplied encryption key of the source image. Required if the source image is protected by a customer-supplied encryption key.\n\nInstance templates do not store customer-supplied encryption keys, so you cannot create disks for instances in a managed instance group if the source images are encrypted with your own keys."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AttachedDiskInitializeParams"
     },
     "Autoscaler": {
       "description": "Represents an Autoscaler resource. Autoscalers allow you to automatically scale virtual machine instances in managed instance groups according to an autoscaling policy that you define. For more information, read Autoscaling Groups of Instances.",
@@ -384,7 +391,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Autoscaler"
     },
     "AutoscalerAggregatedList": {
       "properties": {
@@ -414,7 +422,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AutoscalerAggregatedList"
     },
     "AutoscalerList": {
       "description": "Contains a list of Autoscaler resources.",
@@ -444,7 +453,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AutoscalerList"
     },
     "AutoscalersScopedList": {
       "properties": {
@@ -506,7 +516,8 @@
           "type": "object"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AutoscalersScopedList"
     },
     "AutoscalingPolicy": {
       "description": "Cloud Autoscaler policy.",
@@ -542,7 +553,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AutoscalingPolicy"
     },
     "AutoscalingPolicyCpuUtilization": {
       "description": "CPU utilization policy.",
@@ -553,7 +565,8 @@
           "type": "number"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AutoscalingPolicyCpuUtilization"
     },
     "AutoscalingPolicyCustomMetricUtilization": {
       "description": "Custom utilization metric policy.",
@@ -577,7 +590,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AutoscalingPolicyCustomMetricUtilization"
     },
     "AutoscalingPolicyLoadBalancingUtilization": {
       "description": "Configuration parameters of autoscaling based on load balancing.",
@@ -588,7 +602,8 @@
           "type": "number"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AutoscalingPolicyLoadBalancingUtilization"
     },
     "Backend": {
       "description": "Message containing information of one individual backend.",
@@ -641,7 +656,8 @@
           "type": "number"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Backend"
     },
     "BackendBucket": {
       "description": "A BackendBucket resource. This resource defines a Cloud Storage bucket.",
@@ -682,7 +698,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BackendBucket"
     },
     "BackendBucketList": {
       "description": "Contains a list of BackendBucket resources.",
@@ -712,7 +729,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BackendBucketList"
     },
     "BackendService": {
       "description": "A BackendService resource. This resource defines a group of backend virtual machines and their serving capacity.",
@@ -828,7 +846,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BackendService"
     },
     "BackendServiceAggregatedList": {
       "description": "Contains a list of BackendServicesScopedList.",
@@ -859,7 +878,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BackendServiceAggregatedList"
     },
     "BackendServiceCdnPolicy": {
       "description": "Message containing Cloud CDN configuration for a backend service.",
@@ -869,7 +889,8 @@
           "description": "The CacheKeyPolicy for this CdnPolicy."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BackendServiceCdnPolicy"
     },
     "BackendServiceGroupHealth": {
       "properties": {
@@ -885,7 +906,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BackendServiceGroupHealth"
     },
     "BackendServiceList": {
       "description": "Contains a list of BackendService resources.",
@@ -915,7 +937,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BackendServiceList"
     },
     "BackendServicesScopedList": {
       "properties": {
@@ -977,7 +1000,8 @@
           "type": "object"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BackendServicesScopedList"
     },
     "CacheInvalidationRule": {
       "properties": {
@@ -989,7 +1013,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CacheInvalidationRule"
     },
     "CacheKeyPolicy": {
       "description": "Message containing what to include in the cache key for a request for Cloud CDN.",
@@ -1021,7 +1046,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CacheKeyPolicy"
     },
     "ConnectionDraining": {
       "description": "Message containing connection draining configuration.",
@@ -1032,7 +1058,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ConnectionDraining"
     },
     "CustomerEncryptionKey": {
       "description": "Represents a customer-supplied encryption key",
@@ -1046,7 +1073,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CustomerEncryptionKey"
     },
     "CustomerEncryptionKeyProtectedDisk": {
       "properties": {
@@ -1059,7 +1087,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CustomerEncryptionKeyProtectedDisk"
     },
     "DeprecationStatus": {
       "description": "Deprecation status for a public resource.",
@@ -1090,7 +1119,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DeprecationStatus"
     },
     "Disk": {
       "description": "A Disk resource.",
@@ -1200,7 +1230,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Disk"
     },
     "DiskAggregatedList": {
       "properties": {
@@ -1230,7 +1261,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DiskAggregatedList"
     },
     "DiskList": {
       "description": "A list of Disk resources.",
@@ -1260,7 +1292,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DiskList"
     },
     "DiskMoveRequest": {
       "properties": {
@@ -1273,7 +1306,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DiskMoveRequest"
     },
     "DiskType": {
       "description": "A DiskType resource.",
@@ -1323,7 +1357,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DiskType"
     },
     "DiskTypeAggregatedList": {
       "properties": {
@@ -1353,7 +1388,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DiskTypeAggregatedList"
     },
     "DiskTypeList": {
       "description": "Contains a list of disk types.",
@@ -1383,7 +1419,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DiskTypeList"
     },
     "DiskTypesScopedList": {
       "properties": {
@@ -1445,7 +1482,8 @@
           "type": "object"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DiskTypesScopedList"
     },
     "DisksResizeRequest": {
       "properties": {
@@ -1455,7 +1493,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DisksResizeRequest"
     },
     "DisksScopedList": {
       "properties": {
@@ -1517,7 +1556,8 @@
           "type": "object"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DisksScopedList"
     },
     "Firewall": {
       "description": "Represents a Firewall resource.",
@@ -1595,7 +1635,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Firewall"
     },
     "FirewallList": {
       "description": "Contains a list of firewalls.",
@@ -1625,7 +1666,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "FirewallList"
     },
     "ForwardingRule": {
       "description": "A ForwardingRule resource. A ForwardingRule resource specifies which pool of target virtual machines to forward a packet to if it matches the given [IPAddress, IPProtocol, ports] tuple.",
@@ -1714,7 +1756,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ForwardingRule"
     },
     "ForwardingRuleAggregatedList": {
       "properties": {
@@ -1744,7 +1787,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ForwardingRuleAggregatedList"
     },
     "ForwardingRuleList": {
       "description": "Contains a list of ForwardingRule resources.",
@@ -1774,7 +1818,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ForwardingRuleList"
     },
     "ForwardingRulesScopedList": {
       "properties": {
@@ -1836,7 +1881,8 @@
           "type": "object"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ForwardingRulesScopedList"
     },
     "GuestOsFeature": {
       "description": "Guest OS features.",
@@ -1851,7 +1897,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GuestOsFeature"
     },
     "HTTPHealthCheck": {
       "properties": {
@@ -1881,7 +1928,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "HTTPHealthCheck"
     },
     "HTTPSHealthCheck": {
       "properties": {
@@ -1911,7 +1959,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "HTTPSHealthCheck"
     },
     "HealthCheck": {
       "description": "An HealthCheck resource. This resource defines a template for how individual virtual machines should be checked for health, via one of the supported protocols.",
@@ -1987,7 +2036,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "HealthCheck"
     },
     "HealthCheckList": {
       "description": "Contains a list of HealthCheck resources.",
@@ -2017,7 +2067,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "HealthCheckList"
     },
     "HealthCheckReference": {
       "description": "A full or valid partial URL to a health check. For example, the following are valid URLs:  \n- https://www.googleapis.com/compute/beta/projects/project-id/global/httpHealthChecks/health-check \n- projects/project-id/global/httpHealthChecks/health-check \n- global/httpHealthChecks/health-check",
@@ -2026,7 +2077,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "HealthCheckReference"
     },
     "HealthStatus": {
       "properties": {
@@ -2052,7 +2104,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "HealthStatus"
     },
     "HostRule": {
       "description": "UrlMaps A host-matching rule for a URL. If matched, will use the named PathMatcher to select the BackendService.",
@@ -2073,7 +2126,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "HostRule"
     },
     "HttpHealthCheck": {
       "description": "An HttpHealthCheck resource. This resource defines a template for how individual instances should be checked for health, via HTTP.",
@@ -2139,7 +2193,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "HttpHealthCheck"
     },
     "HttpHealthCheckList": {
       "description": "Contains a list of HttpHealthCheck resources.",
@@ -2169,7 +2224,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "HttpHealthCheckList"
     },
     "HttpsHealthCheck": {
       "description": "An HttpsHealthCheck resource. This resource defines a template for how individual instances should be checked for health, via HTTPS.",
@@ -2235,7 +2291,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "HttpsHealthCheck"
     },
     "HttpsHealthCheckList": {
       "description": "Contains a list of HttpsHealthCheck resources.",
@@ -2265,7 +2322,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "HttpsHealthCheckList"
     },
     "Image": {
       "description": "An Image resource.",
@@ -2385,7 +2443,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Image"
     },
     "ImageList": {
       "description": "Contains a list of images.",
@@ -2415,7 +2474,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ImageList"
     },
     "Instance": {
       "description": "An Instance resource.",
@@ -2515,7 +2575,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Instance"
     },
     "InstanceAggregatedList": {
       "properties": {
@@ -2545,7 +2606,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InstanceAggregatedList"
     },
     "InstanceGroup": {
       "properties": {
@@ -2610,7 +2672,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InstanceGroup"
     },
     "InstanceGroupAggregatedList": {
       "properties": {
@@ -2640,7 +2703,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InstanceGroupAggregatedList"
     },
     "InstanceGroupList": {
       "description": "A list of InstanceGroup resources.",
@@ -2670,7 +2734,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InstanceGroupList"
     },
     "InstanceGroupManager": {
       "description": "An Instance Group Manager resource.",
@@ -2752,7 +2817,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InstanceGroupManager"
     },
     "InstanceGroupManagerActionsSummary": {
       "properties": {
@@ -2797,7 +2863,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InstanceGroupManagerActionsSummary"
     },
     "InstanceGroupManagerAggregatedList": {
       "properties": {
@@ -2827,7 +2894,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InstanceGroupManagerAggregatedList"
     },
     "InstanceGroupManagerList": {
       "description": "[Output Only] A list of managed instance groups.",
@@ -2857,7 +2925,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InstanceGroupManagerList"
     },
     "InstanceGroupManagersAbandonInstancesRequest": {
       "properties": {
@@ -2869,7 +2938,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InstanceGroupManagersAbandonInstancesRequest"
     },
     "InstanceGroupManagersDeleteInstancesRequest": {
       "properties": {
@@ -2881,7 +2951,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InstanceGroupManagersDeleteInstancesRequest"
     },
     "InstanceGroupManagersListManagedInstancesResponse": {
       "properties": {
@@ -2893,7 +2964,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InstanceGroupManagersListManagedInstancesResponse"
     },
     "InstanceGroupManagersRecreateInstancesRequest": {
       "properties": {
@@ -2905,7 +2977,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InstanceGroupManagersRecreateInstancesRequest"
     },
     "InstanceGroupManagersScopedList": {
       "properties": {
@@ -2967,7 +3040,8 @@
           "type": "object"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InstanceGroupManagersScopedList"
     },
     "InstanceGroupManagersSetInstanceTemplateRequest": {
       "properties": {
@@ -2976,7 +3050,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InstanceGroupManagersSetInstanceTemplateRequest"
     },
     "InstanceGroupManagersSetTargetPoolsRequest": {
       "properties": {
@@ -2993,7 +3068,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InstanceGroupManagersSetTargetPoolsRequest"
     },
     "InstanceGroupsAddInstancesRequest": {
       "properties": {
@@ -3005,7 +3081,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InstanceGroupsAddInstancesRequest"
     },
     "InstanceGroupsListInstances": {
       "properties": {
@@ -3034,7 +3111,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InstanceGroupsListInstances"
     },
     "InstanceGroupsListInstancesRequest": {
       "properties": {
@@ -3047,7 +3125,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InstanceGroupsListInstancesRequest"
     },
     "InstanceGroupsRemoveInstancesRequest": {
       "properties": {
@@ -3059,7 +3138,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InstanceGroupsRemoveInstancesRequest"
     },
     "InstanceGroupsScopedList": {
       "properties": {
@@ -3121,7 +3201,8 @@
           "type": "object"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InstanceGroupsScopedList"
     },
     "InstanceGroupsSetNamedPortsRequest": {
       "properties": {
@@ -3138,7 +3219,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InstanceGroupsSetNamedPortsRequest"
     },
     "InstanceList": {
       "description": "Contains a list of instances.",
@@ -3168,7 +3250,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InstanceList"
     },
     "InstanceMoveRequest": {
       "properties": {
@@ -3181,7 +3264,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InstanceMoveRequest"
     },
     "InstanceProperties": {
       "description": "",
@@ -3232,7 +3316,8 @@
           "description": "A list of tags to apply to the instances that are created from this template. The tags identify valid sources or targets for network firewalls. The setTags method can modify this list of tags. Each tag within the list must comply with RFC1035."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InstanceProperties"
     },
     "InstanceReference": {
       "properties": {
@@ -3241,7 +3326,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InstanceReference"
     },
     "InstanceTemplate": {
       "description": "An Instance Template resource.",
@@ -3278,7 +3364,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InstanceTemplate"
     },
     "InstanceTemplateList": {
       "description": "A list of instance templates.",
@@ -3308,7 +3395,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InstanceTemplateList"
     },
     "InstanceWithNamedPorts": {
       "properties": {
@@ -3338,7 +3426,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InstanceWithNamedPorts"
     },
     "InstancesScopedList": {
       "properties": {
@@ -3400,7 +3489,8 @@
           "type": "object"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InstancesScopedList"
     },
     "InstancesSetMachineTypeRequest": {
       "properties": {
@@ -3409,7 +3499,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InstancesSetMachineTypeRequest"
     },
     "InstancesSetServiceAccountRequest": {
       "properties": {
@@ -3425,7 +3516,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InstancesSetServiceAccountRequest"
     },
     "InstancesStartWithEncryptionKeyRequest": {
       "properties": {
@@ -3437,7 +3529,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InstancesStartWithEncryptionKeyRequest"
     },
     "License": {
       "description": "A license resource.",
@@ -3461,7 +3554,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "License"
     },
     "MachineType": {
       "description": "A Machine Type resource.",
@@ -3545,7 +3639,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "MachineType"
     },
     "MachineTypeAggregatedList": {
       "properties": {
@@ -3575,7 +3670,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "MachineTypeAggregatedList"
     },
     "MachineTypeList": {
       "description": "Contains a list of machine types.",
@@ -3605,7 +3701,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "MachineTypeList"
     },
     "MachineTypesScopedList": {
       "properties": {
@@ -3667,7 +3764,8 @@
           "type": "object"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "MachineTypesScopedList"
     },
     "ManagedInstance": {
       "properties": {
@@ -3713,7 +3811,8 @@
           "description": "[Output Only] Information about the last attempt to create or delete the instance."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ManagedInstance"
     },
     "ManagedInstanceLastAttempt": {
       "properties": {
@@ -3745,7 +3844,8 @@
           "type": "object"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ManagedInstanceLastAttempt"
     },
     "Metadata": {
       "description": "A metadata key/value entry.",
@@ -3779,7 +3879,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Metadata"
     },
     "NamedPort": {
       "description": "The named port. For example: .",
@@ -3794,7 +3895,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "NamedPort"
     },
     "Network": {
       "description": "Represents a Network resource. Read Networks and Firewalls for more information.",
@@ -3848,7 +3950,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Network"
     },
     "NetworkInterface": {
       "description": "A network interface resource attached to an instance.",
@@ -3882,7 +3985,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "NetworkInterface"
     },
     "NetworkList": {
       "description": "Contains a list of networks.",
@@ -3912,7 +4016,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "NetworkList"
     },
     "Operation": {
       "description": "An Operation resource, used to manage asynchronous API requests.",
@@ -4092,7 +4197,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Operation"
     },
     "OperationAggregatedList": {
       "properties": {
@@ -4122,7 +4228,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "OperationAggregatedList"
     },
     "OperationList": {
       "description": "Contains a list of Operation resources.",
@@ -4152,7 +4259,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "OperationList"
     },
     "OperationsScopedList": {
       "properties": {
@@ -4214,7 +4322,8 @@
           "type": "object"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "OperationsScopedList"
     },
     "PathMatcher": {
       "description": "A matcher for the path portion of the URL. The BackendService from the longest-matched rule will serve the URL. If no rule was matched, the default service will be used.",
@@ -4239,7 +4348,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PathMatcher"
     },
     "PathRule": {
       "description": "A path-matching rule for a URL. If matched, will use the specified BackendService to handle the traffic arriving at this URL.",
@@ -4256,7 +4366,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PathRule"
     },
     "Project": {
       "description": "A Project resource. Projects can only be created in the Google Cloud Platform Console. Unless marked otherwise, values can only be modified in the console.",
@@ -4314,7 +4425,8 @@
           "description": "The naming prefix for daily usage reports and the Google Cloud Storage bucket where they are stored."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Project"
     },
     "Quota": {
       "description": "A quotas entry.",
@@ -4371,7 +4483,8 @@
           "type": "number"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Quota"
     },
     "Region": {
       "description": "Region resource.",
@@ -4429,7 +4542,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Region"
     },
     "RegionAutoscalerList": {
       "description": "Contains a list of autoscalers.",
@@ -4459,7 +4573,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RegionAutoscalerList"
     },
     "RegionInstanceGroupList": {
       "description": "Contains a list of InstanceGroup resources.",
@@ -4489,7 +4604,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RegionInstanceGroupList"
     },
     "RegionInstanceGroupManagerList": {
       "description": "Contains a list of managed instance groups.",
@@ -4519,7 +4635,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RegionInstanceGroupManagerList"
     },
     "RegionInstanceGroupManagersAbandonInstancesRequest": {
       "properties": {
@@ -4531,7 +4648,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RegionInstanceGroupManagersAbandonInstancesRequest"
     },
     "RegionInstanceGroupManagersDeleteInstancesRequest": {
       "properties": {
@@ -4543,7 +4661,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RegionInstanceGroupManagersDeleteInstancesRequest"
     },
     "RegionInstanceGroupManagersListInstancesResponse": {
       "properties": {
@@ -4555,7 +4674,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RegionInstanceGroupManagersListInstancesResponse"
     },
     "RegionInstanceGroupManagersRecreateRequest": {
       "properties": {
@@ -4567,7 +4687,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RegionInstanceGroupManagersRecreateRequest"
     },
     "RegionInstanceGroupManagersSetTargetPoolsRequest": {
       "properties": {
@@ -4584,7 +4705,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RegionInstanceGroupManagersSetTargetPoolsRequest"
     },
     "RegionInstanceGroupManagersSetTemplateRequest": {
       "properties": {
@@ -4593,7 +4715,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RegionInstanceGroupManagersSetTemplateRequest"
     },
     "RegionInstanceGroupsListInstances": {
       "properties": {
@@ -4622,7 +4745,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RegionInstanceGroupsListInstances"
     },
     "RegionInstanceGroupsListInstancesRequest": {
       "properties": {
@@ -4640,7 +4764,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RegionInstanceGroupsListInstancesRequest"
     },
     "RegionInstanceGroupsSetNamedPortsRequest": {
       "properties": {
@@ -4657,7 +4782,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RegionInstanceGroupsSetNamedPortsRequest"
     },
     "RegionList": {
       "description": "Contains a list of region resources.",
@@ -4687,7 +4813,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RegionList"
     },
     "ResourceGroupReference": {
       "properties": {
@@ -4696,7 +4823,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ResourceGroupReference"
     },
     "Route": {
       "description": "Represents a Route resource. A route specifies how certain packets should be handled by the network. Routes are associated with instances by tags and the set of routes for a particular instance is called its routing table.\n\nFor each packet leaving a instance, the system searches that instance's routing table for a single best matching route. Routes match packets by destination IP address, preferring smaller or more specific ranges over larger ones. If there is a tie, the system selects the route with the smallest priority value. If there is still a tie, it uses the layer three and four packet headers to select just one of the remaining matching routes. The packet is then forwarded as specified by the nextHop field of the winning route - either to another instance destination, an instance gateway, or a Google Compute Engine-operated gateway.\n\nPackets that do not match any route in the sending instance's routing table are dropped.",
@@ -4822,7 +4950,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Route"
     },
     "RouteList": {
       "description": "Contains a list of Route resources.",
@@ -4852,7 +4981,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RouteList"
     },
     "Router": {
       "description": "Router resource.",
@@ -4911,7 +5041,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Router"
     },
     "RouterAggregatedList": {
       "description": "Contains a list of routers.",
@@ -4942,7 +5073,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RouterAggregatedList"
     },
     "RouterBgp": {
       "properties": {
@@ -4952,7 +5084,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RouterBgp"
     },
     "RouterBgpPeer": {
       "properties": {
@@ -4984,7 +5117,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RouterBgpPeer"
     },
     "RouterInterface": {
       "properties": {
@@ -5002,7 +5136,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RouterInterface"
     },
     "RouterList": {
       "description": "Contains a list of Router resources.",
@@ -5032,7 +5167,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RouterList"
     },
     "RouterStatus": {
       "properties": {
@@ -5061,7 +5197,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RouterStatus"
     },
     "RouterStatusBgpPeerStatus": {
       "properties": {
@@ -5115,7 +5252,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RouterStatusBgpPeerStatus"
     },
     "RouterStatusResponse": {
       "properties": {
@@ -5128,7 +5266,8 @@
           "$ref": "#/definitions/RouterStatus"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RouterStatusResponse"
     },
     "RoutersPreviewResponse": {
       "properties": {
@@ -5137,7 +5276,8 @@
           "description": "Preview of given router."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RoutersPreviewResponse"
     },
     "RoutersScopedList": {
       "properties": {
@@ -5199,7 +5339,8 @@
           "type": "object"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RoutersScopedList"
     },
     "SSLHealthCheck": {
       "properties": {
@@ -5229,7 +5370,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SSLHealthCheck"
     },
     "Scheduling": {
       "description": "Sets the scheduling options for an Instance.",
@@ -5251,7 +5393,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Scheduling"
     },
     "SerialPortOutput": {
       "description": "An instance's serial console output.",
@@ -5280,7 +5423,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SerialPortOutput"
     },
     "ServiceAccount": {
       "description": "A service account.",
@@ -5297,7 +5441,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ServiceAccount"
     },
     "Snapshot": {
       "description": "A persistent disk snapshot resource.",
@@ -5382,7 +5527,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Snapshot"
     },
     "SnapshotList": {
       "description": "Contains a list of Snapshot resources.",
@@ -5412,7 +5558,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SnapshotList"
     },
     "SslCertificate": {
       "description": "An SslCertificate resource. This resource provides a mechanism to upload an SSL key and certificate to the load balancer to serve secure connections from the user.",
@@ -5453,7 +5600,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SslCertificate"
     },
     "SslCertificateList": {
       "description": "Contains a list of SslCertificate resources.",
@@ -5483,7 +5631,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SslCertificateList"
     },
     "Subnetwork": {
       "description": "A Subnetwork resource.",
@@ -5536,7 +5685,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Subnetwork"
     },
     "SubnetworkAggregatedList": {
       "properties": {
@@ -5566,7 +5716,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SubnetworkAggregatedList"
     },
     "SubnetworkList": {
       "description": "Contains a list of Subnetwork resources.",
@@ -5596,7 +5747,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SubnetworkList"
     },
     "SubnetworksExpandIpCidrRangeRequest": {
       "properties": {
@@ -5605,7 +5757,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SubnetworksExpandIpCidrRangeRequest"
     },
     "SubnetworksScopedList": {
       "properties": {
@@ -5667,7 +5820,8 @@
           "type": "object"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SubnetworksScopedList"
     },
     "SubnetworksSetPrivateIpGoogleAccessRequest": {
       "properties": {
@@ -5675,7 +5829,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SubnetworksSetPrivateIpGoogleAccessRequest"
     },
     "TCPHealthCheck": {
       "properties": {
@@ -5705,7 +5860,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TCPHealthCheck"
     },
     "Tags": {
       "description": "A set of instance tags.",
@@ -5723,7 +5879,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Tags"
     },
     "TargetHttpProxy": {
       "description": "A TargetHttpProxy resource. This resource defines an HTTP proxy.",
@@ -5760,7 +5917,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TargetHttpProxy"
     },
     "TargetHttpProxyList": {
       "description": "A list of TargetHttpProxy resources.",
@@ -5790,7 +5948,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TargetHttpProxyList"
     },
     "TargetHttpsProxiesSetSslCertificatesRequest": {
       "properties": {
@@ -5802,7 +5961,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TargetHttpsProxiesSetSslCertificatesRequest"
     },
     "TargetHttpsProxy": {
       "description": "A TargetHttpsProxy resource. This resource defines an HTTPS proxy.",
@@ -5846,7 +6006,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TargetHttpsProxy"
     },
     "TargetHttpsProxyList": {
       "description": "Contains a list of TargetHttpsProxy resources.",
@@ -5876,7 +6037,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TargetHttpsProxyList"
     },
     "TargetInstance": {
       "description": "A TargetInstance resource. This resource defines an endpoint instance that terminates traffic of certain protocols.",
@@ -5924,7 +6086,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TargetInstance"
     },
     "TargetInstanceAggregatedList": {
       "properties": {
@@ -5954,7 +6117,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TargetInstanceAggregatedList"
     },
     "TargetInstanceList": {
       "description": "Contains a list of TargetInstance resources.",
@@ -5984,7 +6148,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TargetInstanceList"
     },
     "TargetInstancesScopedList": {
       "properties": {
@@ -6046,7 +6211,8 @@
           "type": "object"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TargetInstancesScopedList"
     },
     "TargetPool": {
       "description": "A TargetPool resource. This resource defines a pool of instances, an associated HttpHealthCheck resource, and the fallback target pool.",
@@ -6117,7 +6283,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TargetPool"
     },
     "TargetPoolAggregatedList": {
       "properties": {
@@ -6147,7 +6314,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TargetPoolAggregatedList"
     },
     "TargetPoolInstanceHealth": {
       "properties": {
@@ -6163,7 +6331,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TargetPoolInstanceHealth"
     },
     "TargetPoolList": {
       "description": "Contains a list of TargetPool resources.",
@@ -6193,7 +6362,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TargetPoolList"
     },
     "TargetPoolsAddHealthCheckRequest": {
       "properties": {
@@ -6205,7 +6375,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TargetPoolsAddHealthCheckRequest"
     },
     "TargetPoolsAddInstanceRequest": {
       "properties": {
@@ -6217,7 +6388,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TargetPoolsAddInstanceRequest"
     },
     "TargetPoolsRemoveHealthCheckRequest": {
       "properties": {
@@ -6229,7 +6401,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TargetPoolsRemoveHealthCheckRequest"
     },
     "TargetPoolsRemoveInstanceRequest": {
       "properties": {
@@ -6241,7 +6414,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TargetPoolsRemoveInstanceRequest"
     },
     "TargetPoolsScopedList": {
       "properties": {
@@ -6303,7 +6477,8 @@
           "type": "object"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TargetPoolsScopedList"
     },
     "TargetReference": {
       "properties": {
@@ -6311,7 +6486,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TargetReference"
     },
     "TargetSslProxiesSetBackendServiceRequest": {
       "properties": {
@@ -6320,7 +6496,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TargetSslProxiesSetBackendServiceRequest"
     },
     "TargetSslProxiesSetProxyHeaderRequest": {
       "properties": {
@@ -6333,7 +6510,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TargetSslProxiesSetProxyHeaderRequest"
     },
     "TargetSslProxiesSetSslCertificatesRequest": {
       "properties": {
@@ -6345,7 +6523,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TargetSslProxiesSetSslCertificatesRequest"
     },
     "TargetSslProxy": {
       "description": "A TargetSslProxy resource. This resource defines an SSL proxy.",
@@ -6397,7 +6576,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TargetSslProxy"
     },
     "TargetSslProxyList": {
       "description": "Contains a list of TargetSslProxy resources.",
@@ -6427,7 +6607,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TargetSslProxyList"
     },
     "TargetVpnGateway": {
       "description": "Represents a Target VPN gateway resource.",
@@ -6492,7 +6673,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TargetVpnGateway"
     },
     "TargetVpnGatewayAggregatedList": {
       "properties": {
@@ -6522,7 +6704,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TargetVpnGatewayAggregatedList"
     },
     "TargetVpnGatewayList": {
       "description": "Contains a list of TargetVpnGateway resources.",
@@ -6552,7 +6735,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TargetVpnGatewayList"
     },
     "TargetVpnGatewaysScopedList": {
       "properties": {
@@ -6614,7 +6798,8 @@
           "type": "object"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TargetVpnGatewaysScopedList"
     },
     "TestFailure": {
       "properties": {
@@ -6631,7 +6816,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TestFailure"
     },
     "UrlMap": {
       "description": "A UrlMap resource. This resource defines the mapping from URL to the BackendService resource, based on the \"longest-match\" of the URL's host and path.",
@@ -6694,7 +6880,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UrlMap"
     },
     "UrlMapList": {
       "description": "Contains a list of UrlMap resources.",
@@ -6724,7 +6911,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UrlMapList"
     },
     "UrlMapReference": {
       "properties": {
@@ -6732,7 +6920,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UrlMapReference"
     },
     "UrlMapTest": {
       "description": "Message for the expected URL mappings.",
@@ -6754,7 +6943,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UrlMapTest"
     },
     "UrlMapValidationResult": {
       "description": "Message representing the validation result for a UrlMap.",
@@ -6780,7 +6970,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UrlMapValidationResult"
     },
     "UrlMapsValidateRequest": {
       "properties": {
@@ -6789,7 +6980,8 @@
           "description": "Content of the UrlMap to be validated."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UrlMapsValidateRequest"
     },
     "UrlMapsValidateResponse": {
       "properties": {
@@ -6797,7 +6989,8 @@
           "$ref": "#/definitions/UrlMapValidationResult"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UrlMapsValidateResponse"
     },
     "UsageExportLocation": {
       "description": "The location in Cloud Storage and naming method of the daily usage report. Contains bucket_name and report_name prefix.",
@@ -6811,7 +7004,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UsageExportLocation"
     },
     "VpnTunnel": {
       "properties": {
@@ -6908,7 +7102,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "VpnTunnel"
     },
     "VpnTunnelAggregatedList": {
       "properties": {
@@ -6938,7 +7133,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "VpnTunnelAggregatedList"
     },
     "VpnTunnelList": {
       "description": "Contains a list of VpnTunnel resources.",
@@ -6968,7 +7164,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "VpnTunnelList"
     },
     "VpnTunnelsScopedList": {
       "properties": {
@@ -7030,7 +7227,8 @@
           "type": "object"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "VpnTunnelsScopedList"
     },
     "Zone": {
       "description": "A Zone resource.",
@@ -7078,7 +7276,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Zone"
     },
     "ZoneList": {
       "description": "Contains a list of zone resources.",
@@ -7108,7 +7307,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ZoneList"
     }
   },
   "actions": [

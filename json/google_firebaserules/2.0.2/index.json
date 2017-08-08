@@ -34,7 +34,8 @@
     "Empty": {
       "description": "A generic empty message that you can re-use to avoid defining duplicated\nempty messages in your APIs. A typical example is to use it as the request\nor the response type of an API method. For instance:\n\n    service Foo {\n      rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);\n    }\n\nThe JSON representation for `Empty` is empty JSON object `{}`.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "Empty"
     },
     "File": {
       "description": "`File` containing source content.",
@@ -53,7 +54,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "File"
     },
     "FunctionCall": {
       "description": "Represents a service-defined function call that was invoked during test\nexecution.",
@@ -68,7 +70,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "FunctionCall"
     },
     "Issue": {
       "description": "Issues include warnings, errors, and deprecation notices.",
@@ -92,7 +95,8 @@
           "description": "Position of the issue in the `Source`."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Issue"
     },
     "ListReleasesResponse": {
       "description": "The response for FirebaseRulesService.ListReleases.",
@@ -109,7 +113,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListReleasesResponse"
     },
     "ListRulesetsResponse": {
       "description": "The response for FirebaseRulesService.ListRulesets.",
@@ -126,7 +131,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListRulesetsResponse"
     },
     "Release": {
       "description": "`Release` is a named reference to a `Ruleset`. Once a `Release` refers to a\n`Ruleset`, rules-enabled services will be able to enforce the `Ruleset`.",
@@ -150,7 +156,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Release"
     },
     "Ruleset": {
       "description": "`Ruleset` is an immutable copy of `Source` with a globally unique identifier\nand a creation time.",
@@ -169,7 +176,8 @@
           "description": "`Source` for the `Ruleset`."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Ruleset"
     },
     "Source": {
       "description": "`Source` is one or more `File` messages comprising a logical set of rules.",
@@ -182,7 +190,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Source"
     },
     "SourcePosition": {
       "description": "Position in the `Source` content including its line, column number, and an\nindex of the `File` in the `Source` message. Used for debug purposes.",
@@ -202,7 +211,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SourcePosition"
     },
     "TestResult": {
       "description": "Test result message containing the state of the test as well as a\ndescription and source position for test failures.",
@@ -235,7 +245,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TestResult"
     },
     "TestRulesetRequest": {
       "description": "The request for FirebaseRulesService.TestRuleset.",
@@ -245,7 +256,8 @@
           "description": "Optional `Source` to be checked for correctness.\n\nThis field must not be set when the resource name refers to a `Ruleset`."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TestRulesetRequest"
     },
     "TestRulesetResponse": {
       "description": "The response for FirebaseRulesService.TestRuleset.",
@@ -265,7 +277,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TestRulesetResponse"
     }
   },
   "actions": [

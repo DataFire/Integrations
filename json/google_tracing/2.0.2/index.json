@@ -43,7 +43,8 @@
           "description": "A user-supplied message describing the event. The maximum length for\nthe description is 256 bytes."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Annotation"
     },
     "AttributeValue": {
       "description": "The allowed types for the value side of an attribute key:value pair.",
@@ -62,7 +63,8 @@
           "description": "A string value (up to 256 bytes)."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AttributeValue"
     },
     "Attributes": {
       "description": "Attributes of a span with a key:value format.",
@@ -80,7 +82,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Attributes"
     },
     "BatchWriteSpansRequest": {
       "description": "The request message for the `BatchWriteSpans` method.",
@@ -93,12 +96,14 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BatchWriteSpansRequest"
     },
     "Empty": {
       "description": "A generic empty message that you can re-use to avoid defining duplicated\nempty messages in your APIs. A typical example is to use it as the request\nor the response type of an API method. For instance:\n\n    service Foo {\n      rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);\n    }\n\nThe JSON representation for `Empty` is empty JSON object `{}`.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "Empty"
     },
     "Link": {
       "description": "A pointer from this span to another span in a different `Trace` within\nthe same service project or within a different service project. Used\n(for example) in batching operations, where a single batch handler\nprocesses multiple requests from different traces or when receives a\nrequest from a different service project.",
@@ -121,7 +126,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Link"
     },
     "Links": {
       "description": "A collection of links, which are references from this span to a span\nin the same or different trace.",
@@ -139,7 +145,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Links"
     },
     "ListSpansResponse": {
       "description": "The response message for the `ListSpans` method.",
@@ -156,7 +163,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListSpansResponse"
     },
     "ListTracesResponse": {
       "description": "The response message for the `ListTraces` method.",
@@ -173,7 +181,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListTracesResponse"
     },
     "Module": {
       "description": "Binary module.",
@@ -187,7 +196,8 @@
           "description": "E.g. main binary, kernel modules, and dynamic libraries\nsuch as libc.so, sharedlib.so (up to 256 characters)."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Module"
     },
     "NetworkEvent": {
       "description": "An event describing an RPC message sent/received on the network. A\nmaximum of 128 network events are allowed per Span.",
@@ -217,7 +227,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "NetworkEvent"
     },
     "Span": {
       "description": "A span represents a single operation within a trace. Spans can be nested\nto form a trace tree. Often, a trace contains a root span that\ndescribes the end-to-end latency and, optionally, one or more subspans for\nits sub-operations. (A trace could alternatively contain multiple root spans,\nor none at all.) Spans do not need to be contiguous. There may be gaps\nand/or overlaps between spans in a trace.",
@@ -269,7 +280,8 @@
           "description": "A maximum of 32 annotations and 128 network events are allowed per Span."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Span"
     },
     "StackFrame": {
       "description": "Represents a single stack frame in a stack trace.",
@@ -305,7 +317,8 @@
           "description": "The version of the deployed source code (up to 128 characters)."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "StackFrame"
     },
     "StackFrames": {
       "description": "Represents collection of StackFrames that can be truncated.",
@@ -323,7 +336,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "StackFrames"
     },
     "StackTrace": {
       "description": "StackTrace collected in a trace.",
@@ -338,7 +352,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "StackTrace"
     },
     "Status": {
       "description": "The `Status` type defines a logical error model that is suitable for different\nprogramming environments, including REST APIs and RPC APIs. It is used by\n[gRPC](https://github.com/grpc). The error model is designed to be:\n\n- Simple to use and understand for most users\n- Flexible enough to meet unexpected needs\n\n# Overview\n\nThe `Status` message contains three pieces of data: error code, error message,\nand error details. The error code should be an enum value of\ngoogle.rpc.Code, but it may accept additional error codes if needed.  The\nerror message should be a developer-facing English message that helps\ndevelopers *understand* and *resolve* the error. If a localized user-facing\nerror message is needed, put the localized message in the error details or\nlocalize it in the client. The optional error details may contain arbitrary\ninformation about the error. There is a predefined set of error detail types\nin the package `google.rpc` which can be used for common error conditions.\n\n# Language mapping\n\nThe `Status` message is the logical representation of the error model, but it\nis not necessarily the actual wire format. When the `Status` message is\nexposed in different client libraries and different wire protocols, it can be\nmapped differently. For example, it will likely be mapped to some exceptions\nin Java, but more likely mapped to some error codes in C.\n\n# Other uses\n\nThe error model and the `Status` message can be used in a variety of\nenvironments, either with or without APIs, to provide a\nconsistent developer experience across different environments.\n\nExample uses of this error model include:\n\n- Partial errors. If a service needs to return partial errors to the client,\n    it may embed the `Status` in the normal response to indicate the partial\n    errors.\n\n- Workflow errors. A typical workflow has multiple steps. Each step may\n    have a `Status` message for error reporting purpose.\n\n- Batch operations. If a client uses batch request and batch response, the\n    `Status` message should be used directly inside batch response, one for\n    each error sub-response.\n\n- Asynchronous operations. If an API call embeds asynchronous operation\n    results in its response, the status of those operations should be\n    represented directly using the `Status` message.\n\n- Logging. If some API errors are stored in logs, the message `Status` could\n    be used directly after any stripping needed for security/privacy reasons.",
@@ -363,7 +378,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Status"
     },
     "TimeEvent": {
       "description": "A time-stamped annotation in the Span.",
@@ -382,7 +398,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TimeEvent"
     },
     "TimeEvents": {
       "description": "A collection of `TimeEvent`s. A `TimeEvent` is a time-stamped annotation\non the span, consisting of either user-supplied key:value pairs, or\ndetails of an RPC message sent/received on the network.",
@@ -405,7 +422,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TimeEvents"
     },
     "Trace": {
       "description": "A trace describes how long it takes for an application to perform some\noperations. It consists of a set of spans, each representing\nan operation and including time information and operation details.",
@@ -415,7 +433,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Trace"
     },
     "TruncatableString": {
       "description": "Represents a string value that might be truncated.",
@@ -430,7 +449,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TruncatableString"
     }
   },
   "actions": [

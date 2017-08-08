@@ -58,7 +58,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Critic"
     },
     "Movie": {
       "properties": {
@@ -126,7 +127,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Movie"
     }
   },
   "actions": [

@@ -20,7 +20,8 @@
         "key": {
           "type": "string"
         }
-      }
+      },
+      "title": "ApiKey"
     },
     "BaseGroup": {
       "properties": {
@@ -56,7 +57,8 @@
         "visibleToJoin": {
           "type": "boolean"
         }
-      }
+      },
+      "title": "BaseGroup"
     },
     "Category": {
       "properties": {
@@ -77,7 +79,8 @@
           "format": "int32",
           "type": "integer"
         }
-      }
+      },
+      "title": "Category"
     },
     "Code": {
       "properties": {
@@ -149,7 +152,8 @@
         "standardType": {
           "$ref": "#/definitions/Lookup"
         }
-      }
+      },
+      "title": "Code"
     },
     "CodeCategory": {
       "properties": {
@@ -160,7 +164,8 @@
           "format": "int64",
           "type": "integer"
         }
-      }
+      },
+      "title": "CodeCategory"
     },
     "CodeExternalStandard": {
       "properties": {
@@ -174,7 +179,8 @@
           "format": "int64",
           "type": "integer"
         }
-      }
+      },
+      "title": "CodeExternalStandard"
     },
     "ContactPoint": {
       "properties": {
@@ -196,7 +202,8 @@
           "format": "date-time",
           "type": "string"
         }
-      }
+      },
+      "title": "ContactPoint"
     },
     "ContactPointType": {
       "properties": {
@@ -225,7 +232,8 @@
           ],
           "type": "string"
         }
-      }
+      },
+      "title": "ContactPointType"
     },
     "Credentials": {
       "properties": {
@@ -238,7 +246,8 @@
         "username": {
           "type": "string"
         }
-      }
+      },
+      "title": "Credentials"
     },
     "Entry«long,Map«string,List«FhirObservation»»»": {
       "properties": {
@@ -248,7 +257,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "Entry«long,Map«string,List«FhirObservation»»»"
     },
     "Entry«string,List«FhirObservation»»": {
       "properties": {
@@ -258,7 +268,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "Entry«string,List«FhirObservation»»"
     },
     "ExternalStandard": {
       "properties": {
@@ -272,7 +283,8 @@
         "name": {
           "type": "string"
         }
-      }
+      },
+      "title": "ExternalStandard"
     },
     "Feature": {
       "properties": {
@@ -294,7 +306,8 @@
         "name": {
           "type": "string"
         }
-      }
+      },
+      "title": "Feature"
     },
     "FhirAllergy": {
       "properties": {
@@ -330,7 +343,8 @@
         "type": {
           "type": "string"
         }
-      }
+      },
+      "title": "FhirAllergy"
     },
     "FhirCondition": {
       "properties": {
@@ -379,7 +393,8 @@
         "status": {
           "type": "string"
         }
-      }
+      },
+      "title": "FhirCondition"
     },
     "FhirContact": {
       "properties": {
@@ -396,7 +411,8 @@
         "value": {
           "type": "string"
         }
-      }
+      },
+      "title": "FhirContact"
     },
     "FhirEncounter": {
       "properties": {
@@ -441,7 +457,8 @@
         "status": {
           "type": "string"
         }
-      }
+      },
+      "title": "FhirEncounter"
     },
     "FhirIdentifier": {
       "properties": {
@@ -455,7 +472,8 @@
         "value": {
           "type": "string"
         }
-      }
+      },
+      "title": "FhirIdentifier"
     },
     "FhirObservation": {
       "properties": {
@@ -500,7 +518,8 @@
         "value": {
           "type": "string"
         }
-      }
+      },
+      "title": "FhirObservation"
     },
     "FhirObservationPage": {
       "properties": {
@@ -518,7 +537,8 @@
           "format": "int64",
           "type": "integer"
         }
-      }
+      },
+      "title": "FhirObservationPage"
     },
     "FhirPatient": {
       "properties": {
@@ -580,7 +600,8 @@
         "surname": {
           "type": "string"
         }
-      }
+      },
+      "title": "FhirPatient"
     },
     "FhirPractitioner": {
       "properties": {
@@ -627,7 +648,8 @@
         "role": {
           "type": "string"
         }
-      }
+      },
+      "title": "FhirPractitioner"
     },
     "FhirProcedure": {
       "properties": {
@@ -641,7 +663,8 @@
         "type": {
           "type": "string"
         }
-      }
+      },
+      "title": "FhirProcedure"
     },
     "Group": {
       "properties": {
@@ -738,7 +761,8 @@
         "visibleToJoin": {
           "type": "boolean"
         }
-      }
+      },
+      "title": "Group"
     },
     "GroupFeature": {
       "properties": {
@@ -757,7 +781,8 @@
           "format": "date-time",
           "type": "string"
         }
-      }
+      },
+      "title": "GroupFeature"
     },
     "GroupRole": {
       "properties": {
@@ -771,7 +796,8 @@
         "role": {
           "$ref": "#/definitions/Role"
         }
-      }
+      },
+      "title": "GroupRole"
     },
     "Link": {
       "properties": {
@@ -800,7 +826,8 @@
         "name": {
           "type": "string"
         }
-      }
+      },
+      "title": "Link"
     },
     "Location": {
       "properties": {
@@ -834,7 +861,8 @@
         "web": {
           "type": "string"
         }
-      }
+      },
+      "title": "Location"
     },
     "Lookup": {
       "properties": {
@@ -866,7 +894,8 @@
         "value": {
           "type": "string"
         }
-      }
+      },
+      "title": "Lookup"
     },
     "LookupType": {
       "properties": {
@@ -912,7 +941,8 @@
           ],
           "type": "string"
         }
-      }
+      },
+      "title": "LookupType"
     },
     "ObservationHeading": {
       "properties": {
@@ -973,7 +1003,8 @@
         "units": {
           "type": "string"
         }
-      }
+      },
+      "title": "ObservationHeading"
     },
     "ObservationHeadingGroup": {
       "properties": {
@@ -996,7 +1027,8 @@
           "format": "int64",
           "type": "integer"
         }
-      }
+      },
+      "title": "ObservationHeadingGroup"
     },
     "Patient": {
       "properties": {
@@ -1046,7 +1078,8 @@
           "format": "int64",
           "type": "integer"
         }
-      }
+      },
+      "title": "Patient"
     },
     "PatientManagement": {
       "properties": {
@@ -1080,7 +1113,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "PatientManagement"
     },
     "Role": {
       "properties": {
@@ -1110,7 +1144,8 @@
         "visible": {
           "type": "boolean"
         }
-      }
+      },
+      "title": "Role"
     },
     "Route": {
       "properties": {
@@ -1141,9 +1176,12 @@
         "url": {
           "type": "string"
         }
-      }
+      },
+      "title": "Route"
     },
-    "UUID": {},
+    "UUID": {
+      "title": "UUID"
+    },
     "User": {
       "properties": {
         "apiKey": {
@@ -1248,7 +1286,8 @@
         "username": {
           "type": "string"
         }
-      }
+      },
+      "title": "User"
     },
     "UserFeature": {
       "properties": {
@@ -1280,7 +1319,8 @@
         "optOutHidden": {
           "type": "boolean"
         }
-      }
+      },
+      "title": "UserFeature"
     },
     "UserToken": {
       "properties": {
@@ -1395,7 +1435,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "UserToken"
     }
   },
   "actions": [

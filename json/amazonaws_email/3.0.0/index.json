@@ -32,16 +32,19 @@
         "HeaderName",
         "HeaderValue"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AddHeaderAction"
     },
     "Address": {
-      "type": "string"
+      "type": "string",
+      "title": "Address"
     },
     "AddressList": {
       "items": {
         "$ref": "#/definitions/Address"
       },
-      "type": "array"
+      "type": "array",
+      "title": "AddressList"
     },
     "AlreadyExistsException": {
       "description": "Indicates that a resource could not be created because of a naming conflict.",
@@ -50,21 +53,25 @@
           "$ref": "#/definitions/RuleOrRuleSetName"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AlreadyExistsException"
     },
     "AmazonResourceName": {
-      "type": "string"
+      "type": "string",
+      "title": "AmazonResourceName"
     },
     "ArrivalDate": {
       "format": "date-time",
-      "type": "string"
+      "type": "string",
+      "title": "ArrivalDate"
     },
     "BehaviorOnMXFailure": {
       "enum": [
         "UseDefaultValue",
         "RejectMessage"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "BehaviorOnMXFailure"
     },
     "Body": {
       "description": "Represents the body of the message. You can specify text, HTML, or both. If you use both, then the message should display correctly in the widest variety of email clients.",
@@ -78,7 +85,8 @@
           "description": "The content of the message, in text format. Use this for text-based email clients, or clients on high-latency networks (such as mobile devices)."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Body"
     },
     "BounceAction": {
       "description": "<p>When included in a receipt rule, this action rejects the received email by returning a bounce response to the sender and, optionally, publishes a notification to Amazon Simple Notification Service (Amazon SNS).</p> <p>For information about sending a bounce message in response to a received email, see the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-action-bounce.html\">Amazon SES Developer Guide</a>.</p>",
@@ -109,16 +117,20 @@
         "Message",
         "Sender"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "BounceAction"
     },
     "BounceMessage": {
-      "type": "string"
+      "type": "string",
+      "title": "BounceMessage"
     },
     "BounceSmtpReplyCode": {
-      "type": "string"
+      "type": "string",
+      "title": "BounceSmtpReplyCode"
     },
     "BounceStatusCode": {
-      "type": "string"
+      "type": "string",
+      "title": "BounceStatusCode"
     },
     "BounceType": {
       "enum": [
@@ -129,7 +141,8 @@
         "Undefined",
         "TemporaryFailure"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "BounceType"
     },
     "BouncedRecipientInfo": {
       "description": "<p>Recipient-related information to include in the Delivery Status Notification (DSN) when an email that Amazon SES receives on your behalf bounces.</p> <p>For information about receiving email through Amazon SES, see the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email.html\">Amazon SES Developer Guide</a>.</p>",
@@ -154,13 +167,15 @@
       "required": [
         "Recipient"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "BouncedRecipientInfo"
     },
     "BouncedRecipientInfoList": {
       "items": {
         "$ref": "#/definitions/BouncedRecipientInfo"
       },
-      "type": "array"
+      "type": "array",
+      "title": "BouncedRecipientInfoList"
     },
     "CannotDeleteException": {
       "description": "Indicates that the delete operation could not be completed.",
@@ -169,13 +184,16 @@
           "$ref": "#/definitions/RuleOrRuleSetName"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CannotDeleteException"
     },
     "Charset": {
-      "type": "string"
+      "type": "string",
+      "title": "Charset"
     },
     "Cidr": {
-      "type": "string"
+      "type": "string",
+      "title": "Cidr"
     },
     "CloneReceiptRuleSetRequest": {
       "description": "Represents a request to create a receipt rule set by cloning an existing one. You use receipt rule sets to receive email with Amazon SES. For more information, see the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html\">Amazon SES Developer Guide</a>.",
@@ -197,12 +215,14 @@
         "RuleSetName",
         "OriginalRuleSetName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CloneReceiptRuleSetRequest"
     },
     "CloneReceiptRuleSetResponse": {
       "description": "An empty element returned on a successful request.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "CloneReceiptRuleSetResponse"
     },
     "CloudWatchDestination": {
       "description": "<p>Contains information associated with an Amazon CloudWatch event destination to which email sending events are published.</p> <p>Event destinations, such as Amazon CloudWatch, are associated with configuration sets, which enable you to publish email sending events. For information about using configuration sets, see the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html\">Amazon SES Developer Guide</a>.</p>",
@@ -215,7 +235,8 @@
       "required": [
         "DimensionConfigurations"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CloudWatchDestination"
     },
     "CloudWatchDimensionConfiguration": {
       "description": "<p>Contains the dimension configuration to use when you publish email sending events to Amazon CloudWatch.</p> <p>For information about publishing email sending events to Amazon CloudWatch, see the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html\">Amazon SES Developer Guide</a>.</p>",
@@ -238,13 +259,15 @@
         "DimensionValueSource",
         "DefaultDimensionValue"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CloudWatchDimensionConfiguration"
     },
     "CloudWatchDimensionConfigurations": {
       "items": {
         "$ref": "#/definitions/CloudWatchDimensionConfiguration"
       },
-      "type": "array"
+      "type": "array",
+      "title": "CloudWatchDimensionConfigurations"
     },
     "ConfigurationSet": {
       "description": "<p>The name of the configuration set.</p> <p>Configuration sets enable you to publish email sending events. For information about using configuration sets, see the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html\">Amazon SES Developer Guide</a>.</p>",
@@ -257,7 +280,8 @@
       "required": [
         "Name"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ConfigurationSet"
     },
     "ConfigurationSetAlreadyExistsException": {
       "description": "Indicates that the configuration set could not be created because of a naming conflict.",
@@ -266,19 +290,22 @@
           "$ref": "#/definitions/ConfigurationSetName"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ConfigurationSetAlreadyExistsException"
     },
     "ConfigurationSetAttribute": {
       "enum": [
         "eventDestinations"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ConfigurationSetAttribute"
     },
     "ConfigurationSetAttributeList": {
       "items": {
         "$ref": "#/definitions/ConfigurationSetAttribute"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ConfigurationSetAttributeList"
     },
     "ConfigurationSetDoesNotExistException": {
       "description": "Indicates that the configuration set does not exist.",
@@ -287,16 +314,19 @@
           "$ref": "#/definitions/ConfigurationSetName"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ConfigurationSetDoesNotExistException"
     },
     "ConfigurationSetName": {
-      "type": "string"
+      "type": "string",
+      "title": "ConfigurationSetName"
     },
     "ConfigurationSets": {
       "items": {
         "$ref": "#/definitions/ConfigurationSet"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ConfigurationSets"
     },
     "Content": {
       "description": "<p>Represents textual data, plus an optional character set specification.</p> <p>By default, the text must be 7-bit ASCII, due to the constraints of the SMTP protocol. If the text must contain any other characters, then you must also specify a character set. Examples include UTF-8, ISO-8859-1, and Shift_JIS.</p>",
@@ -313,10 +343,12 @@
       "required": [
         "Data"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "Content"
     },
     "Counter": {
-      "type": "integer"
+      "type": "integer",
+      "title": "Counter"
     },
     "CreateConfigurationSetEventDestinationRequest": {
       "description": "Represents a request to create a configuration set event destination. A configuration set event destination, which can be either Amazon CloudWatch or Amazon Kinesis Firehose, describes an AWS service in which Amazon SES publishes the email sending events associated with a configuration set. For information about using configuration sets, see the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html\">Amazon SES Developer Guide</a>.",
@@ -334,12 +366,14 @@
         "ConfigurationSetName",
         "EventDestination"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateConfigurationSetEventDestinationRequest"
     },
     "CreateConfigurationSetEventDestinationResponse": {
       "description": "An empty element returned on a successful request.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "CreateConfigurationSetEventDestinationResponse"
     },
     "CreateConfigurationSetRequest": {
       "description": "Represents a request to create a configuration set. Configuration sets enable you to publish email sending events. For information about using configuration sets, see the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html\">Amazon SES Developer Guide</a>.",
@@ -352,12 +386,14 @@
       "required": [
         "ConfigurationSet"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateConfigurationSetRequest"
     },
     "CreateConfigurationSetResponse": {
       "description": "An empty element returned on a successful request.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "CreateConfigurationSetResponse"
     },
     "CreateReceiptFilterRequest": {
       "description": "Represents a request to create a new IP address filter. You use IP address filters when you receive email with Amazon SES. For more information, see the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html\">Amazon SES Developer Guide</a>.",
@@ -379,12 +415,14 @@
       "required": [
         "Filter"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateReceiptFilterRequest"
     },
     "CreateReceiptFilterResponse": {
       "description": "An empty element returned on a successful request.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "CreateReceiptFilterResponse"
     },
     "CreateReceiptRuleRequest": {
       "description": "Represents a request to create a receipt rule. You use receipt rules to receive email with Amazon SES. For more information, see the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html\">Amazon SES Developer Guide</a>.",
@@ -424,12 +462,14 @@
         "RuleSetName",
         "Rule"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateReceiptRuleRequest"
     },
     "CreateReceiptRuleResponse": {
       "description": "An empty element returned on a successful request.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "CreateReceiptRuleResponse"
     },
     "CreateReceiptRuleSetRequest": {
       "description": "Represents a request to create an empty receipt rule set. You use receipt rule sets to receive email with Amazon SES. For more information, see the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html\">Amazon SES Developer Guide</a>.",
@@ -445,12 +485,14 @@
       "required": [
         "RuleSetName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateReceiptRuleSetRequest"
     },
     "CreateReceiptRuleSetResponse": {
       "description": "An empty element returned on a successful request.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "CreateReceiptRuleSetResponse"
     },
     "CustomMailFromStatus": {
       "enum": [
@@ -459,10 +501,12 @@
         "Failed",
         "TemporaryFailure"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "CustomMailFromStatus"
     },
     "DefaultDimensionValue": {
-      "type": "string"
+      "type": "string",
+      "title": "DefaultDimensionValue"
     },
     "DeleteConfigurationSetEventDestinationRequest": {
       "description": "Represents a request to delete a configuration set event destination. Configuration set event destinations are associated with configuration sets, which enable you to publish email sending events. For information about using configuration sets, see the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html\">Amazon SES Developer Guide</a>.",
@@ -480,12 +524,14 @@
         "ConfigurationSetName",
         "EventDestinationName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteConfigurationSetEventDestinationRequest"
     },
     "DeleteConfigurationSetEventDestinationResponse": {
       "description": "An empty element returned on a successful request.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DeleteConfigurationSetEventDestinationResponse"
     },
     "DeleteConfigurationSetRequest": {
       "description": "Represents a request to delete a configuration set. Configuration sets enable you to publish email sending events. For information about using configuration sets, see the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html\">Amazon SES Developer Guide</a>.",
@@ -498,12 +544,14 @@
       "required": [
         "ConfigurationSetName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteConfigurationSetRequest"
     },
     "DeleteConfigurationSetResponse": {
       "description": "An empty element returned on a successful request.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DeleteConfigurationSetResponse"
     },
     "DeleteIdentityPolicyRequest": {
       "description": "Represents a request to delete a sending authorization policy for an identity. Sending authorization is an Amazon SES feature that enables you to authorize other senders to use your identities. For information, see the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html\">Amazon SES Developer Guide</a>.",
@@ -525,12 +573,14 @@
         "Identity",
         "PolicyName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteIdentityPolicyRequest"
     },
     "DeleteIdentityPolicyResponse": {
       "description": "An empty element returned on a successful request.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DeleteIdentityPolicyResponse"
     },
     "DeleteIdentityRequest": {
       "description": "Represents a request to delete one of your Amazon SES identities (an email address or domain).",
@@ -546,12 +596,14 @@
       "required": [
         "Identity"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteIdentityRequest"
     },
     "DeleteIdentityResponse": {
       "description": "An empty element returned on a successful request.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DeleteIdentityResponse"
     },
     "DeleteReceiptFilterRequest": {
       "description": "Represents a request to delete an IP address filter. You use IP address filters when you receive email with Amazon SES. For more information, see the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html\">Amazon SES Developer Guide</a>.",
@@ -567,12 +619,14 @@
       "required": [
         "FilterName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteReceiptFilterRequest"
     },
     "DeleteReceiptFilterResponse": {
       "description": "An empty element returned on a successful request.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DeleteReceiptFilterResponse"
     },
     "DeleteReceiptRuleRequest": {
       "description": "Represents a request to delete a receipt rule. You use receipt rules to receive email with Amazon SES. For more information, see the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html\">Amazon SES Developer Guide</a>.",
@@ -594,12 +648,14 @@
         "RuleSetName",
         "RuleName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteReceiptRuleRequest"
     },
     "DeleteReceiptRuleResponse": {
       "description": "An empty element returned on a successful request.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DeleteReceiptRuleResponse"
     },
     "DeleteReceiptRuleSetRequest": {
       "description": "Represents a request to delete a receipt rule set and all of the receipt rules it contains. You use receipt rule sets to receive email with Amazon SES. For more information, see the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html\">Amazon SES Developer Guide</a>.",
@@ -615,12 +671,14 @@
       "required": [
         "RuleSetName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteReceiptRuleSetRequest"
     },
     "DeleteReceiptRuleSetResponse": {
       "description": "An empty element returned on a successful request.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DeleteReceiptRuleSetResponse"
     },
     "DeleteVerifiedEmailAddressRequest": {
       "description": "Represents a request to delete an email address from the list of email addresses you have attempted to verify under your AWS account.",
@@ -636,13 +694,15 @@
       "required": [
         "EmailAddress"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteVerifiedEmailAddressRequest"
     },
     "DescribeActiveReceiptRuleSetRequest": {
       "description": "Represents a request to return the metadata and receipt rules for the receipt rule set that is currently active. You use receipt rule sets to receive email with Amazon SES. For more information, see the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html\">Amazon SES Developer Guide</a>.",
       "example": {},
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DescribeActiveReceiptRuleSetRequest"
     },
     "DescribeActiveReceiptRuleSetResponse": {
       "description": "Represents the metadata and receipt rules for the receipt rule set that is currently active.",
@@ -678,7 +738,8 @@
           "description": "The receipt rules that belong to the active rule set."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeActiveReceiptRuleSetResponse"
     },
     "DescribeConfigurationSetRequest": {
       "description": "Represents a request to return the details of a configuration set. Configuration sets enable you to publish email sending events. For information about using configuration sets, see the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html\">Amazon SES Developer Guide</a>.",
@@ -695,7 +756,8 @@
       "required": [
         "ConfigurationSetName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeConfigurationSetRequest"
     },
     "DescribeConfigurationSetResponse": {
       "description": "Represents the details of a configuration set. Configuration sets enable you to publish email sending events. For information about using configuration sets, see the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html\">Amazon SES Developer Guide</a>.",
@@ -709,7 +771,8 @@
           "description": "A list of event destinations associated with the configuration set. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeConfigurationSetResponse"
     },
     "DescribeReceiptRuleRequest": {
       "description": "Represents a request to return the details of a receipt rule. You use receipt rules to receive email with Amazon SES. For more information, see the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html\">Amazon SES Developer Guide</a>.",
@@ -731,7 +794,8 @@
         "RuleSetName",
         "RuleName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeReceiptRuleRequest"
     },
     "DescribeReceiptRuleResponse": {
       "description": "Represents the details of a receipt rule.",
@@ -757,7 +821,8 @@
           "description": "A data structure that contains the specified receipt rule's name, actions, recipients, domains, enabled status, scan status, and Transport Layer Security (TLS) policy."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeReceiptRuleResponse"
     },
     "DescribeReceiptRuleSetRequest": {
       "description": "Represents a request to return the details of a receipt rule set. You use receipt rule sets to receive email with Amazon SES. For more information, see the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html\">Amazon SES Developer Guide</a>.",
@@ -773,7 +838,8 @@
       "required": [
         "RuleSetName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeReceiptRuleSetRequest"
     },
     "DescribeReceiptRuleSetResponse": {
       "description": "Represents the details of the specified receipt rule set.",
@@ -809,7 +875,8 @@
           "description": "A list of the receipt rules that belong to the specified receipt rule set."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeReceiptRuleSetResponse"
     },
     "Destination": {
       "description": "<p>Represents the destination of the message, consisting of To:, CC:, and BCC: fields.</p> <p> By default, the string must be 7-bit ASCII. If the text must contain any other characters, then you must use MIME encoded-word syntax (RFC 2047) instead of a literal string. MIME encoded-word syntax uses the following form: <code>=?charset?encoding?encoded-text?=</code>. For more information, see <a href=\"http://tools.ietf.org/html/rfc2047\">RFC 2047</a>. </p>",
@@ -827,20 +894,24 @@
           "description": "The To: field(s) of the message."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Destination"
     },
     "DiagnosticCode": {
-      "type": "string"
+      "type": "string",
+      "title": "DiagnosticCode"
     },
     "DimensionName": {
-      "type": "string"
+      "type": "string",
+      "title": "DimensionName"
     },
     "DimensionValueSource": {
       "enum": [
         "messageTag",
         "emailHeader"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "DimensionValueSource"
     },
     "DkimAttributes": {
       "items": {
@@ -854,10 +925,12 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "DkimAttributes"
     },
     "Domain": {
-      "type": "string"
+      "type": "string",
+      "title": "Domain"
     },
     "DsnAction": {
       "enum": [
@@ -867,13 +940,16 @@
         "relayed",
         "expanded"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "DsnAction"
     },
     "DsnStatus": {
-      "type": "string"
+      "type": "string",
+      "title": "DsnStatus"
     },
     "Enabled": {
-      "type": "boolean"
+      "type": "boolean",
+      "title": "Enabled"
     },
     "EventDestination": {
       "description": "<p>Contains information about the event destination to which the specified email sending events are published.</p> <note> <p>When you create or update an event destination, you must provide one, and only one, destination. The destination can be either Amazon CloudWatch or Amazon Kinesis Firehose.</p> </note> <p>Event destinations are associated with configuration sets, which enable you to publish email sending events to Amazon CloudWatch or Amazon Kinesis Firehose. For information about using configuration sets, see the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html\">Amazon SES Developer Guide</a>.</p>",
@@ -903,7 +979,8 @@
         "Name",
         "MatchingEventTypes"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "EventDestination"
     },
     "EventDestinationAlreadyExistsException": {
       "description": "Indicates that the event destination could not be created because of a naming conflict.",
@@ -915,7 +992,8 @@
           "$ref": "#/definitions/EventDestinationName"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "EventDestinationAlreadyExistsException"
     },
     "EventDestinationDoesNotExistException": {
       "description": "Indicates that the event destination does not exist.",
@@ -927,16 +1005,19 @@
           "$ref": "#/definitions/EventDestinationName"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "EventDestinationDoesNotExistException"
     },
     "EventDestinationName": {
-      "type": "string"
+      "type": "string",
+      "title": "EventDestinationName"
     },
     "EventDestinations": {
       "items": {
         "$ref": "#/definitions/EventDestination"
       },
-      "type": "array"
+      "type": "array",
+      "title": "EventDestinations"
     },
     "EventType": {
       "enum": [
@@ -946,16 +1027,19 @@
         "complaint",
         "delivery"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "EventType"
     },
     "EventTypes": {
       "items": {
         "$ref": "#/definitions/EventType"
       },
-      "type": "array"
+      "type": "array",
+      "title": "EventTypes"
     },
     "Explanation": {
-      "type": "string"
+      "type": "string",
+      "title": "Explanation"
     },
     "ExtensionField": {
       "description": "<p>Additional X-headers to include in the Delivery Status Notification (DSN) when an email that Amazon SES receives on your behalf bounces.</p> <p>For information about receiving email through Amazon SES, see the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email.html\">Amazon SES Developer Guide</a>.</p>",
@@ -973,19 +1057,23 @@
         "Name",
         "Value"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ExtensionField"
     },
     "ExtensionFieldList": {
       "items": {
         "$ref": "#/definitions/ExtensionField"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ExtensionFieldList"
     },
     "ExtensionFieldName": {
-      "type": "string"
+      "type": "string",
+      "title": "ExtensionFieldName"
     },
     "ExtensionFieldValue": {
-      "type": "string"
+      "type": "string",
+      "title": "ExtensionFieldValue"
     },
     "GetIdentityDkimAttributesRequest": {
       "description": "Represents a request for the status of Amazon SES Easy DKIM signing for an identity. For domain identities, this request also returns the DKIM tokens that are required for Easy DKIM signing, and whether Amazon SES successfully verified that these tokens were published. For more information about Easy DKIM, see the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html\">Amazon SES Developer Guide</a>.",
@@ -1004,7 +1092,8 @@
       "required": [
         "Identities"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetIdentityDkimAttributesRequest"
     },
     "GetIdentityDkimAttributesResponse": {
       "description": "Represents the status of Amazon SES Easy DKIM signing for an identity. For domain identities, this response also contains the DKIM tokens that are required for Easy DKIM signing, and whether Amazon SES successfully verified that these tokens were published.",
@@ -1034,7 +1123,8 @@
       "required": [
         "DkimAttributes"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetIdentityDkimAttributesResponse"
     },
     "GetIdentityMailFromDomainAttributesRequest": {
       "description": "Represents a request to return the Amazon SES custom MAIL FROM attributes for a list of identities. For information about using a custom MAIL FROM domain, see the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/mail-from.html\">Amazon SES Developer Guide</a>.",
@@ -1052,7 +1142,8 @@
       "required": [
         "Identities"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetIdentityMailFromDomainAttributesRequest"
     },
     "GetIdentityMailFromDomainAttributesResponse": {
       "description": "Represents the custom MAIL FROM attributes for a list of identities.",
@@ -1074,7 +1165,8 @@
       "required": [
         "MailFromDomainAttributes"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetIdentityMailFromDomainAttributesResponse"
     },
     "GetIdentityNotificationAttributesRequest": {
       "description": "Represents a request to return the notification attributes for a list of identities you verified with Amazon SES. For information about Amazon SES notifications, see the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications.html\">Amazon SES Developer Guide</a>.",
@@ -1092,7 +1184,8 @@
       "required": [
         "Identities"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetIdentityNotificationAttributesRequest"
     },
     "GetIdentityNotificationAttributesResponse": {
       "description": "Represents the notification attributes for a list of identities.",
@@ -1116,7 +1209,8 @@
       "required": [
         "NotificationAttributes"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetIdentityNotificationAttributesResponse"
     },
     "GetIdentityPoliciesRequest": {
       "description": "Represents a request to return the requested sending authorization policies for an identity. Sending authorization is an Amazon SES feature that enables you to authorize other senders to use your identities. For information, see the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html\">Amazon SES Developer Guide</a>.",
@@ -1140,7 +1234,8 @@
         "Identity",
         "PolicyNames"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetIdentityPoliciesRequest"
     },
     "GetIdentityPoliciesResponse": {
       "description": "Represents the requested sending authorization policies.",
@@ -1158,7 +1253,8 @@
       "required": [
         "Policies"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetIdentityPoliciesResponse"
     },
     "GetIdentityVerificationAttributesRequest": {
       "description": "Represents a request to return the Amazon SES verification status of a list of identities. For domain identities, this request also returns the verification token. For information about verifying identities with Amazon SES, see the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html\">Amazon SES Developer Guide</a>.",
@@ -1176,7 +1272,8 @@
       "required": [
         "Identities"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetIdentityVerificationAttributesRequest"
     },
     "GetIdentityVerificationAttributesResponse": {
       "description": "The Amazon SES verification status of a list of identities. For domain identities, this response also contains the verification token.",
@@ -1197,7 +1294,8 @@
       "required": [
         "VerificationAttributes"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetIdentityVerificationAttributesResponse"
     },
     "GetSendQuotaResponse": {
       "description": "Represents your Amazon SES daily sending quota, maximum send rate, and the number of emails you have sent in the last 24 hours.",
@@ -1220,7 +1318,8 @@
           "description": "The number of emails sent during the previous 24 hours."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetSendQuotaResponse"
     },
     "GetSendStatisticsResponse": {
       "description": "Represents a list of data points. This list contains aggregated data from the previous two weeks of your sending activity with Amazon SES.",
@@ -1255,16 +1354,20 @@
           "description": "A list of data points, each of which represents 15 minutes of activity."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetSendStatisticsResponse"
     },
     "HeaderName": {
-      "type": "string"
+      "type": "string",
+      "title": "HeaderName"
     },
     "HeaderValue": {
-      "type": "string"
+      "type": "string",
+      "title": "HeaderValue"
     },
     "Identity": {
-      "type": "string"
+      "type": "string",
+      "title": "Identity"
     },
     "IdentityDkimAttributes": {
       "description": "Represents the DKIM attributes of a verified email address or a domain.",
@@ -1286,13 +1389,15 @@
         "DkimEnabled",
         "DkimVerificationStatus"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "IdentityDkimAttributes"
     },
     "IdentityList": {
       "items": {
         "$ref": "#/definitions/Identity"
       },
-      "type": "array"
+      "type": "array",
+      "title": "IdentityList"
     },
     "IdentityMailFromDomainAttributes": {
       "description": "Represents the custom MAIL FROM domain attributes of a verified identity (email address or domain).",
@@ -1315,7 +1420,8 @@
         "MailFromDomainStatus",
         "BehaviorOnMXFailure"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "IdentityMailFromDomainAttributes"
     },
     "IdentityNotificationAttributes": {
       "description": "Represents the notification attributes of an identity, including whether an identity has Amazon Simple Notification Service (Amazon SNS) topics set for bounce, complaint, and/or delivery notifications, and whether feedback forwarding is enabled for bounce and complaint notifications.",
@@ -1355,14 +1461,16 @@
         "DeliveryTopic",
         "ForwardingEnabled"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "IdentityNotificationAttributes"
     },
     "IdentityType": {
       "enum": [
         "EmailAddress",
         "Domain"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "IdentityType"
     },
     "IdentityVerificationAttributes": {
       "description": "Represents the verification attributes of a single identity.",
@@ -1379,7 +1487,8 @@
       "required": [
         "VerificationStatus"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "IdentityVerificationAttributes"
     },
     "InvalidCloudWatchDestinationException": {
       "description": "Indicates that the Amazon CloudWatch destination is invalid. See the error message for details.",
@@ -1391,12 +1500,14 @@
           "$ref": "#/definitions/EventDestinationName"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidCloudWatchDestinationException"
     },
     "InvalidConfigurationSetException": {
       "description": "Indicates that the configuration set is invalid. See the error message for details.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "InvalidConfigurationSetException"
     },
     "InvalidFirehoseDestinationException": {
       "description": "Indicates that the Amazon Kinesis Firehose destination is invalid. See the error message for details.",
@@ -1408,7 +1519,8 @@
           "$ref": "#/definitions/EventDestinationName"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidFirehoseDestinationException"
     },
     "InvalidLambdaFunctionException": {
       "description": "Indicates that the provided AWS Lambda function is invalid, or that Amazon SES could not execute the provided function, possibly due to permissions issues. For information about giving permissions, see the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-permissions.html\">Amazon SES Developer Guide</a>.",
@@ -1417,12 +1529,14 @@
           "$ref": "#/definitions/AmazonResourceName"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidLambdaFunctionException"
     },
     "InvalidPolicyException": {
       "description": "Indicates that the provided policy is invalid. Check the error stack for more information about what caused the error.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "InvalidPolicyException"
     },
     "InvalidS3ConfigurationException": {
       "description": "Indicates that the provided Amazon S3 bucket or AWS KMS encryption key is invalid, or that Amazon SES could not publish to the bucket, possibly due to permissions issues. For information about giving permissions, see the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-permissions.html\">Amazon SES Developer Guide</a>.",
@@ -1431,7 +1545,8 @@
           "$ref": "#/definitions/S3BucketName"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidS3ConfigurationException"
     },
     "InvalidSnsTopicException": {
       "description": "Indicates that the provided Amazon SNS topic is invalid, or that Amazon SES could not publish to the topic, possibly due to permissions issues. For information about giving permissions, see the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-permissions.html\">Amazon SES Developer Guide</a>.",
@@ -1440,14 +1555,16 @@
           "$ref": "#/definitions/AmazonResourceName"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidSnsTopicException"
     },
     "InvocationType": {
       "enum": [
         "Event",
         "RequestResponse"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "InvocationType"
     },
     "KinesisFirehoseDestination": {
       "description": "<p>Contains the delivery stream ARN and the IAM role ARN associated with an Amazon Kinesis Firehose event destination.</p> <p>Event destinations, such as Amazon Kinesis Firehose, are associated with configuration sets, which enable you to publish email sending events. For information about using configuration sets, see the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html\">Amazon SES Developer Guide</a>.</p>",
@@ -1465,7 +1582,8 @@
         "IAMRoleARN",
         "DeliveryStreamARN"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "KinesisFirehoseDestination"
     },
     "LambdaAction": {
       "description": "<p>When included in a receipt rule, this action calls an AWS Lambda function and, optionally, publishes a notification to Amazon Simple Notification Service (Amazon SNS).</p> <p>To enable Amazon SES to call your AWS Lambda function or to publish to an Amazon SNS topic of another account, Amazon SES must have permission to access those resources. For information about giving permissions, see the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-permissions.html\">Amazon SES Developer Guide</a>.</p> <p>For information about using AWS Lambda actions in receipt rules, see the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-action-lambda.html\">Amazon SES Developer Guide</a>.</p>",
@@ -1486,16 +1604,19 @@
       "required": [
         "FunctionArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "LambdaAction"
     },
     "LastAttemptDate": {
       "format": "date-time",
-      "type": "string"
+      "type": "string",
+      "title": "LastAttemptDate"
     },
     "LimitExceededException": {
       "description": "Indicates that a resource could not be created because of service limits. For a list of Amazon SES limits, see the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/limits.html\">Amazon SES Developer Guide</a>.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "LimitExceededException"
     },
     "ListConfigurationSetsRequest": {
       "description": "Represents a request to list the configuration sets associated with your AWS account. Configuration sets enable you to publish email sending events. For information about using configuration sets, see the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html\">Amazon SES Developer Guide</a>.",
@@ -1509,7 +1630,8 @@
           "description": "A token returned from a previous call to <code>ListConfigurationSets</code> to indicate the position of the configuration set in the configuration set list."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListConfigurationSetsRequest"
     },
     "ListConfigurationSetsResponse": {
       "description": "A list of configuration sets associated with your AWS account. Configuration sets enable you to publish email sending events. For information about using configuration sets, see the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html\">Amazon SES Developer Guide</a>.",
@@ -1523,7 +1645,8 @@
           "description": "A token indicating that there are additional configuration sets available to be listed. Pass this token to successive calls of <code>ListConfigurationSets</code>. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListConfigurationSetsResponse"
     },
     "ListIdentitiesRequest": {
       "description": "Represents a request to return a list of all identities (email addresses and domains) that you have attempted to verify under your AWS account, regardless of verification status.",
@@ -1546,7 +1669,8 @@
           "description": "The token to use for pagination."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListIdentitiesRequest"
     },
     "ListIdentitiesResponse": {
       "description": "A list of all identities that you have attempted to verify under your AWS account, regardless of verification status.",
@@ -1569,7 +1693,8 @@
       "required": [
         "Identities"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListIdentitiesResponse"
     },
     "ListIdentityPoliciesRequest": {
       "description": "Represents a request to return a list of sending authorization policies that are attached to an identity. Sending authorization is an Amazon SES feature that enables you to authorize other senders to use your identities. For information, see the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html\">Amazon SES Developer Guide</a>.",
@@ -1585,7 +1710,8 @@
       "required": [
         "Identity"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListIdentityPoliciesRequest"
     },
     "ListIdentityPoliciesResponse": {
       "description": "A list of names of sending authorization policies that apply to an identity.",
@@ -1603,12 +1729,14 @@
       "required": [
         "PolicyNames"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListIdentityPoliciesResponse"
     },
     "ListReceiptFiltersRequest": {
       "description": "Represents a request to list the IP address filters that exist under your AWS account. You use IP address filters when you receive email with Amazon SES. For more information, see the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html\">Amazon SES Developer Guide</a>.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "ListReceiptFiltersRequest"
     },
     "ListReceiptFiltersResponse": {
       "description": "A list of IP address filters that exist under your AWS account.",
@@ -1629,7 +1757,8 @@
           "description": "A list of IP address filter data structures, which each consist of a name, an IP address range, and whether to allow or block mail from it."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListReceiptFiltersResponse"
     },
     "ListReceiptRuleSetsRequest": {
       "description": "Represents a request to list the receipt rule sets that exist under your AWS account. You use receipt rule sets to receive email with Amazon SES. For more information, see the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html\">Amazon SES Developer Guide</a>.",
@@ -1642,7 +1771,8 @@
           "description": "A token returned from a previous call to <code>ListReceiptRuleSets</code> to indicate the position in the receipt rule set list."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListReceiptRuleSetsRequest"
     },
     "ListReceiptRuleSetsResponse": {
       "description": "A list of receipt rule sets that exist under your AWS account.",
@@ -1665,7 +1795,8 @@
           "description": "The metadata for the currently active receipt rule set. The metadata consists of the rule set name and the timestamp of when the rule set was created."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListReceiptRuleSetsResponse"
     },
     "ListVerifiedEmailAddressesResponse": {
       "description": "A list of email addresses that you have verified with Amazon SES under your AWS account.",
@@ -1681,7 +1812,8 @@
           "description": "A list of email addresses that have been verified."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListVerifiedEmailAddressesResponse"
     },
     "MailFromDomainAttributes": {
       "items": {
@@ -1695,26 +1827,32 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "MailFromDomainAttributes"
     },
     "MailFromDomainName": {
-      "type": "string"
+      "type": "string",
+      "title": "MailFromDomainName"
     },
     "MailFromDomainNotVerifiedException": {
       "description": " Indicates that the message could not be sent because Amazon SES could not read the MX record required to use the specified MAIL FROM domain. For information about editing the custom MAIL FROM domain settings for an identity, see the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/mail-from-edit.html\">Amazon SES Developer Guide</a>.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "MailFromDomainNotVerifiedException"
     },
     "Max24HourSend": {
       "format": "double",
-      "type": "number"
+      "type": "number",
+      "title": "Max24HourSend"
     },
     "MaxItems": {
-      "type": "integer"
+      "type": "integer",
+      "title": "MaxItems"
     },
     "MaxSendRate": {
       "format": "double",
-      "type": "number"
+      "type": "number",
+      "title": "MaxSendRate"
     },
     "Message": {
       "description": "Represents the message to be sent, composed of a subject and a body.",
@@ -1732,10 +1870,12 @@
         "Subject",
         "Body"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "Message"
     },
     "MessageData": {
-      "type": "string"
+      "type": "string",
+      "title": "MessageData"
     },
     "MessageDsn": {
       "description": "<p>Message-related information to include in the Delivery Status Notification (DSN) when an email that Amazon SES receives on your behalf bounces.</p> <p>For information about receiving email through Amazon SES, see the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email.html\">Amazon SES Developer Guide</a>.</p>",
@@ -1756,15 +1896,18 @@
       "required": [
         "ReportingMta"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "MessageDsn"
     },
     "MessageId": {
-      "type": "string"
+      "type": "string",
+      "title": "MessageId"
     },
     "MessageRejected": {
       "description": "Indicates that the action failed, and the message could not be sent. Check the error stack for more information about what caused the error.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "MessageRejected"
     },
     "MessageTag": {
       "description": "<p>Contains the name and value of a tag that you can provide to <code>SendEmail</code> or <code>SendRawEmail</code> to apply to an email.</p> <p>Message tags, which you use with configuration sets, enable you to publish email sending events. For information about using configuration sets, see the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html\">Amazon SES Developer Guide</a>.</p>",
@@ -1782,22 +1925,27 @@
         "Name",
         "Value"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "MessageTag"
     },
     "MessageTagList": {
       "items": {
         "$ref": "#/definitions/MessageTag"
       },
-      "type": "array"
+      "type": "array",
+      "title": "MessageTagList"
     },
     "MessageTagName": {
-      "type": "string"
+      "type": "string",
+      "title": "MessageTagName"
     },
     "MessageTagValue": {
-      "type": "string"
+      "type": "string",
+      "title": "MessageTagValue"
     },
     "NextToken": {
-      "type": "string"
+      "type": "string",
+      "title": "NextToken"
     },
     "NotificationAttributes": {
       "items": {
@@ -1811,10 +1959,12 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "NotificationAttributes"
     },
     "NotificationTopic": {
-      "type": "string"
+      "type": "string",
+      "title": "NotificationTopic"
     },
     "NotificationType": {
       "enum": [
@@ -1822,11 +1972,13 @@
         "Complaint",
         "Delivery"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "NotificationType"
     },
     "Policy": {
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "Policy"
     },
     "PolicyMap": {
       "items": {
@@ -1840,18 +1992,21 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "PolicyMap"
     },
     "PolicyName": {
       "maxLength": 64,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "PolicyName"
     },
     "PolicyNameList": {
       "items": {
         "$ref": "#/definitions/PolicyName"
       },
-      "type": "array"
+      "type": "array",
+      "title": "PolicyNameList"
     },
     "PutIdentityPolicyRequest": {
       "description": "Represents a request to add or update a sending authorization policy for an identity. Sending authorization is an Amazon SES feature that enables you to authorize other senders to use your identities. For information, see the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html\">Amazon SES Developer Guide</a>.",
@@ -1879,12 +2034,14 @@
         "PolicyName",
         "Policy"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "PutIdentityPolicyRequest"
     },
     "PutIdentityPolicyResponse": {
       "description": "An empty element returned on a successful request.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "PutIdentityPolicyResponse"
     },
     "RawMessage": {
       "description": "Represents the raw data of the message.",
@@ -1897,10 +2054,12 @@
       "required": [
         "Data"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "RawMessage"
     },
     "RawMessageData": {
-      "type": "string"
+      "type": "string",
+      "title": "RawMessageData"
     },
     "ReceiptAction": {
       "description": "<p>An action that Amazon SES can take when it receives an email on behalf of one or more email addresses or domains that you own. An instance of this data type can represent only one action.</p> <p>For information about setting up receipt rules, see the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-receipt-rules.html\">Amazon SES Developer Guide</a>.</p>",
@@ -1934,13 +2093,15 @@
           "description": "Calls Amazon WorkMail and, optionally, publishes a notification to Amazon SNS."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ReceiptAction"
     },
     "ReceiptActionsList": {
       "items": {
         "$ref": "#/definitions/ReceiptAction"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ReceiptActionsList"
     },
     "ReceiptFilter": {
       "description": "<p>A receipt IP address filter enables you to specify whether to accept or reject mail originating from an IP address or range of IP addresses.</p> <p>For information about setting up IP address filters, see the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-ip-filters.html\">Amazon SES Developer Guide</a>.</p>",
@@ -1958,23 +2119,27 @@
         "Name",
         "IpFilter"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ReceiptFilter"
     },
     "ReceiptFilterList": {
       "items": {
         "$ref": "#/definitions/ReceiptFilter"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ReceiptFilterList"
     },
     "ReceiptFilterName": {
-      "type": "string"
+      "type": "string",
+      "title": "ReceiptFilterName"
     },
     "ReceiptFilterPolicy": {
       "enum": [
         "Block",
         "Allow"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ReceiptFilterPolicy"
     },
     "ReceiptIpFilter": {
       "description": "<p>A receipt IP address filter enables you to specify whether to accept or reject mail originating from an IP address or range of IP addresses.</p> <p>For information about setting up IP address filters, see the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-ip-filters.html\">Amazon SES Developer Guide</a>.</p>",
@@ -1992,7 +2157,8 @@
         "Policy",
         "Cidr"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ReceiptIpFilter"
     },
     "ReceiptRule": {
       "description": "<p>Receipt rules enable you to specify which actions Amazon SES should take when it receives mail on behalf of one or more email addresses or domains that you own.</p> <p>Each receipt rule defines a set of email addresses or domains to which it applies. If the email addresses or domains match at least one recipient address of the message, Amazon SES executes all of the receipt rule's actions on the message.</p> <p>For information about setting up receipt rules, see the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-receipt-rules.html\">Amazon SES Developer Guide</a>.</p>",
@@ -2025,16 +2191,19 @@
       "required": [
         "Name"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ReceiptRule"
     },
     "ReceiptRuleName": {
-      "type": "string"
+      "type": "string",
+      "title": "ReceiptRuleName"
     },
     "ReceiptRuleNamesList": {
       "items": {
         "$ref": "#/definitions/ReceiptRuleName"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ReceiptRuleNamesList"
     },
     "ReceiptRuleSetMetadata": {
       "description": "<p>Information about a receipt rule set.</p> <p>A receipt rule set is a collection of rules that specify what Amazon SES should do with mail it receives on behalf of your account's verified domains.</p> <p>For information about setting up receipt rule sets, see the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-receipt-rule-set.html\">Amazon SES Developer Guide</a>.</p>",
@@ -2048,25 +2217,30 @@
           "description": "<p>The name of the receipt rule set. The name must:</p> <ul> <li> <p>Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (_), or dashes (-).</p> </li> <li> <p>Start and end with a letter or number.</p> </li> <li> <p>Contain less than 64 characters.</p> </li> </ul>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ReceiptRuleSetMetadata"
     },
     "ReceiptRuleSetName": {
-      "type": "string"
+      "type": "string",
+      "title": "ReceiptRuleSetName"
     },
     "ReceiptRuleSetsLists": {
       "items": {
         "$ref": "#/definitions/ReceiptRuleSetMetadata"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ReceiptRuleSetsLists"
     },
     "ReceiptRulesList": {
       "items": {
         "$ref": "#/definitions/ReceiptRule"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ReceiptRulesList"
     },
     "Recipient": {
-      "type": "string"
+      "type": "string",
+      "title": "Recipient"
     },
     "RecipientDsnFields": {
       "description": "<p>Recipient-related information to include in the Delivery Status Notification (DSN) when an email that Amazon SES receives on your behalf bounces.</p> <p>For information about receiving email through Amazon SES, see the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email.html\">Amazon SES Developer Guide</a>.</p>",
@@ -2104,16 +2278,19 @@
         "Action",
         "Status"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "RecipientDsnFields"
     },
     "RecipientsList": {
       "items": {
         "$ref": "#/definitions/Recipient"
       },
-      "type": "array"
+      "type": "array",
+      "title": "RecipientsList"
     },
     "RemoteMta": {
-      "type": "string"
+      "type": "string",
+      "title": "RemoteMta"
     },
     "ReorderReceiptRuleSetRequest": {
       "description": "Represents a request to reorder the receipt rules within a receipt rule set. You use receipt rule sets to receive email with Amazon SES. For more information, see the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html\">Amazon SES Developer Guide</a>.",
@@ -2138,15 +2315,18 @@
         "RuleSetName",
         "RuleNames"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ReorderReceiptRuleSetRequest"
     },
     "ReorderReceiptRuleSetResponse": {
       "description": "An empty element returned on a successful request.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "ReorderReceiptRuleSetResponse"
     },
     "ReportingMta": {
-      "type": "string"
+      "type": "string",
+      "title": "ReportingMta"
     },
     "RuleDoesNotExistException": {
       "description": "Indicates that the provided receipt rule does not exist.",
@@ -2155,10 +2335,12 @@
           "$ref": "#/definitions/RuleOrRuleSetName"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RuleDoesNotExistException"
     },
     "RuleOrRuleSetName": {
-      "type": "string"
+      "type": "string",
+      "title": "RuleOrRuleSetName"
     },
     "RuleSetDoesNotExistException": {
       "description": "Indicates that the provided receipt rule set does not exist.",
@@ -2167,7 +2349,8 @@
           "$ref": "#/definitions/RuleOrRuleSetName"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RuleSetDoesNotExistException"
     },
     "S3Action": {
       "description": "<p>When included in a receipt rule, this action saves the received message to an Amazon Simple Storage Service (Amazon S3) bucket and, optionally, publishes a notification to Amazon Simple Notification Service (Amazon SNS).</p> <p>To enable Amazon SES to write emails to your Amazon S3 bucket, use an AWS KMS key to encrypt your emails, or publish to an Amazon SNS topic of another account, Amazon SES must have permission to access those resources. For information about giving permissions, see the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-permissions.html\">Amazon SES Developer Guide</a>.</p> <note> <p>When you save your emails to an Amazon S3 bucket, the maximum email size (including headers) is 30 MB. Emails larger than that will bounce.</p> </note> <p>For information about specifying Amazon S3 actions in receipt rules, see the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-action-s3.html\">Amazon SES Developer Guide</a>.</p>",
@@ -2192,13 +2375,16 @@
       "required": [
         "BucketName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "S3Action"
     },
     "S3BucketName": {
-      "type": "string"
+      "type": "string",
+      "title": "S3BucketName"
     },
     "S3KeyPrefix": {
-      "type": "string"
+      "type": "string",
+      "title": "S3KeyPrefix"
     },
     "SNSAction": {
       "description": "<p>When included in a receipt rule, this action publishes a notification to Amazon Simple Notification Service (Amazon SNS). This action includes a complete copy of the email content in the Amazon SNS notifications. Amazon SNS notifications for all other actions simply provide information about the email. They do not include the email content itself.</p> <p>If you own the Amazon SNS topic, you don't need to do anything to give Amazon SES permission to publish emails to it. However, if you don't own the Amazon SNS topic, you need to attach a policy to the topic to give Amazon SES permissions to access it. For information about giving permissions, see the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-permissions.html\">Amazon SES Developer Guide</a>.</p> <important> <p>You can only publish emails that are 150 KB or less (including the header) to Amazon SNS. Larger emails will bounce. If you anticipate emails larger than 150 KB, use the S3 action instead.</p> </important> <p>For information about using a receipt rule to publish an Amazon SNS notification, see the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-action-sns.html\">Amazon SES Developer Guide</a>.</p>",
@@ -2215,14 +2401,16 @@
       "required": [
         "TopicArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "SNSAction"
     },
     "SNSActionEncoding": {
       "enum": [
         "UTF-8",
         "Base64"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "SNSActionEncoding"
     },
     "SendBounceRequest": {
       "description": "Represents a request to send a bounce message to the sender of an email you received through Amazon SES.",
@@ -2257,7 +2445,8 @@
         "BounceSender",
         "BouncedRecipientInfoList"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "SendBounceRequest"
     },
     "SendBounceResponse": {
       "description": "Represents a unique message ID.",
@@ -2267,7 +2456,8 @@
           "description": "The message ID of the bounce message."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SendBounceResponse"
     },
     "SendDataPoint": {
       "description": "Represents sending statistics data. Each <code>SendDataPoint</code> contains statistics for a 15-minute period of sending activity. ",
@@ -2293,13 +2483,15 @@
           "description": "Time of the data point."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SendDataPoint"
     },
     "SendDataPointList": {
       "items": {
         "$ref": "#/definitions/SendDataPoint"
       },
-      "type": "array"
+      "type": "array",
+      "title": "SendDataPointList"
     },
     "SendEmailRequest": {
       "description": "Represents a request to send a single formatted email using Amazon SES. For more information, see the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-formatted.html\">Amazon SES Developer Guide</a>.",
@@ -2379,7 +2571,8 @@
         "Destination",
         "Message"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "SendEmailRequest"
     },
     "SendEmailResponse": {
       "description": "Represents a unique message ID.",
@@ -2395,7 +2588,8 @@
       "required": [
         "MessageId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "SendEmailResponse"
     },
     "SendRawEmailRequest": {
       "description": "Represents a request to send a single raw email using Amazon SES. For more information, see the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-raw.html\">Amazon SES Developer Guide</a>.",
@@ -2446,7 +2640,8 @@
       "required": [
         "RawMessage"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "SendRawEmailRequest"
     },
     "SendRawEmailResponse": {
       "description": "Represents a unique message ID.",
@@ -2462,11 +2657,13 @@
       "required": [
         "MessageId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "SendRawEmailResponse"
     },
     "SentLast24Hours": {
       "format": "double",
-      "type": "number"
+      "type": "number",
+      "title": "SentLast24Hours"
     },
     "SetActiveReceiptRuleSetRequest": {
       "description": "Represents a request to set a receipt rule set as the active receipt rule set. You use receipt rule sets to receive email with Amazon SES. For more information, see the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html\">Amazon SES Developer Guide</a>.",
@@ -2479,12 +2676,14 @@
           "description": "The name of the receipt rule set to make active. Setting this value to null disables all email receiving."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SetActiveReceiptRuleSetRequest"
     },
     "SetActiveReceiptRuleSetResponse": {
       "description": "An empty element returned on a successful request.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "SetActiveReceiptRuleSetResponse"
     },
     "SetIdentityDkimEnabledRequest": {
       "description": "Represents a request to enable or disable Amazon SES Easy DKIM signing for an identity. For more information about setting up Easy DKIM, see the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html\">Amazon SES Developer Guide</a>.",
@@ -2506,12 +2705,14 @@
         "Identity",
         "DkimEnabled"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "SetIdentityDkimEnabledRequest"
     },
     "SetIdentityDkimEnabledResponse": {
       "description": "An empty element returned on a successful request.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "SetIdentityDkimEnabledResponse"
     },
     "SetIdentityFeedbackForwardingEnabledRequest": {
       "description": "Represents a request to enable or disable whether Amazon SES forwards you bounce and complaint notifications through email. For information about email feedback forwarding, see the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications-via-email.html\">Amazon SES Developer Guide</a>.",
@@ -2533,12 +2734,14 @@
         "Identity",
         "ForwardingEnabled"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "SetIdentityFeedbackForwardingEnabledRequest"
     },
     "SetIdentityFeedbackForwardingEnabledResponse": {
       "description": "An empty element returned on a successful request.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "SetIdentityFeedbackForwardingEnabledResponse"
     },
     "SetIdentityHeadersInNotificationsEnabledRequest": {
       "description": "Represents a request to set whether Amazon SES includes the original email headers in the Amazon SNS notifications of a specified type. For information about notifications, see the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications-via-sns.html\">Amazon SES Developer Guide</a>.",
@@ -2566,12 +2769,14 @@
         "NotificationType",
         "Enabled"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "SetIdentityHeadersInNotificationsEnabledRequest"
     },
     "SetIdentityHeadersInNotificationsEnabledResponse": {
       "description": "An empty element returned on a successful request.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "SetIdentityHeadersInNotificationsEnabledResponse"
     },
     "SetIdentityMailFromDomainRequest": {
       "description": "Represents a request to enable or disable the Amazon SES custom MAIL FROM domain setup for a verified identity. For information about using a custom MAIL FROM domain, see the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/mail-from.html\">Amazon SES Developer Guide</a>.",
@@ -2597,12 +2802,14 @@
       "required": [
         "Identity"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "SetIdentityMailFromDomainRequest"
     },
     "SetIdentityMailFromDomainResponse": {
       "description": "An empty element returned on a successful request.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "SetIdentityMailFromDomainResponse"
     },
     "SetIdentityNotificationTopicRequest": {
       "description": "Represents a request to specify the Amazon SNS topic to which Amazon SES will publish bounce, complaint, or delivery notifications for emails sent with that identity as the Source. For information about Amazon SES notifications, see the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications-via-sns.html\">Amazon SES Developer Guide</a>.",
@@ -2629,12 +2836,14 @@
         "Identity",
         "NotificationType"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "SetIdentityNotificationTopicRequest"
     },
     "SetIdentityNotificationTopicResponse": {
       "description": "An empty element returned on a successful request.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "SetIdentityNotificationTopicResponse"
     },
     "SetReceiptRulePositionRequest": {
       "description": "Represents a request to set the position of a receipt rule in a receipt rule set. You use receipt rule sets to receive email with Amazon SES. For more information, see the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html\">Amazon SES Developer Guide</a>.",
@@ -2661,12 +2870,14 @@
         "RuleSetName",
         "RuleName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "SetReceiptRulePositionRequest"
     },
     "SetReceiptRulePositionResponse": {
       "description": "An empty element returned on a successful request.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "SetReceiptRulePositionResponse"
     },
     "StopAction": {
       "description": "<p>When included in a receipt rule, this action terminates the evaluation of the receipt rule set and, optionally, publishes a notification to Amazon Simple Notification Service (Amazon SNS).</p> <p>For information about setting a stop action in a receipt rule, see the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-action-stop.html\">Amazon SES Developer Guide</a>.</p>",
@@ -2683,24 +2894,28 @@
       "required": [
         "Scope"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "StopAction"
     },
     "StopScope": {
       "enum": [
         "RuleSet"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "StopScope"
     },
     "Timestamp": {
       "format": "date-time",
-      "type": "string"
+      "type": "string",
+      "title": "Timestamp"
     },
     "TlsPolicy": {
       "enum": [
         "Require",
         "Optional"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "TlsPolicy"
     },
     "UpdateConfigurationSetEventDestinationRequest": {
       "description": "Represents a request to update the event destination of a configuration set. Configuration sets enable you to publish email sending events. For information about using configuration sets, see the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html\">Amazon SES Developer Guide</a>.",
@@ -2718,12 +2933,14 @@
         "ConfigurationSetName",
         "EventDestination"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateConfigurationSetEventDestinationRequest"
     },
     "UpdateConfigurationSetEventDestinationResponse": {
       "description": "An empty element returned on a successful request.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "UpdateConfigurationSetEventDestinationResponse"
     },
     "UpdateReceiptRuleRequest": {
       "description": "Represents a request to update a receipt rule. You use receipt rules to receive email with Amazon SES. For more information, see the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html\">Amazon SES Developer Guide</a>.",
@@ -2758,12 +2975,14 @@
         "RuleSetName",
         "Rule"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateReceiptRuleRequest"
     },
     "UpdateReceiptRuleResponse": {
       "description": "An empty element returned on a successful request.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "UpdateReceiptRuleResponse"
     },
     "VerificationAttributes": {
       "items": {
@@ -2777,7 +2996,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "VerificationAttributes"
     },
     "VerificationStatus": {
       "enum": [
@@ -2787,16 +3007,19 @@
         "TemporaryFailure",
         "NotStarted"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "VerificationStatus"
     },
     "VerificationToken": {
-      "type": "string"
+      "type": "string",
+      "title": "VerificationToken"
     },
     "VerificationTokenList": {
       "items": {
         "$ref": "#/definitions/VerificationToken"
       },
-      "type": "array"
+      "type": "array",
+      "title": "VerificationTokenList"
     },
     "VerifyDomainDkimRequest": {
       "description": "Represents a request to generate the CNAME records needed to set up Easy DKIM with Amazon SES. For more information about setting up Easy DKIM, see the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html\">Amazon SES Developer Guide</a>.",
@@ -2812,7 +3035,8 @@
       "required": [
         "Domain"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "VerifyDomainDkimRequest"
     },
     "VerifyDomainDkimResponse": {
       "description": "Returns CNAME records that you must publish to the DNS server of your domain to set up Easy DKIM with Amazon SES.",
@@ -2832,7 +3056,8 @@
       "required": [
         "DkimTokens"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "VerifyDomainDkimResponse"
     },
     "VerifyDomainIdentityRequest": {
       "description": "Represents a request to begin Amazon SES domain verification and to generate the TXT records that you must publish to the DNS server of your domain to complete the verification. For information about domain verification, see the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-domains.html\">Amazon SES Developer Guide</a>.",
@@ -2848,7 +3073,8 @@
       "required": [
         "Domain"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "VerifyDomainIdentityRequest"
     },
     "VerifyDomainIdentityResponse": {
       "description": "Returns a TXT record that you must publish to the DNS server of your domain to complete domain verification with Amazon SES.",
@@ -2864,7 +3090,8 @@
       "required": [
         "VerificationToken"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "VerifyDomainIdentityResponse"
     },
     "VerifyEmailAddressRequest": {
       "description": "Represents a request to begin email address verification with Amazon SES. For information about email address verification, see the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-email-addresses.html\">Amazon SES Developer Guide</a>.",
@@ -2880,7 +3107,8 @@
       "required": [
         "EmailAddress"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "VerifyEmailAddressRequest"
     },
     "VerifyEmailIdentityRequest": {
       "description": "Represents a request to begin email address verification with Amazon SES. For information about email address verification, see the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-email-addresses.html\">Amazon SES Developer Guide</a>.",
@@ -2896,12 +3124,14 @@
       "required": [
         "EmailAddress"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "VerifyEmailIdentityRequest"
     },
     "VerifyEmailIdentityResponse": {
       "description": "An empty element returned on a successful request.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "VerifyEmailIdentityResponse"
     },
     "WorkmailAction": {
       "description": "<p>When included in a receipt rule, this action calls Amazon WorkMail and, optionally, publishes a notification to Amazon Simple Notification Service (Amazon SNS). You will typically not use this action directly because Amazon WorkMail adds the rule automatically during its setup procedure.</p> <p>For information using a receipt rule to call Amazon WorkMail, see the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-action-workmail.html\">Amazon SES Developer Guide</a>.</p>",
@@ -2918,7 +3148,8 @@
       "required": [
         "OrganizationArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "WorkmailAction"
     }
   },
   "actions": [

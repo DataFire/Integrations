@@ -57,7 +57,8 @@
           "description": "Status (\n  1- Active,\n  2- Unconfirmed,\n  3- Unsubscribed,\n  4- Deleted,\n  5- Cleaned because of hard bounce or spam complaint)\n",
           "type": "integer"
         }
-      }
+      },
+      "title": "Contact"
     },
     "ContactAdd": {
       "properties": {
@@ -89,7 +90,8 @@
       "required": [
         "listid",
         "email"
-      ]
+      ],
+      "title": "ContactAdd"
     },
     "ContactCustomFieldSchema": {
       "properties": {
@@ -114,7 +116,8 @@
         "label",
         "key",
         "type"
-      ]
+      ],
+      "title": "ContactCustomFieldSchema"
     },
     "ContactList": {
       "properties": {
@@ -148,7 +151,8 @@
           "description": "Name of the contact list",
           "type": "string"
         }
-      }
+      },
+      "title": "ContactList"
     },
     "ContactListEventCustomization": {
       "properties": {
@@ -163,7 +167,8 @@
       },
       "required": [
         "type"
-      ]
+      ],
+      "title": "ContactListEventCustomization"
     },
     "ContactListPage": {
       "properties": {
@@ -178,7 +183,8 @@
           "description": "Total number of items in query",
           "type": "integer"
         }
-      }
+      },
+      "title": "ContactListPage"
     },
     "ContactListUpdate": {
       "properties": {
@@ -200,7 +206,8 @@
           "description": "Name of the contact list",
           "type": "string"
         }
-      }
+      },
+      "title": "ContactListUpdate"
     },
     "ContactPage": {
       "properties": {
@@ -215,7 +222,8 @@
           "description": "Total number of items in query",
           "type": "integer"
         }
-      }
+      },
+      "title": "ContactPage"
     },
     "ContactUpdate": {
       "properties": {
@@ -239,7 +247,8 @@
           "description": "Status (\n  1- Active,\n  2- Unconfirmed,\n  3- Unsubscribed,\n  4- Deleted,\n  5- Cleaned because of hard bounce or spam complaint)\n",
           "type": "integer"
         }
-      }
+      },
+      "title": "ContactUpdate"
     },
     "NewId": {
       "properties": {
@@ -247,7 +256,8 @@
           "description": "The created ressource id",
           "type": "string"
         }
-      }
+      },
+      "title": "NewId"
     },
     "SubscriptionRequest": {
       "properties": {
@@ -279,7 +289,8 @@
       },
       "required": [
         "email"
-      ]
+      ],
+      "title": "SubscriptionRequest"
     }
   },
   "actions": [

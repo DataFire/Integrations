@@ -139,7 +139,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Doc"
     }
   },
   "actions": [

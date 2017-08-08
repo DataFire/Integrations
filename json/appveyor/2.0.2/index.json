@@ -23,7 +23,8 @@
         "Update",
         "View"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "AccessRightName"
     },
     "AceAccessRight": {
       "properties": {
@@ -37,7 +38,8 @@
       "required": [
         "name"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AceAccessRight"
     },
     "AceAccessRightDefinition": {
       "properties": {
@@ -51,7 +53,8 @@
       "required": [
         "name"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AceAccessRightDefinition"
     },
     "Artifact": {
       "properties": {
@@ -71,13 +74,15 @@
         "path",
         "name"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "Artifact"
     },
     "ArtifactType": {
       "enum": [
         "WebDeployPackage"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ArtifactType"
     },
     "Build": {
       "allOf": [
@@ -152,13 +157,15 @@
           },
           "type": "object"
         }
-      ]
+      ],
+      "title": "Build"
     },
     "BuildCloudName": {
       "enum": [
         "gce"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "BuildCloudName"
     },
     "BuildJob": {
       "allOf": [
@@ -205,7 +212,8 @@
           },
           "type": "object"
         }
-      ]
+      ],
+      "title": "BuildJob"
     },
     "BuildLookupModel": {
       "properties": {
@@ -223,7 +231,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BuildLookupModel"
     },
     "BuildMessage": {
       "properties": {
@@ -238,14 +247,16 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BuildMessage"
     },
     "BuildMessageCategory": {
       "enum": [
         "information",
         "warning"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "BuildMessageCategory"
     },
     "BuildMode": {
       "enum": [
@@ -253,7 +264,8 @@
         "none",
         "script"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "BuildMode"
     },
     "BuildNotificationFrequency": {
       "enum": [
@@ -261,7 +273,8 @@
         "myCommits",
         "none"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "BuildNotificationFrequency"
     },
     "BuildStartRequest": {
       "example": {
@@ -304,7 +317,8 @@
         "accountName",
         "projectSlug"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "BuildStartRequest"
     },
     "BuildWorkerImage": {
       "properties": {
@@ -323,7 +337,8 @@
         "buildWorkerImageId",
         "name"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "BuildWorkerImage"
     },
     "BuildWorkerImageName": {
       "enum": [
@@ -333,7 +348,8 @@
         "Visual Studio 2015",
         "WMF 5"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "BuildWorkerImageName"
     },
     "CollaboratorAddition": {
       "description": "Technically `roleId` has default value 0 and is not required, but\nsince role 0 never exists it would always cause a 404 response.\n",
@@ -355,7 +371,8 @@
         "email",
         "roleId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CollaboratorAddition"
     },
     "CollaboratorUpdate": {
       "description": "Technically `userId` and `roleId` have default value 0 and are not\nrequired, but since user 0 and role 0 never exist it would always cause\na 404 response.\n",
@@ -377,7 +394,8 @@
         "userId",
         "roleId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CollaboratorUpdate"
     },
     "DeployMode": {
       "enum": [
@@ -385,7 +403,8 @@
         "none",
         "script"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "DeployMode"
     },
     "Deployment": {
       "allOf": [
@@ -412,7 +431,8 @@
           },
           "type": "object"
         }
-      ]
+      ],
+      "title": "Deployment"
     },
     "DeploymentCancellation": {
       "example": {
@@ -427,7 +447,8 @@
       "required": [
         "deploymentId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeploymentCancellation"
     },
     "DeploymentEnvironment": {
       "allOf": [
@@ -457,7 +478,8 @@
           },
           "type": "object"
         }
-      ]
+      ],
+      "title": "DeploymentEnvironment"
     },
     "DeploymentEnvironmentAddition": {
       "example": {
@@ -514,7 +536,8 @@
         "provider",
         "settings"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeploymentEnvironmentAddition"
     },
     "DeploymentEnvironmentDeploymentsResults": {
       "properties": {
@@ -532,7 +555,8 @@
         "environment",
         "deployments"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeploymentEnvironmentDeploymentsResults"
     },
     "DeploymentEnvironmentLookupModel": {
       "properties": {
@@ -547,7 +571,8 @@
           "$ref": "#/definitions/DeploymentProviderType"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DeploymentEnvironmentLookupModel"
     },
     "DeploymentEnvironmentProject": {
       "properties": {
@@ -567,7 +592,8 @@
         "name",
         "isSelected"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeploymentEnvironmentProject"
     },
     "DeploymentEnvironmentSettings": {
       "properties": {
@@ -590,7 +616,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DeploymentEnvironmentSettings"
     },
     "DeploymentEnvironmentSettingsResults": {
       "properties": {
@@ -598,7 +625,8 @@
           "$ref": "#/definitions/DeploymentEnvironmentWithSettings"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DeploymentEnvironmentSettingsResults"
     },
     "DeploymentEnvironmentWithSettings": {
       "allOf": [
@@ -671,7 +699,8 @@
             }
           ]
         }
-      }
+      },
+      "title": "DeploymentEnvironmentWithSettings"
     },
     "DeploymentJob": {
       "allOf": [
@@ -687,7 +716,8 @@
           },
           "type": "object"
         }
-      ]
+      ],
+      "title": "DeploymentJob"
     },
     "DeploymentLookupModel": {
       "properties": {
@@ -710,14 +740,16 @@
           "$ref": "#/definitions/Status"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DeploymentLookupModel"
     },
     "DeploymentNotificationFrequency": {
       "enum": [
         "all",
         "none"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "DeploymentNotificationFrequency"
     },
     "DeploymentProvider": {
       "properties": {
@@ -746,7 +778,8 @@
       "required": [
         "provider"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeploymentProvider"
     },
     "DeploymentProviderType": {
       "enum": [
@@ -763,7 +796,8 @@
         "WebDeploy",
         "Webhook"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "DeploymentProviderType"
     },
     "DeploymentStartRequest": {
       "example": {
@@ -812,7 +846,8 @@
         "projectSlug",
         "buildVersion"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeploymentStartRequest"
     },
     "EncryptRequest": {
       "example": {
@@ -824,7 +859,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "EncryptRequest"
     },
     "EnvironmentDeploymentModel": {
       "allOf": [
@@ -839,7 +875,8 @@
           },
           "type": "object"
         }
-      ]
+      ],
+      "title": "EnvironmentDeploymentModel"
     },
     "Error": {
       "properties": {
@@ -860,7 +897,8 @@
       "required": [
         "message"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "Error"
     },
     "GroupName": {
       "enum": [
@@ -872,7 +910,8 @@
         "User",
         "Users"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "GroupName"
     },
     "GroupPermissions": {
       "properties": {
@@ -890,7 +929,8 @@
         "name",
         "permissions"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GroupPermissions"
     },
     "HostEntry": {
       "properties": {
@@ -907,14 +947,16 @@
         "host",
         "ip"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "HostEntry"
     },
     "HttpMethodRestricted": {
       "enum": [
         "GET",
         "POST"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "HttpMethodRestricted"
     },
     "Job": {
       "allOf": [
@@ -943,7 +985,8 @@
           },
           "type": "object"
         }
-      ]
+      ],
+      "title": "Job"
     },
     "MSBuildVerbosity": {
       "enum": [
@@ -952,7 +995,8 @@
         "normal",
         "detailed"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "MSBuildVerbosity"
     },
     "NotificationProviderSettings": {
       "properties": {
@@ -967,7 +1011,8 @@
         "provider",
         "settings"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "NotificationProviderSettings"
     },
     "NotificationProviderType": {
       "enum": [
@@ -979,7 +1024,8 @@
         "Webhook",
         "VSOTeamRoom"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "NotificationProviderType"
     },
     "NotificationSettings": {
       "description": "This type is the union of the settings types for each of the various\nnotification types supported by the API.  The properties correspond to\nthe following notification types:\n\n#### All Types\n- onBuildSuccess\n- onBuildFailure\n- onBuildStatusChanged\n\n#### Campfire\n- account\n- authToken\n- room\n- template\n\n#### Email\n- subjectTemplate\n- bodyTemplate\n- recipients\n- recipientsValue\n\n#### GitHubPullRequest\n- authToken\n- template\n\n#### HipChat\n- authToken\n- from\n- room\n- template\n- serverUrl\n\n#### Slack\n- incomingWebhookUrl\n- authToken\n- channel\n- template\n\n#### Webhook\n- method\n- url\n- headers\n- headersValue\n- addCustomRequestBody\n- customRequestBodyContentType\n- customRequestBody\n\n#### VSOTeamRoom\n- vsoAccount\n- username\n- password\n- room\n- template\n",
@@ -1072,7 +1118,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "NotificationSettings"
     },
     "NotificationSettingsType": {
       "enum": [
@@ -1084,7 +1131,8 @@
         "Appveyor.Models.WebhookNotificationSettings, Appveyor.Models",
         "Appveyor.Models.VSOTeamRoomNotificationSettings, Appveyor.Models"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "NotificationSettingsType"
     },
     "NuGetFeed": {
       "allOf": [
@@ -1113,7 +1161,8 @@
           },
           "type": "object"
         }
-      ]
+      ],
+      "title": "NuGetFeed"
     },
     "OSServiceName": {
       "enum": [
@@ -1130,7 +1179,8 @@
         "mysql",
         "postgresql"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "OSServiceName"
     },
     "PermissionName": {
       "description": "Available permission names.  The names correspond to the following groups:\n#### AccountPermission\n- ManageApplicationAuthorizations\n- UpdateAccountDetails\n- UpdateBillingDetails\n#### BuildEnvironmentPermission\n- ConfigureBuildEnvironment\n#### EnvironmentsPermission\n- DeployToEnvironment\n- ManageEnvironments\n- UpdateEnvironmentSettings\n#### ProjectsPermission\n- ManageProjects\n- RunProjectBuild\n- UpdateProjectSettings\n#### RolesPermission\n- AddRole\n- DeleteRole\n- UpdateRoleDetails\n#### UserPermission\n- ConfigureApiKeys\n#### UsersPermission\n- AddUser\n- DeleteUser\n- UpdateUserDetails\n",
@@ -1153,7 +1203,8 @@
         "DeleteUser",
         "UpdateUserDetails"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "PermissionName"
     },
     "PermissionState": {
       "properties": {
@@ -1171,7 +1222,8 @@
       "required": [
         "name"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "PermissionState"
     },
     "PlatformName": {
       "enum": [
@@ -1180,7 +1232,8 @@
         "x64",
         "x86"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "PlatformName"
     },
     "Project": {
       "allOf": [
@@ -1256,7 +1309,8 @@
           ],
           "type": "object"
         }
-      ]
+      ],
+      "title": "Project"
     },
     "ProjectAddition": {
       "description": "`repositoryAuthentication` is only used for git, mercurial, subversion `repositoryProvider`.",
@@ -1290,14 +1344,16 @@
         "repositoryProvider",
         "repositoryName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ProjectAddition"
     },
     "ProjectBranchesMode": {
       "enum": [
         "exclude",
         "include"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ProjectBranchesMode"
     },
     "ProjectBuildNumberUpdate": {
       "example": {
@@ -1312,7 +1368,8 @@
       "required": [
         "nextBuildNumber"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ProjectBuildNumberUpdate"
     },
     "ProjectBuildResults": {
       "properties": {
@@ -1323,7 +1380,8 @@
           "$ref": "#/definitions/Project"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ProjectBuildResults"
     },
     "ProjectConfiguration": {
       "properties": {
@@ -1689,7 +1747,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ProjectConfiguration"
     },
     "ProjectDeployment": {
       "properties": {
@@ -1704,7 +1763,8 @@
         "project",
         "deployment"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ProjectDeployment"
     },
     "ProjectDeploymentModel": {
       "allOf": [
@@ -1719,7 +1779,8 @@
           },
           "type": "object"
         }
-      ]
+      ],
+      "title": "ProjectDeploymentModel"
     },
     "ProjectDeploymentsResults": {
       "properties": {
@@ -1733,7 +1794,8 @@
           "$ref": "#/definitions/Project"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ProjectDeploymentsResults"
     },
     "ProjectHistory": {
       "properties": {
@@ -1747,7 +1809,8 @@
           "$ref": "#/definitions/Project"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ProjectHistory"
     },
     "ProjectLookupModel": {
       "properties": {
@@ -1770,7 +1833,8 @@
       "required": [
         "projectId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ProjectLookupModel"
     },
     "ProjectSettingsResults": {
       "example": {
@@ -1804,7 +1868,8 @@
           "$ref": "#/definitions/ProjectWithConfiguration"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ProjectSettingsResults"
     },
     "ProjectWithConfiguration": {
       "allOf": [
@@ -1997,14 +2062,16 @@
           "type": "object"
         }
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ProjectWithConfiguration"
     },
     "RepositoryAuthenticationType": {
       "enum": [
         "credentials",
         "ssh"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "RepositoryAuthenticationType"
     },
     "RepositoryProvider": {
       "enum": [
@@ -2018,7 +2085,8 @@
         "subversion",
         "vso"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "RepositoryProvider"
     },
     "RepositoryScm": {
       "enum": [
@@ -2026,7 +2094,8 @@
         "mercurial",
         "subversion"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "RepositoryScm"
     },
     "Role": {
       "allOf": [
@@ -2055,7 +2124,8 @@
           "type": "object"
         }
       ],
-      "description": "Technically `roleId` has default value 0 and is not required, but\nsince role 0 never exists it would always cause a 404 response.\n"
+      "description": "Technically `roleId` has default value 0 and is not required, but\nsince role 0 never exists it would always cause a 404 response.\n",
+      "title": "Role"
     },
     "RoleAce": {
       "properties": {
@@ -2076,7 +2146,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RoleAce"
     },
     "RoleAddition": {
       "example": {
@@ -2091,7 +2162,8 @@
       "required": [
         "name"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "RoleAddition"
     },
     "RoleWithGroups": {
       "allOf": [
@@ -2222,7 +2294,8 @@
         "isSystem": false,
         "name": "My Role",
         "roleId": 3040
-      }
+      },
+      "title": "RoleWithGroups"
     },
     "Script": {
       "properties": {
@@ -2236,14 +2309,16 @@
       "required": [
         "script"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "Script"
     },
     "ScriptLanguage": {
       "enum": [
         "cmd",
         "ps"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ScriptLanguage"
     },
     "SecurityDescriptor": {
       "properties": {
@@ -2260,7 +2335,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SecurityDescriptor"
     },
     "Status": {
       "enum": [
@@ -2271,7 +2347,8 @@
         "running",
         "success"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "Status"
     },
     "StoredNameValue": {
       "properties": {
@@ -2287,7 +2364,8 @@
         "name",
         "value"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "StoredNameValue"
     },
     "StoredNameValueMatrix": {
       "properties": {
@@ -2295,7 +2373,8 @@
           "$ref": "#/definitions/StoredNameValue"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "StoredNameValueMatrix"
     },
     "StoredValue": {
       "properties": {
@@ -2307,7 +2386,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "StoredValue"
     },
     "StringValueObject": {
       "properties": {
@@ -2315,7 +2395,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "StringValueObject"
     },
     "TestMode": {
       "enum": [
@@ -2323,7 +2404,8 @@
         "none",
         "script"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "TestMode"
     },
     "Timestamped": {
       "properties": {
@@ -2338,7 +2420,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Timestamped"
     },
     "UserAccount": {
       "allOf": [
@@ -2412,7 +2495,8 @@
         "roleId": 4,
         "successfulBuildNotification": "all",
         "userId": 3019
-      }
+      },
+      "title": "UserAccount"
     },
     "UserAccountRolesResults": {
       "description": "The roles property contains all roles, not only the role for which the user is a member.",
@@ -2427,7 +2511,8 @@
           "$ref": "#/definitions/UserAccount"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UserAccountRolesResults"
     },
     "UserAccountSettings": {
       "properties": {
@@ -2460,7 +2545,8 @@
         "successfulDeploymentNotification",
         "failedDeploymentNotification"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UserAccountSettings"
     },
     "UserAddition": {
       "example": {
@@ -2503,7 +2589,8 @@
         "email",
         "roleId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UserAddition"
     }
   },
   "actions": [

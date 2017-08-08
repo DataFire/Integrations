@@ -24,7 +24,8 @@
         "distance",
         "word"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DistanceEntity"
     },
     "DistanceResponseEntity": {
       "properties": {
@@ -68,7 +69,8 @@
         "processTime",
         "startTime"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DistanceResponseEntity"
     }
   },
   "actions": [

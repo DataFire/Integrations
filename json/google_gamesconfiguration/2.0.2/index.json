@@ -67,7 +67,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AchievementConfiguration"
     },
     "AchievementConfigurationDetail": {
       "description": "This is a JSON template for an achievement configuration detail.",
@@ -100,7 +101,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AchievementConfigurationDetail"
     },
     "AchievementConfigurationListResponse": {
       "description": "This is a JSON template for a ListConfigurations response.",
@@ -122,7 +124,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AchievementConfigurationListResponse"
     },
     "GamesNumberAffixConfiguration": {
       "description": "This is a JSON template for a number affix resource.",
@@ -152,7 +155,8 @@
           "description": "When the language requires special treatment of the number 0 (as in Arabic)."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GamesNumberAffixConfiguration"
     },
     "GamesNumberFormatConfiguration": {
       "description": "This is a JSON template for a number format resource.",
@@ -175,7 +179,8 @@
           "description": "An optional suffix for the NUMERIC format type. These strings follow the same  plural rules as all Android string resources."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GamesNumberFormatConfiguration"
     },
     "ImageConfiguration": {
       "description": "This is a JSON template for an image configuration resource.",
@@ -198,7 +203,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ImageConfiguration"
     },
     "LeaderboardConfiguration": {
       "description": "This is a JSON template for an leaderboard configuration resource.",
@@ -239,7 +245,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LeaderboardConfiguration"
     },
     "LeaderboardConfigurationDetail": {
       "description": "This is a JSON template for a leaderboard configuration detail.",
@@ -267,7 +274,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LeaderboardConfigurationDetail"
     },
     "LeaderboardConfigurationListResponse": {
       "description": "This is a JSON template for a ListConfigurations response.",
@@ -289,7 +297,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LeaderboardConfigurationListResponse"
     },
     "LocalizedString": {
       "description": "This is a JSON template for a localized string resource.",
@@ -308,7 +317,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LocalizedString"
     },
     "LocalizedStringBundle": {
       "description": "This is a JSON template for a localized string bundle resource.",
@@ -326,7 +336,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LocalizedStringBundle"
     }
   },
   "actions": [

@@ -17,7 +17,8 @@
   "actionCount": 2,
   "definitions": {
     "Accept": {
-      "type": "string"
+      "type": "string",
+      "title": "Accept"
     },
     "BadGatewayException": {
       "description": "Either the Amazon Lex bot is still building, or one of the dependent services (Amazon Polly, AWS Lambda) failed with an internal service error.",
@@ -26,7 +27,8 @@
           "$ref": "#/definitions/ErrorMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BadGatewayException"
     },
     "BadRequestException": {
       "description": " Request validation failed, there is no usable message in the context, or the bot build failed. ",
@@ -35,16 +37,20 @@
           "$ref": "#/definitions/String"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BadRequestException"
     },
     "BlobStream": {
-      "type": "string"
+      "type": "string",
+      "title": "BlobStream"
     },
     "BotAlias": {
-      "type": "string"
+      "type": "string",
+      "title": "BotAlias"
     },
     "BotName": {
-      "type": "string"
+      "type": "string",
+      "title": "BotName"
     },
     "Button": {
       "description": "Represents an option to be shown on the client platform (Facebook, Slack, etc.)",
@@ -62,17 +68,20 @@
         "text",
         "value"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "Button"
     },
     "ButtonTextStringWithLength": {
       "maxLength": 15,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "ButtonTextStringWithLength"
     },
     "ButtonValueStringWithLength": {
       "maxLength": 1000,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "ButtonValueStringWithLength"
     },
     "ConflictException": {
       "description": " Two clients are using the same AWS account, Amazon Lex bot, and user ID. ",
@@ -81,13 +90,15 @@
           "$ref": "#/definitions/String"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ConflictException"
     },
     "ContentType": {
       "enum": [
         "application/vnd.amazonaws.card.generic"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ContentType"
     },
     "DependencyFailedException": {
       "description": " One of the downstream dependencies, such as AWS Lambda or Amazon Polly, threw an exception. For example, if Amazon Lex does not have sufficient permissions to call a Lambda function, it results in Lambda throwing an exception. ",
@@ -96,7 +107,8 @@
           "$ref": "#/definitions/ErrorMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DependencyFailedException"
     },
     "DialogState": {
       "enum": [
@@ -107,10 +119,12 @@
         "ReadyForFulfillment",
         "Failed"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "DialogState"
     },
     "ErrorMessage": {
-      "type": "string"
+      "type": "string",
+      "title": "ErrorMessage"
     },
     "GenericAttachment": {
       "description": "Represents an option rendered to the user when a prompt is shown. It could be an image, a button, a link, or text. ",
@@ -136,13 +150,16 @@
           "description": "The title of the option."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GenericAttachment"
     },
     "HttpContentType": {
-      "type": "string"
+      "type": "string",
+      "title": "HttpContentType"
     },
     "IntentName": {
-      "type": "string"
+      "type": "string",
+      "title": "IntentName"
     },
     "InternalFailureException": {
       "description": "Internal service error. Retry the call.",
@@ -151,7 +168,8 @@
           "$ref": "#/definitions/String"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InternalFailureException"
     },
     "LimitExceededException": {
       "description": "Exceeded a limit.",
@@ -160,7 +178,8 @@
           "$ref": "#/definitions/String"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LimitExceededException"
     },
     "LoopDetectedException": {
       "description": "Lambda fulfilment function returned <code>DelegateDialogAction</code> to Amazon Lex without changing any slot values. ",
@@ -169,7 +188,8 @@
           "$ref": "#/definitions/ErrorMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LoopDetectedException"
     },
     "NotAcceptableException": {
       "description": "The accept header in the request does not have a valid value.",
@@ -178,7 +198,8 @@
           "$ref": "#/definitions/String"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "NotAcceptableException"
     },
     "NotFoundException": {
       "description": "The resource (such as the Amazon Lex bot or an alias) that is referred to is not found.",
@@ -187,7 +208,8 @@
           "$ref": "#/definitions/String"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "NotFoundException"
     },
     "PostContentRequest": {
       "properties": {
@@ -199,7 +221,8 @@
       "required": [
         "inputStream"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "PostContentRequest"
     },
     "PostContentResponse": {
       "properties": {
@@ -208,7 +231,8 @@
           "description": "The prompt (or statement) to convey to the user. This is based on the bot configuration and context. For example, if Amazon Lex did not understand the user intent, it sends the <code>clarificationPrompt</code> configured for the bot. If the intent requires confirmation before taking the fulfillment action, it sends the <code>confirmationPrompt</code>. Another example: Suppose that the Lambda function successfully fulfilled the intent, and sent a message to convey to the user. Then Amazon Lex sends that message in the response. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PostContentResponse"
     },
     "PostTextRequest": {
       "properties": {
@@ -224,7 +248,8 @@
       "required": [
         "inputText"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "PostTextRequest"
     },
     "PostTextResponse": {
       "properties": {
@@ -257,7 +282,8 @@
           "description": " The intent slots (name/value pairs) that Amazon Lex detected so far from the user input in the conversation. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PostTextResponse"
     },
     "RequestTimeoutException": {
       "description": "The input speech is too long.",
@@ -266,7 +292,8 @@
           "$ref": "#/definitions/String"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RequestTimeoutException"
     },
     "ResponseCard": {
       "description": "If you configure a response card when creating your bots, Amazon Lex substitutes the session attributes and slot values that are available, and then returns it. The response card can also come from a Lambda function ( <code>dialogCodeHook</code> and <code>fulfillmentActivity</code> on an intent).",
@@ -284,10 +311,12 @@
           "description": "The version of the response card format."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ResponseCard"
     },
     "String": {
-      "type": "string"
+      "type": "string",
+      "title": "String"
     },
     "StringMap": {
       "items": {
@@ -301,22 +330,26 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "StringMap"
     },
     "StringUrlWithLength": {
       "maxLength": 2048,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "StringUrlWithLength"
     },
     "StringWithLength": {
       "maxLength": 80,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "StringWithLength"
     },
     "Text": {
       "maxLength": 1024,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "Text"
     },
     "UnsupportedMediaTypeException": {
       "description": "The Content-Type header (<code>PostContent</code> API) has an invalid value. ",
@@ -325,13 +358,15 @@
           "$ref": "#/definitions/String"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UnsupportedMediaTypeException"
     },
     "UserId": {
       "maxLength": 100,
       "minLength": 2,
       "pattern": "[0-9a-zA-Z._:-]+",
-      "type": "string"
+      "type": "string",
+      "title": "UserId"
     },
     "genericAttachmentList": {
       "items": {
@@ -339,7 +374,8 @@
       },
       "maxItems": 10,
       "minItems": 0,
-      "type": "array"
+      "type": "array",
+      "title": "genericAttachmentList"
     },
     "listOfButtons": {
       "items": {
@@ -347,7 +383,8 @@
       },
       "maxItems": 5,
       "minItems": 0,
-      "type": "array"
+      "type": "array",
+      "title": "listOfButtons"
     }
   },
   "actions": [

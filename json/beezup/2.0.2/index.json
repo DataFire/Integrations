@@ -19,7 +19,8 @@
     "BeezUP.Common.CurrencyCode": {
       "description": "The currency code <a href=\"https://en.wikipedia.org/wiki/ISO_4217\">(ISO 4217)</a>\n",
       "example": "\"EUR\"",
-      "type": "string"
+      "type": "string",
+      "title": "BeezUP.Common.CurrencyCode"
     },
     "BeezUP.Common.ErrorResponseMessage": {
       "properties": {
@@ -33,7 +34,8 @@
       "required": [
         "errors"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "BeezUP.Common.ErrorResponseMessage"
     },
     "BeezUP.Common.ErrorSummary": {
       "properties": {
@@ -76,7 +78,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BeezUP.Common.ErrorSummary"
     },
     "BeezUP.Common.ExceptionDetail": {
       "properties": {
@@ -93,12 +96,14 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BeezUP.Common.ExceptionDetail"
     },
     "BeezUP.Common.Href": {
       "description": "Indicate the relative uri for this link",
       "example": "\"/v2/marketplaces/orders/{marketplaceTechnicalCode}/{accountId}/{beezUPOrderId}\"",
-      "type": "string"
+      "type": "string",
+      "title": "BeezUP.Common.Href"
     },
     "BeezUP.Common.HttpMethod": {
       "default": "GET",
@@ -112,7 +117,8 @@
         "HEAD"
       ],
       "example": "\"GET\"",
-      "type": "string"
+      "type": "string",
+      "title": "BeezUP.Common.HttpMethod"
     },
     "BeezUP.Common.InfoSummaries": {
       "properties": {
@@ -141,7 +147,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BeezUP.Common.InfoSummaries"
     },
     "BeezUP.Common.InfoSummary": {
       "properties": {
@@ -167,7 +174,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BeezUP.Common.InfoSummary"
     },
     "BeezUP.Common.LOVLink2": {
       "description": "Describe the way you have to follow to get access to the LOV",
@@ -188,7 +196,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BeezUP.Common.LOVLink2"
     },
     "BeezUP.Common.Link2": {
       "properties": {
@@ -221,7 +230,8 @@
       "required": [
         "rel"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "BeezUP.Common.Link2"
     },
     "BeezUP.Common.LinkParameter2": {
       "properties": {
@@ -278,12 +288,14 @@
       "required": [
         "name"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "BeezUP.Common.LinkParameter2"
     },
     "BeezUP.Common.OperationId": {
       "description": "The operationId to call.",
       "example": "\"GetOrder\"",
-      "type": "string"
+      "type": "string",
+      "title": "BeezUP.Common.OperationId"
     },
     "BeezUP.Common.PaginationResult": {
       "example": {
@@ -403,7 +415,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BeezUP.Common.PaginationResult"
     },
     "BeezUP.Common.SuccessSummary": {
       "properties": {
@@ -429,7 +442,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BeezUP.Common.SuccessSummary"
     },
     "BeezUP.Common.UserErrorMessage": {
       "properties": {
@@ -461,7 +475,8 @@
         "code",
         "message"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "BeezUP.Common.UserErrorMessage"
     },
     "BeezUP.Common.UserErrorMessage_arguments": {
       "properties": {
@@ -480,13 +495,15 @@
       "required": [
         "name",
         "value"
-      ]
+      ],
+      "title": "BeezUP.Common.UserErrorMessage_arguments"
     },
     "BeezUP.Common.UserId": {
       "description": "The user identifier",
       "example": "\"8a7fbdec-9e71-472e-9974-27d5c1d57cf8\"",
       "format": "guid",
-      "type": "string"
+      "type": "string",
+      "title": "BeezUP.Common.UserId"
     },
     "BeezUP.Common.WarningSummary": {
       "properties": {
@@ -506,13 +523,15 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BeezUP.Common.WarningSummary"
     },
     "accountId": {
       "description": "The marketplace account identifier in BeezUP. This account identifier is based on your api settings.",
       "example": 1234,
       "format": "int32",
-      "type": "integer"
+      "type": "integer",
+      "title": "accountId"
     },
     "accountSynchronization": {
       "properties": {
@@ -530,7 +549,8 @@
           "$ref": "#/definitions/marketplaceTechnicalCode"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "accountSynchronization"
     },
     "accountSynchronizations": {
       "properties": {
@@ -541,7 +561,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "accountSynchronizations"
     },
     "automaticTransition": {
       "properties": {
@@ -567,7 +588,8 @@
         "marketplaceTechnicalCode",
         "orderStatusTransitionId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "automaticTransition"
     },
     "automaticTransitionInfo": {
       "allOf": [
@@ -593,7 +615,8 @@
           ],
           "type": "object"
         }
-      ]
+      ],
+      "title": "automaticTransitionInfo"
     },
     "automaticTransitionInfos": {
       "properties": {
@@ -604,24 +627,28 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "automaticTransitionInfos"
     },
     "beezUPOrderId": {
       "description": "The order BeezUP identifier",
       "example": "00000000000000000000000000000000000000000000000",
       "format": "uuid",
-      "type": "string"
+      "type": "string",
+      "title": "beezUPOrderId"
     },
     "beezUPOrderStatus": {
       "description": "BeezUP order status. Unified for all marketplaces.",
       "example": "Shipped",
       "type": "string",
-      "x-lov": "BeezUPOrderState"
+      "x-lov": "BeezUPOrderState",
+      "title": "beezUPOrderStatus"
     },
     "businessOperationType": {
       "example": "ShipOrder",
       "type": "string",
-      "x-lov": "OrderChangeBusinessOperationType"
+      "x-lov": "OrderChangeBusinessOperationType",
+      "title": "businessOperationType"
     },
     "changeOrderListRequest": {
       "description": "Contains all change order operations you want to make",
@@ -649,7 +676,8 @@
       "required": [
         "changeOrders"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "changeOrderListRequest"
     },
     "changeOrderListRequestItem": {
       "description": "Contains the order identifier and the change order request",
@@ -665,7 +693,8 @@
         "beezUPOrderId",
         "changeOrderRequest"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "changeOrderListRequestItem"
     },
     "changeOrderReporting": {
       "description": "The reporting related to a change order operation",
@@ -726,7 +755,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "changeOrderReporting"
     },
     "changeOrderRequest": {
       "additionalProperties": {
@@ -742,7 +772,8 @@
         "order_Shipping_ShipperTrackingNumber": "1H01845163783",
         "order_Shipping_ShippingUrl": "https://trackingpackage.com?number=1H01845163783"
       },
-      "type": "object"
+      "type": "object",
+      "title": "changeOrderRequest"
     },
     "changeOrderResponse": {
       "properties": {
@@ -756,7 +787,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "changeOrderResponse"
     },
     "clearMerchantOrderInfoListRequest": {
       "properties": {
@@ -790,7 +822,8 @@
       "required": [
         "orders"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "clearMerchantOrderInfoListRequest"
     },
     "dateSearchType": {
       "default": "Modification",
@@ -800,13 +833,15 @@
         "Modification",
         "MarketPlaceModification"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "dateSearchType"
     },
     "executionUUID": {
       "description": "The execution identifier",
       "example": "8D4176FA78D5A7Fffa91e9edc694ec5858be9a1b109507c",
       "format": "uuid",
-      "type": "string"
+      "type": "string",
+      "title": "executionUUID"
     },
     "exportOrderListRequest": {
       "properties": {
@@ -817,7 +852,8 @@
       "required": [
         "orderListRequest"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "exportOrderListRequest"
     },
     "harvestOrderReporting": {
       "description": "The reporting related to a harvest order operation",
@@ -866,29 +902,34 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "harvestOrderReporting"
     },
     "marketplaceBusinessCode": {
       "description": "In an marketplace technical code like CDiscount you can have several marketplaces like GO SPORT, etc. We identify them by a business code.",
       "example": "GOSPORT",
       "type": "string",
-      "x-lov": "MarketplaceBusinessCode"
+      "x-lov": "MarketplaceBusinessCode",
+      "title": "marketplaceBusinessCode"
     },
     "marketplaceOrderId": {
       "description": "The order marketplace identifier",
       "example": "AMAZON12345",
-      "type": "string"
+      "type": "string",
+      "title": "marketplaceOrderId"
     },
     "marketplaceOrderStatus": {
       "description": "The marketplace order state",
       "example": "In_progress_3",
-      "type": "string"
+      "type": "string",
+      "title": "marketplaceOrderStatus"
     },
     "marketplaceTechnicalCode": {
       "description": "The technical code of the marketplace.",
       "example": "Amazon",
       "type": "string",
-      "x-lov": "OMMarketplaceTechnicalCode"
+      "x-lov": "OMMarketplaceTechnicalCode",
+      "title": "marketplaceTechnicalCode"
     },
     "order": {
       "allOf": [
@@ -1266,7 +1307,8 @@
           ],
           "type": "object"
         }
-      ]
+      ],
+      "title": "order"
     },
     "orderExportationReporting": {
       "description": "Represent the reporting of the orders exportation.",
@@ -1378,7 +1420,8 @@
         "sourceType",
         "sourceUserName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "orderExportationReporting"
     },
     "orderExportationReportingProcessingStatus": {
       "enum": [
@@ -1391,7 +1434,8 @@
         "Suspended"
       ],
       "example": "Done",
-      "type": "string"
+      "type": "string",
+      "title": "orderExportationReportingProcessingStatus"
     },
     "orderExportations": {
       "description": "The list of orders exportation",
@@ -1406,7 +1450,8 @@
           "$ref": "#/definitions/BeezUP.Common.PaginationResult"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "orderExportations"
     },
     "orderHeader": {
       "description": "Describe the basic information related to an order. All properties with the prefix order_ are translated in the list of values /user/lov/OrderMetaInfoOrderDetails",
@@ -1656,7 +1701,8 @@
         "order_Status_BeezUPOrderStatus",
         "processing"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "orderHeader"
     },
     "orderHistory": {
       "description": "Describe the history related to an order",
@@ -1682,7 +1728,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "orderHistory"
     },
     "orderIdentifier": {
       "properties": {
@@ -1701,7 +1748,8 @@
         "beezUPOrderId",
         "marketplaceTechnicalCode"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "orderIdentifier"
     },
     "orderItem": {
       "description": "Describe an order item. All properties with the prefix orderItem_ are translated in the list of values /user/lov/OrderMetaInfoOrderItems",
@@ -1796,7 +1844,8 @@
         "beezUPOrderItemId",
         "orderItem_OrderItemType"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "orderItem"
     },
     "orderListFull": {
       "properties": {
@@ -1814,7 +1863,8 @@
         "orders",
         "paginationResult"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "orderListFull"
     },
     "orderListLight": {
       "properties": {
@@ -1832,7 +1882,8 @@
         "orders",
         "paginationResult"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "orderListLight"
     },
     "orderListRequest": {
       "properties": {
@@ -1917,27 +1968,32 @@
           "$ref": "#/definitions/pageSize"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "orderListRequest"
     },
     "order_Buyer_Name": {
       "description": "Buyer full name",
       "example": "Monroe",
-      "type": "string"
+      "type": "string",
+      "title": "order_Buyer_Name"
     },
     "order_MerchantECommerceSoftwareName": {
       "description": "The e-commerce software name of the merchant",
       "example": "Prestashop",
-      "type": "string"
+      "type": "string",
+      "title": "order_MerchantECommerceSoftwareName"
     },
     "order_MerchantECommerceSoftwareVersion": {
       "description": "The e-commece software version of the merchant",
       "example": "123.0.1",
-      "type": "string"
+      "type": "string",
+      "title": "order_MerchantECommerceSoftwareVersion"
     },
     "order_MerchantOrderId": {
       "description": "The order merchant identifier",
       "example": "MyOrderMerchantId",
-      "type": "string"
+      "type": "string",
+      "title": "order_MerchantOrderId"
     },
     "pageNumber": {
       "default": 1,
@@ -1945,7 +2001,8 @@
       "example": 1,
       "format": "int32",
       "minimum": 1,
-      "type": "integer"
+      "type": "integer",
+      "title": "pageNumber"
     },
     "pageSize": {
       "default": 100,
@@ -1954,12 +2011,14 @@
       "format": "int32",
       "maximum": 100,
       "minimum": 25,
-      "type": "integer"
+      "type": "integer",
+      "title": "pageSize"
     },
     "processing": {
       "description": "If true, there is currently a harvest or an order change in progress. Otherwise false.",
       "example": false,
-      "type": "boolean"
+      "type": "boolean",
+      "title": "processing"
     },
     "saveAutomaticTransitionRequest": {
       "properties": {
@@ -1973,7 +2032,8 @@
       "required": [
         "automaticTransitions"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "saveAutomaticTransitionRequest"
     },
     "setMerchantOrderInfoListRequest": {
       "properties": {
@@ -2016,7 +2076,8 @@
       "required": [
         "orders"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "setMerchantOrderInfoListRequest"
     },
     "setMerchantOrderInfoListRequestItem": {
       "allOf": [
@@ -2034,7 +2095,8 @@
           ],
           "type": "object"
         }
-      ]
+      ],
+      "title": "setMerchantOrderInfoListRequestItem"
     },
     "setMerchantOrderInfoRequest": {
       "properties": {
@@ -2051,7 +2113,8 @@
       "required": [
         "order_MerchantOrderId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "setMerchantOrderInfoRequest"
     },
     "sourceType": {
       "description": "Indicates the origin of the operation",
@@ -2060,7 +2123,8 @@
         "Go"
       ],
       "example": "Api",
-      "type": "string"
+      "type": "string",
+      "title": "sourceType"
     }
   },
   "actions": [

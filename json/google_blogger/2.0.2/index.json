@@ -131,7 +131,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Blog"
     },
     "BlogList": {
       "properties": {
@@ -155,7 +156,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BlogList"
     },
     "BlogPerUserInfo": {
       "properties": {
@@ -185,7 +187,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BlogPerUserInfo"
     },
     "BlogUserInfo": {
       "properties": {
@@ -203,7 +206,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BlogUserInfo"
     },
     "Comment": {
       "properties": {
@@ -297,7 +301,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Comment"
     },
     "CommentList": {
       "properties": {
@@ -326,7 +331,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CommentList"
     },
     "Page": {
       "properties": {
@@ -412,7 +418,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Page"
     },
     "PageList": {
       "properties": {
@@ -437,7 +444,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PageList"
     },
     "Pageviews": {
       "properties": {
@@ -469,7 +477,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Pageviews"
     },
     "Post": {
       "properties": {
@@ -632,7 +641,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Post"
     },
     "PostList": {
       "properties": {
@@ -657,7 +667,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PostList"
     },
     "PostPerUserInfo": {
       "properties": {
@@ -683,7 +694,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PostPerUserInfo"
     },
     "PostUserInfo": {
       "properties": {
@@ -701,7 +713,8 @@
           "description": "Information about a User for the Post."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PostUserInfo"
     },
     "PostUserInfosList": {
       "properties": {
@@ -722,7 +735,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PostUserInfosList"
     },
     "User": {
       "properties": {
@@ -785,7 +799,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "User"
     }
   },
   "actions": [

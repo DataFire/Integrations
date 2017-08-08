@@ -139,7 +139,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Account"
     },
     "AccountActiveAdSummary": {
       "description": "Gets a summary of active ads in an account.",
@@ -178,7 +179,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AccountActiveAdSummary"
     },
     "AccountPermission": {
       "description": "AccountPermissions contains information about a particular account permission. Some features of DCM require an account permission to be present in the account.",
@@ -222,7 +224,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AccountPermission"
     },
     "AccountPermissionGroup": {
       "description": "AccountPermissionGroups contains a mapping of permission group IDs to names. A permission group is a grouping of account permissions.",
@@ -242,7 +245,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AccountPermissionGroup"
     },
     "AccountPermissionGroupsListResponse": {
       "description": "Account Permission Group List Response",
@@ -260,7 +264,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AccountPermissionGroupsListResponse"
     },
     "AccountPermissionsListResponse": {
       "description": "Account Permission List Response",
@@ -278,7 +283,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AccountPermissionsListResponse"
     },
     "AccountUserProfile": {
       "description": "AccountUserProfiles contains properties of a DCM user profile. This resource is specifically for managing user profiles, whereas UserProfiles is for accessing the API.",
@@ -364,7 +370,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AccountUserProfile"
     },
     "AccountUserProfilesListResponse": {
       "description": "Account User Profile List Response",
@@ -386,7 +393,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AccountUserProfilesListResponse"
     },
     "AccountsListResponse": {
       "description": "Account List Response",
@@ -408,7 +416,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AccountsListResponse"
     },
     "Activities": {
       "description": "Represents an activity group.",
@@ -433,7 +442,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Activities"
     },
     "Ad": {
       "description": "Contains properties of a DCM ad.",
@@ -627,7 +637,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Ad"
     },
     "AdSlot": {
       "description": "Ad Slot",
@@ -679,7 +690,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AdSlot"
     },
     "AdsListResponse": {
       "description": "Ad List Response",
@@ -701,7 +713,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AdsListResponse"
     },
     "Advertiser": {
       "description": "Contains properties of a DCM advertiser.",
@@ -779,7 +792,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Advertiser"
     },
     "AdvertiserGroup": {
       "description": "Groups advertisers together so that reports can be generated for the entire group at once.",
@@ -804,7 +818,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AdvertiserGroup"
     },
     "AdvertiserGroupsListResponse": {
       "description": "Advertiser Group List Response",
@@ -826,7 +841,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AdvertiserGroupsListResponse"
     },
     "AdvertisersListResponse": {
       "description": "Advertiser List Response",
@@ -848,7 +864,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AdvertisersListResponse"
     },
     "AudienceSegment": {
       "description": "Audience Segment.",
@@ -868,7 +885,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AudienceSegment"
     },
     "AudienceSegmentGroup": {
       "description": "Audience Segment Group.",
@@ -890,7 +908,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AudienceSegmentGroup"
     },
     "Browser": {
       "description": "Contains information about a browser that can be targeted by ads.",
@@ -923,7 +942,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Browser"
     },
     "BrowsersListResponse": {
       "description": "Browser List Response",
@@ -941,7 +961,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BrowsersListResponse"
     },
     "Campaign": {
       "description": "Contains properties of a DCM campaign.",
@@ -1079,7 +1100,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Campaign"
     },
     "CampaignCreativeAssociation": {
       "description": "Identifies a creative which has been associated with a given campaign.",
@@ -1095,7 +1117,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CampaignCreativeAssociation"
     },
     "CampaignCreativeAssociationsListResponse": {
       "description": "Campaign Creative Association List Response",
@@ -1117,7 +1140,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CampaignCreativeAssociationsListResponse"
     },
     "CampaignsListResponse": {
       "description": "Campaign List Response",
@@ -1139,7 +1163,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CampaignsListResponse"
     },
     "ChangeLog": {
       "description": "Describes a change that a user has made to a resource.",
@@ -1209,7 +1234,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ChangeLog"
     },
     "ChangeLogsListResponse": {
       "description": "Change Log List Response",
@@ -1231,7 +1257,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ChangeLogsListResponse"
     },
     "CitiesListResponse": {
       "description": "City List Response",
@@ -1249,7 +1276,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CitiesListResponse"
     },
     "City": {
       "description": "Contains information about a city that can be targeted by ads.",
@@ -1296,7 +1324,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "City"
     },
     "ClickTag": {
       "description": "Creative Click Tag.",
@@ -1314,7 +1343,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ClickTag"
     },
     "ClickThroughUrl": {
       "description": "Click-through URL",
@@ -1337,7 +1367,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ClickThroughUrl"
     },
     "ClickThroughUrlSuffixProperties": {
       "description": "Click Through URL Suffix settings.",
@@ -1351,7 +1382,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ClickThroughUrlSuffixProperties"
     },
     "CompanionClickThroughOverride": {
       "description": "Companion Click-through override.",
@@ -1366,7 +1398,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CompanionClickThroughOverride"
     },
     "CompanionSetting": {
       "description": "Companion Settings",
@@ -1392,7 +1425,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CompanionSetting"
     },
     "CompatibleFields": {
       "description": "Represents a response to the queryCompatibleFields method.",
@@ -1423,7 +1457,8 @@
           "description": "Contains items that are compatible to be selected for a report of type \"STANDARD\"."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CompatibleFields"
     },
     "ConnectionType": {
       "description": "Contains information about an internet connection type that can be targeted by ads. Clients can use the connection type to target mobile vs. broadband users.",
@@ -1443,7 +1478,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ConnectionType"
     },
     "ConnectionTypesListResponse": {
       "description": "Connection Type List Response",
@@ -1461,7 +1497,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ConnectionTypesListResponse"
     },
     "ContentCategoriesListResponse": {
       "description": "Content Category List Response",
@@ -1483,7 +1520,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ContentCategoriesListResponse"
     },
     "ContentCategory": {
       "description": "Organizes placements according to the contents of their associated webpages.",
@@ -1508,7 +1546,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ContentCategory"
     },
     "Conversion": {
       "description": "A Conversion represents when a user successfully performs a desired action after seeing an ad.",
@@ -1578,7 +1617,8 @@
           "type": "number"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Conversion"
     },
     "ConversionError": {
       "description": "The error code and description for a conversion that failed to insert or update.",
@@ -1603,7 +1643,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ConversionError"
     },
     "ConversionStatus": {
       "description": "The original conversion that was inserted or updated and whether there were any errors.",
@@ -1625,7 +1666,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ConversionStatus"
     },
     "ConversionsBatchInsertRequest": {
       "description": "Insert Conversions Request.",
@@ -1647,7 +1689,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ConversionsBatchInsertRequest"
     },
     "ConversionsBatchInsertResponse": {
       "description": "Insert Conversions Response.",
@@ -1669,7 +1712,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ConversionsBatchInsertResponse"
     },
     "CountriesListResponse": {
       "description": "Country List Response",
@@ -1687,7 +1731,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CountriesListResponse"
     },
     "Country": {
       "description": "Contains information about a country that can be targeted by ads.",
@@ -1715,7 +1760,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Country"
     },
     "Creative": {
       "description": "Contains properties of a Creative.",
@@ -2136,7 +2182,8 @@
           "type": "number"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Creative"
     },
     "CreativeAsset": {
       "description": "Creative Asset.",
@@ -2466,7 +2513,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreativeAsset"
     },
     "CreativeAssetId": {
       "description": "Creative Asset ID.",
@@ -2487,7 +2535,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreativeAssetId"
     },
     "CreativeAssetMetadata": {
       "description": "CreativeAssets contains properties of a creative asset file which will be uploaded or has already been uploaded. Refer to the creative sample code for how to upload assets and insert a creative.",
@@ -2626,7 +2675,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreativeAssetMetadata"
     },
     "CreativeAssetSelection": {
       "description": "Encapsulates the list of rules for asset selection and a default asset in case none of the rules match. Applicable to INSTREAM_VIDEO creatives.",
@@ -2644,7 +2694,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreativeAssetSelection"
     },
     "CreativeAssignment": {
       "description": "Creative Assignment.",
@@ -2716,7 +2767,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreativeAssignment"
     },
     "CreativeCustomEvent": {
       "description": "Creative Custom Event.",
@@ -2782,7 +2834,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreativeCustomEvent"
     },
     "CreativeField": {
       "description": "Contains properties of a creative field.",
@@ -2821,7 +2874,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreativeField"
     },
     "CreativeFieldAssignment": {
       "description": "Creative Field Assignment.",
@@ -2837,7 +2891,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreativeFieldAssignment"
     },
     "CreativeFieldValue": {
       "description": "Contains properties of a creative field value.",
@@ -2857,7 +2912,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreativeFieldValue"
     },
     "CreativeFieldValuesListResponse": {
       "description": "Creative Field Value List Response",
@@ -2879,7 +2935,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreativeFieldValuesListResponse"
     },
     "CreativeFieldsListResponse": {
       "description": "Creative Field List Response",
@@ -2901,7 +2958,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreativeFieldsListResponse"
     },
     "CreativeGroup": {
       "description": "Contains properties of a creative group.",
@@ -2945,7 +3003,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreativeGroup"
     },
     "CreativeGroupAssignment": {
       "description": "Creative Group Assignment.",
@@ -2964,7 +3023,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreativeGroupAssignment"
     },
     "CreativeGroupsListResponse": {
       "description": "Creative Group List Response",
@@ -2986,7 +3046,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreativeGroupsListResponse"
     },
     "CreativeOptimizationConfiguration": {
       "description": "Creative optimization settings.",
@@ -3019,7 +3080,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreativeOptimizationConfiguration"
     },
     "CreativeRotation": {
       "description": "Creative Rotation.",
@@ -3055,7 +3117,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreativeRotation"
     },
     "CreativeSettings": {
       "description": "Creative Settings",
@@ -3069,7 +3132,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreativeSettings"
     },
     "CreativesListResponse": {
       "description": "Creative List Response",
@@ -3091,7 +3155,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreativesListResponse"
     },
     "CrossDimensionReachReportCompatibleFields": {
       "description": "Represents fields that are compatible to be selected for a report of type \"CROSS_DIMENSION_REACH\".",
@@ -3130,7 +3195,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CrossDimensionReachReportCompatibleFields"
     },
     "CustomFloodlightVariable": {
       "description": "A custom floodlight variable.",
@@ -3251,7 +3317,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CustomFloodlightVariable"
     },
     "CustomRichMediaEvents": {
       "description": "Represents a Custom Rich Media Events group.",
@@ -3269,7 +3336,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CustomRichMediaEvents"
     },
     "DateRange": {
       "description": "Represents a date range.",
@@ -3311,7 +3379,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DateRange"
     },
     "DayPartTargeting": {
       "description": "Day Part Targeting.",
@@ -3345,7 +3414,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DayPartTargeting"
     },
     "DefaultClickThroughEventTagProperties": {
       "description": "Properties of inheriting and overriding the default click-through event tag. A campaign may override the event tag defined at the advertiser level, and an ad may also override the campaign's setting further.",
@@ -3360,7 +3430,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DefaultClickThroughEventTagProperties"
     },
     "DeliverySchedule": {
       "description": "Delivery Schedule.",
@@ -3401,7 +3472,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DeliverySchedule"
     },
     "DfpSettings": {
       "description": "DFP Settings",
@@ -3427,7 +3499,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DfpSettings"
     },
     "Dimension": {
       "description": "Represents a dimension.",
@@ -3442,7 +3515,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Dimension"
     },
     "DimensionFilter": {
       "description": "Represents a dimension filter.",
@@ -3461,7 +3535,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DimensionFilter"
     },
     "DimensionValue": {
       "description": "Represents a DimensionValue resource.",
@@ -3498,7 +3573,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DimensionValue"
     },
     "DimensionValueList": {
       "description": "Represents the list of DimensionValue resources.",
@@ -3524,7 +3600,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DimensionValueList"
     },
     "DimensionValueRequest": {
       "description": "Represents a DimensionValuesRequest.",
@@ -3556,7 +3633,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DimensionValueRequest"
     },
     "DirectorySite": {
       "description": "DirectorySites contains properties of a website from the Site Directory. Sites need to be added to an account via the Sites resource before they can be assigned to a placement.",
@@ -3643,7 +3721,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DirectorySite"
     },
     "DirectorySiteContact": {
       "description": "Contains properties of a Site Directory contact.",
@@ -3702,7 +3781,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DirectorySiteContact"
     },
     "DirectorySiteContactAssignment": {
       "description": "Directory Site Contact Assignment",
@@ -3721,7 +3801,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DirectorySiteContactAssignment"
     },
     "DirectorySiteContactsListResponse": {
       "description": "Directory Site Contact List Response",
@@ -3743,7 +3824,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DirectorySiteContactsListResponse"
     },
     "DirectorySiteSettings": {
       "description": "Directory Site Settings",
@@ -3777,7 +3859,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DirectorySiteSettings"
     },
     "DirectorySitesListResponse": {
       "description": "Directory Site List Response",
@@ -3799,7 +3882,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DirectorySitesListResponse"
     },
     "DynamicTargetingKey": {
       "description": "Contains properties of a dynamic targeting key. Dynamic targeting keys are unique, user-friendly labels, created at the advertiser level in DCM, that can be assigned to ads, creatives, and placements and used for targeting with DoubleClick Studio dynamic creatives. Use these labels instead of numeric DCM IDs (such as placement IDs) to save time and avoid errors in your dynamic feeds.",
@@ -3829,7 +3913,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DynamicTargetingKey"
     },
     "DynamicTargetingKeysListResponse": {
       "description": "Dynamic Targeting Key List Response",
@@ -3847,7 +3932,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DynamicTargetingKeysListResponse"
     },
     "EncryptionInfo": {
       "description": "A description of how user IDs are encrypted.",
@@ -3884,7 +3970,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "EncryptionInfo"
     },
     "EventTag": {
       "description": "Contains properties of an event tag.",
@@ -3986,7 +4073,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "EventTag"
     },
     "EventTagOverride": {
       "description": "Event tag override information.",
@@ -4001,7 +4089,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "EventTagOverride"
     },
     "EventTagsListResponse": {
       "description": "Event Tag List Response",
@@ -4019,7 +4108,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "EventTagsListResponse"
     },
     "File": {
       "description": "Represents a File resource. A file contains the metadata for a report run. It shows the status of the run and holds the URLs to the generated report data if the run is finished and the status is \"REPORT_AVAILABLE\".",
@@ -4089,7 +4179,8 @@
           "type": "object"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "File"
     },
     "FileList": {
       "description": "Represents the list of File resources.",
@@ -4115,7 +4206,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "FileList"
     },
     "Flight": {
       "description": "Flight",
@@ -4141,7 +4233,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Flight"
     },
     "FloodlightActivitiesGenerateTagResponse": {
       "description": "Floodlight Activity GenerateTag Response",
@@ -4156,7 +4249,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "FloodlightActivitiesGenerateTagResponse"
     },
     "FloodlightActivitiesListResponse": {
       "description": "Floodlight Activity List Response",
@@ -4178,7 +4272,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "FloodlightActivitiesListResponse"
     },
     "FloodlightActivity": {
       "description": "Contains properties of a Floodlight activity.",
@@ -4436,7 +4531,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "FloodlightActivity"
     },
     "FloodlightActivityDynamicTag": {
       "description": "Dynamic Tag",
@@ -4455,7 +4551,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "FloodlightActivityDynamicTag"
     },
     "FloodlightActivityGroup": {
       "description": "Contains properties of a Floodlight activity group.",
@@ -4519,7 +4616,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "FloodlightActivityGroup"
     },
     "FloodlightActivityGroupsListResponse": {
       "description": "Floodlight Activity Group List Response",
@@ -4541,7 +4639,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "FloodlightActivityGroupsListResponse"
     },
     "FloodlightActivityPublisherDynamicTag": {
       "description": "Publisher Dynamic Tag",
@@ -4573,7 +4672,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "FloodlightActivityPublisherDynamicTag"
     },
     "FloodlightConfiguration": {
       "description": "Contains properties of a Floodlight configuration.",
@@ -4680,7 +4780,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "FloodlightConfiguration"
     },
     "FloodlightConfigurationsListResponse": {
       "description": "Floodlight Configuration List Response",
@@ -4698,7 +4799,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "FloodlightConfigurationsListResponse"
     },
     "FloodlightReportCompatibleFields": {
       "description": "Represents fields that are compatible to be selected for a report of type \"FlOODLIGHT\".",
@@ -4730,7 +4832,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "FloodlightReportCompatibleFields"
     },
     "FrequencyCap": {
       "description": "Frequency Cap.",
@@ -4746,7 +4849,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "FrequencyCap"
     },
     "FsCommand": {
       "description": "FsCommand.",
@@ -4780,7 +4884,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "FsCommand"
     },
     "GeoTargeting": {
       "description": "Geographical Targeting.",
@@ -4825,7 +4930,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GeoTargeting"
     },
     "InventoryItem": {
       "description": "Represents a buy from the DoubleClick Planning inventory store.",
@@ -4932,7 +5038,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InventoryItem"
     },
     "InventoryItemsListResponse": {
       "description": "Inventory item List Response",
@@ -4954,7 +5061,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InventoryItemsListResponse"
     },
     "KeyValueTargetingExpression": {
       "description": "Key Value Targeting Expression.",
@@ -4964,7 +5072,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "KeyValueTargetingExpression"
     },
     "LandingPage": {
       "description": "Contains information about where a user's browser is taken after the user clicks an ad.",
@@ -4992,7 +5101,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LandingPage"
     },
     "LandingPagesListResponse": {
       "description": "Landing Page List Response",
@@ -5010,7 +5120,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LandingPagesListResponse"
     },
     "Language": {
       "description": "Contains information about a language that can be targeted by ads.",
@@ -5034,7 +5145,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Language"
     },
     "LanguageTargeting": {
       "description": "Language Targeting.",
@@ -5047,7 +5159,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LanguageTargeting"
     },
     "LanguagesListResponse": {
       "description": "Language List Response",
@@ -5065,7 +5178,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LanguagesListResponse"
     },
     "LastModifiedInfo": {
       "description": "Modification timestamp.",
@@ -5076,7 +5190,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LastModifiedInfo"
     },
     "ListPopulationClause": {
       "description": "A group clause made up of list population terms representing constraints joined by ORs.",
@@ -5089,7 +5204,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListPopulationClause"
     },
     "ListPopulationRule": {
       "description": "Remarketing List Population Rule.",
@@ -5111,7 +5227,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListPopulationRule"
     },
     "ListPopulationTerm": {
       "description": "Remarketing List Population Rule Term.",
@@ -5164,7 +5281,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListPopulationTerm"
     },
     "ListTargetingExpression": {
       "description": "Remarketing List Targeting Expression.",
@@ -5174,7 +5292,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListTargetingExpression"
     },
     "LookbackConfiguration": {
       "description": "Lookback configuration settings.",
@@ -5190,7 +5309,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LookbackConfiguration"
     },
     "Metric": {
       "description": "Represents a metric.",
@@ -5205,7 +5325,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Metric"
     },
     "Metro": {
       "description": "Contains information about a metro region that can be targeted by ads.",
@@ -5243,7 +5364,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Metro"
     },
     "MetrosListResponse": {
       "description": "Metro List Response",
@@ -5261,7 +5383,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "MetrosListResponse"
     },
     "MobileCarrier": {
       "description": "Contains information about a mobile carrier that can be targeted by ads.",
@@ -5290,7 +5413,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "MobileCarrier"
     },
     "MobileCarriersListResponse": {
       "description": "Mobile Carrier List Response",
@@ -5308,7 +5432,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "MobileCarriersListResponse"
     },
     "ObjectFilter": {
       "description": "Object Filter.",
@@ -5336,7 +5461,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ObjectFilter"
     },
     "OffsetPosition": {
       "description": "Offset Position.",
@@ -5352,7 +5478,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "OffsetPosition"
     },
     "OmnitureSettings": {
       "description": "Omniture Integration Settings.",
@@ -5366,7 +5493,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "OmnitureSettings"
     },
     "OperatingSystem": {
       "description": "Contains information about an operating system that can be targeted by ads.",
@@ -5394,7 +5522,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "OperatingSystem"
     },
     "OperatingSystemVersion": {
       "description": "Contains information about a particular version of an operating system that can be targeted by ads.",
@@ -5426,7 +5555,8 @@
           "description": "Operating system of this operating system version."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "OperatingSystemVersion"
     },
     "OperatingSystemVersionsListResponse": {
       "description": "Operating System Version List Response",
@@ -5444,7 +5574,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "OperatingSystemVersionsListResponse"
     },
     "OperatingSystemsListResponse": {
       "description": "Operating System List Response",
@@ -5462,7 +5593,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "OperatingSystemsListResponse"
     },
     "OptimizationActivity": {
       "description": "Creative optimization activity.",
@@ -5482,7 +5614,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "OptimizationActivity"
     },
     "Order": {
       "description": "Describes properties of a DoubleClick Planning order.",
@@ -5589,7 +5722,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Order"
     },
     "OrderContact": {
       "description": "Contact of an order.",
@@ -5621,7 +5755,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "OrderContact"
     },
     "OrderDocument": {
       "description": "Contains properties of a DoubleClick Planning order document.",
@@ -5716,7 +5851,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "OrderDocument"
     },
     "OrderDocumentsListResponse": {
       "description": "Order document List Response",
@@ -5738,7 +5874,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "OrderDocumentsListResponse"
     },
     "OrdersListResponse": {
       "description": "Order List Response",
@@ -5760,7 +5897,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "OrdersListResponse"
     },
     "PathToConversionReportCompatibleFields": {
       "description": "Represents fields that are compatible to be selected for a report of type \"PATH_TO_CONVERSION\".",
@@ -5799,7 +5937,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PathToConversionReportCompatibleFields"
     },
     "Placement": {
       "description": "Contains properties of a placement.",
@@ -6020,7 +6159,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Placement"
     },
     "PlacementAssignment": {
       "description": "Placement Assignment.",
@@ -6043,7 +6183,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PlacementAssignment"
     },
     "PlacementGroup": {
       "description": "Contains properties of a package or roadblock.",
@@ -6172,7 +6313,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PlacementGroup"
     },
     "PlacementGroupsListResponse": {
       "description": "Placement Group List Response",
@@ -6194,7 +6336,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PlacementGroupsListResponse"
     },
     "PlacementStrategiesListResponse": {
       "description": "Placement Strategy List Response",
@@ -6216,7 +6359,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PlacementStrategiesListResponse"
     },
     "PlacementStrategy": {
       "description": "Contains properties of a placement strategy.",
@@ -6241,7 +6385,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PlacementStrategy"
     },
     "PlacementTag": {
       "description": "Placement Tag",
@@ -6259,7 +6404,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PlacementTag"
     },
     "PlacementsGenerateTagsResponse": {
       "description": "Placement GenerateTags Response",
@@ -6277,7 +6423,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PlacementsGenerateTagsResponse"
     },
     "PlacementsListResponse": {
       "description": "Placement List Response",
@@ -6299,7 +6446,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PlacementsListResponse"
     },
     "PlatformType": {
       "description": "Contains information about a platform type that can be targeted by ads.",
@@ -6319,7 +6467,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PlatformType"
     },
     "PlatformTypesListResponse": {
       "description": "Platform Type List Response",
@@ -6337,7 +6486,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PlatformTypesListResponse"
     },
     "PopupWindowProperties": {
       "description": "Popup Window Properties.",
@@ -6383,7 +6533,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PopupWindowProperties"
     },
     "PostalCode": {
       "description": "Contains information about a postal code that can be targeted by ads.",
@@ -6411,7 +6562,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PostalCode"
     },
     "PostalCodesListResponse": {
       "description": "Postal Code List Response",
@@ -6429,7 +6581,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PostalCodesListResponse"
     },
     "Pricing": {
       "description": "Pricing Information",
@@ -6483,7 +6636,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Pricing"
     },
     "PricingSchedule": {
       "description": "Pricing Schedule",
@@ -6545,7 +6699,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PricingSchedule"
     },
     "PricingSchedulePricingPeriod": {
       "description": "Pricing Period",
@@ -6575,7 +6730,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PricingSchedulePricingPeriod"
     },
     "Project": {
       "description": "Contains properties of a DoubleClick Planning project.",
@@ -6697,7 +6853,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Project"
     },
     "ProjectsListResponse": {
       "description": "Project List Response",
@@ -6719,7 +6876,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ProjectsListResponse"
     },
     "ReachReportCompatibleFields": {
       "description": "Represents fields that are compatible to be selected for a report of type \"REACH\".",
@@ -6765,7 +6923,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ReachReportCompatibleFields"
     },
     "Recipient": {
       "description": "Represents a recipient.",
@@ -6788,7 +6947,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Recipient"
     },
     "Region": {
       "description": "Contains information about a region that can be targeted by ads.",
@@ -6821,7 +6981,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Region"
     },
     "RegionsListResponse": {
       "description": "Region List Response",
@@ -6839,7 +7000,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RegionsListResponse"
     },
     "RemarketingList": {
       "description": "Contains properties of a remarketing list. Remarketing enables you to create lists of users who have performed specific actions on a site, then target ads to members of those lists. This resource can be used to manage remarketing lists that are owned by your advertisers. To see all remarketing lists that are visible to your advertisers, including those that are shared to your advertiser or account, use the TargetableRemarketingLists resource.",
@@ -6917,7 +7079,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RemarketingList"
     },
     "RemarketingListShare": {
       "description": "Contains properties of a remarketing list's sharing information. Sharing allows other accounts or advertisers to target to your remarketing lists. This resource can be used to manage remarketing list sharing to other accounts and advertisers.",
@@ -6949,7 +7112,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RemarketingListShare"
     },
     "RemarketingListsListResponse": {
       "description": "Remarketing list response",
@@ -6971,7 +7135,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RemarketingListsListResponse"
     },
     "Report": {
       "description": "Represents a Report resource.",
@@ -7424,7 +7589,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Report"
     },
     "ReportCompatibleFields": {
       "description": "Represents fields that are compatible to be selected for a report of type \"STANDARD\".",
@@ -7463,7 +7629,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ReportCompatibleFields"
     },
     "ReportList": {
       "description": "Represents the list of reports.",
@@ -7489,7 +7656,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ReportList"
     },
     "ReportsConfiguration": {
       "description": "Reporting Configuration",
@@ -7508,7 +7676,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ReportsConfiguration"
     },
     "RichMediaExitOverride": {
       "description": "Rich Media Exit Override.",
@@ -7527,7 +7696,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RichMediaExitOverride"
     },
     "Rule": {
       "description": "A rule associates an asset with a targeting template for asset-level targeting. Applicable to INSTREAM_VIDEO creatives.",
@@ -7547,7 +7717,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Rule"
     },
     "Site": {
       "description": "Contains properties of a site.",
@@ -7609,7 +7780,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Site"
     },
     "SiteContact": {
       "description": "Site Contact",
@@ -7652,7 +7824,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SiteContact"
     },
     "SiteSettings": {
       "description": "Site Settings",
@@ -7696,7 +7869,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SiteSettings"
     },
     "SitesListResponse": {
       "description": "Site List Response",
@@ -7718,7 +7892,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SitesListResponse"
     },
     "Size": {
       "description": "Represents the dimensions of ads, placements, creatives, or creative assets.",
@@ -7748,7 +7923,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Size"
     },
     "SizesListResponse": {
       "description": "Size List Response",
@@ -7766,7 +7942,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SizesListResponse"
     },
     "SkippableSetting": {
       "description": "Skippable Settings",
@@ -7789,7 +7966,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SkippableSetting"
     },
     "SortedDimension": {
       "description": "Represents a sorted dimension.",
@@ -7812,7 +7990,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SortedDimension"
     },
     "Subaccount": {
       "description": "Contains properties of a DCM subaccount.",
@@ -7845,7 +8024,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Subaccount"
     },
     "SubaccountsListResponse": {
       "description": "Subaccount List Response",
@@ -7867,7 +8047,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SubaccountsListResponse"
     },
     "TagData": {
       "description": "Placement Tag Data",
@@ -7915,7 +8096,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TagData"
     },
     "TagSetting": {
       "description": "Tag Settings",
@@ -7942,7 +8124,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TagSetting"
     },
     "TagSettings": {
       "description": "Dynamic and Image Tag Settings.",
@@ -7956,7 +8139,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TagSettings"
     },
     "TargetWindow": {
       "description": "Target Window.",
@@ -7975,7 +8159,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TargetWindow"
     },
     "TargetableRemarketingList": {
       "description": "Contains properties of a targetable remarketing list. Remarketing enables you to create lists of users who have performed specific actions on a site, then target ads to members of those lists. This resource is a read-only view of a remarketing list to be used to faciliate targeting ads to specific lists. Remarketing lists that are owned by your advertisers and those that are shared to your advertisers or account are accessible via this resource. To manage remarketing lists that are owned by your advertisers, use the RemarketingLists resource.",
@@ -8049,7 +8234,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TargetableRemarketingList"
     },
     "TargetableRemarketingListsListResponse": {
       "description": "Targetable remarketing list response",
@@ -8071,7 +8257,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TargetableRemarketingListsListResponse"
     },
     "TargetingTemplate": {
       "description": "Contains properties of a targeting template. A targeting template encapsulates targeting information which can be reused across multiple ads.",
@@ -8134,7 +8321,8 @@
           "description": "Technology platform targeting criteria."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TargetingTemplate"
     },
     "TargetingTemplatesListResponse": {
       "description": "Targeting Template List Response",
@@ -8156,7 +8344,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TargetingTemplatesListResponse"
     },
     "TechnologyTargeting": {
       "description": "Technology Targeting.",
@@ -8204,7 +8393,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TechnologyTargeting"
     },
     "ThirdPartyAuthenticationToken": {
       "description": "Third Party Authentication Token",
@@ -8218,7 +8408,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ThirdPartyAuthenticationToken"
     },
     "ThirdPartyTrackingUrl": {
       "description": "Third-party Tracking URL.",
@@ -8253,7 +8444,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ThirdPartyTrackingUrl"
     },
     "TranscodeSetting": {
       "description": "Transcode Settings",
@@ -8272,7 +8464,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TranscodeSetting"
     },
     "UserDefinedVariableConfiguration": {
       "description": "User Defined Variable configuration.",
@@ -8396,7 +8589,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UserDefinedVariableConfiguration"
     },
     "UserProfile": {
       "description": "Represents a UserProfile resource.",
@@ -8438,7 +8632,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UserProfile"
     },
     "UserProfileList": {
       "description": "Represents the list of user profiles.",
@@ -8460,7 +8655,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UserProfileList"
     },
     "UserRole": {
       "description": "Contains properties of auser role, which is used to manage user access.",
@@ -8506,7 +8702,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UserRole"
     },
     "UserRolePermission": {
       "description": "Contains properties of a user role permission.",
@@ -8542,7 +8739,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UserRolePermission"
     },
     "UserRolePermissionGroup": {
       "description": "Represents a grouping of related user role permissions.",
@@ -8562,7 +8760,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UserRolePermissionGroup"
     },
     "UserRolePermissionGroupsListResponse": {
       "description": "User Role Permission Group List Response",
@@ -8580,7 +8779,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UserRolePermissionGroupsListResponse"
     },
     "UserRolePermissionsListResponse": {
       "description": "User Role Permission List Response",
@@ -8598,7 +8798,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UserRolePermissionsListResponse"
     },
     "UserRolesListResponse": {
       "description": "User Role List Response",
@@ -8620,7 +8821,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UserRolesListResponse"
     },
     "VideoFormat": {
       "description": "Contains information about supported video formats.",
@@ -8656,7 +8858,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "VideoFormat"
     },
     "VideoFormatsListResponse": {
       "description": "Video Format List Response",
@@ -8674,7 +8877,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "VideoFormatsListResponse"
     },
     "VideoOffset": {
       "description": "Video Offset",
@@ -8690,7 +8894,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "VideoOffset"
     },
     "VideoSettings": {
       "description": "Video Settings",
@@ -8713,7 +8918,8 @@
           "description": "Settings for the transcodes of video creatives served to this placement. If this object is provided, the creative-level transcode settings will be overridden."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "VideoSettings"
     }
   },
   "actions": [

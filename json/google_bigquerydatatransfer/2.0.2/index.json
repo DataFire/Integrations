@@ -32,7 +32,8 @@
     "CheckValidCredsRequest": {
       "description": "A request to determine whether the user has valid credentials. This method\nis used to limit the number of OAuth popups in the user interface. The\nuser id is inferred from the API call context.\nIf the data source has the Google+ authorization type, this method\nreturns false, as it cannot be determined whether the credentials are\nalready valid merely based on the user id.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "CheckValidCredsRequest"
     },
     "CheckValidCredsResponse": {
       "description": "A response indicating whether the credentials exist and are valid.",
@@ -42,7 +43,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CheckValidCredsResponse"
     },
     "DataSource": {
       "description": "Represents data source metadata. Metadata is sufficient to\nrender UI and request proper OAuth tokens.",
@@ -139,7 +141,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DataSource"
     },
     "DataSourceParameter": {
       "description": "Represents a data source parameter with validation rules, so that\nparameters can be rendered in the UI. These parameters are given to us by\nsupported data sources, and include all needed information for rendering\nand validation.\nThus, whoever uses this api can decide to generate either generic ui,\nor custom data source specific forms.",
@@ -222,17 +225,20 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DataSourceParameter"
     },
     "Empty": {
       "description": "A generic empty message that you can re-use to avoid defining duplicated\nempty messages in your APIs. A typical example is to use it as the request\nor the response type of an API method. For instance:\n\n    service Foo {\n      rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);\n    }\n\nThe JSON representation for `Empty` is empty JSON object `{}`.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "Empty"
     },
     "IsEnabledRequest": {
       "description": "A request to determine whether data transfer is enabled for the project.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "IsEnabledRequest"
     },
     "IsEnabledResponse": {
       "description": "A response to indicate whether data transfer is enabled for the project.",
@@ -242,7 +248,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "IsEnabledResponse"
     },
     "ListDataSourcesResponse": {
       "description": "Returns list of supported data sources and their metadata.",
@@ -259,7 +266,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListDataSourcesResponse"
     },
     "ListTransferConfigsResponse": {
       "description": "The returned list of pipelines in the project.",
@@ -276,7 +284,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListTransferConfigsResponse"
     },
     "ListTransferLogsResponse": {
       "description": "The returned list transfer run messages.",
@@ -293,7 +302,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListTransferLogsResponse"
     },
     "ListTransferRunsResponse": {
       "description": "The returned list of pipelines in the project.",
@@ -310,7 +320,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListTransferRunsResponse"
     },
     "ScheduleTransferRunsRequest": {
       "description": "A request to schedule transfer runs for a time range.",
@@ -326,7 +337,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ScheduleTransferRunsRequest"
     },
     "ScheduleTransferRunsResponse": {
       "description": "A response to schedule transfer runs for a time range.",
@@ -339,7 +351,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ScheduleTransferRunsResponse"
     },
     "SetEnabledRequest": {
       "description": "A request to set whether data transfer is enabled or disabled for a project.",
@@ -349,7 +362,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SetEnabledRequest"
     },
     "TransferConfig": {
       "description": "Represents a data transfer configuration. A transfer configuration\ncontains all metadata needed to perform a data transfer. For example,\n`destination_dataset_id` specifies where data should be stored.\nWhen a new transfer configuration is created, the specified\n`destination_dataset_id` is created when needed and shared with the\nappropriate data source service account.",
@@ -414,7 +428,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TransferConfig"
     },
     "TransferMessage": {
       "description": "Represents a user facing message for a particular data transfer run.",
@@ -439,7 +454,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TransferMessage"
     },
     "TransferRun": {
       "description": "Represents a data transfer run.",
@@ -506,7 +522,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TransferRun"
     }
   },
   "actions": [

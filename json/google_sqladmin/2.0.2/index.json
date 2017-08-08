@@ -52,7 +52,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AclEntry"
     },
     "BackupConfiguration": {
       "description": "Database instance backup configuration.",
@@ -75,7 +76,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BackupConfiguration"
     },
     "BackupRun": {
       "description": "A database instance backup run resource.",
@@ -135,7 +137,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BackupRun"
     },
     "BackupRunsListResponse": {
       "description": "Backup run list results.",
@@ -157,7 +160,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BackupRunsListResponse"
     },
     "BinLogCoordinates": {
       "description": "Binary log coordinates.",
@@ -177,7 +181,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BinLogCoordinates"
     },
     "CloneContext": {
       "description": "Database instance clone context.",
@@ -196,7 +201,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CloneContext"
     },
     "Database": {
       "description": "A database resource inside a Cloud SQL instance.",
@@ -235,7 +241,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Database"
     },
     "DatabaseFlags": {
       "description": "MySQL flags for Cloud SQL instances.",
@@ -249,7 +256,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DatabaseFlags"
     },
     "DatabaseInstance": {
       "description": "A Cloud SQL instance resource.",
@@ -373,7 +381,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DatabaseInstance"
     },
     "DatabasesListResponse": {
       "description": "Database list response.",
@@ -391,7 +400,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DatabasesListResponse"
     },
     "ExportContext": {
       "description": "Database instance export context.",
@@ -444,7 +454,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ExportContext"
     },
     "FailoverContext": {
       "description": "Database instance failover context.",
@@ -460,7 +471,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "FailoverContext"
     },
     "Flag": {
       "description": "A Google Cloud SQL service flag resource.",
@@ -507,7 +519,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Flag"
     },
     "FlagsListResponse": {
       "description": "Flags list response.",
@@ -525,7 +538,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "FlagsListResponse"
     },
     "ImportContext": {
       "description": "Database instance import context.",
@@ -565,7 +579,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ImportContext"
     },
     "InstancesCloneRequest": {
       "description": "Database instance clone request.",
@@ -575,7 +590,8 @@
           "description": "Contains details about the clone operation."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InstancesCloneRequest"
     },
     "InstancesExportRequest": {
       "description": "Database instance export request.",
@@ -585,7 +601,8 @@
           "description": "Contains details about the export operation."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InstancesExportRequest"
     },
     "InstancesFailoverRequest": {
       "description": "Instance failover request.",
@@ -595,7 +612,8 @@
           "description": "Failover Context."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InstancesFailoverRequest"
     },
     "InstancesImportRequest": {
       "description": "Database instance import request.",
@@ -605,7 +623,8 @@
           "description": "Contains details about the import operation."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InstancesImportRequest"
     },
     "InstancesListResponse": {
       "description": "Database instances list response.",
@@ -627,7 +646,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InstancesListResponse"
     },
     "InstancesRestoreBackupRequest": {
       "description": "Database instance restore backup request.",
@@ -637,7 +657,8 @@
           "description": "Parameters required to perform the restore backup operation."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InstancesRestoreBackupRequest"
     },
     "InstancesTruncateLogRequest": {
       "description": "Instance truncate log request.",
@@ -647,7 +668,8 @@
           "description": "Contains details about the truncate log operation."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InstancesTruncateLogRequest"
     },
     "IpConfiguration": {
       "description": "IP Management configuration.",
@@ -668,7 +690,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "IpConfiguration"
     },
     "IpMapping": {
       "description": "Database instance IP Mapping.",
@@ -687,7 +710,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "IpMapping"
     },
     "Labels": {
       "description": "User defined labels for Cloud SQL instances.",
@@ -701,7 +725,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Labels"
     },
     "LocationPreference": {
       "description": "Preferred location. This specifies where a Cloud SQL instance should preferably be located, either in a specific Compute Engine zone, or co-located with an App Engine application. Note that if the preferred location is not available, the instance will be located as close as possible within the region. Only one location may be specified.",
@@ -720,7 +745,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LocationPreference"
     },
     "MaintenanceWindow": {
       "description": "Maintenance window. This specifies when a v2 Cloud SQL instance should preferably be restarted for system maintenance puruposes.",
@@ -744,7 +770,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "MaintenanceWindow"
     },
     "MySqlReplicaConfiguration": {
       "description": "Read-replica configuration specific to MySQL databases.",
@@ -797,7 +824,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "MySqlReplicaConfiguration"
     },
     "OnPremisesConfiguration": {
       "description": "On-premises instance configuration.",
@@ -812,7 +840,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "OnPremisesConfiguration"
     },
     "Operation": {
       "description": "An Operations resource contains information about database instance operations such as create, delete, and restart. Operations resources are created in response to operations that were initiated; you never create them directly.",
@@ -882,7 +911,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Operation"
     },
     "OperationError": {
       "description": "Database instance operation error.",
@@ -901,7 +931,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "OperationError"
     },
     "OperationErrors": {
       "description": "Database instance operation errors list wrapper.",
@@ -919,7 +950,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "OperationErrors"
     },
     "OperationsListResponse": {
       "description": "Database instance list operations response.",
@@ -941,7 +973,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "OperationsListResponse"
     },
     "ReplicaConfiguration": {
       "description": "Read-replica configuration for connecting to the master.",
@@ -960,7 +993,8 @@
           "description": "MySQL specific configuration when replicating from a MySQL on-premises master. Replication configuration information such as the username, password, certificates, and keys are not stored in the instance metadata. The configuration information is used only to set up the replication connection and is stored by MySQL in a file named master.info in the data directory."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ReplicaConfiguration"
     },
     "RestoreBackupContext": {
       "description": "Database instance restore from backup context.",
@@ -980,7 +1014,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RestoreBackupContext"
     },
     "Settings": {
       "description": "Database instance settings.",
@@ -1079,7 +1114,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Settings"
     },
     "SslCert": {
       "description": "SslCerts Resource",
@@ -1124,7 +1160,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SslCert"
     },
     "SslCertDetail": {
       "description": "SslCertDetail.",
@@ -1138,7 +1175,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SslCertDetail"
     },
     "SslCertsCreateEphemeralRequest": {
       "description": "SslCerts create ephemeral certificate request.",
@@ -1148,7 +1186,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SslCertsCreateEphemeralRequest"
     },
     "SslCertsInsertRequest": {
       "description": "SslCerts insert request.",
@@ -1158,7 +1197,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SslCertsInsertRequest"
     },
     "SslCertsInsertResponse": {
       "description": "SslCert insert response.",
@@ -1181,7 +1221,8 @@
           "description": "The server Certificate Authority's certificate. If this is missing you can force a new one to be generated by calling resetSslConfig method on instances resource."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SslCertsInsertResponse"
     },
     "SslCertsListResponse": {
       "description": "SslCerts list response.",
@@ -1199,7 +1240,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SslCertsListResponse"
     },
     "Tier": {
       "description": "A Google Cloud SQL service tier resource.",
@@ -1231,7 +1273,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Tier"
     },
     "TiersListResponse": {
       "description": "Tiers list response.",
@@ -1249,7 +1292,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TiersListResponse"
     },
     "TruncateLogContext": {
       "description": "Database Instance truncate log context.",
@@ -1264,7 +1308,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TruncateLogContext"
     },
     "User": {
       "description": "A Cloud SQL user resource.",
@@ -1299,7 +1344,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "User"
     },
     "UsersListResponse": {
       "description": "User list response.",
@@ -1321,7 +1367,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UsersListResponse"
     }
   },
   "actions": [

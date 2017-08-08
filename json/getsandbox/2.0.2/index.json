@@ -43,7 +43,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ActivityMessage"
     },
     "ConfiguredRouteDetails": {
       "properties": {
@@ -109,7 +110,8 @@
       "required": [
         "errorOverrideType"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ConfiguredRouteDetails"
     },
     "CreateSandbox": {
       "properties": {
@@ -150,7 +152,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateSandbox"
     },
     "Error": {
       "properties": {
@@ -170,7 +173,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Error"
     },
     "RouteConfig": {
       "properties": {
@@ -205,7 +209,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RouteConfig"
     },
     "RuntimeRequest": {
       "properties": {
@@ -260,7 +265,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RuntimeRequest"
     },
     "RuntimeResponse": {
       "properties": {
@@ -294,7 +300,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RuntimeResponse"
     },
     "RuntimeTransaction": {
       "properties": {
@@ -312,7 +319,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RuntimeTransaction"
     },
     "Sandbox": {
       "properties": {
@@ -425,7 +433,8 @@
       "required": [
         "name"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "Sandbox"
     }
   },
   "actions": [

@@ -156,7 +156,8 @@
       },
       "required": [
         "id"
-      ]
+      ],
+      "title": "Article"
     },
     "ArticleHistoryResponse": {
       "properties": {
@@ -182,7 +183,8 @@
       },
       "required": [
         "status"
-      ]
+      ],
+      "title": "ArticleHistoryResponse"
     },
     "ArticleJournal": {
       "properties": {
@@ -197,7 +199,8 @@
           "description": "Title of the journal",
           "type": "string"
         }
-      }
+      },
+      "title": "ArticleJournal"
     },
     "ArticleResponse": {
       "properties": {
@@ -221,7 +224,8 @@
       "required": [
         "data",
         "status"
-      ]
+      ],
+      "title": "ArticleResponse"
     },
     "ArticleSearchResponse": {
       "properties": {
@@ -253,7 +257,8 @@
         "data",
         "status",
         "totalHits"
-      ]
+      ],
+      "title": "ArticleSearchResponse"
     },
     "ArticleSimilarResponse": {
       "properties": {
@@ -280,7 +285,8 @@
       "required": [
         "data",
         "status"
-      ]
+      ],
+      "title": "ArticleSimilarResponse"
     },
     "Citation": {
       "properties": {
@@ -304,7 +310,8 @@
           "description": "Title of the cited article",
           "type": "string"
         }
-      }
+      },
+      "title": "Citation"
     },
     "Journal": {
       "properties": {
@@ -341,7 +348,8 @@
       },
       "required": [
         "identifiers"
-      ]
+      ],
+      "title": "Journal"
     },
     "JournalResponse": {
       "properties": {
@@ -363,7 +371,8 @@
       },
       "required": [
         "status"
-      ]
+      ],
+      "title": "JournalResponse"
     },
     "JournalSearchResponse": {
       "properties": {
@@ -393,7 +402,8 @@
       "required": [
         "status",
         "totalHits"
-      ]
+      ],
+      "title": "JournalSearchResponse"
     },
     "Language": {
       "properties": {
@@ -403,7 +413,8 @@
         "name": {
           "type": "string"
         }
-      }
+      },
+      "title": "Language"
     },
     "RawRecordXml": {
       "properties": {
@@ -416,7 +427,8 @@
           "description": "The raw XML metadata",
           "type": "string"
         }
-      }
+      },
+      "title": "RawRecordXml"
     },
     "Repository": {
       "properties": {
@@ -440,9 +452,12 @@
           "description": "Repository URI",
           "type": "string"
         }
-      }
+      },
+      "title": "Repository"
     },
-    "RepositoryDocument": {},
+    "RepositoryDocument": {
+      "title": "RepositoryDocument"
+    },
     "RepositoryLocation": {
       "properties": {
         "country": {
@@ -467,7 +482,8 @@
           "description": "Repository name",
           "type": "string"
         }
-      }
+      },
+      "title": "RepositoryLocation"
     },
     "RepositoryResponse": {
       "properties": {
@@ -490,7 +506,8 @@
       },
       "required": [
         "status"
-      ]
+      ],
+      "title": "RepositoryResponse"
     },
     "RepositorySearchResponse": {
       "properties": {
@@ -521,7 +538,8 @@
       "required": [
         "status",
         "totalHits"
-      ]
+      ],
+      "title": "RepositorySearchResponse"
     },
     "Resource": {
       "properties": {
@@ -542,7 +560,8 @@
       "required": [
         "id",
         "type"
-      ]
+      ],
+      "title": "Resource"
     },
     "SearchAllResponse": {
       "properties": {
@@ -574,7 +593,8 @@
         "data",
         "status",
         "totalHits"
-      ]
+      ],
+      "title": "SearchAllResponse"
     },
     "SearchRequest": {
       "properties": {
@@ -599,7 +619,8 @@
       },
       "required": [
         "query"
-      ]
+      ],
+      "title": "SearchRequest"
     },
     "Similar": {
       "properties": {
@@ -620,7 +641,8 @@
       "required": [
         "id",
         "score"
-      ]
+      ],
+      "title": "Similar"
     },
     "SimilarRequest": {
       "properties": {
@@ -631,7 +653,8 @@
       },
       "required": [
         "text"
-      ]
+      ],
+      "title": "SimilarRequest"
     }
   },
   "actions": [

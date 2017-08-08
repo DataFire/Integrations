@@ -72,8 +72,13 @@ iterateIntegs((dir, name, integ) => {
     if (name.indexOf('amazonaws_') === 0) listDetails.tags.push('aws');
     if (name.indexOf('azure_') === 0) listDetails.tags.push('azure');
 
+
     listDetails.description = sanitizeDescription(listDetails.description);
     let details = Object.assign({}, integ.getDetails(true), listDetails);
+    for (let key in details.definitions || {}) {
+      let schema = details.definitions[key];
+      schema.title = schema.title || key;
+    }
     listDetails.description = truncateDescription(listDetails.description);
     listDetails.latestVersion = package.version;
     details.actions.forEach(action => {

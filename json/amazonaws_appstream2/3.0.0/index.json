@@ -48,17 +48,20 @@
           "description": "The unique identifier for the application."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Application"
     },
     "Applications": {
       "items": {
         "$ref": "#/definitions/Application"
       },
-      "type": "array"
+      "type": "array",
+      "title": "Applications"
     },
     "Arn": {
       "pattern": "^arn:aws:[A-Za-z0-9][A-Za-z0-9_/.-]{0,62}:[A-Za-z0-9_/.-]{0,63}:[A-Za-z0-9_/.-]{0,63}:[A-Za-z0-9][A-Za-z0-9:_/+=,@.-]{0,1023}$",
-      "type": "string"
+      "type": "string",
+      "title": "Arn"
     },
     "AssociateFleetRequest": {
       "properties": {
@@ -75,24 +78,29 @@
         "FleetName",
         "StackName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AssociateFleetRequest"
     },
     "AssociateFleetResult": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "AssociateFleetResult"
     },
     "AuthenticationType": {
       "enum": [
         "API",
         "SAML"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "AuthenticationType"
     },
     "Boolean": {
-      "type": "boolean"
+      "type": "boolean",
+      "title": "Boolean"
     },
     "BooleanObject": {
-      "type": "boolean"
+      "type": "boolean",
+      "title": "BooleanObject"
     },
     "ComputeCapacity": {
       "description": "The capacity configuration for the fleet.",
@@ -105,7 +113,8 @@
       "required": [
         "DesiredInstances"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ComputeCapacity"
     },
     "ComputeCapacityStatus": {
       "description": "The capacity information for the fleet.",
@@ -130,7 +139,8 @@
       "required": [
         "Desired"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ComputeCapacityStatus"
     },
     "ConcurrentModificationException": {
       "description": "An API error occurred, please try again.",
@@ -139,7 +149,8 @@
           "$ref": "#/definitions/ErrorMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ConcurrentModificationException"
     },
     "CreateFleetRequest": {
       "description": "Contains the parameters for the new fleet to create.",
@@ -191,7 +202,8 @@
         "InstanceType",
         "ComputeCapacity"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateFleetRequest"
     },
     "CreateFleetResult": {
       "properties": {
@@ -200,7 +212,8 @@
           "description": "The details for the created fleet."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateFleetResult"
     },
     "CreateStackRequest": {
       "properties": {
@@ -220,7 +233,8 @@
       "required": [
         "Name"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateStackRequest"
     },
     "CreateStackResult": {
       "properties": {
@@ -229,7 +243,8 @@
           "description": "The details for the created stack."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateStackResult"
     },
     "CreateStreamingURLRequest": {
       "properties": {
@@ -263,7 +278,8 @@
         "FleetName",
         "UserId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateStreamingURLRequest"
     },
     "CreateStreamingURLResult": {
       "properties": {
@@ -276,7 +292,8 @@
           "description": "The URL to start the AppStream 2.0 streaming session."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateStreamingURLResult"
     },
     "DeleteFleetRequest": {
       "properties": {
@@ -288,11 +305,13 @@
       "required": [
         "Name"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteFleetRequest"
     },
     "DeleteFleetResult": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DeleteFleetResult"
     },
     "DeleteStackRequest": {
       "properties": {
@@ -304,11 +323,13 @@
       "required": [
         "Name"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteStackRequest"
     },
     "DeleteStackResult": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DeleteStackResult"
     },
     "DescribeFleetsRequest": {
       "properties": {
@@ -321,7 +342,8 @@
           "description": "The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeFleetsRequest"
     },
     "DescribeFleetsResult": {
       "properties": {
@@ -334,7 +356,8 @@
           "description": "The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeFleetsResult"
     },
     "DescribeImagesRequest": {
       "properties": {
@@ -343,7 +366,8 @@
           "description": "A specific list of images to describe."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeImagesRequest"
     },
     "DescribeImagesResult": {
       "properties": {
@@ -352,7 +376,8 @@
           "description": "The list of images."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeImagesResult"
     },
     "DescribeSessionsRequest": {
       "properties": {
@@ -385,7 +410,8 @@
         "StackName",
         "FleetName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeSessionsRequest"
     },
     "DescribeSessionsResult": {
       "properties": {
@@ -398,7 +424,8 @@
           "description": "The list of streaming sessions."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeSessionsResult"
     },
     "DescribeStacksRequest": {
       "properties": {
@@ -411,7 +438,8 @@
           "description": "The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeStacksRequest"
     },
     "DescribeStacksResult": {
       "properties": {
@@ -424,11 +452,13 @@
           "description": "The list of stack details."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeStacksResult"
     },
     "Description": {
       "maxLength": 256,
-      "type": "string"
+      "type": "string",
+      "title": "Description"
     },
     "DisassociateFleetRequest": {
       "properties": {
@@ -445,19 +475,23 @@
         "FleetName",
         "StackName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DisassociateFleetRequest"
     },
     "DisassociateFleetResult": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DisassociateFleetResult"
     },
     "DisplayName": {
       "maxLength": 100,
-      "type": "string"
+      "type": "string",
+      "title": "DisplayName"
     },
     "ErrorMessage": {
       "description": "The error message in the exception.",
-      "type": "string"
+      "type": "string",
+      "title": "ErrorMessage"
     },
     "ExpireSessionRequest": {
       "properties": {
@@ -469,11 +503,13 @@
       "required": [
         "SessionId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ExpireSessionRequest"
     },
     "ExpireSessionResult": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "ExpireSessionResult"
     },
     "Fleet": {
       "description": "Contains the parameters for a fleet.",
@@ -543,7 +579,8 @@
         "ComputeCapacityStatus",
         "State"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "Fleet"
     },
     "FleetError": {
       "description": "The details of the fleet error.",
@@ -557,7 +594,8 @@
           "description": "The error message generated when the fleet has errors."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "FleetError"
     },
     "FleetErrorCode": {
       "enum": [
@@ -573,20 +611,23 @@
         "IMAGE_NOT_FOUND",
         "INVALID_SUBNET_CONFIGURATION"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "FleetErrorCode"
     },
     "FleetErrors": {
       "items": {
         "$ref": "#/definitions/FleetError"
       },
-      "type": "array"
+      "type": "array",
+      "title": "FleetErrors"
     },
     "FleetList": {
       "description": "A list of fleets.",
       "items": {
         "$ref": "#/definitions/Fleet"
       },
-      "type": "array"
+      "type": "array",
+      "title": "FleetList"
     },
     "FleetState": {
       "enum": [
@@ -595,7 +636,8 @@
         "STOPPING",
         "STOPPED"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "FleetState"
     },
     "Image": {
       "description": "New streaming instances are booted from images. The image stores the application catalog and is connected to fleets.",
@@ -652,13 +694,15 @@
       "required": [
         "Name"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "Image"
     },
     "ImageList": {
       "items": {
         "$ref": "#/definitions/Image"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ImageList"
     },
     "ImageState": {
       "enum": [
@@ -667,7 +711,8 @@
         "FAILED",
         "DELETING"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ImageState"
     },
     "ImageStateChangeReason": {
       "description": "The reason why the last state change occurred.",
@@ -681,17 +726,20 @@
           "description": "The state change reason message to the end user."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ImageStateChangeReason"
     },
     "ImageStateChangeReasonCode": {
       "enum": [
         "INTERNAL_ERROR",
         "IMAGE_BUILDER_NOT_AVAILABLE"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ImageStateChangeReasonCode"
     },
     "Integer": {
-      "type": "integer"
+      "type": "integer",
+      "title": "Integer"
     },
     "InvalidParameterCombinationException": {
       "description": "Indicates an incorrect combination of parameters, or a missing parameter.",
@@ -700,7 +748,8 @@
           "$ref": "#/definitions/ErrorMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidParameterCombinationException"
     },
     "InvalidRoleException": {
       "description": "The specified role is invalid.",
@@ -709,7 +758,8 @@
           "$ref": "#/definitions/ErrorMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidRoleException"
     },
     "LimitExceededException": {
       "description": "The requested limit exceeds the permitted limit for an account.",
@@ -718,7 +768,8 @@
           "$ref": "#/definitions/ErrorMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LimitExceededException"
     },
     "ListAssociatedFleetsRequest": {
       "properties": {
@@ -734,7 +785,8 @@
       "required": [
         "StackName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListAssociatedFleetsRequest"
     },
     "ListAssociatedFleetsResult": {
       "description": "The response from a successful operation.",
@@ -748,7 +800,8 @@
           "description": "The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListAssociatedFleetsResult"
     },
     "ListAssociatedStacksRequest": {
       "properties": {
@@ -764,7 +817,8 @@
       "required": [
         "FleetName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListAssociatedStacksRequest"
     },
     "ListAssociatedStacksResult": {
       "description": "The response from a successful operation.",
@@ -778,10 +832,12 @@
           "description": "The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListAssociatedStacksResult"
     },
     "Long": {
-      "type": "integer"
+      "type": "integer",
+      "title": "Long"
     },
     "Metadata": {
       "items": {
@@ -795,11 +851,13 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "Metadata"
     },
     "Name": {
       "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.-]{0,100}$",
-      "type": "string"
+      "type": "string",
+      "title": "Name"
     },
     "OperationNotPermittedException": {
       "description": "The attempted operation is not permitted.",
@@ -808,13 +866,15 @@
           "$ref": "#/definitions/ErrorMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "OperationNotPermittedException"
     },
     "PlatformType": {
       "enum": [
         "WINDOWS"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "PlatformType"
     },
     "ResourceAlreadyExistsException": {
       "description": "The specified resource already exists.",
@@ -823,7 +883,8 @@
           "$ref": "#/definitions/ErrorMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ResourceAlreadyExistsException"
     },
     "ResourceInUseException": {
       "description": "The specified resource is in use.",
@@ -832,7 +893,8 @@
           "$ref": "#/definitions/ErrorMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ResourceInUseException"
     },
     "ResourceNotAvailableException": {
       "description": "The specified resource exists and is not in use, but isn't available.",
@@ -841,7 +903,8 @@
           "$ref": "#/definitions/ErrorMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ResourceNotAvailableException"
     },
     "ResourceNotFoundException": {
       "description": "The specified resource was not found.",
@@ -850,7 +913,8 @@
           "$ref": "#/definitions/ErrorMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ResourceNotFoundException"
     },
     "Session": {
       "description": "Contains the parameters for a streaming session.",
@@ -887,14 +951,16 @@
         "FleetName",
         "State"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "Session"
     },
     "SessionList": {
       "description": "List of sessions.",
       "items": {
         "$ref": "#/definitions/Session"
       },
-      "type": "array"
+      "type": "array",
+      "title": "SessionList"
     },
     "SessionState": {
       "description": "Possible values for the state of a streaming session.",
@@ -903,7 +969,8 @@
         "PENDING",
         "EXPIRED"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "SessionState"
     },
     "Stack": {
       "description": "Details about a stack.",
@@ -932,14 +999,16 @@
       "required": [
         "Name"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "Stack"
     },
     "StackList": {
       "description": "A list of stacks.",
       "items": {
         "$ref": "#/definitions/Stack"
       },
-      "type": "array"
+      "type": "array",
+      "title": "StackList"
     },
     "StartFleetRequest": {
       "properties": {
@@ -951,11 +1020,13 @@
       "required": [
         "Name"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "StartFleetRequest"
     },
     "StartFleetResult": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "StartFleetResult"
     },
     "StopFleetRequest": {
       "properties": {
@@ -967,21 +1038,25 @@
       "required": [
         "Name"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "StopFleetRequest"
     },
     "StopFleetResult": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "StopFleetResult"
     },
     "String": {
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "String"
     },
     "StringList": {
       "items": {
         "$ref": "#/definitions/String"
       },
-      "type": "array"
+      "type": "array",
+      "title": "StringList"
     },
     "SubnetIdList": {
       "description": "A list of subnet IDs.",
@@ -989,11 +1064,13 @@
         "$ref": "#/definitions/String"
       },
       "minItems": 1,
-      "type": "array"
+      "type": "array",
+      "title": "SubnetIdList"
     },
     "Timestamp": {
       "format": "date-time",
-      "type": "string"
+      "type": "string",
+      "title": "Timestamp"
     },
     "UpdateFleetRequest": {
       "properties": {
@@ -1045,7 +1122,8 @@
       "required": [
         "Name"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateFleetRequest"
     },
     "UpdateFleetResult": {
       "properties": {
@@ -1054,7 +1132,8 @@
           "description": "A list of fleet details."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UpdateFleetResult"
     },
     "UpdateStackRequest": {
       "properties": {
@@ -1074,7 +1153,8 @@
       "required": [
         "Name"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateStackRequest"
     },
     "UpdateStackResult": {
       "properties": {
@@ -1083,19 +1163,22 @@
           "description": "A list of stack details."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UpdateStackResult"
     },
     "UserId": {
       "maxLength": 32,
       "minLength": 2,
-      "type": "string"
+      "type": "string",
+      "title": "UserId"
     },
     "VisibilityType": {
       "enum": [
         "PUBLIC",
         "PRIVATE"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "VisibilityType"
     },
     "VpcConfig": {
       "description": "VPC configuration information.",
@@ -1108,7 +1191,8 @@
       "required": [
         "SubnetIds"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "VpcConfig"
     }
   },
   "actions": [

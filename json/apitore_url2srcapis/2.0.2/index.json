@@ -41,7 +41,8 @@
         "processTime",
         "startTime"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "LinkResponseEntity"
     }
   },
   "actions": [

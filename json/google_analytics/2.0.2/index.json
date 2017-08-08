@@ -98,7 +98,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Account"
     },
     "AccountRef": {
       "description": "JSON template for a linked account.",
@@ -121,7 +122,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AccountRef"
     },
     "AccountSummaries": {
       "description": "An AccountSummary collection lists a summary of accounts, properties and views (profiles) to which the user has access. Each resource in the collection corresponds to a single AccountSummary.",
@@ -166,7 +168,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AccountSummaries"
     },
     "AccountSummary": {
       "description": "JSON template for an Analytics AccountSummary. An AccountSummary is a lightweight tree comprised of properties/profiles.",
@@ -196,7 +199,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AccountSummary"
     },
     "AccountTicket": {
       "description": "JSON template for an Analytics account ticket. The account ticket consists of the ticket ID and the basic information for the account, property and profile.",
@@ -227,7 +231,8 @@
           "description": "Web property for the account."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AccountTicket"
     },
     "Accounts": {
       "description": "An account collection provides a list of Analytics accounts to which a user has access. The account collection is the entry point to all management information. Each resource in the collection corresponds to a single Analytics account.",
@@ -272,7 +277,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Accounts"
     },
     "AdWordsAccount": {
       "description": "JSON template for an AdWords account.",
@@ -291,7 +297,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AdWordsAccount"
     },
     "AnalyticsDataimportDeleteUploadDataRequest": {
       "description": "Request template for the delete upload data request.",
@@ -304,7 +311,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AnalyticsDataimportDeleteUploadDataRequest"
     },
     "Column": {
       "description": "JSON template for a metadata column.",
@@ -327,7 +335,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Column"
     },
     "Columns": {
       "description": "Lists columns (dimensions and metrics) for a particular report type.",
@@ -361,7 +370,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Columns"
     },
     "CustomDataSource": {
       "description": "JSON template for an Analytics custom data source.",
@@ -451,7 +461,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CustomDataSource"
     },
     "CustomDataSources": {
       "description": "Lists Analytics custom data sources to which the user has access. Each resource in the collection corresponds to a single Analytics custom data source.",
@@ -496,7 +507,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CustomDataSources"
     },
     "CustomDimension": {
       "description": "JSON template for Analytics Custom Dimension.",
@@ -570,7 +582,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CustomDimension"
     },
     "CustomDimensions": {
       "description": "A custom dimension collection lists Analytics custom dimensions to which the user has access. Each resource in the collection corresponds to a single Analytics custom dimension.",
@@ -615,7 +628,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CustomDimensions"
     },
     "CustomMetric": {
       "description": "JSON template for Analytics Custom Metric.",
@@ -701,7 +715,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CustomMetric"
     },
     "CustomMetrics": {
       "description": "A custom metric collection lists Analytics custom metrics to which the user has access. Each resource in the collection corresponds to a single Analytics custom metric.",
@@ -746,7 +761,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CustomMetrics"
     },
     "EntityAdWordsLink": {
       "description": "JSON template for Analytics Entity AdWords Link.",
@@ -792,7 +808,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "EntityAdWordsLink"
     },
     "EntityAdWordsLinks": {
       "description": "An entity AdWords link collection provides a list of GA-AdWords links Each resource in this collection corresponds to a single link.",
@@ -833,7 +850,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "EntityAdWordsLinks"
     },
     "EntityUserLink": {
       "description": "JSON template for an Analytics Entity-User Link. Returns permissions that a user has for an entity.",
@@ -895,7 +913,8 @@
           "description": "User reference."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "EntityUserLink"
     },
     "EntityUserLinks": {
       "description": "An entity user link collection provides a list of Analytics ACL links Each resource in this collection corresponds to a single link.",
@@ -936,7 +955,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "EntityUserLinks"
     },
     "Experiment": {
       "description": "JSON template for Analytics experiment resource.",
@@ -1099,7 +1119,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Experiment"
     },
     "Experiments": {
       "description": "An experiment collection lists Analytics experiments to which the user has access. Each view (profile) can have a set of experiments. Each resource in the Experiment collection corresponds to a single Analytics experiment.",
@@ -1144,7 +1165,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Experiments"
     },
     "Filter": {
       "description": "JSON template for an Analytics account filter.",
@@ -1330,7 +1352,8 @@
           "type": "object"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Filter"
     },
     "FilterExpression": {
       "description": "JSON template for an Analytics filter expression.",
@@ -1362,7 +1385,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "FilterExpression"
     },
     "FilterRef": {
       "description": "JSON template for a profile filter link.",
@@ -1391,7 +1415,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "FilterRef"
     },
     "Filters": {
       "description": "A filter collection lists filters created by users in an Analytics account. Each resource in the collection corresponds to a filter.",
@@ -1436,7 +1461,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Filters"
     },
     "GaData": {
       "description": "Analytics data for a given view (profile).",
@@ -1660,7 +1686,8 @@
           "type": "object"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GaData"
     },
     "Goal": {
       "description": "JSON template for Analytics goal resource.",
@@ -1851,7 +1878,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Goal"
     },
     "Goals": {
       "description": "A goal collection lists Analytics goals to which the user has access. Each view (profile) can have a set of goals. Each resource in the Goal collection corresponds to a single Analytics goal.",
@@ -1896,7 +1924,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Goals"
     },
     "IncludeConditions": {
       "description": "JSON template for an Analytics Remarketing Include Conditions.",
@@ -1925,7 +1954,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "IncludeConditions"
     },
     "LinkedForeignAccount": {
       "description": "JSON template for an Analytics Remarketing Audience Foreign Link.",
@@ -1974,7 +2004,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LinkedForeignAccount"
     },
     "McfData": {
       "description": "Multi-Channel Funnels data for a given view (profile).",
@@ -2176,7 +2207,8 @@
           "type": "object"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "McfData"
     },
     "Profile": {
       "description": "JSON template for an Analytics view (profile).",
@@ -2327,7 +2359,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Profile"
     },
     "ProfileFilterLink": {
       "description": "JSON template for an Analytics profile filter link.",
@@ -2361,7 +2394,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ProfileFilterLink"
     },
     "ProfileFilterLinks": {
       "description": "A profile filter link collection lists profile filter links between profiles and filters. Each resource in the collection corresponds to a profile filter link.",
@@ -2406,7 +2440,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ProfileFilterLinks"
     },
     "ProfileRef": {
       "description": "JSON template for a linked view (profile).",
@@ -2441,7 +2476,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ProfileRef"
     },
     "ProfileSummary": {
       "description": "JSON template for an Analytics ProfileSummary. ProfileSummary returns basic information (i.e., summary) for a profile.",
@@ -2468,7 +2504,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ProfileSummary"
     },
     "Profiles": {
       "description": "A view (profile) collection lists Analytics views (profiles) to which the user has access. Each resource in the collection corresponds to a single Analytics view (profile).",
@@ -2513,7 +2550,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Profiles"
     },
     "RealtimeData": {
       "description": "Real time data for a given view (profile).",
@@ -2643,7 +2681,8 @@
           "type": "object"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RealtimeData"
     },
     "RemarketingAudience": {
       "description": "JSON template for an Analytics remarketing audience.",
@@ -2744,7 +2783,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RemarketingAudience"
     },
     "RemarketingAudiences": {
       "description": "A remarketing audience collection lists Analytics remarketing audiences to which the user has access. Each resource in the collection corresponds to a single Analytics remarketing audience.",
@@ -2789,7 +2829,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RemarketingAudiences"
     },
     "Segment": {
       "description": "JSON template for an Analytics segment.",
@@ -2834,7 +2875,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Segment"
     },
     "Segments": {
       "description": "An segment collection lists Analytics segments that the user has access to. Each resource in the collection corresponds to a single Analytics segment.",
@@ -2879,7 +2921,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Segments"
     },
     "UnsampledReport": {
       "description": "JSON template for Analytics unsampled report resource.",
@@ -2988,7 +3031,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UnsampledReport"
     },
     "UnsampledReports": {
       "description": "An unsampled report collection lists Analytics unsampled reports to which the user has access. Each view (profile) can have a set of unsampled reports. Each resource in the unsampled report collection corresponds to a single Analytics unsampled report.",
@@ -3033,7 +3077,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UnsampledReports"
     },
     "Upload": {
       "description": "Metadata returned for an upload operation.",
@@ -3068,7 +3113,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Upload"
     },
     "Uploads": {
       "description": "Upload collection lists Analytics uploads to which the user has access. Each custom data source can have a set of uploads. Each resource in the upload collection corresponds to a single Analytics data upload.",
@@ -3109,7 +3155,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Uploads"
     },
     "UserRef": {
       "description": "JSON template for a user reference.",
@@ -3127,7 +3174,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UserRef"
     },
     "WebPropertyRef": {
       "description": "JSON template for a web property reference.",
@@ -3158,7 +3206,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "WebPropertyRef"
     },
     "WebPropertySummary": {
       "description": "JSON template for an Analytics WebPropertySummary. WebPropertySummary returns basic information (i.e., summary) for a web property.",
@@ -3200,7 +3249,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "WebPropertySummary"
     },
     "Webproperties": {
       "description": "A web property collection lists Analytics web properties to which the user has access. Each resource in the collection corresponds to a single Analytics web property.",
@@ -3245,7 +3295,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Webproperties"
     },
     "Webproperty": {
       "description": "JSON template for an Analytics web property.",
@@ -3363,7 +3414,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Webproperty"
     }
   },
   "actions": [

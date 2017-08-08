@@ -41,7 +41,8 @@
           "description": "Configuration for the HTTP (L7) load balancing controller addon, which\nmakes it easy to set up HTTP load balancers for services in a cluster."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AddonsConfig"
     },
     "AutoUpgradeOptions": {
       "description": "AutoUpgradeOptions defines the set of options for the user to control how\nthe Auto Upgrades will proceed.",
@@ -55,12 +56,14 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AutoUpgradeOptions"
     },
     "CancelOperationRequest": {
       "description": "CancelOperationRequest cancels a single operation.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "CancelOperationRequest"
     },
     "Cluster": {
       "description": "A Google Container Engine cluster.",
@@ -210,7 +213,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Cluster"
     },
     "ClusterUpdate": {
       "description": "ClusterUpdate describes an update to the cluster. Exactly one update can\nbe applied to a cluster with each request, so at most one field can be\nprovided.",
@@ -251,7 +255,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ClusterUpdate"
     },
     "CreateClusterRequest": {
       "description": "CreateClusterRequest creates a cluster.",
@@ -261,7 +266,8 @@
           "description": "A [cluster\nresource](/container-engine/reference/rest/v1/projects.zones.clusters)"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateClusterRequest"
     },
     "CreateNodePoolRequest": {
       "description": "CreateNodePoolRequest creates a node pool for a cluster.",
@@ -271,12 +277,14 @@
           "description": "The node pool to create."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateNodePoolRequest"
     },
     "Empty": {
       "description": "A generic empty message that you can re-use to avoid defining duplicated\nempty messages in your APIs. A typical example is to use it as the request\nor the response type of an API method. For instance:\n\n    service Foo {\n      rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);\n    }\n\nThe JSON representation for `Empty` is empty JSON object `{}`.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "Empty"
     },
     "HorizontalPodAutoscaling": {
       "description": "Configuration options for the horizontal pod autoscaling feature, which\nincreases or decreases the number of replica pods a replication controller\nhas based on the resource usage of the existing pods.",
@@ -286,7 +294,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "HorizontalPodAutoscaling"
     },
     "HttpLoadBalancing": {
       "description": "Configuration options for the HTTP (L7) load balancing controller addon,\nwhich makes it easy to set up HTTP load balancers for services in a cluster.",
@@ -296,7 +305,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "HttpLoadBalancing"
     },
     "Item": {
       "description": "A label to be applied to Google Compute Engine resources. It must comply\nwith RFC1035 for each key and value.",
@@ -310,7 +320,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Item"
     },
     "LegacyAbac": {
       "description": "Configuration for the legacy Attribute Based Access Control authorization\nmode.",
@@ -320,7 +331,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LegacyAbac"
     },
     "ListClustersResponse": {
       "description": "ListClustersResponse is the result of ListClustersRequest.",
@@ -340,7 +352,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListClustersResponse"
     },
     "ListNodePoolsResponse": {
       "description": "ListNodePoolsResponse is the result of ListNodePoolsRequest.",
@@ -353,7 +366,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListNodePoolsResponse"
     },
     "ListOperationsResponse": {
       "description": "ListOperationsResponse is the result of ListOperationsRequest.",
@@ -373,7 +387,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListOperationsResponse"
     },
     "MasterAuth": {
       "description": "The authentication information for accessing the master endpoint.\nAuthentication can be done using HTTP basic auth or using client\ncertificates.",
@@ -399,7 +414,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "MasterAuth"
     },
     "NodeConfig": {
       "description": "Parameters that describe the nodes in a cluster.",
@@ -459,7 +475,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "NodeConfig"
     },
     "NodeManagement": {
       "description": "NodeManagement defines the set of node management services turned on for the\nnode pool.",
@@ -477,7 +494,8 @@
           "description": "Specifies the Auto Upgrade knobs for the node pool."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "NodeManagement"
     },
     "NodePool": {
       "description": "NodePool contains the name and configuration for a cluster's node pool.\nNode pools are a set of nodes (i.e. VM's), with a common configuration and\nspecification, under the control of the cluster master. They may have a set\nof Kubernetes labels applied to them, which may be used to reference them\nduring pod scheduling. They may also be resized up or down, to accommodate\nthe workload.",
@@ -536,7 +554,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "NodePool"
     },
     "NodePoolAutoscaling": {
       "description": "NodePoolAutoscaling contains information required by cluster autoscaler to\nadjust the size of the node pool to the current cluster usage.",
@@ -556,7 +575,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "NodePoolAutoscaling"
     },
     "Operation": {
       "description": "This operation resource represents operations that may have happened or are\nhappening on the cluster. All fields are output only.",
@@ -617,7 +637,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Operation"
     },
     "ResourceLabels": {
       "description": "The set of Google Compute Engine labels that will be applied to any\nunderlying resources that the Google Container Cluster creates or uses.\nThese are merely metadata on the resources, and do not change the behavior\nof the cluster.",
@@ -630,12 +651,14 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ResourceLabels"
     },
     "RollbackNodePoolUpgradeRequest": {
       "description": "RollbackNodePoolUpgradeRequest rollbacks the previously Aborted or Failed\nNodePool upgrade. This will be an no-op if the last upgrade successfully\ncompleted.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "RollbackNodePoolUpgradeRequest"
     },
     "ServerConfig": {
       "description": "Container Engine service configuration.",
@@ -670,7 +693,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ServerConfig"
     },
     "SetLabelsRequest": {
       "description": "SetLabelsRequest sets the Google Cloud Platform labels on a Google Container\nEngine cluster, which will in turn set them for Google Compute Engine\nresources used by that cluster",
@@ -684,7 +708,8 @@
           "description": "The labels to set for that cluster."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SetLabelsRequest"
     },
     "SetLegacyAbacRequest": {
       "description": "SetLegacyAbacRequest enables or disables the ABAC authorization mechanism for\na cluster.",
@@ -694,7 +719,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SetLegacyAbacRequest"
     },
     "SetMasterAuthRequest": {
       "description": "SetMasterAuthRequest updates the admin password of a cluster.",
@@ -713,7 +739,8 @@
           "description": "A description of the update."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SetMasterAuthRequest"
     },
     "SetNodePoolManagementRequest": {
       "description": "SetNodePoolManagementRequest sets the node management properties of a node\npool.",
@@ -723,7 +750,8 @@
           "description": "NodeManagement configuration for the node pool."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SetNodePoolManagementRequest"
     },
     "UpdateClusterRequest": {
       "description": "UpdateClusterRequest updates the settings of a cluster.",
@@ -733,7 +761,8 @@
           "description": "A description of the update."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UpdateClusterRequest"
     }
   },
   "actions": [

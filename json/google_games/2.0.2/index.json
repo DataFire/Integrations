@@ -90,7 +90,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AchievementDefinition"
     },
     "AchievementDefinitionsListResponse": {
       "description": "This is a JSON template for a list of achievement definition objects.",
@@ -112,7 +113,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AchievementDefinitionsListResponse"
     },
     "AchievementIncrementResponse": {
       "description": "This is a JSON template for an achievement increment response",
@@ -132,7 +134,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AchievementIncrementResponse"
     },
     "AchievementRevealResponse": {
       "description": "This is a JSON template for an achievement reveal response",
@@ -147,7 +150,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AchievementRevealResponse"
     },
     "AchievementSetStepsAtLeastResponse": {
       "description": "This is a JSON template for an achievement set steps at least response.",
@@ -167,7 +171,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AchievementSetStepsAtLeastResponse"
     },
     "AchievementUnlockResponse": {
       "description": "This is a JSON template for an achievement unlock response",
@@ -182,7 +187,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AchievementUnlockResponse"
     },
     "AchievementUpdateMultipleRequest": {
       "description": "This is a JSON template for a list of achievement update requests.",
@@ -200,7 +206,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AchievementUpdateMultipleRequest"
     },
     "AchievementUpdateMultipleResponse": {
       "description": "This is a JSON template for an achievement unlock response.",
@@ -218,7 +225,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AchievementUpdateMultipleResponse"
     },
     "AchievementUpdateRequest": {
       "description": "This is a JSON template for a request to update an achievement.",
@@ -245,7 +253,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AchievementUpdateRequest"
     },
     "AchievementUpdateResponse": {
       "description": "This is a JSON template for an achievement update response.",
@@ -277,7 +286,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AchievementUpdateResponse"
     },
     "AggregateStats": {
       "description": "This is a JSON template for aggregate stats.",
@@ -308,7 +318,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AggregateStats"
     },
     "AnonymousPlayer": {
       "description": "This is a JSON template for an anonymous player",
@@ -327,7 +338,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AnonymousPlayer"
     },
     "Application": {
       "description": "This is a JSON template for the Application resource.",
@@ -398,7 +410,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Application"
     },
     "ApplicationCategory": {
       "description": "This is a JSON template for an application category object.",
@@ -417,7 +430,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ApplicationCategory"
     },
     "ApplicationVerifyResponse": {
       "description": "This is a JSON template for a third party application verification response resource.",
@@ -436,7 +450,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ApplicationVerifyResponse"
     },
     "Category": {
       "description": "This is a JSON template for data related to individual game categories.",
@@ -456,7 +471,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Category"
     },
     "CategoryListResponse": {
       "description": "This is a JSON template for a list of category data objects.",
@@ -478,7 +494,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CategoryListResponse"
     },
     "EventBatchRecordFailure": {
       "description": "This is a JSON template for a batch update failure resource.",
@@ -497,7 +514,8 @@
           "description": "The time range which was rejected; empty for a request-wide failure."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "EventBatchRecordFailure"
     },
     "EventChild": {
       "description": "This is a JSON template for an event child relationship resource.",
@@ -512,7 +530,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "EventChild"
     },
     "EventDefinition": {
       "description": "This is a JSON template for an event definition resource.",
@@ -554,7 +573,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "EventDefinition"
     },
     "EventDefinitionListResponse": {
       "description": "This is a JSON template for a ListDefinitions response.",
@@ -576,7 +596,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "EventDefinitionListResponse"
     },
     "EventPeriodRange": {
       "description": "This is a JSON template for an event period time range.",
@@ -597,7 +618,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "EventPeriodRange"
     },
     "EventPeriodUpdate": {
       "description": "This is a JSON template for an event period update resource.",
@@ -619,7 +641,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "EventPeriodUpdate"
     },
     "EventRecordFailure": {
       "description": "This is a JSON template for an event update failure resource.",
@@ -638,7 +661,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "EventRecordFailure"
     },
     "EventRecordRequest": {
       "description": "This is a JSON template for an event period update resource.",
@@ -666,7 +690,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "EventRecordRequest"
     },
     "EventUpdateRequest": {
       "description": "This is a JSON template for an event period update resource.",
@@ -686,7 +711,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "EventUpdateRequest"
     },
     "EventUpdateResponse": {
       "description": "This is a JSON template for an event period update resource.",
@@ -718,7 +744,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "EventUpdateResponse"
     },
     "GamesAchievementIncrement": {
       "description": "This is a JSON template for the payload to request to increment an achievement.",
@@ -739,7 +766,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GamesAchievementIncrement"
     },
     "GamesAchievementSetStepsAtLeast": {
       "description": "This is a JSON template for the payload to request to increment an achievement.",
@@ -755,7 +783,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GamesAchievementSetStepsAtLeast"
     },
     "ImageAsset": {
       "description": "This is a JSON template for an image asset object.",
@@ -784,7 +813,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ImageAsset"
     },
     "Instance": {
       "description": "This is a JSON template for the Instance resource.",
@@ -827,7 +857,8 @@
           "description": "Platform dependent details for Web."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Instance"
     },
     "InstanceAndroidDetails": {
       "description": "This is a JSON template for the Android instance details resource.",
@@ -850,7 +881,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InstanceAndroidDetails"
     },
     "InstanceIosDetails": {
       "description": "This is a JSON template for the iOS details resource.",
@@ -885,7 +917,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InstanceIosDetails"
     },
     "InstanceWebDetails": {
       "description": "This is a JSON template for the Web details resource.",
@@ -904,7 +937,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InstanceWebDetails"
     },
     "Leaderboard": {
       "description": "This is a JSON template for the Leaderboard resource.",
@@ -935,7 +969,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Leaderboard"
     },
     "LeaderboardEntry": {
       "description": "This is a JSON template for the Leaderboard Entry resource.",
@@ -981,7 +1016,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LeaderboardEntry"
     },
     "LeaderboardListResponse": {
       "description": "This is a JSON template for a list of leaderboard objects.",
@@ -1003,7 +1039,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LeaderboardListResponse"
     },
     "LeaderboardScoreRank": {
       "description": "This is a JSON template for a score rank in a leaderboard.",
@@ -1032,7 +1069,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LeaderboardScoreRank"
     },
     "LeaderboardScores": {
       "description": "This is a JSON template for a ListScores response.",
@@ -1067,7 +1105,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LeaderboardScores"
     },
     "MetagameConfig": {
       "description": "This is a JSON template for the metagame config resource",
@@ -1090,7 +1129,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "MetagameConfig"
     },
     "NetworkDiagnostics": {
       "description": "This is a JSON template for network diagnostics reported for a client.",
@@ -1129,7 +1169,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "NetworkDiagnostics"
     },
     "ParticipantResult": {
       "description": "This is a JSON template for a result for a match participant.",
@@ -1153,7 +1194,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ParticipantResult"
     },
     "PeerChannelDiagnostics": {
       "description": "This is a JSON template for peer channel diagnostics.",
@@ -1196,7 +1238,8 @@
           "description": "Roundtrip latency stats in milliseconds."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PeerChannelDiagnostics"
     },
     "PeerSessionDiagnostics": {
       "description": "This is a JSON template for peer session diagnostics.",
@@ -1224,7 +1267,8 @@
           "description": "Unreliable channel diagnostics."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PeerSessionDiagnostics"
     },
     "Played": {
       "description": "This is a JSON template for metadata about a player playing a game with the currently authenticated user.",
@@ -1244,7 +1288,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Played"
     },
     "Player": {
       "description": "This is a JSON template for a Player resource.",
@@ -1309,7 +1354,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Player"
     },
     "PlayerAchievement": {
       "description": "This is a JSON template for an achievement object.",
@@ -1347,7 +1393,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PlayerAchievement"
     },
     "PlayerAchievementListResponse": {
       "description": "This is a JSON template for a list of achievement objects.",
@@ -1369,7 +1416,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PlayerAchievementListResponse"
     },
     "PlayerEvent": {
       "description": "This is a JSON template for an event status resource.",
@@ -1397,7 +1445,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PlayerEvent"
     },
     "PlayerEventListResponse": {
       "description": "This is a JSON template for a ListByPlayer response.",
@@ -1419,7 +1468,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PlayerEventListResponse"
     },
     "PlayerExperienceInfo": {
       "description": "This is a JSON template for 1P/3P metadata about the player's experience.",
@@ -1448,7 +1498,8 @@
           "description": "The next level of the player. If the current level is the maximum level, this should be same as the current level."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PlayerExperienceInfo"
     },
     "PlayerLeaderboardScore": {
       "description": "This is a JSON template for a player leaderboard score object.",
@@ -1493,7 +1544,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PlayerLeaderboardScore"
     },
     "PlayerLeaderboardScoreListResponse": {
       "description": "This is a JSON template for a list of player leaderboard scores.",
@@ -1519,7 +1571,8 @@
           "description": "The Player resources for the owner of this score."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PlayerLeaderboardScoreListResponse"
     },
     "PlayerLevel": {
       "description": "This is a JSON template for 1P/3P metadata about a user's level.",
@@ -1545,7 +1598,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PlayerLevel"
     },
     "PlayerListResponse": {
       "description": "This is a JSON template for a third party player list response.",
@@ -1567,7 +1621,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PlayerListResponse"
     },
     "PlayerScore": {
       "description": "This is a JSON template for a player score.",
@@ -1595,7 +1650,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PlayerScore"
     },
     "PlayerScoreListResponse": {
       "description": "This is a JSON template for a list of score submission statuses.",
@@ -1613,7 +1669,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PlayerScoreListResponse"
     },
     "PlayerScoreResponse": {
       "description": "This is a JSON template for a list of leaderboard entry resources.",
@@ -1650,7 +1707,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PlayerScoreResponse"
     },
     "PlayerScoreSubmissionList": {
       "description": "This is a JSON template for a list of score submission requests",
@@ -1668,7 +1726,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PlayerScoreSubmissionList"
     },
     "ProfileSettings": {
       "description": "This is a JSON template for profile settings",
@@ -1683,7 +1742,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ProfileSettings"
     },
     "PushToken": {
       "description": "This is a JSON template for a push token resource.",
@@ -1706,7 +1766,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PushToken"
     },
     "PushTokenId": {
       "description": "This is a JSON template for a push token ID resource.",
@@ -1732,7 +1793,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PushTokenId"
     },
     "Quest": {
       "description": "This is a JSON template for a Quest resource.",
@@ -1811,7 +1873,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Quest"
     },
     "QuestContribution": {
       "description": "This is a JSON template for a Quest Criterion Contribution resource.",
@@ -1831,7 +1894,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "QuestContribution"
     },
     "QuestCriterion": {
       "description": "This is a JSON template for a Quest Criterion resource.",
@@ -1858,7 +1922,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "QuestCriterion"
     },
     "QuestListResponse": {
       "description": "This is a JSON template for a list of quest objects.",
@@ -1880,7 +1945,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "QuestListResponse"
     },
     "QuestMilestone": {
       "description": "This is a JSON template for a Quest Milestone resource.",
@@ -1911,7 +1977,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "QuestMilestone"
     },
     "RevisionCheckResponse": {
       "description": "This is a JSON template for the result of checking a revision.",
@@ -1930,7 +1997,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RevisionCheckResponse"
     },
     "Room": {
       "description": "This is a JSON template for a room resource object.",
@@ -1994,7 +2062,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Room"
     },
     "RoomAutoMatchStatus": {
       "description": "This is a JSON template for status of room automatching that is in progress.",
@@ -2010,7 +2079,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RoomAutoMatchStatus"
     },
     "RoomAutoMatchingCriteria": {
       "description": "This is a JSON template for a room auto-match criteria object.",
@@ -2036,7 +2106,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RoomAutoMatchingCriteria"
     },
     "RoomClientAddress": {
       "description": "This is a JSON template for the client address when setting up a room.",
@@ -2051,7 +2122,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RoomClientAddress"
     },
     "RoomCreateRequest": {
       "description": "This is a JSON template for a room creation request.",
@@ -2098,7 +2170,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RoomCreateRequest"
     },
     "RoomJoinRequest": {
       "description": "This is a JSON template for a join room request.",
@@ -2124,7 +2197,8 @@
           "description": "Network diagnostics for the client joining the room."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RoomJoinRequest"
     },
     "RoomLeaveDiagnostics": {
       "description": "This is a JSON template for room leave diagnostics.",
@@ -2169,7 +2243,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RoomLeaveDiagnostics"
     },
     "RoomLeaveRequest": {
       "description": "This is a JSON template for a leave room request.",
@@ -2188,7 +2263,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RoomLeaveRequest"
     },
     "RoomList": {
       "description": "This is a JSON template for a list of rooms.",
@@ -2210,7 +2286,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RoomList"
     },
     "RoomModification": {
       "description": "This is a JSON template for room modification metadata.",
@@ -2230,7 +2307,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RoomModification"
     },
     "RoomP2PStatus": {
       "description": "This is a JSON template for an update on the status of a peer in a room.",
@@ -2267,7 +2345,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RoomP2PStatus"
     },
     "RoomP2PStatuses": {
       "description": "This is a JSON template for an update on the status of peers in a room.",
@@ -2285,7 +2364,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RoomP2PStatuses"
     },
     "RoomParticipant": {
       "description": "This is a JSON template for a participant in a room.",
@@ -2335,7 +2415,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RoomParticipant"
     },
     "RoomStatus": {
       "description": "This is a JSON template for the status of a room that the player has joined.",
@@ -2370,7 +2451,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RoomStatus"
     },
     "ScoreSubmission": {
       "description": "This is a JSON template for a request to submit a score to leaderboards.",
@@ -2399,7 +2481,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ScoreSubmission"
     },
     "Snapshot": {
       "description": "This is a JSON template for an snapshot object.",
@@ -2453,7 +2536,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Snapshot"
     },
     "SnapshotImage": {
       "description": "This is a JSON template for an image of a snapshot.",
@@ -2482,7 +2566,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SnapshotImage"
     },
     "SnapshotListResponse": {
       "description": "This is a JSON template for a list of snapshot objects.",
@@ -2504,7 +2589,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SnapshotListResponse"
     },
     "TurnBasedAutoMatchingCriteria": {
       "description": "This is a JSON template for an turn-based auto-match criteria object.",
@@ -2530,7 +2616,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TurnBasedAutoMatchingCriteria"
     },
     "TurnBasedMatch": {
       "description": "This is a JSON template for a turn-based match resource object.",
@@ -2626,7 +2713,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TurnBasedMatch"
     },
     "TurnBasedMatchCreateRequest": {
       "description": "This is a JSON template for a turn-based match creation request.",
@@ -2658,7 +2746,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TurnBasedMatchCreateRequest"
     },
     "TurnBasedMatchData": {
       "description": "This is a JSON template for a turn-based match data object.",
@@ -2678,7 +2767,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TurnBasedMatchData"
     },
     "TurnBasedMatchDataRequest": {
       "description": "This is a JSON template for sending a turn-based match data object.",
@@ -2694,7 +2784,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TurnBasedMatchDataRequest"
     },
     "TurnBasedMatchList": {
       "description": "This is a JSON template for a list of turn-based matches.",
@@ -2716,7 +2807,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TurnBasedMatchList"
     },
     "TurnBasedMatchModification": {
       "description": "This is a JSON template for turn-based match modification metadata.",
@@ -2736,7 +2828,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TurnBasedMatchModification"
     },
     "TurnBasedMatchParticipant": {
       "description": "This is a JSON template for a participant in a turn-based match.",
@@ -2767,7 +2860,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TurnBasedMatchParticipant"
     },
     "TurnBasedMatchRematch": {
       "description": "This is a JSON template for a rematch response.",
@@ -2786,7 +2880,8 @@
           "description": "The newly created match; a rematch of the old match with the same participants."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TurnBasedMatchRematch"
     },
     "TurnBasedMatchResults": {
       "description": "This is a JSON template for a turn-based match results object.",
@@ -2813,7 +2908,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TurnBasedMatchResults"
     },
     "TurnBasedMatchSync": {
       "description": "This is a JSON template for a list of turn-based matches returned from a sync.",
@@ -2839,7 +2935,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TurnBasedMatchSync"
     },
     "TurnBasedMatchTurn": {
       "description": "This is a JSON template for the object representing a turn.",
@@ -2870,7 +2967,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TurnBasedMatchTurn"
     }
   },
   "actions": [

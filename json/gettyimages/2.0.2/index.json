@@ -32,7 +32,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AddBoardAssetsResult"
     },
     "AssetChanges": {
       "properties": {
@@ -46,7 +47,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AssetChanges"
     },
     "BoardAsset": {
       "properties": {
@@ -55,7 +57,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BoardAsset"
     },
     "ChangedAssetDetail": {
       "properties": {
@@ -76,7 +79,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ChangedAssetDetail"
     },
     "DownloadDetails": {
       "properties": {
@@ -89,7 +93,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DownloadDetails"
     },
     "EditorialSource": {
       "properties": {
@@ -103,7 +108,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "EditorialSource"
     },
     "KeyValuePair[String,String]": {
       "properties": {
@@ -114,7 +120,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "KeyValuePair[String,String]"
     },
     "PartnerChannel": {
       "description": "partner_channel",
@@ -142,7 +149,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PartnerChannel"
     },
     "PartnerChannelList": {
       "properties": {
@@ -153,7 +161,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PartnerChannelList"
     },
     "PremiumAccessDownloadData": {
       "properties": {
@@ -166,7 +175,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PremiumAccessDownloadData"
     },
     "PreviousAssetPurchase": {
       "properties": {
@@ -196,7 +206,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PreviousAssetPurchase"
     },
     "PreviousAssetPurchases": {
       "properties": {
@@ -213,7 +224,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PreviousAssetPurchases"
     },
     "PreviousPurchase": {
       "properties": {
@@ -239,7 +251,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PreviousPurchase"
     },
     "PreviousPurchases": {
       "properties": {
@@ -256,7 +269,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PreviousPurchases"
     },
     "ProductsResult": {
       "properties": {
@@ -268,7 +282,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ProductsResult"
     },
     "RegisterAssetsRequest": {
       "description": "Specify request containing the list of asset ids you want to register.",
@@ -281,7 +296,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RegisterAssetsRequest"
     },
     "allowed_use": {
       "properties": {
@@ -301,7 +317,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "allowed_use"
     },
     "asset": {
       "properties": {
@@ -326,7 +343,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "asset"
     },
     "asset_usage": {
       "description": "Specifies the id, usage quantity, and date of when an asset was used.",
@@ -346,7 +364,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "asset_usage"
     },
     "board": {
       "properties": {
@@ -386,7 +405,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "board"
     },
     "board_comment_permissions": {
       "properties": {
@@ -395,7 +415,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "board_comment_permissions"
     },
     "board_created": {
       "properties": {
@@ -404,7 +425,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "board_created"
     },
     "board_detail": {
       "properties": {
@@ -456,7 +478,8 @@
           "description": "Specifies the allowed actions for the collaborator at the board level."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "board_detail"
     },
     "board_info": {
       "properties": {
@@ -467,7 +490,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "board_info"
     },
     "board_list": {
       "properties": {
@@ -484,7 +508,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "board_list"
     },
     "board_permissions": {
       "properties": {
@@ -513,7 +538,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "board_permissions"
     },
     "collaborator": {
       "properties": {
@@ -526,7 +552,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "collaborator"
     },
     "collection": {
       "properties": {
@@ -559,7 +586,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "collection"
     },
     "collections": {
       "properties": {
@@ -571,7 +599,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "collections"
     },
     "comment": {
       "properties": {
@@ -597,7 +626,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "comment"
     },
     "comment_created": {
       "properties": {
@@ -606,7 +636,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "comment_created"
     },
     "comment_list": {
       "properties": {
@@ -622,7 +653,8 @@
           "description": "Specifies the allowed actions for the collaborator at the comment list level."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "comment_list"
     },
     "comment_permissions": {
       "properties": {
@@ -631,7 +663,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "comment_permissions"
     },
     "comment_request": {
       "properties": {
@@ -639,7 +672,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "comment_request"
     },
     "countries": {
       "properties": {
@@ -651,7 +685,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "countries"
     },
     "country": {
       "properties": {
@@ -668,7 +703,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "country"
     },
     "creative_image_search_item": {
       "properties": {
@@ -803,7 +839,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "creative_image_search_item"
     },
     "creative_image_search_results": {
       "properties": {
@@ -820,7 +857,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "creative_image_search_results"
     },
     "creative_video_search_results": {
       "properties": {
@@ -837,7 +875,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "creative_video_search_results"
     },
     "display_size": {
       "properties": {
@@ -850,7 +889,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "display_size"
     },
     "download": {
       "properties": {
@@ -880,7 +920,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "download"
     },
     "download_requirements": {
       "properties": {
@@ -900,7 +941,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "download_requirements"
     },
     "download_size": {
       "properties": {
@@ -963,7 +1005,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "download_size"
     },
     "downloads_response": {
       "properties": {
@@ -980,7 +1023,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "downloads_response"
     },
     "editorial_image_search_item": {
       "properties": {
@@ -1137,7 +1181,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "editorial_image_search_item"
     },
     "editorial_image_search_results": {
       "properties": {
@@ -1154,7 +1199,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "editorial_image_search_results"
     },
     "editorial_video_search_results": {
       "properties": {
@@ -1171,7 +1217,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "editorial_video_search_results"
     },
     "event": {
       "properties": {
@@ -1215,7 +1262,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "event"
     },
     "events_result": {
       "properties": {
@@ -1235,7 +1283,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "events_result"
     },
     "hero_display_size": {
       "properties": {
@@ -1252,7 +1301,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "hero_display_size"
     },
     "hero_image": {
       "properties": {
@@ -1268,7 +1318,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "hero_image"
     },
     "image_detail": {
       "properties": {
@@ -1475,7 +1526,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "image_detail"
     },
     "image_search_item": {
       "properties": {
@@ -1639,7 +1691,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "image_search_item"
     },
     "image_search_results": {
       "properties": {
@@ -1656,7 +1709,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "image_search_results"
     },
     "images_detail": {
       "properties": {
@@ -1675,7 +1729,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "images_detail"
     },
     "istock_license": {
       "properties": {
@@ -1689,7 +1744,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "istock_license"
     },
     "keywords": {
       "properties": {
@@ -1725,7 +1781,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "keywords"
     },
     "link": {
       "properties": {
@@ -1738,7 +1795,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "link"
     },
     "links": {
       "properties": {
@@ -1751,7 +1809,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "links"
     },
     "location": {
       "properties": {
@@ -1772,7 +1831,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "location"
     },
     "max_dimensions": {
       "properties": {
@@ -1787,7 +1847,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "max_dimensions"
     },
     "overage": {
       "properties": {
@@ -1811,7 +1872,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "overage"
     },
     "product": {
       "properties": {
@@ -1894,7 +1956,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "product"
     },
     "referral_destination": {
       "properties": {
@@ -1907,7 +1970,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "referral_destination"
     },
     "report_usage_batch_request": {
       "description": "Specifies the request information for the Batch Usages endpoint.",
@@ -1920,7 +1984,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "report_usage_batch_request"
     },
     "report_usage_batch_response": {
       "description": "Specifies the response from the Batch Usages endpoint.",
@@ -1938,7 +2003,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "report_usage_batch_response"
     },
     "video_detail": {
       "properties": {
@@ -2070,7 +2136,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "video_detail"
     },
     "video_search_item": {
       "properties": {
@@ -2195,7 +2262,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "video_search_item"
     },
     "video_search_results": {
       "properties": {
@@ -2212,7 +2280,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "video_search_results"
     },
     "videos_detail": {
       "properties": {
@@ -2231,7 +2300,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "videos_detail"
     }
   },
   "actions": [

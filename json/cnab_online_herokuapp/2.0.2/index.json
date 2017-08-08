@@ -26,7 +26,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Error"
     },
     "File": {
       "properties": {
@@ -68,7 +69,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "File"
     },
     "Line": {
       "properties": {
@@ -108,7 +110,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Line"
     },
     "Occurrence": {
       "properties": {
@@ -225,7 +228,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Occurrence"
     }
   },
   "actions": [

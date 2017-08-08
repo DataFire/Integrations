@@ -35,21 +35,26 @@
           "type": "object"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ErrorModel"
     },
     "accurate_programme_time": {
-      "$ref": "#/definitions/dateRange"
+      "$ref": "#/definitions/dateRange",
+      "title": "accurate_programme_time"
     },
     "accurate_time": {
-      "$ref": "#/definitions/broadcastTime"
+      "$ref": "#/definitions/broadcastTime",
+      "title": "accurate_time"
     },
     "actual_start": {
       "format": "date-time",
-      "type": "string"
+      "type": "string",
+      "title": "actual_start"
     },
     "advertising_allowed": {
       "pattern": "[a-z0-9_]+",
-      "type": "string"
+      "type": "string",
+      "title": "advertising_allowed"
     },
     "affected_by": {
       "additionalProperties": false,
@@ -93,7 +98,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "affected_by"
     },
     "alternate_images_mixin": {
       "additionalProperties": false,
@@ -157,7 +163,8 @@
       "required": [
         "alternate_images"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "alternate_images_mixin"
     },
     "ancestor_titles": {
       "additionalProperties": false,
@@ -273,10 +280,12 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ancestor_titles"
     },
     "ancestors": {
-      "$ref": "#/definitions/reference"
+      "$ref": "#/definitions/reference",
+      "title": "ancestors"
     },
     "ancestors_titles": {
       "additionalProperties": false,
@@ -392,7 +401,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ancestors_titles"
     },
     "availability": {
       "additionalProperties": false,
@@ -438,7 +448,8 @@
         "status",
         "availability_type"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "availability"
     },
     "availability-debug": {
       "additionalProperties": false,
@@ -459,7 +470,8 @@
       "required": [
         "availability_of"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "availability-debug"
     },
     "availability_mixin": {
       "additionalProperties": false,
@@ -605,7 +617,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "availability_mixin"
     },
     "availability_of": {
       "additionalProperties": false,
@@ -628,14 +641,16 @@
         "pid",
         "href"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "availability_of"
     },
     "availability_type": {
       "enum": [
         "ondemand",
         "simulcast",
         "webcast"
-      ]
+      ],
+      "title": "availability_type"
     },
     "available_media_sets": {
       "additionalProperties": false,
@@ -685,7 +700,8 @@
           "type": "object"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "available_media_sets"
     },
     "available_mixins": {
       "additionalProperties": false,
@@ -817,7 +833,8 @@
       "required": [
         "availabilities"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "available_mixins"
     },
     "available_simulcasts": {
       "additionalProperties": false,
@@ -833,7 +850,8 @@
         "available_versions_element",
         "available"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "available_simulcasts"
     },
     "available_versions": {
       "additionalProperties": false,
@@ -849,7 +867,8 @@
         "available_versions_element",
         "available"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "available_versions"
     },
     "available_versions_element": {
       "additionalProperties": false,
@@ -943,7 +962,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "available_versions_element"
     },
     "available_versions_media_sets": {
       "additionalProperties": false,
@@ -1031,7 +1051,8 @@
           "type": "object"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "available_versions_media_sets"
     },
     "available_webcasts": {
       "additionalProperties": false,
@@ -1047,7 +1068,8 @@
         "available_versions_element",
         "available"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "available_webcasts"
     },
     "brand": {
       "additionalProperties": false,
@@ -1128,7 +1150,8 @@
         "updated_time",
         "embargoed"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "brand"
     },
     "broadcast": {
       "additionalProperties": false,
@@ -1195,7 +1218,8 @@
         "pid",
         "partner"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "broadcast"
     },
     "broadcastTime": {
       "allOf": [
@@ -1212,10 +1236,12 @@
           },
           "type": "object"
         }
-      ]
+      ],
+      "title": "broadcastTime"
     },
     "broadcast_of": {
-      "$ref": "#/definitions/pidReference"
+      "$ref": "#/definitions/pidReference",
+      "title": "broadcast_of"
     },
     "broadcaster": {
       "additionalProperties": false,
@@ -1235,18 +1261,22 @@
         "sid",
         "result_type"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "broadcaster"
     },
     "caption": {
-      "type": "string"
+      "type": "string",
+      "title": "caption"
     },
     "catalogue_number": {
       "maxLength": 32,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "catalogue_number"
     },
     "chapter": {
-      "$ref": "#/definitions/item"
+      "$ref": "#/definitions/item",
+      "title": "chapter"
     },
     "clip": {
       "additionalProperties": false,
@@ -1355,22 +1385,28 @@
         "embargoed",
         "advertising_allowed"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "clip"
     },
     "clip_of": {
-      "$ref": "#/definitions/pidReference"
+      "$ref": "#/definitions/pidReference",
+      "title": "clip_of"
     },
     "code": {
-      "type": "string"
+      "type": "string",
+      "title": "code"
     },
     "collection": {
-      "$ref": "#/definitions/group-body"
+      "$ref": "#/definitions/group-body",
+      "title": "collection"
     },
     "competition_warning": {
-      "type": "boolean"
+      "type": "boolean",
+      "title": "competition_warning"
     },
     "containers_title": {
-      "type": "string"
+      "type": "string",
+      "title": "containers_title"
     },
     "context": {
       "additionalProperties": false,
@@ -1392,7 +1428,8 @@
         "pid",
         "result_type"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "context"
     },
     "contributions_mixin": {
       "additionalProperties": false,
@@ -1434,7 +1471,8 @@
       "required": [
         "contributions"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "contributions_mixin"
     },
     "contributions_mixin_contribution": {
       "additionalProperties": false,
@@ -1494,7 +1532,8 @@
       "required": [
         "contribution"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "contributions_mixin_contribution"
     },
     "contributions_mixin_contributor": {
       "additionalProperties": false,
@@ -1536,7 +1575,8 @@
       "required": [
         "contributor"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "contributions_mixin_contributor"
     },
     "contributions_mixin_contributor_name": {
       "additionalProperties": false,
@@ -1584,7 +1624,8 @@
       "required": [
         "name"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "contributions_mixin_contributor_name"
     },
     "contributor": {
       "additionalProperties": false,
@@ -1624,7 +1665,8 @@
         "pid",
         "partner"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "contributor"
     },
     "contributor_name": {
       "additionalProperties": false,
@@ -1678,7 +1720,8 @@
       "required": [
         "name"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "contributor_name"
     },
     "contributor_to": {
       "additionalProperties": false,
@@ -1694,7 +1737,8 @@
         "result_type",
         "href"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "contributor_to"
     },
     "credits_time": {
       "additionalProperties": false,
@@ -1708,7 +1752,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "credits_time"
     },
     "data": {
       "additionalProperties": false,
@@ -1717,7 +1762,8 @@
           "$ref": "#/definitions/datum"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "data"
     },
     "dateRange": {
       "additionalProperties": false,
@@ -1731,13 +1777,16 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "dateRange"
     },
     "date_range": {
-      "$ref": "#/definitions/dateRange"
+      "$ref": "#/definitions/dateRange",
+      "title": "date_range"
     },
     "datum": {
-      "type": "string"
+      "type": "string",
+      "title": "datum"
     },
     "dependency_on": {
       "additionalProperties": false,
@@ -1749,7 +1798,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "dependency_on"
     },
     "deprecated": {
       "additionalProperties": false,
@@ -1776,7 +1826,8 @@
         "type",
         "deprecated_since"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "deprecated"
     },
     "deprecatedReferenceElement": {
       "allOf": [
@@ -1786,7 +1837,8 @@
         {
           "$ref": "#/definitions/deprecationAttributes"
         }
-      ]
+      ],
+      "title": "deprecatedReferenceElement"
     },
     "deprecationAttributes": {
       "additionalProperties": false,
@@ -1807,7 +1859,8 @@
         "deprecated_since",
         "replaced_by"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "deprecationAttributes"
     },
     "deprecations": {
       "additionalProperties": false,
@@ -1819,10 +1872,12 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "deprecations"
     },
     "description": {
-      "type": "string"
+      "type": "string",
+      "title": "description"
     },
     "dimensions": {
       "additionalProperties": false,
@@ -1834,24 +1889,29 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "dimensions"
     },
     "disambiguation": {
-      "type": "string"
+      "type": "string",
+      "title": "disambiguation"
     },
     "embargoed": {
       "enum": [
         "true",
         "false"
-      ]
+      ],
+      "title": "embargoed"
     },
     "end": {
       "format": "date-time",
-      "type": "string"
+      "type": "string",
+      "title": "end"
     },
     "end_time": {
       "format": "date-time",
-      "type": "string"
+      "type": "string",
+      "title": "end_time"
     },
     "episode": {
       "additionalProperties": false,
@@ -1966,10 +2026,12 @@
         "embargoed",
         "advertising_allowed"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "episode"
     },
     "episode_of": {
-      "$ref": "#/definitions/pidReference"
+      "$ref": "#/definitions/pidReference",
+      "title": "episode_of"
     },
     "error": {
       "additionalProperties": false,
@@ -2009,10 +2071,12 @@
         "expr",
         "data"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "error"
     },
     "error-name": {
-      "type": "string"
+      "type": "string",
+      "title": "error-name"
     },
     "errors": {
       "additionalProperties": false,
@@ -2021,13 +2085,16 @@
           "$ref": "#/definitions/error"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "errors"
     },
     "expected_child_count": {
-      "type": "integer"
+      "type": "integer",
+      "title": "expected_child_count"
     },
     "expr": {
-      "type": "string"
+      "type": "string",
+      "title": "expr"
     },
     "feed": {
       "additionalProperties": false,
@@ -2066,7 +2133,8 @@
         "rel",
         "title"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "feed"
     },
     "feeds": {
       "additionalProperties": false,
@@ -2084,7 +2152,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "feeds"
     },
     "filter": {
       "additionalProperties": false,
@@ -2154,7 +2223,8 @@
         "title",
         "type"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "filter"
     },
     "filters": {
       "additionalProperties": false,
@@ -2169,7 +2239,8 @@
           "$ref": "#/definitions/unstable_filters"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "filters"
     },
     "focus_point": {
       "additionalProperties": false,
@@ -2181,7 +2252,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "focus_point"
     },
     "for_programme": {
       "additionalProperties": false,
@@ -2190,7 +2262,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "for_programme"
     },
     "for_programmes": {
       "additionalProperties": false,
@@ -2202,7 +2275,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "for_programmes"
     },
     "format": {
       "additionalProperties": false,
@@ -2214,19 +2288,24 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "format"
     },
     "format-string": {
-      "type": "string"
+      "type": "string",
+      "title": "format-string"
     },
     "franchise": {
-      "$ref": "#/definitions/group-body"
+      "$ref": "#/definitions/group-body",
+      "title": "franchise"
     },
     "franchises": {
-      "$ref": "#/definitions/reference"
+      "$ref": "#/definitions/reference",
+      "title": "franchises"
     },
     "gallery": {
-      "$ref": "#/definitions/group-body"
+      "$ref": "#/definitions/group-body",
+      "title": "gallery"
     },
     "genre": {
       "additionalProperties": false,
@@ -2241,7 +2320,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "genre"
     },
     "genreGroupingsType": {
       "additionalProperties": false,
@@ -2253,7 +2333,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "genreGroupingsType"
     },
     "genreGroupsType": {
       "allOf": [
@@ -2272,7 +2353,8 @@
           },
           "type": "object"
         }
-      ]
+      ],
+      "title": "genreGroupsType"
     },
     "genre_group": {
       "additionalProperties": false,
@@ -2299,13 +2381,16 @@
       "required": [
         "genres"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "genre_group"
     },
     "genre_groupings": {
-      "$ref": "#/definitions/genreGroupingsType"
+      "$ref": "#/definitions/genreGroupingsType",
+      "title": "genre_groupings"
     },
     "genre_groups": {
-      "$ref": "#/definitions/genreGroupsType"
+      "$ref": "#/definitions/genreGroupsType",
+      "title": "genre_groups"
     },
     "group-body": {
       "additionalProperties": false,
@@ -2362,7 +2447,8 @@
         "partner",
         "updated_time"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "group-body"
     },
     "guidance_warnings": {
       "additionalProperties": false,
@@ -2392,13 +2478,16 @@
           "type": "object"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "guidance_warnings"
     },
     "has_guidance": {
-      "type": "boolean"
+      "type": "boolean",
+      "title": "has_guidance"
     },
     "highlight": {
-      "$ref": "#/definitions/item"
+      "$ref": "#/definitions/item",
+      "title": "highlight"
     },
     "id": {
       "additionalProperties": false,
@@ -2413,7 +2502,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "id"
     },
     "identifier": {
       "additionalProperties": false,
@@ -2428,7 +2518,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "identifier"
     },
     "identifiers": {
       "additionalProperties": false,
@@ -2444,7 +2535,8 @@
       "required": [
         "identifier"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "identifiers"
     },
     "ids": {
       "additionalProperties": false,
@@ -2460,7 +2552,8 @@
       "required": [
         "id"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ids"
     },
     "image": {
       "additionalProperties": false,
@@ -2505,7 +2598,8 @@
         "embargoed",
         "partner"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "image"
     },
     "image_link": {
       "additionalProperties": false,
@@ -2552,7 +2646,8 @@
       "required": [
         "image"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "image_link"
     },
     "images_mixin": {
       "additionalProperties": false,
@@ -2634,43 +2729,56 @@
       "required": [
         "images"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "images_mixin"
     },
     "is_audio_described": {
-      "type": "boolean"
+      "type": "boolean",
+      "title": "is_audio_described"
     },
     "is_blanked": {
-      "type": "boolean"
+      "type": "boolean",
+      "title": "is_blanked"
     },
     "is_concrete": {
-      "type": "boolean"
+      "type": "boolean",
+      "title": "is_concrete"
     },
     "is_critical": {
-      "type": "boolean"
+      "type": "boolean",
+      "title": "is_critical"
     },
     "is_downloadable": {
-      "type": "boolean"
+      "type": "boolean",
+      "title": "is_downloadable"
     },
     "is_embeddable": {
-      "type": "boolean"
+      "type": "boolean",
+      "title": "is_embeddable"
     },
     "is_external": {
-      "type": "boolean"
+      "type": "boolean",
+      "title": "is_external"
     },
     "is_repeat": {
-      "type": "boolean"
+      "type": "boolean",
+      "title": "is_repeat"
     },
     "is_signed": {
-      "type": "boolean"
+      "type": "boolean",
+      "title": "is_signed"
     },
     "is_simulcast": {
-      "type": "boolean"
+      "type": "boolean",
+      "title": "is_simulcast"
     },
     "is_stacked": {
-      "type": "boolean"
+      "type": "boolean",
+      "title": "is_stacked"
     },
     "is_streamable": {
-      "type": "boolean"
+      "type": "boolean",
+      "title": "is_streamable"
     },
     "item": {
       "additionalProperties": false,
@@ -2753,16 +2861,20 @@
         "pid",
         "partner"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "item"
     },
     "item_of": {
-      "$ref": "#/definitions/reference"
+      "$ref": "#/definitions/reference",
+      "title": "item_of"
     },
     "items_for": {
-      "$ref": "#/definitions/reference"
+      "$ref": "#/definitions/reference",
+      "title": "items_for"
     },
     "long": {
-      "type": "string"
+      "type": "string",
+      "title": "long"
     },
     "master_brand": {
       "additionalProperties": false,
@@ -2850,7 +2962,8 @@
         "mid",
         "partner"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "master_brand"
     },
     "master_brand_link": {
       "additionalProperties": false,
@@ -2900,10 +3013,12 @@
       "required": [
         "master_brand"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "master_brand_link"
     },
     "media_availability_time": {
-      "$ref": "#/definitions/dateRange"
+      "$ref": "#/definitions/dateRange",
+      "title": "media_availability_time"
     },
     "media_profile_group": {
       "additionalProperties": false,
@@ -2927,7 +3042,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "media_profile_group"
     },
     "media_profile_groups": {
       "additionalProperties": false,
@@ -2939,25 +3055,31 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "media_profile_groups"
     },
     "media_set": {
-      "type": "string"
+      "type": "string",
+      "title": "media_set"
     },
     "media_type": {
       "enum": [
         "Video",
         "Audio"
-      ]
+      ],
+      "title": "media_type"
     },
     "medium": {
-      "type": "string"
+      "type": "string",
+      "title": "medium"
     },
     "message": {
-      "type": "string"
+      "type": "string",
+      "title": "message"
     },
     "mid": {
-      "type": "string"
+      "type": "string",
+      "title": "mid"
     },
     "mixin": {
       "additionalProperties": false,
@@ -3014,7 +3136,8 @@
         "name",
         "title"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "mixin"
     },
     "mixins": {
       "additionalProperties": false,
@@ -3029,7 +3152,8 @@
           "$ref": "#/definitions/unstable_mixins"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "mixins"
     },
     "most_popular": {
       "additionalProperties": false,
@@ -3039,18 +3163,22 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "most_popular"
     },
     "music": {
-      "$ref": "#/definitions/item"
+      "$ref": "#/definitions/item",
+      "title": "music"
     },
     "music_code": {
       "maxLength": 8,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "music_code"
     },
     "name": {
-      "type": "string"
+      "type": "string",
+      "title": "name"
     },
     "next": {
       "additionalProperties": false,
@@ -3062,7 +3190,8 @@
       "required": [
         "href"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "next"
     },
     "nitro": {
       "additionalProperties": true,
@@ -3085,7 +3214,8 @@
         "sorts": {
           "$ref": "#/definitions/sorts"
         }
-      }
+      },
+      "title": "nitro"
     },
     "offset_in": {
       "additionalProperties": false,
@@ -3111,7 +3241,8 @@
         "version",
         "href"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "offset_in"
     },
     "offsets": {
       "additionalProperties": false,
@@ -3123,7 +3254,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "offsets"
     },
     "option": {
       "additionalProperties": false,
@@ -3145,7 +3277,8 @@
         "value",
         "title"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "option"
     },
     "original_version_duration": {
       "additionalProperties": false,
@@ -3191,10 +3324,12 @@
           "type": "object"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "original_version_duration"
     },
     "other": {
-      "$ref": "#/definitions/item"
+      "$ref": "#/definitions/item",
+      "title": "other"
     },
     "pagination": {
       "additionalProperties": false,
@@ -3206,14 +3341,17 @@
           "$ref": "#/definitions/previous"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "pagination"
     },
     "partner": {
-      "$ref": "#/definitions/pid"
+      "$ref": "#/definitions/pid",
+      "title": "partner"
     },
     "pid": {
       "pattern": "([a-z0-9\\.\\-]+|.*PID.*)",
-      "type": "string"
+      "type": "string",
+      "title": "pid"
     },
     "pidReference": {
       "additionalProperties": false,
@@ -3235,7 +3373,8 @@
         "pid",
         "result_type"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "pidReference"
     },
     "play_event": {
       "additionalProperties": false,
@@ -3265,7 +3404,8 @@
       "required": [
         "pid"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "play_event"
     },
     "play_events": {
       "additionalProperties": false,
@@ -3277,7 +3417,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "play_events"
     },
     "played_in_links": {
       "additionalProperties": false,
@@ -3307,13 +3448,16 @@
           "type": "object"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "played_in_links"
     },
     "position": {
-      "type": "integer"
+      "type": "integer",
+      "title": "position"
     },
     "presentation_title": {
-      "type": "string"
+      "type": "string",
+      "title": "presentation_title"
     },
     "previous": {
       "additionalProperties": false,
@@ -3325,7 +3469,8 @@
       "required": [
         "href"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "previous"
     },
     "previous_next_mixin": {
       "additionalProperties": false,
@@ -3361,10 +3506,12 @@
       "required": [
         "previous_next"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "previous_next_mixin"
     },
     "priority": {
-      "type": "integer"
+      "type": "integer",
+      "title": "priority"
     },
     "programme_formats": {
       "additionalProperties": false,
@@ -3380,7 +3527,8 @@
       "required": [
         "format"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "programme_formats"
     },
     "prohibits": {
       "additionalProperties": false,
@@ -3446,13 +3594,16 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "prohibits"
     },
     "promoted_by": {
-      "type": "string"
+      "type": "string",
+      "title": "promoted_by"
     },
     "promoted_for": {
-      "type": "string"
+      "type": "string",
+      "title": "promoted_for"
     },
     "promotion": {
       "additionalProperties": false,
@@ -3514,10 +3665,12 @@
         "partner",
         "updated_time"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "promotion"
     },
     "promotion_of": {
-      "$ref": "#/definitions/pidReference"
+      "$ref": "#/definitions/pidReference",
+      "title": "promotion_of"
     },
     "publication_rights": {
       "additionalProperties": false,
@@ -3538,25 +3691,30 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "publication_rights"
     },
     "published_time": {
-      "$ref": "#/definitions/broadcastTime"
+      "$ref": "#/definitions/broadcastTime",
+      "title": "published_time"
     },
     "publisher": {
       "maxLength": 255,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "publisher"
     },
     "record_label": {
       "maxLength": 255,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "record_label"
     },
     "recording_date": {
       "maxLength": 10,
       "minLength": 4,
-      "type": "string"
+      "type": "string",
+      "title": "recording_date"
     },
     "reference": {
       "allOf": [
@@ -3575,7 +3733,8 @@
           },
           "type": "object"
         }
-      ]
+      ],
+      "title": "reference"
     },
     "referenceAttributes": {
       "additionalProperties": false,
@@ -3591,10 +3750,12 @@
         "href",
         "result_type"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "referenceAttributes"
     },
     "region": {
-      "type": "string"
+      "type": "string",
+      "title": "region"
     },
     "related_link": {
       "additionalProperties": false,
@@ -3638,7 +3799,8 @@
       "required": [
         "pid"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "related_link"
     },
     "related_links": {
       "additionalProperties": false,
@@ -3650,7 +3812,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "related_links"
     },
     "release_date_group": {
       "additionalProperties": false,
@@ -3668,7 +3831,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "release_date_group"
     },
     "release_status_type": {
       "enum": [
@@ -3676,12 +3840,14 @@
         "beta",
         "supported",
         "deprecated"
-      ]
+      ],
+      "title": "release_status_type"
     },
     "release_title": {
       "maxLength": 255,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "release_title"
     },
     "results": {
       "additionalProperties": false,
@@ -3769,17 +3935,21 @@
         "page",
         "page_size"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "results"
     },
     "retryable": {
-      "type": "boolean"
+      "type": "boolean",
+      "title": "retryable"
     },
     "revocation_status": {
-      "type": "string"
+      "type": "string",
+      "title": "revocation_status"
     },
     "schedule_date": {
       "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}.*$",
-      "type": "string"
+      "type": "string",
+      "title": "schedule_date"
     },
     "scheduled": {
       "additionalProperties": false,
@@ -3793,7 +3963,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "scheduled"
     },
     "scheduled_publication_rights": {
       "additionalProperties": false,
@@ -3805,7 +3976,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "scheduled_publication_rights"
     },
     "scheduled_time": {
       "additionalProperties": false,
@@ -3819,10 +3991,12 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "scheduled_time"
     },
     "season": {
-      "$ref": "#/definitions/group-body"
+      "$ref": "#/definitions/group-body",
+      "title": "season"
     },
     "series": {
       "additionalProperties": false,
@@ -3912,10 +4086,12 @@
         "updated_time",
         "embargoed"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "series"
     },
     "series_of": {
-      "$ref": "#/definitions/pidReference"
+      "$ref": "#/definitions/pidReference",
+      "title": "series_of"
     },
     "service": {
       "additionalProperties": false,
@@ -3970,7 +4146,8 @@
         "sid",
         "partner"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "service"
     },
     "serviceReference": {
       "additionalProperties": false,
@@ -3990,14 +4167,17 @@
         "href",
         "sid"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "serviceReference"
     },
     "short": {
-      "type": "string"
+      "type": "string",
+      "title": "short"
     },
     "sid": {
       "pattern": "[a-z0-9A-Z_\\.\\-]+",
-      "type": "string"
+      "type": "string",
+      "title": "sid"
     },
     "size": {
       "additionalProperties": false,
@@ -4006,10 +4186,12 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "size"
     },
     "snippet_url": {
-      "type": "string"
+      "type": "string",
+      "title": "snippet_url"
     },
     "sort": {
       "additionalProperties": false,
@@ -4051,7 +4233,8 @@
         "name",
         "title"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "sort"
     },
     "sort_direction": {
       "additionalProperties": false,
@@ -4075,7 +4258,8 @@
         "is_default",
         "href"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "sort_direction"
     },
     "sorts": {
       "additionalProperties": false,
@@ -4090,7 +4274,8 @@
           "$ref": "#/definitions/unstable_sorts"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "sorts"
     },
     "source_asset": {
       "additionalProperties": false,
@@ -4111,22 +4296,27 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "source_asset"
     },
     "source_media": {
       "maxLength": 64,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "source_media"
     },
     "speech": {
-      "$ref": "#/definitions/item"
+      "$ref": "#/definitions/item",
+      "title": "speech"
     },
     "start_time": {
       "format": "date-time",
-      "type": "string"
+      "type": "string",
+      "title": "start_time"
     },
     "status": {
-      "type": "string"
+      "type": "string",
+      "title": "status"
     },
     "synopses": {
       "additionalProperties": false,
@@ -4141,20 +4331,24 @@
           "$ref": "#/definitions/short"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "synopses"
     },
     "title": {
-      "type": "string"
+      "type": "string",
+      "title": "title"
     },
     "track_number": {
       "maxLength": 8,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "track_number"
     },
     "track_side": {
       "maxLength": 8,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "track_side"
     },
     "tx_time": {
       "additionalProperties": false,
@@ -4172,10 +4366,12 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "tx_time"
     },
     "type": {
-      "type": "string"
+      "type": "string",
+      "title": "type"
     },
     "types_with_id": {
       "additionalProperties": false,
@@ -4231,7 +4427,8 @@
       "required": [
         "types"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "types_with_id"
     },
     "unstable_filters": {
       "additionalProperties": false,
@@ -4243,7 +4440,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "unstable_filters"
     },
     "unstable_mixins": {
       "additionalProperties": false,
@@ -4255,7 +4453,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "unstable_mixins"
     },
     "unstable_sorts": {
       "additionalProperties": false,
@@ -4267,20 +4466,25 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "unstable_sorts"
     },
     "updated_time": {
       "format": "date-time",
-      "type": "string"
+      "type": "string",
+      "title": "updated_time"
     },
     "uri": {
-      "type": "string"
+      "type": "string",
+      "title": "uri"
     },
     "url": {
-      "type": "string"
+      "type": "string",
+      "title": "url"
     },
     "url_key": {
-      "type": "string"
+      "type": "string",
+      "title": "url_key"
     },
     "version_availability": {
       "additionalProperties": false,
@@ -4336,7 +4540,8 @@
       "required": [
         "availability"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "version_availability"
     },
     "version_availability_mixin": {
       "additionalProperties": false,
@@ -4462,7 +4667,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "version_availability_mixin"
     },
     "version_group": {
       "additionalProperties": false,
@@ -4560,10 +4766,12 @@
       "required": [
         "version"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "version_group"
     },
     "version_of": {
-      "$ref": "#/definitions/pidReference"
+      "$ref": "#/definitions/pidReference",
+      "title": "version_of"
     },
     "version_types_with_id": {
       "additionalProperties": false,
@@ -4619,7 +4827,8 @@
       "required": [
         "version_types"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "version_types_with_id"
     },
     "versions": {
       "additionalProperties": false,
@@ -4635,7 +4844,8 @@
         "version_availability_mixin",
         "available"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "versions"
     },
     "versions_mixin": {
       "additionalProperties": false,
@@ -4656,7 +4866,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "versions_mixin"
     },
     "warning": {
       "additionalProperties": false,
@@ -4671,7 +4882,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "warning"
     },
     "warning_items": {
       "additionalProperties": false,
@@ -4713,7 +4925,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "warning_items"
     },
     "warning_text": {
       "additionalProperties": false,
@@ -4725,7 +4938,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "warning_text"
     },
     "warning_texts": {
       "additionalProperties": false,
@@ -4761,7 +4975,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "warning_texts"
     },
     "warnings": {
       "additionalProperties": false,
@@ -4779,7 +4994,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "warnings"
     },
     "window": {
       "additionalProperties": false,
@@ -4837,10 +5053,12 @@
         "pid",
         "partner"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "window"
     },
     "window_of": {
-      "$ref": "#/definitions/pidReference"
+      "$ref": "#/definitions/pidReference",
+      "title": "window_of"
     },
     "xquery-version": {
       "description": "The XQuery language version.",
@@ -4849,7 +5067,8 @@
         "0.9-ml",
         "1.0",
         "XSLT"
-      ]
+      ],
+      "title": "xquery-version"
     }
   },
   "actions": [

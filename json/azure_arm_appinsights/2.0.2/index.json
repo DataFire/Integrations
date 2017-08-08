@@ -40,7 +40,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ErrorResponse"
     },
     "Operation": {
       "description": "CDN REST API operation",
@@ -67,7 +68,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Operation"
     },
     "OperationListResult": {
       "description": "Result of the request to list CDN operations. It contains a list of operations and a URL link to get the next set of results.",
@@ -83,7 +85,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "OperationListResult"
     }
   },
   "actions": [

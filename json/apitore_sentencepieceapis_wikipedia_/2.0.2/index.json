@@ -24,7 +24,8 @@
         "token",
         "wid"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "SPTokenEntity"
     },
     "SentencePieceTokenResponseEntity": {
       "properties": {
@@ -58,7 +59,8 @@
         "processTime",
         "startTime"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "SentencePieceTokenResponseEntity"
     }
   },
   "actions": [

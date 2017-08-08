@@ -35,7 +35,8 @@
         "preferred",
         "versions"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "API"
     },
     "APIs": {
       "additionalProperties": {
@@ -99,7 +100,8 @@
         }
       },
       "minProperties": 1,
-      "type": "object"
+      "type": "object",
+      "title": "APIs"
     },
     "ApiVersion": {
       "additionalProperties": false,
@@ -137,7 +139,8 @@
         "swaggerYamlUrl",
         "info"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ApiVersion"
     },
     "Metrics": {
       "additionalProperties": false,
@@ -169,7 +172,8 @@
         "numAPIs",
         "numEndpoints"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "Metrics"
     }
   },
   "actions": [

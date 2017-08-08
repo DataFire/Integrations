@@ -57,7 +57,8 @@
         "userProfileImageURL",
         "userScreenName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "TweetSummarizeEntity"
     },
     "TwitterSummarizeResponseEntity": {
       "properties": {
@@ -109,7 +110,8 @@
         "startTime",
         "tweets"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "TwitterSummarizeResponseEntity"
     }
   },
   "actions": [

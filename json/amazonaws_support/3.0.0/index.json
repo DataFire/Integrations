@@ -31,7 +31,8 @@
       "required": [
         "attachments"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AddAttachmentsToSetRequest"
     },
     "AddAttachmentsToSetResponse": {
       "description": "The ID and expiry time of the attachment set returned by the <a>AddAttachmentsToSet</a> operation.",
@@ -45,7 +46,8 @@
           "description": "The time and date when the attachment set expires."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AddAttachmentsToSetResponse"
     },
     "AddCommunicationToCaseRequest": {
       "description": "To be written.",
@@ -70,7 +72,8 @@
       "required": [
         "communicationBody"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AddCommunicationToCaseRequest"
     },
     "AddCommunicationToCaseResponse": {
       "description": "The result of the <a>AddCommunicationToCase</a> operation.",
@@ -80,10 +83,12 @@
           "description": "True if <a>AddCommunicationToCase</a> succeeds. Otherwise, returns an error."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AddCommunicationToCaseResponse"
     },
     "AfterTime": {
-      "type": "string"
+      "type": "string",
+      "title": "AfterTime"
     },
     "Attachment": {
       "description": "An attachment to a case communication. The attachment consists of the file name and the content of the file.",
@@ -97,7 +102,8 @@
           "description": "The name of the attachment file."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Attachment"
     },
     "AttachmentDetails": {
       "description": "The file name and ID of an attachment to a case communication. You can use the ID to retrieve the attachment with the <a>DescribeAttachment</a> operation.",
@@ -111,10 +117,12 @@
           "description": "The file name of the attachment."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AttachmentDetails"
     },
     "AttachmentId": {
-      "type": "string"
+      "type": "string",
+      "title": "AttachmentId"
     },
     "AttachmentIdNotFound": {
       "description": "An attachment with the specified ID could not be found.",
@@ -124,7 +132,8 @@
           "description": "An attachment with the specified ID could not be found."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AttachmentIdNotFound"
     },
     "AttachmentLimitExceeded": {
       "description": "The limit for the number of attachment sets created in a short period of time has been exceeded.",
@@ -134,13 +143,15 @@
           "description": "The limit for the number of attachment sets created in a short period of time has been exceeded."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AttachmentLimitExceeded"
     },
     "AttachmentSet": {
       "items": {
         "$ref": "#/definitions/AttachmentDetails"
       },
-      "type": "array"
+      "type": "array",
+      "title": "AttachmentSet"
     },
     "AttachmentSetExpired": {
       "description": "The expiration time of the attachment set has passed. The set expires 1 hour after it is created.",
@@ -150,10 +161,12 @@
           "description": "The expiration time of the attachment set has passed. The set expires 1 hour after it is created."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AttachmentSetExpired"
     },
     "AttachmentSetId": {
-      "type": "string"
+      "type": "string",
+      "title": "AttachmentSetId"
     },
     "AttachmentSetIdNotFound": {
       "description": "An attachment set with the specified ID could not be found.",
@@ -163,7 +176,8 @@
           "description": "An attachment set with the specified ID could not be found."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AttachmentSetIdNotFound"
     },
     "AttachmentSetSizeLimitExceeded": {
       "description": "A limit for the size of an attachment set has been exceeded. The limits are 3 attachments and 5 MB per attachment.",
@@ -173,19 +187,23 @@
           "description": "A limit for the size of an attachment set has been exceeded. The limits are 3 attachments and 5 MB per attachment."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AttachmentSetSizeLimitExceeded"
     },
     "Attachments": {
       "items": {
         "$ref": "#/definitions/Attachment"
       },
-      "type": "array"
+      "type": "array",
+      "title": "Attachments"
     },
     "BeforeTime": {
-      "type": "string"
+      "type": "string",
+      "title": "BeforeTime"
     },
     "Boolean": {
-      "type": "boolean"
+      "type": "boolean",
+      "title": "Boolean"
     },
     "CaseCreationLimitExceeded": {
       "description": "The case creation limit for the account has been exceeded.",
@@ -195,7 +213,8 @@
           "description": "An error message that indicates that you have exceeded the number of cases you can have open."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CaseCreationLimitExceeded"
     },
     "CaseDetails": {
       "description": "<p>A JSON-formatted object that contains the metadata for a support case. It is contained the response from a <a>DescribeCases</a> request. <b>CaseDetails</b> contains the following fields:</p> <ul> <li> <p> <b>caseId.</b> The AWS Support case ID requested or returned in the call. The case ID is an alphanumeric string formatted as shown in this example: case-<i>12345678910-2013-c4c1d2bf33c5cf47</i>.</p> </li> <li> <p> <b>categoryCode.</b> The category of problem for the AWS Support case. Corresponds to the CategoryCode values returned by a call to <a>DescribeServices</a>.</p> </li> <li> <p> <b>displayId.</b> The identifier for the case on pages in the AWS Support Center.</p> </li> <li> <p> <b>language.</b> The ISO 639-1 code for the language in which AWS provides support. AWS Support currently supports English (\"en\") and Japanese (\"ja\"). Language parameters must be passed explicitly for operations that take them.</p> </li> <li> <p> <b>recentCommunications.</b> One or more <a>Communication</a> objects. Fields of these objects are <code>attachments</code>, <code>body</code>, <code>caseId</code>, <code>submittedBy</code>, and <code>timeCreated</code>.</p> </li> <li> <p> <b>nextToken.</b> A resumption point for pagination.</p> </li> <li> <p> <b>serviceCode.</b> The identifier for the AWS service that corresponds to the service code defined in the call to <a>DescribeServices</a>.</p> </li> <li> <p> <b>severityCode. </b>The severity code assigned to the case. Contains one of the values returned by the call to <a>DescribeSeverityLevels</a>.</p> </li> <li> <p> <b>status.</b> The status of the case in the AWS Support Center.</p> </li> <li> <p> <b>subject.</b> The subject line of the case.</p> </li> <li> <p> <b>submittedBy.</b> The email address of the account that submitted the case.</p> </li> <li> <p> <b>timeCreated.</b> The time the case was created, in ISO-8601 format.</p> </li> </ul>",
@@ -249,10 +268,12 @@
           "description": "The time that the case was case created in the AWS Support Center."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CaseDetails"
     },
     "CaseId": {
-      "type": "string"
+      "type": "string",
+      "title": "CaseId"
     },
     "CaseIdList": {
       "items": {
@@ -260,7 +281,8 @@
       },
       "maxItems": 100,
       "minItems": 0,
-      "type": "array"
+      "type": "array",
+      "title": "CaseIdList"
     },
     "CaseIdNotFound": {
       "description": "The requested <code>caseId</code> could not be located.",
@@ -270,16 +292,19 @@
           "description": "The requested <code>CaseId</code> could not be located."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CaseIdNotFound"
     },
     "CaseList": {
       "items": {
         "$ref": "#/definitions/CaseDetails"
       },
-      "type": "array"
+      "type": "array",
+      "title": "CaseList"
     },
     "CaseStatus": {
-      "type": "string"
+      "type": "string",
+      "title": "CaseStatus"
     },
     "Category": {
       "description": "A JSON-formatted name/value pair that represents the category name and category code of the problem, selected from the <a>DescribeServices</a> response for each AWS service.",
@@ -293,22 +318,27 @@
           "description": "The category name for the support case."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Category"
     },
     "CategoryCode": {
-      "type": "string"
+      "type": "string",
+      "title": "CategoryCode"
     },
     "CategoryList": {
       "items": {
         "$ref": "#/definitions/Category"
       },
-      "type": "array"
+      "type": "array",
+      "title": "CategoryList"
     },
     "CategoryName": {
-      "type": "string"
+      "type": "string",
+      "title": "CategoryName"
     },
     "CcEmailAddress": {
-      "type": "string"
+      "type": "string",
+      "title": "CcEmailAddress"
     },
     "CcEmailAddressList": {
       "items": {
@@ -316,7 +346,8 @@
       },
       "maxItems": 10,
       "minItems": 0,
-      "type": "array"
+      "type": "array",
+      "title": "CcEmailAddressList"
     },
     "Communication": {
       "description": "A communication associated with an AWS Support case. The communication consists of the case ID, the message body, attachment information, the account email address, and the date and time of the communication.",
@@ -342,18 +373,21 @@
           "description": "The time the communication was created."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Communication"
     },
     "CommunicationBody": {
       "maxLength": 8000,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "CommunicationBody"
     },
     "CommunicationList": {
       "items": {
         "$ref": "#/definitions/Communication"
       },
-      "type": "array"
+      "type": "array",
+      "title": "CommunicationList"
     },
     "CreateCaseRequest": {
       "description": "<p/>",
@@ -399,7 +433,8 @@
         "subject",
         "communicationBody"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateCaseRequest"
     },
     "CreateCaseResponse": {
       "description": "The AWS Support case ID returned by a successful completion of the <a>CreateCase</a> operation. ",
@@ -409,10 +444,12 @@
           "description": "The AWS Support case ID requested or returned in the call. The case ID is an alphanumeric string formatted as shown in this example: case-<i>12345678910-2013-c4c1d2bf33c5cf47</i> "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateCaseResponse"
     },
     "Data": {
-      "type": "string"
+      "type": "string",
+      "title": "Data"
     },
     "DescribeAttachmentLimitExceeded": {
       "description": "The limit for the number of <a>DescribeAttachment</a> requests in a short period of time has been exceeded.",
@@ -422,7 +459,8 @@
           "description": "The limit for the number of <a>DescribeAttachment</a> requests in a short period of time has been exceeded."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeAttachmentLimitExceeded"
     },
     "DescribeAttachmentRequest": {
       "properties": {
@@ -434,7 +472,8 @@
       "required": [
         "attachmentId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeAttachmentRequest"
     },
     "DescribeAttachmentResponse": {
       "description": "The content and file name of the attachment returned by the <a>DescribeAttachment</a> operation.",
@@ -444,7 +483,8 @@
           "description": "The attachment content and file name."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeAttachmentResponse"
     },
     "DescribeCasesRequest": {
       "description": "<p/>",
@@ -486,7 +526,8 @@
           "description": "A resumption point for pagination."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeCasesRequest"
     },
     "DescribeCasesResponse": {
       "description": "Returns an array of <a>CaseDetails</a> objects and a <code>nextToken</code> that defines a point for pagination in the result set.",
@@ -500,7 +541,8 @@
           "description": "A resumption point for pagination."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeCasesResponse"
     },
     "DescribeCommunicationsRequest": {
       "description": "<p/>",
@@ -529,7 +571,8 @@
       "required": [
         "caseId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeCommunicationsRequest"
     },
     "DescribeCommunicationsResponse": {
       "description": "The communications returned by the <a>DescribeCommunications</a> operation.",
@@ -543,7 +586,8 @@
           "description": "A resumption point for pagination."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeCommunicationsResponse"
     },
     "DescribeServicesRequest": {
       "description": "<p/>",
@@ -557,7 +601,8 @@
           "description": "A JSON-formatted list of service codes available for AWS services."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeServicesRequest"
     },
     "DescribeServicesResponse": {
       "description": "The list of AWS services returned by the <a>DescribeServices</a> operation.",
@@ -567,7 +612,8 @@
           "description": "A JSON-formatted list of AWS services."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeServicesResponse"
     },
     "DescribeSeverityLevelsRequest": {
       "description": "<p/>",
@@ -577,7 +623,8 @@
           "description": "The ISO 639-1 code for the language in which AWS provides support. AWS Support currently supports English (\"en\") and Japanese (\"ja\"). Language parameters must be passed explicitly for operations that take them."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeSeverityLevelsRequest"
     },
     "DescribeSeverityLevelsResponse": {
       "description": "The list of severity levels returned by the <a>DescribeSeverityLevels</a> operation.",
@@ -587,7 +634,8 @@
           "description": "The available severity levels for the support case. Available severity levels are defined by your service level agreement with AWS."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeSeverityLevelsResponse"
     },
     "DescribeTrustedAdvisorCheckRefreshStatusesRequest": {
       "description": "<p/>",
@@ -600,7 +648,8 @@
       "required": [
         "checkIds"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeTrustedAdvisorCheckRefreshStatusesRequest"
     },
     "DescribeTrustedAdvisorCheckRefreshStatusesResponse": {
       "description": "The statuses of the Trusted Advisor checks returned by the <a>DescribeTrustedAdvisorCheckRefreshStatuses</a> operation.",
@@ -613,7 +662,8 @@
       "required": [
         "statuses"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeTrustedAdvisorCheckRefreshStatusesResponse"
     },
     "DescribeTrustedAdvisorCheckResultRequest": {
       "description": "<p/>",
@@ -630,7 +680,8 @@
       "required": [
         "checkId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeTrustedAdvisorCheckResultRequest"
     },
     "DescribeTrustedAdvisorCheckResultResponse": {
       "description": "The result of the Trusted Advisor check returned by the <a>DescribeTrustedAdvisorCheckResult</a> operation.",
@@ -640,7 +691,8 @@
           "description": "The detailed results of the Trusted Advisor check."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeTrustedAdvisorCheckResultResponse"
     },
     "DescribeTrustedAdvisorCheckSummariesRequest": {
       "description": "<p/>",
@@ -653,7 +705,8 @@
       "required": [
         "checkIds"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeTrustedAdvisorCheckSummariesRequest"
     },
     "DescribeTrustedAdvisorCheckSummariesResponse": {
       "description": "The summaries of the Trusted Advisor checks returned by the <a>DescribeTrustedAdvisorCheckSummaries</a> operation.",
@@ -666,7 +719,8 @@
       "required": [
         "summaries"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeTrustedAdvisorCheckSummariesResponse"
     },
     "DescribeTrustedAdvisorChecksRequest": {
       "description": "<p/>",
@@ -679,7 +733,8 @@
       "required": [
         "language"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeTrustedAdvisorChecksRequest"
     },
     "DescribeTrustedAdvisorChecksResponse": {
       "description": "Information about the Trusted Advisor checks returned by the <a>DescribeTrustedAdvisorChecks</a> operation.",
@@ -692,29 +747,37 @@
       "required": [
         "checks"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeTrustedAdvisorChecksResponse"
     },
     "DisplayId": {
-      "type": "string"
+      "type": "string",
+      "title": "DisplayId"
     },
     "Double": {
       "format": "double",
-      "type": "number"
+      "type": "number",
+      "title": "Double"
     },
     "ErrorMessage": {
-      "type": "string"
+      "type": "string",
+      "title": "ErrorMessage"
     },
     "ExpiryTime": {
-      "type": "string"
+      "type": "string",
+      "title": "ExpiryTime"
     },
     "FileName": {
-      "type": "string"
+      "type": "string",
+      "title": "FileName"
     },
     "IncludeCommunications": {
-      "type": "boolean"
+      "type": "boolean",
+      "title": "IncludeCommunications"
     },
     "IncludeResolvedCases": {
-      "type": "boolean"
+      "type": "boolean",
+      "title": "IncludeResolvedCases"
     },
     "InternalServerError": {
       "description": "An internal server error occurred.",
@@ -724,24 +787,30 @@
           "description": "An internal server error occurred."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InternalServerError"
     },
     "IssueType": {
-      "type": "string"
+      "type": "string",
+      "title": "IssueType"
     },
     "Language": {
-      "type": "string"
+      "type": "string",
+      "title": "Language"
     },
     "Long": {
-      "type": "integer"
+      "type": "integer",
+      "title": "Long"
     },
     "MaxResults": {
       "maximum": 100,
       "minimum": 10,
-      "type": "integer"
+      "type": "integer",
+      "title": "MaxResults"
     },
     "NextToken": {
-      "type": "string"
+      "type": "string",
+      "title": "NextToken"
     },
     "RecentCaseCommunications": {
       "description": "The five most recent communications associated with the case.",
@@ -755,7 +824,8 @@
           "description": "A resumption point for pagination."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RecentCaseCommunications"
     },
     "RefreshTrustedAdvisorCheckRequest": {
       "description": "<p/>",
@@ -768,7 +838,8 @@
       "required": [
         "checkId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "RefreshTrustedAdvisorCheckRequest"
     },
     "RefreshTrustedAdvisorCheckResponse": {
       "description": "The current refresh status of a Trusted Advisor check.",
@@ -781,7 +852,8 @@
       "required": [
         "status"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "RefreshTrustedAdvisorCheckResponse"
     },
     "ResolveCaseRequest": {
       "description": "<p/>",
@@ -791,7 +863,8 @@
           "description": "The AWS Support case ID requested or returned in the call. The case ID is an alphanumeric string formatted as shown in this example: case-<i>12345678910-2013-c4c1d2bf33c5cf47</i> "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ResolveCaseRequest"
     },
     "ResolveCaseResponse": {
       "description": "The status of the case returned by the <a>ResolveCase</a> operation.",
@@ -805,10 +878,12 @@
           "description": "The status of the case when the <a>ResolveCase</a> request was sent."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ResolveCaseResponse"
     },
     "Result": {
-      "type": "boolean"
+      "type": "boolean",
+      "title": "Result"
     },
     "Service": {
       "description": "Information about an AWS service returned by the <a>DescribeServices</a> operation. ",
@@ -826,10 +901,12 @@
           "description": "The friendly name for an AWS service. The <code>code</code> element contains the corresponding code."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Service"
     },
     "ServiceCode": {
-      "type": "string"
+      "type": "string",
+      "title": "ServiceCode"
     },
     "ServiceCodeList": {
       "items": {
@@ -837,19 +914,23 @@
       },
       "maxItems": 100,
       "minItems": 0,
-      "type": "array"
+      "type": "array",
+      "title": "ServiceCodeList"
     },
     "ServiceList": {
       "items": {
         "$ref": "#/definitions/Service"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ServiceList"
     },
     "ServiceName": {
-      "type": "string"
+      "type": "string",
+      "title": "ServiceName"
     },
     "SeverityCode": {
-      "type": "string"
+      "type": "string",
+      "title": "SeverityCode"
     },
     "SeverityLevel": {
       "description": "A code and name pair that represent a severity level that can be applied to a support case.",
@@ -863,40 +944,50 @@
           "description": "The name of the severity level that corresponds to the severity level code."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SeverityLevel"
     },
     "SeverityLevelCode": {
-      "type": "string"
+      "type": "string",
+      "title": "SeverityLevelCode"
     },
     "SeverityLevelName": {
-      "type": "string"
+      "type": "string",
+      "title": "SeverityLevelName"
     },
     "SeverityLevelsList": {
       "items": {
         "$ref": "#/definitions/SeverityLevel"
       },
-      "type": "array"
+      "type": "array",
+      "title": "SeverityLevelsList"
     },
     "Status": {
-      "type": "string"
+      "type": "string",
+      "title": "Status"
     },
     "String": {
-      "type": "string"
+      "type": "string",
+      "title": "String"
     },
     "StringList": {
       "items": {
         "$ref": "#/definitions/String"
       },
-      "type": "array"
+      "type": "array",
+      "title": "StringList"
     },
     "Subject": {
-      "type": "string"
+      "type": "string",
+      "title": "Subject"
     },
     "SubmittedBy": {
-      "type": "string"
+      "type": "string",
+      "title": "SubmittedBy"
     },
     "TimeCreated": {
-      "type": "string"
+      "type": "string",
+      "title": "TimeCreated"
     },
     "TrustedAdvisorCategorySpecificSummary": {
       "description": "The container for summary information that relates to the category of the Trusted Advisor check.",
@@ -906,7 +997,8 @@
           "description": "The summary information about cost savings for a Trusted Advisor check that is in the Cost Optimizing category."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TrustedAdvisorCategorySpecificSummary"
     },
     "TrustedAdvisorCheckDescription": {
       "description": "The description and metadata for a Trusted Advisor check.",
@@ -939,13 +1031,15 @@
         "category",
         "metadata"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "TrustedAdvisorCheckDescription"
     },
     "TrustedAdvisorCheckList": {
       "items": {
         "$ref": "#/definitions/TrustedAdvisorCheckDescription"
       },
-      "type": "array"
+      "type": "array",
+      "title": "TrustedAdvisorCheckList"
     },
     "TrustedAdvisorCheckRefreshStatus": {
       "description": "The refresh status of a Trusted Advisor check.",
@@ -968,13 +1062,15 @@
         "status",
         "millisUntilNextRefreshable"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "TrustedAdvisorCheckRefreshStatus"
     },
     "TrustedAdvisorCheckRefreshStatusList": {
       "items": {
         "$ref": "#/definitions/TrustedAdvisorCheckRefreshStatus"
       },
-      "type": "array"
+      "type": "array",
+      "title": "TrustedAdvisorCheckRefreshStatusList"
     },
     "TrustedAdvisorCheckResult": {
       "description": "The results of a Trusted Advisor check returned by <a>DescribeTrustedAdvisorCheckResult</a>.",
@@ -1011,7 +1107,8 @@
         "categorySpecificSummary",
         "flaggedResources"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "TrustedAdvisorCheckResult"
     },
     "TrustedAdvisorCheckSummary": {
       "description": "A summary of a Trusted Advisor check result, including the alert status, last refresh, and number of resources examined.",
@@ -1047,13 +1144,15 @@
         "resourcesSummary",
         "categorySpecificSummary"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "TrustedAdvisorCheckSummary"
     },
     "TrustedAdvisorCheckSummaryList": {
       "items": {
         "$ref": "#/definitions/TrustedAdvisorCheckSummary"
       },
-      "type": "array"
+      "type": "array",
+      "title": "TrustedAdvisorCheckSummaryList"
     },
     "TrustedAdvisorCostOptimizingSummary": {
       "description": "The estimated cost savings that might be realized if the recommended actions are taken.",
@@ -1071,7 +1170,8 @@
         "estimatedMonthlySavings",
         "estimatedPercentMonthlySavings"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "TrustedAdvisorCostOptimizingSummary"
     },
     "TrustedAdvisorResourceDetail": {
       "description": "Contains information about a resource identified by a Trusted Advisor check.",
@@ -1102,13 +1202,15 @@
         "resourceId",
         "metadata"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "TrustedAdvisorResourceDetail"
     },
     "TrustedAdvisorResourceDetailList": {
       "items": {
         "$ref": "#/definitions/TrustedAdvisorResourceDetail"
       },
-      "type": "array"
+      "type": "array",
+      "title": "TrustedAdvisorResourceDetailList"
     },
     "TrustedAdvisorResourcesSummary": {
       "description": "Details about AWS resources that were analyzed in a call to Trusted Advisor <a>DescribeTrustedAdvisorCheckSummaries</a>. ",
@@ -1136,7 +1238,8 @@
         "resourcesIgnored",
         "resourcesSuppressed"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "TrustedAdvisorResourcesSummary"
     }
   },
   "actions": [

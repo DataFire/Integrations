@@ -48,7 +48,8 @@
       "type": "object",
       "xml": {
         "name": "license"
-      }
+      },
+      "title": "License"
     },
     "LicenseTemplate": {
       "properties": {
@@ -97,7 +98,8 @@
       "type": "object",
       "xml": {
         "name": "licensetemplate"
-      }
+      },
+      "title": "LicenseTemplate"
     },
     "Licensee": {
       "properties": {
@@ -113,7 +115,8 @@
       "type": "object",
       "xml": {
         "name": "licensee"
-      }
+      },
+      "title": "Licensee"
     },
     "PaymentMethod": {
       "properties": {
@@ -127,7 +130,8 @@
       "type": "object",
       "xml": {
         "name": "paymentmethod"
-      }
+      },
+      "title": "PaymentMethod"
     },
     "Product": {
       "properties": {
@@ -155,7 +159,8 @@
       "type": "object",
       "xml": {
         "name": "product"
-      }
+      },
+      "title": "Product"
     },
     "ProductModule": {
       "properties": {
@@ -179,7 +184,8 @@
       "type": "object",
       "xml": {
         "name": "productmodule"
-      }
+      },
+      "title": "ProductModule"
     },
     "Token": {
       "properties": {
@@ -209,7 +215,8 @@
       "type": "object",
       "xml": {
         "name": "token"
-      }
+      },
+      "title": "Token"
     },
     "Transaction": {
       "properties": {
@@ -239,7 +246,8 @@
       "type": "object",
       "xml": {
         "name": "transaction"
-      }
+      },
+      "title": "Transaction"
     },
     "discount": {
       "properties": {
@@ -257,19 +265,22 @@
       "type": "object",
       "xml": {
         "name": "discount"
-      }
+      },
+      "title": "discount"
     },
     "infos": {
       "properties": {},
       "xml": {
         "name": "infos"
-      }
+      },
+      "title": "infos"
     },
     "items": {
       "properties": {},
       "xml": {
         "name": "items"
-      }
+      },
+      "title": "items"
     },
     "licensingModel": {
       "properties": {
@@ -280,7 +291,8 @@
       "type": "object",
       "xml": {
         "name": "licensingModel"
-      }
+      },
+      "title": "licensingModel"
     },
     "netlicensing": {
       "properties": {
@@ -293,7 +305,8 @@
       },
       "xml": {
         "name": "netlicensing"
-      }
+      },
+      "title": "netlicensing"
     }
   },
   "actions": [

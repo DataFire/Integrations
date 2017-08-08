@@ -338,7 +338,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "User"
     },
     "UserResponse": {
       "description": "Container object for user info",

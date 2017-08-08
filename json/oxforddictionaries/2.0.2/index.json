@@ -44,7 +44,8 @@
         "type": "object"
       },
       "minItems": 1,
-      "type": "array"
+      "type": "array",
+      "title": "ArrayOfRelatedEntries"
     },
     "CategorizedTextList": {
       "description": "various types of notes that appear",
@@ -71,7 +72,8 @@
         "type": "object"
       },
       "minItems": 1,
-      "type": "array"
+      "type": "array",
+      "title": "CategorizedTextList"
     },
     "CrossReferencesList": {
       "description": "A reference to another word that is closely related, might provide additional information about the subject, has a variant spelling or is an abbreviated form of it.",
@@ -100,7 +102,8 @@
         "type": "object"
       },
       "minItems": 1,
-      "type": "array"
+      "type": "array",
+      "title": "CrossReferencesList"
     },
     "Entry": {
       "additionalProperties": false,
@@ -136,7 +139,8 @@
           "description": "Various words that are used interchangeably depending on the context, e.g 'a' and 'an'"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Entry"
     },
     "ExamplesList": {
       "description": "A list of written or spoken rendering of examples of use of a word or text",
@@ -179,7 +183,8 @@
         "type": "object"
       },
       "minItems": 1,
-      "type": "array"
+      "type": "array",
+      "title": "ExamplesList"
     },
     "Filters": {
       "description": "Schema for the Filters endpoint.",
@@ -212,7 +217,8 @@
           },
           "type": "object"
         }
-      }
+      },
+      "title": "Filters"
     },
     "GrammaticalFeaturesList": {
       "description": "The different forms are correlated with meanings or functions which we text as 'features'",
@@ -233,7 +239,8 @@
         "type": "object"
       },
       "minItems": 1,
-      "type": "array"
+      "type": "array",
+      "title": "GrammaticalFeaturesList"
     },
     "HeadwordEntry": {
       "additionalProperties": false,
@@ -273,7 +280,8 @@
         "lexicalEntries",
         "word"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "HeadwordEntry"
     },
     "HeadwordLemmatron": {
       "additionalProperties": false,
@@ -310,7 +318,8 @@
         "lexicalEntries",
         "word"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "HeadwordLemmatron"
     },
     "HeadwordThesaurus": {
       "additionalProperties": false,
@@ -347,7 +356,8 @@
         "language",
         "lexicalEntries"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "HeadwordThesaurus"
     },
     "InflectionsList": {
       "description": "A grouping of the modifications of a word to express different grammatical categories",
@@ -369,7 +379,8 @@
         "type": "object"
       },
       "minItems": 1,
-      "type": "array"
+      "type": "array",
+      "title": "InflectionsList"
     },
     "Languages": {
       "description": "Schema for the languages endpoint.",
@@ -435,7 +446,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Languages"
     },
     "Lemmatron": {
       "description": "Schema for the inflections endpoint.",
@@ -453,7 +465,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Lemmatron"
     },
     "LemmatronLexicalEntry": {
       "additionalProperties": false,
@@ -485,7 +498,8 @@
         "lexicalCategory",
         "text"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "LemmatronLexicalEntry"
     },
     "PronunciationsList": {
       "description": "A list of possible pronunciations of a word",
@@ -518,7 +532,8 @@
         "type": "object"
       },
       "minItems": 1,
-      "type": "array"
+      "type": "array",
+      "title": "PronunciationsList"
     },
     "Regions": {
       "description": "Schema for region endpoint.",
@@ -535,7 +550,8 @@
           "description": "A mapping of regions available.",
           "type": "object"
         }
-      }
+      },
+      "title": "Regions"
     },
     "RetrieveEntry": {
       "description": "Schema for the 'entries' endpoints",
@@ -553,7 +569,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RetrieveEntry"
     },
     "Sense": {
       "additionalProperties": false,
@@ -612,7 +629,8 @@
           "description": "Various words that are used interchangeably depending on the context, e.g 'duck' and 'duck boat'"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Sense"
     },
     "SentencesEntry": {
       "additionalProperties": false,
@@ -649,7 +667,8 @@
         "lexicalEntries",
         "word"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "SentencesEntry"
     },
     "SentencesLexicalEntry": {
       "additionalProperties": false,
@@ -680,7 +699,8 @@
         "sentences",
         "text"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "SentencesLexicalEntry"
     },
     "SentencesResults": {
       "description": "Schema for the 'sentences' endpoint",
@@ -698,7 +718,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SentencesResults"
     },
     "SynonymsAntonyms": {
       "items": {
@@ -732,7 +753,8 @@
         "type": "object"
       },
       "minItems": 1,
-      "type": "array"
+      "type": "array",
+      "title": "SynonymsAntonyms"
     },
     "Thesaurus": {
       "description": "Schema for thesaurus endpoint",
@@ -750,7 +772,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Thesaurus"
     },
     "ThesaurusEntry": {
       "additionalProperties": false,
@@ -773,7 +796,8 @@
           "description": "Various words that are used interchangeably depending on the context, e.g 'a' and 'an'"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ThesaurusEntry"
     },
     "ThesaurusLexicalEntry": {
       "additionalProperties": false,
@@ -808,7 +832,8 @@
         "lexicalCategory",
         "text"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ThesaurusLexicalEntry"
     },
     "ThesaurusSense": {
       "additionalProperties": false,
@@ -851,7 +876,8 @@
           "description": "synonym of word"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ThesaurusSense"
     },
     "TranslationsList": {
       "description": "A list of written or spoken rendering of the meaning of a word or text in another language(s)",
@@ -891,7 +917,8 @@
         "type": "object"
       },
       "minItems": 1,
-      "type": "array"
+      "type": "array",
+      "title": "TranslationsList"
     },
     "UtilityLabels": {
       "description": "Schema for lexicalcategories, registers utility endpoints.",
@@ -914,7 +941,8 @@
           "description": "Mapping of labels available.",
           "type": "object"
         }
-      }
+      },
+      "title": "UtilityLabels"
     },
     "VariantFormsList": {
       "description": "Various words that are used interchangeably depending on the context, e.g 'aluminium' and 'aluminum'",
@@ -935,7 +963,8 @@
         "type": "object"
       },
       "minItems": 1,
-      "type": "array"
+      "type": "array",
+      "title": "VariantFormsList"
     },
     "Wordlist": {
       "description": "Schema for wordlist endpoint.",
@@ -982,13 +1011,15 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Wordlist"
     },
     "arrayofstrings": {
       "items": {
         "type": "string"
       },
-      "type": "array"
+      "type": "array",
+      "title": "arrayofstrings"
     },
     "lexicalEntry": {
       "additionalProperties": false,
@@ -1036,7 +1067,8 @@
         "lexicalCategory",
         "text"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "lexicalEntry"
     }
   },
   "actions": [

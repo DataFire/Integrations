@@ -71,7 +71,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InstanceUpdate"
     },
     "InstanceUpdateList": {
       "description": "Response returned by ListInstanceUpdates method.",
@@ -97,7 +98,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InstanceUpdateList"
     },
     "Operation": {
       "description": "An operation resource, used to manage asynchronous API requests.",
@@ -241,7 +243,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Operation"
     },
     "OperationList": {
       "description": "Contains a list of Operation resources.",
@@ -271,7 +274,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "OperationList"
     },
     "RollingUpdate": {
       "description": "The following represents a resource describing a single update (rollout) of a group of instances to the given template.",
@@ -393,7 +397,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RollingUpdate"
     },
     "RollingUpdateList": {
       "description": "Response returned by List method.",
@@ -419,7 +424,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RollingUpdateList"
     }
   },
   "actions": [

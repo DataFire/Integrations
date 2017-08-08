@@ -24,11 +24,13 @@
           "description": "A text description associated with the BadRequestException object."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BadRequestException"
     },
     "Double": {
       "format": "double",
-      "type": "number"
+      "type": "number",
+      "title": "Double"
     },
     "Event": {
       "description": "A JSON object representing a batch of unique event occurrences in your app.",
@@ -62,19 +64,23 @@
         "eventType",
         "timestamp"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "Event"
     },
     "EventListDefinition": {
       "items": {
         "$ref": "#/definitions/Event"
       },
-      "type": "array"
+      "type": "array",
+      "title": "EventListDefinition"
     },
     "ISO8601Timestamp": {
-      "type": "string"
+      "type": "string",
+      "title": "ISO8601Timestamp"
     },
     "Long": {
-      "type": "integer"
+      "type": "integer",
+      "title": "Long"
     },
     "MapOfStringToNumber": {
       "items": {
@@ -90,7 +96,8 @@
       },
       "maxItems": 50,
       "minItems": 0,
-      "type": "array"
+      "type": "array",
+      "title": "MapOfStringToNumber"
     },
     "MapOfStringToString": {
       "items": {
@@ -106,7 +113,8 @@
       },
       "maxItems": 50,
       "minItems": 0,
-      "type": "array"
+      "type": "array",
+      "title": "MapOfStringToString"
     },
     "PutEventsInput": {
       "description": "A container for the data needed for a PutEvent operation",
@@ -119,7 +127,8 @@
       "required": [
         "events"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "PutEventsInput"
     },
     "Session": {
       "description": "Describes the session. Session information is required on ALL events.",
@@ -141,25 +150,30 @@
           "description": "The time the event terminated in ISO 8601 standard date time format. For example, 2014-06-30T19:07:47.885Z"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Session"
     },
     "String": {
-      "type": "string"
+      "type": "string",
+      "title": "String"
     },
     "String0to1000Chars": {
       "maxLength": 1000,
       "minLength": 0,
-      "type": "string"
+      "type": "string",
+      "title": "String0to1000Chars"
     },
     "String10Chars": {
       "maxLength": 10,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "String10Chars"
     },
     "String50Chars": {
       "maxLength": 50,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "String50Chars"
     }
   },
   "actions": [

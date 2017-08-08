@@ -55,7 +55,8 @@
           "type": "number"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ApiDataRow"
     },
     "ApiDimensionFilter": {
       "properties": {
@@ -69,7 +70,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ApiDimensionFilter"
     },
     "ApiDimensionFilterGroup": {
       "properties": {
@@ -83,7 +85,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ApiDimensionFilterGroup"
     },
     "SearchAnalyticsQueryRequest": {
       "properties": {
@@ -128,7 +131,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SearchAnalyticsQueryRequest"
     },
     "SearchAnalyticsQueryResponse": {
       "description": "A list of rows, one per result, grouped by key. Metrics in each row are aggregated for all data grouped by that key either by page or property, as specified by the aggregation type parameter.",
@@ -145,7 +149,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SearchAnalyticsQueryResponse"
     },
     "SitemapsListResponse": {
       "description": "List of sitemaps.",
@@ -158,7 +163,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SitemapsListResponse"
     },
     "SitesListResponse": {
       "description": "List of sites with access level information.",
@@ -171,7 +177,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SitesListResponse"
     },
     "UrlCrawlErrorCount": {
       "description": "An entry in a URL crawl errors time series.",
@@ -187,7 +194,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UrlCrawlErrorCount"
     },
     "UrlCrawlErrorCountsPerType": {
       "description": "Number of errors per day for a specific error type (defined by platform and category).",
@@ -208,7 +216,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UrlCrawlErrorCountsPerType"
     },
     "UrlCrawlErrorsCountsQueryResponse": {
       "description": "A time series of the number of URL crawl errors per error category and platform.",
@@ -221,7 +230,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UrlCrawlErrorsCountsQueryResponse"
     },
     "UrlCrawlErrorsSample": {
       "description": "Contains information about specific crawl errors.",
@@ -250,7 +260,8 @@
           "description": "Additional details about the URL, set only when calling get()."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UrlCrawlErrorsSample"
     },
     "UrlCrawlErrorsSamplesListResponse": {
       "description": "List of crawl error samples.",
@@ -263,7 +274,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UrlCrawlErrorsSamplesListResponse"
     },
     "UrlSampleDetails": {
       "description": "Additional details about the URL, set only when calling get().",
@@ -283,7 +295,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UrlSampleDetails"
     },
     "WmxSite": {
       "description": "Contains permission level information about a Search Console site. For more information, see  Permissions in Search Console.",
@@ -297,7 +310,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "WmxSite"
     },
     "WmxSitemap": {
       "description": "Contains detailed information about a specific URL submitted as a sitemap.",
@@ -346,7 +360,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "WmxSitemap"
     },
     "WmxSitemapContent": {
       "description": "Information about the various content types in the sitemap.",
@@ -366,7 +381,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "WmxSitemapContent"
     }
   },
   "actions": [

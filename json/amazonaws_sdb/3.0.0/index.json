@@ -40,7 +40,8 @@
         "Name",
         "Value"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "Attribute"
     },
     "AttributeDoesNotExist": {
       "description": "The specified attribute does not exist.",
@@ -49,7 +50,8 @@
           "$ref": "#/definitions/Float"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AttributeDoesNotExist"
     },
     "AttributeList": {
       "items": {
@@ -58,7 +60,8 @@
       "type": "array",
       "xml": {
         "wrapped": false
-      }
+      },
+      "title": "AttributeList"
     },
     "AttributeNameList": {
       "items": {
@@ -67,7 +70,8 @@
       "type": "array",
       "xml": {
         "wrapped": false
-      }
+      },
+      "title": "AttributeNameList"
     },
     "BatchDeleteAttributesRequest": {
       "properties": {
@@ -84,7 +88,8 @@
         "DomainName",
         "Items"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "BatchDeleteAttributesRequest"
     },
     "BatchPutAttributesRequest": {
       "properties": {
@@ -101,10 +106,12 @@
         "DomainName",
         "Items"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "BatchPutAttributesRequest"
     },
     "Boolean": {
-      "type": "boolean"
+      "type": "boolean",
+      "title": "Boolean"
     },
     "CreateDomainRequest": {
       "properties": {
@@ -116,7 +123,8 @@
       "required": [
         "DomainName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateDomainRequest"
     },
     "DeletableAttribute": {
       "description": "",
@@ -133,7 +141,8 @@
       "required": [
         "Name"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeletableAttribute"
     },
     "DeletableAttributeList": {
       "items": {
@@ -142,7 +151,8 @@
       "type": "array",
       "xml": {
         "wrapped": false
-      }
+      },
+      "title": "DeletableAttributeList"
     },
     "DeletableItem": {
       "properties": {
@@ -156,7 +166,8 @@
       "required": [
         "Name"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeletableItem"
     },
     "DeletableItemList": {
       "items": {
@@ -165,7 +176,8 @@
       "type": "array",
       "xml": {
         "wrapped": false
-      }
+      },
+      "title": "DeletableItemList"
     },
     "DeleteAttributesRequest": {
       "properties": {
@@ -190,7 +202,8 @@
         "DomainName",
         "ItemName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteAttributesRequest"
     },
     "DeleteDomainRequest": {
       "properties": {
@@ -202,7 +215,8 @@
       "required": [
         "DomainName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteDomainRequest"
     },
     "DomainMetadataRequest": {
       "properties": {
@@ -214,7 +228,8 @@
       "required": [
         "DomainName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DomainMetadataRequest"
     },
     "DomainMetadataResult": {
       "properties": {
@@ -247,7 +262,8 @@
           "description": "The data and time when metadata was calculated, in Epoch (UNIX) seconds."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DomainMetadataResult"
     },
     "DomainNameList": {
       "items": {
@@ -256,7 +272,8 @@
       "type": "array",
       "xml": {
         "wrapped": false
-      }
+      },
+      "title": "DomainNameList"
     },
     "DuplicateItemName": {
       "description": "The item name was specified more than once. ",
@@ -265,11 +282,13 @@
           "$ref": "#/definitions/Float"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DuplicateItemName"
     },
     "Float": {
       "format": "float",
-      "type": "number"
+      "type": "number",
+      "title": "Float"
     },
     "GetAttributesRequest": {
       "properties": {
@@ -294,7 +313,8 @@
         "DomainName",
         "ItemName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetAttributesRequest"
     },
     "GetAttributesResult": {
       "properties": {
@@ -303,10 +323,12 @@
           "description": "The list of attributes returned by the operation."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetAttributesResult"
     },
     "Integer": {
-      "type": "integer"
+      "type": "integer",
+      "title": "Integer"
     },
     "InvalidNextToken": {
       "description": "The specified NextToken is not valid. ",
@@ -315,7 +337,8 @@
           "$ref": "#/definitions/Float"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidNextToken"
     },
     "InvalidNumberPredicates": {
       "description": "Too many predicates exist in the query expression.",
@@ -324,7 +347,8 @@
           "$ref": "#/definitions/Float"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidNumberPredicates"
     },
     "InvalidNumberValueTests": {
       "description": "Too many predicates exist in the query expression.",
@@ -333,7 +357,8 @@
           "$ref": "#/definitions/Float"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidNumberValueTests"
     },
     "InvalidParameterValue": {
       "description": "The value for a parameter is invalid.",
@@ -342,7 +367,8 @@
           "$ref": "#/definitions/Float"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidParameterValue"
     },
     "InvalidQueryExpression": {
       "description": "The specified query expression syntax is not valid.",
@@ -351,7 +377,8 @@
           "$ref": "#/definitions/Float"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidQueryExpression"
     },
     "Item": {
       "description": "",
@@ -373,7 +400,8 @@
         "Name",
         "Attributes"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "Item"
     },
     "ItemList": {
       "items": {
@@ -382,7 +410,8 @@
       "type": "array",
       "xml": {
         "wrapped": false
-      }
+      },
+      "title": "ItemList"
     },
     "ListDomainsRequest": {
       "properties": {
@@ -395,7 +424,8 @@
           "description": "A string informing Amazon SimpleDB where to start the next list of domain names."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListDomainsRequest"
     },
     "ListDomainsResult": {
       "properties": {
@@ -408,10 +438,12 @@
           "description": "An opaque token indicating that there are more domains than the specified <code>MaxNumberOfDomains</code> still available."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListDomainsResult"
     },
     "Long": {
-      "type": "integer"
+      "type": "integer",
+      "title": "Long"
     },
     "MissingParameter": {
       "description": "The request must contain the specified missing parameter.",
@@ -420,7 +452,8 @@
           "$ref": "#/definitions/Float"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "MissingParameter"
     },
     "NoSuchDomain": {
       "description": "The specified domain does not exist.",
@@ -429,7 +462,8 @@
           "$ref": "#/definitions/Float"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "NoSuchDomain"
     },
     "NumberDomainAttributesExceeded": {
       "description": "Too many attributes in this domain.",
@@ -438,7 +472,8 @@
           "$ref": "#/definitions/Float"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "NumberDomainAttributesExceeded"
     },
     "NumberDomainBytesExceeded": {
       "description": "Too many bytes in this domain.",
@@ -447,7 +482,8 @@
           "$ref": "#/definitions/Float"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "NumberDomainBytesExceeded"
     },
     "NumberDomainsExceeded": {
       "description": "Too many domains exist per this account.",
@@ -456,7 +492,8 @@
           "$ref": "#/definitions/Float"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "NumberDomainsExceeded"
     },
     "NumberItemAttributesExceeded": {
       "description": "Too many attributes in this item.",
@@ -465,7 +502,8 @@
           "$ref": "#/definitions/Float"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "NumberItemAttributesExceeded"
     },
     "NumberSubmittedAttributesExceeded": {
       "description": "Too many attributes exist in a single call.",
@@ -474,7 +512,8 @@
           "$ref": "#/definitions/Float"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "NumberSubmittedAttributesExceeded"
     },
     "NumberSubmittedItemsExceeded": {
       "description": "Too many items exist in a single call.",
@@ -483,7 +522,8 @@
           "$ref": "#/definitions/Float"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "NumberSubmittedItemsExceeded"
     },
     "PutAttributesRequest": {
       "properties": {
@@ -509,7 +549,8 @@
         "ItemName",
         "Attributes"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "PutAttributesRequest"
     },
     "ReplaceableAttribute": {
       "description": "",
@@ -531,7 +572,8 @@
         "Name",
         "Value"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ReplaceableAttribute"
     },
     "ReplaceableAttributeList": {
       "items": {
@@ -540,7 +582,8 @@
       "type": "array",
       "xml": {
         "wrapped": false
-      }
+      },
+      "title": "ReplaceableAttributeList"
     },
     "ReplaceableItem": {
       "description": "",
@@ -558,7 +601,8 @@
         "Name",
         "Attributes"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ReplaceableItem"
     },
     "ReplaceableItemList": {
       "items": {
@@ -567,7 +611,8 @@
       "type": "array",
       "xml": {
         "wrapped": false
-      }
+      },
+      "title": "ReplaceableItemList"
     },
     "RequestTimeout": {
       "description": "A timeout occurred when attempting to query the specified domain with specified query expression.",
@@ -576,7 +621,8 @@
           "$ref": "#/definitions/Float"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RequestTimeout"
     },
     "SelectRequest": {
       "properties": {
@@ -596,7 +642,8 @@
       "required": [
         "SelectExpression"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "SelectRequest"
     },
     "SelectResult": {
       "properties": {
@@ -609,10 +656,12 @@
           "description": "An opaque token indicating that more items than <code>MaxNumberOfItems</code> were matched, the response size exceeded 1 megabyte, or the execution time exceeded 5 seconds."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SelectResult"
     },
     "String": {
-      "type": "string"
+      "type": "string",
+      "title": "String"
     },
     "TooManyRequestedAttributes": {
       "description": "Too many attributes requested.",
@@ -621,7 +670,8 @@
           "$ref": "#/definitions/Float"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TooManyRequestedAttributes"
     },
     "UpdateCondition": {
       "description": " Specifies the conditions under which data should be updated. If an update condition is specified for a request, the data will only be updated if the condition is satisfied. For example, if an attribute with a specific name and value exists, or if a specific attribute doesn't exist. ",
@@ -639,7 +689,8 @@
           "description": "The value of an attribute. This value can only be specified when the <code>Exists</code> parameter is equal to <code>true</code>."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UpdateCondition"
     }
   },
   "actions": [

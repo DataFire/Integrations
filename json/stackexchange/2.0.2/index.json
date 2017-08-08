@@ -45,7 +45,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "access_tokens"
     },
     "account_merge": {
       "items": {
@@ -62,7 +63,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "account_merge"
     },
     "answers": {
       "items": {
@@ -228,7 +230,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "answers"
     },
     "badges": {
       "items": {
@@ -297,7 +300,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "badges"
     },
     "comments": {
       "items": {
@@ -418,7 +422,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "comments"
     },
     "created_comment": {
       "properties": {
@@ -536,7 +541,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "created_comment"
     },
     "error": {
       "properties": {
@@ -550,7 +556,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "error"
     },
     "errors": {
       "items": {
@@ -567,7 +574,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "errors"
     },
     "events": {
       "items": {
@@ -590,7 +598,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "events"
     },
     "filters": {
       "items": {
@@ -608,7 +617,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "filters"
     },
     "inbox_items": {
       "items": {
@@ -716,7 +726,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "inbox_items"
     },
     "info_object": {
       "properties": {
@@ -833,7 +844,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "info_object"
     },
     "network_users": {
       "items": {
@@ -893,7 +905,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "network_users"
     },
     "notifications": {
       "items": {
@@ -989,7 +1002,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "notifications"
     },
     "posts": {
       "items": {
@@ -1129,7 +1143,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "posts"
     },
     "privileges": {
       "items": {
@@ -1146,7 +1161,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "privileges"
     },
     "question_timeline_events": {
       "items": {
@@ -1258,7 +1274,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "question_timeline_events"
     },
     "questions": {
       "items": {
@@ -1701,7 +1718,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "questions"
     },
     "reputation_changes": {
       "items": {
@@ -1733,7 +1751,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "reputation_changes"
     },
     "reputation_history": {
       "items": {
@@ -1756,7 +1775,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "reputation_history"
     },
     "reputation_objects": {
       "items": {
@@ -1788,7 +1808,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "reputation_objects"
     },
     "revisions": {
       "items": {
@@ -1883,7 +1904,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "revisions"
     },
     "single_filter": {
       "properties": {
@@ -1898,7 +1920,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "single_filter"
     },
     "sites": {
       "items": {
@@ -1974,7 +1997,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "sites"
     },
     "suggested-edits": {
       "items": {
@@ -2053,7 +2077,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "suggested-edits"
     },
     "tag_score_objects": {
       "items": {
@@ -2107,7 +2132,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "tag_score_objects"
     },
     "tag_synonyms": {
       "items": {
@@ -2130,7 +2156,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "tag_synonyms"
     },
     "tag_wikis": {
       "items": {
@@ -2233,7 +2260,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "tag_wikis"
     },
     "tags": {
       "items": {
@@ -2266,7 +2294,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "tags"
     },
     "top_tag_objects": {
       "items": {
@@ -2292,7 +2321,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "top_tag_objects"
     },
     "user": {
       "properties": {
@@ -2392,7 +2422,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "user"
     },
     "user_timeline_objects": {
       "items": {
@@ -2433,7 +2464,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "user_timeline_objects"
     },
     "users": {
       "items": {
@@ -2536,7 +2568,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "users"
     },
     "write_permissions": {
       "items": {
@@ -2565,7 +2598,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "write_permissions"
     }
   },
   "actions": [

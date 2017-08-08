@@ -27,7 +27,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CloudToDeviceProperties"
     },
     "ErrorDetails": {
       "description": "Error details.",
@@ -53,7 +54,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ErrorDetails"
     },
     "EventHubConsumerGroupInfo": {
       "description": "The properties of the EventHubConsumerGroupInfo object.",
@@ -74,7 +76,8 @@
           "type": "object"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "EventHubConsumerGroupInfo"
     },
     "EventHubConsumerGroupsListResult": {
       "description": "The JSON-serialized array of Event Hub-compatible consumer group names with a next link.",
@@ -92,7 +95,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "EventHubConsumerGroupsListResult"
     },
     "EventHubProperties": {
       "description": "The properties of the provisioned Event Hub-compatible endpoint used by the IoT hub.",
@@ -126,7 +130,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "EventHubProperties"
     },
     "ExportDevicesRequest": {
       "description": "Use to provide parameters when requesting an export of all devices in the IoT hub.",
@@ -144,7 +149,8 @@
         "ExportBlobContainerUri",
         "ExcludeKeys"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ExportDevicesRequest"
     },
     "FeedbackProperties": {
       "description": "The properties of the feedback queue for cloud-to-device messages.",
@@ -167,7 +173,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "FeedbackProperties"
     },
     "ImportDevicesRequest": {
       "description": "Use to provide parameters when requesting an import of all devices in the hub.",
@@ -185,7 +192,8 @@
         "InputBlobContainerUri",
         "OutputBlobContainerUri"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ImportDevicesRequest"
     },
     "IotHubCapacity": {
       "description": "IoT Hub capacity information.",
@@ -225,7 +233,8 @@
           }
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "IotHubCapacity"
     },
     "IotHubDescription": {
       "allOf": [
@@ -259,7 +268,8 @@
         "resourcegroup",
         "sku"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "IotHubDescription"
     },
     "IotHubDescriptionListResult": {
       "description": "The JSON-serialized array of IotHubDescription objects with a next link.",
@@ -277,7 +287,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "IotHubDescriptionListResult"
     },
     "IotHubNameAvailabilityInfo": {
       "description": "The properties indicating whether a given IoT hub name is available.",
@@ -305,7 +316,8 @@
           }
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "IotHubNameAvailabilityInfo"
     },
     "IotHubProperties": {
       "description": "The properties of an IoT hub.",
@@ -382,7 +394,8 @@
           "type": "object"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "IotHubProperties"
     },
     "IotHubQuotaMetricInfo": {
       "description": "Quota metrics properties.",
@@ -405,7 +418,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "IotHubQuotaMetricInfo"
     },
     "IotHubQuotaMetricInfoListResult": {
       "description": "The JSON-serialized array of IotHubQuotaMetricInfo objects with a next link.",
@@ -423,7 +437,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "IotHubQuotaMetricInfoListResult"
     },
     "IotHubSkuDescription": {
       "description": "SKU properties.",
@@ -444,7 +459,8 @@
         "sku",
         "capacity"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "IotHubSkuDescription"
     },
     "IotHubSkuDescriptionListResult": {
       "description": "The JSON-serialized array of IotHubSkuDescription objects with a next link.",
@@ -462,7 +478,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "IotHubSkuDescriptionListResult"
     },
     "IotHubSkuInfo": {
       "description": "Information about the SKU of the IoT hub.",
@@ -504,7 +521,8 @@
         "name",
         "capacity"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "IotHubSkuInfo"
     },
     "IpFilterRule": {
       "description": "The IP filter rules for the IoT hub.",
@@ -535,7 +553,8 @@
         "action",
         "ipMask"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "IpFilterRule"
     },
     "JobResponse": {
       "description": "The properties of the Job Response object.",
@@ -611,7 +630,8 @@
           }
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "JobResponse"
     },
     "JobResponseListResult": {
       "description": "The JSON-serialized array of JobResponse objects with a next link.",
@@ -629,7 +649,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "JobResponseListResult"
     },
     "MessagingEndpointProperties": {
       "description": "The properties of the messaging endpoints used by this IoT hub.",
@@ -652,7 +673,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "MessagingEndpointProperties"
     },
     "OperationInputs": {
       "description": "Input values.",
@@ -665,7 +687,8 @@
       "required": [
         "Name"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "OperationInputs"
     },
     "OperationsMonitoringProperties": {
       "description": "The operations monitoring properties for the IoT hub. The possible keys to the dictionary are Connections, DeviceTelemetry, C2DCommands, DeviceIdentityOperations, FileUploadOperations.",
@@ -688,7 +711,8 @@
           "type": "object"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "OperationsMonitoringProperties"
     },
     "RegistryStatistics": {
       "description": "Identity registry statistics.",
@@ -712,7 +736,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RegistryStatistics"
     },
     "Resource": {
       "properties": {
@@ -747,7 +772,8 @@
       "required": [
         "location"
       ],
-      "x-ms-azure-resource": true
+      "x-ms-azure-resource": true,
+      "title": "Resource"
     },
     "SharedAccessSignatureAuthorizationRule": {
       "description": "The properties of an IoT hub shared access policy.",
@@ -794,7 +820,8 @@
         "keyName",
         "rights"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "SharedAccessSignatureAuthorizationRule"
     },
     "SharedAccessSignatureAuthorizationRuleListResult": {
       "description": "The list of shared access policies with a next link.",
@@ -812,7 +839,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SharedAccessSignatureAuthorizationRuleListResult"
     },
     "StorageEndpointProperties": {
       "description": "The properties of the Azure Storage endpoint for file upload.",
@@ -835,7 +863,8 @@
         "connectionString",
         "containerName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "StorageEndpointProperties"
     }
   },
   "actions": [

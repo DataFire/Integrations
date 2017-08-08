@@ -51,7 +51,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetResponse"
     },
     "ListResponse": {
       "description": "This is a JSON template to convert a list-response for app state.",
@@ -74,7 +75,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListResponse"
     },
     "UpdateRequest": {
       "description": "This is a JSON template for a requests which update app state",
@@ -89,7 +91,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UpdateRequest"
     },
     "WriteResult": {
       "description": "This is a JSON template for an app state write result.",
@@ -109,7 +112,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "WriteResult"
     }
   },
   "actions": [

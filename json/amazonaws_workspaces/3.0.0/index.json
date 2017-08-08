@@ -18,7 +18,8 @@
   "definitions": {
     "ARN": {
       "pattern": "^arn:aws:[A-Za-z0-9][A-za-z0-9_/.-]{0,62}:[A-za-z0-9_/.-]{0,63}:[A-za-z0-9_/.-]{0,63}:[A-Za-z0-9][A-za-z0-9_/.-]{0,127}$",
-      "type": "string"
+      "type": "string",
+      "title": "ARN"
     },
     "AccessDeniedException": {
       "description": "The user is not authorized to access a resource.",
@@ -27,17 +28,21 @@
           "$ref": "#/definitions/ExceptionMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AccessDeniedException"
     },
     "Alias": {
-      "type": "string"
+      "type": "string",
+      "title": "Alias"
     },
     "BooleanObject": {
-      "type": "boolean"
+      "type": "boolean",
+      "title": "BooleanObject"
     },
     "BundleId": {
       "pattern": "^wsb-[0-9a-z]{8,63}$",
-      "type": "string"
+      "type": "string",
+      "title": "BundleId"
     },
     "BundleIdList": {
       "items": {
@@ -45,16 +50,19 @@
       },
       "maxItems": 25,
       "minItems": 1,
-      "type": "array"
+      "type": "array",
+      "title": "BundleIdList"
     },
     "BundleList": {
       "items": {
         "$ref": "#/definitions/WorkspaceBundle"
       },
-      "type": "array"
+      "type": "array",
+      "title": "BundleList"
     },
     "BundleOwner": {
-      "type": "string"
+      "type": "string",
+      "title": "BundleOwner"
     },
     "Compute": {
       "enum": [
@@ -62,7 +70,8 @@
         "STANDARD",
         "PERFORMANCE"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "Compute"
     },
     "ComputeType": {
       "description": "Contains information about the compute type of a WorkSpace bundle.",
@@ -72,10 +81,12 @@
           "description": "The name of the compute type for the bundle."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ComputeType"
     },
     "ComputerName": {
-      "type": "string"
+      "type": "string",
+      "title": "ComputerName"
     },
     "ConnectionState": {
       "enum": [
@@ -83,7 +94,8 @@
         "DISCONNECTED",
         "UNKNOWN"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ConnectionState"
     },
     "CreateTagsRequest": {
       "description": "The request of the <a>CreateTags</a> operation.",
@@ -101,12 +113,14 @@
         "ResourceId",
         "Tags"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateTagsRequest"
     },
     "CreateTagsResult": {
       "description": "The result of the <a>CreateTags</a> operation.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "CreateTagsResult"
     },
     "CreateWorkspacesRequest": {
       "description": "Contains the inputs for the <a>CreateWorkspaces</a> operation.",
@@ -119,7 +133,8 @@
       "required": [
         "Workspaces"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateWorkspacesRequest"
     },
     "CreateWorkspacesResult": {
       "description": "Contains the result of the <a>CreateWorkspaces</a> operation.",
@@ -133,10 +148,12 @@
           "description": "<p>An array of structures that represent the WorkSpaces that were created.</p> <p>Because this operation is asynchronous, the identifier in <code>WorkspaceId</code> is not immediately available. If you immediately call <a>DescribeWorkspaces</a> with this identifier, no information will be returned.</p>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateWorkspacesResult"
     },
     "DefaultOu": {
-      "type": "string"
+      "type": "string",
+      "title": "DefaultOu"
     },
     "DefaultWorkspaceCreationProperties": {
       "description": "Contains default WorkSpace creation information.",
@@ -162,7 +179,8 @@
           "description": "The WorkSpace user is an administrator on the WorkSpace."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DefaultWorkspaceCreationProperties"
     },
     "DeleteTagsRequest": {
       "description": "The request of the <a>DeleteTags</a> operation.",
@@ -180,12 +198,14 @@
         "ResourceId",
         "TagKeys"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteTagsRequest"
     },
     "DeleteTagsResult": {
       "description": "The result of the <a>DeleteTags</a> operation.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DeleteTagsResult"
     },
     "DescribeTagsRequest": {
       "description": "The request of the <a>DescribeTags</a> operation.",
@@ -198,7 +218,8 @@
       "required": [
         "ResourceId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeTagsRequest"
     },
     "DescribeTagsResult": {
       "description": "The result of the <a>DescribeTags</a> operation.",
@@ -208,7 +229,8 @@
           "description": "The list of tags."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeTagsResult"
     },
     "DescribeWorkspaceBundlesRequest": {
       "description": "Contains the inputs for the <a>DescribeWorkspaceBundles</a> operation.",
@@ -226,7 +248,8 @@
           "description": "<p>The owner of the bundles to retrieve. This parameter cannot be combined with any other filter parameter.</p> <p>This contains one of the following values:</p> <ul> <li> <p>null- Retrieves the bundles that belong to the account making the call.</p> </li> <li> <p> <code>AMAZON</code>- Retrieves the bundles that are provided by AWS.</p> </li> </ul>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeWorkspaceBundlesRequest"
     },
     "DescribeWorkspaceBundlesResult": {
       "description": "Contains the results of the <a>DescribeWorkspaceBundles</a> operation.",
@@ -240,7 +263,8 @@
           "description": "If not null, more results are available. Pass this value for the <code>NextToken</code> parameter in a subsequent call to this operation to retrieve the next set of items. This token is valid for one day and must be used within that time frame."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeWorkspaceBundlesResult"
     },
     "DescribeWorkspaceDirectoriesRequest": {
       "description": "Contains the inputs for the <a>DescribeWorkspaceDirectories</a> operation.",
@@ -254,7 +278,8 @@
           "description": "The <code>NextToken</code> value from a previous call to this operation. Pass null if this is the first call."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeWorkspaceDirectoriesRequest"
     },
     "DescribeWorkspaceDirectoriesResult": {
       "description": "Contains the results of the <a>DescribeWorkspaceDirectories</a> operation.",
@@ -268,7 +293,8 @@
           "description": "If not null, more results are available. Pass this value for the <code>NextToken</code> parameter in a subsequent call to this operation to retrieve the next set of items. This token is valid for one day and must be used within that time frame."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeWorkspaceDirectoriesResult"
     },
     "DescribeWorkspacesConnectionStatusRequest": {
       "properties": {
@@ -281,7 +307,8 @@
           "description": "An array of strings that contain the identifiers of the WorkSpaces."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeWorkspacesConnectionStatusRequest"
     },
     "DescribeWorkspacesConnectionStatusResult": {
       "properties": {
@@ -294,7 +321,8 @@
           "description": "The connection status of the WorkSpace."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeWorkspacesConnectionStatusResult"
     },
     "DescribeWorkspacesRequest": {
       "description": "Contains the inputs for the <a>DescribeWorkspaces</a> operation.",
@@ -324,7 +352,8 @@
           "description": "<p>An array of strings that contain the identifiers of the WorkSpaces for which to retrieve information. This parameter cannot be combined with any other filter parameter.</p> <p>Because the <a>CreateWorkspaces</a> operation is asynchronous, the identifier it returns is not immediately available. If you immediately call <a>DescribeWorkspaces</a> with this identifier, no information is returned.</p>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeWorkspacesRequest"
     },
     "DescribeWorkspacesResult": {
       "description": "Contains the results for the <a>DescribeWorkspaces</a> operation.",
@@ -338,14 +367,17 @@
           "description": "<p>An array of structures that contain the information about the WorkSpaces.</p> <p>Because the <a>CreateWorkspaces</a> operation is asynchronous, some of this information may be incomplete for a newly-created WorkSpace.</p>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeWorkspacesResult"
     },
     "Description": {
-      "type": "string"
+      "type": "string",
+      "title": "Description"
     },
     "DirectoryId": {
       "pattern": "^d-[0-9a-f]{8,63}$",
-      "type": "string"
+      "type": "string",
+      "title": "DirectoryId"
     },
     "DirectoryIdList": {
       "items": {
@@ -353,28 +385,34 @@
       },
       "maxItems": 25,
       "minItems": 1,
-      "type": "array"
+      "type": "array",
+      "title": "DirectoryIdList"
     },
     "DirectoryList": {
       "items": {
         "$ref": "#/definitions/WorkspaceDirectory"
       },
-      "type": "array"
+      "type": "array",
+      "title": "DirectoryList"
     },
     "DirectoryName": {
-      "type": "string"
+      "type": "string",
+      "title": "DirectoryName"
     },
     "DnsIpAddresses": {
       "items": {
         "$ref": "#/definitions/IpAddress"
       },
-      "type": "array"
+      "type": "array",
+      "title": "DnsIpAddresses"
     },
     "ErrorType": {
-      "type": "string"
+      "type": "string",
+      "title": "ErrorType"
     },
     "ExceptionMessage": {
-      "type": "string"
+      "type": "string",
+      "title": "ExceptionMessage"
     },
     "FailedCreateWorkspaceRequest": {
       "description": "Contains information about a WorkSpace that could not be created.",
@@ -392,43 +430,50 @@
           "description": "A <a>FailedCreateWorkspaceRequest$WorkspaceRequest</a> object that contains the information about the WorkSpace that could not be created."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "FailedCreateWorkspaceRequest"
     },
     "FailedCreateWorkspaceRequests": {
       "items": {
         "$ref": "#/definitions/FailedCreateWorkspaceRequest"
       },
-      "type": "array"
+      "type": "array",
+      "title": "FailedCreateWorkspaceRequests"
     },
     "FailedRebootWorkspaceRequests": {
       "items": {
         "$ref": "#/definitions/FailedWorkspaceChangeRequest"
       },
-      "type": "array"
+      "type": "array",
+      "title": "FailedRebootWorkspaceRequests"
     },
     "FailedRebuildWorkspaceRequests": {
       "items": {
         "$ref": "#/definitions/FailedWorkspaceChangeRequest"
       },
-      "type": "array"
+      "type": "array",
+      "title": "FailedRebuildWorkspaceRequests"
     },
     "FailedStartWorkspaceRequests": {
       "items": {
         "$ref": "#/definitions/FailedWorkspaceChangeRequest"
       },
-      "type": "array"
+      "type": "array",
+      "title": "FailedStartWorkspaceRequests"
     },
     "FailedStopWorkspaceRequests": {
       "items": {
         "$ref": "#/definitions/FailedWorkspaceChangeRequest"
       },
-      "type": "array"
+      "type": "array",
+      "title": "FailedStopWorkspaceRequests"
     },
     "FailedTerminateWorkspaceRequests": {
       "items": {
         "$ref": "#/definitions/FailedWorkspaceChangeRequest"
       },
-      "type": "array"
+      "type": "array",
+      "title": "FailedTerminateWorkspaceRequests"
     },
     "FailedWorkspaceChangeRequest": {
       "description": "Contains information about a WorkSpace that could not be rebooted (<a>RebootWorkspaces</a>), rebuilt (<a>RebuildWorkspaces</a>), terminated (<a>TerminateWorkspaces</a>), started (<a>StartWorkspaces</a>), or stopped (<a>StopWorkspaces</a>).",
@@ -446,7 +491,8 @@
           "description": "The identifier of the WorkSpace."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "FailedWorkspaceChangeRequest"
     },
     "InvalidParameterValuesException": {
       "description": "One or more parameter values are not valid.",
@@ -456,7 +502,8 @@
           "description": "The exception error message."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidParameterValuesException"
     },
     "InvalidResourceStateException": {
       "description": "The state of the WorkSpace is not valid for this operation.",
@@ -465,15 +512,18 @@
           "$ref": "#/definitions/ExceptionMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidResourceStateException"
     },
     "IpAddress": {
-      "type": "string"
+      "type": "string",
+      "title": "IpAddress"
     },
     "Limit": {
       "maximum": 25,
       "minimum": 1,
-      "type": "integer"
+      "type": "integer",
+      "title": "Limit"
     },
     "ModifyWorkspacePropertiesRequest": {
       "properties": {
@@ -490,15 +540,18 @@
         "WorkspaceId",
         "WorkspaceProperties"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ModifyWorkspacePropertiesRequest"
     },
     "ModifyWorkspacePropertiesResult": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "ModifyWorkspacePropertiesResult"
     },
     "NonEmptyString": {
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "NonEmptyString"
     },
     "OperationInProgressException": {
       "description": "The properties of this WorkSpace are currently being modified. Try again in a moment.",
@@ -507,12 +560,14 @@
           "$ref": "#/definitions/ExceptionMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "OperationInProgressException"
     },
     "PaginationToken": {
       "maxLength": 63,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "PaginationToken"
     },
     "RebootRequest": {
       "description": "Contains information used with the <a>RebootWorkspaces</a> operation to reboot a WorkSpace.",
@@ -525,7 +580,8 @@
       "required": [
         "WorkspaceId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "RebootRequest"
     },
     "RebootWorkspaceRequests": {
       "items": {
@@ -533,7 +589,8 @@
       },
       "maxItems": 25,
       "minItems": 1,
-      "type": "array"
+      "type": "array",
+      "title": "RebootWorkspaceRequests"
     },
     "RebootWorkspacesRequest": {
       "description": "Contains the inputs for the <a>RebootWorkspaces</a> operation.",
@@ -546,7 +603,8 @@
       "required": [
         "RebootWorkspaceRequests"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "RebootWorkspacesRequest"
     },
     "RebootWorkspacesResult": {
       "description": "Contains the results of the <a>RebootWorkspaces</a> operation.",
@@ -556,7 +614,8 @@
           "description": "An array of structures representing any WorkSpaces that could not be rebooted."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RebootWorkspacesResult"
     },
     "RebuildRequest": {
       "description": "Contains information used with the <a>RebuildWorkspaces</a> operation to rebuild a WorkSpace.",
@@ -569,7 +628,8 @@
       "required": [
         "WorkspaceId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "RebuildRequest"
     },
     "RebuildWorkspaceRequests": {
       "items": {
@@ -577,7 +637,8 @@
       },
       "maxItems": 1,
       "minItems": 1,
-      "type": "array"
+      "type": "array",
+      "title": "RebuildWorkspaceRequests"
     },
     "RebuildWorkspacesRequest": {
       "description": "Contains the inputs for the <a>RebuildWorkspaces</a> operation.",
@@ -590,7 +651,8 @@
       "required": [
         "RebuildWorkspaceRequests"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "RebuildWorkspacesRequest"
     },
     "RebuildWorkspacesResult": {
       "description": "Contains the results of the <a>RebuildWorkspaces</a> operation.",
@@ -600,12 +662,14 @@
           "description": "An array of structures representing any WorkSpaces that could not be rebuilt."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RebuildWorkspacesResult"
     },
     "RegistrationCode": {
       "maxLength": 20,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "RegistrationCode"
     },
     "ResourceLimitExceededException": {
       "description": "Your resource limits have been exceeded.",
@@ -615,7 +679,8 @@
           "description": "The exception error message."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ResourceLimitExceededException"
     },
     "ResourceNotFoundException": {
       "description": "The resource could not be found.",
@@ -629,7 +694,8 @@
           "description": "The resource could not be found."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ResourceNotFoundException"
     },
     "ResourceUnavailableException": {
       "description": "The specified resource is not available.",
@@ -643,21 +709,25 @@
           "description": "The exception error message."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ResourceUnavailableException"
     },
     "RunningMode": {
       "enum": [
         "AUTO_STOP",
         "ALWAYS_ON"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "RunningMode"
     },
     "RunningModeAutoStopTimeoutInMinutes": {
-      "type": "integer"
+      "type": "integer",
+      "title": "RunningModeAutoStopTimeoutInMinutes"
     },
     "SecurityGroupId": {
       "pattern": "^(sg-[0-9a-f]{8})$",
-      "type": "string"
+      "type": "string",
+      "title": "SecurityGroupId"
     },
     "StartRequest": {
       "description": "Describes the start request.",
@@ -667,7 +737,8 @@
           "description": "The ID of the WorkSpace."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "StartRequest"
     },
     "StartWorkspaceRequests": {
       "items": {
@@ -675,7 +746,8 @@
       },
       "maxItems": 25,
       "minItems": 1,
-      "type": "array"
+      "type": "array",
+      "title": "StartWorkspaceRequests"
     },
     "StartWorkspacesRequest": {
       "properties": {
@@ -687,7 +759,8 @@
       "required": [
         "StartWorkspaceRequests"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "StartWorkspacesRequest"
     },
     "StartWorkspacesResult": {
       "properties": {
@@ -696,7 +769,8 @@
           "description": "The failed requests."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "StartWorkspacesResult"
     },
     "StopRequest": {
       "description": "Describes the stop request.",
@@ -706,7 +780,8 @@
           "description": "The ID of the WorkSpace."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "StopRequest"
     },
     "StopWorkspaceRequests": {
       "items": {
@@ -714,7 +789,8 @@
       },
       "maxItems": 25,
       "minItems": 1,
-      "type": "array"
+      "type": "array",
+      "title": "StopWorkspaceRequests"
     },
     "StopWorkspacesRequest": {
       "properties": {
@@ -726,7 +802,8 @@
       "required": [
         "StopWorkspaceRequests"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "StopWorkspacesRequest"
     },
     "StopWorkspacesResult": {
       "properties": {
@@ -735,17 +812,20 @@
           "description": "The failed requests."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "StopWorkspacesResult"
     },
     "SubnetId": {
       "pattern": "^(subnet-[0-9a-f]{8})$",
-      "type": "string"
+      "type": "string",
+      "title": "SubnetId"
     },
     "SubnetIds": {
       "items": {
         "$ref": "#/definitions/SubnetId"
       },
-      "type": "array"
+      "type": "array",
+      "title": "SubnetIds"
     },
     "Tag": {
       "description": "Describes the tag of the WorkSpace.",
@@ -762,28 +842,33 @@
       "required": [
         "Key"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "Tag"
     },
     "TagKey": {
       "maxLength": 127,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "TagKey"
     },
     "TagKeyList": {
       "items": {
         "$ref": "#/definitions/NonEmptyString"
       },
-      "type": "array"
+      "type": "array",
+      "title": "TagKeyList"
     },
     "TagList": {
       "items": {
         "$ref": "#/definitions/Tag"
       },
-      "type": "array"
+      "type": "array",
+      "title": "TagList"
     },
     "TagValue": {
       "maxLength": 255,
-      "type": "string"
+      "type": "string",
+      "title": "TagValue"
     },
     "TerminateRequest": {
       "description": "Contains information used with the <a>TerminateWorkspaces</a> operation to terminate a WorkSpace.",
@@ -796,7 +881,8 @@
       "required": [
         "WorkspaceId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "TerminateRequest"
     },
     "TerminateWorkspaceRequests": {
       "items": {
@@ -804,7 +890,8 @@
       },
       "maxItems": 25,
       "minItems": 1,
-      "type": "array"
+      "type": "array",
+      "title": "TerminateWorkspaceRequests"
     },
     "TerminateWorkspacesRequest": {
       "description": "Contains the inputs for the <a>TerminateWorkspaces</a> operation.",
@@ -817,7 +904,8 @@
       "required": [
         "TerminateWorkspaceRequests"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "TerminateWorkspacesRequest"
     },
     "TerminateWorkspacesResult": {
       "description": "Contains the results of the <a>TerminateWorkspaces</a> operation.",
@@ -827,11 +915,13 @@
           "description": "An array of structures representing any WorkSpaces that could not be terminated."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TerminateWorkspacesResult"
     },
     "Timestamp": {
       "format": "date-time",
-      "type": "string"
+      "type": "string",
+      "title": "Timestamp"
     },
     "UnsupportedWorkspaceConfigurationException": {
       "description": "The configuration of this WorkSpace is not supported for this operation. For more information, see the <a href=\"http://docs.aws.amazon.com/workspaces/latest/adminguide/\">Amazon WorkSpaces Administration Guide</a>. ",
@@ -840,12 +930,14 @@
           "$ref": "#/definitions/ExceptionMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UnsupportedWorkspaceConfigurationException"
     },
     "UserName": {
       "maxLength": 63,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "UserName"
     },
     "UserStorage": {
       "description": "Contains information about the user storage for a WorkSpace bundle.",
@@ -855,10 +947,12 @@
           "description": "The amount of user storage for the bundle."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UserStorage"
     },
     "VolumeEncryptionKey": {
-      "type": "string"
+      "type": "string",
+      "title": "VolumeEncryptionKey"
     },
     "Workspace": {
       "description": "Contains information about a WorkSpace.",
@@ -919,7 +1013,8 @@
           "$ref": "#/definitions/WorkspaceProperties"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Workspace"
     },
     "WorkspaceBundle": {
       "description": "Contains information about a WorkSpace bundle.",
@@ -949,7 +1044,8 @@
           "description": "A <a>UserStorage</a> object that specifies the amount of user storage that the bundle contains."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "WorkspaceBundle"
     },
     "WorkspaceConnectionStatus": {
       "description": "Describes the connection status of a WorkSpace.",
@@ -971,13 +1067,15 @@
           "description": "The ID of the WorkSpace."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "WorkspaceConnectionStatus"
     },
     "WorkspaceConnectionStatusList": {
       "items": {
         "$ref": "#/definitions/WorkspaceConnectionStatus"
       },
-      "type": "array"
+      "type": "array",
+      "title": "WorkspaceConnectionStatusList"
     },
     "WorkspaceDirectory": {
       "description": "Contains information about an AWS Directory Service directory for use with Amazon WorkSpaces.",
@@ -1031,7 +1129,8 @@
           "description": "The identifier of the security group that is assigned to new WorkSpaces."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "WorkspaceDirectory"
     },
     "WorkspaceDirectoryState": {
       "enum": [
@@ -1041,21 +1140,25 @@
         "DEREGISTERED",
         "ERROR"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "WorkspaceDirectoryState"
     },
     "WorkspaceDirectoryType": {
       "enum": [
         "SIMPLE_AD",
         "AD_CONNECTOR"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "WorkspaceDirectoryType"
     },
     "WorkspaceErrorCode": {
-      "type": "string"
+      "type": "string",
+      "title": "WorkspaceErrorCode"
     },
     "WorkspaceId": {
       "pattern": "^ws-[0-9a-z]{8,63}$",
-      "type": "string"
+      "type": "string",
+      "title": "WorkspaceId"
     },
     "WorkspaceIdList": {
       "items": {
@@ -1063,13 +1166,15 @@
       },
       "maxItems": 25,
       "minItems": 1,
-      "type": "array"
+      "type": "array",
+      "title": "WorkspaceIdList"
     },
     "WorkspaceList": {
       "items": {
         "$ref": "#/definitions/Workspace"
       },
-      "type": "array"
+      "type": "array",
+      "title": "WorkspaceList"
     },
     "WorkspaceProperties": {
       "description": "Describes the properties of a WorkSpace.",
@@ -1083,7 +1188,8 @@
           "description": "The time after a user logs off when WorkSpaces are automatically stopped. Configured in 60 minute intervals."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "WorkspaceProperties"
     },
     "WorkspaceRequest": {
       "description": "Contains information about a WorkSpace creation request.",
@@ -1125,7 +1231,8 @@
         "UserName",
         "BundleId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "WorkspaceRequest"
     },
     "WorkspaceRequestList": {
       "items": {
@@ -1133,7 +1240,8 @@
       },
       "maxItems": 25,
       "minItems": 1,
-      "type": "array"
+      "type": "array",
+      "title": "WorkspaceRequestList"
     },
     "WorkspaceState": {
       "enum": [
@@ -1152,7 +1260,8 @@
         "STOPPED",
         "ERROR"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "WorkspaceState"
     }
   },
   "actions": [

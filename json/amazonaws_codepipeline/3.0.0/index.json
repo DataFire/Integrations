@@ -37,14 +37,17 @@
         "secretAccessKey",
         "sessionToken"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AWSSessionCredentials"
     },
     "AccessKeyId": {
-      "type": "string"
+      "type": "string",
+      "title": "AccessKeyId"
     },
     "AccountId": {
       "pattern": "[0-9]{12}",
-      "type": "string"
+      "type": "string",
+      "title": "AccountId"
     },
     "AcknowledgeJobInput": {
       "description": "Represents the input of an acknowledge job action.",
@@ -66,7 +69,8 @@
         "jobId",
         "nonce"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AcknowledgeJobInput"
     },
     "AcknowledgeJobOutput": {
       "description": "Represents the output of an acknowledge job action.",
@@ -79,7 +83,8 @@
           "description": "Whether the job worker has received the specified job."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AcknowledgeJobOutput"
     },
     "AcknowledgeThirdPartyJobInput": {
       "description": "Represents the input of an acknowledge third party job action.",
@@ -102,7 +107,8 @@
         "nonce",
         "clientToken"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AcknowledgeThirdPartyJobInput"
     },
     "AcknowledgeThirdPartyJobOutput": {
       "description": "Represents the output of an acknowledge third party job action.",
@@ -112,7 +118,8 @@
           "description": "The status information for the third party job, if any."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AcknowledgeThirdPartyJobOutput"
     },
     "ActionCategory": {
       "enum": [
@@ -123,7 +130,8 @@
         "Invoke",
         "Approval"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ActionCategory"
     },
     "ActionConfiguration": {
       "description": "Represents information about an action configuration.",
@@ -133,12 +141,14 @@
           "description": "The configuration data for the action."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ActionConfiguration"
     },
     "ActionConfigurationKey": {
       "maxLength": 50,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "ActionConfigurationKey"
     },
     "ActionConfigurationMap": {
       "items": {
@@ -152,7 +162,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ActionConfigurationMap"
     },
     "ActionConfigurationProperty": {
       "description": "Represents information about an action configuration property.",
@@ -192,14 +203,16 @@
         "key",
         "secret"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ActionConfigurationProperty"
     },
     "ActionConfigurationPropertyList": {
       "items": {
         "$ref": "#/definitions/ActionConfigurationProperty"
       },
       "maxItems": 10,
-      "type": "array"
+      "type": "array",
+      "title": "ActionConfigurationPropertyList"
     },
     "ActionConfigurationPropertyType": {
       "enum": [
@@ -207,18 +220,21 @@
         "Number",
         "Boolean"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ActionConfigurationPropertyType"
     },
     "ActionConfigurationQueryableValue": {
       "maxLength": 20,
       "minLength": 1,
       "pattern": "[a-zA-Z0-9_-]+",
-      "type": "string"
+      "type": "string",
+      "title": "ActionConfigurationQueryableValue"
     },
     "ActionConfigurationValue": {
       "maxLength": 1000,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "ActionConfigurationValue"
     },
     "ActionContext": {
       "description": "Represents the context of an action within the stage of a pipeline to a job worker.",
@@ -228,7 +244,8 @@
           "description": "The name of the action within the context of a job."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ActionContext"
     },
     "ActionDeclaration": {
       "description": "Represents information about an action declaration.",
@@ -266,7 +283,8 @@
         "name",
         "actionTypeId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ActionDeclaration"
     },
     "ActionExecution": {
       "description": "Represents information about the run of an action.",
@@ -308,7 +326,8 @@
           "description": "The system-generated token used to identify a unique approval request. The token for each open approval request can be obtained using the GetPipelineState command and is used to validate that the approval request corresponding to this token is still valid."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ActionExecution"
     },
     "ActionExecutionStatus": {
       "enum": [
@@ -316,21 +335,25 @@
         "Succeeded",
         "Failed"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ActionExecutionStatus"
     },
     "ActionExecutionToken": {
-      "type": "string"
+      "type": "string",
+      "title": "ActionExecutionToken"
     },
     "ActionName": {
       "maxLength": 100,
       "minLength": 1,
       "pattern": "[A-Za-z0-9.@\\-_]+",
-      "type": "string"
+      "type": "string",
+      "title": "ActionName"
     },
     "ActionNotFoundException": {
       "description": "The specified action cannot be found.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "ActionNotFoundException"
     },
     "ActionOwner": {
       "enum": [
@@ -338,13 +361,15 @@
         "ThirdParty",
         "Custom"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ActionOwner"
     },
     "ActionProvider": {
       "maxLength": 25,
       "minLength": 1,
       "pattern": "[0-9A-Za-z_-]+",
-      "type": "string"
+      "type": "string",
+      "title": "ActionProvider"
     },
     "ActionRevision": {
       "description": "Represents information about the version (or revision) of an action.",
@@ -367,12 +392,14 @@
         "revisionChangeId",
         "created"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ActionRevision"
     },
     "ActionRunOrder": {
       "maximum": 999,
       "minimum": 1,
-      "type": "integer"
+      "type": "integer",
+      "title": "ActionRunOrder"
     },
     "ActionState": {
       "description": "Represents information about the state of an action.",
@@ -396,13 +423,15 @@
           "description": "A URL link for more information about the revision, such as a commit details page."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ActionState"
     },
     "ActionStateList": {
       "items": {
         "$ref": "#/definitions/ActionState"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ActionStateList"
     },
     "ActionType": {
       "description": "Returns information about the details of an action type.",
@@ -432,7 +461,8 @@
         "inputArtifactDetails",
         "outputArtifactDetails"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ActionType"
     },
     "ActionTypeId": {
       "description": "Represents information about an action type.",
@@ -460,18 +490,21 @@
         "provider",
         "version"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ActionTypeId"
     },
     "ActionTypeList": {
       "items": {
         "$ref": "#/definitions/ActionType"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ActionTypeList"
     },
     "ActionTypeNotFoundException": {
       "description": "The specified action type cannot be found.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "ActionTypeNotFoundException"
     },
     "ActionTypeSettings": {
       "description": "Returns information about the settings for an action type.",
@@ -493,12 +526,14 @@
           "description": "The URL of a sign-up page where users can sign up for an external service and perform initial configuration of the action provided by that service."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ActionTypeSettings"
     },
     "ApprovalAlreadyCompletedException": {
       "description": "The approval action has already been approved or rejected.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "ApprovalAlreadyCompletedException"
     },
     "ApprovalResult": {
       "description": "Represents information about the result of an approval request.",
@@ -516,23 +551,27 @@
         "summary",
         "status"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ApprovalResult"
     },
     "ApprovalStatus": {
       "enum": [
         "Approved",
         "Rejected"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ApprovalStatus"
     },
     "ApprovalSummary": {
       "maxLength": 512,
       "minLength": 0,
-      "type": "string"
+      "type": "string",
+      "title": "ApprovalSummary"
     },
     "ApprovalToken": {
       "pattern": "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}",
-      "type": "string"
+      "type": "string",
+      "title": "ApprovalToken"
     },
     "Artifact": {
       "description": "Represents information about an artifact that will be worked upon by actions in the pipeline.",
@@ -550,7 +589,8 @@
           "description": "The artifact's revision ID. Depending on the type of object, this could be a commit ID (GitHub) or a revision ID (Amazon S3)."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Artifact"
     },
     "ArtifactDetails": {
       "description": "Returns information about the details of an artifact.",
@@ -568,13 +608,15 @@
         "minimumCount",
         "maximumCount"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ArtifactDetails"
     },
     "ArtifactList": {
       "items": {
         "$ref": "#/definitions/Artifact"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ArtifactList"
     },
     "ArtifactLocation": {
       "description": "Represents information about the location of an artifact.",
@@ -588,19 +630,22 @@
           "description": "The type of artifact in the location."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ArtifactLocation"
     },
     "ArtifactLocationType": {
       "enum": [
         "S3"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ArtifactLocationType"
     },
     "ArtifactName": {
       "maxLength": 100,
       "minLength": 1,
       "pattern": "[a-zA-Z0-9_\\-]+",
-      "type": "string"
+      "type": "string",
+      "title": "ArtifactName"
     },
     "ArtifactRevision": {
       "description": "Represents revision details of an artifact. ",
@@ -630,13 +675,15 @@
           "description": "The commit ID for the artifact revision. For artifacts stored in GitHub or AWS CodeCommit repositories, the commit ID is linked to a commit details page."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ArtifactRevision"
     },
     "ArtifactRevisionList": {
       "items": {
         "$ref": "#/definitions/ArtifactRevision"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ArtifactRevisionList"
     },
     "ArtifactStore": {
       "description": "The Amazon S3 location where artifacts are stored for the pipeline. If this Amazon S3 bucket is created manually, it must meet the requirements for AWS CodePipeline. For more information, see the <a href=\"http://docs.aws.amazon.com/codepipeline/latest/userguide/concepts.html#CPS3Bucket\">Concepts</a>.",
@@ -658,19 +705,22 @@
         "type",
         "location"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ArtifactStore"
     },
     "ArtifactStoreLocation": {
       "maxLength": 63,
       "minLength": 3,
       "pattern": "[a-zA-Z0-9\\-\\.]+",
-      "type": "string"
+      "type": "string",
+      "title": "ArtifactStoreLocation"
     },
     "ArtifactStoreType": {
       "enum": [
         "S3"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ArtifactStoreType"
     },
     "BlockerDeclaration": {
       "description": "Reserved for future use.",
@@ -688,34 +738,42 @@
         "name",
         "type"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "BlockerDeclaration"
     },
     "BlockerName": {
       "maxLength": 100,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "BlockerName"
     },
     "BlockerType": {
       "enum": [
         "Schedule"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "BlockerType"
     },
     "Boolean": {
-      "type": "boolean"
+      "type": "boolean",
+      "title": "Boolean"
     },
     "ClientId": {
       "pattern": "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}",
-      "type": "string"
+      "type": "string",
+      "title": "ClientId"
     },
     "ClientToken": {
-      "type": "string"
+      "type": "string",
+      "title": "ClientToken"
     },
     "Code": {
-      "type": "string"
+      "type": "string",
+      "title": "Code"
     },
     "ContinuationToken": {
-      "type": "string"
+      "type": "string",
+      "title": "ContinuationToken"
     },
     "CreateCustomActionTypeInput": {
       "description": "Represents the input of a create custom action operation.",
@@ -782,7 +840,8 @@
         "inputArtifactDetails",
         "outputArtifactDetails"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateCustomActionTypeInput"
     },
     "CreateCustomActionTypeOutput": {
       "description": "Represents the output of a create custom action operation.",
@@ -827,7 +886,8 @@
       "required": [
         "actionType"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateCustomActionTypeOutput"
     },
     "CreatePipelineInput": {
       "description": "Represents the input of a create pipeline action.",
@@ -902,7 +962,8 @@
       "required": [
         "pipeline"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreatePipelineInput"
     },
     "CreatePipelineOutput": {
       "description": "Represents the output of a create pipeline action.",
@@ -974,7 +1035,8 @@
           "$ref": "#/definitions/PipelineDeclaration"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreatePipelineOutput"
     },
     "CurrentRevision": {
       "description": "Represents information about a current revision.",
@@ -1000,7 +1062,8 @@
         "revision",
         "changeIdentifier"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CurrentRevision"
     },
     "DeleteCustomActionTypeInput": {
       "description": "Represents the input of a delete custom action operation. The custom action will be marked as deleted.",
@@ -1028,7 +1091,8 @@
         "provider",
         "version"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteCustomActionTypeInput"
     },
     "DeletePipelineInput": {
       "description": "Represents the input of a delete pipeline action.",
@@ -1044,12 +1108,14 @@
       "required": [
         "name"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeletePipelineInput"
     },
     "Description": {
       "maxLength": 2048,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "Description"
     },
     "DisableStageTransitionInput": {
       "description": "Represents the input of a disable stage transition input action.",
@@ -1083,13 +1149,15 @@
         "transitionType",
         "reason"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DisableStageTransitionInput"
     },
     "DisabledReason": {
       "maxLength": 300,
       "minLength": 1,
       "pattern": "[a-zA-Z0-9!@ \\(\\)\\.\\*\\?\\-]+",
-      "type": "string"
+      "type": "string",
+      "title": "DisabledReason"
     },
     "EnableStageTransitionInput": {
       "description": "Represents the input of an enable stage transition action.",
@@ -1117,10 +1185,12 @@
         "stageName",
         "transitionType"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "EnableStageTransitionInput"
     },
     "Enabled": {
-      "type": "boolean"
+      "type": "boolean",
+      "title": "Enabled"
     },
     "EncryptionKey": {
       "description": "Represents information about the key used to encrypt data in the artifact store, such as an AWS Key Management Service (AWS KMS) key.",
@@ -1138,18 +1208,21 @@
         "id",
         "type"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "EncryptionKey"
     },
     "EncryptionKeyId": {
       "maxLength": 100,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "EncryptionKeyId"
     },
     "EncryptionKeyType": {
       "enum": [
         "KMS"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "EncryptionKeyType"
     },
     "ErrorDetails": {
       "description": "Represents information about an error in AWS CodePipeline.",
@@ -1163,7 +1236,8 @@
           "description": "The text of the error message."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ErrorDetails"
     },
     "ExecutionDetails": {
       "description": "The details of the actions taken and results produced on an artifact as it passes through stages in the pipeline.",
@@ -1181,15 +1255,18 @@
           "description": "The summary of the current status of the actions."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ExecutionDetails"
     },
     "ExecutionId": {
       "maxLength": 1500,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "ExecutionId"
     },
     "ExecutionSummary": {
-      "type": "string"
+      "type": "string",
+      "title": "ExecutionSummary"
     },
     "FailureDetails": {
       "description": "Represents information about failure details.",
@@ -1211,7 +1288,8 @@
         "type",
         "message"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "FailureDetails"
     },
     "FailureType": {
       "enum": [
@@ -1222,7 +1300,8 @@
         "RevisionUnavailable",
         "SystemUnavailable"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "FailureType"
     },
     "GetJobDetailsInput": {
       "description": "Represents the input of a get job details action.",
@@ -1238,7 +1317,8 @@
       "required": [
         "jobId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetJobDetailsInput"
     },
     "GetJobDetailsOutput": {
       "description": "Represents the output of a get job details action.",
@@ -1294,7 +1374,8 @@
           "description": "<p>The details of the job.</p> <note> <p>If AWSSessionCredentials is used, a long-running job can call GetJobDetails again to obtain new credentials.</p> </note>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetJobDetailsOutput"
     },
     "GetPipelineExecutionInput": {
       "description": "Represents the input of a get pipeline execution action.",
@@ -1312,7 +1393,8 @@
         "pipelineName",
         "pipelineExecutionId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetPipelineExecutionInput"
     },
     "GetPipelineExecutionOutput": {
       "description": "Represents the output of a get pipeline execution action.",
@@ -1322,7 +1404,8 @@
           "description": "Represents information about the execution of a pipeline."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetPipelineExecutionOutput"
     },
     "GetPipelineInput": {
       "description": "Represents the input of a get pipeline action.",
@@ -1343,7 +1426,8 @@
       "required": [
         "name"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetPipelineInput"
     },
     "GetPipelineOutput": {
       "description": "Represents the output of a get pipeline action.",
@@ -1415,7 +1499,8 @@
           "$ref": "#/definitions/PipelineDeclaration"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetPipelineOutput"
     },
     "GetPipelineStateInput": {
       "description": "Represents the input of a get pipeline state action.",
@@ -1431,7 +1516,8 @@
       "required": [
         "name"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetPipelineStateInput"
     },
     "GetPipelineStateOutput": {
       "description": "Represents the output of a get pipeline state action.",
@@ -1497,7 +1583,8 @@
           "description": "The date and time the pipeline was last updated, in timestamp format."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetPipelineStateOutput"
     },
     "GetThirdPartyJobDetailsInput": {
       "description": "Represents the input of a get third party job details action.",
@@ -1515,7 +1602,8 @@
         "jobId",
         "clientToken"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetThirdPartyJobDetailsInput"
     },
     "GetThirdPartyJobDetailsOutput": {
       "description": "Represents the output of a get third party job details action.",
@@ -1525,7 +1613,8 @@
           "description": "The details of the job, including any protected values defined for the job."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetThirdPartyJobDetailsOutput"
     },
     "InputArtifact": {
       "description": "Represents information about an artifact to be worked on, such as a test or build artifact.",
@@ -1538,63 +1627,75 @@
       "required": [
         "name"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "InputArtifact"
     },
     "InputArtifactList": {
       "items": {
         "$ref": "#/definitions/InputArtifact"
       },
-      "type": "array"
+      "type": "array",
+      "title": "InputArtifactList"
     },
     "InvalidActionDeclarationException": {
       "description": "The specified action declaration was specified in an invalid format.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "InvalidActionDeclarationException"
     },
     "InvalidApprovalTokenException": {
       "description": "The approval request already received a response or has expired.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "InvalidApprovalTokenException"
     },
     "InvalidBlockerDeclarationException": {
       "description": "Reserved for future use.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "InvalidBlockerDeclarationException"
     },
     "InvalidClientTokenException": {
       "description": "The client token was specified in an invalid format",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "InvalidClientTokenException"
     },
     "InvalidJobException": {
       "description": "The specified job was specified in an invalid format or cannot be found.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "InvalidJobException"
     },
     "InvalidJobStateException": {
       "description": "The specified job state was specified in an invalid format.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "InvalidJobStateException"
     },
     "InvalidNextTokenException": {
       "description": "The next token was specified in an invalid format. Make sure that the next token you provided is the token returned by a previous call.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "InvalidNextTokenException"
     },
     "InvalidNonceException": {
       "description": "The specified nonce was specified in an invalid format.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "InvalidNonceException"
     },
     "InvalidStageDeclarationException": {
       "description": "The specified stage declaration was specified in an invalid format.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "InvalidStageDeclarationException"
     },
     "InvalidStructureException": {
       "description": "The specified structure was specified in an invalid format.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "InvalidStructureException"
     },
     "Job": {
       "description": "Represents information about a job.",
@@ -1616,7 +1717,8 @@
           "description": "A system-generated random number that AWS CodePipeline uses to ensure that the job is being worked on by only one job worker. Use this number in an <a>AcknowledgeJob</a> request."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Job"
     },
     "JobData": {
       "description": "Represents additional information about a job required for a job worker to complete the job.",
@@ -1649,7 +1751,8 @@
           "$ref": "#/definitions/PipelineContext"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "JobData"
     },
     "JobDetails": {
       "description": "Represents information about the details of a job.",
@@ -1666,22 +1769,26 @@
           "description": "The unique system-generated ID of the job."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "JobDetails"
     },
     "JobId": {
       "pattern": "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}",
-      "type": "string"
+      "type": "string",
+      "title": "JobId"
     },
     "JobList": {
       "items": {
         "$ref": "#/definitions/Job"
       },
-      "type": "array"
+      "type": "array",
+      "title": "JobList"
     },
     "JobNotFoundException": {
       "description": "The specified job was specified in an invalid format or cannot be found.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "JobNotFoundException"
     },
     "JobStatus": {
       "enum": [
@@ -1693,22 +1800,27 @@
         "Succeeded",
         "Failed"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "JobStatus"
     },
     "LastChangedAt": {
       "format": "date-time",
-      "type": "string"
+      "type": "string",
+      "title": "LastChangedAt"
     },
     "LastChangedBy": {
-      "type": "string"
+      "type": "string",
+      "title": "LastChangedBy"
     },
     "LastUpdatedBy": {
-      "type": "string"
+      "type": "string",
+      "title": "LastUpdatedBy"
     },
     "LimitExceededException": {
       "description": "The number of pipelines associated with the AWS account has exceeded the limit allowed for the account.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "LimitExceededException"
     },
     "ListActionTypesInput": {
       "description": "Represents the input of a list action types action.",
@@ -1726,7 +1838,8 @@
           "description": "An identifier that was returned from the previous list action types call, which can be used to return the next set of action types in the list."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListActionTypesInput"
     },
     "ListActionTypesOutput": {
       "description": "Represents the output of a list action types action.",
@@ -1806,7 +1919,8 @@
       "required": [
         "actionTypes"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListActionTypesOutput"
     },
     "ListPipelinesInput": {
       "description": "Represents the input of a list pipelines action.",
@@ -1817,7 +1931,8 @@
           "description": "An identifier that was returned from the previous list pipelines call, which can be used to return the next set of pipelines in the list."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListPipelinesInput"
     },
     "ListPipelinesOutput": {
       "description": "Represents the output of a list pipelines action.",
@@ -1848,35 +1963,43 @@
           "description": "The list of pipelines."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListPipelinesOutput"
     },
     "MaxBatchSize": {
       "minimum": 1,
-      "type": "integer"
+      "type": "integer",
+      "title": "MaxBatchSize"
     },
     "MaximumArtifactCount": {
       "maximum": 5,
       "minimum": 0,
-      "type": "integer"
+      "type": "integer",
+      "title": "MaximumArtifactCount"
     },
     "Message": {
-      "type": "string"
+      "type": "string",
+      "title": "Message"
     },
     "MinimumArtifactCount": {
       "maximum": 5,
       "minimum": 0,
-      "type": "integer"
+      "type": "integer",
+      "title": "MinimumArtifactCount"
     },
     "NextToken": {
-      "type": "string"
+      "type": "string",
+      "title": "NextToken"
     },
     "Nonce": {
-      "type": "string"
+      "type": "string",
+      "title": "Nonce"
     },
     "NotLatestPipelineExecutionException": {
       "description": "The stage has failed in a later run of the pipeline and the pipelineExecutionId associated with the request is out of date.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "NotLatestPipelineExecutionException"
     },
     "OutputArtifact": {
       "description": "Represents information about the output of an action.",
@@ -1889,18 +2012,21 @@
       "required": [
         "name"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "OutputArtifact"
     },
     "OutputArtifactList": {
       "items": {
         "$ref": "#/definitions/OutputArtifact"
       },
-      "type": "array"
+      "type": "array",
+      "title": "OutputArtifactList"
     },
     "Percentage": {
       "maximum": 100,
       "minimum": 0,
-      "type": "integer"
+      "type": "integer",
+      "title": "Percentage"
     },
     "PipelineContext": {
       "description": "Represents information about a pipeline to a job worker.",
@@ -1917,7 +2043,8 @@
           "description": "The stage of the pipeline."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PipelineContext"
     },
     "PipelineDeclaration": {
       "description": "Represents the structure of actions and stages to be performed in the pipeline.",
@@ -1948,7 +2075,8 @@
         "artifactStore",
         "stages"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "PipelineDeclaration"
     },
     "PipelineExecution": {
       "description": "Represents information about an execution of a pipeline.",
@@ -1974,16 +2102,19 @@
           "description": "<p>The status of the pipeline execution.</p> <ul> <li> <p>InProgress: The pipeline execution is currently running.</p> </li> <li> <p>Succeeded: The pipeline execution completed successfully. </p> </li> <li> <p>Superseded: While this pipeline execution was waiting for the next stage to be completed, a newer pipeline execution caught up and continued through the pipeline instead. </p> </li> <li> <p>Failed: The pipeline did not complete successfully.</p> </li> </ul>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PipelineExecution"
     },
     "PipelineExecutionId": {
       "pattern": "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}",
-      "type": "string"
+      "type": "string",
+      "title": "PipelineExecutionId"
     },
     "PipelineExecutionNotFoundException": {
       "description": "The pipeline execution was specified in an invalid format or cannot be found, or an execution ID does not belong to the specified pipeline. ",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "PipelineExecutionNotFoundException"
     },
     "PipelineExecutionStatus": {
       "enum": [
@@ -1992,35 +2123,41 @@
         "Superseded",
         "Failed"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "PipelineExecutionStatus"
     },
     "PipelineList": {
       "items": {
         "$ref": "#/definitions/PipelineSummary"
       },
-      "type": "array"
+      "type": "array",
+      "title": "PipelineList"
     },
     "PipelineName": {
       "maxLength": 100,
       "minLength": 1,
       "pattern": "[A-Za-z0-9.@\\-_]+",
-      "type": "string"
+      "type": "string",
+      "title": "PipelineName"
     },
     "PipelineNameInUseException": {
       "description": "The specified pipeline name is already in use.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "PipelineNameInUseException"
     },
     "PipelineNotFoundException": {
       "description": "The specified pipeline was specified in an invalid format or cannot be found.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "PipelineNotFoundException"
     },
     "PipelineStageDeclarationList": {
       "items": {
         "$ref": "#/definitions/StageDeclaration"
       },
-      "type": "array"
+      "type": "array",
+      "title": "PipelineStageDeclarationList"
     },
     "PipelineSummary": {
       "description": "Returns a summary of a pipeline.",
@@ -2042,16 +2179,19 @@
           "description": "The version number of the pipeline."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PipelineSummary"
     },
     "PipelineVersion": {
       "minimum": 1,
-      "type": "integer"
+      "type": "integer",
+      "title": "PipelineVersion"
     },
     "PipelineVersionNotFoundException": {
       "description": "The specified pipeline version was specified in an invalid format or cannot be found.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "PipelineVersionNotFoundException"
     },
     "PollForJobsInput": {
       "description": "Represents the input of a poll for jobs action.",
@@ -2083,7 +2223,8 @@
       "required": [
         "actionTypeId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "PollForJobsInput"
     },
     "PollForJobsOutput": {
       "description": "Represents the output of a poll for jobs action.",
@@ -2142,7 +2283,8 @@
           "description": "Information about the jobs to take action on."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PollForJobsOutput"
     },
     "PollForThirdPartyJobsInput": {
       "description": "Represents the input of a poll for third party jobs action.",
@@ -2158,7 +2300,8 @@
       "required": [
         "actionTypeId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "PollForThirdPartyJobsInput"
     },
     "PollForThirdPartyJobsOutput": {
       "description": "Represents the output of a poll for third party jobs action.",
@@ -2168,7 +2311,8 @@
           "description": "Information about the jobs to take action on."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PollForThirdPartyJobsOutput"
     },
     "PutActionRevisionInput": {
       "description": "Represents the input of a put action revision action.",
@@ -2195,7 +2339,8 @@
         "actionName",
         "actionRevision"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "PutActionRevisionInput"
     },
     "PutActionRevisionOutput": {
       "description": "Represents the output of a put action revision action.",
@@ -2209,7 +2354,8 @@
           "description": "The ID of the current workflow state of the pipeline."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PutActionRevisionOutput"
     },
     "PutApprovalResultInput": {
       "description": "Represents the input of a put approval result action.",
@@ -2242,7 +2388,8 @@
         "result",
         "token"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "PutApprovalResultInput"
     },
     "PutApprovalResultOutput": {
       "description": "Represents the output of a put approval result action.",
@@ -2252,7 +2399,8 @@
           "description": "The timestamp showing when the approval or rejection was submitted."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PutApprovalResultOutput"
     },
     "PutJobFailureResultInput": {
       "description": "Represents the input of a put job failure result action.",
@@ -2270,7 +2418,8 @@
         "jobId",
         "failureDetails"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "PutJobFailureResultInput"
     },
     "PutJobSuccessResultInput": {
       "description": "Represents the input of a put job success result action.",
@@ -2295,7 +2444,8 @@
       "required": [
         "jobId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "PutJobSuccessResultInput"
     },
     "PutThirdPartyJobFailureResultInput": {
       "description": "Represents the input of a third party job failure result action.",
@@ -2317,7 +2467,8 @@
         "clientToken",
         "failureDetails"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "PutThirdPartyJobFailureResultInput"
     },
     "PutThirdPartyJobSuccessResultInput": {
       "description": "Represents the input of a put third party job success result action.",
@@ -2345,7 +2496,8 @@
         "jobId",
         "clientToken"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "PutThirdPartyJobSuccessResultInput"
     },
     "QueryParamMap": {
       "items": {
@@ -2361,7 +2513,8 @@
       },
       "maxItems": 1,
       "minItems": 0,
-      "type": "array"
+      "type": "array",
+      "title": "QueryParamMap"
     },
     "RetryStageExecutionInput": {
       "description": "Represents the input of a retry stage execution action.",
@@ -2389,7 +2542,8 @@
         "pipelineExecutionId",
         "retryMode"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "RetryStageExecutionInput"
     },
     "RetryStageExecutionOutput": {
       "description": "Represents the output of a retry stage execution action.",
@@ -2399,27 +2553,32 @@
           "description": "The ID of the current workflow execution in the failed stage."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RetryStageExecutionOutput"
     },
     "Revision": {
       "maxLength": 1500,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "Revision"
     },
     "RevisionChangeIdentifier": {
       "maxLength": 100,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "RevisionChangeIdentifier"
     },
     "RevisionSummary": {
       "maxLength": 2048,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "RevisionSummary"
     },
     "RoleArn": {
       "maxLength": 1024,
       "pattern": "arn:aws(-[\\w]+)*:iam::[0-9]{12}:role/.*",
-      "type": "string"
+      "type": "string",
+      "title": "RoleArn"
     },
     "S3ArtifactLocation": {
       "description": "The location of the Amazon S3 bucket that contains a revision.",
@@ -2437,31 +2596,38 @@
         "bucketName",
         "objectKey"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "S3ArtifactLocation"
     },
     "S3BucketName": {
-      "type": "string"
+      "type": "string",
+      "title": "S3BucketName"
     },
     "S3ObjectKey": {
-      "type": "string"
+      "type": "string",
+      "title": "S3ObjectKey"
     },
     "SecretAccessKey": {
-      "type": "string"
+      "type": "string",
+      "title": "SecretAccessKey"
     },
     "SessionToken": {
-      "type": "string"
+      "type": "string",
+      "title": "SessionToken"
     },
     "StageActionDeclarationList": {
       "items": {
         "$ref": "#/definitions/ActionDeclaration"
       },
-      "type": "array"
+      "type": "array",
+      "title": "StageActionDeclarationList"
     },
     "StageBlockerDeclarationList": {
       "items": {
         "$ref": "#/definitions/BlockerDeclaration"
       },
-      "type": "array"
+      "type": "array",
+      "title": "StageBlockerDeclarationList"
     },
     "StageContext": {
       "description": "Represents information about a stage to a job worker.",
@@ -2471,7 +2637,8 @@
           "description": "The name of the stage."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "StageContext"
     },
     "StageDeclaration": {
       "description": "Represents information about a stage and its definition.",
@@ -2493,7 +2660,8 @@
         "name",
         "actions"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "StageDeclaration"
     },
     "StageExecution": {
       "description": "Represents information about the run of a stage.",
@@ -2511,7 +2679,8 @@
         "pipelineExecutionId",
         "status"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "StageExecution"
     },
     "StageExecutionStatus": {
       "enum": [
@@ -2519,29 +2688,34 @@
         "Failed",
         "Succeeded"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "StageExecutionStatus"
     },
     "StageName": {
       "maxLength": 100,
       "minLength": 1,
       "pattern": "[A-Za-z0-9.@\\-_]+",
-      "type": "string"
+      "type": "string",
+      "title": "StageName"
     },
     "StageNotFoundException": {
       "description": "The specified stage was specified in an invalid format or cannot be found.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "StageNotFoundException"
     },
     "StageNotRetryableException": {
       "description": "The specified stage can't be retried because the pipeline structure or stage state changed after the stage was not completed; the stage contains no failed actions; one or more actions are still in progress; or another retry attempt is already in progress. ",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "StageNotRetryableException"
     },
     "StageRetryMode": {
       "enum": [
         "FAILED_ACTIONS"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "StageRetryMode"
     },
     "StageState": {
       "description": "Represents information about the state of the stage.",
@@ -2563,20 +2737,23 @@
           "description": "The name of the stage."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "StageState"
     },
     "StageStateList": {
       "items": {
         "$ref": "#/definitions/StageState"
       },
-      "type": "array"
+      "type": "array",
+      "title": "StageStateList"
     },
     "StageTransitionType": {
       "enum": [
         "Inbound",
         "Outbound"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "StageTransitionType"
     },
     "StartPipelineExecutionInput": {
       "description": "Represents the input of a start pipeline execution action.",
@@ -2592,7 +2769,8 @@
       "required": [
         "name"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "StartPipelineExecutionInput"
     },
     "StartPipelineExecutionOutput": {
       "description": "Represents the output of a start pipeline execution action.",
@@ -2605,7 +2783,8 @@
           "description": "The unique system-generated ID of the pipeline execution that was started."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "StartPipelineExecutionOutput"
     },
     "ThirdPartyJob": {
       "description": "A response to a PollForThirdPartyJobs request returned by AWS CodePipeline when there is a job to be worked upon by a partner action.",
@@ -2619,7 +2798,8 @@
           "description": "The identifier used to identify the job in AWS CodePipeline."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ThirdPartyJob"
     },
     "ThirdPartyJobData": {
       "description": "Represents information about the job data for a partner action.",
@@ -2653,7 +2833,8 @@
           "$ref": "#/definitions/PipelineContext"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ThirdPartyJobData"
     },
     "ThirdPartyJobDetails": {
       "description": "The details of a job sent in response to a GetThirdPartyJobDetails request.",
@@ -2671,26 +2852,31 @@
           "description": "A system-generated random number that AWS CodePipeline uses to ensure that the job is being worked on by only one job worker. Use this number in an <a>AcknowledgeThirdPartyJob</a> request."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ThirdPartyJobDetails"
     },
     "ThirdPartyJobId": {
       "maxLength": 512,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "ThirdPartyJobId"
     },
     "ThirdPartyJobList": {
       "items": {
         "$ref": "#/definitions/ThirdPartyJob"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ThirdPartyJobList"
     },
     "Time": {
       "format": "date-time",
-      "type": "string"
+      "type": "string",
+      "title": "Time"
     },
     "Timestamp": {
       "format": "date-time",
-      "type": "string"
+      "type": "string",
+      "title": "Timestamp"
     },
     "TransitionState": {
       "description": "Represents information about the state of transitions between one stage and another stage.",
@@ -2712,7 +2898,8 @@
           "description": "The ID of the user who last changed the transition state."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TransitionState"
     },
     "UpdatePipelineInput": {
       "description": "Represents the input of an update pipeline action.",
@@ -2788,7 +2975,8 @@
       "required": [
         "pipeline"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdatePipelineInput"
     },
     "UpdatePipelineOutput": {
       "description": "Represents the output of an update pipeline action.",
@@ -2861,28 +3049,33 @@
           "description": "The structure of the updated pipeline."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UpdatePipelineOutput"
     },
     "Url": {
       "maxLength": 2048,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "Url"
     },
     "UrlTemplate": {
       "maxLength": 2048,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "UrlTemplate"
     },
     "ValidationException": {
       "description": "The validation was specified in an invalid format.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "ValidationException"
     },
     "Version": {
       "maxLength": 9,
       "minLength": 1,
       "pattern": "[0-9A-Za-z_-]+",
-      "type": "string"
+      "type": "string",
+      "title": "Version"
     }
   },
   "actions": [

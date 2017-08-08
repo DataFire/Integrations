@@ -41,7 +41,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "City"
     },
     "ClockingRecord": {
       "properties": {
@@ -95,7 +96,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ClockingRecord"
     },
     "Contact": {
       "properties": {
@@ -162,7 +164,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Contact"
     },
     "ContactType": {
       "properties": {
@@ -202,7 +205,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ContactType"
     },
     "Currency": {
       "properties": {
@@ -236,7 +240,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Currency"
     },
     "ErrorNotFound": {
       "properties": {
@@ -263,7 +268,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ErrorNotFound"
     },
     "ErrorValidation": {
       "properties": {
@@ -298,7 +304,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ErrorValidation"
     },
     "Expense": {
       "properties": {
@@ -359,7 +366,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Expense"
     },
     "ExpenseFile": {
       "properties": {
@@ -419,7 +427,8 @@
           "$ref": "#/definitions/modified"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ExpenseFile"
     },
     "ExpenseLine": {
       "properties": {
@@ -467,7 +476,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ExpenseLine"
     },
     "Form": {
       "properties": {
@@ -503,7 +513,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Form"
     },
     "FormField": {
       "properties": {
@@ -555,7 +566,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "FormField"
     },
     "FormFieldType": {
       "properties": {
@@ -591,7 +603,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "FormFieldType"
     },
     "FormTemplate": {
       "properties": {
@@ -640,7 +653,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "FormTemplate"
     },
     "Invoice": {
       "properties": {
@@ -753,7 +767,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Invoice"
     },
     "InvoiceLine": {
       "properties": {
@@ -811,7 +826,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvoiceLine"
     },
     "Material": {
       "properties": {
@@ -868,7 +884,8 @@
           "type": "number"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Material"
     },
     "MaterialRental": {
       "properties": {
@@ -922,7 +939,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "MaterialRental"
     },
     "PaginationDetails": {
       "properties": {
@@ -945,7 +963,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PaginationDetails"
     },
     "Product": {
       "properties": {
@@ -999,7 +1018,8 @@
           "type": "number"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Product"
     },
     "Project": {
       "properties": {
@@ -1057,7 +1077,8 @@
         "id",
         "name"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "Project"
     },
     "ProjectStatus": {
       "properties": {
@@ -1097,7 +1118,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ProjectStatus"
     },
     "StockLocation": {
       "properties": {
@@ -1127,7 +1149,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "StockLocation"
     },
     "TimeEntry": {
       "properties": {
@@ -1185,7 +1208,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TimeEntry"
     },
     "TimeEntryInterval": {
       "properties": {
@@ -1223,7 +1247,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TimeEntryInterval"
     },
     "TimeEntryType": {
       "properties": {
@@ -1269,7 +1294,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TimeEntryType"
     },
     "TimeEntryUnitType": {
       "properties": {
@@ -1311,7 +1337,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TimeEntryUnitType"
     },
     "TimeEntryValueType": {
       "properties": {
@@ -1353,7 +1380,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TimeEntryValueType"
     },
     "User": {
       "properties": {
@@ -1459,7 +1487,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "User"
     },
     "WallComment": {
       "properties": {
@@ -1488,7 +1517,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "WallComment"
     },
     "WallPost": {
       "properties": {
@@ -1517,22 +1547,26 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "WallPost"
     },
     "created": {
       "description": "READ-ONLY",
       "format": "dateTime",
-      "type": "string"
+      "type": "string",
+      "title": "created"
     },
     "deleted": {
       "description": "READ-ONLY - only present if it's an deleted object",
       "format": "dateTime",
-      "type": "string"
+      "type": "string",
+      "title": "deleted"
     },
     "modified": {
       "description": "READ-ONLY",
       "format": "dateTime",
-      "type": "string"
+      "type": "string",
+      "title": "modified"
     }
   },
   "actions": [

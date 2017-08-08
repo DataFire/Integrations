@@ -53,7 +53,8 @@
         "user": {
           "$ref": "#/definitions/User"
         }
-      }
+      },
+      "title": "Attachment"
     },
     "Collaborator": {
       "properties": {
@@ -95,7 +96,8 @@
           "example": 649302,
           "type": "integer"
         }
-      }
+      },
+      "title": "Collaborator"
     },
     "CollaboratorEditable": {
       "properties": {
@@ -107,7 +109,8 @@
           "example": "editor",
           "type": "string"
         }
-      }
+      },
+      "title": "CollaboratorEditable"
     },
     "CollaboratorInvitation": {
       "properties": {
@@ -149,7 +152,8 @@
           "format": "date-time",
           "type": "string"
         }
-      }
+      },
+      "title": "CollaboratorInvitation"
     },
     "CollaboratorInvitationCreate": {
       "properties": {
@@ -165,7 +169,8 @@
           "example": "5839459, 389423, 89494, 686950",
           "type": "string"
         }
-      }
+      },
+      "title": "CollaboratorInvitationCreate"
     },
     "Comment": {
       "properties": {
@@ -188,7 +193,8 @@
         "user": {
           "$ref": "#/definitions/User"
         }
-      }
+      },
+      "title": "Comment"
     },
     "CommentEditable": {
       "properties": {
@@ -196,7 +202,8 @@
           "example": "Nice photo",
           "type": "string"
         }
-      }
+      },
+      "title": "CommentEditable"
     },
     "Event": {
       "properties": {
@@ -257,7 +264,8 @@
         "user": {
           "$ref": "#/definitions/User"
         }
-      }
+      },
+      "title": "Event"
     },
     "EventCounts": {
       "properties": {
@@ -269,7 +277,8 @@
           "example": 284,
           "type": "integer"
         }
-      }
+      },
+      "title": "EventCounts"
     },
     "EventEditable": {
       "properties": {
@@ -309,7 +318,8 @@
           "example": 703943,
           "type": "integer"
         }
-      }
+      },
+      "title": "EventEditable"
     },
     "Map": {
       "properties": {
@@ -356,7 +366,8 @@
           "example": "public",
           "type": "string"
         }
-      }
+      },
+      "title": "Map"
     },
     "MapCounts": {
       "properties": {
@@ -384,7 +395,8 @@
           "example": 3892,
           "type": "integer"
         }
-      }
+      },
+      "title": "MapCounts"
     },
     "MapEditable": {
       "properties": {
@@ -412,7 +424,8 @@
           "example": "public",
           "type": "string"
         }
-      }
+      },
+      "title": "MapEditable"
     },
     "MapSettings": {
       "properties": {
@@ -428,7 +441,8 @@
           "example": "can_none.map,can_none.spots,can_none.events,can_create.comments,can_create.attachments,can_none.collaborators",
           "type": "string"
         }
-      }
+      },
+      "title": "MapSettings"
     },
     "Respot": {
       "properties": {
@@ -457,7 +471,8 @@
         "user": {
           "$ref": "#/definitions/User"
         }
-      }
+      },
+      "title": "Respot"
     },
     "Spot": {
       "properties": {
@@ -511,7 +526,8 @@
         "user": {
           "$ref": "#/definitions/User"
         }
-      }
+      },
+      "title": "Spot"
     },
     "SpotCounts": {
       "properties": {
@@ -527,7 +543,8 @@
           "example": 34,
           "type": "integer"
         }
-      }
+      },
+      "title": "SpotCounts"
     },
     "SpotEditable": {
       "properties": {
@@ -555,7 +572,8 @@
           "example": "Beautiful place out in the country",
           "type": "string"
         }
-      }
+      },
+      "title": "SpotEditable"
     },
     "SpotWithMap": {
       "properties": {
@@ -565,7 +583,8 @@
         "spot": {
           "$ref": "#/definitions/Spot"
         }
-      }
+      },
+      "title": "SpotWithMap"
     },
     "Subscription": {
       "properties": {
@@ -591,7 +610,8 @@
           "example": 852002,
           "type": "integer"
         }
-      }
+      },
+      "title": "Subscription"
     },
     "User": {
       "properties": {
@@ -635,7 +655,8 @@
           "example": "http://www.billhicks.com",
           "type": "string"
         }
-      }
+      },
+      "title": "User"
     },
     "UserAuthentication": {
       "properties": {
@@ -647,7 +668,8 @@
           "example": "••••••••",
           "type": "string"
         }
-      }
+      },
+      "title": "UserAuthentication"
     },
     "UserEditable": {
       "properties": {
@@ -687,7 +709,8 @@
           "example": "http://www.billhicks.com",
           "type": "string"
         }
-      }
+      },
+      "title": "UserEditable"
     },
     "UserFullProfile": {
       "allOf": [
@@ -708,7 +731,8 @@
           "example": "Pacific Time (US & Canada)",
           "type": "string"
         }
-      }
+      },
+      "title": "UserFullProfile"
     }
   },
   "actions": [

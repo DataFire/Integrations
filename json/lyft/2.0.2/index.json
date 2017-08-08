@@ -49,7 +49,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "ApiError"
     },
     "CancellationCost": {
       "allOf": [
@@ -72,7 +73,8 @@
           "type": "object"
         }
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CancellationCost"
     },
     "CancellationCostError": {
       "allOf": [
@@ -95,7 +97,8 @@
         "token": "656a91d",
         "token_duration": 60
       },
-      "type": "object"
+      "type": "object",
+      "title": "CancellationCostError"
     },
     "CancellationRequest": {
       "example": {
@@ -106,7 +109,8 @@
           "description": "Token affirming the user accepts the cancellation fee. Required if a cancellation fee is in effect.",
           "type": "string"
         }
-      }
+      },
+      "title": "CancellationRequest"
     },
     "Charge": {
       "properties": {
@@ -128,7 +132,8 @@
         "amount",
         "currency",
         "payment_method"
-      ]
+      ],
+      "title": "Charge"
     },
     "Cost": {
       "example": {
@@ -155,7 +160,8 @@
         "amount",
         "currency",
         "description"
-      ]
+      ],
+      "title": "Cost"
     },
     "CostEstimate": {
       "description": "A non-guaranteed estimate of price",
@@ -219,7 +225,8 @@
         "ride_type": {
           "$ref": "#/definitions/RideTypeEnum"
         }
-      }
+      },
+      "title": "CostEstimate"
     },
     "DriverDetail": {
       "example": {
@@ -252,7 +259,8 @@
         "phone_number",
         "rating",
         "image_url"
-      ]
+      ],
+      "title": "DriverDetail"
     },
     "ErrorDetail": {
       "description": "An object with a single key-value pair, where the key is the name of the invalid parameter, and the value is a description of the error.\n",
@@ -264,7 +272,8 @@
           "description": "description of the error",
           "type": "string"
         }
-      }
+      },
+      "title": "ErrorDetail"
     },
     "Eta": {
       "description": "Estimated Time of Arrival",
@@ -296,7 +305,8 @@
         "ride_type": {
           "$ref": "#/definitions/RideTypeEnum"
         }
-      }
+      },
+      "title": "Eta"
     },
     "LatLng": {
       "example": {
@@ -318,7 +328,8 @@
       "required": [
         "lat",
         "lng"
-      ]
+      ],
+      "title": "LatLng"
     },
     "LineItem": {
       "properties": {
@@ -340,7 +351,8 @@
         "type",
         "amount",
         "currency"
-      ]
+      ],
+      "title": "LineItem"
     },
     "Location": {
       "allOf": [
@@ -362,7 +374,8 @@
         "lat": 36.9442175,
         "lng": -123.8679133
       },
-      "type": "object"
+      "type": "object",
+      "title": "Location"
     },
     "NearbyDriver": {
       "properties": {
@@ -373,7 +386,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "NearbyDriver"
     },
     "NearbyDriversByRideType": {
       "properties": {
@@ -388,7 +402,8 @@
           "description": "driver's ride type. if driver is eligable for several ride types, he will be duplicated.",
           "type": "string"
         }
-      }
+      },
+      "title": "NearbyDriversByRideType"
     },
     "PassengerDetail": {
       "allOf": [
@@ -415,7 +430,8 @@
         "last_name": "Doe",
         "rating": 4.9
       },
-      "type": "object"
+      "type": "object",
+      "title": "PassengerDetail"
     },
     "PickupDropoffLocation": {
       "allOf": [
@@ -439,7 +455,8 @@
         "lng": -123.8679133,
         "time": "2015-09-24T23:26:25+00:00"
       },
-      "type": "object"
+      "type": "object",
+      "title": "PickupDropoffLocation"
     },
     "PricingDetails": {
       "example": {
@@ -486,7 +503,8 @@
           "format": "int32",
           "type": "integer"
         }
-      }
+      },
+      "title": "PricingDetails"
     },
     "Profile": {
       "description": "Represents the general information about a user.",
@@ -509,7 +527,8 @@
         "first_name",
         "last_name"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "Profile"
     },
     "RatingRequest": {
       "description": "Rating and optional feedback and tip",
@@ -545,7 +564,8 @@
       },
       "required": [
         "rating"
-      ]
+      ],
+      "title": "RatingRequest"
     },
     "Ride": {
       "description": "Represents a requested, ongoing, or finished Lyft ride",
@@ -584,7 +604,8 @@
         "ride_type",
         "origin"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "Ride"
     },
     "RideDetail": {
       "description": "Detail information about a ride",
@@ -818,7 +839,8 @@
           "$ref": "#/definitions/VehicleDetail"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RideDetail"
     },
     "RideLocation": {
       "allOf": [
@@ -842,7 +864,8 @@
         "lat": 36.9442175,
         "lng": -123.8679133
       },
-      "type": "object"
+      "type": "object",
+      "title": "RideLocation"
     },
     "RideProfileEnum": {
       "description": "The payment profile which the user has picked for the ride",
@@ -850,7 +873,8 @@
         "personal",
         "business"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "RideProfileEnum"
     },
     "RideReceipt": {
       "description": "Receipt information of a processed ride.",
@@ -936,7 +960,8 @@
           "type": "object"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RideReceipt"
     },
     "RideRequest": {
       "description": "Minimal set of ride details",
@@ -989,7 +1014,8 @@
         "status": {
           "$ref": "#/definitions/RideStatusEnum"
         }
-      }
+      },
+      "title": "RideRequest"
     },
     "RideRequestError": {
       "description": "Details about why a request failed, such as missing or invalid parameters",
@@ -1032,7 +1058,8 @@
       },
       "required": [
         "error"
-      ]
+      ],
+      "title": "RideRequestError"
     },
     "RideStatusEnum": {
       "description": "The status of the ride",
@@ -1045,7 +1072,8 @@
         "canceled",
         "unknown"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "RideStatusEnum"
     },
     "RideType": {
       "example": {
@@ -1119,7 +1147,8 @@
           "description": "The maximum number of seats available for rides requested with this ride type",
           "type": "integer"
         }
-      }
+      },
+      "title": "RideType"
     },
     "RideTypeEnum": {
       "description": "The ID of the ride type",
@@ -1128,7 +1157,8 @@
         "lyft_line",
         "lyft_plus"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "RideTypeEnum"
     },
     "RideTypeEnumWithOther": {
       "description": "The ID of the ride type",
@@ -1138,7 +1168,8 @@
         "lyft_plus",
         "other"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "RideTypeEnumWithOther"
     },
     "SandboxDriverAvailability": {
       "example": {
@@ -1166,7 +1197,8 @@
         "lat",
         "lng",
         "driver_availability"
-      ]
+      ],
+      "title": "SandboxDriverAvailability"
     },
     "SandboxPrimetime": {
       "example": {
@@ -1194,7 +1226,8 @@
         "lat",
         "lng",
         "primetime_percentage"
-      ]
+      ],
+      "title": "SandboxPrimetime"
     },
     "SandboxRideStatus": {
       "example": {
@@ -1207,7 +1240,8 @@
       },
       "required": [
         "status"
-      ]
+      ],
+      "title": "SandboxRideStatus"
     },
     "SandboxRideType": {
       "example": {
@@ -1241,7 +1275,8 @@
         "lat",
         "lng",
         "ride_types"
-      ]
+      ],
+      "title": "SandboxRideType"
     },
     "SandboxRideUpdate": {
       "description": "Response when a sandbox ride is propagated through ride status",
@@ -1258,7 +1293,8 @@
           "$ref": "#/definitions/RideStatusEnum"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SandboxRideUpdate"
     },
     "Tip": {
       "example": {
@@ -1276,7 +1312,8 @@
           "description": "The currency in which you want to tip. e.g. USD",
           "type": "string"
         }
-      }
+      },
+      "title": "Tip"
     },
     "TipParams": {
       "allOf": [
@@ -1284,7 +1321,8 @@
           "$ref": "#/definitions/Tip"
         }
       ],
-      "type": "object"
+      "type": "object",
+      "title": "TipParams"
     },
     "UserDetail": {
       "example": {
@@ -1310,7 +1348,8 @@
         "first_name",
         "image_url",
         "rating"
-      ]
+      ],
+      "title": "UserDetail"
     },
     "VehicleDetail": {
       "example": {
@@ -1359,7 +1398,8 @@
         "license_plate_state",
         "color",
         "image_url"
-      ]
+      ],
+      "title": "VehicleDetail"
     }
   },
   "actions": [

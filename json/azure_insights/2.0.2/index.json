@@ -21,7 +21,8 @@
       },
       "required": [
         "value"
-      ]
+      ],
+      "title": "LocalizableString"
     },
     "Metric": {
       "description": "A set of metric values in a time range.",
@@ -54,7 +55,8 @@
         "name",
         "unit",
         "data"
-      ]
+      ],
+      "title": "Metric"
     },
     "MetricCollection": {
       "description": "The collection of metric value sets.",
@@ -69,7 +71,8 @@
       },
       "required": [
         "value"
-      ]
+      ],
+      "title": "MetricCollection"
     },
     "MetricValue": {
       "description": "Represents a metric value.",
@@ -107,7 +110,8 @@
       },
       "required": [
         "timeStamp"
-      ]
+      ],
+      "title": "MetricValue"
     },
     "Unit": {
       "description": "the unit of the metric.",
@@ -124,7 +128,8 @@
       "x-ms-enum": {
         "modelAsString": false,
         "name": "Unit"
-      }
+      },
+      "title": "Unit"
     }
   },
   "actions": [

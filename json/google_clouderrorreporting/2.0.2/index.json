@@ -32,7 +32,8 @@
     "DeleteEventsResponse": {
       "description": "Response message for deleting error events.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DeleteEventsResponse"
     },
     "ErrorContext": {
       "description": "A description of the context in which an error occurred.\nThis data should be provided by the application when reporting an error,\nunless the\nerror report has been generated automatically from Google App Engine logs.",
@@ -50,7 +51,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ErrorContext"
     },
     "ErrorEvent": {
       "description": "An error event which is returned by the Error Reporting system.",
@@ -73,7 +75,8 @@
           "description": "The `ServiceContext` for which this error was reported."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ErrorEvent"
     },
     "ErrorGroup": {
       "description": "Description of a group of similar error events.",
@@ -94,7 +97,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ErrorGroup"
     },
     "ErrorGroupStats": {
       "description": "Data extracted for a specific group based on certain filter criteria,\nsuch as a given time period and/or service filter.",
@@ -147,7 +151,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ErrorGroupStats"
     },
     "HttpRequestContext": {
       "description": "HTTP request data that is related to a reported error.\nThis data should be provided by the application when reporting an error,\nunless the\nerror report has been generated automatically from Google App Engine logs.",
@@ -178,7 +183,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "HttpRequestContext"
     },
     "ListEventsResponse": {
       "description": "Contains a set of requested error events.",
@@ -200,7 +206,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListEventsResponse"
     },
     "ListGroupStatsResponse": {
       "description": "Contains a set of requested error group stats.",
@@ -222,12 +229,14 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListGroupStatsResponse"
     },
     "ReportErrorEventResponse": {
       "description": "Response for reporting an individual error event.\nData may be added to this message in the future.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "ReportErrorEventResponse"
     },
     "ReportedErrorEvent": {
       "description": "An error event which is reported to the Error Reporting system.",
@@ -250,7 +259,8 @@
           "description": "[Required] The service context in which this error has occurred."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ReportedErrorEvent"
     },
     "ServiceContext": {
       "description": "Describes a running service that sends errors.\nIts version changes over time and multiple versions can run in parallel.",
@@ -268,7 +278,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ServiceContext"
     },
     "SourceLocation": {
       "description": "Indicates a location in the source code of the service for which errors are\nreported. `functionName` must be provided by the application when reporting\nan error, unless the error report contains a `message` with a supported\nexception stack trace. All fields are optional for the later case.",
@@ -287,7 +298,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SourceLocation"
     },
     "TimedCount": {
       "description": "The number of errors in a given time period.\nAll numbers are approximate since the error events are sampled\nbefore counting them.",
@@ -308,7 +320,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TimedCount"
     },
     "TrackingIssue": {
       "description": "Information related to tracking the progress on resolving the error.",
@@ -318,7 +331,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TrackingIssue"
     }
   },
   "actions": [

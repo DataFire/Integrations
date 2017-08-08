@@ -27,7 +27,8 @@
         "ACCESS_DENIED_TO_SNS_TOPIC",
         "ACCESS_DENIED_TO_IAM_ROLE"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "AccessDeniedErrorCode"
     },
     "AccessDeniedException": {
       "description": "You do not have required permissions to access the requested resource.",
@@ -50,7 +51,8 @@
         "errorCode",
         "canRetry"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AccessDeniedException"
     },
     "AddAttributesToFindingsRequest": {
       "example": {
@@ -78,7 +80,8 @@
         "findingArns",
         "attributes"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AddAttributesToFindingsRequest"
     },
     "AddAttributesToFindingsResponse": {
       "example": {
@@ -93,7 +96,8 @@
       "required": [
         "failedItems"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AddAttributesToFindingsResponse"
     },
     "AddRemoveAttributesFindingArnList": {
       "items": {
@@ -101,7 +105,8 @@
       },
       "maxItems": 10,
       "minItems": 1,
-      "type": "array"
+      "type": "array",
+      "title": "AddRemoveAttributesFindingArnList"
     },
     "AgentAlreadyRunningAssessment": {
       "description": "Used in the exception error that is thrown if you start an assessment run for an assessment target that includes an EC2 instance that is already participating in another started assessment run.",
@@ -119,7 +124,8 @@
         "agentId",
         "assessmentRunArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AgentAlreadyRunningAssessment"
     },
     "AgentAlreadyRunningAssessmentList": {
       "items": {
@@ -127,7 +133,8 @@
       },
       "maxItems": 10,
       "minItems": 1,
-      "type": "array"
+      "type": "array",
+      "title": "AgentAlreadyRunningAssessmentList"
     },
     "AgentFilter": {
       "description": "Contains information about an Amazon Inspector agent. This data type is used as a request parameter in the <a>ListAssessmentRunAgents</a> action.",
@@ -145,14 +152,16 @@
         "agentHealths",
         "agentHealthCodes"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AgentFilter"
     },
     "AgentHealth": {
       "enum": [
         "HEALTHY",
         "UNHEALTHY"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "AgentHealth"
     },
     "AgentHealthCode": {
       "enum": [
@@ -163,7 +172,8 @@
         "THROTTLED",
         "UNKNOWN"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "AgentHealthCode"
     },
     "AgentHealthCodeList": {
       "items": {
@@ -171,7 +181,8 @@
       },
       "maxItems": 10,
       "minItems": 0,
-      "type": "array"
+      "type": "array",
+      "title": "AgentHealthCodeList"
     },
     "AgentHealthList": {
       "items": {
@@ -179,12 +190,14 @@
       },
       "maxItems": 10,
       "minItems": 0,
-      "type": "array"
+      "type": "array",
+      "title": "AgentHealthList"
     },
     "AgentId": {
       "maxLength": 128,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "AgentId"
     },
     "AgentIdList": {
       "items": {
@@ -192,7 +205,8 @@
       },
       "maxItems": 500,
       "minItems": 0,
-      "type": "array"
+      "type": "array",
+      "title": "AgentIdList"
     },
     "AgentPreview": {
       "description": "Used as a response element in the <a>PreviewAgents</a> action.",
@@ -209,7 +223,8 @@
       "required": [
         "agentId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AgentPreview"
     },
     "AgentPreviewList": {
       "items": {
@@ -217,7 +232,8 @@
       },
       "maxItems": 100,
       "minItems": 0,
-      "type": "array"
+      "type": "array",
+      "title": "AgentPreviewList"
     },
     "AgentsAlreadyRunningAssessmentException": {
       "description": "You started an assessment run, but one of the instances is already participating in another assessment run.",
@@ -245,17 +261,20 @@
         "agentsTruncated",
         "canRetry"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AgentsAlreadyRunningAssessmentException"
     },
     "AmiId": {
       "maxLength": 256,
       "minLength": 0,
-      "type": "string"
+      "type": "string",
+      "title": "AmiId"
     },
     "Arn": {
       "maxLength": 300,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "Arn"
     },
     "AssessmentRulesPackageArnList": {
       "items": {
@@ -263,7 +282,8 @@
       },
       "maxItems": 50,
       "minItems": 1,
-      "type": "array"
+      "type": "array",
+      "title": "AssessmentRulesPackageArnList"
     },
     "AssessmentRun": {
       "description": "<p>A snapshot of an Amazon Inspector assessment run that contains the findings of the assessment run .</p> <p>Used as the response element in the <a>DescribeAssessmentRuns</a> action.</p>",
@@ -339,7 +359,8 @@
         "stateChanges",
         "notifications"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AssessmentRun"
     },
     "AssessmentRunAgent": {
       "description": "Contains information about an Amazon Inspector agent. This data type is used as a response element in the <a>ListAssessmentRunAgents</a> action.",
@@ -380,7 +401,8 @@
         "agentHealthCode",
         "telemetryMetadata"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AssessmentRunAgent"
     },
     "AssessmentRunAgentList": {
       "items": {
@@ -388,12 +410,14 @@
       },
       "maxItems": 500,
       "minItems": 0,
-      "type": "array"
+      "type": "array",
+      "title": "AssessmentRunAgentList"
     },
     "AssessmentRunDuration": {
       "maximum": 86400,
       "minimum": 180,
-      "type": "integer"
+      "type": "integer",
+      "title": "AssessmentRunDuration"
     },
     "AssessmentRunFilter": {
       "description": "Used as the request parameter in the <a>ListAssessmentRuns</a> action.",
@@ -427,7 +451,8 @@
           "description": "For a record to match a filter, one of the values specified for this data type property must be the exact match of the value of the <b>assessmentRunState</b> property of the <a>AssessmentRun</a> data type."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AssessmentRunFilter"
     },
     "AssessmentRunInProgressArnList": {
       "items": {
@@ -435,7 +460,8 @@
       },
       "maxItems": 10,
       "minItems": 1,
-      "type": "array"
+      "type": "array",
+      "title": "AssessmentRunInProgressArnList"
     },
     "AssessmentRunInProgressException": {
       "description": "You cannot perform a specified action if an assessment run is currently in progress.",
@@ -463,7 +489,8 @@
         "assessmentRunArnsTruncated",
         "canRetry"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AssessmentRunInProgressException"
     },
     "AssessmentRunList": {
       "items": {
@@ -471,12 +498,14 @@
       },
       "maxItems": 10,
       "minItems": 0,
-      "type": "array"
+      "type": "array",
+      "title": "AssessmentRunList"
     },
     "AssessmentRunName": {
       "maxLength": 140,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "AssessmentRunName"
     },
     "AssessmentRunNotification": {
       "description": "Used as one of the elements of the <a>AssessmentRun</a> data type.",
@@ -510,7 +539,8 @@
         "event",
         "error"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AssessmentRunNotification"
     },
     "AssessmentRunNotificationList": {
       "items": {
@@ -518,7 +548,8 @@
       },
       "maxItems": 50,
       "minItems": 0,
-      "type": "array"
+      "type": "array",
+      "title": "AssessmentRunNotificationList"
     },
     "AssessmentRunNotificationSnsStatusCode": {
       "enum": [
@@ -527,7 +558,8 @@
         "ACCESS_DENIED",
         "INTERNAL_ERROR"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "AssessmentRunNotificationSnsStatusCode"
     },
     "AssessmentRunState": {
       "enum": [
@@ -542,7 +574,8 @@
         "COMPLETED",
         "COMPLETED_WITH_ERRORS"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "AssessmentRunState"
     },
     "AssessmentRunStateChange": {
       "description": "Used as one of the elements of the <a>AssessmentRun</a> data type.",
@@ -560,7 +593,8 @@
         "stateChangedAt",
         "state"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AssessmentRunStateChange"
     },
     "AssessmentRunStateChangeList": {
       "items": {
@@ -568,7 +602,8 @@
       },
       "maxItems": 50,
       "minItems": 0,
-      "type": "array"
+      "type": "array",
+      "title": "AssessmentRunStateChangeList"
     },
     "AssessmentRunStateList": {
       "items": {
@@ -576,7 +611,8 @@
       },
       "maxItems": 50,
       "minItems": 0,
-      "type": "array"
+      "type": "array",
+      "title": "AssessmentRunStateList"
     },
     "AssessmentTarget": {
       "description": "Contains information about an Amazon Inspector application. This data type is used as the response element in the <a>DescribeAssessmentTargets</a> action.",
@@ -609,7 +645,8 @@
         "createdAt",
         "updatedAt"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AssessmentTarget"
     },
     "AssessmentTargetFilter": {
       "description": "Used as the request parameter in the <a>ListAssessmentTargets</a> action.",
@@ -619,7 +656,8 @@
           "description": "For a record to match a filter, an explicit value or a string that contains a wildcard that is specified for this data type property must match the value of the <b>assessmentTargetName</b> property of the <a>AssessmentTarget</a> data type."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AssessmentTargetFilter"
     },
     "AssessmentTargetList": {
       "items": {
@@ -627,12 +665,14 @@
       },
       "maxItems": 10,
       "minItems": 0,
-      "type": "array"
+      "type": "array",
+      "title": "AssessmentTargetList"
     },
     "AssessmentTargetName": {
       "maxLength": 140,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "AssessmentTargetName"
     },
     "AssessmentTemplate": {
       "description": "Contains information about an Amazon Inspector assessment template. This data type is used as the response element in the <a>DescribeAssessmentTemplates</a> action.",
@@ -675,7 +715,8 @@
         "userAttributesForFindings",
         "createdAt"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AssessmentTemplate"
     },
     "AssessmentTemplateFilter": {
       "description": "Used as the request parameter in the <a>ListAssessmentTemplates</a> action.",
@@ -693,7 +734,8 @@
           "description": "For a record to match a filter, the values that are specified for this data type property must be contained in the list of values of the <b>rulesPackageArns</b> property of the <a>AssessmentTemplate</a> data type."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AssessmentTemplateFilter"
     },
     "AssessmentTemplateList": {
       "items": {
@@ -701,12 +743,14 @@
       },
       "maxItems": 10,
       "minItems": 0,
-      "type": "array"
+      "type": "array",
+      "title": "AssessmentTemplateList"
     },
     "AssessmentTemplateName": {
       "maxLength": 140,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "AssessmentTemplateName"
     },
     "AssessmentTemplateRulesPackageArnList": {
       "items": {
@@ -714,7 +758,8 @@
       },
       "maxItems": 50,
       "minItems": 0,
-      "type": "array"
+      "type": "array",
+      "title": "AssessmentTemplateRulesPackageArnList"
     },
     "AssetAttributes": {
       "description": "A collection of attributes of the host from which the finding is generated.",
@@ -747,13 +792,15 @@
       "required": [
         "schemaVersion"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AssetAttributes"
     },
     "AssetType": {
       "enum": [
         "ec2-instance"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "AssetType"
     },
     "Attribute": {
       "description": "This data type is used as a request parameter in the <a>AddAttributesToFindings</a> and <a>CreateAssessmentTemplate</a> actions.",
@@ -770,12 +817,14 @@
       "required": [
         "key"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "Attribute"
     },
     "AttributeKey": {
       "maxLength": 128,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "AttributeKey"
     },
     "AttributeList": {
       "items": {
@@ -783,17 +832,20 @@
       },
       "maxItems": 50,
       "minItems": 0,
-      "type": "array"
+      "type": "array",
+      "title": "AttributeList"
     },
     "AttributeValue": {
       "maxLength": 256,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "AttributeValue"
     },
     "AutoScalingGroup": {
       "maxLength": 256,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "AutoScalingGroup"
     },
     "AutoScalingGroupList": {
       "items": {
@@ -801,7 +853,8 @@
       },
       "maxItems": 20,
       "minItems": 0,
-      "type": "array"
+      "type": "array",
+      "title": "AutoScalingGroupList"
     },
     "BatchDescribeArnList": {
       "items": {
@@ -809,10 +862,12 @@
       },
       "maxItems": 10,
       "minItems": 1,
-      "type": "array"
+      "type": "array",
+      "title": "BatchDescribeArnList"
     },
     "Bool": {
-      "type": "boolean"
+      "type": "boolean",
+      "title": "Bool"
     },
     "CreateAssessmentTargetRequest": {
       "example": {
@@ -833,7 +888,8 @@
         "assessmentTargetName",
         "resourceGroupArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateAssessmentTargetRequest"
     },
     "CreateAssessmentTargetResponse": {
       "example": {
@@ -848,7 +904,8 @@
       "required": [
         "assessmentTargetArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateAssessmentTargetResponse"
     },
     "CreateAssessmentTemplateRequest": {
       "example": {
@@ -893,7 +950,8 @@
         "durationInSeconds",
         "rulesPackageArns"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateAssessmentTemplateRequest"
     },
     "CreateAssessmentTemplateResponse": {
       "example": {
@@ -908,7 +966,8 @@
       "required": [
         "assessmentTemplateArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateAssessmentTemplateResponse"
     },
     "CreateResourceGroupRequest": {
       "example": {
@@ -928,7 +987,8 @@
       "required": [
         "resourceGroupTags"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateResourceGroupRequest"
     },
     "CreateResourceGroupResponse": {
       "example": {
@@ -943,7 +1003,8 @@
       "required": [
         "resourceGroupArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateResourceGroupResponse"
     },
     "DeleteAssessmentRunRequest": {
       "example": {
@@ -958,7 +1019,8 @@
       "required": [
         "assessmentRunArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteAssessmentRunRequest"
     },
     "DeleteAssessmentTargetRequest": {
       "example": {
@@ -973,7 +1035,8 @@
       "required": [
         "assessmentTargetArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteAssessmentTargetRequest"
     },
     "DeleteAssessmentTemplateRequest": {
       "example": {
@@ -988,7 +1051,8 @@
       "required": [
         "assessmentTemplateArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteAssessmentTemplateRequest"
     },
     "DescribeAssessmentRunsRequest": {
       "example": {
@@ -1005,7 +1069,8 @@
       "required": [
         "assessmentRunArns"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeAssessmentRunsRequest"
     },
     "DescribeAssessmentRunsResponse": {
       "example": {
@@ -1078,7 +1143,8 @@
         "assessmentRuns",
         "failedItems"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeAssessmentRunsResponse"
     },
     "DescribeAssessmentTargetsRequest": {
       "example": {
@@ -1095,7 +1161,8 @@
       "required": [
         "assessmentTargetArns"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeAssessmentTargetsRequest"
     },
     "DescribeAssessmentTargetsResponse": {
       "example": {
@@ -1124,7 +1191,8 @@
         "assessmentTargets",
         "failedItems"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeAssessmentTargetsResponse"
     },
     "DescribeAssessmentTemplatesRequest": {
       "example": {
@@ -1140,7 +1208,8 @@
       "required": [
         "assessmentTemplateArns"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeAssessmentTemplatesRequest"
     },
     "DescribeAssessmentTemplatesResponse": {
       "example": {
@@ -1173,7 +1242,8 @@
         "assessmentTemplates",
         "failedItems"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeAssessmentTemplatesResponse"
     },
     "DescribeCrossAccountAccessRoleResponse": {
       "example": {
@@ -1200,7 +1270,8 @@
         "valid",
         "registeredAt"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeCrossAccountAccessRoleResponse"
     },
     "DescribeFindingsRequest": {
       "example": {
@@ -1221,7 +1292,8 @@
       "required": [
         "findingArns"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeFindingsRequest"
     },
     "DescribeFindingsResponse": {
       "example": {
@@ -1269,7 +1341,8 @@
         "findings",
         "failedItems"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeFindingsResponse"
     },
     "DescribeResourceGroupsRequest": {
       "example": {
@@ -1286,7 +1359,8 @@
       "required": [
         "resourceGroupArns"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeResourceGroupsRequest"
     },
     "DescribeResourceGroupsResponse": {
       "example": {
@@ -1318,7 +1392,8 @@
         "resourceGroups",
         "failedItems"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeResourceGroupsResponse"
     },
     "DescribeRulesPackagesRequest": {
       "example": {
@@ -1339,7 +1414,8 @@
       "required": [
         "rulesPackageArns"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeRulesPackagesRequest"
     },
     "DescribeRulesPackagesResponse": {
       "example": {
@@ -1368,7 +1444,8 @@
         "rulesPackages",
         "failedItems"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeRulesPackagesResponse"
     },
     "DurationRange": {
       "description": "This data type is used in the <a>AssessmentTemplateFilter</a> data type.",
@@ -1382,12 +1459,14 @@
           "description": "The minimum value of the duration range. Must be greater than zero."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DurationRange"
     },
     "ErrorMessage": {
       "maxLength": 1000,
       "minLength": 0,
-      "type": "string"
+      "type": "string",
+      "title": "ErrorMessage"
     },
     "EventSubscription": {
       "description": "This data type is used in the <a>Subscription</a> data type.",
@@ -1405,7 +1484,8 @@
         "event",
         "subscribedAt"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "EventSubscription"
     },
     "EventSubscriptionList": {
       "items": {
@@ -1413,7 +1493,8 @@
       },
       "maxItems": 50,
       "minItems": 1,
-      "type": "array"
+      "type": "array",
+      "title": "EventSubscriptionList"
     },
     "FailedItemDetails": {
       "description": "Includes details about the failed items.",
@@ -1431,7 +1512,8 @@
         "failureCode",
         "retryable"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "FailedItemDetails"
     },
     "FailedItemErrorCode": {
       "enum": [
@@ -1442,7 +1524,8 @@
         "LIMIT_EXCEEDED",
         "INTERNAL_ERROR"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "FailedItemErrorCode"
     },
     "FailedItems": {
       "items": {
@@ -1456,7 +1539,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "FailedItems"
     },
     "FilterRulesPackageArnList": {
       "items": {
@@ -1464,7 +1548,8 @@
       },
       "maxItems": 50,
       "minItems": 0,
-      "type": "array"
+      "type": "array",
+      "title": "FilterRulesPackageArnList"
     },
     "Finding": {
       "description": "Contains information about an Amazon Inspector finding. This data type is used as the response element in the <a>DescribeFindings</a> action.",
@@ -1548,7 +1633,8 @@
         "createdAt",
         "updatedAt"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "Finding"
     },
     "FindingFilter": {
       "description": "This data type is used as a request parameter in the <a>ListFindings</a> action.",
@@ -1586,12 +1672,14 @@
           "description": "For a record to match a filter, the value that is specified for this data type property must be contained in the list of values of the <b>userAttributes</b> property of the <a>Finding</a> data type."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "FindingFilter"
     },
     "FindingId": {
       "maxLength": 128,
       "minLength": 0,
-      "type": "string"
+      "type": "string",
+      "title": "FindingId"
     },
     "FindingList": {
       "items": {
@@ -1599,7 +1687,8 @@
       },
       "maxItems": 10,
       "minItems": 0,
-      "type": "array"
+      "type": "array",
+      "title": "FindingList"
     },
     "GetTelemetryMetadataRequest": {
       "example": {
@@ -1614,7 +1703,8 @@
       "required": [
         "assessmentRunArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetTelemetryMetadataRequest"
     },
     "GetTelemetryMetadataResponse": {
       "example": {
@@ -1775,12 +1865,14 @@
       "required": [
         "telemetryMetadata"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetTelemetryMetadataResponse"
     },
     "Hostname": {
       "maxLength": 256,
       "minLength": 0,
-      "type": "string"
+      "type": "string",
+      "title": "Hostname"
     },
     "InspectorEvent": {
       "enum": [
@@ -1790,7 +1882,8 @@
         "FINDING_REPORTED",
         "OTHER"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "InspectorEvent"
     },
     "InspectorServiceAttributes": {
       "description": "This data type is used in the <a>Finding</a> data type.",
@@ -1811,7 +1904,8 @@
       "required": [
         "schemaVersion"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "InspectorServiceAttributes"
     },
     "InternalException": {
       "description": "Internal server error.",
@@ -1829,14 +1923,16 @@
         "message",
         "canRetry"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "InternalException"
     },
     "InvalidCrossAccountRoleErrorCode": {
       "enum": [
         "ROLE_DOES_NOT_EXIST_OR_INVALID_TRUST_RELATIONSHIP",
         "ROLE_DOES_NOT_HAVE_CORRECT_POLICY"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "InvalidCrossAccountRoleErrorCode"
     },
     "InvalidCrossAccountRoleException": {
       "description": "Amazon Inspector cannot assume the cross-account role that it needs to list your EC2 instances during the assessment run.",
@@ -1859,7 +1955,8 @@
         "errorCode",
         "canRetry"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "InvalidCrossAccountRoleException"
     },
     "InvalidInputErrorCode": {
       "enum": [
@@ -1918,7 +2015,8 @@
         "INVALID_NUMBER_OF_RULE_NAMES",
         "INVALID_NUMBER_OF_SEVERITIES"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "InvalidInputErrorCode"
     },
     "InvalidInputException": {
       "description": "The request was rejected because an invalid or out-of-range value was supplied for an input parameter.",
@@ -1941,17 +2039,20 @@
         "errorCode",
         "canRetry"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "InvalidInputException"
     },
     "IocConfidence": {
       "maximum": 10,
       "minimum": 0,
-      "type": "integer"
+      "type": "integer",
+      "title": "IocConfidence"
     },
     "Ipv4Address": {
       "maxLength": 15,
       "minLength": 7,
-      "type": "string"
+      "type": "string",
+      "title": "Ipv4Address"
     },
     "Ipv4AddressList": {
       "items": {
@@ -1959,7 +2060,8 @@
       },
       "maxItems": 50,
       "minItems": 0,
-      "type": "array"
+      "type": "array",
+      "title": "Ipv4AddressList"
     },
     "LimitExceededErrorCode": {
       "enum": [
@@ -1969,7 +2071,8 @@
         "RESOURCE_GROUP_LIMIT_EXCEEDED",
         "EVENT_SUBSCRIPTION_LIMIT_EXCEEDED"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "LimitExceededErrorCode"
     },
     "LimitExceededException": {
       "description": "The request was rejected because it attempted to create resources beyond the current AWS account limits. The error code describes the limit exceeded.",
@@ -1992,7 +2095,8 @@
         "errorCode",
         "canRetry"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "LimitExceededException"
     },
     "ListAssessmentRunAgentsRequest": {
       "example": {
@@ -2020,7 +2124,8 @@
       "required": [
         "assessmentRunArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListAssessmentRunAgentsRequest"
     },
     "ListAssessmentRunAgentsResponse": {
       "example": {
@@ -2194,7 +2299,8 @@
       "required": [
         "assessmentRunAgents"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListAssessmentRunAgentsResponse"
     },
     "ListAssessmentRunsRequest": {
       "example": {
@@ -2221,7 +2327,8 @@
           "description": "You can use this parameter when paginating results. Set the value of this parameter to null on your first call to the <b>ListAssessmentRuns</b> action. Subsequent calls to the action fill <b>nextToken</b> in the request with the value of <b>NextToken</b> from the previous response to continue listing data."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListAssessmentRunsRequest"
     },
     "ListAssessmentRunsResponse": {
       "example": {
@@ -2244,7 +2351,8 @@
       "required": [
         "assessmentRunArns"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListAssessmentRunsResponse"
     },
     "ListAssessmentTargetsRequest": {
       "example": {
@@ -2264,7 +2372,8 @@
           "description": "You can use this parameter when paginating results. Set the value of this parameter to null on your first call to the <b>ListAssessmentTargets</b> action. Subsequent calls to the action fill <b>nextToken</b> in the request with the value of <b>NextToken</b> from the previous response to continue listing data."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListAssessmentTargetsRequest"
     },
     "ListAssessmentTargetsResponse": {
       "example": {
@@ -2286,7 +2395,8 @@
       "required": [
         "assessmentTargetArns"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListAssessmentTargetsResponse"
     },
     "ListAssessmentTemplatesRequest": {
       "example": {
@@ -2313,7 +2423,8 @@
           "description": "You can use this parameter when paginating results. Set the value of this parameter to null on your first call to the <b>ListAssessmentTemplates</b> action. Subsequent calls to the action fill <b>nextToken</b> in the request with the value of <b>NextToken</b> from the previous response to continue listing data."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListAssessmentTemplatesRequest"
     },
     "ListAssessmentTemplatesResponse": {
       "example": {
@@ -2336,10 +2447,12 @@
       "required": [
         "assessmentTemplateArns"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListAssessmentTemplatesResponse"
     },
     "ListEventSubscriptionsMaxResults": {
-      "type": "integer"
+      "type": "integer",
+      "title": "ListEventSubscriptionsMaxResults"
     },
     "ListEventSubscriptionsRequest": {
       "example": {
@@ -2360,7 +2473,8 @@
           "description": "The ARN of the assessment template for which you want to list the existing event subscriptions."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListEventSubscriptionsRequest"
     },
     "ListEventSubscriptionsResponse": {
       "example": {
@@ -2391,7 +2505,8 @@
       "required": [
         "subscriptions"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListEventSubscriptionsResponse"
     },
     "ListFindingsRequest": {
       "example": {
@@ -2418,7 +2533,8 @@
           "description": "You can use this parameter when paginating results. Set the value of this parameter to null on your first call to the <b>ListFindings</b> action. Subsequent calls to the action fill <b>nextToken</b> in the request with the value of <b>NextToken</b> from the previous response to continue listing data."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListFindingsRequest"
     },
     "ListFindingsResponse": {
       "example": {
@@ -2441,10 +2557,12 @@
       "required": [
         "findingArns"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListFindingsResponse"
     },
     "ListMaxResults": {
-      "type": "integer"
+      "type": "integer",
+      "title": "ListMaxResults"
     },
     "ListParentArnList": {
       "items": {
@@ -2452,7 +2570,8 @@
       },
       "maxItems": 50,
       "minItems": 0,
-      "type": "array"
+      "type": "array",
+      "title": "ListParentArnList"
     },
     "ListReturnedArnList": {
       "items": {
@@ -2460,7 +2579,8 @@
       },
       "maxItems": 100,
       "minItems": 0,
-      "type": "array"
+      "type": "array",
+      "title": "ListReturnedArnList"
     },
     "ListRulesPackagesRequest": {
       "example": {
@@ -2476,7 +2596,8 @@
           "description": "You can use this parameter when paginating results. Set the value of this parameter to null on your first call to the <b>ListRulesPackages</b> action. Subsequent calls to the action fill <b>nextToken</b> in the request with the value of <b>NextToken</b> from the previous response to continue listing data."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListRulesPackagesRequest"
     },
     "ListRulesPackagesResponse": {
       "example": {
@@ -2501,7 +2622,8 @@
       "required": [
         "rulesPackageArns"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListRulesPackagesResponse"
     },
     "ListTagsForResourceRequest": {
       "example": {
@@ -2516,7 +2638,8 @@
       "required": [
         "resourceArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListTagsForResourceRequest"
     },
     "ListTagsForResourceResponse": {
       "example": {
@@ -2536,31 +2659,37 @@
       "required": [
         "tags"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListTagsForResourceResponse"
     },
     "Locale": {
       "enum": [
         "EN_US"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "Locale"
     },
     "Long": {
-      "type": "integer"
+      "type": "integer",
+      "title": "Long"
     },
     "Message": {
       "maxLength": 1000,
       "minLength": 0,
-      "type": "string"
+      "type": "string",
+      "title": "Message"
     },
     "MessageType": {
       "maxLength": 300,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "MessageType"
     },
     "NamePattern": {
       "maxLength": 140,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "NamePattern"
     },
     "NoSuchEntityErrorCode": {
       "enum": [
@@ -2573,7 +2702,8 @@
         "SNS_TOPIC_DOES_NOT_EXIST",
         "IAM_ROLE_DOES_NOT_EXIST"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "NoSuchEntityErrorCode"
     },
     "NoSuchEntityException": {
       "description": "The request was rejected because it referenced an entity that does not exist. The error code describes the entity.",
@@ -2596,25 +2726,30 @@
         "errorCode",
         "canRetry"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "NoSuchEntityException"
     },
     "NumericSeverity": {
       "format": "double",
       "maximum": 10,
       "minimum": 0,
-      "type": "number"
+      "type": "number",
+      "title": "NumericSeverity"
     },
     "NumericVersion": {
       "minimum": 0,
-      "type": "integer"
+      "type": "integer",
+      "title": "NumericVersion"
     },
     "PaginationToken": {
       "maxLength": 300,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "PaginationToken"
     },
     "PreviewAgentsMaxResults": {
-      "type": "integer"
+      "type": "integer",
+      "title": "PreviewAgentsMaxResults"
     },
     "PreviewAgentsRequest": {
       "example": {
@@ -2638,7 +2773,8 @@
       "required": [
         "previewAgentsArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "PreviewAgentsRequest"
     },
     "PreviewAgentsResponse": {
       "example": {
@@ -2662,12 +2798,14 @@
       "required": [
         "agentPreviews"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "PreviewAgentsResponse"
     },
     "ProviderName": {
       "maxLength": 1000,
       "minLength": 0,
-      "type": "string"
+      "type": "string",
+      "title": "ProviderName"
     },
     "RegisterCrossAccountAccessRoleRequest": {
       "example": {
@@ -2682,7 +2820,8 @@
       "required": [
         "roleArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "RegisterCrossAccountAccessRoleRequest"
     },
     "RemoveAttributesFromFindingsRequest": {
       "example": {
@@ -2707,7 +2846,8 @@
         "findingArns",
         "attributeKeys"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "RemoveAttributesFromFindingsRequest"
     },
     "RemoveAttributesFromFindingsResponse": {
       "example": {
@@ -2722,7 +2862,8 @@
       "required": [
         "failedItems"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "RemoveAttributesFromFindingsResponse"
     },
     "ResourceGroup": {
       "description": "Contains information about a resource group. The resource group defines a set of tags that, when queried, identify the AWS resources that make up the assessment target. This data type is used as the response element in the <a>DescribeResourceGroups</a> action.",
@@ -2745,7 +2886,8 @@
         "tags",
         "createdAt"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ResourceGroup"
     },
     "ResourceGroupList": {
       "items": {
@@ -2753,7 +2895,8 @@
       },
       "maxItems": 10,
       "minItems": 0,
-      "type": "array"
+      "type": "array",
+      "title": "ResourceGroupList"
     },
     "ResourceGroupTag": {
       "description": "This data type is used as one of the elements of the <a>ResourceGroup</a> data type.",
@@ -2770,7 +2913,8 @@
       "required": [
         "key"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ResourceGroupTag"
     },
     "ResourceGroupTags": {
       "items": {
@@ -2778,11 +2922,13 @@
       },
       "maxItems": 10,
       "minItems": 1,
-      "type": "array"
+      "type": "array",
+      "title": "ResourceGroupTags"
     },
     "RuleName": {
       "maxLength": 1000,
-      "type": "string"
+      "type": "string",
+      "title": "RuleName"
     },
     "RuleNameList": {
       "items": {
@@ -2790,7 +2936,8 @@
       },
       "maxItems": 50,
       "minItems": 0,
-      "type": "array"
+      "type": "array",
+      "title": "RuleNameList"
     },
     "RulesPackage": {
       "description": "Contains information about an Amazon Inspector rules package. This data type is used as the response element in the <a>DescribeRulesPackages</a> action.",
@@ -2822,7 +2969,8 @@
         "version",
         "provider"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "RulesPackage"
     },
     "RulesPackageList": {
       "items": {
@@ -2830,17 +2978,20 @@
       },
       "maxItems": 10,
       "minItems": 0,
-      "type": "array"
+      "type": "array",
+      "title": "RulesPackageList"
     },
     "RulesPackageName": {
       "maxLength": 1000,
       "minLength": 0,
-      "type": "string"
+      "type": "string",
+      "title": "RulesPackageName"
     },
     "ServiceName": {
       "maxLength": 128,
       "minLength": 0,
-      "type": "string"
+      "type": "string",
+      "title": "ServiceName"
     },
     "SetTagsForResourceRequest": {
       "example": {
@@ -2865,7 +3016,8 @@
       "required": [
         "resourceArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "SetTagsForResourceRequest"
     },
     "Severity": {
       "enum": [
@@ -2875,7 +3027,8 @@
         "Informational",
         "Undefined"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "Severity"
     },
     "SeverityList": {
       "items": {
@@ -2883,7 +3036,8 @@
       },
       "maxItems": 50,
       "minItems": 0,
-      "type": "array"
+      "type": "array",
+      "title": "SeverityList"
     },
     "StartAssessmentRunRequest": {
       "example": {
@@ -2903,7 +3057,8 @@
       "required": [
         "assessmentTemplateArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "StartAssessmentRunRequest"
     },
     "StartAssessmentRunResponse": {
       "example": {
@@ -2918,7 +3073,8 @@
       "required": [
         "assessmentRunArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "StartAssessmentRunResponse"
     },
     "StopAssessmentRunRequest": {
       "example": {
@@ -2933,7 +3089,8 @@
       "required": [
         "assessmentRunArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "StopAssessmentRunRequest"
     },
     "SubscribeToEventRequest": {
       "example": {
@@ -2960,7 +3117,8 @@
         "event",
         "topicArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "SubscribeToEventRequest"
     },
     "Subscription": {
       "description": "This data type is used as a response element in the <a>ListEventSubscriptions</a> action.",
@@ -2983,7 +3141,8 @@
         "topicArn",
         "eventSubscriptions"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "Subscription"
     },
     "SubscriptionList": {
       "items": {
@@ -2991,7 +3150,8 @@
       },
       "maxItems": 50,
       "minItems": 0,
-      "type": "array"
+      "type": "array",
+      "title": "SubscriptionList"
     },
     "Tag": {
       "description": "A key and value pair. This data type is used as a request parameter in the <a>SetTagsForResource</a> action and a response element in the <a>ListTagsForResource</a> action.",
@@ -3008,12 +3168,14 @@
       "required": [
         "key"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "Tag"
     },
     "TagKey": {
       "maxLength": 128,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "TagKey"
     },
     "TagList": {
       "items": {
@@ -3021,12 +3183,14 @@
       },
       "maxItems": 10,
       "minItems": 0,
-      "type": "array"
+      "type": "array",
+      "title": "TagList"
     },
     "TagValue": {
       "maxLength": 256,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "TagValue"
     },
     "TelemetryMetadata": {
       "description": "The metadata about the Amazon Inspector application data metrics collected by the agent. This data type is used as the response element in the <a>GetTelemetryMetadata</a> action.",
@@ -3048,7 +3212,8 @@
         "messageType",
         "count"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "TelemetryMetadata"
     },
     "TelemetryMetadataList": {
       "items": {
@@ -3056,16 +3221,19 @@
       },
       "maxItems": 5000,
       "minItems": 0,
-      "type": "array"
+      "type": "array",
+      "title": "TelemetryMetadataList"
     },
     "Text": {
       "maxLength": 20000,
       "minLength": 0,
-      "type": "string"
+      "type": "string",
+      "title": "Text"
     },
     "Timestamp": {
       "format": "date-time",
-      "type": "string"
+      "type": "string",
+      "title": "Timestamp"
     },
     "TimestampRange": {
       "description": "This data type is used in the <a>AssessmentRunFilter</a> data type.",
@@ -3079,7 +3247,8 @@
           "description": "The maximum value of the timestamp range."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TimestampRange"
     },
     "UnsubscribeFromEventRequest": {
       "example": {
@@ -3106,7 +3275,8 @@
         "event",
         "topicArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UnsubscribeFromEventRequest"
     },
     "UpdateAssessmentTargetRequest": {
       "example": {
@@ -3133,7 +3303,8 @@
         "assessmentTargetName",
         "resourceGroupArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateAssessmentTargetRequest"
     },
     "UserAttributeKeyList": {
       "items": {
@@ -3141,7 +3312,8 @@
       },
       "maxItems": 10,
       "minItems": 0,
-      "type": "array"
+      "type": "array",
+      "title": "UserAttributeKeyList"
     },
     "UserAttributeList": {
       "items": {
@@ -3149,12 +3321,14 @@
       },
       "maxItems": 10,
       "minItems": 0,
-      "type": "array"
+      "type": "array",
+      "title": "UserAttributeList"
     },
     "Version": {
       "maxLength": 1000,
       "minLength": 0,
-      "type": "string"
+      "type": "string",
+      "title": "Version"
     }
   },
   "actions": [

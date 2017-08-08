@@ -44,7 +44,8 @@
         "startTime",
         "word"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DocumentFrequencyResponseEntity"
     }
   },
   "actions": [

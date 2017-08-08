@@ -71,7 +71,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Change"
     },
     "ChangesListResponse": {
       "description": "The response to a request to enumerate Changes to a ResourceRecordSets collection.",
@@ -93,7 +94,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ChangesListResponse"
     },
     "ManagedZone": {
       "description": "A zone is a subtree of the DNS namespace under one administrative responsibility. A ManagedZone is a resource that represents a DNS zone hosted by the Cloud DNS service.",
@@ -136,7 +138,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ManagedZone"
     },
     "ManagedZonesListResponse": {
       "properties": {
@@ -157,7 +160,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ManagedZonesListResponse"
     },
     "Project": {
       "description": "A project resource. The project is a top level container for resources including Cloud DNS ManagedZones. Projects can be created only in the APIs console.",
@@ -181,7 +185,8 @@
           "description": "Quotas assigned to this project (output only)."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Project"
     },
     "Quota": {
       "description": "Limits associated with a Project.",
@@ -222,7 +227,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Quota"
     },
     "ResourceRecordSet": {
       "description": "A unit of data that will be returned by the DNS servers.",
@@ -253,7 +259,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ResourceRecordSet"
     },
     "ResourceRecordSetsListResponse": {
       "properties": {
@@ -274,7 +281,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ResourceRecordSetsListResponse"
     }
   },
   "actions": [

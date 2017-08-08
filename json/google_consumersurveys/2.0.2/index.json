@@ -44,7 +44,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "FieldMask"
     },
     "MobileAppPanel": {
       "properties": {
@@ -70,7 +71,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "MobileAppPanel"
     },
     "MobileAppPanelsListResponse": {
       "properties": {
@@ -92,7 +94,8 @@
           "$ref": "#/definitions/TokenPagination"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "MobileAppPanelsListResponse"
     },
     "PageInfo": {
       "properties": {
@@ -109,7 +112,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PageInfo"
     },
     "ResultsGetRequest": {
       "properties": {
@@ -117,7 +121,8 @@
           "$ref": "#/definitions/ResultsMask"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ResultsGetRequest"
     },
     "ResultsMask": {
       "properties": {
@@ -131,7 +136,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ResultsMask"
     },
     "Survey": {
       "properties": {
@@ -177,7 +183,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Survey"
     },
     "SurveyAudience": {
       "properties": {
@@ -209,7 +216,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SurveyAudience"
     },
     "SurveyCost": {
       "properties": {
@@ -229,7 +237,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SurveyCost"
     },
     "SurveyQuestion": {
       "properties": {
@@ -300,7 +309,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SurveyQuestion"
     },
     "SurveyQuestionImage": {
       "properties": {
@@ -315,7 +325,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SurveyQuestionImage"
     },
     "SurveyRejection": {
       "properties": {
@@ -326,7 +337,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SurveyRejection"
     },
     "SurveyResults": {
       "properties": {
@@ -337,7 +349,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SurveyResults"
     },
     "SurveysDeleteResponse": {
       "properties": {
@@ -346,7 +359,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SurveysDeleteResponse"
     },
     "SurveysListResponse": {
       "properties": {
@@ -368,7 +382,8 @@
           "$ref": "#/definitions/TokenPagination"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SurveysListResponse"
     },
     "SurveysStartRequest": {
       "properties": {
@@ -378,7 +393,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SurveysStartRequest"
     },
     "SurveysStartResponse": {
       "properties": {
@@ -387,7 +403,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SurveysStartResponse"
     },
     "SurveysStopResponse": {
       "properties": {
@@ -396,7 +413,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SurveysStopResponse"
     },
     "TokenPagination": {
       "properties": {
@@ -407,7 +425,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TokenPagination"
     }
   },
   "actions": [

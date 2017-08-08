@@ -42,7 +42,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AccessRequester"
     },
     "ApplicationSetting": {
       "description": "Modify application settings",
@@ -135,7 +136,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ApplicationSetting"
     },
     "AwardEmoji": {
       "description": "This feature was introduced in 8.9",
@@ -162,7 +164,8 @@
           "$ref": "#/definitions/UserBasic"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AwardEmoji"
     },
     "BasicProjectDetails": {
       "description": "Get all projects for admin user",
@@ -189,7 +192,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BasicProjectDetails"
     },
     "Board": {
       "description": "This feature was introduced in 8.13",
@@ -201,7 +205,8 @@
           "$ref": "#/definitions/List"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Board"
     },
     "Build": {
       "description": "This feature was added in GitLab 8.11",
@@ -252,7 +257,8 @@
           "$ref": "#/definitions/User"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Build"
     },
     "BuildArtifactFile": {
       "properties": {
@@ -263,7 +269,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BuildArtifactFile"
     },
     "CommitNote": {
       "description": "Post comment to commit",
@@ -287,7 +294,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CommitNote"
     },
     "CommitStatus": {
       "description": "Post status to a commit",
@@ -329,7 +337,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CommitStatus"
     },
     "Compare": {
       "description": "Compare two branches, tags, or commits",
@@ -350,7 +359,8 @@
           "$ref": "#/definitions/RepoDiff"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Compare"
     },
     "Contributor": {
       "description": "Get repository contributors",
@@ -371,7 +381,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Contributor"
     },
     "Deployment": {
       "description": "This feature was introduced in GitLab 8.11.",
@@ -401,7 +412,8 @@
           "$ref": "#/definitions/UserBasic"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Deployment"
     },
     "Email": {
       "description": "Add new email address to the currently authenticated user",
@@ -413,7 +425,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Email"
     },
     "Environment": {
       "description": "This feature was introduced in GitLab 8.11.",
@@ -434,7 +447,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Environment"
     },
     "EnvironmentBasic": {
       "properties": {
@@ -451,7 +465,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "EnvironmentBasic"
     },
     "Event": {
       "description": "This feature was introduced in GitLab 8.13.",
@@ -493,7 +508,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Event"
     },
     "GlobalNotificationSetting": {
       "description": "This feature was introduced in GitLab 8.12",
@@ -508,7 +524,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GlobalNotificationSetting"
     },
     "Group": {
       "description": "Update a group. Available only for users who can administrate groups.",
@@ -544,7 +561,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Group"
     },
     "GroupDetail": {
       "description": "Transfer a project to the group namespace. Available only for admin.",
@@ -586,7 +604,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GroupDetail"
     },
     "Hook": {
       "description": "Delete a hook",
@@ -610,7 +629,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Hook"
     },
     "Identity": {
       "properties": {
@@ -621,7 +641,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Identity"
     },
     "Issue": {
       "description": "Get currently authenticated user's issues",
@@ -684,7 +705,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Issue"
     },
     "Label": {
       "description": "Unsubscribe from a resource",
@@ -717,7 +739,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Label"
     },
     "LabelBasic": {
       "properties": {
@@ -734,7 +757,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LabelBasic"
     },
     "List": {
       "description": "This feature was introduced in 8.13",
@@ -749,7 +773,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "List"
     },
     "MRNote": {
       "description": "List issues that will be closed on merge",
@@ -761,7 +786,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "MRNote"
     },
     "Member": {
       "description": "Updates a member of a group or project.",
@@ -791,7 +817,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Member"
     },
     "MergeRequest": {
       "description": "Unsubscribe from a resource",
@@ -881,7 +908,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "MergeRequest"
     },
     "MergeRequestChanges": {
       "description": "Show the merge request changes",
@@ -974,7 +1002,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "MergeRequestChanges"
     },
     "MergeRequestDiff": {
       "description": "This feature was introduced in GitLab 8.12.",
@@ -1004,7 +1033,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "MergeRequestDiff"
     },
     "MergeRequestDiffFull": {
       "description": "This feature was introduced in GitLab 8.12.",
@@ -1040,7 +1070,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "MergeRequestDiffFull"
     },
     "Milestone": {
       "description": "Update an existing project milestone",
@@ -1076,7 +1107,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Milestone"
     },
     "Namespace": {
       "description": "Get a namespaces list",
@@ -1094,7 +1126,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Namespace"
     },
     "Note": {
       "description": "Delete a +noteable+ note",
@@ -1133,7 +1166,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Note"
     },
     "NotificationSetting": {
       "description": "This feature was introduced in GitLab 8.12",
@@ -1145,7 +1179,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "NotificationSetting"
     },
     "PersonalSnippet": {
       "description": "This feature was introduced in GitLab 8.15.",
@@ -1175,7 +1210,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PersonalSnippet"
     },
     "Pipeline": {
       "description": "This feature was introduced in GitLab 8.11.",
@@ -1226,7 +1262,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Pipeline"
     },
     "PipelineBasic": {
       "properties": {
@@ -1243,7 +1280,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PipelineBasic"
     },
     "Project": {
       "description": "Unstar a project",
@@ -1366,7 +1404,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Project"
     },
     "ProjectGroupLink": {
       "description": "Share the project with a group",
@@ -1387,7 +1426,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ProjectGroupLink"
     },
     "ProjectHook": {
       "description": "Deletes project hook",
@@ -1432,7 +1472,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ProjectHook"
     },
     "ProjectService": {
       "description": "Get the service settings for project",
@@ -1477,7 +1518,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ProjectService"
     },
     "ProjectSnippet": {
       "description": "Update an existing project snippet",
@@ -1507,7 +1549,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ProjectSnippet"
     },
     "ProjectStatistics": {
       "properties": {
@@ -1527,7 +1570,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ProjectStatistics"
     },
     "ProjectWithAccess": {
       "description": "Get a single project",
@@ -1653,7 +1697,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ProjectWithAccess"
     },
     "Release": {
       "description": "Update a tag's release note",
@@ -1665,7 +1710,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Release"
     },
     "RepoBranch": {
       "description": "Create branch",
@@ -1689,7 +1735,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RepoBranch"
     },
     "RepoCommit": {
       "description": "Get the commits of a merge request",
@@ -1722,7 +1769,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RepoCommit"
     },
     "RepoCommitDetail": {
       "description": "Get a specific commit of a project",
@@ -1770,7 +1818,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RepoCommitDetail"
     },
     "RepoCommitStats": {
       "properties": {
@@ -1784,7 +1833,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RepoCommitStats"
     },
     "RepoDiff": {
       "properties": {
@@ -1813,7 +1863,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RepoDiff"
     },
     "RepoLicense": {
       "description": "This feature was introduced in GitLab 8.7.",
@@ -1852,7 +1903,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RepoLicense"
     },
     "RepoTag": {
       "description": "Create a new repository tag",
@@ -1870,7 +1922,8 @@
           "$ref": "#/definitions/Release"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RepoTag"
     },
     "RepoTreeObject": {
       "description": "Get a project repository tree",
@@ -1891,7 +1944,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RepoTreeObject"
     },
     "Runner": {
       "description": "Remove a runner",
@@ -1912,7 +1966,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Runner"
     },
     "RunnerDetails": {
       "description": "Update runner's details",
@@ -1963,7 +2018,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RunnerDetails"
     },
     "SSHKey": {
       "description": "Delete an SSH key from the currently authenticated user",
@@ -1984,7 +2040,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SSHKey"
     },
     "SSHKeyWithUser": {
       "description": "Get single ssh key by id. Only available to admin users",
@@ -2008,7 +2065,8 @@
           "$ref": "#/definitions/UserPublic"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SSHKeyWithUser"
     },
     "Template": {
       "description": "This feature was introduced in GitLab 8.15. This endpoint is deprecated and will be removed in GitLab 9.0.",
@@ -2020,7 +2078,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Template"
     },
     "TemplatesList": {
       "description": "This feature was introduced in GitLab 8.15. This endpoint is deprecated and will be removed in GitLab 9.0.",
@@ -2029,7 +2088,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TemplatesList"
     },
     "Todo": {
       "description": "Mark a todo as done",
@@ -2065,7 +2125,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Todo"
     },
     "Trigger": {
       "description": "Delete a trigger",
@@ -2086,7 +2147,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Trigger"
     },
     "TriggerRequest": {
       "description": "Trigger a GitLab project build",
@@ -2098,7 +2160,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TriggerRequest"
     },
     "User": {
       "properties": {
@@ -2148,7 +2211,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "User"
     },
     "UserBasic": {
       "description": "Get a single user",
@@ -2172,7 +2236,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UserBasic"
     },
     "UserPublic": {
       "description": "Get the currently authenticated user",
@@ -2259,7 +2324,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UserPublic"
     },
     "UserWithPrivateToken": {
       "description": "Login to get token",
@@ -2349,7 +2415,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UserWithPrivateToken"
     },
     "Variable": {
       "description": "Delete an existing variable from a project",
@@ -2361,7 +2428,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Variable"
     }
   },
   "actions": [

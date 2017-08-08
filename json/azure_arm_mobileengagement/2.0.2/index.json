@@ -58,7 +58,8 @@
         }
       ],
       "description": "Used to target devices who received an announcement.",
-      "x-ms-discriminator-value": "announcement-feedback"
+      "x-ms-discriminator-value": "announcement-feedback",
+      "title": "AnnouncementFeedbackCriterion"
     },
     "ApiError": {
       "properties": {
@@ -73,7 +74,8 @@
           },
           "type": "object"
         }
-      }
+      },
+      "title": "ApiError"
     },
     "App": {
       "allOf": [
@@ -87,7 +89,8 @@
           "$ref": "#/definitions/AppProperties",
           "x-ms-client-flatten": true
         }
-      }
+      },
+      "title": "App"
     },
     "AppCollection": {
       "allOf": [
@@ -101,7 +104,8 @@
           "$ref": "#/definitions/AppCollectionProperties",
           "x-ms-client-flatten": true
         }
-      }
+      },
+      "title": "AppCollection"
     },
     "AppCollectionListResult": {
       "description": "The list AppCollections operation response.",
@@ -117,7 +121,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "AppCollectionListResult"
     },
     "AppCollectionNameAvailability": {
       "properties": {
@@ -133,7 +138,8 @@
           "description": "UnavailabilityReason.",
           "type": "string"
         }
-      }
+      },
+      "title": "AppCollectionNameAvailability"
     },
     "AppCollectionProperties": {
       "properties": {
@@ -149,7 +155,8 @@
             "name": "ProvisioningStates"
           }
         }
-      }
+      },
+      "title": "AppCollectionProperties"
     },
     "AppInfoFilter": {
       "allOf": [
@@ -170,7 +177,8 @@
         }
       ],
       "description": "Send only to users who have some app info set. This is a special filter that is automatically added if your campaign contains appInfo parameters. It is not intended to be public and should not be used as it could be removed or replaced by the API.\n",
-      "x-ms-discriminator-value": "app-info"
+      "x-ms-discriminator-value": "app-info",
+      "title": "AppInfoFilter"
     },
     "AppListResult": {
       "description": "The list Apps operation response.",
@@ -186,7 +194,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "AppListResult"
     },
     "AppProperties": {
       "properties": {
@@ -202,7 +211,8 @@
           "description": "The platform of the app.",
           "type": "string"
         }
-      }
+      },
+      "title": "AppProperties"
     },
     "ApplicationVersionCriterion": {
       "allOf": [
@@ -220,7 +230,8 @@
         }
       ],
       "description": "Used to target devices based on the version of the application they are using.",
-      "x-ms-discriminator-value": "application-version"
+      "x-ms-discriminator-value": "application-version",
+      "title": "ApplicationVersionCriterion"
     },
     "BooleanTagCriterion": {
       "allOf": [
@@ -242,7 +253,8 @@
         }
       ],
       "description": "Target devices based on a boolean tag value.",
-      "x-ms-discriminator-value": "boolean-tag"
+      "x-ms-discriminator-value": "boolean-tag",
+      "title": "BooleanTagCriterion"
     },
     "Campaign": {
       "allOf": [
@@ -397,7 +409,8 @@
             "name": "CampaignTypes"
           }
         }
-      }
+      },
+      "title": "Campaign"
     },
     "CampaignListResult": {
       "allOf": [
@@ -434,7 +447,8 @@
           "description": "The id of the time zone to use for the `startTime` and `endTime` dates. If not provided, the two date attributes are referencing to the device timezone. Applicable only to announcements and polls.\n",
           "type": "string"
         }
-      }
+      },
+      "title": "CampaignListResult"
     },
     "CampaignLocalization": {
       "properties": {
@@ -487,7 +501,8 @@
           "maxLength": 128,
           "type": "string"
         }
-      }
+      },
+      "title": "CampaignLocalization"
     },
     "CampaignPushParameters": {
       "properties": {
@@ -505,7 +520,8 @@
       },
       "required": [
         "deviceIds"
-      ]
+      ],
+      "title": "CampaignPushParameters"
     },
     "CampaignPushResult": {
       "properties": {
@@ -516,7 +532,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "CampaignPushResult"
     },
     "CampaignResult": {
       "allOf": [
@@ -554,7 +571,8 @@
             "name": "CampaignStates"
           }
         }
-      }
+      },
+      "title": "CampaignResult"
     },
     "CampaignState": {
       "properties": {
@@ -573,7 +591,8 @@
             "name": "CampaignStates"
           }
         }
-      }
+      },
+      "title": "CampaignState"
     },
     "CampaignStateResult": {
       "allOf": [
@@ -589,7 +608,8 @@
       },
       "required": [
         "id"
-      ]
+      ],
+      "title": "CampaignStateResult"
     },
     "CampaignStatisticsResult": {
       "properties": {
@@ -664,7 +684,8 @@
           "description": "Number of times the system notification was exited (Not present in case of a data-push or a native-push).",
           "type": "integer"
         }
-      }
+      },
+      "title": "CampaignStatisticsResult"
     },
     "CampaignTestNewParameters": {
       "allOf": [
@@ -679,7 +700,8 @@
       },
       "required": [
         "data"
-      ]
+      ],
+      "title": "CampaignTestNewParameters"
     },
     "CampaignTestSavedParameters": {
       "properties": {
@@ -694,7 +716,8 @@
       },
       "required": [
         "deviceId"
-      ]
+      ],
+      "title": "CampaignTestSavedParameters"
     },
     "CampaignType": {
       "description": "Campaign type.",
@@ -708,7 +731,8 @@
       "x-ms-enum": {
         "modelAsString": false,
         "name": "CampaignType"
-      }
+      },
+      "title": "CampaignType"
     },
     "CampaignsListResult": {
       "description": "The campaigns list result.",
@@ -724,7 +748,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "CampaignsListResult"
     },
     "CarrierCountryCriterion": {
       "allOf": [
@@ -742,7 +767,8 @@
         }
       ],
       "description": "Used to target devices based on their carrier country.",
-      "x-ms-discriminator-value": "carrier-country"
+      "x-ms-discriminator-value": "carrier-country",
+      "title": "CarrierCountryCriterion"
     },
     "CarrierNameCriterion": {
       "allOf": [
@@ -760,7 +786,8 @@
         }
       ],
       "description": "Used to target devices based on their carrier name.",
-      "x-ms-discriminator-value": "carrier-name"
+      "x-ms-discriminator-value": "carrier-name",
+      "title": "CarrierNameCriterion"
     },
     "Criterion": {
       "discriminator": "type",
@@ -772,7 +799,8 @@
       "required": [
         "type"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "Criterion"
     },
     "DatapushFeedbackCriterion": {
       "allOf": [
@@ -804,7 +832,8 @@
         }
       ],
       "description": "Used to target devices who received a data push.",
-      "x-ms-discriminator-value": "datapush-feedback"
+      "x-ms-discriminator-value": "datapush-feedback",
+      "title": "DatapushFeedbackCriterion"
     },
     "DateTagCriterion": {
       "allOf": [
@@ -842,7 +871,8 @@
         }
       ],
       "description": "Target devices based on a date tag value.",
-      "x-ms-discriminator-value": "date-tag"
+      "x-ms-discriminator-value": "date-tag",
+      "title": "DateTagCriterion"
     },
     "Device": {
       "properties": {
@@ -872,7 +902,8 @@
       },
       "required": [
         "deviceId"
-      ]
+      ],
+      "title": "Device"
     },
     "DeviceInfo": {
       "properties": {
@@ -932,7 +963,8 @@
           "description": "The offset in minutes from UTC for the device time zone, including daylight savings time.",
           "type": "integer"
         }
-      }
+      },
+      "title": "DeviceInfo"
     },
     "DeviceLocation": {
       "properties": {
@@ -948,7 +980,8 @@
           "description": "An administrative region of the nation, such as a state or province.",
           "type": "string"
         }
-      }
+      },
+      "title": "DeviceLocation"
     },
     "DeviceManufacturerCriterion": {
       "allOf": [
@@ -966,7 +999,8 @@
         }
       ],
       "description": "Used to target devices based on the device manufacturer.",
-      "x-ms-discriminator-value": "device-manufacturer"
+      "x-ms-discriminator-value": "device-manufacturer",
+      "title": "DeviceManufacturerCriterion"
     },
     "DeviceMeta": {
       "properties": {
@@ -994,7 +1028,8 @@
           "description": "Boolean indicating if native push notifications (like Android’s GCM or Apple’s APNS) are enabled for the application. This boolean is set to true when the application registers successfully to the native push service, and set to false when the native push service reports to Mobile Engagement that the application can no longer be pushed (which means that it has been uninstalled). This report is performed a few hours after Mobile Engagement has tried to perform a native push to a device on which the application has been uninstalled.",
           "type": "boolean"
         }
-      }
+      },
+      "title": "DeviceMeta"
     },
     "DeviceModelCriterion": {
       "allOf": [
@@ -1012,7 +1047,8 @@
         }
       ],
       "description": "Used to target devices based on the device model.",
-      "x-ms-discriminator-value": "device-model"
+      "x-ms-discriminator-value": "device-model",
+      "title": "DeviceModelCriterion"
     },
     "DeviceQueryResult": {
       "properties": {
@@ -1034,7 +1070,8 @@
       },
       "required": [
         "deviceId"
-      ]
+      ],
+      "title": "DeviceQueryResult"
     },
     "DeviceTagsParameters": {
       "properties": {
@@ -1055,7 +1092,8 @@
       },
       "required": [
         "tags"
-      ]
+      ],
+      "title": "DeviceTagsParameters"
     },
     "DeviceTagsResult": {
       "properties": {
@@ -1069,7 +1107,8 @@
       },
       "required": [
         "invalidIds"
-      ]
+      ],
+      "title": "DeviceTagsResult"
     },
     "DevicesQueryResult": {
       "description": "The campaigns list result.",
@@ -1085,7 +1124,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "DevicesQueryResult"
     },
     "EngageActiveUsersFilter": {
       "allOf": [
@@ -1103,7 +1143,8 @@
         }
       ],
       "description": "Send only to users who have used the app in the last {threshold} days.",
-      "x-ms-discriminator-value": "engage-active-users"
+      "x-ms-discriminator-value": "engage-active-users",
+      "title": "EngageActiveUsersFilter"
     },
     "EngageIdleUsersFilter": {
       "allOf": [
@@ -1121,7 +1162,8 @@
         }
       ],
       "description": "Send only to users who haven't used the app in the last {threshold} days.",
-      "x-ms-discriminator-value": "engage-idle-users"
+      "x-ms-discriminator-value": "engage-idle-users",
+      "title": "EngageIdleUsersFilter"
     },
     "EngageNewUsersFilter": {
       "allOf": [
@@ -1139,7 +1181,8 @@
         }
       ],
       "description": "Send only to users whose first app use is less than {threshold} days old.",
-      "x-ms-discriminator-value": "engage-new-users"
+      "x-ms-discriminator-value": "engage-new-users",
+      "title": "EngageNewUsersFilter"
     },
     "EngageOldUsersFilter": {
       "allOf": [
@@ -1157,7 +1200,8 @@
         }
       ],
       "description": "Send only to users whose first app use is more than {threshold} days old.",
-      "x-ms-discriminator-value": "engage-old-users"
+      "x-ms-discriminator-value": "engage-old-users",
+      "title": "EngageOldUsersFilter"
     },
     "EngageSubsetFilter": {
       "allOf": [
@@ -1175,7 +1219,8 @@
         }
       ],
       "description": "Send only to a maximum of max users.",
-      "x-ms-discriminator-value": "engage-subset"
+      "x-ms-discriminator-value": "engage-subset",
+      "title": "EngageSubsetFilter"
     },
     "Filter": {
       "discriminator": "type",
@@ -1187,7 +1232,8 @@
       "required": [
         "type"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "Filter"
     },
     "FirmwareVersionCriterion": {
       "allOf": [
@@ -1205,7 +1251,8 @@
         }
       ],
       "description": "Used to target devices based on their firmware version.",
-      "x-ms-discriminator-value": "firmware-version"
+      "x-ms-discriminator-value": "firmware-version",
+      "title": "FirmwareVersionCriterion"
     },
     "GeoFencingCriterion": {
       "allOf": [
@@ -1235,7 +1282,8 @@
         }
       ],
       "description": "Used to target devices based on a specific region. A center point (defined by a latitude and longitude) and a radius form the boundary for the region. This criterion will be met when the user crosses the boundaries of the region.\n",
-      "x-ms-discriminator-value": "geo-fencing"
+      "x-ms-discriminator-value": "geo-fencing",
+      "title": "GeoFencingCriterion"
     },
     "IntegerTagCriterion": {
       "allOf": [
@@ -1272,7 +1320,8 @@
         }
       ],
       "description": "Target devices based on an integer tag value.",
-      "x-ms-discriminator-value": "integer-tag"
+      "x-ms-discriminator-value": "integer-tag",
+      "title": "IntegerTagCriterion"
     },
     "LanguageCriterion": {
       "allOf": [
@@ -1290,7 +1339,8 @@
         }
       ],
       "description": "Used to target devices based on the language of their device.",
-      "x-ms-discriminator-value": "language"
+      "x-ms-discriminator-value": "language",
+      "title": "LanguageCriterion"
     },
     "LocationCriterion": {
       "allOf": [
@@ -1319,7 +1369,8 @@
         }
       ],
       "description": "Used to target devices based on their last know area.",
-      "x-ms-discriminator-value": "location"
+      "x-ms-discriminator-value": "location",
+      "title": "LocationCriterion"
     },
     "NativePushEnabledFilter": {
       "allOf": [
@@ -1328,7 +1379,8 @@
         }
       ],
       "description": "Engage only users with native push enabled.",
-      "x-ms-discriminator-value": "native-push-enabled"
+      "x-ms-discriminator-value": "native-push-enabled",
+      "title": "NativePushEnabledFilter"
     },
     "NetworkTypeCriterion": {
       "allOf": [
@@ -1346,7 +1398,8 @@
         }
       ],
       "description": "Used to target devices based their network type.",
-      "x-ms-discriminator-value": "network-type"
+      "x-ms-discriminator-value": "network-type",
+      "title": "NetworkTypeCriterion"
     },
     "NotificationOptions": {
       "properties": {
@@ -1368,7 +1421,8 @@
           "description": "iOS only. The name of a sound file in the application bundle. The sound in this file is played as an alert. If the sound file doesn’t exist or default is specified as the value, the default alert sound is played. The audio must be in one of the audio data formats that are compatible with system sounds. The `deliveryTime` property must be set to `any` or `background`.\n",
           "type": "string"
         }
-      }
+      },
+      "title": "NotificationOptions"
     },
     "PollAnswerFeedbackCriterion": {
       "allOf": [
@@ -1390,7 +1444,8 @@
         }
       ],
       "description": "Used to target devices who answered X to a given question.",
-      "x-ms-discriminator-value": "poll-answer-feedback"
+      "x-ms-discriminator-value": "poll-answer-feedback",
+      "title": "PollAnswerFeedbackCriterion"
     },
     "PollFeedbackCriterion": {
       "allOf": [
@@ -1422,7 +1477,8 @@
         }
       ],
       "description": "Used to target devices who received a poll.",
-      "x-ms-discriminator-value": "poll-feedback"
+      "x-ms-discriminator-value": "poll-feedback",
+      "title": "PollFeedbackCriterion"
     },
     "PollQuestion": {
       "allOf": [
@@ -1449,7 +1505,8 @@
           "description": "Poll questions can be localized using an optional JSON object. The JSON key is a two-character language code as specified by the ISO 639-1 standard. The corresponding value is an object containing the localizable property title.\n",
           "type": "object"
         }
-      }
+      },
+      "title": "PollQuestion"
     },
     "PollQuestionChoice": {
       "allOf": [
@@ -1474,7 +1531,8 @@
           "description": "Poll choices can be localized using an optional JSON object. The JSON key is a two-character language code as specified by the ISO 639-1 standard. The corresponding value is an object containing the localizable property title.\n",
           "type": "object"
         }
-      }
+      },
+      "title": "PollQuestionChoice"
     },
     "PollQuestionChoiceLocalization": {
       "properties": {
@@ -1483,7 +1541,8 @@
           "maxLength": 256,
           "type": "string"
         }
-      }
+      },
+      "title": "PollQuestionChoiceLocalization"
     },
     "PollQuestionLocalization": {
       "properties": {
@@ -1492,7 +1551,8 @@
           "maxLength": 256,
           "type": "string"
         }
-      }
+      },
+      "title": "PollQuestionLocalization"
     },
     "PushQuotaFilter": {
       "allOf": [
@@ -1501,7 +1561,8 @@
         }
       ],
       "description": "Engage only users for whom the push quota is not reached.",
-      "x-ms-discriminator-value": "push-quota"
+      "x-ms-discriminator-value": "push-quota",
+      "title": "PushQuotaFilter"
     },
     "Resource": {
       "properties": {
@@ -1535,7 +1596,8 @@
       "required": [
         "location"
       ],
-      "x-ms-azure-resource": true
+      "x-ms-azure-resource": true,
+      "title": "Resource"
     },
     "ScreenSizeCriterion": {
       "allOf": [
@@ -1553,7 +1615,8 @@
         }
       ],
       "description": "Used to target devices based on the screen resolution of their device.",
-      "x-ms-discriminator-value": "screen-size"
+      "x-ms-discriminator-value": "screen-size",
+      "title": "ScreenSizeCriterion"
     },
     "SegmentCriterion": {
       "allOf": [
@@ -1575,7 +1638,8 @@
         }
       ],
       "description": "Target devices based on an existing segment.",
-      "x-ms-discriminator-value": "segment"
+      "x-ms-discriminator-value": "segment",
+      "title": "SegmentCriterion"
     },
     "StringTagCriterion": {
       "allOf": [
@@ -1597,7 +1661,8 @@
         }
       ],
       "description": "Target devices based on a string tag value.",
-      "x-ms-discriminator-value": "string-tag"
+      "x-ms-discriminator-value": "string-tag",
+      "title": "StringTagCriterion"
     },
     "SupportedPlatformsListResult": {
       "properties": {
@@ -1608,16 +1673,19 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "SupportedPlatformsListResult"
     },
     "containerUrl": {
       "$ref": "#/definitions/url",
-      "description": "A shared Access Signature (SAS) BLOB container URL to contain the exported data."
+      "description": "A shared Access Signature (SAS) BLOB container URL to contain the exported data.",
+      "title": "containerUrl"
     },
     "date": {
       "description": "A date as defined by full-date in RFC3339.",
       "format": "date",
-      "type": "string"
+      "type": "string",
+      "title": "date"
     },
     "dateRangeExportTaskParameter": {
       "properties": {
@@ -1647,7 +1715,8 @@
         "startDate",
         "endDate",
         "exportFormat"
-      ]
+      ],
+      "title": "dateRangeExportTaskParameter"
     },
     "exportFormat": {
       "description": "The format of exported data.",
@@ -1659,7 +1728,8 @@
       "x-ms-enum": {
         "modelAsString": false,
         "name": "ExportFormat"
-      }
+      },
+      "title": "exportFormat"
     },
     "exportOptions": {
       "description": "Options to control export generation.",
@@ -1668,7 +1738,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "exportOptions"
     },
     "exportState": {
       "description": "The state of an export task.",
@@ -1682,7 +1753,8 @@
       "x-ms-enum": {
         "modelAsString": false,
         "name": "ExportState"
-      }
+      },
+      "title": "exportState"
     },
     "exportTaskListResult": {
       "description": "Gets a paged list of ExportTasks.",
@@ -1702,7 +1774,8 @@
       "readOnly": true,
       "required": [
         "value"
-      ]
+      ],
+      "title": "exportTaskListResult"
     },
     "exportTaskParameter": {
       "properties": {
@@ -1722,7 +1795,8 @@
       "required": [
         "containerUrl",
         "exportFormat"
-      ]
+      ],
+      "title": "exportTaskParameter"
     },
     "exportTaskResult": {
       "properties": {
@@ -1761,7 +1835,8 @@
         "state",
         "dateCreated",
         "exportType"
-      ]
+      ],
+      "title": "exportTaskResult"
     },
     "exportType": {
       "description": "The type of export.",
@@ -1780,7 +1855,8 @@
       "x-ms-enum": {
         "modelAsString": false,
         "name": "ExportType"
-      }
+      },
+      "title": "exportType"
     },
     "feedbackByCampaignParameter": {
       "properties": {
@@ -1814,7 +1890,8 @@
         "campaignType",
         "campaignIds",
         "exportFormat"
-      ]
+      ],
+      "title": "feedbackByCampaignParameter"
     },
     "feedbackByDateRangeParameter": {
       "properties": {
@@ -1848,7 +1925,8 @@
         "campaignWindowStart",
         "campaignWindowEnd",
         "exportFormat"
-      ]
+      ],
+      "title": "feedbackByDateRangeParameter"
     },
     "importTask": {
       "properties": {
@@ -1856,7 +1934,8 @@
           "description": "A shared Access Signature (SAS) Storage URI where the job results will be retrieved from.",
           "type": "string"
         }
-      }
+      },
+      "title": "importTask"
     },
     "importTaskListResult": {
       "description": "Gets a paged list of import tasks.",
@@ -1872,7 +1951,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "importTaskListResult"
     },
     "importTaskResult": {
       "allOf": [
@@ -1913,16 +1993,19 @@
             "name": "JobStates"
           }
         }
-      }
+      },
+      "title": "importTaskResult"
     },
     "timestamp": {
       "description": "A date time as defined by date-time in RFC3339.",
       "format": "date-time",
-      "type": "string"
+      "type": "string",
+      "title": "timestamp"
     },
     "url": {
       "format": "uri",
-      "type": "string"
+      "type": "string",
+      "title": "url"
     }
   },
   "actions": [

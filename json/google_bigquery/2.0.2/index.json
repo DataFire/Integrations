@@ -62,7 +62,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BigtableColumn"
     },
     "BigtableColumnFamily": {
       "properties": {
@@ -90,7 +91,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BigtableColumnFamily"
     },
     "BigtableOptions": {
       "properties": {
@@ -110,7 +112,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BigtableOptions"
     },
     "CsvOptions": {
       "properties": {
@@ -142,7 +145,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CsvOptions"
     },
     "Dataset": {
       "properties": {
@@ -235,7 +239,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Dataset"
     },
     "DatasetList": {
       "properties": {
@@ -286,7 +291,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DatasetList"
     },
     "DatasetReference": {
       "properties": {
@@ -299,7 +305,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DatasetReference"
     },
     "ErrorProto": {
       "properties": {
@@ -320,7 +327,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ErrorProto"
     },
     "ExplainQueryStage": {
       "properties": {
@@ -395,7 +403,8 @@
           "type": "number"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ExplainQueryStage"
     },
     "ExplainQueryStep": {
       "properties": {
@@ -411,7 +420,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ExplainQueryStep"
     },
     "ExternalDataConfiguration": {
       "properties": {
@@ -460,7 +470,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ExternalDataConfiguration"
     },
     "GetQueryResultsResponse": {
       "properties": {
@@ -523,7 +534,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetQueryResultsResponse"
     },
     "GoogleSheetsOptions": {
       "properties": {
@@ -533,7 +545,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GoogleSheetsOptions"
     },
     "Job": {
       "properties": {
@@ -575,7 +588,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Job"
     },
     "JobCancelResponse": {
       "properties": {
@@ -589,7 +603,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "JobCancelResponse"
     },
     "JobConfiguration": {
       "properties": {
@@ -621,7 +636,8 @@
           "description": "[Pick one] Configures a query job."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "JobConfiguration"
     },
     "JobConfigurationExtract": {
       "properties": {
@@ -658,7 +674,8 @@
           "description": "[Required] A reference to the table being exported."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "JobConfigurationExtract"
     },
     "JobConfigurationLoad": {
       "properties": {
@@ -756,7 +773,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "JobConfigurationLoad"
     },
     "JobConfigurationQuery": {
       "properties": {
@@ -851,7 +869,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "JobConfigurationQuery"
     },
     "JobConfigurationTableCopy": {
       "properties": {
@@ -879,7 +898,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "JobConfigurationTableCopy"
     },
     "JobList": {
       "properties": {
@@ -943,7 +963,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "JobList"
     },
     "JobReference": {
       "properties": {
@@ -956,7 +977,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "JobReference"
     },
     "JobStatistics": {
       "properties": {
@@ -993,7 +1015,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "JobStatistics"
     },
     "JobStatistics2": {
       "properties": {
@@ -1051,7 +1074,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "JobStatistics2"
     },
     "JobStatistics3": {
       "properties": {
@@ -1076,7 +1100,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "JobStatistics3"
     },
     "JobStatistics4": {
       "properties": {
@@ -1089,7 +1114,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "JobStatistics4"
     },
     "JobStatus": {
       "properties": {
@@ -1109,16 +1135,20 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "JobStatus"
     },
     "JsonObject": {
       "additionalProperties": {
         "$ref": "#/definitions/JsonValue"
       },
       "description": "Represents a single JSON object.",
-      "type": "object"
+      "type": "object",
+      "title": "JsonObject"
     },
-    "JsonValue": {},
+    "JsonValue": {
+      "title": "JsonValue"
+    },
     "ProjectList": {
       "properties": {
         "etag": {
@@ -1171,7 +1201,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ProjectList"
     },
     "ProjectReference": {
       "properties": {
@@ -1180,7 +1211,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ProjectReference"
     },
     "QueryParameter": {
       "properties": {
@@ -1197,7 +1229,8 @@
           "description": "[Required] The value of this parameter."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "QueryParameter"
     },
     "QueryParameterType": {
       "properties": {
@@ -1231,7 +1264,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "QueryParameterType"
     },
     "QueryParameterValue": {
       "properties": {
@@ -1254,7 +1288,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "QueryParameterValue"
     },
     "QueryRequest": {
       "properties": {
@@ -1311,7 +1346,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "QueryRequest"
     },
     "QueryResponse": {
       "properties": {
@@ -1370,7 +1406,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "QueryResponse"
     },
     "Streamingbuffer": {
       "properties": {
@@ -1390,7 +1427,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Streamingbuffer"
     },
     "Table": {
       "properties": {
@@ -1489,13 +1527,15 @@
           "description": "[Optional] The view definition."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Table"
     },
     "TableCell": {
       "properties": {
         "v": {}
       },
-      "type": "object"
+      "type": "object",
+      "title": "TableCell"
     },
     "TableDataInsertAllRequest": {
       "properties": {
@@ -1534,7 +1574,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TableDataInsertAllRequest"
     },
     "TableDataInsertAllResponse": {
       "properties": {
@@ -1565,7 +1606,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TableDataInsertAllResponse"
     },
     "TableDataList": {
       "properties": {
@@ -1595,7 +1637,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TableDataList"
     },
     "TableFieldSchema": {
       "properties": {
@@ -1623,7 +1666,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TableFieldSchema"
     },
     "TableList": {
       "properties": {
@@ -1693,7 +1737,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TableList"
     },
     "TableReference": {
       "properties": {
@@ -1710,7 +1755,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TableReference"
     },
     "TableRow": {
       "properties": {
@@ -1722,7 +1768,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TableRow"
     },
     "TableSchema": {
       "properties": {
@@ -1734,7 +1781,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TableSchema"
     },
     "TimePartitioning": {
       "properties": {
@@ -1748,7 +1796,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TimePartitioning"
     },
     "UserDefinedFunctionResource": {
       "properties": {
@@ -1761,7 +1810,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UserDefinedFunctionResource"
     },
     "ViewDefinition": {
       "properties": {
@@ -1781,7 +1831,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ViewDefinition"
     }
   },
   "actions": [

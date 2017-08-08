@@ -56,7 +56,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Address"
     },
     "AddressResponse": {
       "description": "Describes main public ip address and any extra vips",
@@ -84,7 +85,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AddressResponse"
     },
     "ApiDefinitionInfo": {
       "description": "Information about the formal API definition for the web app.",
@@ -94,7 +96,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ApiDefinitionInfo"
     },
     "ApplicationLogsConfig": {
       "description": "Application logs configuration",
@@ -112,7 +115,8 @@
           "description": "Application logs to file system configuration"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ApplicationLogsConfig"
     },
     "ArmPlan": {
       "description": "The plan object in an ARM, represents a marketplace plan",
@@ -138,7 +142,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ArmPlan"
     },
     "AutoHealActions": {
       "description": "AutoHealActions - Describes the actions which can be\r\n            taken by the auto-heal module when a rule is triggered.",
@@ -168,7 +173,8 @@
       "required": [
         "actionType"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AutoHealActions"
     },
     "AutoHealCustomAction": {
       "description": "AutoHealCustomAction - Describes the custom action to be executed\r\n            when an auto heal rule is triggered.",
@@ -182,7 +188,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AutoHealCustomAction"
     },
     "AutoHealRules": {
       "description": "AutoHealRules - describes the rules which can be defined for auto-heal",
@@ -196,7 +203,8 @@
           "description": "Triggers - Conditions that describe when to execute the auto-heal actions"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AutoHealRules"
     },
     "AutoHealTriggers": {
       "description": "AutoHealTriggers - describes the triggers for auto-heal.",
@@ -222,7 +230,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AutoHealTriggers"
     },
     "AzureBlobStorageApplicationLogsConfig": {
       "description": "Application logs azure blob storage configuration",
@@ -252,7 +261,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AzureBlobStorageApplicationLogsConfig"
     },
     "AzureBlobStorageHttpLogsConfig": {
       "description": "Http logs to azure blob storage configuration",
@@ -271,7 +281,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AzureBlobStorageHttpLogsConfig"
     },
     "AzureTableStorageApplicationLogsConfig": {
       "description": "Application logs to azure table storage configuration",
@@ -296,7 +307,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AzureTableStorageApplicationLogsConfig"
     },
     "BackupItem": {
       "allOf": [
@@ -396,7 +408,8 @@
           "x-ms-client-flatten": true
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BackupItem"
     },
     "BackupItemCollection": {
       "description": "Collection of Backup Items",
@@ -413,7 +426,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BackupItemCollection"
     },
     "BackupRequest": {
       "allOf": [
@@ -468,7 +482,8 @@
           "x-ms-client-flatten": true
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BackupRequest"
     },
     "BackupSchedule": {
       "description": "Description of a backup schedule. Describes how often should be the backup performed and what should be the retention policy.",
@@ -513,7 +528,8 @@
       "required": [
         "frequencyUnit"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "BackupSchedule"
     },
     "Certificate": {
       "allOf": [
@@ -594,7 +610,8 @@
           "x-ms-client-flatten": true
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Certificate"
     },
     "CertificateCollection": {
       "description": "Collection of certificates",
@@ -611,7 +628,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CertificateCollection"
     },
     "CertificateDetails": {
       "allOf": [
@@ -666,7 +684,8 @@
           "x-ms-client-flatten": true
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CertificateDetails"
     },
     "CertificateEmail": {
       "allOf": [
@@ -691,7 +710,8 @@
           "x-ms-client-flatten": true
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CertificateEmail"
     },
     "CertificateOrder": {
       "allOf": [
@@ -813,7 +833,8 @@
           "x-ms-client-flatten": true
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CertificateOrder"
     },
     "CertificateOrderAction": {
       "allOf": [
@@ -856,7 +877,8 @@
           "x-ms-client-flatten": true
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CertificateOrderAction"
     },
     "CertificateOrderCertificate": {
       "allOf": [
@@ -900,7 +922,8 @@
           "x-ms-client-flatten": true
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CertificateOrderCertificate"
     },
     "CertificateOrderCertificateCollection": {
       "description": "Collection of ceritificateorder certificates",
@@ -917,7 +940,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CertificateOrderCertificateCollection"
     },
     "CertificateOrderCollection": {
       "description": "Collection of ceritificate orders",
@@ -934,7 +958,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CertificateOrderCollection"
     },
     "ClassicMobileService": {
       "allOf": [
@@ -954,7 +979,8 @@
           "x-ms-client-flatten": true
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ClassicMobileService"
     },
     "ClassicMobileServiceCollection": {
       "description": "Collection of Classic Mobile Services",
@@ -971,7 +997,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ClassicMobileServiceCollection"
     },
     "CloningInfo": {
       "description": "Represents information needed for cloning operation",
@@ -1020,7 +1047,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CloningInfo"
     },
     "ConnStringInfo": {
       "description": "Represents database connection string information",
@@ -1051,7 +1079,8 @@
       "required": [
         "type"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ConnStringInfo"
     },
     "ConnStringValueTypePair": {
       "description": "Database connection string value to type pair",
@@ -1078,7 +1107,8 @@
       "required": [
         "type"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ConnStringValueTypePair"
     },
     "ConnectionStringDictionary": {
       "allOf": [
@@ -1097,7 +1127,8 @@
           "x-ms-client-flatten": true
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ConnectionStringDictionary"
     },
     "Contact": {
       "description": "Contact information for domain registration. If 'Domain Privacy' option is not selected then the contact information will be  be made publicly available through the Whois directories as per ICANN requirements.",
@@ -1139,7 +1170,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Contact"
     },
     "CorsSettings": {
       "description": "Cross-Origin Resource Sharing (CORS) settings for the web app.",
@@ -1152,7 +1184,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CorsSettings"
     },
     "CsmMoveResourceEnvelope": {
       "description": "Class containing a list of the resources that need to be moved and the resource group they should be moved to",
@@ -1167,7 +1200,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CsmMoveResourceEnvelope"
     },
     "CsmPublishingProfileOptions": {
       "description": "Publishing options for requested profile",
@@ -1177,7 +1211,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CsmPublishingProfileOptions"
     },
     "CsmSiteRecoveryEntity": {
       "description": "Class containting details about site recovery operation.",
@@ -1200,7 +1235,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CsmSiteRecoveryEntity"
     },
     "CsmSlotEntity": {
       "description": "Class containing deployment slot parameters",
@@ -1214,7 +1250,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CsmSlotEntity"
     },
     "CsmUsageQuota": {
       "description": "Usage of the quota resource",
@@ -1243,7 +1280,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CsmUsageQuota"
     },
     "CsmUsageQuotaCollection": {
       "description": "Collection of csm usage quotas",
@@ -1260,7 +1298,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CsmUsageQuotaCollection"
     },
     "Csr": {
       "allOf": [
@@ -1304,7 +1343,8 @@
           "x-ms-client-flatten": true
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Csr"
     },
     "DatabaseBackupSetting": {
       "description": "Note: properties are serialized in JSON format and stored in DB. \r\n            if new properties are added they might not be in the previous data rows \r\n            so please handle nulls",
@@ -1325,7 +1365,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DatabaseBackupSetting"
     },
     "DeletedSite": {
       "allOf": [
@@ -1511,7 +1552,8 @@
           "x-ms-client-flatten": true
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DeletedSite"
     },
     "DeletedSiteCollection": {
       "description": "Collection of deleted sites",
@@ -1528,7 +1570,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DeletedSiteCollection"
     },
     "Deployment": {
       "allOf": [
@@ -1587,7 +1630,8 @@
           "x-ms-client-flatten": true
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Deployment"
     },
     "DeploymentCollection": {
       "description": "Collection of app deployments",
@@ -1604,7 +1648,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DeploymentCollection"
     },
     "Domain": {
       "allOf": [
@@ -1739,7 +1784,8 @@
           "x-ms-client-flatten": true
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Domain"
     },
     "DomainAvailablilityCheckResult": {
       "description": "Domain availablility check result",
@@ -1765,7 +1811,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DomainAvailablilityCheckResult"
     },
     "DomainCollection": {
       "description": "Collection of domains",
@@ -1782,7 +1829,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DomainCollection"
     },
     "DomainControlCenterSsoRequest": {
       "description": "Single sign on request information for domain management",
@@ -1800,7 +1848,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DomainControlCenterSsoRequest"
     },
     "DomainPurchaseConsent": {
       "description": "Domain purchase consent object representing acceptance of applicable legal agreements",
@@ -1822,7 +1871,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DomainPurchaseConsent"
     },
     "DomainRecommendationSearchParameters": {
       "description": "Domain recommendation search parameters",
@@ -1837,7 +1887,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DomainRecommendationSearchParameters"
     },
     "DomainRegistrationInput": {
       "allOf": [
@@ -1976,7 +2027,8 @@
           "x-ms-client-flatten": true
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DomainRegistrationInput"
     },
     "EnabledConfig": {
       "description": "Enabled configuration",
@@ -1986,7 +2038,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "EnabledConfig"
     },
     "Experiments": {
       "description": "Class containing Routing in production experiments",
@@ -1999,7 +2052,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Experiments"
     },
     "FileSystemApplicationLogsConfig": {
       "description": "Application logs to file system configuration",
@@ -2020,7 +2074,8 @@
           }
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "FileSystemApplicationLogsConfig"
     },
     "FileSystemHttpLogsConfig": {
       "description": "Http logs to file system configuration",
@@ -2040,7 +2095,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "FileSystemHttpLogsConfig"
     },
     "GeoRegion": {
       "allOf": [
@@ -2068,7 +2124,8 @@
           "x-ms-client-flatten": true
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GeoRegion"
     },
     "GeoRegionCollection": {
       "description": "Collection of geo regions",
@@ -2085,7 +2142,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GeoRegionCollection"
     },
     "HandlerMapping": {
       "description": "The IIS handler mappings used to define which handler processes HTTP requests with certain extension. \r\n            For example it is used to configure php-cgi.exe process to handle all HTTP requests with *.php extension.",
@@ -2103,7 +2161,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "HandlerMapping"
     },
     "HostName": {
       "description": "Details of a hostname derived from a domain",
@@ -2160,7 +2219,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "HostName"
     },
     "HostNameBinding": {
       "allOf": [
@@ -2228,7 +2288,8 @@
           "x-ms-client-flatten": true
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "HostNameBinding"
     },
     "HostNameBindingCollection": {
       "description": "Collection of host name bindings",
@@ -2245,7 +2306,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "HostNameBindingCollection"
     },
     "HostNameSslState": {
       "description": "Object that represents a SSL-enabled host name.",
@@ -2283,7 +2345,8 @@
       "required": [
         "sslState"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "HostNameSslState"
     },
     "HostingEnvironment": {
       "allOf": [
@@ -2479,7 +2542,8 @@
           "x-ms-client-flatten": true
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "HostingEnvironment"
     },
     "HostingEnvironmentCollection": {
       "description": "Collection of hosting environments (App Service Environments)",
@@ -2496,7 +2560,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "HostingEnvironmentCollection"
     },
     "HostingEnvironmentDiagnostics": {
       "description": "Diagnostics for a hosting environment (App Service Environment)",
@@ -2510,7 +2575,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "HostingEnvironmentDiagnostics"
     },
     "HostingEnvironmentProfile": {
       "description": "Specification for a hostingEnvironment (App Service Environment) to use for this resource",
@@ -2528,7 +2594,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "HostingEnvironmentProfile"
     },
     "HttpLogsConfig": {
       "description": "Http logs configuration",
@@ -2542,7 +2609,8 @@
           "description": "Http logs to file system configuration"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "HttpLogsConfig"
     },
     "IpSecurityRestriction": {
       "description": "Represents an ip security restriction on a web app.",
@@ -2556,7 +2624,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "IpSecurityRestriction"
     },
     "KeyValuePair[String,String]": {
       "properties": {
@@ -2569,7 +2638,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "KeyValuePair[String,String]"
     },
     "LocalizableString": {
       "description": "LocalizableString object containing the name and a localized value.",
@@ -2583,7 +2653,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LocalizableString"
     },
     "ManagedHostingEnvironment": {
       "allOf": [
@@ -2660,7 +2731,8 @@
           "x-ms-client-flatten": true
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ManagedHostingEnvironment"
     },
     "ManagedHostingEnvironmentCollection": {
       "description": "Collection of managed hosting environments",
@@ -2677,7 +2749,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ManagedHostingEnvironmentCollection"
     },
     "MetricAvailabilily": {
       "description": "Class repesenting metrics availability and retention",
@@ -2691,7 +2764,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "MetricAvailabilily"
     },
     "MetricDefinition": {
       "allOf": [
@@ -2730,7 +2804,8 @@
           "x-ms-client-flatten": true
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "MetricDefinition"
     },
     "MetricDefinitionCollection": {
       "description": "Collection of metric defintions",
@@ -2747,7 +2822,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "MetricDefinitionCollection"
     },
     "NameIdentifier": {
       "description": "Identifies an object",
@@ -2757,7 +2833,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "NameIdentifier"
     },
     "NameIdentifierCollection": {
       "description": "Collection of domain name identifiers",
@@ -2774,7 +2851,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "NameIdentifierCollection"
     },
     "NameValuePair": {
       "description": "Name value pair",
@@ -2788,7 +2866,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "NameValuePair"
     },
     "NetworkAccessControlEntry": {
       "properties": {
@@ -2814,7 +2893,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "NetworkAccessControlEntry"
     },
     "NetworkFeatures": {
       "allOf": [
@@ -2845,11 +2925,13 @@
           "x-ms-client-flatten": true
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "NetworkFeatures"
     },
     "Object": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "Object"
     },
     "PremierAddOnRequest": {
       "properties": {
@@ -2877,7 +2959,8 @@
           "type": "object"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PremierAddOnRequest"
     },
     "RampUpRule": {
       "description": "Routing rules for ramp up testing. This rule allows to redirect static traffic % to a slot or to gradually change routing % based on performance",
@@ -2920,7 +3003,8 @@
           "type": "number"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RampUpRule"
     },
     "Recommendation": {
       "description": "Represents a recommendation result generated by the recommendation engine",
@@ -3033,7 +3117,8 @@
         "level",
         "channels"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "Recommendation"
     },
     "RecommendationRule": {
       "description": "Represents a recommendation rule that the recommendation engine can perform",
@@ -3107,7 +3192,8 @@
         "level",
         "channels"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "RecommendationRule"
     },
     "ReissueCertificateOrderRequest": {
       "allOf": [
@@ -3133,7 +3219,8 @@
           "x-ms-client-flatten": true
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ReissueCertificateOrderRequest"
     },
     "RelayServiceConnectionEntity": {
       "allOf": [
@@ -3171,7 +3258,8 @@
           "x-ms-client-flatten": true
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RelayServiceConnectionEntity"
     },
     "RenewCertificateOrderRequest": {
       "allOf": [
@@ -3192,7 +3280,8 @@
           "x-ms-client-flatten": true
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RenewCertificateOrderRequest"
     },
     "RequestsBasedTrigger": {
       "description": "RequestsBasedTrigger",
@@ -3207,7 +3296,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RequestsBasedTrigger"
     },
     "Resource": {
       "properties": {
@@ -3242,7 +3332,8 @@
       "required": [
         "location"
       ],
-      "x-ms-azure-resource": true
+      "x-ms-azure-resource": true,
+      "title": "Resource"
     },
     "ResourceMetric": {
       "description": "Object representing a metric for any resource",
@@ -3288,7 +3379,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ResourceMetric"
     },
     "ResourceMetricCollection": {
       "description": "Collection of metric responses",
@@ -3305,7 +3397,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ResourceMetricCollection"
     },
     "ResourceMetricName": {
       "description": "Name of a metric for any resource",
@@ -3319,7 +3412,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ResourceMetricName"
     },
     "ResourceMetricValue": {
       "description": "Value of resource metric",
@@ -3354,7 +3448,8 @@
           "type": "number"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ResourceMetricValue"
     },
     "ResourceNameAvailability": {
       "description": "Describes if a resource name is available",
@@ -3371,7 +3466,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ResourceNameAvailability"
     },
     "ResourceNameAvailabilityRequest": {
       "description": "Resource name availability request content",
@@ -3389,7 +3485,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ResourceNameAvailabilityRequest"
     },
     "RestoreRequest": {
       "allOf": [
@@ -3456,7 +3553,8 @@
           "x-ms-client-flatten": true
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RestoreRequest"
     },
     "RestoreResponse": {
       "allOf": [
@@ -3476,7 +3574,8 @@
           "x-ms-client-flatten": true
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RestoreResponse"
     },
     "RoutingRule": {
       "description": "Routing rules for TiP",
@@ -3486,7 +3585,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RoutingRule"
     },
     "ServerFarmCollection": {
       "description": "Collection of serverfarms",
@@ -3503,7 +3603,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ServerFarmCollection"
     },
     "ServerFarmWithRichSku": {
       "allOf": [
@@ -3588,7 +3689,8 @@
           "$ref": "#/definitions/SkuDescription"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ServerFarmWithRichSku"
     },
     "Site": {
       "allOf": [
@@ -3769,7 +3871,8 @@
           "x-ms-client-flatten": true
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Site"
     },
     "SiteAuthSettings": {
       "description": "Configuration settings for the Azure App Service Authentication / Authorization feature.",
@@ -3911,7 +4014,8 @@
           }
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SiteAuthSettings"
     },
     "SiteCloneability": {
       "description": "Represents whether or not a web app is cloneable",
@@ -3954,7 +4058,8 @@
       "required": [
         "result"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "SiteCloneability"
     },
     "SiteCloneabilityCriterion": {
       "description": "Represents a site cloneability criterion",
@@ -3968,7 +4073,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SiteCloneabilityCriterion"
     },
     "SiteCollection": {
       "description": "Collection of sites",
@@ -3985,7 +4091,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SiteCollection"
     },
     "SiteConfig": {
       "allOf": [
@@ -4212,7 +4319,8 @@
           "x-ms-client-flatten": true
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SiteConfig"
     },
     "SiteInstance": {
       "allOf": [
@@ -4232,7 +4340,8 @@
           "x-ms-client-flatten": true
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SiteInstance"
     },
     "SiteInstanceCollection": {
       "description": "Collection of site instances",
@@ -4249,7 +4358,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SiteInstanceCollection"
     },
     "SiteLimits": {
       "description": "Represents metric limits set on a web app.",
@@ -4270,7 +4380,8 @@
           "type": "number"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SiteLimits"
     },
     "SiteLogsConfig": {
       "allOf": [
@@ -4302,7 +4413,8 @@
           "x-ms-client-flatten": true
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SiteLogsConfig"
     },
     "SiteProperties": {
       "properties": {
@@ -4325,7 +4437,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SiteProperties"
     },
     "SiteSourceControl": {
       "allOf": [
@@ -4361,7 +4474,8 @@
           "x-ms-client-flatten": true
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SiteSourceControl"
     },
     "SkuCapacity": {
       "description": "Description of the App Service Plan scale options",
@@ -4386,7 +4500,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SkuCapacity"
     },
     "SkuDescription": {
       "description": "Describes a sku for a scalable resource",
@@ -4413,7 +4528,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SkuDescription"
     },
     "SkuInfo": {
       "description": "Sku discovery information",
@@ -4431,7 +4547,8 @@
           "description": "Name and tier of the sku"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SkuInfo"
     },
     "SkuInfoCollection": {
       "description": "Collection of SkuInfos",
@@ -4448,7 +4565,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SkuInfoCollection"
     },
     "SlotConfigNames": {
       "description": "Class containing names for connection strings and application settings to be marked as sticky to the slot \r\n            and not moved during swap operation\r\n            This is valid for all deployment slots under the site",
@@ -4468,7 +4586,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SlotConfigNames"
     },
     "SlotConfigNamesResource": {
       "allOf": [
@@ -4498,7 +4617,8 @@
           "x-ms-client-flatten": true
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SlotConfigNamesResource"
     },
     "SlotDifference": {
       "allOf": [
@@ -4542,7 +4662,8 @@
           "x-ms-client-flatten": true
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SlotDifference"
     },
     "SlotDifferenceCollection": {
       "description": "Collection of Slot Differences",
@@ -4559,7 +4680,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SlotDifferenceCollection"
     },
     "SlowRequestsBasedTrigger": {
       "description": "SlowRequestsBasedTrigger",
@@ -4578,7 +4700,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SlowRequestsBasedTrigger"
     },
     "SourceControl": {
       "allOf": [
@@ -4615,7 +4738,8 @@
           "x-ms-client-flatten": true
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SourceControl"
     },
     "SourceControlCollection": {
       "description": "Collection of soure controls",
@@ -4632,7 +4756,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SourceControlCollection"
     },
     "StampCapacity": {
       "description": "Class containing stamp capacity information",
@@ -4700,7 +4825,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "StampCapacity"
     },
     "StampCapacityCollection": {
       "description": "Collection of stamp capacities",
@@ -4717,7 +4843,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "StampCapacityCollection"
     },
     "StatusCodesBasedTrigger": {
       "description": "StatusCodeBasedTrigger",
@@ -4747,7 +4874,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "StatusCodesBasedTrigger"
     },
     "StringDictionary": {
       "allOf": [
@@ -4766,7 +4894,8 @@
           "x-ms-client-flatten": true
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "StringDictionary"
     },
     "TldLegalAgreement": {
       "description": "Represents a legal agreement for top level domain",
@@ -4788,7 +4917,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TldLegalAgreement"
     },
     "TldLegalAgreementCollection": {
       "description": "Collection of Tld Legal Agreements",
@@ -4805,7 +4935,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TldLegalAgreementCollection"
     },
     "TopLevelDomain": {
       "allOf": [
@@ -4829,7 +4960,8 @@
           "x-ms-client-flatten": true
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TopLevelDomain"
     },
     "TopLevelDomainAgreementOption": {
       "description": "Options for retrieving the list of top level domain legal agreements",
@@ -4839,7 +4971,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TopLevelDomainAgreementOption"
     },
     "TopLevelDomainCollection": {
       "description": "Collection of Top Level Domains",
@@ -4856,7 +4989,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TopLevelDomainCollection"
     },
     "Usage": {
       "allOf": [
@@ -4920,7 +5054,8 @@
           "x-ms-client-flatten": true
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Usage"
     },
     "UsageCollection": {
       "description": "Collection of usages",
@@ -4937,7 +5072,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UsageCollection"
     },
     "User": {
       "allOf": [
@@ -4969,7 +5105,8 @@
           "x-ms-client-flatten": true
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "User"
     },
     "VirtualApplication": {
       "properties": {
@@ -4989,7 +5126,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "VirtualApplication"
     },
     "VirtualDirectory": {
       "properties": {
@@ -5000,7 +5138,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "VirtualDirectory"
     },
     "VirtualIPMapping": {
       "description": "Class that represents a VIP mapping",
@@ -5024,7 +5163,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "VirtualIPMapping"
     },
     "VirtualNetworkProfile": {
       "description": "Specification for using a virtual network",
@@ -5046,7 +5186,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "VirtualNetworkProfile"
     },
     "VnetGateway": {
       "allOf": [
@@ -5070,7 +5211,8 @@
           "x-ms-client-flatten": true
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "VnetGateway"
     },
     "VnetInfo": {
       "allOf": [
@@ -5113,7 +5255,8 @@
           "x-ms-client-flatten": true
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "VnetInfo"
     },
     "VnetRoute": {
       "allOf": [
@@ -5145,7 +5288,8 @@
           "x-ms-client-flatten": true
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "VnetRoute"
     },
     "WorkerPool": {
       "allOf": [
@@ -5198,7 +5342,8 @@
           "$ref": "#/definitions/SkuDescription"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "WorkerPool"
     },
     "WorkerPoolCollection": {
       "description": "Collection of worker pools",
@@ -5215,7 +5360,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "WorkerPoolCollection"
     }
   },
   "actions": [

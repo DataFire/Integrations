@@ -61,7 +61,8 @@
         "redirectUrl",
         "validUntil"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "Order_information_class"
     },
     "Order_request_class_used_to_provide_order_specific_information": {
       "properties": {
@@ -149,7 +150,8 @@
         "receiveCurrency",
         "sign"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "Order_request_class_used_to_provide_order_specific_information"
     }
   },
   "actions": [

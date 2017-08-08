@@ -37,7 +37,8 @@
       },
       "required": [
         "format"
-      ]
+      ],
+      "title": "ActivateApplicationPackageParameters"
     },
     "AddApplicationParameters": {
       "description": "Parameters for an ApplicationOperations.AddApplication request.",
@@ -50,7 +51,8 @@
           "description": "The display name for the application.",
           "type": "string"
         }
-      }
+      },
+      "title": "AddApplicationParameters"
     },
     "Application": {
       "description": "Contains information about an application in a Batch account.",
@@ -78,7 +80,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "Application"
     },
     "ApplicationPackage": {
       "description": "An application package which represents a particular version of an application.",
@@ -122,7 +125,8 @@
           "description": "The version of the application package. ",
           "type": "string"
         }
-      }
+      },
+      "title": "ApplicationPackage"
     },
     "AutoStorageBaseProperties": {
       "description": "The properties related to auto storage account.",
@@ -134,7 +138,8 @@
       },
       "required": [
         "storageAccountId"
-      ]
+      ],
+      "title": "AutoStorageBaseProperties"
     },
     "AutoStorageProperties": {
       "description": "Contains information about the auto storage account associated with a Batch account.",
@@ -152,7 +157,8 @@
       "required": [
         "storageAccountId",
         "lastKeySync"
-      ]
+      ],
+      "title": "AutoStorageProperties"
     },
     "BatchAccount": {
       "allOf": [
@@ -167,7 +173,8 @@
           "description": "The properties associated with the account.",
           "x-ms-client-flatten": true
         }
-      }
+      },
+      "title": "BatchAccount"
     },
     "BatchAccountBaseProperties": {
       "description": "The properties of a Batch account.",
@@ -176,7 +183,8 @@
           "$ref": "#/definitions/AutoStorageBaseProperties",
           "description": "The properties related to auto storage account."
         }
-      }
+      },
+      "title": "BatchAccountBaseProperties"
     },
     "BatchAccountCreateParameters": {
       "description": "Parameters supplied to the Create operation.",
@@ -200,7 +208,8 @@
       },
       "required": [
         "location"
-      ]
+      ],
+      "title": "BatchAccountCreateParameters"
     },
     "BatchAccountKeys": {
       "description": "A set of Azure Batch account keys.",
@@ -213,7 +222,8 @@
           "description": "The secondary key associated with the account.",
           "type": "string"
         }
-      }
+      },
+      "title": "BatchAccountKeys"
     },
     "BatchAccountListResult": {
       "description": "Values returned by the List operation.",
@@ -229,7 +239,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "BatchAccountListResult"
     },
     "BatchAccountProperties": {
       "description": "Account specific properties.",
@@ -279,7 +290,8 @@
         "coreQuota",
         "poolQuota",
         "activeJobAndJobScheduleQuota"
-      ]
+      ],
+      "title": "BatchAccountProperties"
     },
     "BatchAccountRegenerateKeyParameters": {
       "description": "Parameters supplied to the RegenerateKey operation.",
@@ -299,7 +311,8 @@
       },
       "required": [
         "keyName"
-      ]
+      ],
+      "title": "BatchAccountRegenerateKeyParameters"
     },
     "BatchAccountUpdateParameters": {
       "description": "Parameters supplied to the Update operation.",
@@ -316,7 +329,8 @@
           "description": "The user specified tags associated with the account.",
           "type": "object"
         }
-      }
+      },
+      "title": "BatchAccountUpdateParameters"
     },
     "BatchLocationQuota": {
       "description": "Quotas associated with a Batch region for a particular subscription.",
@@ -326,7 +340,8 @@
           "format": "int32",
           "type": "integer"
         }
-      }
+      },
+      "title": "BatchLocationQuota"
     },
     "CloudError": {
       "description": "An error response from the Batch service.",
@@ -351,7 +366,8 @@
           "type": "string"
         }
       },
-      "x-ms-external": true
+      "x-ms-external": true,
+      "title": "CloudError"
     },
     "ListApplicationsResult": {
       "description": "Response to an ApplicationOperations.ListApplications request.",
@@ -367,7 +383,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "ListApplicationsResult"
     },
     "Resource": {
       "description": "A definition of an Azure resource.",
@@ -399,7 +416,8 @@
           "type": "string"
         }
       },
-      "x-ms-azure-resource": true
+      "x-ms-azure-resource": true,
+      "title": "Resource"
     },
     "UpdateApplicationParameters": {
       "description": "Parameters for an ApplicationOperations.UpdateApplication request.",
@@ -416,7 +434,8 @@
           "description": "The display name for the application.",
           "type": "string"
         }
-      }
+      },
+      "title": "UpdateApplicationParameters"
     }
   },
   "actions": [

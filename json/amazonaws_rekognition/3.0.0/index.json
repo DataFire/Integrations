@@ -19,7 +19,8 @@
     "AccessDeniedException": {
       "description": "You are not authorized to perform the action.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "AccessDeniedException"
     },
     "AgeRange": {
       "description": "<p>Structure containing the estimated age range, in years, for a face.</p> <p>Rekognition estimates an age-range for faces detected in the input image. Estimated age ranges can overlap; a face of a 5 year old may have an estimated range of 4-6 whilst the face of a 6 year old may have an estimated range of 4-8.</p>",
@@ -33,20 +34,23 @@
           "description": "The lowest estimated age."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AgeRange"
     },
     "Attribute": {
       "enum": [
         "DEFAULT",
         "ALL"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "Attribute"
     },
     "Attributes": {
       "items": {
         "$ref": "#/definitions/Attribute"
       },
-      "type": "array"
+      "type": "array",
+      "title": "Attributes"
     },
     "Beard": {
       "description": "Indicates whether or not the face has a beard, and the confidence level in the determination.",
@@ -60,10 +64,12 @@
           "description": "Boolean value that indicates whether the face has beard or not."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Beard"
     },
     "Boolean": {
-      "type": "boolean"
+      "type": "boolean",
+      "title": "Boolean"
     },
     "BoundingBox": {
       "description": "<p>Identifies the bounding box around the object or face. The <code>left</code> (x-coordinate) and <code>top</code> (y-coordinate) are coordinates representing the top and left sides of the bounding box. Note that the upper-left corner of the image is the origin (0,0). </p> <p>The <code>top</code> and <code>left</code> values returned are ratios of the overall image size. For example, if the input image is 700x200 pixels, and the top-left coordinate of the bounding box is 350x50 pixels, the API returns a <code>left</code> value of 0.5 (350/700) and a <code>top</code> value of 0.25 (50/200).</p> <p> The <code>width</code> and <code>height</code> values represent the dimensions of the bounding box as a ratio of the overall image dimension. For example, if the input image is 700x200 pixels, and the bounding box width is 70 pixels, the width returned is 0.1. </p> <note> <p> The bounding box coordinates can have negative values. For example, if Amazon Rekognition is able to detect a face that is at the image edge and is only partially visible, the service can return coordinates that are outside the image bounds and, depending on the image edge, you might get negative values or values greater than 1 for the <code>left</code> or <code>top</code> values. </p> </note>",
@@ -85,19 +91,22 @@
           "description": "Width of the bounding box as a ratio of the overall image width."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BoundingBox"
     },
     "CollectionId": {
       "maxLength": 255,
       "minLength": 1,
       "pattern": "[a-zA-Z0-9_.\\-]+",
-      "type": "string"
+      "type": "string",
+      "title": "CollectionId"
     },
     "CollectionIdList": {
       "items": {
         "$ref": "#/definitions/CollectionId"
       },
-      "type": "array"
+      "type": "array",
+      "title": "CollectionIdList"
     },
     "CompareFacesMatch": {
       "description": "For the provided the bounding box, confidence level that the bounding box actually contains a face, and the similarity between the face in the bounding box and the face in the source image.",
@@ -111,13 +120,15 @@
           "description": "Level of confidence that the faces match."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CompareFacesMatch"
     },
     "CompareFacesMatchList": {
       "items": {
         "$ref": "#/definitions/CompareFacesMatch"
       },
-      "type": "array"
+      "type": "array",
+      "title": "CompareFacesMatchList"
     },
     "CompareFacesRequest": {
       "example": {
@@ -153,7 +164,8 @@
         "SourceImage",
         "TargetImage"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CompareFacesRequest"
     },
     "CompareFacesResponse": {
       "example": {
@@ -191,7 +203,8 @@
           "description": "The face from the source image that was used for comparison."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CompareFacesResponse"
     },
     "ComparedFace": {
       "description": "Provides face metadata (bounding box and confidence that the bounding box actually contains a face).",
@@ -204,7 +217,8 @@
           "description": "Level of confidence that what the bounding box contains is a face."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ComparedFace"
     },
     "ComparedSourceImageFace": {
       "description": "Type that describes the face Amazon Rekognition chose to compare with the faces in the target. This contains a bounding box for the selected face and confidence level that the bounding box contains a face. Note that Amazon Rekognition selects the largest face in the source image for this comparison. ",
@@ -217,7 +231,8 @@
           "description": "Confidence level that the selected bounding box contains a face."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ComparedSourceImageFace"
     },
     "CreateCollectionRequest": {
       "example": {
@@ -232,7 +247,8 @@
       "required": [
         "CollectionId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateCollectionRequest"
     },
     "CreateCollectionResponse": {
       "example": {
@@ -249,13 +265,15 @@
           "description": "HTTP status code indicating the result of the operation."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateCollectionResponse"
     },
     "Degree": {
       "format": "float",
       "maximum": 180,
       "minimum": -180,
-      "type": "number"
+      "type": "number",
+      "title": "Degree"
     },
     "DeleteCollectionRequest": {
       "example": {
@@ -270,7 +288,8 @@
       "required": [
         "CollectionId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteCollectionRequest"
     },
     "DeleteCollectionResponse": {
       "example": {
@@ -282,7 +301,8 @@
           "description": "HTTP status code that indicates the result of the operation."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DeleteCollectionResponse"
     },
     "DeleteFacesRequest": {
       "example": {
@@ -305,7 +325,8 @@
         "CollectionId",
         "FaceIds"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteFacesRequest"
     },
     "DeleteFacesResponse": {
       "example": {
@@ -319,7 +340,8 @@
           "description": "An array of strings (face IDs) of the faces that were deleted."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DeleteFacesResponse"
     },
     "DetectFacesRequest": {
       "example": {
@@ -343,7 +365,8 @@
       "required": [
         "Image"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DetectFacesRequest"
     },
     "DetectFacesResponse": {
       "example": {
@@ -406,7 +429,8 @@
           "description": "<p>The algorithm detects the image orientation. If it detects that the image was rotated, it returns the degrees of rotation. If your application is displaying the image, you can use this value to adjust the orientation. </p> <p>For example, if the service detects that the input image was rotated by 90 degrees, it corrects orientation, performs face detection, and then returns the faces. That is, the bounding box coordinates in the response are based on the corrected orientation. </p> <note> <p>If the source image Exif metadata populates the orientation field, Amazon Rekognition does not perform orientation correction and the value of OrientationCorrection will be nil.</p> </note>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DetectFacesResponse"
     },
     "DetectLabelsRequest": {
       "example": {
@@ -436,7 +460,8 @@
       "required": [
         "Image"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DetectLabelsRequest"
     },
     "DetectLabelsResponse": {
       "example": {
@@ -461,7 +486,8 @@
           "description": "<p> Amazon Rekognition returns the orientation of the input image that was detected (clockwise direction). If your application displays the image, you can use this value to correct the orientation. If Amazon Rekognition detects that the input image was rotated (for example, by 90 degrees), it first corrects the orientation before detecting the labels. </p> <note> <p>If the source image Exif metadata populates the orientation field, Amazon Rekognition does not perform orientation correction and the value of OrientationCorrection will be nil.</p> </note>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DetectLabelsResponse"
     },
     "DetectModerationLabelsRequest": {
       "properties": {
@@ -476,7 +502,8 @@
       "required": [
         "Image"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DetectModerationLabelsRequest"
     },
     "DetectModerationLabelsResponse": {
       "properties": {
@@ -485,7 +512,8 @@
           "description": "A list of labels for explicit or suggestive adult content found in the image. The list includes the top-level label and each child label detected in the image. This is useful for filtering specific categories of content. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DetectModerationLabelsResponse"
     },
     "Emotion": {
       "description": "The emotions detected on the face, and the confidence level in the determination. For example, HAPPY, SAD, and ANGRY.",
@@ -499,7 +527,8 @@
           "description": "Type of emotion detected."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Emotion"
     },
     "EmotionName": {
       "enum": [
@@ -512,19 +541,22 @@
         "CALM",
         "UNKNOWN"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "EmotionName"
     },
     "Emotions": {
       "items": {
         "$ref": "#/definitions/Emotion"
       },
-      "type": "array"
+      "type": "array",
+      "title": "Emotions"
     },
     "ExternalImageId": {
       "maxLength": 255,
       "minLength": 1,
       "pattern": "[a-zA-Z0-9_.\\-:]+",
-      "type": "string"
+      "type": "string",
+      "title": "ExternalImageId"
     },
     "EyeOpen": {
       "description": "Indicates whether or not the eyes on the face are open, and the confidence level in the determination.",
@@ -538,7 +570,8 @@
           "description": "Boolean value that indicates whether the eyes on the face are open."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "EyeOpen"
     },
     "Eyeglasses": {
       "description": "Indicates whether or not the face is wearing eye glasses, and the confidence level in the determination.",
@@ -552,7 +585,8 @@
           "description": "Boolean value that indicates whether the face is wearing eye glasses or not."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Eyeglasses"
     },
     "Face": {
       "description": "Describes the face properties such as the bounding box, face ID, image ID of the source image, and external image ID that you assigned. ",
@@ -577,7 +611,8 @@
           "description": "Unique identifier that Amazon Rekognition assigns to the source image."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Face"
     },
     "FaceDetail": {
       "description": "Structure containing attributes of the face that the algorithm detected.",
@@ -643,17 +678,20 @@
           "description": "Indicates whether or not the face is wearing sunglasses, and the confidence level in the determination."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "FaceDetail"
     },
     "FaceDetailList": {
       "items": {
         "$ref": "#/definitions/FaceDetail"
       },
-      "type": "array"
+      "type": "array",
+      "title": "FaceDetailList"
     },
     "FaceId": {
       "pattern": "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}",
-      "type": "string"
+      "type": "string",
+      "title": "FaceId"
     },
     "FaceIdList": {
       "items": {
@@ -661,13 +699,15 @@
       },
       "maxItems": 4096,
       "minItems": 1,
-      "type": "array"
+      "type": "array",
+      "title": "FaceIdList"
     },
     "FaceList": {
       "items": {
         "$ref": "#/definitions/Face"
       },
-      "type": "array"
+      "type": "array",
+      "title": "FaceList"
     },
     "FaceMatch": {
       "description": "Provides face metadata. In addition, it also provides the confidence in the match of this face with the input face.",
@@ -680,13 +720,15 @@
           "description": "Confidence in the match of this face with the input face."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "FaceMatch"
     },
     "FaceMatchList": {
       "items": {
         "$ref": "#/definitions/FaceMatch"
       },
-      "type": "array"
+      "type": "array",
+      "title": "FaceMatchList"
     },
     "FaceRecord": {
       "description": "Object containing both the face metadata (stored in the back-end database) and facial attributes that are detected but aren't stored in the database.",
@@ -698,17 +740,20 @@
           "$ref": "#/definitions/FaceDetail"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "FaceRecord"
     },
     "FaceRecordList": {
       "items": {
         "$ref": "#/definitions/FaceRecord"
       },
-      "type": "array"
+      "type": "array",
+      "title": "FaceRecordList"
     },
     "Float": {
       "format": "float",
-      "type": "number"
+      "type": "number",
+      "title": "Float"
     },
     "Gender": {
       "description": "Gender of the face and the confidence level in the determination.",
@@ -722,14 +767,16 @@
           "description": "Gender of the face."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Gender"
     },
     "GenderType": {
       "enum": [
         "MALE",
         "FEMALE"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "GenderType"
     },
     "Image": {
       "description": "<p>Provides the source image either as bytes or an S3 object.</p> <p>The region for the S3 bucket containing the S3 object must match the region you use for Amazon Rekognition operations.</p> <p>You may need to Base64-encode the image bytes depending on the language you are using and whether or not you are using the AWS SDK. For more information, see <a>example4</a>.</p> <p>If you use the Amazon CLI to call Amazon Rekognition operations, passing image bytes using the Bytes property is not supported. You must first upload the image to an Amazon S3 bucket and then call the operation using the S3Object property.</p> <p>For Amazon Rekognition to process an S3 object, the user must have permission to access the S3 object. For more information, see <a>manage-access-resource-policies</a>. </p>",
@@ -743,16 +790,19 @@
           "description": "Identifies an S3 object as the image source."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Image"
     },
     "ImageBlob": {
       "maxLength": 5242880,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "ImageBlob"
     },
     "ImageId": {
       "pattern": "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}",
-      "type": "string"
+      "type": "string",
+      "title": "ImageId"
     },
     "ImageQuality": {
       "description": "Identifies face image brightness and sharpness. ",
@@ -766,12 +816,14 @@
           "description": "Value representing sharpness of the face. The service returns a value between 0 and 100 (inclusive). A higher value indicates a sharper face image."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ImageQuality"
     },
     "ImageTooLargeException": {
       "description": "The input image size exceeds the allowed limit. For more information, see <a>limits</a>. ",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "ImageTooLargeException"
     },
     "IndexFacesRequest": {
       "example": {
@@ -806,7 +858,8 @@
         "CollectionId",
         "Image"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "IndexFacesRequest"
     },
     "IndexFacesResponse": {
       "example": {
@@ -940,32 +993,38 @@
           "description": "<p>The algorithm detects the image orientation. If it detects that the image was rotated, it returns the degree of rotation. You can use this value to correct the orientation and also appropriately analyze the bounding box coordinates that are returned. </p> <note> <p>If the source image Exif metadata populates the orientation field, Amazon Rekognition does not perform orientation correction and the value of OrientationCorrection will be nil.</p> </note>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "IndexFacesResponse"
     },
     "InternalServerError": {
       "description": "Amazon Rekognition experienced a service issue. Try your call again.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "InternalServerError"
     },
     "InvalidImageFormatException": {
       "description": "The provided image format is not supported. ",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "InvalidImageFormatException"
     },
     "InvalidPaginationTokenException": {
       "description": "Pagination token in the request is not valid.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "InvalidPaginationTokenException"
     },
     "InvalidParameterException": {
       "description": "Input parameter violated a constraint. Validate your parameter before calling the API operation again.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "InvalidParameterException"
     },
     "InvalidS3ObjectException": {
       "description": "Amazon Rekognition is unable to access the S3 object specified in the request.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "InvalidS3ObjectException"
     },
     "Label": {
       "description": "Structure containing details about the detected label, including name, and level of confidence.",
@@ -979,13 +1038,15 @@
           "description": "The name (label) of the object."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Label"
     },
     "Labels": {
       "items": {
         "$ref": "#/definitions/Label"
       },
-      "type": "array"
+      "type": "array",
+      "title": "Labels"
     },
     "Landmark": {
       "description": "Indicates the location of the landmark on the face.",
@@ -1003,7 +1064,8 @@
           "description": "y-coordinate from the top left of the landmark expressed as the ration of the height of the image. For example, if the images is 700x200 and the y-coordinate of the landmark is at 100 pixels, this value is 0.5."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Landmark"
     },
     "LandmarkType": {
       "enum": [
@@ -1033,13 +1095,15 @@
         "LEFT_PUPIL",
         "RIGHT_PUPIL"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "LandmarkType"
     },
     "Landmarks": {
       "items": {
         "$ref": "#/definitions/Landmark"
       },
-      "type": "array"
+      "type": "array",
+      "title": "Landmarks"
     },
     "ListCollectionsRequest": {
       "example": {},
@@ -1053,7 +1117,8 @@
           "description": "Pagination token from the previous response."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListCollectionsRequest"
     },
     "ListCollectionsResponse": {
       "example": {
@@ -1071,7 +1136,8 @@
           "description": "If the result is truncated, the response provides a <code>NextToken</code> that you can use in the subsequent request to fetch the next set of collection IDs."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListCollectionsResponse"
     },
     "ListFacesRequest": {
       "example": {
@@ -1095,7 +1161,8 @@
       "required": [
         "CollectionId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListFacesRequest"
     },
     "ListFacesResponse": {
       "example": {
@@ -1233,12 +1300,14 @@
           "description": "If the response is truncated, Amazon Rekognition returns this token that you can use in the subsequent request to retrieve the next set of faces."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListFacesResponse"
     },
     "MaxFaces": {
       "maximum": 4096,
       "minimum": 1,
-      "type": "integer"
+      "type": "integer",
+      "title": "MaxFaces"
     },
     "ModerationLabel": {
       "description": "Provides information about a single type of moderated content found in an image. Each type of moderated content has a label within a hierarchical taxonomy. For more information, see <a>howitworks-moderateimage</a>.",
@@ -1256,13 +1325,15 @@
           "description": "The name for the parent label. Labels at the top-level of the hierarchy have the parent label <code>\"\"</code>."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ModerationLabel"
     },
     "ModerationLabels": {
       "items": {
         "$ref": "#/definitions/ModerationLabel"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ModerationLabels"
     },
     "MouthOpen": {
       "description": "Indicates whether or not the mouth on the face is open, and the confidence level in the determination.",
@@ -1276,7 +1347,8 @@
           "description": "Boolean value that indicates whether the mouth on the face is open or not."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "MouthOpen"
     },
     "Mustache": {
       "description": "Indicates whether or not the face has a mustache, and the confidence level in the determination.",
@@ -1290,7 +1362,8 @@
           "description": "Boolean value that indicates whether the face has mustache or not."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Mustache"
     },
     "OrientationCorrection": {
       "enum": [
@@ -1299,22 +1372,26 @@
         "ROTATE_180",
         "ROTATE_270"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "OrientationCorrection"
     },
     "PageSize": {
       "maximum": 4096,
       "minimum": 0,
-      "type": "integer"
+      "type": "integer",
+      "title": "PageSize"
     },
     "PaginationToken": {
       "maxLength": 255,
-      "type": "string"
+      "type": "string",
+      "title": "PaginationToken"
     },
     "Percent": {
       "format": "float",
       "maximum": 100,
       "minimum": 0,
-      "type": "number"
+      "type": "number",
+      "title": "Percent"
     },
     "Pose": {
       "description": "Indicates the pose of the face as determined by pitch, roll, and the yaw.",
@@ -1332,28 +1409,33 @@
           "description": "Value representing the face rotation on the yaw axis."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Pose"
     },
     "ProvisionedThroughputExceededException": {
       "description": "The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Rekognition.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "ProvisionedThroughputExceededException"
     },
     "ResourceAlreadyExistsException": {
       "description": "A collection with the specified ID already exists.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "ResourceAlreadyExistsException"
     },
     "ResourceNotFoundException": {
       "description": "Collection specified in the request is not found.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "ResourceNotFoundException"
     },
     "S3Bucket": {
       "maxLength": 255,
       "minLength": 3,
       "pattern": "[0-9A-Za-z\\.\\-_]*",
-      "type": "string"
+      "type": "string",
+      "title": "S3Bucket"
     },
     "S3Object": {
       "description": "<p>Provides the S3 bucket name and object name.</p> <p>The region for the S3 bucket containing the S3 object must match the region you use for Amazon Rekognition operations.</p> <p>For Amazon Rekognition to process an S3 object, the user must have permission to access the S3 object. For more information, see <a>manage-access-resource-policies</a>. </p>",
@@ -1371,17 +1453,20 @@
           "description": "If the bucket is versioning enabled, you can specify the object version. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "S3Object"
     },
     "S3ObjectName": {
       "maxLength": 1024,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "S3ObjectName"
     },
     "S3ObjectVersion": {
       "maxLength": 1024,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "S3ObjectVersion"
     },
     "SearchFacesByImageRequest": {
       "example": {
@@ -1416,7 +1501,8 @@
         "CollectionId",
         "Image"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "SearchFacesByImageRequest"
     },
     "SearchFacesByImageResponse": {
       "example": {
@@ -1458,7 +1544,8 @@
           "description": "The level of confidence that the <code>searchedFaceBoundingBox</code>, contains a face."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SearchFacesByImageResponse"
     },
     "SearchFacesRequest": {
       "example": {
@@ -1489,7 +1576,8 @@
         "CollectionId",
         "FaceId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "SearchFacesRequest"
     },
     "SearchFacesResponse": {
       "example": {
@@ -1549,7 +1637,8 @@
           "description": "ID of the face that was searched for matches in a collection."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SearchFacesResponse"
     },
     "Smile": {
       "description": "Indicates whether or not the face is smiling, and the confidence level in the determination.",
@@ -1563,10 +1652,12 @@
           "description": "Boolean value that indicates whether the face is smiling or not."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Smile"
     },
     "String": {
-      "type": "string"
+      "type": "string",
+      "title": "String"
     },
     "Sunglasses": {
       "description": "Indicates whether or not the face is wearing sunglasses, and the confidence level in the determination.",
@@ -1580,16 +1671,19 @@
           "description": "Boolean value that indicates whether the face is wearing sunglasses or not."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Sunglasses"
     },
     "ThrottlingException": {
       "description": "Amazon Rekognition is temporarily unable to process the request. Try your call again.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "ThrottlingException"
     },
     "UInteger": {
       "minimum": 0,
-      "type": "integer"
+      "type": "integer",
+      "title": "UInteger"
     }
   },
   "actions": [

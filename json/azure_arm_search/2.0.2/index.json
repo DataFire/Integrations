@@ -41,7 +41,8 @@
           "readOnly": true,
           "type": "string"
         }
-      }
+      },
+      "title": "AdminKeyResult"
     },
     "CheckNameAvailabilityInput": {
       "description": "Input of check name availability API.",
@@ -70,7 +71,8 @@
         "name",
         "type"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CheckNameAvailabilityInput"
     },
     "CheckNameAvailabilityOutput": {
       "description": "Output of check name availability API.",
@@ -100,7 +102,8 @@
           }
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CheckNameAvailabilityOutput"
     },
     "CloudError": {
       "description": "Contains information about an API error.",
@@ -110,7 +113,8 @@
         }
       },
       "type": "object",
-      "x-ms-external": true
+      "x-ms-external": true,
+      "title": "CloudError"
     },
     "CloudErrorBody": {
       "description": "Describes a particular API error with an error code and a message.",
@@ -136,7 +140,8 @@
         }
       },
       "type": "object",
-      "x-ms-external": true
+      "x-ms-external": true,
+      "title": "CloudErrorBody"
     },
     "ListQueryKeysResult": {
       "description": "Response containing the query API keys for a given Azure Search service.",
@@ -150,7 +155,8 @@
           "type": "array"
         }
       },
-      "x-ms-external": true
+      "x-ms-external": true,
+      "title": "ListQueryKeysResult"
     },
     "QueryKey": {
       "description": "Describes an API key for a given Azure Search service that has permissions for query operations only.",
@@ -165,7 +171,8 @@
           "readOnly": true,
           "type": "string"
         }
-      }
+      },
+      "title": "QueryKey"
     },
     "Resource": {
       "description": "Base type for all Azure resources.",
@@ -213,7 +220,8 @@
       "required": [
         "location"
       ],
-      "x-ms-azure-resource": true
+      "x-ms-azure-resource": true,
+      "title": "Resource"
     },
     "SearchService": {
       "allOf": [
@@ -252,7 +260,8 @@
       },
       "required": [
         "sku"
-      ]
+      ],
+      "title": "SearchService"
     },
     "SearchServiceListResult": {
       "description": "Response containing a list of Azure Search services.",
@@ -266,7 +275,8 @@
           "type": "array"
         }
       },
-      "x-ms-external": true
+      "x-ms-external": true,
+      "title": "SearchServiceListResult"
     },
     "SearchServiceProperties": {
       "description": "Properties of the Search service.",
@@ -336,7 +346,8 @@
           "readOnly": true,
           "type": "string"
         }
-      }
+      },
+      "title": "SearchServiceProperties"
     },
     "Sku": {
       "description": "Defines the SKU of an Azure Search Service, which determines price tier and capacity limits.",
@@ -359,7 +370,8 @@
             "name": "SkuName"
           }
         }
-      }
+      },
+      "title": "Sku"
     }
   },
   "actions": [

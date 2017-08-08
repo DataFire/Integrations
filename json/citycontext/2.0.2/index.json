@@ -12,7 +12,9 @@
   },
   "actionCount": 3,
   "definitions": {
-    "Latlon": {},
+    "Latlon": {
+      "title": "Latlon"
+    },
     "Location": {
       "description": "Latitude, Longitude and other info related to the given point",
       "properties": {
@@ -37,7 +39,8 @@
         "lat",
         "lon"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "Location"
     },
     "PointInfo": {
       "description": "Contextual information around a given point",
@@ -190,7 +193,8 @@
         "location",
         "parks",
         "schools"
-      ]
+      ],
+      "title": "PointInfo"
     },
     "Usage": {
       "description": "User plan monthly API quota and usage",
@@ -222,7 +226,8 @@
         "plan",
         "periodStart",
         "periodEnd"
-      ]
+      ],
+      "title": "Usage"
     }
   },
   "actions": [

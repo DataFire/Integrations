@@ -117,7 +117,8 @@
         "meetingId",
         "meetingType",
         "firstName"
-      ]
+      ],
+      "title": "AttendeeByGroup"
     },
     "AttendeeByMeeting": {
       "description": "Describes an attendee of a specified meeting instance.",
@@ -228,7 +229,8 @@
         "meetingId",
         "meetingType",
         "firstName"
-      ]
+      ],
+      "title": "AttendeeByMeeting"
     },
     "AttendeeByOrganizer": {
       "description": "Describes an attendee of a meeting instance held by a specified organizer.",
@@ -344,7 +346,8 @@
         "meetingId",
         "meetingType",
         "firstName"
-      ]
+      ],
+      "title": "AttendeeByOrganizer"
     },
     "Group": {
       "description": "Describes a collection of organizers categorized by department or job function, for example. Can be a subgroup of a larger group.",
@@ -379,7 +382,8 @@
         "parentKey",
         "status",
         "numOrganizers"
-      ]
+      ],
+      "title": "Group"
     },
     "HistoricalMeeting": {
       "description": "Describes a historical meeting within specified dates.",
@@ -463,7 +467,8 @@
         "firstName",
         "endTime",
         "conferenceCallInfo"
-      ]
+      ],
+      "title": "HistoricalMeeting"
     },
     "HistoricalMeetingByGroup": {
       "description": "Describes a historical meeting within specified dates for a specified group.",
@@ -542,7 +547,8 @@
         "firstName",
         "endTime",
         "groupName"
-      ]
+      ],
+      "title": "HistoricalMeetingByGroup"
     },
     "HistoryMeetingByGroup": {
       "description": "Describes past meeting instance(s) held by an organizer within a specified group.",
@@ -629,7 +635,8 @@
         "meetingId",
         "meetingType",
         "firstName"
-      ]
+      ],
+      "title": "HistoryMeetingByGroup"
     },
     "MeetingById": {
       "description": "Describes a given meeting.",
@@ -709,7 +716,8 @@
         "meetingKey",
         "meetingType",
         "uniqueMeetingId"
-      ]
+      ],
+      "title": "MeetingById"
     },
     "MeetingByOrganizer": {
       "description": "Describes a meeting scheduled by a specified organizer",
@@ -777,7 +785,8 @@
         "endTime",
         "uniqueMeetingId",
         "conferenceCallInfo"
-      ]
+      ],
+      "title": "MeetingByOrganizer"
     },
     "MeetingCreated": {
       "description": "Describes a newly created meeting.",
@@ -812,7 +821,8 @@
         "maxParticipants",
         "uniqueMeetingId",
         "conferenceCallInfo"
-      ]
+      ],
+      "title": "MeetingCreated"
     },
     "MeetingHistory": {
       "description": "Describes a unique past meeting instance.",
@@ -944,7 +954,8 @@
         "meetingType",
         "firstName",
         "uniqueMeetingId"
-      ]
+      ],
+      "title": "MeetingHistory"
     },
     "MeetingReqCreate": {
       "description": "Describes the information required to create a meeting.",
@@ -988,7 +999,8 @@
         "conferencecallinfo",
         "timezonekey",
         "meetingtype"
-      ]
+      ],
+      "title": "MeetingReqCreate"
     },
     "MeetingReqUpdate": {
       "description": "Describes the information required to update a meeting.",
@@ -1032,7 +1044,8 @@
         "conferencecallinfo",
         "timezonekey",
         "meetingtype"
-      ]
+      ],
+      "title": "MeetingReqUpdate"
     },
     "MeetingScheduled": {
       "description": "Describes a scheduled meeting.",
@@ -1100,7 +1113,8 @@
         "endTime",
         "uniqueMeetingId",
         "conferenceCallInfo"
-      ]
+      ],
+      "title": "MeetingScheduled"
     },
     "MeetingStatus": {
       "description": "The meeting status, i.e whether the meeting is running or not",
@@ -1108,7 +1122,8 @@
         "ACTIVE",
         "INACTIVE"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "MeetingStatus"
     },
     "MeetingType": {
       "description": "The meeting type",
@@ -1117,7 +1132,8 @@
         "recurring",
         "scheduled"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "MeetingType"
     },
     "Organizer": {
       "description": "Describes an organizer.",
@@ -1175,7 +1191,8 @@
         "firstName",
         "products",
         "maxNumAttendeesAllowed"
-      ]
+      ],
+      "title": "Organizer"
     },
     "OrganizerByGroup": {
       "description": "Describes an organizer within a specified group.",
@@ -1233,7 +1250,8 @@
         "firstName",
         "products",
         "maxNumAttendeesAllowed"
-      ]
+      ],
+      "title": "OrganizerByGroup"
     },
     "OrganizerReq": {
       "description": "Describes the information required to create an organizer, with or without assigning a group.",
@@ -1260,7 +1278,8 @@
         "firstName",
         "lastName",
         "productType"
-      ]
+      ],
+      "title": "OrganizerReq"
     },
     "OrganizerShort": {
       "description": "Describes a newly created organizer.",
@@ -1278,7 +1297,8 @@
       "required": [
         "key",
         "email"
-      ]
+      ],
+      "title": "OrganizerShort"
     },
     "OrganizerStatus": {
       "description": "Describes the status of an organizer, i.e. whether they are able to host meetings.",
@@ -1294,7 +1314,8 @@
           ],
           "type": "string"
         }
-      }
+      },
+      "title": "OrganizerStatus"
     },
     "Product": {
       "description": "The products the organizer has access to, can be 'G2M', 'G2W', 'G2T' or 'OPENVOICE'",
@@ -1304,7 +1325,8 @@
         "G2W",
         "OPENVOICE"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "Product"
     },
     "ScheduledMeetingByGroup": {
       "description": "Describes a meeting scheduled by an organizer within a specified group.",
@@ -1372,7 +1394,8 @@
         "meetingType",
         "firstName",
         "conferenceCallInfo"
-      ]
+      ],
+      "title": "ScheduledMeetingByGroup"
     },
     "StartUrl": {
       "description": "Host URL that can be used to start a meeting",
@@ -1384,7 +1407,8 @@
       },
       "required": [
         "hostURL"
-      ]
+      ],
+      "title": "StartUrl"
     },
     "Status": {
       "description": "The status of an organizer (or group), i.e. whether the organizer (or the members of the group respectively) are able to host meetings",
@@ -1392,7 +1416,8 @@
         "active",
         "suspended"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "Status"
     },
     "UpcomingMeeting": {
       "description": "Describes an upcoming meeting.",
@@ -1471,7 +1496,8 @@
         "firstName",
         "endTime",
         "conferenceCallInfo"
-      ]
+      ],
+      "title": "UpcomingMeeting"
     },
     "UpcomingMeetingByGroup": {
       "description": "Describes an upcoming meeting of a group.",
@@ -1549,7 +1575,8 @@
         "firstName",
         "endTime",
         "groupName"
-      ]
+      ],
+      "title": "UpcomingMeetingByGroup"
     }
   },
   "actions": [

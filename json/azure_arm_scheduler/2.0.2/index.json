@@ -22,7 +22,8 @@
           "description": "Gets or sets the username.",
           "type": "string"
         }
-      }
+      },
+      "title": "BasicAuthentication"
     },
     "ClientCertAuthentication": {
       "allOf": [
@@ -52,7 +53,8 @@
           "description": "Gets or sets the pfx certificate. Accepts certification in base64 encoding, return value will always be empty.",
           "type": "string"
         }
-      }
+      },
+      "title": "ClientCertAuthentication"
     },
     "HttpAuthentication": {
       "properties": {
@@ -70,7 +72,8 @@
             "name": "HttpAuthenticationType"
           }
         }
-      }
+      },
+      "title": "HttpAuthentication"
     },
     "HttpRequest": {
       "properties": {
@@ -97,7 +100,8 @@
           "description": "Gets or sets the URI of the request.",
           "type": "string"
         }
-      }
+      },
+      "title": "HttpRequest"
     },
     "JobAction": {
       "properties": {
@@ -140,7 +144,8 @@
             "name": "JobActionType"
           }
         }
-      }
+      },
+      "title": "JobAction"
     },
     "JobCollectionDefinition": {
       "properties": {
@@ -173,7 +178,8 @@
           "readOnly": true,
           "type": "string"
         }
-      }
+      },
+      "title": "JobCollectionDefinition"
     },
     "JobCollectionListResult": {
       "properties": {
@@ -189,7 +195,8 @@
           "readOnly": true,
           "type": "array"
         }
-      }
+      },
+      "title": "JobCollectionListResult"
     },
     "JobCollectionProperties": {
       "properties": {
@@ -215,7 +222,8 @@
             "name": "JobCollectionState"
           }
         }
-      }
+      },
+      "title": "JobCollectionProperties"
     },
     "JobCollectionQuota": {
       "properties": {
@@ -231,7 +239,8 @@
           "$ref": "#/definitions/JobMaxRecurrence",
           "description": "Gets or set the maximum recurrence."
         }
-      }
+      },
+      "title": "JobCollectionQuota"
     },
     "JobDefinition": {
       "properties": {
@@ -254,7 +263,8 @@
           "readOnly": true,
           "type": "string"
         }
-      }
+      },
+      "title": "JobDefinition"
     },
     "JobErrorAction": {
       "properties": {
@@ -293,7 +303,8 @@
             "name": "JobActionType"
           }
         }
-      }
+      },
+      "title": "JobErrorAction"
     },
     "JobExecutionStatus": {
       "description": "Gets the job execution status.",
@@ -306,7 +317,8 @@
       "x-ms-enum": {
         "modelAsString": false,
         "name": "JobExecutionStatus"
-      }
+      },
+      "title": "JobExecutionStatus"
     },
     "JobHistoryDefinition": {
       "properties": {
@@ -330,7 +342,8 @@
           "readOnly": true,
           "type": "string"
         }
-      }
+      },
+      "title": "JobHistoryDefinition"
     },
     "JobHistoryDefinitionProperties": {
       "properties": {
@@ -385,7 +398,8 @@
           "description": "Gets the job history status.",
           "readOnly": true
         }
-      }
+      },
+      "title": "JobHistoryDefinitionProperties"
     },
     "JobHistoryFilter": {
       "properties": {
@@ -394,7 +408,8 @@
           "description": "Gets or sets the job execution status."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "JobHistoryFilter"
     },
     "JobHistoryListResult": {
       "properties": {
@@ -409,7 +424,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "JobHistoryListResult"
     },
     "JobListResult": {
       "properties": {
@@ -424,7 +440,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "JobListResult"
     },
     "JobMaxRecurrence": {
       "properties": {
@@ -447,7 +464,8 @@
           "description": "Gets or sets the interval between retries.",
           "type": "integer"
         }
-      }
+      },
+      "title": "JobMaxRecurrence"
     },
     "JobProperties": {
       "properties": {
@@ -473,7 +491,8 @@
           "description": "Gets the job status.",
           "readOnly": true
         }
-      }
+      },
+      "title": "JobProperties"
     },
     "JobRecurrence": {
       "properties": {
@@ -508,7 +527,8 @@
         "schedule": {
           "$ref": "#/definitions/JobRecurrenceSchedule"
         }
-      }
+      },
+      "title": "JobRecurrence"
     },
     "JobRecurrenceSchedule": {
       "properties": {
@@ -560,7 +580,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "JobRecurrenceSchedule"
     },
     "JobRecurrenceScheduleMonthlyOccurrence": {
       "properties": {
@@ -585,7 +606,8 @@
             "name": "JobScheduleDay"
           }
         }
-      }
+      },
+      "title": "JobRecurrenceScheduleMonthlyOccurrence"
     },
     "JobState": {
       "description": "Gets or set the job state.",
@@ -599,7 +621,8 @@
       "x-ms-enum": {
         "modelAsString": false,
         "name": "JobState"
-      }
+      },
+      "title": "JobState"
     },
     "JobStateFilter": {
       "properties": {
@@ -608,7 +631,8 @@
           "description": "Gets or sets the job state."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "JobStateFilter"
     },
     "JobStatus": {
       "properties": {
@@ -639,7 +663,8 @@
           "readOnly": true,
           "type": "string"
         }
-      }
+      },
+      "title": "JobStatus"
     },
     "OAuthAuthentication": {
       "allOf": [
@@ -664,7 +689,8 @@
           "description": "Gets or sets the tenant.",
           "type": "string"
         }
-      }
+      },
+      "title": "OAuthAuthentication"
     },
     "RecurrenceFrequency": {
       "description": "Gets or sets the frequency of recurrence (minute, hour, day, week, month).",
@@ -679,7 +705,8 @@
       "x-ms-enum": {
         "modelAsString": false,
         "name": "RecurrenceFrequency"
-      }
+      },
+      "title": "RecurrenceFrequency"
     },
     "RetryPolicy": {
       "properties": {
@@ -704,7 +731,8 @@
             "name": "RetryType"
           }
         }
-      }
+      },
+      "title": "RetryPolicy"
     },
     "ServiceBusAuthentication": {
       "properties": {
@@ -728,7 +756,8 @@
             "name": "ServiceBusAuthenticationType"
           }
         }
-      }
+      },
+      "title": "ServiceBusAuthentication"
     },
     "ServiceBusBrokeredMessageProperties": {
       "properties": {
@@ -786,7 +815,8 @@
           "description": "Gets or sets the via partition key.",
           "type": "string"
         }
-      }
+      },
+      "title": "ServiceBusBrokeredMessageProperties"
     },
     "ServiceBusMessage": {
       "properties": {
@@ -826,7 +856,8 @@
             "name": "ServiceBusTransportType"
           }
         }
-      }
+      },
+      "title": "ServiceBusMessage"
     },
     "ServiceBusQueueMessage": {
       "allOf": [
@@ -839,7 +870,8 @@
           "description": "Gets or sets the queue name.",
           "type": "string"
         }
-      }
+      },
+      "title": "ServiceBusQueueMessage"
     },
     "ServiceBusTopicMessage": {
       "allOf": [
@@ -852,7 +884,8 @@
           "description": "Gets or sets the topic path.",
           "type": "string"
         }
-      }
+      },
+      "title": "ServiceBusTopicMessage"
     },
     "Sku": {
       "properties": {
@@ -870,7 +903,8 @@
             "name": "SkuDefinition"
           }
         }
-      }
+      },
+      "title": "Sku"
     },
     "StorageQueueMessage": {
       "properties": {
@@ -890,7 +924,8 @@
           "description": "Gets or sets the storage account name.",
           "type": "string"
         }
-      }
+      },
+      "title": "StorageQueueMessage"
     }
   },
   "actions": [

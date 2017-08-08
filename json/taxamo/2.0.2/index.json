@@ -34,7 +34,8 @@
           "type": "number"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "C"
     },
     "N": {
       "properties": {
@@ -55,7 +56,8 @@
           "type": "number"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "N"
     },
     "additional_currencies": {
       "properties": {
@@ -64,7 +66,8 @@
           "description": "Invoicing currency information."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "additional_currencies"
     },
     "additional_currency": {
       "properties": {
@@ -89,7 +92,8 @@
           "type": "number"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "additional_currency"
     },
     "by_country": {
       "properties": {
@@ -110,7 +114,8 @@
           "type": "number"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "by_country"
     },
     "by_status": {
       "properties": {
@@ -129,7 +134,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "by_status"
     },
     "by_taxation_type": {
       "properties": {
@@ -154,7 +160,8 @@
           "type": "number"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "by_taxation_type"
     },
     "calculateSimpleTaxIn": {
       "properties": {
@@ -222,7 +229,8 @@
       "required": [
         "currency_code"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "calculateSimpleTaxIn"
     },
     "calculateSimpleTaxOut": {
       "properties": {
@@ -245,7 +253,8 @@
           "description": "Transaction data"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "calculateSimpleTaxOut"
     },
     "calculateTaxIn": {
       "properties": {
@@ -257,7 +266,8 @@
       "required": [
         "transaction"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "calculateTaxIn"
     },
     "calculateTaxLocationIn": {
       "properties": {
@@ -270,7 +280,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "calculateTaxLocationIn"
     },
     "calculateTaxLocationOut": {
       "properties": {
@@ -307,7 +318,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "calculateTaxLocationOut"
     },
     "calculateTaxOut": {
       "properties": {
@@ -330,7 +342,8 @@
           "description": "Transaction data"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "calculateTaxOut"
     },
     "cancelTransactionOut": {
       "properties": {
@@ -339,7 +352,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "cancelTransactionOut"
     },
     "capturePaymentOut": {
       "properties": {
@@ -348,7 +362,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "capturePaymentOut"
     },
     "confirmTransactionIn": {
       "properties": {
@@ -357,7 +372,8 @@
           "description": "Transaction."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "confirmTransactionIn"
     },
     "confirmTransactionOut": {
       "properties": {
@@ -380,7 +396,8 @@
           "description": "Transaction data"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "confirmTransactionOut"
     },
     "countries": {
       "properties": {
@@ -429,7 +446,8 @@
           "description": "Self declared country as evidence."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "countries"
     },
     "country": {
       "properties": {
@@ -488,7 +506,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "country"
     },
     "country_schema": {
       "properties": {
@@ -547,7 +566,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "country_schema"
     },
     "createPaymentIn": {
       "properties": {
@@ -567,7 +587,8 @@
       "required": [
         "amount"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "createPaymentIn"
     },
     "createPaymentOut": {
       "properties": {
@@ -576,7 +597,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "createPaymentOut"
     },
     "createRefundIn": {
       "properties": {
@@ -601,7 +623,8 @@
           "type": "number"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "createRefundIn"
     },
     "createRefundOut": {
       "properties": {
@@ -622,7 +645,8 @@
           "type": "number"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "createRefundOut"
     },
     "createSMSTokenIn": {
       "properties": {
@@ -639,7 +663,8 @@
         "country_code",
         "recipient"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "createSMSTokenIn"
     },
     "createSMSTokenOut": {
       "properties": {
@@ -648,7 +673,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "createSMSTokenOut"
     },
     "createTransactionIn": {
       "properties": {
@@ -664,7 +690,8 @@
       "required": [
         "transaction"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "createTransactionIn"
     },
     "createTransactionOut": {
       "properties": {
@@ -687,7 +714,8 @@
           "description": "Transaction data"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "createTransactionOut"
     },
     "currency_schema": {
       "properties": {
@@ -712,7 +740,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "currency_schema"
     },
     "custom_fields": {
       "properties": {
@@ -725,7 +754,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "custom_fields"
     },
     "emailInvoiceIn": {
       "properties": {
@@ -734,7 +764,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "emailInvoiceIn"
     },
     "emailInvoiceOut": {
       "properties": {
@@ -743,7 +774,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "emailInvoiceOut"
     },
     "emailRefundIn": {
       "properties": {
@@ -752,7 +784,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "emailRefundIn"
     },
     "emailRefundOut": {
       "properties": {
@@ -761,7 +794,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "emailRefundOut"
     },
     "evidence": {
       "properties": {
@@ -810,7 +844,8 @@
           "description": "Self declared country as evidence. Requires merchant setting to be active."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "evidence"
     },
     "evidence_schema": {
       "properties": {
@@ -831,7 +866,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "evidence_schema"
     },
     "getCountriesDictIn": {
       "properties": {
@@ -840,7 +876,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "getCountriesDictIn"
     },
     "getCountriesDictOut": {
       "properties": {
@@ -852,7 +889,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "getCountriesDictOut"
     },
     "getCurrenciesDictOut": {
       "properties": {
@@ -864,7 +902,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "getCurrenciesDictOut"
     },
     "getDailySettlementStatsIn": {
       "properties": {
@@ -886,7 +925,8 @@
         "date_to",
         "interval"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "getDailySettlementStatsIn"
     },
     "getDailySettlementStatsOut": {
       "properties": {
@@ -898,7 +938,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "getDailySettlementStatsOut"
     },
     "getDetailedRefundsIn": {
       "properties": {
@@ -927,7 +968,8 @@
           "type": "number"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "getDetailedRefundsIn"
     },
     "getDetailedRefundsOut": {
       "properties": {
@@ -939,7 +981,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "getDetailedRefundsOut"
     },
     "getDomesticSummaryReportIn": {
       "properties": {
@@ -973,7 +1016,8 @@
         "end_month",
         "start_month"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "getDomesticSummaryReportIn"
     },
     "getDomesticSummaryReportOut": {
       "properties": {
@@ -1030,7 +1074,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "getDomesticSummaryReportOut"
     },
     "getEuViesReportIn": {
       "properties": {
@@ -1080,7 +1125,8 @@
         "eu_country_code",
         "start_month"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "getEuViesReportIn"
     },
     "getEuViesReportOut": {
       "properties": {
@@ -1104,7 +1150,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "getEuViesReportOut"
     },
     "getProductTypesDictOut": {
       "properties": {
@@ -1116,7 +1163,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "getProductTypesDictOut"
     },
     "getRefundsIn": {
       "properties": {
@@ -1140,7 +1188,8 @@
       "required": [
         "date_from"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "getRefundsIn"
     },
     "getRefundsOut": {
       "properties": {
@@ -1152,7 +1201,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "getRefundsOut"
     },
     "getSettlementIn": {
       "properties": {
@@ -1193,7 +1243,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "getSettlementIn"
     },
     "getSettlementOut": {
       "properties": {
@@ -1221,7 +1272,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "getSettlementOut"
     },
     "getSettlementStatsByCountryIn": {
       "properties": {
@@ -1238,7 +1290,8 @@
         "date_from",
         "date_to"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "getSettlementStatsByCountryIn"
     },
     "getSettlementStatsByCountryOut": {
       "properties": {
@@ -1250,7 +1303,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "getSettlementStatsByCountryOut"
     },
     "getSettlementStatsByTaxationTypeIn": {
       "properties": {
@@ -1267,7 +1321,8 @@
         "date_from",
         "date_to"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "getSettlementStatsByTaxationTypeIn"
     },
     "getSettlementStatsByTaxationTypeOut": {
       "properties": {
@@ -1276,7 +1331,8 @@
           "description": "Settlements stats by taxation type."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "getSettlementStatsByTaxationTypeOut"
     },
     "getSettlementSummaryIn": {
       "properties": {
@@ -1297,7 +1353,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "getSettlementSummaryIn"
     },
     "getSettlementSummaryOut": {
       "properties": {
@@ -1306,7 +1363,8 @@
           "description": "Settlement summary."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "getSettlementSummaryOut"
     },
     "getTransactionOut": {
       "properties": {
@@ -1329,7 +1387,8 @@
           "description": "Transaction data"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "getTransactionOut"
     },
     "getTransactionsStatsByCountryIn": {
       "properties": {
@@ -1350,7 +1409,8 @@
         "date_from",
         "date_to"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "getTransactionsStatsByCountryIn"
     },
     "getTransactionsStatsByCountryOut": {
       "properties": {
@@ -1362,7 +1422,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "getTransactionsStatsByCountryOut"
     },
     "getTransactionsStatsIn": {
       "properties": {
@@ -1383,7 +1444,8 @@
         "date_from",
         "date_to"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "getTransactionsStatsIn"
     },
     "getTransactionsStatsOut": {
       "properties": {
@@ -1392,7 +1454,8 @@
           "description": "Transaction stats grouped by status."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "getTransactionsStatsOut"
     },
     "input_transaction": {
       "properties": {
@@ -1531,7 +1594,8 @@
         "currency_code",
         "transaction_lines"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "input_transaction"
     },
     "input_transaction_line": {
       "properties": {
@@ -1610,7 +1674,8 @@
       "required": [
         "custom_id"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "input_transaction_line"
     },
     "input_transaction_update": {
       "properties": {
@@ -1745,7 +1810,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "input_transaction_update"
     },
     "invoice_address": {
       "properties": {
@@ -1782,7 +1848,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "invoice_address"
     },
     "listPaymentsIn": {
       "properties": {
@@ -1795,7 +1862,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "listPaymentsIn"
     },
     "listPaymentsOut": {
       "properties": {
@@ -1807,7 +1875,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "listPaymentsOut"
     },
     "listRefundsOut": {
       "properties": {
@@ -1819,7 +1888,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "listRefundsOut"
     },
     "listTransactionsIn": {
       "properties": {
@@ -1892,7 +1962,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "listTransactionsIn"
     },
     "listTransactionsOut": {
       "properties": {
@@ -1904,7 +1975,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "listTransactionsOut"
     },
     "locateGivenIPOut": {
       "properties": {
@@ -1921,7 +1993,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "locateGivenIPOut"
     },
     "locateMyIPOut": {
       "properties": {
@@ -1938,7 +2011,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "locateMyIPOut"
     },
     "payments": {
       "properties": {
@@ -1955,7 +2029,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "payments"
     },
     "product_type_schema": {
       "properties": {
@@ -1964,7 +2039,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "product_type_schema"
     },
     "refunds": {
       "properties": {
@@ -2009,7 +2085,8 @@
           "type": "number"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "refunds"
     },
     "report": {
       "properties": {
@@ -2050,7 +2127,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "report"
     },
     "settlement_daily_stats_schema": {
       "properties": {
@@ -2091,7 +2169,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "settlement_daily_stats_schema"
     },
     "storage_required_fields": {
       "properties": {
@@ -2100,7 +2179,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "storage_required_fields"
     },
     "summary": {
       "properties": {
@@ -2137,7 +2217,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "summary"
     },
     "tax_data_schema": {
       "properties": {
@@ -2146,7 +2227,8 @@
           "description": "US sales tax exemption certificate."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "tax_data_schema"
     },
     "tax_required_fields": {
       "properties": {
@@ -2155,7 +2237,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "tax_required_fields"
     },
     "transaction": {
       "properties": {
@@ -2382,7 +2465,8 @@
         "currency_code",
         "transaction_lines"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "transaction"
     },
     "transaction_lines": {
       "properties": {
@@ -2485,7 +2569,8 @@
       "required": [
         "custom_id"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "transaction_lines"
     },
     "transactions": {
       "properties": {
@@ -2712,7 +2797,8 @@
         "currency_code",
         "transaction_lines"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "transactions"
     },
     "unconfirmTransactionIn": {
       "properties": {
@@ -2721,7 +2807,8 @@
           "description": "Transaction."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "unconfirmTransactionIn"
     },
     "unconfirmTransactionOut": {
       "properties": {
@@ -2744,7 +2831,8 @@
           "description": "Transaction data"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "unconfirmTransactionOut"
     },
     "updateTransactionIn": {
       "properties": {
@@ -2753,7 +2841,8 @@
           "description": "Transaction."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "updateTransactionIn"
     },
     "updateTransactionOut": {
       "properties": {
@@ -2776,7 +2865,8 @@
           "description": "Transaction data"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "updateTransactionOut"
     },
     "us_tax_exempt_state": {
       "properties": {
@@ -2796,7 +2886,8 @@
       "required": [
         "state_abbr"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "us_tax_exempt_state"
     },
     "us_tax_exemption_certificate_details_schema": {
       "properties": {
@@ -2881,7 +2972,8 @@
         "purchaser_tax_id",
         "purchaser_zip"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "us_tax_exemption_certificate_details_schema"
     },
     "us_tax_exemption_certificate_schema": {
       "properties": {
@@ -2894,7 +2986,8 @@
           "description": "US tax exemption ertificate detail."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "us_tax_exemption_certificate_schema"
     },
     "us_tax_id": {
       "properties": {
@@ -2914,7 +3007,8 @@
       "required": [
         "tax_id_type"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "us_tax_id"
     },
     "validateTaxNumberIn": {
       "properties": {
@@ -2923,7 +3017,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "validateTaxNumberIn"
     },
     "validateTaxNumberOut": {
       "properties": {
@@ -2944,7 +3039,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "validateTaxNumberOut"
     },
     "verifySMSTokenOut": {
       "properties": {
@@ -2953,7 +3049,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "verifySMSTokenOut"
     }
   },
   "actions": [

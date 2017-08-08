@@ -32,14 +32,16 @@
           "description": " The current usage, such as the current number of servers that are associated with the account. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AccountAttribute"
     },
     "AccountAttributes": {
       "description": " A list of individual account attributes. ",
       "items": {
         "$ref": "#/definitions/AccountAttribute"
       },
-      "type": "array"
+      "type": "array",
+      "title": "AccountAttributes"
     },
     "AssociateNodeRequest": {
       "properties": {
@@ -61,7 +63,8 @@
         "NodeName",
         "EngineAttributes"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AssociateNodeRequest"
     },
     "AssociateNodeResponse": {
       "properties": {
@@ -70,16 +73,19 @@
           "description": "Contains a token which can be passed to the <code>DescribeNodeAssociationStatus</code> API call to get the status of the association request. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AssociateNodeResponse"
     },
     "AttributeName": {
       "maxLength": 64,
       "minLength": 1,
       "pattern": "[A-Z][A-Z0-9_]*",
-      "type": "string"
+      "type": "string",
+      "title": "AttributeName"
     },
     "AttributeValue": {
-      "type": "string"
+      "type": "string",
+      "title": "AttributeValue"
     },
     "Backup": {
       "description": "Describes a single backup. ",
@@ -181,15 +187,18 @@
           "description": " The IAM user ARN of the requester for manual backups. This field is empty for automated backups. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Backup"
     },
     "BackupId": {
       "maxLength": 79,
-      "type": "string"
+      "type": "string",
+      "title": "BackupId"
     },
     "BackupRetentionCountDefinition": {
       "minimum": 1,
-      "type": "integer"
+      "type": "integer",
+      "title": "BackupRetentionCountDefinition"
     },
     "BackupStatus": {
       "enum": [
@@ -198,23 +207,27 @@
         "FAILED",
         "DELETING"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "BackupStatus"
     },
     "BackupType": {
       "enum": [
         "AUTOMATED",
         "MANUAL"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "BackupType"
     },
     "Backups": {
       "items": {
         "$ref": "#/definitions/Backup"
       },
-      "type": "array"
+      "type": "array",
+      "title": "Backups"
     },
     "Boolean": {
-      "type": "boolean"
+      "type": "boolean",
+      "title": "Boolean"
     },
     "CreateBackupRequest": {
       "properties": {
@@ -230,7 +243,8 @@
       "required": [
         "ServerName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateBackupRequest"
     },
     "CreateBackupResponse": {
       "properties": {
@@ -239,7 +253,8 @@
           "description": "Backup created by request."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateBackupResponse"
     },
     "CreateServerRequest": {
       "properties": {
@@ -318,7 +333,8 @@
         "InstanceType",
         "ServiceRoleArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateServerRequest"
     },
     "CreateServerResponse": {
       "properties": {
@@ -327,7 +343,8 @@
           "description": "The server that is created by the request. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateServerResponse"
     },
     "DeleteBackupRequest": {
       "properties": {
@@ -339,11 +356,13 @@
       "required": [
         "BackupId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteBackupRequest"
     },
     "DeleteBackupResponse": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DeleteBackupResponse"
     },
     "DeleteServerRequest": {
       "properties": {
@@ -355,15 +374,18 @@
       "required": [
         "ServerName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteServerRequest"
     },
     "DeleteServerResponse": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DeleteServerResponse"
     },
     "DescribeAccountAttributesRequest": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DescribeAccountAttributesRequest"
     },
     "DescribeAccountAttributesResponse": {
       "properties": {
@@ -372,7 +394,8 @@
           "description": " The attributes that are currently set for the account. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeAccountAttributesResponse"
     },
     "DescribeBackupsRequest": {
       "properties": {
@@ -393,7 +416,8 @@
           "description": "Returns backups for the server with the specified ServerName. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeBackupsRequest"
     },
     "DescribeBackupsResponse": {
       "properties": {
@@ -406,7 +430,8 @@
           "description": "NextToken is a string that is returned in some command responses. It indicates that not all entries have been returned, and that you must run at least one more request to get remaining items. To get remaining results, call <code>DescribeBackups</code> again, and assign the token from the previous results as the value of the <code>nextToken</code> parameter. If there are no more results, the response object's <code>nextToken</code> parameter value is <code>null</code>. Setting a <code>nextToken</code> value that was not returned in your previous results causes an <code>InvalidNextTokenException</code> to occur. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeBackupsResponse"
     },
     "DescribeEventsRequest": {
       "properties": {
@@ -426,7 +451,8 @@
       "required": [
         "ServerName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeEventsRequest"
     },
     "DescribeEventsResponse": {
       "properties": {
@@ -439,7 +465,8 @@
           "description": "Contains the response to a <code>DescribeEvents</code> request. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeEventsResponse"
     },
     "DescribeNodeAssociationStatusRequest": {
       "properties": {
@@ -455,7 +482,8 @@
         "NodeAssociationStatusToken",
         "ServerName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeNodeAssociationStatusRequest"
     },
     "DescribeNodeAssociationStatusResponse": {
       "properties": {
@@ -464,7 +492,8 @@
           "description": "<p>The status of the association or disassociation request. </p> <p class=\"title\"> <b>Possible values:</b> </p> <ul> <li> <p> <code>SUCCESS</code>: The association or disassociation succeeded. </p> </li> <li> <p> <code>FAILED</code>: The association or disassociation failed. </p> </li> <li> <p> <code>IN_PROGRESS</code>: The association or disassociation is still in progress. </p> </li> </ul>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeNodeAssociationStatusResponse"
     },
     "DescribeServersRequest": {
       "properties": {
@@ -481,7 +510,8 @@
           "description": "Describes the server with the specified ServerName."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeServersRequest"
     },
     "DescribeServersResponse": {
       "properties": {
@@ -494,7 +524,8 @@
           "description": "Contains the response to a <code>DescribeServers</code> request. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeServersResponse"
     },
     "DisassociateNodeRequest": {
       "properties": {
@@ -515,7 +546,8 @@
         "ServerName",
         "NodeName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DisassociateNodeRequest"
     },
     "DisassociateNodeResponse": {
       "properties": {
@@ -524,7 +556,8 @@
           "description": "Contains a token which can be passed to the <code>DescribeNodeAssociationStatus</code> API call to get the status of the disassociation request. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DisassociateNodeResponse"
     },
     "EngineAttribute": {
       "description": "A name and value pair that is specific to the engine of the server. ",
@@ -538,27 +571,33 @@
           "description": "The value of the engine attribute. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "EngineAttribute"
     },
     "EngineAttributeName": {
-      "type": "string"
+      "type": "string",
+      "title": "EngineAttributeName"
     },
     "EngineAttributeValue": {
       "format": "password",
-      "type": "string"
+      "type": "string",
+      "title": "EngineAttributeValue"
     },
     "EngineAttributes": {
       "items": {
         "$ref": "#/definitions/EngineAttribute"
       },
-      "type": "array"
+      "type": "array",
+      "title": "EngineAttributes"
     },
     "InstanceProfileArn": {
       "pattern": "arn:aws:iam::[0-9]{12}:instance-profile/.*",
-      "type": "string"
+      "type": "string",
+      "title": "InstanceProfileArn"
     },
     "Integer": {
-      "type": "integer"
+      "type": "integer",
+      "title": "Integer"
     },
     "InvalidNextTokenException": {
       "description": "This occurs when the provided nextToken is not valid. ",
@@ -568,7 +607,8 @@
           "description": "Error or informational message that can contain more detail about a nextToken failure. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidNextTokenException"
     },
     "InvalidStateException": {
       "description": "The resource is in a state that does not allow you to perform a specified action. ",
@@ -578,10 +618,12 @@
           "description": "Error or informational message that provides more detail if a resource is in a state that is not valid for performing a specified action. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidStateException"
     },
     "KeyPair": {
-      "type": "string"
+      "type": "string",
+      "title": "KeyPair"
     },
     "LimitExceededException": {
       "description": "The limit of servers or backups has been reached. ",
@@ -591,21 +633,25 @@
           "description": "Error or informational message that the maximum allowed number of servers or backups has been exceeded. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LimitExceededException"
     },
     "MaintenanceStatus": {
       "enum": [
         "SUCCESS",
         "FAILED"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "MaintenanceStatus"
     },
     "MaxResults": {
       "minimum": 1,
-      "type": "integer"
+      "type": "integer",
+      "title": "MaxResults"
     },
     "NextToken": {
-      "type": "string"
+      "type": "string",
+      "title": "NextToken"
     },
     "NodeAssociationStatus": {
       "description": "<p>The status of the association or disassociation request. </p> <p class=\"title\"> <b>Possible values:</b> </p> <ul> <li> <p> <code>SUCCESS</code>: The association or disassociation succeeded. </p> </li> <li> <p> <code>FAILED</code>: The association or disassociation failed. </p> </li> <li> <p> <code>IN_PROGRESS</code>: The association or disassociation is still in progress. </p> </li> </ul>",
@@ -614,15 +660,18 @@
         "FAILED",
         "IN_PROGRESS"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "NodeAssociationStatus"
     },
     "NodeAssociationStatusToken": {
-      "type": "string"
+      "type": "string",
+      "title": "NodeAssociationStatusToken"
     },
     "NodeName": {
       "description": "The node name that is used by <code>chef-client</code> for a new node. For more information, see the <a href=\"http://docs.aws.amazon.com/https:/docs.chef.io/nodes.html#about-node-names\">Chef Documentation</a>. ",
       "pattern": "^[\\-\\p{Alnum}_:.]+$",
-      "type": "string"
+      "type": "string",
+      "title": "NodeName"
     },
     "ResourceAlreadyExistsException": {
       "description": "The requested resource cannot be created because it already exists. ",
@@ -632,7 +681,8 @@
           "description": "Error or informational message in response to a CreateServer request that a resource cannot be created because it already exists. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ResourceAlreadyExistsException"
     },
     "ResourceNotFoundException": {
       "description": "The requested resource does not exist, or access was denied. ",
@@ -642,7 +692,8 @@
           "description": "Error or informational message that can contain more detail about problems locating or accessing a resource. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ResourceNotFoundException"
     },
     "RestoreServerRequest": {
       "properties": {
@@ -667,11 +718,13 @@
         "BackupId",
         "ServerName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "RestoreServerRequest"
     },
     "RestoreServerResponse": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "RestoreServerResponse"
     },
     "Server": {
       "description": "Describes a configuration management server. ",
@@ -769,7 +822,8 @@
           "description": " The subnet IDs specified in a CreateServer request. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Server"
     },
     "ServerEvent": {
       "description": "An event that is related to the server, such as the start of maintenance or backup. ",
@@ -791,19 +845,22 @@
           "description": "The name of the server on or for which the event occurred. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ServerEvent"
     },
     "ServerEvents": {
       "items": {
         "$ref": "#/definitions/ServerEvent"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ServerEvents"
     },
     "ServerName": {
       "maxLength": 40,
       "minLength": 1,
       "pattern": "[a-zA-Z][a-zA-Z0-9\\-]*",
-      "type": "string"
+      "type": "string",
+      "title": "ServerName"
     },
     "ServerStatus": {
       "enum": [
@@ -821,17 +878,20 @@
         "UNHEALTHY",
         "TERMINATED"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ServerStatus"
     },
     "Servers": {
       "items": {
         "$ref": "#/definitions/Server"
       },
-      "type": "array"
+      "type": "array",
+      "title": "Servers"
     },
     "ServiceRoleArn": {
       "pattern": "arn:aws:iam::[0-9]{12}:role/.*",
-      "type": "string"
+      "type": "string",
+      "title": "ServiceRoleArn"
     },
     "StartMaintenanceRequest": {
       "properties": {
@@ -843,7 +903,8 @@
       "required": [
         "ServerName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "StartMaintenanceRequest"
     },
     "StartMaintenanceResponse": {
       "properties": {
@@ -852,25 +913,30 @@
           "description": "Contains the response to a <code>StartMaintenance</code> request. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "StartMaintenanceResponse"
     },
     "String": {
-      "type": "string"
+      "type": "string",
+      "title": "String"
     },
     "Strings": {
       "items": {
         "$ref": "#/definitions/String"
       },
-      "type": "array"
+      "type": "array",
+      "title": "Strings"
     },
     "TimeWindowDefinition": {
       "description": "<p> <code>DDD:HH:MM</code> (weekly start time) or <code>HH:MM</code> (daily start time). </p> <p> Time windows always use coordinated universal time (UTC). Valid strings for day of week (<code>DDD</code>) are: <code>Mon</code>, <code>Tue</code>, <code>Wed</code>, <code>Thr</code>, <code>Fri</code>, <code>Sat</code>, or <code>Sun</code>.</p>",
       "pattern": "^((Mon|Tue|Wed|Thu|Fri|Sat|Sun):)?([0-1][0-9]|2[0-3]):[0-5][0-9]$",
-      "type": "string"
+      "type": "string",
+      "title": "TimeWindowDefinition"
     },
     "Timestamp": {
       "format": "date-time",
-      "type": "string"
+      "type": "string",
+      "title": "Timestamp"
     },
     "UpdateServerEngineAttributesRequest": {
       "properties": {
@@ -891,7 +957,8 @@
         "ServerName",
         "AttributeName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateServerEngineAttributesRequest"
     },
     "UpdateServerEngineAttributesResponse": {
       "properties": {
@@ -900,7 +967,8 @@
           "description": "Contains the response to an <code>UpdateServerEngineAttributes</code> request. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UpdateServerEngineAttributesResponse"
     },
     "UpdateServerRequest": {
       "properties": {
@@ -926,7 +994,8 @@
       "required": [
         "ServerName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateServerRequest"
     },
     "UpdateServerResponse": {
       "properties": {
@@ -935,7 +1004,8 @@
           "description": "Contains the response to a <code>UpdateServer</code> request. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UpdateServerResponse"
     },
     "ValidationException": {
       "description": "One or more of the provided request parameters are not valid. ",
@@ -945,7 +1015,8 @@
           "description": "Error or informational message that can contain more detail about a validation failure. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ValidationException"
     }
   },
   "actions": [

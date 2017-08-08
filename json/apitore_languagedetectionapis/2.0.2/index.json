@@ -24,7 +24,8 @@
         "lang",
         "prob"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "LanguageEntity"
     },
     "LanguageResponseEntity": {
       "properties": {
@@ -69,7 +70,8 @@
         "startTime",
         "text"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "LanguageResponseEntity"
     }
   },
   "actions": [

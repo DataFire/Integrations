@@ -70,7 +70,8 @@
           "type": "object"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Group"
     },
     "GroupItem": {
       "properties": {
@@ -99,7 +100,8 @@
           "type": "object"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GroupItem"
     },
     "GroupItemListResponse": {
       "description": "A paginated list of grouList resources returned in response to a youtubeAnalytics.groupApi.list request.",
@@ -118,7 +120,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GroupItemListResponse"
     },
     "GroupListResponse": {
       "description": "A paginated list of grouList resources returned in response to a youtubeAnalytics.groupApi.list request.",
@@ -140,7 +143,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GroupListResponse"
     },
     "ResultTable": {
       "description": "Contains a single result table. The table is returned as an array of rows that contain the values for the cells of the table. Depending on the metric or dimension, the cell can contain a string (video ID, country code) or a number (number of views or number of likes).",
@@ -180,7 +184,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ResultTable"
     }
   },
   "actions": [

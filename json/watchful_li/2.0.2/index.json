@@ -18,13 +18,15 @@
       },
       "required": [
         "id"
-      ]
+      ],
+      "title": "Audit"
     },
     "Audits": {
       "items": {
         "$ref": "#/definitions/Audit"
       },
-      "type": "array"
+      "type": "array",
+      "title": "Audits"
     },
     "Extension": {
       "properties": {
@@ -66,7 +68,8 @@
       "required": [
         "idx_site",
         "type"
-      ]
+      ],
+      "title": "Extension"
     },
     "Feedback": {
       "properties": {
@@ -78,7 +81,8 @@
       },
       "required": [
         "id"
-      ]
+      ],
+      "title": "Feedback"
     },
     "Log": {
       "properties": {
@@ -127,9 +131,12 @@
         "log_entry",
         "log_level",
         "userid"
-      ]
+      ],
+      "title": "Log"
     },
-    "Monitor": {},
+    "Monitor": {
+      "title": "Monitor"
+    },
     "PostLog": {
       "properties": {
         "log_date": {
@@ -150,7 +157,8 @@
       "required": [
         "log_entry",
         "log_level"
-      ]
+      ],
+      "title": "PostLog"
     },
     "PostSite": {
       "properties": {
@@ -208,9 +216,12 @@
       },
       "required": [
         "access_url"
-      ]
+      ],
+      "title": "PostSite"
     },
-    "Reports": {},
+    "Reports": {
+      "title": "Reports"
+    },
     "Site": {
       "properties": {
         "access_url": {
@@ -318,7 +329,8 @@
       },
       "required": [
         "siteid"
-      ]
+      ],
+      "title": "Site"
     },
     "SsoUsers": {
       "properties": {
@@ -372,7 +384,8 @@
         "password",
         "userid",
         "username"
-      ]
+      ],
+      "title": "SsoUsers"
     },
     "Tag": {
       "properties": {
@@ -406,10 +419,15 @@
       "required": [
         "id",
         "name"
-      ]
+      ],
+      "title": "Tag"
     },
-    "Uptime": {},
-    "Version": {}
+    "Uptime": {
+      "title": "Uptime"
+    },
+    "Version": {
+      "title": "Version"
+    }
   },
   "actions": [
     {

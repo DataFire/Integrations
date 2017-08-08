@@ -49,7 +49,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AccessPolicy"
     },
     "Activity": {
       "description": "An activity resource contains information about an action that a particular channel, or user, has taken on YouTube.The actions reported in activity feeds include rating a video, sharing a video, marking a video as a favorite, commenting on a video, uploading a video, and so forth. Each activity resource identifies the type of action, the channel associated with the action, and the resource(s) associated with the action, such as the video that was rated or uploaded.",
@@ -76,7 +77,8 @@
           "description": "The snippet object contains basic details about the activity, including the activity's type and group ID."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Activity"
     },
     "ActivityContentDetails": {
       "description": "Details about the content of an activity: the video that was shared, the channel that was subscribed to, etc.",
@@ -126,7 +128,8 @@
           "description": "The upload object contains information about the uploaded video. This property is only present if the snippet.type is upload."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ActivityContentDetails"
     },
     "ActivityContentDetailsBulletin": {
       "description": "Details about a channel bulletin post.",
@@ -136,7 +139,8 @@
           "description": "The resourceId object contains information that identifies the resource associated with a bulletin post."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ActivityContentDetailsBulletin"
     },
     "ActivityContentDetailsChannelItem": {
       "description": "Details about a resource which was added to a channel.",
@@ -146,7 +150,8 @@
           "description": "The resourceId object contains information that identifies the resource that was added to the channel."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ActivityContentDetailsChannelItem"
     },
     "ActivityContentDetailsComment": {
       "description": "Information about a resource that received a comment.",
@@ -156,7 +161,8 @@
           "description": "The resourceId object contains information that identifies the resource associated with the comment."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ActivityContentDetailsComment"
     },
     "ActivityContentDetailsFavorite": {
       "description": "Information about a video that was marked as a favorite video.",
@@ -166,7 +172,8 @@
           "description": "The resourceId object contains information that identifies the resource that was marked as a favorite."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ActivityContentDetailsFavorite"
     },
     "ActivityContentDetailsLike": {
       "description": "Information about a resource that received a positive (like) rating.",
@@ -176,7 +183,8 @@
           "description": "The resourceId object contains information that identifies the rated resource."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ActivityContentDetailsLike"
     },
     "ActivityContentDetailsPlaylistItem": {
       "description": "Information about a new playlist item.",
@@ -194,7 +202,8 @@
           "description": "The resourceId object contains information about the resource that was added to the playlist."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ActivityContentDetailsPlaylistItem"
     },
     "ActivityContentDetailsPromotedItem": {
       "description": "Details about a resource which is being promoted.",
@@ -250,7 +259,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ActivityContentDetailsPromotedItem"
     },
     "ActivityContentDetailsRecommendation": {
       "description": "Information that identifies the recommended resource.",
@@ -274,7 +284,8 @@
           "description": "The seedResourceId object contains information about the resource that caused the recommendation."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ActivityContentDetailsRecommendation"
     },
     "ActivityContentDetailsSocial": {
       "description": "Details about a social network post.",
@@ -306,7 +317,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ActivityContentDetailsSocial"
     },
     "ActivityContentDetailsSubscription": {
       "description": "Information about a channel that a user subscribed to.",
@@ -316,7 +328,8 @@
           "description": "The resourceId object contains information that identifies the resource that the user subscribed to."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ActivityContentDetailsSubscription"
     },
     "ActivityContentDetailsUpload": {
       "description": "Information about the uploaded video.",
@@ -326,7 +339,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ActivityContentDetailsUpload"
     },
     "ActivityListResponse": {
       "properties": {
@@ -369,7 +383,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ActivityListResponse"
     },
     "ActivitySnippet": {
       "description": "Basic details about an activity, including title, description, thumbnails, activity type and group.",
@@ -421,7 +436,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ActivitySnippet"
     },
     "Caption": {
       "description": "A caption resource represents a YouTube caption track. A caption track is associated with exactly one YouTube video.",
@@ -444,7 +460,8 @@
           "description": "The snippet object contains basic details about the caption."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Caption"
     },
     "CaptionListResponse": {
       "properties": {
@@ -473,7 +490,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CaptionListResponse"
     },
     "CaptionSnippet": {
       "description": "Basic details about a caption track, such as its language and name.",
@@ -553,7 +571,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CaptionSnippet"
     },
     "CdnSettings": {
       "description": "Brief description of the live stream cdn settings.",
@@ -596,7 +615,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CdnSettings"
     },
     "Channel": {
       "description": "A channel resource contains information about a YouTube channel.",
@@ -663,7 +683,8 @@
           "description": "The topicDetails object encapsulates information about Freebase topics associated with the channel."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Channel"
     },
     "ChannelAuditDetails": {
       "description": "The auditDetails object encapsulates channel data that is relevant for YouTube Partners during the audit process.",
@@ -685,7 +706,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ChannelAuditDetails"
     },
     "ChannelBannerResource": {
       "description": "A channel banner returned as the response to a channel_banner.insert call.",
@@ -704,7 +726,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ChannelBannerResource"
     },
     "ChannelBrandingSettings": {
       "description": "Branding properties of a YouTube channel.",
@@ -729,7 +752,8 @@
           "description": "Branding properties for the watch page."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ChannelBrandingSettings"
     },
     "ChannelContentDetails": {
       "description": "Details about the content of a channel.",
@@ -760,7 +784,8 @@
           "type": "object"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ChannelContentDetails"
     },
     "ChannelContentOwnerDetails": {
       "description": "The contentOwnerDetails object encapsulates channel data that is relevant for YouTube Partners linked with the channel.",
@@ -775,7 +800,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ChannelContentOwnerDetails"
     },
     "ChannelConversionPing": {
       "description": "Pings that the app shall fire (authenticated by biscotti cookie). Each ping has a context, in which the app must fire the ping, and a url identifying the ping.",
@@ -794,7 +820,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ChannelConversionPing"
     },
     "ChannelConversionPings": {
       "description": "The conversionPings object encapsulates information about conversion pings that need to be respected by the channel.",
@@ -807,7 +834,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ChannelConversionPings"
     },
     "ChannelListResponse": {
       "properties": {
@@ -850,7 +878,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ChannelListResponse"
     },
     "ChannelLocalization": {
       "description": "Channel localization setting",
@@ -864,7 +893,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ChannelLocalization"
     },
     "ChannelProfileDetails": {
       "properties": {
@@ -885,7 +915,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ChannelProfileDetails"
     },
     "ChannelSection": {
       "properties": {
@@ -923,7 +954,8 @@
           "description": "The targeting object contains basic targeting settings about the channel section."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ChannelSection"
     },
     "ChannelSectionContentDetails": {
       "description": "Details about a channelsection, including playlists and channels.",
@@ -943,7 +975,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ChannelSectionContentDetails"
     },
     "ChannelSectionListResponse": {
       "properties": {
@@ -972,7 +1005,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ChannelSectionListResponse"
     },
     "ChannelSectionLocalization": {
       "description": "ChannelSection localization setting",
@@ -982,7 +1016,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ChannelSectionLocalization"
     },
     "ChannelSectionSnippet": {
       "description": "Basic details about a channel section, including title, style and position.",
@@ -1041,7 +1076,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ChannelSectionSnippet"
     },
     "ChannelSectionTargeting": {
       "description": "ChannelSection targeting setting.",
@@ -1068,7 +1104,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ChannelSectionTargeting"
     },
     "ChannelSettings": {
       "description": "Branding properties for the channel view.",
@@ -1132,7 +1169,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ChannelSettings"
     },
     "ChannelSnippet": {
       "description": "Basic details about a channel, including title, description and thumbnails. Next available id: 15.",
@@ -1171,7 +1209,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ChannelSnippet"
     },
     "ChannelStatistics": {
       "description": "Statistics about a channel: number of subscribers, number of videos in the channel, etc.",
@@ -1201,7 +1240,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ChannelStatistics"
     },
     "ChannelStatus": {
       "description": "JSON template for the status part of a channel.",
@@ -1230,7 +1270,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ChannelStatus"
     },
     "ChannelTopicDetails": {
       "description": "Freebase topic information related to the channel.",
@@ -1250,7 +1291,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ChannelTopicDetails"
     },
     "Comment": {
       "description": "A comment represents a single YouTube comment.",
@@ -1273,7 +1315,8 @@
           "description": "The snippet object contains basic details about the comment."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Comment"
     },
     "CommentListResponse": {
       "properties": {
@@ -1312,7 +1355,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CommentListResponse"
     },
     "CommentSnippet": {
       "description": "Basic details about a comment, such as its author and text.",
@@ -1392,7 +1436,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CommentSnippet"
     },
     "CommentThread": {
       "description": "A comment thread represents information that applies to a top level comment and all its replies. It can also include the top level comment itself and some of the replies.",
@@ -1419,7 +1464,8 @@
           "description": "The snippet object contains basic details about the comment thread and also the top level comment."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CommentThread"
     },
     "CommentThreadListResponse": {
       "properties": {
@@ -1458,7 +1504,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CommentThreadListResponse"
     },
     "CommentThreadReplies": {
       "description": "Comments written in (direct or indirect) reply to the top level comment.",
@@ -1471,7 +1518,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CommentThreadReplies"
     },
     "CommentThreadSnippet": {
       "description": "Basic details about a comment thread.",
@@ -1502,7 +1550,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CommentThreadSnippet"
     },
     "ContentRating": {
       "description": "Ratings schemes. The country-specific ratings are mostly for movies and shows. NEXT_ID: 69",
@@ -2392,7 +2441,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ContentRating"
     },
     "FanFundingEvent": {
       "description": "A fanFundingEvent resource represents a fan funding event on a YouTube channel. Fan funding events occur when a user gives one-time monetary support to the channel owner.",
@@ -2415,7 +2465,8 @@
           "description": "The snippet object contains basic details about the fan funding event."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "FanFundingEvent"
     },
     "FanFundingEventListResponse": {
       "properties": {
@@ -2454,7 +2505,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "FanFundingEventListResponse"
     },
     "FanFundingEventSnippet": {
       "properties": {
@@ -2489,7 +2541,8 @@
           "description": "Details about the supporter. Only filled if the event was made public by the user."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "FanFundingEventSnippet"
     },
     "GeoPoint": {
       "description": "Geographical coordinates of a point, in WGS84.",
@@ -2510,7 +2563,8 @@
           "type": "number"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GeoPoint"
     },
     "GuideCategory": {
       "description": "A guideCategory resource identifies a category that YouTube algorithmically assigns based on a channel's content or other indicators, such as the channel's popularity. The list is similar to video categories, with the difference being that a video's uploader can assign a video category but only YouTube can assign a channel category.",
@@ -2533,7 +2587,8 @@
           "description": "The snippet object contains basic details about the category, such as its title."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GuideCategory"
     },
     "GuideCategoryListResponse": {
       "properties": {
@@ -2576,7 +2631,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GuideCategoryListResponse"
     },
     "GuideCategorySnippet": {
       "description": "Basic details about a guide category.",
@@ -2590,7 +2646,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GuideCategorySnippet"
     },
     "I18nLanguage": {
       "description": "An i18nLanguage resource identifies a UI language currently supported by YouTube.",
@@ -2613,7 +2670,8 @@
           "description": "The snippet object contains basic details about the i18n language, such as language code and human-readable name."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "I18nLanguage"
     },
     "I18nLanguageListResponse": {
       "properties": {
@@ -2642,7 +2700,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "I18nLanguageListResponse"
     },
     "I18nLanguageSnippet": {
       "description": "Basic details about an i18n language, such as language code and human-readable name.",
@@ -2656,7 +2715,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "I18nLanguageSnippet"
     },
     "I18nRegion": {
       "description": "A i18nRegion resource identifies a region where YouTube is available.",
@@ -2679,7 +2739,8 @@
           "description": "The snippet object contains basic details about the i18n region, such as region code and human-readable name."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "I18nRegion"
     },
     "I18nRegionListResponse": {
       "properties": {
@@ -2708,7 +2769,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "I18nRegionListResponse"
     },
     "I18nRegionSnippet": {
       "description": "Basic details about an i18n region, such as region code and human-readable name.",
@@ -2722,7 +2784,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "I18nRegionSnippet"
     },
     "ImageSettings": {
       "description": "Branding properties for images associated with the channel.",
@@ -2816,7 +2879,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ImageSettings"
     },
     "IngestionInfo": {
       "description": "Describes information necessary for ingesting an RTMP or an HTTP stream.",
@@ -2834,7 +2898,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "IngestionInfo"
     },
     "InvideoBranding": {
       "properties": {
@@ -2855,7 +2920,8 @@
           "$ref": "#/definitions/InvideoTiming"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvideoBranding"
     },
     "InvideoPosition": {
       "description": "Describes the spatial position of a visual widget inside a video. It is a union of various position types, out of which only will be set one.",
@@ -2878,7 +2944,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvideoPosition"
     },
     "InvideoPromotion": {
       "description": "Describes an invideo promotion campaign consisting of multiple promoted items. A campaign belongs to a single channel_id.",
@@ -2903,7 +2970,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvideoPromotion"
     },
     "InvideoTiming": {
       "description": "Describes a temporal position of a visual widget inside a video.",
@@ -2927,7 +2995,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvideoTiming"
     },
     "LanguageTag": {
       "properties": {
@@ -2935,7 +3004,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LanguageTag"
     },
     "LiveBroadcast": {
       "description": "A liveBroadcast resource represents an event that will be streamed, via live video, on YouTube.",
@@ -2973,7 +3043,8 @@
           "$ref": "#/definitions/LiveBroadcastTopicDetails"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LiveBroadcast"
     },
     "LiveBroadcastContentDetails": {
       "description": "Detailed settings of a broadcast.",
@@ -3036,7 +3107,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LiveBroadcastContentDetails"
     },
     "LiveBroadcastListResponse": {
       "properties": {
@@ -3079,7 +3151,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LiveBroadcastListResponse"
     },
     "LiveBroadcastSnippet": {
       "properties": {
@@ -3132,7 +3205,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LiveBroadcastSnippet"
     },
     "LiveBroadcastStatistics": {
       "description": "Statistics about the live broadcast. These represent a snapshot of the values at the time of the request. Statistics are only returned for live broadcasts.",
@@ -3148,7 +3222,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LiveBroadcastStatistics"
     },
     "LiveBroadcastStatus": {
       "properties": {
@@ -3197,7 +3272,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LiveBroadcastStatus"
     },
     "LiveBroadcastTopic": {
       "properties": {
@@ -3217,7 +3293,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LiveBroadcastTopic"
     },
     "LiveBroadcastTopicDetails": {
       "properties": {
@@ -3228,7 +3305,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LiveBroadcastTopicDetails"
     },
     "LiveBroadcastTopicSnippet": {
       "properties": {
@@ -3241,7 +3319,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LiveBroadcastTopicSnippet"
     },
     "LiveChatBan": {
       "description": "A liveChatBan resource represents a ban for a YouTube live chat.",
@@ -3264,7 +3343,8 @@
           "description": "The snippet object contains basic details about the ban."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LiveChatBan"
     },
     "LiveChatBanSnippet": {
       "properties": {
@@ -3289,7 +3369,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LiveChatBanSnippet"
     },
     "LiveChatFanFundingEventDetails": {
       "properties": {
@@ -3311,7 +3392,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LiveChatFanFundingEventDetails"
     },
     "LiveChatMessage": {
       "description": "A liveChatMessage resource represents a chat message in a YouTube Live Chat.",
@@ -3338,7 +3420,8 @@
           "description": "The snippet object contains basic details about the message."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LiveChatMessage"
     },
     "LiveChatMessageAuthorDetails": {
       "properties": {
@@ -3375,7 +3458,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LiveChatMessageAuthorDetails"
     },
     "LiveChatMessageDeletedDetails": {
       "properties": {
@@ -3383,7 +3467,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LiveChatMessageDeletedDetails"
     },
     "LiveChatMessageListResponse": {
       "properties": {
@@ -3432,7 +3517,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LiveChatMessageListResponse"
     },
     "LiveChatMessageRetractedDetails": {
       "properties": {
@@ -3440,7 +3526,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LiveChatMessageRetractedDetails"
     },
     "LiveChatMessageSnippet": {
       "properties": {
@@ -3519,7 +3606,8 @@
           "$ref": "#/definitions/LiveChatUserBannedMessageDetails"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LiveChatMessageSnippet"
     },
     "LiveChatModerator": {
       "description": "A liveChatModerator resource represents a moderator for a YouTube live chat. A chat moderator has the ability to ban/unban users from a chat, remove message, etc.",
@@ -3542,7 +3630,8 @@
           "description": "The snippet object contains basic details about the moderator."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LiveChatModerator"
     },
     "LiveChatModeratorListResponse": {
       "properties": {
@@ -3585,7 +3674,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LiveChatModeratorListResponse"
     },
     "LiveChatModeratorSnippet": {
       "properties": {
@@ -3598,7 +3688,8 @@
           "description": "Details about the moderator."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LiveChatModeratorSnippet"
     },
     "LiveChatPollClosedDetails": {
       "properties": {
@@ -3607,7 +3698,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LiveChatPollClosedDetails"
     },
     "LiveChatPollEditedDetails": {
       "properties": {
@@ -3624,7 +3716,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LiveChatPollEditedDetails"
     },
     "LiveChatPollItem": {
       "properties": {
@@ -3636,7 +3729,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LiveChatPollItem"
     },
     "LiveChatPollOpenedDetails": {
       "properties": {
@@ -3653,7 +3747,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LiveChatPollOpenedDetails"
     },
     "LiveChatPollVotedDetails": {
       "properties": {
@@ -3666,7 +3761,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LiveChatPollVotedDetails"
     },
     "LiveChatSuperChatDetails": {
       "properties": {
@@ -3693,7 +3789,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LiveChatSuperChatDetails"
     },
     "LiveChatTextMessageDetails": {
       "properties": {
@@ -3702,7 +3799,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LiveChatTextMessageDetails"
     },
     "LiveChatUserBannedMessageDetails": {
       "properties": {
@@ -3724,7 +3822,8 @@
           "description": "The details of the user that was banned."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LiveChatUserBannedMessageDetails"
     },
     "LiveStream": {
       "description": "A live stream describes a live ingestion point.",
@@ -3759,7 +3858,8 @@
           "description": "The status object contains information about live stream's status."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LiveStream"
     },
     "LiveStreamConfigurationIssue": {
       "properties": {
@@ -3820,7 +3920,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LiveStreamConfigurationIssue"
     },
     "LiveStreamContentDetails": {
       "description": "Detailed settings of a stream.",
@@ -3834,7 +3935,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LiveStreamContentDetails"
     },
     "LiveStreamHealthStatus": {
       "properties": {
@@ -3862,7 +3964,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LiveStreamHealthStatus"
     },
     "LiveStreamListResponse": {
       "properties": {
@@ -3905,7 +4008,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LiveStreamListResponse"
     },
     "LiveStreamSnippet": {
       "properties": {
@@ -3930,7 +4034,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LiveStreamSnippet"
     },
     "LiveStreamStatus": {
       "description": "Brief description of the live stream status.",
@@ -3950,7 +4055,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LiveStreamStatus"
     },
     "LocalizedProperty": {
       "properties": {
@@ -3968,7 +4074,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LocalizedProperty"
     },
     "LocalizedString": {
       "properties": {
@@ -3979,7 +4086,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LocalizedString"
     },
     "MonitorStreamInfo": {
       "description": "Settings and Info of the monitor stream",
@@ -3998,7 +4106,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "MonitorStreamInfo"
     },
     "PageInfo": {
       "description": "Paging details for lists of resources, including total number of items available and number of resources returned in a single page.",
@@ -4014,7 +4123,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PageInfo"
     },
     "Playlist": {
       "description": "A playlist resource represents a YouTube playlist. A playlist is a collection of videos that can be viewed sequentially and shared with other users. A playlist can contain up to 200 videos, and YouTube does not limit the number of playlists that each user creates. By default, playlists are publicly visible to other users, but playlists can be public or private.\n\nYouTube also uses playlists to identify special collections of videos for a channel, such as:  \n- uploaded videos \n- favorite videos \n- positively rated (liked) videos \n- watch history \n- watch later  To be more specific, these lists are associated with a channel, which is a collection of a person, group, or company's videos, playlists, and other YouTube information. You can retrieve the playlist IDs for each of these lists from the  channel resource for a given channel.\n\nYou can then use the   playlistItems.list method to retrieve any of those lists. You can also add or remove items from those lists by calling the   playlistItems.insert and   playlistItems.delete methods.",
@@ -4057,7 +4167,8 @@
           "description": "The status object contains status information for the playlist."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Playlist"
     },
     "PlaylistContentDetails": {
       "properties": {
@@ -4067,7 +4178,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PlaylistContentDetails"
     },
     "PlaylistItem": {
       "description": "A playlistItem resource identifies another resource, such as a video, that is included in a playlist. In addition, the playlistItem  resource contains details about the included resource that pertain specifically to how that resource is used in that playlist.\n\nYouTube uses playlists to identify special collections of videos for a channel, such as:  \n- uploaded videos \n- favorite videos \n- positively rated (liked) videos \n- watch history \n- watch later  To be more specific, these lists are associated with a channel, which is a collection of a person, group, or company's videos, playlists, and other YouTube information.\n\nYou can retrieve the playlist IDs for each of these lists from the  channel resource  for a given channel. You can then use the   playlistItems.list method to retrieve any of those lists. You can also add or remove items from those lists by calling the   playlistItems.insert and   playlistItems.delete methods. For example, if a user gives a positive rating to a video, you would insert that video into the liked videos playlist for that user's channel.",
@@ -4098,7 +4210,8 @@
           "description": "The status object contains information about the playlist item's privacy status."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PlaylistItem"
     },
     "PlaylistItemContentDetails": {
       "properties": {
@@ -4124,7 +4237,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PlaylistItemContentDetails"
     },
     "PlaylistItemListResponse": {
       "properties": {
@@ -4167,7 +4281,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PlaylistItemListResponse"
     },
     "PlaylistItemSnippet": {
       "description": "Basic details about a playlist, including title, description and thumbnails.",
@@ -4211,7 +4326,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PlaylistItemSnippet"
     },
     "PlaylistItemStatus": {
       "description": "Information about the playlist item's privacy status.",
@@ -4226,7 +4342,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PlaylistItemStatus"
     },
     "PlaylistListResponse": {
       "properties": {
@@ -4269,7 +4386,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PlaylistListResponse"
     },
     "PlaylistLocalization": {
       "description": "Playlist localization setting",
@@ -4283,7 +4401,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PlaylistLocalization"
     },
     "PlaylistPlayer": {
       "properties": {
@@ -4292,7 +4411,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PlaylistPlayer"
     },
     "PlaylistSnippet": {
       "description": "Basic details about a playlist, including title, description and thumbnails.",
@@ -4338,7 +4458,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PlaylistSnippet"
     },
     "PlaylistStatus": {
       "properties": {
@@ -4352,7 +4473,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PlaylistStatus"
     },
     "PromotedItem": {
       "description": "Describes a single promoted item.",
@@ -4374,7 +4496,8 @@
           "description": "The temporal position within the video where the promoted item will be displayed. If present, it overrides the default timing."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PromotedItem"
     },
     "PromotedItemId": {
       "description": "Describes a single promoted item id. It is a union of various possible types.",
@@ -4401,7 +4524,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PromotedItemId"
     },
     "PropertyValue": {
       "description": "A pair Property / Value.",
@@ -4415,7 +4539,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PropertyValue"
     },
     "ResourceId": {
       "description": "A resource id is a generic reference that points to another YouTube resource.",
@@ -4437,7 +4562,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ResourceId"
     },
     "SearchListResponse": {
       "properties": {
@@ -4483,7 +4609,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SearchListResponse"
     },
     "SearchResult": {
       "description": "A search result contains information about a YouTube video, channel, or playlist that matches the search parameters specified in an API request. While a search result points to a uniquely identifiable resource, like a video, it does not have its own persistent data.",
@@ -4506,7 +4633,8 @@
           "description": "The snippet object contains basic details about a search result, such as its title or description. For example, if the search result is a video, then the title will be the video's title and the description will be the video's description."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SearchResult"
     },
     "SearchResultSnippet": {
       "description": "Basic details about a search result, including title, description and thumbnails of the item referenced by the search result.",
@@ -4546,7 +4674,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SearchResultSnippet"
     },
     "Sponsor": {
       "description": "A sponsor resource represents a sponsor for a YouTube channel. A sponsor provides recurring monetary support to a creator and receives special benefits.",
@@ -4569,7 +4698,8 @@
           "description": "The snippet object contains basic details about the sponsor."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Sponsor"
     },
     "SponsorListResponse": {
       "properties": {
@@ -4608,7 +4738,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SponsorListResponse"
     },
     "SponsorSnippet": {
       "properties": {
@@ -4626,7 +4757,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SponsorSnippet"
     },
     "Subscription": {
       "description": "A subscription resource contains information about a YouTube user subscription. A subscription notifies a user when new videos are added to a channel or when another user takes one of several actions on YouTube, such as uploading a video, rating a video, or commenting on a video.",
@@ -4657,7 +4789,8 @@
           "description": "The subscriberSnippet object contains basic details about the sbuscriber."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Subscription"
     },
     "SubscriptionContentDetails": {
       "description": "Details about the content to witch a subscription refers.",
@@ -4681,7 +4814,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SubscriptionContentDetails"
     },
     "SubscriptionListResponse": {
       "properties": {
@@ -4724,7 +4858,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SubscriptionListResponse"
     },
     "SubscriptionSnippet": {
       "description": "Basic details about a subscription, including title, description and thumbnails of the subscribed item.",
@@ -4759,7 +4894,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SubscriptionSnippet"
     },
     "SubscriptionSubscriberSnippet": {
       "description": "Basic details about a subscription's subscriber including title, description, channel ID and thumbnails.",
@@ -4781,7 +4917,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SubscriptionSubscriberSnippet"
     },
     "SuperChatEvent": {
       "description": "A superChatEvent resource represents a Super Chat purchase on a YouTube channel.",
@@ -4804,7 +4941,8 @@
           "description": "The snippet object contains basic details about the Super Chat event."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SuperChatEvent"
     },
     "SuperChatEventListResponse": {
       "properties": {
@@ -4843,7 +4981,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SuperChatEventListResponse"
     },
     "SuperChatEventSnippet": {
       "properties": {
@@ -4883,7 +5022,8 @@
           "description": "Details about the supporter."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SuperChatEventSnippet"
     },
     "Thumbnail": {
       "description": "A thumbnail is an image representing a YouTube resource.",
@@ -4903,7 +5043,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Thumbnail"
     },
     "ThumbnailDetails": {
       "description": "Internal representation of thumbnails for a YouTube resource.",
@@ -4929,7 +5070,8 @@
           "description": "The standard quality image for this resource."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ThumbnailDetails"
     },
     "ThumbnailSetResponse": {
       "properties": {
@@ -4958,11 +5100,13 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ThumbnailSetResponse"
     },
     "TokenPagination": {
       "description": "Stub token pagination template to suppress results.",
-      "type": "object"
+      "type": "object",
+      "title": "TokenPagination"
     },
     "Video": {
       "description": "A video resource represents a YouTube video.",
@@ -5045,7 +5189,8 @@
           "description": "The topicDetails object encapsulates information about Freebase topics associated with the video."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Video"
     },
     "VideoAbuseReport": {
       "properties": {
@@ -5070,7 +5215,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "VideoAbuseReport"
     },
     "VideoAbuseReportReason": {
       "description": "A videoAbuseReportReason resource identifies a reason that a video could be reported as abusive. Video abuse report reasons are used with video.ReportAbuse.",
@@ -5093,7 +5239,8 @@
           "description": "The snippet object contains basic details about the abuse report reason."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "VideoAbuseReportReason"
     },
     "VideoAbuseReportReasonListResponse": {
       "properties": {
@@ -5122,7 +5269,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "VideoAbuseReportReasonListResponse"
     },
     "VideoAbuseReportReasonSnippet": {
       "description": "Basic details about a video category, such as its localized title.",
@@ -5139,7 +5287,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "VideoAbuseReportReasonSnippet"
     },
     "VideoAbuseReportSecondaryReason": {
       "properties": {
@@ -5152,7 +5301,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "VideoAbuseReportSecondaryReason"
     },
     "VideoAgeGating": {
       "properties": {
@@ -5175,7 +5325,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "VideoAgeGating"
     },
     "VideoCategory": {
       "description": "A videoCategory resource identifies a category that has been or could be associated with uploaded videos.",
@@ -5198,7 +5349,8 @@
           "description": "The snippet object contains basic details about the video category, including its title."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "VideoCategory"
     },
     "VideoCategoryListResponse": {
       "properties": {
@@ -5241,7 +5393,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "VideoCategoryListResponse"
     },
     "VideoCategorySnippet": {
       "description": "Basic details about a video category, such as its localized title.",
@@ -5259,7 +5412,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "VideoCategorySnippet"
     },
     "VideoContentDetails": {
       "description": "Details about the content of a YouTube Video.",
@@ -5317,7 +5471,8 @@
           "description": "The regionRestriction object contains information about the countries where a video is (or is not) viewable. The object will contain either the contentDetails.regionRestriction.allowed property or the contentDetails.regionRestriction.blocked property."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "VideoContentDetails"
     },
     "VideoContentDetailsRegionRestriction": {
       "description": "DEPRECATED Region restriction of the video.",
@@ -5337,7 +5492,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "VideoContentDetailsRegionRestriction"
     },
     "VideoFileDetails": {
       "description": "Describes original video file properties, including technical details about audio and video streams, but also metadata information like content length, digitization time, or geotagging information.",
@@ -5397,7 +5553,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "VideoFileDetails"
     },
     "VideoFileDetailsAudioStream": {
       "description": "Information about an audio stream.",
@@ -5421,7 +5578,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "VideoFileDetailsAudioStream"
     },
     "VideoFileDetailsVideoStream": {
       "description": "Information about a video stream.",
@@ -5471,7 +5629,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "VideoFileDetailsVideoStream"
     },
     "VideoGetRatingResponse": {
       "properties": {
@@ -5500,7 +5659,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "VideoGetRatingResponse"
     },
     "VideoListResponse": {
       "properties": {
@@ -5543,7 +5703,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "VideoListResponse"
     },
     "VideoLiveStreamingDetails": {
       "description": "Details about the live streaming metadata.",
@@ -5578,7 +5739,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "VideoLiveStreamingDetails"
     },
     "VideoLocalization": {
       "description": "Localized versions of certain video properties (e.g. title).",
@@ -5592,7 +5754,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "VideoLocalization"
     },
     "VideoMonetizationDetails": {
       "description": "Details about monetization of a YouTube Video.",
@@ -5602,7 +5765,8 @@
           "description": "The value of access indicates whether the video can be monetized or not."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "VideoMonetizationDetails"
     },
     "VideoPlayer": {
       "description": "Player to be used for a video playback.",
@@ -5621,7 +5785,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "VideoPlayer"
     },
     "VideoProcessingDetails": {
       "description": "Describes processing status and progress and availability of some other Video resource parts.",
@@ -5671,7 +5836,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "VideoProcessingDetails"
     },
     "VideoProcessingDetailsProcessingProgress": {
       "description": "Video processing progress and completion time estimate.",
@@ -5692,7 +5858,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "VideoProcessingDetailsProcessingProgress"
     },
     "VideoProjectDetails": {
       "description": "Project specific details about the content of a YouTube Video.",
@@ -5705,7 +5872,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "VideoProjectDetails"
     },
     "VideoRating": {
       "properties": {
@@ -5722,7 +5890,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "VideoRating"
     },
     "VideoRecordingDetails": {
       "description": "Recording information associated with the video.",
@@ -5741,7 +5910,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "VideoRecordingDetails"
     },
     "VideoSnippet": {
       "description": "Basic details about a video, including title, description, uploader, thumbnails and category.",
@@ -5804,7 +5974,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "VideoSnippet"
     },
     "VideoStatistics": {
       "description": "Statistics about the video, such as the number of times the video was viewed or liked.",
@@ -5835,7 +6006,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "VideoStatistics"
     },
     "VideoStatus": {
       "description": "Basic details about a video category, such as its localized title.",
@@ -5910,7 +6082,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "VideoStatus"
     },
     "VideoSuggestions": {
       "description": "Specifies suggestions on how to improve video content, including encoding hints, tag suggestions, and editor suggestions.",
@@ -5984,7 +6157,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "VideoSuggestions"
     },
     "VideoSuggestionsTagSuggestion": {
       "description": "A single tag suggestion with it's relevance information.",
@@ -6001,7 +6175,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "VideoSuggestionsTagSuggestion"
     },
     "VideoTopicDetails": {
       "description": "Freebase topic information related to the video.",
@@ -6028,7 +6203,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "VideoTopicDetails"
     },
     "WatchSettings": {
       "description": "Branding properties for the watch. All deprecated.",
@@ -6046,7 +6222,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "WatchSettings"
     }
   },
   "actions": [

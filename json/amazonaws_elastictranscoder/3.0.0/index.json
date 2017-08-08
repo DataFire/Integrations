@@ -18,19 +18,22 @@
   "definitions": {
     "AccessControl": {
       "pattern": "(^FullControl$)|(^Read$)|(^ReadAcp$)|(^WriteAcp$)",
-      "type": "string"
+      "type": "string",
+      "title": "AccessControl"
     },
     "AccessControls": {
       "items": {
         "$ref": "#/definitions/AccessControl"
       },
       "maxItems": 30,
-      "type": "array"
+      "type": "array",
+      "title": "AccessControls"
     },
     "AccessDeniedException": {
       "description": "General authentication failure. The request was not signed correctly.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "AccessDeniedException"
     },
     "Artwork": {
       "description": "<p>The file to be used as album art. There can be multiple artworks associated with an audio file, to a maximum of 20.</p> <p>To remove artwork or leave the artwork empty, you can either set <code>Artwork</code> to null, or set the <code>Merge Policy</code> to \"Replace\" and use an empty <code>Artwork</code> array.</p> <p>To pass through existing artwork unchanged, set the <code>Merge Policy</code> to \"Prepend\", \"Append\", or \"Fallback\", and use an empty <code>Artwork</code> array.</p>",
@@ -64,41 +67,50 @@
           "description": "<p>Specify one of the following values to control scaling of the output album art:</p> <ul> <li> <p> <code>Fit:</code> Elastic Transcoder scales the output art so it matches the value that you specified in either <code>MaxWidth</code> or <code>MaxHeight</code> without exceeding the other value.</p> </li> <li> <p> <code>Fill:</code> Elastic Transcoder scales the output art so it matches the value that you specified in either <code>MaxWidth</code> or <code>MaxHeight</code> and matches or exceeds the other value. Elastic Transcoder centers the output art and then crops it in the dimension (if any) that exceeds the maximum value. </p> </li> <li> <p> <code>Stretch:</code> Elastic Transcoder stretches the output art to match the values that you specified for <code>MaxWidth</code> and <code>MaxHeight</code>. If the relative proportions of the input art and the output art are different, the output art will be distorted.</p> </li> <li> <p> <code>Keep:</code> Elastic Transcoder does not scale the output art. If either dimension of the input art exceeds the values that you specified for <code>MaxWidth</code> and <code>MaxHeight</code>, Elastic Transcoder crops the output art.</p> </li> <li> <p> <code>ShrinkToFit:</code> Elastic Transcoder scales the output art down so that its dimensions match the values that you specified for at least one of <code>MaxWidth</code> and <code>MaxHeight</code> without exceeding either value. If you specify this option, Elastic Transcoder does not scale the art up.</p> </li> <li> <p> <code>ShrinkToFill</code> Elastic Transcoder scales the output art down so that its dimensions match the values that you specified for at least one of <code>MaxWidth</code> and <code>MaxHeight</code> without dropping below either value. If you specify this option, Elastic Transcoder does not scale the art up.</p> </li> </ul>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Artwork"
     },
     "Artworks": {
       "items": {
         "$ref": "#/definitions/Artwork"
       },
-      "type": "array"
+      "type": "array",
+      "title": "Artworks"
     },
     "Ascending": {
       "pattern": "(^true$)|(^false$)",
-      "type": "string"
+      "type": "string",
+      "title": "Ascending"
     },
     "AspectRatio": {
       "pattern": "(^auto$)|(^1:1$)|(^4:3$)|(^3:2$)|(^16:9$)",
-      "type": "string"
+      "type": "string",
+      "title": "AspectRatio"
     },
     "AudioBitDepth": {
       "pattern": "(^8$)|(^16$)|(^24$)|(^32$)",
-      "type": "string"
+      "type": "string",
+      "title": "AudioBitDepth"
     },
     "AudioBitOrder": {
       "pattern": "(^LittleEndian$)",
-      "type": "string"
+      "type": "string",
+      "title": "AudioBitOrder"
     },
     "AudioBitRate": {
       "pattern": "^\\d{1,3}$",
-      "type": "string"
+      "type": "string",
+      "title": "AudioBitRate"
     },
     "AudioChannels": {
       "pattern": "(^auto$)|(^0$)|(^1$)|(^2$)",
-      "type": "string"
+      "type": "string",
+      "title": "AudioChannels"
     },
     "AudioCodec": {
       "pattern": "(^AAC$)|(^vorbis$)|(^mp3$)|(^mp2$)|(^pcm$)|(^flac$)",
-      "type": "string"
+      "type": "string",
+      "title": "AudioCodec"
     },
     "AudioCodecOptions": {
       "description": "Options associated with your audio codec.",
@@ -120,15 +132,18 @@
           "description": "<p>You can only choose whether an audio sample is signed when you specify <code>pcm</code> for the value of Audio:Codec.</p> <p>Whether audio samples are represented with negative and positive numbers (signed) or only positive numbers (unsigned).</p> <p>The supported value is <code>Signed</code>.</p>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AudioCodecOptions"
     },
     "AudioCodecProfile": {
       "pattern": "(^auto$)|(^AAC-LC$)|(^HE-AAC$)|(^HE-AACv2$)",
-      "type": "string"
+      "type": "string",
+      "title": "AudioCodecProfile"
     },
     "AudioPackingMode": {
       "pattern": "(^SingleTrack$)|(^OneChannelPerTrack$)|(^OneChannelPerTrackWithMosTo8Tracks$)",
-      "type": "string"
+      "type": "string",
+      "title": "AudioPackingMode"
     },
     "AudioParameters": {
       "description": "Parameters required for transcoding audio.",
@@ -158,33 +173,40 @@
           "description": "<p>The sample rate of the audio stream in the output file, in Hertz. Valid values include:</p> <p> <code>auto</code>, <code>22050</code>, <code>32000</code>, <code>44100</code>, <code>48000</code>, <code>96000</code> </p> <p>If you specify <code>auto</code>, Elastic Transcoder automatically detects the sample rate.</p>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AudioParameters"
     },
     "AudioSampleRate": {
       "pattern": "(^auto$)|(^22050$)|(^32000$)|(^44100$)|(^48000$)|(^96000$)|(^192000$)",
-      "type": "string"
+      "type": "string",
+      "title": "AudioSampleRate"
     },
     "AudioSigned": {
       "pattern": "(^Unsigned$)|(^Signed$)",
-      "type": "string"
+      "type": "string",
+      "title": "AudioSigned"
     },
     "Base64EncodedString": {
       "pattern": "^$|(^(?:[A-Za-z0-9\\+/]{4})*(?:[A-Za-z0-9\\+/]{2}==|[A-Za-z0-9\\+/]{3}=)?$)",
-      "type": "string"
+      "type": "string",
+      "title": "Base64EncodedString"
     },
     "BucketName": {
       "pattern": "^(\\w|\\.|-){1,255}$",
-      "type": "string"
+      "type": "string",
+      "title": "BucketName"
     },
     "CancelJobRequest": {
       "description": "The <code>CancelJobRequest</code> structure.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "CancelJobRequest"
     },
     "CancelJobResponse": {
       "description": "The response body contains a JSON object. If the job is successfully canceled, the value of <code>Success</code> is <code>true</code>.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "CancelJobResponse"
     },
     "CaptionFormat": {
       "description": "The file format of the output captions. If you leave this value blank, Elastic Transcoder returns an error.",
@@ -202,26 +224,31 @@
           "description": "<p>The prefix for caption filenames, in the form <i>description</i>-<code>{language}</code>, where:</p> <ul> <li> <p> <i>description</i> is a description of the video.</p> </li> <li> <p> <code>{language}</code> is a literal value that Elastic Transcoder replaces with the two- or three-letter code for the language of the caption in the output file names.</p> </li> </ul> <p>If you don't include <code>{language}</code> in the file name pattern, Elastic Transcoder automatically appends \"<code>{language}</code>\" to the value that you specify for the description. In addition, Elastic Transcoder automatically appends the count to the end of the segment files.</p> <p>For example, suppose you're transcoding into srt format. When you enter \"Sydney-{language}-sunrise\", and the language of the captions is English (en), the name of the first caption file is be Sydney-en-sunrise00000.srt.</p>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CaptionFormat"
     },
     "CaptionFormatFormat": {
       "pattern": "(^mov-text$)|(^srt$)|(^scc$)|(^webvtt$)|(^dfxp$)|(^cea-708$)",
-      "type": "string"
+      "type": "string",
+      "title": "CaptionFormatFormat"
     },
     "CaptionFormatPattern": {
       "pattern": "(^$)|(^.*\\{language\\}.*$)",
-      "type": "string"
+      "type": "string",
+      "title": "CaptionFormatPattern"
     },
     "CaptionFormats": {
       "items": {
         "$ref": "#/definitions/CaptionFormat"
       },
       "maxItems": 4,
-      "type": "array"
+      "type": "array",
+      "title": "CaptionFormats"
     },
     "CaptionMergePolicy": {
       "pattern": "(^MergeOverride$)|(^MergeRetain$)|(^Override$)",
-      "type": "string"
+      "type": "string",
+      "title": "CaptionMergePolicy"
     },
     "CaptionSource": {
       "description": "A source file for the input sidecar captions used during the transcoding process.",
@@ -247,14 +274,16 @@
           "description": "<p>For clip generation or captions that do not start at the same time as the associated video file, the <code>TimeOffset</code> tells Elastic Transcoder how much of the video to encode before including captions.</p> <p>Specify the TimeOffset in the form [+-]SS.sss or [+-]HH:mm:SS.ss.</p>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CaptionSource"
     },
     "CaptionSources": {
       "items": {
         "$ref": "#/definitions/CaptionSource"
       },
       "maxItems": 20,
-      "type": "array"
+      "type": "array",
+      "title": "CaptionSources"
     },
     "Captions": {
       "description": "The captions to be created, if any.",
@@ -272,7 +301,8 @@
           "description": "<p>A policy that determines how Elastic Transcoder handles the existence of multiple captions.</p> <ul> <li> <p> <b>MergeOverride:</b> Elastic Transcoder transcodes both embedded and sidecar captions into outputs. If captions for a language are embedded in the input file and also appear in a sidecar file, Elastic Transcoder uses the sidecar captions and ignores the embedded captions for that language.</p> </li> <li> <p> <b>MergeRetain:</b> Elastic Transcoder transcodes both embedded and sidecar captions into outputs. If captions for a language are embedded in the input file and also appear in a sidecar file, Elastic Transcoder uses the embedded captions and ignores the sidecar captions for that language. If <code>CaptionSources</code> is empty, Elastic Transcoder omits all sidecar captions from the output files.</p> </li> <li> <p> <b>Override:</b> Elastic Transcoder transcodes only the sidecar captions that you specify in <code>CaptionSources</code>.</p> </li> </ul> <p> <code>MergePolicy</code> cannot be null.</p>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Captions"
     },
     "Clip": {
       "description": "Settings for one clip in a composition. All jobs in a playlist must have the same clip settings.",
@@ -282,12 +312,14 @@
           "description": "Settings that determine when a clip begins and how long it lasts."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Clip"
     },
     "CodecOption": {
       "maxLength": 255,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "CodecOption"
     },
     "CodecOptions": {
       "items": {
@@ -302,13 +334,15 @@
         "type": "object"
       },
       "maxItems": 30,
-      "type": "array"
+      "type": "array",
+      "title": "CodecOptions"
     },
     "Composition": {
       "items": {
         "$ref": "#/definitions/Clip"
       },
-      "type": "array"
+      "type": "array",
+      "title": "Composition"
     },
     "CreateJobOutput": {
       "description": "The <code>CreateJobOutput</code> structure.",
@@ -358,14 +392,16 @@
           "description": "Information about the watermarks that you want Elastic Transcoder to add to the video during transcoding. You can specify up to four watermarks for each output. Settings for each watermark must be defined in the preset for the current output."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateJobOutput"
     },
     "CreateJobOutputs": {
       "items": {
         "$ref": "#/definitions/CreateJobOutput"
       },
       "maxItems": 30,
-      "type": "array"
+      "type": "array",
+      "title": "CreateJobOutputs"
     },
     "CreateJobPlaylist": {
       "description": "Information about the master playlist.",
@@ -391,14 +427,16 @@
           "description": "The DRM settings, if any, that you want Elastic Transcoder to apply to the output files associated with this playlist."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateJobPlaylist"
     },
     "CreateJobPlaylists": {
       "items": {
         "$ref": "#/definitions/CreateJobPlaylist"
       },
       "maxItems": 30,
-      "type": "array"
+      "type": "array",
+      "title": "CreateJobPlaylists"
     },
     "CreateJobRequest": {
       "description": "The <code>CreateJobRequest</code> structure.",
@@ -439,7 +477,8 @@
       "required": [
         "PipelineId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateJobRequest"
     },
     "CreateJobResponse": {
       "description": "The CreateJobResponse structure.",
@@ -449,7 +488,8 @@
           "description": "A section of the response body that provides information about the job that is created."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateJobResponse"
     },
     "CreatePipelineRequest": {
       "description": "The <code>CreatePipelineRequest</code> structure.",
@@ -492,7 +532,8 @@
         "InputBucket",
         "Role"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreatePipelineRequest"
     },
     "CreatePipelineResponse": {
       "description": "When you create a pipeline, Elastic Transcoder returns the values that you specified in the request.",
@@ -506,7 +547,8 @@
           "description": "<p>Elastic Transcoder returns a warning if the resources used by your pipeline are not in the same region as the pipeline.</p> <p>Using resources in the same region, such as your Amazon S3 buckets, Amazon SNS notification topics, and AWS KMS key, reduces processing time and prevents cross-regional charges.</p>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreatePipelineResponse"
     },
     "CreatePresetRequest": {
       "description": "The <code>CreatePresetRequest</code> structure.",
@@ -540,7 +582,8 @@
         "Name",
         "Container"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreatePresetRequest"
     },
     "CreatePresetResponse": {
       "description": "The <code>CreatePresetResponse</code> structure.",
@@ -554,32 +597,38 @@
           "description": "If the preset settings don't comply with the standards for the video codec but Elastic Transcoder created the preset, this message explains the reason the preset settings don't meet the standard. Elastic Transcoder created the preset because the settings might produce acceptable output."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreatePresetResponse"
     },
     "DeletePipelineRequest": {
       "description": "The <code>DeletePipelineRequest</code> structure.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DeletePipelineRequest"
     },
     "DeletePipelineResponse": {
       "description": "The <code>DeletePipelineResponse</code> structure.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DeletePipelineResponse"
     },
     "DeletePresetRequest": {
       "description": "The <code>DeletePresetRequest</code> structure.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DeletePresetRequest"
     },
     "DeletePresetResponse": {
       "description": "The <code>DeletePresetResponse</code> structure.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DeletePresetResponse"
     },
     "Description": {
       "maxLength": 255,
       "minLength": 0,
-      "type": "string"
+      "type": "string",
+      "title": "Description"
     },
     "DetectedProperties": {
       "description": "The detected properties of the input file. Elastic Transcoder identifies these values from the input file.",
@@ -605,15 +654,18 @@
           "description": "The detected width of the input file, in pixels."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DetectedProperties"
     },
     "Digits": {
       "pattern": "^\\d{1,5}$",
-      "type": "string"
+      "type": "string",
+      "title": "Digits"
     },
     "DigitsOrAuto": {
       "pattern": "(^auto$)|(^\\d{2,4}$)",
-      "type": "string"
+      "type": "string",
+      "title": "DigitsOrAuto"
     },
     "Encryption": {
       "description": "The encryption settings, if any, that are used for decrypting your input files or encrypting your output files. If your input file is encrypted, you must specify the mode that Elastic Transcoder uses to decrypt your file, otherwise you must specify the mode you want Elastic Transcoder to use to encrypt your output files.",
@@ -635,43 +687,52 @@
           "description": "<p>The specific server-side encryption mode that you want Elastic Transcoder to use when decrypting your input files or encrypting your output files. Elastic Transcoder supports the following options:</p> <ul> <li> <p> <b>S3:</b> Amazon S3 creates and manages the keys used for encrypting your files.</p> </li> <li> <p> <b>S3-AWS-KMS:</b> Amazon S3 calls the Amazon Key Management Service, which creates and manages the keys that are used for encrypting your files. If you specify <code>S3-AWS-KMS</code> and you don't want to use the default key, you must add the AWS-KMS key that you want to use to your pipeline.</p> </li> <li> <p> <b>AES-CBC-PKCS7:</b> A padded cipher-block mode of operation originally used for HLS files.</p> </li> <li> <p> <b>AES-CTR:</b> AES Counter Mode.</p> </li> <li> <p> <b>AES-GCM:</b> AES Galois Counter Mode, a mode of operation that is an authenticated encryption format, meaning that a file, key, or initialization vector that has been tampered with fails the decryption process.</p> </li> </ul> <p>For all three AES options, you must provide the following settings, which must be base64-encoded:</p> <ul> <li> <p> <b>Key</b> </p> </li> <li> <p> <b>Key MD5</b> </p> </li> <li> <p> <b>Initialization Vector</b> </p> </li> </ul> <important> <p>For the AES modes, your private encryption keys and your unencrypted data are never stored by AWS; therefore, it is important that you safely manage your encryption keys. If you lose them, you won't be able to unencrypt your data.</p> </important>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Encryption"
     },
     "EncryptionMode": {
       "pattern": "(^s3$)|(^s3-aws-kms$)|(^aes-cbc-pkcs7$)|(^aes-ctr$)|(^aes-gcm$)",
-      "type": "string"
+      "type": "string",
+      "title": "EncryptionMode"
     },
     "ExceptionMessages": {
       "items": {
         "$ref": "#/definitions/String"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ExceptionMessages"
     },
     "Filename": {
       "maxLength": 255,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "Filename"
     },
     "FixedGOP": {
       "pattern": "(^true$)|(^false$)",
-      "type": "string"
+      "type": "string",
+      "title": "FixedGOP"
     },
     "FloatString": {
       "pattern": "^\\d{1,5}(\\.\\d{0,5})?$",
-      "type": "string"
+      "type": "string",
+      "title": "FloatString"
     },
     "FrameRate": {
       "pattern": "(^auto$)|(^10$)|(^15$)|(^23.97$)|(^24$)|(^25$)|(^29.97$)|(^30$)|(^50$)|(^60$)",
-      "type": "string"
+      "type": "string",
+      "title": "FrameRate"
     },
     "Grantee": {
       "maxLength": 255,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "Grantee"
     },
     "GranteeType": {
       "pattern": "(^Canonical$)|(^Email$)|(^Group$)",
-      "type": "string"
+      "type": "string",
+      "title": "GranteeType"
     },
     "HlsContentProtection": {
       "description": "The HLS content protection settings, if any, that you want Elastic Transcoder to apply to your output files.",
@@ -701,23 +762,28 @@
           "description": "<p>The content protection method for your output. The only valid value is: <code>aes-128</code>.</p> <p>This value is written into the method attribute of the <code>EXT-X-KEY</code> metadata tag in the output playlist.</p>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "HlsContentProtection"
     },
     "HlsContentProtectionMethod": {
       "pattern": "(^aes-128$)",
-      "type": "string"
+      "type": "string",
+      "title": "HlsContentProtectionMethod"
     },
     "HorizontalAlign": {
       "pattern": "(^Left$)|(^Right$)|(^Center$)",
-      "type": "string"
+      "type": "string",
+      "title": "HorizontalAlign"
     },
     "Id": {
       "pattern": "^\\d{13}-\\w{6}$",
-      "type": "string"
+      "type": "string",
+      "title": "Id"
     },
     "IncompatibleVersionException": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "IncompatibleVersionException"
     },
     "InputCaptions": {
       "description": "The captions to be created, if any.",
@@ -731,16 +797,19 @@
           "description": "<p>A policy that determines how Elastic Transcoder handles the existence of multiple captions.</p> <ul> <li> <p> <b>MergeOverride:</b> Elastic Transcoder transcodes both embedded and sidecar captions into outputs. If captions for a language are embedded in the input file and also appear in a sidecar file, Elastic Transcoder uses the sidecar captions and ignores the embedded captions for that language.</p> </li> <li> <p> <b>MergeRetain:</b> Elastic Transcoder transcodes both embedded and sidecar captions into outputs. If captions for a language are embedded in the input file and also appear in a sidecar file, Elastic Transcoder uses the embedded captions and ignores the sidecar captions for that language. If <code>CaptionSources</code> is empty, Elastic Transcoder omits all sidecar captions from the output files.</p> </li> <li> <p> <b>Override:</b> Elastic Transcoder transcodes only the sidecar captions that you specify in <code>CaptionSources</code>.</p> </li> </ul> <p> <code>MergePolicy</code> cannot be null.</p>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InputCaptions"
     },
     "Interlaced": {
       "pattern": "(^auto$)|(^true$)|(^false$)",
-      "type": "string"
+      "type": "string",
+      "title": "Interlaced"
     },
     "InternalServiceException": {
       "description": "Elastic Transcoder encountered an unexpected exception while trying to fulfill the request.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "InternalServiceException"
     },
     "Job": {
       "description": "A section of the response body that provides information about the job that is created.",
@@ -794,7 +863,8 @@
           "description": "<p>User-defined metadata that you want to associate with an Elastic Transcoder job. You specify metadata in <code>key/value</code> pairs, and you can add up to 10 <code>key/value</code> pairs per job. Elastic Transcoder does not guarantee that <code>key/value</code> pairs are returned in the same order in which you specify them.</p> <p>Metadata <code>keys</code> and <code>values</code> must use characters from the following list:</p> <ul> <li> <p> <code>0-9</code> </p> </li> <li> <p> <code>A-Z</code> and <code>a-z</code> </p> </li> <li> <p> <code>Space</code> </p> </li> <li> <p>The following symbols: <code>_.:/=+-%@</code> </p> </li> </ul>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Job"
     },
     "JobAlbumArt": {
       "description": "The .jpg or .png file associated with an audio file.",
@@ -808,11 +878,13 @@
           "description": "<p>A policy that determines how Elastic Transcoder handles the existence of multiple album artwork files.</p> <ul> <li> <p> <code>Replace:</code> The specified album art replaces any existing album art.</p> </li> <li> <p> <code>Prepend:</code> The specified album art is placed in front of any existing album art.</p> </li> <li> <p> <code>Append:</code> The specified album art is placed after any existing album art.</p> </li> <li> <p> <code>Fallback:</code> If the original input file contains artwork, Elastic Transcoder uses that artwork for the output. If the original input does not contain artwork, Elastic Transcoder uses the specified album art file.</p> </li> </ul>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "JobAlbumArt"
     },
     "JobContainer": {
       "pattern": "(^auto$)|(^3gp$)|(^asf$)|(^avi$)|(^divx$)|(^flv$)|(^mkv$)|(^mov$)|(^mp4$)|(^mpeg$)|(^mpeg-ps$)|(^mpeg-ts$)|(^mxf$)|(^ogg$)|(^ts$)|(^vob$)|(^wav$)|(^webm$)|(^mp3$)|(^m4a$)|(^aac$)",
-      "type": "string"
+      "type": "string",
+      "title": "JobContainer"
     },
     "JobInput": {
       "description": "Information about the file that you're transcoding.",
@@ -858,14 +930,16 @@
           "description": "Settings for clipping an input. Each input can have different clip settings."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "JobInput"
     },
     "JobInputs": {
       "items": {
         "$ref": "#/definitions/JobInput"
       },
       "maxItems": 10000,
-      "type": "array"
+      "type": "array",
+      "title": "JobInputs"
     },
     "JobOutput": {
       "description": "<important> <p>Outputs recommended instead.</p> </important> <p>If you specified one output for a job, information about that output. If you specified multiple outputs for a job, the <code>Output</code> object lists information about the first output. This duplicates the information that is listed for the first output in the <code>Outputs</code> object.</p>",
@@ -955,17 +1029,20 @@
           "description": "Specifies the width of the output file in pixels."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "JobOutput"
     },
     "JobOutputs": {
       "items": {
         "$ref": "#/definitions/JobOutput"
       },
-      "type": "array"
+      "type": "array",
+      "title": "JobOutputs"
     },
     "JobStatus": {
       "pattern": "(^Submitted$)|(^Progressing$)|(^Complete$)|(^Canceled$)|(^Error$)",
-      "type": "string"
+      "type": "string",
+      "title": "JobStatus"
     },
     "JobWatermark": {
       "description": "Watermarks can be in .png or .jpg format. If you want to display a watermark that is not rectangular, use the .png format, which supports transparency.",
@@ -983,55 +1060,66 @@
           "description": "The ID of the watermark settings that Elastic Transcoder uses to add watermarks to the video during transcoding. The settings are in the preset specified by Preset for the current output. In that preset, the value of Watermarks Id tells Elastic Transcoder which settings to use."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "JobWatermark"
     },
     "JobWatermarks": {
       "items": {
         "$ref": "#/definitions/JobWatermark"
       },
-      "type": "array"
+      "type": "array",
+      "title": "JobWatermarks"
     },
     "Jobs": {
       "items": {
         "$ref": "#/definitions/Job"
       },
-      "type": "array"
+      "type": "array",
+      "title": "Jobs"
     },
     "JpgOrPng": {
       "pattern": "(^jpg$)|(^png$)",
-      "type": "string"
+      "type": "string",
+      "title": "JpgOrPng"
     },
     "Key": {
       "maxLength": 255,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "Key"
     },
     "KeyArn": {
       "maxLength": 255,
       "minLength": 0,
-      "type": "string"
+      "type": "string",
+      "title": "KeyArn"
     },
     "KeyIdGuid": {
       "pattern": "(^[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}$)|(^[0-9A-Fa-f]{32}$)",
-      "type": "string"
+      "type": "string",
+      "title": "KeyIdGuid"
     },
     "KeyStoragePolicy": {
       "pattern": "(^NoStore$)|(^WithVariantPlaylists$)",
-      "type": "string"
+      "type": "string",
+      "title": "KeyStoragePolicy"
     },
     "KeyframesMaxDist": {
       "pattern": "^\\d{1,6}$",
-      "type": "string"
+      "type": "string",
+      "title": "KeyframesMaxDist"
     },
     "LimitExceededException": {
       "description": "Too many operations for a given AWS account. For example, the number of pipelines exceeds the maximum allowed.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "LimitExceededException"
     },
     "ListJobsByPipelineRequest": {
       "description": "The <code>ListJobsByPipelineRequest</code> structure.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "ListJobsByPipelineRequest"
     },
     "ListJobsByPipelineResponse": {
       "description": "The <code>ListJobsByPipelineResponse</code> structure.",
@@ -1045,12 +1133,14 @@
           "description": " A value that you use to access the second and subsequent pages of results, if any. When the jobs in the specified pipeline fit on one page or when you've reached the last page of results, the value of <code>NextPageToken</code> is <code>null</code>. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListJobsByPipelineResponse"
     },
     "ListJobsByStatusRequest": {
       "description": "The <code>ListJobsByStatusRequest</code> structure.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "ListJobsByStatusRequest"
     },
     "ListJobsByStatusResponse": {
       "description": " The <code>ListJobsByStatusResponse</code> structure. ",
@@ -1064,12 +1154,14 @@
           "description": " A value that you use to access the second and subsequent pages of results, if any. When the jobs in the specified pipeline fit on one page or when you've reached the last page of results, the value of <code>NextPageToken</code> is <code>null</code>. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListJobsByStatusResponse"
     },
     "ListPipelinesRequest": {
       "description": "The <code>ListPipelineRequest</code> structure.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "ListPipelinesRequest"
     },
     "ListPipelinesResponse": {
       "description": "A list of the pipelines associated with the current AWS account.",
@@ -1083,12 +1175,14 @@
           "description": "An array of <code>Pipeline</code> objects."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListPipelinesResponse"
     },
     "ListPresetsRequest": {
       "description": "The <code>ListPresetsRequest</code> structure.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "ListPresetsRequest"
     },
     "ListPresetsResponse": {
       "description": "The <code>ListPresetsResponse</code> structure.",
@@ -1102,29 +1196,35 @@
           "description": "An array of <code>Preset</code> objects."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListPresetsResponse"
     },
     "LongKey": {
       "maxLength": 1024,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "LongKey"
     },
     "MaxFrameRate": {
       "pattern": "(^10$)|(^15$)|(^23.97$)|(^24$)|(^25$)|(^29.97$)|(^30$)|(^50$)|(^60$)",
-      "type": "string"
+      "type": "string",
+      "title": "MaxFrameRate"
     },
     "MergePolicy": {
       "pattern": "(^Replace$)|(^Prepend$)|(^Append$)|(^Fallback$)",
-      "type": "string"
+      "type": "string",
+      "title": "MergePolicy"
     },
     "Name": {
       "maxLength": 40,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "Name"
     },
     "NonEmptyBase64EncodedString": {
       "pattern": "(^(?:[A-Za-z0-9\\+/]{4})*(?:[A-Za-z0-9\\+/]{2}==|[A-Za-z0-9\\+/]{3}=)?$)",
-      "type": "string"
+      "type": "string",
+      "title": "NonEmptyBase64EncodedString"
     },
     "Notifications": {
       "description": "<p>The Amazon Simple Notification Service (Amazon SNS) topic or topics to notify in order to report job status.</p> <important> <p>To receive notifications, you must also subscribe to the new topic in the Amazon SNS console.</p> </important>",
@@ -1146,33 +1246,40 @@
           "description": "The Amazon SNS topic that you want to notify when Elastic Transcoder encounters a warning condition."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Notifications"
     },
     "NullableInteger": {
-      "type": "integer"
+      "type": "integer",
+      "title": "NullableInteger"
     },
     "NullableLong": {
-      "type": "integer"
+      "type": "integer",
+      "title": "NullableLong"
     },
     "OneTo512String": {
       "maxLength": 512,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "OneTo512String"
     },
     "Opacity": {
       "pattern": "^\\d{1,3}(\\.\\d{0,20})?$",
-      "type": "string"
+      "type": "string",
+      "title": "Opacity"
     },
     "OutputKeys": {
       "items": {
         "$ref": "#/definitions/Key"
       },
       "maxItems": 30,
-      "type": "array"
+      "type": "array",
+      "title": "OutputKeys"
     },
     "PaddingPolicy": {
       "pattern": "(^Pad$)|(^NoPad$)",
-      "type": "string"
+      "type": "string",
+      "title": "PaddingPolicy"
     },
     "Permission": {
       "description": "The <code>Permission</code> structure.",
@@ -1190,14 +1297,16 @@
           "description": "<p>The type of value that appears in the Grantee object:</p> <ul> <li> <p> <code>Canonical</code>: Either the canonical user ID for an AWS account or an origin access identity for an Amazon CloudFront distribution.</p> <important> <p>A canonical user ID is not the same as an AWS account number.</p> </important> </li> <li> <p> <code>Email</code>: The registered email address of an AWS account.</p> </li> <li> <p> <code>Group</code>: One of the following predefined Amazon S3 groups: <code>AllUsers</code>, <code>AuthenticatedUsers</code>, or <code>LogDelivery</code>.</p> </li> </ul>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Permission"
     },
     "Permissions": {
       "items": {
         "$ref": "#/definitions/Permission"
       },
       "maxItems": 30,
-      "type": "array"
+      "type": "array",
+      "title": "Permissions"
     },
     "Pipeline": {
       "description": "The pipeline (queue) that is used to manage jobs.",
@@ -1247,7 +1356,8 @@
           "description": "<p>Information about the Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files. Either you specify both <code>ContentConfig</code> and <code>ThumbnailConfig</code>, or you specify <code>OutputBucket</code>.</p> <ul> <li> <p> <code>Bucket</code>: The Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files. </p> </li> <li> <p> <code>Permissions</code>: A list of the users and/or predefined Amazon S3 groups you want to have access to thumbnail files, and the type of access that you want them to have. </p> <ul> <li> <p>GranteeType: The type of value that appears in the Grantee object:</p> <ul> <li> <p> <code>Canonical</code>: Either the canonical user ID for an AWS account or an origin access identity for an Amazon CloudFront distribution.</p> <important> <p>A canonical user ID is not the same as an AWS account number.</p> </important> </li> <li> <p> <code>Email</code>: The registered email address of an AWS account.</p> </li> <li> <p> <code>Group</code>: One of the following predefined Amazon S3 groups: <code>AllUsers</code>, <code>AuthenticatedUsers</code>, or <code>LogDelivery</code>.</p> </li> </ul> </li> <li> <p> <code>Grantee</code>: The AWS user or group that you want to have access to thumbnail files.</p> </li> <li> <p>Access: The permission that you want to give to the AWS user that is listed in Grantee. Valid values include: </p> <ul> <li> <p> <code>READ</code>: The grantee can read the thumbnails and metadata for thumbnails that Elastic Transcoder adds to the Amazon S3 bucket.</p> </li> <li> <p> <code>READ_ACP</code>: The grantee can read the object ACL for thumbnails that Elastic Transcoder adds to the Amazon S3 bucket.</p> </li> <li> <p> <code>WRITE_ACP</code>: The grantee can write the ACL for the thumbnails that Elastic Transcoder adds to the Amazon S3 bucket.</p> </li> <li> <p> <code>FULL_CONTROL</code>: The grantee has READ, READ_ACP, and WRITE_ACP permissions for the thumbnails that Elastic Transcoder adds to the Amazon S3 bucket.</p> </li> </ul> </li> </ul> </li> <li> <p> <code>StorageClass</code>: The Amazon S3 storage class, <code>Standard</code> or <code>ReducedRedundancy</code>, that you want Elastic Transcoder to assign to the thumbnails that it stores in your Amazon S3 bucket.</p> </li> </ul>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Pipeline"
     },
     "PipelineOutputConfig": {
       "description": "The <code>PipelineOutputConfig</code> structure.",
@@ -1265,21 +1375,25 @@
           "description": " The Amazon S3 storage class, <code>Standard</code> or <code>ReducedRedundancy</code>, that you want Elastic Transcoder to assign to the video files and playlists that it stores in your Amazon S3 bucket. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PipelineOutputConfig"
     },
     "PipelineStatus": {
       "pattern": "(^Active$)|(^Paused$)",
-      "type": "string"
+      "type": "string",
+      "title": "PipelineStatus"
     },
     "Pipelines": {
       "items": {
         "$ref": "#/definitions/Pipeline"
       },
-      "type": "array"
+      "type": "array",
+      "title": "Pipelines"
     },
     "PixelsOrPercent": {
       "pattern": "(^\\d{1,3}(\\.\\d{0,5})?%$)|(^\\d{1,4}?px$)",
-      "type": "string"
+      "type": "string",
+      "title": "PixelsOrPercent"
     },
     "PlayReadyDrm": {
       "description": "<p>The PlayReady DRM settings, if any, that you want Elastic Transcoder to apply to the output files associated with this playlist.</p> <p>PlayReady DRM encrypts your media files using <code>AES-CTR</code> encryption.</p> <p>If you use DRM for an <code>HLSv3</code> playlist, your outputs must have a master playlist.</p>",
@@ -1309,11 +1423,13 @@
           "description": "The location of the license key required to play DRM content. The URL must be an absolute path, and is referenced by the PlayReady header. The PlayReady header is referenced in the protection header of the client manifest for Smooth Streaming outputs, and in the EXT-X-DXDRM and EXT-XDXDRMINFO metadata tags for HLS playlist outputs. An example URL looks like this: <code>https://www.example.com/exampleKey/</code> "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PlayReadyDrm"
     },
     "PlayReadyDrmFormatString": {
       "pattern": "(^microsoft$)|(^discretix-3.0$)",
-      "type": "string"
+      "type": "string",
+      "title": "PlayReadyDrmFormatString"
     },
     "Playlist": {
       "description": " Use Only for Fragmented MP4 or MPEG-TS Outputs. If you specify a preset for which the value of Container is <code>fmp4</code> (Fragmented MP4) or <code>ts</code> (MPEG-TS), Playlists contains information about the master playlists that you want Elastic Transcoder to create. We recommend that you create only one master playlist per output format. The maximum number of master playlists in a job is 30. ",
@@ -1347,17 +1463,20 @@
           "description": "Information that further explains the status."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Playlist"
     },
     "PlaylistFormat": {
       "pattern": "(^HLSv3$)|(^HLSv4$)|(^Smooth$)|(^MPEG-DASH$)",
-      "type": "string"
+      "type": "string",
+      "title": "PlaylistFormat"
     },
     "Playlists": {
       "items": {
         "$ref": "#/definitions/Playlist"
       },
-      "type": "array"
+      "type": "array",
+      "title": "Playlists"
     },
     "Preset": {
       "description": "Presets are templates that contain most of the settings for transcoding media files from one format to another. Elastic Transcoder includes some default presets for common formats, for example, several iPod and iPhone versions. You can also create your own presets for formats that aren't included among the default presets. You specify which preset you want to use when you create a job.",
@@ -1399,15 +1518,18 @@
           "description": "A section of the response body that provides information about the video preset values."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Preset"
     },
     "PresetContainer": {
       "pattern": "(^mp4$)|(^ts$)|(^webm$)|(^mp3$)|(^flac$)|(^oga$)|(^ogg$)|(^fmp4$)|(^mpg$)|(^flv$)|(^gif$)|(^mxf$)|(^wav$)",
-      "type": "string"
+      "type": "string",
+      "title": "PresetContainer"
     },
     "PresetType": {
       "pattern": "(^System$)|(^Custom$)",
-      "type": "string"
+      "type": "string",
+      "title": "PresetType"
     },
     "PresetWatermark": {
       "description": "<p>Settings for the size, location, and opacity of graphics that you want Elastic Transcoder to overlay over videos that are transcoded using this preset. You can specify settings for up to four watermarks. Watermarks appear in the specified size and location, and with the specified opacity for the duration of the transcoded video.</p> <p>Watermarks can be in .png or .jpg format. If you want to display a watermark that is not rectangular, use the .png format, which supports transparency.</p> <p>When you create a job that uses this preset, you specify the .png or .jpg graphics that you want Elastic Transcoder to include in the transcoded videos. You can specify fewer graphics in the job than you specify watermark settings in the preset, which allows you to use the same preset for up to four watermarks that have different dimensions.</p>",
@@ -1453,29 +1575,34 @@
           "description": "<p> <code>VerticalOffset</code> </p> <p>The amount by which you want the vertical position of the watermark to be offset from the position specified by VerticalAlign:</p> <ul> <li> <p>number of pixels (px): The minimum value is 0 pixels, and the maximum value is the value of <code>MaxHeight</code>.</p> </li> <li> <p>integer percentage (%): The range of valid values is 0 to 100.</p> </li> </ul> <p>For example, if you specify <code>Top</code> for <code>VerticalAlign</code> and <code>5px</code> for <code>VerticalOffset</code>, the top of the watermark appears 5 pixels from the top border of the output video.</p> <p> <code>VerticalOffset</code> is only valid when the value of VerticalAlign is Top or Bottom.</p> <p>If you specify an offset that causes the watermark to extend beyond the top or bottom border and Elastic Transcoder has not added black bars, the watermark is cropped. If Elastic Transcoder has added black bars, the watermark extends into the black bars. If the watermark extends beyond the black bars, it is cropped.</p> <p>Use the value of <code>Target</code> to specify whether you want Elastic Transcoder to include the black bars that are added by Elastic Transcoder, if any, in the offset calculation.</p>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PresetWatermark"
     },
     "PresetWatermarkId": {
       "maxLength": 40,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "PresetWatermarkId"
     },
     "PresetWatermarks": {
       "items": {
         "$ref": "#/definitions/PresetWatermark"
       },
-      "type": "array"
+      "type": "array",
+      "title": "PresetWatermarks"
     },
     "Presets": {
       "items": {
         "$ref": "#/definitions/Preset"
       },
-      "type": "array"
+      "type": "array",
+      "title": "Presets"
     },
     "ReadJobRequest": {
       "description": "The <code>ReadJobRequest</code> structure.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "ReadJobRequest"
     },
     "ReadJobResponse": {
       "description": "The <code>ReadJobResponse</code> structure.",
@@ -1485,12 +1612,14 @@
           "description": "A section of the response body that provides information about the job."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ReadJobResponse"
     },
     "ReadPipelineRequest": {
       "description": "The <code>ReadPipelineRequest</code> structure.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "ReadPipelineRequest"
     },
     "ReadPipelineResponse": {
       "description": "The <code>ReadPipelineResponse</code> structure.",
@@ -1504,12 +1633,14 @@
           "description": "<p>Elastic Transcoder returns a warning if the resources used by your pipeline are not in the same region as the pipeline.</p> <p>Using resources in the same region, such as your Amazon S3 buckets, Amazon SNS notification topics, and AWS KMS key, reduces processing time and prevents cross-regional charges.</p>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ReadPipelineResponse"
     },
     "ReadPresetRequest": {
       "description": "The <code>ReadPresetRequest</code> structure.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "ReadPresetRequest"
     },
     "ReadPresetResponse": {
       "description": "The <code>ReadPresetResponse</code> structure.",
@@ -1519,59 +1650,72 @@
           "description": "A section of the response body that provides information about the preset."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ReadPresetResponse"
     },
     "Resolution": {
       "pattern": "(^auto$)|(^\\d{1,5}x\\d{1,5}$)",
-      "type": "string"
+      "type": "string",
+      "title": "Resolution"
     },
     "ResourceInUseException": {
       "description": "The resource you are attempting to change is in use. For example, you are attempting to delete a pipeline that is currently in use.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "ResourceInUseException"
     },
     "ResourceNotFoundException": {
       "description": "The requested resource does not exist or is not available. For example, the pipeline to which you're trying to add a job doesn't exist or is still being created.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "ResourceNotFoundException"
     },
     "Role": {
       "pattern": "^arn:aws:iam::\\w{12}:role/.+$",
-      "type": "string"
+      "type": "string",
+      "title": "Role"
     },
     "Rotate": {
       "pattern": "(^auto$)|(^0$)|(^90$)|(^180$)|(^270$)",
-      "type": "string"
+      "type": "string",
+      "title": "Rotate"
     },
     "SizingPolicy": {
       "pattern": "(^Fit$)|(^Fill$)|(^Stretch$)|(^Keep$)|(^ShrinkToFit$)|(^ShrinkToFill$)",
-      "type": "string"
+      "type": "string",
+      "title": "SizingPolicy"
     },
     "SnsTopic": {
       "pattern": "(^$)|(^arn:aws:sns:.*:\\w{12}:.+$)",
-      "type": "string"
+      "type": "string",
+      "title": "SnsTopic"
     },
     "SnsTopics": {
       "items": {
         "$ref": "#/definitions/SnsTopic"
       },
       "maxItems": 30,
-      "type": "array"
+      "type": "array",
+      "title": "SnsTopics"
     },
     "StorageClass": {
       "pattern": "(^ReducedRedundancy$)|(^Standard$)",
-      "type": "string"
+      "type": "string",
+      "title": "StorageClass"
     },
     "String": {
-      "type": "string"
+      "type": "string",
+      "title": "String"
     },
     "Success": {
       "pattern": "(^true$)|(^false$)",
-      "type": "string"
+      "type": "string",
+      "title": "Success"
     },
     "Target": {
       "pattern": "(^Content$)|(^Frame$)",
-      "type": "string"
+      "type": "string",
+      "title": "Target"
     },
     "TestRoleRequest": {
       "description": " The <code>TestRoleRequest</code> structure. ",
@@ -1599,7 +1743,8 @@
         "OutputBucket",
         "Topics"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "TestRoleRequest"
     },
     "TestRoleResponse": {
       "description": "The <code>TestRoleResponse</code> structure.",
@@ -1613,15 +1758,18 @@
           "description": "If the operation is successful, this value is <code>true</code>; otherwise, the value is <code>false</code>."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TestRoleResponse"
     },
     "ThumbnailPattern": {
       "pattern": "(^$)|(^.*\\{count\\}.*$)",
-      "type": "string"
+      "type": "string",
+      "title": "ThumbnailPattern"
     },
     "ThumbnailResolution": {
       "pattern": "^\\d{1,5}x\\d{1,5}$",
-      "type": "string"
+      "type": "string",
+      "title": "ThumbnailResolution"
     },
     "Thumbnails": {
       "description": "Thumbnails for videos.",
@@ -1659,15 +1807,18 @@
           "description": "<p>Specify one of the following values to control scaling of thumbnails:</p> <ul> <li> <p> <code>Fit</code>: Elastic Transcoder scales thumbnails so they match the value that you specified in thumbnail MaxWidth or MaxHeight settings without exceeding the other value. </p> </li> <li> <p> <code>Fill</code>: Elastic Transcoder scales thumbnails so they match the value that you specified in thumbnail <code>MaxWidth</code> or <code>MaxHeight</code> settings and matches or exceeds the other value. Elastic Transcoder centers the image in thumbnails and then crops in the dimension (if any) that exceeds the maximum value.</p> </li> <li> <p> <code>Stretch</code>: Elastic Transcoder stretches thumbnails to match the values that you specified for thumbnail <code>MaxWidth</code> and <code>MaxHeight</code> settings. If the relative proportions of the input video and thumbnails are different, the thumbnails will be distorted.</p> </li> <li> <p> <code>Keep</code>: Elastic Transcoder does not scale thumbnails. If either dimension of the input video exceeds the values that you specified for thumbnail <code>MaxWidth</code> and <code>MaxHeight</code> settings, Elastic Transcoder crops the thumbnails.</p> </li> <li> <p> <code>ShrinkToFit</code>: Elastic Transcoder scales thumbnails down so that their dimensions match the values that you specified for at least one of thumbnail <code>MaxWidth</code> and <code>MaxHeight</code> without exceeding either value. If you specify this option, Elastic Transcoder does not scale thumbnails up.</p> </li> <li> <p> <code>ShrinkToFill</code>: Elastic Transcoder scales thumbnails down so that their dimensions match the values that you specified for at least one of <code>MaxWidth</code> and <code>MaxHeight</code> without dropping below either value. If you specify this option, Elastic Transcoder does not scale thumbnails up.</p> </li> </ul>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Thumbnails"
     },
     "Time": {
       "pattern": "(^\\d{1,5}(\\.\\d{0,3})?$)|(^([0-1]?[0-9]:|2[0-3]:)?([0-5]?[0-9]:)?[0-5]?[0-9](\\.\\d{0,3})?$)",
-      "type": "string"
+      "type": "string",
+      "title": "Time"
     },
     "TimeOffset": {
       "pattern": "(^[+-]?\\d{1,5}(\\.\\d{0,3})?$)|(^[+-]?([0-1]?[0-9]:|2[0-3]:)?([0-5]?[0-9]:)?[0-5]?[0-9](\\.\\d{0,3})?$)",
-      "type": "string"
+      "type": "string",
+      "title": "TimeOffset"
     },
     "TimeSpan": {
       "description": "Settings that determine when a clip begins and how long it lasts.",
@@ -1681,7 +1832,8 @@
           "description": "The place in the input file where you want a clip to start. The format can be either HH:mm:ss.SSS (maximum value: 23:59:59.999; SSS is thousandths of a second) or sssss.SSS (maximum value: 86399.999). If you don't specify a value, Elastic Transcoder starts at the beginning of the input file."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TimeSpan"
     },
     "Timing": {
       "description": "Details about the timing of a job.",
@@ -1699,7 +1851,8 @@
           "description": "The time the job was submitted to Elastic Transcoder, in epoch milliseconds."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Timing"
     },
     "UpdatePipelineNotificationsRequest": {
       "description": "The <code>UpdatePipelineNotificationsRequest</code> structure.",
@@ -1712,7 +1865,8 @@
       "required": [
         "Notifications"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdatePipelineNotificationsRequest"
     },
     "UpdatePipelineNotificationsResponse": {
       "description": "The <code>UpdatePipelineNotificationsResponse</code> structure.",
@@ -1722,7 +1876,8 @@
           "description": "A section of the response body that provides information about the pipeline associated with this notification."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UpdatePipelineNotificationsResponse"
     },
     "UpdatePipelineRequest": {
       "description": "The <code>UpdatePipelineRequest</code> structure.",
@@ -1756,7 +1911,8 @@
           "description": "<p>The <code>ThumbnailConfig</code> object specifies several values, including the Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files, which users you want to have access to the files, the type of access you want users to have, and the storage class that you want to assign to the files.</p> <p>If you specify values for <code>ContentConfig</code>, you must also specify values for <code>ThumbnailConfig</code> even if you don't want to create thumbnails.</p> <p>If you specify values for <code>ContentConfig</code> and <code>ThumbnailConfig</code>, omit the <code>OutputBucket</code> object.</p> <ul> <li> <p> <b>Bucket</b>: The Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files.</p> </li> <li> <p> <b>Permissions</b> (Optional): The <code>Permissions</code> object specifies which users and/or predefined Amazon S3 groups you want to have access to thumbnail files, and the type of access you want them to have. You can grant permissions to a maximum of 30 users and/or predefined Amazon S3 groups.</p> </li> <li> <p> <b>GranteeType</b>: Specify the type of value that appears in the Grantee object:</p> <ul> <li> <p> <b>Canonical</b>: The value in the <code>Grantee</code> object is either the canonical user ID for an AWS account or an origin access identity for an Amazon CloudFront distribution.</p> <important> <p>A canonical user ID is not the same as an AWS account number.</p> </important> </li> <li> <p> <b>Email</b>: The value in the <code>Grantee</code> object is the registered email address of an AWS account.</p> </li> <li> <p> <b>Group</b>: The value in the <code>Grantee</code> object is one of the following predefined Amazon S3 groups: <code>AllUsers</code>, <code>AuthenticatedUsers</code>, or <code>LogDelivery</code>.</p> </li> </ul> </li> <li> <p> <b>Grantee</b>: The AWS user or group that you want to have access to thumbnail files. To identify the user or group, you can specify the canonical user ID for an AWS account, an origin access identity for a CloudFront distribution, the registered email address of an AWS account, or a predefined Amazon S3 group. </p> </li> <li> <p> <b>Access</b>: The permission that you want to give to the AWS user that you specified in <code>Grantee</code>. Permissions are granted on the thumbnail files that Elastic Transcoder adds to the bucket. Valid values include: </p> <ul> <li> <p> <code>READ</code>: The grantee can read the thumbnails and metadata for objects that Elastic Transcoder adds to the Amazon S3 bucket.</p> </li> <li> <p> <code>READ_ACP</code>: The grantee can read the object ACL for thumbnails that Elastic Transcoder adds to the Amazon S3 bucket.</p> </li> <li> <p> <code>WRITE_ACP</code>: The grantee can write the ACL for the thumbnails that Elastic Transcoder adds to the Amazon S3 bucket.</p> </li> <li> <p> <code>FULL_CONTROL</code>: The grantee has <code>READ</code>, <code>READ_ACP</code>, and <code>WRITE_ACP</code> permissions for the thumbnails that Elastic Transcoder adds to the Amazon S3 bucket. </p> </li> </ul> </li> <li> <p> <b>StorageClass</b>: The Amazon S3 storage class, <code>Standard</code> or <code>ReducedRedundancy</code>, that you want Elastic Transcoder to assign to the thumbnails that it stores in your Amazon S3 bucket.</p> </li> </ul>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UpdatePipelineRequest"
     },
     "UpdatePipelineResponse": {
       "description": "When you update a pipeline, Elastic Transcoder returns the values that you specified in the request.",
@@ -1770,7 +1926,8 @@
           "description": "<p>Elastic Transcoder returns a warning if the resources used by your pipeline are not in the same region as the pipeline.</p> <p>Using resources in the same region, such as your Amazon S3 buckets, Amazon SNS notification topics, and AWS KMS key, reduces processing time and prevents cross-regional charges.</p>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UpdatePipelineResponse"
     },
     "UpdatePipelineStatusRequest": {
       "description": "The <code>UpdatePipelineStatusRequest</code> structure.",
@@ -1783,7 +1940,8 @@
       "required": [
         "Status"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdatePipelineStatusRequest"
     },
     "UpdatePipelineStatusResponse": {
       "description": "When you update status for a pipeline, Elastic Transcoder returns the values that you specified in the request.",
@@ -1793,7 +1951,8 @@
           "description": "A section of the response body that provides information about the pipeline."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UpdatePipelineStatusResponse"
     },
     "UserMetadata": {
       "items": {
@@ -1807,24 +1966,29 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "UserMetadata"
     },
     "ValidationException": {
       "description": "One or more required parameter values were not provided in the request.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "ValidationException"
     },
     "VerticalAlign": {
       "pattern": "(^Top$)|(^Bottom$)|(^Center$)",
-      "type": "string"
+      "type": "string",
+      "title": "VerticalAlign"
     },
     "VideoBitRate": {
       "pattern": "(^\\d{2,5}$)|(^auto$)",
-      "type": "string"
+      "type": "string",
+      "title": "VideoBitRate"
     },
     "VideoCodec": {
       "pattern": "(^H\\.264$)|(^vp8$)|(^vp9$)|(^mpeg2$)|(^gif$)",
-      "type": "string"
+      "type": "string",
+      "title": "VideoCodec"
     },
     "VideoParameters": {
       "description": "The <code>VideoParameters</code> structure.",
@@ -1890,7 +2054,8 @@
           "description": "<p>Settings for the size, location, and opacity of graphics that you want Elastic Transcoder to overlay over videos that are transcoded using this preset. You can specify settings for up to four watermarks. Watermarks appear in the specified size and location, and with the specified opacity for the duration of the transcoded video.</p> <p>Watermarks can be in .png or .jpg format. If you want to display a watermark that is not rectangular, use the .png format, which supports transparency.</p> <p>When you create a job that uses this preset, you specify the .png or .jpg graphics that you want Elastic Transcoder to include in the transcoded videos. You can specify fewer graphics in the job than you specify watermark settings in the preset, which allows you to use the same preset for up to four watermarks that have different dimensions.</p>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "VideoParameters"
     },
     "Warning": {
       "description": "<p>Elastic Transcoder returns a warning if the resources used by your pipeline are not in the same region as the pipeline.</p> <p>Using resources in the same region, such as your Amazon S3 buckets, Amazon SNS notification topics, and AWS KMS key, reduces processing time and prevents cross-regional charges.</p>",
@@ -1904,33 +2069,39 @@
           "description": "<p>The message explaining what resources are in a different region from the pipeline.</p> <note> <p>AWS KMS keys must be in the same region as the pipeline.</p> </note>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Warning"
     },
     "Warnings": {
       "items": {
         "$ref": "#/definitions/Warning"
       },
-      "type": "array"
+      "type": "array",
+      "title": "Warnings"
     },
     "WatermarkKey": {
       "maxLength": 1024,
       "minLength": 1,
       "pattern": "(^.{1,1020}.jpg$)|(^.{1,1019}.jpeg$)|(^.{1,1020}.png$)",
-      "type": "string"
+      "type": "string",
+      "title": "WatermarkKey"
     },
     "WatermarkSizingPolicy": {
       "pattern": "(^Fit$)|(^Stretch$)|(^ShrinkToFit$)",
-      "type": "string"
+      "type": "string",
+      "title": "WatermarkSizingPolicy"
     },
     "ZeroTo255String": {
       "maxLength": 255,
       "minLength": 0,
-      "type": "string"
+      "type": "string",
+      "title": "ZeroTo255String"
     },
     "ZeroTo512String": {
       "maxLength": 512,
       "minLength": 0,
-      "type": "string"
+      "type": "string",
+      "title": "ZeroTo512String"
     }
   },
   "actions": [

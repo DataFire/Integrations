@@ -19,7 +19,8 @@
           "type": "number"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LatLng"
     },
     "Response": {
       "properties": {
@@ -127,7 +128,8 @@
         "total_results": {
           "type": "integer"
         }
-      }
+      },
+      "title": "Response"
     }
   },
   "actions": [

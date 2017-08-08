@@ -91,7 +91,8 @@
         "type",
         "stationnumber"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "disruption"
     },
     "facility": {
       "description": "Currently a facility provided by this API is either a public elevator or escalator in a german railway station operated by Station&Service AG.",
@@ -143,7 +144,8 @@
         "state",
         "stationnumber"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "facility"
     },
     "point": {
       "description": "Representation of a geographical point in GeoJSON format",
@@ -167,7 +169,8 @@
         "type",
         "coordinates"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "point"
     },
     "station": {
       "properties": {
@@ -191,7 +194,8 @@
         "stationnumber",
         "name"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "station"
     }
   },
   "actions": [

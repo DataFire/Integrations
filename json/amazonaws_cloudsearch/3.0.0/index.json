@@ -18,11 +18,13 @@
   "definitions": {
     "APIVersion": {
       "description": "The Amazon CloudSearch API version for a domain: 2011-02-01 or 2013-01-01.",
-      "type": "string"
+      "type": "string",
+      "title": "APIVersion"
     },
     "ARN": {
       "description": "The Amazon Resource Name (ARN) of the search domain. See <a href=\"http://docs.aws.amazon.com/IAM/latest/UserGuide/index.html?Using_Identifiers.html\" target=\"_blank\">Identifiers for IAM Entities</a> in <i>Using AWS Identity and Access Management</i> for more information.",
-      "type": "string"
+      "type": "string",
+      "title": "ARN"
     },
     "AccessPoliciesStatus": {
       "description": "The configured access rules for the domain's document and search endpoints, and the current status of those rules.",
@@ -38,7 +40,8 @@
         "Options",
         "Status"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AccessPoliciesStatus"
     },
     "AlgorithmicStemming": {
       "enum": [
@@ -47,7 +50,8 @@
         "light",
         "full"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "AlgorithmicStemming"
     },
     "AnalysisOptions": {
       "description": "Synonyms, stopwords, and stemming options for an analysis scheme. Includes tokenization dictionary for Japanese.",
@@ -73,7 +77,8 @@
           "description": "A JSON object that defines synonym groups and aliases. A synonym group is an array of arrays, where each sub-array is a group of terms where each term in the group is considered a synonym of every other term in the group. The aliases value is an object that contains a collection of string:value pairs where the string specifies a term and the array of values specifies each of the aliases for that term. An alias is considered a synonym of the specified term, but the term is not considered a synonym of the alias. For more information about specifying synonyms, see <a href=\"http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-analysis-schemes.html#synonyms\">Synonyms</a> in the <i>Amazon CloudSearch Developer Guide</i>."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AnalysisOptions"
     },
     "AnalysisScheme": {
       "description": "Configuration information for an analysis scheme. Each analysis scheme has a unique name and specifies the language of the text to be processed. The following options can be configured for an analysis scheme: <code>Synonyms</code>, <code>Stopwords</code>, <code>StemmingDictionary</code>, <code>JapaneseTokenizationDictionary</code> and <code>AlgorithmicStemming</code>.",
@@ -92,7 +97,8 @@
         "AnalysisSchemeName",
         "AnalysisSchemeLanguage"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AnalysisScheme"
     },
     "AnalysisSchemeLanguage": {
       "description": "An <a href=\"http://tools.ietf.org/html/rfc4646\" target=\"_blank\">IETF RFC 4646</a> language code or <code>mul</code> for multiple languages.",
@@ -133,7 +139,8 @@
         "zh-Hans",
         "zh-Hant"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "AnalysisSchemeLanguage"
     },
     "AnalysisSchemeStatus": {
       "description": "The status and configuration of an <code>AnalysisScheme</code>.",
@@ -149,14 +156,16 @@
         "Options",
         "Status"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AnalysisSchemeStatus"
     },
     "AnalysisSchemeStatusList": {
       "description": "A list of the analysis schemes configured for a domain.",
       "items": {
         "$ref": "#/definitions/AnalysisSchemeStatus"
       },
-      "type": "array"
+      "type": "array",
+      "title": "AnalysisSchemeStatusList"
     },
     "AvailabilityOptionsStatus": {
       "description": "The status and configuration of the domain's availability options.",
@@ -173,7 +182,8 @@
         "Options",
         "Status"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AvailabilityOptionsStatus"
     },
     "BaseException": {
       "description": "An error occurred while processing the request.",
@@ -185,10 +195,12 @@
           "$ref": "#/definitions/ErrorMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BaseException"
     },
     "Boolean": {
-      "type": "boolean"
+      "type": "boolean",
+      "title": "Boolean"
     },
     "BuildSuggestersRequest": {
       "description": "Container for the parameters to the <code><a>BuildSuggester</a></code> operation. Specifies the name of the domain you want to update.",
@@ -200,7 +212,8 @@
       "required": [
         "DomainName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "BuildSuggestersRequest"
     },
     "BuildSuggestersResponse": {
       "description": "The result of a <code>BuildSuggester</code> request. Contains a list of the fields used for suggestions.",
@@ -209,7 +222,8 @@
           "$ref": "#/definitions/FieldNameList"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BuildSuggestersResponse"
     },
     "CreateDomainRequest": {
       "description": "Container for the parameters to the <code><a>CreateDomain</a></code> operation. Specifies a name for the new search domain.",
@@ -222,7 +236,8 @@
       "required": [
         "DomainName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateDomainRequest"
     },
     "CreateDomainResponse": {
       "description": "The result of a <code>CreateDomainRequest</code>. Contains the status of a newly created domain.",
@@ -231,7 +246,8 @@
           "$ref": "#/definitions/DomainStatus"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateDomainResponse"
     },
     "DateArrayOptions": {
       "description": "Options for a field that contains an array of dates. Present if <code>IndexFieldType</code> specifies the field is of type <code>date-array</code>. All options are enabled by default.",
@@ -257,7 +273,8 @@
           "description": "A list of source fields to map to the field. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DateArrayOptions"
     },
     "DateOptions": {
       "description": "Options for a date field. Dates and times are specified in UTC (Coordinated Universal Time) according to IETF RFC3339: yyyy-mm-ddT00:00:00Z. Present if <code>IndexFieldType</code> specifies the field is of type <code>date</code>. All options are enabled by default.",
@@ -286,7 +303,8 @@
           "$ref": "#/definitions/FieldName"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DateOptions"
     },
     "DefineAnalysisSchemeRequest": {
       "description": "Container for the parameters to the <code><a>DefineAnalysisScheme</a></code> operation. Specifies the name of the domain you want to update and the analysis scheme configuration.",
@@ -302,7 +320,8 @@
         "DomainName",
         "AnalysisScheme"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DefineAnalysisSchemeRequest"
     },
     "DefineAnalysisSchemeResponse": {
       "description": "The result of a <code><a>DefineAnalysisScheme</a></code> request. Contains the status of the newly-configured analysis scheme.",
@@ -314,7 +333,8 @@
       "required": [
         "AnalysisScheme"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DefineAnalysisSchemeResponse"
     },
     "DefineExpressionRequest": {
       "description": "Container for the parameters to the <code><a>DefineExpression</a></code> operation. Specifies the name of the domain you want to update and the expression you want to configure.",
@@ -330,7 +350,8 @@
         "DomainName",
         "Expression"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DefineExpressionRequest"
     },
     "DefineExpressionResponse": {
       "description": "The result of a <code>DefineExpression</code> request. Contains the status of the newly-configured expression.",
@@ -342,7 +363,8 @@
       "required": [
         "Expression"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DefineExpressionResponse"
     },
     "DefineIndexFieldRequest": {
       "description": "Container for the parameters to the <code><a>DefineIndexField</a></code> operation. Specifies the name of the domain you want to update and the index field configuration.",
@@ -359,7 +381,8 @@
         "DomainName",
         "IndexField"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DefineIndexFieldRequest"
     },
     "DefineIndexFieldResponse": {
       "description": "The result of a <code><a>DefineIndexField</a></code> request. Contains the status of the newly-configured index field.",
@@ -371,7 +394,8 @@
       "required": [
         "IndexField"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DefineIndexFieldResponse"
     },
     "DefineSuggesterRequest": {
       "description": "Container for the parameters to the <code><a>DefineSuggester</a></code> operation. Specifies the name of the domain you want to update and the suggester configuration.",
@@ -387,7 +411,8 @@
         "DomainName",
         "Suggester"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DefineSuggesterRequest"
     },
     "DefineSuggesterResponse": {
       "description": "The result of a <code>DefineSuggester</code> request. Contains the status of the newly-configured suggester.",
@@ -399,7 +424,8 @@
       "required": [
         "Suggester"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DefineSuggesterResponse"
     },
     "DeleteAnalysisSchemeRequest": {
       "description": "Container for the parameters to the <code><a>DeleteAnalysisScheme</a></code> operation. Specifies the name of the domain you want to update and the analysis scheme you want to delete. ",
@@ -416,7 +442,8 @@
         "DomainName",
         "AnalysisSchemeName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteAnalysisSchemeRequest"
     },
     "DeleteAnalysisSchemeResponse": {
       "description": "The result of a <code>DeleteAnalysisScheme</code> request. Contains the status of the deleted analysis scheme.",
@@ -429,7 +456,8 @@
       "required": [
         "AnalysisScheme"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteAnalysisSchemeResponse"
     },
     "DeleteDomainRequest": {
       "description": "Container for the parameters to the <code><a>DeleteDomain</a></code> operation. Specifies the name of the domain you want to delete.",
@@ -442,7 +470,8 @@
       "required": [
         "DomainName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteDomainRequest"
     },
     "DeleteDomainResponse": {
       "description": "The result of a <code>DeleteDomain</code> request. Contains the status of a newly deleted domain, or no status if the domain has already been completely deleted.",
@@ -451,7 +480,8 @@
           "$ref": "#/definitions/DomainStatus"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DeleteDomainResponse"
     },
     "DeleteExpressionRequest": {
       "description": "Container for the parameters to the <code><a>DeleteExpression</a></code> operation. Specifies the name of the domain you want to update and the name of the expression you want to delete.",
@@ -468,7 +498,8 @@
         "DomainName",
         "ExpressionName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteExpressionRequest"
     },
     "DeleteExpressionResponse": {
       "description": "The result of a <code><a>DeleteExpression</a></code> request. Specifies the expression being deleted.",
@@ -481,7 +512,8 @@
       "required": [
         "Expression"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteExpressionResponse"
     },
     "DeleteIndexFieldRequest": {
       "description": "Container for the parameters to the <code><a>DeleteIndexField</a></code> operation. Specifies the name of the domain you want to update and the name of the index field you want to delete.",
@@ -498,7 +530,8 @@
         "DomainName",
         "IndexFieldName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteIndexFieldRequest"
     },
     "DeleteIndexFieldResponse": {
       "description": "The result of a <code><a>DeleteIndexField</a></code> request.",
@@ -511,7 +544,8 @@
       "required": [
         "IndexField"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteIndexFieldResponse"
     },
     "DeleteSuggesterRequest": {
       "description": "Container for the parameters to the <code><a>DeleteSuggester</a></code> operation. Specifies the name of the domain you want to update and name of the suggester you want to delete.",
@@ -528,7 +562,8 @@
         "DomainName",
         "SuggesterName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteSuggesterRequest"
     },
     "DeleteSuggesterResponse": {
       "description": "The result of a <code>DeleteSuggester</code> request. Contains the status of the deleted suggester.",
@@ -541,7 +576,8 @@
       "required": [
         "Suggester"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteSuggesterResponse"
     },
     "DescribeAnalysisSchemesRequest": {
       "description": "Container for the parameters to the <code><a>DescribeAnalysisSchemes</a></code> operation. Specifies the name of the domain you want to describe. To limit the response to particular analysis schemes, specify the names of the analysis schemes you want to describe. To show the active configuration and exclude any pending changes, set the <code>Deployed</code> option to <code>true</code>. ",
@@ -562,7 +598,8 @@
       "required": [
         "DomainName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeAnalysisSchemesRequest"
     },
     "DescribeAnalysisSchemesResponse": {
       "description": "The result of a <code>DescribeAnalysisSchemes</code> request. Contains the analysis schemes configured for the domain specified in the request.",
@@ -575,7 +612,8 @@
       "required": [
         "AnalysisSchemes"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeAnalysisSchemesResponse"
     },
     "DescribeAvailabilityOptionsRequest": {
       "description": "Container for the parameters to the <code><a>DescribeAvailabilityOptions</a></code> operation. Specifies the name of the domain you want to describe. To show the active configuration and exclude any pending changes, set the Deployed option to <code>true</code>.",
@@ -592,7 +630,8 @@
       "required": [
         "DomainName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeAvailabilityOptionsRequest"
     },
     "DescribeAvailabilityOptionsResponse": {
       "description": "The result of a <code>DescribeAvailabilityOptions</code> request. Indicates whether or not the Multi-AZ option is enabled for the domain specified in the request. ",
@@ -602,7 +641,8 @@
           "description": "The availability options configured for the domain. Indicates whether Multi-AZ is enabled for the domain. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeAvailabilityOptionsResponse"
     },
     "DescribeDomainsRequest": {
       "description": "Container for the parameters to the <code><a>DescribeDomains</a></code> operation. By default shows the status of all domains. To restrict the response to particular domains, specify the names of the domains you want to describe.",
@@ -612,7 +652,8 @@
           "description": "The names of the domains you want to include in the response."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeDomainsRequest"
     },
     "DescribeDomainsResponse": {
       "description": "The result of a <code>DescribeDomains</code> request. Contains the status of the domains specified in the request or all domains owned by the account.",
@@ -624,7 +665,8 @@
       "required": [
         "DomainStatusList"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeDomainsResponse"
     },
     "DescribeExpressionsRequest": {
       "description": "Container for the parameters to the <code><a>DescribeDomains</a></code> operation. Specifies the name of the domain you want to describe. To restrict the response to particular expressions, specify the names of the expressions you want to describe. To show the active configuration and exclude any pending changes, set the <code>Deployed</code> option to <code>true</code>.",
@@ -645,7 +687,8 @@
       "required": [
         "DomainName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeExpressionsRequest"
     },
     "DescribeExpressionsResponse": {
       "description": "The result of a <code>DescribeExpressions</code> request. Contains the expressions configured for the domain specified in the request.",
@@ -658,7 +701,8 @@
       "required": [
         "Expressions"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeExpressionsResponse"
     },
     "DescribeIndexFieldsRequest": {
       "description": "Container for the parameters to the <code><a>DescribeIndexFields</a></code> operation. Specifies the name of the domain you want to describe. To restrict the response to particular index fields, specify the names of the index fields you want to describe. To show the active configuration and exclude any pending changes, set the <code>Deployed</code> option to <code>true</code>.",
@@ -679,7 +723,8 @@
       "required": [
         "DomainName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeIndexFieldsRequest"
     },
     "DescribeIndexFieldsResponse": {
       "description": "The result of a <code>DescribeIndexFields</code> request. Contains the index fields configured for the domain specified in the request.",
@@ -692,7 +737,8 @@
       "required": [
         "IndexFields"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeIndexFieldsResponse"
     },
     "DescribeScalingParametersRequest": {
       "description": "Container for the parameters to the <code><a>DescribeScalingParameters</a></code> operation. Specifies the name of the domain you want to describe. ",
@@ -704,7 +750,8 @@
       "required": [
         "DomainName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeScalingParametersRequest"
     },
     "DescribeScalingParametersResponse": {
       "description": "The result of a <code>DescribeScalingParameters</code> request. Contains the scaling parameters configured for the domain specified in the request.",
@@ -716,7 +763,8 @@
       "required": [
         "ScalingParameters"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeScalingParametersResponse"
     },
     "DescribeServiceAccessPoliciesRequest": {
       "description": "Container for the parameters to the <code><a>DescribeServiceAccessPolicies</a></code> operation. Specifies the name of the domain you want to describe. To show the active configuration and exclude any pending changes, set the <code>Deployed</code> option to <code>true</code>.",
@@ -733,7 +781,8 @@
       "required": [
         "DomainName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeServiceAccessPoliciesRequest"
     },
     "DescribeServiceAccessPoliciesResponse": {
       "description": "The result of a <code>DescribeServiceAccessPolicies</code> request.",
@@ -746,7 +795,8 @@
       "required": [
         "AccessPolicies"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeServiceAccessPoliciesResponse"
     },
     "DescribeSuggestersRequest": {
       "description": "Container for the parameters to the <code><a>DescribeSuggester</a></code> operation. Specifies the name of the domain you want to describe. To restrict the response to particular suggesters, specify the names of the suggesters you want to describe. To show the active configuration and exclude any pending changes, set the <code>Deployed</code> option to <code>true</code>.",
@@ -767,7 +817,8 @@
       "required": [
         "DomainName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeSuggestersRequest"
     },
     "DescribeSuggestersResponse": {
       "description": "The result of a <code>DescribeSuggesters</code> request.",
@@ -780,12 +831,14 @@
       "required": [
         "Suggesters"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeSuggestersResponse"
     },
     "DisabledOperationException": {
       "description": "The request was rejected because it attempted an operation which is not enabled.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DisabledOperationException"
     },
     "DocumentSuggesterOptions": {
       "description": "Options for a search suggester.",
@@ -806,27 +859,31 @@
       "required": [
         "SourceField"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DocumentSuggesterOptions"
     },
     "DomainId": {
       "description": "An internally generated unique identifier for a domain.",
       "maxLength": 64,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "DomainId"
     },
     "DomainName": {
       "description": "A string that represents the name of a domain. Domain names are unique across the domains owned by an account within an AWS region. Domain names start with a letter or number and can contain the following characters: a-z (lowercase), 0-9, and - (hyphen).",
       "maxLength": 28,
       "minLength": 3,
       "pattern": "[a-z][a-z0-9\\-]+",
-      "type": "string"
+      "type": "string",
+      "title": "DomainName"
     },
     "DomainNameList": {
       "description": "A list of domain names.",
       "items": {
         "$ref": "#/definitions/DomainName"
       },
-      "type": "array"
+      "type": "array",
+      "title": "DomainNameList"
     },
     "DomainNameMap": {
       "description": "A collection of domain names.",
@@ -841,7 +898,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "DomainNameMap"
     },
     "DomainStatus": {
       "description": "The current status of the search domain.",
@@ -900,18 +958,21 @@
         "DomainName",
         "RequiresIndexDocuments"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DomainStatus"
     },
     "DomainStatusList": {
       "description": "A list that contains the status of each requested domain.",
       "items": {
         "$ref": "#/definitions/DomainStatus"
       },
-      "type": "array"
+      "type": "array",
+      "title": "DomainStatusList"
     },
     "Double": {
       "format": "double",
-      "type": "number"
+      "type": "number",
+      "title": "Double"
     },
     "DoubleArrayOptions": {
       "description": "Options for a field that contains an array of double-precision 64-bit floating point values. Present if <code>IndexFieldType</code> specifies the field is of type <code>double-array</code>. All options are enabled by default.",
@@ -937,7 +998,8 @@
           "description": "A list of source fields to map to the field. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DoubleArrayOptions"
     },
     "DoubleOptions": {
       "description": "Options for a double-precision 64-bit floating point field. Present if <code>IndexFieldType</code> specifies the field is of type <code>double</code>. All options are enabled by default.",
@@ -967,27 +1029,32 @@
           "description": "The name of the source field to map to the field. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DoubleOptions"
     },
     "DynamicFieldName": {
       "maxLength": 64,
       "minLength": 1,
       "pattern": "([a-z][a-z0-9_]*\\*?|\\*[a-z0-9_]*)",
-      "type": "string"
+      "type": "string",
+      "title": "DynamicFieldName"
     },
     "DynamicFieldNameList": {
       "items": {
         "$ref": "#/definitions/DynamicFieldName"
       },
-      "type": "array"
+      "type": "array",
+      "title": "DynamicFieldNameList"
     },
     "ErrorCode": {
       "description": "A machine-parsable string error or warning code.",
-      "type": "string"
+      "type": "string",
+      "title": "ErrorCode"
     },
     "ErrorMessage": {
       "description": "A human-readable string error or warning message.",
-      "type": "string"
+      "type": "string",
+      "title": "ErrorMessage"
     },
     "Expression": {
       "description": "A named expression that can be evaluated at search time. Can be used to sort the search results, define other expressions, or return computed information in the search results. ",
@@ -1003,7 +1070,8 @@
         "ExpressionName",
         "ExpressionValue"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "Expression"
     },
     "ExpressionStatus": {
       "description": "The value of an <code>Expression</code> and its current status.",
@@ -1020,44 +1088,51 @@
         "Options",
         "Status"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ExpressionStatus"
     },
     "ExpressionStatusList": {
       "description": "Contains the status of multiple expressions.",
       "items": {
         "$ref": "#/definitions/ExpressionStatus"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ExpressionStatusList"
     },
     "ExpressionValue": {
       "description": "The expression to evaluate for sorting while processing a search request. The <code>Expression</code> syntax is based on JavaScript expressions. For more information, see <a href=\"http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-expressions.html\" target=\"_blank\">Configuring Expressions</a> in the <i>Amazon CloudSearch Developer Guide</i>.",
       "maxLength": 10240,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "ExpressionValue"
     },
     "FieldName": {
       "description": "<p>A string that represents the name of an index field. CloudSearch supports regular index fields as well as dynamic fields. A dynamic field's name defines a pattern that begins or ends with a wildcard. Any document fields that don't map to a regular index field but do match a dynamic field's pattern are configured with the dynamic field's indexing options. </p> <p>Regular field names begin with a letter and can contain the following characters: a-z (lowercase), 0-9, and _ (underscore). Dynamic field names must begin or end with a wildcard (*). The wildcard can also be the only character in a dynamic field name. Multiple wildcards, and wildcards embedded within a string are not supported. </p> <p>The name <code>score</code> is reserved and cannot be used as a field name. To reference a document's ID, you can use the name <code>_id</code>. </p>",
       "maxLength": 64,
       "minLength": 1,
       "pattern": "[a-z][a-z0-9_]*",
-      "type": "string"
+      "type": "string",
+      "title": "FieldName"
     },
     "FieldNameCommaList": {
       "pattern": "\\s*[a-z*][a-z0-9_]*\\*?\\s*(,\\s*[a-z*][a-z0-9_]*\\*?\\s*)*",
-      "type": "string"
+      "type": "string",
+      "title": "FieldNameCommaList"
     },
     "FieldNameList": {
       "description": "A list of field names.",
       "items": {
         "$ref": "#/definitions/FieldName"
       },
-      "type": "array"
+      "type": "array",
+      "title": "FieldNameList"
     },
     "FieldValue": {
       "description": "The value of a field attribute.",
       "maxLength": 1024,
       "minLength": 0,
-      "type": "string"
+      "type": "string",
+      "title": "FieldValue"
     },
     "IndexDocumentsRequest": {
       "description": "Container for the parameters to the <code><a>IndexDocuments</a></code> operation. Specifies the name of the domain you want to re-index.",
@@ -1069,7 +1144,8 @@
       "required": [
         "DomainName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "IndexDocumentsRequest"
     },
     "IndexDocumentsResponse": {
       "description": "The result of an <code>IndexDocuments</code> request. Contains the status of the indexing operation, including the fields being indexed.",
@@ -1079,7 +1155,8 @@
           "description": "The names of the fields that are currently being indexed."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "IndexDocumentsResponse"
     },
     "IndexField": {
       "description": "Configuration information for a field in the index, including its name, type, and options. The supported options depend on the <code><a>IndexFieldType</a></code>.",
@@ -1129,7 +1206,8 @@
         "IndexFieldName",
         "IndexFieldType"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "IndexField"
     },
     "IndexFieldStatus": {
       "description": "The value of an <code>IndexField</code> and its current status.",
@@ -1145,14 +1223,16 @@
         "Options",
         "Status"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "IndexFieldStatus"
     },
     "IndexFieldStatusList": {
       "description": "Contains the status of multiple index fields.",
       "items": {
         "$ref": "#/definitions/IndexFieldStatus"
       },
-      "type": "array"
+      "type": "array",
+      "title": "IndexFieldStatusList"
     },
     "IndexFieldType": {
       "description": "The type of field. The valid options for a field depend on the field type. For more information about the supported field types, see <a href=\"http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-index-fields.html\" target=\"_blank\">Configuring Index Fields</a> in the <i>Amazon CloudSearch Developer Guide</i>.",
@@ -1169,11 +1249,13 @@
         "text-array",
         "date-array"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "IndexFieldType"
     },
     "InstanceCount": {
       "minimum": 1,
-      "type": "integer"
+      "type": "integer",
+      "title": "InstanceCount"
     },
     "IntArrayOptions": {
       "description": "Options for a field that contains an array of 64-bit signed integers. Present if <code>IndexFieldType</code> specifies the field is of type <code>int-array</code>. All options are enabled by default.",
@@ -1199,7 +1281,8 @@
           "description": "A list of source fields to map to the field. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "IntArrayOptions"
     },
     "IntOptions": {
       "description": "Options for a 64-bit signed integer field. Present if <code>IndexFieldType</code> specifies the field is of type <code>int</code>. All options are enabled by default.",
@@ -1229,17 +1312,20 @@
           "description": "The name of the source field to map to the field. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "IntOptions"
     },
     "InternalException": {
       "description": "An internal error occurred while processing the request. If this problem persists, report an issue from the <a href=\"http://status.aws.amazon.com/\" target=\"_blank\">Service Health Dashboard</a>.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "InternalException"
     },
     "InvalidTypeException": {
       "description": "The request was rejected because it specified an invalid type definition.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "InvalidTypeException"
     },
     "LatLonOptions": {
       "description": "Options for a latlon field. A latlon field contains a location stored as a latitude and longitude value pair. Present if <code>IndexFieldType</code> specifies the field is of type <code>latlon</code>. All options are enabled by default.",
@@ -1268,12 +1354,14 @@
           "$ref": "#/definitions/FieldName"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LatLonOptions"
     },
     "LimitExceededException": {
       "description": "The request was rejected because a resource limit has already been met.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "LimitExceededException"
     },
     "Limits": {
       "properties": {
@@ -1288,7 +1376,8 @@
         "MaximumReplicationCount",
         "MaximumPartitionCount"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "Limits"
     },
     "ListDomainNamesResponse": {
       "description": "The result of a <code>ListDomainNames</code> request. Contains a list of the domains owned by an account.",
@@ -1298,7 +1387,8 @@
           "description": "The names of the search domains owned by an account."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListDomainNamesResponse"
     },
     "LiteralArrayOptions": {
       "description": "Options for a field that contains an array of literal strings. Present if <code>IndexFieldType</code> specifies the field is of type <code>literal-array</code>. All options are enabled by default.",
@@ -1324,7 +1414,8 @@
           "description": "A list of source fields to map to the field. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LiteralArrayOptions"
     },
     "LiteralOptions": {
       "description": "Options for literal field. Present if <code>IndexFieldType</code> specifies the field is of type <code>literal</code>. All options are enabled by default.",
@@ -1353,21 +1444,26 @@
           "$ref": "#/definitions/FieldName"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LiteralOptions"
     },
     "Long": {
-      "type": "integer"
+      "type": "integer",
+      "title": "Long"
     },
     "MaximumPartitionCount": {
       "minimum": 1,
-      "type": "integer"
+      "type": "integer",
+      "title": "MaximumPartitionCount"
     },
     "MaximumReplicationCount": {
       "minimum": 1,
-      "type": "integer"
+      "type": "integer",
+      "title": "MaximumReplicationCount"
     },
     "MultiAZ": {
-      "type": "boolean"
+      "type": "boolean",
+      "title": "MultiAZ"
     },
     "OptionState": {
       "description": "<p>The state of processing a change to an option. One of:</p> <ul> <li>RequiresIndexDocuments: The option's latest value will not be deployed until <a>IndexDocuments</a> has been called and indexing is complete.</li> <li>Processing: The option's latest value is in the process of being activated.</li> <li>Active: The option's latest value is fully deployed. </li> <li>FailedToValidate: The option value is not compatible with the domain's data and cannot be used to index the data. You must either modify the option value or update or remove the incompatible documents.</li> </ul>",
@@ -1377,7 +1473,8 @@
         "Active",
         "FailedToValidate"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "OptionState"
     },
     "OptionStatus": {
       "description": "The status of domain configuration option.",
@@ -1408,12 +1505,14 @@
         "UpdateDate",
         "State"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "OptionStatus"
     },
     "PartitionCount": {
       "description": "The number of partitions used to hold the domain's index.",
       "minimum": 1,
-      "type": "integer"
+      "type": "integer",
+      "title": "PartitionCount"
     },
     "PartitionInstanceType": {
       "description": "The instance type (such as <code>search.m1.small</code>) on which an index partition is hosted.",
@@ -1427,16 +1526,19 @@
         "search.m3.xlarge",
         "search.m3.2xlarge"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "PartitionInstanceType"
     },
     "PolicyDocument": {
       "description": "Access rules for a domain's document or search service endpoints. For more information, see <a href=\"http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-access.html\" target=\"_blank\">Configuring Access for a Search Domain</a> in the <i>Amazon CloudSearch Developer Guide</i>. The maximum size of a policy document is 100 KB.",
-      "type": "string"
+      "type": "string",
+      "title": "PolicyDocument"
     },
     "ResourceNotFoundException": {
       "description": "The request was rejected because it attempted to reference a resource that does not exist.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "ResourceNotFoundException"
     },
     "ScalingParameters": {
       "description": "The desired instance type and desired number of replicas of each index partition.",
@@ -1454,7 +1556,8 @@
           "description": "The number of replicas you want to preconfigure for each index partition."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ScalingParameters"
     },
     "ScalingParametersStatus": {
       "description": "The status and configuration of a search domain's scaling parameters. ",
@@ -1470,11 +1573,13 @@
         "Options",
         "Status"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ScalingParametersStatus"
     },
     "SearchInstanceType": {
       "description": "The instance type (such as <code>search.m1.small</code>) that is being used to process search requests.",
-      "type": "string"
+      "type": "string",
+      "title": "SearchInstanceType"
     },
     "ServiceEndpoint": {
       "description": "The endpoint to which service requests can be submitted.",
@@ -1483,27 +1588,32 @@
           "$ref": "#/definitions/ServiceUrl"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ServiceEndpoint"
     },
     "ServiceUrl": {
       "description": "The endpoint to which service requests can be submitted. For example, <code>search-imdb-movies-oopcnjfn6ugofer3zx5iadxxca.eu-west-1.cloudsearch.amazonaws.com</code> or <code>doc-imdb-movies-oopcnjfn6ugofer3zx5iadxxca.eu-west-1.cloudsearch.amazonaws.com</code>.",
-      "type": "string"
+      "type": "string",
+      "title": "ServiceUrl"
     },
     "StandardName": {
       "description": "Names must begin with a letter and can contain the following characters: a-z (lowercase), 0-9, and _ (underscore).",
       "maxLength": 64,
       "minLength": 1,
       "pattern": "[a-z][a-z0-9_]*",
-      "type": "string"
+      "type": "string",
+      "title": "StandardName"
     },
     "StandardNameList": {
       "items": {
         "$ref": "#/definitions/StandardName"
       },
-      "type": "array"
+      "type": "array",
+      "title": "StandardNameList"
     },
     "String": {
-      "type": "string"
+      "type": "string",
+      "title": "String"
     },
     "Suggester": {
       "description": "Configuration information for a search suggester. Each suggester has a unique name and specifies the text field you want to use for suggestions. The following options can be configured for a suggester: <code>FuzzyMatching</code>, <code>SortExpression</code>. ",
@@ -1519,7 +1629,8 @@
         "SuggesterName",
         "DocumentSuggesterOptions"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "Suggester"
     },
     "SuggesterFuzzyMatching": {
       "enum": [
@@ -1527,7 +1638,8 @@
         "low",
         "high"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "SuggesterFuzzyMatching"
     },
     "SuggesterStatus": {
       "description": "The value of a <code>Suggester</code> and its current status.",
@@ -1543,14 +1655,16 @@
         "Options",
         "Status"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "SuggesterStatus"
     },
     "SuggesterStatusList": {
       "description": "Contains the status of multiple suggesters.",
       "items": {
         "$ref": "#/definitions/SuggesterStatus"
       },
-      "type": "array"
+      "type": "array",
+      "title": "SuggesterStatusList"
     },
     "TextArrayOptions": {
       "description": "Options for a field that contains an array of text strings. Present if <code>IndexFieldType</code> specifies the field is of type <code>text-array</code>. A <code>text-array</code> field is always searchable. All options are enabled by default.",
@@ -1576,7 +1690,8 @@
           "description": "A list of source fields to map to the field. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TextArrayOptions"
     },
     "TextOptions": {
       "description": "Options for text field. Present if <code>IndexFieldType</code> specifies the field is of type <code>text</code>. A <code>text</code> field is always searchable. All options are enabled by default.",
@@ -1605,11 +1720,13 @@
           "$ref": "#/definitions/FieldName"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TextOptions"
     },
     "UIntValue": {
       "minimum": 0,
-      "type": "integer"
+      "type": "integer",
+      "title": "UIntValue"
     },
     "UpdateAvailabilityOptionsRequest": {
       "description": "Container for the parameters to the <code><a>UpdateAvailabilityOptions</a></code> operation. Specifies the name of the domain you want to update and the Multi-AZ availability option.",
@@ -1626,7 +1743,8 @@
         "DomainName",
         "MultiAZ"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateAvailabilityOptionsRequest"
     },
     "UpdateAvailabilityOptionsResponse": {
       "description": "The result of a <code>UpdateAvailabilityOptions</code> request. Contains the status of the domain's availability options. ",
@@ -1636,7 +1754,8 @@
           "description": "The newly-configured availability options. Indicates whether Multi-AZ is enabled for the domain. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UpdateAvailabilityOptionsResponse"
     },
     "UpdateScalingParametersRequest": {
       "description": "Container for the parameters to the <code><a>UpdateScalingParameters</a></code> operation. Specifies the name of the domain you want to update and the scaling parameters you want to configure.",
@@ -1652,7 +1771,8 @@
         "DomainName",
         "ScalingParameters"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateScalingParametersRequest"
     },
     "UpdateScalingParametersResponse": {
       "description": "The result of a <code>UpdateScalingParameters</code> request. Contains the status of the newly-configured scaling parameters.",
@@ -1664,7 +1784,8 @@
       "required": [
         "ScalingParameters"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateScalingParametersResponse"
     },
     "UpdateServiceAccessPoliciesRequest": {
       "description": "Container for the parameters to the <code><a>UpdateServiceAccessPolicies</a></code> operation. Specifies the name of the domain you want to update and the access rules you want to configure.",
@@ -1681,7 +1802,8 @@
         "DomainName",
         "AccessPolicies"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateServiceAccessPoliciesRequest"
     },
     "UpdateServiceAccessPoliciesResponse": {
       "description": "The result of an <code>UpdateServiceAccessPolicies</code> request. Contains the new access policies.",
@@ -1694,15 +1816,18 @@
       "required": [
         "AccessPolicies"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateServiceAccessPoliciesResponse"
     },
     "UpdateTimestamp": {
       "format": "date-time",
-      "type": "string"
+      "type": "string",
+      "title": "UpdateTimestamp"
     },
     "Word": {
       "pattern": "[\\S]+",
-      "type": "string"
+      "type": "string",
+      "title": "Word"
     }
   },
   "actions": [

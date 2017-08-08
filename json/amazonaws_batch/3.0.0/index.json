@@ -36,7 +36,8 @@
           "description": "The Amazon Resource Name (ARN) of the Amazon ECS task that is associated with the job attempt."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AttemptContainerDetail"
     },
     "AttemptDetail": {
       "description": "An object representing a job attempt.",
@@ -58,23 +59,27 @@
           "description": "The Unix timestamp for when the attempt was stopped (when the task transitioned from the <code>RUNNING</code> state to the <code>STOPPED</code> state)."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AttemptDetail"
     },
     "AttemptDetails": {
       "items": {
         "$ref": "#/definitions/AttemptDetail"
       },
-      "type": "array"
+      "type": "array",
+      "title": "AttemptDetails"
     },
     "Boolean": {
-      "type": "boolean"
+      "type": "boolean",
+      "title": "Boolean"
     },
     "CEState": {
       "enum": [
         "ENABLED",
         "DISABLED"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "CEState"
     },
     "CEStatus": {
       "enum": [
@@ -85,21 +90,24 @@
         "VALID",
         "INVALID"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "CEStatus"
     },
     "CEType": {
       "enum": [
         "MANAGED",
         "UNMANAGED"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "CEType"
     },
     "CRType": {
       "enum": [
         "EC2",
         "SPOT"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "CRType"
     },
     "CancelJobRequest": {
       "example": {
@@ -120,12 +128,14 @@
         "jobId",
         "reason"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CancelJobRequest"
     },
     "CancelJobResponse": {
       "example": {},
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "CancelJobResponse"
     },
     "ClientException": {
       "description": "These errors are usually caused by a client action, such as using an action or resource on behalf of a user that doesn't have permission to use the action or resource, or specifying an identifier that is not valid. ",
@@ -134,7 +144,8 @@
           "$ref": "#/definitions/String"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ClientException"
     },
     "ComputeEnvironmentDetail": {
       "description": "An object representing an AWS Batch compute environment.",
@@ -181,13 +192,15 @@
         "computeEnvironmentArn",
         "ecsClusterArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ComputeEnvironmentDetail"
     },
     "ComputeEnvironmentDetailList": {
       "items": {
         "$ref": "#/definitions/ComputeEnvironmentDetail"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ComputeEnvironmentDetailList"
     },
     "ComputeEnvironmentOrder": {
       "description": "The order in which compute environments are tried for job placement within a queue. Compute environments are tried in ascending order. For example, if two compute environments are associated with a job queue, the compute environment with a lower order integer value is tried for job placement first.",
@@ -205,13 +218,15 @@
         "order",
         "computeEnvironment"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ComputeEnvironmentOrder"
     },
     "ComputeEnvironmentOrders": {
       "items": {
         "$ref": "#/definitions/ComputeEnvironmentOrder"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ComputeEnvironmentOrders"
     },
     "ComputeResource": {
       "description": "An object representing an AWS Batch compute resource.",
@@ -278,7 +293,8 @@
         "securityGroupIds",
         "instanceRole"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ComputeResource"
     },
     "ComputeResourceUpdate": {
       "description": "An object representing the attributes of a compute environment that can be updated.",
@@ -296,7 +312,8 @@
           "description": "The minimum number of EC2 vCPUs that an environment should maintain."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ComputeResourceUpdate"
     },
     "ContainerDetail": {
       "description": "An object representing the details of a container that is part of a job.",
@@ -366,7 +383,8 @@
           "description": "A list of volumes associated with the job."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ContainerDetail"
     },
     "ContainerOverrides": {
       "description": "The overrides that should be sent to a container.",
@@ -388,7 +406,8 @@
           "description": "The number of vCPUs to reserve for the container. This value overrides the value set in the job definition."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ContainerOverrides"
     },
     "ContainerProperties": {
       "description": "Container properties are used in job definitions to describe the container that is launched as part of a job.",
@@ -447,7 +466,8 @@
         "vcpus",
         "memory"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ContainerProperties"
     },
     "CreateComputeEnvironmentRequest": {
       "example": {
@@ -507,7 +527,8 @@
         "type",
         "serviceRole"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateComputeEnvironmentRequest"
     },
     "CreateComputeEnvironmentResponse": {
       "example": {
@@ -524,7 +545,8 @@
           "description": "The name of the compute environment."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateComputeEnvironmentResponse"
     },
     "CreateJobQueueRequest": {
       "example": {
@@ -565,7 +587,8 @@
         "priority",
         "computeEnvironmentOrder"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateJobQueueRequest"
     },
     "CreateJobQueueResponse": {
       "example": {
@@ -586,7 +609,8 @@
         "jobQueueName",
         "jobQueueArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateJobQueueResponse"
     },
     "DeleteComputeEnvironmentRequest": {
       "example": {
@@ -601,12 +625,14 @@
       "required": [
         "computeEnvironment"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteComputeEnvironmentRequest"
     },
     "DeleteComputeEnvironmentResponse": {
       "example": {},
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DeleteComputeEnvironmentResponse"
     },
     "DeleteJobQueueRequest": {
       "example": {
@@ -621,12 +647,14 @@
       "required": [
         "jobQueue"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteJobQueueRequest"
     },
     "DeleteJobQueueResponse": {
       "example": {},
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DeleteJobQueueResponse"
     },
     "DeregisterJobDefinitionRequest": {
       "example": {
@@ -641,12 +669,14 @@
       "required": [
         "jobDefinition"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeregisterJobDefinitionRequest"
     },
     "DeregisterJobDefinitionResponse": {
       "example": {},
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DeregisterJobDefinitionResponse"
     },
     "DescribeComputeEnvironmentsRequest": {
       "example": {
@@ -668,7 +698,8 @@
           "description": "<p>The <code>nextToken</code> value returned from a previous paginated <code>DescribeComputeEnvironments</code> request where <code>maxResults</code> was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the <code>nextToken</code> value. This value is <code>null</code> when there are no more results to return.</p> <note> <p>This token should be treated as an opaque identifier that is only used to retrieve the next items in a list and not for other programmatic purposes.</p> </note>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeComputeEnvironmentsRequest"
     },
     "DescribeComputeEnvironmentsResponse": {
       "example": {
@@ -717,7 +748,8 @@
           "description": "The <code>nextToken</code> value to include in a future <code>DescribeComputeEnvironments</code> request. When the results of a <code>DescribeJobDefinitions</code> request exceed <code>maxResults</code>, this value can be used to retrieve the next page of results. This value is <code>null</code> when there are no more results to return."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeComputeEnvironmentsResponse"
     },
     "DescribeJobDefinitionsRequest": {
       "example": {
@@ -745,7 +777,8 @@
           "description": "The status with which to filter job definitions."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeJobDefinitionsRequest"
     },
     "DescribeJobDefinitionsResponse": {
       "example": {
@@ -782,7 +815,8 @@
           "description": "The <code>nextToken</code> value to include in a future <code>DescribeJobDefinitions</code> request. When the results of a <code>DescribeJobDefinitions</code> request exceed <code>maxResults</code>, this value can be used to retrieve the next page of results. This value is <code>null</code> when there are no more results to return."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeJobDefinitionsResponse"
     },
     "DescribeJobQueuesRequest": {
       "example": {
@@ -804,7 +838,8 @@
           "description": "<p>The <code>nextToken</code> value returned from a previous paginated <code>DescribeJobQueues</code> request where <code>maxResults</code> was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the <code>nextToken</code> value. This value is <code>null</code> when there are no more results to return.</p> <note> <p>This token should be treated as an opaque identifier that is only used to retrieve the next items in a list and not for other programmatic purposes.</p> </note>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeJobQueuesRequest"
     },
     "DescribeJobQueuesResponse": {
       "example": {
@@ -835,7 +870,8 @@
           "description": "The <code>nextToken</code> value to include in a future <code>DescribeJobQueues</code> request. When the results of a <code>DescribeJobQueues</code> request exceed <code>maxResults</code>, this value can be used to retrieve the next page of results. This value is <code>null</code> when there are no more results to return."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeJobQueuesResponse"
     },
     "DescribeJobsRequest": {
       "example": {
@@ -852,7 +888,8 @@
       "required": [
         "jobs"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeJobsRequest"
     },
     "DescribeJobsResponse": {
       "example": {
@@ -892,13 +929,15 @@
           "description": "The list of jobs. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeJobsResponse"
     },
     "EnvironmentVariables": {
       "items": {
         "$ref": "#/definitions/KeyValuePair"
       },
-      "type": "array"
+      "type": "array",
+      "title": "EnvironmentVariables"
     },
     "Host": {
       "description": "The contents of the <code>host</code> parameter determine whether your data volume persists on the host container instance and where it is stored. If the host parameter is empty, then the Docker daemon assigns a host path for your data volume, but the data is not guaranteed to persist after the containers associated with it stop running.",
@@ -908,17 +947,20 @@
           "description": "The path on the host container instance that is presented to the container. If this parameter is empty, then the Docker daemon has assigned a host path for you. If the <code>host</code> parameter contains a <code>sourcePath</code> file location, then the data volume persists at the specified location on the host container instance until you delete it manually. If the <code>sourcePath</code> value does not exist on the host container instance, the Docker daemon creates it. If the location does exist, the contents of the source path folder are exported."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Host"
     },
     "Integer": {
-      "type": "integer"
+      "type": "integer",
+      "title": "Integer"
     },
     "JQState": {
       "enum": [
         "ENABLED",
         "DISABLED"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "JQState"
     },
     "JQStatus": {
       "enum": [
@@ -929,7 +971,8 @@
         "VALID",
         "INVALID"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "JQStatus"
     },
     "JobDefinition": {
       "description": "An object representing an AWS Batch job definition.",
@@ -973,19 +1016,22 @@
         "revision",
         "type"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "JobDefinition"
     },
     "JobDefinitionList": {
       "items": {
         "$ref": "#/definitions/JobDefinition"
       },
-      "type": "array"
+      "type": "array",
+      "title": "JobDefinitionList"
     },
     "JobDefinitionType": {
       "enum": [
         "container"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "JobDefinitionType"
     },
     "JobDependency": {
       "description": "An object representing an AWS Batch job dependency.",
@@ -995,13 +1041,15 @@
           "description": "The job ID of the AWS Batch job associated with this dependency."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "JobDependency"
     },
     "JobDependencyList": {
       "items": {
         "$ref": "#/definitions/JobDependency"
       },
-      "type": "array"
+      "type": "array",
+      "title": "JobDependencyList"
     },
     "JobDetail": {
       "description": "An object representing an AWS Batch job.",
@@ -1071,13 +1119,15 @@
         "startedAt",
         "jobDefinition"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "JobDetail"
     },
     "JobDetailList": {
       "items": {
         "$ref": "#/definitions/JobDetail"
       },
-      "type": "array"
+      "type": "array",
+      "title": "JobDetailList"
     },
     "JobQueueDetail": {
       "description": "An object representing the details of an AWS Batch job queue.",
@@ -1118,13 +1168,15 @@
         "priority",
         "computeEnvironmentOrder"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "JobQueueDetail"
     },
     "JobQueueDetailList": {
       "items": {
         "$ref": "#/definitions/JobQueueDetail"
       },
-      "type": "array"
+      "type": "array",
+      "title": "JobQueueDetailList"
     },
     "JobStatus": {
       "enum": [
@@ -1136,7 +1188,8 @@
         "SUCCEEDED",
         "FAILED"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "JobStatus"
     },
     "JobSummary": {
       "description": "An object representing summary details of a job.",
@@ -1154,13 +1207,15 @@
         "jobId",
         "jobName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "JobSummary"
     },
     "JobSummaryList": {
       "items": {
         "$ref": "#/definitions/JobSummary"
       },
-      "type": "array"
+      "type": "array",
+      "title": "JobSummaryList"
     },
     "KeyValuePair": {
       "description": "A key-value pair object.",
@@ -1174,7 +1229,8 @@
           "description": "The value of the key value pair. For environment variables, this is the value of the environment variable."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "KeyValuePair"
     },
     "ListJobsRequest": {
       "example": {
@@ -1202,7 +1258,8 @@
       "required": [
         "jobQueue"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListJobsRequest"
     },
     "ListJobsResponse": {
       "example": {
@@ -1226,10 +1283,12 @@
       "required": [
         "jobSummaryList"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListJobsResponse"
     },
     "Long": {
-      "type": "integer"
+      "type": "integer",
+      "title": "Long"
     },
     "MountPoint": {
       "description": "Details on a Docker volume mount point that is used in a job's container properties.",
@@ -1247,13 +1306,15 @@
           "description": "The name of the volume to mount."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "MountPoint"
     },
     "MountPoints": {
       "items": {
         "$ref": "#/definitions/MountPoint"
       },
-      "type": "array"
+      "type": "array",
+      "title": "MountPoints"
     },
     "ParametersMap": {
       "items": {
@@ -1267,7 +1328,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ParametersMap"
     },
     "RegisterJobDefinitionRequest": {
       "example": {
@@ -1309,7 +1371,8 @@
         "jobDefinitionName",
         "type"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "RegisterJobDefinitionRequest"
     },
     "RegisterJobDefinitionResponse": {
       "example": {
@@ -1336,7 +1399,8 @@
         "jobDefinitionArn",
         "revision"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "RegisterJobDefinitionResponse"
     },
     "RetryStrategy": {
       "description": "The retry strategy associated with a job.",
@@ -1346,7 +1410,8 @@
           "description": "The number of times to move a job to the <code>RUNNABLE</code> status. You may specify between 1 and 10 attempts. If <code>attempts</code> is greater than one, the job is retried if it fails until it has moved to <code>RUNNABLE</code> that many times."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RetryStrategy"
     },
     "ServerException": {
       "description": "These errors are usually caused by a server issue.",
@@ -1355,16 +1420,19 @@
           "$ref": "#/definitions/String"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ServerException"
     },
     "String": {
-      "type": "string"
+      "type": "string",
+      "title": "String"
     },
     "StringList": {
       "items": {
         "$ref": "#/definitions/String"
       },
-      "type": "array"
+      "type": "array",
+      "title": "StringList"
     },
     "SubmitJobRequest": {
       "example": {
@@ -1407,7 +1475,8 @@
         "jobQueue",
         "jobDefinition"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "SubmitJobRequest"
     },
     "SubmitJobResponse": {
       "example": {
@@ -1428,7 +1497,8 @@
         "jobName",
         "jobId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "SubmitJobResponse"
     },
     "TagsMap": {
       "items": {
@@ -1442,7 +1512,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "TagsMap"
     },
     "TerminateJobRequest": {
       "example": {
@@ -1463,12 +1534,14 @@
         "jobId",
         "reason"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "TerminateJobRequest"
     },
     "TerminateJobResponse": {
       "example": {},
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "TerminateJobResponse"
     },
     "Ulimit": {
       "description": "The <code>ulimit</code> settings to pass to the container.",
@@ -1491,13 +1564,15 @@
         "name",
         "softLimit"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "Ulimit"
     },
     "Ulimits": {
       "items": {
         "$ref": "#/definitions/Ulimit"
       },
-      "type": "array"
+      "type": "array",
+      "title": "Ulimits"
     },
     "UpdateComputeEnvironmentRequest": {
       "example": {
@@ -1525,7 +1600,8 @@
       "required": [
         "computeEnvironment"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateComputeEnvironmentRequest"
     },
     "UpdateComputeEnvironmentResponse": {
       "example": {
@@ -1542,7 +1618,8 @@
           "description": "The name of compute environment."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UpdateComputeEnvironmentResponse"
     },
     "UpdateJobQueueRequest": {
       "example": {
@@ -1570,7 +1647,8 @@
       "required": [
         "jobQueue"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateJobQueueRequest"
     },
     "UpdateJobQueueResponse": {
       "example": {
@@ -1587,7 +1665,8 @@
           "description": "The name of the job queue."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UpdateJobQueueResponse"
     },
     "Volume": {
       "description": "A data volume used in a job's container properties.",
@@ -1601,13 +1680,15 @@
           "description": "The name of the volume. Up to 255 letters (uppercase and lowercase), numbers, hyphens, and underscores are allowed. This name is referenced in the <code>sourceVolume</code> parameter of container definition <code>mountPoints</code>."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Volume"
     },
     "Volumes": {
       "items": {
         "$ref": "#/definitions/Volume"
       },
-      "type": "array"
+      "type": "array",
+      "title": "Volumes"
     }
   },
   "actions": [

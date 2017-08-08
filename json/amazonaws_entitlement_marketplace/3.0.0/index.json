@@ -17,11 +17,13 @@
   "actionCount": 1,
   "definitions": {
     "Boolean": {
-      "type": "boolean"
+      "type": "boolean",
+      "title": "Boolean"
     },
     "Double": {
       "format": "double",
-      "type": "number"
+      "type": "number",
+      "title": "Double"
     },
     "Entitlement": {
       "description": "An entitlement represents capacity in a product owned by the customer. For example, a customer might own some number of users or seats in an SaaS application or some amount of data capacity in a multi-tenant database.",
@@ -47,14 +49,16 @@
           "description": "The EntitlementValue represents the amount of capacity that the customer is entitled to for the product."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Entitlement"
     },
     "EntitlementList": {
       "items": {
         "$ref": "#/definitions/Entitlement"
       },
       "minItems": 0,
-      "type": "array"
+      "type": "array",
+      "title": "EntitlementList"
     },
     "EntitlementValue": {
       "description": "The EntitlementValue represents the amount of capacity that the customer is entitled to for the product.",
@@ -76,27 +80,32 @@
           "description": "The StringValue field will be populated with a string value when the entitlement is a string type. Otherwise, the field will not be set."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "EntitlementValue"
     },
     "ErrorMessage": {
-      "type": "string"
+      "type": "string",
+      "title": "ErrorMessage"
     },
     "FilterValue": {
-      "type": "string"
+      "type": "string",
+      "title": "FilterValue"
     },
     "FilterValueList": {
       "items": {
         "$ref": "#/definitions/FilterValue"
       },
       "minItems": 1,
-      "type": "array"
+      "type": "array",
+      "title": "FilterValueList"
     },
     "GetEntitlementFilterName": {
       "enum": [
         "CUSTOMER_IDENTIFIER",
         "DIMENSION"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "GetEntitlementFilterName"
     },
     "GetEntitlementFilters": {
       "items": {
@@ -110,7 +119,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "GetEntitlementFilters"
     },
     "GetEntitlementsRequest": {
       "description": "The GetEntitlementsRequest contains parameters for the GetEntitlements operation.",
@@ -135,7 +145,8 @@
       "required": [
         "ProductCode"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetEntitlementsRequest"
     },
     "GetEntitlementsResult": {
       "description": "The GetEntitlementsRequest contains results from the GetEntitlements operation.",
@@ -149,10 +160,12 @@
           "description": "For paginated results, use NextToken in subsequent calls to GetEntitlements. If the result contains an empty set of entitlements, NextToken might still be present and should be used."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetEntitlementsResult"
     },
     "Integer": {
-      "type": "integer"
+      "type": "integer",
+      "title": "Integer"
     },
     "InternalServiceErrorException": {
       "description": "An internal error has occurred. Retry your request. If the problem persists, post a message with details on the AWS forums.",
@@ -161,7 +174,8 @@
           "$ref": "#/definitions/ErrorMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InternalServiceErrorException"
     },
     "InvalidParameterException": {
       "description": "One or more parameters in your request was invalid.",
@@ -170,19 +184,23 @@
           "$ref": "#/definitions/ErrorMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidParameterException"
     },
     "NonEmptyString": {
       "pattern": "\\S+",
-      "type": "string"
+      "type": "string",
+      "title": "NonEmptyString"
     },
     "ProductCode": {
       "maxLength": 255,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "ProductCode"
     },
     "String": {
-      "type": "string"
+      "type": "string",
+      "title": "String"
     },
     "ThrottlingException": {
       "description": "The calls to the GetEntitlements API are throttled.",
@@ -191,11 +209,13 @@
           "$ref": "#/definitions/ErrorMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ThrottlingException"
     },
     "Timestamp": {
       "format": "date-time",
-      "type": "string"
+      "type": "string",
+      "title": "Timestamp"
     }
   },
   "actions": [

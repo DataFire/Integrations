@@ -19,15 +19,18 @@
     "Arn": {
       "maxLength": 1600,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "Arn"
     },
     "Boolean": {
-      "type": "boolean"
+      "type": "boolean",
+      "title": "Boolean"
     },
     "ConcurrentModificationException": {
       "description": "There is concurrent modification on a rule or target.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "ConcurrentModificationException"
     },
     "DeleteRuleRequest": {
       "properties": {
@@ -39,7 +42,8 @@
       "required": [
         "Name"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteRuleRequest"
     },
     "DescribeRuleRequest": {
       "properties": {
@@ -51,7 +55,8 @@
       "required": [
         "Name"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeRuleRequest"
     },
     "DescribeRuleResponse": {
       "properties": {
@@ -84,7 +89,8 @@
           "description": "Specifies whether the rule is enabled or disabled."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeRuleResponse"
     },
     "DisableRuleRequest": {
       "properties": {
@@ -96,7 +102,8 @@
       "required": [
         "Name"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DisableRuleRequest"
     },
     "EcsParameters": {
       "description": "The custom parameters to be used when the target is an Amazon ECS cluster.",
@@ -113,7 +120,8 @@
       "required": [
         "TaskDefinitionArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "EcsParameters"
     },
     "EnableRuleRequest": {
       "properties": {
@@ -125,33 +133,41 @@
       "required": [
         "Name"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "EnableRuleRequest"
     },
     "ErrorCode": {
-      "type": "string"
+      "type": "string",
+      "title": "ErrorCode"
     },
     "ErrorMessage": {
-      "type": "string"
+      "type": "string",
+      "title": "ErrorMessage"
     },
     "EventId": {
-      "type": "string"
+      "type": "string",
+      "title": "EventId"
     },
     "EventPattern": {
       "maxLength": 2048,
-      "type": "string"
+      "type": "string",
+      "title": "EventPattern"
     },
     "EventResource": {
-      "type": "string"
+      "type": "string",
+      "title": "EventResource"
     },
     "EventResourceList": {
       "items": {
         "$ref": "#/definitions/EventResource"
       },
-      "type": "array"
+      "type": "array",
+      "title": "EventResourceList"
     },
     "EventTime": {
       "format": "date-time",
-      "type": "string"
+      "type": "string",
+      "title": "EventTime"
     },
     "InputTransformer": {
       "description": "Contains the parameters needed for you to provide custom input to a target based on one or more pieces of data extracted from the event.",
@@ -168,26 +184,31 @@
       "required": [
         "InputTemplate"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "InputTransformer"
     },
     "InputTransformerPathKey": {
       "maxLength": 256,
       "minLength": 1,
       "pattern": "[A-Za-z0-9\\_\\-]+",
-      "type": "string"
+      "type": "string",
+      "title": "InputTransformerPathKey"
     },
     "Integer": {
-      "type": "integer"
+      "type": "integer",
+      "title": "Integer"
     },
     "InternalException": {
       "description": "This exception occurs due to unexpected causes.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "InternalException"
     },
     "InvalidEventPatternException": {
       "description": "The event pattern is not valid.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "InvalidEventPatternException"
     },
     "KinesisParameters": {
       "description": "This object enables you to specify a JSON path to extract from the event and use as the partition key for the Amazon Kinesis stream, so that you can control the shard to which the event goes. If you do not include this parameter, the default is to use the <code>eventId</code> as the partition key.",
@@ -200,21 +221,25 @@
       "required": [
         "PartitionKeyPath"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "KinesisParameters"
     },
     "LimitExceededException": {
       "description": "You tried to create more rules or add more targets to a rule than is allowed.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "LimitExceededException"
     },
     "LimitMax100": {
       "maximum": 100,
       "minimum": 1,
-      "type": "integer"
+      "type": "integer",
+      "title": "LimitMax100"
     },
     "LimitMin1": {
       "minimum": 1,
-      "type": "integer"
+      "type": "integer",
+      "title": "LimitMin1"
     },
     "ListRuleNamesByTargetRequest": {
       "properties": {
@@ -234,7 +259,8 @@
       "required": [
         "TargetArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListRuleNamesByTargetRequest"
     },
     "ListRuleNamesByTargetResponse": {
       "properties": {
@@ -247,7 +273,8 @@
           "description": "The names of the rules that can invoke the given target."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListRuleNamesByTargetResponse"
     },
     "ListRulesRequest": {
       "properties": {
@@ -264,7 +291,8 @@
           "description": "The token returned by a previous call to retrieve the next set of results."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListRulesRequest"
     },
     "ListRulesResponse": {
       "properties": {
@@ -277,7 +305,8 @@
           "description": "The rules that match the specified criteria."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListRulesResponse"
     },
     "ListTargetsByRuleRequest": {
       "properties": {
@@ -297,7 +326,8 @@
       "required": [
         "Rule"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListTargetsByRuleRequest"
     },
     "ListTargetsByRuleResponse": {
       "properties": {
@@ -310,12 +340,14 @@
           "description": "The targets assigned to the rule."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListTargetsByRuleResponse"
     },
     "NextToken": {
       "maxLength": 2048,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "NextToken"
     },
     "PutEventsRequest": {
       "properties": {
@@ -327,7 +359,8 @@
       "required": [
         "Entries"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "PutEventsRequest"
     },
     "PutEventsRequestEntry": {
       "description": "Represents an event to be submitted.",
@@ -353,7 +386,8 @@
           "description": "The timestamp of the event, per <a href=\"https://www.rfc-editor.org/rfc/rfc3339.txt\">RFC3339</a>. If no timestamp is provided, the timestamp of the <a>PutEvents</a> call is used."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PutEventsRequestEntry"
     },
     "PutEventsRequestEntryList": {
       "items": {
@@ -361,7 +395,8 @@
       },
       "maxItems": 10,
       "minItems": 1,
-      "type": "array"
+      "type": "array",
+      "title": "PutEventsRequestEntryList"
     },
     "PutEventsResponse": {
       "properties": {
@@ -374,7 +409,8 @@
           "description": "The number of failed entries."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PutEventsResponse"
     },
     "PutEventsResultEntry": {
       "description": "Represents an event that failed to be submitted.",
@@ -392,13 +428,15 @@
           "description": "The ID of the event."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PutEventsResultEntry"
     },
     "PutEventsResultEntryList": {
       "items": {
         "$ref": "#/definitions/PutEventsResultEntry"
       },
-      "type": "array"
+      "type": "array",
+      "title": "PutEventsResultEntryList"
     },
     "PutRuleRequest": {
       "properties": {
@@ -430,7 +468,8 @@
       "required": [
         "Name"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "PutRuleRequest"
     },
     "PutRuleResponse": {
       "properties": {
@@ -439,7 +478,8 @@
           "description": "The Amazon Resource Name (ARN) of the rule."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PutRuleResponse"
     },
     "PutTargetsRequest": {
       "properties": {
@@ -456,7 +496,8 @@
         "Rule",
         "Targets"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "PutTargetsRequest"
     },
     "PutTargetsResponse": {
       "properties": {
@@ -469,7 +510,8 @@
           "description": "The number of failed entries."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PutTargetsResponse"
     },
     "PutTargetsResultEntry": {
       "description": "Represents a target that failed to be added to a rule.",
@@ -487,13 +529,15 @@
           "description": "The ID of the target."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PutTargetsResultEntry"
     },
     "PutTargetsResultEntryList": {
       "items": {
         "$ref": "#/definitions/PutTargetsResultEntry"
       },
-      "type": "array"
+      "type": "array",
+      "title": "PutTargetsResultEntryList"
     },
     "RemoveTargetsRequest": {
       "properties": {
@@ -510,7 +554,8 @@
         "Rule",
         "Ids"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "RemoveTargetsRequest"
     },
     "RemoveTargetsResponse": {
       "properties": {
@@ -523,7 +568,8 @@
           "description": "The number of failed entries."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RemoveTargetsResponse"
     },
     "RemoveTargetsResultEntry": {
       "description": "Represents a target that failed to be removed from a rule.",
@@ -541,23 +587,27 @@
           "description": "The ID of the target."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RemoveTargetsResultEntry"
     },
     "RemoveTargetsResultEntryList": {
       "items": {
         "$ref": "#/definitions/RemoveTargetsResultEntry"
       },
-      "type": "array"
+      "type": "array",
+      "title": "RemoveTargetsResultEntryList"
     },
     "ResourceNotFoundException": {
       "description": "The rule does not exist.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "ResourceNotFoundException"
     },
     "RoleArn": {
       "maxLength": 1600,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "RoleArn"
     },
     "Rule": {
       "description": "Contains information about a rule in Amazon CloudWatch Events.",
@@ -591,41 +641,48 @@
           "description": "The state of the rule."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Rule"
     },
     "RuleArn": {
       "maxLength": 1600,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "RuleArn"
     },
     "RuleDescription": {
       "maxLength": 512,
-      "type": "string"
+      "type": "string",
+      "title": "RuleDescription"
     },
     "RuleName": {
       "maxLength": 64,
       "minLength": 1,
       "pattern": "[\\.\\-_A-Za-z0-9]+",
-      "type": "string"
+      "type": "string",
+      "title": "RuleName"
     },
     "RuleNameList": {
       "items": {
         "$ref": "#/definitions/RuleName"
       },
-      "type": "array"
+      "type": "array",
+      "title": "RuleNameList"
     },
     "RuleResponseList": {
       "items": {
         "$ref": "#/definitions/Rule"
       },
-      "type": "array"
+      "type": "array",
+      "title": "RuleResponseList"
     },
     "RuleState": {
       "enum": [
         "ENABLED",
         "DISABLED"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "RuleState"
     },
     "RunCommandParameters": {
       "description": "This parameter contains the criteria (either InstanceIds or a tag) used to specify which EC2 instances are to be sent the command. ",
@@ -638,7 +695,8 @@
       "required": [
         "RunCommandTargets"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "RunCommandParameters"
     },
     "RunCommandTarget": {
       "description": "Information about the EC2 instances that are to be sent the command, specified as key-value pairs. Each <code>RunCommandTarget</code> block can include only one key, but this key may specify multiple values.",
@@ -656,18 +714,21 @@
         "Key",
         "Values"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "RunCommandTarget"
     },
     "RunCommandTargetKey": {
       "maxLength": 128,
       "minLength": 1,
       "pattern": "^[\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*$",
-      "type": "string"
+      "type": "string",
+      "title": "RunCommandTargetKey"
     },
     "RunCommandTargetValue": {
       "maxLength": 256,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "RunCommandTargetValue"
     },
     "RunCommandTargetValues": {
       "items": {
@@ -675,7 +736,8 @@
       },
       "maxItems": 50,
       "minItems": 1,
-      "type": "array"
+      "type": "array",
+      "title": "RunCommandTargetValues"
     },
     "RunCommandTargets": {
       "items": {
@@ -683,14 +745,17 @@
       },
       "maxItems": 5,
       "minItems": 1,
-      "type": "array"
+      "type": "array",
+      "title": "RunCommandTargets"
     },
     "ScheduleExpression": {
       "maxLength": 256,
-      "type": "string"
+      "type": "string",
+      "title": "ScheduleExpression"
     },
     "String": {
-      "type": "string"
+      "type": "string",
+      "title": "String"
     },
     "Target": {
       "description": "Targets are the resources to be invoked when a rule is triggered. Target types include EC2 instances, AWS Lambda functions, Amazon Kinesis streams, Amazon ECS tasks, AWS Step Functions state machines, Run Command, and built-in targets.",
@@ -736,18 +801,21 @@
         "Id",
         "Arn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "Target"
     },
     "TargetArn": {
       "maxLength": 1600,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "TargetArn"
     },
     "TargetId": {
       "maxLength": 64,
       "minLength": 1,
       "pattern": "[\\.\\-_A-Za-z0-9]+",
-      "type": "string"
+      "type": "string",
+      "title": "TargetId"
     },
     "TargetIdList": {
       "items": {
@@ -755,15 +823,18 @@
       },
       "maxItems": 100,
       "minItems": 1,
-      "type": "array"
+      "type": "array",
+      "title": "TargetIdList"
     },
     "TargetInput": {
       "maxLength": 8192,
-      "type": "string"
+      "type": "string",
+      "title": "TargetInput"
     },
     "TargetInputPath": {
       "maxLength": 256,
-      "type": "string"
+      "type": "string",
+      "title": "TargetInputPath"
     },
     "TargetList": {
       "items": {
@@ -771,11 +842,13 @@
       },
       "maxItems": 100,
       "minItems": 1,
-      "type": "array"
+      "type": "array",
+      "title": "TargetList"
     },
     "TargetPartitionKeyPath": {
       "maxLength": 256,
-      "type": "string"
+      "type": "string",
+      "title": "TargetPartitionKeyPath"
     },
     "TestEventPatternRequest": {
       "properties": {
@@ -792,7 +865,8 @@
         "EventPattern",
         "Event"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "TestEventPatternRequest"
     },
     "TestEventPatternResponse": {
       "properties": {
@@ -801,12 +875,14 @@
           "description": "Indicates whether the event matches the event pattern."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TestEventPatternResponse"
     },
     "TransformerInput": {
       "maxLength": 8192,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "TransformerInput"
     },
     "TransformerPaths": {
       "items": {
@@ -821,7 +897,8 @@
         "type": "object"
       },
       "maxItems": 10,
-      "type": "array"
+      "type": "array",
+      "title": "TransformerPaths"
     }
   },
   "actions": [

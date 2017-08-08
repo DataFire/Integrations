@@ -60,7 +60,8 @@
             "type": "integer"
           }
         }
-      }
+      },
+      "title": "Item"
     },
     "User": {
       "type": "object",
@@ -86,7 +87,8 @@
             "type": "integer"
           }
         }
-      }
+      },
+      "title": "User"
     }
   },
   "actions": [

@@ -10,7 +10,8 @@
   "definitions": {
     "bundle-data-bundle-option-extension-interface": {
       "description": "ExtensionInterface class for @see \\Magento\\Bundle\\Api\\Data\\BundleOptionInterface",
-      "type": "object"
+      "type": "object",
+      "title": "bundle-data-bundle-option-extension-interface"
     },
     "bundle-data-bundle-option-interface": {
       "description": "Interface BundleOptionInterface",
@@ -39,11 +40,13 @@
         "option_qty",
         "option_selections"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "bundle-data-bundle-option-interface"
     },
     "bundle-data-link-extension-interface": {
       "description": "ExtensionInterface class for @see \\Magento\\Bundle\\Api\\Data\\LinkInterface",
-      "type": "object"
+      "type": "object",
+      "title": "bundle-data-link-extension-interface"
     },
     "bundle-data-link-interface": {
       "description": "Interface LinkInterface",
@@ -93,11 +96,13 @@
         "price",
         "price_type"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "bundle-data-link-interface"
     },
     "bundle-data-option-extension-interface": {
       "description": "ExtensionInterface class for @see \\Magento\\Bundle\\Api\\Data\\OptionInterface",
-      "type": "object"
+      "type": "object",
+      "title": "bundle-data-option-extension-interface"
     },
     "bundle-data-option-interface": {
       "description": "Interface OptionInterface",
@@ -137,11 +142,13 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "bundle-data-option-interface"
     },
     "bundle-data-option-type-extension-interface": {
       "description": "ExtensionInterface class for @see \\Magento\\Bundle\\Api\\Data\\OptionTypeInterface",
-      "type": "object"
+      "type": "object",
+      "title": "bundle-data-option-type-extension-interface"
     },
     "bundle-data-option-type-interface": {
       "description": "Interface OptionTypeInterface",
@@ -162,7 +169,8 @@
         "label",
         "code"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "bundle-data-option-type-interface"
     },
     "catalog-data-category-attribute-interface": {
       "description": "",
@@ -336,7 +344,8 @@
         "is_required",
         "frontend_labels"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "catalog-data-category-attribute-interface"
     },
     "catalog-data-category-attribute-search-results-interface": {
       "description": "",
@@ -361,11 +370,13 @@
         "search_criteria",
         "total_count"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "catalog-data-category-attribute-search-results-interface"
     },
     "catalog-data-category-extension-interface": {
       "description": "ExtensionInterface class for @see \\Magento\\Catalog\\Api\\Data\\CategoryInterface",
-      "type": "object"
+      "type": "object",
+      "title": "catalog-data-category-extension-interface"
     },
     "catalog-data-category-interface": {
       "description": "",
@@ -428,11 +439,13 @@
       "required": [
         "name"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "catalog-data-category-interface"
     },
     "catalog-data-category-product-link-extension-interface": {
       "description": "ExtensionInterface class for @see \\Magento\\Catalog\\Api\\Data\\CategoryProductLinkInterface",
-      "type": "object"
+      "type": "object",
+      "title": "catalog-data-category-product-link-extension-interface"
     },
     "catalog-data-category-product-link-interface": {
       "description": "",
@@ -454,7 +467,8 @@
       "required": [
         "category_id"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "catalog-data-category-product-link-interface"
     },
     "catalog-data-category-tree-interface": {
       "description": "",
@@ -502,7 +516,8 @@
         "product_count",
         "children_data"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "catalog-data-category-tree-interface"
     },
     "catalog-data-custom-option-extension-interface": {
       "description": "ExtensionInterface class for @see \\Magento\\Catalog\\Api\\Data\\CustomOptionInterface",
@@ -511,7 +526,8 @@
           "$ref": "#/definitions/framework-data-image-content-interface"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "catalog-data-custom-option-extension-interface"
     },
     "catalog-data-custom-option-interface": {
       "description": "Interface CustomOptionInterface",
@@ -532,11 +548,13 @@
         "option_id",
         "option_value"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "catalog-data-custom-option-interface"
     },
     "catalog-data-eav-attribute-extension-interface": {
       "description": "ExtensionInterface class for @see \\Magento\\Catalog\\Api\\Data\\EavAttributeInterface",
-      "type": "object"
+      "type": "object",
+      "title": "catalog-data-eav-attribute-extension-interface"
     },
     "catalog-data-product-attribute-interface": {
       "description": "",
@@ -710,7 +728,8 @@
         "is_required",
         "frontend_labels"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "catalog-data-product-attribute-interface"
     },
     "catalog-data-product-attribute-media-gallery-entry-extension-interface": {
       "description": "ExtensionInterface class for @see \\Magento\\Catalog\\Api\\Data\\ProductAttributeMediaGalleryEntryInterface",
@@ -719,7 +738,8 @@
           "$ref": "#/definitions/framework-data-video-content-interface"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "catalog-data-product-attribute-media-gallery-entry-extension-interface"
     },
     "catalog-data-product-attribute-media-gallery-entry-interface": {
       "description": "",
@@ -769,7 +789,8 @@
         "disabled",
         "types"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "catalog-data-product-attribute-media-gallery-entry-interface"
     },
     "catalog-data-product-attribute-search-results-interface": {
       "description": "",
@@ -794,11 +815,13 @@
         "search_criteria",
         "total_count"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "catalog-data-product-attribute-search-results-interface"
     },
     "catalog-data-product-attribute-type-extension-interface": {
       "description": "ExtensionInterface class for @see \\Magento\\Catalog\\Api\\Data\\ProductAttributeTypeInterface",
-      "type": "object"
+      "type": "object",
+      "title": "catalog-data-product-attribute-type-extension-interface"
     },
     "catalog-data-product-attribute-type-interface": {
       "description": "",
@@ -819,11 +842,13 @@
         "value",
         "label"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "catalog-data-product-attribute-type-interface"
     },
     "catalog-data-product-custom-option-extension-interface": {
       "description": "ExtensionInterface class for @see \\Magento\\Catalog\\Api\\Data\\ProductCustomOptionInterface",
-      "type": "object"
+      "type": "object",
+      "title": "catalog-data-product-custom-option-extension-interface"
     },
     "catalog-data-product-custom-option-interface": {
       "description": "",
@@ -893,11 +918,13 @@
         "sort_order",
         "is_require"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "catalog-data-product-custom-option-interface"
     },
     "catalog-data-product-custom-option-type-extension-interface": {
       "description": "ExtensionInterface class for @see \\Magento\\Catalog\\Api\\Data\\ProductCustomOptionTypeInterface",
-      "type": "object"
+      "type": "object",
+      "title": "catalog-data-product-custom-option-type-extension-interface"
     },
     "catalog-data-product-custom-option-type-interface": {
       "description": "",
@@ -923,7 +950,8 @@
         "code",
         "group"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "catalog-data-product-custom-option-type-interface"
     },
     "catalog-data-product-custom-option-values-interface": {
       "description": "",
@@ -959,7 +987,8 @@
         "price",
         "price_type"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "catalog-data-product-custom-option-values-interface"
     },
     "catalog-data-product-extension-interface": {
       "description": "ExtensionInterface class for @see \\Magento\\Catalog\\Api\\Data\\ProductInterface",
@@ -1004,7 +1033,8 @@
           "$ref": "#/definitions/catalog-inventory-data-stock-item-interface"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "catalog-data-product-extension-interface"
     },
     "catalog-data-product-interface": {
       "description": "",
@@ -1095,11 +1125,13 @@
       "required": [
         "sku"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "catalog-data-product-interface"
     },
     "catalog-data-product-link-attribute-extension-interface": {
       "description": "ExtensionInterface class for @see \\Magento\\Catalog\\Api\\Data\\ProductLinkAttributeInterface",
-      "type": "object"
+      "type": "object",
+      "title": "catalog-data-product-link-attribute-extension-interface"
     },
     "catalog-data-product-link-attribute-interface": {
       "description": "",
@@ -1120,7 +1152,8 @@
         "code",
         "type"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "catalog-data-product-link-attribute-interface"
     },
     "catalog-data-product-link-extension-interface": {
       "description": "ExtensionInterface class for @see \\Magento\\Catalog\\Api\\Data\\ProductLinkInterface",
@@ -1129,7 +1162,8 @@
           "type": "number"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "catalog-data-product-link-extension-interface"
     },
     "catalog-data-product-link-interface": {
       "description": "",
@@ -1165,11 +1199,13 @@
         "linked_product_type",
         "position"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "catalog-data-product-link-interface"
     },
     "catalog-data-product-link-type-extension-interface": {
       "description": "ExtensionInterface class for @see \\Magento\\Catalog\\Api\\Data\\ProductLinkTypeInterface",
-      "type": "object"
+      "type": "object",
+      "title": "catalog-data-product-link-type-extension-interface"
     },
     "catalog-data-product-link-type-interface": {
       "description": "",
@@ -1190,7 +1226,8 @@
         "code",
         "name"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "catalog-data-product-link-type-interface"
     },
     "catalog-data-product-option-extension-interface": {
       "description": "ExtensionInterface class for @see \\Magento\\Catalog\\Api\\Data\\ProductOptionInterface",
@@ -1220,7 +1257,8 @@
           "$ref": "#/definitions/gift-card-data-gift-card-option-interface"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "catalog-data-product-option-extension-interface"
     },
     "catalog-data-product-option-interface": {
       "description": "Product option interface",
@@ -1229,7 +1267,8 @@
           "$ref": "#/definitions/catalog-data-product-option-extension-interface"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "catalog-data-product-option-interface"
     },
     "catalog-data-product-search-results-interface": {
       "description": "",
@@ -1254,11 +1293,13 @@
         "search_criteria",
         "total_count"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "catalog-data-product-search-results-interface"
     },
     "catalog-data-product-tier-price-extension-interface": {
       "description": "ExtensionInterface class for @see \\Magento\\Catalog\\Api\\Data\\ProductTierPriceInterface",
-      "type": "object"
+      "type": "object",
+      "title": "catalog-data-product-tier-price-extension-interface"
     },
     "catalog-data-product-tier-price-interface": {
       "description": "",
@@ -1284,11 +1325,13 @@
         "qty",
         "value"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "catalog-data-product-tier-price-interface"
     },
     "catalog-data-product-type-extension-interface": {
       "description": "ExtensionInterface class for @see \\Magento\\Catalog\\Api\\Data\\ProductTypeInterface",
-      "type": "object"
+      "type": "object",
+      "title": "catalog-data-product-type-extension-interface"
     },
     "catalog-data-product-type-interface": {
       "description": "Product type details",
@@ -1309,7 +1352,8 @@
         "name",
         "label"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "catalog-data-product-type-interface"
     },
     "catalog-data-product-website-link-interface": {
       "description": "",
@@ -1326,11 +1370,13 @@
         "sku",
         "website_id"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "catalog-data-product-website-link-interface"
     },
     "catalog-inventory-data-stock-item-extension-interface": {
       "description": "ExtensionInterface class for @see \\Magento\\CatalogInventory\\Api\\Data\\StockItemInterface",
-      "type": "object"
+      "type": "object",
+      "title": "catalog-inventory-data-stock-item-extension-interface"
     },
     "catalog-inventory-data-stock-item-interface": {
       "description": "Interface StockItem",
@@ -1452,7 +1498,8 @@
         "is_decimal_divided",
         "stock_status_changed_auto"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "catalog-inventory-data-stock-item-interface"
     },
     "catalog-inventory-data-stock-status-collection-interface": {
       "description": "Stock Status collection interface",
@@ -1477,11 +1524,13 @@
         "search_criteria",
         "total_count"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "catalog-inventory-data-stock-status-collection-interface"
     },
     "catalog-inventory-data-stock-status-extension-interface": {
       "description": "ExtensionInterface class for @see \\Magento\\CatalogInventory\\Api\\Data\\StockStatusInterface",
-      "type": "object"
+      "type": "object",
+      "title": "catalog-inventory-data-stock-status-extension-interface"
     },
     "catalog-inventory-data-stock-status-interface": {
       "description": "Interface StockStatusInterface",
@@ -1512,7 +1561,8 @@
         "stock_status",
         "stock_item"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "catalog-inventory-data-stock-status-interface"
     },
     "catalog-inventory-stock-status-criteria-interface": {
       "description": "Interface StockStatusCriteriaInterface",
@@ -1557,11 +1607,13 @@
         "orders",
         "limit"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "catalog-inventory-stock-status-criteria-interface"
     },
     "checkout-agreements-data-agreement-extension-interface": {
       "description": "ExtensionInterface class for @see \\Magento\\CheckoutAgreements\\Api\\Data\\AgreementInterface",
-      "type": "object"
+      "type": "object",
+      "title": "checkout-agreements-data-agreement-extension-interface"
     },
     "checkout-agreements-data-agreement-interface": {
       "description": "Interface AgreementInterface",
@@ -1611,11 +1663,13 @@
         "is_html",
         "mode"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "checkout-agreements-data-agreement-interface"
     },
     "checkout-data-payment-details-extension-interface": {
       "description": "ExtensionInterface class for @see \\Magento\\Checkout\\Api\\Data\\PaymentDetailsInterface",
-      "type": "object"
+      "type": "object",
+      "title": "checkout-data-payment-details-extension-interface"
     },
     "checkout-data-payment-details-interface": {
       "description": "Interface PaymentDetailsInterface",
@@ -1637,11 +1691,13 @@
         "payment_methods",
         "totals"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "checkout-data-payment-details-interface"
     },
     "checkout-data-shipping-information-extension-interface": {
       "description": "ExtensionInterface class for @see \\Magento\\Checkout\\Api\\Data\\ShippingInformationInterface",
-      "type": "object"
+      "type": "object",
+      "title": "checkout-data-shipping-information-extension-interface"
     },
     "checkout-data-shipping-information-interface": {
       "description": "Interface ShippingInformationInterface",
@@ -1676,11 +1732,13 @@
         "shipping_method_code",
         "shipping_carrier_code"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "checkout-data-shipping-information-interface"
     },
     "checkout-data-totals-information-extension-interface": {
       "description": "ExtensionInterface class for @see \\Magento\\Checkout\\Api\\Data\\TotalsInformationInterface",
-      "type": "object"
+      "type": "object",
+      "title": "checkout-data-totals-information-extension-interface"
     },
     "checkout-data-totals-information-interface": {
       "description": "Interface TotalsInformationInterface",
@@ -1710,7 +1768,8 @@
       "required": [
         "address"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "checkout-data-totals-information-interface"
     },
     "cms-data-block-interface": {
       "description": "CMS block interface.",
@@ -1747,7 +1806,8 @@
       "required": [
         "identifier"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "cms-data-block-interface"
     },
     "cms-data-block-search-results-interface": {
       "description": "Interface for cms block search results.",
@@ -1772,7 +1832,8 @@
         "search_criteria",
         "total_count"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "cms-data-block-search-results-interface"
     },
     "cms-data-page-interface": {
       "description": "CMS page interface.",
@@ -1857,7 +1918,8 @@
       "required": [
         "identifier"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "cms-data-page-interface"
     },
     "cms-data-page-search-results-interface": {
       "description": "Interface for cms page search results.",
@@ -1882,11 +1944,13 @@
         "search_criteria",
         "total_count"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "cms-data-page-search-results-interface"
     },
     "configurable-product-data-configurable-item-option-value-extension-interface": {
       "description": "ExtensionInterface class for @see \\Magento\\ConfigurableProduct\\Api\\Data\\ConfigurableItemOptionValueInterface",
-      "type": "object"
+      "type": "object",
+      "title": "configurable-product-data-configurable-item-option-value-extension-interface"
     },
     "configurable-product-data-configurable-item-option-value-interface": {
       "description": "Interface ConfigurableItemOptionValueInterface",
@@ -1906,11 +1970,13 @@
       "required": [
         "option_id"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "configurable-product-data-configurable-item-option-value-interface"
     },
     "configurable-product-data-option-extension-interface": {
       "description": "ExtensionInterface class for @see \\Magento\\ConfigurableProduct\\Api\\Data\\OptionInterface",
-      "type": "object"
+      "type": "object",
+      "title": "configurable-product-data-option-extension-interface"
     },
     "configurable-product-data-option-interface": {
       "description": "Interface OptionInterface",
@@ -1943,11 +2009,13 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "configurable-product-data-option-interface"
     },
     "configurable-product-data-option-value-extension-interface": {
       "description": "ExtensionInterface class for @see \\Magento\\ConfigurableProduct\\Api\\Data\\OptionValueInterface",
-      "type": "object"
+      "type": "object",
+      "title": "configurable-product-data-option-value-extension-interface"
     },
     "configurable-product-data-option-value-interface": {
       "description": "Interface OptionValueInterface",
@@ -1962,11 +2030,13 @@
       "required": [
         "value_index"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "configurable-product-data-option-value-interface"
     },
     "customer-data-address-extension-interface": {
       "description": "ExtensionInterface class for @see \\Magento\\Customer\\Api\\Data\\AddressInterface",
-      "type": "object"
+      "type": "object",
+      "title": "customer-data-address-extension-interface"
     },
     "customer-data-address-interface": {
       "description": "Customer address interface.",
@@ -2060,7 +2130,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "customer-data-address-interface"
     },
     "customer-data-attribute-metadata-interface": {
       "description": "Customer attribute metadata interface.",
@@ -2175,7 +2246,8 @@
         "backend_type",
         "attribute_code"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "customer-data-attribute-metadata-interface"
     },
     "customer-data-customer-extension-interface": {
       "description": "ExtensionInterface class for @see \\Magento\\Customer\\Api\\Data\\CustomerInterface",
@@ -2184,7 +2256,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "customer-data-customer-extension-interface"
     },
     "customer-data-customer-interface": {
       "description": "Customer interface.",
@@ -2292,7 +2365,8 @@
         "firstname",
         "lastname"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "customer-data-customer-interface"
     },
     "customer-data-customer-search-results-interface": {
       "description": "Interface for customer search results.",
@@ -2317,11 +2391,13 @@
         "search_criteria",
         "total_count"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "customer-data-customer-search-results-interface"
     },
     "customer-data-group-extension-interface": {
       "description": "ExtensionInterface class for @see \\Magento\\Customer\\Api\\Data\\GroupInterface",
-      "type": "object"
+      "type": "object",
+      "title": "customer-data-group-extension-interface"
     },
     "customer-data-group-interface": {
       "description": "Customer group interface.",
@@ -2350,7 +2426,8 @@
         "code",
         "tax_class_id"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "customer-data-group-interface"
     },
     "customer-data-group-search-results-interface": {
       "description": "Interface for customer groups search results.",
@@ -2375,7 +2452,8 @@
         "search_criteria",
         "total_count"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "customer-data-group-search-results-interface"
     },
     "customer-data-option-interface": {
       "description": "Option interface.",
@@ -2399,11 +2477,13 @@
       "required": [
         "label"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "customer-data-option-interface"
     },
     "customer-data-region-extension-interface": {
       "description": "ExtensionInterface class for @see \\Magento\\Customer\\Api\\Data\\RegionInterface",
-      "type": "object"
+      "type": "object",
+      "title": "customer-data-region-extension-interface"
     },
     "customer-data-region-interface": {
       "description": "Customer address region interface.",
@@ -2429,7 +2509,8 @@
         "region",
         "region_id"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "customer-data-region-interface"
     },
     "customer-data-validation-results-interface": {
       "description": "Validation results interface.",
@@ -2450,7 +2531,8 @@
         "valid",
         "messages"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "customer-data-validation-results-interface"
     },
     "customer-data-validation-rule-interface": {
       "description": "Validation rule interface.",
@@ -2468,11 +2550,13 @@
         "name",
         "value"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "customer-data-validation-rule-interface"
     },
     "directory-data-country-information-extension-interface": {
       "description": "ExtensionInterface class for @see \\Magento\\Directory\\Api\\Data\\CountryInformationInterface",
-      "type": "object"
+      "type": "object",
+      "title": "directory-data-country-information-extension-interface"
     },
     "directory-data-country-information-interface": {
       "description": "Country Information interface.",
@@ -2515,11 +2599,13 @@
         "full_name_locale",
         "full_name_english"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "directory-data-country-information-interface"
     },
     "directory-data-currency-information-extension-interface": {
       "description": "ExtensionInterface class for @see \\Magento\\Directory\\Api\\Data\\CurrencyInformationInterface",
-      "type": "object"
+      "type": "object",
+      "title": "directory-data-currency-information-extension-interface"
     },
     "directory-data-currency-information-interface": {
       "description": "Currency Information interface.",
@@ -2566,11 +2652,13 @@
         "available_currency_codes",
         "exchange_rates"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "directory-data-currency-information-interface"
     },
     "directory-data-exchange-rate-extension-interface": {
       "description": "ExtensionInterface class for @see \\Magento\\Directory\\Api\\Data\\ExchangeRateInterface",
-      "type": "object"
+      "type": "object",
+      "title": "directory-data-exchange-rate-extension-interface"
     },
     "directory-data-exchange-rate-interface": {
       "description": "Exchange Rate interface.",
@@ -2591,11 +2679,13 @@
         "currency_to",
         "rate"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "directory-data-exchange-rate-interface"
     },
     "directory-data-region-information-extension-interface": {
       "description": "ExtensionInterface class for @see \\Magento\\Directory\\Api\\Data\\RegionInformationInterface",
-      "type": "object"
+      "type": "object",
+      "title": "directory-data-region-information-extension-interface"
     },
     "directory-data-region-information-interface": {
       "description": "Region Information interface.",
@@ -2621,7 +2711,8 @@
         "code",
         "name"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "directory-data-region-information-interface"
     },
     "downloadable-data-downloadable-option-interface": {
       "description": "Downloadable Option",
@@ -2637,11 +2728,13 @@
       "required": [
         "downloadable_links"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "downloadable-data-downloadable-option-interface"
     },
     "downloadable-data-file-content-extension-interface": {
       "description": "ExtensionInterface class for @see \\Magento\\Downloadable\\Api\\Data\\File\\ContentInterface",
-      "type": "object"
+      "type": "object",
+      "title": "downloadable-data-file-content-extension-interface"
     },
     "downloadable-data-file-content-interface": {
       "description": "",
@@ -2662,11 +2755,13 @@
         "file_data",
         "name"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "downloadable-data-file-content-interface"
     },
     "downloadable-data-link-extension-interface": {
       "description": "ExtensionInterface class for @see \\Magento\\Downloadable\\Api\\Data\\LinkInterface",
-      "type": "object"
+      "type": "object",
+      "title": "downloadable-data-link-extension-interface"
     },
     "downloadable-data-link-interface": {
       "description": "",
@@ -2732,11 +2827,13 @@
         "link_type",
         "sample_type"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "downloadable-data-link-interface"
     },
     "downloadable-data-sample-extension-interface": {
       "description": "ExtensionInterface class for @see \\Magento\\Downloadable\\Api\\Data\\SampleInterface",
-      "type": "object"
+      "type": "object",
+      "title": "downloadable-data-sample-extension-interface"
     },
     "downloadable-data-sample-interface": {
       "description": "",
@@ -2776,7 +2873,8 @@
         "sort_order",
         "sample_type"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "downloadable-data-sample-interface"
     },
     "eav-data-attribute-frontend-label-interface": {
       "description": "Interface AttributeFrontendLabelInterface",
@@ -2790,7 +2888,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "eav-data-attribute-frontend-label-interface"
     },
     "eav-data-attribute-group-extension-interface": {
       "description": "ExtensionInterface class for @see \\Magento\\Eav\\Api\\Data\\AttributeGroupInterface",
@@ -2802,7 +2901,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "eav-data-attribute-group-extension-interface"
     },
     "eav-data-attribute-group-interface": {
       "description": "Interface AttributeGroupInterface",
@@ -2823,7 +2923,8 @@
           "$ref": "#/definitions/eav-data-attribute-group-extension-interface"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "eav-data-attribute-group-interface"
     },
     "eav-data-attribute-group-search-results-interface": {
       "description": "Interface AttributeGroupSearchResultsInterface",
@@ -2848,7 +2949,8 @@
         "search_criteria",
         "total_count"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "eav-data-attribute-group-search-results-interface"
     },
     "eav-data-attribute-option-interface": {
       "description": "Created from:",
@@ -2881,7 +2983,8 @@
         "label",
         "value"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "eav-data-attribute-option-interface"
     },
     "eav-data-attribute-option-label-interface": {
       "description": "Interface AttributeOptionLabelInterface",
@@ -2895,11 +2998,13 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "eav-data-attribute-option-label-interface"
     },
     "eav-data-attribute-set-extension-interface": {
       "description": "ExtensionInterface class for @see \\Magento\\Eav\\Api\\Data\\AttributeSetInterface",
-      "type": "object"
+      "type": "object",
+      "title": "eav-data-attribute-set-extension-interface"
     },
     "eav-data-attribute-set-interface": {
       "description": "Interface AttributeSetInterface",
@@ -2928,7 +3033,8 @@
         "attribute_set_name",
         "sort_order"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "eav-data-attribute-set-interface"
     },
     "eav-data-attribute-set-search-results-interface": {
       "description": "Interface AttributeSetSearchResultsInterface",
@@ -2953,7 +3059,8 @@
         "search_criteria",
         "total_count"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "eav-data-attribute-set-search-results-interface"
     },
     "eav-data-attribute-validation-rule-interface": {
       "description": "Interface AttributeValidationRuleInterface",
@@ -2971,14 +3078,16 @@
         "key",
         "value"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "eav-data-attribute-validation-rule-interface"
     },
     "error-errors": {
       "description": "Errors list",
       "items": {
         "$ref": "#/definitions/error-errors-item"
       },
-      "type": "array"
+      "type": "array",
+      "title": "error-errors"
     },
     "error-errors-item": {
       "description": "Error details",
@@ -2991,14 +3100,16 @@
           "$ref": "#/definitions/error-parameters"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "error-errors-item"
     },
     "error-parameters": {
       "description": "Error parameters list",
       "items": {
         "$ref": "#/definitions/error-parameters-item"
       },
-      "type": "array"
+      "type": "array",
+      "title": "error-parameters"
     },
     "error-parameters-item": {
       "description": "Error parameters item",
@@ -3016,7 +3127,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "error-parameters-item"
     },
     "error-response": {
       "properties": {
@@ -3042,7 +3154,8 @@
       "required": [
         "message"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "error-response"
     },
     "framework-attribute-interface": {
       "description": "Interface for custom attribute value.",
@@ -3060,7 +3173,8 @@
         "attribute_code",
         "value"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "framework-attribute-interface"
     },
     "framework-criteria-interface": {
       "description": "Interface CriteriaInterface",
@@ -3105,7 +3219,8 @@
         "orders",
         "limit"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "framework-criteria-interface"
     },
     "framework-data-image-content-interface": {
       "description": "Image Content data interface",
@@ -3128,7 +3243,8 @@
         "type",
         "name"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "framework-data-image-content-interface"
     },
     "framework-data-video-content-interface": {
       "description": "Video Content data interface",
@@ -3166,7 +3282,8 @@
         "video_description",
         "video_metadata"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "framework-data-video-content-interface"
     },
     "framework-filter": {
       "description": "Filter which can be used by any methods from service layer.",
@@ -3188,7 +3305,8 @@
         "field",
         "value"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "framework-filter"
     },
     "framework-metadata-object-interface": {
       "description": "Provides metadata about an attribute.",
@@ -3201,7 +3319,8 @@
       "required": [
         "attribute_code"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "framework-metadata-object-interface"
     },
     "framework-search-aggregation-interface": {
       "description": "Faceted data",
@@ -3225,7 +3344,8 @@
         "buckets",
         "bucket_names"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "framework-search-aggregation-interface"
     },
     "framework-search-aggregation-value-interface": {
       "description": "",
@@ -3246,7 +3366,8 @@
         "value",
         "metrics"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "framework-search-aggregation-value-interface"
     },
     "framework-search-bucket-interface": {
       "description": "Facet Bucket",
@@ -3267,7 +3388,8 @@
         "name",
         "values"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "framework-search-bucket-interface"
     },
     "framework-search-criteria-interface": {
       "description": "Search criteria interface.",
@@ -3298,7 +3420,8 @@
       "required": [
         "filter_groups"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "framework-search-criteria-interface"
     },
     "framework-search-document-interface": {
       "description": "",
@@ -3317,7 +3440,8 @@
       "required": [
         "id"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "framework-search-document-interface"
     },
     "framework-search-filter-group": {
       "description": "Groups two or more filters together using a logical OR",
@@ -3330,7 +3454,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "framework-search-filter-group"
     },
     "framework-search-search-criteria-interface": {
       "description": "",
@@ -3365,7 +3490,8 @@
         "request_name",
         "filter_groups"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "framework-search-search-criteria-interface"
     },
     "framework-search-search-result-interface": {
       "description": "",
@@ -3393,7 +3519,8 @@
         "search_criteria",
         "total_count"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "framework-search-search-result-interface"
     },
     "framework-sort-order": {
       "description": "Data object for sort order.",
@@ -3411,11 +3538,13 @@
         "field",
         "direction"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "framework-sort-order"
     },
     "gift-card-account-data-gift-card-account-extension-interface": {
       "description": "ExtensionInterface class for @see \\Magento\\GiftCardAccount\\Api\\Data\\GiftCardAccountInterface",
-      "type": "object"
+      "type": "object",
+      "title": "gift-card-account-data-gift-card-account-extension-interface"
     },
     "gift-card-account-data-gift-card-account-interface": {
       "description": "Gift Card Account data",
@@ -3454,11 +3583,13 @@
         "gift_cards_amount_used",
         "base_gift_cards_amount_used"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "gift-card-account-data-gift-card-account-interface"
     },
     "gift-card-data-gift-card-option-extension-interface": {
       "description": "ExtensionInterface class for @see \\Magento\\GiftCard\\Api\\Data\\GiftCardOptionInterface",
-      "type": "object"
+      "type": "object",
+      "title": "gift-card-data-gift-card-option-extension-interface"
     },
     "gift-card-data-gift-card-option-interface": {
       "description": "Interface GiftCardOptionInterface",
@@ -3502,11 +3633,13 @@
         "giftcard_sender_email",
         "giftcard_recipient_email"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "gift-card-data-gift-card-option-interface"
     },
     "gift-card-data-giftcard-amount-extension-interface": {
       "description": "ExtensionInterface class for @see \\Magento\\GiftCard\\Api\\Data\\GiftcardAmountInterface",
-      "type": "object"
+      "type": "object",
+      "title": "gift-card-data-giftcard-amount-extension-interface"
     },
     "gift-card-data-giftcard-amount-interface": {
       "description": "Interface GiftcardAmountInterface: this interface is used to serialize and deserialize EAV attribute giftcard_amounts",
@@ -3533,7 +3666,8 @@
         "value",
         "website_value"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "gift-card-data-giftcard-amount-interface"
     },
     "gift-message-data-message-extension-interface": {
       "description": "ExtensionInterface class for @see \\Magento\\GiftMessage\\Api\\Data\\MessageInterface",
@@ -3554,7 +3688,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "gift-message-data-message-extension-interface"
     },
     "gift-message-data-message-interface": {
       "description": "Interface MessageInterface",
@@ -3588,11 +3723,13 @@
         "recipient",
         "message"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "gift-message-data-message-interface"
     },
     "gift-wrapping-data-wrapping-extension-interface": {
       "description": "ExtensionInterface class for @see \\Magento\\GiftWrapping\\Api\\Data\\WrappingInterface",
-      "type": "object"
+      "type": "object",
+      "title": "gift-wrapping-data-wrapping-extension-interface"
     },
     "gift-wrapping-data-wrapping-interface": {
       "description": "Interface WrappingInterface",
@@ -3637,7 +3774,8 @@
         "status",
         "base_price"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "gift-wrapping-data-wrapping-interface"
     },
     "gift-wrapping-data-wrapping-search-results-interface": {
       "description": "Interface WrappingSearchResultsInterface",
@@ -3662,7 +3800,8 @@
         "search_criteria",
         "total_count"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "gift-wrapping-data-wrapping-search-results-interface"
     },
     "quote-data-address-extension-interface": {
       "description": "ExtensionInterface class for @see \\Magento\\Quote\\Api\\Data\\AddressInterface",
@@ -3671,7 +3810,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "quote-data-address-extension-interface"
     },
     "quote-data-address-interface": {
       "description": "Interface AddressInterface",
@@ -3791,7 +3931,8 @@
         "lastname",
         "email"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "quote-data-address-interface"
     },
     "quote-data-cart-extension-interface": {
       "description": "ExtensionInterface class for @see \\Magento\\Quote\\Api\\Data\\CartInterface",
@@ -3803,7 +3944,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "quote-data-cart-extension-interface"
     },
     "quote-data-cart-interface": {
       "description": "Interface CartInterface",
@@ -3893,11 +4035,13 @@
         "customer",
         "store_id"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "quote-data-cart-interface"
     },
     "quote-data-cart-item-extension-interface": {
       "description": "ExtensionInterface class for @see \\Magento\\Quote\\Api\\Data\\CartItemInterface",
-      "type": "object"
+      "type": "object",
+      "title": "quote-data-cart-item-extension-interface"
     },
     "quote-data-cart-item-interface": {
       "description": "Interface CartItemInterface",
@@ -3941,7 +4085,8 @@
         "qty",
         "quote_id"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "quote-data-cart-item-interface"
     },
     "quote-data-cart-search-results-interface": {
       "description": "Interface CartSearchResultsInterface",
@@ -3966,11 +4111,13 @@
         "search_criteria",
         "total_count"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "quote-data-cart-search-results-interface"
     },
     "quote-data-currency-extension-interface": {
       "description": "ExtensionInterface class for @see \\Magento\\Quote\\Api\\Data\\CurrencyInterface",
-      "type": "object"
+      "type": "object",
+      "title": "quote-data-currency-extension-interface"
     },
     "quote-data-currency-interface": {
       "description": "Interface CurrencyInterface",
@@ -4011,7 +4158,8 @@
           "type": "number"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "quote-data-currency-interface"
     },
     "quote-data-payment-extension-interface": {
       "description": "ExtensionInterface class for @see \\Magento\\Quote\\Api\\Data\\PaymentInterface",
@@ -4023,7 +4171,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "quote-data-payment-extension-interface"
     },
     "quote-data-payment-interface": {
       "description": "Interface PaymentInterface",
@@ -4050,7 +4199,8 @@
       "required": [
         "method"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "quote-data-payment-interface"
     },
     "quote-data-payment-method-interface": {
       "description": "Interface PaymentMethodInterface",
@@ -4068,7 +4218,8 @@
         "code",
         "title"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "quote-data-payment-method-interface"
     },
     "quote-data-product-option-extension-interface": {
       "description": "ExtensionInterface class for @see \\Magento\\Quote\\Api\\Data\\ProductOptionInterface",
@@ -4098,7 +4249,8 @@
           "$ref": "#/definitions/gift-card-data-gift-card-option-interface"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "quote-data-product-option-extension-interface"
     },
     "quote-data-product-option-interface": {
       "description": "Product option interface",
@@ -4107,11 +4259,13 @@
           "$ref": "#/definitions/quote-data-product-option-extension-interface"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "quote-data-product-option-interface"
     },
     "quote-data-shipping-assignment-extension-interface": {
       "description": "ExtensionInterface class for @see \\Magento\\Quote\\Api\\Data\\ShippingAssignmentInterface",
-      "type": "object"
+      "type": "object",
+      "title": "quote-data-shipping-assignment-extension-interface"
     },
     "quote-data-shipping-assignment-interface": {
       "description": "Interface ShippingAssignmentInterface",
@@ -4133,11 +4287,13 @@
         "shipping",
         "items"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "quote-data-shipping-assignment-interface"
     },
     "quote-data-shipping-extension-interface": {
       "description": "ExtensionInterface class for @see \\Magento\\Quote\\Api\\Data\\ShippingInterface",
-      "type": "object"
+      "type": "object",
+      "title": "quote-data-shipping-extension-interface"
     },
     "quote-data-shipping-interface": {
       "description": "Interface ShippingInterface",
@@ -4157,11 +4313,13 @@
         "address",
         "method"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "quote-data-shipping-interface"
     },
     "quote-data-shipping-method-extension-interface": {
       "description": "ExtensionInterface class for @see \\Magento\\Quote\\Api\\Data\\ShippingMethodInterface",
-      "type": "object"
+      "type": "object",
+      "title": "quote-data-shipping-method-extension-interface"
     },
     "quote-data-shipping-method-interface": {
       "description": "Interface ShippingMethodInterface",
@@ -4220,7 +4378,8 @@
         "price_excl_tax",
         "price_incl_tax"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "quote-data-shipping-method-interface"
     },
     "quote-data-total-segment-extension-interface": {
       "description": "ExtensionInterface class for @see \\Magento\\Quote\\Api\\Data\\TotalSegmentInterface",
@@ -4304,7 +4463,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "quote-data-total-segment-extension-interface"
     },
     "quote-data-total-segment-interface": {
       "description": "Interface TotalsInterface",
@@ -4333,7 +4493,8 @@
         "code",
         "value"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "quote-data-total-segment-interface"
     },
     "quote-data-totals-additional-data-extension-interface": {
       "description": "ExtensionInterface class for @see \\Magento\\Quote\\Api\\Data\\TotalsAdditionalDataInterface",
@@ -4345,7 +4506,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "quote-data-totals-additional-data-extension-interface"
     },
     "quote-data-totals-additional-data-interface": {
       "description": "Additional data for totals collection.",
@@ -4361,7 +4523,8 @@
           "$ref": "#/definitions/quote-data-totals-additional-data-extension-interface"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "quote-data-totals-additional-data-interface"
     },
     "quote-data-totals-extension-interface": {
       "description": "ExtensionInterface class for @see \\Magento\\Quote\\Api\\Data\\TotalsInterface",
@@ -4382,7 +4545,8 @@
           "type": "number"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "quote-data-totals-extension-interface"
     },
     "quote-data-totals-interface": {
       "description": "Interface TotalsInterface",
@@ -4509,11 +4673,13 @@
         "weee_tax_applied_amount",
         "total_segments"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "quote-data-totals-interface"
     },
     "quote-data-totals-item-extension-interface": {
       "description": "ExtensionInterface class for @see \\Magento\\Quote\\Api\\Data\\TotalsItemInterface",
-      "type": "object"
+      "type": "object",
+      "title": "quote-data-totals-item-extension-interface"
     },
     "quote-data-totals-item-interface": {
       "description": "Interface TotalsItemInterface",
@@ -4617,11 +4783,13 @@
         "weee_tax_applied_amount",
         "weee_tax_applied"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "quote-data-totals-item-interface"
     },
     "rma-data-comment-extension-interface": {
       "description": "ExtensionInterface class for @see \\Magento\\Rma\\Api\\Data\\CommentInterface",
-      "type": "object"
+      "type": "object",
+      "title": "rma-data-comment-extension-interface"
     },
     "rma-data-comment-interface": {
       "description": "Interface CommentInterface",
@@ -4679,7 +4847,8 @@
         "status",
         "admin"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "rma-data-comment-interface"
     },
     "rma-data-comment-search-result-interface": {
       "description": "Interface CommentSearchResultInterface",
@@ -4704,11 +4873,13 @@
         "search_criteria",
         "total_count"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "rma-data-comment-search-result-interface"
     },
     "rma-data-item-extension-interface": {
       "description": "ExtensionInterface class for @see \\Magento\\Rma\\Api\\Data\\ItemInterface",
-      "type": "object"
+      "type": "object",
+      "title": "rma-data-item-extension-interface"
     },
     "rma-data-item-interface": {
       "description": "Interface CategoryInterface",
@@ -4774,11 +4945,13 @@
         "resolution",
         "status"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "rma-data-item-interface"
     },
     "rma-data-rma-extension-interface": {
       "description": "ExtensionInterface class for @see \\Magento\\Rma\\Api\\Data\\RmaInterface",
-      "type": "object"
+      "type": "object",
+      "title": "rma-data-rma-extension-interface"
     },
     "rma-data-rma-interface": {
       "description": "Interface RmaInterface",
@@ -4865,7 +5038,8 @@
         "comments",
         "tracks"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "rma-data-rma-interface"
     },
     "rma-data-rma-search-result-interface": {
       "description": "Interface RmaSearchResultInterface",
@@ -4890,11 +5064,13 @@
         "search_criteria",
         "total_count"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "rma-data-rma-search-result-interface"
     },
     "rma-data-track-extension-interface": {
       "description": "ExtensionInterface class for @see \\Magento\\Rma\\Api\\Data\\TrackInterface",
-      "type": "object"
+      "type": "object",
+      "title": "rma-data-track-extension-interface"
     },
     "rma-data-track-interface": {
       "description": "Interface TrackInterface",
@@ -4930,7 +5106,8 @@
         "carrier_title",
         "carrier_code"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "rma-data-track-interface"
     },
     "rma-data-track-search-result-interface": {
       "description": "Interface TrackSearchResultInterface",
@@ -4955,11 +5132,13 @@
         "search_criteria",
         "total_count"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "rma-data-track-search-result-interface"
     },
     "sales-data-creditmemo-comment-creation-extension-interface": {
       "description": "ExtensionInterface class for @see \\Magento\\Sales\\Api\\Data\\CreditmemoCommentCreationInterface",
-      "type": "object"
+      "type": "object",
+      "title": "sales-data-creditmemo-comment-creation-extension-interface"
     },
     "sales-data-creditmemo-comment-creation-interface": {
       "description": "Interface CreditmemoCommentCreationInterface",
@@ -4980,11 +5159,13 @@
         "comment",
         "is_visible_on_front"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "sales-data-creditmemo-comment-creation-interface"
     },
     "sales-data-creditmemo-comment-extension-interface": {
       "description": "ExtensionInterface class for @see \\Magento\\Sales\\Api\\Data\\CreditmemoCommentInterface",
-      "type": "object"
+      "type": "object",
+      "title": "sales-data-creditmemo-comment-extension-interface"
     },
     "sales-data-creditmemo-comment-interface": {
       "description": "Credit memo comment interface. After a customer places and pays for an order and an invoice has been issued, the merchant can create a credit memo to refund all or part of the amount paid for any returned or undelivered items. The memo restores funds to the customer account so that the customer can make future purchases. A credit memo usually includes comments that detail why the credit memo amount was credited to the customer.",
@@ -5023,7 +5204,8 @@
         "is_visible_on_front",
         "parent_id"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "sales-data-creditmemo-comment-interface"
     },
     "sales-data-creditmemo-comment-search-result-interface": {
       "description": "Credit memo comment search result interface. After a customer places and pays for an order and an invoice has been issued, the merchant can create a credit memo to refund all or part of the amount paid for any returned or undelivered items. The memo restores funds to the customer account so that the customer can make future purchases. A credit memo usually includes comments that detail why the credit memo amount was credited to the customer.",
@@ -5048,7 +5230,8 @@
         "search_criteria",
         "total_count"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "sales-data-creditmemo-comment-search-result-interface"
     },
     "sales-data-creditmemo-creation-arguments-extension-interface": {
       "description": "ExtensionInterface class for @see \\Magento\\Sales\\Api\\Data\\CreditmemoCreationArgumentsInterface",
@@ -5060,7 +5243,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "sales-data-creditmemo-creation-arguments-extension-interface"
     },
     "sales-data-creditmemo-creation-arguments-interface": {
       "description": "Interface CreditmemoCreationArgumentsInterface",
@@ -5081,11 +5265,13 @@
           "type": "number"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "sales-data-creditmemo-creation-arguments-interface"
     },
     "sales-data-creditmemo-extension-interface": {
       "description": "ExtensionInterface class for @see \\Magento\\Sales\\Api\\Data\\CreditmemoInterface",
-      "type": "object"
+      "type": "object",
+      "title": "sales-data-creditmemo-extension-interface"
     },
     "sales-data-creditmemo-interface": {
       "description": "Credit memo interface. After a customer places and pays for an order and an invoice has been issued, the merchant can create a credit memo to refund all or part of the amount paid for any returned or undelivered items. The memo restores funds to the customer account so that the customer can make future purchases.",
@@ -5304,11 +5490,13 @@
         "order_id",
         "items"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "sales-data-creditmemo-interface"
     },
     "sales-data-creditmemo-item-creation-extension-interface": {
       "description": "ExtensionInterface class for @see \\Magento\\Sales\\Api\\Data\\CreditmemoItemCreationInterface",
-      "type": "object"
+      "type": "object",
+      "title": "sales-data-creditmemo-item-creation-extension-interface"
     },
     "sales-data-creditmemo-item-creation-interface": {
       "description": "Interface CreditmemoItemCreationInterface",
@@ -5329,11 +5517,13 @@
         "order_item_id",
         "qty"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "sales-data-creditmemo-item-creation-interface"
     },
     "sales-data-creditmemo-item-extension-interface": {
       "description": "ExtensionInterface class for @see \\Magento\\Sales\\Api\\Data\\CreditmemoItemInterface",
-      "type": "object"
+      "type": "object",
+      "title": "sales-data-creditmemo-item-extension-interface"
     },
     "sales-data-creditmemo-item-interface": {
       "description": "Credit memo item interface. After a customer places and pays for an order and an invoice has been issued, the merchant can create a credit memo to refund all or part of the amount paid for any returned or undelivered items. The memo restores funds to the customer account so that the customer can make future purchases. A credit memo item is an invoiced item for which a merchant creates a credit memo.",
@@ -5481,7 +5671,8 @@
         "order_item_id",
         "qty"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "sales-data-creditmemo-item-interface"
     },
     "sales-data-creditmemo-search-result-interface": {
       "description": "Credit memo search result interface. After a customer places and pays for an order and an invoice has been issued, the merchant can create a credit memo to refund all or part of the amount paid for any returned or undelivered items. The memo restores funds to the customer account so that the customer can make future purchases.",
@@ -5506,11 +5697,13 @@
         "search_criteria",
         "total_count"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "sales-data-creditmemo-search-result-interface"
     },
     "sales-data-invoice-comment-creation-extension-interface": {
       "description": "ExtensionInterface class for @see \\Magento\\Sales\\Api\\Data\\InvoiceCommentCreationInterface",
-      "type": "object"
+      "type": "object",
+      "title": "sales-data-invoice-comment-creation-extension-interface"
     },
     "sales-data-invoice-comment-creation-interface": {
       "description": "Interface InvoiceCommentCreationInterface",
@@ -5531,11 +5724,13 @@
         "comment",
         "is_visible_on_front"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "sales-data-invoice-comment-creation-interface"
     },
     "sales-data-invoice-comment-extension-interface": {
       "description": "ExtensionInterface class for @see \\Magento\\Sales\\Api\\Data\\InvoiceCommentInterface",
-      "type": "object"
+      "type": "object",
+      "title": "sales-data-invoice-comment-extension-interface"
     },
     "sales-data-invoice-comment-interface": {
       "description": "Invoice comment interface. An invoice is a record of the receipt of payment for an order. An invoice can include comments that detail the invoice history.",
@@ -5574,7 +5769,8 @@
         "comment",
         "is_visible_on_front"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "sales-data-invoice-comment-interface"
     },
     "sales-data-invoice-comment-search-result-interface": {
       "description": "Invoice comment search result interface. An invoice is a record of the receipt of payment for an order. An invoice can include comments that detail the invoice history.",
@@ -5599,11 +5795,13 @@
         "search_criteria",
         "total_count"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "sales-data-invoice-comment-search-result-interface"
     },
     "sales-data-invoice-creation-arguments-extension-interface": {
       "description": "ExtensionInterface class for @see \\Magento\\Sales\\Api\\Data\\InvoiceCreationArgumentsInterface",
-      "type": "object"
+      "type": "object",
+      "title": "sales-data-invoice-creation-arguments-extension-interface"
     },
     "sales-data-invoice-creation-arguments-interface": {
       "description": "Interface for creation arguments for Invoice.",
@@ -5612,7 +5810,8 @@
           "$ref": "#/definitions/sales-data-invoice-creation-arguments-extension-interface"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "sales-data-invoice-creation-arguments-interface"
     },
     "sales-data-invoice-extension-interface": {
       "description": "ExtensionInterface class for @see \\Magento\\Sales\\Api\\Data\\InvoiceInterface",
@@ -5630,7 +5829,8 @@
           "type": "number"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "sales-data-invoice-extension-interface"
     },
     "sales-data-invoice-interface": {
       "description": "Invoice interface. An invoice is a record of the receipt of payment for an order.",
@@ -5834,11 +6034,13 @@
         "total_qty",
         "items"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "sales-data-invoice-interface"
     },
     "sales-data-invoice-item-creation-extension-interface": {
       "description": "ExtensionInterface class for @see \\Magento\\Sales\\Api\\Data\\InvoiceItemCreationInterface",
-      "type": "object"
+      "type": "object",
+      "title": "sales-data-invoice-item-creation-extension-interface"
     },
     "sales-data-invoice-item-creation-interface": {
       "description": "Input argument for invoice creation Interface InvoiceItemCreationInterface",
@@ -5859,11 +6061,13 @@
         "order_item_id",
         "qty"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "sales-data-invoice-item-creation-interface"
     },
     "sales-data-invoice-item-extension-interface": {
       "description": "ExtensionInterface class for @see \\Magento\\Sales\\Api\\Data\\InvoiceItemInterface",
-      "type": "object"
+      "type": "object",
+      "title": "sales-data-invoice-item-extension-interface"
     },
     "sales-data-invoice-item-interface": {
       "description": "Invoice item interface. An invoice is a record of the receipt of payment for an order. An invoice item is a purchased item in an invoice.",
@@ -5973,7 +6177,8 @@
         "order_item_id",
         "qty"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "sales-data-invoice-item-interface"
     },
     "sales-data-invoice-search-result-interface": {
       "description": "Invoice search result interface. An invoice is a record of the receipt of payment for an order.",
@@ -5998,11 +6203,13 @@
         "search_criteria",
         "total_count"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "sales-data-invoice-search-result-interface"
     },
     "sales-data-order-address-extension-interface": {
       "description": "ExtensionInterface class for @see \\Magento\\Sales\\Api\\Data\\OrderAddressInterface",
-      "type": "object"
+      "type": "object",
+      "title": "sales-data-order-address-extension-interface"
     },
     "sales-data-order-address-interface": {
       "description": "Order address interface. An order is a document that a web store issues to a customer. Magento generates a sales order that lists the product items, billing and shipping addresses, and shipping and payment methods. A corresponding external document, known as a purchase order, is emailed to the customer.",
@@ -6127,7 +6334,8 @@
         "postcode",
         "telephone"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "sales-data-order-address-interface"
     },
     "sales-data-order-extension-interface": {
       "description": "ExtensionInterface class for @see \\Magento\\Sales\\Api\\Data\\OrderInterface",
@@ -6226,7 +6434,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "sales-data-order-extension-interface"
     },
     "sales-data-order-interface": {
       "description": "Order interface. An order is a document that a web store issues to a customer. Magento generates a sales order that lists the product items, billing and shipping addresses, and shipping and payment methods. A corresponding external document, known as a purchase order, is emailed to the customer.",
@@ -6789,7 +6998,8 @@
         "grand_total",
         "items"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "sales-data-order-interface"
     },
     "sales-data-order-item-extension-interface": {
       "description": "ExtensionInterface class for @see \\Magento\\Sales\\Api\\Data\\OrderItemInterface",
@@ -6798,7 +7008,8 @@
           "$ref": "#/definitions/gift-message-data-message-interface"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "sales-data-order-item-extension-interface"
     },
     "sales-data-order-item-interface": {
       "description": "Order item interface. An order is a document that a web store issues to a customer. Magento generates a sales order that lists the product items, billing and shipping addresses, and shipping and payment methods. A corresponding external document, known as a purchase order, is emailed to the customer.",
@@ -7184,7 +7395,8 @@
       "required": [
         "sku"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "sales-data-order-item-interface"
     },
     "sales-data-order-item-search-result-interface": {
       "description": "Order item search result interface. An order is a document that a web store issues to a customer. Magento generates a sales order that lists the product items, billing and shipping addresses, and shipping and payment methods. A corresponding external document, known as a purchase order, is emailed to the customer.",
@@ -7209,7 +7421,8 @@
         "search_criteria",
         "total_count"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "sales-data-order-item-search-result-interface"
     },
     "sales-data-order-payment-extension-interface": {
       "description": "ExtensionInterface class for @see \\Magento\\Sales\\Api\\Data\\OrderPaymentInterface",
@@ -7218,7 +7431,8 @@
           "$ref": "#/definitions/vault-data-payment-token-interface"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "sales-data-order-payment-extension-interface"
     },
     "sales-data-order-payment-interface": {
       "description": "Order payment interface. An order is a document that a web store issues to a customer. Magento generates a sales order that lists the product items, billing and shipping addresses, and shipping and payment methods. A corresponding external document, known as a purchase order, is emailed to the customer.",
@@ -7452,7 +7666,8 @@
         "cc_last4",
         "method"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "sales-data-order-payment-interface"
     },
     "sales-data-order-search-result-interface": {
       "description": "Order search result interface. An order is a document that a web store issues to a customer. Magento generates a sales order that lists the product items, billing and shipping addresses, and shipping and payment methods. A corresponding external document, known as a purchase order, is emailed to the customer.",
@@ -7477,11 +7692,13 @@
         "search_criteria",
         "total_count"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "sales-data-order-search-result-interface"
     },
     "sales-data-order-status-history-extension-interface": {
       "description": "ExtensionInterface class for @see \\Magento\\Sales\\Api\\Data\\OrderStatusHistoryInterface",
-      "type": "object"
+      "type": "object",
+      "title": "sales-data-order-status-history-extension-interface"
     },
     "sales-data-order-status-history-interface": {
       "description": "Order status history interface. An order is a document that a web store issues to a customer. Magento generates a sales order that lists the product items, billing and shipping addresses, and shipping and payment methods. A corresponding external document, known as a purchase order, is emailed to the customer.",
@@ -7528,7 +7745,8 @@
         "is_visible_on_front",
         "parent_id"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "sales-data-order-status-history-interface"
     },
     "sales-data-order-status-history-search-result-interface": {
       "description": "Order status history search result interface. An order is a document that a web store issues to a customer. Magento generates a sales order that lists the product items, billing and shipping addresses, and shipping and payment methods. A corresponding external document, known as a purchase order, is emailed to the customer.",
@@ -7553,11 +7771,13 @@
         "search_criteria",
         "total_count"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "sales-data-order-status-history-search-result-interface"
     },
     "sales-data-shipment-comment-creation-extension-interface": {
       "description": "ExtensionInterface class for @see \\Magento\\Sales\\Api\\Data\\ShipmentCommentCreationInterface",
-      "type": "object"
+      "type": "object",
+      "title": "sales-data-shipment-comment-creation-extension-interface"
     },
     "sales-data-shipment-comment-creation-interface": {
       "description": "Interface ShipmentCommentCreationInterface",
@@ -7578,11 +7798,13 @@
         "comment",
         "is_visible_on_front"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "sales-data-shipment-comment-creation-interface"
     },
     "sales-data-shipment-comment-extension-interface": {
       "description": "ExtensionInterface class for @see \\Magento\\Sales\\Api\\Data\\ShipmentCommentInterface",
-      "type": "object"
+      "type": "object",
+      "title": "sales-data-shipment-comment-extension-interface"
     },
     "sales-data-shipment-comment-interface": {
       "description": "Shipment comment interface. A shipment is a delivery package that contains products. A shipment document accompanies the shipment. This document lists the products and their quantities in the delivery package. A shipment document can contain comments.",
@@ -7621,7 +7843,8 @@
         "comment",
         "is_visible_on_front"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "sales-data-shipment-comment-interface"
     },
     "sales-data-shipment-comment-search-result-interface": {
       "description": "Shipment comment search result interface. A shipment is a delivery package that contains products. A shipment document accompanies the shipment. This document lists the products and their quantities in the delivery package. A shipment document can contain comments.",
@@ -7646,11 +7869,13 @@
         "search_criteria",
         "total_count"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "sales-data-shipment-comment-search-result-interface"
     },
     "sales-data-shipment-creation-arguments-extension-interface": {
       "description": "ExtensionInterface class for @see \\Magento\\Sales\\Api\\Data\\ShipmentCreationArgumentsInterface",
-      "type": "object"
+      "type": "object",
+      "title": "sales-data-shipment-creation-arguments-extension-interface"
     },
     "sales-data-shipment-creation-arguments-interface": {
       "description": "Interface for creation arguments for Shipment.",
@@ -7659,11 +7884,13 @@
           "$ref": "#/definitions/sales-data-shipment-creation-arguments-extension-interface"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "sales-data-shipment-creation-arguments-interface"
     },
     "sales-data-shipment-extension-interface": {
       "description": "ExtensionInterface class for @see \\Magento\\Sales\\Api\\Data\\ShipmentInterface",
-      "type": "object"
+      "type": "object",
+      "title": "sales-data-shipment-extension-interface"
     },
     "sales-data-shipment-interface": {
       "description": "Shipment interface. A shipment is a delivery package that contains products. A shipment document accompanies the shipment. This document lists the products and their quantities in the delivery package.",
@@ -7762,11 +7989,13 @@
         "tracks",
         "comments"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "sales-data-shipment-interface"
     },
     "sales-data-shipment-item-creation-extension-interface": {
       "description": "ExtensionInterface class for @see \\Magento\\Sales\\Api\\Data\\ShipmentItemCreationInterface",
-      "type": "object"
+      "type": "object",
+      "title": "sales-data-shipment-item-creation-extension-interface"
     },
     "sales-data-shipment-item-creation-interface": {
       "description": "Input argument for shipment item creation Interface ShipmentItemCreationInterface",
@@ -7787,11 +8016,13 @@
         "order_item_id",
         "qty"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "sales-data-shipment-item-creation-interface"
     },
     "sales-data-shipment-item-extension-interface": {
       "description": "ExtensionInterface class for @see \\Magento\\Sales\\Api\\Data\\ShipmentItemInterface",
-      "type": "object"
+      "type": "object",
+      "title": "sales-data-shipment-item-extension-interface"
     },
     "sales-data-shipment-item-interface": {
       "description": "Shipment item interface. A shipment is a delivery package that contains products. A shipment document accompanies the shipment. This document lists the products and their quantities in the delivery package. A product is an item in a shipment.",
@@ -7852,11 +8083,13 @@
         "order_item_id",
         "qty"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "sales-data-shipment-item-interface"
     },
     "sales-data-shipment-package-creation-extension-interface": {
       "description": "ExtensionInterface class for @see \\Magento\\Sales\\Api\\Data\\ShipmentPackageCreationInterface",
-      "type": "object"
+      "type": "object",
+      "title": "sales-data-shipment-package-creation-extension-interface"
     },
     "sales-data-shipment-package-creation-interface": {
       "description": "Shipment package interface. A shipment is a delivery package that contains products. A shipment document accompanies the shipment. This document lists the products and their quantities in the delivery package.",
@@ -7865,11 +8098,13 @@
           "$ref": "#/definitions/sales-data-shipment-package-creation-extension-interface"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "sales-data-shipment-package-creation-interface"
     },
     "sales-data-shipment-package-extension-interface": {
       "description": "ExtensionInterface class for @see \\Magento\\Sales\\Api\\Data\\ShipmentPackageInterface",
-      "type": "object"
+      "type": "object",
+      "title": "sales-data-shipment-package-extension-interface"
     },
     "sales-data-shipment-package-interface": {
       "description": "Shipment package interface. A shipment is a delivery package that contains products. A shipment document accompanies the shipment. This document lists the products and their quantities in the delivery package.",
@@ -7878,7 +8113,8 @@
           "$ref": "#/definitions/sales-data-shipment-package-extension-interface"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "sales-data-shipment-package-interface"
     },
     "sales-data-shipment-search-result-interface": {
       "description": "Shipment search result interface. A shipment is a delivery package that contains products. A shipment document accompanies the shipment. This document lists the products and their quantities in the delivery package.",
@@ -7903,11 +8139,13 @@
         "search_criteria",
         "total_count"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "sales-data-shipment-search-result-interface"
     },
     "sales-data-shipment-track-creation-extension-interface": {
       "description": "ExtensionInterface class for @see \\Magento\\Sales\\Api\\Data\\ShipmentTrackCreationInterface",
-      "type": "object"
+      "type": "object",
+      "title": "sales-data-shipment-track-creation-extension-interface"
     },
     "sales-data-shipment-track-creation-interface": {
       "description": "Shipment Track Creation interface.",
@@ -7933,11 +8171,13 @@
         "title",
         "carrier_code"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "sales-data-shipment-track-creation-interface"
     },
     "sales-data-shipment-track-extension-interface": {
       "description": "ExtensionInterface class for @see \\Magento\\Sales\\Api\\Data\\ShipmentTrackInterface",
-      "type": "object"
+      "type": "object",
+      "title": "sales-data-shipment-track-extension-interface"
     },
     "sales-data-shipment-track-interface": {
       "description": "Shipment track interface. A shipment is a delivery package that contains products. A shipment document accompanies the shipment. This document lists the products and their quantities in the delivery package. Merchants and customers can track shipments.",
@@ -8000,11 +8240,13 @@
         "title",
         "carrier_code"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "sales-data-shipment-track-interface"
     },
     "sales-data-shipping-assignment-extension-interface": {
       "description": "ExtensionInterface class for @see \\Magento\\Sales\\Api\\Data\\ShippingAssignmentInterface",
-      "type": "object"
+      "type": "object",
+      "title": "sales-data-shipping-assignment-extension-interface"
     },
     "sales-data-shipping-assignment-interface": {
       "description": "Interface ShippingAssignmentInterface",
@@ -8031,11 +8273,13 @@
         "shipping",
         "items"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "sales-data-shipping-assignment-interface"
     },
     "sales-data-shipping-extension-interface": {
       "description": "ExtensionInterface class for @see \\Magento\\Sales\\Api\\Data\\ShippingInterface",
-      "type": "object"
+      "type": "object",
+      "title": "sales-data-shipping-extension-interface"
     },
     "sales-data-shipping-interface": {
       "description": "Interface ShippingInterface",
@@ -8054,11 +8298,13 @@
           "$ref": "#/definitions/sales-data-total-interface"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "sales-data-shipping-interface"
     },
     "sales-data-total-extension-interface": {
       "description": "ExtensionInterface class for @see \\Magento\\Sales\\Api\\Data\\TotalInterface",
-      "type": "object"
+      "type": "object",
+      "title": "sales-data-total-extension-interface"
     },
     "sales-data-total-interface": {
       "description": "Interface TotalInterface",
@@ -8139,11 +8385,13 @@
           "type": "number"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "sales-data-total-interface"
     },
     "sales-data-transaction-extension-interface": {
       "description": "ExtensionInterface class for @see \\Magento\\Sales\\Api\\Data\\TransactionInterface",
-      "type": "object"
+      "type": "object",
+      "title": "sales-data-transaction-extension-interface"
     },
     "sales-data-transaction-interface": {
       "description": "Transaction interface. A transaction is an interaction between a merchant and a customer such as a purchase, a credit, a refund, and so on.",
@@ -8213,7 +8461,8 @@
         "created_at",
         "child_transactions"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "sales-data-transaction-interface"
     },
     "sales-data-transaction-search-result-interface": {
       "description": "Transaction search result interface. A transaction is an interaction between a merchant and a customer such as a purchase, a credit, a refund, and so on.",
@@ -8238,11 +8487,13 @@
         "search_criteria",
         "total_count"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "sales-data-transaction-search-result-interface"
     },
     "sales-rule-data-condition-extension-interface": {
       "description": "ExtensionInterface class for @see \\Magento\\SalesRule\\Api\\Data\\ConditionInterface",
-      "type": "object"
+      "type": "object",
+      "title": "sales-rule-data-condition-extension-interface"
     },
     "sales-rule-data-condition-interface": {
       "description": "Interface ConditionInterface",
@@ -8283,15 +8534,18 @@
         "operator",
         "value"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "sales-rule-data-condition-interface"
     },
     "sales-rule-data-coupon-extension-interface": {
       "description": "ExtensionInterface class for @see \\Magento\\SalesRule\\Api\\Data\\CouponInterface",
-      "type": "object"
+      "type": "object",
+      "title": "sales-rule-data-coupon-extension-interface"
     },
     "sales-rule-data-coupon-generation-spec-extension-interface": {
       "description": "ExtensionInterface class for @see \\Magento\\SalesRule\\Api\\Data\\CouponGenerationSpecInterface",
-      "type": "object"
+      "type": "object",
+      "title": "sales-rule-data-coupon-generation-spec-extension-interface"
     },
     "sales-rule-data-coupon-generation-spec-interface": {
       "description": "CouponGenerationSpecInterface",
@@ -8338,7 +8592,8 @@
         "quantity",
         "length"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "sales-rule-data-coupon-generation-spec-interface"
     },
     "sales-rule-data-coupon-interface": {
       "description": "Interface CouponInterface",
@@ -8392,7 +8647,8 @@
         "times_used",
         "is_primary"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "sales-rule-data-coupon-interface"
     },
     "sales-rule-data-coupon-mass-delete-result-interface": {
       "description": "Coupon mass delete results interface.",
@@ -8416,7 +8672,8 @@
         "failed_items",
         "missing_items"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "sales-rule-data-coupon-mass-delete-result-interface"
     },
     "sales-rule-data-coupon-search-result-interface": {
       "description": "",
@@ -8441,7 +8698,8 @@
         "search_criteria",
         "total_count"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "sales-rule-data-coupon-search-result-interface"
     },
     "sales-rule-data-rule-extension-interface": {
       "description": "ExtensionInterface class for @see \\Magento\\SalesRule\\Api\\Data\\RuleInterface",
@@ -8450,7 +8708,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "sales-rule-data-rule-extension-interface"
     },
     "sales-rule-data-rule-interface": {
       "description": "Interface RuleInterface",
@@ -8594,11 +8853,13 @@
         "use_auto_generation",
         "uses_per_coupon"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "sales-rule-data-rule-interface"
     },
     "sales-rule-data-rule-label-extension-interface": {
       "description": "ExtensionInterface class for @see \\Magento\\SalesRule\\Api\\Data\\RuleLabelInterface",
-      "type": "object"
+      "type": "object",
+      "title": "sales-rule-data-rule-label-extension-interface"
     },
     "sales-rule-data-rule-label-interface": {
       "description": "Interface RuleLabelInterface",
@@ -8619,7 +8880,8 @@
         "store_id",
         "store_label"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "sales-rule-data-rule-label-interface"
     },
     "sales-rule-data-rule-search-result-interface": {
       "description": "",
@@ -8644,11 +8906,13 @@
         "search_criteria",
         "total_count"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "sales-rule-data-rule-search-result-interface"
     },
     "store-data-group-extension-interface": {
       "description": "ExtensionInterface class for @see \\Magento\\Store\\Api\\Data\\GroupInterface",
-      "type": "object"
+      "type": "object",
+      "title": "store-data-group-extension-interface"
     },
     "store-data-group-interface": {
       "description": "Group interface",
@@ -8679,11 +8943,13 @@
         "default_store_id",
         "name"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "store-data-group-interface"
     },
     "store-data-store-config-extension-interface": {
       "description": "ExtensionInterface class for @see \\Magento\\Store\\Api\\Data\\StoreConfigInterface",
-      "type": "object"
+      "type": "object",
+      "title": "store-data-store-config-extension-interface"
     },
     "store-data-store-config-interface": {
       "description": "StoreConfig interface",
@@ -8774,11 +9040,13 @@
         "secure_base_static_url",
         "secure_base_media_url"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "store-data-store-config-interface"
     },
     "store-data-store-extension-interface": {
       "description": "ExtensionInterface class for @see \\Magento\\Store\\Api\\Data\\StoreInterface",
-      "type": "object"
+      "type": "object",
+      "title": "store-data-store-extension-interface"
     },
     "store-data-store-interface": {
       "description": "Store interface",
@@ -8810,11 +9078,13 @@
         "website_id",
         "store_group_id"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "store-data-store-interface"
     },
     "store-data-website-extension-interface": {
       "description": "ExtensionInterface class for @see \\Magento\\Store\\Api\\Data\\WebsiteInterface",
-      "type": "object"
+      "type": "object",
+      "title": "store-data-website-extension-interface"
     },
     "store-data-website-interface": {
       "description": "Website interface",
@@ -8842,11 +9112,13 @@
         "name",
         "default_group_id"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "store-data-website-interface"
     },
     "tax-data-applied-tax-rate-extension-interface": {
       "description": "ExtensionInterface class for @see \\Magento\\Tax\\Api\\Data\\AppliedTaxRateInterface",
-      "type": "object"
+      "type": "object",
+      "title": "tax-data-applied-tax-rate-extension-interface"
     },
     "tax-data-applied-tax-rate-interface": {
       "description": "Applied tax rate interface.",
@@ -8867,7 +9139,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "tax-data-applied-tax-rate-interface"
     },
     "tax-data-grand-total-details-interface": {
       "description": "Interface GrandTotalDetailsInterface",
@@ -8893,7 +9166,8 @@
         "rates",
         "group_id"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "tax-data-grand-total-details-interface"
     },
     "tax-data-grand-total-rates-interface": {
       "description": "Interface GrandTotalRatesInterface",
@@ -8911,7 +9185,8 @@
         "percent",
         "title"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "tax-data-grand-total-rates-interface"
     },
     "tax-data-order-tax-details-applied-tax-extension-interface": {
       "description": "ExtensionInterface class for @see \\Magento\\Tax\\Api\\Data\\OrderTaxDetailsAppliedTaxInterface",
@@ -8923,7 +9198,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "tax-data-order-tax-details-applied-tax-extension-interface"
     },
     "tax-data-order-tax-details-applied-tax-interface": {
       "description": "Interface OrderTaxDetailsAppliedTaxInterface",
@@ -8956,11 +9232,13 @@
         "amount",
         "base_amount"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "tax-data-order-tax-details-applied-tax-interface"
     },
     "tax-data-order-tax-details-item-extension-interface": {
       "description": "ExtensionInterface class for @see \\Magento\\Tax\\Api\\Data\\OrderTaxDetailsItemInterface",
-      "type": "object"
+      "type": "object",
+      "title": "tax-data-order-tax-details-item-extension-interface"
     },
     "tax-data-order-tax-details-item-interface": {
       "description": "Interface OrderTaxDetailsItemInterface",
@@ -8988,11 +9266,13 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "tax-data-order-tax-details-item-interface"
     },
     "tax-data-tax-class-extension-interface": {
       "description": "ExtensionInterface class for @see \\Magento\\Tax\\Api\\Data\\TaxClassInterface",
-      "type": "object"
+      "type": "object",
+      "title": "tax-data-tax-class-extension-interface"
     },
     "tax-data-tax-class-interface": {
       "description": "Tax class interface.",
@@ -9017,7 +9297,8 @@
         "class_name",
         "class_type"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "tax-data-tax-class-interface"
     },
     "tax-data-tax-class-search-results-interface": {
       "description": "Interface for tax class search results.",
@@ -9042,11 +9323,13 @@
         "search_criteria",
         "total_count"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "tax-data-tax-class-search-results-interface"
     },
     "tax-data-tax-rate-extension-interface": {
       "description": "ExtensionInterface class for @see \\Magento\\Tax\\Api\\Data\\TaxRateInterface",
-      "type": "object"
+      "type": "object",
+      "title": "tax-data-tax-rate-extension-interface"
     },
     "tax-data-tax-rate-interface": {
       "description": "Tax rate interface.",
@@ -9107,7 +9390,8 @@
         "rate",
         "code"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "tax-data-tax-rate-interface"
     },
     "tax-data-tax-rate-search-results-interface": {
       "description": "Interface for tax rate search results.",
@@ -9132,11 +9416,13 @@
         "search_criteria",
         "total_count"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "tax-data-tax-rate-search-results-interface"
     },
     "tax-data-tax-rate-title-extension-interface": {
       "description": "ExtensionInterface class for @see \\Magento\\Tax\\Api\\Data\\TaxRateTitleInterface",
-      "type": "object"
+      "type": "object",
+      "title": "tax-data-tax-rate-title-extension-interface"
     },
     "tax-data-tax-rate-title-interface": {
       "description": "Tax rate title interface.",
@@ -9157,11 +9443,13 @@
         "store_id",
         "value"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "tax-data-tax-rate-title-interface"
     },
     "tax-data-tax-rule-extension-interface": {
       "description": "ExtensionInterface class for @see \\Magento\\Tax\\Api\\Data\\TaxRuleInterface",
-      "type": "object"
+      "type": "object",
+      "title": "tax-data-tax-rule-extension-interface"
     },
     "tax-data-tax-rule-interface": {
       "description": "Tax rule interface.",
@@ -9219,7 +9507,8 @@
         "product_tax_class_ids",
         "tax_rate_ids"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "tax-data-tax-rule-interface"
     },
     "tax-data-tax-rule-search-results-interface": {
       "description": "Interface for tax rule search results.",
@@ -9244,7 +9533,8 @@
         "search_criteria",
         "total_count"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "tax-data-tax-rule-search-results-interface"
     },
     "vault-data-payment-token-interface": {
       "description": "Gateway vault payment token interface.",
@@ -9303,7 +9593,8 @@
         "is_active",
         "is_visible"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "vault-data-payment-token-interface"
     }
   },
   "actions": [

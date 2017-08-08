@@ -98,7 +98,8 @@
           "description": "A variant annotation, which describes the effect of a variant on the\ngenome, the coding sequence, and/or higher level consequences at the\norganism level e.g. pathogenicity. This field is only set for annotations\nof type `VARIANT`."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Annotation"
     },
     "AnnotationSet": {
       "description": "An annotation set is a logical grouping of annotations that share consistent\ntype information and provenance. Examples of annotation sets include 'all\ngenes from refseq', and 'all variant annotations from ClinVar'.",
@@ -143,7 +144,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AnnotationSet"
     },
     "BatchCreateAnnotationsRequest": {
       "properties": {
@@ -159,7 +161,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BatchCreateAnnotationsRequest"
     },
     "BatchCreateAnnotationsResponse": {
       "properties": {
@@ -171,7 +174,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BatchCreateAnnotationsResponse"
     },
     "Binding": {
       "description": "Associates `members` with a `role`.",
@@ -188,7 +192,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Binding"
     },
     "CallSet": {
       "description": "A call set is a collection of variant calls, typically for one sample. It\nbelongs to a variant set.\n\nFor more genomics resource definitions, see [Fundamentals of Google\nGenomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)",
@@ -226,12 +231,14 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CallSet"
     },
     "CancelOperationRequest": {
       "description": "The request message for Operations.CancelOperation.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "CancelOperationRequest"
     },
     "CigarUnit": {
       "description": "A single CIGAR operation.",
@@ -261,7 +268,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CigarUnit"
     },
     "ClinicalCondition": {
       "properties": {
@@ -288,7 +296,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ClinicalCondition"
     },
     "CodingSequence": {
       "properties": {
@@ -303,7 +312,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CodingSequence"
     },
     "ComputeEngine": {
       "description": "Describes a Compute Engine resource that is being managed by a running\npipeline.",
@@ -328,7 +338,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ComputeEngine"
     },
     "CoverageBucket": {
       "description": "A bucket over which read coverage has been precomputed. A bucket corresponds\nto a specific range of the reference sequence.",
@@ -343,7 +354,8 @@
           "description": "The genomic coordinate range spanned by this bucket."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CoverageBucket"
     },
     "Dataset": {
       "description": "A Dataset is a collection of genomic data.\n\nFor more genomics resource definitions, see [Fundamentals of Google\nGenomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)",
@@ -366,12 +378,14 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Dataset"
     },
     "Empty": {
       "description": "A generic empty message that you can re-use to avoid defining duplicated\nempty messages in your APIs. A typical example is to use it as the request\nor the response type of an API method. For instance:\n\n    service Foo {\n      rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);\n    }\n\nThe JSON representation for `Empty` is empty JSON object `{}`.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "Empty"
     },
     "Entry": {
       "properties": {
@@ -384,7 +398,8 @@
           "description": "The creation status."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Entry"
     },
     "Exon": {
       "properties": {
@@ -404,7 +419,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Exon"
     },
     "Experiment": {
       "properties": {
@@ -425,7 +441,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Experiment"
     },
     "ExportReadGroupSetRequest": {
       "description": "The read group set export request.",
@@ -446,7 +463,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ExportReadGroupSetRequest"
     },
     "ExportVariantSetRequest": {
       "description": "The variant data export request.",
@@ -479,7 +497,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ExportVariantSetRequest"
     },
     "ExternalId": {
       "properties": {
@@ -492,12 +511,14 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ExternalId"
     },
     "GetIamPolicyRequest": {
       "description": "Request message for `GetIamPolicy` method.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "GetIamPolicyRequest"
     },
     "ImportReadGroupSetsRequest": {
       "description": "The read group set import request.",
@@ -527,7 +548,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ImportReadGroupSetsRequest"
     },
     "ImportReadGroupSetsResponse": {
       "description": "The read group set import response.",
@@ -540,7 +562,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ImportReadGroupSetsResponse"
     },
     "ImportVariantsRequest": {
       "description": "The variant data import request.",
@@ -582,7 +605,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ImportVariantsRequest"
     },
     "ImportVariantsResponse": {
       "description": "The variant data import response.",
@@ -595,7 +619,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ImportVariantsResponse"
     },
     "LinearAlignment": {
       "description": "A linear alignment can be represented by one CIGAR string. Describes the\nmapped position and local alignment of the read to the reference.",
@@ -617,7 +642,8 @@
           "description": "The position of this alignment."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LinearAlignment"
     },
     "ListBasesResponse": {
       "properties": {
@@ -635,7 +661,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListBasesResponse"
     },
     "ListCoverageBucketsResponse": {
       "properties": {
@@ -656,7 +683,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListCoverageBucketsResponse"
     },
     "ListDatasetsResponse": {
       "description": "The dataset list response.",
@@ -673,7 +701,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListDatasetsResponse"
     },
     "ListOperationsResponse": {
       "description": "The response message for Operations.ListOperations.",
@@ -690,7 +719,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListOperationsResponse"
     },
     "MergeVariantsRequest": {
       "properties": {
@@ -718,7 +748,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "MergeVariantsRequest"
     },
     "Operation": {
       "description": "This resource represents a long-running operation that is the result of a\nnetwork API call.",
@@ -750,7 +781,8 @@
           "type": "object"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Operation"
     },
     "OperationEvent": {
       "description": "An event that occurred during an Operation.",
@@ -770,7 +802,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "OperationEvent"
     },
     "OperationMetadata": {
       "description": "Metadata describing an Operation.",
@@ -827,7 +860,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "OperationMetadata"
     },
     "Policy": {
       "description": "Defines an Identity and Access Management (IAM) policy. It is used to\nspecify access control policies for Cloud Platform resources.\n\n\nA `Policy` consists of a list of `bindings`. A `Binding` binds a list of\n`members` to a `role`, where the members can be user accounts, Google groups,\nGoogle domains, and service accounts. A `role` is a named list of permissions\ndefined by IAM.\n\n**Example**\n\n    {\n      \"bindings\": [\n        {\n          \"role\": \"roles/owner\",\n          \"members\": [\n            \"user:mike@example.com\",\n            \"group:admins@example.com\",\n            \"domain:google.com\",\n            \"serviceAccount:my-other-app@appspot.gserviceaccount.com\",\n          ]\n        },\n        {\n          \"role\": \"roles/viewer\",\n          \"members\": [\"user:sean@example.com\"]\n        }\n      ]\n    }\n\nFor a description of IAM and its features, see the\n[IAM developer's guide](https://cloud.google.com/iam).",
@@ -850,7 +884,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Policy"
     },
     "Position": {
       "description": "An abstraction for referring to a genomic position, in relation to some\nalready known reference. For now, represents a genomic position as a\nreference name, a base number on that reference (0-based), and a\ndetermination of forward or reverse strand.",
@@ -869,7 +904,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Position"
     },
     "Program": {
       "properties": {
@@ -894,7 +930,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Program"
     },
     "Range": {
       "description": "A 0-based half-open genomic coordinate range for search requests.",
@@ -914,7 +951,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Range"
     },
     "Read": {
       "description": "A read alignment describes a linear alignment of a string of DNA to a\nreference sequence, in addition to metadata\nabout the fragment (the molecule of DNA sequenced) and the read (the bases\nwhich were read by the sequencer). A read is equivalent to a line in a SAM\nfile. A read belongs to exactly one read group and exactly one\nread group set.\n\nFor more genomics resource definitions, see [Fundamentals of Google\nGenomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)\n\n### Reverse-stranded reads\n\nMapped reads (reads having a non-null `alignment`) can be aligned to either\nthe forward or the reverse strand of their associated reference. Strandedness\nof a mapped read is encoded by `alignment.position.reverseStrand`.\n\nIf we consider the reference to be a forward-stranded coordinate space of\n`[0, reference.length)` with `0` as the left-most position and\n`reference.length` as the right-most position, reads are always aligned left\nto right. That is, `alignment.position.position` always refers to the\nleft-most reference coordinate and `alignment.cigar` describes the alignment\nof this read to the reference from left to right. All per-base fields such as\n`alignedSequence` and `alignedQuality` share this same left-to-right\norientation; this is true of reads which are aligned to either strand. For\nreverse-stranded reads, this means that `alignedSequence` is the reverse\ncomplement of the bases that were originally reported by the sequencing\nmachine.\n\n### Generating a reference-aligned sequence string\n\nWhen interacting with mapped reads, it's often useful to produce a string\nrepresenting the local alignment of the read to reference. The following\npseudocode demonstrates one way of doing this:\n\n    out = \"\"\n    offset = 0\n    for c in read.alignment.cigar {\n      switch c.operation {\n      case \"ALIGNMENT_MATCH\", \"SEQUENCE_MATCH\", \"SEQUENCE_MISMATCH\":\n        out += read.alignedSequence[offset:offset+c.operationLength]\n        offset += c.operationLength\n        break\n      case \"CLIP_SOFT\", \"INSERT\":\n        offset += c.operationLength\n        break\n      case \"PAD\":\n        out += repeat(\"*\", c.operationLength)\n        break\n      case \"DELETE\":\n        out += repeat(\"-\", c.operationLength)\n        break\n      case \"SKIP\":\n        out += repeat(\" \", c.operationLength)\n        break\n      case \"CLIP_HARD\":\n        break\n      }\n    }\n    return out\n\n### Converting to SAM's CIGAR string\n\nThe following pseudocode generates a SAM CIGAR string from the\n`cigar` field. Note that this is a lossy conversion\n(`cigar.referenceSequence` is lost).\n\n    cigarMap = {\n      \"ALIGNMENT_MATCH\": \"M\",\n      \"INSERT\": \"I\",\n      \"DELETE\": \"D\",\n      \"SKIP\": \"N\",\n      \"CLIP_SOFT\": \"S\",\n      \"CLIP_HARD\": \"H\",\n      \"PAD\": \"P\",\n      \"SEQUENCE_MATCH\": \"=\",\n      \"SEQUENCE_MISMATCH\": \"X\",\n    }\n    cigarStr = \"\"\n    for c in read.alignment.cigar {\n      cigarStr += c.operationLength + cigarMap[c.operation]\n    }\n    return cigarStr",
@@ -999,7 +1037,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Read"
     },
     "ReadGroup": {
       "description": "A read group is all the data that's processed the same way by the sequencer.",
@@ -1053,7 +1092,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ReadGroup"
     },
     "ReadGroupSet": {
       "description": "A read group set is a logical collection of read groups, which are\ncollections of reads produced by a sequencer. A read group set typically\nmodels reads corresponding to one sample, sequenced one way, and aligned one\nway.\n\n* A read group set belongs to one dataset.\n* A read group belongs to one read group set.\n* A read belongs to one read group.\n\nFor more genomics resource definitions, see [Fundamentals of Google\nGenomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)",
@@ -1094,7 +1134,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ReadGroupSet"
     },
     "Reference": {
       "description": "A reference is a canonical assembled DNA sequence, intended to act as a\nreference coordinate space for other genomic annotations. A single reference\nmight represent the human chromosome 1 or mitochandrial DNA, for instance. A\nreference belongs to one or more reference sets.\n\nFor more genomics resource definitions, see [Fundamentals of Google\nGenomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)",
@@ -1133,7 +1174,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Reference"
     },
     "ReferenceBound": {
       "description": "ReferenceBound records an upper bound for the starting coordinate of\nvariants in a particular reference.",
@@ -1148,7 +1190,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ReferenceBound"
     },
     "ReferenceSet": {
       "description": "A reference set is a set of references which typically comprise a reference\nassembly for a species, such as `GRCh38` which is representative\nof the human genome. A reference set defines a common coordinate space for\ncomparing reference-aligned experimental data. A reference set contains 1 or\nmore references.\n\nFor more genomics resource definitions, see [Fundamentals of Google\nGenomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)",
@@ -1193,7 +1236,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ReferenceSet"
     },
     "RuntimeMetadata": {
       "description": "Runtime metadata that will be populated in the\nruntimeMetadata\nfield of the Operation associated with a RunPipeline execution.",
@@ -1203,7 +1247,8 @@
           "description": "Execution information specific to Google Compute Engine."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RuntimeMetadata"
     },
     "SearchAnnotationSetsRequest": {
       "properties": {
@@ -1246,7 +1291,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SearchAnnotationSetsRequest"
     },
     "SearchAnnotationSetsResponse": {
       "properties": {
@@ -1262,7 +1308,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SearchAnnotationSetsResponse"
     },
     "SearchAnnotationsRequest": {
       "properties": {
@@ -1301,7 +1348,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SearchAnnotationsRequest"
     },
     "SearchAnnotationsResponse": {
       "properties": {
@@ -1317,7 +1365,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SearchAnnotationsResponse"
     },
     "SearchCallSetsRequest": {
       "description": "The call set search request.",
@@ -1343,7 +1392,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SearchCallSetsRequest"
     },
     "SearchCallSetsResponse": {
       "description": "The call set search response.",
@@ -1360,7 +1410,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SearchCallSetsResponse"
     },
     "SearchReadGroupSetsRequest": {
       "description": "The read group set search request.",
@@ -1386,7 +1437,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SearchReadGroupSetsRequest"
     },
     "SearchReadGroupSetsResponse": {
       "description": "The read group set search response.",
@@ -1403,7 +1455,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SearchReadGroupSetsResponse"
     },
     "SearchReadsRequest": {
       "description": "The read search request.",
@@ -1446,7 +1499,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SearchReadsRequest"
     },
     "SearchReadsResponse": {
       "description": "The read search response.",
@@ -1463,7 +1517,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SearchReadsResponse"
     },
     "SearchReferenceSetsRequest": {
       "properties": {
@@ -1495,7 +1550,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SearchReferenceSetsRequest"
     },
     "SearchReferenceSetsResponse": {
       "properties": {
@@ -1511,7 +1567,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SearchReferenceSetsResponse"
     },
     "SearchReferencesRequest": {
       "properties": {
@@ -1543,7 +1600,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SearchReferencesRequest"
     },
     "SearchReferencesResponse": {
       "properties": {
@@ -1559,7 +1617,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SearchReferencesResponse"
     },
     "SearchVariantSetsRequest": {
       "description": "The search variant sets request.",
@@ -1581,7 +1640,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SearchVariantSetsRequest"
     },
     "SearchVariantSetsResponse": {
       "description": "The search variant sets response.",
@@ -1598,7 +1658,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SearchVariantSetsResponse"
     },
     "SearchVariantsRequest": {
       "description": "The variant search request.",
@@ -1650,7 +1711,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SearchVariantsRequest"
     },
     "SearchVariantsResponse": {
       "description": "The variant search response.",
@@ -1667,7 +1729,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SearchVariantsResponse"
     },
     "SetIamPolicyRequest": {
       "description": "Request message for `SetIamPolicy` method.",
@@ -1677,7 +1740,8 @@
           "description": "REQUIRED: The complete policy to be applied to the `resource`. The size of\nthe policy is limited to a few 10s of KB. An empty policy is a\nvalid policy but certain Cloud Platform services (such as Projects)\nmight reject them."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SetIamPolicyRequest"
     },
     "Status": {
       "description": "The `Status` type defines a logical error model that is suitable for different\nprogramming environments, including REST APIs and RPC APIs. It is used by\n[gRPC](https://github.com/grpc). The error model is designed to be:\n\n- Simple to use and understand for most users\n- Flexible enough to meet unexpected needs\n\n# Overview\n\nThe `Status` message contains three pieces of data: error code, error message,\nand error details. The error code should be an enum value of\ngoogle.rpc.Code, but it may accept additional error codes if needed.  The\nerror message should be a developer-facing English message that helps\ndevelopers *understand* and *resolve* the error. If a localized user-facing\nerror message is needed, put the localized message in the error details or\nlocalize it in the client. The optional error details may contain arbitrary\ninformation about the error. There is a predefined set of error detail types\nin the package `google.rpc` which can be used for common error conditions.\n\n# Language mapping\n\nThe `Status` message is the logical representation of the error model, but it\nis not necessarily the actual wire format. When the `Status` message is\nexposed in different client libraries and different wire protocols, it can be\nmapped differently. For example, it will likely be mapped to some exceptions\nin Java, but more likely mapped to some error codes in C.\n\n# Other uses\n\nThe error model and the `Status` message can be used in a variety of\nenvironments, either with or without APIs, to provide a\nconsistent developer experience across different environments.\n\nExample uses of this error model include:\n\n- Partial errors. If a service needs to return partial errors to the client,\n    it may embed the `Status` in the normal response to indicate the partial\n    errors.\n\n- Workflow errors. A typical workflow has multiple steps. Each step may\n    have a `Status` message for error reporting purpose.\n\n- Batch operations. If a client uses batch request and batch response, the\n    `Status` message should be used directly inside batch response, one for\n    each error sub-response.\n\n- Asynchronous operations. If an API call embeds asynchronous operation\n    results in its response, the status of those operations should be\n    represented directly using the `Status` message.\n\n- Logging. If some API errors are stored in logs, the message `Status` could\n    be used directly after any stripping needed for security/privacy reasons.",
@@ -1702,7 +1766,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Status"
     },
     "TestIamPermissionsRequest": {
       "description": "Request message for `TestIamPermissions` method.",
@@ -1715,7 +1780,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TestIamPermissionsRequest"
     },
     "TestIamPermissionsResponse": {
       "description": "Response message for `TestIamPermissions` method.",
@@ -1728,7 +1794,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TestIamPermissionsResponse"
     },
     "Transcript": {
       "description": "A transcript represents the assertion that a particular region of the\nreference genome may be transcribed as RNA.",
@@ -1749,11 +1816,13 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Transcript"
     },
     "UndeleteDatasetRequest": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "UndeleteDatasetRequest"
     },
     "Variant": {
       "description": "A variant represents a change in DNA sequence relative to a reference\nsequence. For example, a variant could represent a SNP or an insertion.\nVariants belong to a variant set.\n\nFor more genomics resource definitions, see [Fundamentals of Google\nGenomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)\n\nEach of the calls on a variant represent a determination of genotype with\nrespect to that variant. For example, a call might assign probability of 0.32\nto the occurrence of a SNP named rs1234 in a sample named NA12345. A call\nbelongs to a call set, which contains related calls typically from one\nsample.",
@@ -1831,7 +1900,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Variant"
     },
     "VariantAnnotation": {
       "properties": {
@@ -1907,7 +1977,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "VariantAnnotation"
     },
     "VariantCall": {
       "description": "A call represents the determination of genotype with respect to a particular\nvariant. It may include associated information such as quality and phasing.\nFor example, a call might assign a probability of 0.32 to the occurrence of\na SNP named rs1234 in a call set with the name NA12345.",
@@ -1949,7 +2020,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "VariantCall"
     },
     "VariantSet": {
       "description": "A variant set is a collection of call sets and variants. It contains summary\nstatistics of those contents. A variant set belongs to a dataset.\n\nFor more genomics resource definitions, see [Fundamentals of Google\nGenomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)",
@@ -1989,7 +2061,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "VariantSet"
     },
     "VariantSetMetadata": {
       "description": "Metadata describes a single piece of variant call metadata.\nThese data include a top level key and either a single value string (value)\nor a list of key-value pairs (info.)\nValue and info are mutually exclusive.",
@@ -2035,7 +2108,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "VariantSetMetadata"
     }
   },
   "actions": [

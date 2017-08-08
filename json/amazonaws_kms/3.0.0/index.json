@@ -17,7 +17,8 @@
   "actionCount": 35,
   "definitions": {
     "AWSAccountIdType": {
-      "type": "string"
+      "type": "string",
+      "title": "AWSAccountIdType"
     },
     "AlgorithmSpec": {
       "enum": [
@@ -25,13 +26,15 @@
         "RSAES_OAEP_SHA_1",
         "RSAES_OAEP_SHA_256"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "AlgorithmSpec"
     },
     "AliasList": {
       "items": {
         "$ref": "#/definitions/AliasListEntry"
       },
-      "type": "array"
+      "type": "array",
+      "title": "AliasList"
     },
     "AliasListEntry": {
       "description": "Contains information about an alias.",
@@ -49,13 +52,15 @@
           "description": "String that contains the key identifier referred to by the alias."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AliasListEntry"
     },
     "AliasNameType": {
       "maxLength": 256,
       "minLength": 1,
       "pattern": "^[a-zA-Z0-9:/_-]+$",
-      "type": "string"
+      "type": "string",
+      "title": "AliasNameType"
     },
     "AlreadyExistsException": {
       "description": "The request was rejected because it attempted to create a resource that already exists.",
@@ -64,15 +69,18 @@
           "$ref": "#/definitions/ErrorMessageType"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AlreadyExistsException"
     },
     "ArnType": {
       "maxLength": 2048,
       "minLength": 20,
-      "type": "string"
+      "type": "string",
+      "title": "ArnType"
     },
     "BooleanType": {
-      "type": "boolean"
+      "type": "boolean",
+      "title": "BooleanType"
     },
     "CancelKeyDeletionRequest": {
       "example": {
@@ -87,7 +95,8 @@
       "required": [
         "KeyId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CancelKeyDeletionRequest"
     },
     "CancelKeyDeletionResponse": {
       "example": {
@@ -99,12 +108,14 @@
           "description": "The unique identifier of the master key for which deletion is canceled."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CancelKeyDeletionResponse"
     },
     "CiphertextType": {
       "maxLength": 6144,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "CiphertextType"
     },
     "CreateAliasRequest": {
       "example": {
@@ -125,7 +136,8 @@
         "AliasName",
         "TargetKeyId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateAliasRequest"
     },
     "CreateGrantRequest": {
       "example": {
@@ -170,7 +182,8 @@
         "KeyId",
         "GranteePrincipal"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateGrantRequest"
     },
     "CreateGrantResponse": {
       "example": {
@@ -187,7 +200,8 @@
           "description": "<p>The grant token.</p> <p>For more information, see <a href=\"http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token\">Grant Tokens</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateGrantResponse"
     },
     "CreateKeyRequest": {
       "example": {
@@ -224,7 +238,8 @@
           "description": "<p>One or more tags. Each tag consists of a tag key and a tag value. Tag keys and tag values are both required, but tag values can be empty (null) strings.</p> <p>Use this parameter to tag the CMK when it is created. Alternately, you can omit this parameter and instead tag the CMK after it is created using <a>TagResource</a>.</p>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateKeyRequest"
     },
     "CreateKeyResponse": {
       "example": {
@@ -246,18 +261,21 @@
           "description": "Metadata associated with the CMK."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateKeyResponse"
     },
     "DataKeySpec": {
       "enum": [
         "AES_256",
         "AES_128"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "DataKeySpec"
     },
     "DateType": {
       "format": "date-time",
-      "type": "string"
+      "type": "string",
+      "title": "DateType"
     },
     "DecryptRequest": {
       "example": {
@@ -280,7 +298,8 @@
       "required": [
         "CiphertextBlob"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DecryptRequest"
     },
     "DecryptResponse": {
       "example": {
@@ -297,7 +316,8 @@
           "description": "Decrypted plaintext data. This value may not be returned if the customer master key is not available or if you didn't have permission to use it."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DecryptResponse"
     },
     "DeleteAliasRequest": {
       "example": {
@@ -312,7 +332,8 @@
       "required": [
         "AliasName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteAliasRequest"
     },
     "DeleteImportedKeyMaterialRequest": {
       "example": {
@@ -327,7 +348,8 @@
       "required": [
         "KeyId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteImportedKeyMaterialRequest"
     },
     "DependencyTimeoutException": {
       "description": "The system timed out while trying to fulfill the request. The request can be retried.",
@@ -336,7 +358,8 @@
           "$ref": "#/definitions/ErrorMessageType"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DependencyTimeoutException"
     },
     "DescribeKeyRequest": {
       "example": {
@@ -355,7 +378,8 @@
       "required": [
         "KeyId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeKeyRequest"
     },
     "DescribeKeyResponse": {
       "example": {
@@ -377,12 +401,14 @@
           "description": "Metadata associated with the key."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeKeyResponse"
     },
     "DescriptionType": {
       "maxLength": 8192,
       "minLength": 0,
-      "type": "string"
+      "type": "string",
+      "title": "DescriptionType"
     },
     "DisableKeyRequest": {
       "example": {
@@ -397,7 +423,8 @@
       "required": [
         "KeyId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DisableKeyRequest"
     },
     "DisableKeyRotationRequest": {
       "example": {
@@ -412,7 +439,8 @@
       "required": [
         "KeyId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DisableKeyRotationRequest"
     },
     "DisabledException": {
       "description": "The request was rejected because the specified CMK is not enabled.",
@@ -421,7 +449,8 @@
           "$ref": "#/definitions/ErrorMessageType"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DisabledException"
     },
     "EnableKeyRequest": {
       "example": {
@@ -436,7 +465,8 @@
       "required": [
         "KeyId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "EnableKeyRequest"
     },
     "EnableKeyRotationRequest": {
       "example": {
@@ -451,7 +481,8 @@
       "required": [
         "KeyId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "EnableKeyRotationRequest"
     },
     "EncryptRequest": {
       "example": {
@@ -480,7 +511,8 @@
         "KeyId",
         "Plaintext"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "EncryptRequest"
     },
     "EncryptResponse": {
       "example": {
@@ -497,10 +529,12 @@
           "description": "The ID of the key used during encryption."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "EncryptResponse"
     },
     "EncryptionContextKey": {
-      "type": "string"
+      "type": "string",
+      "title": "EncryptionContextKey"
     },
     "EncryptionContextType": {
       "items": {
@@ -514,20 +548,24 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "EncryptionContextType"
     },
     "EncryptionContextValue": {
-      "type": "string"
+      "type": "string",
+      "title": "EncryptionContextValue"
     },
     "ErrorMessageType": {
-      "type": "string"
+      "type": "string",
+      "title": "ErrorMessageType"
     },
     "ExpirationModelType": {
       "enum": [
         "KEY_MATERIAL_EXPIRES",
         "KEY_MATERIAL_DOES_NOT_EXPIRE"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ExpirationModelType"
     },
     "ExpiredImportTokenException": {
       "description": "The request was rejected because the provided import token is expired. Use <a>GetParametersForImport</a> to retrieve a new import token and public key, use the new public key to encrypt the key material, and then try the request again.",
@@ -536,7 +574,8 @@
           "$ref": "#/definitions/ErrorMessageType"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ExpiredImportTokenException"
     },
     "GenerateDataKeyRequest": {
       "example": {
@@ -568,7 +607,8 @@
       "required": [
         "KeyId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GenerateDataKeyRequest"
     },
     "GenerateDataKeyResponse": {
       "example": {
@@ -590,7 +630,8 @@
           "description": "The data encryption key. Use this data key for local encryption and decryption, then remove it from memory as soon as possible."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GenerateDataKeyResponse"
     },
     "GenerateDataKeyWithoutPlaintextRequest": {
       "example": {
@@ -622,7 +663,8 @@
       "required": [
         "KeyId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GenerateDataKeyWithoutPlaintextRequest"
     },
     "GenerateDataKeyWithoutPlaintextResponse": {
       "example": {
@@ -639,7 +681,8 @@
           "description": "The identifier of the CMK under which the data encryption key was generated and encrypted."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GenerateDataKeyWithoutPlaintextResponse"
     },
     "GenerateRandomRequest": {
       "example": {
@@ -651,7 +694,8 @@
           "description": "The length of the byte string."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GenerateRandomRequest"
     },
     "GenerateRandomResponse": {
       "example": {
@@ -663,7 +707,8 @@
           "description": "The random byte string."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GenerateRandomResponse"
     },
     "GetKeyPolicyRequest": {
       "example": {
@@ -684,7 +729,8 @@
         "KeyId",
         "PolicyName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetKeyPolicyRequest"
     },
     "GetKeyPolicyResponse": {
       "example": {
@@ -696,7 +742,8 @@
           "description": "A policy document in JSON format."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetKeyPolicyResponse"
     },
     "GetKeyRotationStatusRequest": {
       "example": {
@@ -711,7 +758,8 @@
       "required": [
         "KeyId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetKeyRotationStatusRequest"
     },
     "GetKeyRotationStatusResponse": {
       "example": {
@@ -723,7 +771,8 @@
           "description": "A Boolean value that specifies whether key rotation is enabled."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetKeyRotationStatusResponse"
     },
     "GetParametersForImportRequest": {
       "example": {
@@ -750,7 +799,8 @@
         "WrappingAlgorithm",
         "WrappingKeySpec"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetParametersForImportRequest"
     },
     "GetParametersForImportResponse": {
       "example": {
@@ -777,7 +827,8 @@
           "description": "The public key to use to encrypt the key material before importing it with <a>ImportKeyMaterial</a>."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetParametersForImportResponse"
     },
     "GrantConstraints": {
       "description": "<p>A structure that you can use to allow certain operations in the grant only when the desired encryption context is present. For more information about encryption context, see <a href=\"http://docs.aws.amazon.com/kms/latest/developerguide/encryption-context.html\">Encryption Context</a> in the <i>AWS Key Management Service Developer Guide</i>.</p> <p>Grant constraints apply only to operations that accept encryption context as input. For example, the <code> <a>DescribeKey</a> </code> operation does not accept encryption context as input. A grant that allows the <code>DescribeKey</code> operation does so regardless of the grant constraints. In constrast, the <code> <a>Encrypt</a> </code> operation accepts encryption context as input. A grant that allows the <code>Encrypt</code> operation does so only when the encryption context of the <code>Encrypt</code> operation satisfies the grant constraints.</p>",
@@ -791,18 +842,21 @@
           "description": "A list of key-value pairs, all of which must be present in the encryption context of certain subsequent operations that the grant allows. When certain subsequent operations allowed by the grant include encryption context that matches this list or is a superset of this list, the grant allows the operation. Otherwise, the grant does not allow the operation."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GrantConstraints"
     },
     "GrantIdType": {
       "maxLength": 128,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "GrantIdType"
     },
     "GrantList": {
       "items": {
         "$ref": "#/definitions/GrantListEntry"
       },
-      "type": "array"
+      "type": "array",
+      "title": "GrantList"
     },
     "GrantListEntry": {
       "description": "Contains information about an entry in a list of grants.",
@@ -844,13 +898,15 @@
           "description": "The principal that can retire the grant."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GrantListEntry"
     },
     "GrantNameType": {
       "maxLength": 256,
       "minLength": 1,
       "pattern": "^[a-zA-Z0-9:/_-]+$",
-      "type": "string"
+      "type": "string",
+      "title": "GrantNameType"
     },
     "GrantOperation": {
       "enum": [
@@ -864,13 +920,15 @@
         "RetireGrant",
         "DescribeKey"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "GrantOperation"
     },
     "GrantOperationList": {
       "items": {
         "$ref": "#/definitions/GrantOperation"
       },
-      "type": "array"
+      "type": "array",
+      "title": "GrantOperationList"
     },
     "GrantTokenList": {
       "items": {
@@ -878,12 +936,14 @@
       },
       "maxItems": 10,
       "minItems": 0,
-      "type": "array"
+      "type": "array",
+      "title": "GrantTokenList"
     },
     "GrantTokenType": {
       "maxLength": 8192,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "GrantTokenType"
     },
     "ImportKeyMaterialRequest": {
       "example": {
@@ -919,11 +979,13 @@
         "ImportToken",
         "EncryptedKeyMaterial"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ImportKeyMaterialRequest"
     },
     "ImportKeyMaterialResponse": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "ImportKeyMaterialResponse"
     },
     "IncorrectKeyMaterialException": {
       "description": "The request was rejected because the provided key material is invalid or is not the same key material that was previously imported into this customer master key (CMK).",
@@ -932,7 +994,8 @@
           "$ref": "#/definitions/ErrorMessageType"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "IncorrectKeyMaterialException"
     },
     "InvalidAliasNameException": {
       "description": "The request was rejected because the specified alias name is not valid.",
@@ -941,7 +1004,8 @@
           "$ref": "#/definitions/ErrorMessageType"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidAliasNameException"
     },
     "InvalidArnException": {
       "description": "The request was rejected because a specified ARN was not valid.",
@@ -950,7 +1014,8 @@
           "$ref": "#/definitions/ErrorMessageType"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidArnException"
     },
     "InvalidCiphertextException": {
       "description": "The request was rejected because the specified ciphertext has been corrupted or is otherwise invalid.",
@@ -959,7 +1024,8 @@
           "$ref": "#/definitions/ErrorMessageType"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidCiphertextException"
     },
     "InvalidGrantIdException": {
       "description": "The request was rejected because the specified <code>GrantId</code> is not valid.",
@@ -968,7 +1034,8 @@
           "$ref": "#/definitions/ErrorMessageType"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidGrantIdException"
     },
     "InvalidGrantTokenException": {
       "description": "The request was rejected because the specified grant token is not valid.",
@@ -977,7 +1044,8 @@
           "$ref": "#/definitions/ErrorMessageType"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidGrantTokenException"
     },
     "InvalidImportTokenException": {
       "description": "The request was rejected because the provided import token is invalid or is associated with a different customer master key (CMK).",
@@ -986,7 +1054,8 @@
           "$ref": "#/definitions/ErrorMessageType"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidImportTokenException"
     },
     "InvalidKeyUsageException": {
       "description": "The request was rejected because the specified <code>KeySpec</code> value is not valid.",
@@ -995,7 +1064,8 @@
           "$ref": "#/definitions/ErrorMessageType"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidKeyUsageException"
     },
     "InvalidMarkerException": {
       "description": "The request was rejected because the marker that specifies where pagination should next begin is not valid.",
@@ -1004,7 +1074,8 @@
           "$ref": "#/definitions/ErrorMessageType"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidMarkerException"
     },
     "KMSInternalException": {
       "description": "The request was rejected because an internal exception occurred. The request can be retried.",
@@ -1013,7 +1084,8 @@
           "$ref": "#/definitions/ErrorMessageType"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "KMSInternalException"
     },
     "KMSInvalidStateException": {
       "description": "<p>The request was rejected because the state of the specified resource is not valid for this request.</p> <p>For more information about how key state affects the use of a CMK, see <a href=\"http://docs.aws.amazon.com/kms/latest/developerguide/key-state.html\">How Key State Affects Use of a Customer Master Key</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>",
@@ -1022,18 +1094,21 @@
           "$ref": "#/definitions/ErrorMessageType"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "KMSInvalidStateException"
     },
     "KeyIdType": {
       "maxLength": 2048,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "KeyIdType"
     },
     "KeyList": {
       "items": {
         "$ref": "#/definitions/KeyListEntry"
       },
-      "type": "array"
+      "type": "array",
+      "title": "KeyList"
     },
     "KeyListEntry": {
       "description": "Contains information about each entry in the key list.",
@@ -1047,7 +1122,8 @@
           "description": "Unique identifier of the key."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "KeyListEntry"
     },
     "KeyMetadata": {
       "description": "<p>Contains metadata about a customer master key (CMK).</p> <p>This data type is used as a response element for the <a>CreateKey</a> and <a>DescribeKey</a> operations.</p>",
@@ -1104,7 +1180,8 @@
       "required": [
         "KeyId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "KeyMetadata"
     },
     "KeyState": {
       "enum": [
@@ -1113,7 +1190,8 @@
         "PendingDeletion",
         "PendingImport"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "KeyState"
     },
     "KeyUnavailableException": {
       "description": "The request was rejected because the specified CMK was not available. The request can be retried.",
@@ -1122,13 +1200,15 @@
           "$ref": "#/definitions/ErrorMessageType"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "KeyUnavailableException"
     },
     "KeyUsageType": {
       "enum": [
         "ENCRYPT_DECRYPT"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "KeyUsageType"
     },
     "LimitExceededException": {
       "description": "The request was rejected because a limit was exceeded. For more information, see <a href=\"http://docs.aws.amazon.com/kms/latest/developerguide/limits.html\">Limits</a> in the <i>AWS Key Management Service Developer Guide</i>.",
@@ -1137,12 +1217,14 @@
           "$ref": "#/definitions/ErrorMessageType"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LimitExceededException"
     },
     "LimitType": {
       "maximum": 1000,
       "minimum": 1,
-      "type": "integer"
+      "type": "integer",
+      "title": "LimitType"
     },
     "ListAliasesRequest": {
       "properties": {
@@ -1155,7 +1237,8 @@
           "description": "Use this parameter in a subsequent request after you receive a response with truncated results. Set it to the value of <code>NextMarker</code> from the truncated response you just received."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListAliasesRequest"
     },
     "ListAliasesResponse": {
       "example": {
@@ -1217,7 +1300,8 @@
           "description": "A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To retrieve more items, pass the value of the <code>NextMarker</code> element in this response to the <code>Marker</code> parameter in a subsequent request."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListAliasesResponse"
     },
     "ListGrantsRequest": {
       "example": {
@@ -1240,7 +1324,8 @@
       "required": [
         "KeyId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListGrantsRequest"
     },
     "ListGrantsResponse": {
       "example": {
@@ -1274,7 +1359,8 @@
           "description": "A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To retrieve more items, pass the value of the <code>NextMarker</code> element in this response to the <code>Marker</code> parameter in a subsequent request."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListGrantsResponse"
     },
     "ListKeyPoliciesRequest": {
       "example": {
@@ -1297,7 +1383,8 @@
       "required": [
         "KeyId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListKeyPoliciesRequest"
     },
     "ListKeyPoliciesResponse": {
       "example": {
@@ -1320,7 +1407,8 @@
           "description": "A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To retrieve more items, pass the value of the <code>NextMarker</code> element in this response to the <code>Marker</code> parameter in a subsequent request."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListKeyPoliciesResponse"
     },
     "ListKeysRequest": {
       "properties": {
@@ -1333,7 +1421,8 @@
           "description": "Use this parameter in a subsequent request after you receive a response with truncated results. Set it to the value of <code>NextMarker</code> from the truncated response you just received."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListKeysRequest"
     },
     "ListKeysResponse": {
       "example": {
@@ -1383,7 +1472,8 @@
           "description": "A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To retrieve more items, pass the value of the <code>NextMarker</code> element in this response to the <code>Marker</code> parameter in a subsequent request."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListKeysResponse"
     },
     "ListResourceTagsRequest": {
       "example": {
@@ -1406,7 +1496,8 @@
       "required": [
         "KeyId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListResourceTagsRequest"
     },
     "ListResourceTagsResponse": {
       "example": {
@@ -1440,7 +1531,8 @@
           "description": "A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To retrieve more items, pass the value of the <code>NextMarker</code> element in this response to the <code>Marker</code> parameter in a subsequent request."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListResourceTagsResponse"
     },
     "ListRetirableGrantsRequest": {
       "example": {
@@ -1463,7 +1555,8 @@
       "required": [
         "RetiringPrincipal"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListRetirableGrantsRequest"
     },
     "MalformedPolicyDocumentException": {
       "description": "The request was rejected because the specified policy is not syntactically or semantically correct.",
@@ -1472,13 +1565,15 @@
           "$ref": "#/definitions/ErrorMessageType"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "MalformedPolicyDocumentException"
     },
     "MarkerType": {
       "maxLength": 320,
       "minLength": 1,
       "pattern": "[\\u0020-\\u00FF]*",
-      "type": "string"
+      "type": "string",
+      "title": "MarkerType"
     },
     "NotFoundException": {
       "description": "The request was rejected because the specified entity or resource could not be found.",
@@ -1487,53 +1582,62 @@
           "$ref": "#/definitions/ErrorMessageType"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "NotFoundException"
     },
     "NumberOfBytesType": {
       "maximum": 1024,
       "minimum": 1,
-      "type": "integer"
+      "type": "integer",
+      "title": "NumberOfBytesType"
     },
     "OriginType": {
       "enum": [
         "AWS_KMS",
         "EXTERNAL"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "OriginType"
     },
     "PendingWindowInDaysType": {
       "maximum": 365,
       "minimum": 1,
-      "type": "integer"
+      "type": "integer",
+      "title": "PendingWindowInDaysType"
     },
     "PlaintextType": {
       "format": "password",
       "maxLength": 4096,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "PlaintextType"
     },
     "PolicyNameList": {
       "items": {
         "$ref": "#/definitions/PolicyNameType"
       },
-      "type": "array"
+      "type": "array",
+      "title": "PolicyNameList"
     },
     "PolicyNameType": {
       "maxLength": 128,
       "minLength": 1,
       "pattern": "[\\w]+",
-      "type": "string"
+      "type": "string",
+      "title": "PolicyNameType"
     },
     "PolicyType": {
       "maxLength": 131072,
       "minLength": 1,
       "pattern": "[\\u0009\\u000A\\u000D\\u0020-\\u00FF]+",
-      "type": "string"
+      "type": "string",
+      "title": "PolicyType"
     },
     "PrincipalIdType": {
       "maxLength": 256,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "PrincipalIdType"
     },
     "PutKeyPolicyRequest": {
       "example": {
@@ -1564,7 +1668,8 @@
         "PolicyName",
         "Policy"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "PutKeyPolicyRequest"
     },
     "ReEncryptRequest": {
       "example": {
@@ -1597,7 +1702,8 @@
         "CiphertextBlob",
         "DestinationKeyId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ReEncryptRequest"
     },
     "ReEncryptResponse": {
       "example": {
@@ -1619,7 +1725,8 @@
           "description": "Unique identifier of the CMK used to originally encrypt the data."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ReEncryptResponse"
     },
     "RetireGrantRequest": {
       "example": {
@@ -1640,7 +1747,8 @@
           "description": "<p>The Amazon Resource Name of the CMK associated with the grant. Example:</p> <ul> <li> <p>arn:aws:kms:us-east-2:444455556666:key/1234abcd-12ab-34cd-56ef-1234567890ab</p> </li> </ul>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RetireGrantRequest"
     },
     "RevokeGrantRequest": {
       "example": {
@@ -1661,7 +1769,8 @@
         "KeyId",
         "GrantId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "RevokeGrantRequest"
     },
     "ScheduleKeyDeletionRequest": {
       "example": {
@@ -1681,7 +1790,8 @@
       "required": [
         "KeyId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ScheduleKeyDeletionRequest"
     },
     "ScheduleKeyDeletionResponse": {
       "example": {
@@ -1698,7 +1808,8 @@
           "description": "The unique identifier of the customer master key (CMK) for which deletion is scheduled."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ScheduleKeyDeletionResponse"
     },
     "Tag": {
       "description": "A key-value pair. A tag consists of a tag key and a tag value. Tag keys and tag values are both required, but tag values can be empty (null) strings.",
@@ -1716,7 +1827,8 @@
         "TagKey",
         "TagValue"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "Tag"
     },
     "TagException": {
       "description": "The request was rejected because one or more tags are not valid.",
@@ -1725,24 +1837,28 @@
           "$ref": "#/definitions/ErrorMessageType"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TagException"
     },
     "TagKeyList": {
       "items": {
         "$ref": "#/definitions/TagKeyType"
       },
-      "type": "array"
+      "type": "array",
+      "title": "TagKeyList"
     },
     "TagKeyType": {
       "maxLength": 128,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "TagKeyType"
     },
     "TagList": {
       "items": {
         "$ref": "#/definitions/Tag"
       },
-      "type": "array"
+      "type": "array",
+      "title": "TagList"
     },
     "TagResourceRequest": {
       "example": {
@@ -1768,12 +1884,14 @@
         "KeyId",
         "Tags"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "TagResourceRequest"
     },
     "TagValueType": {
       "maxLength": 256,
       "minLength": 0,
-      "type": "string"
+      "type": "string",
+      "title": "TagValueType"
     },
     "UnsupportedOperationException": {
       "description": "The request was rejected because a specified parameter is not supported or a specified resource is not valid for this operation.",
@@ -1782,7 +1900,8 @@
           "$ref": "#/definitions/ErrorMessageType"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UnsupportedOperationException"
     },
     "UntagResourceRequest": {
       "example": {
@@ -1806,7 +1925,8 @@
         "KeyId",
         "TagKeys"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UntagResourceRequest"
     },
     "UpdateAliasRequest": {
       "example": {
@@ -1827,7 +1947,8 @@
         "AliasName",
         "TargetKeyId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateAliasRequest"
     },
     "UpdateKeyDescriptionRequest": {
       "example": {
@@ -1848,13 +1969,15 @@
         "KeyId",
         "Description"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateKeyDescriptionRequest"
     },
     "WrappingKeySpec": {
       "enum": [
         "RSA_2048"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "WrappingKeySpec"
     }
   },
   "actions": [

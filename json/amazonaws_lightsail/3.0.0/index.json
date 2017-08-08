@@ -32,14 +32,16 @@
           "$ref": "#/definitions/string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AccessDeniedException"
     },
     "AccessDirection": {
       "enum": [
         "inbound",
         "outbound"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "AccessDirection"
     },
     "AccountSetupInProgressException": {
       "description": "Lightsail throws this exception when an account is still in the setup in progress state.",
@@ -57,7 +59,8 @@
           "$ref": "#/definitions/string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AccountSetupInProgressException"
     },
     "AllocateStaticIpRequest": {
       "properties": {
@@ -69,7 +72,8 @@
       "required": [
         "staticIpName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AllocateStaticIpRequest"
     },
     "AllocateStaticIpResult": {
       "properties": {
@@ -78,7 +82,8 @@
           "description": "An array of key-value pairs containing information about the static IP address you allocated."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AllocateStaticIpResult"
     },
     "AttachStaticIpRequest": {
       "properties": {
@@ -95,7 +100,8 @@
         "staticIpName",
         "instanceName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AttachStaticIpRequest"
     },
     "AttachStaticIpResult": {
       "properties": {
@@ -104,7 +110,8 @@
           "description": "An array of key-value pairs containing information about your API operations."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AttachStaticIpResult"
     },
     "AvailabilityZone": {
       "description": "Describes an Availability Zone.",
@@ -118,16 +125,19 @@
           "description": "The name of the Availability Zone."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AvailabilityZone"
     },
     "AvailabilityZoneList": {
       "items": {
         "$ref": "#/definitions/AvailabilityZone"
       },
-      "type": "array"
+      "type": "array",
+      "title": "AvailabilityZoneList"
     },
     "Base64": {
-      "type": "string"
+      "type": "string",
+      "title": "Base64"
     },
     "Blueprint": {
       "description": "Describes a blueprint (a virtual private server image).",
@@ -177,20 +187,23 @@
           "description": "The version code."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Blueprint"
     },
     "BlueprintList": {
       "items": {
         "$ref": "#/definitions/Blueprint"
       },
-      "type": "array"
+      "type": "array",
+      "title": "BlueprintList"
     },
     "BlueprintType": {
       "enum": [
         "os",
         "app"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "BlueprintType"
     },
     "Bundle": {
       "description": "Describes a bundle, which is a set of specs describing your virtual private server (or <i>instance</i>).",
@@ -236,13 +249,15 @@
           "description": "The data transfer rate per month in GB (e.g., <code>2000</code>)."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Bundle"
     },
     "BundleList": {
       "items": {
         "$ref": "#/definitions/Bundle"
       },
-      "type": "array"
+      "type": "array",
+      "title": "BundleList"
     },
     "CloseInstancePublicPortsRequest": {
       "properties": {
@@ -259,7 +274,8 @@
         "portInfo",
         "instanceName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CloseInstancePublicPortsRequest"
     },
     "CloseInstancePublicPortsResult": {
       "properties": {
@@ -268,7 +284,8 @@
           "description": "An array of key-value pairs that contains information about the operation."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CloseInstancePublicPortsResult"
     },
     "CreateDomainEntryRequest": {
       "properties": {
@@ -285,7 +302,8 @@
         "domainName",
         "domainEntry"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateDomainEntryRequest"
     },
     "CreateDomainEntryResult": {
       "properties": {
@@ -294,7 +312,8 @@
           "description": "An array of key-value pairs containing information about the operation."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateDomainEntryResult"
     },
     "CreateDomainRequest": {
       "properties": {
@@ -306,7 +325,8 @@
       "required": [
         "domainName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateDomainRequest"
     },
     "CreateDomainResult": {
       "properties": {
@@ -315,7 +335,8 @@
           "description": "An array of key-value pairs containing information about the domain resource you created."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateDomainResult"
     },
     "CreateInstanceSnapshotRequest": {
       "properties": {
@@ -332,7 +353,8 @@
         "instanceSnapshotName",
         "instanceName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateInstanceSnapshotRequest"
     },
     "CreateInstanceSnapshotResult": {
       "properties": {
@@ -341,7 +363,8 @@
           "description": "An array of key-value pairs containing information about the results of your create instances snapshot request."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateInstanceSnapshotResult"
     },
     "CreateInstancesFromSnapshotRequest": {
       "properties": {
@@ -376,7 +399,8 @@
         "instanceSnapshotName",
         "bundleId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateInstancesFromSnapshotRequest"
     },
     "CreateInstancesFromSnapshotResult": {
       "properties": {
@@ -385,7 +409,8 @@
           "description": "An array of key-value pairs containing information about the results of your create instances from snapshot request."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateInstancesFromSnapshotResult"
     },
     "CreateInstancesRequest": {
       "properties": {
@@ -424,7 +449,8 @@
         "blueprintId",
         "bundleId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateInstancesRequest"
     },
     "CreateInstancesResult": {
       "properties": {
@@ -433,7 +459,8 @@
           "description": "An array of key-value pairs containing information about the results of your create instances request."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateInstancesResult"
     },
     "CreateKeyPairRequest": {
       "properties": {
@@ -445,7 +472,8 @@
       "required": [
         "keyPairName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateKeyPairRequest"
     },
     "CreateKeyPairResult": {
       "properties": {
@@ -466,7 +494,8 @@
           "description": "A base64-encoded public key of the <code>ssh-rsa</code> type."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateKeyPairResult"
     },
     "DeleteDomainEntryRequest": {
       "properties": {
@@ -483,7 +512,8 @@
         "domainName",
         "domainEntry"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteDomainEntryRequest"
     },
     "DeleteDomainEntryResult": {
       "properties": {
@@ -492,7 +522,8 @@
           "description": "An array of key-value pairs containing information about the results of your delete domain entry request."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DeleteDomainEntryResult"
     },
     "DeleteDomainRequest": {
       "properties": {
@@ -504,7 +535,8 @@
       "required": [
         "domainName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteDomainRequest"
     },
     "DeleteDomainResult": {
       "properties": {
@@ -513,7 +545,8 @@
           "description": "An array of key-value pairs containing information about the results of your delete domain request."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DeleteDomainResult"
     },
     "DeleteInstanceRequest": {
       "properties": {
@@ -525,7 +558,8 @@
       "required": [
         "instanceName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteInstanceRequest"
     },
     "DeleteInstanceResult": {
       "properties": {
@@ -534,7 +568,8 @@
           "description": "An array of key-value pairs containing information about the results of your delete instance request."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DeleteInstanceResult"
     },
     "DeleteInstanceSnapshotRequest": {
       "properties": {
@@ -546,7 +581,8 @@
       "required": [
         "instanceSnapshotName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteInstanceSnapshotRequest"
     },
     "DeleteInstanceSnapshotResult": {
       "properties": {
@@ -555,7 +591,8 @@
           "description": "An array of key-value pairs containing information about the results of your delete instance snapshot request."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DeleteInstanceSnapshotResult"
     },
     "DeleteKeyPairRequest": {
       "properties": {
@@ -567,7 +604,8 @@
       "required": [
         "keyPairName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteKeyPairRequest"
     },
     "DeleteKeyPairResult": {
       "properties": {
@@ -576,7 +614,8 @@
           "description": "An array of key-value pairs containing information about the results of your delete key pair request."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DeleteKeyPairResult"
     },
     "DetachStaticIpRequest": {
       "properties": {
@@ -588,7 +627,8 @@
       "required": [
         "staticIpName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DetachStaticIpRequest"
     },
     "DetachStaticIpResult": {
       "properties": {
@@ -597,7 +637,8 @@
           "description": "An array of key-value pairs containing information about the results of your detach static IP request."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DetachStaticIpResult"
     },
     "Disk": {
       "description": "Describes the hard disk (an SSD).",
@@ -659,13 +700,15 @@
           "description": "The support code. Include this code in your email to support when you have questions about an instance or another resource in Lightsail. This code enables our support team to look up your Lightsail information more easily."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Disk"
     },
     "DiskList": {
       "items": {
         "$ref": "#/definitions/Disk"
       },
-      "type": "array"
+      "type": "array",
+      "title": "DiskList"
     },
     "Domain": {
       "description": "Describes a domain where you are storing recordsets in Lightsail.",
@@ -699,7 +742,8 @@
           "description": "The support code. Include this code in your email to support when you have questions about an instance or another resource in Lightsail. This code enables our support team to look up your Lightsail information more easily."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Domain"
     },
     "DomainEntry": {
       "description": "Describes a domain recordset entry.",
@@ -725,13 +769,15 @@
           "description": "The type of domain entry (e.g., <code>SOA</code> or <code>NS</code>)."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DomainEntry"
     },
     "DomainEntryList": {
       "items": {
         "$ref": "#/definitions/DomainEntry"
       },
-      "type": "array"
+      "type": "array",
+      "title": "DomainEntryList"
     },
     "DomainEntryOptions": {
       "items": {
@@ -745,26 +791,32 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "DomainEntryOptions"
     },
     "DomainEntryOptionsKeys": {
-      "type": "string"
+      "type": "string",
+      "title": "DomainEntryOptionsKeys"
     },
     "DomainEntryType": {
-      "type": "string"
+      "type": "string",
+      "title": "DomainEntryType"
     },
     "DomainList": {
       "items": {
         "$ref": "#/definitions/Domain"
       },
-      "type": "array"
+      "type": "array",
+      "title": "DomainList"
     },
     "DomainName": {
-      "type": "string"
+      "type": "string",
+      "title": "DomainName"
     },
     "DownloadDefaultKeyPairRequest": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DownloadDefaultKeyPairRequest"
     },
     "DownloadDefaultKeyPairResult": {
       "properties": {
@@ -777,7 +829,8 @@
           "description": "A base64-encoded public key of the <code>ssh-rsa</code> type."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DownloadDefaultKeyPairResult"
     },
     "GetActiveNamesRequest": {
       "properties": {
@@ -786,7 +839,8 @@
           "description": "A token used for paginating results from your get active names request."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetActiveNamesRequest"
     },
     "GetActiveNamesResult": {
       "properties": {
@@ -799,7 +853,8 @@
           "description": "A token used for advancing to the next page of results from your get active names request."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetActiveNamesResult"
     },
     "GetBlueprintsRequest": {
       "properties": {
@@ -812,7 +867,8 @@
           "description": "A token used for advancing to the next page of results from your get blueprints request."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetBlueprintsRequest"
     },
     "GetBlueprintsResult": {
       "properties": {
@@ -825,7 +881,8 @@
           "description": "A token used for advancing to the next page of results from your get blueprints request."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetBlueprintsResult"
     },
     "GetBundlesRequest": {
       "properties": {
@@ -838,7 +895,8 @@
           "description": "A token used for advancing to the next page of results from your get bundles request."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetBundlesRequest"
     },
     "GetBundlesResult": {
       "properties": {
@@ -851,7 +909,8 @@
           "description": "A token used for advancing to the next page of results from your get active names request."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetBundlesResult"
     },
     "GetDomainRequest": {
       "properties": {
@@ -863,7 +922,8 @@
       "required": [
         "domainName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetDomainRequest"
     },
     "GetDomainResult": {
       "properties": {
@@ -872,7 +932,8 @@
           "description": "An array of key-value pairs containing information about your get domain request."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetDomainResult"
     },
     "GetDomainsRequest": {
       "properties": {
@@ -881,7 +942,8 @@
           "description": "A token used for advancing to the next page of results from your get domains request."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetDomainsRequest"
     },
     "GetDomainsResult": {
       "properties": {
@@ -894,7 +956,8 @@
           "description": "A token used for advancing to the next page of results from your get active names request."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetDomainsResult"
     },
     "GetInstanceAccessDetailsRequest": {
       "properties": {
@@ -910,7 +973,8 @@
       "required": [
         "instanceName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetInstanceAccessDetailsRequest"
     },
     "GetInstanceAccessDetailsResult": {
       "properties": {
@@ -919,7 +983,8 @@
           "description": "An array of key-value pairs containing information about a get instance access request."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetInstanceAccessDetailsResult"
     },
     "GetInstanceMetricDataRequest": {
       "properties": {
@@ -961,7 +1026,8 @@
         "unit",
         "statistics"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetInstanceMetricDataRequest"
     },
     "GetInstanceMetricDataResult": {
       "properties": {
@@ -974,7 +1040,8 @@
           "description": "The metric name to return data for. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetInstanceMetricDataResult"
     },
     "GetInstancePortStatesRequest": {
       "properties": {
@@ -986,7 +1053,8 @@
       "required": [
         "instanceName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetInstancePortStatesRequest"
     },
     "GetInstancePortStatesResult": {
       "properties": {
@@ -995,7 +1063,8 @@
           "description": "Information about the port states resulting from your request."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetInstancePortStatesResult"
     },
     "GetInstanceRequest": {
       "properties": {
@@ -1007,7 +1076,8 @@
       "required": [
         "instanceName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetInstanceRequest"
     },
     "GetInstanceResult": {
       "properties": {
@@ -1016,7 +1086,8 @@
           "description": "An array of key-value pairs containing information about the specified instance."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetInstanceResult"
     },
     "GetInstanceSnapshotRequest": {
       "properties": {
@@ -1028,7 +1099,8 @@
       "required": [
         "instanceSnapshotName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetInstanceSnapshotRequest"
     },
     "GetInstanceSnapshotResult": {
       "properties": {
@@ -1037,7 +1109,8 @@
           "description": "An array of key-value pairs containing information about the results of your get instance snapshot request."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetInstanceSnapshotResult"
     },
     "GetInstanceSnapshotsRequest": {
       "properties": {
@@ -1046,7 +1119,8 @@
           "description": "A token used for advancing to the next page of results from your get instance snapshots request."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetInstanceSnapshotsRequest"
     },
     "GetInstanceSnapshotsResult": {
       "properties": {
@@ -1059,7 +1133,8 @@
           "description": "A token used for advancing to the next page of results from your get instance snapshots request."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetInstanceSnapshotsResult"
     },
     "GetInstanceStateRequest": {
       "properties": {
@@ -1071,7 +1146,8 @@
       "required": [
         "instanceName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetInstanceStateRequest"
     },
     "GetInstanceStateResult": {
       "properties": {
@@ -1080,7 +1156,8 @@
           "description": "The state of the instance."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetInstanceStateResult"
     },
     "GetInstancesRequest": {
       "properties": {
@@ -1089,7 +1166,8 @@
           "description": "A token used for advancing to the next page of results from your get instances request."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetInstancesRequest"
     },
     "GetInstancesResult": {
       "properties": {
@@ -1102,7 +1180,8 @@
           "description": "A token used for advancing to the next page of results from your get instances request."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetInstancesResult"
     },
     "GetKeyPairRequest": {
       "properties": {
@@ -1114,7 +1193,8 @@
       "required": [
         "keyPairName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetKeyPairRequest"
     },
     "GetKeyPairResult": {
       "properties": {
@@ -1123,7 +1203,8 @@
           "description": "An array of key-value pairs containing information about the key pair."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetKeyPairResult"
     },
     "GetKeyPairsRequest": {
       "properties": {
@@ -1132,7 +1213,8 @@
           "description": "A token used for advancing to the next page of results from your get key pairs request."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetKeyPairsRequest"
     },
     "GetKeyPairsResult": {
       "properties": {
@@ -1145,7 +1227,8 @@
           "description": "A token used for advancing to the next page of results from your get key pairs request."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetKeyPairsResult"
     },
     "GetOperationRequest": {
       "properties": {
@@ -1157,7 +1240,8 @@
       "required": [
         "operationId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetOperationRequest"
     },
     "GetOperationResult": {
       "properties": {
@@ -1166,7 +1250,8 @@
           "description": "An array of key-value pairs containing information about the results of your get operation request."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetOperationResult"
     },
     "GetOperationsForResourceRequest": {
       "properties": {
@@ -1182,7 +1267,8 @@
       "required": [
         "resourceName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetOperationsForResourceRequest"
     },
     "GetOperationsForResourceResult": {
       "properties": {
@@ -1195,7 +1281,8 @@
           "description": "An array of key-value pairs containing information about the results of your get operations for resource request."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetOperationsForResourceResult"
     },
     "GetOperationsRequest": {
       "properties": {
@@ -1204,7 +1291,8 @@
           "description": "A token used for advancing to the next page of results from your get operations request."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetOperationsRequest"
     },
     "GetOperationsResult": {
       "properties": {
@@ -1217,7 +1305,8 @@
           "description": "An array of key-value pairs containing information about the results of your get operations request."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetOperationsResult"
     },
     "GetRegionsRequest": {
       "properties": {
@@ -1226,7 +1315,8 @@
           "description": "A Boolean value indicating whether to also include Availability Zones in your get regions request. Availability Zones are indicated with a letter: e.g., <code>us-east-1a</code>."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetRegionsRequest"
     },
     "GetRegionsResult": {
       "properties": {
@@ -1235,7 +1325,8 @@
           "description": "An array of key-value pairs containing information about your get regions request."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetRegionsResult"
     },
     "GetStaticIpRequest": {
       "properties": {
@@ -1247,7 +1338,8 @@
       "required": [
         "staticIpName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetStaticIpRequest"
     },
     "GetStaticIpResult": {
       "properties": {
@@ -1256,7 +1348,8 @@
           "description": "An array of key-value pairs containing information about the requested static IP."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetStaticIpResult"
     },
     "GetStaticIpsRequest": {
       "properties": {
@@ -1265,7 +1358,8 @@
           "description": "A token used for advancing to the next page of results from your get static IPs request."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetStaticIpsRequest"
     },
     "GetStaticIpsResult": {
       "properties": {
@@ -1278,7 +1372,8 @@
           "description": "An array of key-value pairs containing information about your get static IPs request."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetStaticIpsResult"
     },
     "ImportKeyPairRequest": {
       "properties": {
@@ -1295,7 +1390,8 @@
         "keyPairName",
         "publicKeyBase64"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ImportKeyPairRequest"
     },
     "ImportKeyPairResult": {
       "properties": {
@@ -1304,7 +1400,8 @@
           "description": "An array of key-value pairs containing information about the request operation."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ImportKeyPairResult"
     },
     "Instance": {
       "description": "Describes an instance (a virtual private server).",
@@ -1382,7 +1479,8 @@
           "description": "The user name for connecting to the instance (e.g., <code>ec2-user</code>)."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Instance"
     },
     "InstanceAccessDetails": {
       "description": "The parameters for gaining temporary access to one of your Amazon Lightsail instances.",
@@ -1420,14 +1518,16 @@
           "description": "The user name to use when logging in to the Amazon Lightsail instance."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InstanceAccessDetails"
     },
     "InstanceAccessProtocol": {
       "enum": [
         "ssh",
         "rdp"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "InstanceAccessProtocol"
     },
     "InstanceHardware": {
       "description": "Describes the hardware for the instance.",
@@ -1445,13 +1545,15 @@
           "description": "The amount of RAM in GB on the instance (e.g., <code>1.0</code>)."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InstanceHardware"
     },
     "InstanceList": {
       "items": {
         "$ref": "#/definitions/Instance"
       },
-      "type": "array"
+      "type": "array",
+      "title": "InstanceList"
     },
     "InstanceMetricName": {
       "enum": [
@@ -1462,7 +1564,8 @@
         "StatusCheckFailed_Instance",
         "StatusCheckFailed_System"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "InstanceMetricName"
     },
     "InstanceNetworking": {
       "description": "Describes monthly data transfer rates and port information for an instance.",
@@ -1476,7 +1579,8 @@
           "description": "An array of key-value pairs containing information about the ports on the instance."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InstanceNetworking"
     },
     "InstancePortInfo": {
       "description": "Describes information about the instance ports.",
@@ -1510,13 +1614,15 @@
           "description": "The last port in the range."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InstancePortInfo"
     },
     "InstancePortInfoList": {
       "items": {
         "$ref": "#/definitions/InstancePortInfo"
       },
-      "type": "array"
+      "type": "array",
+      "title": "InstancePortInfoList"
     },
     "InstanceSnapshot": {
       "description": "Describes the snapshot of the virtual private server, or <i>instance</i>.",
@@ -1574,13 +1680,15 @@
           "description": "The support code. Include this code in your email to support when you have questions about an instance or another resource in Lightsail. This code enables our support team to look up your Lightsail information more easily."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InstanceSnapshot"
     },
     "InstanceSnapshotList": {
       "items": {
         "$ref": "#/definitions/InstanceSnapshot"
       },
-      "type": "array"
+      "type": "array",
+      "title": "InstanceSnapshotList"
     },
     "InstanceSnapshotState": {
       "enum": [
@@ -1588,7 +1696,8 @@
         "error",
         "available"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "InstanceSnapshotState"
     },
     "InstanceState": {
       "description": "Describes the virtual private server (or <i>instance</i>) status.",
@@ -1602,7 +1711,8 @@
           "description": "The state of the instance (e.g., <code>running</code> or <code>pending</code>)."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InstanceState"
     },
     "InvalidInputException": {
       "description": "Lightsail throws this exception when user input does not conform to the validation rules of an input field.",
@@ -1620,19 +1730,23 @@
           "$ref": "#/definitions/string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidInputException"
     },
     "IpAddress": {
       "pattern": "([0-9]{1,3}\\.){3}[0-9]{1,3}",
-      "type": "string"
+      "type": "string",
+      "title": "IpAddress"
     },
     "IpV6Address": {
       "pattern": "([A-F0-9]{1,4}:){7}[A-F0-9]{1,4}",
-      "type": "string"
+      "type": "string",
+      "title": "IpV6Address"
     },
     "IsVpcPeeredRequest": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "IsVpcPeeredRequest"
     },
     "IsVpcPeeredResult": {
       "properties": {
@@ -1641,11 +1755,13 @@
           "description": "Returns <code>true</code> if the Lightsail VPC is peered; otherwise, <code>false</code>."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "IsVpcPeeredResult"
     },
     "IsoDate": {
       "format": "date-time",
-      "type": "string"
+      "type": "string",
+      "title": "IsoDate"
     },
     "KeyPair": {
       "description": "Describes the SSH key pair.",
@@ -1679,13 +1795,15 @@
           "description": "The support code. Include this code in your email to support when you have questions about an instance or another resource in Lightsail. This code enables our support team to look up your Lightsail information more easily."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "KeyPair"
     },
     "KeyPairList": {
       "items": {
         "$ref": "#/definitions/KeyPair"
       },
-      "type": "array"
+      "type": "array",
+      "title": "KeyPairList"
     },
     "MetricDatapoint": {
       "description": "Describes the metric data point.",
@@ -1719,18 +1837,21 @@
           "description": "The unit. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "MetricDatapoint"
     },
     "MetricDatapointList": {
       "items": {
         "$ref": "#/definitions/MetricDatapoint"
       },
-      "type": "array"
+      "type": "array",
+      "title": "MetricDatapointList"
     },
     "MetricPeriod": {
       "maximum": 86400,
       "minimum": 60,
-      "type": "integer"
+      "type": "integer",
+      "title": "MetricPeriod"
     },
     "MetricStatistic": {
       "enum": [
@@ -1740,13 +1861,15 @@
         "Average",
         "SampleCount"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "MetricStatistic"
     },
     "MetricStatisticList": {
       "items": {
         "$ref": "#/definitions/MetricStatistic"
       },
-      "type": "array"
+      "type": "array",
+      "title": "MetricStatisticList"
     },
     "MetricUnit": {
       "enum": [
@@ -1778,7 +1901,8 @@
         "Count/Second",
         "None"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "MetricUnit"
     },
     "MonthlyTransfer": {
       "description": "Describes the monthly data transfer in and out of your virtual private server (or <i>instance</i>).",
@@ -1788,7 +1912,8 @@
           "description": "The amount allocated per month (in GB)."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "MonthlyTransfer"
     },
     "NetworkProtocol": {
       "enum": [
@@ -1796,11 +1921,13 @@
         "all",
         "udp"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "NetworkProtocol"
     },
     "NonEmptyString": {
       "pattern": ".*\\S.*",
-      "type": "string"
+      "type": "string",
+      "title": "NonEmptyString"
     },
     "NotFoundException": {
       "description": "Lightsail throws this exception when it cannot find a resource.",
@@ -1818,7 +1945,8 @@
           "$ref": "#/definitions/string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "NotFoundException"
     },
     "OpenInstancePublicPortsRequest": {
       "properties": {
@@ -1835,7 +1963,8 @@
         "portInfo",
         "instanceName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "OpenInstancePublicPortsRequest"
     },
     "OpenInstancePublicPortsResult": {
       "properties": {
@@ -1844,7 +1973,8 @@
           "description": "An array of key-value pairs containing information about the request operation."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "OpenInstancePublicPortsResult"
     },
     "Operation": {
       "description": "Describes the API operation.",
@@ -1898,7 +2028,8 @@
           "description": "The timestamp when the status was changed (e.g., <code>1479816991.349</code>)."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Operation"
     },
     "OperationFailureException": {
       "description": "Lightsail throws this exception when an operation fails to execute.",
@@ -1916,13 +2047,15 @@
           "$ref": "#/definitions/string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "OperationFailureException"
     },
     "OperationList": {
       "items": {
         "$ref": "#/definitions/Operation"
       },
-      "type": "array"
+      "type": "array",
+      "title": "OperationList"
     },
     "OperationStatus": {
       "enum": [
@@ -1931,7 +2064,8 @@
         "Failed",
         "Completed"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "OperationStatus"
     },
     "OperationType": {
       "enum": [
@@ -1954,11 +2088,13 @@
         "DeleteInstanceSnapshot",
         "CreateInstancesFromSnapshot"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "OperationType"
     },
     "PeerVpcRequest": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "PeerVpcRequest"
     },
     "PeerVpcResult": {
       "properties": {
@@ -1967,19 +2103,22 @@
           "description": "An array of key-value pairs containing information about the request operation."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PeerVpcResult"
     },
     "Port": {
       "maximum": 65535,
       "minimum": 0,
-      "type": "integer"
+      "type": "integer",
+      "title": "Port"
     },
     "PortAccessType": {
       "enum": [
         "Public",
         "Private"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "PortAccessType"
     },
     "PortInfo": {
       "description": "Describes information about the ports on your virtual private server (or <i>instance</i>).",
@@ -1997,20 +2136,23 @@
           "description": "The last port in the range."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PortInfo"
     },
     "PortState": {
       "enum": [
         "open",
         "closed"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "PortState"
     },
     "PortStateList": {
       "items": {
         "$ref": "#/definitions/PortState"
       },
-      "type": "array"
+      "type": "array",
+      "title": "PortStateList"
     },
     "RebootInstanceRequest": {
       "properties": {
@@ -2022,7 +2164,8 @@
       "required": [
         "instanceName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "RebootInstanceRequest"
     },
     "RebootInstanceResult": {
       "properties": {
@@ -2031,7 +2174,8 @@
           "description": "An array of key-value pairs containing information about the request operation."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RebootInstanceResult"
     },
     "Region": {
       "description": "Describes the AWS Region.",
@@ -2057,13 +2201,15 @@
           "description": "The region name (e.g., <code>us-east-1</code>)."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Region"
     },
     "RegionList": {
       "items": {
         "$ref": "#/definitions/Region"
       },
-      "type": "array"
+      "type": "array",
+      "title": "RegionList"
     },
     "RegionName": {
       "enum": [
@@ -2078,7 +2224,8 @@
         "ap-northeast-1",
         "ap-northeast-2"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "RegionName"
     },
     "ReleaseStaticIpRequest": {
       "properties": {
@@ -2090,7 +2237,8 @@
       "required": [
         "staticIpName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ReleaseStaticIpRequest"
     },
     "ReleaseStaticIpResult": {
       "properties": {
@@ -2099,7 +2247,8 @@
           "description": "An array of key-value pairs containing information about the request operation."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ReleaseStaticIpResult"
     },
     "ResourceLocation": {
       "description": "Describes the resource location.",
@@ -2113,11 +2262,13 @@
           "description": "The AWS Region name."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ResourceLocation"
     },
     "ResourceName": {
       "pattern": "\\w[\\w\\-]*\\w",
-      "type": "string"
+      "type": "string",
+      "title": "ResourceName"
     },
     "ResourceType": {
       "enum": [
@@ -2128,7 +2279,8 @@
         "Domain",
         "PeeredVpc"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ResourceType"
     },
     "ServiceException": {
       "description": "A general service exception.",
@@ -2146,7 +2298,8 @@
           "$ref": "#/definitions/string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ServiceException"
     },
     "StartInstanceRequest": {
       "properties": {
@@ -2158,7 +2311,8 @@
       "required": [
         "instanceName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "StartInstanceRequest"
     },
     "StartInstanceResult": {
       "properties": {
@@ -2167,7 +2321,8 @@
           "description": "An array of key-value pairs containing information about the request operation."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "StartInstanceResult"
     },
     "StaticIp": {
       "description": "Describes the static IP.",
@@ -2209,13 +2364,15 @@
           "description": "The support code. Include this code in your email to support when you have questions about an instance or another resource in Lightsail. This code enables our support team to look up your Lightsail information more easily."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "StaticIp"
     },
     "StaticIpList": {
       "items": {
         "$ref": "#/definitions/StaticIp"
       },
-      "type": "array"
+      "type": "array",
+      "title": "StaticIpList"
     },
     "StopInstanceRequest": {
       "properties": {
@@ -2227,7 +2384,8 @@
       "required": [
         "instanceName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "StopInstanceRequest"
     },
     "StopInstanceResult": {
       "properties": {
@@ -2236,13 +2394,15 @@
           "description": "An array of key-value pairs containing information about the request operation."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "StopInstanceResult"
     },
     "StringList": {
       "items": {
         "$ref": "#/definitions/string"
       },
-      "type": "array"
+      "type": "array",
+      "title": "StringList"
     },
     "UnauthenticatedException": {
       "description": "Lightsail throws this exception when the user has not been authenticated.",
@@ -2260,11 +2420,13 @@
           "$ref": "#/definitions/string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UnauthenticatedException"
     },
     "UnpeerVpcRequest": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "UnpeerVpcRequest"
     },
     "UnpeerVpcResult": {
       "properties": {
@@ -2273,7 +2435,8 @@
           "description": "An array of key-value pairs containing information about the request operation."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UnpeerVpcResult"
     },
     "UpdateDomainEntryRequest": {
       "properties": {
@@ -2290,7 +2453,8 @@
         "domainName",
         "domainEntry"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateDomainEntryRequest"
     },
     "UpdateDomainEntryResult": {
       "properties": {
@@ -2299,28 +2463,35 @@
           "description": "An array of key-value pairs containing information about the request operation."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UpdateDomainEntryResult"
     },
     "boolean": {
-      "type": "boolean"
+      "type": "boolean",
+      "title": "boolean"
     },
     "double": {
       "format": "double",
-      "type": "number"
+      "type": "number",
+      "title": "double"
     },
     "float": {
       "format": "float",
-      "type": "number"
+      "type": "number",
+      "title": "float"
     },
     "integer": {
-      "type": "integer"
+      "type": "integer",
+      "title": "integer"
     },
     "string": {
-      "type": "string"
+      "type": "string",
+      "title": "string"
     },
     "timestamp": {
       "format": "date-time",
-      "type": "string"
+      "type": "string",
+      "title": "timestamp"
     }
   },
   "actions": [

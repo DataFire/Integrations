@@ -39,7 +39,8 @@
       "required": [
         "messages"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "BulkSmsRequest"
     },
     "BulkSmsRequestCompact": {
       "properties": {
@@ -64,7 +65,8 @@
         "destinations",
         "template"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "BulkSmsRequestCompact"
     },
     "BulkSmsResponse": {
       "properties": {
@@ -90,7 +92,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BulkSmsResponse"
     },
     "ErrorResponse": {
       "properties": {
@@ -113,7 +116,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ErrorResponse"
     },
     "SmsRequest": {
       "properties": {
@@ -152,7 +156,8 @@
       "required": [
         "destination"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "SmsRequest"
     },
     "SmsResponse": {
       "properties": {
@@ -169,7 +174,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SmsResponse"
     },
     "SmsStatus": {
       "properties": {
@@ -180,7 +186,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SmsStatus"
     },
     "SmsTemplate": {
       "properties": {
@@ -208,7 +215,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SmsTemplate"
     }
   },
   "actions": [

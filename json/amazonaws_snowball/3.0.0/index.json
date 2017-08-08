@@ -76,22 +76,26 @@
           "description": "The third line in a street address that a Snowball is to be delivered to."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Address"
     },
     "AddressId": {
       "maxLength": 40,
       "minLength": 40,
       "pattern": "ADID[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}",
-      "type": "string"
+      "type": "string",
+      "title": "AddressId"
     },
     "AddressList": {
       "items": {
         "$ref": "#/definitions/Address"
       },
-      "type": "array"
+      "type": "array",
+      "title": "AddressList"
     },
     "Boolean": {
-      "type": "boolean"
+      "type": "boolean",
+      "title": "Boolean"
     },
     "CancelClusterRequest": {
       "example": {
@@ -106,11 +110,13 @@
       "required": [
         "ClusterId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CancelClusterRequest"
     },
     "CancelClusterResult": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "CancelClusterResult"
     },
     "CancelJobRequest": {
       "example": {
@@ -125,17 +131,20 @@
       "required": [
         "JobId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CancelJobRequest"
     },
     "CancelJobResult": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "CancelJobResult"
     },
     "ClusterId": {
       "maxLength": 39,
       "minLength": 39,
       "pattern": "CID[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}",
-      "type": "string"
+      "type": "string",
+      "title": "ClusterId"
     },
     "ClusterLimitExceededException": {
       "description": "Job creation failed. Currently, clusters support five nodes. If you have less than five nodes for your cluster and you have more nodes to create for this cluster, try again and create jobs until your cluster has exactly five notes.",
@@ -144,7 +153,8 @@
           "$ref": "#/definitions/String"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ClusterLimitExceededException"
     },
     "ClusterListEntry": {
       "description": "Contains a cluster's state, a cluster's ID, and other important information.",
@@ -166,13 +176,15 @@
           "description": "Defines an optional description of the cluster, for example <code>Environmental Data Cluster-01</code>."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ClusterListEntry"
     },
     "ClusterListEntryList": {
       "items": {
         "$ref": "#/definitions/ClusterListEntry"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ClusterListEntryList"
     },
     "ClusterMetadata": {
       "description": "Contains metadata about a specific cluster.",
@@ -230,7 +242,8 @@
           "description": "The type of AWS Snowball appliance to use for this cluster. Currently, the only supported appliance type for cluster jobs is <code>EDGE</code>."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ClusterMetadata"
     },
     "ClusterState": {
       "enum": [
@@ -240,7 +253,8 @@
         "Complete",
         "Cancelled"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ClusterState"
     },
     "CreateAddressRequest": {
       "example": {
@@ -264,7 +278,8 @@
       "required": [
         "Address"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateAddressRequest"
     },
     "CreateAddressResult": {
       "example": {
@@ -276,7 +291,8 @@
           "description": "The automatically generated ID for a specific address. You'll use this ID when you create a job to specify which address you want the Snowball for that job shipped to."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateAddressResult"
     },
     "CreateClusterRequest": {
       "example": {
@@ -349,7 +365,8 @@
         "RoleARN",
         "ShippingOption"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateClusterRequest"
     },
     "CreateClusterResult": {
       "example": {
@@ -361,7 +378,8 @@
           "description": "The automatically generated ID for a cluster."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateClusterResult"
     },
     "CreateJobRequest": {
       "example": {
@@ -436,7 +454,8 @@
           "description": "The type of AWS Snowball appliance to use for this job. Currently, the only supported appliance type for cluster jobs is <code>EDGE</code>."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateJobRequest"
     },
     "CreateJobResult": {
       "example": {
@@ -448,7 +467,8 @@
           "description": "The automatically generated ID for a job, for example <code>JID123e4567-e89b-12d3-a456-426655440000</code>."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateJobResult"
     },
     "DataTransfer": {
       "description": "Defines the real-time status of a Snowball's data transfer while the appliance is at AWS. This data is only available while a job has a <code>JobState</code> value of <code>InProgress</code>, for both import and export jobs.",
@@ -470,7 +490,8 @@
           "description": "The total number of objects for a transfer between a Snowball and Amazon S3. This value is set to 0 (zero) until all the keys that will be transferred have been listed."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DataTransfer"
     },
     "DescribeAddressRequest": {
       "example": {
@@ -485,7 +506,8 @@
       "required": [
         "AddressId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeAddressRequest"
     },
     "DescribeAddressResult": {
       "example": {
@@ -507,7 +529,8 @@
           "description": "The address that you want the Snowball or Snowballs associated with a specific job to be shipped to."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeAddressResult"
     },
     "DescribeAddressesRequest": {
       "example": {},
@@ -521,7 +544,8 @@
           "description": "HTTP requests are stateless. To identify what object comes \"next\" in the list of <code>ADDRESS</code> objects, you have the option of specifying a value for <code>NextToken</code> as the starting point for your list of returned addresses."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeAddressesRequest"
     },
     "DescribeAddressesResult": {
       "example": {
@@ -549,7 +573,8 @@
           "description": "HTTP requests are stateless. If you use the automatically generated <code>NextToken</code> value in your next <code>DescribeAddresses</code> call, your list of returned addresses will start from this point in the array."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeAddressesResult"
     },
     "DescribeClusterRequest": {
       "example": {
@@ -564,7 +589,8 @@
       "required": [
         "ClusterId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeClusterRequest"
     },
     "DescribeClusterResult": {
       "example": {
@@ -598,7 +624,8 @@
           "description": "Information about a specific cluster, including shipping information, cluster status, and other important metadata."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeClusterResult"
     },
     "DescribeJobRequest": {
       "example": {
@@ -613,7 +640,8 @@
       "required": [
         "JobId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeJobRequest"
     },
     "DescribeJobResult": {
       "example": {
@@ -655,7 +683,8 @@
           "description": "Information about a specific job part (in the case of an export job), including shipping information, job status, and other important metadata."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeJobResult"
     },
     "EventTriggerDefinition": {
       "description": "The container for the <a>EventTriggerDefinition$EventResourceARN</a>.",
@@ -665,13 +694,15 @@
           "description": "The Amazon Resource Name (ARN) for any local Amazon S3 resource that is an AWS Lambda function's event trigger associated with this job."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "EventTriggerDefinition"
     },
     "EventTriggerDefinitionList": {
       "items": {
         "$ref": "#/definitions/EventTriggerDefinition"
       },
-      "type": "array"
+      "type": "array",
+      "title": "EventTriggerDefinitionList"
     },
     "GetJobManifestRequest": {
       "example": {
@@ -686,7 +717,8 @@
       "required": [
         "JobId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetJobManifestRequest"
     },
     "GetJobManifestResult": {
       "example": {
@@ -698,7 +730,8 @@
           "description": "The Amazon S3 presigned URL for the manifest file associated with the specified <code>JobId</code> value."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetJobManifestResult"
     },
     "GetJobUnlockCodeRequest": {
       "example": {
@@ -713,7 +746,8 @@
       "required": [
         "JobId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetJobUnlockCodeRequest"
     },
     "GetJobUnlockCodeResult": {
       "example": {
@@ -725,12 +759,14 @@
           "description": "The <code>UnlockCode</code> value for the specified job. The <code>UnlockCode</code> value can be accessed for up to 90 days after the job has been created."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetJobUnlockCodeResult"
     },
     "GetSnowballUsageRequest": {
       "example": {},
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "GetSnowballUsageRequest"
     },
     "GetSnowballUsageResult": {
       "example": {
@@ -747,10 +783,12 @@
           "description": "The number of Snowballs that this account is currently using."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetSnowballUsageResult"
     },
     "Integer": {
-      "type": "integer"
+      "type": "integer",
+      "title": "Integer"
     },
     "InvalidAddressException": {
       "description": "The address provided was invalid. Check the address with your region's carrier, and try again.",
@@ -759,7 +797,8 @@
           "$ref": "#/definitions/String"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidAddressException"
     },
     "InvalidInputCombinationException": {
       "description": "Job or cluster creation failed. One ore more inputs were invalid. Confirm that the <a>CreateClusterRequest$SnowballType</a> value supports your <a>CreateJobRequest$JobType</a>, and try again.",
@@ -768,7 +807,8 @@
           "$ref": "#/definitions/String"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidInputCombinationException"
     },
     "InvalidJobStateException": {
       "description": "The action can't be performed because the job's current state doesn't allow that action to be performed.",
@@ -777,7 +817,8 @@
           "$ref": "#/definitions/String"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidJobStateException"
     },
     "InvalidNextTokenException": {
       "description": "The <code>NextToken</code> string was altered unexpectedly, and the operation has stopped. Run the operation without changing the <code>NextToken</code> string, and try again.",
@@ -786,7 +827,8 @@
           "$ref": "#/definitions/String"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidNextTokenException"
     },
     "InvalidResourceException": {
       "description": "The specified resource can't be found. Check the information you provided in your last request, and try again.",
@@ -795,13 +837,15 @@
           "$ref": "#/definitions/String"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidResourceException"
     },
     "JobId": {
       "maxLength": 39,
       "minLength": 39,
       "pattern": "(M|J)ID[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}",
-      "type": "string"
+      "type": "string",
+      "title": "JobId"
     },
     "JobListEntry": {
       "description": "Each <code>JobListEntry</code> object contains a job's state, a job's ID, and a value that indicates whether the job is a job part, in the case of an export job.",
@@ -835,13 +879,15 @@
           "description": "The type of appliance used with this job."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "JobListEntry"
     },
     "JobListEntryList": {
       "items": {
         "$ref": "#/definitions/JobListEntry"
       },
-      "type": "array"
+      "type": "array",
+      "title": "JobListEntryList"
     },
     "JobLogs": {
       "description": "<p>Contains job logs. Whenever Snowball is used to import data into or export data out of Amazon S3, you'll have the option of downloading a PDF job report. Job logs are returned as a part of the response syntax of the <code>DescribeJob</code> action in the <code>JobMetadata</code> data type. The job logs can be accessed for up to 60 minutes after this request has been made. To access any of the job logs after 60 minutes have passed, you'll have to make another call to the <code>DescribeJob</code> action.</p> <p>For import jobs, the PDF job report becomes available at the end of the import process. For export jobs, your job report typically becomes available while the Snowball for your job part is being delivered to you.</p> <p>The job report provides you insight into the state of your Amazon S3 data transfer. The report includes details about your job or job part for your records.</p> <p>For deeper visibility into the status of your transferred objects, you can look at the two associated logs: a success log and a failure log. The logs are saved in comma-separated value (CSV) format, and the name of each log includes the ID of the job or job part that the log describes.</p>",
@@ -859,7 +905,8 @@
           "description": "A link to an Amazon S3 presigned URL where the job success log is located."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "JobLogs"
     },
     "JobMetadata": {
       "description": "Contains information about a specific job including shipping information, job status, and other important metadata. This information is returned as a part of the response syntax of the <code>DescribeJob</code> action.",
@@ -933,13 +980,15 @@
           "description": "The type of appliance used with this job."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "JobMetadata"
     },
     "JobMetadataList": {
       "items": {
         "$ref": "#/definitions/JobMetadata"
       },
-      "type": "array"
+      "type": "array",
+      "title": "JobMetadataList"
     },
     "JobResource": {
       "description": "Contains an array of <code>S3Resource</code> objects. Each <code>S3Resource</code> object represents an Amazon S3 bucket that your transferred data will be exported from or imported into.",
@@ -953,7 +1002,8 @@
           "description": "An array of <code>S3Resource</code> objects."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "JobResource"
     },
     "JobState": {
       "enum": [
@@ -970,13 +1020,15 @@
         "Listing",
         "Pending"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "JobState"
     },
     "JobStateList": {
       "items": {
         "$ref": "#/definitions/JobState"
       },
-      "type": "array"
+      "type": "array",
+      "title": "JobStateList"
     },
     "JobType": {
       "enum": [
@@ -984,7 +1036,8 @@
         "EXPORT",
         "LOCAL_USE"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "JobType"
     },
     "KMSRequestFailedException": {
       "description": "The provided AWS Key Management Service key lacks the permissions to perform the specified <a>CreateJob</a> or <a>UpdateJob</a> action.",
@@ -993,7 +1046,8 @@
           "$ref": "#/definitions/String"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "KMSRequestFailedException"
     },
     "KeyRange": {
       "description": "Contains a key range. For export jobs, a <code>S3Resource</code> object can have an optional <code>KeyRange</code> value. The length of the range is defined at job creation, and has either an inclusive <code>BeginMarker</code>, an inclusive <code>EndMarker</code>, or both. Ranges are UTF-8 binary sorted.",
@@ -1007,12 +1061,14 @@
           "description": "The key that ends an optional key range for an export job. Ranges are inclusive and UTF-8 binary sorted."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "KeyRange"
     },
     "KmsKeyARN": {
       "maxLength": 255,
       "pattern": "arn:aws.*:kms:.*:[0-9]{12}:key/.*",
-      "type": "string"
+      "type": "string",
+      "title": "KmsKeyARN"
     },
     "LambdaResource": {
       "description": "Identifies ",
@@ -1026,13 +1082,15 @@
           "description": "An Amazon Resource Name (ARN) that represents an AWS Lambda function to be triggered by PUT object actions on the associated local Amazon S3 resource."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LambdaResource"
     },
     "LambdaResourceList": {
       "items": {
         "$ref": "#/definitions/LambdaResource"
       },
-      "type": "array"
+      "type": "array",
+      "title": "LambdaResourceList"
     },
     "ListClusterJobsRequest": {
       "example": {
@@ -1055,7 +1113,8 @@
       "required": [
         "ClusterId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListClusterJobsRequest"
     },
     "ListClusterJobsResult": {
       "example": {
@@ -1117,7 +1176,8 @@
           "description": "HTTP requests are stateless. If you use the automatically generated <code>NextToken</code> value in your next <code>ListClusterJobsResult</code> call, your list of returned jobs will start from this point in the array."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListClusterJobsResult"
     },
     "ListClustersRequest": {
       "example": {},
@@ -1131,7 +1191,8 @@
           "description": "HTTP requests are stateless. To identify what object comes \"next\" in the list of <code>ClusterListEntry</code> objects, you have the option of specifying <code>NextToken</code> as the starting point for your returned list."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListClustersRequest"
     },
     "ListClustersResult": {
       "example": {
@@ -1154,7 +1215,8 @@
           "description": "HTTP requests are stateless. If you use the automatically generated <code>NextToken</code> value in your next <code>ClusterListEntry</code> call, your list of returned clusters will start from this point in the array."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListClustersResult"
     },
     "ListJobsRequest": {
       "example": {},
@@ -1168,7 +1230,8 @@
           "description": "HTTP requests are stateless. To identify what object comes \"next\" in the list of <code>JobListEntry</code> objects, you have the option of specifying <code>NextToken</code> as the starting point for your returned list."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListJobsRequest"
     },
     "ListJobsResult": {
       "example": {
@@ -1194,15 +1257,18 @@
           "description": "HTTP requests are stateless. If you use this automatically generated <code>NextToken</code> value in your next <code>ListJobs</code> call, your returned <code>JobListEntry</code> objects will start from this point in the array."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListJobsResult"
     },
     "ListLimit": {
       "maximum": 100,
       "minimum": 0,
-      "type": "integer"
+      "type": "integer",
+      "title": "ListLimit"
     },
     "Long": {
-      "type": "integer"
+      "type": "integer",
+      "title": "Long"
     },
     "Notification": {
       "description": "<p>The Amazon Simple Notification Service (Amazon SNS) notification settings associated with a specific job. The <code>Notification</code> object is returned as a part of the response syntax of the <code>DescribeJob</code> action in the <code>JobMetadata</code> data type.</p> <p>When the notification settings are defined during job creation, you can choose to notify based on a specific set of job states using the <code>JobStatesToNotify</code> array of strings, or you can specify that you want to have Amazon SNS notifications sent out for all job states with <code>NotifyAll</code> set to true.</p>",
@@ -1220,16 +1286,19 @@
           "description": "<p>The new SNS <code>TopicArn</code> that you want to associate with this job. You can create Amazon Resource Names (ARNs) for topics by using the <a href=\"http://docs.aws.amazon.com/sns/latest/api/API_CreateTopic.html\">CreateTopic</a> Amazon SNS API action.</p> <p>You can subscribe email addresses to an Amazon SNS topic through the AWS Management Console, or by using the <a href=\"http://docs.aws.amazon.com/sns/latest/api/API_Subscribe.html\">Subscribe</a> AWS Simple Notification Service (SNS) API action.</p>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Notification"
     },
     "ResourceARN": {
       "maxLength": 255,
-      "type": "string"
+      "type": "string",
+      "title": "ResourceARN"
     },
     "RoleARN": {
       "maxLength": 255,
       "pattern": "arn:aws.*:iam::[0-9]{12}:role/.*",
-      "type": "string"
+      "type": "string",
+      "title": "RoleARN"
     },
     "S3Resource": {
       "description": "Each <code>S3Resource</code> object represents an Amazon S3 bucket that your transferred data will be exported from or imported into. For export jobs, this object can have an optional <code>KeyRange</code> value. The length of the range is defined at job creation, and has either an inclusive <code>BeginMarker</code>, an inclusive <code>EndMarker</code>, or both. Ranges are UTF-8 binary sorted.",
@@ -1243,13 +1312,15 @@
           "description": "For export jobs, you can provide an optional <code>KeyRange</code> within a specific Amazon S3 bucket. The length of the range is defined at job creation, and has either an inclusive <code>BeginMarker</code>, an inclusive <code>EndMarker</code>, or both. Ranges are UTF-8 binary sorted."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "S3Resource"
     },
     "S3ResourceList": {
       "items": {
         "$ref": "#/definitions/S3Resource"
       },
-      "type": "array"
+      "type": "array",
+      "title": "S3ResourceList"
     },
     "Shipment": {
       "description": "The <code>Status</code> and <code>TrackingNumber</code> information for an inbound or outbound shipment.",
@@ -1263,7 +1334,8 @@
           "description": "<p>The tracking number for this job. Using this tracking number with your region's carrier's website, you can track a Snowball as the carrier transports it.</p> <p>For India, the carrier is Amazon Logistics. For all other regions, UPS is the carrier.</p>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Shipment"
     },
     "ShippingDetails": {
       "description": "A job's shipping information, including inbound and outbound tracking numbers and shipping speed options.",
@@ -1281,7 +1353,8 @@
           "description": "<p>The shipping speed for a particular job. This speed doesn't dictate how soon you'll get the Snowball from the job's creation date. This speed represents how quickly it moves to its destination while in transit. Regional shipping speeds are as follows:</p> <ul> <li> <p>In Australia, you have access to express shipping. Typically, Snowballs shipped express are delivered in about a day.</p> </li> <li> <p>In the European Union (EU), you have access to express shipping. Typically, Snowballs shipped express are delivered in about a day. In addition, most countries in the EU have access to standard shipping, which typically takes less than a week, one way.</p> </li> <li> <p>In India, Snowballs are delivered in one to seven days.</p> </li> <li> <p>In the United States of America (US), you have access to one-day shipping and two-day shipping.</p> </li> </ul>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ShippingDetails"
     },
     "ShippingOption": {
       "enum": [
@@ -1290,7 +1363,8 @@
         "EXPRESS",
         "STANDARD"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ShippingOption"
     },
     "SnowballCapacity": {
       "enum": [
@@ -1299,27 +1373,32 @@
         "T100",
         "NoPreference"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "SnowballCapacity"
     },
     "SnowballType": {
       "enum": [
         "STANDARD",
         "EDGE"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "SnowballType"
     },
     "SnsTopicARN": {
       "maxLength": 255,
       "pattern": "arn:aws.*:sns:.*:[0-9]{12}:.*",
-      "type": "string"
+      "type": "string",
+      "title": "SnsTopicARN"
     },
     "String": {
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "String"
     },
     "Timestamp": {
       "format": "date-time",
-      "type": "string"
+      "type": "string",
+      "title": "Timestamp"
     },
     "UnsupportedAddressException": {
       "description": "The address is either outside the serviceable area for your region, or an error occurred. Check the address with your region's carrier and try again. If the issue persists, contact AWS Support.",
@@ -1328,7 +1407,8 @@
           "$ref": "#/definitions/String"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UnsupportedAddressException"
     },
     "UpdateClusterRequest": {
       "example": {
@@ -1373,11 +1453,13 @@
       "required": [
         "ClusterId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateClusterRequest"
     },
     "UpdateClusterResult": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "UpdateClusterResult"
     },
     "UpdateJobRequest": {
       "example": {
@@ -1428,11 +1510,13 @@
       "required": [
         "JobId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateJobRequest"
     },
     "UpdateJobResult": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "UpdateJobResult"
     }
   },
   "actions": [

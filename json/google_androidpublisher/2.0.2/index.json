@@ -41,7 +41,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Apk"
     },
     "ApkBinary": {
       "description": "Represents the binary payload of an APK.",
@@ -51,7 +52,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ApkBinary"
     },
     "ApkListing": {
       "properties": {
@@ -64,7 +66,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ApkListing"
     },
     "ApkListingsListResponse": {
       "properties": {
@@ -80,7 +83,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ApkListingsListResponse"
     },
     "ApksAddExternallyHostedRequest": {
       "properties": {
@@ -89,7 +93,8 @@
           "description": "The definition of the externally-hosted APK and where it is located."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ApksAddExternallyHostedRequest"
     },
     "ApksAddExternallyHostedResponse": {
       "properties": {
@@ -98,7 +103,8 @@
           "description": "The definition of the externally-hosted APK and where it is located."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ApksAddExternallyHostedResponse"
     },
     "ApksListResponse": {
       "properties": {
@@ -114,7 +120,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ApksListResponse"
     },
     "AppDetails": {
       "properties": {
@@ -135,7 +142,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AppDetails"
     },
     "AppEdit": {
       "description": "Represents an edit of an app. An edit allows clients to make multiple changes before committing them in one operation.",
@@ -149,7 +157,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AppEdit"
     },
     "Comment": {
       "properties": {
@@ -162,7 +171,8 @@
           "description": "A comment from a user."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Comment"
     },
     "DeobfuscationFile": {
       "description": "Represents a deobfuscation file.",
@@ -172,7 +182,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DeobfuscationFile"
     },
     "DeobfuscationFilesUploadResponse": {
       "properties": {
@@ -180,7 +191,8 @@
           "$ref": "#/definitions/DeobfuscationFile"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DeobfuscationFilesUploadResponse"
     },
     "DeveloperComment": {
       "properties": {
@@ -193,7 +205,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DeveloperComment"
     },
     "DeviceMetadata": {
       "properties": {
@@ -247,7 +260,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DeviceMetadata"
     },
     "Entitlement": {
       "description": "An Entitlement resource indicates a user's current entitlement to an inapp item or subscription.",
@@ -270,7 +284,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Entitlement"
     },
     "EntitlementsListResponse": {
       "properties": {
@@ -287,7 +302,8 @@
           "$ref": "#/definitions/TokenPagination"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "EntitlementsListResponse"
     },
     "ExpansionFile": {
       "properties": {
@@ -302,7 +318,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ExpansionFile"
     },
     "ExpansionFilesUploadResponse": {
       "properties": {
@@ -310,7 +327,8 @@
           "$ref": "#/definitions/ExpansionFile"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ExpansionFilesUploadResponse"
     },
     "ExternallyHostedApk": {
       "description": "Defines an APK available for this application that is hosted externally and not uploaded to Google Play. This function is only available to enterprises who are using Google Play for Work, and whos application is restricted to the enterprise private channel",
@@ -392,7 +410,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ExternallyHostedApk"
     },
     "ExternallyHostedApkUsesPermission": {
       "description": "A permission used by this APK.",
@@ -407,7 +426,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ExternallyHostedApkUsesPermission"
     },
     "Image": {
       "properties": {
@@ -424,7 +444,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Image"
     },
     "ImagesDeleteAllResponse": {
       "properties": {
@@ -435,7 +456,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ImagesDeleteAllResponse"
     },
     "ImagesListResponse": {
       "properties": {
@@ -446,7 +468,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ImagesListResponse"
     },
     "ImagesUploadResponse": {
       "properties": {
@@ -454,7 +477,8 @@
           "$ref": "#/definitions/Image"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ImagesUploadResponse"
     },
     "InAppProduct": {
       "properties": {
@@ -510,7 +534,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InAppProduct"
     },
     "InAppProductListing": {
       "properties": {
@@ -521,7 +546,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InAppProductListing"
     },
     "InappproductsBatchRequest": {
       "properties": {
@@ -532,7 +558,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InappproductsBatchRequest"
     },
     "InappproductsBatchRequestEntry": {
       "properties": {
@@ -550,7 +577,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InappproductsBatchRequestEntry"
     },
     "InappproductsBatchResponse": {
       "properties": {
@@ -566,7 +594,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InappproductsBatchResponse"
     },
     "InappproductsBatchResponseEntry": {
       "properties": {
@@ -581,7 +610,8 @@
           "$ref": "#/definitions/InappproductsUpdateResponse"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InappproductsBatchResponseEntry"
     },
     "InappproductsInsertRequest": {
       "properties": {
@@ -589,7 +619,8 @@
           "$ref": "#/definitions/InAppProduct"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InappproductsInsertRequest"
     },
     "InappproductsInsertResponse": {
       "properties": {
@@ -597,7 +628,8 @@
           "$ref": "#/definitions/InAppProduct"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InappproductsInsertResponse"
     },
     "InappproductsListResponse": {
       "properties": {
@@ -619,7 +651,8 @@
           "$ref": "#/definitions/TokenPagination"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InappproductsListResponse"
     },
     "InappproductsUpdateRequest": {
       "properties": {
@@ -627,7 +660,8 @@
           "$ref": "#/definitions/InAppProduct"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InappproductsUpdateRequest"
     },
     "InappproductsUpdateResponse": {
       "properties": {
@@ -635,7 +669,8 @@
           "$ref": "#/definitions/InAppProduct"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InappproductsUpdateResponse"
     },
     "Listing": {
       "properties": {
@@ -660,7 +695,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Listing"
     },
     "ListingsListResponse": {
       "properties": {
@@ -676,7 +712,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListingsListResponse"
     },
     "MonthDay": {
       "properties": {
@@ -691,7 +728,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "MonthDay"
     },
     "PageInfo": {
       "properties": {
@@ -708,7 +746,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PageInfo"
     },
     "Price": {
       "properties": {
@@ -721,7 +760,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Price"
     },
     "ProductPurchase": {
       "description": "A ProductPurchase resource indicates the status of a user's inapp product purchase.",
@@ -751,7 +791,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ProductPurchase"
     },
     "Prorate": {
       "properties": {
@@ -764,7 +805,8 @@
           "description": "Defines the first day on which the price takes effect."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Prorate"
     },
     "Review": {
       "properties": {
@@ -784,7 +826,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Review"
     },
     "ReviewReplyResult": {
       "properties": {
@@ -797,7 +840,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ReviewReplyResult"
     },
     "ReviewsListResponse": {
       "properties": {
@@ -814,7 +858,8 @@
           "$ref": "#/definitions/TokenPagination"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ReviewsListResponse"
     },
     "ReviewsReplyRequest": {
       "properties": {
@@ -823,7 +868,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ReviewsReplyRequest"
     },
     "ReviewsReplyResponse": {
       "properties": {
@@ -831,7 +877,8 @@
           "$ref": "#/definitions/ReviewReplyResult"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ReviewsReplyResponse"
     },
     "Season": {
       "properties": {
@@ -851,7 +898,8 @@
           "description": "Inclusive start date of the recurrence period."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Season"
     },
     "SubscriptionDeferralInfo": {
       "description": "A SubscriptionDeferralInfo contains the data needed to defer a subscription purchase to a future expiry time.",
@@ -867,7 +915,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SubscriptionDeferralInfo"
     },
     "SubscriptionPurchase": {
       "description": "A SubscriptionPurchase resource indicates the status of a user's subscription purchase.",
@@ -924,7 +973,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SubscriptionPurchase"
     },
     "SubscriptionPurchasesDeferRequest": {
       "properties": {
@@ -933,7 +983,8 @@
           "description": "The information about the new desired expiry time for the subscription."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SubscriptionPurchasesDeferRequest"
     },
     "SubscriptionPurchasesDeferResponse": {
       "properties": {
@@ -943,7 +994,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SubscriptionPurchasesDeferResponse"
     },
     "Testers": {
       "properties": {
@@ -960,7 +1012,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Testers"
     },
     "Timestamp": {
       "properties": {
@@ -973,7 +1026,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Timestamp"
     },
     "TokenPagination": {
       "properties": {
@@ -984,7 +1038,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TokenPagination"
     },
     "Track": {
       "properties": {
@@ -1003,7 +1058,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Track"
     },
     "TracksListResponse": {
       "properties": {
@@ -1019,7 +1075,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TracksListResponse"
     },
     "UserComment": {
       "properties": {
@@ -1077,7 +1134,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UserComment"
     },
     "VoidedPurchase": {
       "description": "A VoidedPurchase resource indicates a purchase that was either cancelled/refunded/charged-back.",
@@ -1102,7 +1160,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "VoidedPurchase"
     },
     "VoidedPurchasesListResponse": {
       "properties": {
@@ -1119,7 +1178,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "VoidedPurchasesListResponse"
     }
   },
   "actions": [

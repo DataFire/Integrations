@@ -42,7 +42,8 @@
           "x-ms-client-flatten": true
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AnalysisServicesServer"
     },
     "AnalysisServicesServerMutableProperties": {
       "description": "An object that represents a set of mutable Analysis Services resource properties.",
@@ -54,7 +55,8 @@
           "$ref": "#/definitions/BackupConfiguration"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AnalysisServicesServerMutableProperties"
     },
     "AnalysisServicesServerProperties": {
       "allOf": [
@@ -116,7 +118,8 @@
           }
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AnalysisServicesServerProperties"
     },
     "AnalysisServicesServerUpdateParameters": {
       "description": "Provision request specification",
@@ -138,7 +141,8 @@
           "type": "object"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AnalysisServicesServerUpdateParameters"
     },
     "AnalysisServicesServers": {
       "description": "An array of Analysis Services resources.",
@@ -154,7 +158,8 @@
       "required": [
         "value"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AnalysisServicesServers"
     },
     "BackupConfiguration": {
       "description": "An object that represents backup configurations",
@@ -176,7 +181,8 @@
         "storageAccount",
         "blobContainer"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "BackupConfiguration"
     },
     "Resource": {
       "description": "Represents an instance of an Analysis Services resource.",
@@ -217,7 +223,8 @@
         "sku"
       ],
       "type": "object",
-      "x-ms-azure-resource": true
+      "x-ms-azure-resource": true,
+      "title": "Resource"
     },
     "ResourceSku": {
       "description": "Represents the SKU name and Azure pricing tier for Analysis Services resource.",
@@ -256,7 +263,8 @@
       "required": [
         "name"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ResourceSku"
     },
     "ServerAdministrators": {
       "description": "An array of administrator user identities",
@@ -270,7 +278,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ServerAdministrators"
     }
   },
   "actions": [

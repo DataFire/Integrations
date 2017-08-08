@@ -14,7 +14,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Error"
     },
     "Job": {
       "properties": {
@@ -84,7 +85,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Job"
     },
     "JobFeedResponse": {
       "properties": {
@@ -95,7 +97,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "JobFeedResponse"
     },
     "JobType": {
       "properties": {
@@ -107,7 +110,8 @@
           "$ref": "#/definitions/JobTypeID"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "JobType"
     },
     "JobTypeID": {
       "description": "The type of work.",
@@ -128,7 +132,8 @@
         "Co-op",
         "Apprenticeship"
       ],
-      "type": "integer"
+      "type": "integer",
+      "title": "JobTypeID"
     },
     "Location": {
       "description": "Details of where a job is located. A job can have up to three associated locations.",
@@ -149,7 +154,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Location"
     },
     "MajorProject": {
       "properties": {
@@ -162,7 +168,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "MajorProject"
     },
     "RecordType": {
       "description": "The type of change that has happened to this job.",
@@ -171,7 +178,8 @@
         "Update",
         "Delete"
       ],
-      "type": "integer"
+      "type": "integer",
+      "title": "RecordType"
     },
     "Region": {
       "properties": {
@@ -183,7 +191,8 @@
           "$ref": "#/definitions/RegionID"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Region"
     },
     "RegionID": {
       "description": "A region within B.C.",
@@ -198,7 +207,8 @@
         "Nechako",
         "Northeast"
       ],
-      "type": "integer"
+      "type": "integer",
+      "title": "RegionID"
     }
   },
   "actions": [

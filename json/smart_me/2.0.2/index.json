@@ -30,7 +30,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AccessTokenToPut"
     },
     "ActionInformation": {
       "description": "The Information about an Action of a device",
@@ -62,7 +63,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ActionInformation"
     },
     "ActionToPost": {
       "description": "Container Class for an action to post",
@@ -79,7 +81,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ActionToPost"
     },
     "ActionToPostItem": {
       "description": "Container class for an action item",
@@ -94,7 +97,8 @@
           "type": "number"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ActionToPostItem"
     },
     "CustomDeviceToPost": {
       "description": "Container Class for the Web API",
@@ -125,7 +129,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CustomDeviceToPost"
     },
     "CustomDeviceValues": {
       "description": "Container Class for the Custom Device Values",
@@ -140,7 +145,8 @@
           "type": "number"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CustomDeviceValues"
     },
     "Device": {
       "description": "Container Class for the Web API",
@@ -341,7 +347,8 @@
           "type": "number"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Device"
     },
     "DeviceInPast": {
       "description": "Container Class for the Web API. Conatinas the MeterValues in the Past",
@@ -440,7 +447,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DeviceInPast"
     },
     "DeviceToPost": {
       "description": "Container Class for the Web API",
@@ -508,7 +516,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DeviceToPost"
     },
     "InputInformation": {
       "description": "Informations about the Inputs of a Meter or Folder",
@@ -523,7 +532,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InputInformation"
     },
     "MBusData": {
       "properties": {
@@ -537,7 +547,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "MBusData"
     },
     "MeterFolderInformation": {
       "description": "Container Class for the Web API",
@@ -575,7 +586,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "MeterFolderInformation"
     },
     "MeterFolderInformationToPost": {
       "description": "Container for a Meter or Folder Information to Post",
@@ -589,11 +601,13 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "MeterFolderInformationToPost"
     },
     "Object": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "Object"
     },
     "OutputInformation": {
       "description": "Informations about the Outputs of a Meter or Folder",
@@ -612,7 +626,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "OutputInformation"
     },
     "SignUpData": {
       "description": "Container for the Sign UP API",
@@ -626,7 +641,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SignUpData"
     },
     "User": {
       "description": "Container Class for the Web API",
@@ -656,7 +672,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "User"
     },
     "VMeterToActivate": {
       "description": "Actives a virtual Meter",
@@ -666,7 +683,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "VMeterToActivate"
     },
     "VMeterToDeactivate": {
       "description": "Deactivates a virtual Meter",
@@ -676,7 +694,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "VMeterToDeactivate"
     }
   },
   "actions": [

@@ -38,7 +38,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "AddressSpace"
     },
     "ApplicationGateway": {
       "allOf": [
@@ -56,7 +57,8 @@
           "$ref": "#/definitions/ApplicationGatewayPropertiesFormat",
           "x-ms-client-flatten": true
         }
-      }
+      },
+      "title": "ApplicationGateway"
     },
     "ApplicationGatewayAuthenticationCertificate": {
       "allOf": [
@@ -78,7 +80,8 @@
           "$ref": "#/definitions/ApplicationGatewayAuthenticationCertificatePropertiesFormat",
           "x-ms-client-flatten": true
         }
-      }
+      },
+      "title": "ApplicationGatewayAuthenticationCertificate"
     },
     "ApplicationGatewayAuthenticationCertificatePropertiesFormat": {
       "description": "Properties of Authentication certificates of application gateway",
@@ -91,7 +94,8 @@
           "description": "Provisioning state of the authentication certificate resource Updating/Deleting/Failed",
           "type": "string"
         }
-      }
+      },
+      "title": "ApplicationGatewayAuthenticationCertificatePropertiesFormat"
     },
     "ApplicationGatewayBackendAddress": {
       "description": "Backend Address of application gateway",
@@ -104,7 +108,8 @@
           "description": "Ip address",
           "type": "string"
         }
-      }
+      },
+      "title": "ApplicationGatewayBackendAddress"
     },
     "ApplicationGatewayBackendAddressPool": {
       "allOf": [
@@ -126,7 +131,8 @@
           "$ref": "#/definitions/ApplicationGatewayBackendAddressPoolPropertiesFormat",
           "x-ms-client-flatten": true
         }
-      }
+      },
+      "title": "ApplicationGatewayBackendAddressPool"
     },
     "ApplicationGatewayBackendAddressPoolPropertiesFormat": {
       "description": "Properties of Backend Address Pool of application gateway",
@@ -149,7 +155,8 @@
           "description": "Provisioning state of the backend address pool resource Updating/Deleting/Failed",
           "type": "string"
         }
-      }
+      },
+      "title": "ApplicationGatewayBackendAddressPoolPropertiesFormat"
     },
     "ApplicationGatewayBackendHttpSettings": {
       "allOf": [
@@ -171,7 +178,8 @@
           "$ref": "#/definitions/ApplicationGatewayBackendHttpSettingsPropertiesFormat",
           "x-ms-client-flatten": true
         }
-      }
+      },
+      "title": "ApplicationGatewayBackendHttpSettings"
     },
     "ApplicationGatewayBackendHttpSettingsPropertiesFormat": {
       "description": "Properties of Backend address pool settings of application gateway",
@@ -225,7 +233,8 @@
           "format": "int32",
           "type": "integer"
         }
-      }
+      },
+      "title": "ApplicationGatewayBackendHttpSettingsPropertiesFormat"
     },
     "ApplicationGatewayFrontendIPConfiguration": {
       "allOf": [
@@ -247,7 +256,8 @@
           "$ref": "#/definitions/ApplicationGatewayFrontendIPConfigurationPropertiesFormat",
           "x-ms-client-flatten": true
         }
-      }
+      },
+      "title": "ApplicationGatewayFrontendIPConfiguration"
     },
     "ApplicationGatewayFrontendIPConfigurationPropertiesFormat": {
       "description": "Properties of Frontend IP configuration of application gateway",
@@ -280,7 +290,8 @@
           "$ref": "#/definitions/SubResource",
           "description": "Reference of the subnet resource"
         }
-      }
+      },
+      "title": "ApplicationGatewayFrontendIPConfigurationPropertiesFormat"
     },
     "ApplicationGatewayFrontendPort": {
       "allOf": [
@@ -302,7 +313,8 @@
           "$ref": "#/definitions/ApplicationGatewayFrontendPortPropertiesFormat",
           "x-ms-client-flatten": true
         }
-      }
+      },
+      "title": "ApplicationGatewayFrontendPort"
     },
     "ApplicationGatewayFrontendPortPropertiesFormat": {
       "description": "Properties of Frontend Port of application gateway",
@@ -316,7 +328,8 @@
           "description": "Provisioning state of the frontend port resource Updating/Deleting/Failed",
           "type": "string"
         }
-      }
+      },
+      "title": "ApplicationGatewayFrontendPortPropertiesFormat"
     },
     "ApplicationGatewayHttpListener": {
       "allOf": [
@@ -338,7 +351,8 @@
           "$ref": "#/definitions/ApplicationGatewayHttpListenerPropertiesFormat",
           "x-ms-client-flatten": true
         }
-      }
+      },
+      "title": "ApplicationGatewayHttpListener"
     },
     "ApplicationGatewayHttpListenerPropertiesFormat": {
       "description": "Properties of Http listener of application gateway",
@@ -379,7 +393,8 @@
           "$ref": "#/definitions/SubResource",
           "description": "Ssl certificate resource of application gateway "
         }
-      }
+      },
+      "title": "ApplicationGatewayHttpListenerPropertiesFormat"
     },
     "ApplicationGatewayIPConfiguration": {
       "allOf": [
@@ -401,7 +416,8 @@
           "$ref": "#/definitions/ApplicationGatewayIPConfigurationPropertiesFormat",
           "x-ms-client-flatten": true
         }
-      }
+      },
+      "title": "ApplicationGatewayIPConfiguration"
     },
     "ApplicationGatewayIPConfigurationPropertiesFormat": {
       "description": "Properties of IP configuration of application gateway",
@@ -414,7 +430,8 @@
           "$ref": "#/definitions/SubResource",
           "description": "Reference of the subnet resource. A subnet from where application gateway gets its private address "
         }
-      }
+      },
+      "title": "ApplicationGatewayIPConfigurationPropertiesFormat"
     },
     "ApplicationGatewayListResult": {
       "description": "Response for ListApplicationGateways Api service call",
@@ -430,7 +447,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "ApplicationGatewayListResult"
     },
     "ApplicationGatewayPathRule": {
       "allOf": [
@@ -452,7 +470,8 @@
           "$ref": "#/definitions/ApplicationGatewayPathRulePropertiesFormat",
           "x-ms-client-flatten": true
         }
-      }
+      },
+      "title": "ApplicationGatewayPathRule"
     },
     "ApplicationGatewayPathRulePropertiesFormat": {
       "description": "Properties of probe of application gateway",
@@ -476,7 +495,8 @@
           "description": "Path rule of URL path map resource Updating/Deleting/Failed",
           "type": "string"
         }
-      }
+      },
+      "title": "ApplicationGatewayPathRulePropertiesFormat"
     },
     "ApplicationGatewayProbe": {
       "allOf": [
@@ -498,7 +518,8 @@
           "$ref": "#/definitions/ApplicationGatewayProbePropertiesFormat",
           "x-ms-client-flatten": true
         }
-      }
+      },
+      "title": "ApplicationGatewayProbe"
     },
     "ApplicationGatewayProbePropertiesFormat": {
       "description": "Properties of probe of application gateway",
@@ -542,7 +563,8 @@
           "format": "int32",
           "type": "integer"
         }
-      }
+      },
+      "title": "ApplicationGatewayProbePropertiesFormat"
     },
     "ApplicationGatewayPropertiesFormat": {
       "description": "Properties of Application Gateway",
@@ -655,7 +677,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "ApplicationGatewayPropertiesFormat"
     },
     "ApplicationGatewayRequestRoutingRule": {
       "allOf": [
@@ -677,7 +700,8 @@
           "$ref": "#/definitions/ApplicationGatewayRequestRoutingRulePropertiesFormat",
           "x-ms-client-flatten": true
         }
-      }
+      },
+      "title": "ApplicationGatewayRequestRoutingRule"
     },
     "ApplicationGatewayRequestRoutingRulePropertiesFormat": {
       "description": "Properties of Request routing rule of application gateway",
@@ -714,7 +738,8 @@
           "$ref": "#/definitions/SubResource",
           "description": "Url path map resource of application gateway "
         }
-      }
+      },
+      "title": "ApplicationGatewayRequestRoutingRulePropertiesFormat"
     },
     "ApplicationGatewaySku": {
       "description": "SKU of application gateway",
@@ -748,7 +773,8 @@
             "name": "ApplicationGatewayTier"
           }
         }
-      }
+      },
+      "title": "ApplicationGatewaySku"
     },
     "ApplicationGatewaySslCertificate": {
       "allOf": [
@@ -770,7 +796,8 @@
           "$ref": "#/definitions/ApplicationGatewaySslCertificatePropertiesFormat",
           "x-ms-client-flatten": true
         }
-      }
+      },
+      "title": "ApplicationGatewaySslCertificate"
     },
     "ApplicationGatewaySslCertificatePropertiesFormat": {
       "description": "Properties of SSL certificates of application gateway",
@@ -791,7 +818,8 @@
           "description": "SSL Certificate public data ",
           "type": "string"
         }
-      }
+      },
+      "title": "ApplicationGatewaySslCertificatePropertiesFormat"
     },
     "ApplicationGatewaySslPolicy": {
       "description": "Application gateway SSL policy",
@@ -812,7 +840,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "ApplicationGatewaySslPolicy"
     },
     "ApplicationGatewayUrlPathMap": {
       "allOf": [
@@ -834,7 +863,8 @@
           "$ref": "#/definitions/ApplicationGatewayUrlPathMapPropertiesFormat",
           "x-ms-client-flatten": true
         }
-      }
+      },
+      "title": "ApplicationGatewayUrlPathMap"
     },
     "ApplicationGatewayUrlPathMapPropertiesFormat": {
       "description": "Properties of UrlPathMap of application gateway",
@@ -858,7 +888,8 @@
           "description": "Provisioning state of the backend http settings resource Updating/Deleting/Failed",
           "type": "string"
         }
-      }
+      },
+      "title": "ApplicationGatewayUrlPathMapPropertiesFormat"
     },
     "AuthorizationListResult": {
       "description": "Response for ListAuthorizations Api service callRetrieves all authorizations that belongs to an ExpressRouteCircuit",
@@ -874,7 +905,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "AuthorizationListResult"
     },
     "AuthorizationPropertiesFormat": {
       "properties": {
@@ -898,7 +930,8 @@
           "description": "Gets provisioning state of the PublicIP resource Updating/Deleting/Failed",
           "type": "string"
         }
-      }
+      },
+      "title": "AuthorizationPropertiesFormat"
     },
     "AzureAsyncOperationResult": {
       "description": "The response body contains the status of the specified asynchronous operation, indicating whether it has succeeded, is in progress, or has failed. Note that this status is distinct from the HTTP status code returned for the Get Operation Status operation itself. If the asynchronous operation succeeded, the response body includes the HTTP status code for the successful request. If the asynchronous operation failed, the response body includes the HTTP status code for the failed request and error information regarding the failure.",
@@ -919,7 +952,8 @@
             "name": "NetworkOperationStatus"
           }
         }
-      }
+      },
+      "title": "AzureAsyncOperationResult"
     },
     "BackendAddressPool": {
       "allOf": [
@@ -941,7 +975,8 @@
           "$ref": "#/definitions/BackendAddressPoolPropertiesFormat",
           "x-ms-client-flatten": true
         }
-      }
+      },
+      "title": "BackendAddressPool"
     },
     "BackendAddressPoolPropertiesFormat": {
       "description": "Properties of BackendAddressPool",
@@ -971,7 +1006,8 @@
           "description": "Get provisioning state of the PublicIP resource Updating/Deleting/Failed",
           "type": "string"
         }
-      }
+      },
+      "title": "BackendAddressPoolPropertiesFormat"
     },
     "BgpSettings": {
       "properties": {
@@ -989,7 +1025,8 @@
           "format": "int32",
           "type": "integer"
         }
-      }
+      },
+      "title": "BgpSettings"
     },
     "ConnectionResetSharedKey": {
       "properties": {
@@ -998,7 +1035,8 @@
           "format": "int64",
           "type": "integer"
         }
-      }
+      },
+      "title": "ConnectionResetSharedKey"
     },
     "ConnectionSharedKey": {
       "description": "Response for GetConnectionSharedKey Api service call",
@@ -1007,7 +1045,8 @@
           "description": "The virtual network connection shared key value",
           "type": "string"
         }
-      }
+      },
+      "title": "ConnectionSharedKey"
     },
     "ConnectionSharedKeyResult": {
       "description": "Response for CheckConnectionSharedKey Api service call",
@@ -1016,7 +1055,8 @@
           "description": "The virtual network connection shared key value",
           "type": "string"
         }
-      }
+      },
+      "title": "ConnectionSharedKeyResult"
     },
     "DhcpOptions": {
       "description": "DHCPOptions contains an array of DNS servers available to VMs deployed in the virtual networkStandard DHCP option for a subnet overrides VNET DHCP options.",
@@ -1028,7 +1068,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "DhcpOptions"
     },
     "DnsNameAvailabilityResult": {
       "description": "Response for CheckDnsNameAvailability Api service call",
@@ -1037,7 +1078,8 @@
           "description": "Domain availability (True/False)",
           "type": "boolean"
         }
-      }
+      },
+      "title": "DnsNameAvailabilityResult"
     },
     "EffectiveNetworkSecurityGroup": {
       "description": "Effective NetworkSecurityGroup",
@@ -1056,7 +1098,8 @@
           "$ref": "#/definitions/SubResource",
           "description": "Gets the id of network security group that is applied"
         }
-      }
+      },
+      "title": "EffectiveNetworkSecurityGroup"
     },
     "EffectiveNetworkSecurityGroupAssociation": {
       "description": "Effective NetworkSecurityGroup association",
@@ -1069,7 +1112,8 @@
           "$ref": "#/definitions/SubResource",
           "description": "Gets the id of subnet if assigned"
         }
-      }
+      },
+      "title": "EffectiveNetworkSecurityGroupAssociation"
     },
     "EffectiveNetworkSecurityGroupListResult": {
       "description": "Response for list effective network security groups api service call",
@@ -1085,7 +1129,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "EffectiveNetworkSecurityGroupListResult"
     },
     "EffectiveNetworkSecurityRule": {
       "description": "Effective NetworkSecurityRules",
@@ -1166,7 +1211,8 @@
           "description": "Gets source port or range",
           "type": "string"
         }
-      }
+      },
+      "title": "EffectiveNetworkSecurityRule"
     },
     "EffectiveRoute": {
       "description": "Effective Route",
@@ -1230,7 +1276,8 @@
             "name": "EffectiveRouteState"
           }
         }
-      }
+      },
+      "title": "EffectiveRoute"
     },
     "EffectiveRouteListResult": {
       "description": "Response for list effective route api service call",
@@ -1246,7 +1293,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "EffectiveRouteListResult"
     },
     "Error": {
       "properties": {
@@ -1268,7 +1316,8 @@
         "target": {
           "type": "string"
         }
-      }
+      },
+      "title": "Error"
     },
     "ErrorDetails": {
       "properties": {
@@ -1281,7 +1330,8 @@
         "target": {
           "type": "string"
         }
-      }
+      },
+      "title": "ErrorDetails"
     },
     "ExpressRouteCircuit": {
       "allOf": [
@@ -1303,7 +1353,8 @@
           "$ref": "#/definitions/ExpressRouteCircuitSku",
           "description": "Gets or sets sku"
         }
-      }
+      },
+      "title": "ExpressRouteCircuit"
     },
     "ExpressRouteCircuitArpTable": {
       "description": "The arp table associated with the ExpressRouteCircuit",
@@ -1325,7 +1376,8 @@
           "description": "Gets macAddress.",
           "type": "string"
         }
-      }
+      },
+      "title": "ExpressRouteCircuitArpTable"
     },
     "ExpressRouteCircuitAuthorization": {
       "allOf": [
@@ -1347,7 +1399,8 @@
           "$ref": "#/definitions/AuthorizationPropertiesFormat",
           "x-ms-client-flatten": true
         }
-      }
+      },
+      "title": "ExpressRouteCircuitAuthorization"
     },
     "ExpressRouteCircuitListResult": {
       "description": "Response for ListExpressRouteCircuit Api service call",
@@ -1363,7 +1416,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "ExpressRouteCircuitListResult"
     },
     "ExpressRouteCircuitPeering": {
       "allOf": [
@@ -1385,7 +1439,8 @@
           "$ref": "#/definitions/ExpressRouteCircuitPeeringPropertiesFormat",
           "x-ms-client-flatten": true
         }
-      }
+      },
+      "title": "ExpressRouteCircuitPeering"
     },
     "ExpressRouteCircuitPeeringConfig": {
       "description": "Specifies the peering config",
@@ -1420,7 +1475,8 @@
           "description": "Gets or Sets RoutingRegistryName of the config.",
           "type": "string"
         }
-      }
+      },
+      "title": "ExpressRouteCircuitPeeringConfig"
     },
     "ExpressRouteCircuitPeeringListResult": {
       "description": "Response for ListPeering Api service callRetrieves all Peerings that belongs to an ExpressRouteCircuit",
@@ -1436,7 +1492,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "ExpressRouteCircuitPeeringListResult"
     },
     "ExpressRouteCircuitPeeringPropertiesFormat": {
       "properties": {
@@ -1520,7 +1577,8 @@
           "format": "int32",
           "type": "integer"
         }
-      }
+      },
+      "title": "ExpressRouteCircuitPeeringPropertiesFormat"
     },
     "ExpressRouteCircuitPropertiesFormat": {
       "description": "Properties of ExpressRouteCircuit",
@@ -1581,7 +1639,8 @@
             "name": "ServiceProviderProvisioningState"
           }
         }
-      }
+      },
+      "title": "ExpressRouteCircuitPropertiesFormat"
     },
     "ExpressRouteCircuitRoutesTable": {
       "description": "The routes table associated with the ExpressRouteCircuit",
@@ -1607,7 +1666,8 @@
           "format": "int32",
           "type": "integer"
         }
-      }
+      },
+      "title": "ExpressRouteCircuitRoutesTable"
     },
     "ExpressRouteCircuitRoutesTableSummary": {
       "description": "The routes table associated with the ExpressRouteCircuit",
@@ -1634,7 +1694,8 @@
           "format": "int32",
           "type": "integer"
         }
-      }
+      },
+      "title": "ExpressRouteCircuitRoutesTableSummary"
     },
     "ExpressRouteCircuitServiceProviderProperties": {
       "description": "Contains ServiceProviderProperties in an ExpressRouteCircuit",
@@ -1652,7 +1713,8 @@
           "description": "Gets or sets serviceProviderName.",
           "type": "string"
         }
-      }
+      },
+      "title": "ExpressRouteCircuitServiceProviderProperties"
     },
     "ExpressRouteCircuitSku": {
       "description": "Contains sku in an ExpressRouteCircuit",
@@ -1685,7 +1747,8 @@
             "name": "ExpressRouteCircuitSkuTier"
           }
         }
-      }
+      },
+      "title": "ExpressRouteCircuitSku"
     },
     "ExpressRouteCircuitStats": {
       "description": "Contains Stats associated with the peering",
@@ -1710,7 +1773,8 @@
           "format": "int64",
           "type": "integer"
         }
-      }
+      },
+      "title": "ExpressRouteCircuitStats"
     },
     "ExpressRouteCircuitsArpTableListResult": {
       "description": "Response for ListArpTable associated with the Express Route Circuits Api",
@@ -1726,7 +1790,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "ExpressRouteCircuitsArpTableListResult"
     },
     "ExpressRouteCircuitsRoutesTableListResult": {
       "description": "Response for ListRoutesTable associated with the Express Route Circuits Api",
@@ -1742,7 +1807,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "ExpressRouteCircuitsRoutesTableListResult"
     },
     "ExpressRouteCircuitsRoutesTableSummaryListResult": {
       "description": "Response for ListRoutesTable associated with the Express Route Circuits Api",
@@ -1758,7 +1824,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "ExpressRouteCircuitsRoutesTableSummaryListResult"
     },
     "ExpressRouteServiceProvider": {
       "allOf": [
@@ -1772,7 +1839,8 @@
           "$ref": "#/definitions/ExpressRouteServiceProviderPropertiesFormat",
           "x-ms-client-flatten": true
         }
-      }
+      },
+      "title": "ExpressRouteServiceProvider"
     },
     "ExpressRouteServiceProviderBandwidthsOffered": {
       "description": "Contains Bandwidths offered in ExpressRouteServiceProviders",
@@ -1786,7 +1854,8 @@
           "format": "int32",
           "type": "integer"
         }
-      }
+      },
+      "title": "ExpressRouteServiceProviderBandwidthsOffered"
     },
     "ExpressRouteServiceProviderListResult": {
       "description": "Response for ListExpressRouteServiceProvider Api service call",
@@ -1802,7 +1871,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "ExpressRouteServiceProviderListResult"
     },
     "ExpressRouteServiceProviderPropertiesFormat": {
       "description": "Properties of ExpressRouteServiceProvider",
@@ -1825,7 +1895,8 @@
           "description": "Gets provisioning state of the resource ",
           "type": "string"
         }
-      }
+      },
+      "title": "ExpressRouteServiceProviderPropertiesFormat"
     },
     "FrontendIPConfiguration": {
       "allOf": [
@@ -1847,7 +1918,8 @@
           "$ref": "#/definitions/FrontendIPConfigurationPropertiesFormat",
           "x-ms-client-flatten": true
         }
-      }
+      },
+      "title": "FrontendIPConfiguration"
     },
     "FrontendIPConfigurationPropertiesFormat": {
       "description": "Properties of Frontend IP Configuration of the load balancer",
@@ -1912,7 +1984,8 @@
           "$ref": "#/definitions/Subnet",
           "description": "Gets or sets the reference of the subnet resource"
         }
-      }
+      },
+      "title": "FrontendIPConfigurationPropertiesFormat"
     },
     "IPAddressAvailabilityResult": {
       "description": "Response for CheckIPAddressAvailability Api service call",
@@ -1928,7 +2001,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "IPAddressAvailabilityResult"
     },
     "IPConfiguration": {
       "allOf": [
@@ -1950,7 +2024,8 @@
           "$ref": "#/definitions/IPConfigurationPropertiesFormat",
           "x-ms-client-flatten": true
         }
-      }
+      },
+      "title": "IPConfiguration"
     },
     "IPConfigurationPropertiesFormat": {
       "description": "Properties of IPConfiguration",
@@ -1983,7 +2058,8 @@
           "$ref": "#/definitions/Subnet",
           "description": "Gets or sets the reference of the subnet resource"
         }
-      }
+      },
+      "title": "IPConfigurationPropertiesFormat"
     },
     "InboundNatPool": {
       "allOf": [
@@ -2005,7 +2081,8 @@
           "$ref": "#/definitions/InboundNatPoolPropertiesFormat",
           "x-ms-client-flatten": true
         }
-      }
+      },
+      "title": "InboundNatPool"
     },
     "InboundNatPoolPropertiesFormat": {
       "description": "Properties of Inbound NAT pool",
@@ -2051,7 +2128,8 @@
         "frontendPortRangeStart",
         "frontendPortRangeEnd",
         "backendPort"
-      ]
+      ],
+      "title": "InboundNatPoolPropertiesFormat"
     },
     "InboundNatRule": {
       "allOf": [
@@ -2073,7 +2151,8 @@
           "$ref": "#/definitions/InboundNatRulePropertiesFormat",
           "x-ms-client-flatten": true
         }
-      }
+      },
+      "title": "InboundNatRule"
     },
     "InboundNatRulePropertiesFormat": {
       "description": "Properties of Inbound NAT rule",
@@ -2122,7 +2201,8 @@
           "description": "Gets provisioning state of the PublicIP resource Updating/Deleting/Failed",
           "type": "string"
         }
-      }
+      },
+      "title": "InboundNatRulePropertiesFormat"
     },
     "LoadBalancer": {
       "allOf": [
@@ -2140,7 +2220,8 @@
           "$ref": "#/definitions/LoadBalancerPropertiesFormat",
           "x-ms-client-flatten": true
         }
-      }
+      },
+      "title": "LoadBalancer"
     },
     "LoadBalancerListResult": {
       "description": "Response for ListLoadBalancers Api service call",
@@ -2156,7 +2237,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "LoadBalancerListResult"
     },
     "LoadBalancerPropertiesFormat": {
       "description": "Properties of Load Balancer",
@@ -2218,7 +2300,8 @@
           "description": "Gets or sets resource guid property of the Load balancer resource",
           "type": "string"
         }
-      }
+      },
+      "title": "LoadBalancerPropertiesFormat"
     },
     "LoadBalancingRule": {
       "allOf": [
@@ -2240,7 +2323,8 @@
           "$ref": "#/definitions/LoadBalancingRulePropertiesFormat",
           "x-ms-client-flatten": true
         }
-      }
+      },
+      "title": "LoadBalancingRule"
     },
     "LoadBalancingRulePropertiesFormat": {
       "description": "Properties of the load balancer",
@@ -2309,7 +2393,8 @@
       "required": [
         "protocol",
         "frontendPort"
-      ]
+      ],
+      "title": "LoadBalancingRulePropertiesFormat"
     },
     "LocalNetworkGateway": {
       "allOf": [
@@ -2327,7 +2412,8 @@
           "$ref": "#/definitions/LocalNetworkGatewayPropertiesFormat",
           "x-ms-client-flatten": true
         }
-      }
+      },
+      "title": "LocalNetworkGateway"
     },
     "LocalNetworkGatewayListResult": {
       "description": "Response for ListLocalNetworkGateways Api service call",
@@ -2343,7 +2429,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "LocalNetworkGatewayListResult"
     },
     "LocalNetworkGatewayPropertiesFormat": {
       "description": "LocalNetworkGateway properties",
@@ -2368,7 +2455,8 @@
           "description": "Gets or sets resource guid property of the LocalNetworkGateway resource",
           "type": "string"
         }
-      }
+      },
+      "title": "LocalNetworkGatewayPropertiesFormat"
     },
     "NetworkInterface": {
       "allOf": [
@@ -2386,7 +2474,8 @@
           "$ref": "#/definitions/NetworkInterfacePropertiesFormat",
           "x-ms-client-flatten": true
         }
-      }
+      },
+      "title": "NetworkInterface"
     },
     "NetworkInterfaceDnsSettings": {
       "description": "Dns settings of a network interface",
@@ -2417,7 +2506,8 @@
           "description": "Gets or sets the internal fqdn.",
           "type": "string"
         }
-      }
+      },
+      "title": "NetworkInterfaceDnsSettings"
     },
     "NetworkInterfaceIPConfiguration": {
       "allOf": [
@@ -2439,7 +2529,8 @@
           "$ref": "#/definitions/NetworkInterfaceIPConfigurationPropertiesFormat",
           "x-ms-client-flatten": true
         }
-      }
+      },
+      "title": "NetworkInterfaceIPConfiguration"
     },
     "NetworkInterfaceIPConfigurationPropertiesFormat": {
       "description": "Properties of IPConfiguration",
@@ -2505,7 +2596,8 @@
         "subnet": {
           "$ref": "#/definitions/Subnet"
         }
-      }
+      },
+      "title": "NetworkInterfaceIPConfigurationPropertiesFormat"
     },
     "NetworkInterfaceListResult": {
       "description": "Response for ListNetworkInterface Api service call",
@@ -2521,7 +2613,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "NetworkInterfaceListResult"
     },
     "NetworkInterfacePropertiesFormat": {
       "description": "NetworkInterface properties. ",
@@ -2565,7 +2658,8 @@
           "$ref": "#/definitions/SubResource",
           "description": "Gets or sets the reference of a VirtualMachine"
         }
-      }
+      },
+      "title": "NetworkInterfacePropertiesFormat"
     },
     "NetworkSecurityGroup": {
       "allOf": [
@@ -2583,7 +2677,8 @@
           "$ref": "#/definitions/NetworkSecurityGroupPropertiesFormat",
           "x-ms-client-flatten": true
         }
-      }
+      },
+      "title": "NetworkSecurityGroup"
     },
     "NetworkSecurityGroupListResult": {
       "description": "Response for ListNetworkSecurityGroups Api service call",
@@ -2599,7 +2694,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "NetworkSecurityGroupListResult"
     },
     "NetworkSecurityGroupPropertiesFormat": {
       "description": "Network Security Group resource",
@@ -2642,7 +2738,8 @@
           "readOnly": true,
           "type": "array"
         }
-      }
+      },
+      "title": "NetworkSecurityGroupPropertiesFormat"
     },
     "OutboundNatRule": {
       "allOf": [
@@ -2664,7 +2761,8 @@
           "$ref": "#/definitions/OutboundNatRulePropertiesFormat",
           "x-ms-client-flatten": true
         }
-      }
+      },
+      "title": "OutboundNatRule"
     },
     "OutboundNatRulePropertiesFormat": {
       "description": "Outbound NAT pool of the load balancer",
@@ -2692,7 +2790,8 @@
       },
       "required": [
         "backendAddressPool"
-      ]
+      ],
+      "title": "OutboundNatRulePropertiesFormat"
     },
     "Probe": {
       "allOf": [
@@ -2714,7 +2813,8 @@
           "$ref": "#/definitions/ProbePropertiesFormat",
           "x-ms-client-flatten": true
         }
-      }
+      },
+      "title": "Probe"
     },
     "ProbePropertiesFormat": {
       "properties": {
@@ -2765,7 +2865,8 @@
       "required": [
         "protocol",
         "port"
-      ]
+      ],
+      "title": "ProbePropertiesFormat"
     },
     "PublicIPAddress": {
       "allOf": [
@@ -2783,7 +2884,8 @@
           "$ref": "#/definitions/PublicIPAddressPropertiesFormat",
           "x-ms-client-flatten": true
         }
-      }
+      },
+      "title": "PublicIPAddress"
     },
     "PublicIPAddressDnsSettings": {
       "description": "Contains FQDN of the DNS record associated with the public IP address",
@@ -2800,7 +2902,8 @@
           "description": "Gets or Sets the Reverse FQDN. A user-visible, fully qualified domain name that resolves to this public IP address. If the reverseFqdn is specified, then a PTR DNS record is created pointing from the IP address in the in-addr.arpa domain to the reverse FQDN. ",
           "type": "string"
         }
-      }
+      },
+      "title": "PublicIPAddressDnsSettings"
     },
     "PublicIPAddressListResult": {
       "description": "Response for ListPublicIpAddresses Api service call",
@@ -2816,7 +2919,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "PublicIPAddressListResult"
     },
     "PublicIPAddressPropertiesFormat": {
       "description": "PublicIpAddress properties",
@@ -2869,7 +2973,8 @@
           "description": "Gets or sets resource guid property of the PublicIP resource",
           "type": "string"
         }
-      }
+      },
+      "title": "PublicIPAddressPropertiesFormat"
     },
     "Resource": {
       "properties": {
@@ -2899,7 +3004,8 @@
           "type": "string"
         }
       },
-      "x-ms-azure-resource": true
+      "x-ms-azure-resource": true,
+      "title": "Resource"
     },
     "ResourceNavigationLink": {
       "allOf": [
@@ -2922,7 +3028,8 @@
           "$ref": "#/definitions/ResourceNavigationLinkFormat",
           "x-ms-client-flatten": true
         }
-      }
+      },
+      "title": "ResourceNavigationLink"
     },
     "ResourceNavigationLinkFormat": {
       "description": "Properties of ResourceNavigationLink",
@@ -2940,7 +3047,8 @@
           "readOnly": true,
           "type": "string"
         }
-      }
+      },
+      "title": "ResourceNavigationLinkFormat"
     },
     "Route": {
       "allOf": [
@@ -2962,7 +3070,8 @@
           "$ref": "#/definitions/RoutePropertiesFormat",
           "x-ms-client-flatten": true
         }
-      }
+      },
+      "title": "Route"
     },
     "RouteListResult": {
       "description": "Response for ListRoute Api service call",
@@ -2978,7 +3087,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "RouteListResult"
     },
     "RoutePropertiesFormat": {
       "description": "Route resource",
@@ -3013,7 +3123,8 @@
       },
       "required": [
         "nextHopType"
-      ]
+      ],
+      "title": "RoutePropertiesFormat"
     },
     "RouteTable": {
       "allOf": [
@@ -3031,7 +3142,8 @@
           "$ref": "#/definitions/RouteTablePropertiesFormat",
           "x-ms-client-flatten": true
         }
-      }
+      },
+      "title": "RouteTable"
     },
     "RouteTableListResult": {
       "description": "Response for ListRouteTable Api service call",
@@ -3047,7 +3159,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "RouteTableListResult"
     },
     "RouteTablePropertiesFormat": {
       "description": "Route Table resource",
@@ -3071,7 +3184,8 @@
           "readOnly": true,
           "type": "array"
         }
-      }
+      },
+      "title": "RouteTablePropertiesFormat"
     },
     "SecurityRule": {
       "allOf": [
@@ -3093,7 +3207,8 @@
           "$ref": "#/definitions/SecurityRulePropertiesFormat",
           "x-ms-client-flatten": true
         }
-      }
+      },
+      "title": "SecurityRule"
     },
     "SecurityRuleListResult": {
       "description": "Response for ListSecurityRule Api service callRetrieves all security rules that belongs to a network security group",
@@ -3109,7 +3224,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "SecurityRuleListResult"
     },
     "SecurityRulePropertiesFormat": {
       "properties": {
@@ -3186,7 +3302,8 @@
         "destinationAddressPrefix",
         "access",
         "direction"
-      ]
+      ],
+      "title": "SecurityRulePropertiesFormat"
     },
     "SubResource": {
       "properties": {
@@ -3195,7 +3312,8 @@
           "type": "string"
         }
       },
-      "x-ms-azure-resource": true
+      "x-ms-azure-resource": true,
+      "title": "SubResource"
     },
     "Subnet": {
       "allOf": [
@@ -3217,7 +3335,8 @@
           "$ref": "#/definitions/SubnetPropertiesFormat",
           "x-ms-client-flatten": true
         }
-      }
+      },
+      "title": "Subnet"
     },
     "SubnetListResult": {
       "description": "Response for ListSubnets Api service callRetrieves all subnet that belongs to a virtual network",
@@ -3233,7 +3352,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "SubnetListResult"
     },
     "SubnetPropertiesFormat": {
       "properties": {
@@ -3268,7 +3388,8 @@
           "$ref": "#/definitions/RouteTable",
           "description": "Gets or sets the reference of the RouteTable resource"
         }
-      }
+      },
+      "title": "SubnetPropertiesFormat"
     },
     "Usage": {
       "description": "Describes Network Resource Usage.",
@@ -3304,7 +3425,8 @@
         "currentValue",
         "limit",
         "name"
-      ]
+      ],
+      "title": "Usage"
     },
     "UsageName": {
       "description": "The Usage Names.",
@@ -3317,7 +3439,8 @@
           "description": "Gets or sets a string describing the resource name.",
           "type": "string"
         }
-      }
+      },
+      "title": "UsageName"
     },
     "UsagesListResult": {
       "description": "The List Usages operation response.",
@@ -3333,7 +3456,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "UsagesListResult"
     },
     "VirtualNetwork": {
       "allOf": [
@@ -3351,7 +3475,8 @@
           "$ref": "#/definitions/VirtualNetworkPropertiesFormat",
           "x-ms-client-flatten": true
         }
-      }
+      },
+      "title": "VirtualNetwork"
     },
     "VirtualNetworkGateway": {
       "allOf": [
@@ -3369,7 +3494,8 @@
           "$ref": "#/definitions/VirtualNetworkGatewayPropertiesFormat",
           "x-ms-client-flatten": true
         }
-      }
+      },
+      "title": "VirtualNetworkGateway"
     },
     "VirtualNetworkGatewayConnection": {
       "allOf": [
@@ -3387,7 +3513,8 @@
           "$ref": "#/definitions/VirtualNetworkGatewayConnectionPropertiesFormat",
           "x-ms-client-flatten": true
         }
-      }
+      },
+      "title": "VirtualNetworkGatewayConnection"
     },
     "VirtualNetworkGatewayConnectionListResult": {
       "description": "Response for ListVirtualNetworkGatewayConnections Api service call",
@@ -3403,7 +3530,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "VirtualNetworkGatewayConnectionListResult"
     },
     "VirtualNetworkGatewayConnectionPropertiesFormat": {
       "description": "VirtualNetworkGatewayConnection properties",
@@ -3484,7 +3612,8 @@
         "virtualNetworkGateway2": {
           "$ref": "#/definitions/VirtualNetworkGateway"
         }
-      }
+      },
+      "title": "VirtualNetworkGatewayConnectionPropertiesFormat"
     },
     "VirtualNetworkGatewayIPConfiguration": {
       "allOf": [
@@ -3506,7 +3635,8 @@
           "$ref": "#/definitions/VirtualNetworkGatewayIPConfigurationPropertiesFormat",
           "x-ms-client-flatten": true
         }
-      }
+      },
+      "title": "VirtualNetworkGatewayIPConfiguration"
     },
     "VirtualNetworkGatewayIPConfigurationPropertiesFormat": {
       "description": "Properties of VirtualNetworkGatewayIPConfiguration",
@@ -3535,7 +3665,8 @@
           "$ref": "#/definitions/SubResource",
           "description": "Gets or sets the reference of the subnet resource"
         }
-      }
+      },
+      "title": "VirtualNetworkGatewayIPConfigurationPropertiesFormat"
     },
     "VirtualNetworkGatewayListResult": {
       "description": "Response for ListVirtualNetworkGateways Api service call",
@@ -3551,7 +3682,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "VirtualNetworkGatewayListResult"
     },
     "VirtualNetworkGatewayPropertiesFormat": {
       "description": "VirtualNetworkGateway properties",
@@ -3619,7 +3751,8 @@
             "name": "VpnType"
           }
         }
-      }
+      },
+      "title": "VirtualNetworkGatewayPropertiesFormat"
     },
     "VirtualNetworkGatewaySku": {
       "description": "VirtualNetworkGatewaySku details",
@@ -3657,7 +3790,8 @@
             "name": "VirtualNetworkGatewaySkuTier"
           }
         }
-      }
+      },
+      "title": "VirtualNetworkGatewaySku"
     },
     "VirtualNetworkListResult": {
       "description": "Response for ListVirtualNetworks Api service call",
@@ -3673,7 +3807,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "VirtualNetworkListResult"
     },
     "VirtualNetworkPeering": {
       "allOf": [
@@ -3695,7 +3830,8 @@
           "$ref": "#/definitions/VirtualNetworkPeeringPropertiesFormat",
           "x-ms-client-flatten": true
         }
-      }
+      },
+      "title": "VirtualNetworkPeering"
     },
     "VirtualNetworkPeeringListResult": {
       "description": "Response for ListSubnets Api service callRetrieves all subnet that belongs to a virtual network",
@@ -3711,7 +3847,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "VirtualNetworkPeeringListResult"
     },
     "VirtualNetworkPeeringPropertiesFormat": {
       "properties": {
@@ -3752,7 +3889,8 @@
           "description": "Gets or sets if remote gateways can be used on this virtual network. If the flag is set to true, and allowGatewayTransit on remote peering is also true, virtual network will use gateways of remote virtual network for transit. Only 1 peering can have this flag set to true. This flag cannot be set if virtual network already has a gateway.",
           "type": "boolean"
         }
-      }
+      },
+      "title": "VirtualNetworkPeeringPropertiesFormat"
     },
     "VirtualNetworkPropertiesFormat": {
       "properties": {
@@ -3786,7 +3924,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "VirtualNetworkPropertiesFormat"
     },
     "VpnClientConfiguration": {
       "description": "VpnClientConfiguration for P2S client",
@@ -3809,7 +3948,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "VpnClientConfiguration"
     },
     "VpnClientParameters": {
       "description": "VpnClientParameters",
@@ -3826,7 +3966,8 @@
             "name": "ProcessorArchitecture"
           }
         }
-      }
+      },
+      "title": "VpnClientParameters"
     },
     "VpnClientRevokedCertificate": {
       "allOf": [
@@ -3848,7 +3989,8 @@
           "$ref": "#/definitions/VpnClientRevokedCertificatePropertiesFormat",
           "x-ms-client-flatten": true
         }
-      }
+      },
+      "title": "VpnClientRevokedCertificate"
     },
     "VpnClientRevokedCertificatePropertiesFormat": {
       "description": "Properties of the revoked VPN client certificate of virtual network gateway",
@@ -3861,7 +4003,8 @@
           "description": "Gets or sets the revoked Vpn client certificate thumbprint",
           "type": "string"
         }
-      }
+      },
+      "title": "VpnClientRevokedCertificatePropertiesFormat"
     },
     "VpnClientRootCertificate": {
       "allOf": [
@@ -3883,7 +4026,8 @@
           "$ref": "#/definitions/VpnClientRootCertificatePropertiesFormat",
           "x-ms-client-flatten": true
         }
-      }
+      },
+      "title": "VpnClientRootCertificate"
     },
     "VpnClientRootCertificatePropertiesFormat": {
       "description": "Properties of SSL certificates of application gateway",
@@ -3896,7 +4040,8 @@
           "description": "Gets or sets the certificate public data",
           "type": "string"
         }
-      }
+      },
+      "title": "VpnClientRootCertificatePropertiesFormat"
     }
   },
   "actions": [

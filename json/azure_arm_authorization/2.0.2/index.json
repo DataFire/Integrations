@@ -47,7 +47,8 @@
           "description": "The type of the administrator.",
           "type": "string"
         }
-      }
+      },
+      "title": "ClassicAdministrator"
     },
     "ClassicAdministratorListResult": {
       "description": "ClassicAdministrator list result information.",
@@ -63,7 +64,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "ClassicAdministratorListResult"
     },
     "ClassicAdministratorProperties": {
       "description": "Classic Administrator properties.",
@@ -76,7 +78,8 @@
           "description": "The role of the administrator.",
           "type": "string"
         }
-      }
+      },
+      "title": "ClassicAdministratorProperties"
     },
     "Permission": {
       "description": "Role definition permissions.",
@@ -95,7 +98,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "Permission"
     },
     "PermissionGetResult": {
       "description": "Permissions information.",
@@ -111,7 +115,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "PermissionGetResult"
     },
     "ProviderOperation": {
       "description": "Operation",
@@ -136,7 +141,8 @@
           "description": "The operation properties.",
           "type": "object"
         }
-      }
+      },
+      "title": "ProviderOperation"
     },
     "ProviderOperationsMetadata": {
       "description": "Provider Operations metadata",
@@ -171,7 +177,8 @@
           "description": "The provider type.",
           "type": "string"
         }
-      }
+      },
+      "title": "ProviderOperationsMetadata"
     },
     "ProviderOperationsMetadataListResult": {
       "description": "Provider operations metadata list",
@@ -187,7 +194,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "ProviderOperationsMetadataListResult"
     },
     "ResourceType": {
       "description": "Resource Type",
@@ -207,7 +215,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "ResourceType"
     },
     "RoleAssignment": {
       "description": "Role Assignments",
@@ -228,7 +237,8 @@
           "description": "The role assignment type.",
           "type": "string"
         }
-      }
+      },
+      "title": "RoleAssignment"
     },
     "RoleAssignmentCreateParameters": {
       "description": "Role assignment create parameters.",
@@ -237,7 +247,8 @@
           "$ref": "#/definitions/RoleAssignmentProperties",
           "description": "Role assignment properties."
         }
-      }
+      },
+      "title": "RoleAssignmentCreateParameters"
     },
     "RoleAssignmentFilter": {
       "description": "Role Assignments filter",
@@ -246,7 +257,8 @@
           "description": "Returns role assignment of the specific principal.",
           "type": "string"
         }
-      }
+      },
+      "title": "RoleAssignmentFilter"
     },
     "RoleAssignmentListResult": {
       "description": "Role assignment list operation result.",
@@ -262,7 +274,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "RoleAssignmentListResult"
     },
     "RoleAssignmentProperties": {
       "description": "Role assignment properties.",
@@ -275,7 +288,8 @@
           "description": "The role definition ID used in the role assignment.",
           "type": "string"
         }
-      }
+      },
+      "title": "RoleAssignmentProperties"
     },
     "RoleAssignmentPropertiesWithScope": {
       "description": "Role assignment properties with scope.",
@@ -292,7 +306,8 @@
           "description": "The role assignment scope.",
           "type": "string"
         }
-      }
+      },
+      "title": "RoleAssignmentPropertiesWithScope"
     },
     "RoleDefinition": {
       "description": "Role definition.",
@@ -313,7 +328,8 @@
           "description": "The role definition type.",
           "type": "string"
         }
-      }
+      },
+      "title": "RoleDefinition"
     },
     "RoleDefinitionFilter": {
       "description": "Role Definitions filter",
@@ -322,7 +338,8 @@
           "description": "Returns role definition with the specific name.",
           "type": "string"
         }
-      }
+      },
+      "title": "RoleDefinitionFilter"
     },
     "RoleDefinitionListResult": {
       "description": "Role definition list operation result.",
@@ -338,7 +355,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "RoleDefinitionListResult"
     },
     "RoleDefinitionProperties": {
       "description": "Role definition properties.",
@@ -369,7 +387,8 @@
           "description": "The role type.",
           "type": "string"
         }
-      }
+      },
+      "title": "RoleDefinitionProperties"
     }
   },
   "actions": [

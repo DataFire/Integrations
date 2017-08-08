@@ -47,7 +47,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AnalyzeEntitiesRequest"
     },
     "AnalyzeEntitiesResponse": {
       "description": "The entity analysis response message.",
@@ -64,7 +65,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AnalyzeEntitiesResponse"
     },
     "AnalyzeSentimentRequest": {
       "description": "The sentiment analysis request message.",
@@ -84,7 +86,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AnalyzeSentimentRequest"
     },
     "AnalyzeSentimentResponse": {
       "description": "The sentiment analysis response message.",
@@ -105,7 +108,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AnalyzeSentimentResponse"
     },
     "AnalyzeSyntaxRequest": {
       "description": "The syntax analysis request message.",
@@ -125,7 +129,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AnalyzeSyntaxRequest"
     },
     "AnalyzeSyntaxResponse": {
       "description": "The syntax analysis response message.",
@@ -149,7 +154,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AnalyzeSyntaxResponse"
     },
     "AnnotateTextRequest": {
       "description": "The request message for the text annotation API, which can perform multiple\nanalysis types (sentiment, entities, and syntax) in one call.",
@@ -173,7 +179,8 @@
           "description": "The enabled features."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AnnotateTextRequest"
     },
     "AnnotateTextResponse": {
       "description": "The text annotations response message.",
@@ -208,7 +215,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AnnotateTextResponse"
     },
     "DependencyEdge": {
       "description": "Represents dependency parse tree information for a token. (For more\ninformation on dependency labels, see\nhttp://www.aclweb.org/anthology/P13-2017",
@@ -302,7 +310,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DependencyEdge"
     },
     "Document": {
       "description": "################################################################ #\n\nRepresents the input to API methods.",
@@ -329,7 +338,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Document"
     },
     "Entity": {
       "description": "Represents a phrase in the text that is a known entity, such as\na person, an organization, or location. The API associates information, such\nas salience and mentions, with entities.",
@@ -372,7 +382,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Entity"
     },
     "EntityMention": {
       "description": "Represents a mention for an entity in the text. Currently, proper noun\nmentions are supported.",
@@ -391,7 +402,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "EntityMention"
     },
     "Features": {
       "description": "All available features for sentiment, syntax, and semantic analysis.\nSetting each one to true will enable that specific analysis for the input.",
@@ -409,7 +421,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Features"
     },
     "PartOfSpeech": {
       "description": "Represents part of speech information for a token. Parts of speech\nare as defined in\nhttp://www.lrec-conf.org/proceedings/lrec2012/pdf/274_Paper.pdf",
@@ -569,7 +582,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PartOfSpeech"
     },
     "Sentence": {
       "description": "Represents a sentence in the input document.",
@@ -583,7 +597,8 @@
           "description": "The sentence text."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Sentence"
     },
     "Sentiment": {
       "description": "Represents the feeling associated with the entire text or entities in\nthe text.",
@@ -599,7 +614,8 @@
           "type": "number"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Sentiment"
     },
     "Status": {
       "description": "The `Status` type defines a logical error model that is suitable for different\nprogramming environments, including REST APIs and RPC APIs. It is used by\n[gRPC](https://github.com/grpc). The error model is designed to be:\n\n- Simple to use and understand for most users\n- Flexible enough to meet unexpected needs\n\n# Overview\n\nThe `Status` message contains three pieces of data: error code, error message,\nand error details. The error code should be an enum value of\ngoogle.rpc.Code, but it may accept additional error codes if needed.  The\nerror message should be a developer-facing English message that helps\ndevelopers *understand* and *resolve* the error. If a localized user-facing\nerror message is needed, put the localized message in the error details or\nlocalize it in the client. The optional error details may contain arbitrary\ninformation about the error. There is a predefined set of error detail types\nin the package `google.rpc` which can be used for common error conditions.\n\n# Language mapping\n\nThe `Status` message is the logical representation of the error model, but it\nis not necessarily the actual wire format. When the `Status` message is\nexposed in different client libraries and different wire protocols, it can be\nmapped differently. For example, it will likely be mapped to some exceptions\nin Java, but more likely mapped to some error codes in C.\n\n# Other uses\n\nThe error model and the `Status` message can be used in a variety of\nenvironments, either with or without APIs, to provide a\nconsistent developer experience across different environments.\n\nExample uses of this error model include:\n\n- Partial errors. If a service needs to return partial errors to the client,\n    it may embed the `Status` in the normal response to indicate the partial\n    errors.\n\n- Workflow errors. A typical workflow has multiple steps. Each step may\n    have a `Status` message for error reporting purpose.\n\n- Batch operations. If a client uses batch request and batch response, the\n    `Status` message should be used directly inside batch response, one for\n    each error sub-response.\n\n- Asynchronous operations. If an API call embeds asynchronous operation\n    results in its response, the status of those operations should be\n    represented directly using the `Status` message.\n\n- Logging. If some API errors are stored in logs, the message `Status` could\n    be used directly after any stripping needed for security/privacy reasons.",
@@ -624,7 +640,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Status"
     },
     "TextSpan": {
       "description": "Represents an output piece of text.",
@@ -639,7 +656,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TextSpan"
     },
     "Token": {
       "description": "Represents the smallest syntactic building block of the text.",
@@ -661,7 +679,8 @@
           "description": "The token text."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Token"
     }
   },
   "actions": [

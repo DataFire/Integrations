@@ -35,12 +35,14 @@
         "CurrentApplicationVersionId",
         "Input"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AddApplicationInputRequest"
     },
     "AddApplicationInputResponse": {
       "description": "<p/>",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "AddApplicationInputResponse"
     },
     "AddApplicationOutputRequest": {
       "description": "<p/>",
@@ -63,12 +65,14 @@
         "CurrentApplicationVersionId",
         "Output"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AddApplicationOutputRequest"
     },
     "AddApplicationOutputResponse": {
       "description": "<p/>",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "AddApplicationOutputResponse"
     },
     "AddApplicationReferenceDataSourceRequest": {
       "description": "<p/>",
@@ -91,22 +95,26 @@
         "CurrentApplicationVersionId",
         "ReferenceDataSource"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AddApplicationReferenceDataSourceRequest"
     },
     "AddApplicationReferenceDataSourceResponse": {
       "description": "<p/>",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "AddApplicationReferenceDataSourceResponse"
     },
     "ApplicationCode": {
       "maxLength": 51200,
       "minLength": 0,
-      "type": "string"
+      "type": "string",
+      "title": "ApplicationCode"
     },
     "ApplicationDescription": {
       "maxLength": 1024,
       "minLength": 0,
-      "type": "string"
+      "type": "string",
+      "title": "ApplicationDescription"
     },
     "ApplicationDetail": {
       "description": "Provides a description of the application, including the application Amazon Resource Name (ARN), status, latest version, and input and output configuration.",
@@ -162,13 +170,15 @@
         "ApplicationStatus",
         "ApplicationVersionId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ApplicationDetail"
     },
     "ApplicationName": {
       "maxLength": 128,
       "minLength": 1,
       "pattern": "[a-zA-Z0-9_.-]+",
-      "type": "string"
+      "type": "string",
+      "title": "ApplicationName"
     },
     "ApplicationStatus": {
       "enum": [
@@ -179,13 +189,15 @@
         "RUNNING",
         "UPDATING"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ApplicationStatus"
     },
     "ApplicationSummaries": {
       "items": {
         "$ref": "#/definitions/ApplicationSummary"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ApplicationSummaries"
     },
     "ApplicationSummary": {
       "description": "Provides application summary information, including the application Amazon Resource Name (ARN), name, and status.",
@@ -208,7 +220,8 @@
         "ApplicationARN",
         "ApplicationStatus"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ApplicationSummary"
     },
     "ApplicationUpdate": {
       "description": "Describes updates to apply to an existing Kinesis Analytics application.",
@@ -230,21 +243,25 @@
           "description": "Describes application reference data source updates."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ApplicationUpdate"
     },
     "ApplicationVersionId": {
       "maximum": 999999999,
       "minimum": 1,
-      "type": "integer"
+      "type": "integer",
+      "title": "ApplicationVersionId"
     },
     "BooleanObject": {
-      "type": "boolean"
+      "type": "boolean",
+      "title": "BooleanObject"
     },
     "BucketARN": {
       "maxLength": 2048,
       "minLength": 1,
       "pattern": "arn:.*",
-      "type": "string"
+      "type": "string",
+      "title": "BucketARN"
     },
     "CSVMappingParameters": {
       "description": "<p>Provides additional mapping information when the record format uses delimiters, such as CSV. For example, the following sample records use CSV format, where the records use the <i>'\\n'</i> as the row delimiter and a comma (\",\") as the column delimiter: </p> <p> <code>\"name1\", \"address1\" </code> </p> <p> <code>\"name2, \"address2\"</code> </p>",
@@ -262,7 +279,8 @@
         "RecordRowDelimiter",
         "RecordColumnDelimiter"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CSVMappingParameters"
     },
     "CodeValidationException": {
       "description": "User-provided application code (query) is invalid. This can be a simple syntax error.",
@@ -272,7 +290,8 @@
           "description": "Test"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CodeValidationException"
     },
     "ConcurrentModificationException": {
       "description": "Exception thrown as a result of concurrent modification to an application. For example, two individuals attempting to edit the same application at the same time.",
@@ -282,7 +301,8 @@
           "description": "<p/>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ConcurrentModificationException"
     },
     "CreateApplicationRequest": {
       "description": "TBD",
@@ -311,7 +331,8 @@
       "required": [
         "ApplicationName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateApplicationRequest"
     },
     "CreateApplicationResponse": {
       "description": "TBD",
@@ -324,7 +345,8 @@
       "required": [
         "ApplicationSummary"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateApplicationResponse"
     },
     "DeleteApplicationOutputRequest": {
       "description": "<p/>",
@@ -347,12 +369,14 @@
         "CurrentApplicationVersionId",
         "OutputId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteApplicationOutputRequest"
     },
     "DeleteApplicationOutputResponse": {
       "description": "<p/>",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DeleteApplicationOutputResponse"
     },
     "DeleteApplicationReferenceDataSourceRequest": {
       "properties": {
@@ -374,11 +398,13 @@
         "CurrentApplicationVersionId",
         "ReferenceId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteApplicationReferenceDataSourceRequest"
     },
     "DeleteApplicationReferenceDataSourceResponse": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DeleteApplicationReferenceDataSourceResponse"
     },
     "DeleteApplicationRequest": {
       "description": "<p/>",
@@ -396,12 +422,14 @@
         "ApplicationName",
         "CreateTimestamp"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteApplicationRequest"
     },
     "DeleteApplicationResponse": {
       "description": "<p/>",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DeleteApplicationResponse"
     },
     "DescribeApplicationRequest": {
       "description": "<p/>",
@@ -414,7 +442,8 @@
       "required": [
         "ApplicationName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeApplicationRequest"
     },
     "DescribeApplicationResponse": {
       "description": "<p/>",
@@ -427,7 +456,8 @@
       "required": [
         "ApplicationDetail"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeApplicationResponse"
     },
     "DestinationSchema": {
       "description": "Describes the data format when records are written to the destination. For more information, see <a href=\"http://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-output.html\">Configuring Application Output</a>. ",
@@ -437,7 +467,8 @@
           "description": "Specifies the format of the records on the output stream."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DestinationSchema"
     },
     "DiscoverInputSchemaRequest": {
       "description": "<p/>",
@@ -460,7 +491,8 @@
         "RoleARN",
         "InputStartingPositionConfiguration"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DiscoverInputSchemaRequest"
     },
     "DiscoverInputSchemaResponse": {
       "description": "<p/>",
@@ -478,37 +510,44 @@
           "description": "Raw stream data that was sampled to infer the schema."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DiscoverInputSchemaResponse"
     },
     "ErrorMessage": {
-      "type": "string"
+      "type": "string",
+      "title": "ErrorMessage"
     },
     "FileKey": {
-      "type": "string"
+      "type": "string",
+      "title": "FileKey"
     },
     "Id": {
       "maxLength": 50,
       "minLength": 1,
       "pattern": "[a-zA-Z0-9_.-]+",
-      "type": "string"
+      "type": "string",
+      "title": "Id"
     },
     "InAppStreamName": {
       "maxLength": 32,
       "minLength": 1,
       "pattern": "[a-zA-Z][a-zA-Z0-9_]+",
-      "type": "string"
+      "type": "string",
+      "title": "InAppStreamName"
     },
     "InAppStreamNames": {
       "items": {
         "$ref": "#/definitions/InAppStreamName"
       },
-      "type": "array"
+      "type": "array",
+      "title": "InAppStreamNames"
     },
     "InAppTableName": {
       "maxLength": 32,
       "minLength": 1,
       "pattern": "[a-zA-Z][a-zA-Z0-9_]+",
-      "type": "string"
+      "type": "string",
+      "title": "InAppTableName"
     },
     "Input": {
       "description": "When you configure the application input, you specify the streaming source, the in-application stream name that is created, and the mapping between the two. For more information, see <a href=\"http://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-input.html\">Configuring Application Input</a>. ",
@@ -538,7 +577,8 @@
         "NamePrefix",
         "InputSchema"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "Input"
     },
     "InputConfiguration": {
       "description": "When you start your application, you provide this configuration, which identifies the input source and the point in the input source at which you want the application to start processing records.",
@@ -556,13 +596,15 @@
         "Id",
         "InputStartingPositionConfiguration"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "InputConfiguration"
     },
     "InputConfigurations": {
       "items": {
         "$ref": "#/definitions/InputConfiguration"
       },
-      "type": "array"
+      "type": "array",
+      "title": "InputConfigurations"
     },
     "InputDescription": {
       "description": "Describes the application input configuration. For more information, see <a href=\"http://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-input.html\">Configuring Application Input</a>. ",
@@ -599,13 +641,15 @@
           "description": "In-application name prefix."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InputDescription"
     },
     "InputDescriptions": {
       "items": {
         "$ref": "#/definitions/InputDescription"
       },
-      "type": "array"
+      "type": "array",
+      "title": "InputDescriptions"
     },
     "InputParallelism": {
       "description": "Describes the number of in-application streams to create for a given streaming source. For information about parallellism, see <a href=\"http://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-input.html\">Configuring Application Input</a>. ",
@@ -615,12 +659,14 @@
           "description": "Number of in-application streams to create. For more information, see <a href=\"http://docs.aws.amazon.com/kinesisanalytics/latest/dev/limits.html\">Limits</a>. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InputParallelism"
     },
     "InputParallelismCount": {
       "maximum": 10,
       "minimum": 1,
-      "type": "integer"
+      "type": "integer",
+      "title": "InputParallelismCount"
     },
     "InputParallelismUpdate": {
       "description": "Provides updates to the parallelism count.",
@@ -630,7 +676,8 @@
           "description": "Number of in-application streams to create for the specified streaming source."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InputParallelismUpdate"
     },
     "InputSchemaUpdate": {
       "description": " Describes updates for the application's input schema. ",
@@ -648,7 +695,8 @@
           "description": "Specifies the format of the records on the streaming source."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InputSchemaUpdate"
     },
     "InputStartingPosition": {
       "enum": [
@@ -656,7 +704,8 @@
         "TRIM_HORIZON",
         "LAST_STOPPED_POINT"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "InputStartingPosition"
     },
     "InputStartingPositionConfiguration": {
       "description": "Describes the point at which the application reads from the streaming source.",
@@ -666,7 +715,8 @@
           "description": "<p>The starting position on the stream.</p> <ul> <li> <p> <code>LATEST</code> - Start reading just after the most recent record in the stream.</p> </li> <li> <p> <code>TRIM_HORIZON</code> - Start reading at the last untrimmed record in the stream, which is the oldest record available in the stream. This option is not available for an Amazon Kinesis Firehose delivery stream.</p> </li> <li> <p> <code>LAST_STOPPED_POINT</code> - Resume reading from where the application last stopped reading.</p> </li> </ul>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InputStartingPositionConfiguration"
     },
     "InputUpdate": {
       "description": "Describes updates to a specific input configuration (identified by the <code>InputId</code> of an application). ",
@@ -699,19 +749,22 @@
       "required": [
         "InputId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "InputUpdate"
     },
     "InputUpdates": {
       "items": {
         "$ref": "#/definitions/InputUpdate"
       },
-      "type": "array"
+      "type": "array",
+      "title": "InputUpdates"
     },
     "Inputs": {
       "items": {
         "$ref": "#/definitions/Input"
       },
-      "type": "array"
+      "type": "array",
+      "title": "Inputs"
     },
     "InvalidApplicationConfigurationException": {
       "description": "User-provided application configuration is not valid.",
@@ -721,7 +774,8 @@
           "description": "test"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidApplicationConfigurationException"
     },
     "InvalidArgumentException": {
       "description": "Specified input parameter value is invalid.",
@@ -731,7 +785,8 @@
           "description": "<p/>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidArgumentException"
     },
     "JSONMappingParameters": {
       "description": "Provides additional mapping information when JSON is the record format on the streaming source.",
@@ -744,7 +799,8 @@
       "required": [
         "RecordRowPath"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "JSONMappingParameters"
     },
     "KinesisFirehoseInput": {
       "description": " Identifies an Amazon Kinesis Firehose delivery stream as the streaming source. You provide the Firehose delivery stream's Amazon Resource Name (ARN) and an IAM role ARN that enables Amazon Kinesis Analytics to access the stream on your behalf.",
@@ -762,7 +818,8 @@
         "ResourceARN",
         "RoleARN"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "KinesisFirehoseInput"
     },
     "KinesisFirehoseInputDescription": {
       "description": " Describes the Amazon Kinesis Firehose delivery stream that is configured as the streaming source in the application input configuration. ",
@@ -776,7 +833,8 @@
           "description": "ARN of the IAM role that Amazon Kinesis Analytics assumes to access the stream."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "KinesisFirehoseInputDescription"
     },
     "KinesisFirehoseInputUpdate": {
       "description": "When updating application input configuration, provides information about an Amazon Kinesis Firehose delivery stream as the streaming source.",
@@ -790,7 +848,8 @@
           "description": "Amazon Resource Name (ARN) of the IAM role that Amazon Kinesis Analytics can assume to access the stream on your behalf. You need to grant necessary permissions to this role."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "KinesisFirehoseInputUpdate"
     },
     "KinesisFirehoseOutput": {
       "description": "When configuring application output, identifies an Amazon Kinesis Firehose delivery stream as the destination. You provide the stream Amazon Resource Name (ARN) and an IAM role that enables Amazon Kinesis Analytics to write to the stream on your behalf.",
@@ -808,7 +867,8 @@
         "ResourceARN",
         "RoleARN"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "KinesisFirehoseOutput"
     },
     "KinesisFirehoseOutputDescription": {
       "description": " For an application output, describes the Amazon Kinesis Firehose delivery stream configured as its destination. ",
@@ -822,7 +882,8 @@
           "description": "ARN of the IAM role that Amazon Kinesis Analytics can assume to access the stream."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "KinesisFirehoseOutputDescription"
     },
     "KinesisFirehoseOutputUpdate": {
       "description": " When updating an output configuration using the <a>UpdateApplication</a> operation, provides information about an Amazon Kinesis Firehose delivery stream configured as the destination. ",
@@ -836,7 +897,8 @@
           "description": "ARN of the IAM role that Amazon Kinesis Analytics can assume to access the stream on your behalf. You need to grant necessary permissions to this role."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "KinesisFirehoseOutputUpdate"
     },
     "KinesisStreamsInput": {
       "description": " Identifies an Amazon Kinesis stream as the streaming source. You provide the stream's ARN and an IAM role ARN that enables Amazon Kinesis Analytics to access the stream on your behalf.",
@@ -854,7 +916,8 @@
         "ResourceARN",
         "RoleARN"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "KinesisStreamsInput"
     },
     "KinesisStreamsInputDescription": {
       "description": " Describes the Amazon Kinesis stream that is configured as the streaming source in the application input configuration. ",
@@ -868,7 +931,8 @@
           "description": "ARN of the IAM role that Amazon Kinesis Analytics can assume to access the stream."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "KinesisStreamsInputDescription"
     },
     "KinesisStreamsInputUpdate": {
       "description": "When updating application input configuration, provides information about an Amazon Kinesis stream as the streaming source.",
@@ -882,7 +946,8 @@
           "description": "ARN of the IAM role that Amazon Kinesis Analytics can assume to access the stream on your behalf. You need to grant the necessary permissions to this role."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "KinesisStreamsInputUpdate"
     },
     "KinesisStreamsOutput": {
       "description": "When configuring application output, identifies a Amazon Kinesis stream as the destination. You provide the stream Amazon Resource Name (ARN) and also an IAM role ARN that Amazon Kinesis Analytics can use to write to the stream on your behalf.",
@@ -900,7 +965,8 @@
         "ResourceARN",
         "RoleARN"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "KinesisStreamsOutput"
     },
     "KinesisStreamsOutputDescription": {
       "description": " For an application output, describes the Amazon Kinesis stream configured as its destination. ",
@@ -914,7 +980,8 @@
           "description": "ARN of the IAM role that Amazon Kinesis Analytics can assume to access the stream."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "KinesisStreamsOutputDescription"
     },
     "KinesisStreamsOutputUpdate": {
       "description": " When updating an output configuration using the <a>UpdateApplication</a> operation, provides information about an Amazon Kinesis stream configured as the destination. ",
@@ -928,7 +995,8 @@
           "description": "ARN of the IAM role that Amazon Kinesis Analytics can assume to access the stream on your behalf. You need to grant the necessary permissions to this role."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "KinesisStreamsOutputUpdate"
     },
     "LimitExceededException": {
       "description": "Exceeded the number of applications allowed.",
@@ -938,12 +1006,14 @@
           "description": "<p/>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LimitExceededException"
     },
     "ListApplicationsInputLimit": {
       "maximum": 50,
       "minimum": 1,
-      "type": "integer"
+      "type": "integer",
+      "title": "ListApplicationsInputLimit"
     },
     "ListApplicationsRequest": {
       "description": "<p/>",
@@ -957,7 +1027,8 @@
           "description": "Maximum number of applications to list."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListApplicationsRequest"
     },
     "ListApplicationsResponse": {
       "description": "<p/>",
@@ -975,7 +1046,8 @@
         "ApplicationSummaries",
         "HasMoreApplications"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListApplicationsResponse"
     },
     "MappingParameters": {
       "description": "When configuring application input at the time of creating or updating an application, provides additional mapping information specific to the record format (such as JSON, CSV, or record fields delimited by some delimiter) on the streaming source.",
@@ -989,7 +1061,8 @@
           "description": "Provides additional mapping information when JSON is the record format on the streaming source."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "MappingParameters"
     },
     "Output": {
       "description": "<p> Describes application output configuration in which you identify an in-application stream and a destination where you want the in-application stream data to be written. The destination can be an Amazon Kinesis stream or an Amazon Kinesis Firehose delivery stream. </p> <p/> <p>You can configure your application to write output to up to five destinations.</p>",
@@ -1014,7 +1087,8 @@
         "Name",
         "DestinationSchema"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "Output"
     },
     "OutputDescription": {
       "description": "Describes the application output configuration, which includes the in-application stream name and the destination where the stream data is written. The destination can be an Amazon Kinesis stream or an Amazon Kinesis Firehose delivery stream. ",
@@ -1040,13 +1114,15 @@
           "description": "A unique identifier for the output configuration."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "OutputDescription"
     },
     "OutputDescriptions": {
       "items": {
         "$ref": "#/definitions/OutputDescription"
       },
-      "type": "array"
+      "type": "array",
+      "title": "OutputDescriptions"
     },
     "OutputUpdate": {
       "description": " Describes updates to the output configuration identified by the <code>OutputId</code>. ",
@@ -1074,43 +1150,51 @@
       "required": [
         "OutputId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "OutputUpdate"
     },
     "OutputUpdates": {
       "items": {
         "$ref": "#/definitions/OutputUpdate"
       },
-      "type": "array"
+      "type": "array",
+      "title": "OutputUpdates"
     },
     "Outputs": {
       "items": {
         "$ref": "#/definitions/Output"
       },
-      "type": "array"
+      "type": "array",
+      "title": "Outputs"
     },
     "ParsedInputRecord": {
       "items": {
         "$ref": "#/definitions/ParsedInputRecordField"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ParsedInputRecord"
     },
     "ParsedInputRecordField": {
-      "type": "string"
+      "type": "string",
+      "title": "ParsedInputRecordField"
     },
     "ParsedInputRecords": {
       "items": {
         "$ref": "#/definitions/ParsedInputRecord"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ParsedInputRecords"
     },
     "RawInputRecord": {
-      "type": "string"
+      "type": "string",
+      "title": "RawInputRecord"
     },
     "RawInputRecords": {
       "items": {
         "$ref": "#/definitions/RawInputRecord"
       },
-      "type": "array"
+      "type": "array",
+      "title": "RawInputRecords"
     },
     "RecordColumn": {
       "description": "<p>Describes the mapping of each data element in the streaming source to the corresponding column in the in-application stream.</p> <p>Also used to describe the format of the reference data source.</p>",
@@ -1132,20 +1216,25 @@
         "Name",
         "SqlType"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "RecordColumn"
     },
     "RecordColumnDelimiter": {
-      "type": "string"
+      "type": "string",
+      "title": "RecordColumnDelimiter"
     },
     "RecordColumnMapping": {
-      "type": "string"
+      "type": "string",
+      "title": "RecordColumnMapping"
     },
     "RecordColumnName": {
       "pattern": "[a-zA-Z][a-zA-Z0-9_]+",
-      "type": "string"
+      "type": "string",
+      "title": "RecordColumnName"
     },
     "RecordColumnSqlType": {
-      "type": "string"
+      "type": "string",
+      "title": "RecordColumnSqlType"
     },
     "RecordColumns": {
       "items": {
@@ -1153,11 +1242,13 @@
       },
       "maxItems": 1000,
       "minItems": 1,
-      "type": "array"
+      "type": "array",
+      "title": "RecordColumns"
     },
     "RecordEncoding": {
       "pattern": "UTF-8",
-      "type": "string"
+      "type": "string",
+      "title": "RecordEncoding"
     },
     "RecordFormat": {
       "description": " Describes the record format and relevant mapping information that should be applied to schematize the records on the stream. ",
@@ -1173,20 +1264,24 @@
       "required": [
         "RecordFormatType"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "RecordFormat"
     },
     "RecordFormatType": {
       "enum": [
         "JSON",
         "CSV"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "RecordFormatType"
     },
     "RecordRowDelimiter": {
-      "type": "string"
+      "type": "string",
+      "title": "RecordRowDelimiter"
     },
     "RecordRowPath": {
-      "type": "string"
+      "type": "string",
+      "title": "RecordRowPath"
     },
     "ReferenceDataSource": {
       "description": "Describes the reference data source by providing the source information (S3 bucket name and object key name), the resulting in-application table name that is created, and the necessary schema to map the data elements in the Amazon S3 object to the in-application table.",
@@ -1206,7 +1301,8 @@
         "TableName",
         "ReferenceSchema"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ReferenceDataSource"
     },
     "ReferenceDataSourceDescription": {
       "description": "Describes the reference data source configured for an application.",
@@ -1232,13 +1328,15 @@
         "TableName",
         "S3ReferenceDataSourceDescription"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ReferenceDataSourceDescription"
     },
     "ReferenceDataSourceDescriptions": {
       "items": {
         "$ref": "#/definitions/ReferenceDataSourceDescription"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ReferenceDataSourceDescriptions"
     },
     "ReferenceDataSourceUpdate": {
       "description": "When you update a reference data source configuration for an application, this object provides all the updated values (such as the source bucket name and object key name), the in-application table name that is created, and updated mapping information that maps the data in the Amazon S3 object to the in-application reference table that is created.",
@@ -1262,19 +1360,22 @@
       "required": [
         "ReferenceId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ReferenceDataSourceUpdate"
     },
     "ReferenceDataSourceUpdates": {
       "items": {
         "$ref": "#/definitions/ReferenceDataSourceUpdate"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ReferenceDataSourceUpdates"
     },
     "ResourceARN": {
       "maxLength": 2048,
       "minLength": 1,
       "pattern": "arn:[a-zA-Z0-9\\-]+:[a-zA-Z0-9\\-]+:[a-zA-Z0-9\\-]*:\\d{12}:[a-zA-Z_0-9+=,.@\\-_/:]+",
-      "type": "string"
+      "type": "string",
+      "title": "ResourceARN"
     },
     "ResourceInUseException": {
       "description": "Application is not available for this operation.",
@@ -1284,7 +1385,8 @@
           "description": "<p/>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ResourceInUseException"
     },
     "ResourceNotFoundException": {
       "description": "Specified application can't be found.",
@@ -1294,7 +1396,8 @@
           "description": "<p/>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ResourceNotFoundException"
     },
     "ResourceProvisionedThroughputExceededException": {
       "description": "Discovery failed to get a record from the streaming source because of the Kinesis Streams ProvisionedThroughputExceededException.",
@@ -1303,13 +1406,15 @@
           "$ref": "#/definitions/ErrorMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ResourceProvisionedThroughputExceededException"
     },
     "RoleARN": {
       "maxLength": 2048,
       "minLength": 1,
       "pattern": "arn:aws:iam::\\d{12}:role/?[a-zA-Z_0-9+=,.@\\-_/]+",
-      "type": "string"
+      "type": "string",
+      "title": "RoleARN"
     },
     "S3ReferenceDataSource": {
       "description": "<p>Identifies the S3 bucket and object that contains the reference data. Also identifies the IAM role Amazon Kinesis Analytics can assume to read this object on your behalf.</p> <p>An Amazon Kinesis Analytics application loads reference data only once. If the data changes, you call the <a>UpdateApplication</a> operation to trigger reloading of data into your application.</p>",
@@ -1332,7 +1437,8 @@
         "FileKey",
         "ReferenceRoleARN"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "S3ReferenceDataSource"
     },
     "S3ReferenceDataSourceDescription": {
       "description": "Provides the bucket name and object key name that stores the reference data.",
@@ -1355,7 +1461,8 @@
         "FileKey",
         "ReferenceRoleARN"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "S3ReferenceDataSourceDescription"
     },
     "S3ReferenceDataSourceUpdate": {
       "description": "Describes the S3 bucket name, object key name, and IAM role that Amazon Kinesis Analytics can assume to read the Amazon S3 object on your behalf and populate the in-application reference table.",
@@ -1373,7 +1480,8 @@
           "description": "ARN of the IAM role that Amazon Kinesis Analytics can assume to read the Amazon S3 object and populate the in-application."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "S3ReferenceDataSourceUpdate"
     },
     "SourceSchema": {
       "description": "Describes the format of the data in the streaming source, and how each data element maps to corresponding columns created in the in-application stream.",
@@ -1395,7 +1503,8 @@
         "RecordFormat",
         "RecordColumns"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "SourceSchema"
     },
     "StartApplicationRequest": {
       "description": "<p/>",
@@ -1413,12 +1522,14 @@
         "ApplicationName",
         "InputConfigurations"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "StartApplicationRequest"
     },
     "StartApplicationResponse": {
       "description": "<p/>",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "StartApplicationResponse"
     },
     "StopApplicationRequest": {
       "description": "<p/>",
@@ -1431,16 +1542,19 @@
       "required": [
         "ApplicationName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "StopApplicationRequest"
     },
     "StopApplicationResponse": {
       "description": "<p/>",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "StopApplicationResponse"
     },
     "Timestamp": {
       "format": "date-time",
-      "type": "string"
+      "type": "string",
+      "title": "Timestamp"
     },
     "UnableToDetectSchemaException": {
       "description": "Data format is not valid, Kinesis Analytics is not able to detect schema for the given streaming source.",
@@ -1452,7 +1566,8 @@
           "$ref": "#/definitions/ErrorMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UnableToDetectSchemaException"
     },
     "UpdateApplicationRequest": {
       "properties": {
@@ -1474,11 +1589,13 @@
         "CurrentApplicationVersionId",
         "ApplicationUpdate"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateApplicationRequest"
     },
     "UpdateApplicationResponse": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "UpdateApplicationResponse"
     }
   },
   "actions": [

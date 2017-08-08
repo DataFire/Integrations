@@ -32,12 +32,14 @@
         "UserPoolId",
         "CustomAttributes"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AddCustomAttributesRequest"
     },
     "AddCustomAttributesResponse": {
       "description": "Represents the response from the server for the request to add custom attributes.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "AddCustomAttributesResponse"
     },
     "AdminAddUserToGroupRequest": {
       "properties": {
@@ -59,7 +61,8 @@
         "Username",
         "GroupName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AdminAddUserToGroupRequest"
     },
     "AdminConfirmSignUpRequest": {
       "description": "Represents the request to confirm user registration.",
@@ -77,12 +80,14 @@
         "UserPoolId",
         "Username"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AdminConfirmSignUpRequest"
     },
     "AdminConfirmSignUpResponse": {
       "description": "Represents the response from the server for the request to confirm registration.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "AdminConfirmSignUpResponse"
     },
     "AdminCreateUserConfigType": {
       "description": "The type of configuration for creating a new user profile.",
@@ -100,7 +105,8 @@
           "description": "The user account expiration limit, in days, after which the account is no longer usable. To reset the account after that time limit, you must call AdminCreateUser again, specifying \"RESEND\" for the MessageAction parameter. The default value for this paameter is 7."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AdminCreateUserConfigType"
     },
     "AdminCreateUserRequest": {
       "description": "Represents the request to create a user in the specified user pool.",
@@ -142,7 +148,8 @@
         "UserPoolId",
         "Username"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AdminCreateUserRequest"
     },
     "AdminCreateUserResponse": {
       "description": "Represents the response from the server to the request to create the user.",
@@ -152,12 +159,14 @@
           "description": "The user returned in the request to create a new user."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AdminCreateUserResponse"
     },
     "AdminCreateUserUnusedAccountValidityDaysType": {
       "maximum": 90,
       "minimum": 0,
-      "type": "integer"
+      "type": "integer",
+      "title": "AdminCreateUserUnusedAccountValidityDaysType"
     },
     "AdminDeleteUserAttributesRequest": {
       "description": "Represents the request to delete user attributes as an administrator.",
@@ -180,12 +189,14 @@
         "Username",
         "UserAttributeNames"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AdminDeleteUserAttributesRequest"
     },
     "AdminDeleteUserAttributesResponse": {
       "description": "Represents the response received from the server for a request to delete user attributes.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "AdminDeleteUserAttributesResponse"
     },
     "AdminDeleteUserRequest": {
       "description": "Represents the request to delete a user as an administrator.",
@@ -203,7 +214,8 @@
         "UserPoolId",
         "Username"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AdminDeleteUserRequest"
     },
     "AdminDisableUserRequest": {
       "description": "Represents the request to disable any user as an administrator.",
@@ -221,12 +233,14 @@
         "UserPoolId",
         "Username"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AdminDisableUserRequest"
     },
     "AdminDisableUserResponse": {
       "description": "Represents the response received from the server to disable the user as an administrator.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "AdminDisableUserResponse"
     },
     "AdminEnableUserRequest": {
       "description": "Represents the request that enables the user as an administrator.",
@@ -244,12 +258,14 @@
         "UserPoolId",
         "Username"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AdminEnableUserRequest"
     },
     "AdminEnableUserResponse": {
       "description": "Represents the response from the server for the request to enable a user as an administrator.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "AdminEnableUserResponse"
     },
     "AdminForgetDeviceRequest": {
       "description": "Sends the forgot device request, as an administrator.",
@@ -272,7 +288,8 @@
         "Username",
         "DeviceKey"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AdminForgetDeviceRequest"
     },
     "AdminGetDeviceRequest": {
       "description": "Represents the request to get the device, as an administrator.",
@@ -295,7 +312,8 @@
         "UserPoolId",
         "Username"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AdminGetDeviceRequest"
     },
     "AdminGetDeviceResponse": {
       "description": "Gets the device response, as an administrator.",
@@ -308,7 +326,8 @@
       "required": [
         "Device"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AdminGetDeviceResponse"
     },
     "AdminGetUserRequest": {
       "description": "Represents the request to get the specified user as an administrator.",
@@ -326,7 +345,8 @@
         "UserPoolId",
         "Username"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AdminGetUserRequest"
     },
     "AdminGetUserResponse": {
       "description": "Represents the response from the server from the request to get the specified user as an administrator.",
@@ -363,7 +383,8 @@
       "required": [
         "Username"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AdminGetUserResponse"
     },
     "AdminInitiateAuthRequest": {
       "description": "Initiates the authorization request, as an administrator.",
@@ -394,7 +415,8 @@
         "ClientId",
         "AuthFlow"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AdminInitiateAuthRequest"
     },
     "AdminInitiateAuthResponse": {
       "description": "Initiates the authentication response, as an administrator.",
@@ -416,7 +438,8 @@
           "description": "The session."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AdminInitiateAuthResponse"
     },
     "AdminListDevicesRequest": {
       "description": "Represents the request to list devices, as an administrator.",
@@ -442,7 +465,8 @@
         "UserPoolId",
         "Username"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AdminListDevicesRequest"
     },
     "AdminListDevicesResponse": {
       "description": "Lists the device's response, as an administrator.",
@@ -456,7 +480,8 @@
           "description": "The pagination token."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AdminListDevicesResponse"
     },
     "AdminListGroupsForUserRequest": {
       "properties": {
@@ -481,7 +506,8 @@
         "Username",
         "UserPoolId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AdminListGroupsForUserRequest"
     },
     "AdminListGroupsForUserResponse": {
       "properties": {
@@ -494,7 +520,8 @@
           "description": "An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AdminListGroupsForUserResponse"
     },
     "AdminRemoveUserFromGroupRequest": {
       "properties": {
@@ -516,7 +543,8 @@
         "Username",
         "GroupName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AdminRemoveUserFromGroupRequest"
     },
     "AdminResetUserPasswordRequest": {
       "description": "Represents the request to reset a user's password as an administrator.",
@@ -534,12 +562,14 @@
         "UserPoolId",
         "Username"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AdminResetUserPasswordRequest"
     },
     "AdminResetUserPasswordResponse": {
       "description": "Represents the response from the server to reset a user password as an administrator.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "AdminResetUserPasswordResponse"
     },
     "AdminRespondToAuthChallengeRequest": {
       "description": "The request to respond to the authentication challenge, as an administrator.",
@@ -570,7 +600,8 @@
         "ClientId",
         "ChallengeName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AdminRespondToAuthChallengeRequest"
     },
     "AdminRespondToAuthChallengeResponse": {
       "description": "Responds to the authentication challenge, as an administrator.",
@@ -592,7 +623,8 @@
           "description": "The session."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AdminRespondToAuthChallengeResponse"
     },
     "AdminSetUserSettingsRequest": {
       "description": "Represents the request to set user settings as an administrator.",
@@ -615,12 +647,14 @@
         "Username",
         "MFAOptions"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AdminSetUserSettingsRequest"
     },
     "AdminSetUserSettingsResponse": {
       "description": "Represents the response from the server to set user settings as an administrator.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "AdminSetUserSettingsResponse"
     },
     "AdminUpdateDeviceStatusRequest": {
       "description": "The request to update the device status, as an administrator.",
@@ -647,12 +681,14 @@
         "Username",
         "DeviceKey"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AdminUpdateDeviceStatusRequest"
     },
     "AdminUpdateDeviceStatusResponse": {
       "description": "The status response from the request to update the device, as an administrator.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "AdminUpdateDeviceStatusResponse"
     },
     "AdminUpdateUserAttributesRequest": {
       "description": "Represents the request to update the user's attributes as an administrator.",
@@ -675,12 +711,14 @@
         "Username",
         "UserAttributes"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AdminUpdateUserAttributesRequest"
     },
     "AdminUpdateUserAttributesResponse": {
       "description": "Represents the response from the server for the request to update user attributes as an administrator.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "AdminUpdateUserAttributesResponse"
     },
     "AdminUserGlobalSignOutRequest": {
       "description": "The request to sign out of all devices, as an administrator.",
@@ -698,12 +736,14 @@
         "UserPoolId",
         "Username"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AdminUserGlobalSignOutRequest"
     },
     "AdminUserGlobalSignOutResponse": {
       "description": "The global sign-out response, as an administrator.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "AdminUserGlobalSignOutResponse"
     },
     "AliasAttributeType": {
       "enum": [
@@ -711,13 +751,15 @@
         "email",
         "preferred_username"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "AliasAttributeType"
     },
     "AliasAttributesListType": {
       "items": {
         "$ref": "#/definitions/AliasAttributeType"
       },
-      "type": "array"
+      "type": "array",
+      "title": "AliasAttributesListType"
     },
     "AliasExistsException": {
       "description": "This exception is thrown when a user tries to confirm the account with an email or phone number that has already been supplied as an alias from a different account. This exception tells user that an account with this email or phone already exists.",
@@ -727,13 +769,15 @@
           "description": "The message sent to the user when an alias exists."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AliasExistsException"
     },
     "ArnType": {
       "maxLength": 2048,
       "minLength": 20,
       "pattern": "arn:[\\w+=/,.@-]+:[\\w+=/,.@-]+:([\\w+=/,.@-]*)?:[0-9]+:[\\w+=/,.@-]+(:[\\w+=/,.@-]+)?(:[\\w+=/,.@-]+)?",
-      "type": "string"
+      "type": "string",
+      "title": "ArnType"
     },
     "AttributeDataType": {
       "enum": [
@@ -742,25 +786,29 @@
         "DateTime",
         "Boolean"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "AttributeDataType"
     },
     "AttributeListType": {
       "items": {
         "$ref": "#/definitions/AttributeType"
       },
-      "type": "array"
+      "type": "array",
+      "title": "AttributeListType"
     },
     "AttributeNameListType": {
       "items": {
         "$ref": "#/definitions/AttributeNameType"
       },
-      "type": "array"
+      "type": "array",
+      "title": "AttributeNameListType"
     },
     "AttributeNameType": {
       "maxLength": 32,
       "minLength": 1,
       "pattern": "[\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}]+",
-      "type": "string"
+      "type": "string",
+      "title": "AttributeNameType"
     },
     "AttributeType": {
       "description": "Specifies whether the attribute is standard or custom.",
@@ -777,12 +825,14 @@
       "required": [
         "Name"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AttributeType"
     },
     "AttributeValueType": {
       "format": "password",
       "maxLength": 2048,
-      "type": "string"
+      "type": "string",
+      "title": "AttributeValueType"
     },
     "AuthFlowType": {
       "enum": [
@@ -792,7 +842,8 @@
         "CUSTOM_AUTH",
         "ADMIN_NO_SRP_AUTH"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "AuthFlowType"
     },
     "AuthParametersType": {
       "items": {
@@ -806,7 +857,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "AuthParametersType"
     },
     "AuthenticationResultType": {
       "description": "The result type of the authentication result.",
@@ -836,10 +888,12 @@
           "description": "The token type of the authentication result."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AuthenticationResultType"
     },
     "BooleanType": {
-      "type": "boolean"
+      "type": "boolean",
+      "title": "BooleanType"
     },
     "ChallengeNameType": {
       "enum": [
@@ -851,7 +905,8 @@
         "ADMIN_NO_SRP_AUTH",
         "NEW_PASSWORD_REQUIRED"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ChallengeNameType"
     },
     "ChallengeParametersType": {
       "items": {
@@ -865,7 +920,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ChallengeParametersType"
     },
     "ChallengeResponsesType": {
       "items": {
@@ -879,7 +935,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ChallengeResponsesType"
     },
     "ChangePasswordRequest": {
       "description": "Represents the request to change a user password.",
@@ -901,19 +958,22 @@
         "PreviousPassword",
         "ProposedPassword"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ChangePasswordRequest"
     },
     "ChangePasswordResponse": {
       "description": "The response from the server to the change password request.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "ChangePasswordResponse"
     },
     "ClientIdType": {
       "format": "password",
       "maxLength": 128,
       "minLength": 1,
       "pattern": "[\\w+]+",
-      "type": "string"
+      "type": "string",
+      "title": "ClientIdType"
     },
     "ClientMetadataType": {
       "items": {
@@ -927,37 +987,43 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ClientMetadataType"
     },
     "ClientNameType": {
       "maxLength": 128,
       "minLength": 1,
       "pattern": "[\\w\\s+=,.@-]+",
-      "type": "string"
+      "type": "string",
+      "title": "ClientNameType"
     },
     "ClientPermissionListType": {
       "items": {
         "$ref": "#/definitions/ClientPermissionType"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ClientPermissionListType"
     },
     "ClientPermissionType": {
       "maxLength": 2048,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "ClientPermissionType"
     },
     "ClientSecretType": {
       "format": "password",
       "maxLength": 64,
       "minLength": 1,
       "pattern": "[\\w+]+",
-      "type": "string"
+      "type": "string",
+      "title": "ClientSecretType"
     },
     "CodeDeliveryDetailsListType": {
       "items": {
         "$ref": "#/definitions/CodeDeliveryDetailsType"
       },
-      "type": "array"
+      "type": "array",
+      "title": "CodeDeliveryDetailsListType"
     },
     "CodeDeliveryDetailsType": {
       "description": "The type of code delivery details being returned from the server.",
@@ -975,7 +1041,8 @@
           "description": "The destination for the code delivery details."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CodeDeliveryDetailsType"
     },
     "CodeDeliveryFailureException": {
       "description": "This exception is thrown when a verification code fails to deliver successfully.",
@@ -985,7 +1052,8 @@
           "description": "The message sent when a verification code fails to deliver successfully."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CodeDeliveryFailureException"
     },
     "CodeMismatchException": {
       "description": "This exception is thrown if the provided code does not match what the server was expecting.",
@@ -995,13 +1063,15 @@
           "description": "The message provided when the code mismatch exception is thrown."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CodeMismatchException"
     },
     "CompletionMessageType": {
       "maxLength": 128,
       "minLength": 1,
       "pattern": "[\\w]+",
-      "type": "string"
+      "type": "string",
+      "title": "CompletionMessageType"
     },
     "ConcurrentModificationException": {
       "description": "This exception is thrown if two or more modifications are happening concurrently.",
@@ -1011,7 +1081,8 @@
           "description": "The message provided when the concurrent exception is thrown."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ConcurrentModificationException"
     },
     "ConfirmDeviceRequest": {
       "description": "Confirms the device request.",
@@ -1037,7 +1108,8 @@
         "AccessToken",
         "DeviceKey"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ConfirmDeviceRequest"
     },
     "ConfirmDeviceResponse": {
       "description": "Confirms the device response.",
@@ -1047,7 +1119,8 @@
           "description": "Indicates whether the user confirmation is necessary to confirm the device response."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ConfirmDeviceResponse"
     },
     "ConfirmForgotPasswordRequest": {
       "description": "The request representing the confirmation for a password reset.",
@@ -1079,12 +1152,14 @@
         "ConfirmationCode",
         "Password"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ConfirmForgotPasswordRequest"
     },
     "ConfirmForgotPasswordResponse": {
       "description": "The response from the server that results from a user's request to retrieve a forgotten password.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "ConfirmForgotPasswordResponse"
     },
     "ConfirmSignUpRequest": {
       "description": "Represents the request to confirm registration of a user.",
@@ -1115,18 +1190,21 @@
         "Username",
         "ConfirmationCode"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ConfirmSignUpRequest"
     },
     "ConfirmSignUpResponse": {
       "description": "Represents the response from the server for the registration confirmation.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "ConfirmSignUpResponse"
     },
     "ConfirmationCodeType": {
       "maxLength": 2048,
       "minLength": 1,
       "pattern": "[\\S]+",
-      "type": "string"
+      "type": "string",
+      "title": "ConfirmationCodeType"
     },
     "CreateGroupRequest": {
       "properties": {
@@ -1155,7 +1233,8 @@
         "GroupName",
         "UserPoolId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateGroupRequest"
     },
     "CreateGroupResponse": {
       "properties": {
@@ -1164,7 +1243,8 @@
           "description": "The group object for the group."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateGroupResponse"
     },
     "CreateUserImportJobRequest": {
       "description": "Represents the request to create the user import job.",
@@ -1187,7 +1267,8 @@
         "UserPoolId",
         "CloudWatchLogsRoleArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateUserImportJobRequest"
     },
     "CreateUserImportJobResponse": {
       "description": "Represents the response from the server to the request to create the user import job.",
@@ -1197,7 +1278,8 @@
           "description": "The job object that represents the user import job."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateUserImportJobResponse"
     },
     "CreateUserPoolClientRequest": {
       "description": "Represents the request to create a user pool client.",
@@ -1235,7 +1317,8 @@
         "UserPoolId",
         "ClientName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateUserPoolClientRequest"
     },
     "CreateUserPoolClientResponse": {
       "description": "Represents the response from the server to create a user pool client.",
@@ -1245,7 +1328,8 @@
           "description": "The user pool client that was just created."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateUserPoolClientResponse"
     },
     "CreateUserPoolRequest": {
       "description": "Represents the request to create a user pool.",
@@ -1318,7 +1402,8 @@
       "required": [
         "PoolName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateUserPoolRequest"
     },
     "CreateUserPoolResponse": {
       "description": "Represents the response from the server for the request to create a user pool.",
@@ -1328,13 +1413,15 @@
           "description": "A container for the user pool details."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateUserPoolResponse"
     },
     "CustomAttributeNameType": {
       "maxLength": 20,
       "minLength": 1,
       "pattern": "[\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}]+",
-      "type": "string"
+      "type": "string",
+      "title": "CustomAttributeNameType"
     },
     "CustomAttributesListType": {
       "items": {
@@ -1342,11 +1429,13 @@
       },
       "maxItems": 25,
       "minItems": 1,
-      "type": "array"
+      "type": "array",
+      "title": "CustomAttributesListType"
     },
     "DateType": {
       "format": "date-time",
-      "type": "string"
+      "type": "string",
+      "title": "DateType"
     },
     "DeleteGroupRequest": {
       "properties": {
@@ -1363,7 +1452,8 @@
         "GroupName",
         "UserPoolId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteGroupRequest"
     },
     "DeleteUserAttributesRequest": {
       "description": "Represents the request to delete user attributes.",
@@ -1380,12 +1470,14 @@
       "required": [
         "UserAttributeNames"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteUserAttributesRequest"
     },
     "DeleteUserAttributesResponse": {
       "description": "Represents the response from the server to delete user attributes.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DeleteUserAttributesResponse"
     },
     "DeleteUserPoolClientRequest": {
       "description": "Represents the request to delete a user pool client.",
@@ -1403,7 +1495,8 @@
         "UserPoolId",
         "ClientId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteUserPoolClientRequest"
     },
     "DeleteUserPoolRequest": {
       "description": "Represents the request to delete a user pool.",
@@ -1416,7 +1509,8 @@
       "required": [
         "UserPoolId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteUserPoolRequest"
     },
     "DeleteUserRequest": {
       "description": "Represents the request to delete a user.",
@@ -1426,20 +1520,23 @@
           "description": "The access token from a request to delete a user."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DeleteUserRequest"
     },
     "DeliveryMediumListType": {
       "items": {
         "$ref": "#/definitions/DeliveryMediumType"
       },
-      "type": "array"
+      "type": "array",
+      "title": "DeliveryMediumListType"
     },
     "DeliveryMediumType": {
       "enum": [
         "SMS",
         "EMAIL"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "DeliveryMediumType"
     },
     "DescribeUserImportJobRequest": {
       "description": "Represents the request to describe the user import job.",
@@ -1457,7 +1554,8 @@
         "UserPoolId",
         "JobId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeUserImportJobRequest"
     },
     "DescribeUserImportJobResponse": {
       "description": "Represents the response from the server to the request to describe the user import job.",
@@ -1467,7 +1565,8 @@
           "description": "The job object that represents the user import job."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeUserImportJobResponse"
     },
     "DescribeUserPoolClientRequest": {
       "description": "Represents the request to describe a user pool client.",
@@ -1485,7 +1584,8 @@
         "UserPoolId",
         "ClientId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeUserPoolClientRequest"
     },
     "DescribeUserPoolClientResponse": {
       "description": "Represents the response from the server from a request to describe the user pool client.",
@@ -1495,7 +1595,8 @@
           "description": "The user pool client from a server response to describe the user pool client."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeUserPoolClientResponse"
     },
     "DescribeUserPoolRequest": {
       "description": "Represents the request to describe the user pool.",
@@ -1508,7 +1609,8 @@
       "required": [
         "UserPoolId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeUserPoolRequest"
     },
     "DescribeUserPoolResponse": {
       "description": "Represents the response to describe the user pool.",
@@ -1518,11 +1620,13 @@
           "description": "The container of metadata returned by the server to describe the pool."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeUserPoolResponse"
     },
     "DescriptionType": {
       "maxLength": 2048,
-      "type": "string"
+      "type": "string",
+      "title": "DescriptionType"
     },
     "DeviceConfigurationType": {
       "description": "The type of configuration for the user pool's device tracking.",
@@ -1536,31 +1640,36 @@
           "description": "If true, a device is only remembered on user prompt."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DeviceConfigurationType"
     },
     "DeviceKeyType": {
       "maxLength": 55,
       "minLength": 1,
       "pattern": "[\\w-]+_[0-9a-f-]+",
-      "type": "string"
+      "type": "string",
+      "title": "DeviceKeyType"
     },
     "DeviceListType": {
       "items": {
         "$ref": "#/definitions/DeviceType"
       },
-      "type": "array"
+      "type": "array",
+      "title": "DeviceListType"
     },
     "DeviceNameType": {
       "maxLength": 1024,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "DeviceNameType"
     },
     "DeviceRememberedStatusType": {
       "enum": [
         "remembered",
         "not_remembered"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "DeviceRememberedStatusType"
     },
     "DeviceSecretVerifierConfigType": {
       "description": "The device verifier against which it will be authenticated.",
@@ -1574,7 +1683,8 @@
           "description": "The salt."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DeviceSecretVerifierConfigType"
     },
     "DeviceType": {
       "description": "The device type.",
@@ -1600,11 +1710,13 @@
           "description": "The last modified date of the device."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DeviceType"
     },
     "EmailAddressType": {
       "pattern": "[\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}]+@[\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}]+",
-      "type": "string"
+      "type": "string",
+      "title": "EmailAddressType"
     },
     "EmailConfigurationType": {
       "description": "The email configuration type.",
@@ -1618,19 +1730,22 @@
           "description": "The Amazon Resource Name (ARN) of the email source."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "EmailConfigurationType"
     },
     "EmailVerificationMessageType": {
       "maxLength": 2048,
       "minLength": 6,
       "pattern": "[\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}\\s*]*\\{####\\}[\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}\\s*]*",
-      "type": "string"
+      "type": "string",
+      "title": "EmailVerificationMessageType"
     },
     "EmailVerificationSubjectType": {
       "maxLength": 140,
       "minLength": 1,
       "pattern": "[\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}\\s]+",
-      "type": "string"
+      "type": "string",
+      "title": "EmailVerificationSubjectType"
     },
     "ExpiredCodeException": {
       "description": "This exception is thrown if a code has expired.",
@@ -1640,23 +1755,27 @@
           "description": "The message returned when the expired code exception is thrown."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ExpiredCodeException"
     },
     "ExplicitAuthFlowsListType": {
       "items": {
         "$ref": "#/definitions/ExplicitAuthFlowsType"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ExplicitAuthFlowsListType"
     },
     "ExplicitAuthFlowsType": {
       "enum": [
         "ADMIN_NO_SRP_AUTH",
         "CUSTOM_AUTH_FLOW_ONLY"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ExplicitAuthFlowsType"
     },
     "ForceAliasCreation": {
-      "type": "boolean"
+      "type": "boolean",
+      "title": "ForceAliasCreation"
     },
     "ForgetDeviceRequest": {
       "description": "Represents the request to forget the device.",
@@ -1673,7 +1792,8 @@
       "required": [
         "DeviceKey"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ForgetDeviceRequest"
     },
     "ForgotPasswordRequest": {
       "description": "Represents the request to reset a user's password.",
@@ -1695,7 +1815,8 @@
         "ClientId",
         "Username"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ForgotPasswordRequest"
     },
     "ForgotPasswordResponse": {
       "description": "Respresents the response from the server regarding the request to reset a password.",
@@ -1705,10 +1826,12 @@
           "description": "The code delivery details returned by the server in response to the request to reset a password."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ForgotPasswordResponse"
     },
     "GenerateSecret": {
-      "type": "boolean"
+      "type": "boolean",
+      "title": "GenerateSecret"
     },
     "GetCSVHeaderRequest": {
       "description": "Represents the request to get the header information for the .csv file for the user import job.",
@@ -1721,7 +1844,8 @@
       "required": [
         "UserPoolId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetCSVHeaderRequest"
     },
     "GetCSVHeaderResponse": {
       "description": "Represents the response from the server to the request to get the header information for the .csv file for the user import job.",
@@ -1735,7 +1859,8 @@
           "description": "The user pool ID for the user pool that the users are to be imported into."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetCSVHeaderResponse"
     },
     "GetDeviceRequest": {
       "description": "Represents the request to get the device.",
@@ -1752,7 +1877,8 @@
       "required": [
         "DeviceKey"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetDeviceRequest"
     },
     "GetDeviceResponse": {
       "description": "Gets the device response.",
@@ -1765,7 +1891,8 @@
       "required": [
         "Device"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetDeviceResponse"
     },
     "GetGroupRequest": {
       "properties": {
@@ -1782,7 +1909,8 @@
         "GroupName",
         "UserPoolId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetGroupRequest"
     },
     "GetGroupResponse": {
       "properties": {
@@ -1791,7 +1919,8 @@
           "description": "The group object for the group."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetGroupResponse"
     },
     "GetUserAttributeVerificationCodeRequest": {
       "description": "Represents the request to get user attribute verification.",
@@ -1808,7 +1937,8 @@
       "required": [
         "AttributeName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetUserAttributeVerificationCodeRequest"
     },
     "GetUserAttributeVerificationCodeResponse": {
       "description": "The verification code response returned by the server response to get the user attribute verification code.",
@@ -1818,7 +1948,8 @@
           "description": "The code delivery details returned by the server in response to the request to get the user attribute verification code."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetUserAttributeVerificationCodeResponse"
     },
     "GetUserRequest": {
       "description": "Represents the request to get information about the user.",
@@ -1828,7 +1959,8 @@
           "description": "The access token returned by the server response to get information about the user."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetUserRequest"
     },
     "GetUserResponse": {
       "description": "Represents the response from the server from the request to get information about the user.",
@@ -1850,7 +1982,8 @@
         "Username",
         "UserAttributes"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetUserResponse"
     },
     "GlobalSignOutRequest": {
       "description": "Represents the request to sign out all devices.",
@@ -1860,12 +1993,14 @@
           "description": "The access token."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GlobalSignOutRequest"
     },
     "GlobalSignOutResponse": {
       "description": "The response to the request to sign out all devices.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "GlobalSignOutResponse"
     },
     "GroupExistsException": {
       "description": "This exception is thrown when Amazon Cognito encounters a group that already exists in the user pool.",
@@ -1874,19 +2009,22 @@
           "$ref": "#/definitions/MessageType"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GroupExistsException"
     },
     "GroupListType": {
       "items": {
         "$ref": "#/definitions/GroupType"
       },
-      "type": "array"
+      "type": "array",
+      "title": "GroupListType"
     },
     "GroupNameType": {
       "maxLength": 128,
       "minLength": 1,
       "pattern": "[\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}]+",
-      "type": "string"
+      "type": "string",
+      "title": "GroupNameType"
     },
     "GroupType": {
       "description": "The group type.",
@@ -1920,7 +2058,8 @@
           "description": "The user pool ID for the user pool."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GroupType"
     },
     "InitiateAuthRequest": {
       "description": "Initiates the authentication request.",
@@ -1946,7 +2085,8 @@
         "AuthFlow",
         "ClientId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "InitiateAuthRequest"
     },
     "InitiateAuthResponse": {
       "description": "Initiates the authentication response.",
@@ -1968,10 +2108,12 @@
           "description": "The session."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InitiateAuthResponse"
     },
     "IntegerType": {
-      "type": "integer"
+      "type": "integer",
+      "title": "IntegerType"
     },
     "InternalErrorException": {
       "description": "This exception is thrown when Amazon Cognito encounters an internal error.",
@@ -1981,7 +2123,8 @@
           "description": "The message returned when Amazon Cognito throws an internal error exception."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InternalErrorException"
     },
     "InvalidEmailRoleAccessPolicyException": {
       "description": "This exception is thrown when Amazon Cognito is not allowed to use your email identity. HTTP status code: 400.",
@@ -1991,7 +2134,8 @@
           "description": "The message returned when you have an unverified email address or the identity policy is not set on an email address that Amazon Cognito can access."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidEmailRoleAccessPolicyException"
     },
     "InvalidLambdaResponseException": {
       "description": "This exception is thrown when the Amazon Cognito service encounters an invalid AWS Lambda response.",
@@ -2001,7 +2145,8 @@
           "description": "The message returned when the Amazon Cognito service throws an invalid AWS Lambda response exception."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidLambdaResponseException"
     },
     "InvalidParameterException": {
       "description": "This exception is thrown when the Amazon Cognito service encounters an invalid parameter.",
@@ -2011,7 +2156,8 @@
           "description": "The message returned when the Amazon Cognito service throws an invalid parameter exception."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidParameterException"
     },
     "InvalidPasswordException": {
       "description": "This exception is thrown when the Amazon Cognito service encounters an invalid password.",
@@ -2021,7 +2167,8 @@
           "description": "The message returned when the Amazon Cognito service throws an invalid user password exception."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidPasswordException"
     },
     "InvalidSmsRoleAccessPolicyException": {
       "description": "This exception is returned when the role provided for SMS configuration does not have permission to publish using Amazon SNS.",
@@ -2031,7 +2178,8 @@
           "description": "The message retuned when the invalid SMS role access policy exception is thrown."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidSmsRoleAccessPolicyException"
     },
     "InvalidSmsRoleTrustRelationshipException": {
       "description": "This exception is thrown when the trust relationship is invalid for the role provided for SMS configuration. This can happen if you do not trust <b>cognito-idp.amazonaws.com</b> or the external ID provided in the role does not match what is provided in the SMS configuration for the user pool.",
@@ -2041,7 +2189,8 @@
           "description": "The message returned when the role trust relationship for the SMS message is invalid."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidSmsRoleTrustRelationshipException"
     },
     "InvalidUserPoolConfigurationException": {
       "description": "This exception is thrown when the user pool configuration is invalid.",
@@ -2051,7 +2200,8 @@
           "description": "The message returned when the user pool configuration is invalid."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidUserPoolConfigurationException"
     },
     "LambdaConfigType": {
       "description": "Specifies the type of configuration for AWS Lambda triggers.",
@@ -2089,7 +2239,8 @@
           "description": "Verifies the authentication challenge response."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LambdaConfigType"
     },
     "LimitExceededException": {
       "description": "This exception is thrown when a user exceeds the limit for a requested AWS resource.",
@@ -2099,7 +2250,8 @@
           "description": "The message returned when Amazon Cognito throws a limit exceeded exception."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LimitExceededException"
     },
     "ListDevicesRequest": {
       "description": "Represents the request to list the devices.",
@@ -2120,7 +2272,8 @@
       "required": [
         "AccessToken"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListDevicesRequest"
     },
     "ListDevicesResponse": {
       "description": "Represents the response to list devices.",
@@ -2134,7 +2287,8 @@
           "description": "The pagination token for the list device response."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListDevicesResponse"
     },
     "ListGroupsRequest": {
       "properties": {
@@ -2154,7 +2308,8 @@
       "required": [
         "UserPoolId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListGroupsRequest"
     },
     "ListGroupsResponse": {
       "properties": {
@@ -2167,13 +2322,15 @@
           "description": "An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListGroupsResponse"
     },
     "ListOfStringTypes": {
       "items": {
         "$ref": "#/definitions/StringType"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ListOfStringTypes"
     },
     "ListUserImportJobsRequest": {
       "description": "Represents the request to list the user import jobs.",
@@ -2195,7 +2352,8 @@
         "UserPoolId",
         "MaxResults"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListUserImportJobsRequest"
     },
     "ListUserImportJobsResponse": {
       "description": "Represents the response from the server to the request to list the user import jobs.",
@@ -2209,7 +2367,8 @@
           "description": "The user import jobs."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListUserImportJobsResponse"
     },
     "ListUserPoolClientsRequest": {
       "description": "Represents the request to list the user pool clients.",
@@ -2230,7 +2389,8 @@
       "required": [
         "UserPoolId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListUserPoolClientsRequest"
     },
     "ListUserPoolClientsResponse": {
       "description": "Represents the response from the server that lists user pool clients.",
@@ -2244,7 +2404,8 @@
           "description": "The user pool clients in the response that lists user pool clients."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListUserPoolClientsResponse"
     },
     "ListUserPoolsRequest": {
       "description": "Represents the request to list user pools.",
@@ -2261,7 +2422,8 @@
       "required": [
         "MaxResults"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListUserPoolsRequest"
     },
     "ListUserPoolsResponse": {
       "description": "Represents the response to list user pools.",
@@ -2275,7 +2437,8 @@
           "description": "The user pools from the response to list users."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListUserPoolsResponse"
     },
     "ListUsersInGroupRequest": {
       "properties": {
@@ -2300,7 +2463,8 @@
         "UserPoolId",
         "GroupName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListUsersInGroupRequest"
     },
     "ListUsersInGroupResponse": {
       "properties": {
@@ -2313,7 +2477,8 @@
           "description": "The users returned in the request to list users."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListUsersInGroupResponse"
     },
     "ListUsersRequest": {
       "description": "Represents the request to list users.",
@@ -2342,7 +2507,8 @@
       "required": [
         "UserPoolId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListUsersRequest"
     },
     "ListUsersResponse": {
       "description": "The response from the request to list users.",
@@ -2356,10 +2522,12 @@
           "description": "The users returned in the request to list users."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListUsersResponse"
     },
     "LongType": {
-      "type": "integer"
+      "type": "integer",
+      "title": "LongType"
     },
     "MFAMethodNotFoundException": {
       "description": "This exception is thrown when Amazon Cognito cannot find a multi-factor authentication (MFA) method.",
@@ -2369,13 +2537,15 @@
           "description": "The message returned when Amazon Cognito throws an MFA method not found exception."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "MFAMethodNotFoundException"
     },
     "MFAOptionListType": {
       "items": {
         "$ref": "#/definitions/MFAOptionType"
       },
-      "type": "array"
+      "type": "array",
+      "title": "MFAOptionListType"
     },
     "MFAOptionType": {
       "description": "Specifies the different settings for multi-factor authentication (MFA).",
@@ -2389,14 +2559,16 @@
           "description": "The delivery medium (email message or SMS message) to send the MFA code."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "MFAOptionType"
     },
     "MessageActionType": {
       "enum": [
         "RESEND",
         "SUPPRESS"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "MessageActionType"
     },
     "MessageTemplateType": {
       "description": "The message template structure.",
@@ -2414,10 +2586,12 @@
           "description": "The message template for SMS messages."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "MessageTemplateType"
     },
     "MessageType": {
-      "type": "string"
+      "type": "string",
+      "title": "MessageType"
     },
     "NewDeviceMetadataType": {
       "description": "The new device metadata type.",
@@ -2431,7 +2605,8 @@
           "description": "The device key."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "NewDeviceMetadataType"
     },
     "NotAuthorizedException": {
       "description": "This exception gets thrown when a user is not authorized.",
@@ -2441,7 +2616,8 @@
           "description": "The message returned when the Amazon Cognito service returns a not authorized exception."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "NotAuthorizedException"
     },
     "NumberAttributeConstraintsType": {
       "description": "The minimum and maximum value of an attribute that is of the number data type.",
@@ -2455,22 +2631,26 @@
           "description": "The minimum value of an attribute that is of the number data type."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "NumberAttributeConstraintsType"
     },
     "PaginationKey": {
       "minLength": 1,
       "pattern": "[\\S]+",
-      "type": "string"
+      "type": "string",
+      "title": "PaginationKey"
     },
     "PaginationKeyType": {
       "minLength": 1,
       "pattern": "[\\S]+",
-      "type": "string"
+      "type": "string",
+      "title": "PaginationKeyType"
     },
     "PasswordPolicyMinLengthType": {
       "maximum": 99,
       "minimum": 6,
-      "type": "integer"
+      "type": "integer",
+      "title": "PasswordPolicyMinLengthType"
     },
     "PasswordPolicyType": {
       "description": "The password policy type.",
@@ -2496,7 +2676,8 @@
           "description": "In the password policy that you have set, refers to whether you have required users to use at least one uppercase letter in their password."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PasswordPolicyType"
     },
     "PasswordResetRequiredException": {
       "description": "This exception is thrown when a password reset is required.",
@@ -2506,28 +2687,33 @@
           "description": "The message returned when a password reset is required."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PasswordResetRequiredException"
     },
     "PasswordType": {
       "format": "password",
       "maxLength": 256,
       "minLength": 6,
       "pattern": "[\\S]+",
-      "type": "string"
+      "type": "string",
+      "title": "PasswordType"
     },
     "PoolQueryLimitType": {
       "maximum": 60,
       "minimum": 1,
-      "type": "integer"
+      "type": "integer",
+      "title": "PoolQueryLimitType"
     },
     "PreSignedUrlType": {
       "maxLength": 2048,
       "minLength": 0,
-      "type": "string"
+      "type": "string",
+      "title": "PreSignedUrlType"
     },
     "PrecedenceType": {
       "minimum": 0,
-      "type": "integer"
+      "type": "integer",
+      "title": "PrecedenceType"
     },
     "PreconditionNotMetException": {
       "description": "This exception is thrown when a precondition is not met.",
@@ -2537,22 +2723,26 @@
           "description": "The message returned when a precondition is not met."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PreconditionNotMetException"
     },
     "QueryLimit": {
       "maximum": 60,
       "minimum": 1,
-      "type": "integer"
+      "type": "integer",
+      "title": "QueryLimit"
     },
     "QueryLimitType": {
       "maximum": 60,
       "minimum": 0,
-      "type": "integer"
+      "type": "integer",
+      "title": "QueryLimitType"
     },
     "RefreshTokenValidityType": {
       "maximum": 3650,
       "minimum": 0,
-      "type": "integer"
+      "type": "integer",
+      "title": "RefreshTokenValidityType"
     },
     "ResendConfirmationCodeRequest": {
       "description": "Represents the request to resend the confirmation code.",
@@ -2574,7 +2764,8 @@
         "ClientId",
         "Username"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ResendConfirmationCodeRequest"
     },
     "ResendConfirmationCodeResponse": {
       "description": "The response from the server when the Amazon Cognito Your User Pools service makes the request to resend a confirmation code.",
@@ -2584,7 +2775,8 @@
           "description": "The code delivery details returned by the server in response to the request to resend the confirmation code."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ResendConfirmationCodeResponse"
     },
     "ResourceNotFoundException": {
       "description": "This exception is thrown when the Amazon Cognito service cannot find the requested resource.",
@@ -2594,7 +2786,8 @@
           "description": "The message returned when the Amazon Cognito service returns a resource not found exception."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ResourceNotFoundException"
     },
     "RespondToAuthChallengeRequest": {
       "description": "The request to respond to an authentication challenge.",
@@ -2620,7 +2813,8 @@
         "ClientId",
         "ChallengeName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "RespondToAuthChallengeRequest"
     },
     "RespondToAuthChallengeResponse": {
       "description": "The response to respond to the authentication challenge.",
@@ -2642,7 +2836,8 @@
           "description": "The session."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RespondToAuthChallengeResponse"
     },
     "SchemaAttributeType": {
       "description": "Contains information about the schema attribute.",
@@ -2676,7 +2871,8 @@
           "description": "Specifies the constraints for an attribute of the string type."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SchemaAttributeType"
     },
     "SchemaAttributesListType": {
       "items": {
@@ -2684,30 +2880,35 @@
       },
       "maxItems": 50,
       "minItems": 1,
-      "type": "array"
+      "type": "array",
+      "title": "SchemaAttributesListType"
     },
     "SearchPaginationTokenType": {
       "minLength": 1,
       "pattern": "[\\S]+",
-      "type": "string"
+      "type": "string",
+      "title": "SearchPaginationTokenType"
     },
     "SearchedAttributeNamesListType": {
       "items": {
         "$ref": "#/definitions/AttributeNameType"
       },
-      "type": "array"
+      "type": "array",
+      "title": "SearchedAttributeNamesListType"
     },
     "SecretHashType": {
       "format": "password",
       "maxLength": 128,
       "minLength": 1,
       "pattern": "[\\w+=/]+",
-      "type": "string"
+      "type": "string",
+      "title": "SecretHashType"
     },
     "SessionType": {
       "maxLength": 2048,
       "minLength": 20,
-      "type": "string"
+      "type": "string",
+      "title": "SessionType"
     },
     "SetUserSettingsRequest": {
       "description": "Represents the request to set user settings.",
@@ -2725,12 +2926,14 @@
         "AccessToken",
         "MFAOptions"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "SetUserSettingsRequest"
     },
     "SetUserSettingsResponse": {
       "description": "The response from the server for a set user settings request.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "SetUserSettingsResponse"
     },
     "SignUpRequest": {
       "description": "Represents the request to register a user.",
@@ -2765,7 +2968,8 @@
         "Username",
         "Password"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "SignUpRequest"
     },
     "SignUpResponse": {
       "description": "The response from the server for a registration request.",
@@ -2779,7 +2983,8 @@
           "description": "A response from the server indicating that a user registration has been confirmed."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SignUpResponse"
     },
     "SmsConfigurationType": {
       "description": "The SMS configuratoin type.",
@@ -2796,13 +3001,15 @@
       "required": [
         "SnsCallerArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "SmsConfigurationType"
     },
     "SmsVerificationMessageType": {
       "maxLength": 140,
       "minLength": 6,
       "pattern": ".*\\{####\\}.*",
-      "type": "string"
+      "type": "string",
+      "title": "SmsVerificationMessageType"
     },
     "StartUserImportJobRequest": {
       "description": "Represents the request to start the user import job.",
@@ -2820,7 +3027,8 @@
         "UserPoolId",
         "JobId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "StartUserImportJobRequest"
     },
     "StartUserImportJobResponse": {
       "description": "Represents the response from the server to the request to start the user import job.",
@@ -2830,14 +3038,16 @@
           "description": "The job object that represents the user import job."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "StartUserImportJobResponse"
     },
     "StatusType": {
       "enum": [
         "Enabled",
         "Disabled"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "StatusType"
     },
     "StopUserImportJobRequest": {
       "description": "Represents the request to stop the user import job.",
@@ -2855,7 +3065,8 @@
         "UserPoolId",
         "JobId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "StopUserImportJobRequest"
     },
     "StopUserImportJobResponse": {
       "description": "Represents the response from the server to the request to stop the user import job.",
@@ -2865,7 +3076,8 @@
           "description": "The job object that represents the user import job."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "StopUserImportJobResponse"
     },
     "StringAttributeConstraintsType": {
       "description": "The type of constraints associated with an attribute of the string type.",
@@ -2879,15 +3091,18 @@
           "description": "The minimum length of an attribute value of the string type."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "StringAttributeConstraintsType"
     },
     "StringType": {
-      "type": "string"
+      "type": "string",
+      "title": "StringType"
     },
     "TokenModelType": {
       "format": "password",
       "pattern": "[A-Za-z0-9-_=.]+",
-      "type": "string"
+      "type": "string",
+      "title": "TokenModelType"
     },
     "TooManyFailedAttemptsException": {
       "description": "This exception gets thrown when the user has made too many failed attempts for a given action (e.g., sign in).",
@@ -2897,7 +3112,8 @@
           "description": "The message returned when the Amazon Cognito service returns a too many failed attempts exception."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TooManyFailedAttemptsException"
     },
     "TooManyRequestsException": {
       "description": "This exception gets thrown when the user has made too many requests for a given operation.",
@@ -2907,7 +3123,8 @@
           "description": "The message returned when the Amazon Cognito service returns a too many requests exception."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TooManyRequestsException"
     },
     "UnexpectedLambdaException": {
       "description": "This exception gets thrown when the Amazon Cognito service encounters an unexpected exception with the AWS Lambda service.",
@@ -2917,7 +3134,8 @@
           "description": "The message returned when the Amazon Cognito service returns an unexpected AWS Lambda exception."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UnexpectedLambdaException"
     },
     "UnsupportedUserStateException": {
       "description": "The request failed because the user is in an unsupported state.",
@@ -2927,7 +3145,8 @@
           "description": "The message returned when the user is in an unsupported state."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UnsupportedUserStateException"
     },
     "UpdateDeviceStatusRequest": {
       "description": "Represents the request to update the device status.",
@@ -2949,12 +3168,14 @@
         "AccessToken",
         "DeviceKey"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateDeviceStatusRequest"
     },
     "UpdateDeviceStatusResponse": {
       "description": "The response to the request to update the device status.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "UpdateDeviceStatusResponse"
     },
     "UpdateGroupRequest": {
       "properties": {
@@ -2983,7 +3204,8 @@
         "GroupName",
         "UserPoolId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateGroupRequest"
     },
     "UpdateGroupResponse": {
       "properties": {
@@ -2992,7 +3214,8 @@
           "description": "The group object for the group."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UpdateGroupResponse"
     },
     "UpdateUserAttributesRequest": {
       "description": "Represents the request to update user attributes.",
@@ -3009,7 +3232,8 @@
       "required": [
         "UserAttributes"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateUserAttributesRequest"
     },
     "UpdateUserAttributesResponse": {
       "description": "Represents the response from the server for the request to update user attributes.",
@@ -3019,7 +3243,8 @@
           "description": "The code delivery details list from the server for the request to update user attributes."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UpdateUserAttributesResponse"
     },
     "UpdateUserPoolClientRequest": {
       "description": "Represents the request to update the user pool client.",
@@ -3057,7 +3282,8 @@
         "UserPoolId",
         "ClientId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateUserPoolClientRequest"
     },
     "UpdateUserPoolClientResponse": {
       "description": "Represents the response from the server to the request to update the user pool client.",
@@ -3067,7 +3293,8 @@
           "description": "The user pool client value from the response from the server when an update user pool client request is made."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UpdateUserPoolClientResponse"
     },
     "UpdateUserPoolRequest": {
       "description": "Represents the request to update the user pool.",
@@ -3132,16 +3359,19 @@
       "required": [
         "UserPoolId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateUserPoolRequest"
     },
     "UpdateUserPoolResponse": {
       "description": "Represents the response from the server when you make a request to update the user pool.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "UpdateUserPoolResponse"
     },
     "UserFilterType": {
       "maxLength": 256,
-      "type": "string"
+      "type": "string",
+      "title": "UserFilterType"
     },
     "UserImportInProgressException": {
       "description": "This exception is thrown when you are trying to modify a user pool while a user import job is in progress for that pool.",
@@ -3151,19 +3381,22 @@
           "description": "The message returned when the user pool has an import job running."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UserImportInProgressException"
     },
     "UserImportJobIdType": {
       "maxLength": 55,
       "minLength": 1,
       "pattern": "import-[0-9a-zA-Z-]+",
-      "type": "string"
+      "type": "string",
+      "title": "UserImportJobIdType"
     },
     "UserImportJobNameType": {
       "maxLength": 128,
       "minLength": 1,
       "pattern": "[\\w\\s+=,.@-]+",
-      "type": "string"
+      "type": "string",
+      "title": "UserImportJobNameType"
     },
     "UserImportJobStatusType": {
       "enum": [
@@ -3176,7 +3409,8 @@
         "Failed",
         "Succeeded"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "UserImportJobStatusType"
     },
     "UserImportJobType": {
       "description": "The user import job type.",
@@ -3234,7 +3468,8 @@
           "description": "The user pool ID for the user pool that the users are being imported into."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UserImportJobType"
     },
     "UserImportJobsListType": {
       "items": {
@@ -3242,7 +3477,8 @@
       },
       "maxItems": 50,
       "minItems": 1,
-      "type": "array"
+      "type": "array",
+      "title": "UserImportJobsListType"
     },
     "UserLambdaValidationException": {
       "description": "This exception gets thrown when the Amazon Cognito service encounters a user validation exception with the AWS Lambda service.",
@@ -3252,7 +3488,8 @@
           "description": "The message returned when the Amazon Cognito service returns a user validation exception with the AWS Lambda service."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UserLambdaValidationException"
     },
     "UserNotConfirmedException": {
       "description": "This exception is thrown when a user is not confirmed successfully.",
@@ -3262,7 +3499,8 @@
           "description": "The message returned when a user is not confirmed successfully."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UserNotConfirmedException"
     },
     "UserNotFoundException": {
       "description": "This exception is thrown when a user is not found.",
@@ -3272,7 +3510,8 @@
           "description": "The message returned when a user is not found."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UserNotFoundException"
     },
     "UserPoolClientDescription": {
       "description": "The description of the user pool client.",
@@ -3290,13 +3529,15 @@
           "description": "The user pool ID for the user pool where you want to describe the user pool client."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UserPoolClientDescription"
     },
     "UserPoolClientListType": {
       "items": {
         "$ref": "#/definitions/UserPoolClientDescription"
       },
-      "type": "array"
+      "type": "array",
+      "title": "UserPoolClientListType"
     },
     "UserPoolClientType": {
       "description": "A user pool of the client type.",
@@ -3342,7 +3583,8 @@
           "description": "The writeable attributes."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UserPoolClientType"
     },
     "UserPoolDescriptionType": {
       "description": "A user pool description.",
@@ -3372,19 +3614,22 @@
           "description": "The user pool status in a user pool description."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UserPoolDescriptionType"
     },
     "UserPoolIdType": {
       "maxLength": 55,
       "minLength": 1,
       "pattern": "[\\w-]+_[0-9a-zA-Z]+",
-      "type": "string"
+      "type": "string",
+      "title": "UserPoolIdType"
     },
     "UserPoolListType": {
       "items": {
         "$ref": "#/definitions/UserPoolDescriptionType"
       },
-      "type": "array"
+      "type": "array",
+      "title": "UserPoolListType"
     },
     "UserPoolMfaType": {
       "enum": [
@@ -3392,13 +3637,15 @@
         "ON",
         "OPTIONAL"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "UserPoolMfaType"
     },
     "UserPoolNameType": {
       "maxLength": 128,
       "minLength": 1,
       "pattern": "[\\w\\s+=,.@-]+",
-      "type": "string"
+      "type": "string",
+      "title": "UserPoolNameType"
     },
     "UserPoolPolicyType": {
       "description": "The type of policy in a user pool.",
@@ -3408,7 +3655,8 @@
           "description": "A container with information about the user pool password policy."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UserPoolPolicyType"
     },
     "UserPoolTaggingException": {
       "description": "This exception gets thrown when a user pool tag cannot be set or updated.",
@@ -3417,7 +3665,8 @@
           "$ref": "#/definitions/MessageType"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UserPoolTaggingException"
     },
     "UserPoolTagsType": {
       "items": {
@@ -3431,7 +3680,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "UserPoolTagsType"
     },
     "UserPoolType": {
       "description": "A container with information about the user pool type.",
@@ -3529,7 +3779,8 @@
           "description": "The cost allocation tags for the user pool. For more information, see <a href=\"http://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-cost-allocation-tagging.html\">Adding Cost Allocation Tags to Your User Pool</a> "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UserPoolType"
     },
     "UserStatusType": {
       "enum": [
@@ -3541,7 +3792,8 @@
         "RESET_REQUIRED",
         "FORCE_CHANGE_PASSWORD"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "UserStatusType"
     },
     "UserType": {
       "description": "The user type.",
@@ -3575,7 +3827,8 @@
           "description": "The user name of the user you wish to describe."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UserType"
     },
     "UsernameExistsException": {
       "description": "This exception is thrown when Amazon Cognito encounters a user name that already exists in the user pool.",
@@ -3585,33 +3838,38 @@
           "description": "The message returned when Amazon Cognito throws a user name exists exception."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UsernameExistsException"
     },
     "UsernameType": {
       "format": "password",
       "maxLength": 128,
       "minLength": 1,
       "pattern": "[\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}]+",
-      "type": "string"
+      "type": "string",
+      "title": "UsernameType"
     },
     "UsersListType": {
       "items": {
         "$ref": "#/definitions/UserType"
       },
-      "type": "array"
+      "type": "array",
+      "title": "UsersListType"
     },
     "VerifiedAttributeType": {
       "enum": [
         "phone_number",
         "email"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "VerifiedAttributeType"
     },
     "VerifiedAttributesListType": {
       "items": {
         "$ref": "#/definitions/VerifiedAttributeType"
       },
-      "type": "array"
+      "type": "array",
+      "title": "VerifiedAttributesListType"
     },
     "VerifyUserAttributeRequest": {
       "description": "Represents the request to verify user attributes.",
@@ -3633,12 +3891,14 @@
         "AttributeName",
         "Code"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "VerifyUserAttributeRequest"
     },
     "VerifyUserAttributeResponse": {
       "description": "A container representing the response from the server from the request to verify user attributes.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "VerifyUserAttributeResponse"
     }
   },
   "actions": [

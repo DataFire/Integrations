@@ -24,7 +24,8 @@
         "vaultName": "my-vault"
       },
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "AbortMultipartUploadInput"
     },
     "AbortVaultLockInput": {
       "description": "The input values for <code>AbortVaultLock</code>.",
@@ -33,14 +34,16 @@
         "vaultName": "examplevault"
       },
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "AbortVaultLockInput"
     },
     "ActionCode": {
       "enum": [
         "ArchiveRetrieval",
         "InventoryRetrieval"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ActionCode"
     },
     "AddTagsToVaultInput": {
       "description": "The input values for <code>AddTagsToVault</code>.",
@@ -58,7 +61,8 @@
           "description": "The tags to add to the vault. Each tag is composed of a key and a value. The value can be an empty string."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AddTagsToVaultInput"
     },
     "ArchiveCreationOutput": {
       "description": "<p>Contains the Amazon Glacier response to your request.</p> <p>For information about the underlying REST API, see <a href=\"http://docs.aws.amazon.com/amazonglacier/latest/dev/api-archive-post.html\">Upload Archive</a>. For conceptual information, see <a href=\"http://docs.aws.amazon.com/amazonglacier/latest/dev/working-with-archives.html\">Working with Archives in Amazon Glacier</a>.</p>",
@@ -68,7 +72,8 @@
         "location": "/0123456789012/vaults/my-vault/archives/kKB7ymWJVpPSwhGP6ycSOAekp9ZYe_--zM_mw6k76ZFGEIWQX-ybtRDvc2VkPSDtfKmQrj0IRQLSGsNuDp-AJVlu2ccmDSyDUmZwKbwbpAdGATGDiB3hHO0bjbGehXTcApVud_wyDw"
       },
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "ArchiveCreationOutput"
     },
     "CompleteMultipartUploadInput": {
       "description": "Provides options to complete a multipart upload operation. This informs Amazon Glacier that all the archive parts have been uploaded and Amazon Glacier can now assemble the archive from the uploaded parts. After assembling and saving the archive to the vault, Amazon Glacier returns the URI path of the newly created archive resource.",
@@ -80,7 +85,8 @@
         "vaultName": "my-vault"
       },
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "CompleteMultipartUploadInput"
     },
     "CompleteVaultLockInput": {
       "description": "The input values for <code>CompleteVaultLock</code>.",
@@ -90,7 +96,8 @@
         "vaultName": "example-vault"
       },
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "CompleteVaultLockInput"
     },
     "CreateVaultInput": {
       "description": "Provides options to create a vault.",
@@ -99,7 +106,8 @@
         "vaultName": "my-vault"
       },
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "CreateVaultInput"
     },
     "CreateVaultOutput": {
       "description": "Contains the Amazon Glacier response to your request.",
@@ -107,7 +115,8 @@
         "location": "/111122223333/vaults/my-vault"
       },
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "CreateVaultOutput"
     },
     "DataRetrievalPolicy": {
       "description": "Data retrieval policy.",
@@ -117,7 +126,8 @@
           "description": "The policy rule. Although this is a list type, currently there must be only one rule, which contains a Strategy field and optionally a BytesPerHour field."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DataRetrievalPolicy"
     },
     "DataRetrievalRule": {
       "description": "Data retrieval policy rule.",
@@ -131,16 +141,19 @@
           "description": "<p>The type of data retrieval policy to set.</p> <p>Valid values: BytesPerHour|FreeTier|None</p>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DataRetrievalRule"
     },
     "DataRetrievalRulesList": {
       "items": {
         "$ref": "#/definitions/DataRetrievalRule"
       },
-      "type": "array"
+      "type": "array",
+      "title": "DataRetrievalRulesList"
     },
     "DateTime": {
-      "type": "string"
+      "type": "string",
+      "title": "DateTime"
     },
     "DeleteArchiveInput": {
       "description": "Provides options for deleting an archive from an Amazon Glacier vault.",
@@ -150,7 +163,8 @@
         "vaultName": "examplevault"
       },
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DeleteArchiveInput"
     },
     "DeleteVaultAccessPolicyInput": {
       "description": "DeleteVaultAccessPolicy input.",
@@ -159,7 +173,8 @@
         "vaultName": "examplevault"
       },
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DeleteVaultAccessPolicyInput"
     },
     "DeleteVaultInput": {
       "description": "Provides options for deleting a vault from Amazon Glacier.",
@@ -168,7 +183,8 @@
         "vaultName": "my-vault"
       },
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DeleteVaultInput"
     },
     "DeleteVaultNotificationsInput": {
       "description": "Provides options for deleting a vault notification configuration from an Amazon Glacier vault.",
@@ -177,7 +193,8 @@
         "vaultName": "examplevault"
       },
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DeleteVaultNotificationsInput"
     },
     "DescribeJobInput": {
       "description": "Provides options for retrieving a job description.",
@@ -187,7 +204,8 @@
         "vaultName": "my-vault"
       },
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DescribeJobInput"
     },
     "DescribeVaultInput": {
       "description": "Provides options for retrieving metadata for a specific vault in Amazon Glacier.",
@@ -196,7 +214,8 @@
         "vaultName": "my-vault"
       },
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DescribeVaultInput"
     },
     "DescribeVaultOutput": {
       "description": "Contains the Amazon Glacier response to your request.",
@@ -233,7 +252,8 @@
           "description": "The name of the vault."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeVaultOutput"
     },
     "GetDataRetrievalPolicyInput": {
       "description": "Input for GetDataRetrievalPolicy.",
@@ -241,7 +261,8 @@
         "accountId": "-"
       },
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "GetDataRetrievalPolicyInput"
     },
     "GetDataRetrievalPolicyOutput": {
       "description": "Contains the Amazon Glacier response to the <code>GetDataRetrievalPolicy</code> request.",
@@ -261,7 +282,8 @@
           "description": "Contains the returned data retrieval policy in JSON format."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetDataRetrievalPolicyOutput"
     },
     "GetJobOutputInput": {
       "description": "Provides options for downloading output of an Amazon Glacier job.",
@@ -272,7 +294,8 @@
         "vaultName": "my-vaul"
       },
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "GetJobOutputInput"
     },
     "GetJobOutputOutput": {
       "description": "Contains the Amazon Glacier response to your request.",
@@ -288,7 +311,8 @@
           "description": "The job data, either archive data or inventory data."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetJobOutputOutput"
     },
     "GetVaultAccessPolicyInput": {
       "description": "Input for GetVaultAccessPolicy.",
@@ -297,7 +321,8 @@
         "vaultName": "example-vault"
       },
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "GetVaultAccessPolicyInput"
     },
     "GetVaultAccessPolicyOutput": {
       "description": "Output for GetVaultAccessPolicy.",
@@ -312,7 +337,8 @@
           "description": "Contains the returned vault access policy as a JSON string."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetVaultAccessPolicyOutput"
     },
     "GetVaultLockInput": {
       "description": "The input values for <code>GetVaultLock</code>.",
@@ -321,7 +347,8 @@
         "vaultName": "examplevault"
       },
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "GetVaultLockInput"
     },
     "GetVaultLockOutput": {
       "description": "Contains the Amazon Glacier response to your request.",
@@ -349,7 +376,8 @@
           "description": "The state of the vault lock. <code>InProgress</code> or <code>Locked</code>."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetVaultLockOutput"
     },
     "GetVaultNotificationsInput": {
       "description": "Provides options for retrieving the notification configuration set on an Amazon Glacier vault.",
@@ -358,7 +386,8 @@
         "vaultName": "my-vault"
       },
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "GetVaultNotificationsInput"
     },
     "GetVaultNotificationsOutput": {
       "description": "Contains the Amazon Glacier response to your request.",
@@ -377,7 +406,8 @@
           "description": "Returns the notification configuration set on the vault."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetVaultNotificationsOutput"
     },
     "GlacierJobDescription": {
       "description": "Describes an Amazon Glacier job.",
@@ -466,7 +496,8 @@
           "description": "The Amazon Resource Name (ARN) of the vault from which the archive retrieval was requested."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GlacierJobDescription"
     },
     "InitiateJobInput": {
       "description": "Provides options for initiating an Amazon Glacier job.",
@@ -486,7 +517,8 @@
           "description": "Provides options for specifying job information."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InitiateJobInput"
     },
     "InitiateJobOutput": {
       "description": "Contains the Amazon Glacier response to your request.",
@@ -495,7 +527,8 @@
         "location": "/111122223333/vaults/examplevault/jobs/HkF9p6o7yjhFx-K3CGl6fuSm6VzW9T7esGQfco8nUXVYwS0jlb5gq1JZ55yHgt5vP54ZShjoQzQVVh7vEXAMPLEjobID"
       },
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "InitiateJobOutput"
     },
     "InitiateMultipartUploadInput": {
       "description": "Provides options for initiating a multipart upload to an Amazon Glacier vault.",
@@ -505,7 +538,8 @@
         "vaultName": "my-vault"
       },
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "InitiateMultipartUploadInput"
     },
     "InitiateMultipartUploadOutput": {
       "description": "The Amazon Glacier response to your request.",
@@ -514,7 +548,8 @@
         "uploadId": "19gaRezEXAMPLES6Ry5YYdqthHOC_kGRCT03L9yetr220UmPtBYKk-OssZtLqyFu7sY1_lR7vgFuJV6NtcV5zpsJ"
       },
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "InitiateMultipartUploadOutput"
     },
     "InitiateVaultLockInput": {
       "description": "The input values for <code>InitiateVaultLock</code>.",
@@ -531,7 +566,8 @@
           "description": "The vault lock policy as a JSON string, which uses \"\\\" as an escape character."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InitiateVaultLockInput"
     },
     "InitiateVaultLockOutput": {
       "description": "Contains the Amazon Glacier response to your request.",
@@ -539,7 +575,8 @@
         "lockId": "AE863rKkWZU53SLW5be4DUcW"
       },
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "InitiateVaultLockOutput"
     },
     "InsufficientCapacityException": {
       "description": "Returned if there is insufficient capacity to process this expedited request. This error only applies to expedited retrievals and not to standard or bulk retrievals.",
@@ -554,7 +591,8 @@
           "$ref": "#/definitions/string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InsufficientCapacityException"
     },
     "InvalidParameterValueException": {
       "description": "Returned if a parameter of the request is incorrectly specified.",
@@ -572,7 +610,8 @@
           "description": "Client"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidParameterValueException"
     },
     "InventoryRetrievalJobDescription": {
       "description": "Describes the options for a range inventory retrieval job.",
@@ -598,7 +637,8 @@
           "description": "The start of the date range in Universal Coordinated Time (UTC) for vault inventory retrieval that includes archives created on or after this date. This value should be a string in the ISO 8601 date format, for example <code>2013-03-20T17:03:43Z</code>."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InventoryRetrievalJobDescription"
     },
     "InventoryRetrievalJobInput": {
       "description": "Provides options for specifying a range inventory retrieval job.",
@@ -620,13 +660,15 @@
           "description": "The start of the date range in UTC for vault inventory retrieval that includes archives created on or after this date. This value should be a string in the ISO 8601 date format, for example <code>2013-03-20T17:03:43Z</code>."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InventoryRetrievalJobInput"
     },
     "JobList": {
       "items": {
         "$ref": "#/definitions/GlacierJobDescription"
       },
-      "type": "array"
+      "type": "array",
+      "title": "JobList"
     },
     "JobParameters": {
       "description": "Provides options for defining a job.",
@@ -664,7 +706,8 @@
           "description": "The job type. You can initiate a job to retrieve an archive or get an inventory of a vault. Valid values are \"archive-retrieval\" and \"inventory-retrieval\"."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "JobParameters"
     },
     "LimitExceededException": {
       "description": "Returned if the request results in a vault or account limit being exceeded.",
@@ -682,7 +725,8 @@
           "description": "Client"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LimitExceededException"
     },
     "ListJobsInput": {
       "description": "Provides options for retrieving a job list for an Amazon Glacier vault.",
@@ -691,7 +735,8 @@
         "vaultName": "my-vault"
       },
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "ListJobsInput"
     },
     "ListJobsOutput": {
       "description": "Contains the Amazon Glacier response to your request.",
@@ -735,7 +780,8 @@
           "description": " An opaque string used for pagination that specifies the job at which the listing of jobs should begin. You get the <code>marker</code> value from a previous List Jobs response. You only need to include the marker if you are continuing the pagination of the results started in a previous List Jobs request. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListJobsOutput"
     },
     "ListMultipartUploadsInput": {
       "description": "Provides options for retrieving list of in-progress multipart uploads for an Amazon Glacier vault.",
@@ -744,7 +790,8 @@
         "vaultName": "examplevault"
       },
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "ListMultipartUploadsInput"
     },
     "ListMultipartUploadsOutput": {
       "description": "Contains the Amazon Glacier response to your request.",
@@ -784,7 +831,8 @@
           "description": "A list of in-progress multipart uploads."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListMultipartUploadsOutput"
     },
     "ListPartsInput": {
       "description": "Provides options for retrieving a list of parts of an archive that have been uploaded in a specific multipart upload.",
@@ -794,7 +842,8 @@
         "vaultName": "examplevault"
       },
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "ListPartsInput"
     },
     "ListPartsOutput": {
       "description": "Contains the Amazon Glacier response to your request.",
@@ -846,14 +895,16 @@
           "description": "The Amazon Resource Name (ARN) of the vault to which the multipart upload was initiated."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListPartsOutput"
     },
     "ListProvisionedCapacityInput": {
       "example": {
         "accountId": "-"
       },
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "ListProvisionedCapacityInput"
     },
     "ListProvisionedCapacityOutput": {
       "example": {
@@ -876,7 +927,8 @@
           "description": "The response body contains the following JSON fields."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListProvisionedCapacityOutput"
     },
     "ListTagsForVaultInput": {
       "description": "The input value for <code>ListTagsForVaultInput</code>.",
@@ -885,7 +937,8 @@
         "vaultName": "examplevault"
       },
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "ListTagsForVaultInput"
     },
     "ListTagsForVaultOutput": {
       "description": "Contains the Amazon Glacier response to your request.",
@@ -901,7 +954,8 @@
           "description": "The tags attached to the vault. Each tag is composed of a key and a value."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListTagsForVaultOutput"
     },
     "ListVaultsInput": {
       "description": "Provides options to retrieve the vault list owned by the calling user's account. The list provides metadata information for each vault.",
@@ -911,7 +965,8 @@
         "marker": ""
       },
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "ListVaultsInput"
     },
     "ListVaultsOutput": {
       "description": "Contains the Amazon Glacier response to your request.",
@@ -937,7 +992,8 @@
           "description": "List of vaults."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListVaultsOutput"
     },
     "MissingParameterValueException": {
       "description": "Returned if a required header or parameter is missing from the request.",
@@ -955,22 +1011,26 @@
           "description": "Client."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "MissingParameterValueException"
     },
     "NotificationEventList": {
       "items": {
         "$ref": "#/definitions/string"
       },
-      "type": "array"
+      "type": "array",
+      "title": "NotificationEventList"
     },
     "NullableLong": {
-      "type": "integer"
+      "type": "integer",
+      "title": "NullableLong"
     },
     "PartList": {
       "items": {
         "$ref": "#/definitions/PartListElement"
       },
-      "type": "array"
+      "type": "array",
+      "title": "PartList"
     },
     "PartListElement": {
       "description": "A list of the part sizes of the multipart upload.",
@@ -984,7 +1044,8 @@
           "description": "The SHA256 tree hash value that Amazon Glacier calculated for the part. This field is never <code>null</code>."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PartListElement"
     },
     "PolicyEnforcedException": {
       "description": "Returned if a retrieval job would exceed the current data policy's retrieval rate limit. For more information about data retrieval policies,",
@@ -1002,7 +1063,8 @@
           "description": "Client"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PolicyEnforcedException"
     },
     "ProvisionedCapacityDescription": {
       "description": "The definition for a provisioned capacity unit.",
@@ -1020,27 +1082,31 @@
           "description": "The date that the provisioned capacity unit was purchased, in Universal Coordinated Time (UTC)."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ProvisionedCapacityDescription"
     },
     "ProvisionedCapacityList": {
       "items": {
         "$ref": "#/definitions/ProvisionedCapacityDescription"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ProvisionedCapacityList"
     },
     "PurchaseProvisionedCapacityInput": {
       "example": {
         "accountId": "-"
       },
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "PurchaseProvisionedCapacityInput"
     },
     "PurchaseProvisionedCapacityOutput": {
       "example": {
         "capacityId": "zSaq7NzHFQDANTfQkDen4V7z"
       },
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "PurchaseProvisionedCapacityOutput"
     },
     "RemoveTagsFromVaultInput": {
       "description": "The input value for <code>RemoveTagsFromVaultInput</code>.",
@@ -1058,7 +1124,8 @@
           "description": "A list of tag keys. Each corresponding tag is removed from the vault."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RemoveTagsFromVaultInput"
     },
     "RequestTimeoutException": {
       "description": "Returned if, when uploading an archive, Amazon Glacier times out while receiving the upload.",
@@ -1076,7 +1143,8 @@
           "description": "Client"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RequestTimeoutException"
     },
     "ResourceNotFoundException": {
       "description": "Returned if the specified resource (such as a vault, upload ID, or job ID) doesn't exist.",
@@ -1094,7 +1162,8 @@
           "description": "Client"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ResourceNotFoundException"
     },
     "ServiceUnavailableException": {
       "description": "Returned if the service cannot complete the request.",
@@ -1112,7 +1181,8 @@
           "description": "Server"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ServiceUnavailableException"
     },
     "SetDataRetrievalPolicyInput": {
       "description": "SetDataRetrievalPolicy input.",
@@ -1133,7 +1203,8 @@
           "description": "The data retrieval policy in JSON format."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SetDataRetrievalPolicyInput"
     },
     "SetVaultAccessPolicyInput": {
       "description": "SetVaultAccessPolicy input.",
@@ -1150,7 +1221,8 @@
           "description": "The vault access policy as a JSON string."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SetVaultAccessPolicyInput"
     },
     "SetVaultNotificationsInput": {
       "description": "Provides options to configure notifications that will be sent when specific events happen to a vault.",
@@ -1171,10 +1243,12 @@
           "description": "Provides options for specifying notification configuration."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SetVaultNotificationsInput"
     },
     "Size": {
-      "type": "integer"
+      "type": "integer",
+      "title": "Size"
     },
     "StatusCode": {
       "enum": [
@@ -1182,19 +1256,23 @@
         "Succeeded",
         "Failed"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "StatusCode"
     },
     "Stream": {
-      "type": "string"
+      "type": "string",
+      "title": "Stream"
     },
     "TagKey": {
-      "type": "string"
+      "type": "string",
+      "title": "TagKey"
     },
     "TagKeyList": {
       "items": {
         "$ref": "#/definitions/string"
       },
-      "type": "array"
+      "type": "array",
+      "title": "TagKeyList"
     },
     "TagMap": {
       "items": {
@@ -1208,10 +1286,12 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "TagMap"
     },
     "TagValue": {
-      "type": "string"
+      "type": "string",
+      "title": "TagValue"
     },
     "UploadArchiveInput": {
       "description": "Provides options to add an archive to a vault.",
@@ -1228,7 +1308,8 @@
           "description": "The data to upload."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UploadArchiveInput"
     },
     "UploadListElement": {
       "description": "A list of in-progress multipart uploads for a vault.",
@@ -1254,7 +1335,8 @@
           "description": "The Amazon Resource Name (ARN) of the vault that contains the archive."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UploadListElement"
     },
     "UploadMultipartPartInput": {
       "description": "Provides options to upload a part of an archive in a multipart upload operation.",
@@ -1272,7 +1354,8 @@
           "description": "The data to upload."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UploadMultipartPartInput"
     },
     "UploadMultipartPartOutput": {
       "description": "Contains the Amazon Glacier response to your request.",
@@ -1280,13 +1363,15 @@
         "checksum": "c06f7cd4baacb087002a99a5f48bf953"
       },
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "UploadMultipartPartOutput"
     },
     "UploadsList": {
       "items": {
         "$ref": "#/definitions/UploadListElement"
       },
-      "type": "array"
+      "type": "array",
+      "title": "UploadsList"
     },
     "VaultAccessPolicy": {
       "description": "Contains the vault access policy.",
@@ -1296,13 +1381,15 @@
           "description": "The vault access policy."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "VaultAccessPolicy"
     },
     "VaultList": {
       "items": {
         "$ref": "#/definitions/DescribeVaultOutput"
       },
-      "type": "array"
+      "type": "array",
+      "title": "VaultList"
     },
     "VaultLockPolicy": {
       "description": "Contains the vault lock policy.",
@@ -1312,7 +1399,8 @@
           "description": "The vault lock policy."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "VaultLockPolicy"
     },
     "VaultNotificationConfig": {
       "description": "Represents a vault's notification configuration.",
@@ -1326,19 +1414,24 @@
           "description": "The Amazon Simple Notification Service (Amazon SNS) topic Amazon Resource Name (ARN)."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "VaultNotificationConfig"
     },
     "boolean": {
-      "type": "boolean"
+      "type": "boolean",
+      "title": "boolean"
     },
     "httpstatus": {
-      "type": "integer"
+      "type": "integer",
+      "title": "httpstatus"
     },
     "long": {
-      "type": "integer"
+      "type": "integer",
+      "title": "long"
     },
     "string": {
-      "type": "string"
+      "type": "string",
+      "title": "string"
     }
   },
   "actions": [

@@ -77,7 +77,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Account"
     },
     "AccountAdwordsLink": {
       "properties": {
@@ -91,7 +92,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AccountAdwordsLink"
     },
     "AccountIdentifier": {
       "properties": {
@@ -106,7 +108,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AccountIdentifier"
     },
     "AccountStatus": {
       "description": "The status of an account, i.e., information about its products, which is computed offline and not returned immediately at insertion time.",
@@ -128,7 +131,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AccountStatus"
     },
     "AccountStatusDataQualityIssue": {
       "properties": {
@@ -177,7 +181,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AccountStatusDataQualityIssue"
     },
     "AccountStatusExampleItem": {
       "description": "An example of an item that has poor data quality. An item value on the landing page differs from what is submitted, or conflicts with a policy.",
@@ -203,7 +208,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AccountStatusExampleItem"
     },
     "AccountTax": {
       "description": "The tax settings of a merchant account.",
@@ -226,7 +232,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AccountTax"
     },
     "AccountTaxTaxRule": {
       "description": "Tax calculation rule to apply in a state or province (USA only).",
@@ -253,7 +260,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AccountTaxTaxRule"
     },
     "AccountUser": {
       "properties": {
@@ -266,7 +274,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AccountUser"
     },
     "AccountsAuthInfoResponse": {
       "properties": {
@@ -283,7 +292,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AccountsAuthInfoResponse"
     },
     "AccountsCustomBatchRequest": {
       "properties": {
@@ -295,7 +305,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AccountsCustomBatchRequest"
     },
     "AccountsCustomBatchRequestEntry": {
       "description": "A batch entry encoding a single non-batch accounts request.",
@@ -323,7 +334,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AccountsCustomBatchRequestEntry"
     },
     "AccountsCustomBatchResponse": {
       "properties": {
@@ -340,7 +352,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AccountsCustomBatchResponse"
     },
     "AccountsCustomBatchResponseEntry": {
       "description": "A batch entry encoding a single non-batch accounts response.",
@@ -364,7 +377,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AccountsCustomBatchResponseEntry"
     },
     "AccountsListResponse": {
       "properties": {
@@ -384,7 +398,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AccountsListResponse"
     },
     "AccountstatusesCustomBatchRequest": {
       "properties": {
@@ -396,7 +411,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AccountstatusesCustomBatchRequest"
     },
     "AccountstatusesCustomBatchRequestEntry": {
       "description": "A batch entry encoding a single non-batch accountstatuses request.",
@@ -421,7 +437,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AccountstatusesCustomBatchRequestEntry"
     },
     "AccountstatusesCustomBatchResponse": {
       "properties": {
@@ -438,7 +455,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AccountstatusesCustomBatchResponse"
     },
     "AccountstatusesCustomBatchResponseEntry": {
       "description": "A batch entry encoding a single non-batch accountstatuses response.",
@@ -457,7 +475,8 @@
           "description": "A list of errors defined if and only if the request failed."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AccountstatusesCustomBatchResponseEntry"
     },
     "AccountstatusesListResponse": {
       "properties": {
@@ -477,7 +496,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AccountstatusesListResponse"
     },
     "AccounttaxCustomBatchRequest": {
       "properties": {
@@ -489,7 +509,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AccounttaxCustomBatchRequest"
     },
     "AccounttaxCustomBatchRequestEntry": {
       "description": "A batch entry encoding a single non-batch accounttax request.",
@@ -517,7 +538,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AccounttaxCustomBatchRequestEntry"
     },
     "AccounttaxCustomBatchResponse": {
       "properties": {
@@ -534,7 +556,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AccounttaxCustomBatchResponse"
     },
     "AccounttaxCustomBatchResponseEntry": {
       "description": "A batch entry encoding a single non-batch accounttax response.",
@@ -558,7 +581,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AccounttaxCustomBatchResponseEntry"
     },
     "AccounttaxListResponse": {
       "properties": {
@@ -578,7 +602,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AccounttaxListResponse"
     },
     "CarrierRate": {
       "properties": {
@@ -607,7 +632,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CarrierRate"
     },
     "CarriersCarrier": {
       "properties": {
@@ -627,7 +653,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CarriersCarrier"
     },
     "Datafeed": {
       "description": "Datafeed data.",
@@ -682,7 +709,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Datafeed"
     },
     "DatafeedFetchSchedule": {
       "description": "The required fields vary based on the frequency of fetching. For a monthly fetch schedule, day_of_month and hour are required. For a weekly fetch schedule, weekday and hour are required. For a daily fetch schedule, only hour is required.",
@@ -723,7 +751,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DatafeedFetchSchedule"
     },
     "DatafeedFormat": {
       "properties": {
@@ -740,7 +769,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DatafeedFormat"
     },
     "DatafeedStatus": {
       "description": "The status of a datafeed, i.e., the result of the last retrieval of the datafeed computed asynchronously when the feed processing is finished.",
@@ -788,7 +818,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DatafeedStatus"
     },
     "DatafeedStatusError": {
       "description": "An error occurring in the feed, like \"invalid price\".",
@@ -814,7 +845,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DatafeedStatusError"
     },
     "DatafeedStatusExample": {
       "description": "An example occurrence for a particular error.",
@@ -833,7 +865,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DatafeedStatusExample"
     },
     "DatafeedsCustomBatchRequest": {
       "properties": {
@@ -845,7 +878,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DatafeedsCustomBatchRequest"
     },
     "DatafeedsCustomBatchRequestEntry": {
       "description": "A batch entry encoding a single non-batch datafeeds request.",
@@ -873,7 +907,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DatafeedsCustomBatchRequestEntry"
     },
     "DatafeedsCustomBatchResponse": {
       "properties": {
@@ -890,7 +925,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DatafeedsCustomBatchResponse"
     },
     "DatafeedsCustomBatchResponseEntry": {
       "description": "A batch entry encoding a single non-batch datafeeds response.",
@@ -909,7 +945,8 @@
           "description": "A list of errors defined if and only if the request failed."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DatafeedsCustomBatchResponseEntry"
     },
     "DatafeedsListResponse": {
       "properties": {
@@ -929,7 +966,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DatafeedsListResponse"
     },
     "DatafeedstatusesCustomBatchRequest": {
       "properties": {
@@ -941,7 +979,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DatafeedstatusesCustomBatchRequest"
     },
     "DatafeedstatusesCustomBatchRequestEntry": {
       "description": "A batch entry encoding a single non-batch datafeedstatuses request.",
@@ -965,7 +1004,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DatafeedstatusesCustomBatchRequestEntry"
     },
     "DatafeedstatusesCustomBatchResponse": {
       "properties": {
@@ -982,7 +1022,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DatafeedstatusesCustomBatchResponse"
     },
     "DatafeedstatusesCustomBatchResponseEntry": {
       "description": "A batch entry encoding a single non-batch datafeedstatuses response.",
@@ -1001,7 +1042,8 @@
           "description": "A list of errors defined if and only if the request failed."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DatafeedstatusesCustomBatchResponseEntry"
     },
     "DatafeedstatusesListResponse": {
       "properties": {
@@ -1021,7 +1063,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DatafeedstatusesListResponse"
     },
     "DeliveryTime": {
       "properties": {
@@ -1036,7 +1079,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DeliveryTime"
     },
     "Error": {
       "description": "An error returned by the API.",
@@ -1054,7 +1098,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Error"
     },
     "Errors": {
       "description": "A list of errors returned by a failed batch entry.",
@@ -1076,7 +1121,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Errors"
     },
     "Headers": {
       "description": "A non-empty list of row or column headers for a table. Exactly one of prices, weights, numItems, postalCodeGroupNames, or locations must be set.",
@@ -1117,7 +1163,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Headers"
     },
     "Installment": {
       "properties": {
@@ -1131,7 +1178,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Installment"
     },
     "Inventory": {
       "properties": {
@@ -1179,7 +1227,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Inventory"
     },
     "InventoryCustomBatchRequest": {
       "properties": {
@@ -1191,7 +1240,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InventoryCustomBatchRequest"
     },
     "InventoryCustomBatchRequestEntry": {
       "description": "A batch entry encoding a single non-batch inventory request.",
@@ -1219,7 +1269,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InventoryCustomBatchRequestEntry"
     },
     "InventoryCustomBatchResponse": {
       "properties": {
@@ -1236,7 +1287,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InventoryCustomBatchResponse"
     },
     "InventoryCustomBatchResponseEntry": {
       "description": "A batch entry encoding a single non-batch inventory response.",
@@ -1256,7 +1308,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InventoryCustomBatchResponseEntry"
     },
     "InventoryPickup": {
       "properties": {
@@ -1269,7 +1322,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InventoryPickup"
     },
     "InventorySetRequest": {
       "properties": {
@@ -1312,7 +1366,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InventorySetRequest"
     },
     "InventorySetResponse": {
       "properties": {
@@ -1322,7 +1377,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InventorySetResponse"
     },
     "LocationIdSet": {
       "properties": {
@@ -1334,7 +1390,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LocationIdSet"
     },
     "LoyaltyPoints": {
       "properties": {
@@ -1353,7 +1410,8 @@
           "type": "number"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LoyaltyPoints"
     },
     "Order": {
       "properties": {
@@ -1451,7 +1509,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Order"
     },
     "OrderAddress": {
       "properties": {
@@ -1494,7 +1553,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "OrderAddress"
     },
     "OrderCancellation": {
       "properties": {
@@ -1520,7 +1580,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "OrderCancellation"
     },
     "OrderCustomer": {
       "properties": {
@@ -1537,7 +1598,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "OrderCustomer"
     },
     "OrderDeliveryDetails": {
       "properties": {
@@ -1550,7 +1612,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "OrderDeliveryDetails"
     },
     "OrderLineItem": {
       "properties": {
@@ -1623,7 +1686,8 @@
           "description": "Total tax amount for the line item. For example, if two items are purchased, and each have a cost tax of $2, the total tax amount will be $4."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "OrderLineItem"
     },
     "OrderLineItemProduct": {
       "properties": {
@@ -1691,7 +1755,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "OrderLineItemProduct"
     },
     "OrderLineItemProductVariantAttribute": {
       "properties": {
@@ -1704,7 +1769,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "OrderLineItemProductVariantAttribute"
     },
     "OrderLineItemReturnInfo": {
       "properties": {
@@ -1722,7 +1788,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "OrderLineItemReturnInfo"
     },
     "OrderLineItemShippingDetails": {
       "properties": {
@@ -1739,7 +1806,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "OrderLineItemShippingDetails"
     },
     "OrderLineItemShippingDetailsMethod": {
       "properties": {
@@ -1762,7 +1830,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "OrderLineItemShippingDetailsMethod"
     },
     "OrderPaymentMethod": {
       "properties": {
@@ -1793,7 +1862,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "OrderPaymentMethod"
     },
     "OrderPromotion": {
       "properties": {
@@ -1828,7 +1898,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "OrderPromotion"
     },
     "OrderPromotionBenefit": {
       "properties": {
@@ -1856,7 +1927,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "OrderPromotionBenefit"
     },
     "OrderRefund": {
       "properties": {
@@ -1881,7 +1953,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "OrderRefund"
     },
     "OrderReturn": {
       "properties": {
@@ -1907,7 +1980,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "OrderReturn"
     },
     "OrderShipment": {
       "properties": {
@@ -1943,7 +2017,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "OrderShipment"
     },
     "OrderShipmentLineItemShipment": {
       "properties": {
@@ -1957,7 +2032,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "OrderShipmentLineItemShipment"
     },
     "OrdersAcknowledgeRequest": {
       "properties": {
@@ -1966,7 +2042,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "OrdersAcknowledgeRequest"
     },
     "OrdersAcknowledgeResponse": {
       "properties": {
@@ -1980,7 +2057,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "OrdersAcknowledgeResponse"
     },
     "OrdersAdvanceTestOrderResponse": {
       "properties": {
@@ -1990,7 +2068,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "OrdersAdvanceTestOrderResponse"
     },
     "OrdersCancelLineItemRequest": {
       "properties": {
@@ -2020,7 +2099,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "OrdersCancelLineItemRequest"
     },
     "OrdersCancelLineItemResponse": {
       "properties": {
@@ -2034,7 +2114,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "OrdersCancelLineItemResponse"
     },
     "OrdersCancelRequest": {
       "properties": {
@@ -2051,7 +2132,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "OrdersCancelRequest"
     },
     "OrdersCancelResponse": {
       "properties": {
@@ -2065,7 +2147,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "OrdersCancelResponse"
     },
     "OrdersCreateTestOrderRequest": {
       "properties": {
@@ -2078,7 +2161,8 @@
           "description": "The test order to create."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "OrdersCreateTestOrderRequest"
     },
     "OrdersCreateTestOrderResponse": {
       "properties": {
@@ -2092,7 +2176,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "OrdersCreateTestOrderResponse"
     },
     "OrdersCustomBatchRequest": {
       "properties": {
@@ -2104,7 +2189,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "OrdersCustomBatchRequest"
     },
     "OrdersCustomBatchRequestEntry": {
       "properties": {
@@ -2159,7 +2245,8 @@
           "description": "Required for updateShipment method."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "OrdersCustomBatchRequestEntry"
     },
     "OrdersCustomBatchRequestEntryCancel": {
       "properties": {
@@ -2172,7 +2259,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "OrdersCustomBatchRequestEntryCancel"
     },
     "OrdersCustomBatchRequestEntryCancelLineItem": {
       "properties": {
@@ -2198,7 +2286,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "OrdersCustomBatchRequestEntryCancelLineItem"
     },
     "OrdersCustomBatchRequestEntryRefund": {
       "properties": {
@@ -2215,7 +2304,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "OrdersCustomBatchRequestEntryRefund"
     },
     "OrdersCustomBatchRequestEntryReturnLineItem": {
       "properties": {
@@ -2237,7 +2327,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "OrdersCustomBatchRequestEntryReturnLineItem"
     },
     "OrdersCustomBatchRequestEntryShipLineItems": {
       "properties": {
@@ -2261,7 +2352,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "OrdersCustomBatchRequestEntryShipLineItems"
     },
     "OrdersCustomBatchRequestEntryUpdateShipment": {
       "properties": {
@@ -2282,7 +2374,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "OrdersCustomBatchRequestEntryUpdateShipment"
     },
     "OrdersCustomBatchResponse": {
       "properties": {
@@ -2299,7 +2392,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "OrdersCustomBatchResponse"
     },
     "OrdersCustomBatchResponseEntry": {
       "properties": {
@@ -2326,7 +2420,8 @@
           "description": "The retrieved order. Only defined if the method is get and if the request was successful."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "OrdersCustomBatchResponseEntry"
     },
     "OrdersGetByMerchantOrderIdResponse": {
       "properties": {
@@ -2340,7 +2435,8 @@
           "description": "The requested order."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "OrdersGetByMerchantOrderIdResponse"
     },
     "OrdersGetTestOrderTemplateResponse": {
       "properties": {
@@ -2354,7 +2450,8 @@
           "description": "The requested test order template."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "OrdersGetTestOrderTemplateResponse"
     },
     "OrdersListResponse": {
       "properties": {
@@ -2374,7 +2471,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "OrdersListResponse"
     },
     "OrdersRefundRequest": {
       "properties": {
@@ -2395,7 +2493,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "OrdersRefundRequest"
     },
     "OrdersRefundResponse": {
       "properties": {
@@ -2409,7 +2508,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "OrdersRefundResponse"
     },
     "OrdersReturnLineItemRequest": {
       "properties": {
@@ -2435,7 +2535,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "OrdersReturnLineItemRequest"
     },
     "OrdersReturnLineItemResponse": {
       "properties": {
@@ -2449,7 +2550,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "OrdersReturnLineItemResponse"
     },
     "OrdersShipLineItemsRequest": {
       "properties": {
@@ -2477,7 +2579,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "OrdersShipLineItemsRequest"
     },
     "OrdersShipLineItemsResponse": {
       "properties": {
@@ -2491,7 +2594,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "OrdersShipLineItemsResponse"
     },
     "OrdersUpdateMerchantOrderIdRequest": {
       "properties": {
@@ -2504,7 +2608,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "OrdersUpdateMerchantOrderIdRequest"
     },
     "OrdersUpdateMerchantOrderIdResponse": {
       "properties": {
@@ -2518,7 +2623,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "OrdersUpdateMerchantOrderIdResponse"
     },
     "OrdersUpdateShipmentRequest": {
       "properties": {
@@ -2543,7 +2649,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "OrdersUpdateShipmentRequest"
     },
     "OrdersUpdateShipmentResponse": {
       "properties": {
@@ -2557,7 +2664,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "OrdersUpdateShipmentResponse"
     },
     "PostalCodeGroup": {
       "properties": {
@@ -2577,7 +2685,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PostalCodeGroup"
     },
     "PostalCodeRange": {
       "properties": {
@@ -2590,7 +2699,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PostalCodeRange"
     },
     "Price": {
       "properties": {
@@ -2603,7 +2713,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Price"
     },
     "Product": {
       "description": "Product data.",
@@ -2943,7 +3054,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Product"
     },
     "ProductAspect": {
       "properties": {
@@ -2960,7 +3072,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ProductAspect"
     },
     "ProductCustomAttribute": {
       "properties": {
@@ -2981,7 +3094,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ProductCustomAttribute"
     },
     "ProductCustomGroup": {
       "properties": {
@@ -2997,7 +3111,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ProductCustomGroup"
     },
     "ProductDestination": {
       "properties": {
@@ -3010,7 +3125,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ProductDestination"
     },
     "ProductShipping": {
       "properties": {
@@ -3044,7 +3160,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ProductShipping"
     },
     "ProductShippingDimension": {
       "properties": {
@@ -3058,7 +3175,8 @@
           "type": "number"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ProductShippingDimension"
     },
     "ProductShippingWeight": {
       "properties": {
@@ -3072,7 +3190,8 @@
           "type": "number"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ProductShippingWeight"
     },
     "ProductStatus": {
       "description": "The status of a product, i.e., information about a product computed asynchronously by the data quality analysis.",
@@ -3121,7 +3240,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ProductStatus"
     },
     "ProductStatusDataQualityIssue": {
       "properties": {
@@ -3158,7 +3278,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ProductStatusDataQualityIssue"
     },
     "ProductStatusDestinationStatus": {
       "properties": {
@@ -3175,7 +3296,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ProductStatusDestinationStatus"
     },
     "ProductTax": {
       "properties": {
@@ -3206,7 +3328,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ProductTax"
     },
     "ProductUnitPricingBaseMeasure": {
       "properties": {
@@ -3220,7 +3343,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ProductUnitPricingBaseMeasure"
     },
     "ProductUnitPricingMeasure": {
       "properties": {
@@ -3234,7 +3358,8 @@
           "type": "number"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ProductUnitPricingMeasure"
     },
     "ProductsCustomBatchRequest": {
       "properties": {
@@ -3246,7 +3371,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ProductsCustomBatchRequest"
     },
     "ProductsCustomBatchRequestEntry": {
       "description": "A batch entry encoding a single non-batch products request.",
@@ -3273,7 +3399,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ProductsCustomBatchRequestEntry"
     },
     "ProductsCustomBatchResponse": {
       "properties": {
@@ -3290,7 +3417,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ProductsCustomBatchResponse"
     },
     "ProductsCustomBatchResponseEntry": {
       "description": "A batch entry encoding a single non-batch products response.",
@@ -3314,7 +3442,8 @@
           "description": "The inserted product. Only defined if the method is insert and if the request was successful."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ProductsCustomBatchResponseEntry"
     },
     "ProductsListResponse": {
       "properties": {
@@ -3334,7 +3463,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ProductsListResponse"
     },
     "ProductstatusesCustomBatchRequest": {
       "properties": {
@@ -3346,7 +3476,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ProductstatusesCustomBatchRequest"
     },
     "ProductstatusesCustomBatchRequestEntry": {
       "description": "A batch entry encoding a single non-batch productstatuses request.",
@@ -3369,7 +3500,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ProductstatusesCustomBatchRequestEntry"
     },
     "ProductstatusesCustomBatchResponse": {
       "properties": {
@@ -3386,7 +3518,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ProductstatusesCustomBatchResponse"
     },
     "ProductstatusesCustomBatchResponseEntry": {
       "description": "A batch entry encoding a single non-batch productstatuses response.",
@@ -3410,7 +3543,8 @@
           "description": "The requested product status. Only defined if the request was successful."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ProductstatusesCustomBatchResponseEntry"
     },
     "ProductstatusesListResponse": {
       "properties": {
@@ -3430,7 +3564,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ProductstatusesListResponse"
     },
     "RateGroup": {
       "properties": {
@@ -3464,7 +3599,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RateGroup"
     },
     "Row": {
       "properties": {
@@ -3476,7 +3612,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Row"
     },
     "Service": {
       "properties": {
@@ -3508,7 +3645,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Service"
     },
     "ShippingSettings": {
       "description": "The merchant account's shipping settings.",
@@ -3533,7 +3671,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ShippingSettings"
     },
     "ShippingsettingsCustomBatchRequest": {
       "properties": {
@@ -3545,7 +3684,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ShippingsettingsCustomBatchRequest"
     },
     "ShippingsettingsCustomBatchRequestEntry": {
       "description": "A batch entry encoding a single non-batch shippingsettings request.",
@@ -3573,7 +3713,8 @@
           "description": "The account shipping settings to update. Only defined if the method is update."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ShippingsettingsCustomBatchRequestEntry"
     },
     "ShippingsettingsCustomBatchResponse": {
       "properties": {
@@ -3590,7 +3731,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ShippingsettingsCustomBatchResponse"
     },
     "ShippingsettingsCustomBatchResponseEntry": {
       "description": "A batch entry encoding a single non-batch shipping settings response.",
@@ -3614,7 +3756,8 @@
           "description": "The retrieved or updated account shipping settings."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ShippingsettingsCustomBatchResponseEntry"
     },
     "ShippingsettingsGetSupportedCarriersResponse": {
       "properties": {
@@ -3631,7 +3774,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ShippingsettingsGetSupportedCarriersResponse"
     },
     "ShippingsettingsListResponse": {
       "properties": {
@@ -3651,7 +3795,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ShippingsettingsListResponse"
     },
     "Table": {
       "properties": {
@@ -3675,7 +3820,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Table"
     },
     "TestOrder": {
       "properties": {
@@ -3723,7 +3869,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TestOrder"
     },
     "TestOrderCustomer": {
       "properties": {
@@ -3740,7 +3887,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TestOrderCustomer"
     },
     "TestOrderLineItem": {
       "properties": {
@@ -3766,7 +3914,8 @@
           "description": "Unit tax for the line item."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TestOrderLineItem"
     },
     "TestOrderLineItemProduct": {
       "properties": {
@@ -3826,7 +3975,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TestOrderLineItemProduct"
     },
     "TestOrderPaymentMethod": {
       "properties": {
@@ -3853,7 +4003,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TestOrderPaymentMethod"
     },
     "Value": {
       "description": "The single value of a rate group or the value of a rate group table's cell. Exactly one of noShipping, flatRate, pricePercentage, carrierRateName, subtableName must be set.",
@@ -3879,7 +4030,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Value"
     },
     "Weight": {
       "properties": {
@@ -3892,7 +4044,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Weight"
     }
   },
   "actions": [

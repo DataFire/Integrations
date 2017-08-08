@@ -31,15 +31,18 @@
         "Region",
         "Name"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AlarmIdentifier"
     },
     "AlarmName": {
       "maxLength": 256,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "AlarmName"
     },
     "AliasHealthEnabled": {
-      "type": "boolean"
+      "type": "boolean",
+      "title": "AliasHealthEnabled"
     },
     "AliasTarget": {
       "description": "<p> <i>Alias resource record sets only:</i> Information about the CloudFront distribution, Elastic Beanstalk environment, ELB load balancer, Amazon S3 bucket, or Amazon Route 53 resource record set that you're redirecting queries to. An Elastic Beanstalk environment must have a regionalized subdomain.</p> <p>When creating resource record sets for a private hosted zone, note the following:</p> <ul> <li> <p>Resource record sets can't be created for CloudFront distributions in a private hosted zone.</p> </li> <li> <p>Creating geolocation alias resource record sets or latency alias resource record sets in a private hosted zone is unsupported.</p> </li> <li> <p>For information about creating failover resource record sets in a private hosted zone, see <a href=\"http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-private-hosted-zones.html\">Configuring Failover in a Private Hosted Zone</a>.</p> </li> </ul>",
@@ -62,10 +65,12 @@
         "DNSName",
         "EvaluateTargetHealth"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AliasTarget"
     },
     "AssociateVPCComment": {
-      "type": "string"
+      "type": "string",
+      "title": "AssociateVPCComment"
     },
     "AssociateVPCWithHostedZoneRequest": {
       "description": "A complex type that contains information about the request to associate a VPC with a private hosted zone.",
@@ -90,7 +95,8 @@
       "required": [
         "VPC"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AssociateVPCWithHostedZoneRequest"
     },
     "AssociateVPCWithHostedZoneResponse": {
       "description": "A complex type that contains the response information for the <code>AssociateVPCWithHostedZone</code> request.",
@@ -111,7 +117,8 @@
       "required": [
         "ChangeInfo"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AssociateVPCWithHostedZoneResponse"
     },
     "Change": {
       "description": "The information for each resource record set that you want to change.",
@@ -129,7 +136,8 @@
         "Action",
         "ResourceRecordSet"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "Change"
     },
     "ChangeAction": {
       "enum": [
@@ -137,7 +145,8 @@
         "DELETE",
         "UPSERT"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ChangeAction"
     },
     "ChangeBatch": {
       "description": "The information for a change request.",
@@ -154,7 +163,8 @@
       "required": [
         "Changes"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ChangeBatch"
     },
     "ChangeInfo": {
       "description": "A complex type that describes change information about changes made to your hosted zone.",
@@ -181,7 +191,8 @@
         "Status",
         "SubmittedAt"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ChangeInfo"
     },
     "ChangeResourceRecordSetsRequest": {
       "description": "A complex type that contains change information for the resource record set.",
@@ -266,7 +277,8 @@
       "required": [
         "ChangeBatch"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ChangeResourceRecordSetsRequest"
     },
     "ChangeResourceRecordSetsResponse": {
       "description": "A complex type containing the response for the request.",
@@ -287,14 +299,16 @@
       "required": [
         "ChangeInfo"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ChangeResourceRecordSetsResponse"
     },
     "ChangeStatus": {
       "enum": [
         "PENDING",
         "INSYNC"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ChangeStatus"
     },
     "ChangeTagsForResourceRequest": {
       "description": "A complex type that contains information about the tags that you want to add, edit, or delete.",
@@ -325,33 +339,38 @@
           "description": "A complex type that contains a list of the tags that you want to delete from the specified health check or hosted zone. You can specify up to 10 keys."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ChangeTagsForResourceRequest"
     },
     "ChangeTagsForResourceResponse": {
       "description": "Empty response for the request.",
       "example": {},
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "ChangeTagsForResourceResponse"
     },
     "Changes": {
       "items": {
         "$ref": "#/definitions/Change"
       },
       "minItems": 1,
-      "type": "array"
+      "type": "array",
+      "title": "Changes"
     },
     "CheckerIpRanges": {
       "items": {
         "$ref": "#/definitions/IPAddressCidr"
       },
-      "type": "array"
+      "type": "array",
+      "title": "CheckerIpRanges"
     },
     "ChildHealthCheckList": {
       "items": {
         "$ref": "#/definitions/HealthCheckId"
       },
       "maxItems": 256,
-      "type": "array"
+      "type": "array",
+      "title": "ChildHealthCheckList"
     },
     "CloudWatchAlarmConfiguration": {
       "description": "A complex type that contains information about the CloudWatch alarm that Amazon Route 53 is monitoring for this health check.",
@@ -398,7 +417,8 @@
         "Namespace",
         "Statistic"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CloudWatchAlarmConfiguration"
     },
     "CloudWatchRegion": {
       "enum": [
@@ -419,7 +439,8 @@
       ],
       "maxLength": 64,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "CloudWatchRegion"
     },
     "ComparisonOperator": {
       "enum": [
@@ -428,7 +449,8 @@
         "LessThanThreshold",
         "LessThanOrEqualToThreshold"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ComparisonOperator"
     },
     "ConcurrentModification": {
       "description": "Another user submitted a request to update the object at the same time that you did. Retry the request. ",
@@ -438,7 +460,8 @@
           "description": "Descriptive message for the error response."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ConcurrentModification"
     },
     "ConflictingDomainExists": {
       "description": "You specified an Amazon VPC that you're already using for another hosted zone, and the domain that you specified for one of the hosted zones is a subdomain of the domain that you specified for the other hosted zone. For example, you can't use the same Amazon VPC for the hosted zones for example.com and test.example.com.",
@@ -447,7 +470,8 @@
           "$ref": "#/definitions/ErrorMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ConflictingDomainExists"
     },
     "ConflictingTypes": {
       "description": "You tried to update a traffic policy instance by using a traffic policy version that has a different DNS type than the current type for the instance. You specified the type in the JSON document in the <code>CreateTrafficPolicy</code> or <code>CreateTrafficPolicyVersion</code>request. ",
@@ -457,7 +481,8 @@
           "description": "Descriptive message for the error response."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ConflictingTypes"
     },
     "CreateHealthCheckRequest": {
       "description": "A complex type that contains the health check request information.",
@@ -475,7 +500,8 @@
         "CallerReference",
         "HealthCheckConfig"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateHealthCheckRequest"
     },
     "CreateHealthCheckResponse": {
       "description": "A complex type containing the response information for the new health check.",
@@ -488,7 +514,8 @@
       "required": [
         "HealthCheck"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateHealthCheckResponse"
     },
     "CreateHostedZoneRequest": {
       "description": "A complex type that contains information about the request to create a hosted zone.",
@@ -518,7 +545,8 @@
         "Name",
         "CallerReference"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateHostedZoneRequest"
     },
     "CreateHostedZoneResponse": {
       "description": "A complex type containing the response information for the hosted zone.",
@@ -545,7 +573,8 @@
         "ChangeInfo",
         "DelegationSet"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateHostedZoneResponse"
     },
     "CreateReusableDelegationSetRequest": {
       "properties": {
@@ -561,7 +590,8 @@
       "required": [
         "CallerReference"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateReusableDelegationSetRequest"
     },
     "CreateReusableDelegationSetResponse": {
       "properties": {
@@ -573,7 +603,8 @@
       "required": [
         "DelegationSet"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateReusableDelegationSetResponse"
     },
     "CreateTrafficPolicyInstanceRequest": {
       "description": "A complex type that contains information about the resource record sets that you want to create based on a specified traffic policy.",
@@ -606,7 +637,8 @@
         "TrafficPolicyId",
         "TrafficPolicyVersion"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateTrafficPolicyInstanceRequest"
     },
     "CreateTrafficPolicyInstanceResponse": {
       "description": "A complex type that contains the response information for the <code>CreateTrafficPolicyInstance</code> request.",
@@ -619,7 +651,8 @@
       "required": [
         "TrafficPolicyInstance"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateTrafficPolicyInstanceResponse"
     },
     "CreateTrafficPolicyRequest": {
       "description": "A complex type that contains information about the traffic policy that you want to create.",
@@ -641,7 +674,8 @@
         "Name",
         "Document"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateTrafficPolicyRequest"
     },
     "CreateTrafficPolicyResponse": {
       "description": "A complex type that contains the response information for the <code>CreateTrafficPolicy</code> request.",
@@ -654,7 +688,8 @@
       "required": [
         "TrafficPolicy"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateTrafficPolicyResponse"
     },
     "CreateTrafficPolicyVersionRequest": {
       "description": "A complex type that contains information about the traffic policy that you want to create a new version for.",
@@ -671,7 +706,8 @@
       "required": [
         "Document"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateTrafficPolicyVersionRequest"
     },
     "CreateTrafficPolicyVersionResponse": {
       "description": "A complex type that contains the response information for the <code>CreateTrafficPolicyVersion</code> request.",
@@ -684,7 +720,8 @@
       "required": [
         "TrafficPolicy"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateTrafficPolicyVersionResponse"
     },
     "CreateVPCAssociationAuthorizationRequest": {
       "description": "A complex type that contains information about the request to authorize associating a VPC with your private hosted zone. Authorization is only required when a private hosted zone and a VPC were created by using different accounts.",
@@ -697,7 +734,8 @@
       "required": [
         "VPC"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateVPCAssociationAuthorizationRequest"
     },
     "CreateVPCAssociationAuthorizationResponse": {
       "description": "A complex type that contains the response information from a <code>CreateVPCAssociationAuthorization</code> request.",
@@ -715,14 +753,17 @@
         "HostedZoneId",
         "VPC"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateVPCAssociationAuthorizationResponse"
     },
     "DNSName": {
       "maxLength": 1024,
-      "type": "string"
+      "type": "string",
+      "title": "DNSName"
     },
     "DNSRCode": {
-      "type": "string"
+      "type": "string",
+      "title": "DNSRCode"
     },
     "DelegationSet": {
       "description": "A complex type that lists the name servers in a delegation set, as well as the <code>CallerReference</code> and the <code>ID</code> for the delegation set.",
@@ -743,7 +784,8 @@
       "required": [
         "NameServers"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DelegationSet"
     },
     "DelegationSetAlreadyCreated": {
       "description": "A delegation set with the same owner and caller reference combination has already been created.",
@@ -753,7 +795,8 @@
           "description": "Descriptive message for the error response."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DelegationSetAlreadyCreated"
     },
     "DelegationSetAlreadyReusable": {
       "description": "The specified delegation set has already been marked as reusable.",
@@ -763,7 +806,8 @@
           "description": "Descriptive message for the error response."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DelegationSetAlreadyReusable"
     },
     "DelegationSetInUse": {
       "description": "The specified delegation contains associated hosted zones which must be deleted before the reusable delegation set can be deleted.",
@@ -773,14 +817,16 @@
           "description": "Descriptive message for the error response."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DelegationSetInUse"
     },
     "DelegationSetNameServers": {
       "items": {
         "$ref": "#/definitions/DNSName"
       },
       "minItems": 1,
-      "type": "array"
+      "type": "array",
+      "title": "DelegationSetNameServers"
     },
     "DelegationSetNotAvailable": {
       "description": "You can create a hosted zone that has the same name as an existing hosted zone (example.com is common), but there is a limit to the number of hosted zones that have the same name. If you get this error, Amazon Route 53 has reached that limit. If you own the domain name and Amazon Route 53 generates this error, contact Customer Support.",
@@ -790,7 +836,8 @@
           "description": "Descriptive message for the error response."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DelegationSetNotAvailable"
     },
     "DelegationSetNotReusable": {
       "description": "A reusable delegation set with the specified ID does not exist.",
@@ -800,28 +847,33 @@
           "description": "Descriptive message for the error response."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DelegationSetNotReusable"
     },
     "DelegationSets": {
       "items": {
         "$ref": "#/definitions/DelegationSet"
       },
-      "type": "array"
+      "type": "array",
+      "title": "DelegationSets"
     },
     "DeleteHealthCheckRequest": {
       "description": "This action deletes a health check.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DeleteHealthCheckRequest"
     },
     "DeleteHealthCheckResponse": {
       "description": "An empty element.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DeleteHealthCheckResponse"
     },
     "DeleteHostedZoneRequest": {
       "description": "A request to delete a hosted zone.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DeleteHostedZoneRequest"
     },
     "DeleteHostedZoneResponse": {
       "description": "A complex type that contains the response to a <code>DeleteHostedZone</code> request.",
@@ -834,37 +886,44 @@
       "required": [
         "ChangeInfo"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteHostedZoneResponse"
     },
     "DeleteReusableDelegationSetRequest": {
       "description": "A request to delete a reusable delegation set.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DeleteReusableDelegationSetRequest"
     },
     "DeleteReusableDelegationSetResponse": {
       "description": "An empty element.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DeleteReusableDelegationSetResponse"
     },
     "DeleteTrafficPolicyInstanceRequest": {
       "description": "A request to delete a specified traffic policy instance.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DeleteTrafficPolicyInstanceRequest"
     },
     "DeleteTrafficPolicyInstanceResponse": {
       "description": "An empty element.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DeleteTrafficPolicyInstanceResponse"
     },
     "DeleteTrafficPolicyRequest": {
       "description": "A request to delete a specified traffic policy version.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DeleteTrafficPolicyRequest"
     },
     "DeleteTrafficPolicyResponse": {
       "description": "An empty element.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DeleteTrafficPolicyResponse"
     },
     "DeleteVPCAssociationAuthorizationRequest": {
       "description": "A complex type that contains information about the request to remove authorization to associate a VPC that was created by one AWS account with a hosted zone that was created with a different AWS account. ",
@@ -877,12 +936,14 @@
       "required": [
         "VPC"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteVPCAssociationAuthorizationRequest"
     },
     "DeleteVPCAssociationAuthorizationResponse": {
       "description": "Empty response for the request.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DeleteVPCAssociationAuthorizationResponse"
     },
     "Dimension": {
       "description": "For the metric that the CloudWatch alarm is associated with, a complex type that contains information about one dimension.",
@@ -900,22 +961,26 @@
         "Name",
         "Value"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "Dimension"
     },
     "DimensionField": {
       "maxLength": 255,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "DimensionField"
     },
     "DimensionList": {
       "items": {
         "$ref": "#/definitions/Dimension"
       },
       "maxItems": 10,
-      "type": "array"
+      "type": "array",
+      "title": "DimensionList"
     },
     "DisassociateVPCComment": {
-      "type": "string"
+      "type": "string",
+      "title": "DisassociateVPCComment"
     },
     "DisassociateVPCFromHostedZoneRequest": {
       "description": "A complex type that contains information about the VPC that you want to disassociate from a specified private hosted zone.",
@@ -932,7 +997,8 @@
       "required": [
         "VPC"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DisassociateVPCFromHostedZoneRequest"
     },
     "DisassociateVPCFromHostedZoneResponse": {
       "description": "A complex type that contains the response information for the disassociate request.",
@@ -945,32 +1011,39 @@
       "required": [
         "ChangeInfo"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DisassociateVPCFromHostedZoneResponse"
     },
     "EnableSNI": {
-      "type": "boolean"
+      "type": "boolean",
+      "title": "EnableSNI"
     },
     "ErrorMessage": {
-      "type": "string"
+      "type": "string",
+      "title": "ErrorMessage"
     },
     "ErrorMessages": {
       "items": {
         "$ref": "#/definitions/ErrorMessage"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ErrorMessages"
     },
     "EvaluationPeriods": {
       "minimum": 1,
-      "type": "integer"
+      "type": "integer",
+      "title": "EvaluationPeriods"
     },
     "FailureThreshold": {
       "maximum": 10,
       "minimum": 1,
-      "type": "integer"
+      "type": "integer",
+      "title": "FailureThreshold"
     },
     "FullyQualifiedDomainName": {
       "maxLength": 255,
-      "type": "string"
+      "type": "string",
+      "title": "FullyQualifiedDomainName"
     },
     "GeoLocation": {
       "description": "A complex type that contains information about a geo location.",
@@ -988,27 +1061,32 @@
           "description": "The code for the subdivision, for example, a state in the United States or a province in Canada."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GeoLocation"
     },
     "GeoLocationContinentCode": {
       "maxLength": 2,
       "minLength": 2,
-      "type": "string"
+      "type": "string",
+      "title": "GeoLocationContinentCode"
     },
     "GeoLocationContinentName": {
       "maxLength": 32,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "GeoLocationContinentName"
     },
     "GeoLocationCountryCode": {
       "maxLength": 2,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "GeoLocationCountryCode"
     },
     "GeoLocationCountryName": {
       "maxLength": 64,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "GeoLocationCountryName"
     },
     "GeoLocationDetails": {
       "description": "A complex type that contains the codes and full continent, country, and subdivision names for the specified <code>geolocation</code> code.",
@@ -1038,28 +1116,33 @@
           "description": "The full name of the subdivision, for example, a state in the United States or a province in Canada."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GeoLocationDetails"
     },
     "GeoLocationDetailsList": {
       "items": {
         "$ref": "#/definitions/GeoLocationDetails"
       },
-      "type": "array"
+      "type": "array",
+      "title": "GeoLocationDetailsList"
     },
     "GeoLocationSubdivisionCode": {
       "maxLength": 3,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "GeoLocationSubdivisionCode"
     },
     "GeoLocationSubdivisionName": {
       "maxLength": 64,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "GeoLocationSubdivisionName"
     },
     "GetChangeRequest": {
       "description": "The input for a GetChange request.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "GetChangeRequest"
     },
     "GetChangeResponse": {
       "description": "A complex type that contains the <code>ChangeInfo</code> element.",
@@ -1072,11 +1155,13 @@
       "required": [
         "ChangeInfo"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetChangeResponse"
     },
     "GetCheckerIpRangesRequest": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "GetCheckerIpRangesRequest"
     },
     "GetCheckerIpRangesResponse": {
       "properties": {
@@ -1087,12 +1172,14 @@
       "required": [
         "CheckerIpRanges"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetCheckerIpRangesResponse"
     },
     "GetGeoLocationRequest": {
       "description": "A request for information about whether a specified geographic location is supported for Amazon Route 53 geolocation resource record sets.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "GetGeoLocationRequest"
     },
     "GetGeoLocationResponse": {
       "description": "A complex type that contains the response information for the specified geolocation code.",
@@ -1105,12 +1192,14 @@
       "required": [
         "GeoLocationDetails"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetGeoLocationResponse"
     },
     "GetHealthCheckCountRequest": {
       "description": "A request for the number of health checks that are associated with the current AWS account.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "GetHealthCheckCountRequest"
     },
     "GetHealthCheckCountResponse": {
       "description": "A complex type that contains the response to a <code>GetHealthCheckCount</code> request.",
@@ -1123,12 +1212,14 @@
       "required": [
         "HealthCheckCount"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetHealthCheckCountResponse"
     },
     "GetHealthCheckLastFailureReasonRequest": {
       "description": "A request for the reason that a health check failed most recently.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "GetHealthCheckLastFailureReasonRequest"
     },
     "GetHealthCheckLastFailureReasonResponse": {
       "description": "A complex type that contains the response to a <code>GetHealthCheckLastFailureReason</code> request.",
@@ -1141,12 +1232,14 @@
       "required": [
         "HealthCheckObservations"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetHealthCheckLastFailureReasonResponse"
     },
     "GetHealthCheckRequest": {
       "description": "A request to get information about a specified health check. ",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "GetHealthCheckRequest"
     },
     "GetHealthCheckResponse": {
       "description": "A complex type that contains the response to a <code>GetHealthCheck</code> request.",
@@ -1159,12 +1252,14 @@
       "required": [
         "HealthCheck"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetHealthCheckResponse"
     },
     "GetHealthCheckStatusRequest": {
       "description": "A request to get the status for a health check.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "GetHealthCheckStatusRequest"
     },
     "GetHealthCheckStatusResponse": {
       "description": "A complex type that contains the response to a <code>GetHealthCheck</code> request.",
@@ -1177,12 +1272,14 @@
       "required": [
         "HealthCheckObservations"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetHealthCheckStatusResponse"
     },
     "GetHostedZoneCountRequest": {
       "description": "A request to retrieve a count of all the hosted zones that are associated with the current AWS account.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "GetHostedZoneCountRequest"
     },
     "GetHostedZoneCountResponse": {
       "description": "A complex type that contains the response to a <code>GetHostedZoneCount</code> request.",
@@ -1195,7 +1292,8 @@
       "required": [
         "HostedZoneCount"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetHostedZoneCountResponse"
     },
     "GetHostedZoneRequest": {
       "description": "A request to get information about a specified hosted zone. ",
@@ -1203,7 +1301,8 @@
         "Id": "Z3M3LMPEXAMPLE"
       },
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "GetHostedZoneRequest"
     },
     "GetHostedZoneResponse": {
       "description": "A complex type that contain the response to a <code>GetHostedZone</code> request.",
@@ -1243,12 +1342,14 @@
       "required": [
         "HostedZone"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetHostedZoneResponse"
     },
     "GetReusableDelegationSetRequest": {
       "description": "A request to get information about a specified reusable delegation set.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "GetReusableDelegationSetRequest"
     },
     "GetReusableDelegationSetResponse": {
       "description": "A complex type that contains the response to the <code>GetReusableDelegationSet</code> request.",
@@ -1261,12 +1362,14 @@
       "required": [
         "DelegationSet"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetReusableDelegationSetResponse"
     },
     "GetTrafficPolicyInstanceCountRequest": {
       "description": "Request to get the number of traffic policy instances that are associated with the current AWS account.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "GetTrafficPolicyInstanceCountRequest"
     },
     "GetTrafficPolicyInstanceCountResponse": {
       "description": "A complex type that contains information about the resource record sets that Amazon Route 53 created based on a specified traffic policy.",
@@ -1279,12 +1382,14 @@
       "required": [
         "TrafficPolicyInstanceCount"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetTrafficPolicyInstanceCountResponse"
     },
     "GetTrafficPolicyInstanceRequest": {
       "description": "Gets information about a specified traffic policy instance.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "GetTrafficPolicyInstanceRequest"
     },
     "GetTrafficPolicyInstanceResponse": {
       "description": "A complex type that contains information about the resource record sets that Amazon Route 53 created based on a specified traffic policy.",
@@ -1297,12 +1402,14 @@
       "required": [
         "TrafficPolicyInstance"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetTrafficPolicyInstanceResponse"
     },
     "GetTrafficPolicyRequest": {
       "description": "Gets information about a specific traffic policy version.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "GetTrafficPolicyRequest"
     },
     "GetTrafficPolicyResponse": {
       "description": "A complex type that contains the response information for the request.",
@@ -1315,7 +1422,8 @@
       "required": [
         "TrafficPolicy"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetTrafficPolicyResponse"
     },
     "HealthCheck": {
       "description": "A complex type that contains information about one health check that is associated with the current AWS account.",
@@ -1347,7 +1455,8 @@
         "HealthCheckConfig",
         "HealthCheckVersion"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "HealthCheck"
     },
     "HealthCheckAlreadyExists": {
       "description": "<p> The health check you're attempting to create already exists. Amazon Route 53 returns this error when you submit a request that has the following values:</p> <ul> <li> <p>The same value for <code>CallerReference</code> as an existing health check, and one or more values that differ from the existing health check that has the same caller reference.</p> </li> <li> <p>The same value for <code>CallerReference</code> as a health check that you created and later deleted, regardless of the other settings in the request.</p> </li> </ul>",
@@ -1357,7 +1466,8 @@
           "description": "Descriptive message for the error response."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "HealthCheckAlreadyExists"
     },
     "HealthCheckConfig": {
       "description": "A complex type that contains information about the health check.",
@@ -1430,14 +1540,17 @@
       "required": [
         "Type"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "HealthCheckConfig"
     },
     "HealthCheckCount": {
-      "type": "integer"
+      "type": "integer",
+      "title": "HealthCheckCount"
     },
     "HealthCheckId": {
       "maxLength": 64,
-      "type": "string"
+      "type": "string",
+      "title": "HealthCheckId"
     },
     "HealthCheckInUse": {
       "description": "The health check ID for this health check is referenced in the <code>HealthCheckId</code> element in one of the resource record sets in one of the hosted zones that are owned by the current AWS account.",
@@ -1447,12 +1560,14 @@
           "description": "Descriptive message for the error response."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "HealthCheckInUse"
     },
     "HealthCheckNonce": {
       "maxLength": 64,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "HealthCheckNonce"
     },
     "HealthCheckObservation": {
       "description": "A complex type that contains the last failure reason as reported by one Amazon Route 53 health checker.",
@@ -1470,13 +1585,15 @@
           "description": "A complex type that contains the last failure reason as reported by one Amazon Route 53 health checker and the time of the failed health check."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "HealthCheckObservation"
     },
     "HealthCheckObservations": {
       "items": {
         "$ref": "#/definitions/HealthCheckObservation"
       },
-      "type": "array"
+      "type": "array",
+      "title": "HealthCheckObservations"
     },
     "HealthCheckRegion": {
       "enum": [
@@ -1491,7 +1608,8 @@
       ],
       "maxLength": 64,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "HealthCheckRegion"
     },
     "HealthCheckRegionList": {
       "items": {
@@ -1499,7 +1617,8 @@
       },
       "maxItems": 64,
       "minItems": 1,
-      "type": "array"
+      "type": "array",
+      "title": "HealthCheckRegionList"
     },
     "HealthCheckType": {
       "enum": [
@@ -1511,11 +1630,13 @@
         "CALCULATED",
         "CLOUDWATCH_METRIC"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "HealthCheckType"
     },
     "HealthCheckVersion": {
       "minimum": 1,
-      "type": "integer"
+      "type": "integer",
+      "title": "HealthCheckVersion"
     },
     "HealthCheckVersionMismatch": {
       "description": "The value of <code>HealthCheckVersion</code> in the request doesn't match the value of <code>HealthCheckVersion</code> in the health check.",
@@ -1524,18 +1645,21 @@
           "$ref": "#/definitions/ErrorMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "HealthCheckVersionMismatch"
     },
     "HealthChecks": {
       "items": {
         "$ref": "#/definitions/HealthCheck"
       },
-      "type": "array"
+      "type": "array",
+      "title": "HealthChecks"
     },
     "HealthThreshold": {
       "maximum": 256,
       "minimum": 0,
-      "type": "integer"
+      "type": "integer",
+      "title": "HealthThreshold"
     },
     "HostedZone": {
       "description": "A complex type that contains general information about the hosted zone.",
@@ -1566,7 +1690,8 @@
         "Name",
         "CallerReference"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "HostedZone"
     },
     "HostedZoneAlreadyExists": {
       "description": "The hosted zone you're trying to create already exists. Amazon Route 53 returns this error when a hosted zone has already been created with the specified <code>CallerReference</code>.",
@@ -1576,7 +1701,8 @@
           "description": "Descriptive message for the error response."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "HostedZoneAlreadyExists"
     },
     "HostedZoneConfig": {
       "description": "A complex type that contains an optional comment about your hosted zone. If you don't want to specify a comment, omit both the <code>HostedZoneConfig</code> and <code>Comment</code> elements.",
@@ -1590,10 +1716,12 @@
           "description": "A value that indicates whether this is a private hosted zone."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "HostedZoneConfig"
     },
     "HostedZoneCount": {
-      "type": "integer"
+      "type": "integer",
+      "title": "HostedZoneCount"
     },
     "HostedZoneNotEmpty": {
       "description": "The hosted zone contains resource records that are not SOA or NS records.",
@@ -1603,7 +1731,8 @@
           "description": "Descriptive message for the error response."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "HostedZoneNotEmpty"
     },
     "HostedZoneNotFound": {
       "description": "The specified HostedZone can't be found.",
@@ -1613,24 +1742,29 @@
           "description": "Descriptive message for the error response."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "HostedZoneNotFound"
     },
     "HostedZoneRRSetCount": {
-      "type": "integer"
+      "type": "integer",
+      "title": "HostedZoneRRSetCount"
     },
     "HostedZones": {
       "items": {
         "$ref": "#/definitions/HostedZone"
       },
-      "type": "array"
+      "type": "array",
+      "title": "HostedZones"
     },
     "IPAddress": {
       "maxLength": 45,
       "pattern": "(^((([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]))$|^(([0-9a-fA-F]{1,4}:){7,7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:)|fe80:(:[0-9a-fA-F]{0,4}){0,4}%[0-9a-zA-Z]{1,}|::(ffff(:0{1,4}){0,1}:){0,1}((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])|([0-9a-fA-F]{1,4}:){1,4}:((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9]))$)",
-      "type": "string"
+      "type": "string",
+      "title": "IPAddress"
     },
     "IPAddressCidr": {
-      "type": "string"
+      "type": "string",
+      "title": "IPAddressCidr"
     },
     "IncompatibleVersion": {
       "description": "The resource you're trying to access is unsupported on this Amazon Route 53 endpoint.",
@@ -1639,7 +1773,8 @@
           "$ref": "#/definitions/ErrorMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "IncompatibleVersion"
     },
     "InsufficientDataHealthStatus": {
       "enum": [
@@ -1647,7 +1782,8 @@
         "Unhealthy",
         "LastKnownStatus"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "InsufficientDataHealthStatus"
     },
     "InvalidArgument": {
       "description": "Parameter name is invalid.",
@@ -1657,7 +1793,8 @@
           "description": "Descriptive message for the error response."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidArgument"
     },
     "InvalidChangeBatch": {
       "description": "This exception contains a list of messages that might contain one or more error messages. Each error message indicates one error in the change batch.",
@@ -1667,7 +1804,8 @@
           "description": "Descriptive message for the error response."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidChangeBatch"
     },
     "InvalidDomainName": {
       "description": "The specified domain name is not valid.",
@@ -1677,7 +1815,8 @@
           "description": "Descriptive message for the error response."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidDomainName"
     },
     "InvalidInput": {
       "description": "The input is not valid.",
@@ -1687,7 +1826,8 @@
           "description": "Descriptive message for the error response."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidInput"
     },
     "InvalidPaginationToken": {
       "properties": {
@@ -1695,7 +1835,8 @@
           "$ref": "#/definitions/ErrorMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidPaginationToken"
     },
     "InvalidTrafficPolicyDocument": {
       "description": "The format of the traffic policy document that you specified in the <code>Document</code> element is invalid.",
@@ -1705,7 +1846,8 @@
           "description": "Descriptive message for the error response."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidTrafficPolicyDocument"
     },
     "InvalidVPCId": {
       "description": "The VPC ID that you specified either isn't a valid ID or the current account is not authorized to access this VPC.",
@@ -1715,13 +1857,16 @@
           "description": "Descriptive message for the error response."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidVPCId"
     },
     "Inverted": {
-      "type": "boolean"
+      "type": "boolean",
+      "title": "Inverted"
     },
     "IsPrivateZone": {
-      "type": "boolean"
+      "type": "boolean",
+      "title": "IsPrivateZone"
     },
     "LastVPCAssociation": {
       "description": "The VPC that you're trying to disassociate from the private hosted zone is the last VPC that is associated with the hosted zone. Amazon Route 53 doesn't support disassociating the last VPC from a hosted zone.",
@@ -1731,7 +1876,8 @@
           "description": "Descriptive message for the error response."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LastVPCAssociation"
     },
     "LimitsExceeded": {
       "description": "The limits specified for a resource have been exceeded.",
@@ -1741,12 +1887,14 @@
           "description": "Descriptive message for the error response."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LimitsExceeded"
     },
     "ListGeoLocationsRequest": {
       "description": "A request to get a list of geographic locations that Amazon Route 53 supports for geolocation resource record sets. ",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "ListGeoLocationsRequest"
     },
     "ListGeoLocationsResponse": {
       "description": "A complex type containing the response information for the request.",
@@ -1781,12 +1929,14 @@
         "IsTruncated",
         "MaxItems"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListGeoLocationsResponse"
     },
     "ListHealthChecksRequest": {
       "description": "A request to retrieve a list of the health checks that are associated with the current AWS account.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "ListHealthChecksRequest"
     },
     "ListHealthChecksResponse": {
       "description": "A complex type that contains the response to a <code>ListHealthChecks</code> request.",
@@ -1818,12 +1968,14 @@
         "IsTruncated",
         "MaxItems"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListHealthChecksResponse"
     },
     "ListHostedZonesByNameRequest": {
       "description": "Retrieves a list of the public and private hosted zones that are associated with the current AWS account in ASCII order by domain name. ",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "ListHostedZonesByNameRequest"
     },
     "ListHostedZonesByNameResponse": {
       "description": "A complex type that contains the response information for the request.",
@@ -1862,12 +2014,14 @@
         "IsTruncated",
         "MaxItems"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListHostedZonesByNameResponse"
     },
     "ListHostedZonesRequest": {
       "description": "A request to retrieve a list of the public and private hosted zones that are associated with the current AWS account.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "ListHostedZonesRequest"
     },
     "ListHostedZonesResponse": {
       "properties": {
@@ -1898,12 +2052,14 @@
         "IsTruncated",
         "MaxItems"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListHostedZonesResponse"
     },
     "ListResourceRecordSetsRequest": {
       "description": "A request for the resource record sets that are associated with a specified hosted zone.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "ListResourceRecordSetsRequest"
     },
     "ListResourceRecordSetsResponse": {
       "description": "A complex type that contains list information for the resource record set.",
@@ -1938,12 +2094,14 @@
         "IsTruncated",
         "MaxItems"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListResourceRecordSetsResponse"
     },
     "ListReusableDelegationSetsRequest": {
       "description": "A request to get a list of the reusable delegation sets that are associated with the current AWS account.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "ListReusableDelegationSetsRequest"
     },
     "ListReusableDelegationSetsResponse": {
       "description": "A complex type that contains information about the reusable delegation sets that are associated with the current AWS account.",
@@ -1975,12 +2133,14 @@
         "IsTruncated",
         "MaxItems"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListReusableDelegationSetsResponse"
     },
     "ListTagsForResourceRequest": {
       "description": "A complex type containing information about a request for a list of the tags that are associated with an individual resource.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "ListTagsForResourceRequest"
     },
     "ListTagsForResourceResponse": {
       "description": "A complex type that contains information about the health checks or hosted zones for which you want to list tags.",
@@ -1993,7 +2153,8 @@
       "required": [
         "ResourceTagSet"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListTagsForResourceResponse"
     },
     "ListTagsForResourcesRequest": {
       "description": "A complex type that contains information about the health checks or hosted zones for which you want to list tags.",
@@ -2006,7 +2167,8 @@
       "required": [
         "ResourceIds"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListTagsForResourcesRequest"
     },
     "ListTagsForResourcesResponse": {
       "description": "A complex type containing tags for the specified resources.",
@@ -2019,12 +2181,14 @@
       "required": [
         "ResourceTagSets"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListTagsForResourcesResponse"
     },
     "ListTrafficPoliciesRequest": {
       "description": "A complex type that contains the information about the request to list the traffic policies that are associated with the current AWS account.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "ListTrafficPoliciesRequest"
     },
     "ListTrafficPoliciesResponse": {
       "description": "A complex type that contains the response information for the request.",
@@ -2052,12 +2216,14 @@
         "TrafficPolicyIdMarker",
         "MaxItems"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListTrafficPoliciesResponse"
     },
     "ListTrafficPolicyInstancesByHostedZoneRequest": {
       "description": "A request for the traffic policy instances that you created in a specified hosted zone.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "ListTrafficPolicyInstancesByHostedZoneRequest"
     },
     "ListTrafficPolicyInstancesByHostedZoneResponse": {
       "description": "A complex type that contains the response information for the request.",
@@ -2088,12 +2254,14 @@
         "IsTruncated",
         "MaxItems"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListTrafficPolicyInstancesByHostedZoneResponse"
     },
     "ListTrafficPolicyInstancesByPolicyRequest": {
       "description": "A complex type that contains the information about the request to list your traffic policy instances.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "ListTrafficPolicyInstancesByPolicyRequest"
     },
     "ListTrafficPolicyInstancesByPolicyResponse": {
       "description": "A complex type that contains the response information for the request.",
@@ -2128,12 +2296,14 @@
         "IsTruncated",
         "MaxItems"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListTrafficPolicyInstancesByPolicyResponse"
     },
     "ListTrafficPolicyInstancesRequest": {
       "description": "A request to get information about the traffic policy instances that you created by using the current AWS account.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "ListTrafficPolicyInstancesRequest"
     },
     "ListTrafficPolicyInstancesResponse": {
       "description": "A complex type that contains the response information for the request.",
@@ -2168,12 +2338,14 @@
         "IsTruncated",
         "MaxItems"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListTrafficPolicyInstancesResponse"
     },
     "ListTrafficPolicyVersionsRequest": {
       "description": "A complex type that contains the information about the request to list your traffic policies.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "ListTrafficPolicyVersionsRequest"
     },
     "ListTrafficPolicyVersionsResponse": {
       "description": "A complex type that contains the response information for the request.",
@@ -2201,12 +2373,14 @@
         "TrafficPolicyVersionMarker",
         "MaxItems"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListTrafficPolicyVersionsResponse"
     },
     "ListVPCAssociationAuthorizationsRequest": {
       "description": "A complex type that contains information about that can be associated with your hosted zone.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "ListVPCAssociationAuthorizationsRequest"
     },
     "ListVPCAssociationAuthorizationsResponse": {
       "description": "A complex type that contains the response information for the request.",
@@ -2228,32 +2402,39 @@
         "HostedZoneId",
         "VPCs"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListVPCAssociationAuthorizationsResponse"
     },
     "MaxResults": {
-      "type": "string"
+      "type": "string",
+      "title": "MaxResults"
     },
     "MeasureLatency": {
-      "type": "boolean"
+      "type": "boolean",
+      "title": "MeasureLatency"
     },
     "Message": {
       "maxLength": 1024,
-      "type": "string"
+      "type": "string",
+      "title": "Message"
     },
     "MetricName": {
       "maxLength": 255,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "MetricName"
     },
     "Nameserver": {
       "maxLength": 255,
       "minLength": 0,
-      "type": "string"
+      "type": "string",
+      "title": "Nameserver"
     },
     "Namespace": {
       "maxLength": 255,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "Namespace"
     },
     "NoSuchChange": {
       "description": "A change with the specified change ID does not exist.",
@@ -2262,7 +2443,8 @@
           "$ref": "#/definitions/ErrorMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "NoSuchChange"
     },
     "NoSuchDelegationSet": {
       "description": "A reusable delegation set with the specified ID does not exist.",
@@ -2272,7 +2454,8 @@
           "description": "Descriptive message for the error response."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "NoSuchDelegationSet"
     },
     "NoSuchGeoLocation": {
       "description": "Amazon Route 53 doesn't support the specified geolocation.",
@@ -2282,7 +2465,8 @@
           "description": "Descriptive message for the error response."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "NoSuchGeoLocation"
     },
     "NoSuchHealthCheck": {
       "description": "No health check exists with the ID that you specified in the <code>DeleteHealthCheck</code> request.",
@@ -2292,7 +2476,8 @@
           "description": "Descriptive message for the error response."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "NoSuchHealthCheck"
     },
     "NoSuchHostedZone": {
       "description": "No hosted zone exists with the ID that you specified.",
@@ -2302,7 +2487,8 @@
           "description": "Descriptive message for the error response."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "NoSuchHostedZone"
     },
     "NoSuchTrafficPolicy": {
       "description": "No traffic policy exists with the specified ID.",
@@ -2312,7 +2498,8 @@
           "description": "Descriptive message for the error response."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "NoSuchTrafficPolicy"
     },
     "NoSuchTrafficPolicyInstance": {
       "description": "No traffic policy instance exists with the specified ID.",
@@ -2322,12 +2509,14 @@
           "description": "Descriptive message for the error response."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "NoSuchTrafficPolicyInstance"
     },
     "Nonce": {
       "maxLength": 128,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "Nonce"
     },
     "NotAuthorizedException": {
       "description": "Associating the specified VPC with the specified hosted zone has not been authorized.",
@@ -2337,30 +2526,37 @@
           "description": "Descriptive message for the error response."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "NotAuthorizedException"
     },
     "PageMarker": {
       "maxLength": 64,
-      "type": "string"
+      "type": "string",
+      "title": "PageMarker"
     },
     "PageMaxItems": {
-      "type": "string"
+      "type": "string",
+      "title": "PageMaxItems"
     },
     "PageTruncated": {
-      "type": "boolean"
+      "type": "boolean",
+      "title": "PageTruncated"
     },
     "PaginationToken": {
       "maxLength": 256,
-      "type": "string"
+      "type": "string",
+      "title": "PaginationToken"
     },
     "Period": {
       "minimum": 60,
-      "type": "integer"
+      "type": "integer",
+      "title": "Period"
     },
     "Port": {
       "maximum": 65535,
       "minimum": 1,
-      "type": "integer"
+      "type": "integer",
+      "title": "Port"
     },
     "PriorRequestNotComplete": {
       "description": "If Amazon Route 53 can't process a request before the next request arrives, it will reject subsequent requests for the same hosted zone and return an <code>HTTP 400 error</code> (<code>Bad request</code>). If Amazon Route 53 returns this error repeatedly for the same request, we recommend that you wait, in intervals of increasing duration, before you try the request again.",
@@ -2369,7 +2565,8 @@
           "$ref": "#/definitions/ErrorMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PriorRequestNotComplete"
     },
     "PublicZoneVPCAssociation": {
       "description": "You're trying to associate a VPC with a public hosted zone. Amazon Route 53 doesn't support associating a VPC with a public hosted zone.",
@@ -2379,11 +2576,13 @@
           "description": "Descriptive message for the error response."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PublicZoneVPCAssociation"
     },
     "RData": {
       "maxLength": 4000,
-      "type": "string"
+      "type": "string",
+      "title": "RData"
     },
     "RRType": {
       "enum": [
@@ -2399,36 +2598,43 @@
         "SPF",
         "AAAA"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "RRType"
     },
     "RecordData": {
       "items": {
         "$ref": "#/definitions/RecordDataEntry"
       },
-      "type": "array"
+      "type": "array",
+      "title": "RecordData"
     },
     "RecordDataEntry": {
       "description": "<p>A value that Amazon Route 53 returned for this resource record set. A <code>RecordDataEntry</code> element is one of the following:</p> <ul> <li> <p>For non-alias resource record sets, a <code>RecordDataEntry</code> element contains one value in the resource record set. If the resource record set contains multiple values, the response includes one <code>RecordDataEntry</code> element for each value.</p> </li> <li> <p>For multiple resource record sets that have the same name and type, which includes weighted, latency, geolocation, and failover, a <code>RecordDataEntry</code> element contains the value from the appropriate resource record set based on the request.</p> </li> <li> <p>For alias resource record sets that refer to AWS resources other than another resource record set, the <code>RecordDataEntry</code> element contains an IP address or a domain name for the AWS resource, depending on the type of resource.</p> </li> <li> <p>For alias resource record sets that refer to other resource record sets, a <code>RecordDataEntry</code> element contains one value from the referenced resource record set. If the referenced resource record set contains multiple values, the response includes one <code>RecordDataEntry</code> element for each value.</p> </li> </ul>",
       "maxLength": 512,
       "minLength": 0,
-      "type": "string"
+      "type": "string",
+      "title": "RecordDataEntry"
     },
     "RequestInterval": {
       "maximum": 30,
       "minimum": 10,
-      "type": "integer"
+      "type": "integer",
+      "title": "RequestInterval"
     },
     "ResourceDescription": {
       "maxLength": 256,
-      "type": "string"
+      "type": "string",
+      "title": "ResourceDescription"
     },
     "ResourceId": {
       "maxLength": 32,
-      "type": "string"
+      "type": "string",
+      "title": "ResourceId"
     },
     "ResourcePath": {
       "maxLength": 255,
-      "type": "string"
+      "type": "string",
+      "title": "ResourcePath"
     },
     "ResourceRecord": {
       "description": "<p>Information specific to the resource record.</p> <note> <p>If you're creating an alias resource record set, omit <code>ResourceRecord</code>.</p> </note>",
@@ -2441,7 +2647,8 @@
       "required": [
         "Value"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ResourceRecord"
     },
     "ResourceRecordSet": {
       "description": "Information about the resource record set to create or delete.",
@@ -2499,19 +2706,22 @@
         "Name",
         "Type"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ResourceRecordSet"
     },
     "ResourceRecordSetFailover": {
       "enum": [
         "PRIMARY",
         "SECONDARY"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ResourceRecordSetFailover"
     },
     "ResourceRecordSetIdentifier": {
       "maxLength": 128,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "ResourceRecordSetIdentifier"
     },
     "ResourceRecordSetRegion": {
       "enum": [
@@ -2533,25 +2743,29 @@
       ],
       "maxLength": 64,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "ResourceRecordSetRegion"
     },
     "ResourceRecordSetWeight": {
       "maximum": 255,
       "minimum": 0,
-      "type": "integer"
+      "type": "integer",
+      "title": "ResourceRecordSetWeight"
     },
     "ResourceRecordSets": {
       "items": {
         "$ref": "#/definitions/ResourceRecordSet"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ResourceRecordSets"
     },
     "ResourceRecords": {
       "items": {
         "$ref": "#/definitions/ResourceRecord"
       },
       "minItems": 1,
-      "type": "array"
+      "type": "array",
+      "title": "ResourceRecords"
     },
     "ResourceTagSet": {
       "description": "A complex type containing a resource and its associated tags.",
@@ -2569,21 +2783,25 @@
           "description": "The tags associated with the specified resource."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ResourceTagSet"
     },
     "ResourceTagSetList": {
       "items": {
         "$ref": "#/definitions/ResourceTagSet"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ResourceTagSetList"
     },
     "ResourceURI": {
       "maxLength": 1024,
-      "type": "string"
+      "type": "string",
+      "title": "ResourceURI"
     },
     "SearchString": {
       "maxLength": 255,
-      "type": "string"
+      "type": "string",
+      "title": "SearchString"
     },
     "Statistic": {
       "enum": [
@@ -2593,10 +2811,12 @@
         "Maximum",
         "Minimum"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "Statistic"
     },
     "Status": {
-      "type": "string"
+      "type": "string",
+      "title": "Status"
     },
     "StatusReport": {
       "description": "A complex type that contains the status that one Amazon Route 53 health checker reports and the time of the health check.",
@@ -2610,17 +2830,20 @@
           "description": "A description of the status of the health check endpoint as reported by one of the Amazon Route 53 health checkers."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "StatusReport"
     },
     "SubnetMask": {
       "maxLength": 3,
       "minLength": 0,
-      "type": "string"
+      "type": "string",
+      "title": "SubnetMask"
     },
     "TTL": {
       "maximum": 2147483647,
       "minimum": 0,
-      "type": "integer"
+      "type": "integer",
+      "title": "TTL"
     },
     "Tag": {
       "description": "A complex type that contains information about a tag that you want to add or edit for the specified health check or hosted zone.",
@@ -2634,11 +2857,13 @@
           "description": "<p>The value of <code>Value</code> depends on the operation that you want to perform:</p> <ul> <li> <p> <b>Add a tag to a health check or hosted zone</b>: <code>Value</code> is the value that you want to give the new tag.</p> </li> <li> <p> <b>Edit a tag</b>: <code>Value</code> is the new value that you want to assign the tag.</p> </li> </ul>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Tag"
     },
     "TagKey": {
       "maxLength": 128,
-      "type": "string"
+      "type": "string",
+      "title": "TagKey"
     },
     "TagKeyList": {
       "items": {
@@ -2646,7 +2871,8 @@
       },
       "maxItems": 10,
       "minItems": 1,
-      "type": "array"
+      "type": "array",
+      "title": "TagKeyList"
     },
     "TagList": {
       "items": {
@@ -2654,11 +2880,13 @@
       },
       "maxItems": 10,
       "minItems": 1,
-      "type": "array"
+      "type": "array",
+      "title": "TagList"
     },
     "TagResourceId": {
       "maxLength": 64,
-      "type": "string"
+      "type": "string",
+      "title": "TagResourceId"
     },
     "TagResourceIdList": {
       "items": {
@@ -2666,23 +2894,27 @@
       },
       "maxItems": 10,
       "minItems": 1,
-      "type": "array"
+      "type": "array",
+      "title": "TagResourceIdList"
     },
     "TagResourceType": {
       "enum": [
         "healthcheck",
         "hostedzone"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "TagResourceType"
     },
     "TagValue": {
       "maxLength": 256,
-      "type": "string"
+      "type": "string",
+      "title": "TagValue"
     },
     "TestDNSAnswerRequest": {
       "description": "Gets the value that Amazon Route 53 returns in response to a DNS request for a specified record name and type. You can optionally specify the IP address of a DNS resolver, an EDNS0 client subnet IP address, and a subnet mask. ",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "TestDNSAnswerRequest"
     },
     "TestDNSAnswerResponse": {
       "description": "A complex type that contains the response to a <code>TestDNSAnswer</code> request. ",
@@ -2720,11 +2952,13 @@
         "ResponseCode",
         "Protocol"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "TestDNSAnswerResponse"
     },
     "Threshold": {
       "format": "double",
-      "type": "number"
+      "type": "number",
+      "title": "Threshold"
     },
     "ThrottlingException": {
       "description": "The limit on the number of requests per second was exceeded.",
@@ -2733,11 +2967,13 @@
           "$ref": "#/definitions/ErrorMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ThrottlingException"
     },
     "TimeStamp": {
       "format": "date-time",
-      "type": "string"
+      "type": "string",
+      "title": "TimeStamp"
     },
     "TooManyHealthChecks": {
       "description": "You have reached the maximum number of active health checks for an AWS account. The default limit is 100. To request a higher limit, <a href=\"http://aws.amazon.com/route53-request\">create a case</a> with the AWS Support Center.",
@@ -2746,7 +2982,8 @@
           "$ref": "#/definitions/ErrorMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TooManyHealthChecks"
     },
     "TooManyHostedZones": {
       "description": "This hosted zone can't be created because the hosted zone limit is exceeded. To request a limit increase, go to the Amazon Route 53 <a href=\"http://aws.amazon.com/route53-request/\">Contact Us</a> page.",
@@ -2756,7 +2993,8 @@
           "description": "Descriptive message for the error response."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TooManyHostedZones"
     },
     "TooManyTrafficPolicies": {
       "description": "You've created the maximum number of traffic policies that can be created for the current AWS account. You can request an increase to the limit on the <a href=\"http://aws.amazon.com/route53-request/\">Contact Us</a> page.",
@@ -2766,7 +3004,8 @@
           "description": "Descriptive message for the error response."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TooManyTrafficPolicies"
     },
     "TooManyTrafficPolicyInstances": {
       "description": "You've created the maximum number of traffic policy instances that can be created for the current AWS account. You can request an increase to the limit on the <a href=\"http://aws.amazon.com/route53-request/\">Contact Us</a> page.",
@@ -2776,7 +3015,8 @@
           "description": "Descriptive message for the error response."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TooManyTrafficPolicyInstances"
     },
     "TooManyVPCAssociationAuthorizations": {
       "description": "You've created the maximum number of authorizations that can be created for the specified hosted zone. To authorize another VPC to be associated with the hosted zone, submit a <code>DeleteVPCAssociationAuthorization</code> request to remove an existing authorization. To get a list of existing authorizations, submit a <code>ListVPCAssociationAuthorizations</code> request.",
@@ -2786,13 +3026,15 @@
           "description": "Descriptive message for the error response."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TooManyVPCAssociationAuthorizations"
     },
     "TrafficPolicies": {
       "items": {
         "$ref": "#/definitions/TrafficPolicy"
       },
-      "type": "array"
+      "type": "array",
+      "title": "TrafficPolicies"
     },
     "TrafficPolicy": {
       "description": "A complex type that contains settings for a traffic policy.",
@@ -2829,7 +3071,8 @@
         "Type",
         "Document"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "TrafficPolicy"
     },
     "TrafficPolicyAlreadyExists": {
       "description": "A traffic policy that has the same value for <code>Name</code> already exists.",
@@ -2839,20 +3082,24 @@
           "description": "Descriptive message for the error response."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TrafficPolicyAlreadyExists"
     },
     "TrafficPolicyComment": {
       "maxLength": 1024,
-      "type": "string"
+      "type": "string",
+      "title": "TrafficPolicyComment"
     },
     "TrafficPolicyDocument": {
       "maxLength": 102400,
-      "type": "string"
+      "type": "string",
+      "title": "TrafficPolicyDocument"
     },
     "TrafficPolicyId": {
       "maxLength": 36,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "TrafficPolicyId"
     },
     "TrafficPolicyInUse": {
       "description": "One or more traffic policy instances were created by using the specified traffic policy.",
@@ -2862,7 +3109,8 @@
           "description": "Descriptive message for the error response."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TrafficPolicyInUse"
     },
     "TrafficPolicyInstance": {
       "description": "A complex type that contains settings for the new traffic policy instance.",
@@ -2915,7 +3163,8 @@
         "TrafficPolicyVersion",
         "TrafficPolicyType"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "TrafficPolicyInstance"
     },
     "TrafficPolicyInstanceAlreadyExists": {
       "description": "Traffic policy instance with given Id already exists.",
@@ -2925,34 +3174,41 @@
           "description": "Descriptive message for the error response."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TrafficPolicyInstanceAlreadyExists"
     },
     "TrafficPolicyInstanceCount": {
-      "type": "integer"
+      "type": "integer",
+      "title": "TrafficPolicyInstanceCount"
     },
     "TrafficPolicyInstanceId": {
       "maxLength": 36,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "TrafficPolicyInstanceId"
     },
     "TrafficPolicyInstanceState": {
-      "type": "string"
+      "type": "string",
+      "title": "TrafficPolicyInstanceState"
     },
     "TrafficPolicyInstances": {
       "items": {
         "$ref": "#/definitions/TrafficPolicyInstance"
       },
-      "type": "array"
+      "type": "array",
+      "title": "TrafficPolicyInstances"
     },
     "TrafficPolicyName": {
       "maxLength": 512,
-      "type": "string"
+      "type": "string",
+      "title": "TrafficPolicyName"
     },
     "TrafficPolicySummaries": {
       "items": {
         "$ref": "#/definitions/TrafficPolicySummary"
       },
-      "type": "array"
+      "type": "array",
+      "title": "TrafficPolicySummaries"
     },
     "TrafficPolicySummary": {
       "description": "A complex type that contains information about the latest version of one traffic policy that is associated with the current AWS account.",
@@ -2985,19 +3241,23 @@
         "LatestVersion",
         "TrafficPolicyCount"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "TrafficPolicySummary"
     },
     "TrafficPolicyVersion": {
       "maximum": 1000,
       "minimum": 1,
-      "type": "integer"
+      "type": "integer",
+      "title": "TrafficPolicyVersion"
     },
     "TrafficPolicyVersionMarker": {
       "maxLength": 4,
-      "type": "string"
+      "type": "string",
+      "title": "TrafficPolicyVersionMarker"
     },
     "TransportProtocol": {
-      "type": "string"
+      "type": "string",
+      "title": "TransportProtocol"
     },
     "UpdateHealthCheckRequest": {
       "description": "A complex type that contains information about a request to update a health check.",
@@ -3058,7 +3318,8 @@
           "description": "If the value of <code>Type</code> is <code>HTTP_STR_MATCH</code> or <code>HTTP_STR_MATCH</code>, the string that you want Amazon Route 53 to search for in the response body from the specified resource. If the string appears in the response body, Amazon Route 53 considers the resource healthy. (You can't change the value of <code>Type</code> when you update a health check.)"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UpdateHealthCheckRequest"
     },
     "UpdateHealthCheckResponse": {
       "properties": {
@@ -3069,7 +3330,8 @@
       "required": [
         "HealthCheck"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateHealthCheckResponse"
     },
     "UpdateHostedZoneCommentRequest": {
       "description": "A request to update the comment for a hosted zone.",
@@ -3079,7 +3341,8 @@
           "description": "The new comment for the hosted zone. If you don't specify a value for <code>Comment</code>, Amazon Route 53 deletes the existing value of the <code>Comment</code> element, if any."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UpdateHostedZoneCommentRequest"
     },
     "UpdateHostedZoneCommentResponse": {
       "description": "A complex type that contains the response to the <code>UpdateHostedZoneComment</code> request.",
@@ -3091,7 +3354,8 @@
       "required": [
         "HostedZone"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateHostedZoneCommentResponse"
     },
     "UpdateTrafficPolicyCommentRequest": {
       "description": "A complex type that contains information about the traffic policy that you want to update the comment for.",
@@ -3104,7 +3368,8 @@
       "required": [
         "Comment"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateTrafficPolicyCommentRequest"
     },
     "UpdateTrafficPolicyCommentResponse": {
       "description": "A complex type that contains the response information for the traffic policy.",
@@ -3117,7 +3382,8 @@
       "required": [
         "TrafficPolicy"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateTrafficPolicyCommentResponse"
     },
     "UpdateTrafficPolicyInstanceRequest": {
       "description": "A complex type that contains information about the resource record sets that you want to update based on a specified traffic policy instance.",
@@ -3140,7 +3406,8 @@
         "TrafficPolicyId",
         "TrafficPolicyVersion"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateTrafficPolicyInstanceRequest"
     },
     "UpdateTrafficPolicyInstanceResponse": {
       "description": "A complex type that contains information about the resource record sets that Amazon Route 53 created based on a specified traffic policy.",
@@ -3153,7 +3420,8 @@
       "required": [
         "TrafficPolicyInstance"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateTrafficPolicyInstanceResponse"
     },
     "VPC": {
       "description": "(Private hosted zones only) A complex type that contains information about an Amazon VPC.",
@@ -3166,7 +3434,8 @@
           "description": "(Private hosted zones only) The region in which you created an Amazon VPC."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "VPC"
     },
     "VPCAssociationAuthorizationNotFound": {
       "description": "The VPC that you specified is not authorized to be associated with the hosted zone.",
@@ -3176,7 +3445,8 @@
           "description": "Descriptive message for the error response."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "VPCAssociationAuthorizationNotFound"
     },
     "VPCAssociationNotFound": {
       "description": "The specified VPC and hosted zone are not currently associated.",
@@ -3186,12 +3456,14 @@
           "description": "Descriptive message for the error response."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "VPCAssociationNotFound"
     },
     "VPCId": {
       "description": "(Private hosted zones only) The ID of an Amazon VPC. ",
       "maxLength": 1024,
-      "type": "string"
+      "type": "string",
+      "title": "VPCId"
     },
     "VPCRegion": {
       "enum": [
@@ -3213,7 +3485,8 @@
       ],
       "maxLength": 64,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "VPCRegion"
     },
     "VPCs": {
       "description": "(Private hosted zones only) A list of <code>VPC</code> elements.",
@@ -3221,7 +3494,8 @@
         "$ref": "#/definitions/VPC"
       },
       "minItems": 1,
-      "type": "array"
+      "type": "array",
+      "title": "VPCs"
     }
   },
   "actions": [

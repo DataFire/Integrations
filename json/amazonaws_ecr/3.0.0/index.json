@@ -17,7 +17,8 @@
   "actionCount": 17,
   "definitions": {
     "Arn": {
-      "type": "string"
+      "type": "string",
+      "title": "Arn"
     },
     "AuthorizationData": {
       "description": "An object representing authorization data for an Amazon ECR registry.",
@@ -35,17 +36,20 @@
           "description": "The registry URL to use for this authorization token in a <code>docker login</code> command. The Amazon ECR registry URL format is <code>https://aws_account_id.dkr.ecr.region.amazonaws.com</code>. For example, <code>https://012345678910.dkr.ecr.us-east-1.amazonaws.com</code>.. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AuthorizationData"
     },
     "AuthorizationDataList": {
       "items": {
         "$ref": "#/definitions/AuthorizationData"
       },
-      "type": "array"
+      "type": "array",
+      "title": "AuthorizationDataList"
     },
     "Base64": {
       "pattern": "^\\S+$",
-      "type": "string"
+      "type": "string",
+      "title": "Base64"
     },
     "BatchCheckLayerAvailabilityRequest": {
       "properties": {
@@ -66,7 +70,8 @@
         "repositoryName",
         "layerDigests"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "BatchCheckLayerAvailabilityRequest"
     },
     "BatchCheckLayerAvailabilityResponse": {
       "properties": {
@@ -79,7 +84,8 @@
           "description": "A list of image layer objects corresponding to the image layer references in the request."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BatchCheckLayerAvailabilityResponse"
     },
     "BatchDeleteImageRequest": {
       "description": "Deletes specified images within a specified repository. Images are specified with either the <code>imageTag</code> or <code>imageDigest</code>.",
@@ -109,7 +115,8 @@
         "repositoryName",
         "imageIds"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "BatchDeleteImageRequest"
     },
     "BatchDeleteImageResponse": {
       "example": {
@@ -131,7 +138,8 @@
           "description": "The image IDs of the deleted images."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BatchDeleteImageResponse"
     },
     "BatchGetImageRequest": {
       "example": {
@@ -164,7 +172,8 @@
         "repositoryName",
         "imageIds"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "BatchGetImageRequest"
     },
     "BatchGetImageResponse": {
       "example": {
@@ -191,12 +200,14 @@
           "description": "A list of image objects corresponding to the image references in the request."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BatchGetImageResponse"
     },
     "BatchedOperationLayerDigest": {
       "maxLength": 1000,
       "minLength": 0,
-      "type": "string"
+      "type": "string",
+      "title": "BatchedOperationLayerDigest"
     },
     "BatchedOperationLayerDigestList": {
       "items": {
@@ -204,7 +215,8 @@
       },
       "maxItems": 100,
       "minItems": 1,
-      "type": "array"
+      "type": "array",
+      "title": "BatchedOperationLayerDigestList"
     },
     "CompleteLayerUploadRequest": {
       "properties": {
@@ -230,7 +242,8 @@
         "uploadId",
         "layerDigests"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CompleteLayerUploadRequest"
     },
     "CompleteLayerUploadResponse": {
       "properties": {
@@ -251,7 +264,8 @@
           "description": "The upload ID associated with the layer."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CompleteLayerUploadResponse"
     },
     "CreateRepositoryRequest": {
       "example": {
@@ -266,7 +280,8 @@
       "required": [
         "repositoryName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateRepositoryRequest"
     },
     "CreateRepositoryResponse": {
       "example": {
@@ -282,11 +297,13 @@
           "description": "The repository that was created."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateRepositoryResponse"
     },
     "CreationTimestamp": {
       "format": "date-time",
-      "type": "string"
+      "type": "string",
+      "title": "CreationTimestamp"
     },
     "DeleteRepositoryPolicyRequest": {
       "example": {
@@ -305,7 +322,8 @@
       "required": [
         "repositoryName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteRepositoryPolicyRequest"
     },
     "DeleteRepositoryPolicyResponse": {
       "example": {
@@ -327,7 +345,8 @@
           "description": "The repository name associated with the request."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DeleteRepositoryPolicyResponse"
     },
     "DeleteRepositoryRequest": {
       "example": {
@@ -351,7 +370,8 @@
       "required": [
         "repositoryName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteRepositoryRequest"
     },
     "DeleteRepositoryResponse": {
       "example": {
@@ -367,7 +387,8 @@
           "description": "The repository that was deleted."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DeleteRepositoryResponse"
     },
     "DescribeImagesFilter": {
       "description": "An object representing a filter on a <a>DescribeImages</a> operation.",
@@ -377,7 +398,8 @@
           "description": "The tag status with which to filter your <a>DescribeImages</a> results. You can filter results based on whether they are <code>TAGGED</code> or <code>UNTAGGED</code>."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeImagesFilter"
     },
     "DescribeImagesRequest": {
       "properties": {
@@ -409,7 +431,8 @@
       "required": [
         "repositoryName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeImagesRequest"
     },
     "DescribeImagesResponse": {
       "properties": {
@@ -422,7 +445,8 @@
           "description": "The <code>nextToken</code> value to include in a future <code>DescribeImages</code> request. When the results of a <code>DescribeImages</code> request exceed <code>maxResults</code>, this value can be used to retrieve the next page of results. This value is <code>null</code> when there are no more results to return."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeImagesResponse"
     },
     "DescribeRepositoriesRequest": {
       "example": {},
@@ -444,7 +468,8 @@
           "description": "A list of repositories to describe. If this parameter is omitted, then all repositories in a registry are described."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeRepositoriesRequest"
     },
     "DescribeRepositoriesResponse": {
       "example": {
@@ -471,7 +496,8 @@
           "description": "A list of repository objects corresponding to valid repositories."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeRepositoriesResponse"
     },
     "EmptyUploadException": {
       "description": "The specified layer upload does not contain any layer parts.",
@@ -481,17 +507,21 @@
           "description": "The error message associated with the exception."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "EmptyUploadException"
     },
     "ExceptionMessage": {
-      "type": "string"
+      "type": "string",
+      "title": "ExceptionMessage"
     },
     "ExpirationTimestamp": {
       "format": "date-time",
-      "type": "string"
+      "type": "string",
+      "title": "ExpirationTimestamp"
     },
     "ForceFlag": {
-      "type": "boolean"
+      "type": "boolean",
+      "title": "ForceFlag"
     },
     "GetAuthorizationTokenRegistryIdList": {
       "items": {
@@ -499,7 +529,8 @@
       },
       "maxItems": 10,
       "minItems": 1,
-      "type": "array"
+      "type": "array",
+      "title": "GetAuthorizationTokenRegistryIdList"
     },
     "GetAuthorizationTokenRequest": {
       "example": {},
@@ -509,7 +540,8 @@
           "description": "A list of AWS account IDs that are associated with the registries for which to get authorization tokens. If you do not specify a registry, the default registry is assumed."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetAuthorizationTokenRequest"
     },
     "GetAuthorizationTokenResponse": {
       "example": {
@@ -527,7 +559,8 @@
           "description": "A list of authorization token data objects that correspond to the <code>registryIds</code> values in the request."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetAuthorizationTokenResponse"
     },
     "GetDownloadUrlForLayerRequest": {
       "properties": {
@@ -548,7 +581,8 @@
         "repositoryName",
         "layerDigest"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetDownloadUrlForLayerRequest"
     },
     "GetDownloadUrlForLayerResponse": {
       "properties": {
@@ -561,7 +595,8 @@
           "description": "The digest of the image layer to download."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetDownloadUrlForLayerResponse"
     },
     "GetRepositoryPolicyRequest": {
       "example": {
@@ -580,7 +615,8 @@
       "required": [
         "repositoryName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetRepositoryPolicyRequest"
     },
     "GetRepositoryPolicyResponse": {
       "example": {
@@ -602,7 +638,8 @@
           "description": "The repository name associated with the request."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetRepositoryPolicyResponse"
     },
     "Image": {
       "description": "An object representing an Amazon ECR image.",
@@ -624,7 +661,8 @@
           "description": "The name of the repository associated with the image."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Image"
     },
     "ImageAlreadyExistsException": {
       "description": "The specified image has already been pushed, and there are no changes to the manifest or image tag since the last push.",
@@ -634,7 +672,8 @@
           "description": "The error message associated with the exception."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ImageAlreadyExistsException"
     },
     "ImageDetail": {
       "description": "An object that describes an image returned by a <a>DescribeImages</a> operation.",
@@ -664,16 +703,19 @@
           "description": "The name of the repository to which this image belongs."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ImageDetail"
     },
     "ImageDetailList": {
       "items": {
         "$ref": "#/definitions/ImageDetail"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ImageDetailList"
     },
     "ImageDigest": {
-      "type": "string"
+      "type": "string",
+      "title": "ImageDigest"
     },
     "ImageFailure": {
       "description": "An object representing an Amazon ECR image failure.",
@@ -691,7 +733,8 @@
           "description": "The image ID associated with the failure."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ImageFailure"
     },
     "ImageFailureCode": {
       "enum": [
@@ -701,16 +744,19 @@
         "ImageNotFound",
         "MissingDigestAndTag"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ImageFailureCode"
     },
     "ImageFailureList": {
       "items": {
         "$ref": "#/definitions/ImageFailure"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ImageFailureList"
     },
     "ImageFailureReason": {
-      "type": "string"
+      "type": "string",
+      "title": "ImageFailureReason"
     },
     "ImageIdentifier": {
       "description": "An object with identifying information for an Amazon ECR image.",
@@ -724,7 +770,8 @@
           "description": "The tag used for the image."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ImageIdentifier"
     },
     "ImageIdentifierList": {
       "items": {
@@ -732,16 +779,19 @@
       },
       "maxItems": 100,
       "minItems": 1,
-      "type": "array"
+      "type": "array",
+      "title": "ImageIdentifierList"
     },
     "ImageList": {
       "items": {
         "$ref": "#/definitions/Image"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ImageList"
     },
     "ImageManifest": {
-      "type": "string"
+      "type": "string",
+      "title": "ImageManifest"
     },
     "ImageNotFoundException": {
       "description": "The image requested does not exist in the specified repository.",
@@ -750,19 +800,23 @@
           "$ref": "#/definitions/ExceptionMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ImageNotFoundException"
     },
     "ImageSizeInBytes": {
-      "type": "integer"
+      "type": "integer",
+      "title": "ImageSizeInBytes"
     },
     "ImageTag": {
-      "type": "string"
+      "type": "string",
+      "title": "ImageTag"
     },
     "ImageTagList": {
       "items": {
         "$ref": "#/definitions/ImageTag"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ImageTagList"
     },
     "InitiateLayerUploadRequest": {
       "properties": {
@@ -778,7 +832,8 @@
       "required": [
         "repositoryName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "InitiateLayerUploadRequest"
     },
     "InitiateLayerUploadResponse": {
       "properties": {
@@ -791,7 +846,8 @@
           "description": "The upload ID for the layer upload. This parameter is passed to further <a>UploadLayerPart</a> and <a>CompleteLayerUpload</a> operations."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InitiateLayerUploadResponse"
     },
     "InvalidLayerException": {
       "description": "The layer digest calculation performed by Amazon ECR upon receipt of the image layer does not match the digest specified.",
@@ -801,7 +857,8 @@
           "description": "The error message associated with the exception."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidLayerException"
     },
     "InvalidLayerPartException": {
       "description": "The layer part size is not valid, or the first byte specified is not consecutive to the last byte of a previous layer part upload.",
@@ -827,7 +884,8 @@
           "description": "The upload ID associated with the exception."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidLayerPartException"
     },
     "InvalidParameterException": {
       "description": "The specified parameter is invalid. Review the available parameters for the API request.",
@@ -837,7 +895,8 @@
           "description": "The error message associated with the exception."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidParameterException"
     },
     "Layer": {
       "description": "An object representing an Amazon ECR image layer.",
@@ -859,7 +918,8 @@
           "description": "The media type of the layer, such as <code>application/vnd.docker.image.rootfs.diff.tar.gzip</code> or <code>application/vnd.oci.image.layer.v1.tar+gzip</code>."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Layer"
     },
     "LayerAlreadyExistsException": {
       "description": "The image layer already exists in the associated repository.",
@@ -869,18 +929,21 @@
           "description": "The error message associated with the exception."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LayerAlreadyExistsException"
     },
     "LayerAvailability": {
       "enum": [
         "AVAILABLE",
         "UNAVAILABLE"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "LayerAvailability"
     },
     "LayerDigest": {
       "pattern": "[a-zA-Z0-9-_+.]+:[a-fA-F0-9]+",
-      "type": "string"
+      "type": "string",
+      "title": "LayerDigest"
     },
     "LayerDigestList": {
       "items": {
@@ -888,7 +951,8 @@
       },
       "maxItems": 100,
       "minItems": 1,
-      "type": "array"
+      "type": "array",
+      "title": "LayerDigestList"
     },
     "LayerFailure": {
       "description": "An object representing an Amazon ECR image layer failure.",
@@ -906,23 +970,27 @@
           "description": "The layer digest associated with the failure."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LayerFailure"
     },
     "LayerFailureCode": {
       "enum": [
         "InvalidLayerDigest",
         "MissingLayerDigest"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "LayerFailureCode"
     },
     "LayerFailureList": {
       "items": {
         "$ref": "#/definitions/LayerFailure"
       },
-      "type": "array"
+      "type": "array",
+      "title": "LayerFailureList"
     },
     "LayerFailureReason": {
-      "type": "string"
+      "type": "string",
+      "title": "LayerFailureReason"
     },
     "LayerInaccessibleException": {
       "description": "The specified layer is not available because it is not associated with an image. Unassociated image layers may be cleaned up at any time.",
@@ -932,16 +1000,19 @@
           "description": "The error message associated with the exception."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LayerInaccessibleException"
     },
     "LayerList": {
       "items": {
         "$ref": "#/definitions/Layer"
       },
-      "type": "array"
+      "type": "array",
+      "title": "LayerList"
     },
     "LayerPartBlob": {
-      "type": "string"
+      "type": "string",
+      "title": "LayerPartBlob"
     },
     "LayerPartTooSmallException": {
       "description": "Layer parts must be at least 5 MiB in size.",
@@ -951,10 +1022,12 @@
           "description": "The error message associated with the exception."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LayerPartTooSmallException"
     },
     "LayerSizeInBytes": {
-      "type": "integer"
+      "type": "integer",
+      "title": "LayerSizeInBytes"
     },
     "LayersNotFoundException": {
       "description": "The specified layers could not be found, or the specified layer is not valid for this repository.",
@@ -964,7 +1037,8 @@
           "description": "The error message associated with the exception."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LayersNotFoundException"
     },
     "LimitExceededException": {
       "description": "The operation did not succeed because it would have exceeded a service limit for your account. For more information, see <a href=\"http://docs.aws.amazon.com/AmazonECR/latest/userguide/service_limits.html\">Amazon ECR Default Service Limits</a> in the Amazon EC2 Container Registry User Guide.",
@@ -974,7 +1048,8 @@
           "description": "The error message associated with the exception."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LimitExceededException"
     },
     "ListImagesFilter": {
       "description": "An object representing a filter on a <a>ListImages</a> operation.",
@@ -984,7 +1059,8 @@
           "description": "The tag status with which to filter your <a>ListImages</a> results. You can filter results based on whether they are <code>TAGGED</code> or <code>UNTAGGED</code>."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListImagesFilter"
     },
     "ListImagesRequest": {
       "example": {
@@ -1015,7 +1091,8 @@
       "required": [
         "repositoryName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListImagesRequest"
     },
     "ListImagesResponse": {
       "example": {
@@ -1036,16 +1113,19 @@
           "description": "The <code>nextToken</code> value to include in a future <code>ListImages</code> request. When the results of a <code>ListImages</code> request exceed <code>maxResults</code>, this value can be used to retrieve the next page of results. This value is <code>null</code> when there are no more results to return."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListImagesResponse"
     },
     "MaxResults": {
       "maximum": 100,
       "minimum": 1,
-      "type": "integer"
+      "type": "integer",
+      "title": "MaxResults"
     },
     "MediaType": {
       "pattern": "\\w{1,127}\\/[-+.\\w]{1,127}",
-      "type": "string"
+      "type": "string",
+      "title": "MediaType"
     },
     "MediaTypeList": {
       "items": {
@@ -1053,21 +1133,26 @@
       },
       "maxItems": 100,
       "minItems": 1,
-      "type": "array"
+      "type": "array",
+      "title": "MediaTypeList"
     },
     "NextToken": {
-      "type": "string"
+      "type": "string",
+      "title": "NextToken"
     },
     "PartSize": {
       "minimum": 0,
-      "type": "integer"
+      "type": "integer",
+      "title": "PartSize"
     },
     "ProxyEndpoint": {
-      "type": "string"
+      "type": "string",
+      "title": "ProxyEndpoint"
     },
     "PushTimestamp": {
       "format": "date-time",
-      "type": "string"
+      "type": "string",
+      "title": "PushTimestamp"
     },
     "PutImageRequest": {
       "properties": {
@@ -1092,7 +1177,8 @@
         "repositoryName",
         "imageManifest"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "PutImageRequest"
     },
     "PutImageResponse": {
       "properties": {
@@ -1101,11 +1187,13 @@
           "description": "Details of the image uploaded."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PutImageResponse"
     },
     "RegistryId": {
       "pattern": "[0-9]{12}",
-      "type": "string"
+      "type": "string",
+      "title": "RegistryId"
     },
     "Repository": {
       "description": "An object representing a repository.",
@@ -1131,7 +1219,8 @@
           "description": "The URI for the repository. You can use this URI for Docker <code>push</code> and <code>pull</code> operations."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Repository"
     },
     "RepositoryAlreadyExistsException": {
       "description": "The specified repository already exists in the specified registry.",
@@ -1141,19 +1230,22 @@
           "description": "The error message associated with the exception."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RepositoryAlreadyExistsException"
     },
     "RepositoryList": {
       "items": {
         "$ref": "#/definitions/Repository"
       },
-      "type": "array"
+      "type": "array",
+      "title": "RepositoryList"
     },
     "RepositoryName": {
       "maxLength": 256,
       "minLength": 2,
       "pattern": "(?:[a-z0-9]+(?:[._-][a-z0-9]+)*/)*[a-z0-9]+(?:[._-][a-z0-9]+)*",
-      "type": "string"
+      "type": "string",
+      "title": "RepositoryName"
     },
     "RepositoryNameList": {
       "items": {
@@ -1161,7 +1253,8 @@
       },
       "maxItems": 100,
       "minItems": 1,
-      "type": "array"
+      "type": "array",
+      "title": "RepositoryNameList"
     },
     "RepositoryNotEmptyException": {
       "description": "The specified repository contains images. To delete a repository that contains images, you must force the deletion with the <code>force</code> parameter.",
@@ -1171,7 +1264,8 @@
           "description": "The error message associated with the exception."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RepositoryNotEmptyException"
     },
     "RepositoryNotFoundException": {
       "description": "The specified repository could not be found. Check the spelling of the specified repository and ensure that you are performing operations on the correct registry.",
@@ -1181,7 +1275,8 @@
           "description": "The error message associated with the exception."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RepositoryNotFoundException"
     },
     "RepositoryPolicyNotFoundException": {
       "description": "The specified repository and registry combination does not have an associated repository policy.",
@@ -1191,12 +1286,14 @@
           "description": "The error message associated with the exception."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RepositoryPolicyNotFoundException"
     },
     "RepositoryPolicyText": {
       "maxLength": 10240,
       "minLength": 0,
-      "type": "string"
+      "type": "string",
+      "title": "RepositoryPolicyText"
     },
     "ServerException": {
       "description": "These errors are usually caused by a server-side issue.",
@@ -1206,7 +1303,8 @@
           "description": "The error message associated with the exception."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ServerException"
     },
     "SetRepositoryPolicyRequest": {
       "properties": {
@@ -1231,7 +1329,8 @@
         "repositoryName",
         "policyText"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "SetRepositoryPolicyRequest"
     },
     "SetRepositoryPolicyResponse": {
       "properties": {
@@ -1248,18 +1347,21 @@
           "description": "The repository name associated with the request."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SetRepositoryPolicyResponse"
     },
     "TagStatus": {
       "enum": [
         "TAGGED",
         "UNTAGGED"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "TagStatus"
     },
     "UploadId": {
       "pattern": "[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}",
-      "type": "string"
+      "type": "string",
+      "title": "UploadId"
     },
     "UploadLayerPartRequest": {
       "properties": {
@@ -1295,7 +1397,8 @@
         "partLastByte",
         "layerPartBlob"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UploadLayerPartRequest"
     },
     "UploadLayerPartResponse": {
       "properties": {
@@ -1316,7 +1419,8 @@
           "description": "The upload ID associated with the request."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UploadLayerPartResponse"
     },
     "UploadNotFoundException": {
       "description": "The upload could not be found, or the specified upload id is not valid for this repository.",
@@ -1326,10 +1430,12 @@
           "description": "The error message associated with the exception."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UploadNotFoundException"
     },
     "Url": {
-      "type": "string"
+      "type": "string",
+      "title": "Url"
     }
   },
   "actions": [

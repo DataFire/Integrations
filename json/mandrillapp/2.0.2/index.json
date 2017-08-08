@@ -14,7 +14,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "api_key"
     },
     "domain": {
       "properties": {
@@ -25,7 +26,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "domain"
     },
     "email": {
       "properties": {
@@ -36,7 +38,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "email"
     },
     "exports_activity": {
       "properties": {
@@ -77,7 +80,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "exports_activity"
     },
     "exports_info-response": {
       "properties": {
@@ -100,7 +104,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "exports_info-response"
     },
     "exports_list-response": {
       "items": {
@@ -126,7 +131,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "exports_list-response"
     },
     "exports_satus": {
       "properties": {
@@ -149,7 +155,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "exports_satus"
     },
     "id": {
       "properties": {
@@ -160,7 +167,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "id"
     },
     "inbound_add-route": {
       "properties": {
@@ -177,7 +185,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "inbound_add-route"
     },
     "inbound_domains-response": {
       "items": {
@@ -194,7 +203,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "inbound_domains-response"
     },
     "inbound_info": {
       "properties": {
@@ -208,7 +218,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "inbound_info"
     },
     "inbound_routes-response": {
       "items": {
@@ -225,7 +236,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "inbound_routes-response"
     },
     "inbound_send-raw": {
       "properties": {
@@ -251,7 +263,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "inbound_send-raw"
     },
     "inbound_send-raw-response": {
       "items": {
@@ -268,7 +281,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "inbound_send-raw-response"
     },
     "inbound_update-route": {
       "properties": {
@@ -285,7 +299,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "inbound_update-route"
     },
     "ip": {
       "properties": {
@@ -296,7 +311,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ip"
     },
     "ip_domain": {
       "properties": {
@@ -310,7 +326,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ip_domain"
     },
     "ip_info": {
       "properties": {
@@ -355,7 +372,8 @@
           "type": "object"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ip_info"
     },
     "ips_check-custom-dns-response": {
       "properties": {
@@ -366,7 +384,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ips_check-custom-dns-response"
     },
     "ips_delete-pool-response": {
       "properties": {
@@ -377,7 +396,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ips_delete-pool-response"
     },
     "ips_delete-response": {
       "properties": {
@@ -388,7 +408,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ips_delete-response"
     },
     "ips_list-pools-response": {
       "items": {
@@ -450,7 +471,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ips_list-pools-response"
     },
     "ips_list-response": {
       "items": {
@@ -498,7 +520,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ips_list-response"
     },
     "ips_pool": {
       "properties": {
@@ -557,7 +580,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ips_pool"
     },
     "ips_pool-key": {
       "properties": {
@@ -568,7 +592,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ips_pool-key"
     },
     "ips_provision": {
       "properties": {
@@ -582,7 +607,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ips_provision"
     },
     "ips_provision-response": {
       "properties": {
@@ -590,7 +616,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ips_provision-response"
     },
     "ips_set-pool": {
       "properties": {
@@ -607,7 +634,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ips_set-pool"
     },
     "message_send-status": {
       "items": {
@@ -627,7 +655,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "message_send-status"
     },
     "messages_cancel-scheduled": {
       "properties": {
@@ -638,7 +667,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "messages_cancel-scheduled"
     },
     "messages_content-response": {
       "properties": {
@@ -706,7 +736,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "messages_content-response"
     },
     "messages_info-response": {
       "properties": {
@@ -815,7 +846,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "messages_info-response"
     },
     "messages_list-scheduled": {
       "properties": {
@@ -826,7 +858,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "messages_list-scheduled"
     },
     "messages_list-scheduled-response": {
       "items": {
@@ -852,7 +885,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "messages_list-scheduled-response"
     },
     "messages_parse": {
       "properties": {
@@ -863,7 +897,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "messages_parse"
     },
     "messages_parse-response": {
       "properties": {
@@ -942,7 +977,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "messages_parse-response"
     },
     "messages_reschedule": {
       "properties": {
@@ -956,7 +992,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "messages_reschedule"
     },
     "messages_search": {
       "properties": {
@@ -994,7 +1031,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "messages_search"
     },
     "messages_search-response": {
       "items": {
@@ -1089,7 +1127,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "messages_search-response"
     },
     "messages_search-time-series": {
       "properties": {
@@ -1118,7 +1157,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "messages_search-time-series"
     },
     "messages_send": {
       "properties": {
@@ -1340,7 +1380,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "messages_send"
     },
     "messages_send-raw": {
       "properties": {
@@ -1375,7 +1416,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "messages_send-raw"
     },
     "messages_send-template": {
       "properties": {
@@ -1614,7 +1656,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "messages_send-template"
     },
     "metadata_info": {
       "properties": {
@@ -1628,7 +1671,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "metadata_info"
     },
     "metadata_list-response": {
       "items": {
@@ -1645,7 +1689,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "metadata_list-response"
     },
     "metadata_template": {
       "properties": {
@@ -1659,7 +1704,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "metadata_template"
     },
     "name": {
       "properties": {
@@ -1670,7 +1716,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "name"
     },
     "notify_email": {
       "properties": {
@@ -1681,7 +1728,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "notify_email"
     },
     "rejects_add": {
       "properties": {
@@ -1698,7 +1746,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "rejects_add"
     },
     "rejects_add-response": {
       "properties": {
@@ -1709,7 +1758,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "rejects_add-response"
     },
     "rejects_delete": {
       "properties": {
@@ -1723,7 +1773,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "rejects_delete"
     },
     "rejects_delete-response": {
       "properties": {
@@ -1737,7 +1788,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "rejects_delete-response"
     },
     "rejects_list": {
       "properties": {
@@ -1754,7 +1806,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "rejects_list"
     },
     "rejects_list-response": {
       "items": {
@@ -1827,7 +1880,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "rejects_list-response"
     },
     "route": {
       "properties": {
@@ -1841,7 +1895,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "route"
     },
     "schedulingchange_info": {
       "properties": {
@@ -1864,7 +1919,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "schedulingchange_info"
     },
     "sender_address": {
       "properties": {
@@ -1875,7 +1931,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "sender_address"
     },
     "sender_domain_info": {
       "properties": {
@@ -1923,7 +1980,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "sender_domain_info"
     },
     "senders": {
       "items": {
@@ -1967,7 +2025,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "senders"
     },
     "senders_domains-response": {
       "items": {
@@ -2018,7 +2077,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "senders_domains-response"
     },
     "senders_info-response": {
       "properties": {
@@ -2233,7 +2293,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "senders_info-response"
     },
     "senders_verify-domain": {
       "properties": {
@@ -2247,7 +2308,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "senders_verify-domain"
     },
     "senders_verify-domain-response": {
       "properties": {
@@ -2261,7 +2323,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "senders_verify-domain-response"
     },
     "subaccount_info": {
       "properties": {
@@ -2281,7 +2344,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "subaccount_info"
     },
     "subaccount_info2": {
       "properties": {
@@ -2316,7 +2380,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "subaccount_info2"
     },
     "subaccounts_info-response": {
       "properties": {
@@ -2395,7 +2460,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "subaccounts_info-response"
     },
     "subaccounts_list-response": {
       "items": {
@@ -2433,7 +2499,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "subaccounts_list-response"
     },
     "tag_key": {
       "properties": {
@@ -2444,7 +2511,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "tag_key"
     },
     "tags_delete-response": {
       "properties": {
@@ -2485,7 +2553,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "tags_delete-response"
     },
     "tags_info-response": {
       "properties": {
@@ -2697,7 +2766,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "tags_info-response"
     },
     "tags_list-response": {
       "items": {
@@ -2741,7 +2811,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "tags_list-response"
     },
     "template": {
       "properties": {
@@ -2776,7 +2847,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "template"
     },
     "template_detailed": {
       "properties": {
@@ -2835,7 +2907,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "template_detailed"
     },
     "templates_list": {
       "properties": {
@@ -2846,7 +2919,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "templates_list"
     },
     "templates_list-response": {
       "items": {
@@ -2908,7 +2982,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "templates_list-response"
     },
     "templates_render": {
       "properties": {
@@ -2947,7 +3022,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "templates_render"
     },
     "templates_render-response": {
       "properties": {
@@ -2955,7 +3031,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "templates_render-response"
     },
     "time-series": {
       "items": {
@@ -2993,7 +3070,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "time-series"
     },
     "timeseries": {
       "items": {
@@ -3034,7 +3112,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "timeseries"
     },
     "tracking-domain-status": {
       "properties": {
@@ -3065,7 +3144,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "tracking-domain-status"
     },
     "url_infos": {
       "items": {
@@ -3085,7 +3165,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "url_infos"
     },
     "url_key": {
       "properties": {
@@ -3096,7 +3177,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "url_key"
     },
     "urls_time-series": {
       "properties": {
@@ -3107,7 +3189,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "urls_time-series"
     },
     "urls_time-series-response": {
       "items": {
@@ -3127,7 +3210,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "urls_time-series-response"
     },
     "urls_tracking-domains-response": {
       "items": {
@@ -3161,7 +3245,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "urls_tracking-domains-response"
     },
     "users_info-response": {
       "properties": {
@@ -3399,7 +3484,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "users_info-response"
     },
     "users_ping2-response": {
       "properties": {
@@ -3407,7 +3493,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "users_ping2-response"
     },
     "webhook": {
       "properties": {
@@ -3445,7 +3532,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "webhook"
     },
     "webhook_key": {
       "properties": {
@@ -3456,7 +3544,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "webhook_key"
     },
     "webhooks_add": {
       "properties": {
@@ -3476,7 +3565,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "webhooks_add"
     },
     "webhooks_list-response": {
       "items": {
@@ -3517,7 +3607,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "webhooks_list-response"
     },
     "webhooks_update": {
       "properties": {
@@ -3540,7 +3631,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "webhooks_update"
     },
     "whitelists_add-response": {
       "properties": {
@@ -3551,7 +3643,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "whitelists_add-response"
     },
     "whitelists_delete-response": {
       "properties": {
@@ -3562,7 +3655,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "whitelists_delete-response"
     },
     "whitelists_list-response": {
       "items": {
@@ -3579,7 +3673,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "whitelists_list-response"
     }
   },
   "actions": [

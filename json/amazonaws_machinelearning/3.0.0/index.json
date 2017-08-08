@@ -36,7 +36,8 @@
         "ResourceId",
         "ResourceType"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AddTagsInput"
     },
     "AddTagsOutput": {
       "description": "Amazon ML returns the following elements. ",
@@ -50,19 +51,22 @@
           "description": "The type of the ML object that was tagged."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AddTagsOutput"
     },
     "Algorithm": {
       "description": "<p>The function used to train an <code>MLModel</code>. Training choices supported by Amazon ML include the following:</p> <ul> <li> <code>SGD</code> - Stochastic Gradient Descent.</li> <li> <code>RandomForest</code> - Random forest of decision trees.</li> </ul>",
       "enum": [
         "sgd"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "Algorithm"
     },
     "AwsUserArn": {
       "description": "An Amazon Web Service (AWS) user account identifier. The account identifier can be an AWS root account or an AWS Identity and Access Management (IAM) user.",
       "pattern": "arn:aws:iam::[0-9]+:((user/.+)|(root))",
-      "type": "string"
+      "type": "string",
+      "title": "AwsUserArn"
     },
     "BatchPrediction": {
       "description": "<p> Represents the output of a <code>GetBatchPrediction</code> operation.</p> <p> The content consists of the detailed metadata, the status, and the data file information of a <code>Batch Prediction</code>.</p>",
@@ -127,7 +131,8 @@
           "$ref": "#/definitions/LongType"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BatchPrediction"
     },
     "BatchPredictionFilterVariable": {
       "description": "<p>A list of the variables to use in searching or filtering <code>BatchPrediction</code>.</p> <ul> <li> <code>CreatedAt</code> - Sets the search criteria to <code>BatchPrediction</code> creation date.</li> <li> <code>Status</code> - Sets the search criteria to <code>BatchPrediction</code> status.</li> <li> <code>Name</code> - Sets the search criteria to the contents of <code>BatchPrediction</code><b> </b> <code>Name</code>.</li> <li> <code>IAMUser</code> - Sets the search criteria to the user account that invoked the <code>BatchPrediction</code> creation.</li> <li> <code>MLModelId</code> - Sets the search criteria to the <code>MLModel</code> used in the <code>BatchPrediction</code>.</li> <li> <code>DataSourceId</code> - Sets the search criteria to the <code>DataSource</code> used in the <code>BatchPrediction</code>.</li> <li> <code>DataURI</code> - Sets the search criteria to the data file(s) used in the <code>BatchPrediction</code>. The URL can identify either a file or an Amazon Simple Storage Service (Amazon S3) bucket or directory.</li> </ul>",
@@ -141,22 +146,26 @@
         "DataSourceId",
         "DataURI"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "BatchPredictionFilterVariable"
     },
     "BatchPredictions": {
       "items": {
         "$ref": "#/definitions/BatchPrediction"
       },
-      "type": "array"
+      "type": "array",
+      "title": "BatchPredictions"
     },
     "ComparatorValue": {
       "description": "The value specified in a filtering condition. The <code>ComparatorValue</code> becomes the reference value when matching or evaluating data values in filtering and searching functions.",
       "maxLength": 1024,
       "pattern": ".*\\S.*|^$",
-      "type": "string"
+      "type": "string",
+      "title": "ComparatorValue"
     },
     "ComputeStatistics": {
-      "type": "boolean"
+      "type": "boolean",
+      "title": "ComputeStatistics"
     },
     "CreateBatchPredictionInput": {
       "properties": {
@@ -187,7 +196,8 @@
         "BatchPredictionDataSourceId",
         "OutputUri"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateBatchPredictionInput"
     },
     "CreateBatchPredictionOutput": {
       "description": "<p> Represents the output of a <code>CreateBatchPrediction</code> operation, and is an acknowledgement that Amazon ML received the request.</p> <p>The <code>CreateBatchPrediction</code> operation is asynchronous. You can poll for status updates by using the <code>&gt;GetBatchPrediction</code> operation and checking the <code>Status</code> parameter of the result. </p>",
@@ -197,7 +207,8 @@
           "description": "A user-supplied ID that uniquely identifies the <code>BatchPrediction</code>. This value is identical to the value of the <code>BatchPredictionId</code> in the request."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateBatchPredictionOutput"
     },
     "CreateDataSourceFromRDSInput": {
       "properties": {
@@ -227,7 +238,8 @@
         "RDSData",
         "RoleARN"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateDataSourceFromRDSInput"
     },
     "CreateDataSourceFromRDSOutput": {
       "description": "<p> Represents the output of a <code>CreateDataSourceFromRDS</code> operation, and is an acknowledgement that Amazon ML received the request.</p> <p>The <code>CreateDataSourceFromRDS</code>&gt; operation is asynchronous. You can poll for updates by using the <code>GetBatchPrediction</code> operation and checking the <code>Status</code> parameter. You can inspect the <code>Message</code> when <code>Status</code> shows up as <code>FAILED</code>. You can also check the progress of the copy operation by going to the <code>DataPipeline</code> console and looking up the pipeline using the <code>pipelineId </code> from the describe call.</p>",
@@ -237,7 +249,8 @@
           "description": "A user-supplied ID that uniquely identifies the datasource. This value should be identical to the value of the <code>DataSourceID</code> in the request. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateDataSourceFromRDSOutput"
     },
     "CreateDataSourceFromRedshiftInput": {
       "properties": {
@@ -267,7 +280,8 @@
         "DataSpec",
         "RoleARN"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateDataSourceFromRedshiftInput"
     },
     "CreateDataSourceFromRedshiftOutput": {
       "description": "<p> Represents the output of a <code>CreateDataSourceFromRedshift</code> operation, and is an acknowledgement that Amazon ML received the request.</p> <p>The <code>CreateDataSourceFromRedshift</code> operation is asynchronous. You can poll for updates by using the <code>GetBatchPrediction</code> operation and checking the <code>Status</code> parameter. </p>",
@@ -277,7 +291,8 @@
           "description": "A user-supplied ID that uniquely identifies the datasource. This value should be identical to the value of the <code>DataSourceID</code> in the request. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateDataSourceFromRedshiftOutput"
     },
     "CreateDataSourceFromS3Input": {
       "properties": {
@@ -302,7 +317,8 @@
         "DataSourceId",
         "DataSpec"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateDataSourceFromS3Input"
     },
     "CreateDataSourceFromS3Output": {
       "description": "<p> Represents the output of a <code>CreateDataSourceFromS3</code> operation, and is an acknowledgement that Amazon ML received the request.</p> <p>The <code>CreateDataSourceFromS3</code> operation is asynchronous. You can poll for updates by using the <code>GetBatchPrediction</code> operation and checking the <code>Status</code> parameter. </p>",
@@ -312,7 +328,8 @@
           "description": "A user-supplied ID that uniquely identifies the <code>DataSource</code>. This value should be identical to the value of the <code>DataSourceID</code> in the request. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateDataSourceFromS3Output"
     },
     "CreateEvaluationInput": {
       "properties": {
@@ -338,7 +355,8 @@
         "MLModelId",
         "EvaluationDataSourceId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateEvaluationInput"
     },
     "CreateEvaluationOutput": {
       "description": "<p> Represents the output of a <code>CreateEvaluation</code> operation, and is an acknowledgement that Amazon ML received the request.</p> <p><code>CreateEvaluation</code> operation is asynchronous. You can poll for status updates by using the <code>GetEvcaluation</code> operation and checking the <code>Status</code> parameter. </p>",
@@ -348,7 +366,8 @@
           "description": "The user-supplied ID that uniquely identifies the <code>Evaluation</code>. This value should be identical to the value of the <code>EvaluationId</code> in the request."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateEvaluationOutput"
     },
     "CreateMLModelInput": {
       "properties": {
@@ -386,7 +405,8 @@
         "MLModelType",
         "TrainingDataSourceId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateMLModelInput"
     },
     "CreateMLModelOutput": {
       "description": "<p> Represents the output of a <code>CreateMLModel</code> operation, and is an acknowledgement that Amazon ML received the request.</p> <p>The <code>CreateMLModel</code> operation is asynchronous. You can poll for status updates by using the <code>GetMLModel</code> operation and checking the <code>Status</code> parameter. </p>",
@@ -396,7 +416,8 @@
           "description": "A user-supplied ID that uniquely identifies the <code>MLModel</code>. This value should be identical to the value of the <code>MLModelId</code> in the request. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateMLModelOutput"
     },
     "CreateRealtimeEndpointInput": {
       "properties": {
@@ -408,7 +429,8 @@
       "required": [
         "MLModelId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateRealtimeEndpointInput"
     },
     "CreateRealtimeEndpointOutput": {
       "description": "<p>Represents the output of an <code>CreateRealtimeEndpoint</code> operation.</p> <p>The result contains the <code>MLModelId</code> and the endpoint information for the <code>MLModel</code>.</p> <note> <p>The endpoint information includes the URI of the <code>MLModel</code>; that is, the location to send online prediction requests for the specified <code>MLModel</code>.</p> </note>",
@@ -422,15 +444,18 @@
           "description": "The endpoint information of the <code>MLModel</code> "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateRealtimeEndpointOutput"
     },
     "DataRearrangement": {
-      "type": "string"
+      "type": "string",
+      "title": "DataRearrangement"
     },
     "DataSchema": {
       "description": "<p>The schema of a <code>DataSource</code>. The <code>DataSchema</code> defines the structure of the observation data in the data file(s) referenced in the <code>DataSource</code>. The DataSource schema is expressed in JSON format.</p> <p><code>DataSchema</code> is not required if you specify a <code>DataSchemaUri</code></p> <p>{ \"version\": \"1.0\", \"recordAnnotationFieldName\": \"F1\", \"recordWeightFieldName\": \"F2\", \"targetFieldName\": \"F3\", \"dataFormat\": \"CSV\", \"dataFileContainsHeader\": true, \"variables\": [ { \"fieldName\": \"F1\", \"fieldType\": \"TEXT\" }, { \"fieldName\": \"F2\", \"fieldType\": \"NUMERIC\" }, { \"fieldName\": \"F3\", \"fieldType\": \"CATEGORICAL\" }, { \"fieldName\": \"F4\", \"fieldType\": \"NUMERIC\" }, { \"fieldName\": \"F5\", \"fieldType\": \"CATEGORICAL\" }, { \"fieldName\": \"F6\", \"fieldType\": \"TEXT\" }, { \"fieldName\": \"F7\", \"fieldType\": \"WEIGHTED_INT_SEQUENCE\" }, { \"fieldName\": \"F8\", \"fieldType\": \"WEIGHTED_STRING_SEQUENCE\" } ], \"excludedVariableNames\": [ \"F6\" ] } </p>",
       "maxLength": 131071,
-      "type": "string"
+      "type": "string",
+      "title": "DataSchema"
     },
     "DataSource": {
       "description": "<p> Represents the output of the <code>GetDataSource</code> operation. </p> <p> The content consists of the detailed metadata and data file information and the current status of the <code>DataSource</code>. </p>",
@@ -502,7 +527,8 @@
           "description": "<p>The current status of the <code>DataSource</code>. This element can have one of the following values: </p> <ul> <li>PENDING - Amazon Machine Learning (Amazon ML) submitted a request to create a <code>DataSource</code>.</li> <li>INPROGRESS - The creation process is underway.</li> <li>FAILED - The request to create a <code>DataSource</code> did not run to completion. It is not usable.</li> <li>COMPLETED - The creation process completed successfully.</li> <li>DELETED - The <code>DataSource</code> is marked as deleted. It is not usable.</li> </ul>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DataSource"
     },
     "DataSourceFilterVariable": {
       "description": "<p>A list of the variables to use in searching or filtering <code>DataSource</code>.</p> <ul> <li> <code>CreatedAt</code> - Sets the search criteria to <code>DataSource</code> creation date.</li> <li> <code>Status</code> - Sets the search criteria to <code>DataSource</code> status.</li> <li> <code>Name</code> - Sets the search criteria to the contents of <code>DataSource</code> <b> </b> <code>Name</code>.</li> <li> <code>DataUri</code> - Sets the search criteria to the URI of data files used to create the <code>DataSource</code>. The URI can identify either a file or an Amazon Simple Storage Service (Amazon S3) bucket or directory.</li> <li> <code>IAMUser</code> - Sets the search criteria to the user account that invoked the <code>DataSource</code> creation.</li> </ul> <note><title>Note</title> <p>The variable names should match the variable names in the <code>DataSource</code>.</p> </note>",
@@ -514,13 +540,15 @@
         "DataLocationS3",
         "IAMUser"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "DataSourceFilterVariable"
     },
     "DataSources": {
       "items": {
         "$ref": "#/definitions/DataSource"
       },
-      "type": "array"
+      "type": "array",
+      "title": "DataSources"
     },
     "DeleteBatchPredictionInput": {
       "properties": {
@@ -532,7 +560,8 @@
       "required": [
         "BatchPredictionId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteBatchPredictionInput"
     },
     "DeleteBatchPredictionOutput": {
       "description": "<p> Represents the output of a <code>DeleteBatchPrediction</code> operation.</p> <p>You can use the <code>GetBatchPrediction</code> operation and check the value of the <code>Status</code> parameter to see whether a <code>BatchPrediction</code> is marked as <code>DELETED</code>.</p>",
@@ -542,7 +571,8 @@
           "description": "A user-supplied ID that uniquely identifies the <code>BatchPrediction</code>. This value should be identical to the value of the <code>BatchPredictionID</code> in the request."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DeleteBatchPredictionOutput"
     },
     "DeleteDataSourceInput": {
       "properties": {
@@ -554,7 +584,8 @@
       "required": [
         "DataSourceId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteDataSourceInput"
     },
     "DeleteDataSourceOutput": {
       "description": " Represents the output of a <code>DeleteDataSource</code> operation.",
@@ -564,7 +595,8 @@
           "description": "A user-supplied ID that uniquely identifies the <code>DataSource</code>. This value should be identical to the value of the <code>DataSourceID</code> in the request."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DeleteDataSourceOutput"
     },
     "DeleteEvaluationInput": {
       "properties": {
@@ -576,7 +608,8 @@
       "required": [
         "EvaluationId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteEvaluationInput"
     },
     "DeleteEvaluationOutput": {
       "description": "<p> Represents the output of a <code>DeleteEvaluation</code> operation. The output indicates that Amazon Machine Learning (Amazon ML) received the request.</p> <p>You can use the <code>GetEvaluation</code> operation and check the value of the <code>Status</code> parameter to see whether an <code>Evaluation</code> is marked as <code>DELETED</code>.</p>",
@@ -586,7 +619,8 @@
           "description": "A user-supplied ID that uniquely identifies the <code>Evaluation</code>. This value should be identical to the value of the <code>EvaluationId</code> in the request."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DeleteEvaluationOutput"
     },
     "DeleteMLModelInput": {
       "properties": {
@@ -598,7 +632,8 @@
       "required": [
         "MLModelId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteMLModelInput"
     },
     "DeleteMLModelOutput": {
       "description": "<p>Represents the output of a <code>DeleteMLModel</code> operation.</p> <p>You can use the <code>GetMLModel</code> operation and check the value of the <code>Status</code> parameter to see whether an <code>MLModel</code> is marked as <code>DELETED</code>.</p>",
@@ -608,7 +643,8 @@
           "description": "A user-supplied ID that uniquely identifies the <code>MLModel</code>. This value should be identical to the value of the <code>MLModelID</code> in the request."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DeleteMLModelOutput"
     },
     "DeleteRealtimeEndpointInput": {
       "properties": {
@@ -620,7 +656,8 @@
       "required": [
         "MLModelId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteRealtimeEndpointInput"
     },
     "DeleteRealtimeEndpointOutput": {
       "description": "<p>Represents the output of an <code>DeleteRealtimeEndpoint</code> operation.</p> <p>The result contains the <code>MLModelId</code> and the endpoint information for the <code>MLModel</code>. </p>",
@@ -634,7 +671,8 @@
           "description": "The endpoint information of the <code>MLModel</code> "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DeleteRealtimeEndpointOutput"
     },
     "DeleteTagsInput": {
       "properties": {
@@ -656,7 +694,8 @@
         "ResourceId",
         "ResourceType"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteTagsInput"
     },
     "DeleteTagsOutput": {
       "description": "Amazon ML returns the following elements. ",
@@ -670,7 +709,8 @@
           "description": "The type of the ML object from which tags were deleted."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DeleteTagsOutput"
     },
     "DescribeBatchPredictionsInput": {
       "properties": {
@@ -719,7 +759,8 @@
           "description": "<p>A two-value parameter that determines the sequence of the resulting list of <code>MLModel</code>s.</p> <ul> <li> <code>asc</code> - Arranges the list in ascending order (A-Z, 0-9).</li> <li> <code>dsc</code> - Arranges the list in descending order (Z-A, 9-0).</li> </ul> <p>Results are sorted by <code>FilterVariable</code>.</p>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeBatchPredictionsInput"
     },
     "DescribeBatchPredictionsOutput": {
       "description": "Represents the output of a <code>DescribeBatchPredictions</code> operation. The content is essentially a list of <code>BatchPrediction</code>s.",
@@ -733,7 +774,8 @@
           "description": "A list of <code>BatchPrediction</code> objects that meet the search criteria. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeBatchPredictionsOutput"
     },
     "DescribeDataSourcesInput": {
       "properties": {
@@ -782,7 +824,8 @@
           "description": "<p>A two-value parameter that determines the sequence of the resulting list of <code>DataSource</code>.</p> <ul> <li> <code>asc</code> - Arranges the list in ascending order (A-Z, 0-9).</li> <li> <code>dsc</code> - Arranges the list in descending order (Z-A, 9-0).</li> </ul> <p>Results are sorted by <code>FilterVariable</code>.</p>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeDataSourcesInput"
     },
     "DescribeDataSourcesOutput": {
       "description": "Represents the query results from a <a>DescribeDataSources</a> operation. The content is essentially a list of <code>DataSource</code>.",
@@ -796,7 +839,8 @@
           "description": "A list of <code>DataSource</code> that meet the search criteria. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeDataSourcesOutput"
     },
     "DescribeEvaluationsInput": {
       "properties": {
@@ -845,7 +889,8 @@
           "description": "<p>A two-value parameter that determines the sequence of the resulting list of <code>Evaluation</code>.</p> <ul> <li> <code>asc</code> - Arranges the list in ascending order (A-Z, 0-9).</li> <li> <code>dsc</code> - Arranges the list in descending order (Z-A, 9-0).</li> </ul> <p>Results are sorted by <code>FilterVariable</code>.</p>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeEvaluationsInput"
     },
     "DescribeEvaluationsOutput": {
       "description": "Represents the query results from a <code>DescribeEvaluations</code> operation. The content is essentially a list of <code>Evaluation</code>.",
@@ -859,7 +904,8 @@
           "description": "A list of <code>Evaluation</code> that meet the search criteria. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeEvaluationsOutput"
     },
     "DescribeMLModelsInput": {
       "properties": {
@@ -908,7 +954,8 @@
           "description": "<p>A two-value parameter that determines the sequence of the resulting list of <code>MLModel</code>.</p> <ul> <li> <code>asc</code> - Arranges the list in ascending order (A-Z, 0-9).</li> <li> <code>dsc</code> - Arranges the list in descending order (Z-A, 9-0).</li> </ul> <p>Results are sorted by <code>FilterVariable</code>.</p>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeMLModelsInput"
     },
     "DescribeMLModelsOutput": {
       "description": "Represents the output of a <code>DescribeMLModels</code> operation. The content is essentially a list of <code>MLModel</code>.",
@@ -922,7 +969,8 @@
           "description": "A list of <code>MLModel</code> that meet the search criteria."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeMLModelsOutput"
     },
     "DescribeTagsInput": {
       "properties": {
@@ -939,7 +987,8 @@
         "ResourceId",
         "ResourceType"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeTagsInput"
     },
     "DescribeTagsOutput": {
       "description": "Amazon ML returns the following elements. ",
@@ -957,7 +1006,8 @@
           "description": "A list of tags associated with the ML object."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeTagsOutput"
     },
     "DetailsAttributes": {
       "description": "Contains the key values of <code>DetailsMap</code>: <code>PredictiveModelType</code> - Indicates the type of the <code>MLModel</code>. <code>Algorithm</code> - Indicates the algorithm that was used for the <code>MLModel</code>.",
@@ -965,7 +1015,8 @@
         "PredictiveModelType",
         "Algorithm"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "DetailsAttributes"
     },
     "DetailsMap": {
       "description": "Provides any additional details regarding the prediction.",
@@ -980,54 +1031,64 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "DetailsMap"
     },
     "DetailsValue": {
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "DetailsValue"
     },
     "EDPPipelineId": {
       "maxLength": 1024,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "EDPPipelineId"
     },
     "EDPResourceRole": {
       "maxLength": 64,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "EDPResourceRole"
     },
     "EDPSecurityGroupId": {
       "maxLength": 255,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "EDPSecurityGroupId"
     },
     "EDPSecurityGroupIds": {
       "items": {
         "$ref": "#/definitions/EDPSecurityGroupId"
       },
-      "type": "array"
+      "type": "array",
+      "title": "EDPSecurityGroupIds"
     },
     "EDPServiceRole": {
       "maxLength": 64,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "EDPServiceRole"
     },
     "EDPSubnetId": {
       "maxLength": 255,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "EDPSubnetId"
     },
     "EntityId": {
       "maxLength": 64,
       "minLength": 1,
       "pattern": "[a-zA-Z0-9_.-]+",
-      "type": "string"
+      "type": "string",
+      "title": "EntityId"
     },
     "EntityName": {
       "description": "A user-supplied name or description of the Amazon ML resource.",
       "maxLength": 1024,
       "pattern": ".*\\S.*|^$",
-      "type": "string"
+      "type": "string",
+      "title": "EntityName"
     },
     "EntityStatus": {
       "description": "<p>Object status with the following possible values:</p> <ul> <li><code>PENDING</code></li> <li><code>INPROGRESS</code></li> <li><code>FAILED</code></li> <li><code>COMPLETED</code></li> <li><code>DELETED</code></li> </ul>",
@@ -1038,19 +1099,23 @@
         "COMPLETED",
         "DELETED"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "EntityStatus"
     },
     "EpochTime": {
       "description": "A timestamp represented in epoch time.",
       "format": "date-time",
-      "type": "string"
+      "type": "string",
+      "title": "EpochTime"
     },
     "ErrorCode": {
-      "type": "integer"
+      "type": "integer",
+      "title": "ErrorCode"
     },
     "ErrorMessage": {
       "maxLength": 2048,
-      "type": "string"
+      "type": "string",
+      "title": "ErrorMessage"
     },
     "Evaluation": {
       "description": "<p> Represents the output of <code>GetEvaluation</code> operation. </p> <p>The content consists of the detailed metadata and data file information and the current status of the <code>Evaluation</code>.</p>",
@@ -1109,7 +1174,8 @@
           "description": "<p>The status of the evaluation. This element can have one of the following values:</p> <ul> <li> <code>PENDING</code> - Amazon Machine Learning (Amazon ML) submitted a request to evaluate an <code>MLModel</code>.</li> <li> <code>INPROGRESS</code> - The evaluation is underway.</li> <li> <code>FAILED</code> - The request to evaluate an <code>MLModel</code> did not run to completion. It is not usable.</li> <li> <code>COMPLETED</code> - The evaluation process completed successfully.</li> <li> <code>DELETED</code> - The <code>Evaluation</code> is marked as deleted. It is not usable.</li> </ul>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Evaluation"
     },
     "EvaluationFilterVariable": {
       "description": "<p>A list of the variables to use in searching or filtering <code>Evaluation</code>.</p> <ul> <li> <code>CreatedAt</code> - Sets the search criteria to <code>Evaluation</code> creation date.</li> <li> <code>Status</code> - Sets the search criteria to <code>Evaluation</code> status.</li> <li> <code>Name</code> - Sets the search criteria to the contents of <code>Evaluation</code> <b> </b> <code>Name</code>.</li> <li> <code>IAMUser</code> - Sets the search criteria to the user account that invoked an evaluation.</li> <li> <code>MLModelId</code> - Sets the search criteria to the <code>Predictor</code> that was evaluated.</li> <li> <code>DataSourceId</code> - Sets the search criteria to the <code>DataSource</code> used in evaluation.</li> <li> <code>DataUri</code> - Sets the search criteria to the data file(s) used in evaluation. The URL can identify either a file or an Amazon Simple Storage Service (Amazon S3) bucket or directory.</li> </ul>",
@@ -1123,13 +1189,15 @@
         "DataSourceId",
         "DataURI"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "EvaluationFilterVariable"
     },
     "Evaluations": {
       "items": {
         "$ref": "#/definitions/Evaluation"
       },
-      "type": "array"
+      "type": "array",
+      "title": "Evaluations"
     },
     "GetBatchPredictionInput": {
       "properties": {
@@ -1141,7 +1209,8 @@
       "required": [
         "BatchPredictionId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetBatchPredictionInput"
     },
     "GetBatchPredictionOutput": {
       "description": "Represents the output of a <code>GetBatchPrediction</code> operation and describes a <code>BatchPrediction</code>.",
@@ -1215,7 +1284,8 @@
           "description": "The number of total records that Amazon Machine Learning saw while processing the <code>BatchPrediction</code>."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetBatchPredictionOutput"
     },
     "GetDataSourceInput": {
       "properties": {
@@ -1231,7 +1301,8 @@
       "required": [
         "DataSourceId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetDataSourceInput"
     },
     "GetDataSourceOutput": {
       "description": "Represents the output of a <code>GetDataSource</code> operation and describes a <code>DataSource</code>.",
@@ -1314,7 +1385,8 @@
           "description": "<p>The current status of the <code>DataSource</code>. This element can have one of the following values:</p> <ul> <li> <code>PENDING</code> - Amazon ML submitted a request to create a <code>DataSource</code>.</li> <li> <code>INPROGRESS</code> - The creation process is underway.</li> <li> <code>FAILED</code> - The request to create a <code>DataSource</code> did not run to completion. It is not usable.</li> <li> <code>COMPLETED</code> - The creation process completed successfully.</li> <li> <code>DELETED</code> - The <code>DataSource</code> is marked as deleted. It is not usable.</li> </ul>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetDataSourceOutput"
     },
     "GetEvaluationInput": {
       "properties": {
@@ -1326,7 +1398,8 @@
       "required": [
         "EvaluationId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetEvaluationInput"
     },
     "GetEvaluationOutput": {
       "description": "Represents the output of a <code>GetEvaluation</code> operation and describes an <code>Evaluation</code>.",
@@ -1392,7 +1465,8 @@
           "description": "<p>The status of the evaluation. This element can have one of the following values:</p> <ul> <li> <code>PENDING</code> - Amazon Machine Language (Amazon ML) submitted a request to evaluate an <code>MLModel</code>.</li> <li> <code>INPROGRESS</code> - The evaluation is underway.</li> <li> <code>FAILED</code> - The request to evaluate an <code>MLModel</code> did not run to completion. It is not usable.</li> <li> <code>COMPLETED</code> - The evaluation process completed successfully.</li> <li> <code>DELETED</code> - The <code>Evaluation</code> is marked as deleted. It is not usable.</li> </ul>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetEvaluationOutput"
     },
     "GetMLModelInput": {
       "properties": {
@@ -1408,7 +1482,8 @@
       "required": [
         "MLModelId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetMLModelInput"
     },
     "GetMLModelOutput": {
       "description": "Represents the output of a <code>GetMLModel</code> operation, and provides detailed information about a <code>MLModel</code>.",
@@ -1497,7 +1572,8 @@
           "description": "<p>A list of the training parameters in the <code>MLModel</code>. The list is implemented as a map of key-value pairs.</p> <p>The following is the current set of training parameters: </p> <ul> <li> <p><code>sgd.maxMLModelSizeInBytes</code> - The maximum allowed size of the model. Depending on the input data, the size of the model might affect its performance.</p> <p> The value is an integer that ranges from <code>100000</code> to <code>2147483648</code>. The default value is <code>33554432</code>.</p> </li> <li><p><code>sgd.maxPasses</code> - The number of times that the training process traverses the observations to build the <code>MLModel</code>. The value is an integer that ranges from <code>1</code> to <code>10000</code>. The default value is <code>10</code>.</p></li> <li><p><code>sgd.shuffleType</code> - Whether Amazon ML shuffles the training data. Shuffling data improves a model's ability to find the optimal solution for a variety of data types. The valid values are <code>auto</code> and <code>none</code>. The default value is <code>none</code>. We strongly recommend that you shuffle your data.</p></li> <li> <p><code>sgd.l1RegularizationAmount</code> - The coefficient regularization L1 norm. It controls overfitting the data by penalizing large coefficients. This tends to drive coefficients to zero, resulting in a sparse feature set. If you use this parameter, start by specifying a small value, such as <code>1.0E-08</code>.</p> <p>The value is a double that ranges from <code>0</code> to <code>MAX_DOUBLE</code>. The default is to not use L1 normalization. This parameter can't be used when <code>L2</code> is specified. Use this parameter sparingly.</p> </li> <li> <p><code>sgd.l2RegularizationAmount</code> - The coefficient regularization L2 norm. It controls overfitting the data by penalizing large coefficients. This tends to drive coefficients to small, nonzero values. If you use this parameter, start by specifying a small value, such as <code>1.0E-08</code>.</p> <p>The value is a double that ranges from <code>0</code> to <code>MAX_DOUBLE</code>. The default is to not use L2 normalization. This parameter can't be used when <code>L1</code> is specified. Use this parameter sparingly.</p> </li> </ul>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetMLModelOutput"
     },
     "IdempotentParameterMismatchException": {
       "description": "A second request to use or change an object was not allowed. This can result from retrying a request using a parameter that was not present in the original request.",
@@ -1509,11 +1585,13 @@
           "$ref": "#/definitions/ErrorMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "IdempotentParameterMismatchException"
     },
     "IntegerType": {
       "description": "Integer type that is a 32-bit signed number.",
-      "type": "integer"
+      "type": "integer",
+      "title": "IntegerType"
     },
     "InternalServerException": {
       "description": "An error on the server occurred when trying to process a request.",
@@ -1525,7 +1603,8 @@
           "$ref": "#/definitions/ErrorMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InternalServerException"
     },
     "InvalidInputException": {
       "description": "An error on the client occurred. Typically, the cause is an invalid input value.",
@@ -1537,7 +1616,8 @@
           "$ref": "#/definitions/ErrorMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidInputException"
     },
     "InvalidTagException": {
       "properties": {
@@ -1545,11 +1625,13 @@
           "$ref": "#/definitions/ErrorMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidTagException"
     },
     "Label": {
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "Label"
     },
     "LimitExceededException": {
       "description": "The subscriber exceeded the maximum number of operations. This exception can occur when listing objects such as <code>DataSource</code>.",
@@ -1561,11 +1643,13 @@
           "$ref": "#/definitions/ErrorMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LimitExceededException"
     },
     "LongType": {
       "description": "Long integer type that is a 64-bit signed number.",
-      "type": "integer"
+      "type": "integer",
+      "title": "LongType"
     },
     "MLModel": {
       "description": "<p> Represents the output of a <code>GetMLModel</code> operation. </p> <p>The content consists of the detailed metadata and the current status of the <code>MLModel</code>.</p>",
@@ -1642,7 +1726,8 @@
           "description": "<p>A list of the training parameters in the <code>MLModel</code>. The list is implemented as a map of key-value pairs.</p> <p>The following is the current set of training parameters: </p> <ul> <li> <p><code>sgd.maxMLModelSizeInBytes</code> - The maximum allowed size of the model. Depending on the input data, the size of the model might affect its performance.</p> <p> The value is an integer that ranges from <code>100000</code> to <code>2147483648</code>. The default value is <code>33554432</code>.</p> </li> <li><p><code>sgd.maxPasses</code> - The number of times that the training process traverses the observations to build the <code>MLModel</code>. The value is an integer that ranges from <code>1</code> to <code>10000</code>. The default value is <code>10</code>.</p></li> <li><p><code>sgd.shuffleType</code> - Whether Amazon ML shuffles the training data. Shuffling the data improves a model's ability to find the optimal solution for a variety of data types. The valid values are <code>auto</code> and <code>none</code>. The default value is <code>none</code>.</p></li> <li> <p><code>sgd.l1RegularizationAmount</code> - The coefficient regularization L1 norm, which controls overfitting the data by penalizing large coefficients. This parameter tends to drive coefficients to zero, resulting in sparse feature set. If you use this parameter, start by specifying a small value, such as <code>1.0E-08</code>.</p> <p>The value is a double that ranges from <code>0</code> to <code>MAX_DOUBLE</code>. The default is to not use L1 normalization. This parameter can't be used when <code>L2</code> is specified. Use this parameter sparingly.</p> </li> <li> <p><code>sgd.l2RegularizationAmount</code> - The coefficient regularization L2 norm, which controls overfitting the data by penalizing large coefficients. This tends to drive coefficients to small, nonzero values. If you use this parameter, start by specifying a small value, such as <code>1.0E-08</code>.</p> <p>The value is a double that ranges from <code>0</code> to <code>MAX_DOUBLE</code>. The default is to not use L2 normalization. This parameter can't be used when <code>L1</code> is specified. Use this parameter sparingly.</p> </li> </ul>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "MLModel"
     },
     "MLModelFilterVariable": {
       "enum": [
@@ -1657,11 +1742,13 @@
         "Algorithm",
         "TrainingDataURI"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "MLModelFilterVariable"
     },
     "MLModelName": {
       "maxLength": 1024,
-      "type": "string"
+      "type": "string",
+      "title": "MLModelName"
     },
     "MLModelType": {
       "enum": [
@@ -1669,23 +1756,27 @@
         "BINARY",
         "MULTICLASS"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "MLModelType"
     },
     "MLModels": {
       "items": {
         "$ref": "#/definitions/MLModel"
       },
-      "type": "array"
+      "type": "array",
+      "title": "MLModels"
     },
     "Message": {
       "description": " Description of the most recent details about an object.",
       "maxLength": 10240,
-      "type": "string"
+      "type": "string",
+      "title": "Message"
     },
     "PageLimit": {
       "maximum": 100,
       "minimum": 1,
-      "type": "integer"
+      "type": "integer",
+      "title": "PageLimit"
     },
     "PerformanceMetrics": {
       "description": "<p>Measurements of how well the <code>MLModel</code> performed on known observations. One of the following metrics is returned, based on the type of the <code>MLModel</code>: </p> <ul> <li> <p>BinaryAUC: The binary <code>MLModel</code> uses the Area Under the Curve (AUC) technique to measure performance. </p> </li> <li> <p>RegressionRMSE: The regression <code>MLModel</code> uses the Root Mean Square Error (RMSE) technique to measure performance. RMSE measures the difference between predicted and actual values for a single variable.</p> </li> <li> <p>MulticlassAvgFScore: The multiclass <code>MLModel</code> uses the F1 score technique to measure performance. </p> </li> </ul> <p> For more information about performance metrics, please see the <a href=\"http://docs.aws.amazon.com/machine-learning/latest/dg\">Amazon Machine Learning Developer Guide</a>. </p>",
@@ -1694,7 +1785,8 @@
           "$ref": "#/definitions/PerformanceMetricsProperties"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PerformanceMetrics"
     },
     "PerformanceMetricsProperties": {
       "items": {
@@ -1708,13 +1800,16 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "PerformanceMetricsProperties"
     },
     "PerformanceMetricsPropertyKey": {
-      "type": "string"
+      "type": "string",
+      "title": "PerformanceMetricsPropertyKey"
     },
     "PerformanceMetricsPropertyValue": {
-      "type": "string"
+      "type": "string",
+      "title": "PerformanceMetricsPropertyValue"
     },
     "PredictInput": {
       "properties": {
@@ -1734,7 +1829,8 @@
         "Record",
         "PredictEndpoint"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "PredictInput"
     },
     "PredictOutput": {
       "properties": {
@@ -1742,7 +1838,8 @@
           "$ref": "#/definitions/Prediction"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PredictOutput"
     },
     "Prediction": {
       "description": "<p>The output from a <code>Predict</code> operation: </p> <ul> <li> <p> <code>Details</code> - Contains the following attributes: <code>DetailsAttributes.PREDICTIVE_MODEL_TYPE - REGRESSION | BINARY | MULTICLASS</code> <code>DetailsAttributes.ALGORITHM - SGD</code> </p> </li> <li> <p> <code>PredictedLabel</code> - Present for either a <code>BINARY</code> or <code>MULTICLASS</code> <code>MLModel</code> request. </p> </li> <li> <p> <code>PredictedScores</code> - Contains the raw classification score corresponding to each label. </p> </li> <li> <p> <code>PredictedValue</code> - Present for a <code>REGRESSION</code> <code>MLModel</code> request. </p> </li> </ul>",
@@ -1762,7 +1859,8 @@
           "description": "The prediction value for <code>REGRESSION</code> <code>MLModel</code>."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Prediction"
     },
     "PredictorNotMountedException": {
       "description": "The exception is thrown when a predict request is made to an unmounted <code>MLModel</code>.",
@@ -1771,10 +1869,12 @@
           "$ref": "#/definitions/ErrorMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PredictorNotMountedException"
     },
     "PresignedS3Url": {
-      "type": "string"
+      "type": "string",
+      "title": "PresignedS3Url"
     },
     "RDSDataSpec": {
       "description": "The data specification of an Amazon Relational Database Service (Amazon RDS) <code>DataSource</code>.",
@@ -1834,7 +1934,8 @@
         "SubnetId",
         "SecurityGroupIds"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "RDSDataSpec"
     },
     "RDSDatabase": {
       "description": "The database details of an Amazon RDS database.",
@@ -1851,7 +1952,8 @@
         "InstanceIdentifier",
         "DatabaseName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "RDSDatabase"
     },
     "RDSDatabaseCredentials": {
       "description": "The database credentials to connect to a database on an RDS DB instance.",
@@ -1867,32 +1969,37 @@
         "Username",
         "Password"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "RDSDatabaseCredentials"
     },
     "RDSDatabaseName": {
       "description": "The name of a database hosted on an RDS DB instance.",
       "maxLength": 64,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "RDSDatabaseName"
     },
     "RDSDatabasePassword": {
       "description": "The password to be used by Amazon ML to connect to a database on an RDS DB instance. The password should have sufficient permissions to execute the <code>RDSSelectQuery</code> query.",
       "maxLength": 128,
       "minLength": 8,
-      "type": "string"
+      "type": "string",
+      "title": "RDSDatabasePassword"
     },
     "RDSDatabaseUsername": {
       "description": "The username to be used by Amazon ML to connect to database on an Amazon RDS instance. The username should have sufficient permissions to execute an <code>RDSSelectSqlQuery</code> query.",
       "maxLength": 128,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "RDSDatabaseUsername"
     },
     "RDSInstanceIdentifier": {
       "description": "Identifier of RDS DB Instances.",
       "maxLength": 63,
       "minLength": 1,
       "pattern": "[a-z0-9-]+",
-      "type": "string"
+      "type": "string",
+      "title": "RDSInstanceIdentifier"
     },
     "RDSMetadata": {
       "description": "The datasource details that are specific to Amazon RDS.",
@@ -1921,13 +2028,15 @@
           "description": "The role (DataPipelineDefaultRole) assumed by the Data Pipeline service to monitor the progress of the copy task from Amazon RDS to Amazon S3. For more information, see <a href=\"http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-iam-roles.html\">Role templates</a> for data pipelines."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RDSMetadata"
     },
     "RDSSelectSqlQuery": {
       "description": "The SQL query to be executed against the Amazon RDS database. The SQL query should be valid for the Amazon RDS type being used. ",
       "maxLength": 16777216,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "RDSSelectSqlQuery"
     },
     "RealtimeEndpointInfo": {
       "description": " Describes the real-time endpoint information for an <code>MLModel</code>.",
@@ -1949,7 +2058,8 @@
           "description": " The maximum processing rate for the real-time endpoint for <code>MLModel</code>, measured in incoming requests per second."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RealtimeEndpointInfo"
     },
     "RealtimeEndpointStatus": {
       "enum": [
@@ -1958,11 +2068,13 @@
         "UPDATING",
         "FAILED"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "RealtimeEndpointStatus"
     },
     "Recipe": {
       "maxLength": 131071,
-      "type": "string"
+      "type": "string",
+      "title": "Recipe"
     },
     "Record": {
       "description": "A map of variable name-value pairs that represent an observation.",
@@ -1977,14 +2089,16 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "Record"
     },
     "RedshiftClusterIdentifier": {
       "description": "The ID of an Amazon Redshift cluster.",
       "maxLength": 63,
       "minLength": 1,
       "pattern": "[a-z0-9-]+",
-      "type": "string"
+      "type": "string",
+      "title": "RedshiftClusterIdentifier"
     },
     "RedshiftDataSpec": {
       "description": "Describes the data specification of an Amazon Redshift <code>DataSource</code>.",
@@ -2024,7 +2138,8 @@
         "DatabaseCredentials",
         "S3StagingLocation"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "RedshiftDataSpec"
     },
     "RedshiftDatabase": {
       "description": "Describes the database details required to connect to an Amazon Redshift database.",
@@ -2040,7 +2155,8 @@
         "DatabaseName",
         "ClusterIdentifier"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "RedshiftDatabase"
     },
     "RedshiftDatabaseCredentials": {
       "description": " Describes the database credentials for connecting to a database on an Amazon Redshift cluster.",
@@ -2056,26 +2172,30 @@
         "Username",
         "Password"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "RedshiftDatabaseCredentials"
     },
     "RedshiftDatabaseName": {
       "description": "The name of a database hosted on an Amazon Redshift cluster.",
       "maxLength": 64,
       "minLength": 1,
       "pattern": "[a-z0-9]+",
-      "type": "string"
+      "type": "string",
+      "title": "RedshiftDatabaseName"
     },
     "RedshiftDatabasePassword": {
       "description": "A password to be used by Amazon ML to connect to a database on an Amazon Redshift cluster. The password should have sufficient permissions to execute a <code>RedshiftSelectSqlQuery</code> query. The password should be valid for an Amazon Redshift <a href=\"http://docs.aws.amazon.com/redshift/latest/dg/r_CREATE_USER.html\">USER</a>.",
       "maxLength": 64,
       "minLength": 8,
-      "type": "string"
+      "type": "string",
+      "title": "RedshiftDatabasePassword"
     },
     "RedshiftDatabaseUsername": {
       "description": "A username to be used by Amazon Machine Learning (Amazon ML)to connect to a database on an Amazon Redshift cluster. The username should have sufficient permissions to execute the <code>RedshiftSelectSqlQuery</code> query. The username should be valid for an Amazon Redshift <a href=\"http://docs.aws.amazon.com/redshift/latest/dg/r_CREATE_USER.html\">USER</a>.",
       "maxLength": 128,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "RedshiftDatabaseUsername"
     },
     "RedshiftMetadata": {
       "description": "Describes the <code>DataSource</code> details specific to Amazon Redshift.",
@@ -2091,13 +2211,15 @@
           "description": " The SQL query that is specified during <a>CreateDataSourceFromRedshift</a>. Returns only if <code>Verbose</code> is true in GetDataSourceInput. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RedshiftMetadata"
     },
     "RedshiftSelectSqlQuery": {
       "description": " Describes the SQL query to execute on the Amazon Redshift database. The SQL query should be valid for an Amazon Redshift <a href=\"http://docs.aws.amazon.com/redshift/latest/dg/r_SELECT_synopsis.html\">SELECT</a>. ",
       "maxLength": 16777216,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "RedshiftSelectSqlQuery"
     },
     "ResourceNotFoundException": {
       "description": "A specified resource cannot be located.",
@@ -2109,13 +2231,15 @@
           "$ref": "#/definitions/ErrorMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ResourceNotFoundException"
     },
     "RoleARN": {
       "description": "The Amazon Resource Name (ARN) of an <a href=\"http://docs.aws.amazon.com/IAM/latest/UserGuide/roles-toplevel.html#roles-about-termsandconcepts\">AWS IAM Role</a>, such as the following: arn:aws:iam::account:role/rolename. ",
       "maxLength": 110,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "RoleARN"
     },
     "S3DataSpec": {
       "description": " Describes the data specification of a <code>DataSource</code>.",
@@ -2140,21 +2264,25 @@
       "required": [
         "DataLocationS3"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "S3DataSpec"
     },
     "S3Url": {
       "description": "A reference to a file or bucket on Amazon Simple Storage Service (Amazon S3).",
       "maxLength": 2048,
       "pattern": "s3://([^/]+)(/.*)?",
-      "type": "string"
+      "type": "string",
+      "title": "S3Url"
     },
     "ScoreThreshold": {
       "format": "float",
-      "type": "number"
+      "type": "number",
+      "title": "ScoreThreshold"
     },
     "ScoreValue": {
       "format": "float",
-      "type": "number"
+      "type": "number",
+      "title": "ScoreValue"
     },
     "ScoreValuePerLabelMap": {
       "description": "Provides the raw classification score corresponding to each label.",
@@ -2169,7 +2297,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ScoreValuePerLabelMap"
     },
     "SortOrder": {
       "description": "<p>The sort order specified in a listing condition. Possible values include the following:</p> <ul> <li> <code>asc</code> - Present the information in ascending order (from A-Z).</li> <li> <code>dsc</code> - Present the information in descending order (from Z-A).</li> </ul>",
@@ -2177,11 +2306,13 @@
         "asc",
         "dsc"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "SortOrder"
     },
     "StringType": {
       "description": "String type.",
-      "type": "string"
+      "type": "string",
+      "title": "StringType"
     },
     "Tag": {
       "description": "A custom key-value pair associated with an ML object, such as an ML model.",
@@ -2195,20 +2326,23 @@
           "description": "An optional string, typically used to describe or define the tag. Valid characters include Unicode letters, digits, white space, _, ., /, =, +, -, %, and @."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Tag"
     },
     "TagKey": {
       "maxLength": 128,
       "minLength": 1,
       "pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$",
-      "type": "string"
+      "type": "string",
+      "title": "TagKey"
     },
     "TagKeyList": {
       "items": {
         "$ref": "#/definitions/TagKey"
       },
       "maxItems": 100,
-      "type": "array"
+      "type": "array",
+      "title": "TagKeyList"
     },
     "TagLimitExceededException": {
       "properties": {
@@ -2216,20 +2350,23 @@
           "$ref": "#/definitions/ErrorMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TagLimitExceededException"
     },
     "TagList": {
       "items": {
         "$ref": "#/definitions/Tag"
       },
       "maxItems": 100,
-      "type": "array"
+      "type": "array",
+      "title": "TagList"
     },
     "TagValue": {
       "maxLength": 256,
       "minLength": 0,
       "pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$",
-      "type": "string"
+      "type": "string",
+      "title": "TagValue"
     },
     "TaggableResourceType": {
       "enum": [
@@ -2238,7 +2375,8 @@
         "Evaluation",
         "MLModel"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "TaggableResourceType"
     },
     "TrainingParameters": {
       "items": {
@@ -2252,7 +2390,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "TrainingParameters"
     },
     "UpdateBatchPredictionInput": {
       "properties": {
@@ -2269,7 +2408,8 @@
         "BatchPredictionId",
         "BatchPredictionName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateBatchPredictionInput"
     },
     "UpdateBatchPredictionOutput": {
       "description": "<p>Represents the output of an <code>UpdateBatchPrediction</code> operation.</p> <p>You can see the updated content by using the <code>GetBatchPrediction</code> operation.</p>",
@@ -2279,7 +2419,8 @@
           "description": "The ID assigned to the <code>BatchPrediction</code> during creation. This value should be identical to the value of the <code>BatchPredictionId</code> in the request."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UpdateBatchPredictionOutput"
     },
     "UpdateDataSourceInput": {
       "properties": {
@@ -2296,7 +2437,8 @@
         "DataSourceId",
         "DataSourceName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateDataSourceInput"
     },
     "UpdateDataSourceOutput": {
       "description": "<p>Represents the output of an <code>UpdateDataSource</code> operation.</p> <p>You can see the updated content by using the <code>GetBatchPrediction</code> operation.</p>",
@@ -2306,7 +2448,8 @@
           "description": "The ID assigned to the <code>DataSource</code> during creation. This value should be identical to the value of the <code>DataSourceID</code> in the request."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UpdateDataSourceOutput"
     },
     "UpdateEvaluationInput": {
       "properties": {
@@ -2323,7 +2466,8 @@
         "EvaluationId",
         "EvaluationName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateEvaluationInput"
     },
     "UpdateEvaluationOutput": {
       "description": "<p>Represents the output of an <code>UpdateEvaluation</code> operation.</p> <p>You can see the updated content by using the <code>GetEvaluation</code> operation.</p>",
@@ -2333,7 +2477,8 @@
           "description": "The ID assigned to the <code>Evaluation</code> during creation. This value should be identical to the value of the <code>Evaluation</code> in the request."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UpdateEvaluationOutput"
     },
     "UpdateMLModelInput": {
       "properties": {
@@ -2353,7 +2498,8 @@
       "required": [
         "MLModelId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateMLModelInput"
     },
     "UpdateMLModelOutput": {
       "description": "<p>Represents the output of an <code>UpdateMLModel</code> operation.</p> <p>You can see the updated content by using the <code>GetMLModel</code> operation.</p>",
@@ -2363,28 +2509,34 @@
           "description": "The ID assigned to the <code>MLModel</code> during creation. This value should be identical to the value of the <code>MLModelID</code> in the request."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UpdateMLModelOutput"
     },
     "VariableName": {
       "description": "The name of a variable. Currently it's used to specify the name of the target value, label, weight, and tags.",
-      "type": "string"
+      "type": "string",
+      "title": "VariableName"
     },
     "VariableValue": {
       "description": "The value of a variable. Currently it's used to specify values of the target value, weights, and tag variables and for filtering variable values.",
-      "type": "string"
+      "type": "string",
+      "title": "VariableValue"
     },
     "Verbose": {
       "description": "Specifies whether a describe operation should return exhaustive or abbreviated information.",
-      "type": "boolean"
+      "type": "boolean",
+      "title": "Verbose"
     },
     "VipURL": {
       "maxLength": 2048,
       "pattern": "https://[a-zA-Z0-9-.]*\\.amazon(aws)?\\.com[/]?",
-      "type": "string"
+      "type": "string",
+      "title": "VipURL"
     },
     "floatLabel": {
       "format": "float",
-      "type": "number"
+      "type": "number",
+      "title": "floatLabel"
     }
   },
   "actions": [

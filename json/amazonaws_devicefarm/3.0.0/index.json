@@ -19,7 +19,8 @@
     "AWSAccountNumber": {
       "maxLength": 16,
       "minLength": 2,
-      "type": "string"
+      "type": "string",
+      "title": "AWSAccountNumber"
     },
     "AccountSettings": {
       "description": "A container for account-level settings within AWS Device Farm.",
@@ -53,23 +54,28 @@
           "description": "Returns the unmetered remote access devices you have purchased or want to purchase."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AccountSettings"
     },
     "AccountsCleanup": {
-      "type": "boolean"
+      "type": "boolean",
+      "title": "AccountsCleanup"
     },
     "AmazonResourceName": {
       "minLength": 32,
-      "type": "string"
+      "type": "string",
+      "title": "AmazonResourceName"
     },
     "AmazonResourceNames": {
       "items": {
         "$ref": "#/definitions/AmazonResourceName"
       },
-      "type": "array"
+      "type": "array",
+      "title": "AmazonResourceNames"
     },
     "AppPackagesCleanup": {
-      "type": "boolean"
+      "type": "boolean",
+      "title": "AppPackagesCleanup"
     },
     "ArgumentException": {
       "description": "An invalid argument was specified.",
@@ -79,7 +85,8 @@
           "description": "Any additional information about the exception."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ArgumentException"
     },
     "Artifact": {
       "description": "Represents the output of a test. Examples of artifacts include logs and screenshots.",
@@ -105,7 +112,8 @@
           "description": "The pre-signed Amazon S3 URL that can be used with a corresponding GET request to download the artifact's file."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Artifact"
     },
     "ArtifactCategory": {
       "enum": [
@@ -113,7 +121,8 @@
         "FILE",
         "LOG"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ArtifactCategory"
     },
     "ArtifactType": {
       "enum": [
@@ -143,23 +152,27 @@
         "XCTEST_LOG",
         "VIDEO"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ArtifactType"
     },
     "Artifacts": {
       "items": {
         "$ref": "#/definitions/Artifact"
       },
-      "type": "array"
+      "type": "array",
+      "title": "Artifacts"
     },
     "BillingMethod": {
       "enum": [
         "METERED",
         "UNMETERED"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "BillingMethod"
     },
     "Boolean": {
-      "type": "boolean"
+      "type": "boolean",
+      "title": "Boolean"
     },
     "CPU": {
       "description": "<p>Represents the amount of CPU that an app is using on a physical device.</p> <p>Note that this does not represent system-wide CPU usage.</p>",
@@ -177,12 +190,14 @@
           "description": "The CPU's frequency."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CPU"
     },
     "ContentType": {
       "maxLength": 64,
       "minLength": 0,
-      "type": "string"
+      "type": "string",
+      "title": "ContentType"
     },
     "Counters": {
       "description": "Represents entity counters.",
@@ -216,7 +231,8 @@
           "description": "The number of warned entities."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Counters"
     },
     "CreateDevicePoolRequest": {
       "description": "Represents a request to the create device pool operation.",
@@ -249,7 +265,8 @@
         "name",
         "rules"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateDevicePoolRequest"
     },
     "CreateDevicePoolResult": {
       "description": "Represents the result of a create device pool request.",
@@ -262,7 +279,8 @@
           "description": "The newly created device pool."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateDevicePoolResult"
     },
     "CreateNetworkProfileRequest": {
       "properties": {
@@ -319,7 +337,8 @@
         "projectArn",
         "name"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateNetworkProfileRequest"
     },
     "CreateNetworkProfileResult": {
       "properties": {
@@ -328,7 +347,8 @@
           "description": "The network profile that is returned by the create network profile request."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateNetworkProfileResult"
     },
     "CreateProjectRequest": {
       "description": "Represents a request to the create project operation.",
@@ -348,7 +368,8 @@
       "required": [
         "name"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateProjectRequest"
     },
     "CreateProjectResult": {
       "description": "Represents the result of a create project request.",
@@ -365,7 +386,8 @@
           "description": "The newly created project."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateProjectResult"
     },
     "CreateRemoteAccessSessionConfiguration": {
       "description": "Creates the configuration settings for a remote access session, including the device model and type.",
@@ -375,7 +397,8 @@
           "description": "Returns the billing method for purposes of configuring a remote access session."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateRemoteAccessSessionConfiguration"
     },
     "CreateRemoteAccessSessionRequest": {
       "description": "Creates and submits a request to start a remote access session.",
@@ -409,7 +432,8 @@
         "projectArn",
         "deviceArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateRemoteAccessSessionRequest"
     },
     "CreateRemoteAccessSessionResult": {
       "description": "Represents the server response from a request to create a remote access session.",
@@ -422,7 +446,8 @@
           "description": "A container that describes the remote access session when the request to create a remote access session is sent."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateRemoteAccessSessionResult"
     },
     "CreateUploadRequest": {
       "description": "Represents a request to the create upload operation.",
@@ -454,7 +479,8 @@
         "name",
         "type"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateUploadRequest"
     },
     "CreateUploadResult": {
       "description": "Represents the result of a create upload request.",
@@ -474,17 +500,20 @@
           "description": "The newly created upload."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateUploadResult"
     },
     "CurrencyCode": {
       "enum": [
         "USD"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "CurrencyCode"
     },
     "DateTime": {
       "format": "date-time",
-      "type": "string"
+      "type": "string",
+      "title": "DateTime"
     },
     "DeleteDevicePoolRequest": {
       "description": "Represents a request to the delete device pool operation.",
@@ -500,13 +529,15 @@
       "required": [
         "arn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteDevicePoolRequest"
     },
     "DeleteDevicePoolResult": {
       "description": "Represents the result of a delete device pool request.",
       "example": {},
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DeleteDevicePoolResult"
     },
     "DeleteNetworkProfileRequest": {
       "properties": {
@@ -518,11 +549,13 @@
       "required": [
         "arn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteNetworkProfileRequest"
     },
     "DeleteNetworkProfileResult": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DeleteNetworkProfileResult"
     },
     "DeleteProjectRequest": {
       "description": "Represents a request to the delete project operation.",
@@ -538,13 +571,15 @@
       "required": [
         "arn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteProjectRequest"
     },
     "DeleteProjectResult": {
       "description": "Represents the result of a delete project request.",
       "example": {},
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DeleteProjectResult"
     },
     "DeleteRemoteAccessSessionRequest": {
       "description": "Represents the request to delete the specified remote access session.",
@@ -560,13 +595,15 @@
       "required": [
         "arn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteRemoteAccessSessionRequest"
     },
     "DeleteRemoteAccessSessionResult": {
       "description": "The response from the server when a request is made to delete the remote access session.",
       "example": {},
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DeleteRemoteAccessSessionResult"
     },
     "DeleteRunRequest": {
       "description": "Represents a request to the delete run operation.",
@@ -582,13 +619,15 @@
       "required": [
         "arn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteRunRequest"
     },
     "DeleteRunResult": {
       "description": "Represents the result of a delete run request.",
       "example": {},
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DeleteRunResult"
     },
     "DeleteUploadRequest": {
       "description": "Represents a request to the delete upload operation.",
@@ -604,13 +643,15 @@
       "required": [
         "arn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteUploadRequest"
     },
     "DeleteUploadResult": {
       "description": "Represents the result of a delete upload request.",
       "example": {},
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DeleteUploadResult"
     },
     "Device": {
       "description": "Represents a device type that an app is tested against.",
@@ -684,7 +725,8 @@
           "description": "The resolution of the device."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Device"
     },
     "DeviceAttribute": {
       "enum": [
@@ -695,14 +737,16 @@
         "REMOTE_ACCESS_ENABLED",
         "APPIUM_VERSION"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "DeviceAttribute"
     },
     "DeviceFormFactor": {
       "enum": [
         "PHONE",
         "TABLET"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "DeviceFormFactor"
     },
     "DeviceMinutes": {
       "description": "Represents the total (metered or unmetered) minutes used by the resource to run tests. Contains the sum of minutes consumed by all children.",
@@ -720,14 +764,16 @@
           "description": "When specified, represents only the sum of unmetered minutes used by the resource to run tests."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DeviceMinutes"
     },
     "DevicePlatform": {
       "enum": [
         "ANDROID",
         "IOS"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "DevicePlatform"
     },
     "DevicePool": {
       "description": "Represents a collection of device types.",
@@ -753,7 +799,8 @@
           "description": "<p>The device pool's type.</p> <p>Allowed values include:</p> <ul> <li> <p>CURATED: A device pool that is created and managed by AWS Device Farm.</p> </li> <li> <p>PRIVATE: A device pool that is created and managed by the device pool developer.</p> </li> </ul>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DevicePool"
     },
     "DevicePoolCompatibilityResult": {
       "description": "Represents a device pool compatibility result.",
@@ -771,36 +818,42 @@
           "description": "Information about the compatibility."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DevicePoolCompatibilityResult"
     },
     "DevicePoolCompatibilityResults": {
       "items": {
         "$ref": "#/definitions/DevicePoolCompatibilityResult"
       },
-      "type": "array"
+      "type": "array",
+      "title": "DevicePoolCompatibilityResults"
     },
     "DevicePoolType": {
       "enum": [
         "CURATED",
         "PRIVATE"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "DevicePoolType"
     },
     "DevicePools": {
       "items": {
         "$ref": "#/definitions/DevicePool"
       },
-      "type": "array"
+      "type": "array",
+      "title": "DevicePools"
     },
     "Devices": {
       "items": {
         "$ref": "#/definitions/Device"
       },
-      "type": "array"
+      "type": "array",
+      "title": "Devices"
     },
     "Double": {
       "format": "double",
-      "type": "number"
+      "type": "number",
+      "title": "Double"
     },
     "ExecutionConfiguration": {
       "description": "Represents configuration information about a test run, such as the execution timeout (in minutes).",
@@ -818,7 +871,8 @@
           "description": "The number of minutes a test run will execute before it times out."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ExecutionConfiguration"
     },
     "ExecutionResult": {
       "enum": [
@@ -830,7 +884,8 @@
         "ERRORED",
         "STOPPED"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ExecutionResult"
     },
     "ExecutionStatus": {
       "enum": [
@@ -844,18 +899,21 @@
         "COMPLETED",
         "STOPPING"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ExecutionStatus"
     },
     "Filter": {
       "maxLength": 8192,
       "minLength": 0,
-      "type": "string"
+      "type": "string",
+      "title": "Filter"
     },
     "GetAccountSettingsRequest": {
       "description": "Represents the request sent to retrieve the account settings.",
       "example": {},
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "GetAccountSettingsRequest"
     },
     "GetAccountSettingsResult": {
       "description": "Represents the account settings return values from the <code>GetAccountSettings</code> request.",
@@ -874,7 +932,8 @@
           "description": "The account settings."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetAccountSettingsResult"
     },
     "GetDevicePoolCompatibilityRequest": {
       "description": "Represents a request to the get device pool compatibility operation.",
@@ -904,7 +963,8 @@
       "required": [
         "devicePoolArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetDevicePoolCompatibilityRequest"
     },
     "GetDevicePoolCompatibilityResult": {
       "description": "Represents the result of describe device pool compatibility request.",
@@ -922,7 +982,8 @@
           "description": "Information about incompatible devices."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetDevicePoolCompatibilityResult"
     },
     "GetDevicePoolRequest": {
       "description": "Represents a request to the get device pool operation.",
@@ -938,7 +999,8 @@
       "required": [
         "arn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetDevicePoolRequest"
     },
     "GetDevicePoolResult": {
       "description": "Represents the result of a get device pool request.",
@@ -951,7 +1013,8 @@
           "description": "An object containing information about the requested device pool."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetDevicePoolResult"
     },
     "GetDeviceRequest": {
       "description": "Represents a request to the get device request.",
@@ -967,7 +1030,8 @@
       "required": [
         "arn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetDeviceRequest"
     },
     "GetDeviceResult": {
       "description": "Represents the result of a get device request.",
@@ -1000,7 +1064,8 @@
           "description": "An object containing information about the requested device."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetDeviceResult"
     },
     "GetJobRequest": {
       "description": "Represents a request to the get job operation.",
@@ -1016,7 +1081,8 @@
       "required": [
         "arn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetJobRequest"
     },
     "GetJobResult": {
       "description": "Represents the result of a get job request.",
@@ -1029,7 +1095,8 @@
           "description": "An object containing information about the requested job."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetJobResult"
     },
     "GetNetworkProfileRequest": {
       "properties": {
@@ -1041,7 +1108,8 @@
       "required": [
         "arn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetNetworkProfileRequest"
     },
     "GetNetworkProfileResult": {
       "properties": {
@@ -1050,7 +1118,8 @@
           "description": "The network profile."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetNetworkProfileResult"
     },
     "GetOfferingStatusRequest": {
       "description": "Represents the request to retrieve the offering status for the specified customer or account.",
@@ -1063,7 +1132,8 @@
           "description": "An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetOfferingStatusRequest"
     },
     "GetOfferingStatusResult": {
       "description": "Returns the status result for a device offering.",
@@ -1106,7 +1176,8 @@
           "description": "An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetOfferingStatusResult"
     },
     "GetProjectRequest": {
       "description": "Represents a request to the get project operation.",
@@ -1122,7 +1193,8 @@
       "required": [
         "arn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetProjectRequest"
     },
     "GetProjectResult": {
       "description": "Represents the result of a get project request.",
@@ -1139,7 +1211,8 @@
           "description": "The project you wish to get information about."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetProjectResult"
     },
     "GetRemoteAccessSessionRequest": {
       "description": "Represents the request to get information about the specified remote access session.",
@@ -1155,7 +1228,8 @@
       "required": [
         "arn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetRemoteAccessSessionRequest"
     },
     "GetRemoteAccessSessionResult": {
       "description": "Represents the response from the server that lists detailed information about the remote access session.",
@@ -1168,7 +1242,8 @@
           "description": "A container that lists detailed information about the remote access session."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetRemoteAccessSessionResult"
     },
     "GetRunRequest": {
       "description": "Represents a request to the get run operation.",
@@ -1184,7 +1259,8 @@
       "required": [
         "arn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetRunRequest"
     },
     "GetRunResult": {
       "description": "Represents the result of a get run request.",
@@ -1222,7 +1298,8 @@
           "description": "The run you wish to get results from."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetRunResult"
     },
     "GetSuiteRequest": {
       "description": "Represents a request to the get suite operation.",
@@ -1238,7 +1315,8 @@
       "required": [
         "arn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetSuiteRequest"
     },
     "GetSuiteResult": {
       "description": "Represents the result of a get suite request.",
@@ -1251,7 +1329,8 @@
           "description": "A collection of one or more tests."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetSuiteResult"
     },
     "GetTestRequest": {
       "description": "Represents a request to the get test operation.",
@@ -1267,7 +1346,8 @@
       "required": [
         "arn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetTestRequest"
     },
     "GetTestResult": {
       "description": "Represents the result of a get test request.",
@@ -1280,7 +1360,8 @@
           "description": "A test condition that is evaluated."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetTestResult"
     },
     "GetUploadRequest": {
       "description": "Represents a request to the get upload operation.",
@@ -1296,7 +1377,8 @@
       "required": [
         "arn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetUploadRequest"
     },
     "GetUploadResult": {
       "description": "Represents the result of a get upload request.",
@@ -1309,7 +1391,8 @@
           "description": "An app or a set of one or more tests to upload or that have been uploaded."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetUploadResult"
     },
     "IdempotencyException": {
       "description": "An entity with the same name already exists.",
@@ -1319,7 +1402,8 @@
           "description": "Any additional information about the exception."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "IdempotencyException"
     },
     "IncompatibilityMessage": {
       "description": "Represents information about incompatibility.",
@@ -1333,13 +1417,15 @@
           "description": "<p>The type of incompatibility.</p> <p>Allowed values include:</p> <ul> <li> <p>ARN: The ARN.</p> </li> <li> <p>FORM_FACTOR: The form factor (for example, phone or tablet).</p> </li> <li> <p>MANUFACTURER: The manufacturer.</p> </li> <li> <p>PLATFORM: The platform (for example, Android or iOS).</p> </li> <li> <p>REMOTE_ACCESS_ENABLED: Whether the device is enabled for remote access.</p> </li> <li> <p>APPIUM_VERSION: The Appium version for the test.</p> </li> </ul>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "IncompatibilityMessage"
     },
     "IncompatibilityMessages": {
       "items": {
         "$ref": "#/definitions/IncompatibilityMessage"
       },
-      "type": "array"
+      "type": "array",
+      "title": "IncompatibilityMessages"
     },
     "InstallToRemoteAccessSessionRequest": {
       "description": "Represents the request to install an Android application (in .apk format) or an iOS application (in .ipa format) as part of a remote access session.",
@@ -1361,7 +1447,8 @@
         "remoteAccessSessionArn",
         "appArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "InstallToRemoteAccessSessionRequest"
     },
     "InstallToRemoteAccessSessionResult": {
       "description": "Represents the response from the server after AWS Device Farm makes a request to install to a remote access session.",
@@ -1374,10 +1461,12 @@
           "description": "An app to upload or that has been uploaded."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InstallToRemoteAccessSessionResult"
     },
     "Integer": {
-      "type": "integer"
+      "type": "integer",
+      "title": "Integer"
     },
     "Job": {
       "description": "Represents a device.",
@@ -1431,16 +1520,19 @@
           "description": "<p>The job's type.</p> <p>Allowed values include the following:</p> <ul> <li> <p>BUILTIN_FUZZ: The built-in fuzz type.</p> </li> <li> <p>BUILTIN_EXPLORER: For Android, an app explorer that will traverse an Android app, interacting with it and capturing screenshots at the same time.</p> </li> <li> <p>APPIUM_JAVA_JUNIT: The Appium Java JUnit type.</p> </li> <li> <p>APPIUM_JAVA_TESTNG: The Appium Java TestNG type.</p> </li> <li> <p>APPIUM_PYTHON: The Appium Python type.</p> </li> <li> <p>APPIUM_WEB_JAVA_JUNIT: The Appium Java JUnit type for Web apps.</p> </li> <li> <p>APPIUM_WEB_JAVA_TESTNG: The Appium Java TestNG type for Web apps.</p> </li> <li> <p>APPIUM_WEB_PYTHON: The Appium Python type for Web apps.</p> </li> <li> <p>CALABASH: The Calabash type.</p> </li> <li> <p>INSTRUMENTATION: The Instrumentation type.</p> </li> <li> <p>UIAUTOMATION: The uiautomation type.</p> </li> <li> <p>UIAUTOMATOR: The uiautomator type.</p> </li> <li> <p>XCTEST: The XCode test type.</p> </li> <li> <p>XCTEST_UI: The XCode UI test type.</p> </li> </ul>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Job"
     },
     "JobTimeoutMinutes": {
-      "type": "integer"
+      "type": "integer",
+      "title": "JobTimeoutMinutes"
     },
     "Jobs": {
       "items": {
         "$ref": "#/definitions/Job"
       },
-      "type": "array"
+      "type": "array",
+      "title": "Jobs"
     },
     "LimitExceededException": {
       "description": "A limit was exceeded.",
@@ -1450,7 +1542,8 @@
           "description": "Any additional information about the exception."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LimitExceededException"
     },
     "ListArtifactsRequest": {
       "description": "Represents a request to the list artifacts operation.",
@@ -1476,7 +1569,8 @@
         "arn",
         "type"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListArtifactsRequest"
     },
     "ListArtifactsResult": {
       "description": "Represents the result of a list artifacts operation.",
@@ -1490,7 +1584,8 @@
           "description": "If the number of items that are returned is significantly large, this is an identifier that is also returned, which can be used in a subsequent call to this operation to return the next set of items in the list."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListArtifactsResult"
     },
     "ListDevicePoolsRequest": {
       "description": "Represents the result of a list device pools request.",
@@ -1515,7 +1610,8 @@
       "required": [
         "arn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListDevicePoolsRequest"
     },
     "ListDevicePoolsResult": {
       "description": "Represents the result of a list device pools request.",
@@ -1557,7 +1653,8 @@
           "description": "If the number of items that are returned is significantly large, this is an identifier that is also returned, which can be used in a subsequent call to this operation to return the next set of items in the list."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListDevicePoolsResult"
     },
     "ListDevicesRequest": {
       "description": "Represents the result of a list devices request.",
@@ -1574,7 +1671,8 @@
           "description": "An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListDevicesRequest"
     },
     "ListDevicesResult": {
       "description": "Represents the result of a list devices operation.",
@@ -1589,7 +1687,8 @@
           "description": "If the number of items that are returned is significantly large, this is an identifier that is also returned, which can be used in a subsequent call to this operation to return the next set of items in the list."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListDevicesResult"
     },
     "ListJobsRequest": {
       "description": "Represents a request to the list jobs operation.",
@@ -1609,7 +1708,8 @@
       "required": [
         "arn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListJobsRequest"
     },
     "ListJobsResult": {
       "description": "Represents the result of a list jobs request.",
@@ -1623,7 +1723,8 @@
           "description": "If the number of items that are returned is significantly large, this is an identifier that is also returned, which can be used in a subsequent call to this operation to return the next set of items in the list."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListJobsResult"
     },
     "ListNetworkProfilesRequest": {
       "properties": {
@@ -1643,7 +1744,8 @@
       "required": [
         "arn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListNetworkProfilesRequest"
     },
     "ListNetworkProfilesResult": {
       "properties": {
@@ -1656,7 +1758,8 @@
           "description": "An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListNetworkProfilesResult"
     },
     "ListOfferingPromotionsRequest": {
       "properties": {
@@ -1665,7 +1768,8 @@
           "description": "An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListOfferingPromotionsRequest"
     },
     "ListOfferingPromotionsResult": {
       "properties": {
@@ -1678,7 +1782,8 @@
           "description": "Information about the offering promotions."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListOfferingPromotionsResult"
     },
     "ListOfferingTransactionsRequest": {
       "description": "Represents the request to list the offering transaction history.",
@@ -1691,7 +1796,8 @@
           "description": "An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListOfferingTransactionsRequest"
     },
     "ListOfferingTransactionsResult": {
       "description": "Returns the transaction log of the specified offerings.",
@@ -1785,7 +1891,8 @@
           "description": "The audit log of subscriptions you have purchased and modified through AWS Device Farm."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListOfferingTransactionsResult"
     },
     "ListOfferingsRequest": {
       "description": "Represents the request to list all offerings.",
@@ -1798,7 +1905,8 @@
           "description": "An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListOfferingsRequest"
     },
     "ListOfferingsResult": {
       "description": "Represents the return values of the list of offerings.",
@@ -1876,7 +1984,8 @@
           "description": "A value representing the list offering results."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListOfferingsResult"
     },
     "ListProjectsRequest": {
       "description": "Represents a request to the list projects operation.",
@@ -1894,7 +2003,8 @@
           "description": "An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListProjectsRequest"
     },
     "ListProjectsResult": {
       "description": "Represents the result of a list projects request.",
@@ -1922,7 +2032,8 @@
           "description": "Information about the projects."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListProjectsResult"
     },
     "ListRemoteAccessSessionsRequest": {
       "description": "Represents the request to return information about the remote access session.",
@@ -1943,7 +2054,8 @@
       "required": [
         "arn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListRemoteAccessSessionsRequest"
     },
     "ListRemoteAccessSessionsResult": {
       "description": "Represents the response from the server after AWS Device Farm makes a request to return information about the remote access session.",
@@ -1960,7 +2072,8 @@
           "description": "A container representing the metadata from the service about each remote access session you are requesting."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListRemoteAccessSessionsResult"
     },
     "ListRunsRequest": {
       "description": "Represents a request to the list runs operation.",
@@ -1981,7 +2094,8 @@
       "required": [
         "arn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListRunsRequest"
     },
     "ListRunsResult": {
       "description": "Represents the result of a list runs request.",
@@ -2025,7 +2139,8 @@
           "description": "Information about the runs."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListRunsResult"
     },
     "ListSamplesRequest": {
       "description": "Represents a request to the list samples operation.",
@@ -2046,7 +2161,8 @@
       "required": [
         "arn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListSamplesRequest"
     },
     "ListSamplesResult": {
       "description": "Represents the result of a list samples request.",
@@ -2063,7 +2179,8 @@
           "description": "Information about the samples."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListSamplesResult"
     },
     "ListSuitesRequest": {
       "description": "Represents a request to the list suites operation.",
@@ -2084,7 +2201,8 @@
       "required": [
         "arn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListSuitesRequest"
     },
     "ListSuitesResult": {
       "description": "Represents the result of a list suites request.",
@@ -2101,7 +2219,8 @@
           "description": "Information about the suites."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListSuitesResult"
     },
     "ListTestsRequest": {
       "description": "Represents a request to the list tests operation.",
@@ -2122,7 +2241,8 @@
       "required": [
         "arn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListTestsRequest"
     },
     "ListTestsResult": {
       "description": "Represents the result of a list tests request.",
@@ -2139,7 +2259,8 @@
           "description": "Information about the tests."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListTestsResult"
     },
     "ListUniqueProblemsRequest": {
       "description": "Represents a request to the list unique problems operation.",
@@ -2160,7 +2281,8 @@
       "required": [
         "arn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListUniqueProblemsRequest"
     },
     "ListUniqueProblemsResult": {
       "description": "Represents the result of a list unique problems request.",
@@ -2177,7 +2299,8 @@
           "description": "<p>Information about the unique problems.</p> <p>Allowed values include:</p> <ul> <li> <p>PENDING: A pending condition.</p> </li> <li> <p>PASSED: A passing condition.</p> </li> <li> <p>WARNED: A warning condition.</p> </li> <li> <p>FAILED: A failed condition.</p> </li> <li> <p>SKIPPED: A skipped condition.</p> </li> <li> <p>ERRORED: An error condition.</p> </li> <li> <p>STOPPED: A stopped condition.</p> </li> </ul>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListUniqueProblemsResult"
     },
     "ListUploadsRequest": {
       "description": "Represents a request to the list uploads operation.",
@@ -2198,7 +2321,8 @@
       "required": [
         "arn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListUploadsRequest"
     },
     "ListUploadsResult": {
       "description": "Represents the result of a list uploads request.",
@@ -2215,7 +2339,8 @@
           "description": "Information about the uploads."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListUploadsResult"
     },
     "Location": {
       "description": "<p>Represents a latitude and longitude pair, expressed in geographic coordinate system degrees (for example 47.6204, -122.3491).</p> <p>Elevation is currently not supported.</p>",
@@ -2233,10 +2358,12 @@
         "latitude",
         "longitude"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "Location"
     },
     "Long": {
-      "type": "integer"
+      "type": "integer",
+      "title": "Long"
     },
     "MaxSlotMap": {
       "items": {
@@ -2250,17 +2377,20 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "MaxSlotMap"
     },
     "Message": {
       "maxLength": 16384,
       "minLength": 0,
-      "type": "string"
+      "type": "string",
+      "title": "Message"
     },
     "Metadata": {
       "maxLength": 8192,
       "minLength": 0,
-      "type": "string"
+      "type": "string",
+      "title": "Metadata"
     },
     "MonetaryAmount": {
       "description": "A number representing the monetary amount for an offering or transaction.",
@@ -2274,12 +2404,14 @@
           "description": "The currency code of a monetary amount. For example, <code>USD</code> means \"U.S. dollars.\""
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "MonetaryAmount"
     },
     "Name": {
       "maxLength": 256,
       "minLength": 0,
-      "type": "string"
+      "type": "string",
+      "title": "Name"
     },
     "NetworkProfile": {
       "description": "An array of settings that describes characteristics of a network profile.",
@@ -2333,20 +2465,23 @@
           "description": "Proportion of transmitted packets that fail to arrive from 0 to 100 percent."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "NetworkProfile"
     },
     "NetworkProfileType": {
       "enum": [
         "CURATED",
         "PRIVATE"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "NetworkProfileType"
     },
     "NetworkProfiles": {
       "items": {
         "$ref": "#/definitions/NetworkProfile"
       },
-      "type": "array"
+      "type": "array",
+      "title": "NetworkProfiles"
     },
     "NotEligibleException": {
       "description": "Exception gets thrown when a user is not eligible to perform the specified transaction.",
@@ -2356,7 +2491,8 @@
           "description": "The HTTP response code of a Not Eligible exception."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "NotEligibleException"
     },
     "NotFoundException": {
       "description": "The specified entity was not found.",
@@ -2366,7 +2502,8 @@
           "description": "Any additional information about the exception."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "NotFoundException"
     },
     "Offering": {
       "description": "Represents the metadata of a device offering.",
@@ -2392,11 +2529,13 @@
           "description": "The type of offering (e.g., \"RECURRING\") for a device."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Offering"
     },
     "OfferingIdentifier": {
       "minLength": 32,
-      "type": "string"
+      "type": "string",
+      "title": "OfferingIdentifier"
     },
     "OfferingPromotion": {
       "description": "Represents information about an offering promotion.",
@@ -2410,17 +2549,20 @@
           "description": "The ID of the offering promotion."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "OfferingPromotion"
     },
     "OfferingPromotionIdentifier": {
       "minLength": 4,
-      "type": "string"
+      "type": "string",
+      "title": "OfferingPromotionIdentifier"
     },
     "OfferingPromotions": {
       "items": {
         "$ref": "#/definitions/OfferingPromotion"
       },
-      "type": "array"
+      "type": "array",
+      "title": "OfferingPromotions"
     },
     "OfferingStatus": {
       "description": "The status of the offering.",
@@ -2442,7 +2584,8 @@
           "description": "The type specified for the offering status."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "OfferingStatus"
     },
     "OfferingStatusMap": {
       "items": {
@@ -2456,7 +2599,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "OfferingStatusMap"
     },
     "OfferingTransaction": {
       "description": "Represents the metadata of an offering transaction.",
@@ -2482,7 +2626,8 @@
           "description": "The transaction ID of the offering transaction."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "OfferingTransaction"
     },
     "OfferingTransactionType": {
       "enum": [
@@ -2490,35 +2635,41 @@
         "RENEW",
         "SYSTEM"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "OfferingTransactionType"
     },
     "OfferingTransactions": {
       "items": {
         "$ref": "#/definitions/OfferingTransaction"
       },
-      "type": "array"
+      "type": "array",
+      "title": "OfferingTransactions"
     },
     "OfferingType": {
       "enum": [
         "RECURRING"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "OfferingType"
     },
     "Offerings": {
       "items": {
         "$ref": "#/definitions/Offering"
       },
-      "type": "array"
+      "type": "array",
+      "title": "Offerings"
     },
     "PaginationToken": {
       "maxLength": 1024,
       "minLength": 4,
-      "type": "string"
+      "type": "string",
+      "title": "PaginationToken"
     },
     "PercentInteger": {
       "maximum": 100,
       "minimum": 0,
-      "type": "integer"
+      "type": "integer",
+      "title": "PercentInteger"
     },
     "Problem": {
       "description": "Represents a specific warning or failure.",
@@ -2552,7 +2703,8 @@
           "description": "Information about the associated test."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Problem"
     },
     "ProblemDetail": {
       "description": "Information about a problem detail.",
@@ -2566,13 +2718,15 @@
           "description": "The problem detail's name."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ProblemDetail"
     },
     "Problems": {
       "items": {
         "$ref": "#/definitions/Problem"
       },
-      "type": "array"
+      "type": "array",
+      "title": "Problems"
     },
     "Project": {
       "description": "Represents an operating-system neutral workspace for running and managing tests.",
@@ -2594,13 +2748,15 @@
           "description": "The project's name."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Project"
     },
     "Projects": {
       "items": {
         "$ref": "#/definitions/Project"
       },
-      "type": "array"
+      "type": "array",
+      "title": "Projects"
     },
     "PurchaseOfferingRequest": {
       "description": "Represents a request for a purchase offering.",
@@ -2622,7 +2778,8 @@
           "description": "The number of device slots you wish to purchase in an offering request."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PurchaseOfferingRequest"
     },
     "PurchaseOfferingResult": {
       "description": "The result of the purchase offering (e.g., success or failure).",
@@ -2653,7 +2810,8 @@
           "description": "Represents the offering transaction for the purchase result."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PurchaseOfferingResult"
     },
     "PurchasedDevicesMap": {
       "items": {
@@ -2667,7 +2825,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "PurchasedDevicesMap"
     },
     "Radios": {
       "description": "Represents the set of radios and their states on a device. Examples of radios include Wi-Fi, GPS, Bluetooth, and NFC.",
@@ -2689,7 +2848,8 @@
           "description": "True if Wi-Fi is enabled at the beginning of the test; otherwise, false."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Radios"
     },
     "RecurringCharge": {
       "description": "Specifies whether charges for devices will be recurring.",
@@ -2703,19 +2863,22 @@
           "description": "The frequency in which charges will recur."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RecurringCharge"
     },
     "RecurringChargeFrequency": {
       "enum": [
         "MONTHLY"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "RecurringChargeFrequency"
     },
     "RecurringCharges": {
       "items": {
         "$ref": "#/definitions/RecurringCharge"
       },
-      "type": "array"
+      "type": "array",
+      "title": "RecurringCharges"
     },
     "RemoteAccessSession": {
       "description": "Represents information about the remote access session.",
@@ -2769,13 +2932,15 @@
           "description": "The date and time the remote access session was stopped."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RemoteAccessSession"
     },
     "RemoteAccessSessions": {
       "items": {
         "$ref": "#/definitions/RemoteAccessSession"
       },
-      "type": "array"
+      "type": "array",
+      "title": "RemoteAccessSessions"
     },
     "RenewOfferingRequest": {
       "description": "A request representing an offering renewal.",
@@ -2793,7 +2958,8 @@
           "description": "The quantity requested in an offering renewal."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RenewOfferingRequest"
     },
     "RenewOfferingResult": {
       "description": "The result of a renewal offering.",
@@ -2824,7 +2990,8 @@
           "description": "Represents the status of the offering transaction for the renewal."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RenewOfferingResult"
     },
     "Resolution": {
       "description": "Represents the screen resolution of a device in height and width, expressed in pixels.",
@@ -2838,7 +3005,8 @@
           "description": "The screen resolution's width, expressed in pixels."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Resolution"
     },
     "Rule": {
       "description": "Represents a condition for a device pool.",
@@ -2856,7 +3024,8 @@
           "description": "The rule's value."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Rule"
     },
     "RuleOperator": {
       "enum": [
@@ -2867,13 +3036,15 @@
         "NOT_IN",
         "CONTAINS"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "RuleOperator"
     },
     "Rules": {
       "items": {
         "$ref": "#/definitions/Rule"
       },
-      "type": "array"
+      "type": "array",
+      "title": "Rules"
     },
     "Run": {
       "description": "Represents an app on a set of devices with a specific test and configuration.",
@@ -2943,13 +3114,15 @@
           "description": "<p>The run's type.</p> <p>Must be one of the following values:</p> <ul> <li> <p>BUILTIN_FUZZ: The built-in fuzz type.</p> </li> <li> <p>BUILTIN_EXPLORER: For Android, an app explorer that will traverse an Android app, interacting with it and capturing screenshots at the same time.</p> </li> <li> <p>APPIUM_JAVA_JUNIT: The Appium Java JUnit type.</p> </li> <li> <p>APPIUM_JAVA_TESTNG: The Appium Java TestNG type.</p> </li> <li> <p>APPIUM_PYTHON: The Appium Python type.</p> </li> <li> <p>APPIUM_WEB_JAVA_JUNIT: The Appium Java JUnit type for Web apps.</p> </li> <li> <p>APPIUM_WEB_JAVA_TESTNG: The Appium Java TestNG type for Web apps.</p> </li> <li> <p>APPIUM_WEB_PYTHON: The Appium Python type for Web apps.</p> </li> <li> <p>CALABASH: The Calabash type.</p> </li> <li> <p>INSTRUMENTATION: The Instrumentation type.</p> </li> <li> <p>UIAUTOMATION: The uiautomation type.</p> </li> <li> <p>UIAUTOMATOR: The uiautomator type.</p> </li> <li> <p>XCTEST: The XCode test type.</p> </li> <li> <p>XCTEST_UI: The XCode UI test type.</p> </li> </ul>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Run"
     },
     "Runs": {
       "items": {
         "$ref": "#/definitions/Run"
       },
-      "type": "array"
+      "type": "array",
+      "title": "Runs"
     },
     "Sample": {
       "description": "Represents a sample of performance data.",
@@ -2967,7 +3140,8 @@
           "description": "The pre-signed Amazon S3 URL that can be used with a corresponding GET request to download the sample's file."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Sample"
     },
     "SampleType": {
       "enum": [
@@ -2989,13 +3163,15 @@
         "OPENGL_AVG_DRAWTIME",
         "OPENGL_MAX_DRAWTIME"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "SampleType"
     },
     "Samples": {
       "items": {
         "$ref": "#/definitions/Sample"
       },
-      "type": "array"
+      "type": "array",
+      "title": "Samples"
     },
     "ScheduleRunConfiguration": {
       "description": "Represents the settings for a run. Includes things like location, radio states, auxiliary apps, and network profiles.",
@@ -3029,7 +3205,8 @@
           "description": "Information about the radio states for the run."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ScheduleRunConfiguration"
     },
     "ScheduleRunRequest": {
       "description": "Represents a request to the schedule run operation.",
@@ -3077,7 +3254,8 @@
         "devicePoolArn",
         "test"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ScheduleRunRequest"
     },
     "ScheduleRunResult": {
       "description": "Represents the result of a schedule run request.",
@@ -3090,7 +3268,8 @@
           "description": "Information about the scheduled run."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ScheduleRunResult"
     },
     "ScheduleRunTest": {
       "description": "Represents additional test settings.",
@@ -3115,7 +3294,8 @@
       "required": [
         "type"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ScheduleRunTest"
     },
     "ServiceAccountException": {
       "description": "There was a problem with the service account.",
@@ -3125,7 +3305,8 @@
           "description": "Any additional information about the exception."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ServiceAccountException"
     },
     "StopRemoteAccessSessionRequest": {
       "description": "Represents the request to stop the remote access session.",
@@ -3138,7 +3319,8 @@
       "required": [
         "arn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "StopRemoteAccessSessionRequest"
     },
     "StopRemoteAccessSessionResult": {
       "description": "Represents the response from the server that describes the remote access session when AWS Device Farm stops the session.",
@@ -3148,7 +3330,8 @@
           "description": "A container representing the metadata from the service about the remote access session you are stopping."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "StopRemoteAccessSessionResult"
     },
     "StopRunRequest": {
       "description": "Represents the request to stop a specific run.",
@@ -3164,7 +3347,8 @@
       "required": [
         "arn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "StopRunRequest"
     },
     "StopRunResult": {
       "description": "Represents the results of your stop run attempt.",
@@ -3177,10 +3361,12 @@
           "description": "The run that was stopped."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "StopRunResult"
     },
     "String": {
-      "type": "string"
+      "type": "string",
+      "title": "String"
     },
     "Suite": {
       "description": "Represents a collection of one or more tests.",
@@ -3230,13 +3416,15 @@
           "description": "<p>The suite's type.</p> <p>Must be one of the following values:</p> <ul> <li> <p>BUILTIN_FUZZ: The built-in fuzz type.</p> </li> <li> <p>BUILTIN_EXPLORER: For Android, an app explorer that will traverse an Android app, interacting with it and capturing screenshots at the same time.</p> </li> <li> <p>APPIUM_JAVA_JUNIT: The Appium Java JUnit type.</p> </li> <li> <p>APPIUM_JAVA_TESTNG: The Appium Java TestNG type.</p> </li> <li> <p>APPIUM_PYTHON: The Appium Python type.</p> </li> <li> <p>APPIUM_WEB_JAVA_JUNIT: The Appium Java JUnit type for Web apps.</p> </li> <li> <p>APPIUM_WEB_JAVA_TESTNG: The Appium Java TestNG type for Web apps.</p> </li> <li> <p>APPIUM_WEB_PYTHON: The Appium Python type for Web apps.</p> </li> <li> <p>CALABASH: The Calabash type.</p> </li> <li> <p>INSTRUMENTATION: The Instrumentation type.</p> </li> <li> <p>UIAUTOMATION: The uiautomation type.</p> </li> <li> <p>UIAUTOMATOR: The uiautomator type.</p> </li> <li> <p>XCTEST: The XCode test type.</p> </li> <li> <p>XCTEST_UI: The XCode UI test type.</p> </li> </ul>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Suite"
     },
     "Suites": {
       "items": {
         "$ref": "#/definitions/Suite"
       },
-      "type": "array"
+      "type": "array",
+      "title": "Suites"
     },
     "Test": {
       "description": "Represents a condition that is evaluated.",
@@ -3286,7 +3474,8 @@
           "description": "<p>The test's type.</p> <p>Must be one of the following values:</p> <ul> <li> <p>BUILTIN_FUZZ: The built-in fuzz type.</p> </li> <li> <p>BUILTIN_EXPLORER: For Android, an app explorer that will traverse an Android app, interacting with it and capturing screenshots at the same time.</p> </li> <li> <p>APPIUM_JAVA_JUNIT: The Appium Java JUnit type.</p> </li> <li> <p>APPIUM_JAVA_TESTNG: The Appium Java TestNG type.</p> </li> <li> <p>APPIUM_PYTHON: The Appium Python type.</p> </li> <li> <p>APPIUM_WEB_JAVA_JUNIT: The Appium Java JUnit type for Web apps.</p> </li> <li> <p>APPIUM_WEB_JAVA_TESTNG: The Appium Java TestNG type for Web apps.</p> </li> <li> <p>APPIUM_WEB_PYTHON: The Appium Python type for Web apps.</p> </li> <li> <p>CALABASH: The Calabash type.</p> </li> <li> <p>INSTRUMENTATION: The Instrumentation type.</p> </li> <li> <p>UIAUTOMATION: The uiautomation type.</p> </li> <li> <p>UIAUTOMATOR: The uiautomator type.</p> </li> <li> <p>XCTEST: The XCode test type.</p> </li> <li> <p>XCTEST_UI: The XCode UI test type.</p> </li> </ul>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Test"
     },
     "TestParameters": {
       "items": {
@@ -3300,7 +3489,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "TestParameters"
     },
     "TestType": {
       "enum": [
@@ -3319,17 +3509,20 @@
         "XCTEST",
         "XCTEST_UI"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "TestType"
     },
     "Tests": {
       "items": {
         "$ref": "#/definitions/Test"
       },
-      "type": "array"
+      "type": "array",
+      "title": "Tests"
     },
     "TransactionIdentifier": {
       "minLength": 32,
-      "type": "string"
+      "type": "string",
+      "title": "TransactionIdentifier"
     },
     "TrialMinutes": {
       "description": "Represents information about free trial device minutes for an AWS account.",
@@ -3343,12 +3536,14 @@
           "description": "The total number of free trial minutes that the account started with."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TrialMinutes"
     },
     "URL": {
       "maxLength": 2048,
       "minLength": 0,
-      "type": "string"
+      "type": "string",
+      "title": "URL"
     },
     "UniqueProblem": {
       "description": "A collection of one or more problems, grouped by their result.",
@@ -3362,13 +3557,15 @@
           "description": "Information about the problems."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UniqueProblem"
     },
     "UniqueProblems": {
       "items": {
         "$ref": "#/definitions/UniqueProblem"
       },
-      "type": "array"
+      "type": "array",
+      "title": "UniqueProblems"
     },
     "UniqueProblemsByExecutionResultMap": {
       "items": {
@@ -3382,7 +3579,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "UniqueProblemsByExecutionResultMap"
     },
     "UpdateDevicePoolRequest": {
       "description": "Represents a request to the update device pool operation.",
@@ -3419,7 +3617,8 @@
       "required": [
         "arn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateDevicePoolRequest"
     },
     "UpdateDevicePoolResult": {
       "description": "Represents the result of an update device pool request.",
@@ -3432,7 +3631,8 @@
           "description": "The device pool you just updated."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UpdateDevicePoolResult"
     },
     "UpdateNetworkProfileRequest": {
       "properties": {
@@ -3488,7 +3688,8 @@
       "required": [
         "arn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateNetworkProfileRequest"
     },
     "UpdateNetworkProfileResult": {
       "properties": {
@@ -3497,7 +3698,8 @@
           "description": "A list of the available network profiles."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UpdateNetworkProfileResult"
     },
     "UpdateProjectRequest": {
       "description": "Represents a request to the update project operation.",
@@ -3522,7 +3724,8 @@
       "required": [
         "arn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateProjectRequest"
     },
     "UpdateProjectResult": {
       "description": "Represents the result of an update project request.",
@@ -3539,7 +3742,8 @@
           "description": "The project you wish to update."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UpdateProjectResult"
     },
     "Upload": {
       "description": "An app or a set of one or more tests to upload or that have been uploaded.",
@@ -3581,7 +3785,8 @@
           "description": "The pre-signed Amazon S3 URL that was used to store a file through a corresponding PUT request."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Upload"
     },
     "UploadStatus": {
       "enum": [
@@ -3590,7 +3795,8 @@
         "SUCCEEDED",
         "FAILED"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "UploadStatus"
     },
     "UploadType": {
       "enum": [
@@ -3611,13 +3817,15 @@
         "XCTEST_TEST_PACKAGE",
         "XCTEST_UI_TEST_PACKAGE"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "UploadType"
     },
     "Uploads": {
       "items": {
         "$ref": "#/definitions/Upload"
       },
-      "type": "array"
+      "type": "array",
+      "title": "Uploads"
     }
   },
   "actions": [

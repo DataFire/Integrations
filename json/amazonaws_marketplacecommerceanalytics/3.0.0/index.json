@@ -30,14 +30,17 @@
       },
       "maxItems": 5,
       "minItems": 1,
-      "type": "array"
+      "type": "array",
+      "title": "CustomerDefinedValues"
     },
     "DataSetPublicationDate": {
       "format": "date-time",
-      "type": "string"
+      "type": "string",
+      "title": "DataSetPublicationDate"
     },
     "DataSetRequestId": {
-      "type": "string"
+      "type": "string",
+      "title": "DataSetRequestId"
     },
     "DataSetType": {
       "enum": [
@@ -65,21 +68,26 @@
       ],
       "maxLength": 255,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "DataSetType"
     },
     "DestinationS3BucketName": {
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "DestinationS3BucketName"
     },
     "DestinationS3Prefix": {
-      "type": "string"
+      "type": "string",
+      "title": "DestinationS3Prefix"
     },
     "ExceptionMessage": {
-      "type": "string"
+      "type": "string",
+      "title": "ExceptionMessage"
     },
     "FromDate": {
       "format": "date-time",
-      "type": "string"
+      "type": "string",
+      "title": "FromDate"
     },
     "GenerateDataSetRequest": {
       "description": "Container for the parameters to the GenerateDataSet operation.",
@@ -120,7 +128,8 @@
         "destinationS3BucketName",
         "snsTopicArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GenerateDataSetRequest"
     },
     "GenerateDataSetResult": {
       "description": "Container for the result of the GenerateDataSet operation.",
@@ -130,7 +139,8 @@
           "description": "A unique identifier representing a specific request to the GenerateDataSet operation. This identifier can be used to correlate a request with notifications from the SNS topic."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GenerateDataSetResult"
     },
     "MarketplaceCommerceAnalyticsException": {
       "description": "This exception is thrown when an internal service error occurs.",
@@ -140,25 +150,30 @@
           "description": "This message describes details of the error."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "MarketplaceCommerceAnalyticsException"
     },
     "OptionalKey": {
       "maxLength": 255,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "OptionalKey"
     },
     "OptionalValue": {
       "maxLength": 255,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "OptionalValue"
     },
     "RoleNameArn": {
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "RoleNameArn"
     },
     "SnsTopicArn": {
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "SnsTopicArn"
     },
     "StartSupportDataExportRequest": {
       "description": "Container for the parameters to the StartSupportDataExport operation.",
@@ -199,7 +214,8 @@
         "destinationS3BucketName",
         "snsTopicArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "StartSupportDataExportRequest"
     },
     "StartSupportDataExportResult": {
       "description": "Container for the result of the StartSupportDataExport operation.",
@@ -209,7 +225,8 @@
           "description": "A unique identifier representing a specific request to the StartSupportDataExport operation. This identifier can be used to correlate a request with notifications from the SNS topic."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "StartSupportDataExportResult"
     },
     "SupportDataSetType": {
       "enum": [
@@ -218,7 +235,8 @@
       ],
       "maxLength": 255,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "SupportDataSetType"
     }
   },
   "actions": [

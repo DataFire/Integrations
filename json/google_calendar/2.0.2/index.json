@@ -57,7 +57,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Acl"
     },
     "AclRule": {
       "properties": {
@@ -93,7 +94,8 @@
           "type": "object"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AclRule"
     },
     "Calendar": {
       "properties": {
@@ -127,7 +129,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Calendar"
     },
     "CalendarList": {
       "properties": {
@@ -156,7 +159,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CalendarList"
     },
     "CalendarListEntry": {
       "properties": {
@@ -250,7 +254,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CalendarListEntry"
     },
     "CalendarNotification": {
       "properties": {
@@ -263,7 +268,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CalendarNotification"
     },
     "Channel": {
       "properties": {
@@ -314,7 +320,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Channel"
     },
     "ColorDefinition": {
       "properties": {
@@ -327,7 +334,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ColorDefinition"
     },
     "Colors": {
       "properties": {
@@ -358,7 +366,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Colors"
     },
     "DeepLinkData": {
       "properties": {
@@ -372,7 +381,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DeepLinkData"
     },
     "DisplayInfo": {
       "properties": {
@@ -392,7 +402,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DisplayInfo"
     },
     "Error": {
       "properties": {
@@ -405,7 +416,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Error"
     },
     "Event": {
       "properties": {
@@ -700,7 +712,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Event"
     },
     "EventAttachment": {
       "properties": {
@@ -725,7 +738,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "EventAttachment"
     },
     "EventAttendee": {
       "properties": {
@@ -775,7 +789,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "EventAttendee"
     },
     "EventDateTime": {
       "properties": {
@@ -794,7 +809,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "EventDateTime"
     },
     "EventHabitInstance": {
       "properties": {
@@ -807,7 +823,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "EventHabitInstance"
     },
     "EventReminder": {
       "properties": {
@@ -821,7 +838,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "EventReminder"
     },
     "Events": {
       "properties": {
@@ -878,7 +896,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Events"
     },
     "FreeBusyCalendar": {
       "properties": {
@@ -897,7 +916,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "FreeBusyCalendar"
     },
     "FreeBusyGroup": {
       "properties": {
@@ -916,7 +936,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "FreeBusyGroup"
     },
     "FreeBusyRequest": {
       "properties": {
@@ -953,7 +974,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "FreeBusyRequest"
     },
     "FreeBusyRequestItem": {
       "properties": {
@@ -962,7 +984,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "FreeBusyRequestItem"
     },
     "FreeBusyResponse": {
       "properties": {
@@ -998,7 +1021,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "FreeBusyResponse"
     },
     "HabitInstanceData": {
       "properties": {
@@ -1012,7 +1036,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "HabitInstanceData"
     },
     "LaunchInfo": {
       "properties": {
@@ -1029,7 +1054,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LaunchInfo"
     },
     "Link": {
       "properties": {
@@ -1049,7 +1075,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Link"
     },
     "Setting": {
       "properties": {
@@ -1071,7 +1098,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Setting"
     },
     "Settings": {
       "properties": {
@@ -1100,7 +1128,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Settings"
     },
     "TimePeriod": {
       "properties": {
@@ -1115,7 +1144,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TimePeriod"
     }
   },
   "actions": [

@@ -51,7 +51,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Acl"
     },
     "Activity": {
       "properties": {
@@ -462,7 +463,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Activity"
     },
     "ActivityFeed": {
       "properties": {
@@ -508,7 +510,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ActivityFeed"
     },
     "Comment": {
       "properties": {
@@ -646,7 +649,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Comment"
     },
     "CommentFeed": {
       "properties": {
@@ -688,7 +692,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CommentFeed"
     },
     "PeopleFeed": {
       "properties": {
@@ -726,7 +731,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PeopleFeed"
     },
     "Person": {
       "properties": {
@@ -1028,7 +1034,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Person"
     },
     "Place": {
       "properties": {
@@ -1072,7 +1079,8 @@
           "type": "object"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Place"
     },
     "PlusAclentryResource": {
       "properties": {
@@ -1089,7 +1097,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PlusAclentryResource"
     }
   },
   "actions": [

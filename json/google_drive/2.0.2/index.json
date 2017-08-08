@@ -140,7 +140,8 @@
           "description": "The authenticated user."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "About"
     },
     "Change": {
       "description": "A change to a file or Team Drive.",
@@ -180,7 +181,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Change"
     },
     "ChangeList": {
       "description": "A list of changes for a user.",
@@ -206,7 +208,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ChangeList"
     },
     "Channel": {
       "description": "An notification channel used to watch for resource changes.",
@@ -258,7 +261,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Channel"
     },
     "Comment": {
       "description": "A comment on a file.",
@@ -328,7 +332,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Comment"
     },
     "CommentList": {
       "description": "A list of comments on a file.",
@@ -350,7 +355,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CommentList"
     },
     "File": {
       "description": "The metadata for a file.",
@@ -806,7 +812,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "File"
     },
     "FileList": {
       "description": "A list of files.",
@@ -832,7 +839,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "FileList"
     },
     "GeneratedIds": {
       "description": "A list of generated file IDs which can be provided in create requests.",
@@ -854,7 +862,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GeneratedIds"
     },
     "Permission": {
       "description": "A permission for a file. A permission grants a user, group, domain or the world access to a file or a folder hierarchy.",
@@ -931,7 +940,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Permission"
     },
     "PermissionList": {
       "description": "A list of permissions for a file.",
@@ -953,7 +963,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PermissionList"
     },
     "Reply": {
       "description": "A reply to a comment on a file.",
@@ -998,7 +1009,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Reply"
     },
     "ReplyList": {
       "description": "A list of replies to a comment on a file.",
@@ -1020,7 +1032,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ReplyList"
     },
     "Revision": {
       "description": "The metadata for a revision to a file.",
@@ -1077,7 +1090,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Revision"
     },
     "RevisionList": {
       "description": "A list of revisions of a file.",
@@ -1099,7 +1113,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RevisionList"
     },
     "StartPageToken": {
       "properties": {
@@ -1113,7 +1128,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "StartPageToken"
     },
     "TeamDrive": {
       "description": "Representation of a Team Drive.",
@@ -1231,7 +1247,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TeamDrive"
     },
     "TeamDriveList": {
       "description": "A list of Team Drives.",
@@ -1253,7 +1270,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TeamDriveList"
     },
     "User": {
       "description": "Information about a Drive user.",
@@ -1284,7 +1302,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "User"
     }
   },
   "actions": [

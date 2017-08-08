@@ -49,7 +49,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Account"
     },
     "Accounts": {
       "properties": {
@@ -70,7 +71,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Accounts"
     },
     "AdClient": {
       "properties": {
@@ -96,7 +98,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AdClient"
     },
     "AdClients": {
       "properties": {
@@ -121,7 +124,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AdClients"
     },
     "AdCode": {
       "properties": {
@@ -135,7 +139,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AdCode"
     },
     "AdStyle": {
       "properties": {
@@ -189,7 +194,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AdStyle"
     },
     "AdUnit": {
       "properties": {
@@ -273,7 +279,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AdUnit"
     },
     "AdUnits": {
       "properties": {
@@ -298,7 +305,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AdUnits"
     },
     "AssociationSession": {
       "properties": {
@@ -343,7 +351,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AssociationSession"
     },
     "CustomChannel": {
       "properties": {
@@ -365,7 +374,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CustomChannel"
     },
     "CustomChannels": {
       "properties": {
@@ -390,7 +400,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CustomChannels"
     },
     "Report": {
       "properties": {
@@ -457,7 +468,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Report"
     },
     "UrlChannel": {
       "properties": {
@@ -475,7 +487,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UrlChannel"
     },
     "UrlChannels": {
       "properties": {
@@ -500,7 +513,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UrlChannels"
     }
   },
   "actions": [

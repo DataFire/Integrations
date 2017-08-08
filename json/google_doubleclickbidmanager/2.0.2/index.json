@@ -44,7 +44,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DownloadLineItemsRequest"
     },
     "DownloadLineItemsResponse": {
       "description": "Download line items response.",
@@ -54,7 +55,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DownloadLineItemsResponse"
     },
     "DownloadRequest": {
       "description": "Request to fetch stored insertion orders, line items, TrueView ad groups and ads.",
@@ -94,7 +96,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DownloadRequest"
     },
     "DownloadResponse": {
       "description": "Download response.",
@@ -116,7 +119,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DownloadResponse"
     },
     "FilterPair": {
       "description": "Filter used to match traffic data in your report.",
@@ -249,7 +253,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "FilterPair"
     },
     "ListQueriesResponse": {
       "description": "List queries response.",
@@ -267,7 +272,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListQueriesResponse"
     },
     "ListReportsResponse": {
       "description": "List reports response.",
@@ -285,7 +291,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListReportsResponse"
     },
     "Parameters": {
       "description": "Parameters of a query or report.",
@@ -777,7 +784,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Parameters"
     },
     "Query": {
       "description": "Represents a query.",
@@ -819,7 +827,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Query"
     },
     "QueryMetadata": {
       "description": "Query metadata.",
@@ -900,7 +909,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "QueryMetadata"
     },
     "QuerySchedule": {
       "description": "Information on how frequently and when to run a query.",
@@ -932,7 +942,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "QuerySchedule"
     },
     "Report": {
       "description": "Represents a report.",
@@ -950,7 +961,8 @@
           "description": "Report parameters."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Report"
     },
     "ReportFailure": {
       "description": "An explanation of a report failure.",
@@ -980,7 +992,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ReportFailure"
     },
     "ReportKey": {
       "description": "Key used to identify a report.",
@@ -996,7 +1009,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ReportKey"
     },
     "ReportMetadata": {
       "description": "Report metadata.",
@@ -1020,7 +1034,8 @@
           "description": "Report status."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ReportMetadata"
     },
     "ReportStatus": {
       "description": "Report status.",
@@ -1053,7 +1068,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ReportStatus"
     },
     "RowStatus": {
       "description": "Represents the upload status of a row in the request.",
@@ -1088,7 +1104,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RowStatus"
     },
     "RunQueryRequest": {
       "description": "Request to run a stored query to generate a report.",
@@ -1133,7 +1150,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RunQueryRequest"
     },
     "UploadLineItemsRequest": {
       "description": "Request to upload line items.",
@@ -1154,7 +1172,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UploadLineItemsRequest"
     },
     "UploadLineItemsResponse": {
       "description": "Upload line items response.",
@@ -1164,7 +1183,8 @@
           "description": "Status of upload."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UploadLineItemsResponse"
     },
     "UploadStatus": {
       "description": "Represents the status of upload.",
@@ -1184,7 +1204,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UploadStatus"
     }
   },
   "actions": [

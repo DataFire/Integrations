@@ -33,7 +33,8 @@
       "required": [
         "id",
         "url"
-      ]
+      ],
+      "title": "AlternateImage"
     },
     "ApiResponse": {
       "properties": {
@@ -54,7 +55,8 @@
         "meta",
         "results",
         "callback"
-      ]
+      ],
+      "title": "ApiResponse"
     },
     "Campaign": {
       "properties": {
@@ -93,7 +95,8 @@
         "id",
         "name",
         "startDate"
-      ]
+      ],
+      "title": "Campaign"
     },
     "Campaigns": {
       "properties": {
@@ -114,7 +117,8 @@
         "meta",
         "callback",
         "results"
-      ]
+      ],
+      "title": "Campaigns"
     },
     "Collection": {
       "properties": {
@@ -183,7 +187,8 @@
         "sourceUrl": {
           "type": "string"
         }
-      }
+      },
+      "title": "Collection"
     },
     "EmbedCode": {
       "properties": {
@@ -204,7 +209,8 @@
         "meta",
         "callback",
         "results"
-      ]
+      ],
+      "title": "EmbedCode"
     },
     "Html": {
       "properties": {
@@ -298,7 +304,8 @@
         "source",
         "createdBy",
         "foreignSyndicationAPIUrl"
-      ]
+      ],
+      "title": "Html"
     },
     "Image": {
       "properties": {
@@ -410,7 +417,8 @@
         "height",
         "imageFormat",
         "altText"
-      ]
+      ],
+      "title": "Image"
     },
     "Infographic": {
       "properties": {
@@ -522,7 +530,8 @@
         "height",
         "imageFormat",
         "altText"
-      ]
+      ],
+      "title": "Infographic"
     },
     "Language": {
       "properties": {
@@ -545,7 +554,8 @@
         "name",
         "isoCode",
         "isActive"
-      ]
+      ],
+      "title": "Language"
     },
     "Languages": {
       "properties": {
@@ -566,7 +576,8 @@
         "meta",
         "callback",
         "results"
-      ]
+      ],
+      "title": "Languages"
     },
     "Likes": {
       "properties": {
@@ -577,7 +588,8 @@
       },
       "required": [
         "likes"
-      ]
+      ],
+      "title": "Likes"
     },
     "MediaItem": {
       "properties": {
@@ -671,7 +683,8 @@
         "source",
         "createdBy",
         "foreignSyndicationAPIUrl"
-      ]
+      ],
+      "title": "MediaItem"
     },
     "MediaItems": {
       "properties": {
@@ -692,7 +705,8 @@
         "meta",
         "callback",
         "results"
-      ]
+      ],
+      "title": "MediaItems"
     },
     "MediaType": {
       "properties": {
@@ -706,7 +720,8 @@
       "required": [
         "name",
         "description"
-      ]
+      ],
+      "title": "MediaType"
     },
     "MediaTypes": {
       "properties": {
@@ -727,7 +742,8 @@
         "meta",
         "callback",
         "results"
-      ]
+      ],
+      "title": "MediaTypes"
     },
     "Message": {
       "properties": {
@@ -746,7 +762,8 @@
       },
       "required": [
         "userMessage"
-      ]
+      ],
+      "title": "Message"
     },
     "Meta": {
       "properties": {
@@ -768,7 +785,8 @@
         "status",
         "messages",
         "pagination"
-      ]
+      ],
+      "title": "Meta"
     },
     "PDF": {
       "properties": {
@@ -862,7 +880,8 @@
         "source",
         "createdBy",
         "foreignSyndicationAPIUrl"
-      ]
+      ],
+      "title": "PDF"
     },
     "Pagination": {
       "properties": {
@@ -912,7 +931,8 @@
         "totalPages",
         "sort",
         "currentUrl"
-      ]
+      ],
+      "title": "Pagination"
     },
     "Ratings": {
       "properties": {
@@ -933,7 +953,8 @@
         "meta",
         "callback",
         "results"
-      ]
+      ],
+      "title": "Ratings"
     },
     "Resource": {
       "properties": {
@@ -947,7 +968,8 @@
       },
       "required": [
         "name"
-      ]
+      ],
+      "title": "Resource"
     },
     "ResourceList": {
       "properties": {
@@ -964,7 +986,8 @@
       "required": [
         "items",
         "mediaType"
-      ]
+      ],
+      "title": "ResourceList"
     },
     "ResourceLists": {
       "properties": {
@@ -1004,7 +1027,8 @@
         "videos": {
           "$ref": "#/definitions/ResourceList"
         }
-      }
+      },
+      "title": "ResourceLists"
     },
     "Resources": {
       "properties": {
@@ -1025,7 +1049,8 @@
         "meta",
         "callback",
         "results"
-      ]
+      ],
+      "title": "Resources"
     },
     "Snippet": {
       "properties": {
@@ -1035,7 +1060,8 @@
       },
       "required": [
         "snippet"
-      ]
+      ],
+      "title": "Snippet"
     },
     "Source": {
       "properties": {
@@ -1067,7 +1093,8 @@
         "name",
         "acronym",
         "websiteUrl"
-      ]
+      ],
+      "title": "Source"
     },
     "Sources": {
       "properties": {
@@ -1088,7 +1115,8 @@
         "meta",
         "callback",
         "results"
-      ]
+      ],
+      "title": "Sources"
     },
     "SyndicatedMediaItem": {
       "properties": {
@@ -1117,7 +1145,8 @@
         "text": {
           "type": "string"
         }
-      }
+      },
+      "title": "SyndicatedMediaItem"
     },
     "SyndicatedMediaItems": {
       "properties": {
@@ -1138,7 +1167,8 @@
         "meta",
         "callback",
         "results"
-      ]
+      ],
+      "title": "SyndicatedMediaItems"
     },
     "Tag": {
       "properties": {
@@ -1161,7 +1191,8 @@
         "name",
         "language",
         "type"
-      ]
+      ],
+      "title": "Tag"
     },
     "TagLanguage": {
       "properties": {
@@ -1180,7 +1211,8 @@
         "id",
         "name",
         "isoCode"
-      ]
+      ],
+      "title": "TagLanguage"
     },
     "TagLanguages": {
       "properties": {
@@ -1201,7 +1233,8 @@
         "meta",
         "callback",
         "results"
-      ]
+      ],
+      "title": "TagLanguages"
     },
     "TagType": {
       "properties": {
@@ -1219,7 +1252,8 @@
       "required": [
         "id",
         "name"
-      ]
+      ],
+      "title": "TagType"
     },
     "TagTypes": {
       "properties": {
@@ -1240,7 +1274,8 @@
         "meta",
         "callback",
         "results"
-      ]
+      ],
+      "title": "TagTypes"
     },
     "Tags": {
       "properties": {
@@ -1261,7 +1296,8 @@
         "meta",
         "callback",
         "results"
-      ]
+      ],
+      "title": "Tags"
     },
     "Video": {
       "properties": {
@@ -1368,7 +1404,8 @@
         "createdBy",
         "foreignSyndicationAPIUrl",
         "duration"
-      ]
+      ],
+      "title": "Video"
     },
     "YoutubeMetadata": {
       "properties": {
@@ -1389,7 +1426,8 @@
         "meta",
         "callback",
         "results"
-      ]
+      ],
+      "title": "YoutubeMetadata"
     }
   },
   "actions": [

@@ -20,7 +20,8 @@
           "$ref": "#/definitions/AndroidMAMPolicyProperties",
           "x-ms-client-flatten": true
         }
-      }
+      },
+      "title": "AndroidMAMPolicy"
     },
     "AndroidMAMPolicyCollection": {
       "properties": {
@@ -38,7 +39,8 @@
       },
       "required": [
         "value"
-      ]
+      ],
+      "title": "AndroidMAMPolicyCollection"
     },
     "AndroidMAMPolicyProperties": {
       "allOf": [
@@ -64,7 +66,8 @@
           ],
           "type": "string"
         }
-      }
+      },
+      "title": "AndroidMAMPolicyProperties"
     },
     "Application": {
       "allOf": [
@@ -78,7 +81,8 @@
           "$ref": "#/definitions/ApplicationProperties",
           "x-ms-client-flatten": true
         }
-      }
+      },
+      "title": "Application"
     },
     "ApplicationCollection": {
       "properties": {
@@ -96,7 +100,8 @@
       },
       "required": [
         "value"
-      ]
+      ],
+      "title": "ApplicationCollection"
     },
     "ApplicationProperties": {
       "properties": {
@@ -119,7 +124,8 @@
       "required": [
         "friendlyName",
         "platform"
-      ]
+      ],
+      "title": "ApplicationProperties"
     },
     "Device": {
       "allOf": [
@@ -133,7 +139,8 @@
           "$ref": "#/definitions/DeviceProperties",
           "x-ms-client-flatten": true
         }
-      }
+      },
+      "title": "Device"
     },
     "DeviceCollection": {
       "properties": {
@@ -151,7 +158,8 @@
       },
       "required": [
         "value"
-      ]
+      ],
+      "title": "DeviceCollection"
     },
     "DeviceProperties": {
       "properties": {
@@ -177,7 +185,8 @@
         "platform",
         "platformVersion",
         "deviceType"
-      ]
+      ],
+      "title": "DeviceProperties"
     },
     "Error": {
       "properties": {
@@ -191,7 +200,8 @@
       "required": [
         "code",
         "message"
-      ]
+      ],
+      "title": "Error"
     },
     "FlaggedEnrolledApp": {
       "allOf": [
@@ -205,7 +215,8 @@
           "$ref": "#/definitions/FlaggedEnrolledAppProperties",
           "x-ms-client-flatten": true
         }
-      }
+      },
+      "title": "FlaggedEnrolledApp"
     },
     "FlaggedEnrolledAppCollection": {
       "description": "Flagged Enrolled App collection for the given tenant.",
@@ -224,7 +235,8 @@
       },
       "required": [
         "value"
-      ]
+      ],
+      "title": "FlaggedEnrolledAppCollection"
     },
     "FlaggedEnrolledAppError": {
       "properties": {
@@ -236,7 +248,8 @@
           "readOnly": true,
           "type": "string"
         }
-      }
+      },
+      "title": "FlaggedEnrolledAppError"
     },
     "FlaggedEnrolledAppProperties": {
       "properties": {
@@ -262,7 +275,8 @@
           "readOnly": true,
           "type": "string"
         }
-      }
+      },
+      "title": "FlaggedEnrolledAppProperties"
     },
     "FlaggedUser": {
       "allOf": [
@@ -276,7 +290,8 @@
           "$ref": "#/definitions/FlaggedUserProperties",
           "x-ms-client-flatten": true
         }
-      }
+      },
+      "title": "FlaggedUser"
     },
     "FlaggedUserCollection": {
       "description": "Flagged user collection for the given tenant.",
@@ -295,7 +310,8 @@
       },
       "required": [
         "value"
-      ]
+      ],
+      "title": "FlaggedUserCollection"
     },
     "FlaggedUserProperties": {
       "properties": {
@@ -307,7 +323,8 @@
           "readOnly": true,
           "type": "string"
         }
-      }
+      },
+      "title": "FlaggedUserProperties"
     },
     "GroupItem": {
       "allOf": [
@@ -321,7 +338,8 @@
           "$ref": "#/definitions/GroupProperties",
           "x-ms-client-flatten": true
         }
-      }
+      },
+      "title": "GroupItem"
     },
     "GroupProperties": {
       "properties": {
@@ -331,7 +349,8 @@
       },
       "required": [
         "friendlyName"
-      ]
+      ],
+      "title": "GroupProperties"
     },
     "GroupsCollection": {
       "properties": {
@@ -349,7 +368,8 @@
       },
       "required": [
         "value"
-      ]
+      ],
+      "title": "GroupsCollection"
     },
     "IOSMAMPolicyCollection": {
       "properties": {
@@ -367,7 +387,8 @@
       },
       "required": [
         "value"
-      ]
+      ],
+      "title": "IOSMAMPolicyCollection"
     },
     "Location": {
       "allOf": [
@@ -381,7 +402,8 @@
           "$ref": "#/definitions/LocationProperties",
           "x-ms-client-flatten": true
         }
-      }
+      },
+      "title": "Location"
     },
     "LocationCollection": {
       "properties": {
@@ -399,7 +421,8 @@
       },
       "required": [
         "value"
-      ]
+      ],
+      "title": "LocationCollection"
     },
     "LocationProperties": {
       "properties": {
@@ -409,7 +432,8 @@
       },
       "required": [
         "hostName"
-      ]
+      ],
+      "title": "LocationProperties"
     },
     "MAMPolicyAppIdOrGroupIdPayload": {
       "description": "MAM Policy request body for properties Intune MAM.",
@@ -417,7 +441,8 @@
         "properties": {
           "$ref": "#/definitions/MAMPolicyAppOrGroupIdProperties"
         }
-      }
+      },
+      "title": "MAMPolicyAppIdOrGroupIdPayload"
     },
     "MAMPolicyAppOrGroupIdProperties": {
       "description": "Android Policy request body for Intune MAM.",
@@ -428,7 +453,8 @@
       },
       "required": [
         "url"
-      ]
+      ],
+      "title": "MAMPolicyAppOrGroupIdProperties"
     },
     "MAMPolicyProperties": {
       "properties": {
@@ -550,7 +576,8 @@
       },
       "required": [
         "friendlyName"
-      ]
+      ],
+      "title": "MAMPolicyProperties"
     },
     "OperationResult": {
       "allOf": [
@@ -564,7 +591,8 @@
           "$ref": "#/definitions/OperationResultProperties",
           "x-ms-client-flatten": true
         }
-      }
+      },
+      "title": "OperationResult"
     },
     "OperationResultCollection": {
       "properties": {
@@ -582,7 +610,8 @@
       },
       "required": [
         "value"
-      ]
+      ],
+      "title": "OperationResultCollection"
     },
     "OperationResultProperties": {
       "properties": {
@@ -608,7 +637,8 @@
       "required": [
         "friendlyName",
         "operationMetadata"
-      ]
+      ],
+      "title": "OperationResultProperties"
     },
     "Resource": {
       "properties": {
@@ -639,7 +669,8 @@
           "type": "string"
         }
       },
-      "x-ms-azure-resource": true
+      "x-ms-azure-resource": true,
+      "title": "Resource"
     },
     "StatusesDefault": {
       "allOf": [
@@ -658,7 +689,8 @@
           "$ref": "#/definitions/StatusesProperties",
           "x-ms-client-flatten": true
         }
-      }
+      },
+      "title": "StatusesDefault"
     },
     "StatusesProperties": {
       "properties": {
@@ -699,7 +731,8 @@
           "readOnly": true,
           "type": "integer"
         }
-      }
+      },
+      "title": "StatusesProperties"
     },
     "WipeDeviceOperationResult": {
       "allOf": [
@@ -713,7 +746,8 @@
           "$ref": "#/definitions/WipeDeviceOperationResultProperties",
           "x-ms-client-flatten": true
         }
-      }
+      },
+      "title": "WipeDeviceOperationResult"
     },
     "WipeDeviceOperationResultProperties": {
       "properties": {
@@ -723,7 +757,8 @@
       },
       "required": [
         "value"
-      ]
+      ],
+      "title": "WipeDeviceOperationResultProperties"
     },
     "iOSMAMPolicy": {
       "allOf": [
@@ -737,7 +772,8 @@
           "$ref": "#/definitions/iOSMAMPolicyProperties",
           "x-ms-client-flatten": true
         }
-      }
+      },
+      "title": "iOSMAMPolicy"
     },
     "iOSMAMPolicyProperties": {
       "allOf": [
@@ -765,7 +801,8 @@
           ],
           "type": "string"
         }
-      }
+      },
+      "title": "iOSMAMPolicyProperties"
     },
     "operationMetadataProperties": {
       "properties": {
@@ -779,7 +816,8 @@
       "required": [
         "name",
         "value"
-      ]
+      ],
+      "title": "operationMetadataProperties"
     }
   },
   "actions": [

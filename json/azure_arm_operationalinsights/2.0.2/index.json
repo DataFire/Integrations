@@ -43,7 +43,8 @@
       },
       "required": [
         "NumberOfDocuments"
-      ]
+      ],
+      "title": "CoreSummary"
     },
     "LinkTarget": {
       "description": "Metadata for a workspace that isn't linked to an Azure subscription.",
@@ -65,7 +66,8 @@
           "description": "The DNS valid workspace name.",
           "type": "string"
         }
-      }
+      },
+      "title": "LinkTarget"
     },
     "ProxyResource": {
       "description": "Common properties of proxy resource.",
@@ -92,7 +94,8 @@
           "readOnly": true,
           "type": "string"
         }
-      }
+      },
+      "title": "ProxyResource"
     },
     "Resource": {
       "description": "The resource definition.",
@@ -127,7 +130,8 @@
       "required": [
         "location"
       ],
-      "x-ms-azure-resource": true
+      "x-ms-azure-resource": true,
+      "title": "Resource"
     },
     "SavedSearch": {
       "description": "Value object for saved search results.",
@@ -149,7 +153,8 @@
       },
       "required": [
         "properties"
-      ]
+      ],
+      "title": "SavedSearch"
     },
     "SavedSearchProperties": {
       "description": "Value object for saved search results.",
@@ -186,7 +191,8 @@
         "DisplayName",
         "Query",
         "Version"
-      ]
+      ],
+      "title": "SavedSearchProperties"
     },
     "SavedSearchesListResult": {
       "description": "The saved search operation response.",
@@ -203,7 +209,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "SavedSearchesListResult"
     },
     "SearchError": {
       "description": "Details for a search error.",
@@ -216,7 +223,8 @@
           "description": "The error type.",
           "type": "string"
         }
-      }
+      },
+      "title": "SearchError"
     },
     "SearchGetSchemaResponse": {
       "description": "The get schema operation response.",
@@ -233,7 +241,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "SearchGetSchemaResponse"
     },
     "SearchHighlight": {
       "description": "Highlight details.",
@@ -246,7 +255,8 @@
           "description": "The string that is put before a matched result.",
           "type": "string"
         }
-      }
+      },
+      "title": "SearchHighlight"
     },
     "SearchMetadata": {
       "description": "Metadata for search results.",
@@ -333,7 +343,8 @@
           "format": "int64",
           "type": "integer"
         }
-      }
+      },
+      "title": "SearchMetadata"
     },
     "SearchMetadataSchema": {
       "description": "Schema metadata for search.",
@@ -347,7 +358,8 @@
           "format": "int32",
           "type": "integer"
         }
-      }
+      },
+      "title": "SearchMetadataSchema"
     },
     "SearchParameters": {
       "description": "Parameters specifying the search query and range.",
@@ -378,7 +390,8 @@
       },
       "required": [
         "query"
-      ]
+      ],
+      "title": "SearchParameters"
     },
     "SearchResultsResponse": {
       "description": "The get search result operation response.",
@@ -404,7 +417,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "SearchResultsResponse"
     },
     "SearchSchemaValue": {
       "description": "Value object for schema results.",
@@ -445,7 +459,8 @@
         "facet",
         "stored",
         "indexed"
-      ]
+      ],
+      "title": "SearchSchemaValue"
     },
     "SearchSort": {
       "description": "The sort parameters for search.",
@@ -466,7 +481,8 @@
             "name": "SearchSortEnum"
           }
         }
-      }
+      },
+      "title": "SearchSort"
     },
     "StorageAccount": {
       "description": "Describes a storage account connection.",
@@ -483,7 +499,8 @@
       "required": [
         "id",
         "key"
-      ]
+      ],
+      "title": "StorageAccount"
     },
     "StorageInsight": {
       "allOf": [
@@ -502,7 +519,8 @@
           "description": "Storage insight properties.",
           "x-ms-client-flatten": true
         }
-      }
+      },
+      "title": "StorageInsight"
     },
     "StorageInsightListResult": {
       "description": "The list storage insights operation response.",
@@ -519,7 +537,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "StorageInsightListResult"
     },
     "StorageInsightProperties": {
       "description": "Storage insight properties.",
@@ -550,7 +569,8 @@
       },
       "required": [
         "storageAccount"
-      ]
+      ],
+      "title": "StorageInsightProperties"
     },
     "StorageInsightStatus": {
       "description": "The status of the storage insight.",
@@ -574,7 +594,8 @@
       },
       "required": [
         "state"
-      ]
+      ],
+      "title": "StorageInsightStatus"
     },
     "Tag": {
       "description": "A tag of a saved search.",
@@ -591,7 +612,8 @@
       "required": [
         "Name",
         "Value"
-      ]
+      ],
+      "title": "Tag"
     }
   },
   "actions": [

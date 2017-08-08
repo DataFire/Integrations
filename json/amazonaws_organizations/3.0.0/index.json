@@ -23,7 +23,8 @@
           "$ref": "#/definitions/ExceptionMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AWSOrganizationsNotInUseException"
     },
     "AcceptHandshakeRequest": {
       "example": {
@@ -38,7 +39,8 @@
       "required": [
         "HandshakeId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AcceptHandshakeRequest"
     },
     "AcceptHandshakeResponse": {
       "example": {
@@ -91,7 +93,8 @@
           "description": "A structure that contains details about the accepted handshake."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AcceptHandshakeResponse"
     },
     "AccessDeniedException": {
       "description": "You don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions. For more information, see <a href=\"http://docs.aws.amazon.com/IAM/latest/UserGuide/access.html\">Access Management</a> in the <i>IAM User Guide</i>.",
@@ -100,7 +103,8 @@
           "$ref": "#/definitions/ExceptionMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AccessDeniedException"
     },
     "Account": {
       "description": "Contains information about an AWS account that is a member of an organization.",
@@ -134,28 +138,33 @@
           "description": "The status of the account in the organization."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Account"
     },
     "AccountArn": {
       "pattern": "^arn:aws:organizations::\\d{12}:account\\/o-[a-z0-9]{10,32}\\/\\d{12}",
-      "type": "string"
+      "type": "string",
+      "title": "AccountArn"
     },
     "AccountId": {
       "pattern": "^\\d{12}$",
-      "type": "string"
+      "type": "string",
+      "title": "AccountId"
     },
     "AccountJoinedMethod": {
       "enum": [
         "INVITED",
         "CREATED"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "AccountJoinedMethod"
     },
     "AccountName": {
       "format": "password",
       "maxLength": 50,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "AccountName"
     },
     "AccountNotFoundException": {
       "description": " We can't find an AWS account with the AccountId that you specified, or the account whose credentials you used to make this request is not a member of an organization.",
@@ -164,20 +173,23 @@
           "$ref": "#/definitions/ExceptionMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AccountNotFoundException"
     },
     "AccountStatus": {
       "enum": [
         "ACTIVE",
         "SUSPENDED"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "AccountStatus"
     },
     "Accounts": {
       "items": {
         "$ref": "#/definitions/Account"
       },
-      "type": "array"
+      "type": "array",
+      "title": "Accounts"
     },
     "ActionType": {
       "enum": [
@@ -185,7 +197,8 @@
         "ENABLE_ALL_FEATURES",
         "APPROVE_ALL_FEATURES"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ActionType"
     },
     "AlreadyInOrganizationException": {
       "description": "This account is already a member of an organization. An account can belong to only one organization at a time.",
@@ -194,7 +207,8 @@
           "$ref": "#/definitions/ExceptionMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AlreadyInOrganizationException"
     },
     "AttachPolicyRequest": {
       "example": {
@@ -215,10 +229,12 @@
         "PolicyId",
         "TargetId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AttachPolicyRequest"
     },
     "AwsManagedPolicy": {
-      "type": "boolean"
+      "type": "boolean",
+      "title": "AwsManagedPolicy"
     },
     "CancelHandshakeRequest": {
       "example": {
@@ -233,7 +249,8 @@
       "required": [
         "HandshakeId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CancelHandshakeRequest"
     },
     "CancelHandshakeResponse": {
       "example": {
@@ -290,7 +307,8 @@
           "description": "A structure that contains details about the handshake that you canceled."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CancelHandshakeResponse"
     },
     "Child": {
       "description": "Contains a list of child entities, either OUs or accounts.",
@@ -304,11 +322,13 @@
           "description": "The type of this child entity."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Child"
     },
     "ChildId": {
       "pattern": "^(\\d{12})|(ou-[0-9a-z]{4,32}-[a-z0-9]{8,32})$",
-      "type": "string"
+      "type": "string",
+      "title": "ChildId"
     },
     "ChildNotFoundException": {
       "description": "We can't find an organizational unit (OU) or AWS account with the ChildId that you specified.",
@@ -317,20 +337,23 @@
           "$ref": "#/definitions/ExceptionMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ChildNotFoundException"
     },
     "ChildType": {
       "enum": [
         "ACCOUNT",
         "ORGANIZATIONAL_UNIT"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ChildType"
     },
     "Children": {
       "items": {
         "$ref": "#/definitions/Child"
       },
-      "type": "array"
+      "type": "array",
+      "title": "Children"
     },
     "ConcurrentModificationException": {
       "description": "The target of the operation is currently being modified by a different request. Try again later.",
@@ -339,7 +362,8 @@
           "$ref": "#/definitions/ExceptionMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ConcurrentModificationException"
     },
     "ConstraintViolationException": {
       "description": "<p>Performing this operation violates a minimum or maximum value limit. For example, attempting to removing the last SCP from an OU or root, inviting or creating too many accounts to the organization, or attaching too many policies to an account, OU, or root. This exception includes a reason that contains additional information about the violated limit:</p> <p/> <ul> <li> <p>ACCOUNT_NUMBER_LIMIT_EXCEEDED: You attempted to exceed the limit on the number of accounts in an organization. <b>Note</b>: deleted and closed accounts still count toward your limit.</p> </li> <li> <p>HANDSHAKE_RATE_LIMIT_EXCEEDED: You attempted to exceed the number of handshakes you can send in one day.</p> </li> <li> <p>OU_NUMBER_LIMIT_EXCEEDED: You attempted to exceed the number of organizational units you can have in an organization.</p> </li> <li> <p>OU_DEPTH_LIMIT_EXCEEDED: You attempted to create an organizational unit tree that is too many levels deep.</p> </li> <li> <p>POLICY_NUMBER_LIMIT_EXCEEDED. You attempted to exceed the number of policies that you can have in an organization.</p> </li> <li> <p>MAX_POLICY_TYPE_ATTACHMENT_LIMIT_EXCEEDED: You attempted to exceed the number of policies of a certain type that can be attached to an entity at one time.</p> </li> <li> <p>MIN_POLICY_TYPE_ATTACHMENT_LIMIT_EXCEEDED: You attempted to detach a policy from an entity that would cause the entity to have fewer than the minimum number of policies of a certain type required.</p> </li> <li> <p>ACCOUNT_CANNOT_LEAVE_ORGANIZATION: You attempted to remove an account from an organization that was created from within organizations.</p> </li> <li> <p>MASTER_ACCOUNT_PAYMENT_INSTRUMENT_REQUIRED: To create an organization with this account, you first must associate a payment instrument, such as a credit card, with the account.</p> </li> <li> <p>MEMBER_ACCOUNT_PAYMENT_INSTRUMENT_REQUIRED: To complete this operation with this member account, you first must associate a payment instrument, such as a credit card, with the account.</p> </li> <li> <p>ACCOUNT_CREATION_RATE_LIMIT_EXCEEDED: You attempted to exceed the number of accounts that you can create in one day.</p> </li> <li> <p>MASTER_ACCOUNT_ADDRESS_DOES_NOT_MATCH_MARKETPLACE: To create an account in this organization, you first must migrate the organization's master account to the marketplace that corresponds to the master account's address. For example, accounts with India addresses must be associated with the AISPL marketplace. All accounts in an organization must be associated with the same marketplace.</p> </li> </ul>",
@@ -351,7 +375,8 @@
           "$ref": "#/definitions/ConstraintViolationExceptionReason"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ConstraintViolationException"
     },
     "ConstraintViolationExceptionReason": {
       "enum": [
@@ -368,7 +393,8 @@
         "ACCOUNT_CREATION_RATE_LIMIT_EXCEEDED",
         "MASTER_ACCOUNT_ADDRESS_DOES_NOT_MATCH_MARKETPLACE"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ConstraintViolationExceptionReason"
     },
     "CreateAccountFailureReason": {
       "enum": [
@@ -378,7 +404,8 @@
         "INVALID_EMAIL",
         "INTERNAL_FAILURE"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "CreateAccountFailureReason"
     },
     "CreateAccountRequest": {
       "example": {
@@ -407,11 +434,13 @@
         "Email",
         "AccountName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateAccountRequest"
     },
     "CreateAccountRequestId": {
       "pattern": "^car-[a-z0-9]{8,32}$",
-      "type": "string"
+      "type": "string",
+      "title": "CreateAccountRequestId"
     },
     "CreateAccountResponse": {
       "example": {
@@ -426,7 +455,8 @@
           "description": "A structure that contains details about the request to create an account. This response structure might not be fully populated when you first receive it because account creation is an asynchronous process. You can pass the returned CreateAccountStatus ID as a parameter to <code> <a>DescribeCreateAccountStatus</a> </code> to get status about the progress of the request at later times. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateAccountResponse"
     },
     "CreateAccountState": {
       "enum": [
@@ -434,13 +464,15 @@
         "SUCCEEDED",
         "FAILED"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "CreateAccountState"
     },
     "CreateAccountStates": {
       "items": {
         "$ref": "#/definitions/CreateAccountState"
       },
-      "type": "array"
+      "type": "array",
+      "title": "CreateAccountStates"
     },
     "CreateAccountStatus": {
       "description": "Contains the status about a <a>CreateAccount</a> request to create an AWS account in an organization.",
@@ -474,7 +506,8 @@
           "description": "The status of the request."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateAccountStatus"
     },
     "CreateAccountStatusNotFoundException": {
       "description": "We can't find an create account request with the CreateAccountRequestId that you specified.",
@@ -483,13 +516,15 @@
           "$ref": "#/definitions/ExceptionMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateAccountStatusNotFoundException"
     },
     "CreateAccountStatuses": {
       "items": {
         "$ref": "#/definitions/CreateAccountStatus"
       },
-      "type": "array"
+      "type": "array",
+      "title": "CreateAccountStatuses"
     },
     "CreateOrganizationRequest": {
       "example": {
@@ -501,7 +536,8 @@
           "description": "<p>Specifies the feature set supported by the new organization. Each feature set supports different levels of functionality.</p> <ul> <li> <p> <i>CONSOLIDATED_BILLING</i>: All member accounts have their bills consolidated to and paid by the master account. For more information, see <a href=\"http://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#feature-set-cb-only\">Consolidated Billing</a> in the <i>AWS Organizations User Guide</i>.</p> </li> <li> <p> <i>ALL</i>: In addition to all the features supported by the consolidated billing feature set, the master account can also apply any type of policy to any member account in the organization. For more information, see <a href=\"http://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#feature-set-all\">All features</a> in the <i>AWS Organizations User Guide</i>.</p> </li> </ul>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateOrganizationRequest"
     },
     "CreateOrganizationResponse": {
       "example": {
@@ -521,7 +557,8 @@
           "description": "A structure that contains details about the newly created organization."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateOrganizationResponse"
     },
     "CreateOrganizationalUnitRequest": {
       "example": {
@@ -542,7 +579,8 @@
         "ParentId",
         "Name"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateOrganizationalUnitRequest"
     },
     "CreateOrganizationalUnitResponse": {
       "example": {
@@ -558,7 +596,8 @@
           "description": "A structure that contains details about the newly created OU."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateOrganizationalUnitResponse"
     },
     "CreatePolicyRequest": {
       "example": {
@@ -591,7 +630,8 @@
         "Name",
         "Type"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreatePolicyRequest"
     },
     "CreatePolicyResponse": {
       "example": {
@@ -611,7 +651,8 @@
           "description": "A structure that contains details about the newly created policy."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreatePolicyResponse"
     },
     "DeclineHandshakeRequest": {
       "example": {
@@ -626,7 +667,8 @@
       "required": [
         "HandshakeId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeclineHandshakeRequest"
     },
     "DeclineHandshakeResponse": {
       "example": {
@@ -679,7 +721,8 @@
           "description": "A structure that contains details about the declined handshake. The state is updated to show the value <code>DECLINED</code>."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DeclineHandshakeResponse"
     },
     "DeleteOrganizationalUnitRequest": {
       "example": {
@@ -694,7 +737,8 @@
       "required": [
         "OrganizationalUnitId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteOrganizationalUnitRequest"
     },
     "DeletePolicyRequest": {
       "example": {
@@ -709,7 +753,8 @@
       "required": [
         "PolicyId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeletePolicyRequest"
     },
     "DescribeAccountRequest": {
       "example": {
@@ -724,7 +769,8 @@
       "required": [
         "AccountId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeAccountRequest"
     },
     "DescribeAccountResponse": {
       "example": {
@@ -741,7 +787,8 @@
           "description": "A structure that contains information about the requested account."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeAccountResponse"
     },
     "DescribeCreateAccountStatusRequest": {
       "example": {
@@ -756,7 +803,8 @@
       "required": [
         "CreateAccountRequestId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeCreateAccountStatusRequest"
     },
     "DescribeCreateAccountStatusResponse": {
       "example": {
@@ -772,7 +820,8 @@
           "description": "A structure that contains the current status of an account creation request."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeCreateAccountStatusResponse"
     },
     "DescribeHandshakeRequest": {
       "example": {
@@ -787,7 +836,8 @@
       "required": [
         "HandshakeId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeHandshakeRequest"
     },
     "DescribeHandshakeResponse": {
       "example": {
@@ -836,7 +886,8 @@
           "description": "A structure that contains information about the specified handshake."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeHandshakeResponse"
     },
     "DescribeOrganizationResponse": {
       "example": {
@@ -860,7 +911,8 @@
           "description": "A structure that contains information about the organization."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeOrganizationResponse"
     },
     "DescribeOrganizationalUnitRequest": {
       "example": {
@@ -875,7 +927,8 @@
       "required": [
         "OrganizationalUnitId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeOrganizationalUnitRequest"
     },
     "DescribeOrganizationalUnitResponse": {
       "example": {
@@ -891,7 +944,8 @@
           "description": "A structure that contains details about the specified OU."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeOrganizationalUnitResponse"
     },
     "DescribePolicyRequest": {
       "example": {
@@ -906,7 +960,8 @@
       "required": [
         "PolicyId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribePolicyRequest"
     },
     "DescribePolicyResponse": {
       "example": {
@@ -928,7 +983,8 @@
           "description": "A structure that contains details about the specified policy."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribePolicyResponse"
     },
     "DestinationParentNotFoundException": {
       "description": "We can't find the destination container (a root or OU) with the ParentId that you specified.",
@@ -937,7 +993,8 @@
           "$ref": "#/definitions/ExceptionMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DestinationParentNotFoundException"
     },
     "DetachPolicyRequest": {
       "example": {
@@ -958,7 +1015,8 @@
         "PolicyId",
         "TargetId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DetachPolicyRequest"
     },
     "DisablePolicyTypeRequest": {
       "example": {
@@ -979,7 +1037,8 @@
         "RootId",
         "PolicyType"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DisablePolicyTypeRequest"
     },
     "DisablePolicyTypeResponse": {
       "example": {
@@ -996,7 +1055,8 @@
           "description": "A structure that shows the root with the updated list of enabled policy types."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DisablePolicyTypeResponse"
     },
     "DuplicateAccountException": {
       "description": "That account is already present in the specified destination.",
@@ -1005,7 +1065,8 @@
           "$ref": "#/definitions/ExceptionMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DuplicateAccountException"
     },
     "DuplicateHandshakeException": {
       "description": "A handshake with the same action and target already exists. For example, if you invited an account to join your organization, the invited account might already have a pending invitation from this organization. If you intend to resend an invitation to an account, ensure that existing handshakes that might be considered duplicates are canceled or declined.",
@@ -1014,7 +1075,8 @@
           "$ref": "#/definitions/ExceptionMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DuplicateHandshakeException"
     },
     "DuplicateOrganizationalUnitException": {
       "description": "An organizational unit (OU) with the same name already exists.",
@@ -1023,7 +1085,8 @@
           "$ref": "#/definitions/ExceptionMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DuplicateOrganizationalUnitException"
     },
     "DuplicatePolicyAttachmentException": {
       "description": "The selected policy is already attached to the specified target.",
@@ -1032,7 +1095,8 @@
           "$ref": "#/definitions/ExceptionMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DuplicatePolicyAttachmentException"
     },
     "DuplicatePolicyException": {
       "description": "A policy with the same name already exists.",
@@ -1041,19 +1105,22 @@
           "$ref": "#/definitions/ExceptionMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DuplicatePolicyException"
     },
     "Email": {
       "format": "password",
       "maxLength": 64,
       "minLength": 6,
       "pattern": "[^\\s@]+@[^\\s@]+\\.[^\\s@]+",
-      "type": "string"
+      "type": "string",
+      "title": "Email"
     },
     "EnableAllFeaturesRequest": {
       "example": {},
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "EnableAllFeaturesRequest"
     },
     "EnableAllFeaturesResponse": {
       "example": {
@@ -1084,7 +1151,8 @@
           "description": "A structure that contains details about the handshake created to support this request to enable all features in the organization."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "EnableAllFeaturesResponse"
     },
     "EnablePolicyTypeRequest": {
       "example": {
@@ -1105,7 +1173,8 @@
         "RootId",
         "PolicyType"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "EnablePolicyTypeRequest"
     },
     "EnablePolicyTypeResponse": {
       "example": {
@@ -1127,13 +1196,16 @@
           "description": "A structure that shows the root with the updated list of enabled policy types."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "EnablePolicyTypeResponse"
     },
     "ExceptionMessage": {
-      "type": "string"
+      "type": "string",
+      "title": "ExceptionMessage"
     },
     "ExceptionType": {
-      "type": "string"
+      "type": "string",
+      "title": "ExceptionType"
     },
     "FinalizingOrganizationException": {
       "description": "AWS Organizations could not finalize the creation of your organization. Try again later. If this persists, contact AWS customer support.",
@@ -1142,11 +1214,13 @@
           "$ref": "#/definitions/ExceptionMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "FinalizingOrganizationException"
     },
     "GenericArn": {
       "pattern": "^arn:aws:organizations::.+:.+",
-      "type": "string"
+      "type": "string",
+      "title": "GenericArn"
     },
     "Handshake": {
       "description": "Contains information that must be exchanged to securely establish a relationship between two accounts (an <i>originator</i> and a <i>recipient</i>). For example, when a master account (the originator) invites another account (the recipient) to join its organization, the two accounts exchange information as a series of handshake requests and responses. ",
@@ -1184,7 +1258,8 @@
           "description": "<p>The current state of the handshake. Use the state to trace the flow of the handshake through the process from its creation to its acceptance. The meaning of each of the valid values is as follows:</p> <ul> <li> <p> <b>REQUESTED</b>: This handshake was sent to multiple recipients (applicable to only some handshake types) and not all recipients have responded yet. The request stays in this state until all recipients respond.</p> </li> <li> <p> <b>OPEN</b>: This handshake was sent to multiple recipients (applicable to only some policy types) and all recipients have responded, allowing the originator to complete the handshake action.</p> </li> <li> <p> <b>CANCELED</b>: This handshake is no longer active because it was canceled by the originating account.</p> </li> <li> <p> <b>ACCEPTED</b>: This handshake is complete because it has been accepted by the recipient.</p> </li> <li> <p> <b>DECLINED</b>: This handshake is no longer active because it was declined by the recipient account.</p> </li> <li> <p> <b>EXPIRED</b>: This handshake is no longer active because the originator did not receive a response of any kind from the recipient before the expiration time (15 days).</p> </li> </ul>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Handshake"
     },
     "HandshakeAlreadyInStateException": {
       "description": "The specified handshake is already in the requested state. For example, you can't accept a handshake that was already accepted.",
@@ -1193,11 +1268,13 @@
           "$ref": "#/definitions/ExceptionMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "HandshakeAlreadyInStateException"
     },
     "HandshakeArn": {
       "pattern": "^arn:aws:organizations::\\d{12}:handshake\\/o-[a-z0-9]{10,32}\\/[a-z_]{1,32}\\/h-[0-9a-z]{8,32}",
-      "type": "string"
+      "type": "string",
+      "title": "HandshakeArn"
     },
     "HandshakeConstraintViolationException": {
       "description": "<p>The requested operation would violate the constraint identified in the reason code.</p> <ul> <li> <p>ACCOUNT_NUMBER_LIMIT_EXCEEDED: You attempted to exceed the limit on the number of accounts in an organization. <b>Note</b>: deleted and closed accounts still count toward your limit.</p> </li> <li> <p>HANDSHAKE_RATE_LIMIT_EXCEEDED: You attempted to exceed the number of handshakes you can send in one day.</p> </li> <li> <p>ALREADY_IN_AN_ORGANIZATION: The handshake request is invalid because the invited account is already a member of an organization.</p> </li> <li> <p>ORGANIZATION_ALREADY_HAS_ALL_FEATURES: The handshake request is invalid because the organization has already enabled all features.</p> </li> <li> <p>INVITE_DISABLED_DURING_ENABLE_ALL_FEATURES: You cannot issue new invitations to join an organization while it is in the process of enabling all features. You can resume inviting accounts after you finalize the process when all accounts have agreed to the change.</p> </li> <li> <p>PAYMENT_INSTRUMENT_REQUIRED: You cannot complete the operation with an account that does not have a payment instrument, such as a credit card, associated with it.</p> </li> <li> <p>ORGANIZATION_FROM_DIFFERENT_SELLER_OF_RECORD: The request failed because the account is from a different marketplace than the accounts in the organization. For example, accounts with India addresses must be associated with the AISPL marketplace. All accounts in an organization must be from the same marketplace.</p> </li> <li> <p>ORGANIZATION_MEMBERSHIP_CHANGE_RATE_LIMIT_EXCEEDED: You attempted to change the membership of an account too quickly after its previous change.</p> </li> </ul>",
@@ -1209,7 +1286,8 @@
           "$ref": "#/definitions/HandshakeConstraintViolationExceptionReason"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "HandshakeConstraintViolationException"
     },
     "HandshakeConstraintViolationExceptionReason": {
       "enum": [
@@ -1222,7 +1300,8 @@
         "ORGANIZATION_FROM_DIFFERENT_SELLER_OF_RECORD",
         "ORGANIZATION_MEMBERSHIP_CHANGE_RATE_LIMIT_EXCEEDED"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "HandshakeConstraintViolationExceptionReason"
     },
     "HandshakeFilter": {
       "description": "Specifies the criteria that are used to select the handshakes for the operation.",
@@ -1236,11 +1315,13 @@
           "description": "<p>Specifies the parent handshake. Only used for handshake types that are a child of another type.</p> <p>If you specify <code>ParentHandshakeId</code>, you cannot also specify <code>ActionType</code>.</p> <p>The <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a> for handshake ID string requires \"h-\" followed by from 8 to 32 lower-case letters or digits.</p>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "HandshakeFilter"
     },
     "HandshakeId": {
       "pattern": "^h-[0-9a-z]{8,32}$",
-      "type": "string"
+      "type": "string",
+      "title": "HandshakeId"
     },
     "HandshakeNotFoundException": {
       "description": "We can't find a handshake with the HandshakeId that you specified.",
@@ -1249,18 +1330,21 @@
           "$ref": "#/definitions/ExceptionMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "HandshakeNotFoundException"
     },
     "HandshakeNotes": {
       "format": "password",
       "maxLength": 1024,
-      "type": "string"
+      "type": "string",
+      "title": "HandshakeNotes"
     },
     "HandshakeParties": {
       "items": {
         "$ref": "#/definitions/HandshakeParty"
       },
-      "type": "array"
+      "type": "array",
+      "title": "HandshakeParties"
     },
     "HandshakeParty": {
       "description": "Identifies a participant in a handshake.",
@@ -1274,13 +1358,15 @@
           "description": "The type of party."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "HandshakeParty"
     },
     "HandshakePartyId": {
       "format": "password",
       "maxLength": 64,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "HandshakePartyId"
     },
     "HandshakePartyType": {
       "enum": [
@@ -1288,7 +1374,8 @@
         "ORGANIZATION",
         "EMAIL"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "HandshakePartyType"
     },
     "HandshakeResource": {
       "description": "Contains additional data that is needed to process a handshake.",
@@ -1306,7 +1393,8 @@
           "description": "The information that is passed to the other party in the handshake. The format of the value string must match the requirements of the specified type."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "HandshakeResource"
     },
     "HandshakeResourceType": {
       "enum": [
@@ -1319,17 +1407,20 @@
         "NOTES",
         "PARENT_HANDSHAKE"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "HandshakeResourceType"
     },
     "HandshakeResourceValue": {
       "format": "password",
-      "type": "string"
+      "type": "string",
+      "title": "HandshakeResourceValue"
     },
     "HandshakeResources": {
       "items": {
         "$ref": "#/definitions/HandshakeResource"
       },
-      "type": "array"
+      "type": "array",
+      "title": "HandshakeResources"
     },
     "HandshakeState": {
       "enum": [
@@ -1340,20 +1431,23 @@
         "DECLINED",
         "EXPIRED"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "HandshakeState"
     },
     "Handshakes": {
       "items": {
         "$ref": "#/definitions/Handshake"
       },
-      "type": "array"
+      "type": "array",
+      "title": "Handshakes"
     },
     "IAMUserAccessToBilling": {
       "enum": [
         "ALLOW",
         "DENY"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "IAMUserAccessToBilling"
     },
     "InvalidHandshakeTransitionException": {
       "description": "You can't perform the operation on the handshake in its current state. For example, you can't cancel a handshake that was already accepted, or accept a handshake that was already declined.",
@@ -1362,7 +1456,8 @@
           "$ref": "#/definitions/ExceptionMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidHandshakeTransitionException"
     },
     "InvalidInputException": {
       "description": "<p>The requested operation failed because you provided invalid values for one or more of the request parameters. This exception includes a reason that contains additional information about the violated limit:</p> <ul> <li> <p>INVALID_PARTY_TYPE_TARGET: You specified the wrong type of entity (account, organization, or email) as a party.</p> </li> <li> <p>INVALID_SYNTAX_ORGANIZATION_ARN: You specified an invalid ARN for the organization.</p> </li> <li> <p>INVALID_SYNTAX_POLICY_ID: You specified an invalid policy ID. </p> </li> <li> <p>INVALID_ENUM: You specified a value that is not valid for that parameter.</p> </li> <li> <p>INVALID_LIST_MEMBER: You provided a list to a parameter that contains at least one invalid value.</p> </li> <li> <p>MAX_LENGTH_EXCEEDED: You provided a string parameter that is longer than allowed.</p> </li> <li> <p>MAX_VALUE_EXCEEDED: You provided a numeric parameter that has a larger value than allowed.</p> </li> <li> <p>MIN_LENGTH_EXCEEDED: You provided a string parameter that is shorter than allowed.</p> </li> <li> <p>MIN_VALUE_EXCEEDED: You provided a numeric parameter that has a smaller value than allowed.</p> </li> <li> <p>IMMUTABLE_POLICY: You specified a policy that is managed by AWS and cannot be modified.</p> </li> <li> <p>INVALID_PATTERN: You provided a value that doesn't match the required pattern.</p> </li> <li> <p>INVALID_PATTERN_TARGET_ID: You specified a policy target ID that doesn't match the required pattern.</p> </li> <li> <p>INPUT_REQUIRED: You must include a value for all required parameters.</p> </li> <li> <p>INVALID_PAGINATION_TOKEN: Get the value for the NextToken parameter from the response to a previous call of the operation.</p> </li> <li> <p>MAX_FILTER_LIMIT_EXCEEDED: You can specify only one filter parameter for the operation.</p> </li> <li> <p>MOVING_ACCOUNT_BETWEEN_DIFFERENT_ROOTS: You can move an account only between entities in the same root.</p> </li> </ul>",
@@ -1374,7 +1469,8 @@
           "$ref": "#/definitions/InvalidInputExceptionReason"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidInputException"
     },
     "InvalidInputExceptionReason": {
       "enum": [
@@ -1395,7 +1491,8 @@
         "MAX_LIMIT_EXCEEDED_FILTER",
         "MOVING_ACCOUNT_BETWEEN_DIFFERENT_ROOTS"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "InvalidInputExceptionReason"
     },
     "InviteAccountToOrganizationRequest": {
       "example": {
@@ -1418,7 +1515,8 @@
       "required": [
         "Target"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "InviteAccountToOrganizationRequest"
     },
     "InviteAccountToOrganizationResponse": {
       "example": {
@@ -1471,7 +1569,8 @@
           "description": "A structure that contains details about the handshake that is created to support this invitation request."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InviteAccountToOrganizationResponse"
     },
     "ListAccountsForParentRequest": {
       "example": {
@@ -1494,7 +1593,8 @@
       "required": [
         "ParentId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListAccountsForParentRequest"
     },
     "ListAccountsForParentResponse": {
       "example": {
@@ -1529,7 +1629,8 @@
           "description": "If present, this value indicates that there is more output available than is included in the current response. Use this value in the <code>NextToken</code> request parameter in a subsequent call to the operation to get the next part of the output. You should repeat this until the <code>NextToken</code> response element comes back as <code>null</code>."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListAccountsForParentResponse"
     },
     "ListAccountsRequest": {
       "example": {},
@@ -1543,7 +1644,8 @@
           "description": "Use this parameter if you receive a <code>NextToken</code> response in a previous request that indicates that there is more output available. Set it to the value of the previous call's <code>NextToken</code> response to indicate where the output should continue from."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListAccountsRequest"
     },
     "ListAccountsResponse": {
       "example": {
@@ -1596,7 +1698,8 @@
           "description": "If present, this value indicates that there is more output available than is included in the current response. Use this value in the <code>NextToken</code> request parameter in a subsequent call to the operation to get the next part of the output. You should repeat this until the <code>NextToken</code> response element comes back as <code>null</code>."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListAccountsResponse"
     },
     "ListChildrenRequest": {
       "example": {
@@ -1625,7 +1728,8 @@
         "ParentId",
         "ChildType"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListChildrenRequest"
     },
     "ListChildrenResponse": {
       "example": {
@@ -1650,7 +1754,8 @@
           "description": "If present, this value indicates that there is more output available than is included in the current response. Use this value in the <code>NextToken</code> request parameter in a subsequent call to the operation to get the next part of the output. You should repeat this until the <code>NextToken</code> response element comes back as <code>null</code>."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListChildrenResponse"
     },
     "ListCreateAccountStatusRequest": {
       "example": {
@@ -1672,7 +1777,8 @@
           "description": "A list of one or more states that you want included in the response. If this parameter is not present, then all requests are included in the response."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListCreateAccountStatusRequest"
     },
     "ListCreateAccountStatusResponse": {
       "example": {
@@ -1695,7 +1801,8 @@
           "description": "If present, this value indicates that there is more output available than is included in the current response. Use this value in the <code>NextToken</code> request parameter in a subsequent call to the operation to get the next part of the output. You should repeat this until the <code>NextToken</code> response element comes back as <code>null</code>."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListCreateAccountStatusResponse"
     },
     "ListHandshakesForAccountRequest": {
       "properties": {
@@ -1712,7 +1819,8 @@
           "description": "Use this parameter if you receive a <code>NextToken</code> response in a previous request that indicates that there is more output available. Set it to the value of the previous call's <code>NextToken</code> response to indicate where the output should continue from."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListHandshakesForAccountRequest"
     },
     "ListHandshakesForAccountResponse": {
       "example": {
@@ -1771,7 +1879,8 @@
           "description": "If present, this value indicates that there is more output available than is included in the current response. Use this value in the <code>NextToken</code> request parameter in a subsequent call to the operation to get the next part of the output. You should repeat this until the <code>NextToken</code> response element comes back as <code>null</code>."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListHandshakesForAccountResponse"
     },
     "ListHandshakesForOrganizationRequest": {
       "properties": {
@@ -1788,7 +1897,8 @@
           "description": "Use this parameter if you receive a <code>NextToken</code> response in a previous request that indicates that there is more output available. Set it to the value of the previous call's <code>NextToken</code> response to indicate where the output should continue from."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListHandshakesForOrganizationRequest"
     },
     "ListHandshakesForOrganizationResponse": {
       "example": {
@@ -1889,7 +1999,8 @@
           "description": "If present, this value indicates that there is more output available than is included in the current response. Use this value in the <code>NextToken</code> request parameter in a subsequent call to the operation to get the next part of the output. You should repeat this until the <code>NextToken</code> response element comes back as <code>null</code>."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListHandshakesForOrganizationResponse"
     },
     "ListOrganizationalUnitsForParentRequest": {
       "example": {
@@ -1912,7 +2023,8 @@
       "required": [
         "ParentId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListOrganizationalUnitsForParentRequest"
     },
     "ListOrganizationalUnitsForParentResponse": {
       "example": {
@@ -1939,7 +2051,8 @@
           "description": "A list of the OUs in the specified root or parent OU."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListOrganizationalUnitsForParentResponse"
     },
     "ListParentsRequest": {
       "example": {
@@ -1962,7 +2075,8 @@
       "required": [
         "ChildId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListParentsRequest"
     },
     "ListParentsResponse": {
       "example": {
@@ -1983,7 +2097,8 @@
           "description": "A list of parents for the specified child account or OU."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListParentsResponse"
     },
     "ListPoliciesForTargetRequest": {
       "example": {
@@ -2012,7 +2127,8 @@
         "TargetId",
         "Filter"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListPoliciesForTargetRequest"
     },
     "ListPoliciesForTargetResponse": {
       "example": {
@@ -2037,7 +2153,8 @@
           "description": "The list of policies that match the criteria in the request."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListPoliciesForTargetResponse"
     },
     "ListPoliciesRequest": {
       "example": {
@@ -2060,7 +2177,8 @@
       "required": [
         "Filter"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListPoliciesRequest"
     },
     "ListPoliciesResponse": {
       "example": {
@@ -2101,7 +2219,8 @@
           "description": "A list of policies that match the filter criteria in the request. The output list does not include the policy contents. To see the content for a policy, see <a>DescribePolicy</a>."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListPoliciesResponse"
     },
     "ListRootsRequest": {
       "example": {},
@@ -2115,7 +2234,8 @@
           "description": "Use this parameter if you receive a <code>NextToken</code> response in a previous request that indicates that there is more output available. Set it to the value of the previous call's <code>NextToken</code> response to indicate where the output should continue from."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListRootsRequest"
     },
     "ListRootsResponse": {
       "example": {
@@ -2143,7 +2263,8 @@
           "description": "A list of roots that are defined in an organization."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListRootsResponse"
     },
     "ListTargetsForPolicyRequest": {
       "example": {
@@ -2166,7 +2287,8 @@
       "required": [
         "PolicyId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListTargetsForPolicyRequest"
     },
     "ListTargetsForPolicyResponse": {
       "example": {
@@ -2201,7 +2323,8 @@
           "description": "A list of structures, each of which contains details about one of the entities to which the specified policy is attached."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListTargetsForPolicyResponse"
     },
     "MalformedPolicyDocumentException": {
       "description": "The provided policy document does not meet the requirements of the specified policy type. For example, the syntax might be incorrect. For details about service control policy syntax, see <a href=\"http://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_scp-syntax.html\">Service Control Policy Syntax</a> in the <i>AWS Organizations User Guide</i>.",
@@ -2210,7 +2333,8 @@
           "$ref": "#/definitions/ExceptionMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "MalformedPolicyDocumentException"
     },
     "MasterCannotLeaveOrganizationException": {
       "description": "You can't remove a master account from an organization. If you want the master account to become a member account in another organization, you must first delete the current organization of the master account.",
@@ -2219,12 +2343,14 @@
           "$ref": "#/definitions/ExceptionMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "MasterCannotLeaveOrganizationException"
     },
     "MaxResults": {
       "maximum": 20,
       "minimum": 1,
-      "type": "integer"
+      "type": "integer",
+      "title": "MaxResults"
     },
     "MoveAccountRequest": {
       "example": {
@@ -2251,10 +2377,12 @@
         "SourceParentId",
         "DestinationParentId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "MoveAccountRequest"
     },
     "NextToken": {
-      "type": "string"
+      "type": "string",
+      "title": "NextToken"
     },
     "Organization": {
       "description": "Contains details about an organization. An organization is a collection of accounts that are centrally managed together using consolidated billing, organized hierarchically with organizational units (OUs), and controlled with policies .",
@@ -2288,22 +2416,26 @@
           "description": "<p>The unique identifier (ID) of the master account of an organization.</p> <p>The <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a> for an account ID string requires exactly 12 digits.</p>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Organization"
     },
     "OrganizationArn": {
       "pattern": "^arn:aws:organizations::\\d{12}:organization\\/o-[a-z0-9]{10,32}",
-      "type": "string"
+      "type": "string",
+      "title": "OrganizationArn"
     },
     "OrganizationFeatureSet": {
       "enum": [
         "ALL",
         "CONSOLIDATED_BILLING"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "OrganizationFeatureSet"
     },
     "OrganizationId": {
       "pattern": "^o-[a-z0-9]{10,32}$",
-      "type": "string"
+      "type": "string",
+      "title": "OrganizationId"
     },
     "OrganizationNotEmptyException": {
       "description": "The organization isn't empty. To delete an organization, you must first remove all accounts except the master account, delete all organizational units (OUs), and delete all policies.",
@@ -2312,7 +2444,8 @@
           "$ref": "#/definitions/ExceptionMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "OrganizationNotEmptyException"
     },
     "OrganizationalUnit": {
       "description": "Contains details about an organizational unit (OU). An OU is a container of AWS accounts within a root of an organization. Policies that are attached to an OU apply to all accounts contained in that OU and in any child OUs.",
@@ -2330,20 +2463,24 @@
           "description": "<p>The friendly name of this OU.</p> <p>The <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a> that is used to validate this parameter is a string of any of the characters in the ASCII character range.</p>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "OrganizationalUnit"
     },
     "OrganizationalUnitArn": {
       "pattern": "^arn:aws:organizations::\\d{12}:ou\\/o-[a-z0-9]{10,32}\\/ou-[0-9a-z]{4,32}-[0-9a-z]{8,32}",
-      "type": "string"
+      "type": "string",
+      "title": "OrganizationalUnitArn"
     },
     "OrganizationalUnitId": {
       "pattern": "^ou-[0-9a-z]{4,32}-[a-z0-9]{8,32}$",
-      "type": "string"
+      "type": "string",
+      "title": "OrganizationalUnitId"
     },
     "OrganizationalUnitName": {
       "maxLength": 128,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "OrganizationalUnitName"
     },
     "OrganizationalUnitNotEmptyException": {
       "description": "The specified organizational unit (OU) is not empty. Move all accounts to another root or to other OUs, remove all child OUs, and then try the operation again.",
@@ -2352,7 +2489,8 @@
           "$ref": "#/definitions/ExceptionMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "OrganizationalUnitNotEmptyException"
     },
     "OrganizationalUnitNotFoundException": {
       "description": "We can't find an organizational unit (OU) with the OrganizationalUnitId that you specified.",
@@ -2361,13 +2499,15 @@
           "$ref": "#/definitions/ExceptionMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "OrganizationalUnitNotFoundException"
     },
     "OrganizationalUnits": {
       "items": {
         "$ref": "#/definitions/OrganizationalUnit"
       },
-      "type": "array"
+      "type": "array",
+      "title": "OrganizationalUnits"
     },
     "Parent": {
       "description": "Contains information about either a root or an organizational unit (OU) that can contain OUs or accounts in an organization.",
@@ -2381,11 +2521,13 @@
           "description": "The type of the parent entity."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Parent"
     },
     "ParentId": {
       "pattern": "^(r-[0-9a-z]{4,32})|(ou-[0-9a-z]{4,32}-[a-z0-9]{8,32})$",
-      "type": "string"
+      "type": "string",
+      "title": "ParentId"
     },
     "ParentNotFoundException": {
       "description": "We can't find a root or organizational unit (OU) with the ParentId that you specified.",
@@ -2394,26 +2536,30 @@
           "$ref": "#/definitions/ExceptionMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ParentNotFoundException"
     },
     "ParentType": {
       "enum": [
         "ROOT",
         "ORGANIZATIONAL_UNIT"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ParentType"
     },
     "Parents": {
       "items": {
         "$ref": "#/definitions/Parent"
       },
-      "type": "array"
+      "type": "array",
+      "title": "Parents"
     },
     "Policies": {
       "items": {
         "$ref": "#/definitions/PolicySummary"
       },
-      "type": "array"
+      "type": "array",
+      "title": "Policies"
     },
     "Policy": {
       "description": "Contains rules to be applied to the affected accounts. Policies can be attached directly to accounts, or to roots and OUs to affect all accounts in those hierarchies.",
@@ -2427,24 +2573,29 @@
           "description": "A structure that contains additional details about the policy."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Policy"
     },
     "PolicyArn": {
       "pattern": "^(arn:aws:organizations::\\d{12}:policy\\/o-[a-z0-9]{10,32}\\/[0-9a-z_]+\\/p-[0-9a-z]{10,32})|(arn:aws:organizations::aws:policy\\/[0-9a-z_]+\\/p-[0-9a-zA-Z_]{10,128})",
-      "type": "string"
+      "type": "string",
+      "title": "PolicyArn"
     },
     "PolicyContent": {
       "maxLength": 1000000,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "PolicyContent"
     },
     "PolicyDescription": {
       "maxLength": 512,
-      "type": "string"
+      "type": "string",
+      "title": "PolicyDescription"
     },
     "PolicyId": {
       "pattern": "^p-[0-9a-zA-Z_]{8,128}$",
-      "type": "string"
+      "type": "string",
+      "title": "PolicyId"
     },
     "PolicyInUseException": {
       "description": "The policy is attached to one or more entities. You must detach it from all roots, organizational units (OUs), and accounts before performing this operation.",
@@ -2453,12 +2604,14 @@
           "$ref": "#/definitions/ExceptionMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PolicyInUseException"
     },
     "PolicyName": {
       "maxLength": 128,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "PolicyName"
     },
     "PolicyNotAttachedException": {
       "description": "The policy isn't attached to the specified target in the specified root.",
@@ -2467,7 +2620,8 @@
           "$ref": "#/definitions/ExceptionMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PolicyNotAttachedException"
     },
     "PolicyNotFoundException": {
       "description": "We can't find a policy with the PolicyId that you specified.",
@@ -2476,7 +2630,8 @@
           "$ref": "#/definitions/ExceptionMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PolicyNotFoundException"
     },
     "PolicySummary": {
       "description": "Contains information about a policy, but does not include the content. To see the content of a policy, see <a>DescribePolicy</a>.",
@@ -2506,11 +2661,13 @@
           "description": "The type of policy."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PolicySummary"
     },
     "PolicyTargetId": {
       "pattern": "^(r-[0-9a-z]{4,32})|(\\d{12})|(ou-[0-9a-z]{4,32}-[a-z0-9]{8,32})$",
-      "type": "string"
+      "type": "string",
+      "title": "PolicyTargetId"
     },
     "PolicyTargetSummary": {
       "description": "Contains information about a root, OU, or account that a policy is attached to.",
@@ -2532,19 +2689,22 @@
           "description": "The type of the policy target."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PolicyTargetSummary"
     },
     "PolicyTargets": {
       "items": {
         "$ref": "#/definitions/PolicyTargetSummary"
       },
-      "type": "array"
+      "type": "array",
+      "title": "PolicyTargets"
     },
     "PolicyType": {
       "enum": [
         "SERVICE_CONTROL_POLICY"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "PolicyType"
     },
     "PolicyTypeAlreadyEnabledException": {
       "description": "The specified policy type is already enabled in the specified root.",
@@ -2553,7 +2713,8 @@
           "$ref": "#/definitions/ExceptionMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PolicyTypeAlreadyEnabledException"
     },
     "PolicyTypeNotAvailableForOrganizationException": {
       "description": "You can't use the specified policy type with the feature set currently enabled for this organization. For example, you can enable service control policies (SCPs) only after you enable all features in the organization. For more information, see <a href=\"http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies.html#enable_policies_on_root\">Enabling and Disabling a Policy Type on a Root</a> in the <i>AWS Organizations User Guide</i>.",
@@ -2562,7 +2723,8 @@
           "$ref": "#/definitions/ExceptionMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PolicyTypeNotAvailableForOrganizationException"
     },
     "PolicyTypeNotEnabledException": {
       "description": "The specified policy type is not currently enabled in this root. You cannot attach policies of the specified type to entities in a root until you enable that type in the root. For more information, see <a href=\"http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html\">Enabling All Features in Your Organization</a> in the <i>AWS Organizations User Guide</i>.",
@@ -2571,7 +2733,8 @@
           "$ref": "#/definitions/ExceptionMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PolicyTypeNotEnabledException"
     },
     "PolicyTypeStatus": {
       "enum": [
@@ -2579,7 +2742,8 @@
         "PENDING_ENABLE",
         "PENDING_DISABLE"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "PolicyTypeStatus"
     },
     "PolicyTypeSummary": {
       "description": "Contains information about a policy type and its status in the associated root.",
@@ -2593,13 +2757,15 @@
           "description": "The name of the policy type."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PolicyTypeSummary"
     },
     "PolicyTypes": {
       "items": {
         "$ref": "#/definitions/PolicyTypeSummary"
       },
-      "type": "array"
+      "type": "array",
+      "title": "PolicyTypes"
     },
     "RemoveAccountFromOrganizationRequest": {
       "example": {
@@ -2614,11 +2780,13 @@
       "required": [
         "AccountId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "RemoveAccountFromOrganizationRequest"
     },
     "RoleName": {
       "pattern": "[\\w+=,.@-]{1,64}",
-      "type": "string"
+      "type": "string",
+      "title": "RoleName"
     },
     "Root": {
       "description": "Contains details about a root. A root is a top-level parent node in the hierarchy of an organization that can contain organizational units (OUs) and accounts. Every root contains every AWS account in the organization. Each root enables the accounts to be organized in a different way and to have different policy types enabled for use in that root.",
@@ -2640,20 +2808,24 @@
           "description": "The types of policies that are currently enabled for the root and therefore can be attached to the root or to its OUs or accounts."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Root"
     },
     "RootArn": {
       "pattern": "^arn:aws:organizations::\\d{12}:root\\/o-[a-z0-9]{10,32}\\/r-[0-9a-z]{4,32}",
-      "type": "string"
+      "type": "string",
+      "title": "RootArn"
     },
     "RootId": {
       "pattern": "^r-[0-9a-z]{4,32}$",
-      "type": "string"
+      "type": "string",
+      "title": "RootId"
     },
     "RootName": {
       "maxLength": 128,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "RootName"
     },
     "RootNotFoundException": {
       "description": "We can't find a root with the RootId that you specified.",
@@ -2662,13 +2834,15 @@
           "$ref": "#/definitions/ExceptionMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RootNotFoundException"
     },
     "Roots": {
       "items": {
         "$ref": "#/definitions/Root"
       },
-      "type": "array"
+      "type": "array",
+      "title": "Roots"
     },
     "ServiceException": {
       "description": "AWS Organizations can't complete your request because of an internal service error. Try again later.",
@@ -2677,7 +2851,8 @@
           "$ref": "#/definitions/ExceptionMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ServiceException"
     },
     "SourceParentNotFoundException": {
       "description": "We can't find a source root or OU with the ParentId that you specified.",
@@ -2686,12 +2861,14 @@
           "$ref": "#/definitions/ExceptionMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SourceParentNotFoundException"
     },
     "TargetName": {
       "maxLength": 128,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "TargetName"
     },
     "TargetNotFoundException": {
       "description": "We can't find a root, OU, or account with the TargetId that you specified.",
@@ -2700,7 +2877,8 @@
           "$ref": "#/definitions/ExceptionMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TargetNotFoundException"
     },
     "TargetType": {
       "enum": [
@@ -2708,11 +2886,13 @@
         "ORGANIZATIONAL_UNIT",
         "ROOT"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "TargetType"
     },
     "Timestamp": {
       "format": "date-time",
-      "type": "string"
+      "type": "string",
+      "title": "Timestamp"
     },
     "TooManyRequestsException": {
       "description": "You've sent too many requests in too short a period of time. The limit helps protect against denial-of-service attacks. Try again later.",
@@ -2724,7 +2904,8 @@
           "$ref": "#/definitions/ExceptionType"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TooManyRequestsException"
     },
     "UpdateOrganizationalUnitRequest": {
       "example": {
@@ -2744,7 +2925,8 @@
       "required": [
         "OrganizationalUnitId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateOrganizationalUnitRequest"
     },
     "UpdateOrganizationalUnitResponse": {
       "example": {
@@ -2760,7 +2942,8 @@
           "description": "A structure that contains the details about the specified OU, including its new name."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UpdateOrganizationalUnitResponse"
     },
     "UpdatePolicyRequest": {
       "example": {
@@ -2788,7 +2971,8 @@
       "required": [
         "PolicyId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdatePolicyRequest"
     },
     "UpdatePolicyResponse": {
       "example": {
@@ -2810,7 +2994,8 @@
           "description": "A structure that contains details about the updated policy, showing the requested changes."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UpdatePolicyResponse"
     }
   },
   "actions": [

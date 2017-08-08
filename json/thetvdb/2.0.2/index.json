@@ -26,7 +26,8 @@
         "username": {
           "type": "string"
         }
-      }
+      },
+      "title": "Auth"
     },
     "BasicEpisode": {
       "properties": {
@@ -61,7 +62,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BasicEpisode"
     },
     "Conflict": {
       "properties": {
@@ -69,7 +71,8 @@
           "default": "Conflict",
           "type": "string"
         }
-      }
+      },
+      "title": "Conflict"
     },
     "Episode": {
       "properties": {
@@ -176,7 +179,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Episode"
     },
     "EpisodeDataQueryParams": {
       "properties": {
@@ -187,7 +191,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "EpisodeDataQueryParams"
     },
     "EpisodeRecordData": {
       "properties": {
@@ -198,7 +203,8 @@
           "$ref": "#/definitions/JSONErrors"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "EpisodeRecordData"
     },
     "FilterKeys": {
       "properties": {
@@ -208,7 +214,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "FilterKeys"
     },
     "JSONErrors": {
       "properties": {
@@ -231,7 +238,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "JSONErrors"
     },
     "Language": {
       "properties": {
@@ -248,7 +256,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Language"
     },
     "LanguageData": {
       "properties": {
@@ -259,7 +268,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LanguageData"
     },
     "Links": {
       "properties": {
@@ -276,7 +286,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Links"
     },
     "NotAuthorized": {
       "properties": {
@@ -284,7 +295,8 @@
           "default": "Not Authorized",
           "type": "string"
         }
-      }
+      },
+      "title": "NotAuthorized"
     },
     "NotFound": {
       "properties": {
@@ -292,7 +304,8 @@
           "default": "Not Found",
           "type": "string"
         }
-      }
+      },
+      "title": "NotFound"
     },
     "Series": {
       "properties": {
@@ -366,7 +379,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Series"
     },
     "SeriesActors": {
       "properties": {
@@ -379,7 +393,8 @@
         "errors": {
           "$ref": "#/definitions/JSONErrors"
         }
-      }
+      },
+      "title": "SeriesActors"
     },
     "SeriesActorsData": {
       "properties": {
@@ -411,7 +426,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SeriesActorsData"
     },
     "SeriesData": {
       "properties": {
@@ -423,7 +439,8 @@
           "description": "Informative error messages (optional)"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SeriesData"
     },
     "SeriesEpisodes": {
       "properties": {
@@ -439,7 +456,8 @@
         "links": {
           "$ref": "#/definitions/Links"
         }
-      }
+      },
+      "title": "SeriesEpisodes"
     },
     "SeriesEpisodesQuery": {
       "properties": {
@@ -455,7 +473,8 @@
         "links": {
           "$ref": "#/definitions/Links"
         }
-      }
+      },
+      "title": "SeriesEpisodesQuery"
     },
     "SeriesEpisodesQueryParams": {
       "properties": {
@@ -465,7 +484,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "SeriesEpisodesQueryParams"
     },
     "SeriesEpisodesSummary": {
       "properties": {
@@ -490,7 +510,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SeriesEpisodesSummary"
     },
     "SeriesImageQueryResult": {
       "properties": {
@@ -529,7 +550,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SeriesImageQueryResult"
     },
     "SeriesImageQueryResults": {
       "properties": {
@@ -542,7 +564,8 @@
         "errors": {
           "$ref": "#/definitions/JSONErrors"
         }
-      }
+      },
+      "title": "SeriesImageQueryResults"
     },
     "SeriesImagesCount": {
       "properties": {
@@ -562,14 +585,16 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SeriesImagesCount"
     },
     "SeriesImagesCounts": {
       "properties": {
         "data": {
           "$ref": "#/definitions/SeriesImagesCount"
         }
-      }
+      },
+      "title": "SeriesImagesCounts"
     },
     "SeriesImagesQueryParam": {
       "properties": {
@@ -591,7 +616,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "SeriesImagesQueryParam"
     },
     "SeriesImagesQueryParams": {
       "properties": {
@@ -601,7 +627,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "SeriesImagesQueryParams"
     },
     "SeriesSearchData": {
       "properties": {
@@ -633,14 +660,16 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SeriesSearchData"
     },
     "Token": {
       "properties": {
         "token": {
           "type": "string"
         }
-      }
+      },
+      "title": "Token"
     },
     "Update": {
       "properties": {
@@ -651,7 +680,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Update"
     },
     "UpdateData": {
       "properties": {
@@ -665,7 +695,8 @@
           "$ref": "#/definitions/JSONErrors"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UpdateData"
     },
     "UpdateDataQueryParams": {
       "properties": {
@@ -676,7 +707,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UpdateDataQueryParams"
     },
     "User": {
       "properties": {
@@ -690,7 +722,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "User"
     },
     "UserData": {
       "properties": {
@@ -698,7 +731,8 @@
           "$ref": "#/definitions/User"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UserData"
     },
     "UserFavorites": {
       "properties": {
@@ -709,7 +743,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UserFavorites"
     },
     "UserFavoritesData": {
       "properties": {
@@ -720,7 +755,8 @@
           "$ref": "#/definitions/JSONErrors"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UserFavoritesData"
     },
     "UserRatings": {
       "properties": {
@@ -734,7 +770,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UserRatings"
     },
     "UserRatingsData": {
       "properties": {
@@ -751,7 +788,8 @@
           "$ref": "#/definitions/Links"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UserRatingsData"
     },
     "UserRatingsDataNoLinks": {
       "properties": {
@@ -762,7 +800,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UserRatingsDataNoLinks"
     },
     "UserRatingsDataNoLinksEmptyArray": {
       "properties": {
@@ -771,7 +810,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UserRatingsDataNoLinksEmptyArray"
     },
     "UserRatingsQueryParams": {
       "properties": {
@@ -782,7 +822,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UserRatingsQueryParams"
     }
   },
   "actions": [

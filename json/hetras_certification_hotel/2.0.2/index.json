@@ -21,7 +21,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AccessControlInfo"
     },
     "CodeBaseEntry": {
       "properties": {
@@ -82,7 +83,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CodeBaseEntry"
     },
     "CodeFullEntry": {
       "properties": {
@@ -151,7 +153,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CodeFullEntry"
     },
     "CodesListRequest": {
       "properties": {
@@ -193,7 +196,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CodesListRequest"
     },
     "CodesListResponse": {
       "properties": {
@@ -205,7 +209,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CodesListResponse"
     },
     "DatePeriod": {
       "properties": {
@@ -220,7 +225,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DatePeriod"
     },
     "Derivation": {
       "properties": {
@@ -237,7 +243,8 @@
           "description": "Details about the base rateplan"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Derivation"
     },
     "EmbeddedReservation": {
       "description": "Basic data about a reservation",
@@ -297,7 +304,8 @@
         "arrival_date",
         "departure_date"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "EmbeddedReservation"
     },
     "EmbeddedRoomType": {
       "description": "Basic data for a room type. To get the full details please follow the self link\r\n            from the links collection",
@@ -322,7 +330,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "EmbeddedRoomType"
     },
     "EmbeddedRoomTypeSimple": {
       "description": "Contains only a basic information about a room type. No cross-links available as well.",
@@ -340,7 +349,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "EmbeddedRoomTypeSimple"
     },
     "EmbeddedRoomWithStatus": {
       "properties": {
@@ -382,7 +392,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "EmbeddedRoomWithStatus"
     },
     "ExtendedRateplanEntry": {
       "properties": {
@@ -510,7 +521,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ExtendedRateplanEntry"
     },
     "GetAvailableRoomsRequest": {
       "properties": {
@@ -566,7 +578,8 @@
         "from",
         "to"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetAvailableRoomsRequest"
     },
     "GetRatesRequest": {
       "properties": {
@@ -592,7 +605,8 @@
         "From",
         "To"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetRatesRequest"
     },
     "GetRoomListRequest": {
       "properties": {
@@ -659,7 +673,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetRoomListRequest"
     },
     "Hotel": {
       "properties": {
@@ -746,21 +761,24 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Hotel"
     },
     "JsonPatchDocument[RatePatchRequest]": {
       "items": {
         "$ref": "#/definitions/Operation[RatePatchRequest]"
       },
       "properties": {},
-      "type": "array"
+      "type": "array",
+      "title": "JsonPatchDocument[RatePatchRequest]"
     },
     "JsonPatchDocument[RoomPatchRequest]": {
       "items": {
         "$ref": "#/definitions/Operation[RoomPatchRequest]"
       },
       "properties": {},
-      "type": "array"
+      "type": "array",
+      "title": "JsonPatchDocument[RoomPatchRequest]"
     },
     "LinkObject": {
       "description": "A Link Object represents a hyperlink from the containing resource to a URI.",
@@ -801,7 +819,8 @@
       "required": [
         "href"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "LinkObject"
     },
     "ListRateplanEntry": {
       "properties": {
@@ -913,11 +932,13 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListRateplanEntry"
     },
     "Object": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "Object"
     },
     "Operation[RatePatchRequest]": {
       "properties": {
@@ -934,7 +955,8 @@
           "$ref": "#/definitions/Object"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Operation[RatePatchRequest]"
     },
     "Operation[RoomPatchRequest]": {
       "properties": {
@@ -951,7 +973,8 @@
           "$ref": "#/definitions/Object"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Operation[RoomPatchRequest]"
     },
     "PagedDataRequest": {
       "properties": {
@@ -974,7 +997,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PagedDataRequest"
     },
     "Policy": {
       "properties": {
@@ -987,7 +1011,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Policy"
     },
     "PriceDerivation": {
       "properties": {
@@ -1005,7 +1030,8 @@
           "type": "number"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PriceDerivation"
     },
     "RateResponse": {
       "properties": {
@@ -1065,7 +1091,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RateResponse"
     },
     "RateplanGroup": {
       "properties": {
@@ -1078,7 +1105,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RateplanGroup"
     },
     "RateplansListRequest": {
       "properties": {
@@ -1133,7 +1161,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RateplansListRequest"
     },
     "RateplansListResponse": {
       "properties": {
@@ -1157,7 +1186,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RateplansListResponse"
     },
     "RatesRequest": {
       "properties": {
@@ -1176,7 +1206,8 @@
         "From",
         "To"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "RatesRequest"
     },
     "RatesResponse": {
       "properties": {
@@ -1200,7 +1231,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RatesResponse"
     },
     "RelatedRateplan": {
       "properties": {
@@ -1220,7 +1252,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RelatedRateplan"
     },
     "Restrictions": {
       "properties": {
@@ -1235,7 +1268,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Restrictions"
     },
     "Room": {
       "description": "Represents a room for a property.",
@@ -1339,7 +1373,8 @@
         "expected_occupancy",
         "floor"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "Room"
     },
     "RoomBedding": {
       "description": "Information about room bedding",
@@ -1366,7 +1401,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RoomBedding"
     },
     "RoomListResponse": {
       "properties": {
@@ -1390,7 +1426,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RoomListResponse"
     },
     "RoomMaintenance": {
       "properties": {
@@ -1418,7 +1455,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RoomMaintenance"
     },
     "RoomStatus": {
       "description": "Represents current room status data.",
@@ -1453,7 +1491,8 @@
           "description": "Information about current ongoing room maintenance"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RoomStatus"
     },
     "RoomType": {
       "description": "Represent a room type for a property",
@@ -1537,7 +1576,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RoomType"
     },
     "RoomTypeSupplement": {
       "properties": {
@@ -1564,7 +1604,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RoomTypeSupplement"
     },
     "SimpleAttribute": {
       "description": "Represents a simple attribute",
@@ -1578,7 +1619,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SimpleAttribute"
     },
     "Supplement": {
       "properties": {
@@ -1601,7 +1643,8 @@
           "type": "number"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Supplement"
     },
     "TotalCountResponse": {
       "properties": {
@@ -1614,7 +1657,8 @@
       "required": [
         "_count"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "TotalCountResponse"
     }
   },
   "actions": [

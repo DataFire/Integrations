@@ -256,7 +256,8 @@
           "type": "object"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Bucket"
     },
     "BucketAccessControl": {
       "description": "An access-control entry.",
@@ -317,7 +318,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BucketAccessControl"
     },
     "BucketAccessControls": {
       "description": "An access-control list.",
@@ -335,7 +337,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BucketAccessControls"
     },
     "Buckets": {
       "description": "A list of buckets.",
@@ -357,7 +360,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Buckets"
     },
     "Channel": {
       "description": "An notification channel used to watch for resource changes.",
@@ -409,7 +413,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Channel"
     },
     "ComposeRequest": {
       "description": "A Compose request.",
@@ -453,7 +458,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ComposeRequest"
     },
     "Notification": {
       "description": "A subscription to receive Google PubSub notifications.",
@@ -503,7 +509,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Notification"
     },
     "Notifications": {
       "description": "A list of notification subscriptions.",
@@ -521,7 +528,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Notifications"
     },
     "Object": {
       "description": "An object.",
@@ -671,7 +679,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Object"
     },
     "ObjectAccessControl": {
       "description": "An access-control entry.",
@@ -741,7 +750,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ObjectAccessControl"
     },
     "ObjectAccessControls": {
       "description": "An access-control list.",
@@ -759,7 +769,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ObjectAccessControls"
     },
     "Objects": {
       "description": "A list of objects.",
@@ -788,7 +799,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Objects"
     },
     "Policy": {
       "description": "A bucket/object IAM policy.",
@@ -828,7 +840,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Policy"
     },
     "RewriteResponse": {
       "description": "A rewrite response.",
@@ -861,7 +874,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RewriteResponse"
     },
     "ServiceAccount": {
       "description": "A subscription to receive Google PubSub notifications.",
@@ -876,7 +890,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ServiceAccount"
     },
     "TestIamPermissionsResponse": {
       "description": "A storage.(buckets|objects).testIamPermissions response.",
@@ -894,7 +909,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TestIamPermissionsResponse"
     }
   },
   "actions": [

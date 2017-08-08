@@ -54,7 +54,8 @@
         "rate",
         "status",
         "vat"
-      ]
+      ],
+      "title": "Convert_Price"
     },
     "Country_Code_Check": {
       "properties": {
@@ -85,7 +86,8 @@
         "rates",
         "status",
         "vat_applies"
-      ]
+      ],
+      "title": "Country_Code_Check"
     },
     "Country_Data": {
       "properties": {
@@ -101,7 +103,8 @@
       "required": [
         "country",
         "rates"
-      ]
+      ],
+      "title": "Country_Data"
     },
     "Country_Rates": {
       "properties": {
@@ -132,7 +135,8 @@
         "reduced_alt",
         "standard",
         "super_reduced"
-      ]
+      ],
+      "title": "Country_Rates"
     },
     "Create_Invoice": {
       "properties": {
@@ -148,7 +152,8 @@
       "required": [
         "invoice",
         "status"
-      ]
+      ],
+      "title": "Create_Invoice"
     },
     "Currency_Conversion": {
       "properties": {
@@ -182,7 +187,8 @@
         "currency_to",
         "rate",
         "status"
-      ]
+      ],
+      "title": "Currency_Conversion"
     },
     "IP_Check": {
       "properties": {
@@ -213,7 +219,8 @@
         "rates",
         "status",
         "vat_applies"
-      ]
+      ],
+      "title": "IP_Check"
     },
     "Invoice_Array": {
       "properties": {
@@ -324,7 +331,8 @@
         "type",
         "vat_number",
         "vat_total"
-      ]
+      ],
+      "title": "Invoice_Array"
     },
     "Invoice_Data": {
       "properties": {
@@ -407,7 +415,8 @@
         "items",
         "type",
         "vat_number"
-      ]
+      ],
+      "title": "Invoice_Data"
     },
     "Invoice_Items": {
       "properties": {
@@ -433,7 +442,8 @@
         "price_each",
         "quantity",
         "vat_rate"
-      ]
+      ],
+      "title": "Invoice_Items"
     },
     "Retrieve_Invoice": {
       "properties": {
@@ -449,7 +459,8 @@
       "required": [
         "invoice",
         "status"
-      ]
+      ],
+      "title": "Retrieve_Invoice"
     },
     "Retrieve_Invoice_Array": {
       "properties": {
@@ -568,7 +579,8 @@
         "type",
         "vat_number",
         "vat_total"
-      ]
+      ],
+      "title": "Retrieve_Invoice_Array"
     },
     "Update_Invoice": {
       "properties": {
@@ -584,7 +596,8 @@
       "required": [
         "invoice",
         "status"
-      ]
+      ],
+      "title": "Update_Invoice"
     },
     "Update_Invoice_Array": {
       "properties": {
@@ -663,7 +676,8 @@
         "customervat_number",
         "items",
         "type"
-      ]
+      ],
+      "title": "Update_Invoice_Array"
     },
     "Vat_Rates": {
       "properties": {
@@ -682,7 +696,8 @@
       "required": [
         "countries",
         "status"
-      ]
+      ],
+      "title": "Vat_Rates"
     },
     "Vat_Rates_Countries": {
       "properties": {
@@ -693,7 +708,8 @@
       },
       "required": [
         "country_code"
-      ]
+      ],
+      "title": "Vat_Rates_Countries"
     },
     "parking": {
       "properties": {
@@ -709,7 +725,8 @@
       "required": [
         "applies_to",
         "value"
-      ]
+      ],
+      "title": "parking"
     },
     "reduced": {
       "properties": {
@@ -725,7 +742,8 @@
       "required": [
         "applies_to",
         "value"
-      ]
+      ],
+      "title": "reduced"
     },
     "reduced_alt": {
       "properties": {
@@ -741,7 +759,8 @@
       "required": [
         "applies_to",
         "value"
-      ]
+      ],
+      "title": "reduced_alt"
     },
     "standard": {
       "properties": {
@@ -752,7 +771,8 @@
       },
       "required": [
         "value"
-      ]
+      ],
+      "title": "standard"
     },
     "super_reduced": {
       "properties": {
@@ -768,7 +788,8 @@
       "required": [
         "applies_to",
         "value"
-      ]
+      ],
+      "title": "super_reduced"
     }
   },
   "actions": [

@@ -48,19 +48,22 @@
           "description": "If applicable, additional detail about the resource being attacked, for example, IP address or URL."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AttackDetail"
     },
     "AttackId": {
       "maxLength": 128,
       "minLength": 1,
       "pattern": "[a-zA-Z0-9\\\\-]*",
-      "type": "string"
+      "type": "string",
+      "title": "AttackId"
     },
     "AttackSummaries": {
       "items": {
         "$ref": "#/definitions/AttackSummary"
       },
-      "type": "array"
+      "type": "array",
+      "title": "AttackSummaries"
     },
     "AttackSummary": {
       "description": "Summarizes all DDoS attacks for a specified time period.",
@@ -86,11 +89,13 @@
           "description": "The start time of the attack, in the format 2016-12-16T13:50Z."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AttackSummary"
     },
     "AttackTimestamp": {
       "format": "date-time",
-      "type": "string"
+      "type": "string",
+      "title": "AttackTimestamp"
     },
     "AttackVectorDescription": {
       "description": "Describes the attack.",
@@ -103,13 +108,15 @@
       "required": [
         "VectorType"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AttackVectorDescription"
     },
     "AttackVectorDescriptionList": {
       "items": {
         "$ref": "#/definitions/AttackVectorDescription"
       },
-      "type": "array"
+      "type": "array",
+      "title": "AttackVectorDescriptionList"
     },
     "CreateProtectionRequest": {
       "properties": {
@@ -126,7 +133,8 @@
         "Name",
         "ResourceArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateProtectionRequest"
     },
     "CreateProtectionResponse": {
       "properties": {
@@ -135,15 +143,18 @@
           "description": "The unique identifier (ID) for the <a>Protection</a> object that is created."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateProtectionResponse"
     },
     "CreateSubscriptionRequest": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "CreateSubscriptionRequest"
     },
     "CreateSubscriptionResponse": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "CreateSubscriptionResponse"
     },
     "DeleteProtectionRequest": {
       "properties": {
@@ -155,19 +166,23 @@
       "required": [
         "ProtectionId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteProtectionRequest"
     },
     "DeleteProtectionResponse": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DeleteProtectionResponse"
     },
     "DeleteSubscriptionRequest": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DeleteSubscriptionRequest"
     },
     "DeleteSubscriptionResponse": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DeleteSubscriptionResponse"
     },
     "DescribeAttackRequest": {
       "properties": {
@@ -179,7 +194,8 @@
       "required": [
         "AttackId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeAttackRequest"
     },
     "DescribeAttackResponse": {
       "properties": {
@@ -188,7 +204,8 @@
           "description": "The attack that is described."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeAttackResponse"
     },
     "DescribeProtectionRequest": {
       "properties": {
@@ -200,7 +217,8 @@
       "required": [
         "ProtectionId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeProtectionRequest"
     },
     "DescribeProtectionResponse": {
       "properties": {
@@ -209,11 +227,13 @@
           "description": "The <a>Protection</a> object that is described."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeProtectionResponse"
     },
     "DescribeSubscriptionRequest": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DescribeSubscriptionRequest"
     },
     "DescribeSubscriptionResponse": {
       "properties": {
@@ -222,18 +242,22 @@
           "description": "The AWS Shield Advanced subscription details for an account."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeSubscriptionResponse"
     },
     "Double": {
       "format": "double",
-      "type": "number"
+      "type": "number",
+      "title": "Double"
     },
     "DurationInSeconds": {
       "minimum": 0,
-      "type": "integer"
+      "type": "integer",
+      "title": "DurationInSeconds"
     },
     "Integer": {
-      "type": "integer"
+      "type": "integer",
+      "title": "Integer"
     },
     "InternalErrorException": {
       "description": "Exception that indicates that a problem occurred with the service infrastructure. You can retry the request.",
@@ -242,7 +266,8 @@
           "$ref": "#/definitions/errorMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InternalErrorException"
     },
     "InvalidOperationException": {
       "description": "Exception that indicates that the operation would not cause any change to occur.",
@@ -251,7 +276,8 @@
           "$ref": "#/definitions/errorMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidOperationException"
     },
     "InvalidParameterException": {
       "description": "Exception that indicates that the parameters passed to the API are invalid. ",
@@ -260,7 +286,8 @@
           "$ref": "#/definitions/errorMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidParameterException"
     },
     "InvalidResourceException": {
       "description": "Exception that indicates that the resource is invalid. You might not have access to the resource, or the resource might not exist.",
@@ -269,13 +296,16 @@
           "$ref": "#/definitions/errorMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidResourceException"
     },
     "LimitNumber": {
-      "type": "integer"
+      "type": "integer",
+      "title": "LimitNumber"
     },
     "LimitType": {
-      "type": "string"
+      "type": "string",
+      "title": "LimitType"
     },
     "LimitsExceededException": {
       "description": "Exception that indicates that the operation would exceed a limit.",
@@ -290,7 +320,8 @@
           "$ref": "#/definitions/errorMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LimitsExceededException"
     },
     "ListAttacksRequest": {
       "properties": {
@@ -315,7 +346,8 @@
           "description": "The time period for the attacks."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListAttacksRequest"
     },
     "ListAttacksResponse": {
       "properties": {
@@ -328,7 +360,8 @@
           "description": "The token returned by a previous call to indicate that there is more data available. If not null, more results are available. Pass this value for the <code>NextMarker</code> parameter in a subsequent call to <code>ListAttacks</code> to retrieve the next set of items."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListAttacksResponse"
     },
     "ListProtectionsRequest": {
       "properties": {
@@ -341,7 +374,8 @@
           "description": "The <code>ListProtectionsRequest.NextToken</code> value from a previous call to <code>ListProtections</code>. Pass null if this is the first call."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListProtectionsRequest"
     },
     "ListProtectionsResponse": {
       "properties": {
@@ -354,7 +388,8 @@
           "description": "The array of enabled <a>Protection</a> objects."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListProtectionsResponse"
     },
     "LockedSubscriptionException": {
       "description": "Exception that indicates that the subscription has been modified by another client. You can retry the request.",
@@ -363,12 +398,14 @@
           "$ref": "#/definitions/errorMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LockedSubscriptionException"
     },
     "MaxResults": {
       "maximum": 100,
       "minimum": 0,
-      "type": "integer"
+      "type": "integer",
+      "title": "MaxResults"
     },
     "Mitigation": {
       "description": "The mitigation applied to a DDoS attack.",
@@ -378,13 +415,15 @@
           "description": "The name of the mitigation taken for this attack."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Mitigation"
     },
     "MitigationList": {
       "items": {
         "$ref": "#/definitions/Mitigation"
       },
-      "type": "array"
+      "type": "array",
+      "title": "MitigationList"
     },
     "OptimisticLockException": {
       "description": "Exception that indicates that the protection state has been modified by another client. You can retry the request.",
@@ -393,7 +432,8 @@
           "$ref": "#/definitions/errorMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "OptimisticLockException"
     },
     "Protection": {
       "description": "An object that represents a resource that is under DDoS protection.",
@@ -411,25 +451,29 @@
           "description": "The ARN (Amazon Resource Name) of the AWS resource that is protected."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Protection"
     },
     "ProtectionId": {
       "maxLength": 36,
       "minLength": 1,
       "pattern": "[a-zA-Z0-9\\\\-]*",
-      "type": "string"
+      "type": "string",
+      "title": "ProtectionId"
     },
     "ProtectionName": {
       "maxLength": 128,
       "minLength": 1,
       "pattern": "[ a-zA-Z0-9_\\\\.\\\\-]*",
-      "type": "string"
+      "type": "string",
+      "title": "ProtectionName"
     },
     "Protections": {
       "items": {
         "$ref": "#/definitions/Protection"
       },
-      "type": "array"
+      "type": "array",
+      "title": "Protections"
     },
     "ResourceAlreadyExistsException": {
       "description": "Exception indicating the specified resource already exists.",
@@ -438,17 +482,20 @@
           "$ref": "#/definitions/errorMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ResourceAlreadyExistsException"
     },
     "ResourceArn": {
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "ResourceArn"
     },
     "ResourceArnFilterList": {
       "items": {
         "$ref": "#/definitions/ResourceArn"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ResourceArnFilterList"
     },
     "ResourceNotFoundException": {
       "description": "Exception indicating the specified resource does not exist.",
@@ -457,10 +504,12 @@
           "$ref": "#/definitions/errorMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ResourceNotFoundException"
     },
     "String": {
-      "type": "string"
+      "type": "string",
+      "title": "String"
     },
     "SubResourceSummary": {
       "description": "The attack information for the specified SubResource.",
@@ -482,20 +531,23 @@
           "description": "The <code>SubResource</code> type."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SubResourceSummary"
     },
     "SubResourceSummaryList": {
       "items": {
         "$ref": "#/definitions/SubResourceSummary"
       },
-      "type": "array"
+      "type": "array",
+      "title": "SubResourceSummaryList"
     },
     "SubResourceType": {
       "enum": [
         "IP",
         "URL"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "SubResourceType"
     },
     "Subscription": {
       "description": "Information about the AWS Shield Advanced subscription for an account.",
@@ -509,7 +561,8 @@
           "description": "The length, in seconds, of the AWS Shield Advanced subscription for the account."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Subscription"
     },
     "SummarizedAttackVector": {
       "description": "A summary of information about the attack.",
@@ -526,13 +579,15 @@
       "required": [
         "VectorType"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "SummarizedAttackVector"
     },
     "SummarizedAttackVectorList": {
       "items": {
         "$ref": "#/definitions/SummarizedAttackVector"
       },
-      "type": "array"
+      "type": "array",
+      "title": "SummarizedAttackVectorList"
     },
     "SummarizedCounter": {
       "description": "The counter that describes a DDoS attack.",
@@ -562,13 +617,15 @@
           "description": "The unit of the counters."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SummarizedCounter"
     },
     "SummarizedCounterList": {
       "items": {
         "$ref": "#/definitions/SummarizedCounter"
       },
-      "type": "array"
+      "type": "array",
+      "title": "SummarizedCounterList"
     },
     "TimeRange": {
       "description": "The time range.",
@@ -582,18 +639,22 @@
           "description": "The end time, in the format 2016-12-16T15:50Z."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TimeRange"
     },
     "Timestamp": {
       "format": "date-time",
-      "type": "string"
+      "type": "string",
+      "title": "Timestamp"
     },
     "Token": {
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "Token"
     },
     "errorMessage": {
-      "type": "string"
+      "type": "string",
+      "title": "errorMessage"
     }
   },
   "actions": [

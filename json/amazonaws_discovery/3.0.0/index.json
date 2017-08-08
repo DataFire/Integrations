@@ -32,22 +32,26 @@
           "description": "Information about the status of the <code>StartDataCollection</code> and <code>StopDataCollection</code> operations. The system has recorded the data collection operation. The agent/connector receives this command the next time it polls for a new command. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AgentConfigurationStatus"
     },
     "AgentConfigurationStatusList": {
       "items": {
         "$ref": "#/definitions/AgentConfigurationStatus"
       },
-      "type": "array"
+      "type": "array",
+      "title": "AgentConfigurationStatusList"
     },
     "AgentId": {
-      "type": "string"
+      "type": "string",
+      "title": "AgentId"
     },
     "AgentIds": {
       "items": {
         "$ref": "#/definitions/AgentId"
       },
-      "type": "array"
+      "type": "array",
+      "title": "AgentIds"
     },
     "AgentInfo": {
       "description": "Information about agents or connectors associated with the user’s AWS account. Information includes agent or connector IDs, IP addresses, media access control (MAC) addresses, agent or connector health, hostname where the agent or connector resides, and agent version for each agent.",
@@ -93,7 +97,8 @@
           "description": "The agent or connector version."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AgentInfo"
     },
     "AgentNetworkInfo": {
       "description": "Network details about the host where the agent/connector resides.",
@@ -107,13 +112,15 @@
           "description": "The MAC address for the host where the agent/connector resides."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AgentNetworkInfo"
     },
     "AgentNetworkInfoList": {
       "items": {
         "$ref": "#/definitions/AgentNetworkInfo"
       },
-      "type": "array"
+      "type": "array",
+      "title": "AgentNetworkInfoList"
     },
     "AgentStatus": {
       "enum": [
@@ -124,22 +131,26 @@
         "BLACKLISTED",
         "SHUTDOWN"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "AgentStatus"
     },
     "AgentsInfo": {
       "items": {
         "$ref": "#/definitions/AgentInfo"
       },
-      "type": "array"
+      "type": "array",
+      "title": "AgentsInfo"
     },
     "ApplicationId": {
-      "type": "string"
+      "type": "string",
+      "title": "ApplicationId"
     },
     "ApplicationIdsList": {
       "items": {
         "$ref": "#/definitions/ApplicationId"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ApplicationIdsList"
     },
     "AssociateConfigurationItemsToApplicationRequest": {
       "properties": {
@@ -156,11 +167,13 @@
         "applicationConfigurationId",
         "configurationIds"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AssociateConfigurationItemsToApplicationRequest"
     },
     "AssociateConfigurationItemsToApplicationResponse": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "AssociateConfigurationItemsToApplicationResponse"
     },
     "AuthorizationErrorException": {
       "description": "The AWS user account does not have permission to perform the action. Check the IAM policy associated with this account.",
@@ -169,16 +182,20 @@
           "$ref": "#/definitions/Message"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AuthorizationErrorException"
     },
     "Boolean": {
-      "type": "boolean"
+      "type": "boolean",
+      "title": "Boolean"
     },
     "BoxedInteger": {
-      "type": "integer"
+      "type": "integer",
+      "title": "BoxedInteger"
     },
     "Condition": {
-      "type": "string"
+      "type": "string",
+      "title": "Condition"
     },
     "Configuration": {
       "items": {
@@ -192,16 +209,19 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "Configuration"
     },
     "ConfigurationId": {
-      "type": "string"
+      "type": "string",
+      "title": "ConfigurationId"
     },
     "ConfigurationIdList": {
       "items": {
         "$ref": "#/definitions/ConfigurationId"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ConfigurationIdList"
     },
     "ConfigurationItemType": {
       "enum": [
@@ -210,7 +230,8 @@
         "CONNECTION",
         "APPLICATION"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ConfigurationItemType"
     },
     "ConfigurationTag": {
       "description": "Tags for a configuration item. Tags are metadata that help you categorize IT assets.",
@@ -236,25 +257,30 @@
           "description": "A value on which to filter. For example <i>key = serverType</i> and <i>value = web server</i>."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ConfigurationTag"
     },
     "ConfigurationTagSet": {
       "items": {
         "$ref": "#/definitions/ConfigurationTag"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ConfigurationTagSet"
     },
     "Configurations": {
       "items": {
         "$ref": "#/definitions/Configuration"
       },
-      "type": "array"
+      "type": "array",
+      "title": "Configurations"
     },
     "ConfigurationsDownloadUrl": {
-      "type": "string"
+      "type": "string",
+      "title": "ConfigurationsDownloadUrl"
     },
     "ConfigurationsExportId": {
-      "type": "string"
+      "type": "string",
+      "title": "ConfigurationsExportId"
     },
     "CreateApplicationRequest": {
       "properties": {
@@ -270,7 +296,8 @@
       "required": [
         "name"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateApplicationRequest"
     },
     "CreateApplicationResponse": {
       "properties": {
@@ -279,7 +306,8 @@
           "description": "Configuration ID of an application to be created."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateApplicationResponse"
     },
     "CreateTagsRequest": {
       "properties": {
@@ -296,11 +324,13 @@
         "configurationIds",
         "tags"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateTagsRequest"
     },
     "CreateTagsResponse": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "CreateTagsResponse"
     },
     "CustomerAgentInfo": {
       "description": "Inventory data for installed discovery agents.",
@@ -343,7 +373,8 @@
         "totalAgents",
         "unknownAgents"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CustomerAgentInfo"
     },
     "CustomerConnectorInfo": {
       "description": "Inventory data for installed discovery connectors.",
@@ -386,7 +417,8 @@
         "totalConnectors",
         "unknownConnectors"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CustomerConnectorInfo"
     },
     "DeleteApplicationsRequest": {
       "properties": {
@@ -398,11 +430,13 @@
       "required": [
         "configurationIds"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteApplicationsRequest"
     },
     "DeleteApplicationsResponse": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DeleteApplicationsResponse"
     },
     "DeleteTagsRequest": {
       "properties": {
@@ -418,11 +452,13 @@
       "required": [
         "configurationIds"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteTagsRequest"
     },
     "DeleteTagsResponse": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DeleteTagsResponse"
     },
     "DescribeAgentsRequest": {
       "properties": {
@@ -443,7 +479,8 @@
           "description": "Token to retrieve the next set of results. For example, if you previously specified 100 IDs for <code>DescribeAgentsRequest$agentIds</code> but set <code>DescribeAgentsRequest$maxResults</code> to 10, you received a set of 10 results along with a token. Use that token in this query to get the next set of 10."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeAgentsRequest"
     },
     "DescribeAgentsResponse": {
       "properties": {
@@ -456,7 +493,8 @@
           "description": "Token to retrieve the next set of results. For example, if you specified 100 IDs for <code>DescribeAgentsRequest$agentIds</code> but set <code>DescribeAgentsRequest$maxResults</code> to 10, you received a set of 10 results along with this token. Use this token in the next query to retrieve the next set of 10."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeAgentsResponse"
     },
     "DescribeConfigurationsAttribute": {
       "items": {
@@ -470,13 +508,15 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "DescribeConfigurationsAttribute"
     },
     "DescribeConfigurationsAttributes": {
       "items": {
         "$ref": "#/definitions/DescribeConfigurationsAttribute"
       },
-      "type": "array"
+      "type": "array",
+      "title": "DescribeConfigurationsAttributes"
     },
     "DescribeConfigurationsRequest": {
       "properties": {
@@ -488,7 +528,8 @@
       "required": [
         "configurationIds"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeConfigurationsRequest"
     },
     "DescribeConfigurationsResponse": {
       "properties": {
@@ -497,7 +538,8 @@
           "description": "A key in the response map. The value is an array of data."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeConfigurationsResponse"
     },
     "DescribeExportConfigurationsRequest": {
       "properties": {
@@ -514,7 +556,8 @@
           "description": "A token to get the next set of results. For example, if you specify 100 IDs for <code>DescribeExportConfigurationsRequest$exportIds</code> but set <code>DescribeExportConfigurationsRequest$maxResults</code> to 10, you get results in a set of 10. Use the token in the query to get the next set of 10."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeExportConfigurationsRequest"
     },
     "DescribeExportConfigurationsResponse": {
       "properties": {
@@ -527,7 +570,8 @@
           "description": "A token to get the next set of results. For example, if you specify 100 IDs for <code>DescribeExportConfigurationsRequest$exportIds</code> but set <code>DescribeExportConfigurationsRequest$maxResults</code> to 10, you get results in a set of 10. Use the token in the query to get the next set of 10."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeExportConfigurationsResponse"
     },
     "DescribeExportTasksRequest": {
       "properties": {
@@ -544,7 +588,8 @@
           "description": "The <code>nextToken</code> value returned from a previous paginated <code>DescribeExportTasks</code> request where <code>maxResults</code> was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the <code>nextToken</code> value. This value is null when there are no more results to return."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeExportTasksRequest"
     },
     "DescribeExportTasksResponse": {
       "properties": {
@@ -557,7 +602,8 @@
           "description": "The <code>nextToken</code> value to include in a future <code>DescribeExportTasks</code> request. When the results of a <code>DescribeExportTasks</code> request exceed <code>maxResults</code>, this value can be used to retrieve the next page of results. This value is null when there are no more results to return."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeExportTasksResponse"
     },
     "DescribeTagsRequest": {
       "properties": {
@@ -574,7 +620,8 @@
           "description": "A token to start the list. Use this token to get the next set of results."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeTagsRequest"
     },
     "DescribeTagsResponse": {
       "properties": {
@@ -587,7 +634,8 @@
           "description": "Depending on the input, this is a list of configuration items tagged with a specific tag, or a list of tags for a specific configuration item."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeTagsResponse"
     },
     "DisassociateConfigurationItemsFromApplicationRequest": {
       "properties": {
@@ -604,11 +652,13 @@
         "applicationConfigurationId",
         "configurationIds"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DisassociateConfigurationItemsFromApplicationRequest"
     },
     "DisassociateConfigurationItemsFromApplicationResponse": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DisassociateConfigurationItemsFromApplicationResponse"
     },
     "ExportConfigurationsResponse": {
       "properties": {
@@ -617,26 +667,30 @@
           "description": "A unique identifier that you can use to query the export status."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ExportConfigurationsResponse"
     },
     "ExportDataFormat": {
       "enum": [
         "CSV",
         "GRAPHML"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ExportDataFormat"
     },
     "ExportDataFormats": {
       "items": {
         "$ref": "#/definitions/ExportDataFormat"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ExportDataFormats"
     },
     "ExportIds": {
       "items": {
         "$ref": "#/definitions/ConfigurationsExportId"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ExportIds"
     },
     "ExportInfo": {
       "description": "Information regarding the export status of the discovered data. The value is an array of objects.",
@@ -668,11 +722,13 @@
         "statusMessage",
         "exportRequestTime"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ExportInfo"
     },
     "ExportRequestTime": {
       "format": "date-time",
-      "type": "string"
+      "type": "string",
+      "title": "ExportRequestTime"
     },
     "ExportStatus": {
       "enum": [
@@ -680,16 +736,19 @@
         "SUCCEEDED",
         "IN_PROGRESS"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ExportStatus"
     },
     "ExportStatusMessage": {
-      "type": "string"
+      "type": "string",
+      "title": "ExportStatusMessage"
     },
     "ExportsInfo": {
       "items": {
         "$ref": "#/definitions/ExportInfo"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ExportsInfo"
     },
     "Filter": {
       "description": "<p>A filter that can use conditional operators.</p> <p>For more information about filters, see <a href=\"http://docs.aws.amazon.com/application-discovery/latest/APIReference/discovery-api-queries.html\">Querying Discovered Configuration Items</a>. </p>",
@@ -712,29 +771,35 @@
         "values",
         "condition"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "Filter"
     },
     "FilterName": {
-      "type": "string"
+      "type": "string",
+      "title": "FilterName"
     },
     "FilterValue": {
-      "type": "string"
+      "type": "string",
+      "title": "FilterValue"
     },
     "FilterValues": {
       "items": {
         "$ref": "#/definitions/FilterValue"
       },
-      "type": "array"
+      "type": "array",
+      "title": "FilterValues"
     },
     "Filters": {
       "items": {
         "$ref": "#/definitions/Filter"
       },
-      "type": "array"
+      "type": "array",
+      "title": "Filters"
     },
     "GetDiscoverySummaryRequest": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "GetDiscoverySummaryRequest"
     },
     "GetDiscoverySummaryResponse": {
       "properties": {
@@ -763,10 +828,12 @@
           "description": "The number of servers mapped to tags."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetDiscoverySummaryResponse"
     },
     "Integer": {
-      "type": "integer"
+      "type": "integer",
+      "title": "Integer"
     },
     "InvalidParameterException": {
       "description": "One or more parameters are not valid. Verify the parameters and try again.",
@@ -775,7 +842,8 @@
           "$ref": "#/definitions/Message"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidParameterException"
     },
     "InvalidParameterValueException": {
       "description": "The value of one or more parameters are either invalid or out of range. Verify the parameter values and try again.",
@@ -784,7 +852,8 @@
           "$ref": "#/definitions/Message"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidParameterValueException"
     },
     "ListConfigurationsRequest": {
       "properties": {
@@ -812,7 +881,8 @@
       "required": [
         "configurationType"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListConfigurationsRequest"
     },
     "ListConfigurationsResponse": {
       "properties": {
@@ -825,7 +895,8 @@
           "description": "Token to retrieve the next set of results. For example, if your call to ListConfigurations returned 100 items, but you set <code>ListConfigurationsRequest$maxResults</code> to 10, you received a set of 10 results along with this token. Use this token in the next query to retrieve the next set of 10."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListConfigurationsResponse"
     },
     "ListServerNeighborsRequest": {
       "properties": {
@@ -853,7 +924,8 @@
       "required": [
         "configurationId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListServerNeighborsRequest"
     },
     "ListServerNeighborsResponse": {
       "properties": {
@@ -873,13 +945,16 @@
       "required": [
         "neighbors"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListServerNeighborsResponse"
     },
     "Long": {
-      "type": "integer"
+      "type": "integer",
+      "title": "Long"
     },
     "Message": {
-      "type": "string"
+      "type": "string",
+      "title": "Message"
     },
     "NeighborConnectionDetail": {
       "description": "Details about neighboring servers.",
@@ -910,16 +985,19 @@
         "destinationServerId",
         "connectionsCount"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "NeighborConnectionDetail"
     },
     "NeighborDetailsList": {
       "items": {
         "$ref": "#/definitions/NeighborConnectionDetail"
       },
-      "type": "array"
+      "type": "array",
+      "title": "NeighborDetailsList"
     },
     "NextToken": {
-      "type": "string"
+      "type": "string",
+      "title": "NextToken"
     },
     "OperationNotPermittedException": {
       "description": "This operation is not permitted.",
@@ -928,7 +1006,8 @@
           "$ref": "#/definitions/Message"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "OperationNotPermittedException"
     },
     "OrderByElement": {
       "description": "A field and direction for ordered output.",
@@ -945,13 +1024,15 @@
       "required": [
         "fieldName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "OrderByElement"
     },
     "OrderByList": {
       "items": {
         "$ref": "#/definitions/OrderByElement"
       },
-      "type": "array"
+      "type": "array",
+      "title": "OrderByList"
     },
     "ResourceNotFoundException": {
       "description": "The specified configuration ID was not located. Verify the configuration ID and try again.",
@@ -960,7 +1041,8 @@
           "$ref": "#/definitions/Message"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ResourceNotFoundException"
     },
     "ServerInternalErrorException": {
       "description": "The server experienced an internal error. Try again.",
@@ -969,7 +1051,8 @@
           "$ref": "#/definitions/Message"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ServerInternalErrorException"
     },
     "StartDataCollectionByAgentIdsRequest": {
       "properties": {
@@ -981,7 +1064,8 @@
       "required": [
         "agentIds"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "StartDataCollectionByAgentIdsRequest"
     },
     "StartDataCollectionByAgentIdsResponse": {
       "properties": {
@@ -990,7 +1074,8 @@
           "description": "Information about agents or the connector that were instructed to start collecting data. Information includes the agent/connector ID, a description of the operation performed, and whether the agent/connector configuration was updated."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "StartDataCollectionByAgentIdsResponse"
     },
     "StartExportTaskRequest": {
       "properties": {
@@ -999,7 +1084,8 @@
           "description": "The file format for the returned export data. Default value is <code>CSV</code>."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "StartExportTaskRequest"
     },
     "StartExportTaskResponse": {
       "properties": {
@@ -1008,7 +1094,8 @@
           "description": " A unique identifier used to query the status of an export request."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "StartExportTaskResponse"
     },
     "StopDataCollectionByAgentIdsRequest": {
       "properties": {
@@ -1020,7 +1107,8 @@
       "required": [
         "agentIds"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "StopDataCollectionByAgentIdsRequest"
     },
     "StopDataCollectionByAgentIdsResponse": {
       "properties": {
@@ -1029,10 +1117,12 @@
           "description": "Information about the agents or connector that were instructed to stop collecting data. Information includes the agent/connector ID, a description of the operation performed, and whether the agent/connector configuration was updated."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "StopDataCollectionByAgentIdsResponse"
     },
     "String": {
-      "type": "string"
+      "type": "string",
+      "title": "String"
     },
     "Tag": {
       "description": "Metadata that help you categorize IT assets.",
@@ -1050,7 +1140,8 @@
         "key",
         "value"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "Tag"
     },
     "TagFilter": {
       "description": "The tag filter. Valid names are: <code>tagKey</code>, <code>tagValue</code>, <code>configurationId</code>.",
@@ -1068,29 +1159,35 @@
         "name",
         "values"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "TagFilter"
     },
     "TagFilters": {
       "items": {
         "$ref": "#/definitions/TagFilter"
       },
-      "type": "array"
+      "type": "array",
+      "title": "TagFilters"
     },
     "TagKey": {
-      "type": "string"
+      "type": "string",
+      "title": "TagKey"
     },
     "TagSet": {
       "items": {
         "$ref": "#/definitions/Tag"
       },
-      "type": "array"
+      "type": "array",
+      "title": "TagSet"
     },
     "TagValue": {
-      "type": "string"
+      "type": "string",
+      "title": "TagValue"
     },
     "TimeStamp": {
       "format": "date-time",
-      "type": "string"
+      "type": "string",
+      "title": "TimeStamp"
     },
     "UpdateApplicationRequest": {
       "properties": {
@@ -1110,18 +1207,21 @@
       "required": [
         "configurationId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateApplicationRequest"
     },
     "UpdateApplicationResponse": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "UpdateApplicationResponse"
     },
     "orderString": {
       "enum": [
         "ASC",
         "DESC"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "orderString"
     }
   },
   "actions": [

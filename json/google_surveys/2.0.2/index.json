@@ -44,7 +44,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "FieldMask"
     },
     "MobileAppPanel": {
       "description": "Representation of an individual pre-defined panel object defining a targeted audience of opinion rewards mobile app users.",
@@ -77,7 +78,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "MobileAppPanel"
     },
     "MobileAppPanelsListResponse": {
       "properties": {
@@ -99,7 +101,8 @@
           "$ref": "#/definitions/TokenPagination"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "MobileAppPanelsListResponse"
     },
     "PageInfo": {
       "properties": {
@@ -116,7 +119,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PageInfo"
     },
     "ResultsGetRequest": {
       "properties": {
@@ -124,7 +128,8 @@
           "$ref": "#/definitions/ResultsMask"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ResultsGetRequest"
     },
     "ResultsMask": {
       "properties": {
@@ -138,7 +143,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ResultsMask"
     },
     "Survey": {
       "description": "Representation of an individual survey object.",
@@ -196,7 +202,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Survey"
     },
     "SurveyAudience": {
       "description": "Specifications for the target audience of a survey run through the API.",
@@ -236,7 +243,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SurveyAudience"
     },
     "SurveyCost": {
       "description": "Message defining the cost to run a given survey through API.",
@@ -261,7 +269,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SurveyCost"
     },
     "SurveyQuestion": {
       "description": "Message defining the question specifications.",
@@ -350,7 +359,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SurveyQuestion"
     },
     "SurveyQuestionImage": {
       "description": "Container object for image data and alt_text.",
@@ -369,7 +379,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SurveyQuestionImage"
     },
     "SurveyRejection": {
       "description": "Message representing why the survey was rejected from review, if it was.",
@@ -383,7 +394,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SurveyRejection"
     },
     "SurveyResults": {
       "description": "Reference to the current results for a given survey.",
@@ -397,7 +409,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SurveyResults"
     },
     "SurveysDeleteResponse": {
       "properties": {
@@ -406,7 +419,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SurveysDeleteResponse"
     },
     "SurveysListResponse": {
       "properties": {
@@ -428,7 +442,8 @@
           "$ref": "#/definitions/TokenPagination"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SurveysListResponse"
     },
     "SurveysStartRequest": {
       "properties": {
@@ -438,7 +453,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SurveysStartRequest"
     },
     "SurveysStartResponse": {
       "properties": {
@@ -447,7 +463,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SurveysStartResponse"
     },
     "SurveysStopResponse": {
       "properties": {
@@ -456,7 +473,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SurveysStopResponse"
     },
     "TokenPagination": {
       "properties": {
@@ -467,7 +485,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TokenPagination"
     }
   },
   "actions": [

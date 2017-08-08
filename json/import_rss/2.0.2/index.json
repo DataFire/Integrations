@@ -31,7 +31,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "APIError"
     },
     "CrawlRun": {
       "properties": {
@@ -75,7 +76,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CrawlRun"
     },
     "ObjectStoreSearchResult": {
       "properties": {
@@ -114,7 +116,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ObjectStoreSearchResult"
     },
     "QueryResponse": {
       "properties": {
@@ -145,7 +148,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "QueryResponse"
     },
     "Schedule": {
       "properties": {
@@ -181,7 +185,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Schedule"
     },
     "ScheduleRequest": {
       "properties": {
@@ -203,7 +208,8 @@
         "extractorId",
         "interval"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ScheduleRequest"
     }
   },
   "actions": [

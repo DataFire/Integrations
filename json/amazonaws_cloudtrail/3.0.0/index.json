@@ -31,28 +31,34 @@
       "required": [
         "ResourceId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AddTagsRequest"
     },
     "AddTagsResponse": {
       "description": "Returns the objects or data listed below if successful. Otherwise, returns an error.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "AddTagsResponse"
     },
     "Boolean": {
-      "type": "boolean"
+      "type": "boolean",
+      "title": "Boolean"
     },
     "ByteBuffer": {
-      "type": "string"
+      "type": "string",
+      "title": "ByteBuffer"
     },
     "CloudTrailARNInvalidException": {
       "description": "<p>This exception is thrown when an operation is called with an invalid trail ARN. The format of a trail ARN is:</p> <p> <code>arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail</code> </p>",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "CloudTrailARNInvalidException"
     },
     "CloudWatchLogsDeliveryUnavailableException": {
       "description": "Cannot set a CloudWatch Logs delivery for this region.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "CloudWatchLogsDeliveryUnavailableException"
     },
     "CreateTrailRequest": {
       "description": "Specifies the settings for each trail.",
@@ -102,7 +108,8 @@
         "Name",
         "S3BucketName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateTrailRequest"
     },
     "CreateTrailResponse": {
       "description": "Returns the objects or data listed below if successful. Otherwise, returns an error.",
@@ -156,7 +163,8 @@
           "description": "<p>Specifies the ARN of the trail that was created. The format of a trail ARN is:</p> <p> <code>arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail</code> </p>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateTrailResponse"
     },
     "DataResource": {
       "description": "<p>The Amazon S3 objects that you specify in your event selectors for your trail to log data events. Data events are object-level API operations that access S3 objects, such as <code>GetObject</code>, <code>DeleteObject</code>, and <code>PutObject</code>. You can specify up to 250 S3 buckets and object prefixes for a trail. </p> <p>Example</p> <ol> <li> <p>You create an event selector for a trail and specify an S3 bucket and an empty prefix, such as <code>arn:aws:s3:::bucket-1/</code>.</p> </li> <li> <p>You upload an image file to <code>bucket-1</code>.</p> </li> <li> <p>The <code>PutObject</code> API operation occurs on an object in the S3 bucket that you specified in the event selector. The trail processes and logs the event.</p> </li> <li> <p>You upload another image file to a different S3 bucket named <code>arn:aws:s3:::bucket-2</code>.</p> </li> <li> <p>The event occurs on an object in an S3 bucket that you didn't specify in the event selector. The trail doesn’t log the event.</p> </li> </ol>",
@@ -170,23 +178,27 @@
           "description": "<p>A list of ARN-like strings for the specified S3 objects.</p> <p>To log data events for all objects in an S3 bucket, specify the bucket and an empty object prefix such as <code>arn:aws:s3:::bucket-1/</code>. The trail logs data events for all objects in this S3 bucket.</p> <p>To log data events for specific objects, specify the S3 bucket and object prefix such as <code>arn:aws:s3:::bucket-1/example-images</code>. The trail logs data events for objects in this S3 bucket that match the prefix.</p>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DataResource"
     },
     "DataResourceValues": {
       "items": {
         "$ref": "#/definitions/String"
       },
-      "type": "array"
+      "type": "array",
+      "title": "DataResourceValues"
     },
     "DataResources": {
       "items": {
         "$ref": "#/definitions/DataResource"
       },
-      "type": "array"
+      "type": "array",
+      "title": "DataResources"
     },
     "Date": {
       "format": "date-time",
-      "type": "string"
+      "type": "string",
+      "title": "Date"
     },
     "DeleteTrailRequest": {
       "description": "The request that specifies the name of a trail to delete.",
@@ -199,12 +211,14 @@
       "required": [
         "Name"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteTrailRequest"
     },
     "DeleteTrailResponse": {
       "description": "Returns the objects or data listed below if successful. Otherwise, returns an error.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DeleteTrailResponse"
     },
     "DescribeTrailsRequest": {
       "description": "Returns information about the trail.",
@@ -218,7 +232,8 @@
           "description": "<p>Specifies a list of trail names, trail ARNs, or both, of the trails to describe. The format of a trail ARN is:</p> <p> <code>arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail</code> </p> <p>If an empty list is specified, information for the trail in the current region is returned.</p> <ul> <li> <p>If an empty list is specified and <code>IncludeShadowTrails</code> is false, then information for all trails in the current region is returned.</p> </li> <li> <p>If an empty list is specified and IncludeShadowTrails is null or true, then information for all trails in the current region and any associated shadow trails in other regions is returned.</p> </li> </ul> <note> <p>If one or more trail names are specified, information is returned only if the names match the names of trails belonging only to the current region. To return information about a trail in another region, you must specify its trail ARN.</p> </note>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeTrailsRequest"
     },
     "DescribeTrailsResponse": {
       "description": "Returns the objects or data listed below if successful. Otherwise, returns an error.",
@@ -228,7 +243,8 @@
           "description": "The list of trail objects."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeTrailsResponse"
     },
     "Event": {
       "description": "Contains information about an event that was returned by a lookup request. The result includes a representation of a CloudTrail event.",
@@ -262,7 +278,8 @@
           "description": "A user name or role name of the requester that called the API in the event returned."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Event"
     },
     "EventSelector": {
       "description": "<p>Use event selectors to specify whether you want your trail to log management and/or data events. When an event occurs in your account, CloudTrail evaluates the event selector for all trails. For each trail, if the event matches any event selector, the trail processes and logs the event. If the event doesn't match any event selector, the trail doesn't log the event.</p> <p>You can configure up to five event selectors for a trail.</p>",
@@ -280,19 +297,22 @@
           "description": "<p>Specify if you want your trail to log read-only events, write-only events, or all. For example, the EC2 <code>GetConsoleOutput</code> is a read-only API operation and <code>RunInstances</code> is a write-only API operation.</p> <p> By default, the value is <code>All</code>.</p>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "EventSelector"
     },
     "EventSelectors": {
       "items": {
         "$ref": "#/definitions/EventSelector"
       },
-      "type": "array"
+      "type": "array",
+      "title": "EventSelectors"
     },
     "EventsList": {
       "items": {
         "$ref": "#/definitions/Event"
       },
-      "type": "array"
+      "type": "array",
+      "title": "EventsList"
     },
     "GetEventSelectorsRequest": {
       "properties": {
@@ -304,7 +324,8 @@
       "required": [
         "TrailName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetEventSelectorsRequest"
     },
     "GetEventSelectorsResponse": {
       "properties": {
@@ -317,7 +338,8 @@
           "description": "The specified trail ARN that has the event selectors."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetEventSelectorsResponse"
     },
     "GetTrailStatusRequest": {
       "description": "The name of a trail about which you want the current status.",
@@ -330,7 +352,8 @@
       "required": [
         "Name"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetTrailStatusRequest"
     },
     "GetTrailStatusResponse": {
       "description": "Returns the objects or data listed below if successful. Otherwise, returns an error.",
@@ -404,117 +427,140 @@
           "description": "This field is deprecated."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetTrailStatusResponse"
     },
     "InsufficientEncryptionPolicyException": {
       "description": "This exception is thrown when the policy on the S3 bucket or KMS key is not sufficient.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "InsufficientEncryptionPolicyException"
     },
     "InsufficientS3BucketPolicyException": {
       "description": "This exception is thrown when the policy on the S3 bucket is not sufficient.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "InsufficientS3BucketPolicyException"
     },
     "InsufficientSnsTopicPolicyException": {
       "description": "This exception is thrown when the policy on the SNS topic is not sufficient.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "InsufficientSnsTopicPolicyException"
     },
     "InvalidCloudWatchLogsLogGroupArnException": {
       "description": "This exception is thrown when the provided CloudWatch log group is not valid.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "InvalidCloudWatchLogsLogGroupArnException"
     },
     "InvalidCloudWatchLogsRoleArnException": {
       "description": "This exception is thrown when the provided role is not valid.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "InvalidCloudWatchLogsRoleArnException"
     },
     "InvalidEventSelectorsException": {
       "description": "<p>This exception is thrown when the <code>PutEventSelectors</code> operation is called with an invalid number of event selectors, data resources, or an invalid value for a parameter:</p> <ul> <li> <p>Specify a valid number of event selectors (1 to 5) for a trail.</p> </li> <li> <p>Specify a valid number of data resources (1 to 250) for an event selector.</p> </li> <li> <p>Specify a valid value for a parameter. For example, specifying the <code>ReadWriteType</code> parameter with a value of <code>read-only</code> is invalid.</p> </li> </ul>",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "InvalidEventSelectorsException"
     },
     "InvalidHomeRegionException": {
       "description": "This exception is thrown when an operation is called on a trail from a region other than the region in which the trail was created.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "InvalidHomeRegionException"
     },
     "InvalidKmsKeyIdException": {
       "description": "This exception is thrown when the KMS key ARN is invalid.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "InvalidKmsKeyIdException"
     },
     "InvalidLookupAttributesException": {
       "description": "Occurs when an invalid lookup attribute is specified.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "InvalidLookupAttributesException"
     },
     "InvalidMaxResultsException": {
       "description": "This exception is thrown if the limit specified is invalid.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "InvalidMaxResultsException"
     },
     "InvalidNextTokenException": {
       "description": "Invalid token or token that was previously used in a request with different parameters. This exception is thrown if the token is invalid.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "InvalidNextTokenException"
     },
     "InvalidParameterCombinationException": {
       "description": "This exception is thrown when the combination of parameters provided is not valid.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "InvalidParameterCombinationException"
     },
     "InvalidS3BucketNameException": {
       "description": "This exception is thrown when the provided S3 bucket name is not valid.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "InvalidS3BucketNameException"
     },
     "InvalidS3PrefixException": {
       "description": "This exception is thrown when the provided S3 prefix is not valid.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "InvalidS3PrefixException"
     },
     "InvalidSnsTopicNameException": {
       "description": "This exception is thrown when the provided SNS topic name is not valid.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "InvalidSnsTopicNameException"
     },
     "InvalidTagParameterException": {
       "description": "This exception is thrown when the key or value specified for the tag does not match the regular expression <code>^([\\\\p{L}\\\\p{Z}\\\\p{N}_.:/=+\\\\-@]*)$</code>.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "InvalidTagParameterException"
     },
     "InvalidTimeRangeException": {
       "description": "Occurs if the timestamp values are invalid. Either the start time occurs after the end time or the time range is outside the range of possible values.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "InvalidTimeRangeException"
     },
     "InvalidTokenException": {
       "description": "Reserved for future use.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "InvalidTokenException"
     },
     "InvalidTrailNameException": {
       "description": "<p>This exception is thrown when the provided trail name is not valid. Trail names must meet the following requirements:</p> <ul> <li> <p>Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (_), or dashes (-)</p> </li> <li> <p>Start with a letter or number, and end with a letter or number</p> </li> <li> <p>Be between 3 and 128 characters</p> </li> <li> <p>Have no adjacent periods, underscores or dashes. Names like <code>my-_namespace</code> and <code>my--namespace</code> are invalid.</p> </li> <li> <p>Not be in IP address format (for example, 192.168.5.4)</p> </li> </ul>",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "InvalidTrailNameException"
     },
     "KmsException": {
       "description": "This exception is thrown when there is an issue with the specified KMS key and the trail can’t be updated.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "KmsException"
     },
     "KmsKeyDisabledException": {
       "description": "This exception is deprecated.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "KmsKeyDisabledException"
     },
     "KmsKeyNotFoundException": {
       "description": "This exception is thrown when the KMS key does not exist, or when the S3 bucket and the KMS key are not in the same region.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "KmsKeyNotFoundException"
     },
     "ListPublicKeysRequest": {
       "description": "Requests the public keys for a specified time range.",
@@ -532,7 +578,8 @@
           "description": "Optionally specifies, in UTC, the start of the time range to look up public keys for CloudTrail digest files. If not specified, the current time is used, and the current public key is returned."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListPublicKeysRequest"
     },
     "ListPublicKeysResponse": {
       "description": "Returns the objects or data listed below if successful. Otherwise, returns an error.",
@@ -546,7 +593,8 @@
           "description": "<p>Contains an array of PublicKey objects.</p> <note> <p>The returned public keys may have validity time ranges that overlap.</p> </note>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListPublicKeysResponse"
     },
     "ListTagsRequest": {
       "description": "Specifies a list of trail tags to return.",
@@ -563,7 +611,8 @@
       "required": [
         "ResourceIdList"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListTagsRequest"
     },
     "ListTagsResponse": {
       "description": "Returns the objects or data listed below if successful. Otherwise, returns an error.",
@@ -577,7 +626,8 @@
           "description": "A list of resource tags."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListTagsResponse"
     },
     "LookupAttribute": {
       "description": "Specifies an attribute and value that filter the events returned.",
@@ -595,7 +645,8 @@
         "AttributeKey",
         "AttributeValue"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "LookupAttribute"
     },
     "LookupAttributeKey": {
       "enum": [
@@ -606,13 +657,15 @@
         "ResourceName",
         "EventSource"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "LookupAttributeKey"
     },
     "LookupAttributesList": {
       "items": {
         "$ref": "#/definitions/LookupAttribute"
       },
-      "type": "array"
+      "type": "array",
+      "title": "LookupAttributesList"
     },
     "LookupEventsRequest": {
       "description": "Contains a request for LookupEvents.",
@@ -638,7 +691,8 @@
           "description": "Specifies that only events that occur after or at the specified time are returned. If the specified start time is after the specified end time, an error is returned."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LookupEventsRequest"
     },
     "LookupEventsResponse": {
       "description": "Contains a response to a LookupEvents action.",
@@ -652,25 +706,30 @@
           "description": "The token to use to get the next page of results after a previous API call. If the token does not appear, there are no more results to return. The token must be passed in with the same parameters as the previous call. For example, if the original call specified an AttributeKey of 'Username' with a value of 'root', the call with NextToken should include those same parameters."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LookupEventsResponse"
     },
     "MaxResults": {
       "maximum": 50,
       "minimum": 1,
-      "type": "integer"
+      "type": "integer",
+      "title": "MaxResults"
     },
     "MaximumNumberOfTrailsExceededException": {
       "description": "This exception is thrown when the maximum number of trails is reached.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "MaximumNumberOfTrailsExceededException"
     },
     "NextToken": {
-      "type": "string"
+      "type": "string",
+      "title": "NextToken"
     },
     "OperationNotPermittedException": {
       "description": "This exception is thrown when the requested operation is not permitted.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "OperationNotPermittedException"
     },
     "PublicKey": {
       "description": "Contains information about a returned public key.",
@@ -692,13 +751,15 @@
           "description": "The DER encoded public key value in PKCS#1 format."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PublicKey"
     },
     "PublicKeyList": {
       "items": {
         "$ref": "#/definitions/PublicKey"
       },
-      "type": "array"
+      "type": "array",
+      "title": "PublicKeyList"
     },
     "PutEventSelectorsRequest": {
       "properties": {
@@ -715,7 +776,8 @@
         "TrailName",
         "EventSelectors"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "PutEventSelectorsRequest"
     },
     "PutEventSelectorsResponse": {
       "properties": {
@@ -728,7 +790,8 @@
           "description": "<p>Specifies the ARN of the trail that was updated with event selectors. The format of a trail ARN is:</p> <p> <code>arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail</code> </p>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PutEventSelectorsResponse"
     },
     "ReadWriteType": {
       "enum": [
@@ -736,7 +799,8 @@
         "WriteOnly",
         "All"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ReadWriteType"
     },
     "RemoveTagsRequest": {
       "description": "Specifies the tags to remove from a trail.",
@@ -753,12 +817,14 @@
       "required": [
         "ResourceId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "RemoveTagsRequest"
     },
     "RemoveTagsResponse": {
       "description": "Returns the objects or data listed below if successful. Otherwise, returns an error.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "RemoveTagsResponse"
     },
     "Resource": {
       "description": "Specifies the type and name of a resource referenced by an event.",
@@ -772,25 +838,29 @@
           "description": "The type of a resource referenced by the event returned. When the resource type cannot be determined, null is returned. Some examples of resource types are: <b>Instance</b> for EC2, <b>Trail</b> for CloudTrail, <b>DBInstance</b> for RDS, and <b>AccessKey</b> for IAM. For a list of resource types supported for event lookup, see <a href=\"http://docs.aws.amazon.com/awscloudtrail/latest/userguide/lookup_supported_resourcetypes.html\">Resource Types Supported for Event Lookup</a>."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Resource"
     },
     "ResourceIdList": {
       "items": {
         "$ref": "#/definitions/String"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ResourceIdList"
     },
     "ResourceList": {
       "description": "A list of resources referenced by the event returned.",
       "items": {
         "$ref": "#/definitions/Resource"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ResourceList"
     },
     "ResourceNotFoundException": {
       "description": "This exception is thrown when the specified resource is not found.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "ResourceNotFoundException"
     },
     "ResourceTag": {
       "description": "A resource tag.",
@@ -804,23 +874,27 @@
           "description": "A list of tags."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ResourceTag"
     },
     "ResourceTagList": {
       "items": {
         "$ref": "#/definitions/ResourceTag"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ResourceTagList"
     },
     "ResourceTypeNotSupportedException": {
       "description": "This exception is thrown when the specified resource type is not supported by CloudTrail.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "ResourceTypeNotSupportedException"
     },
     "S3BucketDoesNotExistException": {
       "description": "This exception is thrown when the specified S3 bucket does not exist.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "S3BucketDoesNotExistException"
     },
     "StartLoggingRequest": {
       "description": "The request to CloudTrail to start logging AWS API calls for an account.",
@@ -833,12 +907,14 @@
       "required": [
         "Name"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "StartLoggingRequest"
     },
     "StartLoggingResponse": {
       "description": "Returns the objects or data listed below if successful. Otherwise, returns an error.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "StartLoggingResponse"
     },
     "StopLoggingRequest": {
       "description": "Passes the request to CloudTrail to stop logging AWS API calls for the specified account.",
@@ -851,15 +927,18 @@
       "required": [
         "Name"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "StopLoggingRequest"
     },
     "StopLoggingResponse": {
       "description": "Returns the objects or data listed below if successful. Otherwise, returns an error.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "StopLoggingResponse"
     },
     "String": {
-      "type": "string"
+      "type": "string",
+      "title": "String"
     },
     "Tag": {
       "description": "A custom key-value pair associated with a resource such as a CloudTrail trail.",
@@ -876,19 +955,22 @@
       "required": [
         "Key"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "Tag"
     },
     "TagsLimitExceededException": {
       "description": "The number of tags per trail has exceeded the permitted amount. Currently, the limit is 50.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "TagsLimitExceededException"
     },
     "TagsList": {
       "description": "A list of tags.",
       "items": {
         "$ref": "#/definitions/Tag"
       },
-      "type": "array"
+      "type": "array",
+      "title": "TagsList"
     },
     "Trail": {
       "description": "The settings for a trail.",
@@ -950,39 +1032,46 @@
           "description": "<p>Specifies the ARN of the trail. The format of a trail ARN is:</p> <p> <code>arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail</code> </p>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Trail"
     },
     "TrailAlreadyExistsException": {
       "description": "This exception is thrown when the specified trail already exists.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "TrailAlreadyExistsException"
     },
     "TrailList": {
       "items": {
         "$ref": "#/definitions/Trail"
       },
-      "type": "array"
+      "type": "array",
+      "title": "TrailList"
     },
     "TrailNameList": {
       "items": {
         "$ref": "#/definitions/String"
       },
-      "type": "array"
+      "type": "array",
+      "title": "TrailNameList"
     },
     "TrailNotFoundException": {
       "description": "This exception is thrown when the trail with the given name is not found.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "TrailNotFoundException"
     },
     "TrailNotProvidedException": {
       "description": "This exception is deprecated.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "TrailNotProvidedException"
     },
     "UnsupportedOperationException": {
       "description": "This exception is thrown when the requested operation is not supported.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "UnsupportedOperationException"
     },
     "UpdateTrailRequest": {
       "description": "Specifies settings to update for the trail.",
@@ -1031,7 +1120,8 @@
       "required": [
         "Name"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateTrailRequest"
     },
     "UpdateTrailResponse": {
       "description": "Returns the objects or data listed below if successful. Otherwise, returns an error.",
@@ -1085,7 +1175,8 @@
           "description": "<p>Specifies the ARN of the trail that was updated. The format of a trail ARN is:</p> <p> <code>arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail</code> </p>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UpdateTrailResponse"
     }
   },
   "actions": [

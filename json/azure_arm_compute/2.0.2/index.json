@@ -69,7 +69,8 @@
             "name": "SettingNames"
           }
         }
-      }
+      },
+      "title": "AdditionalUnattendContent"
     },
     "ApiEntityReference": {
       "description": "The API entity reference.",
@@ -78,7 +79,8 @@
           "description": "The ARM resource id in the form of /subscriptions/{SubcriptionId}/resourceGroups/{ResourceGroupName}/...",
           "type": "string"
         }
-      }
+      },
+      "title": "ApiEntityReference"
     },
     "ApiError": {
       "description": "Api error.",
@@ -106,7 +108,8 @@
           "description": "The target of the particular error.",
           "type": "string"
         }
-      }
+      },
+      "title": "ApiError"
     },
     "ApiErrorBase": {
       "description": "Api error base.",
@@ -123,7 +126,8 @@
           "description": "The target of the particular error.",
           "type": "string"
         }
-      }
+      },
+      "title": "ApiErrorBase"
     },
     "AvailabilitySet": {
       "allOf": [
@@ -137,7 +141,8 @@
           "$ref": "#/definitions/AvailabilitySetProperties",
           "x-ms-client-flatten": true
         }
-      }
+      },
+      "title": "AvailabilitySet"
     },
     "AvailabilitySetListResult": {
       "description": "The List Availability Set operation response.",
@@ -149,7 +154,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "AvailabilitySetListResult"
     },
     "AvailabilitySetProperties": {
       "description": "The instance view of a resource.",
@@ -179,7 +185,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "AvailabilitySetProperties"
     },
     "BootDiagnostics": {
       "description": "Describes Boot Diagnostics.",
@@ -192,7 +199,8 @@
           "description": "URI of the storage account to use for placing the console output and screenshot.",
           "type": "string"
         }
-      }
+      },
+      "title": "BootDiagnostics"
     },
     "BootDiagnosticsInstanceView": {
       "description": "The instance view of a virtual machine boot diagnostics.",
@@ -205,7 +213,8 @@
           "description": "The Linux serial console log blob Uri.",
           "type": "string"
         }
-      }
+      },
+      "title": "BootDiagnosticsInstanceView"
     },
     "Caching": {
       "description": "The caching type.",
@@ -218,7 +227,8 @@
       "x-ms-enum": {
         "modelAsString": false,
         "name": "CachingTypes"
-      }
+      },
+      "title": "Caching"
     },
     "ComputeLongRunningOperationProperties": {
       "description": "Compute-specific operation properties, including output",
@@ -227,7 +237,8 @@
           "description": "Operation output data (raw JSON)",
           "type": "object"
         }
-      }
+      },
+      "title": "ComputeLongRunningOperationProperties"
     },
     "CreateOption": {
       "description": "The create option.",
@@ -240,7 +251,8 @@
       "x-ms-enum": {
         "modelAsString": false,
         "name": "DiskCreateOptionTypes"
-      }
+      },
+      "title": "CreateOption"
     },
     "DataDisk": {
       "description": "Describes a data disk.",
@@ -281,7 +293,8 @@
         "name",
         "vhd",
         "createOption"
-      ]
+      ],
+      "title": "DataDisk"
     },
     "DataDiskImage": {
       "description": "Contains the data disk images information.",
@@ -292,7 +305,8 @@
           "readOnly": true,
           "type": "integer"
         }
-      }
+      },
+      "title": "DataDiskImage"
     },
     "DiagnosticsProfile": {
       "description": "Describes a diagnostics profile.",
@@ -301,7 +315,8 @@
           "$ref": "#/definitions/BootDiagnostics",
           "description": "Boot Diagnostics is a debugging feature which allows the user to view console output and/or a screenshot of the virtual machine from the hypervisor."
         }
-      }
+      },
+      "title": "DiagnosticsProfile"
     },
     "DiskEncryptionSettings": {
       "description": "Describes a Encryption Settings for a Disk",
@@ -318,7 +333,8 @@
           "$ref": "#/definitions/KeyVaultKeyReference",
           "description": "The key encryption key which is Key Vault Key."
         }
-      }
+      },
+      "title": "DiskEncryptionSettings"
     },
     "DiskInstanceView": {
       "description": "The instance view of the disk.",
@@ -334,7 +350,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "DiskInstanceView"
     },
     "HardwareProfile": {
       "description": "Describes a hardware profile.",
@@ -412,7 +429,8 @@
             "name": "VirtualMachineSizeTypes"
           }
         }
-      }
+      },
+      "title": "HardwareProfile"
     },
     "ImageReference": {
       "description": "The image reference.",
@@ -433,7 +451,8 @@
           "description": "The image version. The allowed formats are Major.Minor.Build or 'latest'. Major, Minor and Build are decimal numbers. Specify 'latest' to use the latest version of the image.",
           "type": "string"
         }
-      }
+      },
+      "title": "ImageReference"
     },
     "InnerError": {
       "description": "Inner error details.",
@@ -446,7 +465,8 @@
           "description": "The exception type.",
           "type": "string"
         }
-      }
+      },
+      "title": "InnerError"
     },
     "InstanceViewStatus": {
       "description": "Instance view status.",
@@ -481,7 +501,8 @@
           "format": "date-time",
           "type": "string"
         }
-      }
+      },
+      "title": "InstanceViewStatus"
     },
     "KeyVaultKeyReference": {
       "description": "Describes a reference to Key Vault Key",
@@ -498,7 +519,8 @@
       "required": [
         "keyUrl",
         "sourceVault"
-      ]
+      ],
+      "title": "KeyVaultKeyReference"
     },
     "KeyVaultSecretReference": {
       "description": "Describes a reference to Key Vault Secret",
@@ -515,7 +537,8 @@
       "required": [
         "secretUrl",
         "sourceVault"
-      ]
+      ],
+      "title": "KeyVaultSecretReference"
     },
     "LinuxConfiguration": {
       "description": "Describes Windows configuration of the OS Profile.",
@@ -528,7 +551,8 @@
           "$ref": "#/definitions/SshConfiguration",
           "description": "The SSH configuration for linux VMs."
         }
-      }
+      },
+      "title": "LinuxConfiguration"
     },
     "ListUsagesResult": {
       "description": "The List Usages operation response.",
@@ -547,7 +571,8 @@
       },
       "required": [
         "value"
-      ]
+      ],
+      "title": "ListUsagesResult"
     },
     "NetworkInterfaceReference": {
       "allOf": [
@@ -561,7 +586,8 @@
           "$ref": "#/definitions/NetworkInterfaceReferenceProperties",
           "x-ms-client-flatten": true
         }
-      }
+      },
+      "title": "NetworkInterfaceReference"
     },
     "NetworkInterfaceReferenceProperties": {
       "description": "Describes a network interface reference properties.",
@@ -570,7 +596,8 @@
           "description": "Specifies the primary network interface in case the virtual machine has more than 1 network interface.",
           "type": "boolean"
         }
-      }
+      },
+      "title": "NetworkInterfaceReferenceProperties"
     },
     "NetworkProfile": {
       "description": "Describes a network profile.",
@@ -582,7 +609,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "NetworkProfile"
     },
     "OSDisk": {
       "description": "Describes an Operating System disk.",
@@ -633,7 +661,8 @@
         "name",
         "vhd",
         "createOption"
-      ]
+      ],
+      "title": "OSDisk"
     },
     "OSDiskImage": {
       "description": "Contains the os disk image information.",
@@ -653,7 +682,8 @@
       },
       "required": [
         "operatingSystem"
-      ]
+      ],
+      "title": "OSDiskImage"
     },
     "OSProfile": {
       "description": "Describes an OS profile.",
@@ -689,7 +719,8 @@
           "$ref": "#/definitions/WindowsConfiguration",
           "description": "The Windows configuration of the OS profile."
         }
-      }
+      },
+      "title": "OSProfile"
     },
     "OperationStatusResponse": {
       "description": "Operation status response",
@@ -721,7 +752,8 @@
           "readOnly": true,
           "type": "string"
         }
-      }
+      },
+      "title": "OperationStatusResponse"
     },
     "Plan": {
       "description": "Plan for the resource.",
@@ -742,7 +774,8 @@
           "description": "The publisher ID.",
           "type": "string"
         }
-      }
+      },
+      "title": "Plan"
     },
     "PurchasePlan": {
       "description": "Used for establishing the purchase context of any 3rd Party artifact through MarketPlace.",
@@ -764,7 +797,8 @@
         "publisher",
         "name",
         "product"
-      ]
+      ],
+      "title": "PurchasePlan"
     },
     "Resource": {
       "description": "The Resource model definition.",
@@ -799,7 +833,8 @@
       "required": [
         "location"
       ],
-      "x-ms-azure-resource": true
+      "x-ms-azure-resource": true,
+      "title": "Resource"
     },
     "Sku": {
       "description": "Describes a virtual machine scale set sku.",
@@ -817,7 +852,8 @@
           "description": "The sku tier.",
           "type": "string"
         }
-      }
+      },
+      "title": "Sku"
     },
     "SshConfiguration": {
       "description": "SSH configuration for Linux based VMs running on Azure",
@@ -829,7 +865,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "SshConfiguration"
     },
     "SshPublicKey": {
       "description": "Contains information about SSH certificate public key and the path on the Linux VM where the public key is placed.",
@@ -842,7 +879,8 @@
           "description": "Specifies the full path on the created VM where SSH public key is stored. If the file already exists, the specified key is appended to the file.",
           "type": "string"
         }
-      }
+      },
+      "title": "SshPublicKey"
     },
     "StorageProfile": {
       "description": "Describes a storage profile.",
@@ -862,7 +900,8 @@
           "$ref": "#/definitions/OSDisk",
           "description": "The OS disk."
         }
-      }
+      },
+      "title": "StorageProfile"
     },
     "SubResource": {
       "properties": {
@@ -871,7 +910,8 @@
           "type": "string"
         }
       },
-      "x-ms-azure-resource": true
+      "x-ms-azure-resource": true,
+      "title": "SubResource"
     },
     "UpgradePolicy": {
       "description": "Describes an upgrade policy - automatic or manual.",
@@ -888,7 +928,8 @@
             "name": "UpgradeMode"
           }
         }
-      }
+      },
+      "title": "UpgradePolicy"
     },
     "Usage": {
       "description": "Describes Compute Resource Usage.",
@@ -924,7 +965,8 @@
         "currentValue",
         "limit",
         "name"
-      ]
+      ],
+      "title": "Usage"
     },
     "UsageName": {
       "description": "The Usage Names.",
@@ -937,7 +979,8 @@
           "description": "The name of the resource.",
           "type": "string"
         }
-      }
+      },
+      "title": "UsageName"
     },
     "VaultCertificate": {
       "description": "Describes a single certificate reference in a Key Vault, and where the certificate should reside on the VM.",
@@ -950,7 +993,8 @@
           "description": "The URL referencing a secret in a Key Vault which contains a properly formatted certificate.",
           "type": "string"
         }
-      }
+      },
+      "title": "VaultCertificate"
     },
     "VaultSecretGroup": {
       "description": "Describes a set of certificates which are all in the same Key Vault.",
@@ -966,7 +1010,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "VaultSecretGroup"
     },
     "VirtualHardDisk": {
       "description": "Describes the uri of a disk.",
@@ -975,7 +1020,8 @@
           "description": "The virtual hard disk's URI. Must be a valid URI to a virtual hard disk.",
           "type": "string"
         }
-      }
+      },
+      "title": "VirtualHardDisk"
     },
     "VirtualMachine": {
       "allOf": [
@@ -1005,7 +1051,8 @@
           "readOnly": true,
           "type": "array"
         }
-      }
+      },
+      "title": "VirtualMachine"
     },
     "VirtualMachineAgentInstanceView": {
       "description": "The instance view of the VM Agent running on the virtual machine.",
@@ -1028,7 +1075,8 @@
           "description": "The VM Agent full version.",
           "type": "string"
         }
-      }
+      },
+      "title": "VirtualMachineAgentInstanceView"
     },
     "VirtualMachineCaptureParameters": {
       "description": "Capture Virtual Machine parameters.",
@@ -1050,7 +1098,8 @@
         "vhdPrefix",
         "destinationContainerName",
         "overwriteVhds"
-      ]
+      ],
+      "title": "VirtualMachineCaptureParameters"
     },
     "VirtualMachineCaptureResult": {
       "allOf": [
@@ -1064,7 +1113,8 @@
           "$ref": "#/definitions/VirtualMachineCaptureResultProperties",
           "x-ms-client-flatten": true
         }
-      }
+      },
+      "title": "VirtualMachineCaptureResult"
     },
     "VirtualMachineCaptureResultProperties": {
       "description": "Compute-specific operation properties, including output",
@@ -1073,7 +1123,8 @@
           "description": "Operation output data (raw JSON)",
           "type": "object"
         }
-      }
+      },
+      "title": "VirtualMachineCaptureResultProperties"
     },
     "VirtualMachineExtension": {
       "allOf": [
@@ -1087,7 +1138,8 @@
           "$ref": "#/definitions/VirtualMachineExtensionProperties",
           "x-ms-client-flatten": true
         }
-      }
+      },
+      "title": "VirtualMachineExtension"
     },
     "VirtualMachineExtensionHandlerInstanceView": {
       "description": "The instance view of a virtual machine extension handler.",
@@ -1104,7 +1156,8 @@
           "description": "The type version of the extension handler.",
           "type": "string"
         }
-      }
+      },
+      "title": "VirtualMachineExtensionHandlerInstanceView"
     },
     "VirtualMachineExtensionImage": {
       "allOf": [
@@ -1122,7 +1175,8 @@
       "required": [
         "name",
         "location"
-      ]
+      ],
+      "title": "VirtualMachineExtensionImage"
     },
     "VirtualMachineExtensionImageProperties": {
       "description": "Describes the properties of a Virtual Machine Extension Image.",
@@ -1152,7 +1206,8 @@
         "operatingSystem",
         "computeRole",
         "handlerSchema"
-      ]
+      ],
+      "title": "VirtualMachineExtensionImageProperties"
     },
     "VirtualMachineExtensionInstanceView": {
       "description": "The instance view of a virtual machine extension.",
@@ -1183,7 +1238,8 @@
           "description": "The type version of the extension handler.",
           "type": "string"
         }
-      }
+      },
+      "title": "VirtualMachineExtensionInstanceView"
     },
     "VirtualMachineExtensionProperties": {
       "description": "Describes the properties of a Virtual Machine Extension.",
@@ -1225,7 +1281,8 @@
           "description": "The type version of the extension handler.",
           "type": "string"
         }
-      }
+      },
+      "title": "VirtualMachineExtensionProperties"
     },
     "VirtualMachineIdentity": {
       "description": "Identity for the virtual machine.",
@@ -1251,7 +1308,8 @@
             "name": "ResourceIdentityType"
           }
         }
-      }
+      },
+      "title": "VirtualMachineIdentity"
     },
     "VirtualMachineImage": {
       "allOf": [
@@ -1269,7 +1327,8 @@
       "required": [
         "name",
         "location"
-      ]
+      ],
+      "title": "VirtualMachineImage"
     },
     "VirtualMachineImageProperties": {
       "description": "Describes the properties of a Virtual Machine Image.",
@@ -1286,7 +1345,8 @@
         "plan": {
           "$ref": "#/definitions/PurchasePlan"
         }
-      }
+      },
+      "title": "VirtualMachineImageProperties"
     },
     "VirtualMachineImageResource": {
       "allOf": [
@@ -1315,7 +1375,8 @@
       "required": [
         "name",
         "location"
-      ]
+      ],
+      "title": "VirtualMachineImageResource"
     },
     "VirtualMachineInstanceView": {
       "description": "The instance view of a virtual machine.",
@@ -1363,7 +1424,8 @@
           "$ref": "#/definitions/VirtualMachineAgentInstanceView",
           "description": "The VM Agent running on the virtual machine."
         }
-      }
+      },
+      "title": "VirtualMachineInstanceView"
     },
     "VirtualMachineListResult": {
       "description": "The List Virtual Machine operation response.",
@@ -1382,7 +1444,8 @@
       },
       "required": [
         "value"
-      ]
+      ],
+      "title": "VirtualMachineListResult"
     },
     "VirtualMachineProperties": {
       "description": "Describes the properties of a Virtual Machine.",
@@ -1430,7 +1493,8 @@
           "readOnly": true,
           "type": "string"
         }
-      }
+      },
+      "title": "VirtualMachineProperties"
     },
     "VirtualMachineScaleSet": {
       "allOf": [
@@ -1452,7 +1516,8 @@
           "$ref": "#/definitions/Sku",
           "description": "The virtual machine scale set sku."
         }
-      }
+      },
+      "title": "VirtualMachineScaleSet"
     },
     "VirtualMachineScaleSetExtension": {
       "allOf": [
@@ -1470,7 +1535,8 @@
           "$ref": "#/definitions/VirtualMachineScaleSetExtensionProperties",
           "x-ms-client-flatten": true
         }
-      }
+      },
+      "title": "VirtualMachineScaleSetExtension"
     },
     "VirtualMachineScaleSetExtensionProfile": {
       "description": "Describes a virtual machine scale set extension profile.",
@@ -1482,7 +1548,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "VirtualMachineScaleSetExtensionProfile"
     },
     "VirtualMachineScaleSetExtensionProperties": {
       "description": "Describes the properties of a Virtual Machine Scale Set Extension.",
@@ -1516,7 +1583,8 @@
           "description": "The type version of the extension handler.",
           "type": "string"
         }
-      }
+      },
+      "title": "VirtualMachineScaleSetExtensionProperties"
     },
     "VirtualMachineScaleSetIPConfiguration": {
       "allOf": [
@@ -1537,7 +1605,8 @@
       },
       "required": [
         "name"
-      ]
+      ],
+      "title": "VirtualMachineScaleSetIPConfiguration"
     },
     "VirtualMachineScaleSetIPConfigurationProperties": {
       "description": "Describes a virtual machine scale set network profile's IP configuration properties.",
@@ -1570,7 +1639,8 @@
       },
       "required": [
         "subnet"
-      ]
+      ],
+      "title": "VirtualMachineScaleSetIPConfigurationProperties"
     },
     "VirtualMachineScaleSetIdentity": {
       "description": "Identity for the virtual machine scale set.",
@@ -1596,7 +1666,8 @@
             "name": "ResourceIdentityType"
           }
         }
-      }
+      },
+      "title": "VirtualMachineScaleSetIdentity"
     },
     "VirtualMachineScaleSetInstanceView": {
       "description": "The instance view of a virtual machine scale set.",
@@ -1621,7 +1692,8 @@
           "description": "The instance view status summary for the virtual machine scale set.",
           "readOnly": true
         }
-      }
+      },
+      "title": "VirtualMachineScaleSetInstanceView"
     },
     "VirtualMachineScaleSetInstanceViewStatusesSummary": {
       "description": "Instance view statuses summary for virtual machines of a virtual machine scale set.",
@@ -1634,7 +1706,8 @@
           "readOnly": true,
           "type": "array"
         }
-      }
+      },
+      "title": "VirtualMachineScaleSetInstanceViewStatusesSummary"
     },
     "VirtualMachineScaleSetListResult": {
       "description": "The List Virtual Machine operation response.",
@@ -1653,7 +1726,8 @@
       },
       "required": [
         "value"
-      ]
+      ],
+      "title": "VirtualMachineScaleSetListResult"
     },
     "VirtualMachineScaleSetListSkusResult": {
       "description": "The Virtual Machine Scale Set List Skus operation response.",
@@ -1672,7 +1746,8 @@
       },
       "required": [
         "value"
-      ]
+      ],
+      "title": "VirtualMachineScaleSetListSkusResult"
     },
     "VirtualMachineScaleSetListWithLinkResult": {
       "description": "The List Virtual Machine operation response.",
@@ -1691,7 +1766,8 @@
       },
       "required": [
         "value"
-      ]
+      ],
+      "title": "VirtualMachineScaleSetListWithLinkResult"
     },
     "VirtualMachineScaleSetNetworkConfiguration": {
       "allOf": [
@@ -1712,7 +1788,8 @@
       },
       "required": [
         "name"
-      ]
+      ],
+      "title": "VirtualMachineScaleSetNetworkConfiguration"
     },
     "VirtualMachineScaleSetNetworkConfigurationProperties": {
       "description": "Describes a virtual machine scale set network profile's IP configuration.",
@@ -1731,7 +1808,8 @@
       },
       "required": [
         "ipConfigurations"
-      ]
+      ],
+      "title": "VirtualMachineScaleSetNetworkConfigurationProperties"
     },
     "VirtualMachineScaleSetNetworkProfile": {
       "description": "Describes a virtual machine scale set network profile.",
@@ -1743,7 +1821,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "VirtualMachineScaleSetNetworkProfile"
     },
     "VirtualMachineScaleSetOSDisk": {
       "description": "Describes a virtual machine scale set operating system disk.",
@@ -1787,7 +1866,8 @@
       "required": [
         "name",
         "createOption"
-      ]
+      ],
+      "title": "VirtualMachineScaleSetOSDisk"
     },
     "VirtualMachineScaleSetOSProfile": {
       "description": "Describes a virtual machine scale set OS profile.",
@@ -1823,7 +1903,8 @@
           "$ref": "#/definitions/WindowsConfiguration",
           "description": "The Windows Configuration of the OS profile."
         }
-      }
+      },
+      "title": "VirtualMachineScaleSetOSProfile"
     },
     "VirtualMachineScaleSetProperties": {
       "description": "Describes the properties of a Virtual Machine Scale Set.",
@@ -1845,7 +1926,8 @@
           "$ref": "#/definitions/VirtualMachineScaleSetVMProfile",
           "description": "The virtual machine profile."
         }
-      }
+      },
+      "title": "VirtualMachineScaleSetProperties"
     },
     "VirtualMachineScaleSetSku": {
       "description": "Describes an available virtual machine scale set sku.",
@@ -1865,7 +1947,8 @@
           "description": "The Sku.",
           "readOnly": true
         }
-      }
+      },
+      "title": "VirtualMachineScaleSetSku"
     },
     "VirtualMachineScaleSetSkuCapacity": {
       "description": "Describes scaling information of a sku.",
@@ -1901,7 +1984,8 @@
             "name": "VirtualMachineScaleSetSkuScaleType"
           }
         }
-      }
+      },
+      "title": "VirtualMachineScaleSetSkuCapacity"
     },
     "VirtualMachineScaleSetStorageProfile": {
       "description": "Describes a virtual machine scale set storage profile.",
@@ -1914,7 +1998,8 @@
           "$ref": "#/definitions/VirtualMachineScaleSetOSDisk",
           "description": "The OS disk."
         }
-      }
+      },
+      "title": "VirtualMachineScaleSetStorageProfile"
     },
     "VirtualMachineScaleSetVM": {
       "allOf": [
@@ -1950,7 +2035,8 @@
           "description": "The virtual machine SKU.",
           "readOnly": true
         }
-      }
+      },
+      "title": "VirtualMachineScaleSetVM"
     },
     "VirtualMachineScaleSetVMExtensionsSummary": {
       "description": "Extensions summary for virtual machines of a virtual machine scale set.",
@@ -1968,7 +2054,8 @@
           "readOnly": true,
           "type": "array"
         }
-      }
+      },
+      "title": "VirtualMachineScaleSetVMExtensionsSummary"
     },
     "VirtualMachineScaleSetVMInstanceIDs": {
       "description": "Specifies a list of virtual machine instance IDs from the VM scale set.",
@@ -1980,7 +2067,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "VirtualMachineScaleSetVMInstanceIDs"
     },
     "VirtualMachineScaleSetVMInstanceRequiredIDs": {
       "description": "Specifies a list of virtual machine instance IDs from the VM scale set.",
@@ -1995,7 +2083,8 @@
       },
       "required": [
         "instanceIds"
-      ]
+      ],
+      "title": "VirtualMachineScaleSetVMInstanceRequiredIDs"
     },
     "VirtualMachineScaleSetVMInstanceView": {
       "description": "The instance view of a virtual machine scale set VM.",
@@ -2043,7 +2132,8 @@
           "$ref": "#/definitions/VirtualMachineAgentInstanceView",
           "description": "The VM Agent running on the virtual machine."
         }
-      }
+      },
+      "title": "VirtualMachineScaleSetVMInstanceView"
     },
     "VirtualMachineScaleSetVMListResult": {
       "description": "The List Virtual Machine Scale Set VMs operation response.",
@@ -2062,7 +2152,8 @@
       },
       "required": [
         "value"
-      ]
+      ],
+      "title": "VirtualMachineScaleSetVMListResult"
     },
     "VirtualMachineScaleSetVMProfile": {
       "description": "Describes a virtual machine scale set virtual machine profile.",
@@ -2083,7 +2174,8 @@
           "$ref": "#/definitions/VirtualMachineScaleSetStorageProfile",
           "description": "The virtual machine scale set storage profile."
         }
-      }
+      },
+      "title": "VirtualMachineScaleSetVMProfile"
     },
     "VirtualMachineScaleSetVMProperties": {
       "description": "Describes the properties of a virtual machine scale set virtual machine.",
@@ -2136,7 +2228,8 @@
           "readOnly": true,
           "type": "string"
         }
-      }
+      },
+      "title": "VirtualMachineScaleSetVMProperties"
     },
     "VirtualMachineSize": {
       "description": "Describes the properties of a VM size.",
@@ -2170,7 +2263,8 @@
           "format": "int32",
           "type": "integer"
         }
-      }
+      },
+      "title": "VirtualMachineSize"
     },
     "VirtualMachineSizeListResult": {
       "description": "The List Virtual Machine operation response.",
@@ -2182,7 +2276,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "VirtualMachineSizeListResult"
     },
     "VirtualMachineStatusCodeCount": {
       "description": "The status code and count of the virtual machine scale set instance view status summary.",
@@ -2198,7 +2293,8 @@
           "readOnly": true,
           "type": "integer"
         }
-      }
+      },
+      "title": "VirtualMachineStatusCodeCount"
     },
     "WinRMConfiguration": {
       "description": "Describes Windows Remote Management configuration of the VM",
@@ -2210,7 +2306,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "WinRMConfiguration"
     },
     "WinRMListener": {
       "description": "Describes Protocol and thumbprint of Windows Remote Management listener",
@@ -2231,7 +2328,8 @@
             "name": "ProtocolTypes"
           }
         }
-      }
+      },
+      "title": "WinRMListener"
     },
     "WindowsConfiguration": {
       "description": "Describes Windows Configuration of the OS Profile.",
@@ -2259,7 +2357,8 @@
           "$ref": "#/definitions/WinRMConfiguration",
           "description": "The Windows Remote Management configuration of the VM"
         }
-      }
+      },
+      "title": "WindowsConfiguration"
     }
   },
   "actions": [

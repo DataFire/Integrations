@@ -46,7 +46,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Account"
     },
     "Accounts": {
       "properties": {
@@ -71,7 +72,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Accounts"
     },
     "AdClient": {
       "properties": {
@@ -97,7 +99,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AdClient"
     },
     "AdClients": {
       "properties": {
@@ -122,7 +125,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AdClients"
     },
     "Alert": {
       "properties": {
@@ -148,7 +152,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Alert"
     },
     "Alerts": {
       "properties": {
@@ -165,7 +170,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Alerts"
     },
     "CustomChannel": {
       "properties": {
@@ -209,7 +215,8 @@
           "type": "object"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CustomChannel"
     },
     "CustomChannels": {
       "properties": {
@@ -234,7 +241,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CustomChannels"
     },
     "Metadata": {
       "properties": {
@@ -250,7 +258,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Metadata"
     },
     "PreferredDeal": {
       "properties": {
@@ -292,7 +301,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PreferredDeal"
     },
     "PreferredDeals": {
       "properties": {
@@ -309,7 +319,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PreferredDeals"
     },
     "Report": {
       "properties": {
@@ -376,7 +387,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Report"
     },
     "ReportingMetadataEntry": {
       "properties": {
@@ -425,7 +437,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ReportingMetadataEntry"
     },
     "SavedReport": {
       "properties": {
@@ -443,7 +456,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SavedReport"
     },
     "SavedReports": {
       "properties": {
@@ -468,7 +482,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SavedReports"
     },
     "UrlChannel": {
       "properties": {
@@ -486,7 +501,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UrlChannel"
     },
     "UrlChannels": {
       "properties": {
@@ -511,7 +527,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UrlChannels"
     }
   },
   "actions": [

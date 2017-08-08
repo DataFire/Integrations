@@ -48,23 +48,27 @@
           "description": "Alias configuration for the alias, including routing type and settings."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Alias"
     },
     "AliasId": {
       "pattern": "^alias-\\S+",
-      "type": "string"
+      "type": "string",
+      "title": "AliasId"
     },
     "AliasList": {
       "items": {
         "$ref": "#/definitions/Alias"
       },
-      "type": "array"
+      "type": "array",
+      "title": "AliasList"
     },
     "ArnStringModel": {
       "maxLength": 256,
       "minLength": 1,
       "pattern": "[a-zA-Z0-9:/-]+",
-      "type": "string"
+      "type": "string",
+      "title": "ArnStringModel"
     },
     "AwsCredentials": {
       "description": "AWS access credentials sometimes used for uploading game build files to Amazon GameLift. They are valid for a limited time. If they expire before you upload your game build, get a new set by calling <a>RequestUploadCredentials</a>.",
@@ -82,7 +86,8 @@
           "description": "Token specific to a build ID."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AwsCredentials"
     },
     "Build": {
       "description": "<p>Properties describing a game build.</p> <p>Build-related operations include:</p> <ul> <li> <p> <a>CreateBuild</a> </p> </li> <li> <p> <a>ListBuilds</a> </p> </li> <li> <p> <a>DescribeBuild</a> </p> </li> <li> <p> <a>UpdateBuild</a> </p> </li> <li> <p> <a>DeleteBuild</a> </p> </li> </ul>",
@@ -116,17 +121,20 @@
           "description": "Version that is associated with this build. Version strings do not need to be unique. This value can be set using <a>CreateBuild</a> or <a>UpdateBuild</a>."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Build"
     },
     "BuildId": {
       "pattern": "^build-\\S+",
-      "type": "string"
+      "type": "string",
+      "title": "BuildId"
     },
     "BuildList": {
       "items": {
         "$ref": "#/definitions/Build"
       },
-      "type": "array"
+      "type": "array",
+      "title": "BuildList"
     },
     "BuildStatus": {
       "enum": [
@@ -134,7 +142,8 @@
         "READY",
         "FAILED"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "BuildStatus"
     },
     "ComparisonOperatorType": {
       "enum": [
@@ -143,7 +152,8 @@
         "LessThanThreshold",
         "LessThanOrEqualToThreshold"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ComparisonOperatorType"
     },
     "ConflictException": {
       "description": "The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request.",
@@ -152,7 +162,8 @@
           "$ref": "#/definitions/NonEmptyString"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ConflictException"
     },
     "CreateAliasInput": {
       "description": "Represents the input for a request action.",
@@ -174,7 +185,8 @@
         "Name",
         "RoutingStrategy"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateAliasInput"
     },
     "CreateAliasOutput": {
       "description": "Represents the returned data in response to a request action.",
@@ -184,7 +196,8 @@
           "description": "Object that describes the newly created alias record."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateAliasOutput"
     },
     "CreateBuildInput": {
       "description": "Represents the input for a request action.",
@@ -206,7 +219,8 @@
           "description": "Version that is associated with this build. Version strings do not need to be unique. You can use <a>UpdateBuild</a> to change this value later. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateBuildInput"
     },
     "CreateBuildOutput": {
       "description": "Represents the returned data in response to a request action.",
@@ -224,7 +238,8 @@
           "description": "This element is not currently in use."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateBuildOutput"
     },
     "CreateFleetInput": {
       "description": "Represents the input for a request action.",
@@ -279,7 +294,8 @@
         "BuildId",
         "EC2InstanceType"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateFleetInput"
     },
     "CreateFleetOutput": {
       "description": "Represents the returned data in response to a request action.",
@@ -289,7 +305,8 @@
           "description": "Properties for the newly created fleet."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateFleetOutput"
     },
     "CreateGameSessionInput": {
       "description": "Represents the input for a request action.",
@@ -330,7 +347,8 @@
       "required": [
         "MaximumPlayerSessionCount"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateGameSessionInput"
     },
     "CreateGameSessionOutput": {
       "description": "Represents the returned data in response to a request action.",
@@ -340,7 +358,8 @@
           "description": "Object that describes the newly created game session record."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateGameSessionOutput"
     },
     "CreateGameSessionQueueInput": {
       "description": "Represents the input for a request action.",
@@ -365,7 +384,8 @@
       "required": [
         "Name"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateGameSessionQueueInput"
     },
     "CreateGameSessionQueueOutput": {
       "description": "Represents the returned data in response to a request action.",
@@ -375,7 +395,8 @@
           "description": "Object that describes the newly created game session queue."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateGameSessionQueueOutput"
     },
     "CreatePlayerSessionInput": {
       "description": "Represents the input for a request action.",
@@ -397,7 +418,8 @@
         "GameSessionId",
         "PlayerId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreatePlayerSessionInput"
     },
     "CreatePlayerSessionOutput": {
       "description": "Represents the returned data in response to a request action.",
@@ -407,7 +429,8 @@
           "description": "Object that describes the newly created player session record."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreatePlayerSessionOutput"
     },
     "CreatePlayerSessionsInput": {
       "description": "Represents the input for a request action.",
@@ -429,7 +452,8 @@
         "GameSessionId",
         "PlayerIds"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreatePlayerSessionsInput"
     },
     "CreatePlayerSessionsOutput": {
       "description": "Represents the returned data in response to a request action.",
@@ -439,7 +463,8 @@
           "description": "Collection of player session objects created for the added players."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreatePlayerSessionsOutput"
     },
     "DeleteAliasInput": {
       "description": "Represents the input for a request action.",
@@ -452,7 +477,8 @@
       "required": [
         "AliasId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteAliasInput"
     },
     "DeleteBuildInput": {
       "description": "Represents the input for a request action.",
@@ -465,7 +491,8 @@
       "required": [
         "BuildId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteBuildInput"
     },
     "DeleteFleetInput": {
       "description": "Represents the input for a request action.",
@@ -478,7 +505,8 @@
       "required": [
         "FleetId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteFleetInput"
     },
     "DeleteGameSessionQueueInput": {
       "description": "Represents the input for a request action.",
@@ -491,11 +519,13 @@
       "required": [
         "Name"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteGameSessionQueueInput"
     },
     "DeleteGameSessionQueueOutput": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DeleteGameSessionQueueOutput"
     },
     "DeleteScalingPolicyInput": {
       "description": "Represents the input for a request action.",
@@ -513,7 +543,8 @@
         "Name",
         "FleetId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteScalingPolicyInput"
     },
     "DescribeAliasInput": {
       "description": "Represents the input for a request action.",
@@ -526,7 +557,8 @@
       "required": [
         "AliasId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeAliasInput"
     },
     "DescribeAliasOutput": {
       "description": "Represents the returned data in response to a request action.",
@@ -536,7 +568,8 @@
           "description": "Object that contains the requested alias."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeAliasOutput"
     },
     "DescribeBuildInput": {
       "description": "Represents the input for a request action.",
@@ -549,7 +582,8 @@
       "required": [
         "BuildId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeBuildInput"
     },
     "DescribeBuildOutput": {
       "description": "Represents the returned data in response to a request action.",
@@ -559,7 +593,8 @@
           "description": "Set of properties describing the requested build."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeBuildOutput"
     },
     "DescribeEC2InstanceLimitsInput": {
       "description": "Represents the input for a request action.",
@@ -569,7 +604,8 @@
           "description": "Name of an EC2 instance type that is supported in Amazon GameLift. A fleet instance type determines the computing resources of each instance in the fleet, including CPU, memory, storage, and networking capacity. Amazon GameLift supports the following EC2 instance types. See <a href=\"http://aws.amazon.com/ec2/instance-types/\">Amazon EC2 Instance Types</a> for detailed descriptions. Leave this parameter blank to retrieve limits for all types."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeEC2InstanceLimitsInput"
     },
     "DescribeEC2InstanceLimitsOutput": {
       "description": "Represents the returned data in response to a request action.",
@@ -579,7 +615,8 @@
           "description": "Object that contains the maximum number of instances for the specified instance type."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeEC2InstanceLimitsOutput"
     },
     "DescribeFleetAttributesInput": {
       "description": "Represents the input for a request action.",
@@ -597,7 +634,8 @@
           "description": "Token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this action. To specify the start of the result set, do not specify a value. This parameter is ignored when the request specifies one or a list of fleet IDs."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeFleetAttributesInput"
     },
     "DescribeFleetAttributesOutput": {
       "description": "Represents the returned data in response to a request action.",
@@ -611,7 +649,8 @@
           "description": "Token that indicates where to resume retrieving results on the next call to this action. If no token is returned, these results represent the end of the list."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeFleetAttributesOutput"
     },
     "DescribeFleetCapacityInput": {
       "description": "Represents the input for a request action.",
@@ -629,7 +668,8 @@
           "description": "Token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this action. To specify the start of the result set, do not specify a value. This parameter is ignored when the request specifies one or a list of fleet IDs."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeFleetCapacityInput"
     },
     "DescribeFleetCapacityOutput": {
       "description": "Represents the returned data in response to a request action.",
@@ -643,7 +683,8 @@
           "description": "Token that indicates where to resume retrieving results on the next call to this action. If no token is returned, these results represent the end of the list."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeFleetCapacityOutput"
     },
     "DescribeFleetEventsInput": {
       "description": "Represents the input for a request action.",
@@ -672,7 +713,8 @@
       "required": [
         "FleetId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeFleetEventsInput"
     },
     "DescribeFleetEventsOutput": {
       "description": "Represents the returned data in response to a request action.",
@@ -686,7 +728,8 @@
           "description": "Token that indicates where to resume retrieving results on the next call to this action. If no token is returned, these results represent the end of the list."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeFleetEventsOutput"
     },
     "DescribeFleetPortSettingsInput": {
       "description": "Represents the input for a request action.",
@@ -699,7 +742,8 @@
       "required": [
         "FleetId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeFleetPortSettingsInput"
     },
     "DescribeFleetPortSettingsOutput": {
       "description": "Represents the returned data in response to a request action.",
@@ -709,7 +753,8 @@
           "description": "Object that contains port settings for the requested fleet ID."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeFleetPortSettingsOutput"
     },
     "DescribeFleetUtilizationInput": {
       "description": "Represents the input for a request action.",
@@ -727,7 +772,8 @@
           "description": "Token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this action. To specify the start of the result set, do not specify a value. This parameter is ignored when the request specifies one or a list of fleet IDs."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeFleetUtilizationInput"
     },
     "DescribeFleetUtilizationOutput": {
       "description": "Represents the returned data in response to a request action.",
@@ -741,7 +787,8 @@
           "description": "Token that indicates where to resume retrieving results on the next call to this action. If no token is returned, these results represent the end of the list."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeFleetUtilizationOutput"
     },
     "DescribeGameSessionDetailsInput": {
       "description": "Represents the input for a request action.",
@@ -771,7 +818,8 @@
           "description": "Game session status to filter results on. Possible game session statuses include ACTIVE, <code>TERMINATED</code>, <code>ACTIVATING</code> and <code>TERMINATING</code> (the last two are transitory). "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeGameSessionDetailsInput"
     },
     "DescribeGameSessionDetailsOutput": {
       "description": "Represents the returned data in response to a request action.",
@@ -785,7 +833,8 @@
           "description": "Token that indicates where to resume retrieving results on the next call to this action. If no token is returned, these results represent the end of the list."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeGameSessionDetailsOutput"
     },
     "DescribeGameSessionPlacementInput": {
       "description": "Represents the input for a request action.",
@@ -798,7 +847,8 @@
       "required": [
         "PlacementId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeGameSessionPlacementInput"
     },
     "DescribeGameSessionPlacementOutput": {
       "description": "Represents the returned data in response to a request action.",
@@ -808,7 +858,8 @@
           "description": "Object that describes the requested game session placement."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeGameSessionPlacementOutput"
     },
     "DescribeGameSessionQueuesInput": {
       "description": "Represents the input for a request action.",
@@ -826,7 +877,8 @@
           "description": "Token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this action. To specify the start of the result set, do not specify a value."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeGameSessionQueuesInput"
     },
     "DescribeGameSessionQueuesOutput": {
       "description": "Represents the returned data in response to a request action.",
@@ -840,7 +892,8 @@
           "description": "Token that indicates where to resume retrieving results on the next call to this action. If no token is returned, these results represent the end of the list."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeGameSessionQueuesOutput"
     },
     "DescribeGameSessionsInput": {
       "description": "Represents the input for a request action.",
@@ -870,7 +923,8 @@
           "description": "Game session status to filter results on. Possible game session statuses include <code>ACTIVE</code>, <code>TERMINATED</code>, <code>ACTIVATING</code>, and <code>TERMINATING</code> (the last two are transitory). "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeGameSessionsInput"
     },
     "DescribeGameSessionsOutput": {
       "description": "Represents the returned data in response to a request action.",
@@ -884,7 +938,8 @@
           "description": "Token that indicates where to resume retrieving results on the next call to this action. If no token is returned, these results represent the end of the list."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeGameSessionsOutput"
     },
     "DescribeInstancesInput": {
       "description": "Represents the input for a request action.",
@@ -909,7 +964,8 @@
       "required": [
         "FleetId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeInstancesInput"
     },
     "DescribeInstancesOutput": {
       "description": "Represents the returned data in response to a request action.",
@@ -923,7 +979,8 @@
           "description": "Token that indicates where to resume retrieving results on the next call to this action. If no token is returned, these results represent the end of the list."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeInstancesOutput"
     },
     "DescribePlayerSessionsInput": {
       "description": "Represents the input for a request action.",
@@ -953,7 +1010,8 @@
           "description": "<p>Player session status to filter results on.</p> <p>Possible player session statuses include the following:</p> <ul> <li> <p> <b>RESERVED</b> – The player session request has been received, but the player has not yet connected to the server process and/or been validated. </p> </li> <li> <p> <b>ACTIVE</b> – The player has been validated by the server process and is currently connected.</p> </li> <li> <p> <b>COMPLETED</b> – The player connection has been dropped.</p> </li> <li> <p> <b>TIMEDOUT</b> – A player session request was received, but the player did not connect and/or was not validated within the time-out limit (60 seconds).</p> </li> </ul>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribePlayerSessionsInput"
     },
     "DescribePlayerSessionsOutput": {
       "description": "Represents the returned data in response to a request action.",
@@ -967,7 +1025,8 @@
           "description": "Collection of objects containing properties for each player session that matches the request."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribePlayerSessionsOutput"
     },
     "DescribeRuntimeConfigurationInput": {
       "description": "Represents the input for a request action.",
@@ -980,7 +1039,8 @@
       "required": [
         "FleetId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeRuntimeConfigurationInput"
     },
     "DescribeRuntimeConfigurationOutput": {
       "description": "Represents the returned data in response to a request action.",
@@ -990,7 +1050,8 @@
           "description": "Instructions describing how server processes should be launched and maintained on each instance in the fleet."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeRuntimeConfigurationOutput"
     },
     "DescribeScalingPoliciesInput": {
       "description": "Represents the input for a request action.",
@@ -1015,7 +1076,8 @@
       "required": [
         "FleetId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeScalingPoliciesInput"
     },
     "DescribeScalingPoliciesOutput": {
       "description": "Represents the returned data in response to a request action.",
@@ -1029,7 +1091,8 @@
           "description": "Collection of objects containing the scaling policies matching the request."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeScalingPoliciesOutput"
     },
     "DesiredPlayerSession": {
       "description": "Player information for use when creating player sessions using a game session placement request with <a>StartGameSessionPlacement</a>.",
@@ -1043,17 +1106,20 @@
           "description": "Unique identifier for a player to associate with the player session."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DesiredPlayerSession"
     },
     "DesiredPlayerSessionList": {
       "items": {
         "$ref": "#/definitions/DesiredPlayerSession"
       },
-      "type": "array"
+      "type": "array",
+      "title": "DesiredPlayerSessionList"
     },
     "Double": {
       "format": "double",
-      "type": "number"
+      "type": "number",
+      "title": "Double"
     },
     "EC2InstanceCounts": {
       "description": "Current status of fleet capacity. The number of active instances should match or be in the process of matching the number of desired instances. Pending and terminating counts are non-zero only if fleet capacity is adjusting to an <a>UpdateFleetCapacity</a> request, or if access to resources is temporarily affected.",
@@ -1087,7 +1153,8 @@
           "description": "Number of instances in the fleet that are no longer active but haven't yet been terminated."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "EC2InstanceCounts"
     },
     "EC2InstanceLimit": {
       "description": "Maximum number of instances allowed based on the Amazon Elastic Compute Cloud (Amazon EC2) instance type. Instance limits can be retrieved by calling <a>DescribeEC2InstanceLimits</a>.",
@@ -1105,13 +1172,15 @@
           "description": "Number of instances allowed."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "EC2InstanceLimit"
     },
     "EC2InstanceLimitList": {
       "items": {
         "$ref": "#/definitions/EC2InstanceLimit"
       },
-      "type": "array"
+      "type": "array",
+      "title": "EC2InstanceLimitList"
     },
     "EC2InstanceType": {
       "enum": [
@@ -1144,7 +1213,8 @@
         "m4.4xlarge",
         "m4.10xlarge"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "EC2InstanceType"
     },
     "Event": {
       "description": "Log entry describing an event involving Amazon GameLift resources (such as a fleet). In addition to tracking activity, event codes and messages can provide additional information for troubleshooting and debugging problems.",
@@ -1170,7 +1240,8 @@
           "description": "Unique identifier for an event resource, such as a fleet ID."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Event"
     },
     "EventCode": {
       "enum": [
@@ -1201,13 +1272,15 @@
         "SERVER_PROCESS_PROCESS_EXIT_TIMEOUT",
         "GAME_SESSION_ACTIVATION_TIMEOUT"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "EventCode"
     },
     "EventList": {
       "items": {
         "$ref": "#/definitions/Event"
       },
-      "type": "array"
+      "type": "array",
+      "title": "EventList"
     },
     "FleetAttributes": {
       "description": "General properties describing a fleet.",
@@ -1269,13 +1342,15 @@
           "description": "Time stamp indicating when this data object was terminated. Format is a number expressed in Unix time as milliseconds (for example \"1469498468.057\")."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "FleetAttributes"
     },
     "FleetAttributesList": {
       "items": {
         "$ref": "#/definitions/FleetAttributes"
       },
-      "type": "array"
+      "type": "array",
+      "title": "FleetAttributesList"
     },
     "FleetCapacity": {
       "description": "Information about the fleet's capacity. Fleet capacity is measured in EC2 instances. By default, new fleets have a capacity of one instance, but can be updated as needed. The maximum number of instances for a fleet is determined by the fleet's instance type.",
@@ -1293,7 +1368,8 @@
           "description": "Name of an EC2 instance type that is supported in Amazon GameLift. A fleet instance type determines the computing resources of each instance in the fleet, including CPU, memory, storage, and networking capacity. Amazon GameLift supports the following EC2 instance types. See <a href=\"http://aws.amazon.com/ec2/instance-types/\">Amazon EC2 Instance Types</a> for detailed descriptions."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "FleetCapacity"
     },
     "FleetCapacityExceededException": {
       "description": "The specified fleet has no available instances to fulfill a <code>CreateGameSession</code> request. Clients can retry such requests immediately or after a waiting period.",
@@ -1302,24 +1378,28 @@
           "$ref": "#/definitions/NonEmptyString"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "FleetCapacityExceededException"
     },
     "FleetCapacityList": {
       "items": {
         "$ref": "#/definitions/FleetCapacity"
       },
-      "type": "array"
+      "type": "array",
+      "title": "FleetCapacityList"
     },
     "FleetId": {
       "pattern": "^fleet-\\S+",
-      "type": "string"
+      "type": "string",
+      "title": "FleetId"
     },
     "FleetIdList": {
       "items": {
         "$ref": "#/definitions/FleetId"
       },
       "minItems": 1,
-      "type": "array"
+      "type": "array",
+      "title": "FleetIdList"
     },
     "FleetStatus": {
       "enum": [
@@ -1333,7 +1413,8 @@
         "ERROR",
         "TERMINATED"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "FleetStatus"
     },
     "FleetUtilization": {
       "description": "Current status of fleet utilization, including the number of game and player sessions being hosted.",
@@ -1359,20 +1440,24 @@
           "description": "Maximum players allowed across all game sessions currently being hosted on all instances in the fleet."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "FleetUtilization"
     },
     "FleetUtilizationList": {
       "items": {
         "$ref": "#/definitions/FleetUtilization"
       },
-      "type": "array"
+      "type": "array",
+      "title": "FleetUtilizationList"
     },
     "Float": {
       "format": "float",
-      "type": "number"
+      "type": "number",
+      "title": "Float"
     },
     "FreeText": {
-      "type": "string"
+      "type": "string",
+      "title": "FreeText"
     },
     "GameProperty": {
       "description": "Set of key-value pairs containing information a server process requires to set up a game session. This object allows you to pass in any set of data needed for your game. For more information, see the <a href=\"http://docs.aws.amazon.com/gamelift/latest/developerguide/\">Amazon GameLift Developer Guide</a>.",
@@ -1390,22 +1475,26 @@
         "Key",
         "Value"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GameProperty"
     },
     "GamePropertyKey": {
       "maxLength": 32,
-      "type": "string"
+      "type": "string",
+      "title": "GamePropertyKey"
     },
     "GamePropertyList": {
       "items": {
         "$ref": "#/definitions/GameProperty"
       },
       "maxItems": 16,
-      "type": "array"
+      "type": "array",
+      "title": "GamePropertyList"
     },
     "GamePropertyValue": {
       "maxLength": 96,
-      "type": "string"
+      "type": "string",
+      "title": "GamePropertyValue"
     },
     "GameSession": {
       "description": "Properties describing a game session.",
@@ -1463,7 +1552,8 @@
           "description": "Time stamp indicating when this data object was terminated. Format is a number expressed in Unix time as milliseconds (for example \"1469498468.057\")."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GameSession"
     },
     "GameSessionDetail": {
       "description": "A game session's properties plus the protection policy currently in force.",
@@ -1477,13 +1567,15 @@
           "description": "<p>Current status of protection for the game session.</p> <ul> <li> <p> <b>NoProtection</b> – The game session can be terminated during a scale-down event.</p> </li> <li> <p> <b>FullProtection</b> – If the game session is in an <code>ACTIVE</code> status, it cannot be terminated during a scale-down event.</p> </li> </ul>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GameSessionDetail"
     },
     "GameSessionDetailList": {
       "items": {
         "$ref": "#/definitions/GameSessionDetail"
       },
-      "type": "array"
+      "type": "array",
+      "title": "GameSessionDetailList"
     },
     "GameSessionFullException": {
       "description": "The game instance is currently full and cannot allow the requested player(s) to join. Clients can retry such requests immediately or after a waiting period.",
@@ -1492,13 +1584,15 @@
           "$ref": "#/definitions/NonEmptyString"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GameSessionFullException"
     },
     "GameSessionList": {
       "items": {
         "$ref": "#/definitions/GameSession"
       },
-      "type": "array"
+      "type": "array",
+      "title": "GameSessionList"
     },
     "GameSessionPlacement": {
       "description": "<p>Object that describes a <a>StartGameSessionPlacement</a> request. This object includes the full details of the original request plus the current status and start/end time stamps.</p> <p>Game session placement-related operations include:</p> <ul> <li> <p> <a>StartGameSessionPlacement</a> </p> </li> <li> <p> <a>DescribeGameSessionPlacement</a> </p> </li> <li> <p> <a>StopGameSessionPlacement</a> </p> </li> </ul>",
@@ -1564,7 +1658,8 @@
           "description": "<p>Current status of the game session placement request.</p> <ul> <li> <p> <b>PENDING</b> – The placement request is currently in the queue waiting to be processed.</p> </li> <li> <p> <b>FULFILLED</b> – A new game session and player sessions (if requested) have been successfully created. Values for <i>GameSessionArn</i> and <i>GameSessionRegion</i> are available. </p> </li> <li> <p> <b>CANCELLED</b> – The placement request was canceled with a call to <a>StopGameSessionPlacement</a>.</p> </li> <li> <p> <b>TIMED_OUT</b> – A new game session was not successfully created before the time limit expired. You can resubmit the placement request as needed.</p> </li> </ul>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GameSessionPlacement"
     },
     "GameSessionPlacementState": {
       "enum": [
@@ -1573,7 +1668,8 @@
         "CANCELLED",
         "TIMED_OUT"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "GameSessionPlacementState"
     },
     "GameSessionQueue": {
       "description": "<p>Configuration of a queue that is used to process game session placement requests. The queue configuration identifies several game features:</p> <ul> <li> <p>The destinations where a new game session can potentially be hosted. Amazon GameLift tries these destinations in an order based on either the queue's default order or player latency information, if provided in a placement request. With latency information, Amazon GameLift can place game sessions where the majority of players are reporting the lowest possible latency. </p> </li> <li> <p>The length of time that placement requests can wait in the queue before timing out. </p> </li> <li> <p>A set of optional latency policies that protect individual players from high latencies, preventing game sessions from being placed where any individual player is reporting latency higher than a policy's maximum.</p> </li> </ul> <p>Queue-related operations include the following:</p> <ul> <li> <p> <a>CreateGameSessionQueue</a> </p> </li> <li> <p> <a>DescribeGameSessionQueues</a> </p> </li> <li> <p> <a>UpdateGameSessionQueue</a> </p> </li> <li> <p> <a>DeleteGameSessionQueue</a> </p> </li> </ul>",
@@ -1599,7 +1695,8 @@
           "description": "Maximum time, in seconds, that a new game session placement request remains in the queue. When a request exceeds this time, the game session placement changes to a TIMED_OUT status."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GameSessionQueue"
     },
     "GameSessionQueueDestination": {
       "description": "Fleet designated in a game session queue. Requests for new game sessions in the queue are fulfilled by starting a new game session on any destination configured for a queue. ",
@@ -1609,31 +1706,36 @@
           "description": "Amazon Resource Name (ARN) assigned to fleet or fleet alias. ARNs, which include a fleet ID or alias ID and a region name, provide a unique identifier across all regions. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GameSessionQueueDestination"
     },
     "GameSessionQueueDestinationList": {
       "items": {
         "$ref": "#/definitions/GameSessionQueueDestination"
       },
-      "type": "array"
+      "type": "array",
+      "title": "GameSessionQueueDestinationList"
     },
     "GameSessionQueueList": {
       "items": {
         "$ref": "#/definitions/GameSessionQueue"
       },
-      "type": "array"
+      "type": "array",
+      "title": "GameSessionQueueList"
     },
     "GameSessionQueueName": {
       "maxLength": 128,
       "minLength": 1,
       "pattern": "[a-zA-Z0-9-]+",
-      "type": "string"
+      "type": "string",
+      "title": "GameSessionQueueName"
     },
     "GameSessionQueueNameList": {
       "items": {
         "$ref": "#/definitions/GameSessionQueueName"
       },
-      "type": "array"
+      "type": "array",
+      "title": "GameSessionQueueNameList"
     },
     "GameSessionStatus": {
       "enum": [
@@ -1643,7 +1745,8 @@
         "TERMINATING",
         "ERROR"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "GameSessionStatus"
     },
     "GetGameSessionLogUrlInput": {
       "description": "Represents the input for a request action.",
@@ -1656,7 +1759,8 @@
       "required": [
         "GameSessionId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetGameSessionLogUrlInput"
     },
     "GetGameSessionLogUrlOutput": {
       "description": "Represents the returned data in response to a request action.",
@@ -1666,7 +1770,8 @@
           "description": "Location of the requested game session logs, available for download."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetGameSessionLogUrlOutput"
     },
     "GetInstanceAccessInput": {
       "description": "Represents the input for a request action.",
@@ -1684,7 +1789,8 @@
         "FleetId",
         "InstanceId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetInstanceAccessInput"
     },
     "GetInstanceAccessOutput": {
       "description": "Represents the returned data in response to a request action.",
@@ -1694,13 +1800,15 @@
           "description": "Object that contains connection information for a fleet instance, including IP address and access credentials."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetInstanceAccessOutput"
     },
     "IdStringModel": {
       "maxLength": 48,
       "minLength": 1,
       "pattern": "[a-zA-Z0-9-]+",
-      "type": "string"
+      "type": "string",
+      "title": "IdStringModel"
     },
     "IdempotentParameterMismatchException": {
       "description": "A game session with this custom ID string already exists in this fleet. Resolve this conflict before retrying this request.",
@@ -1709,7 +1817,8 @@
           "$ref": "#/definitions/NonEmptyString"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "IdempotentParameterMismatchException"
     },
     "Instance": {
       "description": "Properties that describe an instance of a virtual computing resource that hosts one or more game servers. A fleet contains zero or more instances.",
@@ -1743,7 +1852,8 @@
           "description": "EC2 instance type that defines the computing resources of this instance. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Instance"
     },
     "InstanceAccess": {
       "description": "Information required to remotely connect to a fleet instance. Access is requested by calling <a>GetInstanceAccess</a>. ",
@@ -1769,7 +1879,8 @@
           "description": "Operating system that is running on the instance."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InstanceAccess"
     },
     "InstanceCredentials": {
       "description": "Set of credentials required to remotely access a fleet instance. Access credentials are requested by calling <a>GetInstanceAccess</a> and returned in an <a>InstanceAccess</a> object.",
@@ -1783,17 +1894,20 @@
           "description": "User login string."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InstanceCredentials"
     },
     "InstanceId": {
       "pattern": "[a-zA-Z0-9\\.-]+",
-      "type": "string"
+      "type": "string",
+      "title": "InstanceId"
     },
     "InstanceList": {
       "items": {
         "$ref": "#/definitions/Instance"
       },
-      "type": "array"
+      "type": "array",
+      "title": "InstanceList"
     },
     "InstanceStatus": {
       "enum": [
@@ -1801,10 +1915,12 @@
         "ACTIVE",
         "TERMINATING"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "InstanceStatus"
     },
     "Integer": {
-      "type": "integer"
+      "type": "integer",
+      "title": "Integer"
     },
     "InternalServiceException": {
       "description": "The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.",
@@ -1813,7 +1929,8 @@
           "$ref": "#/definitions/NonEmptyString"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InternalServiceException"
     },
     "InvalidFleetStatusException": {
       "description": "The requested operation would cause a conflict with the current state of a resource associated with the request and/or the fleet. Resolve the conflict before retrying.",
@@ -1822,7 +1939,8 @@
           "$ref": "#/definitions/NonEmptyString"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidFleetStatusException"
     },
     "InvalidGameSessionStatusException": {
       "description": "The requested operation would cause a conflict with the current state of a resource associated with the request and/or the game instance. Resolve the conflict before retrying.",
@@ -1831,7 +1949,8 @@
           "$ref": "#/definitions/NonEmptyString"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidGameSessionStatusException"
     },
     "InvalidRequestException": {
       "description": "One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.",
@@ -1840,10 +1959,12 @@
           "$ref": "#/definitions/NonEmptyString"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidRequestException"
     },
     "IpAddress": {
-      "type": "string"
+      "type": "string",
+      "title": "IpAddress"
     },
     "IpPermission": {
       "description": "A range of IP addresses and port settings that allow inbound traffic to connect to server processes on Amazon GameLift. Each game session hosted on a fleet is assigned a unique combination of IP address and port number, which must fall into the fleet's allowed ranges. This combination is included in the <a>GameSession</a> object. ",
@@ -1871,21 +1992,24 @@
         "IpRange",
         "Protocol"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "IpPermission"
     },
     "IpPermissionsList": {
       "items": {
         "$ref": "#/definitions/IpPermission"
       },
       "maxItems": 50,
-      "type": "array"
+      "type": "array",
+      "title": "IpPermissionsList"
     },
     "IpProtocol": {
       "enum": [
         "TCP",
         "UDP"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "IpProtocol"
     },
     "LimitExceededException": {
       "description": "The requested operation would cause the resource to exceed the allowed service limit. Resolve the issue before retrying.",
@@ -1894,7 +2018,8 @@
           "$ref": "#/definitions/NonEmptyString"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LimitExceededException"
     },
     "ListAliasesInput": {
       "description": "Represents the input for a request action.",
@@ -1916,7 +2041,8 @@
           "description": "<p>Type of routing to filter results on. Use this parameter to retrieve only aliases of a certain type. To retrieve all aliases, leave this parameter empty.</p> <p>Possible routing types include the following:</p> <ul> <li> <p> <b>SIMPLE</b> – The alias resolves to one specific fleet. Use this type when routing to active fleets.</p> </li> <li> <p> <b>TERMINAL</b> – The alias does not resolve to a fleet but instead can be used to display a message to the user. A terminal alias throws a TerminalRoutingStrategyException with the <a>RoutingStrategy</a> message embedded.</p> </li> </ul>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListAliasesInput"
     },
     "ListAliasesOutput": {
       "description": "Represents the returned data in response to a request action.",
@@ -1930,7 +2056,8 @@
           "description": "Token that indicates where to resume retrieving results on the next call to this action. If no token is returned, these results represent the end of the list."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListAliasesOutput"
     },
     "ListBuildsInput": {
       "description": "Represents the input for a request action.",
@@ -1948,7 +2075,8 @@
           "description": "<p>Build status to filter results by. To retrieve all builds, leave this parameter empty.</p> <p>Possible build statuses include the following:</p> <ul> <li> <p> <b>INITIALIZED</b> – A new build has been defined, but no files have been uploaded. You cannot create fleets for builds that are in this status. When a build is successfully created, the build status is set to this value. </p> </li> <li> <p> <b>READY</b> – The game build has been successfully uploaded. You can now create new fleets for this build.</p> </li> <li> <p> <b>FAILED</b> – The game build upload failed. You cannot create new fleets for this build. </p> </li> </ul>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListBuildsInput"
     },
     "ListBuildsOutput": {
       "description": "Represents the returned data in response to a request action.",
@@ -1962,7 +2090,8 @@
           "description": "Token that indicates where to resume retrieving results on the next call to this action. If no token is returned, these results represent the end of the list."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListBuildsOutput"
     },
     "ListFleetsInput": {
       "description": "Represents the input for a request action.",
@@ -1980,7 +2109,8 @@
           "description": "Token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this action. To specify the start of the result set, do not specify a value."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListFleetsInput"
     },
     "ListFleetsOutput": {
       "description": "Represents the returned data in response to a request action.",
@@ -1994,7 +2124,8 @@
           "description": "Token that indicates where to resume retrieving results on the next call to this action. If no token is returned, these results represent the end of the list."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListFleetsOutput"
     },
     "MetricName": {
       "enum": [
@@ -2007,26 +2138,31 @@
         "QueueDepth",
         "WaitTime"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "MetricName"
     },
     "NonBlankAndLengthConstraintString": {
       "maxLength": 1024,
       "minLength": 1,
       "pattern": ".*\\S.*",
-      "type": "string"
+      "type": "string",
+      "title": "NonBlankAndLengthConstraintString"
     },
     "NonBlankString": {
       "pattern": "[^\\s]+",
-      "type": "string"
+      "type": "string",
+      "title": "NonBlankString"
     },
     "NonEmptyString": {
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "NonEmptyString"
     },
     "NonZeroAndMaxString": {
       "maxLength": 1024,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "NonZeroAndMaxString"
     },
     "NotFoundException": {
       "description": "A service resource associated with the request could not be found. Clients should not retry such requests.",
@@ -2035,14 +2171,16 @@
           "$ref": "#/definitions/NonEmptyString"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "NotFoundException"
     },
     "OperatingSystem": {
       "enum": [
         "WINDOWS_2012",
         "AMAZON_LINUX"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "OperatingSystem"
     },
     "PlacedPlayerSession": {
       "description": "Information about a player session that was created as part of a <a>StartGameSessionPlacement</a> request. This object contains only the player ID and player session ID. To retrieve full details on a player session, call <a>DescribePlayerSessions</a> with the player session ID.",
@@ -2056,18 +2194,21 @@
           "description": "Unique identifier for a player session."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PlacedPlayerSession"
     },
     "PlacedPlayerSessionList": {
       "items": {
         "$ref": "#/definitions/PlacedPlayerSession"
       },
-      "type": "array"
+      "type": "array",
+      "title": "PlacedPlayerSessionList"
     },
     "PlayerData": {
       "maxLength": 2048,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "PlayerData"
     },
     "PlayerDataMap": {
       "items": {
@@ -2081,7 +2222,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "PlayerDataMap"
     },
     "PlayerIdList": {
       "items": {
@@ -2089,7 +2231,8 @@
       },
       "maxItems": 25,
       "minItems": 1,
-      "type": "array"
+      "type": "array",
+      "title": "PlayerIdList"
     },
     "PlayerLatency": {
       "description": "Regional latency information for a player, used when requesting a new game session with <a>StartGameSessionPlacement</a>. This value indicates the amount of time lag that exists when the player is connected to a fleet in the specified region. The relative difference between a player's latency values for multiple regions are used to determine which fleets are best suited to place a new game session for the player. ",
@@ -2107,13 +2250,15 @@
           "description": "Name of the region that is associated with the latency value."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PlayerLatency"
     },
     "PlayerLatencyList": {
       "items": {
         "$ref": "#/definitions/PlayerLatency"
       },
-      "type": "array"
+      "type": "array",
+      "title": "PlayerLatencyList"
     },
     "PlayerLatencyPolicy": {
       "description": "<p>Queue setting that determines the highest latency allowed for individual players when placing a game session. When a latency policy is in force, a game session cannot be placed at any destination in a region where a player is reporting latency higher than the cap. Latency policies are only enforced when the placement request contains player latency information.</p> <p>Latency policy-related operations include:</p> <ul> <li> <p> <a>CreateGameSessionQueue</a> </p> </li> <li> <p> <a>UpdateGameSessionQueue</a> </p> </li> <li> <p> <a>StartGameSessionPlacement</a> </p> </li> </ul>",
@@ -2127,13 +2272,15 @@
           "description": "The length of time, in seconds, that the policy is enforced while placing a new game session. A null value for this property means that the policy is enforced until the queue times out."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PlayerLatencyPolicy"
     },
     "PlayerLatencyPolicyList": {
       "items": {
         "$ref": "#/definitions/PlayerLatencyPolicy"
       },
-      "type": "array"
+      "type": "array",
+      "title": "PlayerLatencyPolicyList"
     },
     "PlayerSession": {
       "description": "<p>Properties describing a player session. A player session represents either a player reservation for a game session or actual player activity in a game session. A player session object (including player data) is automatically passed to a game session when the player connects to the game session and is validated.</p> <p>Player session-related operations include:</p> <ul> <li> <p> <a>CreatePlayerSession</a> </p> </li> <li> <p> <a>CreatePlayerSessions</a> </p> </li> <li> <p> <a>DescribePlayerSessions</a> </p> </li> </ul>",
@@ -2179,24 +2326,28 @@
           "description": "Time stamp indicating when this data object was terminated. Format is a number expressed in Unix time as milliseconds (for example \"1469498468.057\")."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PlayerSession"
     },
     "PlayerSessionCreationPolicy": {
       "enum": [
         "ACCEPT_ALL",
         "DENY_ALL"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "PlayerSessionCreationPolicy"
     },
     "PlayerSessionId": {
       "pattern": "^psess-\\S+",
-      "type": "string"
+      "type": "string",
+      "title": "PlayerSessionId"
     },
     "PlayerSessionList": {
       "items": {
         "$ref": "#/definitions/PlayerSession"
       },
-      "type": "array"
+      "type": "array",
+      "title": "PlayerSessionList"
     },
     "PlayerSessionStatus": {
       "enum": [
@@ -2205,27 +2356,32 @@
         "COMPLETED",
         "TIMEDOUT"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "PlayerSessionStatus"
     },
     "PortNumber": {
       "maximum": 60000,
       "minimum": 1,
-      "type": "integer"
+      "type": "integer",
+      "title": "PortNumber"
     },
     "PositiveInteger": {
       "minimum": 1,
-      "type": "integer"
+      "type": "integer",
+      "title": "PositiveInteger"
     },
     "PositiveLong": {
       "minimum": 1,
-      "type": "integer"
+      "type": "integer",
+      "title": "PositiveLong"
     },
     "ProtectionPolicy": {
       "enum": [
         "NoProtection",
         "FullProtection"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ProtectionPolicy"
     },
     "PutScalingPolicyInput": {
       "description": "Represents the input for a request action.",
@@ -2273,7 +2429,8 @@
         "EvaluationPeriods",
         "MetricName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "PutScalingPolicyInput"
     },
     "PutScalingPolicyOutput": {
       "description": "Represents the returned data in response to a request action.",
@@ -2283,7 +2440,8 @@
           "description": "Descriptive label that is associated with a scaling policy. Policy names do not need to be unique."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PutScalingPolicyOutput"
     },
     "RequestUploadCredentialsInput": {
       "description": "Represents the input for a request action.",
@@ -2296,7 +2454,8 @@
       "required": [
         "BuildId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "RequestUploadCredentialsInput"
     },
     "RequestUploadCredentialsOutput": {
       "description": "Represents the returned data in response to a request action.",
@@ -2310,7 +2469,8 @@
           "description": "AWS credentials required when uploading a game build to the storage location. These credentials have a limited lifespan and are valid only for the build they were issued for."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RequestUploadCredentialsOutput"
     },
     "ResolveAliasInput": {
       "description": "Represents the input for a request action.",
@@ -2323,7 +2483,8 @@
       "required": [
         "AliasId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ResolveAliasInput"
     },
     "ResolveAliasOutput": {
       "description": "Represents the returned data in response to a request action.",
@@ -2333,7 +2494,8 @@
           "description": "Fleet identifier that is associated with the requested alias."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ResolveAliasOutput"
     },
     "ResourceCreationLimitPolicy": {
       "description": "<p>Policy that limits the number of game sessions a player can create on the same fleet. This optional policy gives game owners control over how players can consume available game server resources. A resource creation policy makes the following statement: \"An individual player can create a maximum number of new game sessions within a specified time period\".</p> <p>The policy is evaluated when a player tries to create a new game session. For example, with a policy of 10 new game sessions and a time period of 60 minutes, on receiving a <code>CreateGameSession</code> request, Amazon GameLift checks that the player (identified by <code>CreatorId</code>) has created fewer than 10 game sessions in the past 60 minutes.</p>",
@@ -2347,7 +2509,8 @@
           "description": "Time span used in evaluating the resource creation limit policy. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ResourceCreationLimitPolicy"
     },
     "RoutingStrategy": {
       "description": "Routing configuration for a fleet alias.",
@@ -2365,14 +2528,16 @@
           "description": "<p>Type of routing strategy.</p> <p>Possible routing types include the following:</p> <ul> <li> <p> <b>SIMPLE</b> – The alias resolves to one specific fleet. Use this type when routing to active fleets.</p> </li> <li> <p> <b>TERMINAL</b> – The alias does not resolve to a fleet but instead can be used to display a message to the user. A terminal alias throws a TerminalRoutingStrategyException with the <a>RoutingStrategy</a> message embedded.</p> </li> </ul>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RoutingStrategy"
     },
     "RoutingStrategyType": {
       "enum": [
         "SIMPLE",
         "TERMINAL"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "RoutingStrategyType"
     },
     "RuntimeConfiguration": {
       "description": "<p>Collection of server process configurations that describe what processes should be run on each instance in a fleet. An instance can launch and maintain multiple server processes based on the runtime configuration; it regularly checks for an updated runtime configuration and starts new server processes to match the latest version.</p> <p>The key purpose of a runtime configuration with multiple server process configurations is to be able to run more than one kind of game server in a single fleet. You can include configurations for more than one server executable in order to run two or more different programs to run on the same instance. This option might be useful, for example, to run more than one version of your game server on the same fleet. Another option is to specify configurations for the same server executable but with different launch parameters.</p> <p>A Amazon GameLift instance is limited to 50 processes running simultaneously. To calculate the total number of processes specified in a runtime configuration, add the values of the <code>ConcurrentExecutions</code> parameter for each <code> <a>ServerProcess</a> </code> object in the runtime configuration.</p>",
@@ -2382,7 +2547,8 @@
           "description": "Collection of server process configurations describing what server processes to run on each instance in a fleet"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RuntimeConfiguration"
     },
     "S3Location": {
       "description": "Location in Amazon Simple Storage Service (Amazon S3) where build files can be stored for access by Amazon GameLift. This location is specified in a <a>CreateBuild</a> request. For more details, see the <a href=\"http://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-build-cli-uploading.html#gamelift-build-cli-uploading-create-build\">Create a Build with Files in Amazon S3</a>.",
@@ -2400,7 +2566,8 @@
           "description": "Amazon Resource Name (<a href=\"http://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html\">ARN</a>) for the access role that allows Amazon GameLift to access your S3 bucket."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "S3Location"
     },
     "ScalingAdjustmentType": {
       "enum": [
@@ -2408,7 +2575,8 @@
         "ExactCapacity",
         "PercentChangeInCapacity"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ScalingAdjustmentType"
     },
     "ScalingPolicy": {
       "description": "Rule that controls how a fleet is scaled. Scaling policies are uniquely identified by the combination of name and fleet ID.",
@@ -2450,13 +2618,15 @@
           "description": "Metric value used to trigger a scaling event."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ScalingPolicy"
     },
     "ScalingPolicyList": {
       "items": {
         "$ref": "#/definitions/ScalingPolicy"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ScalingPolicyList"
     },
     "ScalingStatusType": {
       "enum": [
@@ -2468,7 +2638,8 @@
         "DELETED",
         "ERROR"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ScalingStatusType"
     },
     "SearchGameSessionsInput": {
       "description": "Represents the input for a request action.",
@@ -2498,7 +2669,8 @@
           "description": "<p>Instructions on how to sort the search results. If no sort expression is included, the request returns results in random order. A sort expression consists of the following elements:</p> <ul> <li> <p> <b>Operand</b> -- Name of a game session attribute. Valid values are <code>gameSessionName</code>, <code>gameSessionId</code>, <code>creationTimeMillis</code>, <code>playerSessionCount</code>, <code>maximumSessions</code>, <code>hasAvailablePlayerSessions</code>.</p> </li> <li> <p> <b>Order</b> -- Valid sort orders are <code>ASC</code> (ascending) and <code>DESC</code> (descending).</p> </li> </ul> <p>For example, this sort expression returns the oldest active sessions first: <code>\"SortExpression\": \"creationTimeMillis ASC\"</code>. Results with a null value for the sort operand are returned at the end of the list.</p>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SearchGameSessionsInput"
     },
     "SearchGameSessionsOutput": {
       "description": "Represents the returned data in response to a request action.",
@@ -2512,7 +2684,8 @@
           "description": "Token that indicates where to resume retrieving results on the next call to this action. If no token is returned, these results represent the end of the list."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SearchGameSessionsOutput"
     },
     "ServerProcess": {
       "description": "A set of instructions for launching server processes on each instance in a fleet. Each instruction set identifies the location of the server executable, optional launch parameters, and the number of server processes with this configuration to maintain concurrently on the instance. Server process configurations make up a fleet's <code> <a>RuntimeConfiguration</a> </code>.",
@@ -2534,7 +2707,8 @@
         "LaunchPath",
         "ConcurrentExecutions"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ServerProcess"
     },
     "ServerProcessList": {
       "items": {
@@ -2542,7 +2716,8 @@
       },
       "maxItems": 50,
       "minItems": 1,
-      "type": "array"
+      "type": "array",
+      "title": "ServerProcessList"
     },
     "StartGameSessionPlacementInput": {
       "description": "Represents the input for a request action.",
@@ -2581,7 +2756,8 @@
         "GameSessionQueueName",
         "MaximumPlayerSessionCount"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "StartGameSessionPlacementInput"
     },
     "StartGameSessionPlacementOutput": {
       "description": "Represents the returned data in response to a request action.",
@@ -2591,7 +2767,8 @@
           "description": "Object that describes the newly created game session placement. This object includes all the information provided in the request, as well as start/end time stamps and placement status. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "StartGameSessionPlacementOutput"
     },
     "StopGameSessionPlacementInput": {
       "description": "Represents the input for a request action.",
@@ -2604,7 +2781,8 @@
       "required": [
         "PlacementId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "StopGameSessionPlacementInput"
     },
     "StopGameSessionPlacementOutput": {
       "description": "Represents the returned data in response to a request action.",
@@ -2614,13 +2792,15 @@
           "description": "Object that describes the canceled game session placement, with Cancelled status and an end time stamp. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "StopGameSessionPlacementOutput"
     },
     "StringList": {
       "items": {
         "$ref": "#/definitions/NonZeroAndMaxString"
       },
-      "type": "array"
+      "type": "array",
+      "title": "StringList"
     },
     "TerminalRoutingStrategyException": {
       "description": "The service is unable to resolve the routing for a particular alias because it has a terminal <a>RoutingStrategy</a> associated with it. The message returned in this exception is the message defined in the routing strategy itself. Such requests should only be retried if the routing strategy for the specified alias is modified. ",
@@ -2629,11 +2809,13 @@
           "$ref": "#/definitions/NonEmptyString"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TerminalRoutingStrategyException"
     },
     "Timestamp": {
       "format": "date-time",
-      "type": "string"
+      "type": "string",
+      "title": "Timestamp"
     },
     "UnauthorizedException": {
       "description": "The client failed authentication. Clients should not retry such requests.",
@@ -2642,7 +2824,8 @@
           "$ref": "#/definitions/NonEmptyString"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UnauthorizedException"
     },
     "UpdateAliasInput": {
       "description": "Represents the input for a request action.",
@@ -2667,7 +2850,8 @@
       "required": [
         "AliasId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateAliasInput"
     },
     "UpdateAliasOutput": {
       "description": "Represents the returned data in response to a request action.",
@@ -2677,7 +2861,8 @@
           "description": "Object that contains the updated alias configuration."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UpdateAliasOutput"
     },
     "UpdateBuildInput": {
       "description": "Represents the input for a request action.",
@@ -2698,7 +2883,8 @@
       "required": [
         "BuildId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateBuildInput"
     },
     "UpdateBuildOutput": {
       "description": "Represents the returned data in response to a request action.",
@@ -2708,7 +2894,8 @@
           "description": "Object that contains the updated build record."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UpdateBuildOutput"
     },
     "UpdateFleetAttributesInput": {
       "description": "Represents the input for a request action.",
@@ -2737,7 +2924,8 @@
       "required": [
         "FleetId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateFleetAttributesInput"
     },
     "UpdateFleetAttributesOutput": {
       "description": "Represents the returned data in response to a request action.",
@@ -2747,7 +2935,8 @@
           "description": "Unique identifier for a fleet that was updated."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UpdateFleetAttributesOutput"
     },
     "UpdateFleetCapacityInput": {
       "description": "Represents the input for a request action.",
@@ -2772,7 +2961,8 @@
       "required": [
         "FleetId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateFleetCapacityInput"
     },
     "UpdateFleetCapacityOutput": {
       "description": "Represents the returned data in response to a request action.",
@@ -2782,7 +2972,8 @@
           "description": "Unique identifier for a fleet that was updated."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UpdateFleetCapacityOutput"
     },
     "UpdateFleetPortSettingsInput": {
       "description": "Represents the input for a request action.",
@@ -2803,7 +2994,8 @@
       "required": [
         "FleetId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateFleetPortSettingsInput"
     },
     "UpdateFleetPortSettingsOutput": {
       "description": "Represents the returned data in response to a request action.",
@@ -2813,7 +3005,8 @@
           "description": "Unique identifier for a fleet that was updated."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UpdateFleetPortSettingsOutput"
     },
     "UpdateGameSessionInput": {
       "description": "Represents the input for a request action.",
@@ -2842,7 +3035,8 @@
       "required": [
         "GameSessionId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateGameSessionInput"
     },
     "UpdateGameSessionOutput": {
       "description": "Represents the returned data in response to a request action.",
@@ -2852,7 +3046,8 @@
           "description": "Object that contains the updated game session metadata."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UpdateGameSessionOutput"
     },
     "UpdateGameSessionQueueInput": {
       "description": "Represents the input for a request action.",
@@ -2877,7 +3072,8 @@
       "required": [
         "Name"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateGameSessionQueueInput"
     },
     "UpdateGameSessionQueueOutput": {
       "description": "Represents the returned data in response to a request action.",
@@ -2887,7 +3083,8 @@
           "description": "Object that describes the newly updated game session queue."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UpdateGameSessionQueueOutput"
     },
     "UpdateRuntimeConfigurationInput": {
       "description": "Represents the input for a request action.",
@@ -2905,7 +3102,8 @@
         "FleetId",
         "RuntimeConfiguration"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateRuntimeConfigurationInput"
     },
     "UpdateRuntimeConfigurationOutput": {
       "description": "Represents the returned data in response to a request action.",
@@ -2915,11 +3113,13 @@
           "description": "The runtime configuration currently in force. If the update was successful, this object matches the one in the request."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UpdateRuntimeConfigurationOutput"
     },
     "WholeNumber": {
       "minimum": 0,
-      "type": "integer"
+      "type": "integer",
+      "title": "WholeNumber"
     }
   },
   "actions": [

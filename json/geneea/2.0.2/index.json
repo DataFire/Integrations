@@ -37,7 +37,8 @@
       "required": [
         "entities",
         "language"
-      ]
+      ],
+      "title": "EntitiesResponse"
     },
     "Entity": {
       "description": "The named entity",
@@ -70,7 +71,8 @@
         "links",
         "textOffset",
         "type"
-      ]
+      ],
+      "title": "Entity"
     },
     "Entry«string,long»": {
       "properties": {
@@ -78,7 +80,8 @@
           "format": "int64",
           "type": "integer"
         }
-      }
+      },
+      "title": "Entry«string,long»"
     },
     "Information_about_a_user_account.": {
       "properties": {
@@ -93,7 +96,8 @@
           "description": "Type (plan) of the user account.",
           "type": "string"
         }
-      }
+      },
+      "title": "Information_about_a_user_account."
     },
     "Label": {
       "description": "The topic label",
@@ -111,7 +115,8 @@
       "required": [
         "confidence",
         "label"
-      ]
+      ],
+      "title": "Label"
     },
     "LemmatizeResponse": {
       "description": "Response for the lemmatization",
@@ -132,7 +137,8 @@
       "required": [
         "language",
         "lemmatizedText"
-      ]
+      ],
+      "title": "LemmatizeResponse"
     },
     "Request": {
       "description": "Request encapsulation for simple API version 1",
@@ -166,7 +172,8 @@
           "description": "URL of a document to be analysed, mutually exclusive with the 'text' parameter",
           "type": "string"
         }
-      }
+      },
+      "title": "Request"
     },
     "Response_for_the_text_correction": {
       "properties": {
@@ -192,7 +199,8 @@
       "required": [
         "correctedText",
         "language"
-      ]
+      ],
+      "title": "Response_for_the_text_correction"
     },
     "SentimentResponse": {
       "description": "Response for the sentiment analysis",
@@ -214,7 +222,8 @@
       "required": [
         "language",
         "sentiment"
-      ]
+      ],
+      "title": "SentimentResponse"
     },
     "TopicResponse": {
       "description": "Response for the topic detection",
@@ -249,7 +258,8 @@
         "labels",
         "language",
         "topic"
-      ]
+      ],
+      "title": "TopicResponse"
     }
   },
   "actions": [

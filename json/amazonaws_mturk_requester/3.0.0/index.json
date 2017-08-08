@@ -30,11 +30,13 @@
       "required": [
         "QualificationRequestId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AcceptQualificationRequestRequest"
     },
     "AcceptQualificationRequestResponse": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "AcceptQualificationRequestResponse"
     },
     "ApproveAssignmentRequest": {
       "properties": {
@@ -54,11 +56,13 @@
       "required": [
         "AssignmentId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ApproveAssignmentRequest"
     },
     "ApproveAssignmentResponse": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "ApproveAssignmentResponse"
     },
     "Assignment": {
       "description": " The Assignment data structure represents a single assignment of a HIT to a Worker. The assignment tracks the Worker's efforts to complete the HIT, and contains the results for later retrieval. ",
@@ -112,13 +116,15 @@
           "description": " The ID of the Worker who accepted the HIT."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Assignment"
     },
     "AssignmentList": {
       "items": {
         "$ref": "#/definitions/Assignment"
       },
-      "type": "array"
+      "type": "array",
+      "title": "AssignmentList"
     },
     "AssignmentStatus": {
       "enum": [
@@ -126,13 +132,15 @@
         "Approved",
         "Rejected"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "AssignmentStatus"
     },
     "AssignmentStatusList": {
       "items": {
         "$ref": "#/definitions/AssignmentStatus"
       },
-      "type": "array"
+      "type": "array",
+      "title": "AssignmentStatusList"
     },
     "AssociateQualificationWithWorkerRequest": {
       "properties": {
@@ -157,11 +165,13 @@
         "QualificationTypeId",
         "WorkerId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AssociateQualificationWithWorkerRequest"
     },
     "AssociateQualificationWithWorkerResponse": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "AssociateQualificationWithWorkerResponse"
     },
     "BonusPayment": {
       "description": "An object representing a Bonus payment paid to a Worker.",
@@ -186,16 +196,19 @@
           "description": "The ID of the Worker to whom the bonus was paid."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BonusPayment"
     },
     "BonusPaymentList": {
       "items": {
         "$ref": "#/definitions/BonusPayment"
       },
-      "type": "array"
+      "type": "array",
+      "title": "BonusPaymentList"
     },
     "Boolean": {
-      "type": "boolean"
+      "type": "boolean",
+      "title": "Boolean"
     },
     "Comparator": {
       "enum": [
@@ -210,12 +223,14 @@
         "In",
         "NotIn"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "Comparator"
     },
     "CountryParameters": {
       "maxLength": 2,
       "minLength": 2,
-      "type": "string"
+      "type": "string",
+      "title": "CountryParameters"
     },
     "CreateAdditionalAssignmentsForHITRequest": {
       "properties": {
@@ -235,11 +250,13 @@
       "required": [
         "HITId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateAdditionalAssignmentsForHITRequest"
     },
     "CreateAdditionalAssignmentsForHITResponse": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "CreateAdditionalAssignmentsForHITResponse"
     },
     "CreateHITRequest": {
       "properties": {
@@ -315,7 +332,8 @@
         "Title",
         "Description"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateHITRequest"
     },
     "CreateHITResponse": {
       "properties": {
@@ -324,7 +342,8 @@
           "description": " Contains the newly created HIT data. For a description of the HIT data structure as it appears in responses, see the HIT Data Structure documentation. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateHITResponse"
     },
     "CreateHITTypeRequest": {
       "properties": {
@@ -363,7 +382,8 @@
         "Title",
         "Description"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateHITTypeRequest"
     },
     "CreateHITTypeResponse": {
       "properties": {
@@ -372,7 +392,8 @@
           "description": " The ID of the newly registered HIT type."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateHITTypeResponse"
     },
     "CreateHITWithHITTypeRequest": {
       "properties": {
@@ -421,7 +442,8 @@
         "HITTypeId",
         "LifetimeInSeconds"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateHITWithHITTypeRequest"
     },
     "CreateHITWithHITTypeResponse": {
       "properties": {
@@ -430,7 +452,8 @@
           "description": " Contains the newly created HIT data. For a description of the HIT data structure as it appears in responses, see the HIT Data Structure documentation. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateHITWithHITTypeResponse"
     },
     "CreateQualificationTypeRequest": {
       "properties": {
@@ -480,7 +503,8 @@
         "Description",
         "QualificationTypeStatus"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateQualificationTypeRequest"
     },
     "CreateQualificationTypeResponse": {
       "properties": {
@@ -489,7 +513,8 @@
           "description": "The created Qualification type, returned as a QualificationType data structure."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateQualificationTypeResponse"
     },
     "CreateWorkerBlockRequest": {
       "properties": {
@@ -506,23 +531,27 @@
         "WorkerId",
         "Reason"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateWorkerBlockRequest"
     },
     "CreateWorkerBlockResponse": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "CreateWorkerBlockResponse"
     },
     "CustomerId": {
       "maxLength": 64,
       "minLength": 1,
       "pattern": "^A[A-Z0-9]+$",
-      "type": "string"
+      "type": "string",
+      "title": "CustomerId"
     },
     "CustomerIdList": {
       "items": {
         "$ref": "#/definitions/CustomerId"
       },
-      "type": "array"
+      "type": "array",
+      "title": "CustomerIdList"
     },
     "DeleteHITRequest": {
       "properties": {
@@ -534,11 +563,13 @@
       "required": [
         "HITId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteHITRequest"
     },
     "DeleteHITResponse": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DeleteHITResponse"
     },
     "DeleteQualificationTypeRequest": {
       "properties": {
@@ -550,11 +581,13 @@
       "required": [
         "QualificationTypeId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteQualificationTypeRequest"
     },
     "DeleteQualificationTypeResponse": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DeleteQualificationTypeResponse"
     },
     "DeleteWorkerBlockRequest": {
       "properties": {
@@ -570,11 +603,13 @@
       "required": [
         "WorkerId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteWorkerBlockRequest"
     },
     "DeleteWorkerBlockResponse": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DeleteWorkerBlockResponse"
     },
     "DisassociateQualificationFromWorkerRequest": {
       "properties": {
@@ -595,17 +630,20 @@
         "WorkerId",
         "QualificationTypeId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DisassociateQualificationFromWorkerRequest"
     },
     "DisassociateQualificationFromWorkerResponse": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DisassociateQualificationFromWorkerResponse"
     },
     "EntityId": {
       "maxLength": 64,
       "minLength": 1,
       "pattern": "^[A-Z0-9]+$",
-      "type": "string"
+      "type": "string",
+      "title": "EntityId"
     },
     "EventType": {
       "enum": [
@@ -622,20 +660,24 @@
         "HITDisposed",
         "Ping"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "EventType"
     },
     "EventTypeList": {
       "items": {
         "$ref": "#/definitions/EventType"
       },
-      "type": "array"
+      "type": "array",
+      "title": "EventTypeList"
     },
     "ExceptionMessage": {
-      "type": "string"
+      "type": "string",
+      "title": "ExceptionMessage"
     },
     "GetAccountBalanceRequest": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "GetAccountBalanceRequest"
     },
     "GetAccountBalanceResponse": {
       "properties": {
@@ -646,7 +688,8 @@
           "$ref": "#/definitions/NumericValue"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetAccountBalanceResponse"
     },
     "GetAssignmentRequest": {
       "properties": {
@@ -658,7 +701,8 @@
       "required": [
         "AssignmentId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetAssignmentRequest"
     },
     "GetAssignmentResponse": {
       "properties": {
@@ -671,7 +715,8 @@
           "description": " The HIT associated with this assignment. The response includes one HIT element."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetAssignmentResponse"
     },
     "GetFileUploadURLRequest": {
       "properties": {
@@ -688,7 +733,8 @@
         "AssignmentId",
         "QuestionIdentifier"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetFileUploadURLRequest"
     },
     "GetFileUploadURLResponse": {
       "properties": {
@@ -697,7 +743,8 @@
           "description": " A temporary URL for the file that the Worker uploaded for the answer. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetFileUploadURLResponse"
     },
     "GetHITRequest": {
       "properties": {
@@ -709,7 +756,8 @@
       "required": [
         "HITId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetHITRequest"
     },
     "GetHITResponse": {
       "properties": {
@@ -718,7 +766,8 @@
           "description": " Contains the requested HIT data."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetHITResponse"
     },
     "GetQualificationScoreRequest": {
       "properties": {
@@ -735,7 +784,8 @@
         "QualificationTypeId",
         "WorkerId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetQualificationScoreRequest"
     },
     "GetQualificationScoreResponse": {
       "properties": {
@@ -744,7 +794,8 @@
           "description": " The Qualification data structure of the Qualification assigned to a user, including the Qualification type and the value (score). "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetQualificationScoreResponse"
     },
     "GetQualificationTypeRequest": {
       "properties": {
@@ -756,7 +807,8 @@
       "required": [
         "QualificationTypeId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetQualificationTypeRequest"
     },
     "GetQualificationTypeResponse": {
       "properties": {
@@ -765,7 +817,8 @@
           "description": " The returned Qualification Type"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetQualificationTypeResponse"
     },
     "HIT": {
       "description": " The HIT data structure represents a single HIT, including all the information necessary for a Worker to accept and complete the HIT.",
@@ -854,7 +907,8 @@
           "description": " The title of the HIT."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "HIT"
     },
     "HITLayoutParameter": {
       "description": " The HITLayoutParameter data structure defines parameter values used with a HITLayout. A HITLayout is a reusable Amazon Mechanical Turk project template used to provide Human Intelligence Task (HIT) question data for CreateHIT. ",
@@ -868,19 +922,22 @@
           "description": "The value substituted for the parameter referenced in the HITLayout. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "HITLayoutParameter"
     },
     "HITLayoutParameterList": {
       "items": {
         "$ref": "#/definitions/HITLayoutParameter"
       },
-      "type": "array"
+      "type": "array",
+      "title": "HITLayoutParameterList"
     },
     "HITList": {
       "items": {
         "$ref": "#/definitions/HIT"
       },
-      "type": "array"
+      "type": "array",
+      "title": "HITList"
     },
     "HITReviewStatus": {
       "enum": [
@@ -889,7 +946,8 @@
         "ReviewedAppropriate",
         "ReviewedInappropriate"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "HITReviewStatus"
     },
     "HITStatus": {
       "enum": [
@@ -899,21 +957,25 @@
         "Reviewing",
         "Disposed"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "HITStatus"
     },
     "IdempotencyToken": {
       "maxLength": 64,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "IdempotencyToken"
     },
     "Integer": {
-      "type": "integer"
+      "type": "integer",
+      "title": "Integer"
     },
     "IntegerList": {
       "items": {
         "$ref": "#/definitions/Integer"
       },
-      "type": "array"
+      "type": "array",
+      "title": "IntegerList"
     },
     "ListAssignmentsForHITRequest": {
       "properties": {
@@ -936,7 +998,8 @@
       "required": [
         "HITId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListAssignmentsForHITRequest"
     },
     "ListAssignmentsForHITResponse": {
       "properties": {
@@ -952,7 +1015,8 @@
           "description": " The number of assignments on the page in the filtered results list, equivalent to the number of assignments returned by this call."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListAssignmentsForHITResponse"
     },
     "ListBonusPaymentsRequest": {
       "properties": {
@@ -972,7 +1036,8 @@
           "description": "Pagination token"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListBonusPaymentsRequest"
     },
     "ListBonusPaymentsResponse": {
       "properties": {
@@ -988,7 +1053,8 @@
           "description": "The number of bonus payments on this page in the filtered results list, equivalent to the number of bonus payments being returned by this call. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListBonusPaymentsResponse"
     },
     "ListHITsForQualificationTypeRequest": {
       "properties": {
@@ -1008,7 +1074,8 @@
       "required": [
         "QualificationTypeId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListHITsForQualificationTypeRequest"
     },
     "ListHITsForQualificationTypeResponse": {
       "properties": {
@@ -1024,7 +1091,8 @@
           "description": " The number of HITs on this page in the filtered results list, equivalent to the number of HITs being returned by this call. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListHITsForQualificationTypeResponse"
     },
     "ListHITsRequest": {
       "properties": {
@@ -1036,7 +1104,8 @@
           "description": "Pagination token"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListHITsRequest"
     },
     "ListHITsResponse": {
       "properties": {
@@ -1052,7 +1121,8 @@
           "description": "The number of HITs on this page in the filtered results list, equivalent to the number of HITs being returned by this call."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListHITsResponse"
     },
     "ListQualificationRequestsRequest": {
       "properties": {
@@ -1068,7 +1138,8 @@
           "description": "The ID of the QualificationType."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListQualificationRequestsRequest"
     },
     "ListQualificationRequestsResponse": {
       "properties": {
@@ -1084,7 +1155,8 @@
           "description": "The Qualification request. The response includes one QualificationRequest element for each Qualification request returned by the query."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListQualificationRequestsResponse"
     },
     "ListQualificationTypesRequest": {
       "properties": {
@@ -1111,7 +1183,8 @@
       "required": [
         "MustBeRequestable"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListQualificationTypesRequest"
     },
     "ListQualificationTypesResponse": {
       "properties": {
@@ -1127,7 +1200,8 @@
           "description": " The list of QualificationType elements returned by the query. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListQualificationTypesResponse"
     },
     "ListReviewPolicyResultsForHITRequest": {
       "properties": {
@@ -1159,7 +1233,8 @@
       "required": [
         "HITId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListReviewPolicyResultsForHITRequest"
     },
     "ListReviewPolicyResultsForHITResponse": {
       "properties": {
@@ -1187,7 +1262,8 @@
           "$ref": "#/definitions/PaginationToken"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListReviewPolicyResultsForHITResponse"
     },
     "ListReviewableHITsRequest": {
       "properties": {
@@ -1208,7 +1284,8 @@
           "description": " Can be either <code>Reviewable</code> or <code>Reviewing</code>. Reviewable is the default value. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListReviewableHITsRequest"
     },
     "ListReviewableHITsResponse": {
       "properties": {
@@ -1224,7 +1301,8 @@
           "description": " The number of HITs on this page in the filtered results list, equivalent to the number of HITs being returned by this call. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListReviewableHITsResponse"
     },
     "ListWorkerBlocksRequest": {
       "properties": {
@@ -1236,7 +1314,8 @@
           "description": "Pagination token"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListWorkerBlocksRequest"
     },
     "ListWorkerBlocksResponse": {
       "properties": {
@@ -1252,7 +1331,8 @@
           "description": " The list of WorkerBlocks, containing the collection of Worker IDs and reasons for blocking."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListWorkerBlocksResponse"
     },
     "ListWorkersWithQualificationTypeRequest": {
       "properties": {
@@ -1276,7 +1356,8 @@
       "required": [
         "QualificationTypeId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListWorkersWithQualificationTypeRequest"
     },
     "ListWorkersWithQualificationTypeResponse": {
       "properties": {
@@ -1292,7 +1373,8 @@
           "description": " The list of Qualification elements returned by this call. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListWorkersWithQualificationTypeResponse"
     },
     "Locale": {
       "description": "The Locale data structure represents a geographical region or location.",
@@ -1309,16 +1391,19 @@
       "required": [
         "Country"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "Locale"
     },
     "LocaleList": {
       "items": {
         "$ref": "#/definitions/Locale"
       },
-      "type": "array"
+      "type": "array",
+      "title": "LocaleList"
     },
     "Long": {
-      "type": "integer"
+      "type": "integer",
+      "title": "Long"
     },
     "NotificationSpecification": {
       "description": "The NotificationSpecification data structure describes a HIT event notification for a HIT type.",
@@ -1344,21 +1429,24 @@
         "Destination",
         "Transport"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "NotificationSpecification"
     },
     "NotificationTransport": {
       "enum": [
         "Email",
         "SQS"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "NotificationTransport"
     },
     "NotifyWorkersFailureCode": {
       "enum": [
         "SoftFailure",
         "HardFailure"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "NotifyWorkersFailureCode"
     },
     "NotifyWorkersFailureStatus": {
       "description": " When MTurk encounters an issue with notifying the Workers you specified, it returns back this object with failure details. ",
@@ -1376,13 +1464,15 @@
           "description": " The ID of the Worker."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "NotifyWorkersFailureStatus"
     },
     "NotifyWorkersFailureStatusList": {
       "items": {
         "$ref": "#/definitions/NotifyWorkersFailureStatus"
       },
-      "type": "array"
+      "type": "array",
+      "title": "NotifyWorkersFailureStatusList"
     },
     "NotifyWorkersRequest": {
       "properties": {
@@ -1404,7 +1494,8 @@
         "MessageText",
         "WorkerIds"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "NotifyWorkersRequest"
     },
     "NotifyWorkersResponse": {
       "properties": {
@@ -1413,18 +1504,21 @@
           "description": " When MTurk sends notifications to the list of Workers, it returns back any failures it encounters in this list of NotifyWorkersFailureStatus objects. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "NotifyWorkersResponse"
     },
     "NumericValue": {
       "description": "A string representing a numeric value.",
       "pattern": "^[0-9]+(\\.)?[0-9]*$",
-      "type": "string"
+      "type": "string",
+      "title": "NumericValue"
     },
     "PaginationToken": {
       "description": "If the previous response was incomplete (because there is more data to retrieve), Amazon Mechanical Turk returns a pagination token in the response. You can use this pagination token to retrieve the next set of results. ",
       "maxLength": 255,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "PaginationToken"
     },
     "ParameterMapEntry": {
       "description": " This data structure is the data type for the AnswerKey parameter of the ScoreMyKnownAnswers/2011-09-01 Review Policy. ",
@@ -1438,13 +1532,15 @@
           "description": " The list of answers to the question specified in the MapEntry Key element. The Worker must match all values in order for the answer to be scored correctly. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ParameterMapEntry"
     },
     "ParameterMapEntryList": {
       "items": {
         "$ref": "#/definitions/ParameterMapEntry"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ParameterMapEntryList"
     },
     "PolicyParameter": {
       "description": " Name of the parameter from the Review policy. ",
@@ -1462,13 +1558,15 @@
           "description": " The list of values of the Parameter"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PolicyParameter"
     },
     "PolicyParameterList": {
       "items": {
         "$ref": "#/definitions/PolicyParameter"
       },
-      "type": "array"
+      "type": "array",
+      "title": "PolicyParameterList"
     },
     "Qualification": {
       "description": "The Qualification data structure represents a Qualification assigned to a user, including the Qualification type and the value (score).",
@@ -1497,13 +1595,15 @@
           "description": " The ID of the Worker who possesses the Qualification. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Qualification"
     },
     "QualificationList": {
       "items": {
         "$ref": "#/definitions/Qualification"
       },
-      "type": "array"
+      "type": "array",
+      "title": "QualificationList"
     },
     "QualificationRequest": {
       "description": " The QualificationRequest data structure represents a request a Worker has made for a Qualification. ",
@@ -1533,13 +1633,15 @@
           "description": " The ID of the Worker requesting the Qualification."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "QualificationRequest"
     },
     "QualificationRequestList": {
       "items": {
         "$ref": "#/definitions/QualificationRequest"
       },
-      "type": "array"
+      "type": "array",
+      "title": "QualificationRequestList"
     },
     "QualificationRequirement": {
       "description": " The QualificationRequirement data structure describes a Qualification that a Worker must have before the Worker is allowed to accept a HIT. A requirement may optionally state that a Worker must have the Qualification in order to preview the HIT. ",
@@ -1569,20 +1671,23 @@
         "QualificationTypeId",
         "Comparator"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "QualificationRequirement"
     },
     "QualificationRequirementList": {
       "items": {
         "$ref": "#/definitions/QualificationRequirement"
       },
-      "type": "array"
+      "type": "array",
+      "title": "QualificationRequirementList"
     },
     "QualificationStatus": {
       "enum": [
         "Granted",
         "Revoked"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "QualificationStatus"
     },
     "QualificationType": {
       "description": " The QualificationType data structure represents a Qualification type, a description of a property of a Worker that must match the requirements of a HIT for the Worker to be able to accept the HIT. The type also describes how a Worker can obtain a Qualification of that type, such as through a Qualification test. ",
@@ -1640,20 +1745,23 @@
           "description": " The amount of time, in seconds, given to a Worker to complete the Qualification test, beginning from the time the Worker requests the Qualification. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "QualificationType"
     },
     "QualificationTypeList": {
       "items": {
         "$ref": "#/definitions/QualificationType"
       },
-      "type": "array"
+      "type": "array",
+      "title": "QualificationTypeList"
     },
     "QualificationTypeStatus": {
       "enum": [
         "Active",
         "Inactive"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "QualificationTypeStatus"
     },
     "RejectAssignmentRequest": {
       "properties": {
@@ -1669,11 +1777,13 @@
       "required": [
         "AssignmentId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "RejectAssignmentRequest"
     },
     "RejectAssignmentResponse": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "RejectAssignmentResponse"
     },
     "RejectQualificationRequestRequest": {
       "properties": {
@@ -1689,11 +1799,13 @@
       "required": [
         "QualificationRequestId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "RejectQualificationRequestRequest"
     },
     "RejectQualificationRequestResponse": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "RejectQualificationRequestResponse"
     },
     "RequestError": {
       "description": "Your request is invalid.",
@@ -1705,12 +1817,14 @@
           "$ref": "#/definitions/TurkErrorCode"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RequestError"
     },
     "ResultSize": {
       "maximum": 100,
       "minimum": 1,
-      "type": "integer"
+      "type": "integer",
+      "title": "ResultSize"
     },
     "ReviewActionDetail": {
       "description": " Both the AssignmentReviewReport and the HITReviewReport elements contains the ReviewActionDetail data structure. This structure is returned multiple times for each action specified in the Review Policy. ",
@@ -1748,13 +1862,15 @@
           "description": " The type of object in TargetId."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ReviewActionDetail"
     },
     "ReviewActionDetailList": {
       "items": {
         "$ref": "#/definitions/ReviewActionDetail"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ReviewActionDetailList"
     },
     "ReviewActionStatus": {
       "enum": [
@@ -1763,7 +1879,8 @@
         "Failed",
         "Cancelled"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ReviewActionStatus"
     },
     "ReviewPolicy": {
       "description": " HIT Review Policy data structures represent HIT review policies, which you specify when you create a HIT. ",
@@ -1777,20 +1894,23 @@
           "description": " Name of a Review Policy: SimplePlurality/2011-09-01 or ScoreMyKnownAnswers/2011-09-01 "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ReviewPolicy"
     },
     "ReviewPolicyLevel": {
       "enum": [
         "Assignment",
         "HIT"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ReviewPolicyLevel"
     },
     "ReviewPolicyLevelList": {
       "items": {
         "$ref": "#/definitions/ReviewPolicyLevel"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ReviewPolicyLevelList"
     },
     "ReviewReport": {
       "description": " Contains both ReviewResult and ReviewAction elements for a particular HIT. ",
@@ -1804,7 +1924,8 @@
           "description": " A list of ReviewResults objects for each action specified in the Review Policy. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ReviewReport"
     },
     "ReviewResultDetail": {
       "description": " This data structure is returned multiple times for each result specified in the Review Policy. ",
@@ -1834,20 +1955,23 @@
           "description": " The values of Key provided by the review policies you have selected. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ReviewResultDetail"
     },
     "ReviewResultDetailList": {
       "items": {
         "$ref": "#/definitions/ReviewResultDetail"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ReviewResultDetailList"
     },
     "ReviewableHITStatus": {
       "enum": [
         "Reviewable",
         "Reviewing"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ReviewableHITStatus"
     },
     "SendBonusRequest": {
       "properties": {
@@ -1877,11 +2001,13 @@
         "BonusAmount",
         "AssignmentId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "SendBonusRequest"
     },
     "SendBonusResponse": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "SendBonusResponse"
     },
     "SendTestEventNotificationRequest": {
       "properties": {
@@ -1898,11 +2024,13 @@
         "Notification",
         "TestEventType"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "SendTestEventNotificationRequest"
     },
     "SendTestEventNotificationResponse": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "SendTestEventNotificationResponse"
     },
     "ServiceFault": {
       "description": "Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.",
@@ -1914,23 +2042,28 @@
           "$ref": "#/definitions/TurkErrorCode"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ServiceFault"
     },
     "String": {
-      "type": "string"
+      "type": "string",
+      "title": "String"
     },
     "StringList": {
       "items": {
         "$ref": "#/definitions/String"
       },
-      "type": "array"
+      "type": "array",
+      "title": "StringList"
     },
     "Timestamp": {
       "format": "date-time",
-      "type": "string"
+      "type": "string",
+      "title": "Timestamp"
     },
     "TurkErrorCode": {
-      "type": "string"
+      "type": "string",
+      "title": "TurkErrorCode"
     },
     "UpdateExpirationForHITRequest": {
       "properties": {
@@ -1946,11 +2079,13 @@
       "required": [
         "HITId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateExpirationForHITRequest"
     },
     "UpdateExpirationForHITResponse": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "UpdateExpirationForHITResponse"
     },
     "UpdateHITReviewStatusRequest": {
       "properties": {
@@ -1966,11 +2101,13 @@
       "required": [
         "HITId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateHITReviewStatusRequest"
     },
     "UpdateHITReviewStatusResponse": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "UpdateHITReviewStatusResponse"
     },
     "UpdateHITTypeOfHITRequest": {
       "properties": {
@@ -1987,11 +2124,13 @@
         "HITId",
         "HITTypeId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateHITTypeOfHITRequest"
     },
     "UpdateHITTypeOfHITResponse": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "UpdateHITTypeOfHITResponse"
     },
     "UpdateNotificationSettingsRequest": {
       "properties": {
@@ -2011,11 +2150,13 @@
       "required": [
         "HITTypeId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateNotificationSettingsRequest"
     },
     "UpdateNotificationSettingsResponse": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "UpdateNotificationSettingsResponse"
     },
     "UpdateQualificationTypeRequest": {
       "properties": {
@@ -2059,7 +2200,8 @@
       "required": [
         "QualificationTypeId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateQualificationTypeRequest"
     },
     "UpdateQualificationTypeResponse": {
       "properties": {
@@ -2068,7 +2210,8 @@
           "description": " Contains a QualificationType data structure."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UpdateQualificationTypeResponse"
     },
     "WorkerBlock": {
       "description": " The WorkerBlock data structure represents a Worker who has been blocked. It has two elements: the WorkerId and the Reason for the block. ",
@@ -2082,13 +2225,15 @@
           "description": " The ID of the Worker who accepted the HIT."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "WorkerBlock"
     },
     "WorkerBlockList": {
       "items": {
         "$ref": "#/definitions/WorkerBlock"
       },
-      "type": "array"
+      "type": "array",
+      "title": "WorkerBlockList"
     }
   },
   "actions": [

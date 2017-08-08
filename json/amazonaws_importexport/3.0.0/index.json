@@ -18,7 +18,8 @@
   "definitions": {
     "APIVersion": {
       "description": "Specifies the version of the client tool.",
-      "type": "string"
+      "type": "string",
+      "title": "APIVersion"
     },
     "Artifact": {
       "description": "A discrete item that contains the description and URL of an artifact (such as a PDF).",
@@ -30,14 +31,16 @@
           "$ref": "#/definitions/URL"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Artifact"
     },
     "ArtifactList": {
       "description": "A collection of artifacts.",
       "items": {
         "$ref": "#/definitions/Artifact"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ArtifactList"
     },
     "BucketPermissionException": {
       "description": "The account specified does not have the appropriate bucket permissions.",
@@ -46,7 +49,8 @@
           "$ref": "#/definitions/ErrorMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BucketPermissionException"
     },
     "CancelJobInput": {
       "description": "Input structure for the CancelJob operation.",
@@ -61,7 +65,8 @@
       "required": [
         "JobId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CancelJobInput"
     },
     "CancelJobOutput": {
       "description": "Output structure for the CancelJob operation.",
@@ -70,7 +75,8 @@
           "$ref": "#/definitions/Success"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CancelJobOutput"
     },
     "CanceledJobIdException": {
       "description": "The specified job ID has been canceled and is no longer valid.",
@@ -79,11 +85,13 @@
           "$ref": "#/definitions/ErrorMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CanceledJobIdException"
     },
     "Carrier": {
       "description": "Name of the shipping company. This value is included when the LocationCode is \"Returned\".",
-      "type": "string"
+      "type": "string",
+      "title": "Carrier"
     },
     "CreateJobInput": {
       "description": "Input structure for the CreateJob operation.",
@@ -109,7 +117,8 @@
         "Manifest",
         "ValidateOnly"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateJobInput"
     },
     "CreateJobOutput": {
       "description": "Output structure for the CreateJob operation.",
@@ -133,7 +142,8 @@
           "$ref": "#/definitions/WarningMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateJobOutput"
     },
     "CreateJobQuotaExceededException": {
       "description": "Each account can create only a certain number of jobs per day. If you need to create more than this, please contact awsimportexport@amazon.com to explain your particular use case.",
@@ -142,28 +152,34 @@
           "$ref": "#/definitions/ErrorMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateJobQuotaExceededException"
     },
     "CreationDate": {
       "description": "Timestamp of the CreateJob request in ISO8601 date format. For example \"2010-03-28T20:27:35Z\".",
       "format": "date-time",
-      "type": "string"
+      "type": "string",
+      "title": "CreationDate"
     },
     "CurrentManifest": {
       "description": "The last manifest submitted, which will be used to process the job.",
-      "type": "string"
+      "type": "string",
+      "title": "CurrentManifest"
     },
     "Description": {
       "description": "The associated description for this object.",
-      "type": "string"
+      "type": "string",
+      "title": "Description"
     },
     "ErrorCount": {
       "description": "Number of errors. We return this value when the ProgressCode is Success or SuccessWithErrors.",
-      "type": "integer"
+      "type": "integer",
+      "title": "ErrorCount"
     },
     "ErrorMessage": {
       "description": "The human-readable description of a particular error.",
-      "type": "string"
+      "type": "string",
+      "title": "ErrorMessage"
     },
     "ExpiredJobIdException": {
       "description": "Indicates that the specified job has expired out of the system.",
@@ -172,10 +188,12 @@
           "$ref": "#/definitions/ErrorMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ExpiredJobIdException"
     },
     "GenericString": {
-      "type": "string"
+      "type": "string",
+      "title": "GenericString"
     },
     "GetShippingLabelInput": {
       "properties": {
@@ -219,7 +237,8 @@
       "required": [
         "jobIds"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetShippingLabelInput"
     },
     "GetShippingLabelOutput": {
       "properties": {
@@ -230,7 +249,8 @@
           "$ref": "#/definitions/GenericString"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetShippingLabelOutput"
     },
     "GetStatusInput": {
       "description": "Input structure for the GetStatus operation.",
@@ -245,7 +265,8 @@
       "required": [
         "JobId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetStatusInput"
     },
     "GetStatusOutput": {
       "description": "Output structure for the GetStatus operation.",
@@ -299,7 +320,8 @@
           "$ref": "#/definitions/TrackingNumber"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetStatusOutput"
     },
     "InvalidAccessKeyIdException": {
       "description": "The AWS Access Key ID specified in the request did not match the manifest's accessKeyId value. The manifest and the request authentication must use the same AWS Access Key ID.",
@@ -308,7 +330,8 @@
           "$ref": "#/definitions/ErrorMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidAccessKeyIdException"
     },
     "InvalidAddressException": {
       "description": "The address specified in the manifest is invalid.",
@@ -317,7 +340,8 @@
           "$ref": "#/definitions/ErrorMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidAddressException"
     },
     "InvalidCustomsException": {
       "description": "One or more customs parameters was invalid. Please correct and resubmit.",
@@ -326,7 +350,8 @@
           "$ref": "#/definitions/ErrorMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidCustomsException"
     },
     "InvalidFileSystemException": {
       "description": "File system specified in export manifest is invalid.",
@@ -335,7 +360,8 @@
           "$ref": "#/definitions/ErrorMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidFileSystemException"
     },
     "InvalidJobIdException": {
       "description": "The JOBID was missing, not found, or not associated with the AWS account.",
@@ -344,7 +370,8 @@
           "$ref": "#/definitions/ErrorMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidJobIdException"
     },
     "InvalidManifestFieldException": {
       "description": "One or more manifest fields was invalid. Please correct and resubmit.",
@@ -353,7 +380,8 @@
           "$ref": "#/definitions/ErrorMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidManifestFieldException"
     },
     "InvalidParameterException": {
       "description": "One or more parameters had an invalid value.",
@@ -362,7 +390,8 @@
           "$ref": "#/definitions/ErrorMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidParameterException"
     },
     "InvalidVersionException": {
       "description": "The client tool version is invalid.",
@@ -371,15 +400,18 @@
           "$ref": "#/definitions/ErrorMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidVersionException"
     },
     "IsCanceled": {
       "description": "Indicates whether the job was canceled.",
-      "type": "boolean"
+      "type": "boolean",
+      "title": "IsCanceled"
     },
     "IsTruncated": {
       "description": "Indicates whether the list of jobs was truncated. If true, then call ListJobs again using the last JobId element as the marker.",
-      "type": "boolean"
+      "type": "boolean",
+      "title": "IsTruncated"
     },
     "Job": {
       "description": "Representation of a job returned by the ListJobs operation.",
@@ -397,17 +429,20 @@
           "$ref": "#/definitions/JobType"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Job"
     },
     "JobId": {
       "description": "A unique identifier which refers to a particular job.",
-      "type": "string"
+      "type": "string",
+      "title": "JobId"
     },
     "JobIdList": {
       "items": {
         "$ref": "#/definitions/GenericString"
       },
-      "type": "array"
+      "type": "array",
+      "title": "JobIdList"
     },
     "JobType": {
       "description": "Specifies whether the job to initiate is an import or export job.",
@@ -415,14 +450,16 @@
         "Import",
         "Export"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "JobType"
     },
     "JobsList": {
       "description": "A list container for Jobs returned by the ListJobs operation.",
       "items": {
         "$ref": "#/definitions/Job"
       },
-      "type": "array"
+      "type": "array",
+      "title": "JobsList"
     },
     "ListJobsInput": {
       "description": "Input structure for the ListJobs operation.",
@@ -437,7 +474,8 @@
           "$ref": "#/definitions/MaxJobs"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListJobsInput"
     },
     "ListJobsOutput": {
       "description": "Output structure for the ListJobs operation.",
@@ -449,23 +487,28 @@
           "$ref": "#/definitions/JobsList"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListJobsOutput"
     },
     "LocationCode": {
       "description": "A token representing the location of the storage device, such as \"AtAWS\".",
-      "type": "string"
+      "type": "string",
+      "title": "LocationCode"
     },
     "LocationMessage": {
       "description": "A more human readable form of the physical location of the storage device.",
-      "type": "string"
+      "type": "string",
+      "title": "LocationMessage"
     },
     "LogBucket": {
       "description": "Amazon S3 bucket for user logs.",
-      "type": "string"
+      "type": "string",
+      "title": "LogBucket"
     },
     "LogKey": {
       "description": "The key where the user logs were stored.",
-      "type": "string"
+      "type": "string",
+      "title": "LogKey"
     },
     "MalformedManifestException": {
       "description": "Your manifest is not well-formed.",
@@ -474,23 +517,28 @@
           "$ref": "#/definitions/ErrorMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "MalformedManifestException"
     },
     "Manifest": {
       "description": "The UTF-8 encoded text of the manifest file.",
-      "type": "string"
+      "type": "string",
+      "title": "Manifest"
     },
     "ManifestAddendum": {
       "description": "For internal use only.",
-      "type": "string"
+      "type": "string",
+      "title": "ManifestAddendum"
     },
     "Marker": {
       "description": "Specifies the JOBID to start after when listing the jobs created with your account. AWS Import/Export lists your jobs in reverse chronological order. See MaxJobs.",
-      "type": "string"
+      "type": "string",
+      "title": "Marker"
     },
     "MaxJobs": {
       "description": "Sets the maximum number of jobs returned in the response. If there are additional jobs that were not returned because MaxJobs was exceeded, the response contains &lt;IsTruncated&gt;true&lt;/IsTruncated&gt;. To return the additional jobs, see Marker.",
-      "type": "integer"
+      "type": "integer",
+      "title": "MaxJobs"
     },
     "MissingCustomsException": {
       "description": "One or more required customs parameters was missing from the manifest.",
@@ -499,7 +547,8 @@
           "$ref": "#/definitions/ErrorMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "MissingCustomsException"
     },
     "MissingManifestFieldException": {
       "description": "One or more required fields were missing from the manifest file. Please correct and resubmit.",
@@ -508,7 +557,8 @@
           "$ref": "#/definitions/ErrorMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "MissingManifestFieldException"
     },
     "MissingParameterException": {
       "description": "One or more required parameters was missing from the request.",
@@ -517,7 +567,8 @@
           "$ref": "#/definitions/ErrorMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "MissingParameterException"
     },
     "MultipleRegionsException": {
       "description": "Your manifest file contained buckets from multiple regions. A job is restricted to buckets from one region. Please correct and resubmit.",
@@ -526,7 +577,8 @@
           "$ref": "#/definitions/ErrorMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "MultipleRegionsException"
     },
     "NoSuchBucketException": {
       "description": "The specified bucket does not exist. Create the specified bucket or change the manifest's bucket, exportBucket, or logBucket field to a bucket that the account, as specified by the manifest's Access Key ID, has write permissions to.",
@@ -535,35 +587,43 @@
           "$ref": "#/definitions/ErrorMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "NoSuchBucketException"
     },
     "ProgressCode": {
       "description": "A token representing the state of the job, such as \"Started\".",
-      "type": "string"
+      "type": "string",
+      "title": "ProgressCode"
     },
     "ProgressMessage": {
       "description": "A more human readable form of the job status.",
-      "type": "string"
+      "type": "string",
+      "title": "ProgressMessage"
     },
     "Signature": {
       "description": "An encrypted code used to authenticate the request and response, for example, \"DV+TpDfx1/TdSE9ktyK9k/bDTVI=\". Only use this value is you want to create the signature file yourself. Generally you should use the SignatureFileContents value.",
-      "type": "string"
+      "type": "string",
+      "title": "Signature"
     },
     "SignatureFileContents": {
       "description": "The actual text of the SIGNATURE file to be written to disk.",
-      "type": "string"
+      "type": "string",
+      "title": "SignatureFileContents"
     },
     "Success": {
       "description": "Specifies whether (true) or not (false) AWS Import/Export updated your job.",
-      "type": "boolean"
+      "type": "boolean",
+      "title": "Success"
     },
     "TrackingNumber": {
       "description": "The shipping tracking number assigned by AWS Import/Export to the storage device when it's returned to you. We return this value when the LocationCode is \"Returned\".",
-      "type": "string"
+      "type": "string",
+      "title": "TrackingNumber"
     },
     "URL": {
       "description": "The URL for a given Artifact.",
-      "type": "string"
+      "type": "string",
+      "title": "URL"
     },
     "UnableToCancelJobIdException": {
       "description": "AWS Import/Export cannot cancel the job",
@@ -572,7 +632,8 @@
           "$ref": "#/definitions/ErrorMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UnableToCancelJobIdException"
     },
     "UnableToUpdateJobIdException": {
       "description": "AWS Import/Export cannot update the job",
@@ -581,7 +642,8 @@
           "$ref": "#/definitions/ErrorMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UnableToUpdateJobIdException"
     },
     "UpdateJobInput": {
       "description": "Input structure for the UpateJob operation.",
@@ -608,7 +670,8 @@
         "JobType",
         "ValidateOnly"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateJobInput"
     },
     "UpdateJobOutput": {
       "description": "Output structure for the UpateJob operation.",
@@ -623,55 +686,68 @@
           "$ref": "#/definitions/WarningMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UpdateJobOutput"
     },
     "ValidateOnly": {
       "description": "Validate the manifest and parameter values in the request but do not actually create a job.",
-      "type": "boolean"
+      "type": "boolean",
+      "title": "ValidateOnly"
     },
     "WarningMessage": {
       "description": "An optional message notifying you of non-fatal issues with the job, such as use of an incompatible Amazon S3 bucket name.",
-      "type": "string"
+      "type": "string",
+      "title": "WarningMessage"
     },
     "city": {
       "description": "Specifies the name of your city for the return address.",
-      "type": "string"
+      "type": "string",
+      "title": "city"
     },
     "company": {
       "description": "Specifies the name of the company that will ship this package.",
-      "type": "string"
+      "type": "string",
+      "title": "company"
     },
     "country": {
       "description": "Specifies the name of your country for the return address.",
-      "type": "string"
+      "type": "string",
+      "title": "country"
     },
     "name": {
       "description": "Specifies the name of the person responsible for shipping this package.",
-      "type": "string"
+      "type": "string",
+      "title": "name"
     },
     "phoneNumber": {
       "description": "Specifies the phone number of the person responsible for shipping this package.",
-      "type": "string"
+      "type": "string",
+      "title": "phoneNumber"
     },
     "postalCode": {
       "description": "Specifies the postal code for the return address.",
-      "type": "string"
+      "type": "string",
+      "title": "postalCode"
     },
     "stateOrProvince": {
       "description": "Specifies the name of your state or your province for the return address.",
-      "type": "string"
+      "type": "string",
+      "title": "stateOrProvince"
     },
     "street1": {
       "description": "Specifies the first part of the street address for the return address, for example 1234 Main Street.",
-      "type": "string"
+      "type": "string",
+      "title": "street1"
     },
     "street2": {
       "description": "Specifies the optional second part of the street address for the return address, for example Suite 100.",
-      "type": "string"
+      "type": "string",
+      "title": "street2"
     },
     "street3": {
       "description": "Specifies the optional third part of the street address for the return address, for example c/o Jane Doe.",
-      "type": "string"
+      "type": "string",
+      "title": "street3"
     }
   },
   "actions": [

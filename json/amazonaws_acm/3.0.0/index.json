@@ -31,35 +31,41 @@
         "CertificateArn",
         "Tags"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AddTagsToCertificateRequest"
     },
     "Arn": {
       "maxLength": 2048,
       "minLength": 20,
       "pattern": "arn:[\\w+=/,.@-]+:[\\w+=/,.@-]+:[\\w+=/,.@-]*:[0-9]+:[\\w+=,.@-]+(/[\\w+=/,.@-]+)*",
-      "type": "string"
+      "type": "string",
+      "title": "Arn"
     },
     "CertificateBody": {
       "maxLength": 32768,
       "minLength": 1,
       "pattern": "-{5}BEGIN CERTIFICATE-{5}\\u000D?\\u000A([A-Za-z0-9/+]{64}\\u000D?\\u000A)*[A-Za-z0-9/+]{1,64}={0,2}\\u000D?\\u000A-{5}END CERTIFICATE-{5}(\\u000D?\\u000A)?",
-      "type": "string"
+      "type": "string",
+      "title": "CertificateBody"
     },
     "CertificateBodyBlob": {
       "maxLength": 32768,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "CertificateBodyBlob"
     },
     "CertificateChain": {
       "maxLength": 2097152,
       "minLength": 1,
       "pattern": "(-{5}BEGIN CERTIFICATE-{5}\\u000D?\\u000A([A-Za-z0-9/+]{64}\\u000D?\\u000A)*[A-Za-z0-9/+]{1,64}={0,2}\\u000D?\\u000A-{5}END CERTIFICATE-{5}\\u000D?\\u000A)*-{5}BEGIN CERTIFICATE-{5}\\u000D?\\u000A([A-Za-z0-9/+]{64}\\u000D?\\u000A)*[A-Za-z0-9/+]{1,64}={0,2}\\u000D?\\u000A-{5}END CERTIFICATE-{5}(\\u000D?\\u000A)?",
-      "type": "string"
+      "type": "string",
+      "title": "CertificateChain"
     },
     "CertificateChainBlob": {
       "maxLength": 2097152,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "CertificateChainBlob"
     },
     "CertificateDetail": {
       "description": "Contains metadata about an ACM certificate. This structure is returned in the response to a <a>DescribeCertificate</a> request.",
@@ -149,7 +155,8 @@
           "description": "The source of the certificate. For certificates provided by ACM, this value is <code>AMAZON_ISSUED</code>. For certificates that you imported with <a>ImportCertificate</a>, this value is <code>IMPORTED</code>. ACM does not provide <a href=\"http://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html\">managed renewal</a> for imported certificates. For more information about the differences between certificates that you import and those that ACM provides, see <a href=\"http://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html\">Importing Certificates</a> in the <i>AWS Certificate Manager User Guide</i>."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CertificateDetail"
     },
     "CertificateStatus": {
       "enum": [
@@ -161,13 +168,15 @@
         "REVOKED",
         "FAILED"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "CertificateStatus"
     },
     "CertificateStatuses": {
       "items": {
         "$ref": "#/definitions/CertificateStatus"
       },
-      "type": "array"
+      "type": "array",
+      "title": "CertificateStatuses"
     },
     "CertificateSummary": {
       "description": "This structure is returned in the response object of <a>ListCertificates</a> action.",
@@ -181,20 +190,23 @@
           "description": "Fully qualified domain name (FQDN), such as www.example.com or example.com, for the certificate."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CertificateSummary"
     },
     "CertificateSummaryList": {
       "items": {
         "$ref": "#/definitions/CertificateSummary"
       },
-      "type": "array"
+      "type": "array",
+      "title": "CertificateSummaryList"
     },
     "CertificateType": {
       "enum": [
         "IMPORTED",
         "AMAZON_ISSUED"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "CertificateType"
     },
     "DeleteCertificateRequest": {
       "properties": {
@@ -206,7 +218,8 @@
       "required": [
         "CertificateArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteCertificateRequest"
     },
     "DescribeCertificateRequest": {
       "properties": {
@@ -218,7 +231,8 @@
       "required": [
         "CertificateArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeCertificateRequest"
     },
     "DescribeCertificateResponse": {
       "properties": {
@@ -227,7 +241,8 @@
           "description": "Metadata about an ACM certificate."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeCertificateResponse"
     },
     "DomainList": {
       "items": {
@@ -235,13 +250,15 @@
       },
       "maxItems": 100,
       "minItems": 1,
-      "type": "array"
+      "type": "array",
+      "title": "DomainList"
     },
     "DomainNameString": {
       "maxLength": 253,
       "minLength": 1,
       "pattern": "^(\\*\\.)?(((?!-)[A-Za-z0-9-]{0,62}[A-Za-z0-9])\\.)+((?!-)[A-Za-z0-9-]{1,62}[A-Za-z0-9])$",
-      "type": "string"
+      "type": "string",
+      "title": "DomainNameString"
     },
     "DomainStatus": {
       "enum": [
@@ -249,7 +266,8 @@
         "SUCCESS",
         "FAILED"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "DomainStatus"
     },
     "DomainValidation": {
       "description": "Contains information about the validation of each domain name in the certificate.",
@@ -274,7 +292,8 @@
       "required": [
         "DomainName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DomainValidation"
     },
     "DomainValidationList": {
       "items": {
@@ -282,7 +301,8 @@
       },
       "maxItems": 1000,
       "minItems": 1,
-      "type": "array"
+      "type": "array",
+      "title": "DomainValidationList"
     },
     "DomainValidationOption": {
       "description": "Contains information about the domain names that you want ACM to use to send you emails to validate your ownership of the domain.",
@@ -300,7 +320,8 @@
         "DomainName",
         "ValidationDomain"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DomainValidationOption"
     },
     "DomainValidationOptionList": {
       "items": {
@@ -308,7 +329,8 @@
       },
       "maxItems": 100,
       "minItems": 1,
-      "type": "array"
+      "type": "array",
+      "title": "DomainValidationOptionList"
     },
     "FailureReason": {
       "enum": [
@@ -318,7 +340,8 @@
         "INVALID_PUBLIC_DOMAIN",
         "OTHER"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "FailureReason"
     },
     "GetCertificateRequest": {
       "properties": {
@@ -330,7 +353,8 @@
       "required": [
         "CertificateArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetCertificateRequest"
     },
     "GetCertificateResponse": {
       "properties": {
@@ -343,13 +367,15 @@
           "description": "The certificate chain that contains the root certificate issued by the certificate authority (CA)."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetCertificateResponse"
     },
     "IdempotencyToken": {
       "maxLength": 32,
       "minLength": 1,
       "pattern": "\\w+",
-      "type": "string"
+      "type": "string",
+      "title": "IdempotencyToken"
     },
     "ImportCertificateRequest": {
       "properties": {
@@ -374,7 +400,8 @@
         "Certificate",
         "PrivateKey"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ImportCertificateRequest"
     },
     "ImportCertificateResponse": {
       "properties": {
@@ -383,13 +410,15 @@
           "description": "The <a href=\"http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Name (ARN)</a> of the imported certificate."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ImportCertificateResponse"
     },
     "InUseList": {
       "items": {
         "$ref": "#/definitions/String"
       },
-      "type": "array"
+      "type": "array",
+      "title": "InUseList"
     },
     "InvalidArnException": {
       "description": "The requested Amazon Resource Name (ARN) does not refer to an existing resource.",
@@ -398,7 +427,8 @@
           "$ref": "#/definitions/String"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidArnException"
     },
     "InvalidDomainValidationOptionsException": {
       "description": "One or more values in the <a>DomainValidationOption</a> structure is incorrect.",
@@ -407,7 +437,8 @@
           "$ref": "#/definitions/String"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidDomainValidationOptionsException"
     },
     "InvalidStateException": {
       "description": "Processing has reached an invalid state. For example, this exception can occur if the specified domain is not using email validation, or the current certificate status does not permit the requested operation. See the exception message returned by ACM to determine which state is not valid.",
@@ -416,7 +447,8 @@
           "$ref": "#/definitions/String"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidStateException"
     },
     "InvalidTagException": {
       "description": "One or both of the values that make up the key-value pair is not valid. For example, you cannot specify a tag value that begins with <code>aws:</code>.",
@@ -425,7 +457,8 @@
           "$ref": "#/definitions/String"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidTagException"
     },
     "KeyAlgorithm": {
       "enum": [
@@ -433,7 +466,8 @@
         "RSA_1024",
         "EC_prime256v1"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "KeyAlgorithm"
     },
     "LimitExceededException": {
       "description": "An ACM limit has been exceeded. For example, you may have input more domains than are allowed or you've requested too many certificates for your account. See the exception message returned by ACM to determine which limit you have violated. For more information about ACM limits, see the <a href=\"http://docs.aws.amazon.com/acm/latest/userguide/acm-limits.html\">Limits</a> topic.",
@@ -442,7 +476,8 @@
           "$ref": "#/definitions/String"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LimitExceededException"
     },
     "ListCertificatesRequest": {
       "properties": {
@@ -459,7 +494,8 @@
           "description": "Use this parameter only when paginating results and only in a subsequent request after you receive a response with truncated results. Set it to the value of <code>NextToken</code> from the response you just received."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListCertificatesRequest"
     },
     "ListCertificatesResponse": {
       "properties": {
@@ -472,7 +508,8 @@
           "description": "When the list is truncated, this value is present and contains the value to use for the <code>NextToken</code> parameter in a subsequent pagination request."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListCertificatesResponse"
     },
     "ListTagsForCertificateRequest": {
       "properties": {
@@ -484,7 +521,8 @@
       "required": [
         "CertificateArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListTagsForCertificateRequest"
     },
     "ListTagsForCertificateResponse": {
       "properties": {
@@ -493,24 +531,28 @@
           "description": "The key-value pairs that define the applied tags."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListTagsForCertificateResponse"
     },
     "MaxItems": {
       "maximum": 1000,
       "minimum": 1,
-      "type": "integer"
+      "type": "integer",
+      "title": "MaxItems"
     },
     "NextToken": {
       "maxLength": 320,
       "minLength": 1,
       "pattern": "[\\u0009\\u000A\\u000D\\u0020-\\u00FF]*",
-      "type": "string"
+      "type": "string",
+      "title": "NextToken"
     },
     "PrivateKeyBlob": {
       "format": "password",
       "maxLength": 524288,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "PrivateKeyBlob"
     },
     "RemoveTagsFromCertificateRequest": {
       "properties": {
@@ -527,7 +569,8 @@
         "CertificateArn",
         "Tags"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "RemoveTagsFromCertificateRequest"
     },
     "RenewalStatus": {
       "enum": [
@@ -536,7 +579,8 @@
         "SUCCESS",
         "FAILED"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "RenewalStatus"
     },
     "RenewalSummary": {
       "description": "Contains information about the status of ACM's <a href=\"http://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html\">managed renewal</a> for the certificate. This structure exists only when the certificate type is <code>AMAZON_ISSUED</code>.",
@@ -554,7 +598,8 @@
         "RenewalStatus",
         "DomainValidationOptions"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "RenewalSummary"
     },
     "RequestCertificateRequest": {
       "properties": {
@@ -578,7 +623,8 @@
       "required": [
         "DomainName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "RequestCertificateRequest"
     },
     "RequestCertificateResponse": {
       "properties": {
@@ -587,7 +633,8 @@
           "description": "<p>String that contains the ARN of the issued certificate. This must be of the form:</p> <p> <code>arn:aws:acm:us-east-1:123456789012:certificate/12345678-1234-1234-1234-123456789012</code> </p>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RequestCertificateResponse"
     },
     "RequestInProgressException": {
       "description": "The certificate request is in process and the certificate in your account has not yet been issued.",
@@ -596,7 +643,8 @@
           "$ref": "#/definitions/String"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RequestInProgressException"
     },
     "ResendValidationEmailRequest": {
       "properties": {
@@ -618,7 +666,8 @@
         "Domain",
         "ValidationDomain"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ResendValidationEmailRequest"
     },
     "ResourceInUseException": {
       "description": "The certificate is in use by another AWS service in the caller's account. Remove the association and try again.",
@@ -627,7 +676,8 @@
           "$ref": "#/definitions/String"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ResourceInUseException"
     },
     "ResourceNotFoundException": {
       "description": "The specified certificate cannot be found in the caller's account, or the caller's account cannot be found.",
@@ -636,7 +686,8 @@
           "$ref": "#/definitions/String"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ResourceNotFoundException"
     },
     "RevocationReason": {
       "enum": [
@@ -651,14 +702,17 @@
         "PRIVILEGE_WITHDRAWN",
         "A_A_COMPROMISE"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "RevocationReason"
     },
     "String": {
-      "type": "string"
+      "type": "string",
+      "title": "String"
     },
     "TStamp": {
       "format": "date-time",
-      "type": "string"
+      "type": "string",
+      "title": "TStamp"
     },
     "Tag": {
       "description": "A key-value pair that identifies or specifies metadata about an ACM resource.",
@@ -675,13 +729,15 @@
       "required": [
         "Key"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "Tag"
     },
     "TagKey": {
       "maxLength": 128,
       "minLength": 1,
       "pattern": "[\\p{L}\\p{Z}\\p{N}_.:\\/=+\\-@]*",
-      "type": "string"
+      "type": "string",
+      "title": "TagKey"
     },
     "TagList": {
       "items": {
@@ -689,13 +745,15 @@
       },
       "maxItems": 50,
       "minItems": 1,
-      "type": "array"
+      "type": "array",
+      "title": "TagList"
     },
     "TagValue": {
       "maxLength": 256,
       "minLength": 0,
       "pattern": "[\\p{L}\\p{Z}\\p{N}_.:\\/=+\\-@]*",
-      "type": "string"
+      "type": "string",
+      "title": "TagValue"
     },
     "TooManyTagsException": {
       "description": "The request contains too many tags. Try the request again with fewer tags.",
@@ -704,13 +762,15 @@
           "$ref": "#/definitions/String"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TooManyTagsException"
     },
     "ValidationEmailList": {
       "items": {
         "$ref": "#/definitions/String"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ValidationEmailList"
     }
   },
   "actions": [

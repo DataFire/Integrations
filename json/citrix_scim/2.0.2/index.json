@@ -34,7 +34,8 @@
         "description",
         "specUrl",
         "documentationUrl"
-      ]
+      ],
+      "title": "AuthenticationSchemes"
     },
     "Bulk": {
       "description": "Specifies BULK configuration options",
@@ -46,7 +47,8 @@
       },
       "required": [
         "supported"
-      ]
+      ],
+      "title": "Bulk"
     },
     "ChangePassword": {
       "description": "Specifies Change Password configuration options",
@@ -58,7 +60,8 @@
       },
       "required": [
         "supported"
-      ]
+      ],
+      "title": "ChangePassword"
     },
     "Etag": {
       "description": "Specifies Etag configuration options",
@@ -70,7 +73,8 @@
       },
       "required": [
         "supported"
-      ]
+      ],
+      "title": "Etag"
     },
     "Filter": {
       "description": "Specifies FILTER options",
@@ -82,7 +86,8 @@
       },
       "required": [
         "supported"
-      ]
+      ],
+      "title": "Filter"
     },
     "Group": {
       "description": "Describes a group belonging to an organization",
@@ -111,7 +116,8 @@
         "meta",
         "id",
         "displayName"
-      ]
+      ],
+      "title": "Group"
     },
     "GroupCollection": {
       "description": "Class describing a collection of groups",
@@ -132,7 +138,8 @@
       "required": [
         "resources",
         "totalResults"
-      ]
+      ],
+      "title": "GroupCollection"
     },
     "GroupDefinition": {
       "description": "Describes the group to create",
@@ -151,7 +158,8 @@
       },
       "required": [
         "displayName"
-      ]
+      ],
+      "title": "GroupDefinition"
     },
     "GroupMetadata": {
       "description": "Group metadata",
@@ -169,7 +177,8 @@
       "required": [
         "created",
         "location"
-      ]
+      ],
+      "title": "GroupMetadata"
     },
     "Member": {
       "description": "A member of a group. This can be a group or an user",
@@ -190,7 +199,8 @@
       "required": [
         "type",
         "value"
-      ]
+      ],
+      "title": "Member"
     },
     "Patch": {
       "description": "Specifies PATCH configuration options",
@@ -202,7 +212,8 @@
       },
       "required": [
         "supported"
-      ]
+      ],
+      "title": "Patch"
     },
     "ResourceSchema": {
       "description": "Describes the attributes and metadata constituting a resource such as a user.",
@@ -242,7 +253,8 @@
         "schema",
         "endpoint",
         "attributes"
-      ]
+      ],
+      "title": "ResourceSchema"
     },
     "SchemaAttribute": {
       "description": "Describes a resource attribute",
@@ -296,7 +308,8 @@
         "readOnly",
         "required",
         "caseExact"
-      ]
+      ],
+      "title": "SchemaAttribute"
     },
     "SchemaSubAttribute": {
       "description": "Describes the sub-attribute of a resource attribute",
@@ -333,7 +346,8 @@
         "readOnly",
         "required",
         "caseExact"
-      ]
+      ],
+      "title": "SchemaSubAttribute"
     },
     "ServiceProviderConfigs": {
       "description": "Represents the Service Provider's configuration",
@@ -385,7 +399,8 @@
         "etag",
         "authenticationSchemes",
         "xmlDataFormat"
-      ]
+      ],
+      "title": "ServiceProviderConfigs"
     },
     "Sort": {
       "description": "Specifies Sort configuration options",
@@ -397,7 +412,8 @@
       },
       "required": [
         "supported"
-      ]
+      ],
+      "title": "Sort"
     },
     "User": {
       "description": "Describes a user belonging to an organization",
@@ -439,7 +455,8 @@
         "name",
         "timezone",
         "userName"
-      ]
+      ],
+      "title": "User"
     },
     "UserCollection": {
       "description": "Class describing a collection of users",
@@ -460,7 +477,8 @@
       "required": [
         "resources",
         "totalResults"
-      ]
+      ],
+      "title": "UserCollection"
     },
     "UserDefinition": {
       "description": "Describes a new user",
@@ -489,7 +507,8 @@
           "description": "The user's username, usually their email address",
           "type": "string"
         }
-      }
+      },
+      "title": "UserDefinition"
     },
     "UserFullName": {
       "description": "The full name of the user",
@@ -506,7 +525,8 @@
       "required": [
         "familyName",
         "givenName"
-      ]
+      ],
+      "title": "UserFullName"
     },
     "UserMetadata": {
       "description": "User metadata",
@@ -524,7 +544,8 @@
       "required": [
         "created",
         "location"
-      ]
+      ],
+      "title": "UserMetadata"
     },
     "XmlDataFormat": {
       "description": "Specifies whether the XML data format is supported",
@@ -536,7 +557,8 @@
       },
       "required": [
         "supported"
-      ]
+      ],
+      "title": "XmlDataFormat"
     }
   },
   "actions": [

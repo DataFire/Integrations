@@ -26,7 +26,8 @@
         {
           "$ref": "#/definitions/MimeType"
         }
-      ]
+      ],
+      "title": "ContentTypeType"
     },
     "KnownRelCodeType": {
       "description": "alternate: The value \"alternate\" signifies that the IRI in the value of the href attribute identifies an alternate version of the resource described by the containing element.related: The value \"related\" signifies that the IRI in the value of the href attribute identifies a resource related to the resource described by the containing element. For example, the feed for a site that discusses the performance of the search engine at \"http://search.example.com\" might contain, as a child of atom:feed. An identical link might appear as a child of any atom:entry whose content contains a discussion of that same search engine.self: The value \"self\" signifies that the IRI in the value of the href attribute identifies a resource equivalent to the containing element.enclosure: The value \"enclosure\" signifies that the IRI in the value of the href attribute identifies a related resource that is potentially large in size and might require special handling. For atom:link elements with rel=\"enclosure\", the length attribute SHOULD be provided.via: The value \"via\" signifies that the IRI in the value of the href attribute identifies a resource that is the source of the information provided in the containing element.",
@@ -36,12 +37,14 @@
         "self",
         "enclosure",
         "via"
-      ]
+      ],
+      "title": "KnownRelCodeType"
     },
     "MimeType": {
       "description": "XML encoded identifier of a standard MIME type, possibly a parameterized MIME type. Copied from ows 2.0.1",
       "pattern": "(application|audio|image|text|video|message|multipart|model)/.+(;\\s*.+=.+)*",
-      "type": "string"
+      "type": "string",
+      "title": "MimeType"
     },
     "RelCodeType": {
       "additionalProperties": false,
@@ -53,7 +56,8 @@
         {
           "type": "string"
         }
-      ]
+      ],
+      "title": "RelCodeType"
     },
     "atom": {
       "additionalProperties": false,
@@ -94,7 +98,8 @@
             }
           }
         }
-      ]
+      ],
+      "title": "categoryType"
     },
     "commonAttributes": {
       "additionalProperties": true,
@@ -106,7 +111,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "commonAttributes"
     },
     "contentType": {
       "additionalProperties": true,
@@ -127,7 +133,8 @@
             }
           }
         }
-      ]
+      ],
+      "title": "contentType"
     },
     "dateTimeType": {
       "additionalProperties": false,
@@ -144,15 +151,18 @@
             }
           }
         }
-      ]
+      ],
+      "title": "dateTimeType"
     },
     "emailType": {
       "description": "Schema definition for an email address.",
       "pattern": "\\w+@(\\w+\\.)+\\w+",
-      "type": "string"
+      "type": "string",
+      "title": "emailType"
     },
     "entry": {
-      "$ref": "#/definitions/entryType"
+      "$ref": "#/definitions/entryType",
+      "title": "entry"
     },
     "entryType": {
       "additionalProperties": true,
@@ -593,7 +603,8 @@
             }
           }
         }
-      ]
+      ],
+      "title": "entryType"
     },
     "feedType": {
       "additionalProperties": true,
@@ -972,7 +983,8 @@
             }
           }
         }
-      ]
+      ],
+      "title": "feedType"
     },
     "generatorType": {
       "additionalProperties": false,
@@ -996,7 +1008,8 @@
             }
           }
         }
-      ]
+      ],
+      "title": "generatorType"
     },
     "iconType": {
       "additionalProperties": false,
@@ -1014,7 +1027,8 @@
             }
           }
         }
-      ]
+      ],
+      "title": "iconType"
     },
     "idType": {
       "additionalProperties": false,
@@ -1032,7 +1046,8 @@
             }
           }
         }
-      ]
+      ],
+      "title": "idType"
     },
     "linkType": {
       "additionalProperties": false,
@@ -1069,7 +1084,8 @@
             }
           }
         }
-      ]
+      ],
+      "title": "linkType"
     },
     "logoType": {
       "additionalProperties": false,
@@ -1087,7 +1103,8 @@
             }
           }
         }
-      ]
+      ],
+      "title": "logoType"
     },
     "personType": {
       "additionalProperties": true,
@@ -1110,7 +1127,8 @@
             }
           }
         }
-      ]
+      ],
+      "title": "personType"
     },
     "sourceType": {
       "additionalProperties": true,
@@ -1172,7 +1190,8 @@
             }
           }
         }
-      ]
+      ],
+      "title": "sourceType"
     },
     "textType": {
       "additionalProperties": true,
@@ -1189,14 +1208,16 @@
             }
           }
         }
-      ]
+      ],
+      "title": "textType"
     },
     "textTypeType": {
       "enum": [
         "text",
         "html",
         "xhtml"
-      ]
+      ],
+      "title": "textTypeType"
     },
     "uriType": {
       "additionalProperties": false,
@@ -1213,7 +1234,8 @@
             }
           }
         }
-      ]
+      ],
+      "title": "uriType"
     }
   },
   "actions": [

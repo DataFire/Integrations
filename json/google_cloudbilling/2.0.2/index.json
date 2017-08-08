@@ -45,7 +45,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BillingAccount"
     },
     "ListBillingAccountsResponse": {
       "description": "Response message for `ListBillingAccounts`.",
@@ -62,7 +63,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListBillingAccountsResponse"
     },
     "ListProjectBillingInfoResponse": {
       "description": "Request message for `ListProjectBillingInfoResponse`.",
@@ -79,7 +81,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListProjectBillingInfoResponse"
     },
     "ProjectBillingInfo": {
       "description": "Encapsulation of billing information for a Cloud Console project. A project\nhas at most one associated billing account at a time (but a billing account\ncan be assigned to multiple projects).",
@@ -101,7 +104,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ProjectBillingInfo"
     }
   },
   "actions": [

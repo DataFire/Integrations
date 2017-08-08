@@ -39,7 +39,8 @@
           "description": "The current secondary key that clients can use to authenticate with Redis cache.",
           "type": "string"
         }
-      }
+      },
+      "title": "RedisAccessKeys"
     },
     "RedisCreateOrUpdateParameters": {
       "allOf": [
@@ -57,7 +58,8 @@
       },
       "required": [
         "properties"
-      ]
+      ],
+      "title": "RedisCreateOrUpdateParameters"
     },
     "RedisListKeysResult": {
       "description": "The response of Redis list keys operation.",
@@ -70,7 +72,8 @@
           "description": "The current secondary key that clients can use to authenticate with Redis cache.",
           "type": "string"
         }
-      }
+      },
+      "title": "RedisListKeysResult"
     },
     "RedisListResult": {
       "description": "The response of list Redis operation.",
@@ -86,7 +89,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "RedisListResult"
     },
     "RedisProperties": {
       "description": "Parameters supplied to CreateOrUpdate Redis operation.",
@@ -137,7 +141,8 @@
       },
       "required": [
         "sku"
-      ]
+      ],
+      "title": "RedisProperties"
     },
     "RedisReadableProperties": {
       "allOf": [
@@ -165,7 +170,8 @@
           "format": "int32",
           "type": "integer"
         }
-      }
+      },
+      "title": "RedisReadableProperties"
     },
     "RedisReadablePropertiesWithAccessKey": {
       "allOf": [
@@ -179,7 +185,8 @@
           "$ref": "#/definitions/RedisAccessKeys",
           "description": "Redis cache access keys."
         }
-      }
+      },
+      "title": "RedisReadablePropertiesWithAccessKey"
     },
     "RedisRebootParameters": {
       "description": "Specifies which Redis node(s) to reboot.",
@@ -205,7 +212,8 @@
       },
       "required": [
         "rebootType"
-      ]
+      ],
+      "title": "RedisRebootParameters"
     },
     "RedisRegenerateKeyParameters": {
       "description": "Specifies which Redis access keys to reset.",
@@ -225,7 +233,8 @@
       },
       "required": [
         "keyType"
-      ]
+      ],
+      "title": "RedisRegenerateKeyParameters"
     },
     "RedisResource": {
       "allOf": [
@@ -240,7 +249,8 @@
           "description": "Redis cache properties.",
           "x-ms-client-flatten": true
         }
-      }
+      },
+      "title": "RedisResource"
     },
     "RedisResourceWithAccessKey": {
       "allOf": [
@@ -255,7 +265,8 @@
           "description": "Redis cache properties.",
           "x-ms-client-flatten": true
         }
-      }
+      },
+      "title": "RedisResourceWithAccessKey"
     },
     "Resource": {
       "properties": {
@@ -289,7 +300,8 @@
       "required": [
         "location"
       ],
-      "x-ms-azure-resource": true
+      "x-ms-azure-resource": true,
+      "title": "Resource"
     },
     "Sku": {
       "description": "SKU parameters supplied to the create Redis operation.",
@@ -329,7 +341,8 @@
         "name",
         "family",
         "capacity"
-      ]
+      ],
+      "title": "Sku"
     }
   },
   "actions": [

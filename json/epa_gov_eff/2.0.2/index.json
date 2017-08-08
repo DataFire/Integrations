@@ -289,7 +289,8 @@
         "NODEDesc",
         "ExceedencePct"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "eff1_DischargeMonitoringReports"
     },
     "eff1_NPDESViolations": {
       "description": "NPDES Violations Object",
@@ -355,7 +356,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "eff1_NPDESViolations"
     },
     "eff1_Parameters": {
       "description": "Parameters Object",
@@ -414,7 +416,8 @@
         "StayTypeDesc",
         "DischargeMonitoringReports"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "eff1_Parameters"
     },
     "eff1_PermFeatures": {
       "description": "Permit Features Object",
@@ -452,7 +455,8 @@
         "Parameters",
         "PermFeatureTypeDesc"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "eff1_PermFeatures"
     },
     "eff1_Results": {
       "description": "Results Object",
@@ -579,7 +583,8 @@
         "StartDate",
         "EndDate"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "eff1_Results"
     },
     "eff2_LinkedPermits": {
       "description": "Linked Permits Object",
@@ -656,7 +661,8 @@
         "CWPPermitTypeDesc",
         "CWPCurrentSNCStatus"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "eff2_LinkedPermits"
     },
     "eff2_Parameters": {
       "description": "Parameters Object",
@@ -692,7 +698,8 @@
         "MaxVioStatus",
         "CurrentVioStatus"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "eff2_Parameters"
     },
     "eff2_PermFeatures": {
       "description": "Permit Features Object",
@@ -729,7 +736,8 @@
         "PermFeatureTypeDesc",
         "Parameters"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "eff2_PermFeatures"
     },
     "eff2_Results": {
       "description": "Results Object",
@@ -862,7 +870,8 @@
         "StartDate",
         "EndDate"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "eff2_Results"
     },
     "rlk0_LuValues": {
       "description": "Lookup Values",
@@ -882,7 +891,8 @@
         "ValueCode",
         "ValueDescription"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "rlk0_LuValues"
     },
     "rlk9_Results": {
       "description": "Results Object",
@@ -903,7 +913,8 @@
       "required": [
         "Message"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "rlk9_Results"
     }
   },
   "actions": [

@@ -16,7 +16,8 @@
           "description": "Operation output data (raw JSON)",
           "x-ms-client-flatten": true
         }
-      }
+      },
+      "title": "AccessUri"
     },
     "AccessUriOutput": {
       "description": "Azure properties, including output.",
@@ -26,7 +27,8 @@
           "description": "Operation output data (raw JSON)",
           "x-ms-client-flatten": true
         }
-      }
+      },
+      "title": "AccessUriOutput"
     },
     "AccessUriRaw": {
       "description": "This object gets 'bubbled up' through flattening.",
@@ -36,7 +38,8 @@
           "readOnly": true,
           "type": "string"
         }
-      }
+      },
+      "title": "AccessUriRaw"
     },
     "ApiError": {
       "description": "Api error.",
@@ -64,7 +67,8 @@
           "description": "The target of the particular error.",
           "type": "string"
         }
-      }
+      },
+      "title": "ApiError"
     },
     "ApiErrorBase": {
       "description": "Api error base.",
@@ -81,7 +85,8 @@
           "description": "The target of the particular error.",
           "type": "string"
         }
-      }
+      },
+      "title": "ApiErrorBase"
     },
     "CreationData": {
       "description": "Data used when creating a disk.",
@@ -120,7 +125,8 @@
       },
       "required": [
         "createOption"
-      ]
+      ],
+      "title": "CreationData"
     },
     "Disk": {
       "allOf": [
@@ -134,7 +140,8 @@
           "$ref": "#/definitions/DiskProperties",
           "x-ms-client-flatten": true
         }
-      }
+      },
+      "title": "Disk"
     },
     "DiskList": {
       "description": "The List Disks operation response.",
@@ -153,7 +160,8 @@
       },
       "required": [
         "value"
-      ]
+      ],
+      "title": "DiskList"
     },
     "DiskProperties": {
       "description": "Disk resource properties.",
@@ -214,7 +222,8 @@
       },
       "required": [
         "creationData"
-      ]
+      ],
+      "title": "DiskProperties"
     },
     "DiskUpdate": {
       "allOf": [
@@ -228,7 +237,8 @@
           "$ref": "#/definitions/DiskUpdateProperties",
           "x-ms-client-flatten": true
         }
-      }
+      },
+      "title": "DiskUpdate"
     },
     "DiskUpdateProperties": {
       "description": "Disk resource update properties.",
@@ -270,7 +280,8 @@
             "name": "OperatingSystemTypes"
           }
         }
-      }
+      },
+      "title": "DiskUpdateProperties"
     },
     "EncryptionSettings": {
       "description": "Encryption settings for disk or snapshot",
@@ -287,7 +298,8 @@
           "$ref": "#/definitions/KeyVaultAndKeyReference",
           "description": "Key Vault Key Url and vault id of the key encryption key"
         }
-      }
+      },
+      "title": "EncryptionSettings"
     },
     "GrantAccessData": {
       "description": "Data used for requesting a SAS.",
@@ -312,7 +324,8 @@
       "required": [
         "access",
         "durationInSeconds"
-      ]
+      ],
+      "title": "GrantAccessData"
     },
     "ImageDiskReference": {
       "description": "The source image used for creating the disk.",
@@ -329,7 +342,8 @@
       },
       "required": [
         "id"
-      ]
+      ],
+      "title": "ImageDiskReference"
     },
     "InnerError": {
       "description": "Inner error details.",
@@ -342,7 +356,8 @@
           "description": "The exception type.",
           "type": "string"
         }
-      }
+      },
+      "title": "InnerError"
     },
     "KeyVaultAndKeyReference": {
       "description": "Key Vault Key Url and vault id of KeK, KeK is optional and when provided is used to unwrap the encryptionKey",
@@ -359,7 +374,8 @@
       "required": [
         "keyUrl",
         "sourceVault"
-      ]
+      ],
+      "title": "KeyVaultAndKeyReference"
     },
     "KeyVaultAndSecretReference": {
       "description": "Key Vault Secret Url and vault id of the encryption key ",
@@ -376,7 +392,8 @@
       "required": [
         "secretUrl",
         "sourceVault"
-      ]
+      ],
+      "title": "KeyVaultAndSecretReference"
     },
     "OperationStatusResponse": {
       "description": "Operation status response",
@@ -408,7 +425,8 @@
           "readOnly": true,
           "type": "string"
         }
-      }
+      },
+      "title": "OperationStatusResponse"
     },
     "Resource": {
       "description": "The Resource model definition.",
@@ -443,7 +461,8 @@
       "required": [
         "location"
       ],
-      "x-ms-azure-resource": true
+      "x-ms-azure-resource": true,
+      "title": "Resource"
     },
     "ResourceUpdate": {
       "description": "The Resource model definition.",
@@ -456,7 +475,8 @@
           "type": "object"
         }
       },
-      "x-ms-azure-resource": true
+      "x-ms-azure-resource": true,
+      "title": "ResourceUpdate"
     },
     "Snapshot": {
       "allOf": [
@@ -470,7 +490,8 @@
           "$ref": "#/definitions/DiskProperties",
           "x-ms-client-flatten": true
         }
-      }
+      },
+      "title": "Snapshot"
     },
     "SnapshotList": {
       "description": "The List Snapshots operation response.",
@@ -489,7 +510,8 @@
       },
       "required": [
         "value"
-      ]
+      ],
+      "title": "SnapshotList"
     },
     "SnapshotUpdate": {
       "allOf": [
@@ -503,7 +525,8 @@
           "$ref": "#/definitions/DiskUpdateProperties",
           "x-ms-client-flatten": true
         }
-      }
+      },
+      "title": "SnapshotUpdate"
     },
     "SourceVault": {
       "description": "The vault id is an Azure Resource Manager Resoure id in the form /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.KeyVault/vaults/{vaultName}",
@@ -512,7 +535,8 @@
           "description": "Resource Id",
           "type": "string"
         }
-      }
+      },
+      "title": "SourceVault"
     }
   },
   "actions": [

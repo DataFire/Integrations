@@ -91,7 +91,8 @@
           },
           "type": "object"
         }
-      }
+      },
+      "title": "Account"
     },
     "Activity": {
       "properties": {
@@ -126,7 +127,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Activity"
     },
     "ActivityLinks": {
       "allOf": [
@@ -152,7 +154,8 @@
           "type": "object"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ActivityLinks"
     },
     "ActivityList": {
       "properties": {
@@ -166,7 +169,8 @@
           "$ref": "#/definitions/PagingMeta"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ActivityList"
     },
     "Comment": {
       "properties": {
@@ -185,7 +189,8 @@
           "$ref": "#/definitions/CommentLinks"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Comment"
     },
     "CommentLinks": {
       "allOf": [
@@ -212,7 +217,8 @@
           "type": "object"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CommentLinks"
     },
     "CommentList": {
       "properties": {
@@ -226,7 +232,8 @@
           "$ref": "#/definitions/PagingMeta"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CommentList"
     },
     "Document": {
       "properties": {
@@ -247,7 +254,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Document"
     },
     "DocumentLinks": {
       "allOf": [
@@ -273,7 +281,8 @@
           "type": "object"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DocumentLinks"
     },
     "DocumentList": {
       "properties": {
@@ -287,7 +296,8 @@
           "$ref": "#/definitions/PagingMeta"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DocumentList"
     },
     "Error": {
       "properties": {
@@ -305,7 +315,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Error"
     },
     "Formats": {
       "properties": {
@@ -349,7 +360,8 @@
           "type": "object"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Formats"
     },
     "Glossary": {
       "properties": {
@@ -367,7 +379,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Glossary"
     },
     "GlossaryList": {
       "properties": {
@@ -381,7 +394,8 @@
           "$ref": "#/definitions/PagingMeta"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GlossaryList"
     },
     "Language": {
       "properties": {
@@ -392,7 +406,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Language"
     },
     "LanguageProgress": {
       "properties": {
@@ -400,7 +415,8 @@
           "$ref": "#/definitions/ProgressSub"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LanguageProgress"
     },
     "LinksMeta": {
       "properties": {
@@ -413,7 +429,8 @@
           "type": "object"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LinksMeta"
     },
     "Package": {
       "properties": {
@@ -431,7 +448,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Package"
     },
     "PackageStatus": {
       "properties": {
@@ -445,7 +463,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PackageStatus"
     },
     "PagingLinksMeta": {
       "allOf": [
@@ -461,7 +480,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PagingLinksMeta"
     },
     "PagingMeta": {
       "properties": {
@@ -485,7 +505,8 @@
           "type": "object"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PagingMeta"
     },
     "Progress": {
       "allOf": [
@@ -501,7 +522,8 @@
           "$ref": "#/definitions/ProgressLink"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Progress"
     },
     "ProgressLink": {
       "allOf": [
@@ -519,7 +541,8 @@
           "type": "object"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ProgressLink"
     },
     "ProgressSub": {
       "properties": {
@@ -533,7 +556,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ProgressSub"
     },
     "Project": {
       "properties": {
@@ -605,7 +629,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Project"
     },
     "ProjectLinks": {
       "allOf": [
@@ -639,7 +664,8 @@
           "type": "object"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ProjectLinks"
     },
     "ProjectList": {
       "properties": {
@@ -653,7 +679,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ProjectList"
     },
     "StyleGuide": {
       "properties": {
@@ -671,7 +698,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "StyleGuide"
     },
     "StyleGuideList": {
       "properties": {
@@ -685,7 +713,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "StyleGuideList"
     },
     "Token": {
       "properties": {
@@ -701,7 +730,8 @@
         "token_type": {
           "type": "string"
         }
-      }
+      },
+      "title": "Token"
     }
   },
   "actions": [

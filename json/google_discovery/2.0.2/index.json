@@ -92,7 +92,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DirectoryList"
     },
     "JsonSchema": {
       "properties": {
@@ -217,7 +218,8 @@
           "type": "object"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "JsonSchema"
     },
     "RestDescription": {
       "properties": {
@@ -400,7 +402,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RestDescription"
     },
     "RestMethod": {
       "properties": {
@@ -540,7 +543,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RestMethod"
     },
     "RestResource": {
       "properties": {
@@ -561,7 +565,8 @@
           "type": "object"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RestResource"
     }
   },
   "actions": [

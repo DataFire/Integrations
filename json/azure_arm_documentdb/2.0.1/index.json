@@ -63,7 +63,8 @@
       "required": [
         "defaultConsistencyLevel"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ConsistencyPolicy"
     },
     "DatabaseAccount": {
       "allOf": [
@@ -92,7 +93,8 @@
           "x-ms-client-flatten": true
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DatabaseAccount"
     },
     "DatabaseAccountConnectionString": {
       "description": "Connection string for the DocumentDB account",
@@ -107,7 +109,8 @@
           "readOnly": true,
           "type": "string"
         }
-      }
+      },
+      "title": "DatabaseAccountConnectionString"
     },
     "DatabaseAccountCreateUpdateParameters": {
       "allOf": [
@@ -139,7 +142,8 @@
       "required": [
         "properties"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DatabaseAccountCreateUpdateParameters"
     },
     "DatabaseAccountCreateUpdateProperties": {
       "description": "Properties to create and update Azure DocumentDB database accounts.",
@@ -167,7 +171,8 @@
         "locations",
         "databaseAccountOfferType"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DatabaseAccountCreateUpdateProperties"
     },
     "DatabaseAccountListConnectionStringsResult": {
       "description": "The connection strings for the given database account.",
@@ -179,7 +184,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "DatabaseAccountListConnectionStringsResult"
     },
     "DatabaseAccountListKeysResult": {
       "description": "The access keys for the given database account.",
@@ -198,7 +204,8 @@
           "readOnly": true,
           "type": "string"
         }
-      }
+      },
+      "title": "DatabaseAccountListKeysResult"
     },
     "DatabaseAccountListReadOnlyKeysResult": {
       "description": "The read-only access keys for the given database account.",
@@ -213,7 +220,8 @@
           "readOnly": true,
           "type": "string"
         }
-      }
+      },
+      "title": "DatabaseAccountListReadOnlyKeysResult"
     },
     "DatabaseAccountOfferType": {
       "description": "The offer type for the DocumentDB database account.",
@@ -224,7 +232,8 @@
       "x-ms-enum": {
         "modelAsString": false,
         "name": "DatabaseAccountOfferType"
-      }
+      },
+      "title": "DatabaseAccountOfferType"
     },
     "DatabaseAccountPatchParameters": {
       "description": "Parameters for patching Azure DocumentDB database account properties.",
@@ -236,7 +245,8 @@
       "required": [
         "tags"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DatabaseAccountPatchParameters"
     },
     "DatabaseAccountProperties": {
       "description": "Properties for the database account.",
@@ -287,7 +297,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DatabaseAccountProperties"
     },
     "DatabaseAccountRegenerateKeyParameters": {
       "description": "Parameters to regenerate the keys within the database account.",
@@ -310,7 +321,8 @@
       "required": [
         "keyKind"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DatabaseAccountRegenerateKeyParameters"
     },
     "DatabaseAccountsListResult": {
       "description": "The List operation response, that contains the database accounts and their properties.",
@@ -323,7 +335,8 @@
           "readOnly": true,
           "type": "array"
         }
-      }
+      },
+      "title": "DatabaseAccountsListResult"
     },
     "FailoverPolicies": {
       "description": "The list of new failover policies for the failover priority change.",
@@ -335,7 +348,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "FailoverPolicies"
     },
     "FailoverPolicy": {
       "description": "The failover policy for a given region of a database account.",
@@ -356,11 +370,13 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "FailoverPolicy"
     },
     "IPRangeFilter": {
       "description": "DocumentDB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IPs for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.",
-      "type": "string"
+      "type": "string",
+      "title": "IPRangeFilter"
     },
     "Location": {
       "description": "A region in which the Azure DocumentDB database account is deployed.",
@@ -389,12 +405,14 @@
           "$ref": "#/definitions/ProvisioningState"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Location"
     },
     "ProvisioningState": {
       "description": "The status of the DocumentDB account at the time the operation was called. The status can be one of following. 'Creating' – the DocumentDB account is being created. When an account is in Creating state, only properties that are specified as input for the Create DocumentDB account operation are returned. 'Succeeded' – the DocumentDB account is active for use. 'Updating' – the DocumentDB account is being updated. 'Deleting' – the DocumentDB account is being deleted. 'Failed' – the DocumentDB account failed creation.",
       "readOnly": true,
-      "type": "string"
+      "type": "string",
+      "title": "ProvisioningState"
     },
     "Resource": {
       "description": "A database account resource.",
@@ -426,14 +444,16 @@
         "location"
       ],
       "type": "object",
-      "x-ms-azure-resource": true
+      "x-ms-azure-resource": true,
+      "title": "Resource"
     },
     "Tags": {
       "additionalProperties": {
         "type": "string"
       },
       "description": "Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters.",
-      "type": "object"
+      "type": "object",
+      "title": "Tags"
     }
   },
   "actions": [

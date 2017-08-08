@@ -13,7 +13,8 @@
         "href": {
           "type": "string"
         }
-      }
+      },
+      "title": "AtomLink"
     },
     "Channel": {
       "properties": {
@@ -41,15 +42,19 @@
         "totalResults": {
           "$ref": "#/definitions/Statistic"
         }
-      }
+      },
+      "title": "Channel"
     },
-    "ChannelImage": {},
+    "ChannelImage": {
+      "title": "ChannelImage"
+    },
     "Enclosure": {
       "properties": {
         "url": {
           "type": "string"
         }
-      }
+      },
+      "title": "Enclosure"
     },
     "Item": {
       "properties": {
@@ -166,7 +171,8 @@
         "title": {
           "type": "string"
         }
-      }
+      },
+      "title": "Item"
     },
     "ModelAndView": {
       "properties": {
@@ -191,13 +197,15 @@
         "viewName": {
           "type": "string"
         }
-      }
+      },
+      "title": "ModelAndView"
     },
     "ModelMap": {
       "additionalProperties": {
         "type": "object"
       },
-      "type": "object"
+      "type": "object",
+      "title": "ModelMap"
     },
     "Query": {
       "properties": {
@@ -208,14 +216,16 @@
           "format": "int32",
           "type": "integer"
         }
-      }
+      },
+      "title": "Query"
     },
     "RssResponse": {
       "properties": {
         "channel": {
           "$ref": "#/definitions/Channel"
         }
-      }
+      },
+      "title": "RssResponse"
     },
     "Statistic": {
       "properties": {
@@ -223,7 +233,8 @@
           "format": "int64",
           "type": "integer"
         }
-      }
+      },
+      "title": "Statistic"
     },
     "View": {
       "properties": {
@@ -231,7 +242,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "View"
     }
   },
   "actions": [

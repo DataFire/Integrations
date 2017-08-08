@@ -37,7 +37,8 @@
           "description": "Policy delta between the original policy and the newly set policy."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AuditData"
     },
     "Binding": {
       "description": "Associates `members` with a `role`.",
@@ -54,7 +55,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Binding"
     },
     "BindingDelta": {
       "description": "One delta entry for Binding. Each individual change (only one member in each\nentry) to a binding will be a separate entry.",
@@ -77,7 +79,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BindingDelta"
     },
     "CreateServiceAccountKeyRequest": {
       "description": "The service account key create request.",
@@ -101,7 +104,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateServiceAccountKeyRequest"
     },
     "CreateServiceAccountRequest": {
       "description": "The service account create request.",
@@ -115,12 +119,14 @@
           "description": "The ServiceAccount resource to create.\nCurrently, only the following values are user assignable:\n`display_name` ."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateServiceAccountRequest"
     },
     "Empty": {
       "description": "A generic empty message that you can re-use to avoid defining duplicated\nempty messages in your APIs. A typical example is to use it as the request\nor the response type of an API method. For instance:\n\n    service Foo {\n      rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);\n    }\n\nThe JSON representation for `Empty` is empty JSON object `{}`.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "Empty"
     },
     "ListServiceAccountKeysResponse": {
       "description": "The service account keys list response.",
@@ -133,7 +139,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListServiceAccountKeysResponse"
     },
     "ListServiceAccountsResponse": {
       "description": "The service account list response.",
@@ -150,7 +157,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListServiceAccountsResponse"
     },
     "Policy": {
       "description": "Defines an Identity and Access Management (IAM) policy. It is used to\nspecify access control policies for Cloud Platform resources.\n\n\nA `Policy` consists of a list of `bindings`. A `Binding` binds a list of\n`members` to a `role`, where the members can be user accounts, Google groups,\nGoogle domains, and service accounts. A `role` is a named list of permissions\ndefined by IAM.\n\n**Example**\n\n    {\n      \"bindings\": [\n        {\n          \"role\": \"roles/owner\",\n          \"members\": [\n            \"user:mike@example.com\",\n            \"group:admins@example.com\",\n            \"domain:google.com\",\n            \"serviceAccount:my-other-app@appspot.gserviceaccount.com\",\n          ]\n        },\n        {\n          \"role\": \"roles/viewer\",\n          \"members\": [\"user:sean@example.com\"]\n        }\n      ]\n    }\n\nFor a description of IAM and its features, see the\n[IAM developer's guide](https://cloud.google.com/iam).",
@@ -173,7 +181,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Policy"
     },
     "PolicyDelta": {
       "description": "The difference delta between two policies.",
@@ -186,7 +195,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PolicyDelta"
     },
     "QueryGrantableRolesRequest": {
       "description": "The grantable role query request.",
@@ -205,7 +215,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "QueryGrantableRolesRequest"
     },
     "QueryGrantableRolesResponse": {
       "description": "The grantable role query response.",
@@ -222,7 +233,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "QueryGrantableRolesResponse"
     },
     "Role": {
       "description": "A role in the Identity and Access Management API.",
@@ -240,7 +252,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Role"
     },
     "ServiceAccount": {
       "description": "A service account in the Identity and Access Management API.\n\nTo create a service account, specify the `project_id` and the `account_id`\nfor the account.  The `account_id` is unique within the project, and is used\nto generate the service account email address and a stable\n`unique_id`.\n\nIf the account already exists, the account's resource name is returned\nin util::Status's ResourceInfo.resource_name in the format of\nprojects/{PROJECT_ID}/serviceAccounts/{SERVICE_ACCOUNT_EMAIL}. The caller can\nuse the name in other methods to access the account.\n\nAll other methods can identify the service account using the format\n`projects/{PROJECT_ID}/serviceAccounts/{SERVICE_ACCOUNT_EMAIL}`.\nUsing `-` as a wildcard for the project will infer the project from\nthe account. The `account` value can be the `email` address or the\n`unique_id` of the service account.",
@@ -275,7 +288,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ServiceAccount"
     },
     "ServiceAccountKey": {
       "description": "Represents a service account key.\n\nA service account has two sets of key-pairs: user-managed, and\nsystem-managed.\n\nUser-managed key-pairs can be created and deleted by users.  Users are\nresponsible for rotating these keys periodically to ensure security of\ntheir service accounts.  Users retain the private key of these key-pairs,\nand Google retains ONLY the public key.\n\nSystem-managed key-pairs are managed automatically by Google, and rotated\ndaily without user intervention.  The private key never leaves Google's\nservers to maximize security.\n\nPublic keys for all service accounts are also published at the OAuth2\nService Account API.",
@@ -323,7 +337,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ServiceAccountKey"
     },
     "SetIamPolicyRequest": {
       "description": "Request message for `SetIamPolicy` method.",
@@ -333,7 +348,8 @@
           "description": "REQUIRED: The complete policy to be applied to the `resource`. The size of\nthe policy is limited to a few 10s of KB. An empty policy is a\nvalid policy but certain Cloud Platform services (such as Projects)\nmight reject them."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SetIamPolicyRequest"
     },
     "SignBlobRequest": {
       "description": "The service account sign blob request.",
@@ -344,7 +360,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SignBlobRequest"
     },
     "SignBlobResponse": {
       "description": "The service account sign blob response.",
@@ -359,7 +376,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SignBlobResponse"
     },
     "SignJwtRequest": {
       "description": "The service account sign JWT request.",
@@ -369,7 +387,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SignJwtRequest"
     },
     "SignJwtResponse": {
       "description": "The service account sign JWT response.",
@@ -383,7 +402,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SignJwtResponse"
     },
     "TestIamPermissionsRequest": {
       "description": "Request message for `TestIamPermissions` method.",
@@ -396,7 +416,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TestIamPermissionsRequest"
     },
     "TestIamPermissionsResponse": {
       "description": "Response message for `TestIamPermissions` method.",
@@ -409,7 +430,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TestIamPermissionsResponse"
     }
   },
   "actions": [

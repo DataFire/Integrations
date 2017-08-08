@@ -19,13 +19,15 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Error"
     },
     "OpeningTime": {
       "items": {
         "type": "string"
       },
-      "type": "array"
+      "type": "array",
+      "title": "OpeningTime"
     },
     "TravelCenter": {
       "properties": {
@@ -93,13 +95,15 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TravelCenter"
     },
     "TravelCenterList": {
       "items": {
         "$ref": "#/definitions/TravelCenter"
       },
-      "type": "array"
+      "type": "array",
+      "title": "TravelCenterList"
     }
   },
   "actions": [

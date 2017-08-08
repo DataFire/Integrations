@@ -35,7 +35,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AdministrationRegion"
     },
     "AdministrativeBody": {
       "description": "Information about an election administrative body (e.g. County Board of Elections).",
@@ -105,7 +106,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AdministrativeBody"
     },
     "Candidate": {
       "description": "Information about a candidate running for elected office.",
@@ -147,7 +149,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Candidate"
     },
     "Channel": {
       "description": "A social media or web channel for a candidate.",
@@ -161,7 +164,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Channel"
     },
     "Contest": {
       "description": "Information about a contest that appears on a voter's ballot.",
@@ -281,7 +285,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Contest"
     },
     "ContextParams": {
       "properties": {
@@ -289,7 +294,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ContextParams"
     },
     "DivisionRepresentativeInfoRequest": {
       "description": "A request to look up representative information for a single division.",
@@ -298,7 +304,8 @@
           "$ref": "#/definitions/ContextParams"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DivisionRepresentativeInfoRequest"
     },
     "DivisionSearchRequest": {
       "description": "A search request for political geographies.",
@@ -307,7 +314,8 @@
           "$ref": "#/definitions/ContextParams"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DivisionSearchRequest"
     },
     "DivisionSearchResponse": {
       "description": "The result of a division search query.",
@@ -324,7 +332,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DivisionSearchResponse"
     },
     "DivisionSearchResult": {
       "description": "Represents a political geographic division that matches the requested query.",
@@ -345,7 +354,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DivisionSearchResult"
     },
     "Election": {
       "description": "Information about the election that was queried.",
@@ -368,7 +378,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Election"
     },
     "ElectionOfficial": {
       "description": "Information about individual election officials.",
@@ -394,7 +405,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ElectionOfficial"
     },
     "ElectionsQueryRequest": {
       "properties": {
@@ -402,7 +414,8 @@
           "$ref": "#/definitions/ContextParams"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ElectionsQueryRequest"
     },
     "ElectionsQueryResponse": {
       "description": "The list of elections available for this version of the API.",
@@ -420,7 +433,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ElectionsQueryResponse"
     },
     "ElectoralDistrict": {
       "description": "Describes the geographic scope of a contest.",
@@ -441,7 +455,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ElectoralDistrict"
     },
     "GeographicDivision": {
       "description": "Describes a political geography.",
@@ -466,7 +481,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GeographicDivision"
     },
     "Office": {
       "description": "Information about an Office held by one or more Officials.",
@@ -509,7 +525,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Office"
     },
     "Official": {
       "description": "Information about a person holding an elected office.",
@@ -562,7 +579,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Official"
     },
     "PollingLocation": {
       "description": "A location where a voter can vote. This may be an early vote site, an election day voting location, or a drop off location for a completed ballot.",
@@ -607,7 +625,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PollingLocation"
     },
     "PostalAddress": {
       "properties": {
@@ -708,7 +727,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PostalAddress"
     },
     "RepresentativeInfoData": {
       "properties": {
@@ -735,7 +755,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RepresentativeInfoData"
     },
     "RepresentativeInfoRequest": {
       "description": "A request for political geography and representative information for an address.",
@@ -744,7 +765,8 @@
           "$ref": "#/definitions/ContextParams"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RepresentativeInfoRequest"
     },
     "RepresentativeInfoResponse": {
       "description": "The result of a representative info lookup query.",
@@ -781,7 +803,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RepresentativeInfoResponse"
     },
     "SimpleAddressType": {
       "description": "A simple representation of an address.",
@@ -815,7 +838,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SimpleAddressType"
     },
     "Source": {
       "description": "Contains information about the data source for the element containing it.",
@@ -829,7 +853,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Source"
     },
     "VoterInfoRequest": {
       "description": "A request for information about a voter.",
@@ -841,7 +866,8 @@
           "$ref": "#/definitions/VoterInfoSegmentResult"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "VoterInfoRequest"
     },
     "VoterInfoResponse": {
       "description": "The result of a voter info lookup query.",
@@ -909,7 +935,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "VoterInfoResponse"
     },
     "VoterInfoSegmentResult": {
       "properties": {
@@ -927,7 +954,8 @@
           "$ref": "#/definitions/VoterInfoResponse"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "VoterInfoSegmentResult"
     }
   },
   "actions": [

@@ -41,7 +41,8 @@
           "description": "iTunes Connect App Analytics."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AnalyticsInfo"
     },
     "AndroidInfo": {
       "description": "Android related attributes to the Dynamic Link.",
@@ -63,7 +64,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AndroidInfo"
     },
     "CreateShortDynamicLinkRequest": {
       "description": "Request to create a short Dynamic Link.",
@@ -81,7 +83,8 @@
           "description": "Short Dynamic Link suffix. Optional."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateShortDynamicLinkRequest"
     },
     "CreateShortDynamicLinkResponse": {
       "description": "Response to create a short Dynamic Link.",
@@ -102,7 +105,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateShortDynamicLinkResponse"
     },
     "DynamicLinkInfo": {
       "description": "Information about a Dynamic Link.",
@@ -136,7 +140,8 @@
           "description": "Parameters for social meta tag params.\nUsed to set meta tag data for link previews on social sites."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DynamicLinkInfo"
     },
     "DynamicLinkWarning": {
       "description": "Dynamic Links warning messages.",
@@ -181,7 +186,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DynamicLinkWarning"
     },
     "GooglePlayAnalytics": {
       "description": "Parameters for Google Play Campaign Measurements.\n[Learn more](https://developers.google.com/analytics/devguides/collection/android/v4/campaigns#campaign-params)",
@@ -211,7 +217,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GooglePlayAnalytics"
     },
     "ITunesConnectAnalytics": {
       "description": "Parameters for iTunes Connect App Analytics.",
@@ -233,7 +240,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ITunesConnectAnalytics"
     },
     "IosInfo": {
       "description": "iOS related attributes to the Dynamic Link..",
@@ -263,7 +271,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "IosInfo"
     },
     "NavigationInfo": {
       "description": "Information of navigation behavior.",
@@ -273,7 +282,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "NavigationInfo"
     },
     "SocialMetaTagInfo": {
       "description": "Parameters for social meta tag params.\nUsed to set meta tag data for link previews on social sites.",
@@ -291,7 +301,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SocialMetaTagInfo"
     },
     "Suffix": {
       "description": "Short Dynamic Link suffix.",
@@ -306,7 +317,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Suffix"
     }
   },
   "actions": [

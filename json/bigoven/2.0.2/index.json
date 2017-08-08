@@ -23,7 +23,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "API2.Controllers.GroceryListController.DepartmentModel"
     },
     "API2.Controllers.GroceryListController.PostGroceryListRecipeRequest": {
       "properties": {
@@ -39,7 +40,8 @@
           "type": "number"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "API2.Controllers.GroceryListController.PostGroceryListRecipeRequest"
     },
     "API2.Controllers.GroceryListController.PostGroceryListSyncRequest": {
       "properties": {
@@ -50,7 +52,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "API2.Controllers.GroceryListController.PostGroceryListSyncRequest"
     },
     "API2.Controllers.GroceryListController.PostToGroceryListRecipeRequest": {
       "properties": {
@@ -70,7 +73,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "API2.Controllers.GroceryListController.PostToGroceryListRecipeRequest"
     },
     "API2.Controllers.GroceryListController.UpdateItemByGuidRequest": {
       "properties": {
@@ -93,7 +97,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "API2.Controllers.GroceryListController.UpdateItemByGuidRequest"
     },
     "API2.Controllers.ImagesController.RecipePhotosResponse": {
       "properties": {
@@ -108,7 +113,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "API2.Controllers.ImagesController.RecipePhotosResponse"
     },
     "API2.Controllers.NoteController.NoteRequest": {
       "properties": {
@@ -148,7 +154,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "API2.Controllers.NoteController.NoteRequest"
     },
     "API2.Controllers.RecipeController.FeedbackDTO": {
       "description": "",
@@ -158,7 +165,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "API2.Controllers.RecipeController.FeedbackDTO"
     },
     "API2.Controllers.ReviewController.PostReplyReq": {
       "description": "Reply request parameters",
@@ -168,7 +176,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "API2.Controllers.ReviewController.PostReplyReq"
     },
     "API2.Controllers.ReviewController.ReviewRequest": {
       "description": "Payload for reviews",
@@ -197,7 +206,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "API2.Controllers.ReviewController.ReviewRequest"
     },
     "API2.Controllers.ReviewController.ReviewRequestLegacy": {
       "description": "Legacy -- This object here is deprecated. Please use the new \"ReviewRequest\" structure for all future development",
@@ -228,7 +238,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "API2.Controllers.ReviewController.ReviewRequestLegacy"
     },
     "API2.GroceryListDepartmentResult": {
       "properties": {
@@ -239,7 +250,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "API2.GroceryListDepartmentResult"
     },
     "BigOven.Model.API.GlossaryEntry": {
       "properties": {
@@ -262,7 +274,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BigOven.Model.API.GlossaryEntry"
     },
     "BigOven.Model.API.Grocery.GroceryList": {
       "properties": {
@@ -286,7 +299,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BigOven.Model.API.Grocery.GroceryList"
     },
     "BigOven.Model.API.Grocery.Item": {
       "properties": {
@@ -334,7 +348,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BigOven.Model.API.Grocery.Item"
     },
     "BigOven.Model.API.Image": {
       "properties": {
@@ -387,7 +402,8 @@
           "$ref": "#/definitions/BigOven.Model.API.UserInfo"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BigOven.Model.API.Image"
     },
     "BigOven.Model.API.Ingredient": {
       "properties": {
@@ -438,7 +454,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BigOven.Model.API.Ingredient"
     },
     "BigOven.Model.API.IngredientInfo": {
       "properties": {
@@ -456,7 +473,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BigOven.Model.API.IngredientInfo"
     },
     "BigOven.Model.API.NutritionInfo": {
       "properties": {
@@ -552,7 +570,8 @@
           "type": "number"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BigOven.Model.API.NutritionInfo"
     },
     "BigOven.Model.API.Recipe": {
       "properties": {
@@ -716,7 +735,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BigOven.Model.API.Recipe"
     },
     "BigOven.Model.API.RecipeInfo": {
       "properties": {
@@ -798,7 +818,8 @@
           "type": "number"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BigOven.Model.API.RecipeInfo"
     },
     "BigOven.Model.API.RecipeNote": {
       "properties": {
@@ -838,7 +859,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BigOven.Model.API.RecipeNote"
     },
     "BigOven.Model.API.RecipeNoteList": {
       "properties": {
@@ -853,7 +875,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BigOven.Model.API.RecipeNoteList"
     },
     "BigOven.Model.API.Reply": {
       "properties": {
@@ -878,7 +901,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BigOven.Model.API.Reply"
     },
     "BigOven.Model.API.Review": {
       "properties": {
@@ -936,7 +960,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BigOven.Model.API.Review"
     },
     "BigOven.Model.API.UserInfo": {
       "properties": {
@@ -977,7 +1002,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BigOven.Model.API.UserInfo"
     },
     "BigOven.Model.API.UserInfoTiny": {
       "properties": {
@@ -998,7 +1024,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BigOven.Model.API.UserInfoTiny"
     },
     "BigOven.Model.API2.CollectionInfo": {
       "properties": {
@@ -1040,7 +1067,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BigOven.Model.API2.CollectionInfo"
     },
     "BigOven.Model.API2.GroceryList": {
       "properties": {
@@ -1064,7 +1092,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BigOven.Model.API2.GroceryList"
     },
     "BigOven.Model.API2.Photo": {
       "properties": {
@@ -1092,7 +1121,8 @@
           "$ref": "#/definitions/BigOven.Model.API2.UserInfoTinyx"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BigOven.Model.API2.Photo"
     },
     "BigOven.Model.API2.Recipe": {
       "properties": {
@@ -1256,7 +1286,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BigOven.Model.API2.Recipe"
     },
     "BigOven.Model.API2.RecipeInfox": {
       "properties": {
@@ -1318,7 +1349,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BigOven.Model.API2.RecipeInfox"
     },
     "BigOven.Model.API2.RecipeNote": {
       "properties": {
@@ -1358,7 +1390,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BigOven.Model.API2.RecipeNote"
     },
     "BigOven.Model.API2.RecipeSearchResult": {
       "properties": {
@@ -1376,7 +1409,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BigOven.Model.API2.RecipeSearchResult"
     },
     "BigOven.Model.API2.UserInfoTinyx": {
       "properties": {
@@ -1397,7 +1431,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BigOven.Model.API2.UserInfoTinyx"
     },
     "BigOven.Model.RecipeCategory": {
       "properties": {
@@ -1427,7 +1462,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BigOven.Model.RecipeCategory"
     },
     "BigOven.Model.RecipeInfoDateTuple2": {
       "properties": {
@@ -1439,7 +1475,8 @@
           "$ref": "#/definitions/BigOven.Model.API2.RecipeInfox"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BigOven.Model.RecipeInfoDateTuple2"
     },
     "BigOven.Model.RecipeInfoReviewTuple2": {
       "properties": {
@@ -1450,7 +1487,8 @@
           "$ref": "#/definitions/BigOven.Model.API.Review"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BigOven.Model.RecipeInfoReviewTuple2"
     },
     "BigOven.Model.ShoppingListLine": {
       "properties": {
@@ -1519,11 +1557,13 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BigOven.Model.ShoppingListLine"
     },
     "System.Object": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "System.Object"
     }
   },
   "actions": [

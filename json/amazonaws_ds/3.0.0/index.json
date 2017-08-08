@@ -19,7 +19,8 @@
     "AccessUrl": {
       "maxLength": 128,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "AccessUrl"
     },
     "AddIpRoutesRequest": {
       "properties": {
@@ -40,11 +41,13 @@
         "DirectoryId",
         "IpRoutes"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AddIpRoutesRequest"
     },
     "AddIpRoutesResult": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "AddIpRoutesResult"
     },
     "AddTagsToResourceRequest": {
       "properties": {
@@ -61,21 +64,25 @@
         "ResourceId",
         "Tags"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AddTagsToResourceRequest"
     },
     "AddTagsToResourceResult": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "AddTagsToResourceResult"
     },
     "AddedDateTime": {
       "format": "date-time",
-      "type": "string"
+      "type": "string",
+      "title": "AddedDateTime"
     },
     "AliasName": {
       "maxLength": 62,
       "minLength": 1,
       "pattern": "^(?!d-)([\\da-zA-Z]+)([-]*[\\da-zA-Z])*",
-      "type": "string"
+      "type": "string",
+      "title": "AliasName"
     },
     "Attribute": {
       "description": "Represents a named directory attribute.",
@@ -89,20 +96,24 @@
           "description": "The value of the attribute."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Attribute"
     },
     "AttributeName": {
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "AttributeName"
     },
     "AttributeValue": {
-      "type": "string"
+      "type": "string",
+      "title": "AttributeValue"
     },
     "Attributes": {
       "items": {
         "$ref": "#/definitions/Attribute"
       },
-      "type": "array"
+      "type": "array",
+      "title": "Attributes"
     },
     "AuthenticationFailedException": {
       "description": "An authentication error occurred.",
@@ -116,16 +127,19 @@
           "description": "The identifier of the request that caused the exception."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AuthenticationFailedException"
     },
     "AvailabilityZone": {
-      "type": "string"
+      "type": "string",
+      "title": "AvailabilityZone"
     },
     "AvailabilityZones": {
       "items": {
         "$ref": "#/definitions/AvailabilityZone"
       },
-      "type": "array"
+      "type": "array",
+      "title": "AvailabilityZones"
     },
     "CancelSchemaExtensionRequest": {
       "properties": {
@@ -142,21 +156,25 @@
         "DirectoryId",
         "SchemaExtensionId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CancelSchemaExtensionRequest"
     },
     "CancelSchemaExtensionResult": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "CancelSchemaExtensionResult"
     },
     "CidrIp": {
       "pattern": "^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])(\\/([1-9]|[1-2][0-9]|3[0-2]))$",
-      "type": "string"
+      "type": "string",
+      "title": "CidrIp"
     },
     "CidrIps": {
       "items": {
         "$ref": "#/definitions/CidrIp"
       },
-      "type": "array"
+      "type": "array",
+      "title": "CidrIps"
     },
     "ClientException": {
       "description": "A client exception has occurred.",
@@ -168,10 +186,12 @@
           "$ref": "#/definitions/RequestId"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ClientException"
     },
     "CloudOnlyDirectoriesLimitReached": {
-      "type": "boolean"
+      "type": "boolean",
+      "title": "CloudOnlyDirectoriesLimitReached"
     },
     "Computer": {
       "description": "Contains information about a computer account in a directory.",
@@ -189,19 +209,22 @@
           "description": "The computer name."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Computer"
     },
     "ComputerName": {
       "maxLength": 15,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "ComputerName"
     },
     "ComputerPassword": {
       "format": "password",
       "maxLength": 64,
       "minLength": 8,
       "pattern": "[\\u0020-\\u00FF]+",
-      "type": "string"
+      "type": "string",
+      "title": "ComputerPassword"
     },
     "ConditionalForwarder": {
       "description": "Points to a remote domain with which you are setting up a trust relationship. Conditional forwarders are required in order to set up a trust relationship with another domain.",
@@ -219,13 +242,15 @@
           "description": "The replication scope of the conditional forwarder. The only allowed value is <code>Domain</code>, which will replicate the conditional forwarder to all of the domain controllers for your AWS directory."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ConditionalForwarder"
     },
     "ConditionalForwarders": {
       "items": {
         "$ref": "#/definitions/ConditionalForwarder"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ConditionalForwarders"
     },
     "ConnectDirectoryRequest": {
       "description": "Contains the inputs for the <a>ConnectDirectory</a> operation.",
@@ -261,7 +286,8 @@
         "Size",
         "ConnectSettings"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ConnectDirectoryRequest"
     },
     "ConnectDirectoryResult": {
       "description": "Contains the results of the <a>ConnectDirectory</a> operation.",
@@ -271,16 +297,19 @@
           "description": "The identifier of the new directory."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ConnectDirectoryResult"
     },
     "ConnectPassword": {
       "format": "password",
       "maxLength": 128,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "ConnectPassword"
     },
     "ConnectedDirectoriesLimitReached": {
-      "type": "boolean"
+      "type": "boolean",
+      "title": "ConnectedDirectoriesLimitReached"
     },
     "CreateAliasRequest": {
       "description": "Contains the inputs for the <a>CreateAlias</a> operation.",
@@ -298,7 +327,8 @@
         "DirectoryId",
         "Alias"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateAliasRequest"
     },
     "CreateAliasResult": {
       "description": "Contains the results of the <a>CreateAlias</a> operation.",
@@ -312,7 +342,8 @@
           "description": "The identifier of the directory."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateAliasResult"
     },
     "CreateComputerRequest": {
       "description": "Contains the inputs for the <a>CreateComputer</a> operation.",
@@ -343,7 +374,8 @@
         "ComputerName",
         "Password"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateComputerRequest"
     },
     "CreateComputerResult": {
       "description": "Contains the results for the <a>CreateComputer</a> operation.",
@@ -353,7 +385,8 @@
           "description": "A <a>Computer</a> object that represents the computer account."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateComputerResult"
     },
     "CreateConditionalForwarderRequest": {
       "description": "Initiates the creation of a conditional forwarder for your AWS Directory Service for Microsoft Active Directory. Conditional forwarders are required in order to set up a trust relationship with another domain.",
@@ -376,12 +409,14 @@
         "RemoteDomainName",
         "DnsIpAddrs"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateConditionalForwarderRequest"
     },
     "CreateConditionalForwarderResult": {
       "description": "The result of a CreateConditinalForwarder request.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "CreateConditionalForwarderResult"
     },
     "CreateDirectoryRequest": {
       "description": "Contains the inputs for the <a>CreateDirectory</a> operation. ",
@@ -416,7 +451,8 @@
         "Password",
         "Size"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateDirectoryRequest"
     },
     "CreateDirectoryResult": {
       "description": "Contains the results of the <a>CreateDirectory</a> operation.",
@@ -426,7 +462,8 @@
           "description": "The identifier of the directory that was created."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateDirectoryResult"
     },
     "CreateMicrosoftADRequest": {
       "description": "Creates a Microsoft AD in the AWS cloud.",
@@ -456,7 +493,8 @@
         "Password",
         "VpcSettings"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateMicrosoftADRequest"
     },
     "CreateMicrosoftADResult": {
       "description": "Result of a CreateMicrosoftAD request.",
@@ -466,10 +504,12 @@
           "description": "The identifier of the directory that was created."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateMicrosoftADResult"
     },
     "CreateSnapshotBeforeSchemaExtension": {
-      "type": "boolean"
+      "type": "boolean",
+      "title": "CreateSnapshotBeforeSchemaExtension"
     },
     "CreateSnapshotRequest": {
       "description": "Contains the inputs for the <a>CreateSnapshot</a> operation.",
@@ -486,7 +526,8 @@
       "required": [
         "DirectoryId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateSnapshotRequest"
     },
     "CreateSnapshotResult": {
       "description": "Contains the results of the <a>CreateSnapshot</a> operation.",
@@ -496,7 +537,8 @@
           "description": "The identifier of the snapshot that was created."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateSnapshotResult"
     },
     "CreateTrustRequest": {
       "description": "<p>AWS Directory Service for Microsoft Active Directory allows you to configure trust relationships. For example, you can establish a trust between your Microsoft AD in the AWS cloud, and your existing on-premises Microsoft Active Directory. This would allow you to provide users and groups access to resources in either domain, with a single set of credentials.</p> <p>This action initiates the creation of the AWS side of a trust relationship between a Microsoft AD in the AWS cloud and an external domain.</p>",
@@ -532,7 +574,8 @@
         "TrustPassword",
         "TrustDirection"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateTrustRequest"
     },
     "CreateTrustResult": {
       "description": "The result of a CreateTrust request.",
@@ -542,14 +585,17 @@
           "description": "A unique identifier for the trust relationship that was created."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateTrustResult"
     },
     "CreatedDateTime": {
       "format": "date-time",
-      "type": "string"
+      "type": "string",
+      "title": "CreatedDateTime"
     },
     "DeleteAssociatedConditionalForwarder": {
-      "type": "boolean"
+      "type": "boolean",
+      "title": "DeleteAssociatedConditionalForwarder"
     },
     "DeleteConditionalForwarderRequest": {
       "description": "Deletes a conditional forwarder.",
@@ -567,12 +613,14 @@
         "DirectoryId",
         "RemoteDomainName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteConditionalForwarderRequest"
     },
     "DeleteConditionalForwarderResult": {
       "description": "The result of a DeleteConditionalForwarder request.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DeleteConditionalForwarderResult"
     },
     "DeleteDirectoryRequest": {
       "description": "Contains the inputs for the <a>DeleteDirectory</a> operation.",
@@ -585,7 +633,8 @@
       "required": [
         "DirectoryId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteDirectoryRequest"
     },
     "DeleteDirectoryResult": {
       "description": "Contains the results of the <a>DeleteDirectory</a> operation.",
@@ -595,7 +644,8 @@
           "description": "The directory identifier."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DeleteDirectoryResult"
     },
     "DeleteSnapshotRequest": {
       "description": "Contains the inputs for the <a>DeleteSnapshot</a> operation.",
@@ -608,7 +658,8 @@
       "required": [
         "SnapshotId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteSnapshotRequest"
     },
     "DeleteSnapshotResult": {
       "description": "Contains the results of the <a>DeleteSnapshot</a> operation.",
@@ -618,7 +669,8 @@
           "description": "The identifier of the directory snapshot that was deleted."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DeleteSnapshotResult"
     },
     "DeleteTrustRequest": {
       "description": "Deletes the local side of an existing trust relationship between the Microsoft AD in the AWS cloud and the external domain.",
@@ -635,7 +687,8 @@
       "required": [
         "TrustId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteTrustRequest"
     },
     "DeleteTrustResult": {
       "description": "The result of a DeleteTrust request.",
@@ -645,7 +698,8 @@
           "description": "The Trust ID of the trust relationship that was deleted."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DeleteTrustResult"
     },
     "DeregisterEventTopicRequest": {
       "description": "Removes the specified directory as a publisher to the specified SNS topic.",
@@ -663,12 +717,14 @@
         "DirectoryId",
         "TopicName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeregisterEventTopicRequest"
     },
     "DeregisterEventTopicResult": {
       "description": "The result of a DeregisterEventTopic request.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DeregisterEventTopicResult"
     },
     "DescribeConditionalForwardersRequest": {
       "description": "Describes a conditional forwarder.",
@@ -685,7 +741,8 @@
       "required": [
         "DirectoryId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeConditionalForwardersRequest"
     },
     "DescribeConditionalForwardersResult": {
       "description": "The result of a DescribeConditionalForwarder request.",
@@ -695,7 +752,8 @@
           "description": "The list of conditional forwarders that have been created."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeConditionalForwardersResult"
     },
     "DescribeDirectoriesRequest": {
       "description": "Contains the inputs for the <a>DescribeDirectories</a> operation.",
@@ -713,7 +771,8 @@
           "description": "The <i>DescribeDirectoriesResult.NextToken</i> value from a previous call to <a>DescribeDirectories</a>. Pass null if this is the first call."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeDirectoriesRequest"
     },
     "DescribeDirectoriesResult": {
       "description": "Contains the results of the <a>DescribeDirectories</a> operation.",
@@ -727,7 +786,8 @@
           "description": "If not null, more results are available. Pass this value for the <i>NextToken</i> parameter in a subsequent call to <a>DescribeDirectories</a> to retrieve the next set of items."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeDirectoriesResult"
     },
     "DescribeEventTopicsRequest": {
       "description": "Describes event topics.",
@@ -741,7 +801,8 @@
           "description": "<p>A list of SNS topic names for which to obtain the information. If this member is null, all associations for the specified Directory ID are returned.</p> <p>An empty list results in an <code>InvalidParameterException</code> being thrown.</p>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeEventTopicsRequest"
     },
     "DescribeEventTopicsResult": {
       "description": "The result of a DescribeEventTopic request.",
@@ -751,7 +812,8 @@
           "description": "A list of SNS topic names that receive status messages from the specified Directory ID."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeEventTopicsResult"
     },
     "DescribeSnapshotsRequest": {
       "description": "Contains the inputs for the <a>DescribeSnapshots</a> operation.",
@@ -773,7 +835,8 @@
           "description": "A list of identifiers of the snapshots to obtain the information for. If this member is null or empty, all snapshots are returned using the <i>Limit</i> and <i>NextToken</i> members."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeSnapshotsRequest"
     },
     "DescribeSnapshotsResult": {
       "description": "Contains the results of the <a>DescribeSnapshots</a> operation.",
@@ -787,7 +850,8 @@
           "description": "<p>The list of <a>Snapshot</a> objects that were retrieved.</p> <p>It is possible that this list contains less than the number of items specified in the <i>Limit</i> member of the request. This occurs if there are less than the requested number of items left to retrieve, or if the limitations of the operation have been exceeded.</p>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeSnapshotsResult"
     },
     "DescribeTrustsRequest": {
       "description": "Describes the trust relationships for a particular Microsoft AD in the AWS cloud. If no input parameters are are provided, such as directory ID or trust ID, this request describes all the trust relationships.",
@@ -809,7 +873,8 @@
           "description": "<p>A list of identifiers of the trust relationships for which to obtain the information. If this member is null, all trust relationships that belong to the current account are returned.</p> <p>An empty list results in an <code>InvalidParameterException</code> being thrown.</p>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeTrustsRequest"
     },
     "DescribeTrustsResult": {
       "description": "The result of a DescribeTrust request.",
@@ -823,13 +888,15 @@
           "description": "<p>The list of Trust objects that were retrieved.</p> <p>It is possible that this list contains less than the number of items specified in the <i>Limit</i> member of the request. This occurs if there are less than the requested number of items left to retrieve, or if the limitations of the operation have been exceeded.</p>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeTrustsResult"
     },
     "Description": {
       "maxLength": 128,
       "minLength": 0,
       "pattern": "^([a-zA-Z0-9_])[\\\\a-zA-Z0-9_@#%*+=:?./!\\s-]*$",
-      "type": "string"
+      "type": "string",
+      "title": "Description"
     },
     "DirectoryConnectSettings": {
       "description": "Contains information for the <a>ConnectDirectory</a> operation when an AD Connector directory is being created.",
@@ -857,7 +924,8 @@
         "CustomerDnsIps",
         "CustomerUserName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DirectoryConnectSettings"
     },
     "DirectoryConnectSettingsDescription": {
       "description": "Contains information about an AD Connector directory.",
@@ -887,7 +955,8 @@
           "description": "The identifier of the VPC that the AD Connector is in."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DirectoryConnectSettingsDescription"
     },
     "DirectoryDescription": {
       "description": "Contains information about an AWS Directory Service directory.",
@@ -965,25 +1034,29 @@
           "description": "A <a>DirectoryVpcSettingsDescription</a> object that contains additional information about a directory. This member is only present if the directory is a Simple AD or Managed AD directory."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DirectoryDescription"
     },
     "DirectoryDescriptions": {
       "description": "A list of directory descriptions.",
       "items": {
         "$ref": "#/definitions/DirectoryDescription"
       },
-      "type": "array"
+      "type": "array",
+      "title": "DirectoryDescriptions"
     },
     "DirectoryId": {
       "pattern": "^d-[0-9a-f]{10}$",
-      "type": "string"
+      "type": "string",
+      "title": "DirectoryId"
     },
     "DirectoryIds": {
       "description": "A list of directory identifiers.",
       "items": {
         "$ref": "#/definitions/DirectoryId"
       },
-      "type": "array"
+      "type": "array",
+      "title": "DirectoryIds"
     },
     "DirectoryLimitExceededException": {
       "description": "The maximum number of directories in the region has been reached. You can use the <a>GetDirectoryLimits</a> operation to determine your directory limits in the region.",
@@ -995,7 +1068,8 @@
           "$ref": "#/definitions/RequestId"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DirectoryLimitExceededException"
     },
     "DirectoryLimits": {
       "description": "Contains directory limit information for a region.",
@@ -1037,22 +1111,26 @@
           "description": "Indicates if the connected directory limit has been reached."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DirectoryLimits"
     },
     "DirectoryName": {
       "pattern": "^([a-zA-Z0-9]+[\\\\.-])+([a-zA-Z0-9])+$",
-      "type": "string"
+      "type": "string",
+      "title": "DirectoryName"
     },
     "DirectoryShortName": {
       "pattern": "^[^\\\\/:*?\\\"\\<\\>|.]+[^\\\\/:*?\\\"<>|]*$",
-      "type": "string"
+      "type": "string",
+      "title": "DirectoryShortName"
     },
     "DirectorySize": {
       "enum": [
         "Small",
         "Large"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "DirectorySize"
     },
     "DirectoryStage": {
       "enum": [
@@ -1068,7 +1146,8 @@
         "Deleted",
         "Failed"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "DirectoryStage"
     },
     "DirectoryType": {
       "enum": [
@@ -1076,7 +1155,8 @@
         "ADConnector",
         "MicrosoftAD"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "DirectoryType"
     },
     "DirectoryUnavailableException": {
       "description": "The specified directory is unavailable or could not be found.",
@@ -1088,7 +1168,8 @@
           "$ref": "#/definitions/RequestId"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DirectoryUnavailableException"
     },
     "DirectoryVpcSettings": {
       "description": "Contains VPC information for the <a>CreateDirectory</a> or <a>CreateMicrosoftAD</a> operation.",
@@ -1106,7 +1187,8 @@
         "VpcId",
         "SubnetIds"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DirectoryVpcSettings"
     },
     "DirectoryVpcSettingsDescription": {
       "description": "Contains information about the directory.",
@@ -1128,7 +1210,8 @@
           "description": "The identifier of the VPC that the directory is in."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DirectoryVpcSettingsDescription"
     },
     "DisableRadiusRequest": {
       "description": "Contains the inputs for the <a>DisableRadius</a> operation.",
@@ -1141,12 +1224,14 @@
       "required": [
         "DirectoryId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DisableRadiusRequest"
     },
     "DisableRadiusResult": {
       "description": "Contains the results of the <a>DisableRadius</a> operation.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DisableRadiusResult"
     },
     "DisableSsoRequest": {
       "description": "Contains the inputs for the <a>DisableSso</a> operation.",
@@ -1167,18 +1252,21 @@
       "required": [
         "DirectoryId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DisableSsoRequest"
     },
     "DisableSsoResult": {
       "description": "Contains the results of the <a>DisableSso</a> operation.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DisableSsoResult"
     },
     "DnsIpAddrs": {
       "items": {
         "$ref": "#/definitions/IpAddr"
       },
-      "type": "array"
+      "type": "array",
+      "title": "DnsIpAddrs"
     },
     "EnableRadiusRequest": {
       "description": "Contains the inputs for the <a>EnableRadius</a> operation.",
@@ -1196,12 +1284,14 @@
         "DirectoryId",
         "RadiusSettings"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "EnableRadiusRequest"
     },
     "EnableRadiusResult": {
       "description": "Contains the results of the <a>EnableRadius</a> operation.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "EnableRadiusResult"
     },
     "EnableSsoRequest": {
       "description": "Contains the inputs for the <a>EnableSso</a> operation.",
@@ -1222,16 +1312,19 @@
       "required": [
         "DirectoryId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "EnableSsoRequest"
     },
     "EnableSsoResult": {
       "description": "Contains the results of the <a>EnableSso</a> operation.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "EnableSsoResult"
     },
     "EndDateTime": {
       "format": "date-time",
-      "type": "string"
+      "type": "string",
+      "title": "EndDateTime"
     },
     "EntityAlreadyExistsException": {
       "description": "The specified entity already exists.",
@@ -1243,7 +1336,8 @@
           "$ref": "#/definitions/RequestId"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "EntityAlreadyExistsException"
     },
     "EntityDoesNotExistException": {
       "description": "The specified entity could not be found.",
@@ -1255,7 +1349,8 @@
           "$ref": "#/definitions/RequestId"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "EntityDoesNotExistException"
     },
     "EventTopic": {
       "description": "Information about SNS topic and AWS Directory Service directory associations.",
@@ -1281,22 +1376,26 @@
           "description": "The name of an AWS SNS topic the receives status messages from the directory."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "EventTopic"
     },
     "EventTopics": {
       "items": {
         "$ref": "#/definitions/EventTopic"
       },
-      "type": "array"
+      "type": "array",
+      "title": "EventTopics"
     },
     "ExceptionMessage": {
       "description": "The descriptive message for the exception.",
-      "type": "string"
+      "type": "string",
+      "title": "ExceptionMessage"
     },
     "GetDirectoryLimitsRequest": {
       "description": "Contains the inputs for the <a>GetDirectoryLimits</a> operation.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "GetDirectoryLimitsRequest"
     },
     "GetDirectoryLimitsResult": {
       "description": "Contains the results of the <a>GetDirectoryLimits</a> operation.",
@@ -1306,7 +1405,8 @@
           "description": "A <a>DirectoryLimits</a> object that contains the directory limits for the current region."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetDirectoryLimitsResult"
     },
     "GetSnapshotLimitsRequest": {
       "description": "Contains the inputs for the <a>GetSnapshotLimits</a> operation.",
@@ -1319,7 +1419,8 @@
       "required": [
         "DirectoryId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetSnapshotLimitsRequest"
     },
     "GetSnapshotLimitsResult": {
       "description": "Contains the results of the <a>GetSnapshotLimits</a> operation.",
@@ -1329,7 +1430,8 @@
           "description": "A <a>SnapshotLimits</a> object that contains the manual snapshot limits for the specified directory."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetSnapshotLimitsResult"
     },
     "InsufficientPermissionsException": {
       "description": "The account does not have sufficient permission to perform the operation.",
@@ -1341,7 +1443,8 @@
           "$ref": "#/definitions/RequestId"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InsufficientPermissionsException"
     },
     "InvalidNextTokenException": {
       "description": "The <i>NextToken</i> value is not valid.",
@@ -1353,7 +1456,8 @@
           "$ref": "#/definitions/RequestId"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidNextTokenException"
     },
     "InvalidParameterException": {
       "description": "One or more parameters are not valid.",
@@ -1365,17 +1469,20 @@
           "$ref": "#/definitions/RequestId"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidParameterException"
     },
     "IpAddr": {
       "pattern": "^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$",
-      "type": "string"
+      "type": "string",
+      "title": "IpAddr"
     },
     "IpAddrs": {
       "items": {
         "$ref": "#/definitions/IpAddr"
       },
-      "type": "array"
+      "type": "array",
+      "title": "IpAddrs"
     },
     "IpRoute": {
       "description": "IP address block. This is often the address block of the DNS server used for your on-premises domain. ",
@@ -1389,7 +1496,8 @@
           "description": "Description of the address block."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "IpRoute"
     },
     "IpRouteInfo": {
       "description": "Information about one or more IP address blocks.",
@@ -1419,7 +1527,8 @@
           "description": "The reason for the IpRouteStatusMsg."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "IpRouteInfo"
     },
     "IpRouteLimitExceededException": {
       "description": "The maximum allowed number of IP addresses was exceeded. The default limit is 100 IP address blocks.",
@@ -1431,7 +1540,8 @@
           "$ref": "#/definitions/RequestId"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "IpRouteLimitExceededException"
     },
     "IpRouteStatusMsg": {
       "enum": [
@@ -1442,39 +1552,47 @@
         "AddFailed",
         "RemoveFailed"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "IpRouteStatusMsg"
     },
     "IpRouteStatusReason": {
-      "type": "string"
+      "type": "string",
+      "title": "IpRouteStatusReason"
     },
     "IpRoutes": {
       "items": {
         "$ref": "#/definitions/IpRoute"
       },
-      "type": "array"
+      "type": "array",
+      "title": "IpRoutes"
     },
     "IpRoutesInfo": {
       "items": {
         "$ref": "#/definitions/IpRouteInfo"
       },
-      "type": "array"
+      "type": "array",
+      "title": "IpRoutesInfo"
     },
     "LastUpdatedDateTime": {
       "format": "date-time",
-      "type": "string"
+      "type": "string",
+      "title": "LastUpdatedDateTime"
     },
     "LaunchTime": {
       "format": "date-time",
-      "type": "string"
+      "type": "string",
+      "title": "LaunchTime"
     },
     "LdifContent": {
       "maxLength": 500000,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "LdifContent"
     },
     "Limit": {
       "minimum": 0,
-      "type": "integer"
+      "type": "integer",
+      "title": "Limit"
     },
     "ListIpRoutesRequest": {
       "properties": {
@@ -1494,7 +1612,8 @@
       "required": [
         "DirectoryId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListIpRoutesRequest"
     },
     "ListIpRoutesResult": {
       "properties": {
@@ -1507,7 +1626,8 @@
           "description": "If not null, more results are available. Pass this value for the <i>NextToken</i> parameter in a subsequent call to <a>ListIpRoutes</a> to retrieve the next set of items."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListIpRoutesResult"
     },
     "ListSchemaExtensionsRequest": {
       "properties": {
@@ -1527,7 +1647,8 @@
       "required": [
         "DirectoryId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListSchemaExtensionsRequest"
     },
     "ListSchemaExtensionsResult": {
       "properties": {
@@ -1540,7 +1661,8 @@
           "description": "Information about the schema extensions applied to the directory."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListSchemaExtensionsResult"
     },
     "ListTagsForResourceRequest": {
       "properties": {
@@ -1560,7 +1682,8 @@
       "required": [
         "ResourceId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListTagsForResourceRequest"
     },
     "ListTagsForResourceResult": {
       "properties": {
@@ -1573,28 +1696,34 @@
           "description": "List of tags returned by the ListTagsForResource operation."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListTagsForResourceResult"
     },
     "ManualSnapshotsLimitReached": {
-      "type": "boolean"
+      "type": "boolean",
+      "title": "ManualSnapshotsLimitReached"
     },
     "NextToken": {
-      "type": "string"
+      "type": "string",
+      "title": "NextToken"
     },
     "OrganizationalUnitDN": {
       "maxLength": 2000,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "OrganizationalUnitDN"
     },
     "Password": {
       "format": "password",
       "pattern": "(?=^.{8,64}$)((?=.*\\d)(?=.*[A-Z])(?=.*[a-z])|(?=.*\\d)(?=.*[^A-Za-z0-9\\s])(?=.*[a-z])|(?=.*[^A-Za-z0-9\\s])(?=.*[A-Z])(?=.*[a-z])|(?=.*\\d)(?=.*[A-Z])(?=.*[^A-Za-z0-9\\s]))^.*",
-      "type": "string"
+      "type": "string",
+      "title": "Password"
     },
     "PortNumber": {
       "maximum": 65535,
       "minimum": 1025,
-      "type": "integer"
+      "type": "integer",
+      "title": "PortNumber"
     },
     "RadiusAuthenticationProtocol": {
       "enum": [
@@ -1603,17 +1732,20 @@
         "MS-CHAPv1",
         "MS-CHAPv2"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "RadiusAuthenticationProtocol"
     },
     "RadiusDisplayLabel": {
       "maxLength": 64,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "RadiusDisplayLabel"
     },
     "RadiusRetries": {
       "maximum": 10,
       "minimum": 0,
-      "type": "integer"
+      "type": "integer",
+      "title": "RadiusRetries"
     },
     "RadiusSettings": {
       "description": "Contains information about a Remote Authentication Dial In User Service (RADIUS) server.",
@@ -1651,13 +1783,15 @@
           "description": "Not currently used."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RadiusSettings"
     },
     "RadiusSharedSecret": {
       "format": "password",
       "maxLength": 512,
       "minLength": 8,
-      "type": "string"
+      "type": "string",
+      "title": "RadiusSharedSecret"
     },
     "RadiusStatus": {
       "enum": [
@@ -1665,12 +1799,14 @@
         "Completed",
         "Failed"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "RadiusStatus"
     },
     "RadiusTimeout": {
       "maximum": 20,
       "minimum": 1,
-      "type": "integer"
+      "type": "integer",
+      "title": "RadiusTimeout"
     },
     "RegisterEventTopicRequest": {
       "description": "Registers a new event topic.",
@@ -1688,22 +1824,26 @@
         "DirectoryId",
         "TopicName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "RegisterEventTopicRequest"
     },
     "RegisterEventTopicResult": {
       "description": "The result of a RegisterEventTopic request.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "RegisterEventTopicResult"
     },
     "RemoteDomainName": {
       "pattern": "^([a-zA-Z0-9]+[\\\\.-])+([a-zA-Z0-9])+[.]?$",
-      "type": "string"
+      "type": "string",
+      "title": "RemoteDomainName"
     },
     "RemoteDomainNames": {
       "items": {
         "$ref": "#/definitions/RemoteDomainName"
       },
-      "type": "array"
+      "type": "array",
+      "title": "RemoteDomainNames"
     },
     "RemoveIpRoutesRequest": {
       "properties": {
@@ -1720,11 +1860,13 @@
         "DirectoryId",
         "CidrIps"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "RemoveIpRoutesRequest"
     },
     "RemoveIpRoutesResult": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "RemoveIpRoutesResult"
     },
     "RemoveTagsFromResourceRequest": {
       "properties": {
@@ -1741,26 +1883,31 @@
         "ResourceId",
         "TagKeys"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "RemoveTagsFromResourceRequest"
     },
     "RemoveTagsFromResourceResult": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "RemoveTagsFromResourceResult"
     },
     "ReplicationScope": {
       "enum": [
         "Domain"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ReplicationScope"
     },
     "RequestId": {
       "description": "The AWS request identifier.",
       "pattern": "^([A-Fa-f0-9]{8}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{12})$",
-      "type": "string"
+      "type": "string",
+      "title": "RequestId"
     },
     "ResourceId": {
       "pattern": "^[d]-[0-9a-f]{10}$",
-      "type": "string"
+      "type": "string",
+      "title": "ResourceId"
     },
     "RestoreFromSnapshotRequest": {
       "description": "An object representing the inputs for the <a>RestoreFromSnapshot</a> operation.",
@@ -1773,22 +1920,26 @@
       "required": [
         "SnapshotId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "RestoreFromSnapshotRequest"
     },
     "RestoreFromSnapshotResult": {
       "description": "Contains the results of the <a>RestoreFromSnapshot</a> operation.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "RestoreFromSnapshotResult"
     },
     "SID": {
       "maxLength": 256,
       "minLength": 1,
       "pattern": "[&\\w+-.@]+",
-      "type": "string"
+      "type": "string",
+      "title": "SID"
     },
     "SchemaExtensionId": {
       "pattern": "^e-[0-9a-f]{10}$",
-      "type": "string"
+      "type": "string",
+      "title": "SchemaExtensionId"
     },
     "SchemaExtensionInfo": {
       "description": "Information about a schema extension.",
@@ -1822,7 +1973,8 @@
           "description": "The date and time that the schema extension started being applied to the directory."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SchemaExtensionInfo"
     },
     "SchemaExtensionStatus": {
       "enum": [
@@ -1836,31 +1988,37 @@
         "Failed",
         "Completed"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "SchemaExtensionStatus"
     },
     "SchemaExtensionStatusReason": {
-      "type": "string"
+      "type": "string",
+      "title": "SchemaExtensionStatusReason"
     },
     "SchemaExtensionsInfo": {
       "items": {
         "$ref": "#/definitions/SchemaExtensionInfo"
       },
-      "type": "array"
+      "type": "array",
+      "title": "SchemaExtensionsInfo"
     },
     "SecurityGroupId": {
       "pattern": "^(sg-[0-9a-f]{8})$",
-      "type": "string"
+      "type": "string",
+      "title": "SecurityGroupId"
     },
     "Server": {
       "maxLength": 256,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "Server"
     },
     "Servers": {
       "items": {
         "$ref": "#/definitions/Server"
       },
-      "type": "array"
+      "type": "array",
+      "title": "Servers"
     },
     "ServiceException": {
       "description": "An exception has occurred in AWS Directory Service.",
@@ -1872,7 +2030,8 @@
           "$ref": "#/definitions/RequestId"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ServiceException"
     },
     "Snapshot": {
       "description": "Describes a directory snapshot.",
@@ -1902,18 +2061,21 @@
           "description": "The snapshot type."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Snapshot"
     },
     "SnapshotId": {
       "pattern": "^s-[0-9a-f]{10}$",
-      "type": "string"
+      "type": "string",
+      "title": "SnapshotId"
     },
     "SnapshotIds": {
       "description": "A list of directory snapshot identifiers.",
       "items": {
         "$ref": "#/definitions/SnapshotId"
       },
-      "type": "array"
+      "type": "array",
+      "title": "SnapshotIds"
     },
     "SnapshotLimitExceededException": {
       "description": "The maximum number of manual snapshots for the directory has been reached. You can use the <a>GetSnapshotLimits</a> operation to determine the snapshot limits for a directory.",
@@ -1925,7 +2087,8 @@
           "$ref": "#/definitions/RequestId"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SnapshotLimitExceededException"
     },
     "SnapshotLimits": {
       "description": "Contains manual snapshot limit information for a directory.",
@@ -1943,13 +2106,15 @@
           "description": "Indicates if the manual snapshot limit has been reached."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SnapshotLimits"
     },
     "SnapshotName": {
       "maxLength": 128,
       "minLength": 0,
       "pattern": "^([a-zA-Z0-9_])[\\\\a-zA-Z0-9_@#%*+=:?./!\\s-]*$",
-      "type": "string"
+      "type": "string",
+      "title": "SnapshotName"
     },
     "SnapshotStatus": {
       "enum": [
@@ -1957,31 +2122,37 @@
         "Completed",
         "Failed"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "SnapshotStatus"
     },
     "SnapshotType": {
       "enum": [
         "Auto",
         "Manual"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "SnapshotType"
     },
     "Snapshots": {
       "description": "A list of descriptions of directory snapshots.",
       "items": {
         "$ref": "#/definitions/Snapshot"
       },
-      "type": "array"
+      "type": "array",
+      "title": "Snapshots"
     },
     "SsoEnabled": {
-      "type": "boolean"
+      "type": "boolean",
+      "title": "SsoEnabled"
     },
     "StageReason": {
-      "type": "string"
+      "type": "string",
+      "title": "StageReason"
     },
     "StartDateTime": {
       "format": "date-time",
-      "type": "string"
+      "type": "string",
+      "title": "StartDateTime"
     },
     "StartSchemaExtensionRequest": {
       "properties": {
@@ -2008,7 +2179,8 @@
         "LdifContent",
         "Description"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "StartSchemaExtensionRequest"
     },
     "StartSchemaExtensionResult": {
       "properties": {
@@ -2017,25 +2189,30 @@
           "description": "The identifier of the schema extension that will be applied."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "StartSchemaExtensionResult"
     },
     "StartTime": {
       "format": "date-time",
-      "type": "string"
+      "type": "string",
+      "title": "StartTime"
     },
     "StateLastUpdatedDateTime": {
       "format": "date-time",
-      "type": "string"
+      "type": "string",
+      "title": "StateLastUpdatedDateTime"
     },
     "SubnetId": {
       "pattern": "^(subnet-[0-9a-f]{8})$",
-      "type": "string"
+      "type": "string",
+      "title": "SubnetId"
     },
     "SubnetIds": {
       "items": {
         "$ref": "#/definitions/SubnetId"
       },
-      "type": "array"
+      "type": "array",
+      "title": "SubnetIds"
     },
     "Tag": {
       "description": "Metadata assigned to a directory consisting of a key-value pair.",
@@ -2053,19 +2230,22 @@
         "Key",
         "Value"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "Tag"
     },
     "TagKey": {
       "maxLength": 128,
       "minLength": 1,
       "pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$",
-      "type": "string"
+      "type": "string",
+      "title": "TagKey"
     },
     "TagKeys": {
       "items": {
         "$ref": "#/definitions/TagKey"
       },
-      "type": "array"
+      "type": "array",
+      "title": "TagKeys"
     },
     "TagLimitExceededException": {
       "description": "The maximum allowed number of tags was exceeded.",
@@ -2077,34 +2257,40 @@
           "$ref": "#/definitions/RequestId"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TagLimitExceededException"
     },
     "TagValue": {
       "maxLength": 256,
       "minLength": 0,
       "pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$",
-      "type": "string"
+      "type": "string",
+      "title": "TagValue"
     },
     "Tags": {
       "items": {
         "$ref": "#/definitions/Tag"
       },
-      "type": "array"
+      "type": "array",
+      "title": "Tags"
     },
     "TopicArn": {
-      "type": "string"
+      "type": "string",
+      "title": "TopicArn"
     },
     "TopicName": {
       "maxLength": 256,
       "minLength": 1,
       "pattern": "[a-zA-Z0-9_-]+",
-      "type": "string"
+      "type": "string",
+      "title": "TopicName"
     },
     "TopicNames": {
       "items": {
         "$ref": "#/definitions/TopicName"
       },
-      "type": "array"
+      "type": "array",
+      "title": "TopicNames"
     },
     "TopicStatus": {
       "enum": [
@@ -2113,7 +2299,8 @@
         "Failed",
         "Deleted"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "TopicStatus"
     },
     "Trust": {
       "description": "Describes a trust relationship between an Microsoft AD in the AWS cloud and an external domain.",
@@ -2159,7 +2346,8 @@
           "description": "The trust relationship type."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Trust"
     },
     "TrustDirection": {
       "enum": [
@@ -2167,23 +2355,27 @@
         "One-Way: Incoming",
         "Two-Way"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "TrustDirection"
     },
     "TrustId": {
       "pattern": "^t-[0-9a-f]{10}$",
-      "type": "string"
+      "type": "string",
+      "title": "TrustId"
     },
     "TrustIds": {
       "items": {
         "$ref": "#/definitions/TrustId"
       },
-      "type": "array"
+      "type": "array",
+      "title": "TrustIds"
     },
     "TrustPassword": {
       "format": "password",
       "maxLength": 128,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "TrustPassword"
     },
     "TrustState": {
       "enum": [
@@ -2196,22 +2388,26 @@
         "Deleted",
         "Failed"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "TrustState"
     },
     "TrustStateReason": {
-      "type": "string"
+      "type": "string",
+      "title": "TrustStateReason"
     },
     "TrustType": {
       "enum": [
         "Forest"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "TrustType"
     },
     "Trusts": {
       "items": {
         "$ref": "#/definitions/Trust"
       },
-      "type": "array"
+      "type": "array",
+      "title": "Trusts"
     },
     "UnsupportedOperationException": {
       "description": "The operation is not supported.",
@@ -2223,7 +2419,8 @@
           "$ref": "#/definitions/RequestId"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UnsupportedOperationException"
     },
     "UpdateConditionalForwarderRequest": {
       "description": "Updates a conditional forwarder.",
@@ -2246,12 +2443,14 @@
         "RemoteDomainName",
         "DnsIpAddrs"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateConditionalForwarderRequest"
     },
     "UpdateConditionalForwarderResult": {
       "description": "The result of an UpdateConditionalForwarder request.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "UpdateConditionalForwarderResult"
     },
     "UpdateRadiusRequest": {
       "description": "Contains the inputs for the <a>UpdateRadius</a> operation.",
@@ -2269,23 +2468,28 @@
         "DirectoryId",
         "RadiusSettings"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateRadiusRequest"
     },
     "UpdateRadiusResult": {
       "description": "Contains the results of the <a>UpdateRadius</a> operation.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "UpdateRadiusResult"
     },
     "UpdateSecurityGroupForDirectoryControllers": {
-      "type": "boolean"
+      "type": "boolean",
+      "title": "UpdateSecurityGroupForDirectoryControllers"
     },
     "UseSameUsername": {
-      "type": "boolean"
+      "type": "boolean",
+      "title": "UseSameUsername"
     },
     "UserName": {
       "minLength": 1,
       "pattern": "[a-zA-Z0-9._-]+",
-      "type": "string"
+      "type": "string",
+      "title": "UserName"
     },
     "VerifyTrustRequest": {
       "description": "Initiates the verification of an existing trust relationship between a Microsoft AD in the AWS cloud and an external domain.",
@@ -2298,7 +2502,8 @@
       "required": [
         "TrustId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "VerifyTrustRequest"
     },
     "VerifyTrustResult": {
       "description": "Result of a VerifyTrust request.",
@@ -2308,11 +2513,13 @@
           "description": "The unique Trust ID of the trust relationship that was verified."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "VerifyTrustResult"
     },
     "VpcId": {
       "pattern": "^(vpc-[0-9a-f]{8})$",
-      "type": "string"
+      "type": "string",
+      "title": "VpcId"
     }
   },
   "actions": [

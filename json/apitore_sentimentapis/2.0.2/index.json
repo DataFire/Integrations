@@ -24,7 +24,8 @@
         "score",
         "sentiment"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "SentimentEntity"
     },
     "SentimentResponseEntity": {
       "properties": {
@@ -69,7 +70,8 @@
         "startTime",
         "text"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "SentimentResponseEntity"
     }
   },
   "actions": [

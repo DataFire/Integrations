@@ -61,7 +61,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AutoForwarding"
     },
     "BatchDeleteMessagesRequest": {
       "properties": {
@@ -73,7 +74,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BatchDeleteMessagesRequest"
     },
     "BatchModifyMessagesRequest": {
       "properties": {
@@ -99,7 +101,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BatchModifyMessagesRequest"
     },
     "Draft": {
       "description": "A draft email in the user's mailbox.",
@@ -113,7 +116,8 @@
           "description": "The message content of the draft."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Draft"
     },
     "Filter": {
       "description": "Resource definition for Gmail filters. Filters apply to specific messages instead of an entire email thread.",
@@ -131,7 +135,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Filter"
     },
     "FilterAction": {
       "description": "A set of actions to perform on a message.",
@@ -155,7 +160,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "FilterAction"
     },
     "FilterCriteria": {
       "description": "Message matching criteria.",
@@ -203,7 +209,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "FilterCriteria"
     },
     "ForwardingAddress": {
       "description": "Settings for a forwarding address.",
@@ -222,7 +229,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ForwardingAddress"
     },
     "History": {
       "description": "A record of a change to the user's mailbox. Each history change may affect multiple messages in multiple ways.",
@@ -268,7 +276,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "History"
     },
     "HistoryLabelAdded": {
       "properties": {
@@ -283,7 +292,8 @@
           "$ref": "#/definitions/Message"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "HistoryLabelAdded"
     },
     "HistoryLabelRemoved": {
       "properties": {
@@ -298,7 +308,8 @@
           "$ref": "#/definitions/Message"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "HistoryLabelRemoved"
     },
     "HistoryMessageAdded": {
       "properties": {
@@ -306,7 +317,8 @@
           "$ref": "#/definitions/Message"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "HistoryMessageAdded"
     },
     "HistoryMessageDeleted": {
       "properties": {
@@ -314,7 +326,8 @@
           "$ref": "#/definitions/Message"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "HistoryMessageDeleted"
     },
     "ImapSettings": {
       "description": "IMAP settings for an account.",
@@ -343,7 +356,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ImapSettings"
     },
     "Label": {
       "description": "Labels are used to categorize messages and threads within the user's mailbox.",
@@ -402,7 +416,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Label"
     },
     "ListDraftsResponse": {
       "properties": {
@@ -423,7 +438,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListDraftsResponse"
     },
     "ListFiltersResponse": {
       "description": "Response for the ListFilters method.",
@@ -436,7 +452,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListFiltersResponse"
     },
     "ListForwardingAddressesResponse": {
       "description": "Response for the ListForwardingAddresses method.",
@@ -449,7 +466,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListForwardingAddressesResponse"
     },
     "ListHistoryResponse": {
       "properties": {
@@ -470,7 +488,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListHistoryResponse"
     },
     "ListLabelsResponse": {
       "properties": {
@@ -482,7 +501,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListLabelsResponse"
     },
     "ListMessagesResponse": {
       "properties": {
@@ -503,7 +523,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListMessagesResponse"
     },
     "ListSendAsResponse": {
       "description": "Response for the ListSendAs method.",
@@ -516,7 +537,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListSendAsResponse"
     },
     "ListSmimeInfoResponse": {
       "properties": {
@@ -528,7 +550,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListSmimeInfoResponse"
     },
     "ListThreadsResponse": {
       "properties": {
@@ -549,7 +572,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListThreadsResponse"
     },
     "Message": {
       "description": "An email message.",
@@ -598,7 +622,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Message"
     },
     "MessagePart": {
       "description": "A single MIME message part.",
@@ -634,7 +659,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "MessagePart"
     },
     "MessagePartBody": {
       "description": "The body of a single MIME message part.",
@@ -654,7 +680,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "MessagePartBody"
     },
     "MessagePartHeader": {
       "properties": {
@@ -667,7 +694,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "MessagePartHeader"
     },
     "ModifyMessageRequest": {
       "properties": {
@@ -686,7 +714,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ModifyMessageRequest"
     },
     "ModifyThreadRequest": {
       "properties": {
@@ -705,7 +734,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ModifyThreadRequest"
     },
     "PopSettings": {
       "description": "POP settings for an account.",
@@ -732,7 +762,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PopSettings"
     },
     "Profile": {
       "description": "Profile for a Gmail user.",
@@ -757,7 +788,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Profile"
     },
     "SendAs": {
       "description": "Settings associated with a send-as alias, which can be either the primary login address associated with the account or a custom \"from\" address. Send-as aliases correspond to the \"Send Mail As\" feature in the web interface.",
@@ -804,7 +836,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SendAs"
     },
     "SmimeInfo": {
       "description": "An S/MIME email config.",
@@ -840,7 +873,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SmimeInfo"
     },
     "SmtpMsa": {
       "description": "Configuration for communication with an SMTP service.",
@@ -873,7 +907,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SmtpMsa"
     },
     "Thread": {
       "description": "A collection of messages representing a conversation.",
@@ -899,7 +934,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Thread"
     },
     "VacationSettings": {
       "description": "Vacation auto-reply settings for an account. These settings correspond to the \"Vacation responder\" feature in the web interface.",
@@ -939,7 +975,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "VacationSettings"
     },
     "WatchRequest": {
       "description": "Set up or update a new push notification watch on this user's mailbox.",
@@ -964,7 +1001,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "WatchRequest"
     },
     "WatchResponse": {
       "description": "Push notification watch response.",
@@ -980,7 +1018,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "WatchResponse"
     }
   },
   "actions": [

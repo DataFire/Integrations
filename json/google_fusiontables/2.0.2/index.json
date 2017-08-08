@@ -62,7 +62,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Bucket"
     },
     "Column": {
       "description": "Specifies the details of a column in a table.",
@@ -133,7 +134,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Column"
     },
     "ColumnList": {
       "description": "Represents a list of columns in a table.",
@@ -160,7 +162,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ColumnList"
     },
     "Geometry": {
       "description": "Represents a Geometry object.",
@@ -177,7 +180,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Geometry"
     },
     "Import": {
       "description": "Represents an import request.",
@@ -193,7 +197,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Import"
     },
     "Line": {
       "description": "Represents a line geometry.",
@@ -215,7 +220,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Line"
     },
     "LineStyle": {
       "description": "Represents a LineStyle within a StyleSetting",
@@ -243,7 +249,8 @@
           "description": "Column-value or bucket styler that is used to determine the width of the line."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LineStyle"
     },
     "Point": {
       "description": "Represents a point object.",
@@ -262,7 +269,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Point"
     },
     "PointStyle": {
       "description": "Represents a PointStyle within a StyleSetting",
@@ -276,7 +284,8 @@
           "description": "Column or a bucket value from which the icon name is to be determined."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PointStyle"
     },
     "Polygon": {
       "description": "Represents a polygon object.",
@@ -301,7 +310,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Polygon"
     },
     "PolygonStyle": {
       "description": "Represents a PolygonStyle within a StyleSetting",
@@ -342,7 +352,8 @@
           "description": "Column-value or bucket styler that is used to determine the width of the polygon border."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PolygonStyle"
     },
     "Sqlresponse": {
       "description": "Represents a response to a SQL statement.",
@@ -368,7 +379,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Sqlresponse"
     },
     "StyleFunction": {
       "description": "Represents a StyleFunction within a StyleSetting",
@@ -423,7 +435,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "StyleFunction"
     },
     "StyleSetting": {
       "description": "Represents a complete StyleSettings object. The primary key is a combination of the tableId and a styleId.",
@@ -459,7 +472,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "StyleSetting"
     },
     "StyleSettingList": {
       "description": "Represents a list of styles for a given table.",
@@ -486,7 +500,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "StyleSettingList"
     },
     "Table": {
       "description": "Represents a table.",
@@ -551,7 +566,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Table"
     },
     "TableList": {
       "description": "Represents a list of tables.",
@@ -573,7 +589,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TableList"
     },
     "Task": {
       "description": "A background task on a table, initiated for time- or resource-consuming operations such as changing column types or deleting all rows.",
@@ -601,7 +618,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Task"
     },
     "TaskList": {
       "description": "Represents a list of tasks for a table.",
@@ -628,7 +646,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TaskList"
     },
     "Template": {
       "description": "Represents the contents of InfoWindow templates.",
@@ -663,7 +682,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Template"
     },
     "TemplateList": {
       "description": "Represents a list of templates for a given table.",
@@ -690,7 +710,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TemplateList"
     }
   },
   "actions": [

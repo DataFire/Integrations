@@ -21,7 +21,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AccessToken"
     },
     "ApiMetadata": {
       "properties": {
@@ -51,7 +52,8 @@
         "categories",
         "tags"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ApiMetadata"
     },
     "ApiMetadataLink": {
       "properties": {
@@ -66,7 +68,8 @@
         "type",
         "url"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ApiMetadataLink"
     },
     "ApisJson": {
       "properties": {
@@ -105,7 +108,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ApisJson"
     },
     "ApisJsonApi": {
       "properties": {
@@ -128,7 +132,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ApisJsonApi"
     },
     "ApisJsonProperty": {
       "description": "an API property",
@@ -137,7 +142,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ApisJsonProperty"
     },
     "ApisJsonUrlProperty": {
       "allOf": [
@@ -154,7 +160,8 @@
           },
           "type": "object"
         }
-      ]
+      ],
+      "title": "ApisJsonUrlProperty"
     },
     "ApisJsonValueProperty": {
       "allOf": [
@@ -170,7 +177,8 @@
           },
           "type": "object"
         }
-      ]
+      ],
+      "title": "ApisJsonValueProperty"
     },
     "ClosableComment": {
       "allOf": [
@@ -199,7 +207,8 @@
           },
           "type": "object"
         }
-      ]
+      ],
+      "title": "ClosableComment"
     },
     "ClosableCommentPatch": {
       "allOf": [
@@ -215,7 +224,8 @@
           },
           "type": "object"
         }
-      ]
+      ],
+      "title": "ClosableCommentPatch"
     },
     "CodegenLanguage": {
       "properties": {
@@ -233,7 +243,8 @@
       "required": [
         "visible"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CodegenLanguage"
     },
     "CodegenSettings": {
       "properties": {
@@ -250,7 +261,8 @@
           "type": "object"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CodegenSettings"
     },
     "Collaboration": {
       "properties": {
@@ -289,7 +301,8 @@
       "required": [
         "hint"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "Collaboration"
     },
     "CollaborationHint": {
       "properties": {
@@ -302,7 +315,8 @@
       "required": [
         "type"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CollaborationHint"
     },
     "CollaborationMember": {
       "properties": {
@@ -326,7 +340,8 @@
       "required": [
         "name"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CollaborationMember"
     },
     "CollaborationMembership": {
       "allOf": [
@@ -360,7 +375,8 @@
           ],
           "type": "object"
         }
-      ]
+      ],
+      "title": "CollaborationMembership"
     },
     "CollaborationMembershipList": {
       "properties": {
@@ -377,7 +393,8 @@
       "required": [
         "hint"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CollaborationMembershipList"
     },
     "CollaborationRoles": {
       "properties": {
@@ -399,7 +416,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CollaborationRoles"
     },
     "CollaborationTeamMembership": {
       "allOf": [
@@ -417,7 +435,8 @@
           },
           "type": "object"
         }
-      ]
+      ],
+      "title": "CollaborationTeamMembership"
     },
     "Comment": {
       "properties": {
@@ -445,7 +464,8 @@
         "id",
         "user"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "Comment"
     },
     "CommentPatch": {
       "properties": {
@@ -453,7 +473,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CommentPatch"
     },
     "CommentsBatch": {
       "properties": {
@@ -513,7 +534,8 @@
           "type": "object"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CommentsBatch"
     },
     "Comparison": {
       "description": "a list of differences between two APIs",
@@ -521,7 +543,8 @@
         "$ref": "#/definitions/ComparisonPart"
       },
       "properties": {},
-      "type": "array"
+      "type": "array",
+      "title": "Comparison"
     },
     "ComparisonDetail": {
       "description": "details for one side of a ComparisonPart",
@@ -546,7 +569,8 @@
         "endPosition",
         "startPosition"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ComparisonDetail"
     },
     "ComparisonPart": {
       "description": "a part of the API that was (or wasn't) changed",
@@ -571,7 +595,8 @@
       "required": [
         "type"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ComparisonPart"
     },
     "GitHubExportSettings": {
       "properties": {
@@ -604,7 +629,8 @@
         "repository",
         "token"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GitHubExportSettings"
     },
     "LifecycleSettings": {
       "properties": {
@@ -612,7 +638,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LifecycleSettings"
     },
     "NewComment": {
       "properties": {
@@ -634,7 +661,8 @@
         "body",
         "position"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "NewComment"
     },
     "NewReply": {
       "properties": {
@@ -645,7 +673,8 @@
       "required": [
         "body"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "NewReply"
     },
     "PluginConfiguration": {
       "properties": {
@@ -692,7 +721,8 @@
         "ownerName",
         "path"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "PluginConfiguration"
     },
     "PluginDefinition": {
       "properties": {
@@ -737,7 +767,8 @@
         "name",
         "version"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "PluginDefinition"
     },
     "Position": {
       "description": "a position in a text document",
@@ -753,7 +784,8 @@
         "column",
         "line"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "Position"
     },
     "Private": {
       "properties": {
@@ -764,7 +796,8 @@
       "required": [
         "private"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "Private"
     },
     "SpecId": {
       "properties": {
@@ -783,7 +816,8 @@
         "owner",
         "version"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "SpecId"
     },
     "SystemPluginConfiguration": {
       "properties": {
@@ -815,7 +849,8 @@
         "lifecycles",
         "version"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "SystemPluginConfiguration"
     },
     "Template": {
       "properties": {
@@ -830,7 +865,8 @@
         "id",
         "title"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "Template"
     },
     "TemplateCatalog": {
       "properties": {
@@ -844,7 +880,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TemplateCatalog"
     },
     "User": {
       "properties": {
@@ -855,7 +892,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "User"
     },
     "UserCredentials": {
       "properties": {
@@ -866,7 +904,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UserCredentials"
     },
     "VersionMetadata": {
       "properties": {
@@ -874,7 +913,8 @@
           "$ref": "#/definitions/CodegenSettings"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "VersionMetadata"
     }
   },
   "actions": [

@@ -17,7 +17,8 @@
   "actionCount": 43,
   "definitions": {
     "AcceptLanguage": {
-      "type": "string"
+      "type": "string",
+      "title": "AcceptLanguage"
     },
     "AcceptPortfolioShareInput": {
       "properties": {
@@ -33,11 +34,13 @@
       "required": [
         "PortfolioId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AcceptPortfolioShareInput"
     },
     "AcceptPortfolioShareOutput": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "AcceptPortfolioShareOutput"
     },
     "AccessLevelFilter": {
       "description": "The access level to limit results.",
@@ -51,7 +54,8 @@
           "description": "Specifies the user to which the access level applies. A value of <code>Self</code> is currently supported."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AccessLevelFilter"
     },
     "AccessLevelFilterKey": {
       "enum": [
@@ -59,39 +63,47 @@
         "Role",
         "User"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "AccessLevelFilterKey"
     },
     "AccessLevelFilterValue": {
-      "type": "string"
+      "type": "string",
+      "title": "AccessLevelFilterValue"
     },
     "AccountId": {
       "pattern": "^[0-9]{12}$",
-      "type": "string"
+      "type": "string",
+      "title": "AccountId"
     },
     "AccountIds": {
       "items": {
         "$ref": "#/definitions/AccountId"
       },
-      "type": "array"
+      "type": "array",
+      "title": "AccountIds"
     },
     "AddTags": {
       "items": {
         "$ref": "#/definitions/Tag"
       },
       "maxItems": 20,
-      "type": "array"
+      "type": "array",
+      "title": "AddTags"
     },
     "AllowedValue": {
-      "type": "string"
+      "type": "string",
+      "title": "AllowedValue"
     },
     "AllowedValues": {
       "items": {
         "$ref": "#/definitions/AllowedValue"
       },
-      "type": "array"
+      "type": "array",
+      "title": "AllowedValues"
     },
     "ApproximateCount": {
-      "type": "integer"
+      "type": "integer",
+      "title": "ApproximateCount"
     },
     "AssociatePrincipalWithPortfolioInput": {
       "properties": {
@@ -117,11 +129,13 @@
         "PrincipalARN",
         "PrincipalType"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AssociatePrincipalWithPortfolioInput"
     },
     "AssociatePrincipalWithPortfolioOutput": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "AssociatePrincipalWithPortfolioOutput"
     },
     "AssociateProductWithPortfolioInput": {
       "properties": {
@@ -146,18 +160,22 @@
         "ProductId",
         "PortfolioId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AssociateProductWithPortfolioInput"
     },
     "AssociateProductWithPortfolioOutput": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "AssociateProductWithPortfolioOutput"
     },
     "AttributeValue": {
-      "type": "string"
+      "type": "string",
+      "title": "AttributeValue"
     },
     "ConstraintDescription": {
       "maxLength": 2000,
-      "type": "string"
+      "type": "string",
+      "title": "ConstraintDescription"
     },
     "ConstraintDetail": {
       "description": "Detailed constraint information.",
@@ -179,22 +197,26 @@
           "description": "The type of the constraint."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ConstraintDetail"
     },
     "ConstraintDetails": {
       "items": {
         "$ref": "#/definitions/ConstraintDetail"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ConstraintDetails"
     },
     "ConstraintParameters": {
-      "type": "string"
+      "type": "string",
+      "title": "ConstraintParameters"
     },
     "ConstraintSummaries": {
       "items": {
         "$ref": "#/definitions/ConstraintSummary"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ConstraintSummaries"
     },
     "ConstraintSummary": {
       "description": "An administrator-specified constraint to apply when provisioning a product.",
@@ -208,12 +230,14 @@
           "description": "The type of the constraint. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ConstraintSummary"
     },
     "ConstraintType": {
       "maxLength": 1024,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "ConstraintType"
     },
     "CreateConstraintInput": {
       "properties": {
@@ -253,7 +277,8 @@
         "Type",
         "IdempotencyToken"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateConstraintInput"
     },
     "CreateConstraintOutput": {
       "properties": {
@@ -270,7 +295,8 @@
           "description": "The status of the current request."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateConstraintOutput"
     },
     "CreatePortfolioInput": {
       "properties": {
@@ -304,7 +330,8 @@
         "ProviderName",
         "IdempotencyToken"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreatePortfolioInput"
     },
     "CreatePortfolioOutput": {
       "properties": {
@@ -317,7 +344,8 @@
           "description": "Tags successfully associated with the new portfolio."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreatePortfolioOutput"
     },
     "CreatePortfolioShareInput": {
       "properties": {
@@ -338,11 +366,13 @@
         "PortfolioId",
         "AccountId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreatePortfolioShareInput"
     },
     "CreatePortfolioShareOutput": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "CreatePortfolioShareOutput"
     },
     "CreateProductInput": {
       "properties": {
@@ -402,7 +432,8 @@
         "ProvisioningArtifactParameters",
         "IdempotencyToken"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateProductInput"
     },
     "CreateProductOutput": {
       "properties": {
@@ -419,7 +450,8 @@
           "description": "Tags successfully associated with the new product."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateProductOutput"
     },
     "CreateProvisioningArtifactInput": {
       "properties": {
@@ -445,7 +477,8 @@
         "Parameters",
         "IdempotencyToken"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateProvisioningArtifactInput"
     },
     "CreateProvisioningArtifactOutput": {
       "properties": {
@@ -462,18 +495,22 @@
           "description": "The status of the current request."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateProvisioningArtifactOutput"
     },
     "CreatedTime": {
       "format": "date-time",
-      "type": "string"
+      "type": "string",
+      "title": "CreatedTime"
     },
     "CreationTime": {
       "format": "date-time",
-      "type": "string"
+      "type": "string",
+      "title": "CreationTime"
     },
     "DefaultValue": {
-      "type": "string"
+      "type": "string",
+      "title": "DefaultValue"
     },
     "DeleteConstraintInput": {
       "properties": {
@@ -489,11 +526,13 @@
       "required": [
         "Id"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteConstraintInput"
     },
     "DeleteConstraintOutput": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DeleteConstraintOutput"
     },
     "DeletePortfolioInput": {
       "properties": {
@@ -509,11 +548,13 @@
       "required": [
         "Id"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeletePortfolioInput"
     },
     "DeletePortfolioOutput": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DeletePortfolioOutput"
     },
     "DeletePortfolioShareInput": {
       "properties": {
@@ -534,11 +575,13 @@
         "PortfolioId",
         "AccountId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeletePortfolioShareInput"
     },
     "DeletePortfolioShareOutput": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DeletePortfolioShareOutput"
     },
     "DeleteProductInput": {
       "properties": {
@@ -554,11 +597,13 @@
       "required": [
         "Id"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteProductInput"
     },
     "DeleteProductOutput": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DeleteProductOutput"
     },
     "DeleteProvisioningArtifactInput": {
       "properties": {
@@ -579,11 +624,13 @@
         "ProductId",
         "ProvisioningArtifactId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteProvisioningArtifactInput"
     },
     "DeleteProvisioningArtifactOutput": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DeleteProvisioningArtifactOutput"
     },
     "DescribeConstraintInput": {
       "properties": {
@@ -599,7 +646,8 @@
       "required": [
         "Id"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeConstraintInput"
     },
     "DescribeConstraintOutput": {
       "properties": {
@@ -616,7 +664,8 @@
           "description": "The status of the current request."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeConstraintOutput"
     },
     "DescribePortfolioInput": {
       "properties": {
@@ -632,7 +681,8 @@
       "required": [
         "Id"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribePortfolioInput"
     },
     "DescribePortfolioOutput": {
       "properties": {
@@ -645,7 +695,8 @@
           "description": "Tags associated with the portfolio."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribePortfolioOutput"
     },
     "DescribeProductAsAdminInput": {
       "properties": {
@@ -661,7 +712,8 @@
       "required": [
         "Id"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeProductAsAdminInput"
     },
     "DescribeProductAsAdminOutput": {
       "properties": {
@@ -674,7 +726,8 @@
           "description": "Tags associated with the product."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeProductAsAdminOutput"
     },
     "DescribeProductInput": {
       "properties": {
@@ -690,7 +743,8 @@
       "required": [
         "Id"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeProductInput"
     },
     "DescribeProductOutput": {
       "properties": {
@@ -703,7 +757,8 @@
           "description": "A list of provisioning artifact objects for the specified product. The <code>ProvisioningArtifacts</code> parameter represent the ways the specified product can be provisioned."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeProductOutput"
     },
     "DescribeProductViewInput": {
       "properties": {
@@ -719,7 +774,8 @@
       "required": [
         "Id"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeProductViewInput"
     },
     "DescribeProductViewOutput": {
       "properties": {
@@ -732,7 +788,8 @@
           "description": "A list of provisioning artifact objects for the specified product. The <code>ProvisioningArtifacts</code> represent the ways in which the specified product can be provisioned."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeProductViewOutput"
     },
     "DescribeProvisioningArtifactInput": {
       "properties": {
@@ -753,7 +810,8 @@
         "ProvisioningArtifactId",
         "ProductId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeProvisioningArtifactInput"
     },
     "DescribeProvisioningArtifactOutput": {
       "properties": {
@@ -770,7 +828,8 @@
           "description": "The status of the current request."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeProvisioningArtifactOutput"
     },
     "DescribeProvisioningParametersInput": {
       "properties": {
@@ -795,7 +854,8 @@
         "ProductId",
         "ProvisioningArtifactId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeProvisioningParametersInput"
     },
     "DescribeProvisioningParametersOutput": {
       "properties": {
@@ -812,7 +872,8 @@
           "description": "Any additional metadata specifically related to the provisioning of the product. For example, see the <code>Version</code> field of the CloudFormation template."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeProvisioningParametersOutput"
     },
     "DescribeRecordInput": {
       "properties": {
@@ -836,7 +897,8 @@
       "required": [
         "Id"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeRecordInput"
     },
     "DescribeRecordOutput": {
       "properties": {
@@ -853,10 +915,12 @@
           "description": "A list of outputs for the specified Product object created as the result of a request. For example, a CloudFormation-backed product that creates an S3 bucket would have an output for the S3 bucket URL."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeRecordOutput"
     },
     "Description": {
-      "type": "string"
+      "type": "string",
+      "title": "Description"
     },
     "DisassociatePrincipalFromPortfolioInput": {
       "properties": {
@@ -877,11 +941,13 @@
         "PortfolioId",
         "PrincipalARN"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DisassociatePrincipalFromPortfolioInput"
     },
     "DisassociatePrincipalFromPortfolioOutput": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DisassociatePrincipalFromPortfolioOutput"
     },
     "DisassociateProductFromPortfolioInput": {
       "properties": {
@@ -902,59 +968,73 @@
         "ProductId",
         "PortfolioId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DisassociateProductFromPortfolioInput"
     },
     "DisassociateProductFromPortfolioOutput": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DisassociateProductFromPortfolioOutput"
     },
     "DuplicateResourceException": {
       "description": "The specified resource is a duplicate.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DuplicateResourceException"
     },
     "ErrorCode": {
-      "type": "string"
+      "type": "string",
+      "title": "ErrorCode"
     },
     "ErrorDescription": {
-      "type": "string"
+      "type": "string",
+      "title": "ErrorDescription"
     },
     "HasDefaultPath": {
-      "type": "boolean"
+      "type": "boolean",
+      "title": "HasDefaultPath"
     },
     "Id": {
       "maxLength": 100,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "Id"
     },
     "IdempotencyToken": {
       "maxLength": 128,
       "minLength": 1,
       "pattern": "[a-zA-Z0-9][a-zA-Z0-9_-]*",
-      "type": "string"
+      "type": "string",
+      "title": "IdempotencyToken"
     },
     "IgnoreErrors": {
-      "type": "boolean"
+      "type": "boolean",
+      "title": "IgnoreErrors"
     },
     "InstructionType": {
-      "type": "string"
+      "type": "string",
+      "title": "InstructionType"
     },
     "InstructionValue": {
-      "type": "string"
+      "type": "string",
+      "title": "InstructionValue"
     },
     "InvalidParametersException": {
       "description": "One or more parameters provided to the operation are invalid.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "InvalidParametersException"
     },
     "LastRequestId": {
-      "type": "string"
+      "type": "string",
+      "title": "LastRequestId"
     },
     "LaunchPathSummaries": {
       "items": {
         "$ref": "#/definitions/LaunchPathSummary"
       },
-      "type": "array"
+      "type": "array",
+      "title": "LaunchPathSummaries"
     },
     "LaunchPathSummary": {
       "description": "Summary information about a path for a user to have access to a specified product.",
@@ -976,12 +1056,14 @@
           "description": "List of tags used by this launch path."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LaunchPathSummary"
     },
     "LimitExceededException": {
       "description": "The current limits of the service would have been exceeded by this operation. Reduce the resource use or increase the service limits and retry the operation.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "LimitExceededException"
     },
     "ListAcceptedPortfolioSharesInput": {
       "properties": {
@@ -998,7 +1080,8 @@
           "description": "The page token of the first page retrieved. If null, this retrieves the first page of size <code>PageSize</code>."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListAcceptedPortfolioSharesInput"
     },
     "ListAcceptedPortfolioSharesOutput": {
       "properties": {
@@ -1011,7 +1094,8 @@
           "description": "List of detailed portfolio information objects."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListAcceptedPortfolioSharesOutput"
     },
     "ListConstraintsForPortfolioInput": {
       "properties": {
@@ -1039,7 +1123,8 @@
       "required": [
         "PortfolioId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListConstraintsForPortfolioInput"
     },
     "ListConstraintsForPortfolioOutput": {
       "properties": {
@@ -1052,7 +1137,8 @@
           "description": "The page token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListConstraintsForPortfolioOutput"
     },
     "ListLaunchPathsInput": {
       "properties": {
@@ -1076,7 +1162,8 @@
       "required": [
         "ProductId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListLaunchPathsInput"
     },
     "ListLaunchPathsOutput": {
       "properties": {
@@ -1089,7 +1176,8 @@
           "description": "The page token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListLaunchPathsOutput"
     },
     "ListPortfolioAccessInput": {
       "properties": {
@@ -1105,7 +1193,8 @@
       "required": [
         "PortfolioId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListPortfolioAccessInput"
     },
     "ListPortfolioAccessOutput": {
       "properties": {
@@ -1118,7 +1207,8 @@
           "description": "The page token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListPortfolioAccessOutput"
     },
     "ListPortfoliosForProductInput": {
       "properties": {
@@ -1142,7 +1232,8 @@
       "required": [
         "ProductId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListPortfoliosForProductInput"
     },
     "ListPortfoliosForProductOutput": {
       "properties": {
@@ -1155,7 +1246,8 @@
           "description": "List of detailed portfolio information objects."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListPortfoliosForProductOutput"
     },
     "ListPortfoliosInput": {
       "properties": {
@@ -1172,7 +1264,8 @@
           "description": "The page token of the first page retrieved. If null, this retrieves the first page of size <code>PageSize</code>."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListPortfoliosInput"
     },
     "ListPortfoliosOutput": {
       "properties": {
@@ -1185,7 +1278,8 @@
           "description": "List of detailed portfolio information objects."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListPortfoliosOutput"
     },
     "ListPrincipalsForPortfolioInput": {
       "properties": {
@@ -1209,7 +1303,8 @@
       "required": [
         "PortfolioId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListPrincipalsForPortfolioInput"
     },
     "ListPrincipalsForPortfolioOutput": {
       "properties": {
@@ -1222,7 +1317,8 @@
           "description": "The IAM principals (users or roles) associated with the portfolio."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListPrincipalsForPortfolioOutput"
     },
     "ListProvisioningArtifactsInput": {
       "properties": {
@@ -1238,7 +1334,8 @@
       "required": [
         "ProductId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListProvisioningArtifactsInput"
     },
     "ListProvisioningArtifactsOutput": {
       "properties": {
@@ -1251,7 +1348,8 @@
           "description": "List of detailed provisioning artifact information objects."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListProvisioningArtifactsOutput"
     },
     "ListRecordHistoryInput": {
       "properties": {
@@ -1276,7 +1374,8 @@
           "description": "The filter to limit search results. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListRecordHistoryInput"
     },
     "ListRecordHistoryOutput": {
       "properties": {
@@ -1289,7 +1388,8 @@
           "description": "A list of record detail objects, listed in reverse chronological order."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListRecordHistoryOutput"
     },
     "ListRecordHistorySearchFilter": {
       "description": "The search filter to limit results when listing request history records.",
@@ -1303,38 +1403,46 @@
           "description": "The filter value for <code>Key</code>."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListRecordHistorySearchFilter"
     },
     "NoEcho": {
-      "type": "boolean"
+      "type": "boolean",
+      "title": "NoEcho"
     },
     "NotificationArn": {
       "maxLength": 1224,
       "minLength": 1,
       "pattern": "arn:[a-z0-9-\\.]{1,63}:[a-z0-9-\\.]{0,63}:[a-z0-9-\\.]{0,63}:[a-z0-9-\\.]{0,63}:[^/].{0,1023}",
-      "type": "string"
+      "type": "string",
+      "title": "NotificationArn"
     },
     "NotificationArns": {
       "items": {
         "$ref": "#/definitions/NotificationArn"
       },
       "maxItems": 5,
-      "type": "array"
+      "type": "array",
+      "title": "NotificationArns"
     },
     "OutputKey": {
-      "type": "string"
+      "type": "string",
+      "title": "OutputKey"
     },
     "OutputValue": {
-      "type": "string"
+      "type": "string",
+      "title": "OutputValue"
     },
     "PageSize": {
       "maximum": 20,
       "minimum": 0,
-      "type": "integer"
+      "type": "integer",
+      "title": "PageSize"
     },
     "PageToken": {
       "pattern": "[\\u0009\\u000a\\u000d\\u0020-\\uD7FF\\uE000-\\uFFFD]*",
-      "type": "string"
+      "type": "string",
+      "title": "PageToken"
     },
     "ParameterConstraints": {
       "description": "The constraints that the administrator has put on the parameter.",
@@ -1344,23 +1452,28 @@
           "description": "The values that the administrator has allowed for the parameter."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ParameterConstraints"
     },
     "ParameterKey": {
       "maxLength": 1000,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "ParameterKey"
     },
     "ParameterType": {
-      "type": "string"
+      "type": "string",
+      "title": "ParameterType"
     },
     "ParameterValue": {
       "maxLength": 1000,
-      "type": "string"
+      "type": "string",
+      "title": "ParameterValue"
     },
     "PortfolioDescription": {
       "maxLength": 2000,
-      "type": "string"
+      "type": "string",
+      "title": "PortfolioDescription"
     },
     "PortfolioDetail": {
       "description": "Detailed portfolio information.",
@@ -1390,21 +1503,25 @@
           "description": "The name of the portfolio provider."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PortfolioDetail"
     },
     "PortfolioDetails": {
       "items": {
         "$ref": "#/definitions/PortfolioDetail"
       },
-      "type": "array"
+      "type": "array",
+      "title": "PortfolioDetails"
     },
     "PortfolioDisplayName": {
       "maxLength": 100,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "PortfolioDisplayName"
     },
     "PortfolioName": {
-      "type": "string"
+      "type": "string",
+      "title": "PortfolioName"
     },
     "Principal": {
       "description": "A principal's ARN and type.",
@@ -1418,39 +1535,46 @@
           "description": "The principal type. Must be <code>IAM</code> "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Principal"
     },
     "PrincipalARN": {
       "maxLength": 1000,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "PrincipalARN"
     },
     "PrincipalType": {
       "enum": [
         "IAM"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "PrincipalType"
     },
     "Principals": {
       "items": {
         "$ref": "#/definitions/Principal"
       },
-      "type": "array"
+      "type": "array",
+      "title": "Principals"
     },
     "ProductSource": {
       "enum": [
         "ACCOUNT"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ProductSource"
     },
     "ProductType": {
       "enum": [
         "CLOUD_FORMATION_TEMPLATE"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ProductType"
     },
     "ProductViewAggregationType": {
-      "type": "string"
+      "type": "string",
+      "title": "ProductViewAggregationType"
     },
     "ProductViewAggregationValue": {
       "description": "A single product view aggregation value/count pair, containing metadata about each product to which the calling user has access.",
@@ -1464,13 +1588,15 @@
           "description": "The value of the product view aggregation."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ProductViewAggregationValue"
     },
     "ProductViewAggregationValues": {
       "items": {
         "$ref": "#/definitions/ProductViewAggregationValue"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ProductViewAggregationValues"
     },
     "ProductViewAggregations": {
       "items": {
@@ -1484,7 +1610,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ProductViewAggregations"
     },
     "ProductViewDetail": {
       "description": "Detailed product view information.",
@@ -1506,16 +1633,19 @@
           "description": "Current status of the product."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ProductViewDetail"
     },
     "ProductViewDetails": {
       "items": {
         "$ref": "#/definitions/ProductViewDetail"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ProductViewDetails"
     },
     "ProductViewDistributor": {
-      "type": "string"
+      "type": "string",
+      "title": "ProductViewDistributor"
     },
     "ProductViewFilterBy": {
       "enum": [
@@ -1523,16 +1653,19 @@
         "Owner",
         "ProductType"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ProductViewFilterBy"
     },
     "ProductViewFilterValue": {
-      "type": "string"
+      "type": "string",
+      "title": "ProductViewFilterValue"
     },
     "ProductViewFilterValues": {
       "items": {
         "$ref": "#/definitions/ProductViewFilterValue"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ProductViewFilterValues"
     },
     "ProductViewFilters": {
       "items": {
@@ -1546,16 +1679,20 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ProductViewFilters"
     },
     "ProductViewName": {
-      "type": "string"
+      "type": "string",
+      "title": "ProductViewName"
     },
     "ProductViewOwner": {
-      "type": "string"
+      "type": "string",
+      "title": "ProductViewOwner"
     },
     "ProductViewShortDescription": {
-      "type": "string"
+      "type": "string",
+      "title": "ProductViewShortDescription"
     },
     "ProductViewSortBy": {
       "enum": [
@@ -1563,13 +1700,15 @@
         "VersionCount",
         "CreationDate"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ProductViewSortBy"
     },
     "ProductViewSummaries": {
       "items": {
         "$ref": "#/definitions/ProductViewSummary"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ProductViewSummaries"
     },
     "ProductViewSummary": {
       "description": "The summary metadata about the specified product.",
@@ -1619,12 +1758,14 @@
           "description": "The product type. Contact the product administrator for the significance of this value."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ProductViewSummary"
     },
     "ProviderName": {
       "maxLength": 20,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "ProviderName"
     },
     "ProvisionProductInput": {
       "properties": {
@@ -1671,7 +1812,8 @@
         "ProvisionedProductName",
         "ProvisionToken"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ProvisionProductInput"
     },
     "ProvisionProductOutput": {
       "properties": {
@@ -1680,7 +1822,8 @@
           "description": "The detailed result of the <a>ProvisionProduct</a> request, containing the inputs made to that request, the current state of the request, a pointer to the ProvisionedProduct object of the request, and a list of any errors that the request encountered. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ProvisionProductOutput"
     },
     "ProvisionedProductDetail": {
       "description": "Detailed information about a ProvisionedProduct object.",
@@ -1722,31 +1865,38 @@
           "description": "The type of the ProvisionedProduct object."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ProvisionedProductDetail"
     },
     "ProvisionedProductDetails": {
       "items": {
         "$ref": "#/definitions/ProvisionedProductDetail"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ProvisionedProductDetails"
     },
     "ProvisionedProductId": {
-      "type": "string"
+      "type": "string",
+      "title": "ProvisionedProductId"
     },
     "ProvisionedProductName": {
-      "type": "string"
+      "type": "string",
+      "title": "ProvisionedProductName"
     },
     "ProvisionedProductNameOrArn": {
       "maxLength": 1224,
       "minLength": 1,
       "pattern": "[a-zA-Z0-9][a-zA-Z0-9_-]{0,127}|arn:[a-z0-9-\\.]{1,63}:[a-z0-9-\\.]{0,63}:[a-z0-9-\\.]{0,63}:[a-z0-9-\\.]{0,63}:[^/].{0,1023}",
-      "type": "string"
+      "type": "string",
+      "title": "ProvisionedProductNameOrArn"
     },
     "ProvisionedProductStatusMessage": {
-      "type": "string"
+      "type": "string",
+      "title": "ProvisionedProductStatusMessage"
     },
     "ProvisionedProductType": {
-      "type": "string"
+      "type": "string",
+      "title": "ProvisionedProductType"
     },
     "ProvisioningArtifact": {
       "description": "Contains information indicating the ways in which a product can be provisioned.",
@@ -1768,14 +1918,17 @@
           "description": "The name of the artifact."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ProvisioningArtifact"
     },
     "ProvisioningArtifactCreatedTime": {
       "format": "date-time",
-      "type": "string"
+      "type": "string",
+      "title": "ProvisioningArtifactCreatedTime"
     },
     "ProvisioningArtifactDescription": {
-      "type": "string"
+      "type": "string",
+      "title": "ProvisioningArtifactDescription"
     },
     "ProvisioningArtifactDetail": {
       "description": "Detailed provisioning artifact information.",
@@ -1801,13 +1954,15 @@
           "description": "The type of the provisioning artifact."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ProvisioningArtifactDetail"
     },
     "ProvisioningArtifactDetails": {
       "items": {
         "$ref": "#/definitions/ProvisioningArtifactDetail"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ProvisioningArtifactDetails"
     },
     "ProvisioningArtifactInfo": {
       "items": {
@@ -1823,16 +1978,20 @@
       },
       "maxItems": 1,
       "minItems": 1,
-      "type": "array"
+      "type": "array",
+      "title": "ProvisioningArtifactInfo"
     },
     "ProvisioningArtifactInfoKey": {
-      "type": "string"
+      "type": "string",
+      "title": "ProvisioningArtifactInfoKey"
     },
     "ProvisioningArtifactInfoValue": {
-      "type": "string"
+      "type": "string",
+      "title": "ProvisioningArtifactInfoValue"
     },
     "ProvisioningArtifactName": {
-      "type": "string"
+      "type": "string",
+      "title": "ProvisioningArtifactName"
     },
     "ProvisioningArtifactParameter": {
       "description": "A parameter used to successfully provision the product. This value includes a list of allowable values and additional metadata. ",
@@ -1862,13 +2021,15 @@
           "description": "The parameter type."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ProvisioningArtifactParameter"
     },
     "ProvisioningArtifactParameters": {
       "items": {
         "$ref": "#/definitions/ProvisioningArtifactParameter"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ProvisioningArtifactParameters"
     },
     "ProvisioningArtifactProperties": {
       "description": "Provisioning artifact properties.",
@@ -1893,19 +2054,22 @@
       "required": [
         "Info"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ProvisioningArtifactProperties"
     },
     "ProvisioningArtifactType": {
       "enum": [
         "CLOUD_FORMATION_TEMPLATE"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ProvisioningArtifactType"
     },
     "ProvisioningArtifacts": {
       "items": {
         "$ref": "#/definitions/ProvisioningArtifact"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ProvisioningArtifacts"
     },
     "ProvisioningParameter": {
       "description": "The arameter key/value pairs used to provision a product.",
@@ -1919,13 +2083,15 @@
           "description": "The value to use for provisioning. Any constraints on this value can be found in <code>ProvisioningArtifactParameter</code> for <code>Key</code>."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ProvisioningParameter"
     },
     "ProvisioningParameters": {
       "items": {
         "$ref": "#/definitions/ProvisioningParameter"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ProvisioningParameters"
     },
     "RecordDetail": {
       "description": "The full details of a specific ProvisionedProduct object.",
@@ -1983,13 +2149,15 @@
           "description": "The time when the record for the ProvisionedProduct object was last updated."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RecordDetail"
     },
     "RecordDetails": {
       "items": {
         "$ref": "#/definitions/RecordDetail"
       },
-      "type": "array"
+      "type": "array",
+      "title": "RecordDetails"
     },
     "RecordError": {
       "description": "The error code and description resulting from an operation.",
@@ -2003,13 +2171,15 @@
           "description": "The text description of the error."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RecordError"
     },
     "RecordErrors": {
       "items": {
         "$ref": "#/definitions/RecordError"
       },
-      "type": "array"
+      "type": "array",
+      "title": "RecordErrors"
     },
     "RecordOutput": {
       "description": "An output for the specified Product object created as the result of a request. For example, a CloudFormation-backed product that creates an S3 bucket would have an output for the S3 bucket URL.",
@@ -2027,13 +2197,15 @@
           "description": "The output value."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RecordOutput"
     },
     "RecordOutputs": {
       "items": {
         "$ref": "#/definitions/RecordOutput"
       },
-      "type": "array"
+      "type": "array",
+      "title": "RecordOutputs"
     },
     "RecordStatus": {
       "enum": [
@@ -2041,7 +2213,8 @@
         "SUCCEEDED",
         "ERROR"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "RecordStatus"
     },
     "RecordTag": {
       "description": "A tag associated with the record, stored as a key-value pair.",
@@ -2055,29 +2228,34 @@
           "description": "The value for this tag."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RecordTag"
     },
     "RecordTagKey": {
       "maxLength": 128,
       "minLength": 1,
       "pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-%@]*)$",
-      "type": "string"
+      "type": "string",
+      "title": "RecordTagKey"
     },
     "RecordTagValue": {
       "maxLength": 256,
       "minLength": 1,
       "pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-%@]*)$",
-      "type": "string"
+      "type": "string",
+      "title": "RecordTagValue"
     },
     "RecordTags": {
       "items": {
         "$ref": "#/definitions/RecordTag"
       },
       "maxItems": 50,
-      "type": "array"
+      "type": "array",
+      "title": "RecordTags"
     },
     "RecordType": {
-      "type": "string"
+      "type": "string",
+      "title": "RecordType"
     },
     "RejectPortfolioShareInput": {
       "properties": {
@@ -2093,26 +2271,31 @@
       "required": [
         "PortfolioId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "RejectPortfolioShareInput"
     },
     "RejectPortfolioShareOutput": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "RejectPortfolioShareOutput"
     },
     "ResourceARN": {
       "maxLength": 150,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "ResourceARN"
     },
     "ResourceInUseException": {
       "description": "The operation was requested against a resource that is currently in use. Free the resource from use and retry the operation.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "ResourceInUseException"
     },
     "ResourceNotFoundException": {
       "description": "The specified resource was not found.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "ResourceNotFoundException"
     },
     "ScanProvisionedProductsInput": {
       "properties": {
@@ -2133,7 +2316,8 @@
           "description": "The page token of the first page retrieved. If null, this retrieves the first page of size <code>PageSize</code>."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ScanProvisionedProductsInput"
     },
     "ScanProvisionedProductsOutput": {
       "properties": {
@@ -2146,13 +2330,16 @@
           "description": "A list of ProvisionedProduct detail objects."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ScanProvisionedProductsOutput"
     },
     "SearchFilterKey": {
-      "type": "string"
+      "type": "string",
+      "title": "SearchFilterKey"
     },
     "SearchFilterValue": {
-      "type": "string"
+      "type": "string",
+      "title": "SearchFilterValue"
     },
     "SearchProductsAsAdminInput": {
       "properties": {
@@ -2189,7 +2376,8 @@
           "description": "The sort order specifier. If no value is specified, results are not sorted."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SearchProductsAsAdminInput"
     },
     "SearchProductsAsAdminOutput": {
       "properties": {
@@ -2202,7 +2390,8 @@
           "description": "List of detailed product view information objects."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SearchProductsAsAdminOutput"
     },
     "SearchProductsInput": {
       "properties": {
@@ -2231,7 +2420,8 @@
           "description": "The sort order specifier. If no value is specified, results are not sorted."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SearchProductsInput"
     },
     "SearchProductsOutput": {
       "properties": {
@@ -2248,14 +2438,16 @@
           "description": "A list of the product view summary objects."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SearchProductsOutput"
     },
     "SortOrder": {
       "enum": [
         "ASCENDING",
         "DESCENDING"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "SortOrder"
     },
     "Status": {
       "enum": [
@@ -2263,16 +2455,20 @@
         "CREATING",
         "FAILED"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "Status"
     },
     "SupportDescription": {
-      "type": "string"
+      "type": "string",
+      "title": "SupportDescription"
     },
     "SupportEmail": {
-      "type": "string"
+      "type": "string",
+      "title": "SupportEmail"
     },
     "SupportUrl": {
-      "type": "string"
+      "type": "string",
+      "title": "SupportUrl"
     },
     "Tag": {
       "description": "Key/value pairs to associate with this provisioning. These tags are entirely discretionary and are propagated to the resources created in the provisioning.",
@@ -2290,32 +2486,37 @@
         "Key",
         "Value"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "Tag"
     },
     "TagKey": {
       "maxLength": 128,
       "minLength": 1,
       "pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$",
-      "type": "string"
+      "type": "string",
+      "title": "TagKey"
     },
     "TagKeys": {
       "items": {
         "$ref": "#/definitions/TagKey"
       },
-      "type": "array"
+      "type": "array",
+      "title": "TagKeys"
     },
     "TagValue": {
       "maxLength": 256,
       "minLength": 1,
       "pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$",
-      "type": "string"
+      "type": "string",
+      "title": "TagValue"
     },
     "Tags": {
       "items": {
         "$ref": "#/definitions/Tag"
       },
       "maxItems": 50,
-      "type": "array"
+      "type": "array",
+      "title": "Tags"
     },
     "TerminateProvisionedProductInput": {
       "properties": {
@@ -2343,7 +2544,8 @@
       "required": [
         "TerminateToken"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "TerminateProvisionedProductInput"
     },
     "TerminateProvisionedProductOutput": {
       "properties": {
@@ -2352,7 +2554,8 @@
           "description": "The detailed result of the <a>TerminateProvisionedProduct</a> request, containing the inputs made to that request, the current state of the request, a pointer to the ProvisionedProduct object that the request is modifying, and a list of any errors that the request encountered."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TerminateProvisionedProductOutput"
     },
     "UpdateConstraintInput": {
       "properties": {
@@ -2372,7 +2575,8 @@
       "required": [
         "Id"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateConstraintInput"
     },
     "UpdateConstraintOutput": {
       "properties": {
@@ -2389,7 +2593,8 @@
           "description": "The status of the current request."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UpdateConstraintOutput"
     },
     "UpdatePortfolioInput": {
       "properties": {
@@ -2425,7 +2630,8 @@
       "required": [
         "Id"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdatePortfolioInput"
     },
     "UpdatePortfolioOutput": {
       "properties": {
@@ -2438,7 +2644,8 @@
           "description": "Tags associated with the portfolio."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UpdatePortfolioOutput"
     },
     "UpdateProductInput": {
       "properties": {
@@ -2490,7 +2697,8 @@
       "required": [
         "Id"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateProductInput"
     },
     "UpdateProductOutput": {
       "properties": {
@@ -2503,7 +2711,8 @@
           "description": "Tags associated with the product."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UpdateProductOutput"
     },
     "UpdateProvisionedProductInput": {
       "properties": {
@@ -2543,7 +2752,8 @@
       "required": [
         "UpdateToken"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateProvisionedProductInput"
     },
     "UpdateProvisionedProductOutput": {
       "properties": {
@@ -2552,7 +2762,8 @@
           "description": "The detailed result of the <a>UpdateProvisionedProduct</a> request, containing the inputs made to that request, the current state of the request, a pointer to the ProvisionedProduct object that the request is modifying, and a list of any errors that the request encountered."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UpdateProvisionedProductOutput"
     },
     "UpdateProvisioningArtifactInput": {
       "properties": {
@@ -2581,7 +2792,8 @@
         "ProductId",
         "ProvisioningArtifactId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateProvisioningArtifactInput"
     },
     "UpdateProvisioningArtifactOutput": {
       "properties": {
@@ -2598,7 +2810,8 @@
           "description": "The status of the current request."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UpdateProvisioningArtifactOutput"
     },
     "UpdateProvisioningParameter": {
       "description": "The parameter key/value pair used to update a ProvisionedProduct object. If <code>UsePreviousValue</code> is set to true, <code>Value</code> is ignored and the value for <code>Key</code> is kept as previously set (current value).",
@@ -2616,17 +2829,20 @@
           "description": "The value to use for updating the product provisioning. Any constraints on this value can be found in the <code>ProvisioningArtifactParameter</code> parameter for <code>Key</code>."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UpdateProvisioningParameter"
     },
     "UpdateProvisioningParameters": {
       "items": {
         "$ref": "#/definitions/UpdateProvisioningParameter"
       },
-      "type": "array"
+      "type": "array",
+      "title": "UpdateProvisioningParameters"
     },
     "UpdatedTime": {
       "format": "date-time",
-      "type": "string"
+      "type": "string",
+      "title": "UpdatedTime"
     },
     "UsageInstruction": {
       "description": "Additional information provided by the administrator.",
@@ -2640,16 +2856,19 @@
           "description": "The usage instruction value for this type."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UsageInstruction"
     },
     "UsageInstructions": {
       "items": {
         "$ref": "#/definitions/UsageInstruction"
       },
-      "type": "array"
+      "type": "array",
+      "title": "UsageInstructions"
     },
     "UsePreviousValue": {
-      "type": "boolean"
+      "type": "boolean",
+      "title": "UsePreviousValue"
     }
   },
   "actions": [

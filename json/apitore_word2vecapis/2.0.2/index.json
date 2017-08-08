@@ -55,7 +55,8 @@
         "processTime",
         "startTime"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AnalogyResponseEntity"
     },
     "DistanceEntity": {
       "properties": {
@@ -73,7 +74,8 @@
         "distance",
         "word"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DistanceEntity"
     },
     "DistanceResponseEntity": {
       "properties": {
@@ -117,7 +119,8 @@
         "processTime",
         "startTime"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DistanceResponseEntity"
     },
     "SimilarityResponseEntity": {
       "properties": {
@@ -159,7 +162,8 @@
         "word1",
         "word2"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "SimilarityResponseEntity"
     },
     "VectorDistanceResponseEntity": {
       "properties": {
@@ -207,7 +211,8 @@
         "processTime",
         "startTime"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "VectorDistanceResponseEntity"
     },
     "WordVectorResponseEntity": {
       "properties": {
@@ -247,7 +252,8 @@
         "startTime",
         "word"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "WordVectorResponseEntity"
     }
   },
   "actions": [

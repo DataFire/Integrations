@@ -83,7 +83,8 @@
         "userProfileImageURL",
         "userScreenName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "TweetEntity"
     },
     "TwitterResponseEntity": {
       "properties": {
@@ -129,7 +130,8 @@
         "startTime",
         "tweets"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "TwitterResponseEntity"
     }
   },
   "actions": [

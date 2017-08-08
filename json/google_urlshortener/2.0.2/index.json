@@ -70,7 +70,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AnalyticsSnapshot"
     },
     "AnalyticsSummary": {
       "properties": {
@@ -95,7 +96,8 @@
           "description": "Click analytics over the last week."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AnalyticsSummary"
     },
     "StringCount": {
       "properties": {
@@ -109,7 +111,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "StringCount"
     },
     "Url": {
       "properties": {
@@ -139,7 +142,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Url"
     },
     "UrlHistory": {
       "properties": {
@@ -170,7 +174,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UrlHistory"
     }
   },
   "actions": [

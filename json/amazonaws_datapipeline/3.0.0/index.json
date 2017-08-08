@@ -35,12 +35,14 @@
       "required": [
         "pipelineId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ActivatePipelineInput"
     },
     "ActivatePipelineOutput": {
       "description": "Contains the output of ActivatePipeline.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "ActivatePipelineOutput"
     },
     "AddTagsInput": {
       "description": "Contains the parameters for AddTags.",
@@ -58,12 +60,14 @@
         "pipelineId",
         "tags"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AddTagsInput"
     },
     "AddTagsOutput": {
       "description": "Contains the output of AddTags.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "AddTagsOutput"
     },
     "CreatePipelineInput": {
       "description": "Contains the parameters for CreatePipeline.",
@@ -89,7 +93,8 @@
         "name",
         "uniqueId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreatePipelineInput"
     },
     "CreatePipelineOutput": {
       "description": "Contains the output of CreatePipeline.",
@@ -102,7 +107,8 @@
       "required": [
         "pipelineId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreatePipelineOutput"
     },
     "DeactivatePipelineInput": {
       "description": "Contains the parameters for DeactivatePipeline.",
@@ -119,12 +125,14 @@
       "required": [
         "pipelineId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeactivatePipelineInput"
     },
     "DeactivatePipelineOutput": {
       "description": "Contains the output of DeactivatePipeline.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DeactivatePipelineOutput"
     },
     "DeletePipelineInput": {
       "description": "Contains the parameters for DeletePipeline.",
@@ -137,7 +145,8 @@
       "required": [
         "pipelineId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeletePipelineInput"
     },
     "DescribeObjectsInput": {
       "description": "Contains the parameters for DescribeObjects.",
@@ -163,7 +172,8 @@
         "pipelineId",
         "objectIds"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeObjectsInput"
     },
     "DescribeObjectsOutput": {
       "description": "Contains the output of DescribeObjects.",
@@ -184,7 +194,8 @@
       "required": [
         "pipelineObjects"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeObjectsOutput"
     },
     "DescribePipelinesInput": {
       "description": "Contains the parameters for DescribePipelines.",
@@ -197,7 +208,8 @@
       "required": [
         "pipelineIds"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribePipelinesInput"
     },
     "DescribePipelinesOutput": {
       "description": "Contains the output of DescribePipelines.",
@@ -210,7 +222,8 @@
       "required": [
         "pipelineDescriptionList"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribePipelinesOutput"
     },
     "EvaluateExpressionInput": {
       "description": "Contains the parameters for EvaluateExpression.",
@@ -233,7 +246,8 @@
         "objectId",
         "expression"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "EvaluateExpressionInput"
     },
     "EvaluateExpressionOutput": {
       "description": "Contains the output of EvaluateExpression.",
@@ -246,7 +260,8 @@
       "required": [
         "evaluatedExpression"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "EvaluateExpressionOutput"
     },
     "Field": {
       "description": "A key-value pair that describes a property of a pipeline object. The value is specified as either a string value (<code>StringValue</code>) or a reference to another object (<code>RefValue</code>) but not as both.",
@@ -267,7 +282,8 @@
       "required": [
         "key"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "Field"
     },
     "GetPipelineDefinitionInput": {
       "description": "Contains the parameters for GetPipelineDefinition.",
@@ -284,7 +300,8 @@
       "required": [
         "pipelineId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetPipelineDefinitionInput"
     },
     "GetPipelineDefinitionOutput": {
       "description": "Contains the output of GetPipelineDefinition.",
@@ -302,7 +319,8 @@
           "description": "The objects defined in the pipeline."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetPipelineDefinitionOutput"
     },
     "InstanceIdentity": {
       "description": "<p><p>Identity information for the EC2 instance that is hosting the task runner. You can get this value by calling a metadata URI from the EC2 instance. For more information, see <a href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AESDG-chapter-instancedata.html\">Instance Metadata</a> in the <i>Amazon Elastic Compute Cloud User Guide.</i> Passing in this value proves that your task runner is running on an EC2 instance, and ensures the proper AWS Data Pipeline service charges are applied to your pipeline.</p></p>",
@@ -316,7 +334,8 @@
           "description": "A signature which can be used to verify the accuracy and authenticity of the information provided in the instance identity document."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InstanceIdentity"
     },
     "InternalServiceError": {
       "description": "An internal service error occurred.",
@@ -326,7 +345,8 @@
           "description": "Description of the error message."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InternalServiceError"
     },
     "InvalidRequestException": {
       "description": "The request was not valid. Verify that your request was properly formatted, that the signature was generated with the correct credentials, and that you haven't exceeded any of the service limits for your account.",
@@ -336,7 +356,8 @@
           "description": "Description of the error message."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidRequestException"
     },
     "ListPipelinesInput": {
       "description": "Contains the parameters for ListPipelines.",
@@ -346,7 +367,8 @@
           "description": "The starting point for the results to be returned. For the first call, this value should be empty. As long as there are more results, continue to call <code>ListPipelines</code> with the marker value from the previous call to retrieve the next set of results."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListPipelinesInput"
     },
     "ListPipelinesOutput": {
       "description": "Contains the output of ListPipelines.",
@@ -367,7 +389,8 @@
       "required": [
         "pipelineIdList"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListPipelinesOutput"
     },
     "Operator": {
       "description": "Contains a logical operation for comparing the value of a field with a specified value.",
@@ -381,7 +404,8 @@
           "description": "The value that the actual field value will be compared with."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Operator"
     },
     "OperatorType": {
       "enum": [
@@ -391,7 +415,8 @@
         "GE",
         "BETWEEN"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "OperatorType"
     },
     "ParameterAttribute": {
       "description": "The attributes allowed or specified with a parameter object.",
@@ -409,13 +434,15 @@
         "key",
         "stringValue"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ParameterAttribute"
     },
     "ParameterAttributeList": {
       "items": {
         "$ref": "#/definitions/ParameterAttribute"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ParameterAttributeList"
     },
     "ParameterObject": {
       "description": "Contains information about a parameter object.",
@@ -433,13 +460,15 @@
         "id",
         "attributes"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ParameterObject"
     },
     "ParameterObjectList": {
       "items": {
         "$ref": "#/definitions/ParameterObject"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ParameterObjectList"
     },
     "ParameterValue": {
       "description": "A value or list of parameter values. ",
@@ -457,13 +486,15 @@
         "id",
         "stringValue"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ParameterValue"
     },
     "ParameterValueList": {
       "items": {
         "$ref": "#/definitions/ParameterValue"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ParameterValueList"
     },
     "PipelineDeletedException": {
       "description": "The specified pipeline has been deleted.",
@@ -473,7 +504,8 @@
           "description": "Description of the error message."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PipelineDeletedException"
     },
     "PipelineDescription": {
       "description": "Contains pipeline metadata.",
@@ -504,13 +536,15 @@
         "name",
         "fields"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "PipelineDescription"
     },
     "PipelineDescriptionList": {
       "items": {
         "$ref": "#/definitions/PipelineDescription"
       },
-      "type": "array"
+      "type": "array",
+      "title": "PipelineDescriptionList"
     },
     "PipelineIdName": {
       "description": "Contains the name and identifier of a pipeline.",
@@ -524,7 +558,8 @@
           "description": "The name of the pipeline."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PipelineIdName"
     },
     "PipelineNotFoundException": {
       "description": "The specified pipeline was not found. Verify that you used the correct user and account identifiers.",
@@ -534,7 +569,8 @@
           "description": "Description of the error message."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PipelineNotFoundException"
     },
     "PipelineObject": {
       "description": "Contains information about a pipeline object. This can be a logical, physical, or physical attempt pipeline object. The complete set of components of a pipeline defines the pipeline.",
@@ -557,13 +593,15 @@
         "name",
         "fields"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "PipelineObject"
     },
     "PipelineObjectList": {
       "items": {
         "$ref": "#/definitions/PipelineObject"
       },
-      "type": "array"
+      "type": "array",
+      "title": "PipelineObjectList"
     },
     "PipelineObjectMap": {
       "items": {
@@ -577,7 +615,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "PipelineObjectMap"
     },
     "PollForTaskInput": {
       "description": "Contains the parameters for PollForTask.",
@@ -598,7 +637,8 @@
       "required": [
         "workerGroup"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "PollForTaskInput"
     },
     "PollForTaskOutput": {
       "description": "Contains the output of PollForTask.",
@@ -608,7 +648,8 @@
           "description": "The information needed to complete the task that is being assigned to the task runner. One of the fields returned in this object is <code>taskId</code>, which contains an identifier for the task being assigned. The calling task runner uses <code>taskId</code> in subsequent calls to <a>ReportTaskProgress</a> and <a>SetTaskStatus</a>."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PollForTaskOutput"
     },
     "PutPipelineDefinitionInput": {
       "description": "Contains the parameters for PutPipelineDefinition.",
@@ -634,7 +675,8 @@
         "pipelineId",
         "pipelineObjects"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "PutPipelineDefinitionInput"
     },
     "PutPipelineDefinitionOutput": {
       "description": "Contains the output of PutPipelineDefinition.",
@@ -655,7 +697,8 @@
       "required": [
         "errored"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "PutPipelineDefinitionOutput"
     },
     "Query": {
       "description": "Defines the query to run against an object.",
@@ -665,7 +708,8 @@
           "description": "List of selectors that define the query. An object must satisfy all of the selectors to match the query."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Query"
     },
     "QueryObjectsInput": {
       "description": "Contains the parameters for QueryObjects.",
@@ -695,7 +739,8 @@
         "pipelineId",
         "sphere"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "QueryObjectsInput"
     },
     "QueryObjectsOutput": {
       "description": "Contains the output of QueryObjects.",
@@ -713,7 +758,8 @@
           "description": "The starting point for the next page of results. To view the next page of results, call <code>QueryObjects</code> again with this marker value. If the value is null, there are no more results."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "QueryObjectsOutput"
     },
     "RemoveTagsInput": {
       "description": "Contains the parameters for RemoveTags.",
@@ -731,12 +777,14 @@
         "pipelineId",
         "tagKeys"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "RemoveTagsInput"
     },
     "RemoveTagsOutput": {
       "description": "Contains the output of RemoveTags.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "RemoveTagsOutput"
     },
     "ReportTaskProgressInput": {
       "description": "Contains the parameters for ReportTaskProgress.",
@@ -753,7 +801,8 @@
       "required": [
         "taskId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ReportTaskProgressInput"
     },
     "ReportTaskProgressOutput": {
       "description": "Contains the output of ReportTaskProgress.",
@@ -766,7 +815,8 @@
       "required": [
         "canceled"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ReportTaskProgressOutput"
     },
     "ReportTaskRunnerHeartbeatInput": {
       "description": "Contains the parameters for ReportTaskRunnerHeartbeat.",
@@ -787,7 +837,8 @@
       "required": [
         "taskrunnerId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ReportTaskRunnerHeartbeatInput"
     },
     "ReportTaskRunnerHeartbeatOutput": {
       "description": "Contains the output of ReportTaskRunnerHeartbeat.",
@@ -800,7 +851,8 @@
       "required": [
         "terminate"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ReportTaskRunnerHeartbeatOutput"
     },
     "Selector": {
       "description": "A comparision that is used to determine whether a query should return this object.",
@@ -813,14 +865,16 @@
           "$ref": "#/definitions/Operator"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Selector"
     },
     "SelectorList": {
       "description": "The list of Selectors that define queries on individual fields.",
       "items": {
         "$ref": "#/definitions/Selector"
       },
-      "type": "array"
+      "type": "array",
+      "title": "SelectorList"
     },
     "SetStatusInput": {
       "description": "Contains the parameters for SetStatus.",
@@ -843,7 +897,8 @@
         "objectIds",
         "status"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "SetStatusInput"
     },
     "SetTaskStatusInput": {
       "description": "Contains the parameters for SetTaskStatus.",
@@ -873,12 +928,14 @@
         "taskId",
         "taskStatus"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "SetTaskStatusInput"
     },
     "SetTaskStatusOutput": {
       "description": "Contains the output of SetTaskStatus.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "SetTaskStatusOutput"
     },
     "Tag": {
       "description": "Tags are key/value pairs defined by a user and associated with a pipeline to control access. AWS Data Pipeline allows you to associate ten tags per pipeline. For more information, see <a href=\"http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html\">Controlling User Access to Pipelines</a> in the <i>AWS Data Pipeline Developer Guide</i>.",
@@ -896,7 +953,8 @@
         "key",
         "value"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "Tag"
     },
     "TaskNotFoundException": {
       "description": "The specified task was not found. ",
@@ -906,7 +964,8 @@
           "description": "Description of the error message."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TaskNotFoundException"
     },
     "TaskObject": {
       "description": "Contains information about a pipeline task that is assigned to a task runner.",
@@ -928,7 +987,8 @@
           "description": "An internal identifier for the task. This ID is passed to the <a>SetTaskStatus</a> and <a>ReportTaskProgress</a> actions."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TaskObject"
     },
     "TaskStatus": {
       "enum": [
@@ -936,7 +996,8 @@
         "FAILED",
         "FALSE"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "TaskStatus"
     },
     "ValidatePipelineDefinitionInput": {
       "description": "Contains the parameters for ValidatePipelineDefinition.",
@@ -962,7 +1023,8 @@
         "pipelineId",
         "pipelineObjects"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ValidatePipelineDefinitionInput"
     },
     "ValidatePipelineDefinitionOutput": {
       "description": "Contains the output of ValidatePipelineDefinition.",
@@ -983,7 +1045,8 @@
       "required": [
         "errored"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ValidatePipelineDefinitionOutput"
     },
     "ValidationError": {
       "description": "Defines a validation error. Validation errors prevent pipeline activation. The set of validation errors that can be returned are defined by AWS Data Pipeline.",
@@ -997,13 +1060,15 @@
           "description": "The identifier of the object that contains the validation error."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ValidationError"
     },
     "ValidationErrors": {
       "items": {
         "$ref": "#/definitions/ValidationError"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ValidationErrors"
     },
     "ValidationWarning": {
       "description": "Defines a validation warning. Validation warnings do not prevent pipeline activation. The set of validation warnings that can be returned are defined by AWS Data Pipeline.",
@@ -1017,96 +1082,114 @@
           "description": "A description of the validation warning."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ValidationWarning"
     },
     "ValidationWarnings": {
       "items": {
         "$ref": "#/definitions/ValidationWarning"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ValidationWarnings"
     },
     "attributeNameString": {
       "maxLength": 256,
       "minLength": 1,
       "type": "string",
-      "x-pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*"
+      "x-pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+      "title": "attributeNameString"
     },
     "attributeValueString": {
       "maxLength": 10240,
       "minLength": 0,
       "type": "string",
-      "x-pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*"
+      "x-pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+      "title": "attributeValueString"
     },
     "boolean": {
-      "type": "boolean"
+      "type": "boolean",
+      "title": "boolean"
     },
     "cancelActive": {
-      "type": "boolean"
+      "type": "boolean",
+      "title": "cancelActive"
     },
     "errorMessage": {
-      "type": "string"
+      "type": "string",
+      "title": "errorMessage"
     },
     "fieldList": {
       "items": {
         "$ref": "#/definitions/Field"
       },
-      "type": "array"
+      "type": "array",
+      "title": "fieldList"
     },
     "fieldNameString": {
       "maxLength": 256,
       "minLength": 1,
       "type": "string",
-      "x-pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*"
+      "x-pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+      "title": "fieldNameString"
     },
     "fieldStringValue": {
       "maxLength": 10240,
       "minLength": 0,
       "type": "string",
-      "x-pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*"
+      "x-pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+      "title": "fieldStringValue"
     },
     "id": {
       "maxLength": 1024,
       "minLength": 1,
       "type": "string",
-      "x-pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*"
+      "x-pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+      "title": "id"
     },
     "idList": {
       "items": {
         "$ref": "#/definitions/id"
       },
-      "type": "array"
+      "type": "array",
+      "title": "idList"
     },
     "int": {
-      "type": "integer"
+      "type": "integer",
+      "title": "int"
     },
     "longString": {
       "maxLength": 20971520,
       "minLength": 0,
       "type": "string",
-      "x-pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*"
+      "x-pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+      "title": "longString"
     },
     "pipelineList": {
       "items": {
         "$ref": "#/definitions/PipelineIdName"
       },
-      "type": "array"
+      "type": "array",
+      "title": "pipelineList"
     },
     "string": {
       "maxLength": 1024,
       "minLength": 0,
       "type": "string",
-      "x-pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*"
+      "x-pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+      "title": "string"
     },
     "stringList": {
       "items": {
         "$ref": "#/definitions/string"
       },
-      "type": "array"
+      "type": "array",
+      "title": "stringList"
     },
     "tagKey": {
       "maxLength": 128,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "tagKey"
     },
     "tagList": {
       "items": {
@@ -1114,34 +1197,40 @@
       },
       "maxItems": 10,
       "minItems": 0,
-      "type": "array"
+      "type": "array",
+      "title": "tagList"
     },
     "tagValue": {
       "maxLength": 256,
       "minLength": 0,
-      "type": "string"
+      "type": "string",
+      "title": "tagValue"
     },
     "taskId": {
       "maxLength": 2048,
       "minLength": 1,
       "type": "string",
-      "x-pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*"
+      "x-pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+      "title": "taskId"
     },
     "timestamp": {
       "format": "date-time",
-      "type": "string"
+      "type": "string",
+      "title": "timestamp"
     },
     "validationMessage": {
       "maxLength": 10000,
       "minLength": 0,
       "type": "string",
-      "x-pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*"
+      "x-pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+      "title": "validationMessage"
     },
     "validationMessages": {
       "items": {
         "$ref": "#/definitions/validationMessage"
       },
-      "type": "array"
+      "type": "array",
+      "title": "validationMessages"
     }
   },
   "actions": [

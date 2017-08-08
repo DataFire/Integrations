@@ -28,7 +28,8 @@
         "ap-southeast-2",
         "ap-northeast-1"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "AWSRegion"
     },
     "AdditionalArtifact": {
       "description": "Enable support for Redshift and/or QuickSight.",
@@ -36,14 +37,16 @@
         "REDSHIFT",
         "QUICKSIGHT"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "AdditionalArtifact"
     },
     "AdditionalArtifactList": {
       "description": "A list of additional artifacts.",
       "items": {
         "$ref": "#/definitions/AdditionalArtifact"
       },
-      "type": "array"
+      "type": "array",
+      "title": "AdditionalArtifactList"
     },
     "CompressionFormat": {
       "description": "Preferred compression format for report.",
@@ -51,7 +54,8 @@
         "ZIP",
         "GZIP"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "CompressionFormat"
     },
     "DeleteReportDefinitionRequest": {
       "description": "Request of DeleteReportDefinition",
@@ -60,7 +64,8 @@
           "$ref": "#/definitions/ReportName"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DeleteReportDefinitionRequest"
     },
     "DeleteReportDefinitionResponse": {
       "description": "Response of DeleteReportDefinition",
@@ -69,11 +74,13 @@
           "$ref": "#/definitions/DeleteResponseMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DeleteReportDefinitionResponse"
     },
     "DeleteResponseMessage": {
       "description": "A message indicates if the deletion is successful.",
-      "type": "string"
+      "type": "string",
+      "title": "DeleteResponseMessage"
     },
     "DescribeReportDefinitionsRequest": {
       "description": "Request of DescribeReportDefinitions",
@@ -85,7 +92,8 @@
           "$ref": "#/definitions/GenericString"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeReportDefinitionsRequest"
     },
     "DescribeReportDefinitionsResponse": {
       "description": "Response of DescribeReportDefinitions",
@@ -97,7 +105,8 @@
           "$ref": "#/definitions/ReportDefinitionList"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeReportDefinitionsResponse"
     },
     "DuplicateReportNameException": {
       "description": "This exception is thrown when putting a report preference with a name that already exists.",
@@ -106,15 +115,18 @@
           "$ref": "#/definitions/ErrorMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DuplicateReportNameException"
     },
     "ErrorMessage": {
       "description": "A message to show the detail of the exception.",
-      "type": "string"
+      "type": "string",
+      "title": "ErrorMessage"
     },
     "GenericString": {
       "description": "A generic string.",
-      "type": "string"
+      "type": "string",
+      "title": "GenericString"
     },
     "InternalErrorException": {
       "description": "This exception is thrown on a known dependency failure.",
@@ -123,13 +135,15 @@
           "$ref": "#/definitions/ErrorMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InternalErrorException"
     },
     "MaxResults": {
       "description": "The max number of results returned by the operation.",
       "maximum": 5,
       "minimum": 5,
-      "type": "integer"
+      "type": "integer",
+      "title": "MaxResults"
     },
     "PutReportDefinitionRequest": {
       "description": "Request of PutReportDefinition",
@@ -141,12 +155,14 @@
       "required": [
         "ReportDefinition"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "PutReportDefinitionRequest"
     },
     "PutReportDefinitionResponse": {
       "description": "Response of PutReportDefinition",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "PutReportDefinitionResponse"
     },
     "ReportDefinition": {
       "description": "The definition of AWS Cost and Usage Report. Customer can specify the report name, time unit, report format, compression format, S3 bucket and additional artifacts and schema elements in the definition.",
@@ -189,21 +205,24 @@
         "S3Prefix",
         "S3Region"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ReportDefinition"
     },
     "ReportDefinitionList": {
       "description": "A list of report definitions.",
       "items": {
         "$ref": "#/definitions/ReportDefinition"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ReportDefinitionList"
     },
     "ReportFormat": {
       "description": "Preferred format for report.",
       "enum": [
         "textORcsv"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ReportFormat"
     },
     "ReportLimitReachedException": {
       "description": "This exception is thrown when the number of report preference reaches max limit. The max number is 5.",
@@ -212,38 +231,44 @@
           "$ref": "#/definitions/ErrorMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ReportLimitReachedException"
     },
     "ReportName": {
       "description": "Preferred name for a report, it has to be unique. Must starts with a number/letter, case sensitive. Limited to 256 characters.",
       "maxLength": 256,
       "pattern": "[0-9A-Za-z!\\-_.*\\'()]+",
-      "type": "string"
+      "type": "string",
+      "title": "ReportName"
     },
     "S3Bucket": {
       "description": "Name of customer S3 bucket.",
       "maxLength": 256,
-      "type": "string"
+      "type": "string",
+      "title": "S3Bucket"
     },
     "S3Prefix": {
       "description": "Preferred report path prefix. Limited to 256 characters.",
       "maxLength": 256,
       "pattern": "[0-9A-Za-z!\\-_.*\\'()/]*",
-      "type": "string"
+      "type": "string",
+      "title": "S3Prefix"
     },
     "SchemaElement": {
       "description": "Preference of including Resource IDs. You can include additional details about individual resource IDs in your report.",
       "enum": [
         "RESOURCES"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "SchemaElement"
     },
     "SchemaElementList": {
       "description": "A list of schema elements.",
       "items": {
         "$ref": "#/definitions/SchemaElement"
       },
-      "type": "array"
+      "type": "array",
+      "title": "SchemaElementList"
     },
     "TimeUnit": {
       "description": "The frequency on which report data are measured and displayed.",
@@ -251,7 +276,8 @@
         "HOURLY",
         "DAILY"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "TimeUnit"
     },
     "ValidationException": {
       "description": "This exception is thrown when providing an invalid input. eg. Put a report preference with an invalid report name, or Delete a report preference with an empty report name.",
@@ -260,7 +286,8 @@
           "$ref": "#/definitions/ErrorMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ValidationException"
     }
   },
   "actions": [

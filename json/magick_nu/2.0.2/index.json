@@ -22,7 +22,8 @@
         "username": {
           "type": "string"
         }
-      }
+      },
+      "title": "TradingAccount"
     },
     "UserDTO": {
       "properties": {
@@ -47,7 +48,8 @@
         "username": {
           "type": "string"
         }
-      }
+      },
+      "title": "UserDTO"
     }
   },
   "actions": [

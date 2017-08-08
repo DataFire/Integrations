@@ -19,7 +19,8 @@
     "AccessToSnapshotDeniedFault": {
       "description": "The owner of the specified snapshot has not authorized your account to access the snapshot.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "AccessToSnapshotDeniedFault"
     },
     "AccountWithRestoreAccess": {
       "description": "Describes an AWS customer account authorized to restore a snapshot.",
@@ -33,28 +34,33 @@
           "description": "The identifier of an AWS customer account authorized to restore a snapshot."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AccountWithRestoreAccess"
     },
     "AccountsWithRestoreAccessList": {
       "items": {
         "$ref": "#/definitions/AccountWithRestoreAccess"
       },
-      "type": "array"
+      "type": "array",
+      "title": "AccountsWithRestoreAccessList"
     },
     "AuthorizationAlreadyExistsFault": {
       "description": "The specified CIDR block or EC2 security group is already authorized for the specified cluster security group.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "AuthorizationAlreadyExistsFault"
     },
     "AuthorizationNotFoundFault": {
       "description": "The specified CIDR IP range or EC2 security group is not authorized for the specified cluster security group.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "AuthorizationNotFoundFault"
     },
     "AuthorizationQuotaExceededFault": {
       "description": "The authorization quota for the cluster security group has been reached.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "AuthorizationQuotaExceededFault"
     },
     "AuthorizeClusterSecurityGroupIngressMessage": {
       "description": "<p/>",
@@ -79,7 +85,8 @@
       "required": [
         "ClusterSecurityGroupName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AuthorizeClusterSecurityGroupIngressMessage"
     },
     "AuthorizeClusterSecurityGroupIngressResult": {
       "properties": {
@@ -87,7 +94,8 @@
           "$ref": "#/definitions/ClusterSecurityGroup"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AuthorizeClusterSecurityGroupIngressResult"
     },
     "AuthorizeSnapshotAccessMessage": {
       "description": "<p/>",
@@ -109,7 +117,8 @@
         "SnapshotIdentifier",
         "AccountWithRestoreAccess"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AuthorizeSnapshotAccessMessage"
     },
     "AuthorizeSnapshotAccessResult": {
       "properties": {
@@ -117,7 +126,8 @@
           "$ref": "#/definitions/Snapshot"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AuthorizeSnapshotAccessResult"
     },
     "AvailabilityZone": {
       "description": "Describes an availability zone.",
@@ -127,24 +137,29 @@
           "description": "The name of the availability zone."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AvailabilityZone"
     },
     "AvailabilityZoneList": {
       "items": {
         "$ref": "#/definitions/AvailabilityZone"
       },
-      "type": "array"
+      "type": "array",
+      "title": "AvailabilityZoneList"
     },
     "Boolean": {
-      "type": "boolean"
+      "type": "boolean",
+      "title": "Boolean"
     },
     "BooleanOptional": {
-      "type": "boolean"
+      "type": "boolean",
+      "title": "BooleanOptional"
     },
     "BucketNotFoundFault": {
       "description": "Could not find the specified S3 bucket.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "BucketNotFoundFault"
     },
     "Cluster": {
       "description": "Describes a cluster.",
@@ -282,12 +297,14 @@
           "description": "A list of Amazon Virtual Private Cloud (Amazon VPC) security groups that are associated with the cluster. This parameter is returned only if the cluster is in a VPC."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Cluster"
     },
     "ClusterAlreadyExistsFault": {
       "description": "The account already has a cluster with the given identifier.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "ClusterAlreadyExistsFault"
     },
     "ClusterCredentials": {
       "description": "Temporary credentials with authorization to log in to an Amazon Redshift database. ",
@@ -305,7 +322,8 @@
           "description": "The date and time <code>DbPassword</code> expires."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ClusterCredentials"
     },
     "ClusterIamRole": {
       "description": "An AWS Identity and Access Management (IAM) role that can be used by the associated Amazon Redshift cluster to access other AWS services.",
@@ -319,19 +337,22 @@
           "description": "The Amazon Resource Name (ARN) of the IAM role, for example, <code>arn:aws:iam::123456789012:role/RedshiftCopyUnload</code>. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ClusterIamRole"
     },
     "ClusterIamRoleList": {
       "items": {
         "$ref": "#/definitions/ClusterIamRole"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ClusterIamRoleList"
     },
     "ClusterList": {
       "items": {
         "$ref": "#/definitions/Cluster"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ClusterList"
     },
     "ClusterNode": {
       "description": "The identifier of a node in a cluster.",
@@ -349,18 +370,21 @@
           "description": "The public IP address of a node within a cluster."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ClusterNode"
     },
     "ClusterNodesList": {
       "items": {
         "$ref": "#/definitions/ClusterNode"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ClusterNodesList"
     },
     "ClusterNotFoundFault": {
       "description": "The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster. ",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "ClusterNotFoundFault"
     },
     "ClusterParameterGroup": {
       "description": "Describes a parameter group.",
@@ -382,12 +406,14 @@
           "description": "The list of tags for the cluster parameter group."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ClusterParameterGroup"
     },
     "ClusterParameterGroupAlreadyExistsFault": {
       "description": "A cluster parameter group with the same name already exists.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "ClusterParameterGroupAlreadyExistsFault"
     },
     "ClusterParameterGroupDetails": {
       "description": "Contains the output from the <a>DescribeClusterParameters</a> action. ",
@@ -401,7 +427,8 @@
           "description": "A list of <a>Parameter</a> instances. Each instance lists the parameters of one cluster parameter group. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ClusterParameterGroupDetails"
     },
     "ClusterParameterGroupNameMessage": {
       "description": "<p/>",
@@ -415,17 +442,20 @@
           "description": "The status of the parameter group. For example, if you made a change to a parameter group name-value pair, then the change could be pending a reboot of an associated cluster."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ClusterParameterGroupNameMessage"
     },
     "ClusterParameterGroupNotFoundFault": {
       "description": "The parameter group name does not refer to an existing parameter group.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "ClusterParameterGroupNotFoundFault"
     },
     "ClusterParameterGroupQuotaExceededFault": {
       "description": "The request would result in the user exceeding the allowed number of cluster parameter groups. For information about increasing your quota, go to <a href=\"http://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html\">Limits in Amazon Redshift</a> in the <i>Amazon Redshift Cluster Management Guide</i>. ",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "ClusterParameterGroupQuotaExceededFault"
     },
     "ClusterParameterGroupStatus": {
       "description": "Describes the status of a parameter group.",
@@ -443,13 +473,15 @@
           "description": "The name of the cluster parameter group."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ClusterParameterGroupStatus"
     },
     "ClusterParameterGroupStatusList": {
       "items": {
         "$ref": "#/definitions/ClusterParameterGroupStatus"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ClusterParameterGroupStatusList"
     },
     "ClusterParameterGroupsMessage": {
       "description": "Contains the output from the <a>DescribeClusterParameterGroups</a> action. ",
@@ -463,7 +495,8 @@
           "description": "A list of <a>ClusterParameterGroup</a> instances. Each instance describes one cluster parameter group. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ClusterParameterGroupsMessage"
     },
     "ClusterParameterStatus": {
       "description": "Describes the status of a parameter group.",
@@ -481,18 +514,21 @@
           "description": "The name of the parameter."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ClusterParameterStatus"
     },
     "ClusterParameterStatusList": {
       "items": {
         "$ref": "#/definitions/ClusterParameterStatus"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ClusterParameterStatusList"
     },
     "ClusterQuotaExceededFault": {
       "description": "The request would exceed the allowed number of cluster instances for this account. For information about increasing your quota, go to <a href=\"http://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html\">Limits in Amazon Redshift</a> in the <i>Amazon Redshift Cluster Management Guide</i>. ",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "ClusterQuotaExceededFault"
     },
     "ClusterSecurityGroup": {
       "description": "Describes a security group.",
@@ -518,12 +554,14 @@
           "description": "The list of tags for the cluster security group."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ClusterSecurityGroup"
     },
     "ClusterSecurityGroupAlreadyExistsFault": {
       "description": "A cluster security group with the same name already exists.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "ClusterSecurityGroupAlreadyExistsFault"
     },
     "ClusterSecurityGroupMembership": {
       "description": "Describes a cluster security group.",
@@ -537,13 +575,15 @@
           "description": "The status of the cluster security group."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ClusterSecurityGroupMembership"
     },
     "ClusterSecurityGroupMembershipList": {
       "items": {
         "$ref": "#/definitions/ClusterSecurityGroupMembership"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ClusterSecurityGroupMembershipList"
     },
     "ClusterSecurityGroupMessage": {
       "description": "<p/>",
@@ -557,34 +597,40 @@
           "description": "A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned marker value in the <code>Marker</code> parameter and retrying the command. If the <code>Marker</code> field is empty, all response records have been retrieved for the request. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ClusterSecurityGroupMessage"
     },
     "ClusterSecurityGroupNameList": {
       "items": {
         "$ref": "#/definitions/String"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ClusterSecurityGroupNameList"
     },
     "ClusterSecurityGroupNotFoundFault": {
       "description": "The cluster security group name does not refer to an existing cluster security group.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "ClusterSecurityGroupNotFoundFault"
     },
     "ClusterSecurityGroupQuotaExceededFault": {
       "description": "The request would result in the user exceeding the allowed number of cluster security groups. For information about increasing your quota, go to <a href=\"http://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html\">Limits in Amazon Redshift</a> in the <i>Amazon Redshift Cluster Management Guide</i>. ",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "ClusterSecurityGroupQuotaExceededFault"
     },
     "ClusterSecurityGroups": {
       "items": {
         "$ref": "#/definitions/ClusterSecurityGroup"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ClusterSecurityGroups"
     },
     "ClusterSnapshotAlreadyExistsFault": {
       "description": "The value specified as a snapshot identifier is already used by an existing snapshot.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "ClusterSnapshotAlreadyExistsFault"
     },
     "ClusterSnapshotCopyStatus": {
       "description": "Returns the destination region and retention period that are configured for cross-region snapshot copy.",
@@ -602,17 +648,20 @@
           "description": "The name of the snapshot copy grant."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ClusterSnapshotCopyStatus"
     },
     "ClusterSnapshotNotFoundFault": {
       "description": "The snapshot identifier does not refer to an existing cluster snapshot.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "ClusterSnapshotNotFoundFault"
     },
     "ClusterSnapshotQuotaExceededFault": {
       "description": "The request would result in the user exceeding the allowed number of cluster snapshots.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "ClusterSnapshotQuotaExceededFault"
     },
     "ClusterSubnetGroup": {
       "description": "Describes a subnet group.",
@@ -642,12 +691,14 @@
           "description": "The VPC ID of the cluster subnet group."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ClusterSubnetGroup"
     },
     "ClusterSubnetGroupAlreadyExistsFault": {
       "description": "A <i>ClusterSubnetGroupName</i> is already used by an existing cluster subnet group. ",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "ClusterSubnetGroupAlreadyExistsFault"
     },
     "ClusterSubnetGroupMessage": {
       "description": "Contains the output from the <a>DescribeClusterSubnetGroups</a> action. ",
@@ -661,28 +712,33 @@
           "description": "A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned marker value in the <code>Marker</code> parameter and retrying the command. If the <code>Marker</code> field is empty, all response records have been retrieved for the request. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ClusterSubnetGroupMessage"
     },
     "ClusterSubnetGroupNotFoundFault": {
       "description": "The cluster subnet group name does not refer to an existing cluster subnet group.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "ClusterSubnetGroupNotFoundFault"
     },
     "ClusterSubnetGroupQuotaExceededFault": {
       "description": "The request would result in user exceeding the allowed number of cluster subnet groups. For information about increasing your quota, go to <a href=\"http://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html\">Limits in Amazon Redshift</a> in the <i>Amazon Redshift Cluster Management Guide</i>. ",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "ClusterSubnetGroupQuotaExceededFault"
     },
     "ClusterSubnetGroups": {
       "items": {
         "$ref": "#/definitions/ClusterSubnetGroup"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ClusterSubnetGroups"
     },
     "ClusterSubnetQuotaExceededFault": {
       "description": "The request would result in user exceeding the allowed number of subnets in a cluster subnet groups. For information about increasing your quota, go to <a href=\"http://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html\">Limits in Amazon Redshift</a> in the <i>Amazon Redshift Cluster Management Guide</i>. ",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "ClusterSubnetQuotaExceededFault"
     },
     "ClusterVersion": {
       "description": "Describes a cluster version, including the parameter group family and description of the version.",
@@ -700,13 +756,15 @@
           "description": "The description of the cluster version."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ClusterVersion"
     },
     "ClusterVersionList": {
       "items": {
         "$ref": "#/definitions/ClusterVersion"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ClusterVersionList"
     },
     "ClusterVersionsMessage": {
       "description": "Contains the output from the <a>DescribeClusterVersions</a> action. ",
@@ -720,7 +778,8 @@
           "description": "A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned marker value in the <code>Marker</code> parameter and retrying the command. If the <code>Marker</code> field is empty, all response records have been retrieved for the request. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ClusterVersionsMessage"
     },
     "ClustersMessage": {
       "description": "Contains the output from the <a>DescribeClusters</a> action. ",
@@ -734,7 +793,8 @@
           "description": "A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned marker value in the <code>Marker</code> parameter and retrying the command. If the <code>Marker</code> field is empty, all response records have been retrieved for the request. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ClustersMessage"
     },
     "CopyClusterSnapshotMessage": {
       "description": "<p/>",
@@ -756,7 +816,8 @@
         "SourceSnapshotIdentifier",
         "TargetSnapshotIdentifier"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CopyClusterSnapshotMessage"
     },
     "CopyClusterSnapshotResult": {
       "properties": {
@@ -764,12 +825,14 @@
           "$ref": "#/definitions/Snapshot"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CopyClusterSnapshotResult"
     },
     "CopyToRegionDisabledFault": {
       "description": "Cross-region snapshot copy was temporarily disabled. Try your request again.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "CopyToRegionDisabledFault"
     },
     "CreateClusterMessage": {
       "description": "<p/>",
@@ -889,7 +952,8 @@
         "MasterUsername",
         "MasterUserPassword"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateClusterMessage"
     },
     "CreateClusterParameterGroupMessage": {
       "description": "<p/>",
@@ -916,7 +980,8 @@
         "ParameterGroupFamily",
         "Description"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateClusterParameterGroupMessage"
     },
     "CreateClusterParameterGroupResult": {
       "properties": {
@@ -924,7 +989,8 @@
           "$ref": "#/definitions/ClusterParameterGroup"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateClusterParameterGroupResult"
     },
     "CreateClusterResult": {
       "properties": {
@@ -932,7 +998,8 @@
           "$ref": "#/definitions/Cluster"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateClusterResult"
     },
     "CreateClusterSecurityGroupMessage": {
       "description": "<p/>",
@@ -954,7 +1021,8 @@
         "ClusterSecurityGroupName",
         "Description"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateClusterSecurityGroupMessage"
     },
     "CreateClusterSecurityGroupResult": {
       "properties": {
@@ -962,7 +1030,8 @@
           "$ref": "#/definitions/ClusterSecurityGroup"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateClusterSecurityGroupResult"
     },
     "CreateClusterSnapshotMessage": {
       "description": "<p/>",
@@ -984,7 +1053,8 @@
         "SnapshotIdentifier",
         "ClusterIdentifier"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateClusterSnapshotMessage"
     },
     "CreateClusterSnapshotResult": {
       "properties": {
@@ -992,7 +1062,8 @@
           "$ref": "#/definitions/Snapshot"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateClusterSnapshotResult"
     },
     "CreateClusterSubnetGroupMessage": {
       "description": "<p/>",
@@ -1019,7 +1090,8 @@
         "Description",
         "SubnetIds"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateClusterSubnetGroupMessage"
     },
     "CreateClusterSubnetGroupResult": {
       "properties": {
@@ -1027,7 +1099,8 @@
           "$ref": "#/definitions/ClusterSubnetGroup"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateClusterSubnetGroupResult"
     },
     "CreateEventSubscriptionMessage": {
       "description": "<p/>",
@@ -1069,7 +1142,8 @@
         "SubscriptionName",
         "SnsTopicArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateEventSubscriptionMessage"
     },
     "CreateEventSubscriptionResult": {
       "properties": {
@@ -1077,7 +1151,8 @@
           "$ref": "#/definitions/EventSubscription"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateEventSubscriptionResult"
     },
     "CreateHsmClientCertificateMessage": {
       "description": "<p/>",
@@ -1094,7 +1169,8 @@
       "required": [
         "HsmClientCertificateIdentifier"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateHsmClientCertificateMessage"
     },
     "CreateHsmClientCertificateResult": {
       "properties": {
@@ -1102,7 +1178,8 @@
           "$ref": "#/definitions/HsmClientCertificate"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateHsmClientCertificateResult"
     },
     "CreateHsmConfigurationMessage": {
       "description": "<p/>",
@@ -1144,7 +1221,8 @@
         "HsmPartitionPassword",
         "HsmServerPublicCertificate"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateHsmConfigurationMessage"
     },
     "CreateHsmConfigurationResult": {
       "properties": {
@@ -1152,7 +1230,8 @@
           "$ref": "#/definitions/HsmConfiguration"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateHsmConfigurationResult"
     },
     "CreateSnapshotCopyGrantMessage": {
       "description": "The result of the <code>CreateSnapshotCopyGrant</code> action.",
@@ -1173,7 +1252,8 @@
       "required": [
         "SnapshotCopyGrantName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateSnapshotCopyGrantMessage"
     },
     "CreateSnapshotCopyGrantResult": {
       "properties": {
@@ -1181,7 +1261,8 @@
           "$ref": "#/definitions/SnapshotCopyGrant"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateSnapshotCopyGrantResult"
     },
     "CreateTagsMessage": {
       "description": "Contains the output from the <code>CreateTags</code> action. ",
@@ -1199,13 +1280,15 @@
         "ResourceName",
         "Tags"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateTagsMessage"
     },
     "DbGroupList": {
       "items": {
         "$ref": "#/definitions/String"
       },
-      "type": "array"
+      "type": "array",
+      "title": "DbGroupList"
     },
     "DefaultClusterParameters": {
       "description": "Describes the default cluster parameters for a parameter group family.",
@@ -1223,7 +1306,8 @@
           "description": "The list of cluster default parameters."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DefaultClusterParameters"
     },
     "DeleteClusterMessage": {
       "description": "<p/>",
@@ -1244,7 +1328,8 @@
       "required": [
         "ClusterIdentifier"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteClusterMessage"
     },
     "DeleteClusterParameterGroupMessage": {
       "description": "<p/>",
@@ -1257,7 +1342,8 @@
       "required": [
         "ParameterGroupName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteClusterParameterGroupMessage"
     },
     "DeleteClusterResult": {
       "properties": {
@@ -1265,7 +1351,8 @@
           "$ref": "#/definitions/Cluster"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DeleteClusterResult"
     },
     "DeleteClusterSecurityGroupMessage": {
       "description": "<p/>",
@@ -1278,7 +1365,8 @@
       "required": [
         "ClusterSecurityGroupName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteClusterSecurityGroupMessage"
     },
     "DeleteClusterSnapshotMessage": {
       "description": "<p/>",
@@ -1295,7 +1383,8 @@
       "required": [
         "SnapshotIdentifier"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteClusterSnapshotMessage"
     },
     "DeleteClusterSnapshotResult": {
       "properties": {
@@ -1303,7 +1392,8 @@
           "$ref": "#/definitions/Snapshot"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DeleteClusterSnapshotResult"
     },
     "DeleteClusterSubnetGroupMessage": {
       "description": "<p/>",
@@ -1316,7 +1406,8 @@
       "required": [
         "ClusterSubnetGroupName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteClusterSubnetGroupMessage"
     },
     "DeleteEventSubscriptionMessage": {
       "description": "<p/>",
@@ -1329,7 +1420,8 @@
       "required": [
         "SubscriptionName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteEventSubscriptionMessage"
     },
     "DeleteHsmClientCertificateMessage": {
       "description": "<p/>",
@@ -1342,7 +1434,8 @@
       "required": [
         "HsmClientCertificateIdentifier"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteHsmClientCertificateMessage"
     },
     "DeleteHsmConfigurationMessage": {
       "description": "<p/>",
@@ -1355,7 +1448,8 @@
       "required": [
         "HsmConfigurationIdentifier"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteHsmConfigurationMessage"
     },
     "DeleteSnapshotCopyGrantMessage": {
       "description": "The result of the <code>DeleteSnapshotCopyGrant</code> action.",
@@ -1368,7 +1462,8 @@
       "required": [
         "SnapshotCopyGrantName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteSnapshotCopyGrantMessage"
     },
     "DeleteTagsMessage": {
       "description": "Contains the output from the <code>DeleteTags</code> action. ",
@@ -1386,17 +1481,20 @@
         "ResourceName",
         "TagKeys"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteTagsMessage"
     },
     "DependentServiceRequestThrottlingFault": {
       "description": "The request cannot be completed because a dependent service is throttling requests made by Amazon Redshift on your behalf. Wait and retry the request.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DependentServiceRequestThrottlingFault"
     },
     "DependentServiceUnavailableFault": {
       "description": "Your request cannot be completed because a dependent internal service is temporarily unavailable. Wait 30 to 60 seconds and try again.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DependentServiceUnavailableFault"
     },
     "DescribeClusterParameterGroupsMessage": {
       "description": "<p/>",
@@ -1422,7 +1520,8 @@
           "description": "A tag value or values for which you want to return all matching cluster parameter groups that are associated with the specified tag value or values. For example, suppose that you have parameter groups that are tagged with values called <code>admin</code> and <code>test</code>. If you specify both of these tag values in the request, Amazon Redshift returns a response with the parameter groups that have either or both of these tag values associated with them."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeClusterParameterGroupsMessage"
     },
     "DescribeClusterParametersMessage": {
       "description": "<p/>",
@@ -1447,7 +1546,8 @@
       "required": [
         "ParameterGroupName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeClusterParametersMessage"
     },
     "DescribeClusterSecurityGroupsMessage": {
       "description": "<p/>",
@@ -1473,7 +1573,8 @@
           "description": "A tag value or values for which you want to return all matching cluster security groups that are associated with the specified tag value or values. For example, suppose that you have security groups that are tagged with values called <code>admin</code> and <code>test</code>. If you specify both of these tag values in the request, Amazon Redshift returns a response with the security groups that have either or both of these tag values associated with them."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeClusterSecurityGroupsMessage"
     },
     "DescribeClusterSnapshotsMessage": {
       "description": "<p/>",
@@ -1519,7 +1620,8 @@
           "description": "A tag value or values for which you want to return all matching cluster snapshots that are associated with the specified tag value or values. For example, suppose that you have snapshots that are tagged with values called <code>admin</code> and <code>test</code>. If you specify both of these tag values in the request, Amazon Redshift returns a response with the snapshots that have either or both of these tag values associated with them."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeClusterSnapshotsMessage"
     },
     "DescribeClusterSubnetGroupsMessage": {
       "description": "<p/>",
@@ -1545,7 +1647,8 @@
           "description": "A tag value or values for which you want to return all matching cluster subnet groups that are associated with the specified tag value or values. For example, suppose that you have subnet groups that are tagged with values called <code>admin</code> and <code>test</code>. If you specify both of these tag values in the request, Amazon Redshift returns a response with the subnet groups that have either or both of these tag values associated with them."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeClusterSubnetGroupsMessage"
     },
     "DescribeClusterVersionsMessage": {
       "description": "<p/>",
@@ -1567,7 +1670,8 @@
           "description": "<p>The maximum number of response records to return in each call. If the number of remaining response records exceeds the specified <code>MaxRecords</code> value, a value is returned in a <code>marker</code> field of the response. You can retrieve the next set of records by retrying the command with the returned marker value. </p> <p>Default: <code>100</code> </p> <p>Constraints: minimum 20, maximum 100.</p>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeClusterVersionsMessage"
     },
     "DescribeClustersMessage": {
       "description": "<p/>",
@@ -1593,7 +1697,8 @@
           "description": "A tag value or values for which you want to return all matching clusters that are associated with the specified tag value or values. For example, suppose that you have clusters that are tagged with values called <code>admin</code> and <code>test</code>. If you specify both of these tag values in the request, Amazon Redshift returns a response with the clusters that have either or both of these tag values associated with them."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeClustersMessage"
     },
     "DescribeDefaultClusterParametersMessage": {
       "description": "<p/>",
@@ -1614,7 +1719,8 @@
       "required": [
         "ParameterGroupFamily"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeDefaultClusterParametersMessage"
     },
     "DescribeDefaultClusterParametersResult": {
       "properties": {
@@ -1622,7 +1728,8 @@
           "$ref": "#/definitions/DefaultClusterParameters"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeDefaultClusterParametersResult"
     },
     "DescribeEventCategoriesMessage": {
       "description": "<p/>",
@@ -1632,7 +1739,8 @@
           "description": "<p>The source type, such as cluster or parameter group, to which the described event categories apply.</p> <p>Valid values: cluster, cluster-snapshot, cluster-parameter-group, and cluster-security-group.</p>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeEventCategoriesMessage"
     },
     "DescribeEventSubscriptionsMessage": {
       "description": "<p/>",
@@ -1650,7 +1758,8 @@
           "description": "The name of the Amazon Redshift event notification subscription to be described."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeEventSubscriptionsMessage"
     },
     "DescribeEventsMessage": {
       "description": "<p/>",
@@ -1684,7 +1793,8 @@
           "description": "<p>The beginning of the time interval to retrieve events for, specified in ISO 8601 format. For more information about ISO 8601, go to the <a href=\"http://en.wikipedia.org/wiki/ISO_8601\">ISO8601 Wikipedia page.</a> </p> <p>Example: <code>2009-07-08T18:00Z</code> </p>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeEventsMessage"
     },
     "DescribeHsmClientCertificatesMessage": {
       "description": "<p/>",
@@ -1710,7 +1820,8 @@
           "description": "A tag value or values for which you want to return all matching HSM client certificates that are associated with the specified tag value or values. For example, suppose that you have HSM client certificates that are tagged with values called <code>admin</code> and <code>test</code>. If you specify both of these tag values in the request, Amazon Redshift returns a response with the HSM client certificates that have either or both of these tag values associated with them."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeHsmClientCertificatesMessage"
     },
     "DescribeHsmConfigurationsMessage": {
       "description": "<p/>",
@@ -1736,7 +1847,8 @@
           "description": "A tag value or values for which you want to return all matching HSM configurations that are associated with the specified tag value or values. For example, suppose that you have HSM configurations that are tagged with values called <code>admin</code> and <code>test</code>. If you specify both of these tag values in the request, Amazon Redshift returns a response with the HSM configurations that have either or both of these tag values associated with them."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeHsmConfigurationsMessage"
     },
     "DescribeLoggingStatusMessage": {
       "description": "<p/>",
@@ -1749,7 +1861,8 @@
       "required": [
         "ClusterIdentifier"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeLoggingStatusMessage"
     },
     "DescribeOrderableClusterOptionsMessage": {
       "description": "<p/>",
@@ -1771,7 +1884,8 @@
           "description": "The node type filter value. Specify this parameter to show only the available offerings matching the specified node type."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeOrderableClusterOptionsMessage"
     },
     "DescribeReservedNodeOfferingsMessage": {
       "description": "<p/>",
@@ -1789,7 +1903,8 @@
           "description": "The unique identifier for the offering."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeReservedNodeOfferingsMessage"
     },
     "DescribeReservedNodesMessage": {
       "description": "<p/>",
@@ -1807,7 +1922,8 @@
           "description": "Identifier for the node reservation."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeReservedNodesMessage"
     },
     "DescribeResizeMessage": {
       "description": "<p/>",
@@ -1820,7 +1936,8 @@
       "required": [
         "ClusterIdentifier"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeResizeMessage"
     },
     "DescribeSnapshotCopyGrantsMessage": {
       "description": "The result of the <code>DescribeSnapshotCopyGrants</code> action.",
@@ -1846,7 +1963,8 @@
           "description": "A tag value or values for which you want to return all matching resources that are associated with the specified value or values. For example, suppose that you have resources tagged with values called <code>admin</code> and <code>test</code>. If you specify both of these tag values in the request, Amazon Redshift returns a response with all resources that have either or both of these tag values associated with them."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeSnapshotCopyGrantsMessage"
     },
     "DescribeTableRestoreStatusMessage": {
       "description": "<p/>",
@@ -1868,7 +1986,8 @@
           "description": "The identifier of the table restore request to return status for. If you don't specify a <code>TableRestoreRequestId</code> value, then <code>DescribeTableRestoreStatus</code> returns the status of all in-progress table restore requests."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeTableRestoreStatusMessage"
     },
     "DescribeTagsMessage": {
       "description": "<p/>",
@@ -1898,7 +2017,8 @@
           "description": "A tag value or values for which you want to return all matching resources that are associated with the specified value or values. For example, suppose that you have resources tagged with values called <code>admin</code> and <code>test</code>. If you specify both of these tag values in the request, Amazon Redshift returns a response with all resources that have either or both of these tag values associated with them."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeTagsMessage"
     },
     "DisableLoggingMessage": {
       "description": "<p/>",
@@ -1911,7 +2031,8 @@
       "required": [
         "ClusterIdentifier"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DisableLoggingMessage"
     },
     "DisableSnapshotCopyMessage": {
       "description": "<p/>",
@@ -1924,7 +2045,8 @@
       "required": [
         "ClusterIdentifier"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DisableSnapshotCopyMessage"
     },
     "DisableSnapshotCopyResult": {
       "properties": {
@@ -1932,15 +2054,18 @@
           "$ref": "#/definitions/Cluster"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DisableSnapshotCopyResult"
     },
     "Double": {
       "format": "double",
-      "type": "number"
+      "type": "number",
+      "title": "Double"
     },
     "DoubleOptional": {
       "format": "double",
-      "type": "number"
+      "type": "number",
+      "title": "DoubleOptional"
     },
     "EC2SecurityGroup": {
       "description": "Describes an Amazon EC2 security group.",
@@ -1962,13 +2087,15 @@
           "description": "The list of tags for the EC2 security group."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "EC2SecurityGroup"
     },
     "EC2SecurityGroupList": {
       "items": {
         "$ref": "#/definitions/EC2SecurityGroup"
       },
-      "type": "array"
+      "type": "array",
+      "title": "EC2SecurityGroupList"
     },
     "ElasticIpStatus": {
       "description": "Describes the status of the elastic IP (EIP) address.",
@@ -1982,7 +2109,8 @@
           "description": "The status of the elastic IP (EIP) address."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ElasticIpStatus"
     },
     "EnableLoggingMessage": {
       "description": "<p/>",
@@ -2004,7 +2132,8 @@
         "ClusterIdentifier",
         "BucketName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "EnableLoggingMessage"
     },
     "EnableSnapshotCopyMessage": {
       "description": "<p/>",
@@ -2030,7 +2159,8 @@
         "ClusterIdentifier",
         "DestinationRegion"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "EnableSnapshotCopyMessage"
     },
     "EnableSnapshotCopyResult": {
       "properties": {
@@ -2038,7 +2168,8 @@
           "$ref": "#/definitions/Cluster"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "EnableSnapshotCopyResult"
     },
     "Endpoint": {
       "description": "Describes a connection endpoint.",
@@ -2052,7 +2183,8 @@
           "description": "The port that the database engine is listening on."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Endpoint"
     },
     "Event": {
       "description": "Describes an event.",
@@ -2086,13 +2218,15 @@
           "description": "The source type for this event."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Event"
     },
     "EventCategoriesList": {
       "items": {
         "$ref": "#/definitions/String"
       },
-      "type": "array"
+      "type": "array",
+      "title": "EventCategoriesList"
     },
     "EventCategoriesMap": {
       "description": "Describes event categories.",
@@ -2106,13 +2240,15 @@
           "description": "The source type, such as cluster or cluster-snapshot, that the returned categories belong to."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "EventCategoriesMap"
     },
     "EventCategoriesMapList": {
       "items": {
         "$ref": "#/definitions/EventCategoriesMap"
       },
-      "type": "array"
+      "type": "array",
+      "title": "EventCategoriesMapList"
     },
     "EventCategoriesMessage": {
       "description": "<p/>",
@@ -2122,7 +2258,8 @@
           "description": "A list of event categories descriptions."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "EventCategoriesMessage"
     },
     "EventInfoMap": {
       "description": "Describes event information.",
@@ -2144,19 +2281,22 @@
           "description": "<p>The severity of the event.</p> <p>Values: ERROR, INFO</p>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "EventInfoMap"
     },
     "EventInfoMapList": {
       "items": {
         "$ref": "#/definitions/EventInfoMap"
       },
-      "type": "array"
+      "type": "array",
+      "title": "EventInfoMapList"
     },
     "EventList": {
       "items": {
         "$ref": "#/definitions/Event"
       },
-      "type": "array"
+      "type": "array",
+      "title": "EventList"
     },
     "EventSubscription": {
       "description": "Describes event subscriptions.",
@@ -2206,18 +2346,21 @@
           "description": "The list of tags for the event subscription."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "EventSubscription"
     },
     "EventSubscriptionQuotaExceededFault": {
       "description": "The request would exceed the allowed number of event subscriptions for this account. For information about increasing your quota, go to <a href=\"http://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html\">Limits in Amazon Redshift</a> in the <i>Amazon Redshift Cluster Management Guide</i>. ",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "EventSubscriptionQuotaExceededFault"
     },
     "EventSubscriptionsList": {
       "items": {
         "$ref": "#/definitions/EventSubscription"
       },
-      "type": "array"
+      "type": "array",
+      "title": "EventSubscriptionsList"
     },
     "EventSubscriptionsMessage": {
       "description": "<p/>",
@@ -2231,7 +2374,8 @@
           "description": "A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned marker value in the <code>Marker</code> parameter and retrying the command. If the <code>Marker</code> field is empty, all response records have been retrieved for the request. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "EventSubscriptionsMessage"
     },
     "EventsMessage": {
       "description": "<p/>",
@@ -2245,7 +2389,8 @@
           "description": "A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned marker value in the <code>Marker</code> parameter and retrying the command. If the <code>Marker</code> field is empty, all response records have been retrieved for the request. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "EventsMessage"
     },
     "GetClusterCredentialsMessage": {
       "description": "The request parameters to get cluster credentials.",
@@ -2279,7 +2424,8 @@
         "DbUser",
         "ClusterIdentifier"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetClusterCredentialsMessage"
     },
     "HsmClientCertificate": {
       "description": "Returns information about an HSM client certificate. The certificate is stored in a secure Hardware Storage Module (HSM), and used by the Amazon Redshift cluster to encrypt data files.",
@@ -2297,18 +2443,21 @@
           "description": "The list of tags for the HSM client certificate."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "HsmClientCertificate"
     },
     "HsmClientCertificateAlreadyExistsFault": {
       "description": "There is already an existing Amazon Redshift HSM client certificate with the specified identifier.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "HsmClientCertificateAlreadyExistsFault"
     },
     "HsmClientCertificateList": {
       "items": {
         "$ref": "#/definitions/HsmClientCertificate"
       },
-      "type": "array"
+      "type": "array",
+      "title": "HsmClientCertificateList"
     },
     "HsmClientCertificateMessage": {
       "description": "<p/>",
@@ -2322,17 +2471,20 @@
           "description": "A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned marker value in the <code>Marker</code> parameter and retrying the command. If the <code>Marker</code> field is empty, all response records have been retrieved for the request. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "HsmClientCertificateMessage"
     },
     "HsmClientCertificateNotFoundFault": {
       "description": "There is no Amazon Redshift HSM client certificate with the specified identifier.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "HsmClientCertificateNotFoundFault"
     },
     "HsmClientCertificateQuotaExceededFault": {
       "description": "The quota for HSM client certificates has been reached. For information about increasing your quota, go to <a href=\"http://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html\">Limits in Amazon Redshift</a> in the <i>Amazon Redshift Cluster Management Guide</i>. ",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "HsmClientCertificateQuotaExceededFault"
     },
     "HsmConfiguration": {
       "description": "Returns information about an HSM configuration, which is an object that describes to Amazon Redshift clusters the information they require to connect to an HSM where they can store database encryption keys.",
@@ -2358,18 +2510,21 @@
           "description": "The list of tags for the HSM configuration."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "HsmConfiguration"
     },
     "HsmConfigurationAlreadyExistsFault": {
       "description": "There is already an existing Amazon Redshift HSM configuration with the specified identifier.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "HsmConfigurationAlreadyExistsFault"
     },
     "HsmConfigurationList": {
       "items": {
         "$ref": "#/definitions/HsmConfiguration"
       },
-      "type": "array"
+      "type": "array",
+      "title": "HsmConfigurationList"
     },
     "HsmConfigurationMessage": {
       "description": "<p/>",
@@ -2383,17 +2538,20 @@
           "description": "A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned marker value in the <code>Marker</code> parameter and retrying the command. If the <code>Marker</code> field is empty, all response records have been retrieved for the request. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "HsmConfigurationMessage"
     },
     "HsmConfigurationNotFoundFault": {
       "description": "There is no Amazon Redshift HSM configuration with the specified identifier.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "HsmConfigurationNotFoundFault"
     },
     "HsmConfigurationQuotaExceededFault": {
       "description": "The quota for HSM configurations has been reached. For information about increasing your quota, go to <a href=\"http://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html\">Limits in Amazon Redshift</a> in the <i>Amazon Redshift Cluster Management Guide</i>. ",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "HsmConfigurationQuotaExceededFault"
     },
     "HsmStatus": {
       "description": "Describes the status of changes to HSM settings.",
@@ -2411,7 +2569,8 @@
           "description": "<p>Reports whether the Amazon Redshift cluster has finished applying any HSM settings changes specified in a modify cluster command.</p> <p>Values: active, applying</p>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "HsmStatus"
     },
     "IPRange": {
       "description": "Describes an IP range used in a security group.",
@@ -2429,158 +2588,189 @@
           "description": "The list of tags for the IP range."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "IPRange"
     },
     "IPRangeList": {
       "items": {
         "$ref": "#/definitions/IPRange"
       },
-      "type": "array"
+      "type": "array",
+      "title": "IPRangeList"
     },
     "IamRoleArnList": {
       "items": {
         "$ref": "#/definitions/String"
       },
-      "type": "array"
+      "type": "array",
+      "title": "IamRoleArnList"
     },
     "ImportTablesCompleted": {
       "items": {
         "$ref": "#/definitions/String"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ImportTablesCompleted"
     },
     "ImportTablesInProgress": {
       "items": {
         "$ref": "#/definitions/String"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ImportTablesInProgress"
     },
     "ImportTablesNotStarted": {
       "items": {
         "$ref": "#/definitions/String"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ImportTablesNotStarted"
     },
     "InProgressTableRestoreQuotaExceededFault": {
       "description": "You have exceeded the allowed number of table restore requests. Wait for your current table restore requests to complete before making a new request.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "InProgressTableRestoreQuotaExceededFault"
     },
     "IncompatibleOrderableOptions": {
       "description": "The specified options are incompatible.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "IncompatibleOrderableOptions"
     },
     "InsufficientClusterCapacityFault": {
       "description": "The number of nodes specified exceeds the allotted capacity of the cluster.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "InsufficientClusterCapacityFault"
     },
     "InsufficientS3BucketPolicyFault": {
       "description": "The cluster does not have read bucket or put object permissions on the S3 bucket specified when enabling logging.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "InsufficientS3BucketPolicyFault"
     },
     "Integer": {
-      "type": "integer"
+      "type": "integer",
+      "title": "Integer"
     },
     "IntegerOptional": {
-      "type": "integer"
+      "type": "integer",
+      "title": "IntegerOptional"
     },
     "InvalidClusterParameterGroupStateFault": {
       "description": "The cluster parameter group action can not be completed because another task is in progress that involves the parameter group. Wait a few moments and try the operation again.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "InvalidClusterParameterGroupStateFault"
     },
     "InvalidClusterSecurityGroupStateFault": {
       "description": "The state of the cluster security group is not <code>available</code>. ",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "InvalidClusterSecurityGroupStateFault"
     },
     "InvalidClusterSnapshotStateFault": {
       "description": "The specified cluster snapshot is not in the <code>available</code> state, or other accounts are authorized to access the snapshot. ",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "InvalidClusterSnapshotStateFault"
     },
     "InvalidClusterStateFault": {
       "description": "The specified cluster is not in the <code>available</code> state. ",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "InvalidClusterStateFault"
     },
     "InvalidClusterSubnetGroupStateFault": {
       "description": "The cluster subnet group cannot be deleted because it is in use.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "InvalidClusterSubnetGroupStateFault"
     },
     "InvalidClusterSubnetStateFault": {
       "description": "The state of the subnet is invalid.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "InvalidClusterSubnetStateFault"
     },
     "InvalidElasticIpFault": {
       "description": "The Elastic IP (EIP) is invalid or cannot be found.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "InvalidElasticIpFault"
     },
     "InvalidHsmClientCertificateStateFault": {
       "description": "The specified HSM client certificate is not in the <code>available</code> state, or it is still in use by one or more Amazon Redshift clusters.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "InvalidHsmClientCertificateStateFault"
     },
     "InvalidHsmConfigurationStateFault": {
       "description": "The specified HSM configuration is not in the <code>available</code> state, or it is still in use by one or more Amazon Redshift clusters.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "InvalidHsmConfigurationStateFault"
     },
     "InvalidRestoreFault": {
       "description": "The restore is invalid.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "InvalidRestoreFault"
     },
     "InvalidS3BucketNameFault": {
       "description": "The S3 bucket name is invalid. For more information about naming rules, go to <a href=\"http://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html\">Bucket Restrictions and Limitations</a> in the Amazon Simple Storage Service (S3) Developer Guide.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "InvalidS3BucketNameFault"
     },
     "InvalidS3KeyPrefixFault": {
       "description": "The string specified for the logging S3 key prefix does not comply with the documented constraints.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "InvalidS3KeyPrefixFault"
     },
     "InvalidSnapshotCopyGrantStateFault": {
       "description": "The snapshot copy grant can't be deleted because it is used by one or more clusters.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "InvalidSnapshotCopyGrantStateFault"
     },
     "InvalidSubnet": {
       "description": "The requested subnet is not valid, or not all of the subnets are in the same VPC.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "InvalidSubnet"
     },
     "InvalidSubscriptionStateFault": {
       "description": "The subscription request is invalid because it is a duplicate request. This subscription request is already in progress.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "InvalidSubscriptionStateFault"
     },
     "InvalidTableRestoreArgumentFault": {
       "description": "The value specified for the <code>sourceDatabaseName</code>, <code>sourceSchemaName</code>, or <code>sourceTableName</code> parameter, or a combination of these, doesn't exist in the snapshot.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "InvalidTableRestoreArgumentFault"
     },
     "InvalidTagFault": {
       "description": "The tag is invalid.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "InvalidTagFault"
     },
     "InvalidVPCNetworkStateFault": {
       "description": "The cluster subnet group does not cover all Availability Zones.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "InvalidVPCNetworkStateFault"
     },
     "LimitExceededFault": {
       "description": "The encryption key has exceeded its grant limit in AWS KMS.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "LimitExceededFault"
     },
     "LoggingStatus": {
       "description": "Describes the status of logging for a cluster.",
@@ -2610,13 +2800,16 @@
           "description": "The prefix applied to the log file names."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LoggingStatus"
     },
     "Long": {
-      "type": "integer"
+      "type": "integer",
+      "title": "Long"
     },
     "LongOptional": {
-      "type": "integer"
+      "type": "integer",
+      "title": "LongOptional"
     },
     "ModifyClusterIamRolesMessage": {
       "description": "<p/>",
@@ -2637,7 +2830,8 @@
       "required": [
         "ClusterIdentifier"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ModifyClusterIamRolesMessage"
     },
     "ModifyClusterIamRolesResult": {
       "properties": {
@@ -2645,7 +2839,8 @@
           "$ref": "#/definitions/Cluster"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ModifyClusterIamRolesResult"
     },
     "ModifyClusterMessage": {
       "description": "<p/>",
@@ -2726,7 +2921,8 @@
       "required": [
         "ClusterIdentifier"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ModifyClusterMessage"
     },
     "ModifyClusterParameterGroupMessage": {
       "description": "<p/>",
@@ -2744,7 +2940,8 @@
         "ParameterGroupName",
         "Parameters"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ModifyClusterParameterGroupMessage"
     },
     "ModifyClusterResult": {
       "properties": {
@@ -2752,7 +2949,8 @@
           "$ref": "#/definitions/Cluster"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ModifyClusterResult"
     },
     "ModifyClusterSubnetGroupMessage": {
       "description": "<p/>",
@@ -2774,7 +2972,8 @@
         "ClusterSubnetGroupName",
         "SubnetIds"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ModifyClusterSubnetGroupMessage"
     },
     "ModifyClusterSubnetGroupResult": {
       "properties": {
@@ -2782,7 +2981,8 @@
           "$ref": "#/definitions/ClusterSubnetGroup"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ModifyClusterSubnetGroupResult"
     },
     "ModifyEventSubscriptionMessage": {
       "description": "<p/>",
@@ -2819,7 +3019,8 @@
       "required": [
         "SubscriptionName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ModifyEventSubscriptionMessage"
     },
     "ModifyEventSubscriptionResult": {
       "properties": {
@@ -2827,7 +3028,8 @@
           "$ref": "#/definitions/EventSubscription"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ModifyEventSubscriptionResult"
     },
     "ModifySnapshotCopyRetentionPeriodMessage": {
       "description": "<p/>",
@@ -2845,7 +3047,8 @@
         "ClusterIdentifier",
         "RetentionPeriod"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ModifySnapshotCopyRetentionPeriodMessage"
     },
     "ModifySnapshotCopyRetentionPeriodResult": {
       "properties": {
@@ -2853,17 +3056,20 @@
           "$ref": "#/definitions/Cluster"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ModifySnapshotCopyRetentionPeriodResult"
     },
     "NumberOfNodesPerClusterLimitExceededFault": {
       "description": "The operation would exceed the number of nodes allowed for a cluster.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "NumberOfNodesPerClusterLimitExceededFault"
     },
     "NumberOfNodesQuotaExceededFault": {
       "description": "The operation would exceed the number of nodes allotted to the account. For information about increasing your quota, go to <a href=\"http://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html\">Limits in Amazon Redshift</a> in the <i>Amazon Redshift Cluster Management Guide</i>. ",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "NumberOfNodesQuotaExceededFault"
     },
     "OrderableClusterOption": {
       "description": "Describes an orderable cluster option.",
@@ -2885,13 +3091,15 @@
           "description": "The node type for the orderable cluster."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "OrderableClusterOption"
     },
     "OrderableClusterOptionsList": {
       "items": {
         "$ref": "#/definitions/OrderableClusterOption"
       },
-      "type": "array"
+      "type": "array",
+      "title": "OrderableClusterOptionsList"
     },
     "OrderableClusterOptionsMessage": {
       "description": "Contains the output from the <a>DescribeOrderableClusterOptions</a> action. ",
@@ -2905,7 +3113,8 @@
           "description": "An <code>OrderableClusterOption</code> structure containing information about orderable options for the cluster."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "OrderableClusterOptionsMessage"
     },
     "Parameter": {
       "description": "Describes a parameter in a cluster parameter group.",
@@ -2947,26 +3156,30 @@
           "description": "The source of the parameter value, such as \"engine-default\" or \"user\"."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Parameter"
     },
     "ParameterApplyType": {
       "enum": [
         "static",
         "dynamic"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ParameterApplyType"
     },
     "ParameterGroupList": {
       "items": {
         "$ref": "#/definitions/ClusterParameterGroup"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ParameterGroupList"
     },
     "ParametersList": {
       "items": {
         "$ref": "#/definitions/Parameter"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ParametersList"
     },
     "PendingModifiedValues": {
       "description": "Describes cluster attributes that are in a pending state. A change to one or more the attributes was requested and is in progress or will be applied.",
@@ -3008,7 +3221,8 @@
           "description": "The pending or in-progress change of the ability to connect to the cluster from the public network."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PendingModifiedValues"
     },
     "PurchaseReservedNodeOfferingMessage": {
       "description": "<p/>",
@@ -3025,7 +3239,8 @@
       "required": [
         "ReservedNodeOfferingId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "PurchaseReservedNodeOfferingMessage"
     },
     "PurchaseReservedNodeOfferingResult": {
       "properties": {
@@ -3033,7 +3248,8 @@
           "$ref": "#/definitions/ReservedNode"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PurchaseReservedNodeOfferingResult"
     },
     "RebootClusterMessage": {
       "description": "<p/>",
@@ -3046,7 +3262,8 @@
       "required": [
         "ClusterIdentifier"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "RebootClusterMessage"
     },
     "RebootClusterResult": {
       "properties": {
@@ -3054,7 +3271,8 @@
           "$ref": "#/definitions/Cluster"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RebootClusterResult"
     },
     "RecurringCharge": {
       "description": "Describes a recurring charge.",
@@ -3068,13 +3286,15 @@
           "description": "The frequency at which the recurring charge amount is applied."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RecurringCharge"
     },
     "RecurringChargeList": {
       "items": {
         "$ref": "#/definitions/RecurringCharge"
       },
-      "type": "array"
+      "type": "array",
+      "title": "RecurringChargeList"
     },
     "ReservedNode": {
       "description": "Describes a reserved node. You can call the <a>DescribeReservedNodeOfferings</a> API to obtain the available reserved node offerings. ",
@@ -3128,23 +3348,27 @@
           "description": "The hourly rate Amazon Redshift charges you for this reserved node."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ReservedNode"
     },
     "ReservedNodeAlreadyExistsFault": {
       "description": "User already has a reservation with the given identifier.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "ReservedNodeAlreadyExistsFault"
     },
     "ReservedNodeList": {
       "items": {
         "$ref": "#/definitions/ReservedNode"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ReservedNodeList"
     },
     "ReservedNodeNotFoundFault": {
       "description": "The specified reserved compute node not found.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "ReservedNodeNotFoundFault"
     },
     "ReservedNodeOffering": {
       "description": "Describes a reserved node offering.",
@@ -3182,18 +3406,21 @@
           "description": "The rate you are charged for each hour the cluster that is using the offering is running."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ReservedNodeOffering"
     },
     "ReservedNodeOfferingList": {
       "items": {
         "$ref": "#/definitions/ReservedNodeOffering"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ReservedNodeOfferingList"
     },
     "ReservedNodeOfferingNotFoundFault": {
       "description": "Specified offering does not exist.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "ReservedNodeOfferingNotFoundFault"
     },
     "ReservedNodeOfferingsMessage": {
       "description": "<p/>",
@@ -3207,12 +3434,14 @@
           "description": "A list of <code>ReservedNodeOffering</code> objects."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ReservedNodeOfferingsMessage"
     },
     "ReservedNodeQuotaExceededFault": {
       "description": "Request would exceed the user's compute node quota. For information about increasing your quota, go to <a href=\"http://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html\">Limits in Amazon Redshift</a> in the <i>Amazon Redshift Cluster Management Guide</i>. ",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "ReservedNodeQuotaExceededFault"
     },
     "ReservedNodesMessage": {
       "description": "<p/>",
@@ -3226,7 +3455,8 @@
           "description": "The list of <code>ReservedNode</code> objects."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ReservedNodesMessage"
     },
     "ResetClusterParameterGroupMessage": {
       "description": "<p/>",
@@ -3247,12 +3477,14 @@
       "required": [
         "ParameterGroupName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ResetClusterParameterGroupMessage"
     },
     "ResizeNotFoundFault": {
       "description": "A resize operation for the specified cluster is not found.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "ResizeNotFoundFault"
     },
     "ResizeProgressMessage": {
       "description": "Describes the result of a cluster resize operation.",
@@ -3306,18 +3538,21 @@
           "description": "The estimated total amount of data, in megabytes, on the cluster before the resize operation began."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ResizeProgressMessage"
     },
     "ResourceNotFoundFault": {
       "description": "The resource could not be found.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "ResourceNotFoundFault"
     },
     "RestorableNodeTypeList": {
       "items": {
         "$ref": "#/definitions/String"
       },
-      "type": "array"
+      "type": "array",
+      "title": "RestorableNodeTypeList"
     },
     "RestoreFromClusterSnapshotMessage": {
       "description": "<p/>",
@@ -3415,7 +3650,8 @@
         "ClusterIdentifier",
         "SnapshotIdentifier"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "RestoreFromClusterSnapshotMessage"
     },
     "RestoreFromClusterSnapshotResult": {
       "properties": {
@@ -3423,7 +3659,8 @@
           "$ref": "#/definitions/Cluster"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RestoreFromClusterSnapshotResult"
     },
     "RestoreStatus": {
       "description": "Describes the status of a cluster restore action. Returns null if the cluster was not created by restoring a snapshot.",
@@ -3453,7 +3690,8 @@
           "description": "The status of the restore action. Returns starting, restoring, completed, or failed."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RestoreStatus"
     },
     "RestoreTableFromClusterSnapshotMessage": {
       "description": "<p/>",
@@ -3498,7 +3736,8 @@
         "SourceTableName",
         "NewTableName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "RestoreTableFromClusterSnapshotMessage"
     },
     "RestoreTableFromClusterSnapshotResult": {
       "properties": {
@@ -3506,7 +3745,8 @@
           "$ref": "#/definitions/TableRestoreStatus"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RestoreTableFromClusterSnapshotResult"
     },
     "RevokeClusterSecurityGroupIngressMessage": {
       "description": "<p/>",
@@ -3531,7 +3771,8 @@
       "required": [
         "ClusterSecurityGroupName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "RevokeClusterSecurityGroupIngressMessage"
     },
     "RevokeClusterSecurityGroupIngressResult": {
       "properties": {
@@ -3539,7 +3780,8 @@
           "$ref": "#/definitions/ClusterSecurityGroup"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RevokeClusterSecurityGroupIngressResult"
     },
     "RevokeSnapshotAccessMessage": {
       "description": "<p/>",
@@ -3561,7 +3803,8 @@
         "SnapshotIdentifier",
         "AccountWithRestoreAccess"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "RevokeSnapshotAccessMessage"
     },
     "RevokeSnapshotAccessResult": {
       "properties": {
@@ -3569,7 +3812,8 @@
           "$ref": "#/definitions/Snapshot"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RevokeSnapshotAccessResult"
     },
     "RotateEncryptionKeyMessage": {
       "description": "<p/>",
@@ -3582,7 +3826,8 @@
       "required": [
         "ClusterIdentifier"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "RotateEncryptionKeyMessage"
     },
     "RotateEncryptionKeyResult": {
       "properties": {
@@ -3590,26 +3835,31 @@
           "$ref": "#/definitions/Cluster"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RotateEncryptionKeyResult"
     },
     "SNSInvalidTopicFault": {
       "description": "Amazon SNS has responded that there is a problem with the specified Amazon SNS topic.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "SNSInvalidTopicFault"
     },
     "SNSNoAuthorizationFault": {
       "description": "You do not have permission to publish to the specified Amazon SNS topic.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "SNSNoAuthorizationFault"
     },
     "SNSTopicArnNotFoundFault": {
       "description": "An Amazon SNS topic with the specified Amazon Resource Name (ARN) does not exist.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "SNSTopicArnNotFoundFault"
     },
     "SensitiveString": {
       "format": "password",
-      "type": "string"
+      "type": "string",
+      "title": "SensitiveString"
     },
     "Snapshot": {
       "description": "Describes a snapshot.",
@@ -3731,22 +3981,26 @@
           "description": "The VPC identifier of the cluster if the snapshot is from a cluster in a VPC. Otherwise, this field is not in the output."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Snapshot"
     },
     "SnapshotCopyAlreadyDisabledFault": {
       "description": "The cluster already has cross-region snapshot copy disabled.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "SnapshotCopyAlreadyDisabledFault"
     },
     "SnapshotCopyAlreadyEnabledFault": {
       "description": "The cluster already has cross-region snapshot copy enabled.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "SnapshotCopyAlreadyEnabledFault"
     },
     "SnapshotCopyDisabledFault": {
       "description": "Cross-region snapshot copy was temporarily disabled. Try your request again.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "SnapshotCopyDisabledFault"
     },
     "SnapshotCopyGrant": {
       "description": "<p>The snapshot copy grant that grants Amazon Redshift permission to encrypt copied snapshots with the specified customer master key (CMK) from AWS KMS in the destination region.</p> <p> For more information about managing snapshot copy grants, go to <a href=\"http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html\">Amazon Redshift Database Encryption</a> in the <i>Amazon Redshift Cluster Management Guide</i>. </p>",
@@ -3764,18 +4018,21 @@
           "description": "A list of tag instances."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SnapshotCopyGrant"
     },
     "SnapshotCopyGrantAlreadyExistsFault": {
       "description": "The snapshot copy grant can't be created because a grant with the same name already exists.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "SnapshotCopyGrantAlreadyExistsFault"
     },
     "SnapshotCopyGrantList": {
       "items": {
         "$ref": "#/definitions/SnapshotCopyGrant"
       },
-      "type": "array"
+      "type": "array",
+      "title": "SnapshotCopyGrantList"
     },
     "SnapshotCopyGrantMessage": {
       "description": "<p/>",
@@ -3789,23 +4046,27 @@
           "description": "The list of <code>SnapshotCopyGrant</code> objects."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SnapshotCopyGrantMessage"
     },
     "SnapshotCopyGrantNotFoundFault": {
       "description": "The specified snapshot copy grant can't be found. Make sure that the name is typed correctly and that the grant exists in the destination region.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "SnapshotCopyGrantNotFoundFault"
     },
     "SnapshotCopyGrantQuotaExceededFault": {
       "description": "The AWS account has exceeded the maximum number of snapshot copy grants in this region.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "SnapshotCopyGrantQuotaExceededFault"
     },
     "SnapshotList": {
       "items": {
         "$ref": "#/definitions/Snapshot"
       },
-      "type": "array"
+      "type": "array",
+      "title": "SnapshotList"
     },
     "SnapshotMessage": {
       "description": "Contains the output from the <a>DescribeClusterSnapshots</a> action. ",
@@ -3819,18 +4080,21 @@
           "description": "A list of <a>Snapshot</a> instances. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SnapshotMessage"
     },
     "SourceIdsList": {
       "items": {
         "$ref": "#/definitions/String"
       },
-      "type": "array"
+      "type": "array",
+      "title": "SourceIdsList"
     },
     "SourceNotFoundFault": {
       "description": "The specified Amazon Redshift event source could not be found.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "SourceNotFoundFault"
     },
     "SourceType": {
       "enum": [
@@ -3839,10 +4103,12 @@
         "cluster-security-group",
         "cluster-snapshot"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "SourceType"
     },
     "String": {
-      "type": "string"
+      "type": "string",
+      "title": "String"
     },
     "Subnet": {
       "description": "Describes a subnet.",
@@ -3859,58 +4125,69 @@
           "description": "The status of the subnet."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Subnet"
     },
     "SubnetAlreadyInUse": {
       "description": "A specified subnet is already in use by another cluster.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "SubnetAlreadyInUse"
     },
     "SubnetIdentifierList": {
       "items": {
         "$ref": "#/definitions/String"
       },
-      "type": "array"
+      "type": "array",
+      "title": "SubnetIdentifierList"
     },
     "SubnetList": {
       "items": {
         "$ref": "#/definitions/Subnet"
       },
-      "type": "array"
+      "type": "array",
+      "title": "SubnetList"
     },
     "SubscriptionAlreadyExistFault": {
       "description": "There is already an existing event notification subscription with the specified name.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "SubscriptionAlreadyExistFault"
     },
     "SubscriptionCategoryNotFoundFault": {
       "description": "The value specified for the event category was not one of the allowed values, or it specified a category that does not apply to the specified source type. The allowed values are Configuration, Management, Monitoring, and Security.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "SubscriptionCategoryNotFoundFault"
     },
     "SubscriptionEventIdNotFoundFault": {
       "description": "An Amazon Redshift event with the specified event ID does not exist.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "SubscriptionEventIdNotFoundFault"
     },
     "SubscriptionNotFoundFault": {
       "description": "An Amazon Redshift event notification subscription with the specified name does not exist.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "SubscriptionNotFoundFault"
     },
     "SubscriptionSeverityNotFoundFault": {
       "description": "The value specified for the event severity was not one of the allowed values, or it specified a severity that does not apply to the specified source type. The allowed values are ERROR and INFO.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "SubscriptionSeverityNotFoundFault"
     },
     "TStamp": {
       "format": "date-time",
-      "type": "string"
+      "type": "string",
+      "title": "TStamp"
     },
     "TableRestoreNotFoundFault": {
       "description": "The specified <code>TableRestoreRequestId</code> value was not found.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "TableRestoreNotFoundFault"
     },
     "TableRestoreStatus": {
       "description": "Describes the status of a <a>RestoreTableFromClusterSnapshot</a> operation.",
@@ -3972,13 +4249,15 @@
           "description": "The total amount of data to restore to the new table, in megabytes (MB)."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TableRestoreStatus"
     },
     "TableRestoreStatusList": {
       "items": {
         "$ref": "#/definitions/TableRestoreStatus"
       },
-      "type": "array"
+      "type": "array",
+      "title": "TableRestoreStatusList"
     },
     "TableRestoreStatusMessage": {
       "description": "<p/>",
@@ -3992,7 +4271,8 @@
           "description": "A list of status details for one or more table restore requests."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TableRestoreStatusMessage"
     },
     "TableRestoreStatusType": {
       "enum": [
@@ -4002,7 +4282,8 @@
         "FAILED",
         "CANCELED"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "TableRestoreStatusType"
     },
     "Tag": {
       "description": "A tag consisting of a name/value pair for a resource.",
@@ -4016,30 +4297,35 @@
           "description": "The value for the resource tag."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Tag"
     },
     "TagKeyList": {
       "items": {
         "$ref": "#/definitions/String"
       },
-      "type": "array"
+      "type": "array",
+      "title": "TagKeyList"
     },
     "TagLimitExceededFault": {
       "description": "The request exceeds the limit of 10 tags for the resource.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "TagLimitExceededFault"
     },
     "TagList": {
       "items": {
         "$ref": "#/definitions/Tag"
       },
-      "type": "array"
+      "type": "array",
+      "title": "TagList"
     },
     "TagValueList": {
       "items": {
         "$ref": "#/definitions/String"
       },
-      "type": "array"
+      "type": "array",
+      "title": "TagValueList"
     },
     "TaggedResource": {
       "description": "A tag and its associated resource.",
@@ -4057,13 +4343,15 @@
           "description": "The tag for the resource."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TaggedResource"
     },
     "TaggedResourceList": {
       "items": {
         "$ref": "#/definitions/TaggedResource"
       },
-      "type": "array"
+      "type": "array",
+      "title": "TaggedResourceList"
     },
     "TaggedResourceListMessage": {
       "description": "<p/>",
@@ -4077,33 +4365,39 @@
           "description": "A list of tags with their associated resources."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TaggedResourceListMessage"
     },
     "UnauthorizedOperation": {
       "description": "Your account is not authorized to perform the requested operation.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "UnauthorizedOperation"
     },
     "UnknownSnapshotCopyRegionFault": {
       "description": "The specified region is incorrect or does not exist.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "UnknownSnapshotCopyRegionFault"
     },
     "UnsupportedOperationFault": {
       "description": "The requested operation isn't supported.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "UnsupportedOperationFault"
     },
     "UnsupportedOptionFault": {
       "description": "A request option was specified that is not supported.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "UnsupportedOptionFault"
     },
     "VpcSecurityGroupIdList": {
       "items": {
         "$ref": "#/definitions/String"
       },
-      "type": "array"
+      "type": "array",
+      "title": "VpcSecurityGroupIdList"
     },
     "VpcSecurityGroupMembership": {
       "description": "Describes the members of a VPC security group.",
@@ -4117,13 +4411,15 @@
           "description": "The identifier of the VPC security group."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "VpcSecurityGroupMembership"
     },
     "VpcSecurityGroupMembershipList": {
       "items": {
         "$ref": "#/definitions/VpcSecurityGroupMembership"
       },
-      "type": "array"
+      "type": "array",
+      "title": "VpcSecurityGroupMembershipList"
     }
   },
   "actions": [

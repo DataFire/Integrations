@@ -32,7 +32,8 @@
       "required": [
         "id"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "Archivable_Object"
     },
     "Existing_Folder": {
       "description": "Represents an existing folder.",
@@ -81,7 +82,8 @@
       "type": "object",
       "xml": {
         "name": "folder"
-      }
+      },
+      "title": "Existing_Folder"
     },
     "Existing_Order": {
       "description": "Represents an existing order.",
@@ -163,7 +165,8 @@
       "type": "object",
       "xml": {
         "name": "order"
-      }
+      },
+      "title": "Existing_Order"
     },
     "Existing_Recipe": {
       "description": "Represents an existing recipe.",
@@ -204,7 +207,8 @@
       "type": "object",
       "xml": {
         "name": "recipe"
-      }
+      },
+      "title": "Existing_Recipe"
     },
     "Existing_Source": {
       "description": "Represents an existing source.",
@@ -288,7 +292,8 @@
       "type": "object",
       "xml": {
         "name": "source"
-      }
+      },
+      "title": "Existing_Source"
     },
     "Folder_Request": {
       "description": "Represents a folder to be created or updated.",
@@ -307,7 +312,8 @@
       "type": "object",
       "xml": {
         "name": "folder"
-      }
+      },
+      "title": "Folder_Request"
     },
     "Order_Request": {
       "description": "Represents an order to be created or updated.",
@@ -359,7 +365,8 @@
       "type": "object",
       "xml": {
         "name": "order"
-      }
+      },
+      "title": "Order_Request"
     },
     "Source_Request": {
       "description": "Represents a source to be created or updated.",
@@ -410,7 +417,8 @@
       "type": "object",
       "xml": {
         "name": "source"
-      }
+      },
+      "title": "Source_Request"
     }
   },
   "actions": [

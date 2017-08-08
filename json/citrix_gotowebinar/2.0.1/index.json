@@ -29,7 +29,8 @@
         "organizer",
         "panelist",
         "attendee"
-      ]
+      ],
+      "title": "AccessCodes"
     },
     "AccountWebinar": {
       "description": "Describes a webinar for an account within a given date range.",
@@ -96,7 +97,8 @@
         "impromptu",
         "isPasswordProtected",
         "type"
-      ]
+      ],
+      "title": "AccountWebinar"
     },
     "AccountWebinars": {
       "description": "",
@@ -110,7 +112,8 @@
       },
       "required": [
         "webinars"
-      ]
+      ],
+      "title": "AccountWebinars"
     },
     "AccountWebinarsResponse": {
       "description": "Describes a list of webinars for an account within a given date range",
@@ -129,7 +132,8 @@
       "required": [
         "_embedded",
         "page"
-      ]
+      ],
+      "title": "AccountWebinarsResponse"
     },
     "AnswerToAttendeeQuestion": {
       "description": "Describes an answer to a question asked by an attendee during a webinar session.",
@@ -146,7 +150,8 @@
       "required": [
         "answer",
         "answeredBy"
-      ]
+      ],
+      "title": "AnswerToAttendeeQuestion"
     },
     "Attendance": {
       "description": "Describes the times the attendee joined and left a webinar session.",
@@ -165,7 +170,8 @@
       "required": [
         "joinTime",
         "leaveTime"
-      ]
+      ],
+      "title": "Attendance"
     },
     "AttendanceStatistics": {
       "description": "Describes attendance metrics for a webinar session.",
@@ -202,7 +208,8 @@
         "averageInterestRating",
         "averageAttentiveness",
         "averageAttendanceTimeSeconds"
-      ]
+      ],
+      "title": "AttendanceStatistics"
     },
     "Attendee": {
       "description": "Describes the attendee of a webinar",
@@ -250,7 +257,8 @@
         "attendanceTimeInSeconds",
         "attendance",
         "sessionKey"
-      ]
+      ],
+      "title": "Attendee"
     },
     "AttendeeQuestion": {
       "description": "Describes the question asked by an attendee during a webinar session; includes the answers given to it.",
@@ -275,7 +283,8 @@
         "answers",
         "question",
         "askedBy"
-      ]
+      ],
+      "title": "AttendeeQuestion"
     },
     "Audio": {
       "description": "Describes the audio/conferencing information for a webinar.",
@@ -299,7 +308,8 @@
       },
       "required": [
         "type"
-      ]
+      ],
+      "title": "Audio"
     },
     "AudioType": {
       "description": "How to connect to the webinar's audio conference",
@@ -309,7 +319,8 @@
         "Hybrid",
         "Private"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "AudioType"
     },
     "AudioUpdate": {
       "description": "Defines the audio/conferencing settings for the specified webinar",
@@ -331,7 +342,8 @@
       },
       "required": [
         "type"
-      ]
+      ],
+      "title": "AudioUpdate"
     },
     "CallNumbers": {
       "description": "Conference call numbers per country.",
@@ -352,7 +364,8 @@
       "required": [
         "accessCodes",
         "toll"
-      ]
+      ],
+      "title": "CallNumbers"
     },
     "Coorganizer": {
       "description": "Describes a webinar co-organizer. A co-organizer without a GoToWebinar account is marked as external and is returned without a surname",
@@ -389,7 +402,8 @@
         "external",
         "surname",
         "givenName"
-      ]
+      ],
+      "title": "Coorganizer"
     },
     "CoorganizerReqCreate": {
       "description": "Details used for creating a co-organizer for a webinar. ",
@@ -413,7 +427,8 @@
       },
       "required": [
         "external"
-      ]
+      ],
+      "title": "CoorganizerReqCreate"
     },
     "CreatedPanelist": {
       "description": "Describes a created panelist",
@@ -440,7 +455,8 @@
         "email",
         "joinLink",
         "panelistKey"
-      ]
+      ],
+      "title": "CreatedPanelist"
     },
     "CreatedWebinar": {
       "description": "Describes a newly created webinar.",
@@ -452,7 +468,8 @@
       },
       "required": [
         "webinarKey"
-      ]
+      ],
+      "title": "CreatedWebinar"
     },
     "CustomAnswers": {
       "description": "Answers to custom questions of the registrant",
@@ -469,7 +486,8 @@
       "required": [
         "answer",
         "question"
-      ]
+      ],
+      "title": "CustomAnswers"
     },
     "DateTimeRange": {
       "description": "A pair of DateTime values, the first of which serves as a start time and the second as an end time of an interval.",
@@ -488,7 +506,8 @@
       "required": [
         "startTime",
         "endTime"
-      ]
+      ],
+      "title": "DateTimeRange"
     },
     "HistoricalWebinar": {
       "description": "Describes a completed webinar",
@@ -535,7 +554,8 @@
         "webinarKey",
         "webinarID",
         "timeZone"
-      ]
+      ],
+      "title": "HistoricalWebinar"
     },
     "Panelist": {
       "description": "Describes a webinar session panelist",
@@ -573,7 +593,8 @@
         "name",
         "panelistId",
         "firstName"
-      ]
+      ],
+      "title": "Panelist"
     },
     "PanelistReqCreate": {
       "description": "Describes a single panelist",
@@ -590,7 +611,8 @@
       "required": [
         "email",
         "name"
-      ]
+      ],
+      "title": "PanelistReqCreate"
     },
     "Poll": {
       "description": "A poll or survey launched by an organizer during or after a webinar session; includes the responses given to it by the attendees.",
@@ -616,7 +638,8 @@
         "responses",
         "question",
         "numberOfResponses"
-      ]
+      ],
+      "title": "Poll"
     },
     "PollAnswer": {
       "description": "Describes the answer given by a webinar attendee to a poll or survey launched by an organizer.",
@@ -633,7 +656,8 @@
       "required": [
         "answer",
         "question"
-      ]
+      ],
+      "title": "PollAnswer"
     },
     "PollResponse": {
       "description": "One of the potential responses/options to a poll or survey launched by an organizer during a webinar session.",
@@ -653,7 +677,8 @@
       "required": [
         "text",
         "percentage"
-      ]
+      ],
+      "title": "PollResponse"
     },
     "PollsAndSurveysStatistics": {
       "description": "Details on the polls and surveys for a webinar session.",
@@ -690,7 +715,8 @@
         "questionsAsked",
         "percentagePollsCompleted",
         "percentageSurveysCompleted"
-      ]
+      ],
+      "title": "PollsAndSurveysStatistics"
     },
     "PrivateInfo": {
       "description": "Phone numbers for an own conference call service.",
@@ -710,7 +736,8 @@
       },
       "required": [
         "attendee"
-      ]
+      ],
+      "title": "PrivateInfo"
     },
     "PrivateInfoUpdate": {
       "description": "Defines the audio data for an own conferencing system",
@@ -730,7 +757,8 @@
       },
       "required": [
         "attendee"
-      ]
+      ],
+      "title": "PrivateInfoUpdate"
     },
     "PstnInfoUpdate": {
       "description": "Defines the audio/conferencing settings for the specified webinar. It required to pass 'tollFreeCountries' or 'tollCountries' or both.",
@@ -749,7 +777,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "PstnInfoUpdate"
     },
     "Registrant": {
       "description": "Describes a webinar registrant",
@@ -803,7 +832,8 @@
         "status",
         "joinUrl",
         "timeZone"
-      ]
+      ],
+      "title": "Registrant"
     },
     "RegistrantCreated": {
       "description": "Describes a newly created webinar registrant.",
@@ -821,7 +851,8 @@
       "required": [
         "registrantKey",
         "joinUrl"
-      ]
+      ],
+      "title": "RegistrantCreated"
     },
     "RegistrantDetailed": {
       "description": "Detailed description of a webinar registrant with all registration fields.",
@@ -957,7 +988,8 @@
         "status",
         "joinUrl",
         "timeZone"
-      ]
+      ],
+      "title": "RegistrantDetailed"
     },
     "RegistrantFields": {
       "description": "Detailed description of a all fields to register a registrant for a webinar.",
@@ -1042,7 +1074,8 @@
         "firstName",
         "lastName",
         "email"
-      ]
+      ],
+      "title": "RegistrantFields"
     },
     "RegistrantQAResponse": {
       "description": "Describes a completed registration question for a webinar registrant. If you use 'Multiple choice' questions the response contains the numeric answerKey, otherwise the answer text. Example:<br>{<br>  \"firstName\": \"First\",<br>  \"lastName\": \"Last\",<br>  \"email\": \"First.Last@example.com\",<br>  \"responses\": [{<br>      \"questionKey\": 17023549,<br>      \"responseText\": \"This is a short answer\"},{<br>      \"questionKey\": 17023550,<br>      \"answerKey\": 17023553}  ]<br>}",
@@ -1064,7 +1097,8 @@
       },
       "required": [
         "questionKey"
-      ]
+      ],
+      "title": "RegistrantQAResponse"
     },
     "RegistrationAnswer": {
       "description": "Describes an answer to a multiple choice custom registration field.",
@@ -1082,7 +1116,8 @@
       "required": [
         "answer",
         "answerKey"
-      ]
+      ],
+      "title": "RegistrationAnswer"
     },
     "RegistrationField": {
       "description": "Describes a field for a webinar registration.",
@@ -1112,7 +1147,8 @@
         "field",
         "required",
         "maxSize"
-      ]
+      ],
+      "title": "RegistrationField"
     },
     "RegistrationFields": {
       "description": "The fields to be completed on the webinar registration form.",
@@ -1135,7 +1171,8 @@
       "required": [
         "questions",
         "fields"
-      ]
+      ],
+      "title": "RegistrationFields"
     },
     "RegistrationQuestion": {
       "description": "Describes a custom field for a webinar registration.",
@@ -1180,7 +1217,8 @@
         "required",
         "type",
         "maxSize"
-      ]
+      ],
+      "title": "RegistrationQuestion"
     },
     "Session": {
       "description": "Describes a completed webinar session.",
@@ -1222,7 +1260,8 @@
         "webinarID",
         "sessionKey",
         "endTime"
-      ]
+      ],
+      "title": "Session"
     },
     "SessionPerformance": {
       "description": "Describes performance details for webinar sessions",
@@ -1239,7 +1278,8 @@
       "required": [
         "attendance",
         "pollsAndSurveys"
-      ]
+      ],
+      "title": "SessionPerformance"
     },
     "TollCountries": {
       "description": "Defines in which countries toll PSTN numbers are available.",
@@ -1263,7 +1303,8 @@
         "SE",
         "US"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "TollCountries"
     },
     "TollFreeCountries": {
       "description": "Countries in which toll free PSTN numbers are available.",
@@ -1325,7 +1366,8 @@
         "VN",
         "ZA"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "TollFreeCountries"
     },
     "UpcomingWebinar": {
       "description": "Describes a scheduled webinar",
@@ -1382,7 +1424,8 @@
         "webinarID",
         "timeZone",
         "registrationUrl"
-      ]
+      ],
+      "title": "UpcomingWebinar"
     },
     "Webinar": {
       "description": "Describes a scheduled webinar",
@@ -1445,7 +1488,8 @@
         "webinarID",
         "timeZone",
         "registrationUrl"
-      ]
+      ],
+      "title": "Webinar"
     },
     "WebinarByKey": {
       "description": "Describes a completed webinar",
@@ -1520,7 +1564,8 @@
         "numberOfOpenedInvitations",
         "registrationUrl",
         "numberOfRegistrationLinkClicks"
-      ]
+      ],
+      "title": "WebinarByKey"
     },
     "WebinarReqCreate": {
       "description": "Describes the details used to create a new single session webinar.",
@@ -1558,7 +1603,8 @@
       "required": [
         "subject",
         "times"
-      ]
+      ],
+      "title": "WebinarReqCreate"
     },
     "WebinarReqUpdate": {
       "description": "Describes the details of the webinar",
@@ -1594,7 +1640,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "WebinarReqUpdate"
     },
     "firstPage": {
       "properties": {
@@ -1605,7 +1652,8 @@
       },
       "required": [
         "href"
-      ]
+      ],
+      "title": "firstPage"
     },
     "lastPage": {
       "properties": {
@@ -1616,7 +1664,8 @@
       },
       "required": [
         "href"
-      ]
+      ],
+      "title": "lastPage"
     },
     "page": {
       "properties": {
@@ -1646,7 +1695,8 @@
         "totalElements",
         "totalPages",
         "number"
-      ]
+      ],
+      "title": "page"
     },
     "selfPage": {
       "properties": {
@@ -1657,7 +1707,8 @@
       },
       "required": [
         "href"
-      ]
+      ],
+      "title": "selfPage"
     }
   },
   "actions": [

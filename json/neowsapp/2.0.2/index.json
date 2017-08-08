@@ -23,7 +23,8 @@
         "relative_velocity": {
           "$ref": "#/definitions/relativeVelocity"
         }
-      }
+      },
+      "title": "CloseApproachData"
     },
     "EstimatedDiameter": {
       "properties": {
@@ -37,7 +38,8 @@
           "format": "double",
           "type": "number"
         }
-      }
+      },
+      "title": "EstimatedDiameter"
     },
     "EstimatedDiameterContainer": {
       "properties": {
@@ -57,9 +59,12 @@
           "$ref": "#/definitions/EstimatedDiameter",
           "description": "estimated diameter miles"
         }
-      }
+      },
+      "title": "EstimatedDiameterContainer"
     },
-    "HashMap«string,List«NearEarthObject»»": {},
+    "HashMap«string,List«NearEarthObject»»": {
+      "title": "HashMap«string,List«NearEarthObject»»"
+    },
     "Link": {
       "properties": {
         "href": {
@@ -71,7 +76,8 @@
         "templated": {
           "type": "boolean"
         }
-      }
+      },
+      "title": "Link"
     },
     "MissDistance": {
       "properties": {
@@ -87,7 +93,8 @@
         "miles": {
           "type": "string"
         }
-      }
+      },
+      "title": "MissDistance"
     },
     "NearEarthObject": {
       "properties": {
@@ -125,7 +132,8 @@
           "$ref": "#/definitions/OrbitalData",
           "description": "Orbital information of the asteroid"
         }
-      }
+      },
+      "title": "NearEarthObject"
     },
     "NearEarthObjectList": {
       "properties": {
@@ -142,7 +150,8 @@
           "$ref": "#/definitions/HashMap«string,List«NearEarthObject»»",
           "description": "A collection of NearEarthObjects"
         }
-      }
+      },
+      "title": "NearEarthObjectList"
     },
     "OrbitalData": {
       "properties": {
@@ -200,7 +209,8 @@
         "semi_major_axis": {
           "type": "string"
         }
-      }
+      },
+      "title": "OrbitalData"
     },
     "Statistics": {
       "properties": {
@@ -230,7 +240,8 @@
         "source": {
           "type": "string"
         }
-      }
+      },
+      "title": "Statistics"
     },
     "URL": {
       "properties": {
@@ -269,7 +280,8 @@
         "userInfo": {
           "type": "string"
         }
-      }
+      },
+      "title": "URL"
     },
     "relativeVelocity": {
       "properties": {
@@ -279,7 +291,8 @@
         "miles_per_hour": {
           "type": "string"
         }
-      }
+      },
+      "title": "relativeVelocity"
     }
   },
   "actions": [

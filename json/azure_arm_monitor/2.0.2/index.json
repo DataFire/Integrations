@@ -55,7 +55,8 @@
       },
       "required": [
         "operation"
-      ]
+      ],
+      "title": "AutoscaleNotification"
     },
     "AutoscaleProfile": {
       "description": "Autoscale profile.",
@@ -88,7 +89,8 @@
         "rules",
         "name",
         "capacity"
-      ]
+      ],
+      "title": "AutoscaleProfile"
     },
     "AutoscaleSetting": {
       "description": "A setting that contains all of the configuration for the automatic scaling of a resource.",
@@ -124,7 +126,8 @@
       },
       "required": [
         "profiles"
-      ]
+      ],
+      "title": "AutoscaleSetting"
     },
     "AutoscaleSettingResource": {
       "allOf": [
@@ -142,7 +145,8 @@
       "required": [
         "properties"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AutoscaleSettingResource"
     },
     "AutoscaleSettingResourceCollection": {
       "description": "Represents a collection of autoscale setting resources.",
@@ -161,7 +165,8 @@
       },
       "required": [
         "value"
-      ]
+      ],
+      "title": "AutoscaleSettingResourceCollection"
     },
     "EmailNotification": {
       "description": "Email notification of an autoscale event.",
@@ -181,7 +186,8 @@
           "description": "a value indicating whether to send email to subscription co-administrators.",
           "type": "boolean"
         }
-      }
+      },
+      "title": "EmailNotification"
     },
     "ErrorResponse": {
       "description": "Describes the format of Error response.",
@@ -195,7 +201,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ErrorResponse"
     },
     "MetricTrigger": {
       "description": "The trigger that results in a scaling action.",
@@ -278,7 +285,8 @@
         "timeAggregation",
         "operator",
         "threshold"
-      ]
+      ],
+      "title": "MetricTrigger"
     },
     "Recurrence": {
       "description": "The repeating times at which this profile begins. This element is not used if the FixedDate element is used.",
@@ -309,7 +317,8 @@
       "required": [
         "frequency",
         "schedule"
-      ]
+      ],
+      "title": "Recurrence"
     },
     "RecurrentSchedule": {
       "description": "The scheduling constraints for when the profile begins.",
@@ -347,7 +356,8 @@
         "days",
         "hours",
         "minutes"
-      ]
+      ],
+      "title": "RecurrentSchedule"
     },
     "Resource": {
       "description": "An azure resource object",
@@ -385,7 +395,8 @@
       "required": [
         "location"
       ],
-      "x-ms-azure-resource": true
+      "x-ms-azure-resource": true,
+      "title": "Resource"
     },
     "ScaleAction": {
       "description": "The parameters for the scaling action.",
@@ -431,7 +442,8 @@
         "direction",
         "type",
         "cooldown"
-      ]
+      ],
+      "title": "ScaleAction"
     },
     "ScaleCapacity": {
       "description": "The number of instances that can be used during this profile.",
@@ -453,7 +465,8 @@
         "minimum",
         "maximum",
         "default"
-      ]
+      ],
+      "title": "ScaleCapacity"
     },
     "ScaleRule": {
       "description": "A rule that provide the triggers and parameters for the scaling action.",
@@ -470,7 +483,8 @@
       "required": [
         "scaleAction",
         "metricTrigger"
-      ]
+      ],
+      "title": "ScaleRule"
     },
     "TimeWindow": {
       "description": "A specific date-time for the profile.",
@@ -493,7 +507,8 @@
       "required": [
         "start",
         "end"
-      ]
+      ],
+      "title": "TimeWindow"
     },
     "WebhookNotification": {
       "description": "Webhook notification of an autoscale event.",
@@ -509,7 +524,8 @@
           "description": "the service address to receive the notification.",
           "type": "string"
         }
-      }
+      },
+      "title": "WebhookNotification"
     }
   },
   "actions": [

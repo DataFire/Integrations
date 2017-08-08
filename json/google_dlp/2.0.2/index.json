@@ -32,7 +32,8 @@
     "CancelOperationRequest": {
       "description": "The request message for Operations.CancelOperation.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "CancelOperationRequest"
     },
     "CategoryDescription": {
       "description": "Info Type Category description.",
@@ -46,7 +47,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CategoryDescription"
     },
     "CloudStorageKey": {
       "description": "Record key for a finding in a Cloud Storage file.",
@@ -61,7 +63,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CloudStorageKey"
     },
     "CloudStorageOptions": {
       "description": "Options defining a file or a set of files (path ending with *) within\na Google Cloud Storage bucket.",
@@ -70,7 +73,8 @@
           "$ref": "#/definitions/FileSet"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CloudStorageOptions"
     },
     "ContentItem": {
       "description": "Container structure for the content to inspect.",
@@ -89,7 +93,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ContentItem"
     },
     "CreateInspectOperationRequest": {
       "description": "Request for scheduling a scan of a data subset from a Google Platform data\nrepository.",
@@ -103,7 +108,8 @@
           "description": "Specification of the data set to process."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateInspectOperationRequest"
     },
     "DatastoreKey": {
       "description": "Record key for a finding in Cloud Datastore.",
@@ -113,7 +119,8 @@
           "description": "Datastore entity key."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DatastoreKey"
     },
     "DatastoreOptions": {
       "description": "Options defining a data set within Google Cloud Datastore.",
@@ -134,12 +141,14 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DatastoreOptions"
     },
     "Empty": {
       "description": "A generic empty message that you can re-use to avoid defining duplicated\nempty messages in your APIs. A typical example is to use it as the request\nor the response type of an API method. For instance:\n\n    service Foo {\n      rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);\n    }\n\nThe JSON representation for `Empty` is empty JSON object `{}`.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "Empty"
     },
     "FieldId": {
       "description": "General identifier of a data field in a storage service.",
@@ -149,7 +158,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "FieldId"
     },
     "FileSet": {
       "description": "Set of files to scan.",
@@ -159,7 +169,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "FileSet"
     },
     "Finding": {
       "description": "Container structure describing a single finding within a string or image.",
@@ -194,7 +205,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Finding"
     },
     "ImageLocation": {
       "description": "Bounding box encompassing detected text within an image.",
@@ -220,7 +232,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ImageLocation"
     },
     "InfoType": {
       "description": "Type of information detected by the API.",
@@ -230,7 +243,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InfoType"
     },
     "InfoTypeDescription": {
       "description": "Info type description.",
@@ -251,7 +265,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InfoTypeDescription"
     },
     "InspectConfig": {
       "description": "Configuration description of the scanning process.\nWhen used with redactContent only info_types and min_likelihood are currently\nused.",
@@ -289,7 +304,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InspectConfig"
     },
     "InspectContentRequest": {
       "description": "Request to search for potentially sensitive info in a list of items.",
@@ -306,7 +322,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InspectContentRequest"
     },
     "InspectContentResponse": {
       "description": "Results of inspecting a list of items.",
@@ -319,7 +336,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InspectContentResponse"
     },
     "InspectResult": {
       "description": "All the findings for a single scanned item.",
@@ -336,7 +354,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InspectResult"
     },
     "Key": {
       "description": "A unique identifier for a Datastore entity.\nIf a key's partition ID or any of its path kinds or names are\nreserved/read-only, the key is reserved/read-only.\nA reserved/read-only key is forbidden in certain documented contexts.",
@@ -353,7 +372,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Key"
     },
     "KindExpression": {
       "description": "A representation of a Datastore kind.",
@@ -363,7 +383,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "KindExpression"
     },
     "ListInfoTypesResponse": {
       "description": "Response to the ListInfoTypes request.",
@@ -376,7 +397,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListInfoTypesResponse"
     },
     "ListInspectFindingsResponse": {
       "description": "Response to the ListInspectFindings request.",
@@ -390,7 +412,8 @@
           "description": "The results."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListInspectFindingsResponse"
     },
     "ListOperationsResponse": {
       "description": "The response message for Operations.ListOperations.",
@@ -407,7 +430,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListOperationsResponse"
     },
     "ListRootCategoriesResponse": {
       "description": "Response for ListRootCategories request.",
@@ -420,7 +444,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListRootCategoriesResponse"
     },
     "Location": {
       "description": "Specifies the location of a finding within its source item.",
@@ -449,7 +474,8 @@
           "description": "Key of the finding."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Location"
     },
     "Operation": {
       "description": "This resource represents a long-running operation that is the result of a\nnetwork API call.",
@@ -481,7 +507,8 @@
           "type": "object"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Operation"
     },
     "PartitionId": {
       "description": "Datastore partition ID.\nA partition ID identifies a grouping of entities. The grouping is always\nby project and namespace, however the namespace ID may be empty.\n\nA partition ID contains several dimensions:\nproject ID and namespace ID.",
@@ -499,7 +526,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PartitionId"
     },
     "PathElement": {
       "description": "A (kind, ID/name) pair used to construct a key path.\n\nIf either name or ID is set, the element is complete.\nIf neither is set, the element is incomplete.",
@@ -518,7 +546,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PathElement"
     },
     "Projection": {
       "description": "A representation of a Datastore property in a projection.",
@@ -528,7 +557,8 @@
           "description": "The property to project."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Projection"
     },
     "PropertyReference": {
       "description": "A reference to a property relative to the Datastore kind expressions.",
@@ -538,7 +568,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PropertyReference"
     },
     "Range": {
       "description": "Generic half-open interval [start, end)",
@@ -554,7 +585,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Range"
     },
     "RecordKey": {
       "description": "Message for a unique key indicating a record that contains a finding.",
@@ -566,7 +598,8 @@
           "$ref": "#/definitions/DatastoreKey"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RecordKey"
     },
     "RedactContentRequest": {
       "description": "Request to search for potentially sensitive info in a list of items\nand replace it with a default or provided content.",
@@ -590,7 +623,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RedactContentRequest"
     },
     "RedactContentResponse": {
       "description": "Results of deidentifying a list of items.",
@@ -603,7 +637,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RedactContentResponse"
     },
     "ReplaceConfig": {
       "properties": {
@@ -616,7 +651,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ReplaceConfig"
     },
     "Status": {
       "description": "The `Status` type defines a logical error model that is suitable for different\nprogramming environments, including REST APIs and RPC APIs. It is used by\n[gRPC](https://github.com/grpc). The error model is designed to be:\n\n- Simple to use and understand for most users\n- Flexible enough to meet unexpected needs\n\n# Overview\n\nThe `Status` message contains three pieces of data: error code, error message,\nand error details. The error code should be an enum value of\ngoogle.rpc.Code, but it may accept additional error codes if needed.  The\nerror message should be a developer-facing English message that helps\ndevelopers *understand* and *resolve* the error. If a localized user-facing\nerror message is needed, put the localized message in the error details or\nlocalize it in the client. The optional error details may contain arbitrary\ninformation about the error. There is a predefined set of error detail types\nin the package `google.rpc` which can be used for common error conditions.\n\n# Language mapping\n\nThe `Status` message is the logical representation of the error model, but it\nis not necessarily the actual wire format. When the `Status` message is\nexposed in different client libraries and different wire protocols, it can be\nmapped differently. For example, it will likely be mapped to some exceptions\nin Java, but more likely mapped to some error codes in C.\n\n# Other uses\n\nThe error model and the `Status` message can be used in a variety of\nenvironments, either with or without APIs, to provide a\nconsistent developer experience across different environments.\n\nExample uses of this error model include:\n\n- Partial errors. If a service needs to return partial errors to the client,\n    it may embed the `Status` in the normal response to indicate the partial\n    errors.\n\n- Workflow errors. A typical workflow has multiple steps. Each step may\n    have a `Status` message for error reporting purpose.\n\n- Batch operations. If a client uses batch request and batch response, the\n    `Status` message should be used directly inside batch response, one for\n    each error sub-response.\n\n- Asynchronous operations. If an API call embeds asynchronous operation\n    results in its response, the status of those operations should be\n    represented directly using the `Status` message.\n\n- Logging. If some API errors are stored in logs, the message `Status` could\n    be used directly after any stripping needed for security/privacy reasons.",
@@ -641,7 +677,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Status"
     },
     "StorageConfig": {
       "description": "Shared message indicating Cloud storage type.",
@@ -655,7 +692,8 @@
           "description": "Google Cloud Datastore options specification."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "StorageConfig"
     }
   },
   "actions": [

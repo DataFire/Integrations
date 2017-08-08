@@ -28,7 +28,8 @@
       "required": [
         "status",
         "message"
-      ]
+      ],
+      "title": "ErrorModel"
     },
     "Report": {
       "properties": {
@@ -248,7 +249,8 @@
         "time": {
           "type": "string"
         }
-      }
+      },
+      "title": "Report"
     },
     "Service": {
       "properties": {
@@ -267,7 +269,8 @@
         "used": {
           "type": "integer"
         }
-      }
+      },
+      "title": "Service"
     }
   },
   "actions": [

@@ -103,7 +103,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InstanceGroupManager"
     },
     "InstanceGroupManagerList": {
       "properties": {
@@ -132,7 +133,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InstanceGroupManagerList"
     },
     "InstanceGroupManagersAbandonInstancesRequest": {
       "properties": {
@@ -144,7 +146,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InstanceGroupManagersAbandonInstancesRequest"
     },
     "InstanceGroupManagersDeleteInstancesRequest": {
       "properties": {
@@ -156,7 +159,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InstanceGroupManagersDeleteInstancesRequest"
     },
     "InstanceGroupManagersRecreateInstancesRequest": {
       "properties": {
@@ -168,7 +172,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InstanceGroupManagersRecreateInstancesRequest"
     },
     "InstanceGroupManagersSetInstanceTemplateRequest": {
       "properties": {
@@ -177,7 +182,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InstanceGroupManagersSetInstanceTemplateRequest"
     },
     "InstanceGroupManagersSetTargetPoolsRequest": {
       "properties": {
@@ -194,7 +200,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InstanceGroupManagersSetTargetPoolsRequest"
     },
     "Operation": {
       "description": "An operation resource, used to manage asynchronous API requests.",
@@ -366,7 +373,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Operation"
     },
     "OperationList": {
       "properties": {
@@ -395,7 +403,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "OperationList"
     },
     "ReplicaPoolAutoHealingPolicy": {
       "properties": {
@@ -412,7 +421,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ReplicaPoolAutoHealingPolicy"
     }
   },
   "actions": [

@@ -39,7 +39,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ApplyArtifactsRequest"
     },
     "ArmTemplateInfo": {
       "description": "Information about a generated ARM template.",
@@ -53,7 +54,8 @@
           "description": "The template's contents."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ArmTemplateInfo"
     },
     "Artifact": {
       "description": "An artifact.",
@@ -88,7 +90,8 @@
         }
       },
       "type": "object",
-      "x-ms-azure-resource": true
+      "x-ms-azure-resource": true,
+      "title": "Artifact"
     },
     "ArtifactDeploymentStatusProperties": {
       "description": "Properties of an artifact deployment.",
@@ -108,7 +111,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ArtifactDeploymentStatusProperties"
     },
     "ArtifactInstallProperties": {
       "description": "Properties of an artifact.",
@@ -125,7 +129,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ArtifactInstallProperties"
     },
     "ArtifactParameterProperties": {
       "description": "Properties of an artifact parameter.",
@@ -139,7 +144,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ArtifactParameterProperties"
     },
     "ArtifactProperties": {
       "description": "Properties of an artifact.",
@@ -169,7 +175,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ArtifactProperties"
     },
     "ArtifactSource": {
       "description": "Properties of an artifact source.",
@@ -204,7 +211,8 @@
         }
       },
       "type": "object",
-      "x-ms-azure-resource": true
+      "x-ms-azure-resource": true,
+      "title": "ArtifactSource"
     },
     "ArtifactSourceProperties": {
       "description": "Properties of an artifact source.",
@@ -262,7 +270,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ArtifactSourceProperties"
     },
     "CloudError": {
       "properties": {
@@ -271,7 +280,8 @@
         }
       },
       "type": "object",
-      "x-ms-external": true
+      "x-ms-external": true,
+      "title": "CloudError"
     },
     "CloudErrorBody": {
       "properties": {
@@ -292,7 +302,8 @@
         }
       },
       "type": "object",
-      "x-ms-external": true
+      "x-ms-external": true,
+      "title": "CloudErrorBody"
     },
     "Cost": {
       "description": "A cost item.",
@@ -327,7 +338,8 @@
         }
       },
       "type": "object",
-      "x-ms-azure-resource": true
+      "x-ms-azure-resource": true,
+      "title": "Cost"
     },
     "CostPerDayProperties": {
       "description": "The properties of a lab cost item.",
@@ -356,7 +368,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CostPerDayProperties"
     },
     "CostProperties": {
       "description": "Properties of a cost item.",
@@ -380,7 +393,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CostProperties"
     },
     "CustomImage": {
       "description": "A custom image.",
@@ -415,7 +429,8 @@
         }
       },
       "type": "object",
-      "x-ms-azure-resource": true
+      "x-ms-azure-resource": true,
+      "title": "CustomImage"
     },
     "CustomImageProperties": {
       "description": "Properties of a custom image.",
@@ -450,7 +465,8 @@
           "description": ""
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CustomImageProperties"
     },
     "CustomImagePropertiesCustom": {
       "description": "Properties for creating a custom image from a VHD.",
@@ -477,7 +493,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CustomImagePropertiesCustom"
     },
     "CustomImagePropertiesFromVm": {
       "description": "Properties for creating a custom image from a virtual machine.",
@@ -495,7 +512,8 @@
           "description": "The Windows OS information of the VM."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CustomImagePropertiesFromVm"
     },
     "DayDetails": {
       "description": "Properties of a daily schedule.",
@@ -504,7 +522,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DayDetails"
     },
     "EvaluatePoliciesProperties": {
       "description": "Properties for evaluating a policy set.",
@@ -522,7 +541,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "EvaluatePoliciesProperties"
     },
     "EvaluatePoliciesRequest": {
       "description": "Request body for evaluating a policy set.",
@@ -535,7 +555,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "EvaluatePoliciesRequest"
     },
     "EvaluatePoliciesResponse": {
       "description": "Response body for evaluating a policy set.",
@@ -548,7 +569,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "EvaluatePoliciesResponse"
     },
     "Formula": {
       "description": "A formula.",
@@ -583,7 +605,8 @@
         }
       },
       "type": "object",
-      "x-ms-azure-resource": true
+      "x-ms-azure-resource": true,
+      "title": "Formula"
     },
     "FormulaProperties": {
       "description": "Properties of a formula.",
@@ -622,7 +645,8 @@
           "description": "Information about a VM from which a formula is to be created."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "FormulaProperties"
     },
     "FormulaPropertiesFromVm": {
       "description": "Information about a VM from which a formula is to be created.",
@@ -632,7 +656,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "FormulaPropertiesFromVm"
     },
     "GalleryImage": {
       "description": "A gallery image.",
@@ -667,7 +692,8 @@
         }
       },
       "type": "object",
-      "x-ms-azure-resource": true
+      "x-ms-azure-resource": true,
+      "title": "GalleryImage"
     },
     "GalleryImageProperties": {
       "description": "Properties of a gallery image.",
@@ -698,7 +724,8 @@
           "description": "The image reference of the gallery image."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GalleryImageProperties"
     },
     "GalleryImageReference": {
       "description": "The reference information for an Azure Marketplace image.",
@@ -724,7 +751,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GalleryImageReference"
     },
     "GenerateArmTemplateRequest": {
       "description": "Parameters for generating an ARM template for deploying artifacts.",
@@ -745,7 +773,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GenerateArmTemplateRequest"
     },
     "GenerateUploadUriParameter": {
       "description": "Properties for generating an upload URI.",
@@ -755,7 +784,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GenerateUploadUriParameter"
     },
     "GenerateUploadUriResponse": {
       "description": "Reponse body for generating an upload URI.",
@@ -765,7 +795,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GenerateUploadUriResponse"
     },
     "HourDetails": {
       "description": "Properties of an hourly schedule.",
@@ -776,7 +807,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "HourDetails"
     },
     "Lab": {
       "description": "A lab.",
@@ -811,7 +843,8 @@
         }
       },
       "type": "object",
-      "x-ms-azure-resource": true
+      "x-ms-azure-resource": true,
+      "title": "Lab"
     },
     "LabProperties": {
       "description": "Properties of a lab.",
@@ -854,7 +887,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LabProperties"
     },
     "LabVhd": {
       "description": "Properties of a VHD in the lab.",
@@ -864,7 +898,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LabVhd"
     },
     "LabVirtualMachine": {
       "description": "A virtual machine.",
@@ -899,7 +934,8 @@
         }
       },
       "type": "object",
-      "x-ms-azure-resource": true
+      "x-ms-azure-resource": true,
+      "title": "LabVirtualMachine"
     },
     "LabVirtualMachineProperties": {
       "description": "Properties of a virtual machine.",
@@ -992,7 +1028,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LabVirtualMachineProperties"
     },
     "LinuxOsInfo": {
       "description": "Information about a Linux OS.",
@@ -1011,11 +1048,13 @@
           }
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LinuxOsInfo"
     },
     "Object": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "Object"
     },
     "ParameterInfo": {
       "properties": {
@@ -1026,7 +1065,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ParameterInfo"
     },
     "Policy": {
       "description": "A Policy.",
@@ -1061,7 +1101,8 @@
         }
       },
       "type": "object",
-      "x-ms-azure-resource": true
+      "x-ms-azure-resource": true,
+      "title": "Policy"
     },
     "PolicyProperties": {
       "description": "Properties of a Policy.",
@@ -1126,7 +1167,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PolicyProperties"
     },
     "PolicySetResult": {
       "description": "Result of a policy set evaluation.",
@@ -1143,7 +1185,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PolicySetResult"
     },
     "PolicyViolation": {
       "description": "Policy violation.",
@@ -1157,7 +1200,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PolicyViolation"
     },
     "ResourceCostProperties": {
       "description": "The properties of a resource cost item.",
@@ -1192,7 +1236,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ResourceCostProperties"
     },
     "ResponseWithContinuation[ArtifactSource]": {
       "description": "The response of a list operation.",
@@ -1209,7 +1254,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ResponseWithContinuation[ArtifactSource]"
     },
     "ResponseWithContinuation[Artifact]": {
       "description": "The response of a list operation.",
@@ -1226,7 +1272,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ResponseWithContinuation[Artifact]"
     },
     "ResponseWithContinuation[CustomImage]": {
       "description": "The response of a list operation.",
@@ -1243,7 +1290,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ResponseWithContinuation[CustomImage]"
     },
     "ResponseWithContinuation[Formula]": {
       "description": "The response of a list operation.",
@@ -1260,7 +1308,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ResponseWithContinuation[Formula]"
     },
     "ResponseWithContinuation[GalleryImage]": {
       "description": "The response of a list operation.",
@@ -1277,7 +1326,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ResponseWithContinuation[GalleryImage]"
     },
     "ResponseWithContinuation[LabVhd]": {
       "description": "The response of a list operation.",
@@ -1294,7 +1344,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ResponseWithContinuation[LabVhd]"
     },
     "ResponseWithContinuation[LabVirtualMachine]": {
       "description": "The response of a list operation.",
@@ -1311,7 +1362,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ResponseWithContinuation[LabVirtualMachine]"
     },
     "ResponseWithContinuation[Lab]": {
       "description": "The response of a list operation.",
@@ -1328,7 +1380,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ResponseWithContinuation[Lab]"
     },
     "ResponseWithContinuation[Policy]": {
       "description": "The response of a list operation.",
@@ -1345,7 +1398,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ResponseWithContinuation[Policy]"
     },
     "ResponseWithContinuation[Schedule]": {
       "description": "The response of a list operation.",
@@ -1362,7 +1416,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ResponseWithContinuation[Schedule]"
     },
     "ResponseWithContinuation[VirtualNetwork]": {
       "description": "The response of a list operation.",
@@ -1379,7 +1434,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ResponseWithContinuation[VirtualNetwork]"
     },
     "Schedule": {
       "description": "A schedule.",
@@ -1414,7 +1470,8 @@
         }
       },
       "type": "object",
-      "x-ms-azure-resource": true
+      "x-ms-azure-resource": true,
+      "title": "Schedule"
     },
     "ScheduleProperties": {
       "description": "Properties of a schedule.",
@@ -1460,7 +1517,8 @@
           "description": "The weekly recurrence of the schedule."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ScheduleProperties"
     },
     "Subnet": {
       "properties": {
@@ -1483,7 +1541,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Subnet"
     },
     "SubnetOverride": {
       "description": "Property overrides on a subnet of a virtual network.",
@@ -1523,7 +1582,8 @@
           }
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SubnetOverride"
     },
     "SubscriptionNotification": {
       "properties": {
@@ -1549,7 +1609,8 @@
           }
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SubscriptionNotification"
     },
     "SubscriptionNotificationProperties": {
       "properties": {
@@ -1557,7 +1618,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SubscriptionNotificationProperties"
     },
     "VirtualNetwork": {
       "description": "A virtual network.",
@@ -1592,7 +1654,8 @@
         }
       },
       "type": "object",
-      "x-ms-azure-resource": true
+      "x-ms-azure-resource": true,
+      "title": "VirtualNetwork"
     },
     "VirtualNetworkProperties": {
       "description": "Properties of a virtual network.",
@@ -1628,7 +1691,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "VirtualNetworkProperties"
     },
     "WeekDetails": {
       "description": "Properties of a weekly schedule.",
@@ -1645,7 +1709,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "WeekDetails"
     },
     "WindowsOsInfo": {
       "description": "Information about a Windows OS.",
@@ -1664,7 +1729,8 @@
           }
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "WindowsOsInfo"
     }
   },
   "actions": [

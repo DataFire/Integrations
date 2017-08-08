@@ -114,7 +114,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Task"
     },
     "TaskList": {
       "properties": {
@@ -145,7 +146,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TaskList"
     },
     "TaskLists": {
       "properties": {
@@ -170,7 +172,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TaskLists"
     },
     "Tasks": {
       "properties": {
@@ -195,7 +198,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Tasks"
     }
   },
   "actions": [

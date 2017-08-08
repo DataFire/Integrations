@@ -17,7 +17,8 @@
   "actionCount": 42,
   "definitions": {
     "Action": {
-      "type": "string"
+      "type": "string",
+      "title": "Action"
     },
     "ActivatedRule": {
       "description": "<p>The <code>ActivatedRule</code> object in an <a>UpdateWebACL</a> request specifies a <code>Rule</code> that you want to insert or delete, the priority of the <code>Rule</code> in the <code>WebACL</code>, and the action that you want AWS WAF to take when a web request matches the <code>Rule</code> (<code>ALLOW</code>, <code>BLOCK</code>, or <code>COUNT</code>).</p> <p>To specify whether to insert or delete a <code>Rule</code>, use the <code>Action</code> parameter in the <a>WebACLUpdate</a> data type.</p>",
@@ -40,13 +41,15 @@
         "RuleId",
         "Action"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ActivatedRule"
     },
     "ActivatedRules": {
       "items": {
         "$ref": "#/definitions/ActivatedRule"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ActivatedRules"
     },
     "AssociateWebACLRequest": {
       "properties": {
@@ -63,11 +66,13 @@
         "WebACLId",
         "ResourceArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AssociateWebACLRequest"
     },
     "AssociateWebACLResponse": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "AssociateWebACLResponse"
     },
     "ByteMatchSet": {
       "description": "<p>In a <a>GetByteMatchSet</a> request, <code>ByteMatchSet</code> is a complex type that contains the <code>ByteMatchSetId</code> and <code>Name</code> of a <code>ByteMatchSet</code>, and the values that you specified when you updated the <code>ByteMatchSet</code>. </p> <p>A complex type that contains <code>ByteMatchTuple</code> objects, which specify the parts of web requests that you want AWS WAF to inspect and the values that you want AWS WAF to search for. If a <code>ByteMatchSet</code> contains more than one <code>ByteMatchTuple</code> object, a request needs to match the settings in only one <code>ByteMatchTuple</code> to be considered a match.</p>",
@@ -89,13 +94,15 @@
         "ByteMatchSetId",
         "ByteMatchTuples"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ByteMatchSet"
     },
     "ByteMatchSetSummaries": {
       "items": {
         "$ref": "#/definitions/ByteMatchSetSummary"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ByteMatchSetSummaries"
     },
     "ByteMatchSetSummary": {
       "description": "Returned by <a>ListByteMatchSets</a>. Each <code>ByteMatchSetSummary</code> object includes the <code>Name</code> and <code>ByteMatchSetId</code> for one <a>ByteMatchSet</a>.",
@@ -113,7 +120,8 @@
         "ByteMatchSetId",
         "Name"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ByteMatchSetSummary"
     },
     "ByteMatchSetUpdate": {
       "description": "In an <a>UpdateByteMatchSet</a> request, <code>ByteMatchSetUpdate</code> specifies whether to insert or delete a <a>ByteMatchTuple</a> and includes the settings for the <code>ByteMatchTuple</code>.",
@@ -131,16 +139,19 @@
         "Action",
         "ByteMatchTuple"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ByteMatchSetUpdate"
     },
     "ByteMatchSetUpdates": {
       "items": {
         "$ref": "#/definitions/ByteMatchSetUpdate"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ByteMatchSetUpdates"
     },
     "ByteMatchTargetString": {
-      "type": "string"
+      "type": "string",
+      "title": "ByteMatchTargetString"
     },
     "ByteMatchTuple": {
       "description": "The bytes (typically a string that corresponds with ASCII characters) that you want AWS WAF to search for in web requests, the location in requests that you want AWS WAF to search, and other settings.",
@@ -168,24 +179,28 @@
         "TextTransformation",
         "PositionalConstraint"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ByteMatchTuple"
     },
     "ByteMatchTuples": {
       "items": {
         "$ref": "#/definitions/ByteMatchTuple"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ByteMatchTuples"
     },
     "ChangeAction": {
       "enum": [
         "INSERT",
         "DELETE"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ChangeAction"
     },
     "ChangeToken": {
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "ChangeToken"
     },
     "ChangeTokenStatus": {
       "enum": [
@@ -193,7 +208,8 @@
         "PENDING",
         "INSYNC"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ChangeTokenStatus"
     },
     "ComparisonOperator": {
       "enum": [
@@ -204,10 +220,12 @@
         "GE",
         "GT"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ComparisonOperator"
     },
     "Country": {
-      "type": "string"
+      "type": "string",
+      "title": "Country"
     },
     "CreateByteMatchSetRequest": {
       "properties": {
@@ -224,7 +242,8 @@
         "Name",
         "ChangeToken"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateByteMatchSetRequest"
     },
     "CreateByteMatchSetResponse": {
       "properties": {
@@ -237,7 +256,8 @@
           "description": "The <code>ChangeToken</code> that you used to submit the <code>CreateByteMatchSet</code> request. You can also use this value to query the status of the request. For more information, see <a>GetChangeTokenStatus</a>."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateByteMatchSetResponse"
     },
     "CreateIPSetRequest": {
       "example": {
@@ -258,7 +278,8 @@
         "Name",
         "ChangeToken"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateIPSetRequest"
     },
     "CreateIPSetResponse": {
       "example": {
@@ -284,7 +305,8 @@
           "description": "The <a>IPSet</a> returned in the <code>CreateIPSet</code> response."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateIPSetResponse"
     },
     "CreateRuleRequest": {
       "example": {
@@ -311,7 +333,8 @@
         "MetricName",
         "ChangeToken"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateRuleRequest"
     },
     "CreateRuleResponse": {
       "example": {
@@ -339,7 +362,8 @@
           "description": "The <a>Rule</a> returned in the <code>CreateRule</code> response."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateRuleResponse"
     },
     "CreateSizeConstraintSetRequest": {
       "example": {
@@ -360,7 +384,8 @@
         "Name",
         "ChangeToken"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateSizeConstraintSetRequest"
     },
     "CreateSizeConstraintSetResponse": {
       "example": {
@@ -390,7 +415,8 @@
           "description": "A <a>SizeConstraintSet</a> that contains no <code>SizeConstraint</code> objects."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateSizeConstraintSetResponse"
     },
     "CreateSqlInjectionMatchSetRequest": {
       "description": "A request to create a <a>SqlInjectionMatchSet</a>.",
@@ -412,7 +438,8 @@
         "Name",
         "ChangeToken"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateSqlInjectionMatchSetRequest"
     },
     "CreateSqlInjectionMatchSetResponse": {
       "description": "The response to a <code>CreateSqlInjectionMatchSet</code> request.",
@@ -441,7 +468,8 @@
           "description": "A <a>SqlInjectionMatchSet</a>."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateSqlInjectionMatchSetResponse"
     },
     "CreateWebACLRequest": {
       "example": {
@@ -476,7 +504,8 @@
         "DefaultAction",
         "ChangeToken"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateWebACLRequest"
     },
     "CreateWebACLResponse": {
       "example": {
@@ -509,7 +538,8 @@
           "description": "The <a>WebACL</a> returned in the <code>CreateWebACL</code> response."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateWebACLResponse"
     },
     "CreateXssMatchSetRequest": {
       "description": "A request to create an <a>XssMatchSet</a>.",
@@ -531,7 +561,8 @@
         "Name",
         "ChangeToken"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateXssMatchSetRequest"
     },
     "CreateXssMatchSetResponse": {
       "description": "The response to a <code>CreateXssMatchSet</code> request.",
@@ -560,7 +591,8 @@
           "description": "An <a>XssMatchSet</a>."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateXssMatchSetResponse"
     },
     "DeleteByteMatchSetRequest": {
       "example": {
@@ -581,7 +613,8 @@
         "ByteMatchSetId",
         "ChangeToken"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteByteMatchSetRequest"
     },
     "DeleteByteMatchSetResponse": {
       "example": {
@@ -593,7 +626,8 @@
           "description": "The <code>ChangeToken</code> that you used to submit the <code>DeleteByteMatchSet</code> request. You can also use this value to query the status of the request. For more information, see <a>GetChangeTokenStatus</a>."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DeleteByteMatchSetResponse"
     },
     "DeleteIPSetRequest": {
       "example": {
@@ -614,7 +648,8 @@
         "IPSetId",
         "ChangeToken"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteIPSetRequest"
     },
     "DeleteIPSetResponse": {
       "example": {
@@ -626,7 +661,8 @@
           "description": "The <code>ChangeToken</code> that you used to submit the <code>DeleteIPSet</code> request. You can also use this value to query the status of the request. For more information, see <a>GetChangeTokenStatus</a>."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DeleteIPSetResponse"
     },
     "DeleteRuleRequest": {
       "example": {
@@ -647,7 +683,8 @@
         "RuleId",
         "ChangeToken"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteRuleRequest"
     },
     "DeleteRuleResponse": {
       "example": {
@@ -659,7 +696,8 @@
           "description": "The <code>ChangeToken</code> that you used to submit the <code>DeleteRule</code> request. You can also use this value to query the status of the request. For more information, see <a>GetChangeTokenStatus</a>."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DeleteRuleResponse"
     },
     "DeleteSizeConstraintSetRequest": {
       "example": {
@@ -680,7 +718,8 @@
         "SizeConstraintSetId",
         "ChangeToken"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteSizeConstraintSetRequest"
     },
     "DeleteSizeConstraintSetResponse": {
       "example": {
@@ -692,7 +731,8 @@
           "description": "The <code>ChangeToken</code> that you used to submit the <code>DeleteSizeConstraintSet</code> request. You can also use this value to query the status of the request. For more information, see <a>GetChangeTokenStatus</a>."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DeleteSizeConstraintSetResponse"
     },
     "DeleteSqlInjectionMatchSetRequest": {
       "description": "A request to delete a <a>SqlInjectionMatchSet</a> from AWS WAF.",
@@ -714,7 +754,8 @@
         "SqlInjectionMatchSetId",
         "ChangeToken"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteSqlInjectionMatchSetRequest"
     },
     "DeleteSqlInjectionMatchSetResponse": {
       "description": "The response to a request to delete a <a>SqlInjectionMatchSet</a> from AWS WAF.",
@@ -727,7 +768,8 @@
           "description": "The <code>ChangeToken</code> that you used to submit the <code>DeleteSqlInjectionMatchSet</code> request. You can also use this value to query the status of the request. For more information, see <a>GetChangeTokenStatus</a>."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DeleteSqlInjectionMatchSetResponse"
     },
     "DeleteWebACLRequest": {
       "example": {
@@ -748,7 +790,8 @@
         "WebACLId",
         "ChangeToken"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteWebACLRequest"
     },
     "DeleteWebACLResponse": {
       "example": {
@@ -760,7 +803,8 @@
           "description": "The <code>ChangeToken</code> that you used to submit the <code>DeleteWebACL</code> request. You can also use this value to query the status of the request. For more information, see <a>GetChangeTokenStatus</a>."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DeleteWebACLResponse"
     },
     "DeleteXssMatchSetRequest": {
       "description": "A request to delete an <a>XssMatchSet</a> from AWS WAF.",
@@ -782,7 +826,8 @@
         "XssMatchSetId",
         "ChangeToken"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteXssMatchSetRequest"
     },
     "DeleteXssMatchSetResponse": {
       "description": "The response to a request to delete an <a>XssMatchSet</a> from AWS WAF.",
@@ -795,7 +840,8 @@
           "description": "The <code>ChangeToken</code> that you used to submit the <code>DeleteXssMatchSet</code> request. You can also use this value to query the status of the request. For more information, see <a>GetChangeTokenStatus</a>."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DeleteXssMatchSetResponse"
     },
     "DisassociateWebACLRequest": {
       "properties": {
@@ -807,11 +853,13 @@
       "required": [
         "ResourceArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DisassociateWebACLRequest"
     },
     "DisassociateWebACLResponse": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DisassociateWebACLResponse"
     },
     "FieldToMatch": {
       "description": "Specifies where in a web request to look for <code>TargetString</code>.",
@@ -828,7 +876,8 @@
       "required": [
         "Type"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "FieldToMatch"
     },
     "GetByteMatchSetRequest": {
       "example": {
@@ -843,7 +892,8 @@
       "required": [
         "ByteMatchSetId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetByteMatchSetRequest"
     },
     "GetByteMatchSetResponse": {
       "example": {
@@ -869,12 +919,14 @@
           "description": "<p>Information about the <a>ByteMatchSet</a> that you specified in the <code>GetByteMatchSet</code> request. For more information, see the following topics:</p> <ul> <li> <p> <a>ByteMatchSet</a>: Contains <code>ByteMatchSetId</code>, <code>ByteMatchTuples</code>, and <code>Name</code> </p> </li> <li> <p> <code>ByteMatchTuples</code>: Contains an array of <a>ByteMatchTuple</a> objects. Each <code>ByteMatchTuple</code> object contains <a>FieldToMatch</a>, <code>PositionalConstraint</code>, <code>TargetString</code>, and <code>TextTransformation</code> </p> </li> <li> <p> <a>FieldToMatch</a>: Contains <code>Data</code> and <code>Type</code> </p> </li> </ul>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetByteMatchSetResponse"
     },
     "GetChangeTokenRequest": {
       "example": {},
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "GetChangeTokenRequest"
     },
     "GetChangeTokenResponse": {
       "example": {
@@ -886,7 +938,8 @@
           "description": "The <code>ChangeToken</code> that you used in the request. Use this value in a <code>GetChangeTokenStatus</code> request to get the current status of the request. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetChangeTokenResponse"
     },
     "GetChangeTokenStatusRequest": {
       "example": {
@@ -901,7 +954,8 @@
       "required": [
         "ChangeToken"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetChangeTokenStatusRequest"
     },
     "GetChangeTokenStatusResponse": {
       "example": {
@@ -913,7 +967,8 @@
           "description": "The status of the change token."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetChangeTokenStatusResponse"
     },
     "GetIPSetRequest": {
       "example": {
@@ -928,7 +983,8 @@
       "required": [
         "IPSetId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetIPSetRequest"
     },
     "GetIPSetResponse": {
       "example": {
@@ -949,7 +1005,8 @@
           "description": "<p>Information about the <a>IPSet</a> that you specified in the <code>GetIPSet</code> request. For more information, see the following topics:</p> <ul> <li> <p> <a>IPSet</a>: Contains <code>IPSetDescriptors</code>, <code>IPSetId</code>, and <code>Name</code> </p> </li> <li> <p> <code>IPSetDescriptors</code>: Contains an array of <a>IPSetDescriptor</a> objects. Each <code>IPSetDescriptor</code> object contains <code>Type</code> and <code>Value</code> </p> </li> </ul>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetIPSetResponse"
     },
     "GetRuleRequest": {
       "example": {
@@ -964,7 +1021,8 @@
       "required": [
         "RuleId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetRuleRequest"
     },
     "GetRuleResponse": {
       "example": {
@@ -987,12 +1045,14 @@
           "description": "<p>Information about the <a>Rule</a> that you specified in the <code>GetRule</code> request. For more information, see the following topics:</p> <ul> <li> <p> <a>Rule</a>: Contains <code>MetricName</code>, <code>Name</code>, an array of <code>Predicate</code> objects, and <code>RuleId</code> </p> </li> <li> <p> <a>Predicate</a>: Each <code>Predicate</code> object contains <code>DataId</code>, <code>Negated</code>, and <code>Type</code> </p> </li> </ul>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetRuleResponse"
     },
     "GetSampledRequestsMaxItems": {
       "maximum": 500,
       "minimum": 1,
-      "type": "integer"
+      "type": "integer",
+      "title": "GetSampledRequestsMaxItems"
     },
     "GetSampledRequestsRequest": {
       "example": {
@@ -1028,7 +1088,8 @@
         "TimeWindow",
         "MaxItems"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetSampledRequestsRequest"
     },
     "GetSampledRequestsResponse": {
       "example": {
@@ -1071,7 +1132,8 @@
           "description": "Usually, <code>TimeWindow</code> is the time range that you specified in the <code>GetSampledRequests</code> request. However, if your AWS resource received more than 5,000 requests during the time range that you specified in the request, <code>GetSampledRequests</code> returns the time range for the first 5,000 requests."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetSampledRequestsResponse"
     },
     "GetSizeConstraintSetRequest": {
       "example": {
@@ -1086,7 +1148,8 @@
       "required": [
         "SizeConstraintSetId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetSizeConstraintSetRequest"
     },
     "GetSizeConstraintSetResponse": {
       "example": {
@@ -1111,7 +1174,8 @@
           "description": "<p>Information about the <a>SizeConstraintSet</a> that you specified in the <code>GetSizeConstraintSet</code> request. For more information, see the following topics:</p> <ul> <li> <p> <a>SizeConstraintSet</a>: Contains <code>SizeConstraintSetId</code>, <code>SizeConstraints</code>, and <code>Name</code> </p> </li> <li> <p> <code>SizeConstraints</code>: Contains an array of <a>SizeConstraint</a> objects. Each <code>SizeConstraint</code> object contains <a>FieldToMatch</a>, <code>TextTransformation</code>, <code>ComparisonOperator</code>, and <code>Size</code> </p> </li> <li> <p> <a>FieldToMatch</a>: Contains <code>Data</code> and <code>Type</code> </p> </li> </ul>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetSizeConstraintSetResponse"
     },
     "GetSqlInjectionMatchSetRequest": {
       "description": "A request to get a <a>SqlInjectionMatchSet</a>.",
@@ -1127,7 +1191,8 @@
       "required": [
         "SqlInjectionMatchSetId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetSqlInjectionMatchSetRequest"
     },
     "GetSqlInjectionMatchSetResponse": {
       "description": "The response to a <a>GetSqlInjectionMatchSet</a> request.",
@@ -1151,7 +1216,8 @@
           "description": "<p>Information about the <a>SqlInjectionMatchSet</a> that you specified in the <code>GetSqlInjectionMatchSet</code> request. For more information, see the following topics:</p> <ul> <li> <p> <a>SqlInjectionMatchSet</a>: Contains <code>Name</code>, <code>SqlInjectionMatchSetId</code>, and an array of <code>SqlInjectionMatchTuple</code> objects</p> </li> <li> <p> <a>SqlInjectionMatchTuple</a>: Each <code>SqlInjectionMatchTuple</code> object contains <code>FieldToMatch</code> and <code>TextTransformation</code> </p> </li> <li> <p> <a>FieldToMatch</a>: Contains <code>Data</code> and <code>Type</code> </p> </li> </ul>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetSqlInjectionMatchSetResponse"
     },
     "GetWebACLForResourceRequest": {
       "properties": {
@@ -1163,7 +1229,8 @@
       "required": [
         "ResourceArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetWebACLForResourceRequest"
     },
     "GetWebACLForResourceResponse": {
       "properties": {
@@ -1172,7 +1239,8 @@
           "description": "Information about the web ACL that you specified in the <code>GetWebACLForResource</code> request. If there is no associated resource, a null WebACLSummary is returned."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetWebACLForResourceResponse"
     },
     "GetWebACLRequest": {
       "example": {
@@ -1187,7 +1255,8 @@
       "required": [
         "WebACLId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetWebACLRequest"
     },
     "GetWebACLResponse": {
       "example": {
@@ -1215,7 +1284,8 @@
           "description": "<p>Information about the <a>WebACL</a> that you specified in the <code>GetWebACL</code> request. For more information, see the following topics:</p> <ul> <li> <p> <a>WebACL</a>: Contains <code>DefaultAction</code>, <code>MetricName</code>, <code>Name</code>, an array of <code>Rule</code> objects, and <code>WebACLId</code> </p> </li> <li> <p> <code>DefaultAction</code> (Data type is <a>WafAction</a>): Contains <code>Type</code> </p> </li> <li> <p> <code>Rules</code>: Contains an array of <code>ActivatedRule</code> objects, which contain <code>Action</code>, <code>Priority</code>, and <code>RuleId</code> </p> </li> <li> <p> <code>Action</code>: Contains <code>Type</code> </p> </li> </ul>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetWebACLResponse"
     },
     "GetXssMatchSetRequest": {
       "description": "A request to get an <a>XssMatchSet</a>.",
@@ -1231,7 +1301,8 @@
       "required": [
         "XssMatchSetId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetXssMatchSetRequest"
     },
     "GetXssMatchSetResponse": {
       "description": "The response to a <a>GetXssMatchSet</a> request.",
@@ -1255,7 +1326,8 @@
           "description": "<p>Information about the <a>XssMatchSet</a> that you specified in the <code>GetXssMatchSet</code> request. For more information, see the following topics:</p> <ul> <li> <p> <a>XssMatchSet</a>: Contains <code>Name</code>, <code>XssMatchSetId</code>, and an array of <code>XssMatchTuple</code> objects</p> </li> <li> <p> <a>XssMatchTuple</a>: Each <code>XssMatchTuple</code> object contains <code>FieldToMatch</code> and <code>TextTransformation</code> </p> </li> <li> <p> <a>FieldToMatch</a>: Contains <code>Data</code> and <code>Type</code> </p> </li> </ul>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetXssMatchSetResponse"
     },
     "HTTPHeader": {
       "description": "The response from a <a>GetSampledRequests</a> request includes an <code>HTTPHeader</code> complex type that appears as <code>Headers</code> in the response syntax. <code>HTTPHeader</code> contains the names and values of all of the headers that appear in one of the web requests that were returned by <code>GetSampledRequests</code>. ",
@@ -1269,16 +1341,19 @@
           "description": "The value of one of the headers in the sampled web request."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "HTTPHeader"
     },
     "HTTPHeaders": {
       "items": {
         "$ref": "#/definitions/HTTPHeader"
       },
-      "type": "array"
+      "type": "array",
+      "title": "HTTPHeaders"
     },
     "HTTPMethod": {
-      "type": "string"
+      "type": "string",
+      "title": "HTTPMethod"
     },
     "HTTPRequest": {
       "description": "The response from a <a>GetSampledRequests</a> request includes an <code>HTTPRequest</code> complex type that appears as <code>Request</code> in the response syntax. <code>HTTPRequest</code> contains information about one of the web requests that were returned by <code>GetSampledRequests</code>. ",
@@ -1308,16 +1383,20 @@
           "description": "The part of a web request that identifies the resource, for example, <code>/images/daily-ad.jpg</code>."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "HTTPRequest"
     },
     "HTTPVersion": {
-      "type": "string"
+      "type": "string",
+      "title": "HTTPVersion"
     },
     "HeaderName": {
-      "type": "string"
+      "type": "string",
+      "title": "HeaderName"
     },
     "HeaderValue": {
-      "type": "string"
+      "type": "string",
+      "title": "HeaderValue"
     },
     "IPSet": {
       "description": "<p>Contains one or more IP addresses or blocks of IP addresses specified in Classless Inter-Domain Routing (CIDR) notation. AWS WAF supports /8, /16, /24, and /32 IP address ranges for IPv4, and /24, /32, /48, /56, /64 and /128 for IPv6.</p> <p>To specify an individual IP address, you specify the four-part IP address followed by a <code>/32</code>, for example, 192.0.2.0/31. To block a range of IP addresses, you can specify a <code>/128</code>, <code>/64</code>, <code>/56</code>, <code>/48</code>, <code>/32</code>, <code>/24</code>, <code>/16</code>, or <code>/8</code> CIDR. For more information about CIDR notation, see the Wikipedia entry <a href=\"https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing\">Classless Inter-Domain Routing</a>. </p>",
@@ -1339,7 +1418,8 @@
         "IPSetId",
         "IPSetDescriptors"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "IPSet"
     },
     "IPSetDescriptor": {
       "description": "Specifies the IP address type (<code>IPV4</code> or <code>IPV6</code>) and the IP address range (in CIDR format) that web requests originate from.",
@@ -1357,29 +1437,34 @@
         "Type",
         "Value"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "IPSetDescriptor"
     },
     "IPSetDescriptorType": {
       "enum": [
         "IPV4",
         "IPV6"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "IPSetDescriptorType"
     },
     "IPSetDescriptorValue": {
-      "type": "string"
+      "type": "string",
+      "title": "IPSetDescriptorValue"
     },
     "IPSetDescriptors": {
       "items": {
         "$ref": "#/definitions/IPSetDescriptor"
       },
-      "type": "array"
+      "type": "array",
+      "title": "IPSetDescriptors"
     },
     "IPSetSummaries": {
       "items": {
         "$ref": "#/definitions/IPSetSummary"
       },
-      "type": "array"
+      "type": "array",
+      "title": "IPSetSummaries"
     },
     "IPSetSummary": {
       "description": "Contains the identifier and the name of the <code>IPSet</code>.",
@@ -1397,7 +1482,8 @@
         "IPSetId",
         "Name"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "IPSetSummary"
     },
     "IPSetUpdate": {
       "description": "Specifies the type of update to perform to an <a>IPSet</a> with <a>UpdateIPSet</a>.",
@@ -1415,16 +1501,19 @@
         "Action",
         "IPSetDescriptor"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "IPSetUpdate"
     },
     "IPSetUpdates": {
       "items": {
         "$ref": "#/definitions/IPSetUpdate"
       },
-      "type": "array"
+      "type": "array",
+      "title": "IPSetUpdates"
     },
     "IPString": {
-      "type": "string"
+      "type": "string",
+      "title": "IPString"
     },
     "ListByteMatchSetsRequest": {
       "properties": {
@@ -1437,7 +1526,8 @@
           "description": "If you specify a value for <code>Limit</code> and you have more <code>ByteMatchSets</code> than the value of <code>Limit</code>, AWS WAF returns a <code>NextMarker</code> value in the response that allows you to list another group of <code>ByteMatchSets</code>. For the second and subsequent <code>ListByteMatchSets</code> requests, specify the value of <code>NextMarker</code> from the previous response to get information about another batch of <code>ByteMatchSets</code>."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListByteMatchSetsRequest"
     },
     "ListByteMatchSetsResponse": {
       "properties": {
@@ -1450,7 +1540,8 @@
           "description": "If you have more <code>ByteMatchSet</code> objects than the number that you specified for <code>Limit</code> in the request, the response includes a <code>NextMarker</code> value. To list more <code>ByteMatchSet</code> objects, submit another <code>ListByteMatchSets</code> request, and specify the <code>NextMarker</code> value from the response in the <code>NextMarker</code> value in the next request."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListByteMatchSetsResponse"
     },
     "ListIPSetsRequest": {
       "example": {
@@ -1466,7 +1557,8 @@
           "description": "If you specify a value for <code>Limit</code> and you have more <code>IPSets</code> than the value of <code>Limit</code>, AWS WAF returns a <code>NextMarker</code> value in the response that allows you to list another group of <code>IPSets</code>. For the second and subsequent <code>ListIPSets</code> requests, specify the value of <code>NextMarker</code> from the previous response to get information about another batch of <code>ByteMatchSets</code>."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListIPSetsRequest"
     },
     "ListIPSetsResponse": {
       "example": {
@@ -1487,7 +1579,8 @@
           "description": "If you have more <code>IPSet</code> objects than the number that you specified for <code>Limit</code> in the request, the response includes a <code>NextMarker</code> value. To list more <code>IPSet</code> objects, submit another <code>ListIPSets</code> request, and specify the <code>NextMarker</code> value from the response in the <code>NextMarker</code> value in the next request."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListIPSetsResponse"
     },
     "ListResourcesForWebACLRequest": {
       "properties": {
@@ -1499,7 +1592,8 @@
       "required": [
         "WebACLId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListResourcesForWebACLRequest"
     },
     "ListResourcesForWebACLResponse": {
       "properties": {
@@ -1508,7 +1602,8 @@
           "description": "An array of ARNs (Amazon Resource Names) of the resources associated with the specified web ACL. An array with zero elements is returned if there are no resources associated with the web ACL."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListResourcesForWebACLResponse"
     },
     "ListRulesRequest": {
       "example": {
@@ -1524,7 +1619,8 @@
           "description": "If you specify a value for <code>Limit</code> and you have more <code>Rules</code> than the value of <code>Limit</code>, AWS WAF returns a <code>NextMarker</code> value in the response that allows you to list another group of <code>Rules</code>. For the second and subsequent <code>ListRules</code> requests, specify the value of <code>NextMarker</code> from the previous response to get information about another batch of <code>Rules</code>."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListRulesRequest"
     },
     "ListRulesResponse": {
       "example": {
@@ -1545,7 +1641,8 @@
           "description": "An array of <a>RuleSummary</a> objects."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListRulesResponse"
     },
     "ListSizeConstraintSetsRequest": {
       "example": {
@@ -1561,7 +1658,8 @@
           "description": "If you specify a value for <code>Limit</code> and you have more <code>SizeConstraintSets</code> than the value of <code>Limit</code>, AWS WAF returns a <code>NextMarker</code> value in the response that allows you to list another group of <code>SizeConstraintSets</code>. For the second and subsequent <code>ListSizeConstraintSets</code> requests, specify the value of <code>NextMarker</code> from the previous response to get information about another batch of <code>SizeConstraintSets</code>."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListSizeConstraintSetsRequest"
     },
     "ListSizeConstraintSetsResponse": {
       "example": {
@@ -1582,7 +1680,8 @@
           "description": "An array of <a>SizeConstraintSetSummary</a> objects."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListSizeConstraintSetsResponse"
     },
     "ListSqlInjectionMatchSetsRequest": {
       "description": "A request to list the <a>SqlInjectionMatchSet</a> objects created by the current AWS account.",
@@ -1599,7 +1698,8 @@
           "description": "If you specify a value for <code>Limit</code> and you have more <a>SqlInjectionMatchSet</a> objects than the value of <code>Limit</code>, AWS WAF returns a <code>NextMarker</code> value in the response that allows you to list another group of <code>SqlInjectionMatchSets</code>. For the second and subsequent <code>ListSqlInjectionMatchSets</code> requests, specify the value of <code>NextMarker</code> from the previous response to get information about another batch of <code>SqlInjectionMatchSets</code>."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListSqlInjectionMatchSetsRequest"
     },
     "ListSqlInjectionMatchSetsResponse": {
       "description": "The response to a <a>ListSqlInjectionMatchSets</a> request.",
@@ -1621,7 +1721,8 @@
           "description": "An array of <a>SqlInjectionMatchSetSummary</a> objects."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListSqlInjectionMatchSetsResponse"
     },
     "ListWebACLsRequest": {
       "example": {
@@ -1637,7 +1738,8 @@
           "description": "If you specify a value for <code>Limit</code> and you have more <code>WebACL</code> objects than the number that you specify for <code>Limit</code>, AWS WAF returns a <code>NextMarker</code> value in the response that allows you to list another group of <code>WebACL</code> objects. For the second and subsequent <code>ListWebACLs</code> requests, specify the value of <code>NextMarker</code> from the previous response to get information about another batch of <code>WebACL</code> objects."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListWebACLsRequest"
     },
     "ListWebACLsResponse": {
       "example": {
@@ -1658,7 +1760,8 @@
           "description": "An array of <a>WebACLSummary</a> objects."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListWebACLsResponse"
     },
     "ListXssMatchSetsRequest": {
       "description": "A request to list the <a>XssMatchSet</a> objects created by the current AWS account.",
@@ -1675,7 +1778,8 @@
           "description": "If you specify a value for <code>Limit</code> and you have more <a>XssMatchSet</a> objects than the value of <code>Limit</code>, AWS WAF returns a <code>NextMarker</code> value in the response that allows you to list another group of <code>XssMatchSets</code>. For the second and subsequent <code>ListXssMatchSets</code> requests, specify the value of <code>NextMarker</code> from the previous response to get information about another batch of <code>XssMatchSets</code>."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListXssMatchSetsRequest"
     },
     "ListXssMatchSetsResponse": {
       "description": "The response to a <a>ListXssMatchSets</a> request.",
@@ -1697,10 +1801,12 @@
           "description": "An array of <a>XssMatchSetSummary</a> objects."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListXssMatchSetsResponse"
     },
     "MatchFieldData": {
-      "type": "string"
+      "type": "string",
+      "title": "MatchFieldData"
     },
     "MatchFieldType": {
       "enum": [
@@ -1710,22 +1816,27 @@
         "METHOD",
         "BODY"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "MatchFieldType"
     },
     "MetricName": {
-      "type": "string"
+      "type": "string",
+      "title": "MetricName"
     },
     "Negated": {
-      "type": "boolean"
+      "type": "boolean",
+      "title": "Negated"
     },
     "NextMarker": {
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "NextMarker"
     },
     "PaginationLimit": {
       "maximum": 100,
       "minimum": 0,
-      "type": "integer"
+      "type": "integer",
+      "title": "PaginationLimit"
     },
     "ParameterExceptionField": {
       "enum": [
@@ -1739,21 +1850,25 @@
         "BYTE_MATCH_POSITIONAL_CONSTRAINT",
         "SIZE_CONSTRAINT_COMPARISON_OPERATOR"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ParameterExceptionField"
     },
     "ParameterExceptionParameter": {
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "ParameterExceptionParameter"
     },
     "ParameterExceptionReason": {
       "enum": [
         "INVALID_OPTION",
         "ILLEGAL_COMBINATION"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ParameterExceptionReason"
     },
     "PopulationSize": {
-      "type": "integer"
+      "type": "integer",
+      "title": "PopulationSize"
     },
     "PositionalConstraint": {
       "enum": [
@@ -1763,7 +1878,8 @@
         "CONTAINS",
         "CONTAINS_WORD"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "PositionalConstraint"
     },
     "Predicate": {
       "description": "Specifies the <a>ByteMatchSet</a>, <a>IPSet</a>, <a>SqlInjectionMatchSet</a>, <a>XssMatchSet</a>, and <a>SizeConstraintSet</a> objects that you want to add to a <code>Rule</code> and, for each object, indicates whether you want to negate the settings, for example, requests that do NOT originate from the IP address 192.0.2.44. ",
@@ -1786,7 +1902,8 @@
         "Type",
         "DataId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "Predicate"
     },
     "PredicateType": {
       "enum": [
@@ -1796,34 +1913,40 @@
         "SizeConstraint",
         "XssMatch"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "PredicateType"
     },
     "Predicates": {
       "items": {
         "$ref": "#/definitions/Predicate"
       },
-      "type": "array"
+      "type": "array",
+      "title": "Predicates"
     },
     "ResourceArn": {
       "maxLength": 1224,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "ResourceArn"
     },
     "ResourceArns": {
       "items": {
         "$ref": "#/definitions/ResourceArn"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ResourceArns"
     },
     "ResourceId": {
       "maxLength": 128,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "ResourceId"
     },
     "ResourceName": {
       "maxLength": 128,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "ResourceName"
     },
     "Rule": {
       "description": "<p>A combination of <a>ByteMatchSet</a>, <a>IPSet</a>, and/or <a>SqlInjectionMatchSet</a> objects that identify the web requests that you want to allow, block, or count. For example, you might create a <code>Rule</code> that includes the following predicates:</p> <ul> <li> <p>An <code>IPSet</code> that causes AWS WAF to search for web requests that originate from the IP address <code>192.0.2.44</code> </p> </li> <li> <p>A <code>ByteMatchSet</code> that causes AWS WAF to search for web requests for which the value of the <code>User-Agent</code> header is <code>BadBot</code>.</p> </li> </ul> <p>To match the settings in this <code>Rule</code>, a request must originate from <code>192.0.2.44</code> AND include a <code>User-Agent</code> header for which the value is <code>BadBot</code>.</p>",
@@ -1849,16 +1972,19 @@
         "RuleId",
         "Predicates"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "Rule"
     },
     "RulePriority": {
-      "type": "integer"
+      "type": "integer",
+      "title": "RulePriority"
     },
     "RuleSummaries": {
       "items": {
         "$ref": "#/definitions/RuleSummary"
       },
-      "type": "array"
+      "type": "array",
+      "title": "RuleSummaries"
     },
     "RuleSummary": {
       "description": "Contains the identifier and the friendly name or description of the <code>Rule</code>.",
@@ -1876,7 +2002,8 @@
         "RuleId",
         "Name"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "RuleSummary"
     },
     "RuleUpdate": {
       "description": "Specifies a <code>Predicate</code> (such as an <code>IPSet</code>) and indicates whether you want to add it to a <code>Rule</code> or delete it from a <code>Rule</code>.",
@@ -1894,17 +2021,20 @@
         "Action",
         "Predicate"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "RuleUpdate"
     },
     "RuleUpdates": {
       "items": {
         "$ref": "#/definitions/RuleUpdate"
       },
-      "type": "array"
+      "type": "array",
+      "title": "RuleUpdates"
     },
     "SampleWeight": {
       "minimum": 0,
-      "type": "integer"
+      "type": "integer",
+      "title": "SampleWeight"
     },
     "SampledHTTPRequest": {
       "description": "The response from a <a>GetSampledRequests</a> request includes a <code>SampledHTTPRequests</code> complex type that appears as <code>SampledRequests</code> in the response syntax. <code>SampledHTTPRequests</code> contains one <code>SampledHTTPRequest</code> object for each web request that is returned by <code>GetSampledRequests</code>.",
@@ -1930,18 +2060,21 @@
         "Request",
         "Weight"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "SampledHTTPRequest"
     },
     "SampledHTTPRequests": {
       "items": {
         "$ref": "#/definitions/SampledHTTPRequest"
       },
-      "type": "array"
+      "type": "array",
+      "title": "SampledHTTPRequests"
     },
     "Size": {
       "maximum": 21474836480,
       "minimum": 0,
-      "type": "integer"
+      "type": "integer",
+      "title": "Size"
     },
     "SizeConstraint": {
       "description": "Specifies a constraint on the size of a part of the web request. AWS WAF uses the <code>Size</code>, <code>ComparisonOperator</code>, and <code>FieldToMatch</code> to build an expression in the form of \"<code>Size</code> <code>ComparisonOperator</code> size in bytes of <code>FieldToMatch</code>\". If that expression is true, the <code>SizeConstraint</code> is considered to match.",
@@ -1969,7 +2102,8 @@
         "ComparisonOperator",
         "Size"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "SizeConstraint"
     },
     "SizeConstraintSet": {
       "description": "A complex type that contains <code>SizeConstraint</code> objects, which specify the parts of web requests that you want AWS WAF to inspect the size of. If a <code>SizeConstraintSet</code> contains more than one <code>SizeConstraint</code> object, a request only needs to match one constraint to be considered a match.",
@@ -1991,13 +2125,15 @@
         "SizeConstraintSetId",
         "SizeConstraints"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "SizeConstraintSet"
     },
     "SizeConstraintSetSummaries": {
       "items": {
         "$ref": "#/definitions/SizeConstraintSetSummary"
       },
-      "type": "array"
+      "type": "array",
+      "title": "SizeConstraintSetSummaries"
     },
     "SizeConstraintSetSummary": {
       "description": "The <code>Id</code> and <code>Name</code> of a <code>SizeConstraintSet</code>.",
@@ -2015,7 +2151,8 @@
         "SizeConstraintSetId",
         "Name"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "SizeConstraintSetSummary"
     },
     "SizeConstraintSetUpdate": {
       "description": "Specifies the part of a web request that you want to inspect the size of and indicates whether you want to add the specification to a <a>SizeConstraintSet</a> or delete it from a <code>SizeConstraintSet</code>.",
@@ -2033,19 +2170,22 @@
         "Action",
         "SizeConstraint"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "SizeConstraintSetUpdate"
     },
     "SizeConstraintSetUpdates": {
       "items": {
         "$ref": "#/definitions/SizeConstraintSetUpdate"
       },
-      "type": "array"
+      "type": "array",
+      "title": "SizeConstraintSetUpdates"
     },
     "SizeConstraints": {
       "items": {
         "$ref": "#/definitions/SizeConstraint"
       },
-      "type": "array"
+      "type": "array",
+      "title": "SizeConstraints"
     },
     "SqlInjectionMatchSet": {
       "description": "A complex type that contains <code>SqlInjectionMatchTuple</code> objects, which specify the parts of web requests that you want AWS WAF to inspect for snippets of malicious SQL code and, if you want AWS WAF to inspect a header, the name of the header. If a <code>SqlInjectionMatchSet</code> contains more than one <code>SqlInjectionMatchTuple</code> object, a request needs to include snippets of SQL code in only one of the specified parts of the request to be considered a match.",
@@ -2067,13 +2207,15 @@
         "SqlInjectionMatchSetId",
         "SqlInjectionMatchTuples"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "SqlInjectionMatchSet"
     },
     "SqlInjectionMatchSetSummaries": {
       "items": {
         "$ref": "#/definitions/SqlInjectionMatchSetSummary"
       },
-      "type": "array"
+      "type": "array",
+      "title": "SqlInjectionMatchSetSummaries"
     },
     "SqlInjectionMatchSetSummary": {
       "description": "The <code>Id</code> and <code>Name</code> of a <code>SqlInjectionMatchSet</code>.",
@@ -2091,7 +2233,8 @@
         "SqlInjectionMatchSetId",
         "Name"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "SqlInjectionMatchSetSummary"
     },
     "SqlInjectionMatchSetUpdate": {
       "description": "Specifies the part of a web request that you want to inspect for snippets of malicious SQL code and indicates whether you want to add the specification to a <a>SqlInjectionMatchSet</a> or delete it from a <code>SqlInjectionMatchSet</code>.",
@@ -2109,13 +2252,15 @@
         "Action",
         "SqlInjectionMatchTuple"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "SqlInjectionMatchSetUpdate"
     },
     "SqlInjectionMatchSetUpdates": {
       "items": {
         "$ref": "#/definitions/SqlInjectionMatchSetUpdate"
       },
-      "type": "array"
+      "type": "array",
+      "title": "SqlInjectionMatchSetUpdates"
     },
     "SqlInjectionMatchTuple": {
       "description": "Specifies the part of a web request that you want AWS WAF to inspect for snippets of malicious SQL code and, if you want AWS WAF to inspect a header, the name of the header.",
@@ -2133,13 +2278,15 @@
         "FieldToMatch",
         "TextTransformation"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "SqlInjectionMatchTuple"
     },
     "SqlInjectionMatchTuples": {
       "items": {
         "$ref": "#/definitions/SqlInjectionMatchTuple"
       },
-      "type": "array"
+      "type": "array",
+      "title": "SqlInjectionMatchTuples"
     },
     "TextTransformation": {
       "enum": [
@@ -2150,7 +2297,8 @@
         "CMD_LINE",
         "URL_DECODE"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "TextTransformation"
     },
     "TimeWindow": {
       "description": "<p>In a <a>GetSampledRequests</a> request, the <code>StartTime</code> and <code>EndTime</code> objects specify the time range for which you want AWS WAF to return a sample of web requests.</p> <p>In a <a>GetSampledRequests</a> response, the <code>StartTime</code> and <code>EndTime</code> objects specify the time range for which AWS WAF actually returned a sample of web requests. AWS WAF gets the specified number of requests from among the first 5,000 requests that your AWS resource receives during the specified time period. If your resource receives more than 5,000 requests during that period, AWS WAF stops sampling after the 5,000th request. In that case, <code>EndTime</code> is the time that AWS WAF received the 5,000th request. </p>",
@@ -2168,14 +2316,17 @@
         "StartTime",
         "EndTime"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "TimeWindow"
     },
     "Timestamp": {
       "format": "date-time",
-      "type": "string"
+      "type": "string",
+      "title": "Timestamp"
     },
     "URIString": {
-      "type": "string"
+      "type": "string",
+      "title": "URIString"
     },
     "UpdateByteMatchSetRequest": {
       "example": {
@@ -2215,7 +2366,8 @@
         "ChangeToken",
         "Updates"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateByteMatchSetRequest"
     },
     "UpdateByteMatchSetResponse": {
       "example": {
@@ -2227,7 +2379,8 @@
           "description": "The <code>ChangeToken</code> that you used to submit the <code>UpdateByteMatchSet</code> request. You can also use this value to query the status of the request. For more information, see <a>GetChangeTokenStatus</a>."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UpdateByteMatchSetResponse"
     },
     "UpdateIPSetRequest": {
       "example": {
@@ -2262,7 +2415,8 @@
         "ChangeToken",
         "Updates"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateIPSetRequest"
     },
     "UpdateIPSetResponse": {
       "example": {
@@ -2274,7 +2428,8 @@
           "description": "The <code>ChangeToken</code> that you used to submit the <code>UpdateIPSet</code> request. You can also use this value to query the status of the request. For more information, see <a>GetChangeTokenStatus</a>."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UpdateIPSetResponse"
     },
     "UpdateRuleRequest": {
       "example": {
@@ -2310,7 +2465,8 @@
         "ChangeToken",
         "Updates"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateRuleRequest"
     },
     "UpdateRuleResponse": {
       "example": {
@@ -2322,7 +2478,8 @@
           "description": "The <code>ChangeToken</code> that you used to submit the <code>UpdateRule</code> request. You can also use this value to query the status of the request. For more information, see <a>GetChangeTokenStatus</a>."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UpdateRuleResponse"
     },
     "UpdateSizeConstraintSetRequest": {
       "example": {
@@ -2361,7 +2518,8 @@
         "ChangeToken",
         "Updates"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateSizeConstraintSetRequest"
     },
     "UpdateSizeConstraintSetResponse": {
       "example": {
@@ -2373,7 +2531,8 @@
           "description": "The <code>ChangeToken</code> that you used to submit the <code>UpdateSizeConstraintSet</code> request. You can also use this value to query the status of the request. For more information, see <a>GetChangeTokenStatus</a>."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UpdateSizeConstraintSetResponse"
     },
     "UpdateSqlInjectionMatchSetRequest": {
       "description": "A request to update a <a>SqlInjectionMatchSet</a>.",
@@ -2411,7 +2570,8 @@
         "ChangeToken",
         "Updates"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateSqlInjectionMatchSetRequest"
     },
     "UpdateSqlInjectionMatchSetResponse": {
       "description": "The response to an <a>UpdateSqlInjectionMatchSets</a> request.",
@@ -2424,7 +2584,8 @@
           "description": "The <code>ChangeToken</code> that you used to submit the <code>UpdateSqlInjectionMatchSet</code> request. You can also use this value to query the status of the request. For more information, see <a>GetChangeTokenStatus</a>."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UpdateSqlInjectionMatchSetResponse"
     },
     "UpdateWebACLRequest": {
       "example": {
@@ -2468,7 +2629,8 @@
         "WebACLId",
         "ChangeToken"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateWebACLRequest"
     },
     "UpdateWebACLResponse": {
       "example": {
@@ -2480,7 +2642,8 @@
           "description": "The <code>ChangeToken</code> that you used to submit the <code>UpdateWebACL</code> request. You can also use this value to query the status of the request. For more information, see <a>GetChangeTokenStatus</a>."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UpdateWebACLResponse"
     },
     "UpdateXssMatchSetRequest": {
       "description": "A request to update an <a>XssMatchSet</a>.",
@@ -2518,7 +2681,8 @@
         "ChangeToken",
         "Updates"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateXssMatchSetRequest"
     },
     "UpdateXssMatchSetResponse": {
       "description": "The response to an <a>UpdateXssMatchSets</a> request.",
@@ -2531,7 +2695,8 @@
           "description": "The <code>ChangeToken</code> that you used to submit the <code>UpdateXssMatchSet</code> request. You can also use this value to query the status of the request. For more information, see <a>GetChangeTokenStatus</a>."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UpdateXssMatchSetResponse"
     },
     "WAFDisallowedNameException": {
       "description": "The name specified is invalid.",
@@ -2540,7 +2705,8 @@
           "$ref": "#/definitions/errorMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "WAFDisallowedNameException"
     },
     "WAFInternalErrorException": {
       "description": "The operation failed because of a system problem, even though the request was valid. Retry your request.",
@@ -2549,12 +2715,14 @@
           "$ref": "#/definitions/errorMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "WAFInternalErrorException"
     },
     "WAFInvalidAccountException": {
       "description": "The operation failed because you tried to create, update, or delete an object by using an invalid account identifier.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "WAFInvalidAccountException"
     },
     "WAFInvalidOperationException": {
       "description": "<p>The operation failed because there was nothing to do. For example:</p> <ul> <li> <p>You tried to remove a <code>Rule</code> from a <code>WebACL</code>, but the <code>Rule</code> isn't in the specified <code>WebACL</code>.</p> </li> <li> <p>You tried to remove an IP address from an <code>IPSet</code>, but the IP address isn't in the specified <code>IPSet</code>.</p> </li> <li> <p>You tried to remove a <code>ByteMatchTuple</code> from a <code>ByteMatchSet</code>, but the <code>ByteMatchTuple</code> isn't in the specified <code>WebACL</code>.</p> </li> <li> <p>You tried to add a <code>Rule</code> to a <code>WebACL</code>, but the <code>Rule</code> already exists in the specified <code>WebACL</code>.</p> </li> <li> <p>You tried to add an IP address to an <code>IPSet</code>, but the IP address already exists in the specified <code>IPSet</code>.</p> </li> <li> <p>You tried to add a <code>ByteMatchTuple</code> to a <code>ByteMatchSet</code>, but the <code>ByteMatchTuple</code> already exists in the specified <code>WebACL</code>.</p> </li> </ul>",
@@ -2563,7 +2731,8 @@
           "$ref": "#/definitions/errorMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "WAFInvalidOperationException"
     },
     "WAFInvalidParameterException": {
       "description": "<p>The operation failed because AWS WAF didn't recognize a parameter in the request. For example:</p> <ul> <li> <p>You specified an invalid parameter name.</p> </li> <li> <p>You specified an invalid value.</p> </li> <li> <p>You tried to update an object (<code>ByteMatchSet</code>, <code>IPSet</code>, <code>Rule</code>, or <code>WebACL</code>) using an action other than <code>INSERT</code> or <code>DELETE</code>.</p> </li> <li> <p>You tried to create a <code>WebACL</code> with a <code>DefaultAction</code> <code>Type</code> other than <code>ALLOW</code>, <code>BLOCK</code>, or <code>COUNT</code>.</p> </li> <li> <p>You tried to update a <code>WebACL</code> with a <code>WafAction</code> <code>Type</code> other than <code>ALLOW</code>, <code>BLOCK</code>, or <code>COUNT</code>.</p> </li> <li> <p>You tried to update a <code>ByteMatchSet</code> with a <code>FieldToMatch</code> <code>Type</code> other than HEADER, QUERY_STRING, or URI.</p> </li> <li> <p>You tried to update a <code>ByteMatchSet</code> with a <code>Field</code> of <code>HEADER</code> but no value for <code>Data</code>.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource with which a web ACL cannot be associated.</p> </li> </ul>",
@@ -2578,7 +2747,8 @@
           "$ref": "#/definitions/ParameterExceptionReason"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "WAFInvalidParameterException"
     },
     "WAFLimitsExceededException": {
       "description": "The operation exceeds a resource limit, for example, the maximum number of <code>WebACL</code> objects that you can create for an AWS account. For more information, see <a href=\"http://docs.aws.amazon.com/waf/latest/developerguide/limits.html\">Limits</a> in the <i>AWS WAF Developer Guide</i>.",
@@ -2587,7 +2757,8 @@
           "$ref": "#/definitions/errorMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "WAFLimitsExceededException"
     },
     "WAFNonEmptyEntityException": {
       "description": "<p>The operation failed because you tried to delete an object that isn't empty. For example:</p> <ul> <li> <p>You tried to delete a <code>WebACL</code> that still contains one or more <code>Rule</code> objects.</p> </li> <li> <p>You tried to delete a <code>Rule</code> that still contains one or more <code>ByteMatchSet</code> objects or other predicates.</p> </li> <li> <p>You tried to delete a <code>ByteMatchSet</code> that contains one or more <code>ByteMatchTuple</code> objects.</p> </li> <li> <p>You tried to delete an <code>IPSet</code> that references one or more IP addresses.</p> </li> </ul>",
@@ -2596,7 +2767,8 @@
           "$ref": "#/definitions/errorMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "WAFNonEmptyEntityException"
     },
     "WAFNonexistentContainerException": {
       "description": "<p>The operation failed because you tried to add an object to or delete an object from another object that doesn't exist. For example:</p> <ul> <li> <p>You tried to add a <code>Rule</code> to or delete a <code>Rule</code> from a <code>WebACL</code> that doesn't exist.</p> </li> <li> <p>You tried to add a <code>ByteMatchSet</code> to or delete a <code>ByteMatchSet</code> from a <code>Rule</code> that doesn't exist.</p> </li> <li> <p>You tried to add an IP address to or delete an IP address from an <code>IPSet</code> that doesn't exist.</p> </li> <li> <p>You tried to add a <code>ByteMatchTuple</code> to or delete a <code>ByteMatchTuple</code> from a <code>ByteMatchSet</code> that doesn't exist.</p> </li> </ul>",
@@ -2605,7 +2777,8 @@
           "$ref": "#/definitions/errorMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "WAFNonexistentContainerException"
     },
     "WAFNonexistentItemException": {
       "description": "The operation failed because the referenced object doesn't exist.",
@@ -2614,7 +2787,8 @@
           "$ref": "#/definitions/errorMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "WAFNonexistentItemException"
     },
     "WAFReferencedItemException": {
       "description": "<p>The operation failed because you tried to delete an object that is still in use. For example:</p> <ul> <li> <p>You tried to delete a <code>ByteMatchSet</code> that is still referenced by a <code>Rule</code>.</p> </li> <li> <p>You tried to delete a <code>Rule</code> that is still referenced by a <code>WebACL</code>.</p> </li> </ul>",
@@ -2623,7 +2797,8 @@
           "$ref": "#/definitions/errorMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "WAFReferencedItemException"
     },
     "WAFStaleDataException": {
       "description": "The operation failed because you tried to create, update, or delete an object by using a change token that has already been used.",
@@ -2632,7 +2807,8 @@
           "$ref": "#/definitions/errorMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "WAFStaleDataException"
     },
     "WAFUnavailableEntityException": {
       "description": "The operation failed because the entity referenced is temporarily unavailable. Retry your request.",
@@ -2641,7 +2817,8 @@
           "$ref": "#/definitions/errorMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "WAFUnavailableEntityException"
     },
     "WafAction": {
       "description": "For the action that is associated with a rule in a <code>WebACL</code>, specifies the action that you want AWS WAF to perform when a web request matches all of the conditions in a rule. For the default action in a <code>WebACL</code>, specifies the action that you want AWS WAF to take when a web request doesn't match all of the conditions in any of the rules in a <code>WebACL</code>. ",
@@ -2654,7 +2831,8 @@
       "required": [
         "Type"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "WafAction"
     },
     "WafActionType": {
       "enum": [
@@ -2662,7 +2840,8 @@
         "ALLOW",
         "COUNT"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "WafActionType"
     },
     "WebACL": {
       "description": "Contains the <code>Rules</code> that identify the requests that you want to allow, block, or count. In a <code>WebACL</code>, you also specify a default action (<code>ALLOW</code> or <code>BLOCK</code>), and the action for each <code>Rule</code> that you add to a <code>WebACL</code>, for example, block requests from specified IP addresses or block requests from specified referrers. You also associate the <code>WebACL</code> with a CloudFront distribution to identify the requests that you want AWS WAF to filter. If you add more than one <code>Rule</code> to a <code>WebACL</code>, a request needs to match only one of the specifications to be allowed, blocked, or counted. For more information, see <a>UpdateWebACL</a>.",
@@ -2693,13 +2872,15 @@
         "DefaultAction",
         "Rules"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "WebACL"
     },
     "WebACLSummaries": {
       "items": {
         "$ref": "#/definitions/WebACLSummary"
       },
-      "type": "array"
+      "type": "array",
+      "title": "WebACLSummaries"
     },
     "WebACLSummary": {
       "description": "Contains the identifier and the name or description of the <a>WebACL</a>.",
@@ -2717,7 +2898,8 @@
         "WebACLId",
         "Name"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "WebACLSummary"
     },
     "WebACLUpdate": {
       "description": "Specifies whether to insert a <code>Rule</code> into or delete a <code>Rule</code> from a <code>WebACL</code>.",
@@ -2735,13 +2917,15 @@
         "Action",
         "ActivatedRule"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "WebACLUpdate"
     },
     "WebACLUpdates": {
       "items": {
         "$ref": "#/definitions/WebACLUpdate"
       },
-      "type": "array"
+      "type": "array",
+      "title": "WebACLUpdates"
     },
     "XssMatchSet": {
       "description": "A complex type that contains <code>XssMatchTuple</code> objects, which specify the parts of web requests that you want AWS WAF to inspect for cross-site scripting attacks and, if you want AWS WAF to inspect a header, the name of the header. If a <code>XssMatchSet</code> contains more than one <code>XssMatchTuple</code> object, a request needs to include cross-site scripting attacks in only one of the specified parts of the request to be considered a match.",
@@ -2763,13 +2947,15 @@
         "XssMatchSetId",
         "XssMatchTuples"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "XssMatchSet"
     },
     "XssMatchSetSummaries": {
       "items": {
         "$ref": "#/definitions/XssMatchSetSummary"
       },
-      "type": "array"
+      "type": "array",
+      "title": "XssMatchSetSummaries"
     },
     "XssMatchSetSummary": {
       "description": "The <code>Id</code> and <code>Name</code> of an <code>XssMatchSet</code>.",
@@ -2787,7 +2973,8 @@
         "XssMatchSetId",
         "Name"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "XssMatchSetSummary"
     },
     "XssMatchSetUpdate": {
       "description": "Specifies the part of a web request that you want to inspect for cross-site scripting attacks and indicates whether you want to add the specification to an <a>XssMatchSet</a> or delete it from an <code>XssMatchSet</code>.",
@@ -2805,13 +2992,15 @@
         "Action",
         "XssMatchTuple"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "XssMatchSetUpdate"
     },
     "XssMatchSetUpdates": {
       "items": {
         "$ref": "#/definitions/XssMatchSetUpdate"
       },
-      "type": "array"
+      "type": "array",
+      "title": "XssMatchSetUpdates"
     },
     "XssMatchTuple": {
       "description": "Specifies the part of a web request that you want AWS WAF to inspect for cross-site scripting attacks and, if you want AWS WAF to inspect a header, the name of the header.",
@@ -2829,16 +3018,19 @@
         "FieldToMatch",
         "TextTransformation"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "XssMatchTuple"
     },
     "XssMatchTuples": {
       "items": {
         "$ref": "#/definitions/XssMatchTuple"
       },
-      "type": "array"
+      "type": "array",
+      "title": "XssMatchTuples"
     },
     "errorMessage": {
-      "type": "string"
+      "type": "string",
+      "title": "errorMessage"
     }
   },
   "actions": [

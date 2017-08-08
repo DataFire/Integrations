@@ -165,7 +165,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Annotation"
     },
     "Annotationdata": {
       "properties": {
@@ -206,7 +207,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Annotationdata"
     },
     "Annotations": {
       "properties": {
@@ -232,7 +234,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Annotations"
     },
     "AnnotationsSummary": {
       "properties": {
@@ -267,7 +270,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AnnotationsSummary"
     },
     "Annotationsdata": {
       "properties": {
@@ -293,7 +297,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Annotationsdata"
     },
     "BooksAnnotationsRange": {
       "properties": {
@@ -314,7 +319,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BooksAnnotationsRange"
     },
     "BooksCloudloadingResource": {
       "properties": {
@@ -331,7 +337,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BooksCloudloadingResource"
     },
     "BooksVolumesRecommendedRateResponse": {
       "properties": {
@@ -339,7 +346,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BooksVolumesRecommendedRateResponse"
     },
     "Bookshelf": {
       "properties": {
@@ -390,7 +398,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Bookshelf"
     },
     "Bookshelves": {
       "properties": {
@@ -407,7 +416,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Bookshelves"
     },
     "Category": {
       "properties": {
@@ -435,7 +445,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Category"
     },
     "ConcurrentAccessRestriction": {
       "properties": {
@@ -487,7 +498,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ConcurrentAccessRestriction"
     },
     "Dictlayerdata": {
       "properties": {
@@ -686,7 +698,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Dictlayerdata"
     },
     "Discoveryclusters": {
       "properties": {
@@ -750,7 +763,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Discoveryclusters"
     },
     "DownloadAccessRestriction": {
       "properties": {
@@ -806,7 +820,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DownloadAccessRestriction"
     },
     "DownloadAccesses": {
       "properties": {
@@ -823,7 +838,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DownloadAccesses"
     },
     "Geolayerdata": {
       "properties": {
@@ -941,7 +957,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Geolayerdata"
     },
     "Layersummaries": {
       "properties": {
@@ -963,7 +980,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Layersummaries"
     },
     "Layersummary": {
       "properties": {
@@ -1027,7 +1045,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Layersummary"
     },
     "Metadata": {
       "properties": {
@@ -1063,7 +1082,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Metadata"
     },
     "Notification": {
       "properties": {
@@ -1117,7 +1137,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Notification"
     },
     "Offers": {
       "properties": {
@@ -1171,7 +1192,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Offers"
     },
     "ReadingPosition": {
       "properties": {
@@ -1206,7 +1228,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ReadingPosition"
     },
     "RequestAccess": {
       "properties": {
@@ -1224,7 +1247,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RequestAccess"
     },
     "Review": {
       "properties": {
@@ -1290,7 +1314,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Review"
     },
     "Series": {
       "properties": {
@@ -1323,7 +1348,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Series"
     },
     "Seriesmembership": {
       "properties": {
@@ -1342,7 +1368,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Seriesmembership"
     },
     "Usersettings": {
       "properties": {
@@ -1393,7 +1420,8 @@
           "type": "object"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Usersettings"
     },
     "Volume": {
       "properties": {
@@ -1982,7 +2010,8 @@
           "type": "object"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Volume"
     },
     "Volume2": {
       "properties": {
@@ -2002,7 +2031,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Volume2"
     },
     "Volumeannotation": {
       "properties": {
@@ -2086,7 +2116,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Volumeannotation"
     },
     "Volumeannotations": {
       "properties": {
@@ -2116,7 +2147,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Volumeannotations"
     },
     "Volumes": {
       "properties": {
@@ -2138,7 +2170,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Volumes"
     },
     "Volumeseriesinfo": {
       "properties": {
@@ -2193,7 +2226,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Volumeseriesinfo"
     }
   },
   "actions": [

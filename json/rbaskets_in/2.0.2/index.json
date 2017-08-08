@@ -37,7 +37,8 @@
         "names",
         "has_more"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "Baskets"
     },
     "Config": {
       "properties": {
@@ -58,7 +59,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Config"
     },
     "Headers": {
       "additionalProperties": {
@@ -69,7 +71,8 @@
         "type": "array"
       },
       "description": "Map of HTTP headers, key represents name, value is array of values",
-      "type": "object"
+      "type": "object",
+      "title": "Headers"
     },
     "Request": {
       "properties": {
@@ -102,7 +105,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Request"
     },
     "Requests": {
       "properties": {
@@ -130,7 +134,8 @@
         "requests",
         "has_more"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "Requests"
     },
     "Response": {
       "properties": {
@@ -150,7 +155,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Response"
     },
     "Token": {
       "properties": {
@@ -162,7 +168,8 @@
       "required": [
         "token"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "Token"
     }
   },
   "actions": [

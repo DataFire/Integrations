@@ -17,32 +17,38 @@
   "actionCount": 4,
   "definitions": {
     "Alphabet": {
-      "type": "string"
+      "type": "string",
+      "title": "Alphabet"
     },
     "AudioStream": {
-      "type": "string"
+      "type": "string",
+      "title": "AudioStream"
     },
     "ContentType": {
-      "type": "string"
+      "type": "string",
+      "title": "ContentType"
     },
     "DeleteLexiconInput": {
       "example": {
         "Name": "example"
       },
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DeleteLexiconInput"
     },
     "DeleteLexiconOutput": {
       "example": {},
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DeleteLexiconOutput"
     },
     "DescribeVoicesInput": {
       "example": {
         "LanguageCode": "en-GB"
       },
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DescribeVoicesInput"
     },
     "DescribeVoicesOutput": {
       "example": {
@@ -80,24 +86,28 @@
           "description": "A list of voices with their properties."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeVoicesOutput"
     },
     "ErrorMessage": {
-      "type": "string"
+      "type": "string",
+      "title": "ErrorMessage"
     },
     "Gender": {
       "enum": [
         "Female",
         "Male"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "Gender"
     },
     "GetLexiconInput": {
       "example": {
         "Name": ""
       },
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "GetLexiconInput"
     },
     "GetLexiconOutput": {
       "example": {
@@ -124,7 +134,8 @@
           "description": "Metadata of the lexicon, including phonetic alphabetic used, language code, lexicon ARN, number of lexemes defined in the lexicon, and size of lexicon in bytes."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetLexiconOutput"
     },
     "InvalidLexiconException": {
       "description": "Amazon Polly can't find the specified lexicon. Verify that the lexicon's name is spelled correctly, and then try again.",
@@ -133,7 +144,8 @@
           "$ref": "#/definitions/ErrorMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidLexiconException"
     },
     "InvalidNextTokenException": {
       "description": "The NextToken is invalid. Verify that it's spelled correctly, and then try again.",
@@ -142,7 +154,8 @@
           "$ref": "#/definitions/ErrorMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidNextTokenException"
     },
     "InvalidSampleRateException": {
       "description": "The specified sample rate is not valid.",
@@ -151,7 +164,8 @@
           "$ref": "#/definitions/ErrorMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidSampleRateException"
     },
     "InvalidSsmlException": {
       "description": "The SSML you provided is invalid. Verify the SSML syntax, spelling of tags and values, and then try again.",
@@ -160,7 +174,8 @@
           "$ref": "#/definitions/ErrorMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidSsmlException"
     },
     "LanguageCode": {
       "enum": [
@@ -189,17 +204,21 @@
         "sv-SE",
         "tr-TR"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "LanguageCode"
     },
     "LanguageName": {
-      "type": "string"
+      "type": "string",
+      "title": "LanguageName"
     },
     "LastModified": {
       "format": "date-time",
-      "type": "string"
+      "type": "string",
+      "title": "LastModified"
     },
     "LexemesCount": {
-      "type": "integer"
+      "type": "integer",
+      "title": "LexemesCount"
     },
     "Lexicon": {
       "description": "Provides lexicon name and lexicon content in string format. For more information, see <a href=\"https://www.w3.org/TR/pronunciation-lexicon/\">Pronunciation Lexicon Specification (PLS) Version 1.0</a>.",
@@ -213,10 +232,12 @@
           "description": "Name of the lexicon."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Lexicon"
     },
     "LexiconArn": {
-      "type": "string"
+      "type": "string",
+      "title": "LexiconArn"
     },
     "LexiconAttributes": {
       "description": "Contains metadata describing the lexicon such as the number of lexemes, language code, and so on. For more information, see <a href=\"http://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html\">Managing Lexicons</a>.",
@@ -246,10 +267,12 @@
           "description": "Total size of the lexicon, in characters."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LexiconAttributes"
     },
     "LexiconContent": {
-      "type": "string"
+      "type": "string",
+      "title": "LexiconContent"
     },
     "LexiconDescription": {
       "description": "Describes the content of the lexicon.",
@@ -263,25 +286,29 @@
           "description": "Name of the lexicon."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LexiconDescription"
     },
     "LexiconDescriptionList": {
       "items": {
         "$ref": "#/definitions/LexiconDescription"
       },
-      "type": "array"
+      "type": "array",
+      "title": "LexiconDescriptionList"
     },
     "LexiconName": {
       "format": "password",
       "pattern": "[0-9A-Za-z]{1,20}",
-      "type": "string"
+      "type": "string",
+      "title": "LexiconName"
     },
     "LexiconNameList": {
       "items": {
         "$ref": "#/definitions/LexiconName"
       },
       "maxItems": 5,
-      "type": "array"
+      "type": "array",
+      "title": "LexiconNameList"
     },
     "LexiconNotFoundException": {
       "description": "<p>Amazon Polly can't find the specified lexicon. This could be caused by a lexicon that is missing, its name is misspelled or specifying a lexicon that is in a different region.</p> <p>Verify that the lexicon exists, is in the region (see <a>ListLexicons</a>) and that you spelled its name is spelled correctly. Then try again.</p>",
@@ -290,7 +317,8 @@
           "$ref": "#/definitions/ErrorMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LexiconNotFoundException"
     },
     "LexiconSizeExceededException": {
       "description": "The maximum size of the specified lexicon would be exceeded by this operation.",
@@ -299,12 +327,14 @@
           "$ref": "#/definitions/ErrorMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LexiconSizeExceededException"
     },
     "ListLexiconsInput": {
       "example": {},
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "ListLexiconsInput"
     },
     "ListLexiconsOutput": {
       "example": {
@@ -332,7 +362,8 @@
           "description": "The pagination token to use in the next request to continue the listing of lexicons. <code>NextToken</code> is returned only if the response is truncated."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListLexiconsOutput"
     },
     "MarksNotSupportedForFormatException": {
       "description": "Speech marks are not supported for the <code>OutputFormat</code> selected. Speech marks are only available for content in <code>json</code> format.",
@@ -341,7 +372,8 @@
           "$ref": "#/definitions/ErrorMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "MarksNotSupportedForFormatException"
     },
     "MaxLexemeLengthExceededException": {
       "description": "The maximum size of the lexeme would be exceeded by this operation.",
@@ -350,7 +382,8 @@
           "$ref": "#/definitions/ErrorMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "MaxLexemeLengthExceededException"
     },
     "MaxLexiconsNumberExceededException": {
       "description": "The maximum number of lexicons would be exceeded by this operation.",
@@ -359,10 +392,12 @@
           "$ref": "#/definitions/ErrorMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "MaxLexiconsNumberExceededException"
     },
     "NextToken": {
-      "type": "string"
+      "type": "string",
+      "title": "NextToken"
     },
     "OutputFormat": {
       "enum": [
@@ -371,7 +406,8 @@
         "ogg_vorbis",
         "pcm"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "OutputFormat"
     },
     "PutLexiconInput": {
       "example": {
@@ -387,18 +423,22 @@
       "required": [
         "Content"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "PutLexiconInput"
     },
     "PutLexiconOutput": {
       "example": {},
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "PutLexiconOutput"
     },
     "RequestCharacters": {
-      "type": "integer"
+      "type": "integer",
+      "title": "RequestCharacters"
     },
     "SampleRate": {
-      "type": "string"
+      "type": "string",
+      "title": "SampleRate"
     },
     "ServiceFailureException": {
       "description": "An unknown condition has caused a service failure.",
@@ -407,10 +447,12 @@
           "$ref": "#/definitions/ErrorMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ServiceFailureException"
     },
     "Size": {
-      "type": "integer"
+      "type": "integer",
+      "title": "Size"
     },
     "SpeechMarkType": {
       "enum": [
@@ -419,14 +461,16 @@
         "viseme",
         "word"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "SpeechMarkType"
     },
     "SpeechMarkTypeList": {
       "items": {
         "$ref": "#/definitions/SpeechMarkType"
       },
       "maxItems": 4,
-      "type": "array"
+      "type": "array",
+      "title": "SpeechMarkTypeList"
     },
     "SsmlMarksNotSupportedForTextTypeException": {
       "description": "SSML speech marks are not supported for plain text-type input.",
@@ -435,7 +479,8 @@
           "$ref": "#/definitions/ErrorMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SsmlMarksNotSupportedForTextTypeException"
     },
     "SynthesizeSpeechInput": {
       "example": {
@@ -483,7 +528,8 @@
         "Text",
         "VoiceId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "SynthesizeSpeechInput"
     },
     "SynthesizeSpeechOutput": {
       "example": {
@@ -497,10 +543,12 @@
           "description": " Stream containing the synthesized speech. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SynthesizeSpeechOutput"
     },
     "Text": {
-      "type": "string"
+      "type": "string",
+      "title": "Text"
     },
     "TextLengthExceededException": {
       "description": "The value of the \"Text\" parameter is longer than the accepted limits. The limit for input text is a maximum of 3000 characters total, of which no more than 1500 can be billed characters. SSML tags are not counted as billed characters.",
@@ -509,14 +557,16 @@
           "$ref": "#/definitions/ErrorMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TextLengthExceededException"
     },
     "TextType": {
       "enum": [
         "ssml",
         "text"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "TextType"
     },
     "UnsupportedPlsAlphabetException": {
       "description": "The alphabet specified by the lexicon is not a supported alphabet. Valid values are <code>x-sampa</code> and <code>ipa</code>.",
@@ -525,7 +575,8 @@
           "$ref": "#/definitions/ErrorMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UnsupportedPlsAlphabetException"
     },
     "UnsupportedPlsLanguageException": {
       "description": "The language specified in the lexicon is unsupported. For a list of supported languages, see <a href=\"http://docs.aws.amazon.com/polly/latest/dg/API_LexiconAttributes.html\">Lexicon Attributes</a>.",
@@ -534,7 +585,8 @@
           "$ref": "#/definitions/ErrorMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UnsupportedPlsLanguageException"
     },
     "Voice": {
       "description": "Description of the voice.",
@@ -560,7 +612,8 @@
           "description": "Name of the voice (for example, Salli, Kendra, etc.). This provides a human readable voice name that you might display in your application."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Voice"
     },
     "VoiceId": {
       "enum": [
@@ -612,16 +665,19 @@
         "Astrid",
         "Filiz"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "VoiceId"
     },
     "VoiceList": {
       "items": {
         "$ref": "#/definitions/Voice"
       },
-      "type": "array"
+      "type": "array",
+      "title": "VoiceList"
     },
     "VoiceName": {
-      "type": "string"
+      "type": "string",
+      "title": "VoiceName"
     }
   },
   "actions": [

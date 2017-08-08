@@ -61,7 +61,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Address"
     },
     "AspectDistribution": {
       "description": "The type that define the fields for the aspect information. Aspects are the variations of an item, such as color, size, etc.",
@@ -78,7 +79,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AspectDistribution"
     },
     "AspectValueDistribution": {
       "description": "The container that defines the fields for the conditions refinements. This container is returned when <b> fieldgroups</b> is set to <code>ASPECT_REFINEMENTS</code> or <code>FULL</code> in the request.",
@@ -96,7 +98,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AspectValueDistribution"
     },
     "BuyingOptionDistribution": {
       "description": "The container that defines the fields for the buying options refinements. This container is returned when <b> fieldgroups</b> is set to <code>BUYING_OPTION_REFINEMENTS</code> or <code>FULL</code> in the request.",
@@ -114,7 +117,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BuyingOptionDistribution"
     },
     "Category": {
       "description": "This type is used by the <b> categories</b>  container in the response of the <b> search</b>  call, and consists of the primary listing category ID of the item (as well as secondary listing category if item was listed in two categories).",
@@ -124,7 +128,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Category"
     },
     "CategoryDistribution": {
       "description": "The container that defines the fields for the category refinements. This container is returned when <b> fieldgroups</b> is set to <code>CATEGORY_REFINEMENTS</code> or <code>FULL</code> in the request.",
@@ -146,7 +151,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CategoryDistribution"
     },
     "CommonDescriptions": {
       "description": "The type that defines the fields for the item Ids that all use a common description and that description.  Often the item variations within an item group all have the same description. Instead of repeating this description in the item details of each item, a description that is shared by at least one other item is returned in this container. If the description is unique, it is returned in the <b> items.description</b> field.",
@@ -163,7 +169,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CommonDescriptions"
     },
     "ConditionDistribution": {
       "description": "The container that defines the fields for the conditions refinements. This container is returned when <b> fieldgroups</b> is set to <code>CONDITION_REFINEMENTS</code> or <code>FULL</code> in the request.",
@@ -185,7 +192,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ConditionDistribution"
     },
     "ConvertedAmount": {
       "description": "The type that defines the fields for a monetary value and the conversion of the value into another currency.",
@@ -207,7 +215,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ConvertedAmount"
     },
     "Error": {
       "description": "The type that defines the fields that can be returned in an error.",
@@ -258,7 +267,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Error"
     },
     "ErrorParameter": {
       "description": "An array of name/value pairs that provide more details regarding error condition.",
@@ -272,7 +282,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ErrorParameter"
     },
     "EstimatedAvailability": {
       "description": "The type that defines the fields for the estimated item availability information.",
@@ -306,7 +317,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "EstimatedAvailability"
     },
     "Image": {
       "description": "The type that defines the details of an image, such as size and URL. Currently only <b> imageUrl</b> is getting populated. The <b> height</b> and <b> width</b> were added for future use.",
@@ -324,7 +336,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Image"
     },
     "Item": {
       "description": "Type that defines the fields for the item details for a specific item.",
@@ -529,7 +542,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Item"
     },
     "ItemGroupSummary": {
       "description": "The type that defines the fields for the details of each item in an item group. An item group is  an item that has various aspect differences, such as color, size, storage capacity, etc. <br /><br /><span class=\"tablenote\"><b> Note: </b> This container is returned only if the <b> item_id</b> in the request is an item group (parent Id of an item with variations).",
@@ -561,7 +575,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ItemGroupSummary"
     },
     "ItemLocationImpl": {
       "description": "This type is used by the <b> itemLocation</b>  container, which provides location information for the item.",
@@ -595,7 +610,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ItemLocationImpl"
     },
     "ItemReturnTerms": {
       "description": "The type that defines the fields for the seller's return policy.",
@@ -632,7 +648,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ItemReturnTerms"
     },
     "ItemSummary": {
       "description": "The type that defines the item details for a specific item.",
@@ -749,7 +766,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ItemSummary"
     },
     "Items": {
       "description": "The type that defines the fields for the item details.",
@@ -769,7 +787,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Items"
     },
     "LegalAddress": {
       "description": "Type that defines the fields for the seller's address.",
@@ -807,7 +826,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LegalAddress"
     },
     "MarketingPrice": {
       "description": "The type that defines the fields that describe a seller discount.",
@@ -823,7 +843,8 @@
           "$ref": "#/definitions/ConvertedAmount"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "MarketingPrice"
     },
     "PickupOptionSummary": {
       "description": "The type that defines the fields for the local pickup options that are available for the item. It is used by the <b>  pickupOptions</b>  container.",
@@ -833,7 +854,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PickupOptionSummary"
     },
     "RatingHistogram": {
       "description": "The type that defines the fields for product ratings. Only products that are in the eBay product catalog can be reviewed and rated.",
@@ -847,7 +869,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RatingHistogram"
     },
     "Refinement": {
       "description": "This type defines the fields for the various refinements of an item. You can use the information in this contain to create histograms, which help shopper choose exactly what they want.",
@@ -885,7 +908,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Refinement"
     },
     "Region": {
       "description": "The type that defines information for a region.",
@@ -899,7 +923,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Region"
     },
     "ReviewRating": {
       "description": "The type that defines the fields for the rating of a product review.",
@@ -920,7 +945,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ReviewRating"
     },
     "SearchPagedCollection": {
       "description": "The type that defines the settings that paginate the result sets. The response consists of 0 or more sequenced <i> result sets</i> where each result sets has 0 or more items. ",
@@ -967,7 +993,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SearchPagedCollection"
     },
     "Seller": {
       "description": "The type that defines the fields for basic and detailed information about the seller of the item returned by the <b> item</b> resource.",
@@ -992,7 +1019,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Seller"
     },
     "SellerLegalInfo": {
       "description": "The type that defines the fields for the contact information for a seller.",
@@ -1044,7 +1072,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SellerLegalInfo"
     },
     "Seller_0": {
       "description": "The type that defines the fields for basic information about the seller of the item returned by the <b> item_summary</b> resource.",
@@ -1066,7 +1095,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Seller_0"
     },
     "ShipToLocation": {
       "description": "The type that defines the fields for the country and postal code of where an item is to be shipped.",
@@ -1080,7 +1110,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ShipToLocation"
     },
     "ShipToLocations": {
       "description": "The type that defines the fields that include and exclude geographic regions affecting where the item can be shipped. The seller defines these regions when listing the item.",
@@ -1100,7 +1131,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ShipToLocations"
     },
     "ShippingOption": {
       "description": "The type that defines the fields for the details of a shipping provider.",
@@ -1151,7 +1183,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ShippingOption"
     },
     "ShippingOptionSummary": {
       "description": "The type that defines the fields for the shipping information.",
@@ -1172,7 +1205,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ShippingOptionSummary"
     },
     "TargetLocation": {
       "description": "The type that defines the fields for the distance between the item location and the buyer's location. ",
@@ -1186,7 +1220,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TargetLocation"
     },
     "TaxJurisdiction": {
       "description": "The type that defines the fields for the tax jurisdiction details.",
@@ -1199,7 +1234,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TaxJurisdiction"
     },
     "Taxes": {
       "description": "The type that defines the tax fields.",
@@ -1224,7 +1260,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Taxes"
     },
     "TimeDuration": {
       "description": "The type that defines the fields for an amount of time.",
@@ -1238,7 +1275,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TimeDuration"
     },
     "TypedNameValue": {
       "description": "The type that defines the fields for the name/value pairs for item aspects.",
@@ -1256,7 +1294,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TypedNameValue"
     },
     "VatDetail": {
       "description": "The type the defines the fields for the VAT (value add tax) information.",
@@ -1270,7 +1309,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "VatDetail"
     }
   },
   "actions": [

@@ -19,7 +19,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ErrorResponse"
     },
     "InfoField": {
       "description": "Key-value pairs of instance details in the legacy format.",
@@ -28,7 +29,8 @@
           "description": "Identifies the name of the instance provisioned by the user.",
           "type": "string"
         }
-      }
+      },
+      "title": "InfoField"
     },
     "MeterInfo": {
       "description": "Detailed information about the meter.",
@@ -83,7 +85,8 @@
           "description": "The unit in which the meter consumption is charged, e.g., 'Hours', 'GB', etc.",
           "type": "string"
         }
-      }
+      },
+      "title": "MeterInfo"
     },
     "MonetaryCommitment": {
       "allOf": [
@@ -110,7 +113,8 @@
           "type": "object"
         }
       },
-      "x-ms-discriminator-value": "Monetary Commitment"
+      "x-ms-discriminator-value": "Monetary Commitment",
+      "title": "MonetaryCommitment"
     },
     "MonetaryCredit": {
       "allOf": [
@@ -134,7 +138,8 @@
           "type": "array"
         }
       },
-      "x-ms-discriminator-value": "Monetary Credit"
+      "x-ms-discriminator-value": "Monetary Credit",
+      "title": "MonetaryCredit"
     },
     "OfferTermInfo": {
       "description": "Describes the offer term.",
@@ -161,7 +166,8 @@
       },
       "required": [
         "Name"
-      ]
+      ],
+      "title": "OfferTermInfo"
     },
     "RateCardQueryParameters": {
       "description": "Parameters that are used in the odata $filter query parameter for providing RateCard information.",
@@ -189,7 +195,8 @@
         "Currency",
         "Locale",
         "RegionInfo"
-      ]
+      ],
+      "title": "RateCardQueryParameters"
     },
     "RecurringCharge": {
       "allOf": [
@@ -204,7 +211,8 @@
           "type": "integer"
         }
       },
-      "x-ms-discriminator-value": "Recurring Charge"
+      "x-ms-discriminator-value": "Recurring Charge",
+      "title": "RecurringCharge"
     },
     "ResourceRateCardInfo": {
       "description": "Price and Metadata information for resources",
@@ -235,7 +243,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "ResourceRateCardInfo"
     },
     "UsageAggregation": {
       "description": "Describes the usageAggregation.",
@@ -257,7 +266,8 @@
           "description": "Type of the resource being returned.",
           "type": "string"
         }
-      }
+      },
+      "title": "UsageAggregation"
     },
     "UsageAggregationListResult": {
       "description": "The Get UsageAggregates operation response.",
@@ -273,7 +283,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "UsageAggregationListResult"
     },
     "UsageSample": {
       "description": "Describes a sample of the usageAggregation.",
@@ -328,7 +339,8 @@
           "format": "date-time",
           "type": "string"
         }
-      }
+      },
+      "title": "UsageSample"
     }
   },
   "actions": [

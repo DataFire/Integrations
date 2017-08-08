@@ -27,7 +27,8 @@
         "templated": {
           "type": "boolean"
         }
-      }
+      },
+      "title": "Link"
     },
     "RestErrorDTO": {
       "description": "RestErrorDTO",
@@ -48,9 +49,12 @@
         "status": {
           "type": "string"
         }
-      }
+      },
+      "title": "RestErrorDTO"
     },
-    "Void": {},
+    "Void": {
+      "title": "Void"
+    },
     "WebServiceAccount": {
       "description": "WebServiceAccount",
       "properties": {
@@ -64,7 +68,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "WebServiceAccount"
     },
     "WebServiceContact": {
       "description": "WebServiceContact",
@@ -90,7 +95,8 @@
         "title": {
           "type": "string"
         }
-      }
+      },
+      "title": "WebServiceContact"
     },
     "WebServiceContactLink": {
       "description": "WebServiceContactLink",
@@ -104,7 +110,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "WebServiceContactLink"
     },
     "WebServiceContacts": {
       "description": "WebServiceContacts",
@@ -121,7 +128,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "WebServiceContacts"
     },
     "WebServiceGroup": {
       "description": "WebServiceGroup",
@@ -138,7 +146,8 @@
         "name": {
           "type": "string"
         }
-      }
+      },
+      "title": "WebServiceGroup"
     },
     "WebServiceGroups": {
       "description": "WebServiceGroups",
@@ -155,7 +164,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "WebServiceGroups"
     },
     "WebServiceMessage": {
       "description": "WebServiceMessage",
@@ -219,7 +229,8 @@
         "userDataField": {
           "type": "string"
         }
-      }
+      },
+      "title": "WebServiceMessage"
     },
     "WebServiceMessages": {
       "description": "WebServiceMessages",
@@ -256,7 +267,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "WebServiceMessages"
     },
     "WebServiceNumberContextLookupRequest": {
       "description": "WebServiceNumberContextLookupRequest",
@@ -273,7 +285,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "WebServiceNumberContextLookupRequest"
     },
     "WebServiceNumberContextLookupResponse": {
       "description": "WebServiceNumberContextLookupResponse",
@@ -290,7 +303,8 @@
         "numberValid": {
           "type": "boolean"
         }
-      }
+      },
+      "title": "WebServiceNumberContextLookupResponse"
     },
     "WebServiceSendSmsRequest": {
       "description": "WebServiceSendSmsRequest",
@@ -311,7 +325,8 @@
         "recipientNumber": {
           "type": "string"
         }
-      }
+      },
+      "title": "WebServiceSendSmsRequest"
     },
     "WebServiceSendSmsRequests": {
       "description": "WebServiceSendSmsRequests",
@@ -330,7 +345,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "WebServiceSendSmsRequests"
     },
     "WebServiceSendSmsResponse": {
       "description": "WebServiceSendSmsResponse",
@@ -341,7 +357,8 @@
         "messageId": {
           "type": "string"
         }
-      }
+      },
+      "title": "WebServiceSendSmsResponse"
     },
     "WebServiceSendSmsResponses": {
       "description": "WebServiceSendSmsResponses",
@@ -352,7 +369,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "WebServiceSendSmsResponses"
     },
     "WebServiceTemplate": {
       "description": "WebServiceTemplate",
@@ -373,7 +391,8 @@
           "format": "int64",
           "type": "integer"
         }
-      }
+      },
+      "title": "WebServiceTemplate"
     },
     "WebServiceTemplates": {
       "description": "WebServiceTemplates",
@@ -390,7 +409,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "WebServiceTemplates"
     },
     "WebServiceTransferCreditsRequest": {
       "description": "WebServiceTransferCreditsRequest",
@@ -405,7 +425,8 @@
         "transferToEmailAddress": {
           "type": "string"
         }
-      }
+      },
+      "title": "WebServiceTransferCreditsRequest"
     },
     "WebServiceUser": {
       "description": "WebServiceUser",
@@ -436,7 +457,8 @@
           "format": "int64",
           "type": "integer"
         }
-      }
+      },
+      "title": "WebServiceUser"
     },
     "WebServiceUsers": {
       "description": "WebServiceUsers",
@@ -447,7 +469,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "WebServiceUsers"
     }
   },
   "actions": [

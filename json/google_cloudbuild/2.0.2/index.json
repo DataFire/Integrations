@@ -135,7 +135,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Build"
     },
     "BuildOperationMetadata": {
       "description": "Metadata for build operations.",
@@ -145,7 +146,8 @@
           "description": "The build that the operation is tracking."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BuildOperationMetadata"
     },
     "BuildOptions": {
       "description": "Optional arguments to enable specific features of builds.",
@@ -170,7 +172,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BuildOptions"
     },
     "BuildStep": {
       "description": "BuildStep describes a step to perform in the build pipeline.",
@@ -213,7 +216,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BuildStep"
     },
     "BuildTrigger": {
       "description": "Configuration for an automated build in response to source repository\nchanges.",
@@ -255,7 +259,8 @@
           "description": "Template describing the types of source changes to trigger a build.\n\nBranch and tag names in trigger templates are interpreted as regular\nexpressions. Any branch or tag change that matches that regular expression\nwill trigger a build."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BuildTrigger"
     },
     "BuiltImage": {
       "description": "BuiltImage describes an image built by the pipeline.",
@@ -269,22 +274,26 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BuiltImage"
     },
     "CancelBuildRequest": {
       "description": "Request to cancel an ongoing build.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "CancelBuildRequest"
     },
     "CancelOperationRequest": {
       "description": "The request message for Operations.CancelOperation.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "CancelOperationRequest"
     },
     "Empty": {
       "description": "A generic empty message that you can re-use to avoid defining duplicated\nempty messages in your APIs. A typical example is to use it as the request\nor the response type of an API method. For instance:\n\n    service Foo {\n      rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);\n    }\n\nThe JSON representation for `Empty` is empty JSON object `{}`.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "Empty"
     },
     "FileHashes": {
       "description": "Container message for hashes of byte content of files, used in\nSourceProvenance messages to verify integrity of source input to the build.",
@@ -297,7 +306,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "FileHashes"
     },
     "Hash": {
       "description": "Container message for hash values.",
@@ -316,7 +326,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Hash"
     },
     "ListBuildTriggersResponse": {
       "description": "Response containing existing BuildTriggers.",
@@ -329,7 +340,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListBuildTriggersResponse"
     },
     "ListBuildsResponse": {
       "description": "Response including listed builds.",
@@ -346,7 +358,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListBuildsResponse"
     },
     "ListOperationsResponse": {
       "description": "The response message for Operations.ListOperations.",
@@ -363,7 +376,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListOperationsResponse"
     },
     "Operation": {
       "description": "This resource represents a long-running operation that is the result of a\nnetwork API call.",
@@ -395,7 +409,8 @@
           "type": "object"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Operation"
     },
     "RepoSource": {
       "description": "RepoSource describes the location of the source in a Google Cloud Source\nRepository.",
@@ -421,7 +436,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RepoSource"
     },
     "Results": {
       "description": "Results describes the artifacts created by the build pipeline.",
@@ -441,7 +457,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Results"
     },
     "Source": {
       "description": "Source describes the location of the source in a supported storage\nservice.",
@@ -455,7 +472,8 @@
           "description": "If provided, get the source from this location in in Google Cloud\nStorage."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Source"
     },
     "SourceProvenance": {
       "description": "Provenance of the source. Ways to find the original source, or verify that\nsome source was used for this build.",
@@ -476,7 +494,8 @@
           "description": "A copy of the build's source.storage_source, if exists, with any\ngenerations resolved."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SourceProvenance"
     },
     "Status": {
       "description": "The `Status` type defines a logical error model that is suitable for different\nprogramming environments, including REST APIs and RPC APIs. It is used by\n[gRPC](https://github.com/grpc). The error model is designed to be:\n\n- Simple to use and understand for most users\n- Flexible enough to meet unexpected needs\n\n# Overview\n\nThe `Status` message contains three pieces of data: error code, error message,\nand error details. The error code should be an enum value of\ngoogle.rpc.Code, but it may accept additional error codes if needed.  The\nerror message should be a developer-facing English message that helps\ndevelopers *understand* and *resolve* the error. If a localized user-facing\nerror message is needed, put the localized message in the error details or\nlocalize it in the client. The optional error details may contain arbitrary\ninformation about the error. There is a predefined set of error detail types\nin the package `google.rpc` which can be used for common error conditions.\n\n# Language mapping\n\nThe `Status` message is the logical representation of the error model, but it\nis not necessarily the actual wire format. When the `Status` message is\nexposed in different client libraries and different wire protocols, it can be\nmapped differently. For example, it will likely be mapped to some exceptions\nin Java, but more likely mapped to some error codes in C.\n\n# Other uses\n\nThe error model and the `Status` message can be used in a variety of\nenvironments, either with or without APIs, to provide a\nconsistent developer experience across different environments.\n\nExample uses of this error model include:\n\n- Partial errors. If a service needs to return partial errors to the client,\n    it may embed the `Status` in the normal response to indicate the partial\n    errors.\n\n- Workflow errors. A typical workflow has multiple steps. Each step may\n    have a `Status` message for error reporting purpose.\n\n- Batch operations. If a client uses batch request and batch response, the\n    `Status` message should be used directly inside batch response, one for\n    each error sub-response.\n\n- Asynchronous operations. If an API call embeds asynchronous operation\n    results in its response, the status of those operations should be\n    represented directly using the `Status` message.\n\n- Logging. If some API errors are stored in logs, the message `Status` could\n    be used directly after any stripping needed for security/privacy reasons.",
@@ -501,7 +520,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Status"
     },
     "StorageSource": {
       "description": "StorageSource describes the location of the source in an archive file in\nGoogle Cloud Storage.",
@@ -520,7 +540,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "StorageSource"
     }
   },
   "actions": [

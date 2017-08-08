@@ -58,7 +58,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ExecutionError"
     },
     "ExecutionRequest": {
       "description": "A request to run the function in a script. The script is identified by the\nspecified `script_id`. Executing a function on a script returns results\nbased on the implementation of the script.",
@@ -81,7 +82,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ExecutionRequest"
     },
     "ExecutionResponse": {
       "description": "An object that provides the return value of a function executed through the\nApps Script Execution API. If a\n`run` call succeeds and the\nscript function returns successfully, the response body's\n`response` field contains this\n`ExecutionResponse` object.",
@@ -90,7 +92,8 @@
           "description": "The return value of the script function. The type matches the object type\nreturned in Apps Script. Functions called through the Execution API cannot\nreturn Apps Script-specific objects (such as a `Document` or a `Calendar`);\nthey can only return primitive types such as a `string`, `number`, `array`,\n`object`, or `boolean`."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ExecutionResponse"
     },
     "JoinAsyncRequest": {
       "description": "A request to retrieve the results from a collection of requests,\nspecified by the operation resource names.",
@@ -112,7 +115,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "JoinAsyncRequest"
     },
     "JoinAsyncResponse": {
       "description": "An object that provides the return value for the JoinAsync method.",
@@ -125,7 +129,8 @@
           "type": "object"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "JoinAsyncResponse"
     },
     "Operation": {
       "description": "The response will not arrive until the function finishes executing. The maximum runtime is listed in the guide to [limitations in Apps Script](https://developers.google.com/apps-script/guides/services/quotas#current_limitations).\n<p>If the script function returns successfully, the `response` field will contain an `ExecutionResponse` object with the function's return value in the object's `result` field.</p>\n<p>If the script function (or Apps Script itself) throws an exception, the `error` field will contain a `Status` object. The `Status` object's `details` field will contain an array with a single `ExecutionError` object that provides information about the nature of the error.</p>\n<p>If the `run` call itself fails (for example, because of a malformed request or an authorization error), the method will return an HTTP response code in the 4XX range with a different format for the response body. Client libraries will automatically convert a 4XX response into an exception class.</p>",
@@ -157,7 +162,8 @@
           "type": "object"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Operation"
     },
     "ScriptStackTraceElement": {
       "description": "A stack trace through the script that shows where the execution failed.",
@@ -172,7 +178,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ScriptStackTraceElement"
     },
     "Status": {
       "description": "If a `run` call succeeds but the script function (or Apps Script itself) throws an exception, the response body's `error` field will contain this `Status` object.",
@@ -197,7 +204,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Status"
     }
   },
   "actions": [

@@ -126,14 +126,16 @@
       "required": [
         "id",
         "name"
-      ]
+      ],
+      "title": "Advisor"
     },
     "Advisorresponse": {
       "properties": {
         "advisor": {
           "$ref": "#/definitions/Advisor"
         }
-      }
+      },
+      "title": "Advisorresponse"
     },
     "Advisors": {
       "properties": {
@@ -143,7 +145,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "Advisors"
     },
     "Article": {
       "properties": {
@@ -219,14 +222,16 @@
       "required": [
         "_id",
         "title"
-      ]
+      ],
+      "title": "Article"
     },
     "Articleresponse": {
       "properties": {
         "article": {
           "$ref": "#/definitions/Article"
         }
-      }
+      },
+      "title": "Articleresponse"
     },
     "Articles": {
       "properties": {
@@ -236,7 +241,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "Articles"
     },
     "Event": {
       "properties": {
@@ -301,7 +307,8 @@
         "type",
         "original_url",
         "subject_email"
-      ]
+      ],
+      "title": "Event"
     },
     "EventContent": {
       "properties": {
@@ -327,7 +334,8 @@
         "updated_at": {
           "type": "string"
         }
-      }
+      },
+      "title": "EventContent"
     },
     "EventInput": {
       "properties": {
@@ -388,21 +396,24 @@
         "type",
         "original_url",
         "subject_email"
-      ]
+      ],
+      "title": "EventInput"
     },
     "Eventcreateresponse": {
       "properties": {
         "meta": {
           "$ref": "#/definitions/Meta"
         }
-      }
+      },
+      "title": "Eventcreateresponse"
     },
     "Eventresponse": {
       "properties": {
         "event": {
           "$ref": "#/definitions/Event"
         }
-      }
+      },
+      "title": "Eventresponse"
     },
     "Events": {
       "properties": {
@@ -412,7 +423,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "Events"
     },
     "Features": {
       "properties": {
@@ -422,7 +434,8 @@
       },
       "required": [
         "_id"
-      ]
+      ],
+      "title": "Features"
     },
     "Group": {
       "properties": {
@@ -458,7 +471,8 @@
       },
       "required": [
         "_id"
-      ]
+      ],
+      "title": "Group"
     },
     "GroupInput": {
       "properties": {
@@ -494,14 +508,16 @@
       },
       "required": [
         "_id"
-      ]
+      ],
+      "title": "GroupInput"
     },
     "Groupresponse": {
       "properties": {
         "group": {
           "$ref": "#/definitions/Group"
         }
-      }
+      },
+      "title": "Groupresponse"
     },
     "Groups": {
       "properties": {
@@ -511,7 +527,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "Groups"
     },
     "Member": {
       "properties": {
@@ -657,7 +674,8 @@
       "required": [
         "_id",
         "email"
-      ]
+      ],
+      "title": "Member"
     },
     "MemberEvent": {
       "properties": {
@@ -721,7 +739,8 @@
         "username": {
           "type": "string"
         }
-      }
+      },
+      "title": "MemberEvent"
     },
     "MemberEvents": {
       "properties": {
@@ -737,7 +756,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "MemberEvents"
     },
     "MemberReport": {
       "properties": {
@@ -765,7 +785,8 @@
           "format": "int32",
           "type": "integer"
         }
-      }
+      },
+      "title": "MemberReport"
     },
     "MemberReports": {
       "properties": {
@@ -775,14 +796,16 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "MemberReports"
     },
     "Memberresponse": {
       "properties": {
         "member": {
           "$ref": "#/definitions/Member"
         }
-      }
+      },
+      "title": "Memberresponse"
     },
     "Members": {
       "properties": {
@@ -798,14 +821,16 @@
         "more_results": {
           "type": "boolean"
         }
-      }
+      },
+      "title": "Members"
     },
     "Meta": {
       "properties": {
         "message": {
           "type": "string"
         }
-      }
+      },
+      "title": "Meta"
     },
     "Newsletter": {
       "properties": {
@@ -830,7 +855,8 @@
           "format": "int64",
           "type": "integer"
         }
-      }
+      },
+      "title": "Newsletter"
     },
     "NewsletterInput": {
       "properties": {
@@ -852,7 +878,8 @@
           "format": "int64",
           "type": "integer"
         }
-      }
+      },
+      "title": "NewsletterInput"
     },
     "NewsletterSetting": {
       "properties": {
@@ -985,7 +1012,8 @@
       },
       "required": [
         "_id"
-      ]
+      ],
+      "title": "NewsletterSetting"
     },
     "NewsletterSettings": {
       "properties": {
@@ -995,21 +1023,24 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "NewsletterSettings"
     },
     "NewsletterSettingsInput": {
       "properties": {
         "newsletter_setting": {
           "$ref": "#/definitions/NewsletterSetting"
         }
-      }
+      },
+      "title": "NewsletterSettingsInput"
     },
     "Newsletterresponse": {
       "properties": {
         "newsletter": {
           "$ref": "#/definitions/Newsletter"
         }
-      }
+      },
+      "title": "Newsletterresponse"
     },
     "Newsletters": {
       "properties": {
@@ -1019,14 +1050,16 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "Newsletters"
     },
     "Newslettersettingresponse": {
       "properties": {
         "newsletter_setting": {
           "$ref": "#/definitions/NewsletterSetting"
         }
-      }
+      },
+      "title": "Newslettersettingresponse"
     },
     "OrgSetting": {
       "properties": {
@@ -1063,7 +1096,8 @@
       },
       "required": [
         "_id"
-      ]
+      ],
+      "title": "OrgSetting"
     },
     "PersonalSettings": {
       "properties": {
@@ -1073,7 +1107,8 @@
       },
       "required": [
         "_id"
-      ]
+      ],
+      "title": "PersonalSettings"
     },
     "Post": {
       "properties": {
@@ -1203,7 +1238,8 @@
         "video_id": {
           "type": "string"
         }
-      }
+      },
+      "title": "Post"
     },
     "PostInput": {
       "properties": {
@@ -1333,21 +1369,24 @@
       },
       "required": [
         "title"
-      ]
+      ],
+      "title": "PostInput"
     },
     "Postrequest": {
       "properties": {
         "post": {
           "$ref": "#/definitions/PostInput"
         }
-      }
+      },
+      "title": "Postrequest"
     },
     "Postresponse": {
       "properties": {
         "post": {
           "$ref": "#/definitions/Post"
         }
-      }
+      },
+      "title": "Postresponse"
     },
     "Posts": {
       "properties": {
@@ -1357,7 +1396,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "Posts"
     },
     "Session": {
       "properties": {
@@ -1376,14 +1416,16 @@
         "vestorly-auth": {
           "type": "string"
         }
-      }
+      },
+      "title": "Session"
     },
     "SessionLogoutResponse": {
       "properties": {
         "message": {
           "type": "string"
         }
-      }
+      },
+      "title": "SessionLogoutResponse"
     },
     "Settings": {
       "properties": {
@@ -1423,7 +1465,8 @@
       },
       "required": [
         "_id"
-      ]
+      ],
+      "title": "Settings"
     },
     "Source": {
       "properties": {
@@ -1454,7 +1497,8 @@
         "name",
         "url",
         "rss_publisher"
-      ]
+      ],
+      "title": "Source"
     },
     "SourceInput": {
       "properties": {
@@ -1481,14 +1525,16 @@
         "name",
         "url",
         "rss_publisher"
-      ]
+      ],
+      "title": "SourceInput"
     },
     "Sourceresponse": {
       "properties": {
         "source": {
           "$ref": "#/definitions/Source"
         }
-      }
+      },
+      "title": "Sourceresponse"
     },
     "Sources": {
       "properties": {
@@ -1498,7 +1544,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "Sources"
     },
     "TruncatedMember": {
       "properties": {
@@ -1520,7 +1567,8 @@
         "picture_url": {
           "type": "string"
         }
-      }
+      },
+      "title": "TruncatedMember"
     },
     "User": {
       "properties": {
@@ -1578,7 +1626,8 @@
       },
       "required": [
         "_id"
-      ]
+      ],
+      "title": "User"
     }
   },
   "actions": [

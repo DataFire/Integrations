@@ -93,7 +93,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PlatformSummary"
     },
     "SiteSummaryResponse": {
       "description": "Response message for GetSiteSummary.",
@@ -111,7 +112,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SiteSummaryResponse"
     },
     "ViolatingSitesResponse": {
       "description": "Response message for ListViolatingSites.",
@@ -124,7 +126,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ViolatingSitesResponse"
     }
   },
   "actions": [

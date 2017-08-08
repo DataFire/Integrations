@@ -20,7 +20,8 @@
       "required": [
         "userName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AckOrResolveByUserRequest"
     },
     "AckOrResolveRequest": {
       "properties": {
@@ -41,7 +42,8 @@
         "userName",
         "incidentNames"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AckOrResolveRequest"
     },
     "AckOrResolveResponse": {
       "description": "The results of ack/resolve for each incident",
@@ -53,7 +55,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AckOrResolveResponse"
     },
     "AckOrResolveResult": {
       "description": "The results of ack/resolve for a individual incident",
@@ -71,7 +74,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AckOrResolveResult"
     },
     "AckUser": {
       "description": "A JSON object with first/last name and email of the user that acknowledged the incident.",
@@ -86,7 +90,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AckUser"
     },
     "ActiveIncidentInfo": {
       "description": "Incidents contain the following fields (all should be considered optional)",
@@ -149,7 +154,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ActiveIncidentInfo"
     },
     "ActiveIncidentList": {
       "description": "The list of incidents in various states",
@@ -162,7 +168,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ActiveIncidentList"
     },
     "AddTeamMemberPayload": {
       "description": "The user information",
@@ -174,7 +181,8 @@
       "required": [
         "username"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AddTeamMemberPayload"
     },
     "AddTeamPayload": {
       "description": "The team information",
@@ -186,7 +194,8 @@
       "required": [
         "name"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AddTeamPayload"
     },
     "AddTeamResponse": {
       "description": "Some info about the team",
@@ -213,7 +222,8 @@
           "type": "number"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AddTeamResponse"
     },
     "AddUserPayload": {
       "description": "The user information",
@@ -246,10 +256,12 @@
         "username",
         "email"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AddUserPayload"
     },
     "AddUserResponse": {
-      "$ref": "#/definitions/V1User"
+      "$ref": "#/definitions/V1User",
+      "title": "AddUserResponse"
     },
     "AlertBatchResponse": {
       "description": "A collection of requested alerts",
@@ -270,10 +282,12 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AlertBatchResponse"
     },
     "AlertId": {
-      "type": "string"
+      "type": "string",
+      "title": "AlertId"
     },
     "AlertRequest": {
       "properties": {
@@ -284,7 +298,8 @@
       "required": [
         "alertId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AlertRequest"
     },
     "ContactDevice": {
       "properties": {
@@ -301,7 +316,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ContactDevice"
     },
     "ContactDeviceAdd": {
       "description": "The contact device",
@@ -319,7 +335,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ContactDeviceAdd"
     },
     "ContactEmailAdd": {
       "description": "The contact email",
@@ -339,7 +356,8 @@
         "label",
         "email"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ContactEmailAdd"
     },
     "ContactPhoneAdd": {
       "description": "The contact phone",
@@ -358,7 +376,8 @@
         "label",
         "phone"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ContactPhoneAdd"
     },
     "CreateBatchAlertRequestPayload": {
       "description": "A collection of IDs (uuid) for the alerts to be returned",
@@ -370,7 +389,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateBatchAlertRequestPayload"
     },
     "CreateIncidentRequest": {
       "properties": {
@@ -396,7 +416,8 @@
         "userName",
         "targets"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateIncidentRequest"
     },
     "CreatedIncident": {
       "properties": {
@@ -409,7 +430,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreatedIncident"
     },
     "DeleteUserPayload": {
       "description": "The information about what to do with the deleted user",
@@ -422,7 +444,8 @@
       "required": [
         "replacement"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteUserPayload"
     },
     "GetAlertResponse": {
       "description": "Alert details. All fields should be considered optional.",
@@ -468,7 +491,8 @@
           "type": "number"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetAlertResponse"
     },
     "IncidentInfo": {
       "description": "Incidents contain the following fields (all should be considered optional)",
@@ -537,7 +561,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "IncidentInfo"
     },
     "IncidentList": {
       "description": "The results of an incident history request",
@@ -562,7 +587,8 @@
           "type": "number"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "IncidentList"
     },
     "IncidentTarget": {
       "properties": {
@@ -583,7 +609,8 @@
         "type",
         "slug"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "IncidentTarget"
     },
     "IncidentTransition": {
       "description": "A transition of incident state",
@@ -617,7 +644,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "IncidentTransition"
     },
     "ListTeamMembersResponse": {
       "description": "A list of members for the team",
@@ -632,7 +660,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListTeamMembersResponse"
     },
     "ListTeamResponse": {
       "description": "Some info about teams in the org",
@@ -647,7 +676,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListTeamResponse"
     },
     "ListUserResponse": {
       "description": "Some info about the user",
@@ -662,7 +692,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListUserResponse"
     },
     "OnCallAndOverrides": {
       "properties": {
@@ -682,7 +713,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "OnCallAndOverrides"
     },
     "OnCallInterval": {
       "properties": {
@@ -704,7 +736,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "OnCallInterval"
     },
     "OnCallLog": {
       "properties": {
@@ -726,7 +759,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "OnCallLog"
     },
     "RelLink": {
       "properties": {
@@ -737,7 +771,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RelLink"
     },
     "RemoveTeamMemberPayload": {
       "description": "The user information",
@@ -749,7 +784,8 @@
       "required": [
         "replacement"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "RemoveTeamMemberPayload"
     },
     "TakeRequest": {
       "properties": {
@@ -764,7 +800,8 @@
         "fromUser",
         "toUser"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "TakeRequest"
     },
     "TakeResult": {
       "properties": {
@@ -772,7 +809,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TakeResult"
     },
     "TeamMember": {
       "description": "Some info about the user",
@@ -797,7 +835,8 @@
           "type": "number"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TeamMember"
     },
     "TeamScheduleOverlayResource": {
       "properties": {
@@ -818,7 +857,8 @@
           "type": "number"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TeamScheduleOverlayResource"
     },
     "TeamScheduleResource": {
       "properties": {
@@ -853,7 +893,8 @@
         "policyType",
         "rolls"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "TeamScheduleResource"
     },
     "TeamScheduleRollResource": {
       "properties": {
@@ -878,7 +919,8 @@
         "until",
         "isRoll"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "TeamScheduleRollResource"
     },
     "UserContact": {
       "properties": {
@@ -895,7 +937,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UserContact"
     },
     "UserLog": {
       "properties": {
@@ -931,7 +974,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UserLog"
     },
     "V1User": {
       "description": "Some info about the user",
@@ -962,7 +1006,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "V1User"
     }
   },
   "actions": [

@@ -65,7 +65,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "connection"
     },
     "connection_role": {
       "properties": {
@@ -91,7 +92,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "connection_role"
     },
     "data_type": {
       "properties": {
@@ -120,7 +122,8 @@
           "type": "object"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "data_type"
     },
     "flow": {
       "properties": {
@@ -161,7 +164,8 @@
           "$ref": "#/definitions/webhook"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "flow"
     },
     "namespace": {
       "properties": {
@@ -175,7 +179,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "namespace"
     },
     "observer": {
       "properties": {
@@ -198,7 +203,8 @@
           "type": "object"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "observer"
     },
     "scheduler": {
       "properties": {
@@ -218,7 +224,8 @@
           "$ref": "#/definitions/namespace"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "scheduler"
     },
     "schema": {
       "properties": {
@@ -235,7 +242,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "schema"
     },
     "translator": {
       "properties": {
@@ -278,7 +286,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "translator"
     },
     "webhook": {
       "properties": {
@@ -323,7 +332,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "webhook"
     }
   },
   "actions": [

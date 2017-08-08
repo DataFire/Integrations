@@ -92,7 +92,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Account"
     },
     "AccountsList": {
       "description": "An account feed lists Ad Exchange buyer accounts that the user has access to. Each entry in the feed corresponds to a single buyer account.",
@@ -110,7 +111,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AccountsList"
     },
     "AddOrderDealsRequest": {
       "properties": {
@@ -131,7 +133,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AddOrderDealsRequest"
     },
     "AddOrderDealsResponse": {
       "properties": {
@@ -148,7 +151,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AddOrderDealsResponse"
     },
     "AddOrderNotesRequest": {
       "properties": {
@@ -160,7 +164,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AddOrderNotesRequest"
     },
     "AddOrderNotesResponse": {
       "properties": {
@@ -171,7 +176,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AddOrderNotesResponse"
     },
     "BillingInfo": {
       "description": "The configuration data for an Ad Exchange billing info.",
@@ -198,7 +204,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BillingInfo"
     },
     "BillingInfoList": {
       "description": "A billing info feed lists Billing Info the Ad Exchange buyer account has access to. Each entry in the feed corresponds to a single billing info.",
@@ -216,7 +223,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BillingInfoList"
     },
     "Budget": {
       "description": "The configuration data for Ad Exchange RTB - Budget API.",
@@ -250,7 +258,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Budget"
     },
     "Buyer": {
       "properties": {
@@ -259,7 +268,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Buyer"
     },
     "ContactInformation": {
       "properties": {
@@ -272,7 +282,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ContactInformation"
     },
     "CreateOrdersRequest": {
       "properties": {
@@ -288,7 +299,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateOrdersRequest"
     },
     "CreateOrdersResponse": {
       "properties": {
@@ -300,7 +312,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateOrdersResponse"
     },
     "Creative": {
       "description": "A creative and its classification data.",
@@ -701,7 +714,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Creative"
     },
     "CreativeDealIds": {
       "description": "The external deal ids associated with a creative.",
@@ -735,7 +749,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreativeDealIds"
     },
     "CreativesList": {
       "description": "The creatives feed lists the active creatives for the Ad Exchange buyer accounts that the user has access to. Each entry in the feed corresponds to a single creative.",
@@ -757,7 +772,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreativesList"
     },
     "DealServingMetadata": {
       "properties": {
@@ -770,7 +786,8 @@
           "description": "Tracks which parties (if any) have paused a deal. (readonly, except via PauseResumeOrderDeals action)"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DealServingMetadata"
     },
     "DealServingMetadataDealPauseStatus": {
       "description": "Tracks which parties (if any) have paused a deal. The deal is considered paused if has_buyer_paused || has_seller_paused. Each of the has_buyer_paused or the has_seller_paused bits can be set independently.",
@@ -792,7 +809,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DealServingMetadataDealPauseStatus"
     },
     "DealTerms": {
       "properties": {
@@ -838,7 +856,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DealTerms"
     },
     "DealTermsGuaranteedFixedPriceTerms": {
       "properties": {
@@ -869,7 +888,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DealTermsGuaranteedFixedPriceTerms"
     },
     "DealTermsGuaranteedFixedPriceTermsBillingInfo": {
       "properties": {
@@ -893,7 +913,8 @@
           "description": "The original reservation price for the deal, if the currency code is different from the one used in negotiation."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DealTermsGuaranteedFixedPriceTermsBillingInfo"
     },
     "DealTermsNonGuaranteedAuctionTerms": {
       "properties": {
@@ -909,7 +930,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DealTermsNonGuaranteedAuctionTerms"
     },
     "DealTermsNonGuaranteedFixedPriceTerms": {
       "properties": {
@@ -921,7 +943,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DealTermsNonGuaranteedFixedPriceTerms"
     },
     "DealTermsRubiconNonGuaranteedTerms": {
       "properties": {
@@ -934,7 +957,8 @@
           "description": "Optional price for Rubicon standard access in the auction."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DealTermsRubiconNonGuaranteedTerms"
     },
     "DeleteOrderDealsRequest": {
       "properties": {
@@ -955,7 +979,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DeleteOrderDealsRequest"
     },
     "DeleteOrderDealsResponse": {
       "properties": {
@@ -972,7 +997,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DeleteOrderDealsResponse"
     },
     "DeliveryControl": {
       "properties": {
@@ -989,7 +1015,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DeliveryControl"
     },
     "DeliveryControlFrequencyCap": {
       "properties": {
@@ -1005,7 +1032,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DeliveryControlFrequencyCap"
     },
     "Dimension": {
       "description": "This message carries publisher provided breakdown. E.g. {dimension_type: 'COUNTRY', [{dimension_value: {id: 1, name: 'US'}}, {dimension_value: {id: 2, name: 'UK'}}]}",
@@ -1020,7 +1048,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Dimension"
     },
     "DimensionDimensionValue": {
       "description": "Value of the dimension.",
@@ -1040,7 +1069,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DimensionDimensionValue"
     },
     "EditAllOrderDealsRequest": {
       "properties": {
@@ -1065,7 +1095,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "EditAllOrderDealsRequest"
     },
     "EditAllOrderDealsResponse": {
       "properties": {
@@ -1082,7 +1113,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "EditAllOrderDealsResponse"
     },
     "GetOffersResponse": {
       "properties": {
@@ -1094,7 +1126,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetOffersResponse"
     },
     "GetOrderDealsResponse": {
       "properties": {
@@ -1106,7 +1139,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetOrderDealsResponse"
     },
     "GetOrderNotesResponse": {
       "properties": {
@@ -1118,7 +1152,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetOrderNotesResponse"
     },
     "GetOrdersResponse": {
       "properties": {
@@ -1130,7 +1165,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetOrdersResponse"
     },
     "GetPublisherProfilesByAccountIdResponse": {
       "properties": {
@@ -1142,7 +1178,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetPublisherProfilesByAccountIdResponse"
     },
     "MarketplaceDeal": {
       "description": "A proposal can contain multiple deals. A deal contains the terms and targeting information that is used for serving.",
@@ -1254,7 +1291,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "MarketplaceDeal"
     },
     "MarketplaceDealParty": {
       "properties": {
@@ -1267,7 +1305,8 @@
           "description": "The buyer/seller associated with the deal. One of buyer/seller is specified for a deal party."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "MarketplaceDealParty"
     },
     "MarketplaceLabel": {
       "properties": {
@@ -1289,7 +1328,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "MarketplaceLabel"
     },
     "MarketplaceNote": {
       "description": "A proposal is associated with a bunch of notes which may optionally be associated with a deal and/or revision number.",
@@ -1330,7 +1370,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "MarketplaceNote"
     },
     "PerformanceReport": {
       "description": "The configuration data for an Ad Exchange performance report list.",
@@ -1445,7 +1486,8 @@
           "type": "number"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PerformanceReport"
     },
     "PerformanceReportList": {
       "description": "The configuration data for an Ad Exchange performance report list.",
@@ -1463,7 +1505,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PerformanceReportList"
     },
     "PretargetingConfig": {
       "properties": {
@@ -1696,7 +1739,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PretargetingConfig"
     },
     "PretargetingConfigList": {
       "properties": {
@@ -1713,7 +1757,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PretargetingConfigList"
     },
     "Price": {
       "properties": {
@@ -1736,7 +1781,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Price"
     },
     "PricePerBuyer": {
       "description": "Used to specify pricing rules for buyers/advertisers. Each PricePerBuyer in an product can become [0,1] deals. To check if there is a PricePerBuyer for a particular buyer or buyer/advertiser pair, we look for the most specific matching rule - we first look for a rule matching the buyer and advertiser, next a rule with the buyer but an empty advertiser list, and otherwise look for a matching rule where no buyer is set.",
@@ -1754,7 +1800,8 @@
           "description": "The specified price"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PricePerBuyer"
     },
     "PrivateData": {
       "properties": {
@@ -1766,7 +1813,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PrivateData"
     },
     "Product": {
       "description": "A product is segment of inventory that a seller wishes to sell. It is associated with certain terms and targeting information which helps buyer know more about the inventory. Each field in a product can have one of the following setting:\n\n(readonly) - It is an error to try and set this field. (buyer-readonly) - Only the seller can set this field. (seller-readonly) - Only the buyer can set this field. (updatable) - The field is updatable at all times by either buyer or the seller.",
@@ -1883,7 +1931,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Product"
     },
     "Proposal": {
       "description": "Represents a proposal in the marketplace. A proposal is the unit of negotiation between a seller and a buyer and contains deals which are served. Each field in a proposal can have one of the following setting:\n\n(readonly) - It is an error to try and set this field. (buyer-readonly) - Only the seller can set this field. (seller-readonly) - Only the buyer can set this field. (updatable) - The field is updatable at all times by either buyer or the seller.",
@@ -1996,7 +2045,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Proposal"
     },
     "PublisherProfileApiProto": {
       "properties": {
@@ -2100,7 +2150,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PublisherProfileApiProto"
     },
     "PublisherProvidedForecast": {
       "description": "This message carries publisher provided forecasting information.",
@@ -2123,7 +2174,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PublisherProvidedForecast"
     },
     "Seller": {
       "properties": {
@@ -2136,7 +2188,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Seller"
     },
     "SharedTargeting": {
       "properties": {
@@ -2159,7 +2212,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SharedTargeting"
     },
     "TargetingValue": {
       "properties": {
@@ -2181,7 +2235,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TargetingValue"
     },
     "TargetingValueCreativeSize": {
       "properties": {
@@ -2205,7 +2260,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TargetingValueCreativeSize"
     },
     "TargetingValueDayPartTargeting": {
       "properties": {
@@ -2219,7 +2275,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TargetingValueDayPartTargeting"
     },
     "TargetingValueDayPartTargetingDayPart": {
       "properties": {
@@ -2243,7 +2300,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TargetingValueDayPartTargetingDayPart"
     },
     "TargetingValueSize": {
       "properties": {
@@ -2258,7 +2316,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TargetingValueSize"
     },
     "UpdatePrivateAuctionProposalRequest": {
       "properties": {
@@ -2280,7 +2339,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UpdatePrivateAuctionProposalRequest"
     }
   },
   "actions": [

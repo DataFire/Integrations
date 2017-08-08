@@ -36,7 +36,8 @@
     "Empty": {
       "description": "A generic empty message that you can re-use to avoid defining duplicated empty messages in your APIs. A typical example is to use it as the request or the response type of an API method. For instance:\nservice Foo {\n  rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);\n}\nThe JSON representation for Empty is empty JSON object {}.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "Empty"
     },
     "HttpRequest": {
       "description": "A common proto for logging HTTP requests. Only contains semantics defined by the HTTP specification. Product-specific logging information MUST be defined in a separate message.",
@@ -103,7 +104,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "HttpRequest"
     },
     "LabelDescriptor": {
       "description": "A description of a label.",
@@ -126,7 +128,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LabelDescriptor"
     },
     "ListLogEntriesRequest": {
       "description": "The parameters to ListLogEntries.",
@@ -163,7 +166,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListLogEntriesRequest"
     },
     "ListLogEntriesResponse": {
       "description": "Result returned from ListLogEntries.",
@@ -180,7 +184,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListLogEntriesResponse"
     },
     "ListLogMetricsResponse": {
       "description": "Result returned from ListLogMetrics.",
@@ -197,7 +202,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListLogMetricsResponse"
     },
     "ListLogsResponse": {
       "description": "Result returned from ListLogs.",
@@ -214,7 +220,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListLogsResponse"
     },
     "ListMonitoredResourceDescriptorsResponse": {
       "description": "Result returned from ListMonitoredResourceDescriptors.",
@@ -231,7 +238,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListMonitoredResourceDescriptorsResponse"
     },
     "ListSinksResponse": {
       "description": "Result returned from ListSinks.",
@@ -248,7 +256,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListSinksResponse"
     },
     "LogEntry": {
       "description": "An individual entry in a log.",
@@ -327,7 +336,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LogEntry"
     },
     "LogEntryOperation": {
       "description": "Additional information about a potentially long-running operation with which a log entry is associated.",
@@ -349,7 +359,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LogEntryOperation"
     },
     "LogEntrySourceLocation": {
       "description": "Additional information about the source code location that produced the log entry.",
@@ -368,7 +379,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LogEntrySourceLocation"
     },
     "LogLine": {
       "description": "Application log line emitted while processing a request.",
@@ -402,7 +414,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LogLine"
     },
     "LogMetric": {
       "description": "Describes a logs-based metric. The value of the metric is the number of log entries that match a logs filter in a given time interval.",
@@ -428,7 +441,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LogMetric"
     },
     "LogSink": {
       "description": "Describes a sink used to export log entries to one of the following destinations in any project: a Cloud Storage bucket, a BigQuery dataset, or a Cloud Pub/Sub topic. A logs filter controls which log entries are exported. The sink must be created within a project, organization, billing account, or folder.",
@@ -473,7 +487,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LogSink"
     },
     "MonitoredResource": {
       "description": "An object representing a resource that can be used for monitoring, logging, billing, or other purposes. Examples include virtual machine instances, databases, and storage devices such as disks. The type field identifies a MonitoredResourceDescriptor object that describes the resource's schema. Information in the labels field identifies the actual resource and its attributes according to the schema. For example, a particular Compute Engine VM instance could be represented by the following object, because the MonitoredResourceDescriptor for \"gce_instance\" has labels \"instance_id\" and \"zone\":\n{ \"type\": \"gce_instance\",\n  \"labels\": { \"instance_id\": \"12345678901234\",\n              \"zone\": \"us-central1-a\" }}\n",
@@ -490,7 +505,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "MonitoredResource"
     },
     "MonitoredResourceDescriptor": {
       "description": "An object that describes the schema of a MonitoredResource object using a type name and a set of labels. For example, the monitored resource descriptor for Google Compute Engine VM instances has a type of \"gce_instance\" and specifies the use of the labels \"instance_id\" and \"zone\" to identify particular VM instances.Different APIs can support different monitored resource types. APIs generally provide a list method that returns the monitored resource descriptors used by the API.",
@@ -519,7 +535,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "MonitoredResourceDescriptor"
     },
     "RequestLog": {
       "description": "Complete log information about a single HTTP request to an App Engine application.",
@@ -668,7 +685,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RequestLog"
     },
     "SourceLocation": {
       "description": "Specifies a location in a source code file.",
@@ -687,7 +705,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SourceLocation"
     },
     "SourceReference": {
       "description": "A reference to a particular snapshot of the source tree used to build and deploy an application.",
@@ -701,7 +720,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SourceReference"
     },
     "WriteLogEntriesRequest": {
       "description": "The parameters to WriteLogEntries.",
@@ -733,12 +753,14 @@
           "description": "Optional. A default monitored resource object that is assigned to all log entries in entries that do not specify a value for resource. Example:\n{ \"type\": \"gce_instance\",\n  \"labels\": {\n    \"zone\": \"us-central1-a\", \"instance_id\": \"00000000000000000000\" }}\nSee LogEntry."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "WriteLogEntriesRequest"
     },
     "WriteLogEntriesResponse": {
       "description": "Result returned from WriteLogEntries. empty",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "WriteLogEntriesResponse"
     }
   },
   "actions": [

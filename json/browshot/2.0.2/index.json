@@ -67,7 +67,8 @@
         "private_instances",
         "hosting_browshot"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "Account"
     },
     "AccountError": {
       "properties": {
@@ -80,7 +81,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AccountError"
     },
     "Batch": {
       "properties": {
@@ -126,7 +128,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Batch"
     },
     "BatchError": {
       "properties": {
@@ -139,7 +142,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BatchError"
     },
     "Browser": {
       "properties": {
@@ -170,7 +174,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Browser"
     },
     "BrowserError": {
       "properties": {
@@ -183,7 +188,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BrowserError"
     },
     "BrowserList": {
       "additionalProperties": {
@@ -194,7 +200,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BrowserList"
     },
     "Instance": {
       "properties": {
@@ -236,7 +243,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Instance"
     },
     "InstanceError": {
       "properties": {
@@ -249,7 +257,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InstanceError"
     },
     "InstanceList": {
       "properties": {
@@ -272,7 +281,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InstanceList"
     },
     "Screenshot": {
       "properties": {
@@ -382,7 +392,8 @@
         "url",
         "instance_id"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "Screenshot"
     },
     "ScreenshotError": {
       "properties": {
@@ -403,7 +414,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ScreenshotError"
     },
     "ScreenshotHost": {
       "properties": {
@@ -425,7 +437,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ScreenshotHost"
     },
     "ScreenshotInfoError": {
       "properties": {
@@ -442,7 +455,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ScreenshotInfoError"
     },
     "ScreenshotList": {
       "additionalProperties": {
@@ -453,7 +467,8 @@
           "type": "number"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ScreenshotList"
     },
     "ScreenshotShort": {
       "properties": {
@@ -470,7 +485,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ScreenshotShort"
     }
   },
   "actions": [

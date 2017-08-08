@@ -17,7 +17,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Checksum"
     },
     "ClientInfo": {
       "description": "The client metadata associated with Safe Browsing API requests.",
@@ -31,7 +32,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ClientInfo"
     },
     "Constraints": {
       "description": "The constraints for this update.",
@@ -63,7 +65,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Constraints"
     },
     "FetchThreatListUpdatesRequest": {
       "description": "Describes a Safe Browsing API update request. Clients can request updates for\nmultiple lists in a single request.\nNOTE: Field index 2 is unused.\nNEXT: 5",
@@ -80,7 +83,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "FetchThreatListUpdatesRequest"
     },
     "FetchThreatListUpdatesResponse": {
       "properties": {
@@ -97,7 +101,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "FetchThreatListUpdatesResponse"
     },
     "FindFullHashesRequest": {
       "description": "Request to return full hashes matched by the provided hash prefixes.",
@@ -123,7 +128,8 @@
           "description": "The lists and hashes to be checked."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "FindFullHashesRequest"
     },
     "FindFullHashesResponse": {
       "properties": {
@@ -145,7 +151,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "FindFullHashesResponse"
     },
     "FindThreatMatchesRequest": {
       "description": "Request to check entries against lists.",
@@ -159,7 +166,8 @@
           "description": "The lists and entries to be checked for matches."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "FindThreatMatchesRequest"
     },
     "FindThreatMatchesResponse": {
       "properties": {
@@ -171,7 +179,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "FindThreatMatchesResponse"
     },
     "ListThreatListsResponse": {
       "properties": {
@@ -183,7 +192,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListThreatListsResponse"
     },
     "ListUpdateRequest": {
       "description": "A single list update request.",
@@ -237,7 +247,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListUpdateRequest"
     },
     "ListUpdateResponse": {
       "description": "An update to an individual list.",
@@ -314,7 +325,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListUpdateResponse"
     },
     "MetadataEntry": {
       "description": "A single metadata entry.",
@@ -330,7 +342,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "MetadataEntry"
     },
     "RawHashes": {
       "description": "The uncompressed threat entries in hash format of a particular prefix length.\nHashes can be anywhere from 4 to 32 bytes in size. A large majority are 4\nbytes, but some hashes are lengthened if they collide with the hash of a\npopular URL.\n\nUsed for sending ThreatEntrySet to clients that do not support compression,\nor when sending non-4-byte hashes to clients that do support compression.",
@@ -346,7 +359,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RawHashes"
     },
     "RawIndices": {
       "description": "A set of raw indices to remove from a local list.",
@@ -360,7 +374,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RawIndices"
     },
     "RiceDeltaEncoding": {
       "description": "The Rice-Golomb encoded data. Used for sending compressed 4-byte hashes or\ncompressed removal indices.",
@@ -386,7 +401,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RiceDeltaEncoding"
     },
     "ThreatEntry": {
       "description": "An individual threat; for example, a malicious URL or its hash\nrepresentation. Only one of these fields should be set.",
@@ -406,7 +422,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ThreatEntry"
     },
     "ThreatEntryMetadata": {
       "description": "The metadata associated with a specific threat entry. The client is expected\nto know the metadata key/value pairs associated with each threat type.",
@@ -419,7 +436,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ThreatEntryMetadata"
     },
     "ThreatEntrySet": {
       "description": "A set of threats that should be added or removed from a client's local\ndatabase.",
@@ -450,7 +468,8 @@
           "description": "The encoded local, lexicographically-sorted list indices, using a\nGolomb-Rice encoding. Used for sending compressed removal indices. The\nremoval indices (uint32) are sorted in ascending order, then delta encoded\nand stored as encoded_data."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ThreatEntrySet"
     },
     "ThreatInfo": {
       "description": "The information regarding one or more threats that a client submits when\nchecking for matches in threat lists.",
@@ -511,7 +530,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ThreatInfo"
     },
     "ThreatListDescriptor": {
       "description": "Describes an individual threat list. A list is defined by three parameters:\nthe type of threat posed, the type of platform targeted by the threat, and\nthe type of entries in the list.",
@@ -556,7 +576,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ThreatListDescriptor"
     },
     "ThreatMatch": {
       "description": "A match when checking a threat entry in the Safe Browsing threat lists.",
@@ -614,7 +635,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ThreatMatch"
     }
   },
   "actions": [

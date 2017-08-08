@@ -39,7 +39,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ErrorResponse"
     },
     "LocalizableString": {
       "description": "The localizable string class.",
@@ -55,7 +56,8 @@
       },
       "required": [
         "value"
-      ]
+      ],
+      "title": "LocalizableString"
     },
     "UsageMetric": {
       "description": "Usage Metric data.",
@@ -92,7 +94,8 @@
           "description": "the unit for the usage metric.",
           "type": "string"
         }
-      }
+      },
+      "title": "UsageMetric"
     },
     "UsageMetricCollection": {
       "description": "Represents collection of usage metrics.",
@@ -107,7 +110,8 @@
       },
       "required": [
         "value"
-      ]
+      ],
+      "title": "UsageMetricCollection"
     }
   },
   "actions": [

@@ -41,7 +41,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Amount"
     },
     "BestSellingProductResponse": {
       "description": "The type that defines the fields for the best selling product information.",
@@ -61,7 +62,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BestSellingProductResponse"
     },
     "Error": {
       "description": "The type that defines the fields that can be returned in an error.",
@@ -112,7 +114,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Error"
     },
     "ErrorParameter": {
       "description": "An array of name/value pairs that provide more details regarding error condition.",
@@ -126,7 +129,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ErrorParameter"
     },
     "Image": {
       "description": "Type the defines the details of an image, such as size and URL. Currently only <b> imageUrl</b> is getting populated. The <b> height</b> and <b> width</b> were added for future use.",
@@ -144,7 +148,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Image"
     },
     "MarketPriceDetail": {
       "description": "The type that defines the fields for details about the product, such as condition and estimated start price.",
@@ -164,7 +169,8 @@
           "$ref": "#/definitions/Amount"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "MarketPriceDetail"
     },
     "MerchandisedProduct": {
       "description": "The type that defines the fields for product information, including price, condition, ratings, etc.",
@@ -207,7 +213,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "MerchandisedProduct"
     },
     "RatingAspect": {
       "description": "The type that defines the fields for the product aspect ratings.",
@@ -232,7 +239,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RatingAspect"
     },
     "RatingAspectDistribution": {
       "description": "The type that defines the field for the aspect rating details, such as the aspect rating value, usually TRUE or FALSE and the user count and percentage.",
@@ -250,7 +258,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RatingAspectDistribution"
     }
   },
   "actions": [

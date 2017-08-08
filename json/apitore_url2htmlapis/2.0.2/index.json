@@ -38,7 +38,8 @@
         "startTime",
         "text"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "TextResponseEntity"
     }
   },
   "actions": [

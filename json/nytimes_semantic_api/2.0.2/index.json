@@ -239,7 +239,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Concept"
     },
     "ConceptRelation": {
       "properties": {
@@ -268,7 +269,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ConceptRelation"
     }
   },
   "actions": [

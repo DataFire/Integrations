@@ -47,7 +47,8 @@
           "description": "Secondary access key.",
           "type": "string"
         }
-      }
+      },
+      "title": "AccessInformationContract"
     },
     "AccessInformationUpdateParameters": {
       "description": "Tenant access information update parameters of the API Management service.",
@@ -59,7 +60,8 @@
       },
       "required": [
         "enabled"
-      ]
+      ],
+      "title": "AccessInformationUpdateParameters"
     },
     "ApiCollection": {
       "description": "Paged Api list representation.",
@@ -80,7 +82,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "ApiCollection"
     },
     "ApiContract": {
       "description": "API details.",
@@ -153,7 +156,8 @@
         "serviceUrl",
         "path",
         "protocols"
-      ]
+      ],
+      "title": "ApiContract"
     },
     "ApiExportResult": {
       "description": "The response model for the export API output operation.",
@@ -181,7 +185,8 @@
             "name": "HttpStatusCode"
           }
         }
-      }
+      },
+      "title": "ApiExportResult"
     },
     "AuthenticationSettingsContract": {
       "description": "API Authentication Settings.",
@@ -189,7 +194,8 @@
         "oAuth2": {
           "$ref": "#/definitions/OAuth2AuthenticationSettingsContract"
         }
-      }
+      },
+      "title": "AuthenticationSettingsContract"
     },
     "AuthorizationServerCollection": {
       "description": "Paged OAuth2 Authorization Servers list representation.",
@@ -210,7 +216,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "AuthorizationServerCollection"
     },
     "BackendCollection": {
       "description": "Paged Backend list representation.",
@@ -231,7 +238,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "BackendCollection"
     },
     "BackendContract": {
       "description": "Parameters supplied to the Create Backend operation.",
@@ -250,7 +258,8 @@
       },
       "required": [
         "host"
-      ]
+      ],
+      "title": "BackendContract"
     },
     "BackendResponse": {
       "allOf": [
@@ -265,7 +274,8 @@
           "readOnly": true,
           "type": "string"
         }
-      }
+      },
+      "title": "BackendResponse"
     },
     "BackendUpdateParameters": {
       "description": "Parameters supplied to the Update Backend operation.",
@@ -281,7 +291,8 @@
           "description": "Flag indicating whether SSL certificate chain validation should be skipped when using self-signed certificates for this backend host.",
           "type": "boolean"
         }
-      }
+      },
+      "title": "BackendUpdateParameters"
     },
     "CertificateCollection": {
       "description": "Paged Certificates list representation.",
@@ -302,7 +313,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "CertificateCollection"
     },
     "CertificateContract": {
       "description": "Certificate details.",
@@ -330,7 +342,8 @@
         "subject",
         "thumbprint",
         "expirationDate"
-      ]
+      ],
+      "title": "CertificateContract"
     },
     "CertificateCreateOrUpdateParameters": {
       "description": "Parameters supplied to the CreateOrUpdate certificate operation.",
@@ -347,7 +360,8 @@
       "required": [
         "data",
         "password"
-      ]
+      ],
+      "title": "CertificateCreateOrUpdateParameters"
     },
     "DeployConfigurationParameters": {
       "description": "Parameters supplied to the Deploy Configuration operation.",
@@ -363,7 +377,8 @@
       },
       "required": [
         "branch"
-      ]
+      ],
+      "title": "DeployConfigurationParameters"
     },
     "ErrorBodyContract": {
       "description": "Error Body contract.",
@@ -383,7 +398,8 @@
           "description": "Human-readable representation of the error.",
           "type": "string"
         }
-      }
+      },
+      "title": "ErrorBodyContract"
     },
     "ErrorFieldContract": {
       "description": "Error Field contract.",
@@ -400,7 +416,8 @@
           "description": "Property name.",
           "type": "string"
         }
-      }
+      },
+      "title": "ErrorFieldContract"
     },
     "GenerateSsoUrlResult": {
       "description": "Generate SSO Url operations response details.",
@@ -409,7 +426,8 @@
           "description": "Redirect Url containing the SSO URL value.",
           "type": "string"
         }
-      }
+      },
+      "title": "GenerateSsoUrlResult"
     },
     "GroupCollection": {
       "description": "Paged Group list representation.",
@@ -430,7 +448,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "GroupCollection"
     },
     "GroupContract": {
       "description": "Developer group.",
@@ -478,7 +497,8 @@
       },
       "required": [
         "name"
-      ]
+      ],
+      "title": "GroupContract"
     },
     "GroupCreateParameters": {
       "description": "Parameters supplied to the Create Group operation.",
@@ -513,7 +533,8 @@
       },
       "required": [
         "name"
-      ]
+      ],
+      "title": "GroupCreateParameters"
     },
     "GroupUpdateParameters": {
       "description": "Parameters supplied to the Update Group operation.",
@@ -545,7 +566,8 @@
             "name": "GroupTypeContract"
           }
         }
-      }
+      },
+      "title": "GroupUpdateParameters"
     },
     "IdentityProviderContract": {
       "description": "The external Identity Providers like Facebook, Google, Microsoft, Twitter or Azure Active Directory which can be used to enable access to the API Management service developer portal for all users.",
@@ -590,7 +612,8 @@
       "required": [
         "clientId",
         "clientSecret"
-      ]
+      ],
+      "title": "IdentityProviderContract"
     },
     "IdentityProviderList": {
       "description": "List of all the Identity Providers configured on the service instance.",
@@ -602,7 +625,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "IdentityProviderList"
     },
     "IdentityProviderUpdateParameters": {
       "description": "Parameters supplied to the Update Identity Provider operation.",
@@ -625,7 +649,8 @@
           "minLength": 1,
           "type": "string"
         }
-      }
+      },
+      "title": "IdentityProviderUpdateParameters"
     },
     "LoggerCollection": {
       "description": "Paged Logger list representation.",
@@ -646,7 +671,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "LoggerCollection"
     },
     "LoggerCreateParameters": {
       "description": "Parameters supplied to the Create Logger operation.",
@@ -685,7 +711,8 @@
       "required": [
         "type",
         "credentials"
-      ]
+      ],
+      "title": "LoggerCreateParameters"
     },
     "LoggerResponse": {
       "description": "The Logger entity in API Management represents an event sink that you can use to log API Management events. Currently the Logger entity supports logging API Management events to Azure Event Hubs.",
@@ -731,7 +758,8 @@
       "required": [
         "type",
         "credentials"
-      ]
+      ],
+      "title": "LoggerResponse"
     },
     "LoggerUpdateParameters": {
       "description": "Parameters supplied to the Update Logger operation.",
@@ -765,7 +793,8 @@
       },
       "required": [
         "type"
-      ]
+      ],
+      "title": "LoggerUpdateParameters"
     },
     "OAuth2AuthenticationSettingsContract": {
       "description": "API OAuth2 Authentication settings details.",
@@ -778,7 +807,8 @@
           "description": "operations scope.",
           "type": "string"
         }
-      }
+      },
+      "title": "OAuth2AuthenticationSettingsContract"
     },
     "OAuth2AuthorizationServerContract": {
       "description": "External OAuth authorization server settings.",
@@ -954,7 +984,8 @@
         "authorizationEndpoint",
         "clientId",
         "grantTypes"
-      ]
+      ],
+      "title": "OAuth2AuthorizationServerContract"
     },
     "OAuth2AuthorizationServerUpdateContract": {
       "description": "External OAuth authorization server Update settings contract.",
@@ -1095,7 +1126,8 @@
           },
           "type": "string"
         }
-      }
+      },
+      "title": "OAuth2AuthorizationServerUpdateContract"
     },
     "OpenIdConnectProviderCollection": {
       "description": "Paged OpenIdProviders list representation.",
@@ -1116,7 +1148,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "OpenIdConnectProviderCollection"
     },
     "OpenidConnectProviderContract": {
       "description": "OpenID Connect Providers Contract.",
@@ -1151,7 +1184,8 @@
         "name",
         "metadataEndpoint",
         "clientId"
-      ]
+      ],
+      "title": "OpenidConnectProviderContract"
     },
     "OpenidConnectProviderCreateContract": {
       "description": "Parameters supplied to the Create OpenID Connect Provider operation.",
@@ -1182,7 +1216,8 @@
         "name",
         "metadataEndpoint",
         "clientId"
-      ]
+      ],
+      "title": "OpenidConnectProviderCreateContract"
     },
     "OpenidConnectProviderUpdateContract": {
       "description": "Parameters supplied to the Update OpenID Connect Provider operation.",
@@ -1208,7 +1243,8 @@
           "maxLength": 50,
           "type": "string"
         }
-      }
+      },
+      "title": "OpenidConnectProviderUpdateContract"
     },
     "OperationCollection": {
       "description": "Paged Operation list representation.",
@@ -1229,7 +1265,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "OperationCollection"
     },
     "OperationContract": {
       "description": "Api Operation details.",
@@ -1287,7 +1324,8 @@
         "name",
         "method",
         "urlTemplate"
-      ]
+      ],
+      "title": "OperationContract"
     },
     "OperationResultContract": {
       "description": "Operation Result.",
@@ -1327,7 +1365,8 @@
           "format": "date-time",
           "type": "string"
         }
-      }
+      },
+      "title": "OperationResultContract"
     },
     "ParameterContract": {
       "description": "Operation parameters details.",
@@ -1363,7 +1402,8 @@
       "required": [
         "name",
         "type"
-      ]
+      ],
+      "title": "ParameterContract"
     },
     "PatchParameters": {
       "description": "Parameters supplied to the Patch operations.",
@@ -1375,7 +1415,8 @@
       },
       "required": [
         "RawJson"
-      ]
+      ],
+      "title": "PatchParameters"
     },
     "PolicySnippetContract": {
       "description": "Policy snippet.",
@@ -1411,7 +1452,8 @@
           "readOnly": true,
           "type": "string"
         }
-      }
+      },
+      "title": "PolicySnippetContract"
     },
     "ProductCollection": {
       "description": "Paged Products list representation.",
@@ -1432,7 +1474,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "ProductCollection"
     },
     "ProductContract": {
       "description": "Product profile.",
@@ -1488,7 +1531,8 @@
       },
       "required": [
         "name"
-      ]
+      ],
+      "title": "ProductContract"
     },
     "ProductUpdateParameters": {
       "description": "Parameters supplied to the CreateOrUpdate Product operation.",
@@ -1534,7 +1578,8 @@
           "description": "Product terms and conditions. Developer will have to accept these terms before he's allowed to call product API.",
           "type": "string"
         }
-      }
+      },
+      "title": "ProductUpdateParameters"
     },
     "PropertyCollection": {
       "description": "Paged Property list representation.",
@@ -1555,7 +1600,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "PropertyCollection"
     },
     "PropertyContract": {
       "description": "Property details.",
@@ -1594,7 +1640,8 @@
       "required": [
         "name",
         "value"
-      ]
+      ],
+      "title": "PropertyContract"
     },
     "PropertyCreateParameters": {
       "description": "Parameters supplied to the Create Property operation.",
@@ -1628,7 +1675,8 @@
       "required": [
         "name",
         "value"
-      ]
+      ],
+      "title": "PropertyCreateParameters"
     },
     "PropertyUpdateParameters": {
       "description": "Parameters supplied to the Update Property operation.",
@@ -1658,7 +1706,8 @@
           "minLength": 1,
           "type": "string"
         }
-      }
+      },
+      "title": "PropertyUpdateParameters"
     },
     "QuotaCounterCollection": {
       "description": "Paged Quota Counter list representation.",
@@ -1679,7 +1728,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "QuotaCounterCollection"
     },
     "QuotaCounterContract": {
       "allOf": [
@@ -1715,7 +1765,8 @@
         "periodKey",
         "periodStartTime",
         "periodEndTime"
-      ]
+      ],
+      "title": "QuotaCounterContract"
     },
     "QuotaCounterValueContract": {
       "description": "Quota counter value details.",
@@ -1730,7 +1781,8 @@
           "format": "double",
           "type": "number"
         }
-      }
+      },
+      "title": "QuotaCounterValueContract"
     },
     "RegionContract": {
       "description": "Region profile.",
@@ -1747,7 +1799,8 @@
       "required": [
         "name",
         "isMasterRegion"
-      ]
+      ],
+      "title": "RegionContract"
     },
     "RegionListResult": {
       "description": "Lists Regions operation response details.",
@@ -1759,7 +1812,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "RegionListResult"
     },
     "ReportCollection": {
       "description": "Paged Report records list representation.",
@@ -1780,7 +1834,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "ReportCollection"
     },
     "ReportRecordContract": {
       "description": "Report data.",
@@ -1907,7 +1962,8 @@
           "description": "Zip code to which this record data is related.",
           "type": "string"
         }
-      }
+      },
+      "title": "ReportRecordContract"
     },
     "RepresentationContract": {
       "description": "Operation request/response representation details.",
@@ -1923,7 +1979,8 @@
       },
       "required": [
         "contentType"
-      ]
+      ],
+      "title": "RepresentationContract"
     },
     "RequestContract": {
       "description": "Operation request details.",
@@ -1953,7 +2010,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "RequestContract"
     },
     "ResultContract": {
       "description": "Operation response details.",
@@ -1979,7 +2037,8 @@
       },
       "required": [
         "statusCode"
-      ]
+      ],
+      "title": "ResultContract"
     },
     "SaveConfigurationParameter": {
       "description": "Parameters supplied to the Save Tenant Configuration operation.",
@@ -1995,7 +2054,8 @@
       },
       "required": [
         "branch"
-      ]
+      ],
+      "title": "SaveConfigurationParameter"
     },
     "SubscriptionCollection": {
       "description": "Paged Subsctions list representation.",
@@ -2016,7 +2076,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "SubscriptionCollection"
     },
     "SubscriptionContract": {
       "description": "Subscription details.",
@@ -2098,7 +2159,8 @@
           "description": "The user resource identifier of the subscription owner. The value is a valid relative URL in the format of /users/{uid} where {uid} is a user identifier.",
           "type": "string"
         }
-      }
+      },
+      "title": "SubscriptionContract"
     },
     "SubscriptionCreateParameters": {
       "description": "Parameters supplied to the Create subscription operation.",
@@ -2150,7 +2212,8 @@
         "userId",
         "productId",
         "name"
-      ]
+      ],
+      "title": "SubscriptionCreateParameters"
     },
     "SubscriptionKeyParameterNamesContract": {
       "description": "Subscription key parameter names details.",
@@ -2169,7 +2232,8 @@
           "description": "Subscription key query string parameter name.",
           "type": "string"
         }
-      }
+      },
+      "title": "SubscriptionKeyParameterNamesContract"
     },
     "SubscriptionUpdateParameters": {
       "description": "Parameters supplied to the Update subscription operation.",
@@ -2223,7 +2287,8 @@
           "description": "User identifier path: /users/{uid}",
           "type": "string"
         }
-      }
+      },
+      "title": "SubscriptionUpdateParameters"
     },
     "TenantConfigurationSyncStateContract": {
       "description": "Tenant Configuration Synchronization State.",
@@ -2258,7 +2323,8 @@
           "format": "date-time",
           "type": "string"
         }
-      }
+      },
+      "title": "TenantConfigurationSyncStateContract"
     },
     "TenantLongRunningOperationResult": {
       "description": "A standard service response for long running tenant operations.",
@@ -2303,7 +2369,8 @@
             "name": "HttpStatusCode"
           }
         }
-      }
+      },
+      "title": "TenantLongRunningOperationResult"
     },
     "TokenBodyParameterContract": {
       "description": "OAuth acquire token request body parameter (www-url-form-encoded).",
@@ -2320,7 +2387,8 @@
       "required": [
         "name",
         "value"
-      ]
+      ],
+      "title": "TokenBodyParameterContract"
     },
     "UserCollection": {
       "description": "Paged Users list representation.",
@@ -2341,7 +2409,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "UserCollection"
     },
     "UserContract": {
       "description": "User profile.",
@@ -2391,7 +2460,8 @@
             "name": "UserStateContract"
           }
         }
-      }
+      },
+      "title": "UserContract"
     },
     "UserCreateParameters": {
       "description": "Parameters supplied to the Create User operation.",
@@ -2441,7 +2511,8 @@
         "password",
         "firstName",
         "lastName"
-      ]
+      ],
+      "title": "UserCreateParameters"
     },
     "UserIdentityContract": {
       "description": "User identity details.",
@@ -2454,7 +2525,8 @@
           "description": "Identity provider name.",
           "type": "string"
         }
-      }
+      },
+      "title": "UserIdentityContract"
     },
     "UserUpdateParameters": {
       "description": "Parameters supplied to the Update User operation.",
@@ -2495,7 +2567,8 @@
             "name": "UserStateContract"
           }
         }
-      }
+      },
+      "title": "UserUpdateParameters"
     }
   },
   "actions": [

@@ -212,7 +212,8 @@
       "type": "object",
       "xml": {
         "name": "Case"
-      }
+      },
+      "title": "crs0_Cases"
     },
     "crs0_MapData": {
       "description": "Data container providing locational information for each case.",
@@ -262,7 +263,8 @@
         "NAME",
         "PUV"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "crs0_MapData"
     },
     "crs0_MapOutput": {
       "description": "Data container for visualizing case information.",
@@ -299,7 +301,8 @@
         "PopUpBaseURL",
         "MapData"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "crs0_MapOutput"
     },
     "crs1_CaseInformation": {
       "description": "The basic information section contains information that identifies the action and some key descriptive variables, such as case status and case type.",
@@ -458,7 +461,8 @@
       "type": "object",
       "xml": {
         "name": "CaseInformation"
-      }
+      },
+      "title": "crs1_CaseInformation"
     },
     "crs1_CaseMilestones": {
       "description": "The major milestone events tracked for the enforcement action.",
@@ -482,7 +486,8 @@
       "type": "object",
       "xml": {
         "name": "CaseMilestone"
-      }
+      },
+      "title": "crs1_CaseMilestones"
     },
     "crs1_Citations": {
       "description": "The corresponding regulation in the Code of Federal Regulations (CFR) or U.S. Code (U.S.C.) associated with the enforcement action.",
@@ -514,7 +519,8 @@
       "type": "object",
       "xml": {
         "name": "Citation"
-      }
+      },
+      "title": "crs1_Citations"
     },
     "crs1_ComplianceSchedules": {
       "description": "This section provides compliance schedule milestone activity information for a subset of EPA judicial consent decrees with compliance schedules.",
@@ -566,7 +572,8 @@
       "type": "object",
       "xml": {
         "name": "ComplianceSchedule"
-      }
+      },
+      "title": "crs1_ComplianceSchedules"
     },
     "crs1_ComplyingActions": {
       "description": "For civil enforcement actions, the value of the costs incurred by the defendant/respondent to attain compliance with the law and restore the environment. This value does not include penalties, cost recovery, or costs associated with SEPs.",
@@ -605,7 +612,8 @@
       "type": "object",
       "xml": {
         "name": "ComplyingAction"
-      }
+      },
+      "title": "crs1_ComplyingActions"
     },
     "crs1_Defendants": {
       "description": "This section lists each defendant's name and whether the defendant was named in the complaint and/or in the settlement.",
@@ -637,7 +645,8 @@
       "type": "object",
       "xml": {
         "name": "Defendant"
-      }
+      },
+      "title": "crs1_Defendants"
     },
     "crs1_EnforcementConclusions": {
       "description": "This section contains information about the conclusion(s) of the civil enforcement case, where it resulted in an order, consent decree, or other enforceable settlement.",
@@ -776,7 +785,8 @@
       "type": "object",
       "xml": {
         "name": "EnforcementConclusion"
-      }
+      },
+      "title": "crs1_EnforcementConclusions"
     },
     "crs1_Facilities": {
       "description": "This section provides detailed facility and address information on all of the facilities associated with the civil enforcement case.",
@@ -842,7 +852,8 @@
       "type": "object",
       "xml": {
         "name": "Facility"
-      }
+      },
+      "title": "crs1_Facilities"
     },
     "crs1_FinalOrderStatuses": {
       "description": "This section provides the compliance status for a subset of EPA judicial consent decrees with compliance schedules requiring more than three years to complete.",
@@ -884,7 +895,8 @@
       "type": "object",
       "xml": {
         "name": "FinalOrderStatus"
-      }
+      },
+      "title": "crs1_FinalOrderStatuses"
     },
     "crs1_LawsAndSections": {
       "description": "Identifies the statute/law and sections cited in the enforcement action.",
@@ -916,7 +928,8 @@
       "type": "object",
       "xml": {
         "name": "LawAndSections"
-      }
+      },
+      "title": "crs1_LawsAndSections"
     },
     "crs1_PollutantReductions": {
       "description": "This section provides information relating complying actions and SEPs to their estimated or actual environmental impact on pollutant reduction.",
@@ -980,7 +993,8 @@
       "type": "object",
       "xml": {
         "name": "PollutantReduction"
-      }
+      },
+      "title": "crs1_PollutantReductions"
     },
     "crs1_Pollutants": {
       "description": "The common name identifying the pollutant, waste material, substance, or chemical reduced.",
@@ -1004,7 +1018,8 @@
       "type": "object",
       "xml": {
         "name": "Pollutant"
-      }
+      },
+      "title": "crs1_Pollutants"
     },
     "crs1_ProgramLinks": {
       "description": "Crosswalk between programs and facilities (identified by FRS ID).",
@@ -1036,7 +1051,8 @@
       "type": "object",
       "xml": {
         "name": "ProgramLink"
-      }
+      },
+      "title": "crs1_ProgramLinks"
     },
     "crs1_RelatedActivities": {
       "description": "This section provides an Activity Type description and date for other ICIS activities (e.g., inspections, or compliance assistance) that are linked to the enforcement action.",
@@ -1059,7 +1075,8 @@
       "type": "object",
       "xml": {
         "name": "RelatedActivity"
-      }
+      },
+      "title": "crs1_RelatedActivities"
     },
     "crs1_Results": {
       "description": "The data returned by the service call.",
@@ -1151,7 +1168,8 @@
         "RelatedActivities",
         "EnforcementConclusions"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "crs1_Results"
     },
     "crs1_SupplementalEnvironmentalProjects": {
       "description": "As part of a settlement, a defendant may voluntarily agree to undertake an environmentally beneficial project (Supplement Environmental Project) related to the violation in exchange for mitigation of the penalty to be paid. It does not include activities a defendant must take to return to compliance with the law. A single settlement may have multiple SEPs.",
@@ -1192,7 +1210,8 @@
       "type": "object",
       "xml": {
         "name": "SupplementalEnvironmentalProject"
-      }
+      },
+      "title": "crs1_SupplementalEnvironmentalProjects"
     },
     "crs2_Results": {
       "description": "The data returned by the service call.",
@@ -1271,7 +1290,8 @@
         "QueryID",
         "PageNo"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "crs2_Results"
     },
     "crs3_CRDefendants": {
       "description": "Provides identifying information about the defendants and courts involved in the criminal enforcement case.",
@@ -1317,7 +1337,8 @@
       "type": "object",
       "xml": {
         "name": "CRDefendants"
-      }
+      },
+      "title": "crs3_CRDefendants"
     },
     "crs3_CRDetails": {
       "description": "A list of the violation(s), environmental problem(s), and a description of the cause of action organized by date of occurrence. The case details walk through each step of the case activities and displayed the date on which each occurred.",
@@ -1347,7 +1368,8 @@
       "type": "object",
       "xml": {
         "name": "CRDetails"
-      }
+      },
+      "title": "crs3_CRDetails"
     },
     "crs3_CaseInformation": {
       "description": "The basic information section contains information that identifies the action and some key descriptive variables, such as case status and case type.",
@@ -1391,7 +1413,8 @@
       "type": "object",
       "xml": {
         "name": "CRCaseInformation"
-      }
+      },
+      "title": "crs3_CaseInformation"
     },
     "crs3_Locations": {
       "description": "This section provides geographic locational information for the criminal activity.",
@@ -1451,7 +1474,8 @@
       "type": "object",
       "xml": {
         "name": "Locations"
-      }
+      },
+      "title": "crs3_Locations"
     },
     "crs3_Results": {
       "description": "The data returned by the service call.",
@@ -1494,7 +1518,8 @@
         "CRDetails",
         "Locations"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "crs3_Results"
     },
     "crs5_Results": {
       "description": "The data returned by the service call.",
@@ -1539,7 +1564,8 @@
         "PageNo",
         "Cases"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "crs5_Results"
     },
     "met_Results": {
       "description": "Results Object",
@@ -1561,7 +1587,8 @@
       "required": [
         "Message"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "met_Results"
     },
     "met_ResultsColumns": {
       "description": "Results Column Object",
@@ -1604,7 +1631,8 @@
         "ObjectName",
         "Description"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "met_ResultsColumns"
     },
     "rlk0_LuValues": {
       "description": "Lookup Values",
@@ -1624,7 +1652,8 @@
         "ValueCode",
         "ValueDescription"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "rlk0_LuValues"
     },
     "rlk1_Results": {
       "description": "Results Object",
@@ -1645,7 +1674,8 @@
       "required": [
         "Message"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "rlk1_Results"
     }
   },
   "actions": [

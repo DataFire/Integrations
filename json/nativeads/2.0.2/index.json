@@ -16,7 +16,8 @@
         "token": {
           "type": "string"
         }
-      }
+      },
+      "title": "authResponse"
     },
     "modelError": {
       "properties": {
@@ -29,7 +30,8 @@
         "success": {
           "type": "boolean"
         }
-      }
+      },
+      "title": "modelError"
     },
     "reportsDailyItem": {
       "properties": {
@@ -57,7 +59,8 @@
         "rpm": {
           "type": "string"
         }
-      }
+      },
+      "title": "reportsDailyItem"
     },
     "reportsDailyResponse": {
       "properties": {
@@ -78,7 +81,8 @@
           "$ref": "#/definitions/totals",
           "type": "object"
         }
-      }
+      },
+      "title": "reportsDailyResponse"
     },
     "reportsWebsiteItem": {
       "properties": {
@@ -106,7 +110,8 @@
         "rpm": {
           "type": "string"
         }
-      }
+      },
+      "title": "reportsWebsiteItem"
     },
     "reportsWebsiteResponse": {
       "properties": {
@@ -127,7 +132,8 @@
           "$ref": "#/definitions/totals",
           "type": "object"
         }
-      }
+      },
+      "title": "reportsWebsiteResponse"
     },
     "reportsWidgetItem": {
       "properties": {
@@ -160,7 +166,8 @@
         "rpm": {
           "type": "string"
         }
-      }
+      },
+      "title": "reportsWidgetItem"
     },
     "reportsWidgetResponse": {
       "properties": {
@@ -181,7 +188,8 @@
           "$ref": "#/definitions/totals",
           "type": "object"
         }
-      }
+      },
+      "title": "reportsWidgetResponse"
     },
     "totals": {
       "properties": {
@@ -206,7 +214,8 @@
         "total_rpm": {
           "type": "string"
         }
-      }
+      },
+      "title": "totals"
     }
   },
   "actions": [

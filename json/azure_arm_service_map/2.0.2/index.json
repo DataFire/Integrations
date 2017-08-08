@@ -41,7 +41,8 @@
           "x-ms-client-flatten": true
         }
       },
-      "x-ms-discriminator-value": "rel:acceptor"
+      "x-ms-discriminator-value": "rel:acceptor",
+      "title": "Acceptor"
     },
     "AcceptorProperties": {
       "description": "Properties for an acceptor relationship.",
@@ -68,7 +69,8 @@
       "required": [
         "source",
         "destination"
-      ]
+      ],
+      "title": "AcceptorProperties"
     },
     "Accuracy": {
       "description": "Specifies the accuracy of a computation.",
@@ -80,7 +82,8 @@
       "x-ms-enum": {
         "modelAsString": false,
         "name": "Accuracy"
-      }
+      },
+      "title": "Accuracy"
     },
     "AgentConfiguration": {
       "description": "Describes the configuration of the Dependency Agent installed on a machine.",
@@ -113,7 +116,8 @@
       },
       "required": [
         "agentId"
-      ]
+      ],
+      "title": "AgentConfiguration"
     },
     "Bitness": {
       "description": "Specifies the bitness of a machine or process.",
@@ -125,7 +129,8 @@
       "x-ms-enum": {
         "modelAsString": false,
         "name": "Bitness"
-      }
+      },
+      "title": "Bitness"
     },
     "ClientGroup": {
       "allOf": [
@@ -150,7 +155,8 @@
           "x-ms-client-flatten": true
         }
       },
-      "x-ms-discriminator-value": "clientGroup"
+      "x-ms-discriminator-value": "clientGroup",
+      "title": "ClientGroup"
     },
     "ClientGroupMember": {
       "allOf": [
@@ -182,7 +188,8 @@
           "type": "object",
           "x-ms-client-flatten": true
         }
-      }
+      },
+      "title": "ClientGroupMember"
     },
     "ClientGroupMembersCollection": {
       "description": "Collection of ClientGroupMember resources.",
@@ -199,7 +206,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ClientGroupMembersCollection"
     },
     "ClientGroupMembersCount": {
       "description": "Specifies the number of members in a client group.",
@@ -235,7 +243,8 @@
         "count",
         "accuracy"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ClientGroupMembersCount"
     },
     "Connection": {
       "allOf": [
@@ -250,7 +259,8 @@
           "x-ms-client-flatten": true
         }
       },
-      "x-ms-discriminator-value": "rel:connection"
+      "x-ms-discriminator-value": "rel:connection",
+      "title": "Connection"
     },
     "ConnectionCollection": {
       "description": "Collection of Connection resources.",
@@ -267,7 +277,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ConnectionCollection"
     },
     "ConnectionFailureState": {
       "description": "Connection failure state:\n * ```ok``` indicates no failures\n * ```failed``` indicates only failures\n * ```mixed``` indicates both failures and successes",
@@ -280,7 +291,8 @@
       "x-ms-enum": {
         "modelAsString": false,
         "name": "ConnectionFailureState"
-      }
+      },
+      "title": "ConnectionFailureState"
     },
     "ConnectionProperties": {
       "allOf": [
@@ -298,7 +310,8 @@
           "$ref": "#/definitions/PortReference",
           "description": "Reference to the server port via which this connection has been established."
         }
-      }
+      },
+      "title": "ConnectionProperties"
     },
     "CoreResource": {
       "allOf": [
@@ -327,7 +340,8 @@
       },
       "required": [
         "kind"
-      ]
+      ],
+      "title": "CoreResource"
     },
     "Error": {
       "description": "Error details.",
@@ -344,7 +358,8 @@
       "required": [
         "code"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "Error"
     },
     "ErrorResponse": {
       "description": "An error response from the API.",
@@ -357,7 +372,8 @@
       "required": [
         "error"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ErrorResponse"
     },
     "HypervisorConfiguration": {
       "description": "Describes the hypervisor configuration of a machine.",
@@ -370,7 +386,8 @@
           "description": "The unique identifier of the hypervisor machine as reported by the underlying virtualization system.",
           "type": "string"
         }
-      }
+      },
+      "title": "HypervisorConfiguration"
     },
     "HypervisorType": {
       "description": "Specifies the hypervisor type of a machine.",
@@ -382,7 +399,8 @@
       "x-ms-enum": {
         "modelAsString": false,
         "name": "HypervisorType"
-      }
+      },
+      "title": "HypervisorType"
     },
     "Ipv4NetworkInterface": {
       "description": "Describes an IPv4 network interface.",
@@ -399,7 +417,8 @@
       },
       "required": [
         "ipAddress"
-      ]
+      ],
+      "title": "Ipv4NetworkInterface"
     },
     "Ipv6NetworkInterface": {
       "description": "Describes an IPv6 network interface.",
@@ -411,7 +430,8 @@
       },
       "required": [
         "ipAddress"
-      ]
+      ],
+      "title": "Ipv6NetworkInterface"
     },
     "Liveness": {
       "description": "Specifies the contents of a check liveness response.",
@@ -436,7 +456,8 @@
         "endTime",
         "live"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "Liveness"
     },
     "Machine": {
       "allOf": [
@@ -512,7 +533,8 @@
           "x-ms-client-flatten": true
         }
       },
-      "x-ms-discriminator-value": "machine"
+      "x-ms-discriminator-value": "machine",
+      "title": "Machine"
     },
     "MachineCollection": {
       "description": "Collection of Machine resources.",
@@ -529,7 +551,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "MachineCollection"
     },
     "MachineCountsByOperatingSystem": {
       "description": "Machines by operating system.",
@@ -549,7 +572,8 @@
         "windows",
         "linux"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "MachineCountsByOperatingSystem"
     },
     "MachineGroup": {
       "allOf": [
@@ -587,7 +611,8 @@
           "x-ms-client-flatten": true
         }
       },
-      "x-ms-discriminator-value": "machineGroup"
+      "x-ms-discriminator-value": "machineGroup",
+      "title": "MachineGroup"
     },
     "MachineGroupCollection": {
       "description": "Collection of Machine Group resources.",
@@ -604,7 +629,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "MachineGroupCollection"
     },
     "MachineGroupMapRequest": {
       "allOf": [
@@ -626,7 +652,8 @@
       "required": [
         "machineGroupId"
       ],
-      "x-ms-discriminator-value": "map:machine-group-dependency"
+      "x-ms-discriminator-value": "map:machine-group-dependency",
+      "title": "MachineGroupMapRequest"
     },
     "MachineRebootStatus": {
       "description": "Specifies if the machine has been rebooted since the installation of the dependency agent.",
@@ -639,7 +666,8 @@
       "x-ms-enum": {
         "modelAsString": false,
         "name": "MachineRebootStatus"
-      }
+      },
+      "title": "MachineRebootStatus"
     },
     "MachineReference": {
       "allOf": [
@@ -648,7 +676,8 @@
         }
       ],
       "description": "Reference to a machine.",
-      "x-ms-discriminator-value": "ref:machine"
+      "x-ms-discriminator-value": "ref:machine",
+      "title": "MachineReference"
     },
     "MachineReferenceWithHints": {
       "allOf": [
@@ -676,7 +705,8 @@
           "x-ms-client-flatten": true
         }
       },
-      "x-ms-discriminator-value": "ref:machinewithhints"
+      "x-ms-discriminator-value": "ref:machinewithhints",
+      "title": "MachineReferenceWithHints"
     },
     "MachineResourcesConfiguration": {
       "description": "Describes the resources of a machine.",
@@ -700,7 +730,8 @@
           "format": "int32",
           "type": "integer"
         }
-      }
+      },
+      "title": "MachineResourcesConfiguration"
     },
     "MachinesSummary": {
       "allOf": [
@@ -714,7 +745,8 @@
           "$ref": "#/definitions/MachinesSummaryProperties",
           "x-ms-client-flatten": true
         }
-      }
+      },
+      "title": "MachinesSummary"
     },
     "MachinesSummaryProperties": {
       "allOf": [
@@ -744,7 +776,8 @@
         "live",
         "os"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "MachinesSummaryProperties"
     },
     "Map": {
       "description": "A map of resources and relationships between them.",
@@ -760,7 +793,8 @@
         "nodes",
         "edges"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "Map"
     },
     "MapEdges": {
       "description": "The edges (relationships) of a map.",
@@ -780,7 +814,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "MapEdges"
     },
     "MapNodes": {
       "description": "The nodes (entities) of a map.",
@@ -814,7 +849,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "MapNodes"
     },
     "MapRequest": {
       "description": "Specifies the contents of request to generate a map.",
@@ -842,7 +878,8 @@
       "required": [
         "kind"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "MapRequest"
     },
     "MapResponse": {
       "description": "Specified the contents of a map response.",
@@ -867,7 +904,8 @@
         "endTime",
         "map"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "MapResponse"
     },
     "MonitoringState": {
       "description": "Used to specify if a resources is monitored or discovered.",
@@ -879,7 +917,8 @@
       "x-ms-enum": {
         "modelAsString": false,
         "name": "MonitoringState"
-      }
+      },
+      "title": "MonitoringState"
     },
     "NetworkConfiguration": {
       "description": "Describes the network configuration of a machine.",
@@ -922,7 +961,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "NetworkConfiguration"
     },
     "OperatingSystemConfiguration": {
       "description": "Describes the configuration of the operating system of a machine.",
@@ -944,7 +984,8 @@
         "family",
         "fullName",
         "bitness"
-      ]
+      ],
+      "title": "OperatingSystemConfiguration"
     },
     "OperatingSystemFamily": {
       "description": "Specifies the operating system family, e.g., Linux, Windows, etc.",
@@ -959,7 +1000,8 @@
       "x-ms-enum": {
         "modelAsString": false,
         "name": "OperatingSystemFamily"
-      }
+      },
+      "title": "OperatingSystemFamily"
     },
     "Port": {
       "allOf": [
@@ -998,7 +1040,8 @@
           "x-ms-client-flatten": true
         }
       },
-      "x-ms-discriminator-value": "port"
+      "x-ms-discriminator-value": "port",
+      "title": "Port"
     },
     "PortCollection": {
       "description": "Collection of Port resources.",
@@ -1015,7 +1058,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PortCollection"
     },
     "PortReference": {
       "allOf": [
@@ -1048,7 +1092,8 @@
           "x-ms-client-flatten": true
         }
       },
-      "x-ms-discriminator-value": "ref:port"
+      "x-ms-discriminator-value": "ref:port",
+      "title": "PortReference"
     },
     "Process": {
       "allOf": [
@@ -1123,7 +1168,8 @@
           "x-ms-client-flatten": true
         }
       },
-      "x-ms-discriminator-value": "process"
+      "x-ms-discriminator-value": "process",
+      "title": "Process"
     },
     "ProcessCollection": {
       "description": "Collection of Process resources.",
@@ -1140,7 +1186,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ProcessCollection"
     },
     "ProcessDetails": {
       "description": "Describes process metadata.",
@@ -1195,7 +1242,8 @@
           "description": "Process workingDirectory.",
           "type": "string"
         }
-      }
+      },
+      "title": "ProcessDetails"
     },
     "ProcessReference": {
       "allOf": [
@@ -1218,7 +1266,8 @@
           "x-ms-client-flatten": true
         }
       },
-      "x-ms-discriminator-value": "ref:process"
+      "x-ms-discriminator-value": "ref:process",
+      "title": "ProcessReference"
     },
     "ProcessUser": {
       "description": "Describes the user under which a process is running.",
@@ -1231,7 +1280,8 @@
           "description": "User name under which the process is running.",
           "type": "string"
         }
-      }
+      },
+      "title": "ProcessUser"
     },
     "Relationship": {
       "allOf": [
@@ -1253,7 +1303,8 @@
       },
       "required": [
         "kind"
-      ]
+      ],
+      "title": "Relationship"
     },
     "RelationshipProperties": {
       "description": "Relationship properties.",
@@ -1280,7 +1331,8 @@
       "required": [
         "source",
         "destination"
-      ]
+      ],
+      "title": "RelationshipProperties"
     },
     "Resource": {
       "description": "Resource model definition.",
@@ -1301,7 +1353,8 @@
           "type": "string"
         }
       },
-      "x-ms-azure-resource": true
+      "x-ms-azure-resource": true,
+      "title": "Resource"
     },
     "ResourceReference": {
       "description": "Represents a reference to another resource.",
@@ -1336,7 +1389,8 @@
       "required": [
         "id",
         "kind"
-      ]
+      ],
+      "title": "ResourceReference"
     },
     "SingleMachineDependencyMapRequest": {
       "allOf": [
@@ -1354,7 +1408,8 @@
       "required": [
         "machineId"
       ],
-      "x-ms-discriminator-value": "map:single-machine-dependency"
+      "x-ms-discriminator-value": "map:single-machine-dependency",
+      "title": "SingleMachineDependencyMapRequest"
     },
     "Summary": {
       "allOf": [
@@ -1362,7 +1417,8 @@
           "$ref": "#/definitions/Resource"
         }
       ],
-      "description": "Base for all resource summaries."
+      "description": "Base for all resource summaries.",
+      "title": "Summary"
     },
     "SummaryProperties": {
       "description": "Base for all summaries.",
@@ -1382,7 +1438,8 @@
         "startTime",
         "endTime"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "SummaryProperties"
     },
     "Timezone": {
       "description": "Describes a timezone.",
@@ -1391,7 +1448,8 @@
           "description": "Timezone full name.",
           "type": "string"
         }
-      }
+      },
+      "title": "Timezone"
     },
     "VirtualMachineConfiguration": {
       "description": "Describes the virtualizaton-related configuration of a machine.",
@@ -1412,7 +1470,8 @@
           "$ref": "#/definitions/VirtualMachineType",
           "description": "Specifies the virtualization technology used by the machine (hyperv, vmware, etc.)"
         }
-      }
+      },
+      "title": "VirtualMachineConfiguration"
     },
     "VirtualMachineType": {
       "description": "Specifies the virtualization type of a machine.",
@@ -1429,7 +1488,8 @@
       "x-ms-enum": {
         "modelAsString": false,
         "name": "VirtualMachineType"
-      }
+      },
+      "title": "VirtualMachineType"
     },
     "VirtualizationState": {
       "description": "Specifies if the machine is physical, virtual, hypervisor, or unknown.",
@@ -1443,7 +1503,8 @@
       "x-ms-enum": {
         "modelAsString": false,
         "name": "VirtualizationState"
-      }
+      },
+      "title": "VirtualizationState"
     }
   },
   "actions": [

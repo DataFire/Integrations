@@ -44,7 +44,8 @@
         "userArn",
         "projectRole"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AssociateTeamMemberRequest"
     },
     "AssociateTeamMemberResult": {
       "properties": {
@@ -53,18 +54,21 @@
           "description": "The user- or system-generated token from the initial request that can be used to repeat the request. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AssociateTeamMemberResult"
     },
     "ClientRequestToken": {
       "maxLength": 256,
       "minLength": 1,
       "pattern": "^[\\w:/-]+$",
-      "type": "string"
+      "type": "string",
+      "title": "ClientRequestToken"
     },
     "ConcurrentModificationException": {
       "description": "Another modification is being made. That modification must complete before you can make your change.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "ConcurrentModificationException"
     },
     "CreateProjectRequest": {
       "properties": {
@@ -89,7 +93,8 @@
         "name",
         "id"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateProjectRequest"
     },
     "CreateProjectResult": {
       "properties": {
@@ -114,7 +119,8 @@
         "id",
         "arn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateProjectResult"
     },
     "CreateUserProfileRequest": {
       "properties": {
@@ -140,7 +146,8 @@
         "displayName",
         "emailAddress"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateUserProfileRequest"
     },
     "CreateUserProfileResult": {
       "properties": {
@@ -172,11 +179,13 @@
       "required": [
         "userArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateUserProfileResult"
     },
     "CreatedTimestamp": {
       "format": "date-time",
-      "type": "string"
+      "type": "string",
+      "title": "CreatedTimestamp"
     },
     "DeleteProjectRequest": {
       "properties": {
@@ -196,7 +205,8 @@
       "required": [
         "id"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteProjectRequest"
     },
     "DeleteProjectResult": {
       "properties": {
@@ -209,10 +219,12 @@
           "description": "The ID of the primary stack in AWS CloudFormation that will be deleted as part of deleting the project and its resources."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DeleteProjectResult"
     },
     "DeleteStack": {
-      "type": "boolean"
+      "type": "boolean",
+      "title": "DeleteStack"
     },
     "DeleteUserProfileRequest": {
       "properties": {
@@ -224,7 +236,8 @@
       "required": [
         "userArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteUserProfileRequest"
     },
     "DeleteUserProfileResult": {
       "properties": {
@@ -236,7 +249,8 @@
       "required": [
         "userArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteUserProfileResult"
     },
     "DescribeProjectRequest": {
       "properties": {
@@ -248,7 +262,8 @@
       "required": [
         "id"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeProjectRequest"
     },
     "DescribeProjectResult": {
       "properties": {
@@ -285,7 +300,8 @@
           "description": "The ID of the primary stack in AWS CloudFormation used to generate resources for the project."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeProjectResult"
     },
     "DescribeUserProfileRequest": {
       "properties": {
@@ -297,7 +313,8 @@
       "required": [
         "userArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeUserProfileRequest"
     },
     "DescribeUserProfileResult": {
       "properties": {
@@ -331,7 +348,8 @@
         "createdTimestamp",
         "lastModifiedTimestamp"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeUserProfileResult"
     },
     "DisassociateTeamMemberRequest": {
       "properties": {
@@ -348,36 +366,43 @@
         "projectId",
         "userArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DisassociateTeamMemberRequest"
     },
     "DisassociateTeamMemberResult": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DisassociateTeamMemberResult"
     },
     "Email": {
       "maxLength": 128,
       "minLength": 3,
       "pattern": "^[\\w-.+]+@[\\w-.+]+$",
-      "type": "string"
+      "type": "string",
+      "title": "Email"
     },
     "InvalidNextTokenException": {
       "description": "The next token is not valid.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "InvalidNextTokenException"
     },
     "InvalidServiceRoleException": {
       "description": "The service role is not valid.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "InvalidServiceRoleException"
     },
     "LastModifiedTimestamp": {
       "format": "date-time",
-      "type": "string"
+      "type": "string",
+      "title": "LastModifiedTimestamp"
     },
     "LimitExceededException": {
       "description": "A resource limit has been exceeded.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "LimitExceededException"
     },
     "ListProjectsRequest": {
       "properties": {
@@ -390,7 +415,8 @@
           "description": "The continuation token to be used to return the next set of results, if the results cannot be returned in one response."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListProjectsRequest"
     },
     "ListProjectsResult": {
       "properties": {
@@ -406,7 +432,8 @@
       "required": [
         "projects"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListProjectsResult"
     },
     "ListResourcesRequest": {
       "properties": {
@@ -426,7 +453,8 @@
       "required": [
         "projectId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListResourcesRequest"
     },
     "ListResourcesResult": {
       "properties": {
@@ -439,7 +467,8 @@
           "description": "An array of resources associated with the project. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListResourcesResult"
     },
     "ListTeamMembersRequest": {
       "properties": {
@@ -459,7 +488,8 @@
       "required": [
         "projectId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListTeamMembersRequest"
     },
     "ListTeamMembersResult": {
       "properties": {
@@ -475,7 +505,8 @@
       "required": [
         "teamMembers"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListTeamMembersResult"
     },
     "ListUserProfilesRequest": {
       "properties": {
@@ -488,7 +519,8 @@
           "description": "The continuation token for the next set of results, if the results cannot be returned in one response."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListUserProfilesRequest"
     },
     "ListUserProfilesResult": {
       "properties": {
@@ -504,61 +536,72 @@
       "required": [
         "userProfiles"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListUserProfilesResult"
     },
     "MaxResults": {
       "maximum": 100,
       "minimum": 1,
-      "type": "integer"
+      "type": "integer",
+      "title": "MaxResults"
     },
     "PaginationToken": {
       "maxLength": 256,
       "minLength": 1,
       "pattern": "^[\\w/+=]+$",
-      "type": "string"
+      "type": "string",
+      "title": "PaginationToken"
     },
     "ProjectAlreadyExistsException": {
       "description": "An AWS CodeStar project with the same ID already exists in this region for the AWS account. AWS CodeStar project IDs must be unique within a region for the AWS account.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "ProjectAlreadyExistsException"
     },
     "ProjectArn": {
       "pattern": "^arn:aws[^:\\s]*:codestar:[^:\\s]+:[0-9]{12}:project\\/[a-z]([a-z0-9|-])+$",
-      "type": "string"
+      "type": "string",
+      "title": "ProjectArn"
     },
     "ProjectConfigurationException": {
       "description": "Project configuration information is required but not specified.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "ProjectConfigurationException"
     },
     "ProjectCreationFailedException": {
       "description": "The project creation request was valid, but a nonspecific exception or error occurred during project creation. The project could not be created in AWS CodeStar.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "ProjectCreationFailedException"
     },
     "ProjectDescription": {
       "format": "password",
       "maxLength": 1024,
       "pattern": "^$|^\\S(.*\\S)?$",
-      "type": "string"
+      "type": "string",
+      "title": "ProjectDescription"
     },
     "ProjectId": {
       "maxLength": 15,
       "minLength": 2,
       "pattern": "^[a-z][a-z0-9-]+$",
-      "type": "string"
+      "type": "string",
+      "title": "ProjectId"
     },
     "ProjectName": {
       "format": "password",
       "maxLength": 100,
       "minLength": 1,
       "pattern": "^\\S(.*\\S)?$",
-      "type": "string"
+      "type": "string",
+      "title": "ProjectName"
     },
     "ProjectNotFoundException": {
       "description": "The specified AWS CodeStar project was not found.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "ProjectNotFoundException"
     },
     "ProjectSummary": {
       "description": "Information about the metadata for a project.",
@@ -572,21 +615,25 @@
           "description": "The ID of the project."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ProjectSummary"
     },
     "ProjectTemplateId": {
       "minLength": 1,
       "pattern": "^arn:aws[^:\\s]{0,5}:codestar:[^:\\s]+::project-template\\/[a-z0-9-]+$",
-      "type": "string"
+      "type": "string",
+      "title": "ProjectTemplateId"
     },
     "ProjectsList": {
       "items": {
         "$ref": "#/definitions/ProjectSummary"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ProjectsList"
     },
     "RemoteAccessAllowed": {
-      "type": "boolean"
+      "type": "boolean",
+      "title": "RemoteAccessAllowed"
     },
     "Resource": {
       "description": "Information about a resource for a project.",
@@ -599,31 +646,37 @@
       "required": [
         "id"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "Resource"
     },
     "ResourceId": {
       "minLength": 11,
       "pattern": "^arn\\:aws\\:\\S.*\\:.*",
-      "type": "string"
+      "type": "string",
+      "title": "ResourceId"
     },
     "ResourcesResult": {
       "items": {
         "$ref": "#/definitions/Resource"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ResourcesResult"
     },
     "Role": {
       "pattern": "^(Owner|Viewer|Contributor)$",
-      "type": "string"
+      "type": "string",
+      "title": "Role"
     },
     "SshPublicKey": {
       "maxLength": 16384,
       "pattern": "^[\\t\\r\\n\\u0020-\\u00FF]*$",
-      "type": "string"
+      "type": "string",
+      "title": "SshPublicKey"
     },
     "StackId": {
       "pattern": "^arn:aws[^:\\s]*:cloudformation:[^:\\s]+:[0-9]{12}:stack\\/[^:\\s]+\\/[^:\\s]+$",
-      "type": "string"
+      "type": "string",
+      "title": "StackId"
     },
     "TeamMember": {
       "description": "Information about a team member in a project.",
@@ -645,23 +698,27 @@
         "userArn",
         "projectRole"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "TeamMember"
     },
     "TeamMemberAlreadyAssociatedException": {
       "description": "The team member is already associated with a role in this project.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "TeamMemberAlreadyAssociatedException"
     },
     "TeamMemberNotFoundException": {
       "description": "The specified team member was not found.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "TeamMemberNotFoundException"
     },
     "TeamMemberResult": {
       "items": {
         "$ref": "#/definitions/TeamMember"
       },
-      "type": "array"
+      "type": "array",
+      "title": "TeamMemberResult"
     },
     "UpdateProjectRequest": {
       "properties": {
@@ -681,11 +738,13 @@
       "required": [
         "id"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateProjectRequest"
     },
     "UpdateProjectResult": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "UpdateProjectResult"
     },
     "UpdateTeamMemberRequest": {
       "properties": {
@@ -710,7 +769,8 @@
         "projectId",
         "userArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateTeamMemberRequest"
     },
     "UpdateTeamMemberResult": {
       "properties": {
@@ -727,7 +787,8 @@
           "description": "The Amazon Resource Name (ARN) of the user whose team membership attributes were updated."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UpdateTeamMemberResult"
     },
     "UpdateUserProfileRequest": {
       "properties": {
@@ -751,7 +812,8 @@
       "required": [
         "userArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateUserProfileRequest"
     },
     "UpdateUserProfileResult": {
       "properties": {
@@ -783,29 +845,34 @@
       "required": [
         "userArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateUserProfileResult"
     },
     "UserArn": {
       "maxLength": 95,
       "minLength": 32,
       "pattern": "arn:aws:iam::\\d{12}:user\\/[\\w-]+",
-      "type": "string"
+      "type": "string",
+      "title": "UserArn"
     },
     "UserProfileAlreadyExistsException": {
       "description": "A user profile with that name already exists in this region for the AWS account. AWS CodeStar user profile names must be unique within a region for the AWS account. ",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "UserProfileAlreadyExistsException"
     },
     "UserProfileDisplayName": {
       "maxLength": 64,
       "minLength": 1,
       "pattern": "^\\S(.*\\S)?$",
-      "type": "string"
+      "type": "string",
+      "title": "UserProfileDisplayName"
     },
     "UserProfileNotFoundException": {
       "description": "The user profile was not found.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "UserProfileNotFoundException"
     },
     "UserProfileSummary": {
       "description": "Information about a user's profile in AWS CodeStar.",
@@ -827,18 +894,21 @@
           "description": "The Amazon Resource Name (ARN) of the user in IAM."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UserProfileSummary"
     },
     "UserProfilesList": {
       "items": {
         "$ref": "#/definitions/UserProfileSummary"
       },
-      "type": "array"
+      "type": "array",
+      "title": "UserProfilesList"
     },
     "ValidationException": {
       "description": "The specified input is either not valid, or it could not be validated.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "ValidationException"
     }
   },
   "actions": [

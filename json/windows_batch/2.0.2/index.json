@@ -293,7 +293,8 @@
           "title": "The URL of the certificate.",
           "type": "string"
         }
-      }
+      },
+      "title": "Certificate"
     },
     "CertificateAddParameter": {
       "properties": {
@@ -2561,7 +2562,8 @@
           "title": "The ARM resource identifier of the virtual network subnet which the compute nodes of the pool will join. This is of the form /subscriptions/{subscription}/resourceGroups/{group}/providers/{provider}/virtualNetworks/{network}/subnets/{subnet}.",
           "type": "string"
         }
-      }
+      },
+      "title": "NetworkConfiguration"
     },
     "NodeAgentSku": {
       "description": "The Batch node agent is a program that runs on each node in the pool, and provides the command-and-control interface between the node and the Batch service. There are different implementations of the node agent, known as SKUs, for different operating systems.",

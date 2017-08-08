@@ -49,7 +49,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ApproximateProgress"
     },
     "ApproximateReportedProgress": {
       "description": "A progress measurement of a WorkItem by a worker.",
@@ -72,7 +73,8 @@
           "description": "Total amount of parallelism in the input of this task that remains,\n(i.e. can be delegated to this task and any new tasks via dynamic\nsplitting). Always at least 1 for non-finished work items and 0 for\nfinished.\n\n\"Amount of parallelism\" refers to how many non-empty parts of the input\ncan be read in parallel. This does not necessarily equal number\nof records. An input that can be read in parallel down to the\nindividual records is called \"perfectly splittable\".\nAn example of non-perfectly parallelizable input is a block-compressed\nfile format where a block of records has to be read as a whole,\nbut different blocks can be read in parallel.\n\nExamples:\n* If we are processing record #30 (starting at 1) out of 50 in a perfectly\n  splittable 50-record input, this value should be 21 (20 remaining + 1\n  current).\n* If we are reading through block 3 in a block-compressed file consisting\n  of 5 blocks, this value should be 3 (since blocks 4 and 5 can be\n  processed in parallel by new tasks via dynamic splitting and the current\n  task remains processing block 3).\n* If we are reading through the last block in a block-compressed file,\n  or reading or processing the last record in a perfectly splittable\n  input, this value should be 1, because apart from the current task, no\n  additional remainder can be split off."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ApproximateReportedProgress"
     },
     "ApproximateSplitRequest": {
       "description": "A suggestion by the service to the worker to dynamically split the WorkItem.",
@@ -87,7 +89,8 @@
           "description": "A Position at which to split the work item."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ApproximateSplitRequest"
     },
     "AutoscalingEvent": {
       "description": "A structured message reporting an autoscaling decision made by the Dataflow\nservice.",
@@ -123,7 +126,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AutoscalingEvent"
     },
     "AutoscalingSettings": {
       "description": "Settings for WorkerPool autoscaling.",
@@ -143,7 +147,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AutoscalingSettings"
     },
     "CPUTime": {
       "description": "Modeled after information exposed by /proc/stat.",
@@ -164,7 +169,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CPUTime"
     },
     "ComponentSource": {
       "description": "Description of an interstitial value between transforms in an execution\nstage.",
@@ -182,7 +188,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ComponentSource"
     },
     "ComponentTransform": {
       "description": "Description of a transform executed as part of an execution stage.",
@@ -200,7 +207,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ComponentTransform"
     },
     "ComputationTopology": {
       "description": "All configuration data for a particular Computation.",
@@ -246,7 +254,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ComputationTopology"
     },
     "ConcatPosition": {
       "description": "A position that encapsulates an inner position and an index for the inner\nposition. A ConcatPosition can be used by a reader of a source that\nencapsulates a set of other sources.",
@@ -261,7 +270,8 @@
           "description": "Position within the inner source."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ConcatPosition"
     },
     "CounterMetadata": {
       "description": "CounterMetadata includes all static non-name non-value counter attributes.",
@@ -304,7 +314,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CounterMetadata"
     },
     "CounterStructuredName": {
       "description": "Identifies a counter within a per-job namespace. Counters whose structured\nnames are the same get merged into a single value for the job.",
@@ -351,7 +362,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CounterStructuredName"
     },
     "CounterStructuredNameAndMetadata": {
       "description": "A single message which encapsulates structured name and metadata for a given\ncounter.",
@@ -365,7 +377,8 @@
           "description": "Structured name of the counter."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CounterStructuredNameAndMetadata"
     },
     "CounterUpdate": {
       "description": "An update to a Counter sent from a worker.",
@@ -428,7 +441,8 @@
           "description": "Counter structured name and metadata."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CounterUpdate"
     },
     "CreateJobFromTemplateRequest": {
       "description": "A request to create a Cloud Dataflow job from a template.",
@@ -457,7 +471,8 @@
           "type": "object"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateJobFromTemplateRequest"
     },
     "CustomSourceLocation": {
       "description": "Identifies the location of a custom souce.",
@@ -467,7 +482,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CustomSourceLocation"
     },
     "DataDiskAssignment": {
       "description": "Data disk assignment for a given VM instance.",
@@ -484,7 +500,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DataDiskAssignment"
     },
     "DerivedSource": {
       "description": "Specification of one of the bundles produced as a result of splitting\na Source (e.g. when executing a SourceSplitRequest, or when\nsplitting an active task using WorkItemStatus.dynamic_source_split),\nrelative to the source being split.",
@@ -504,7 +521,8 @@
           "description": "Specification of the source."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DerivedSource"
     },
     "Disk": {
       "description": "Describes the data disk used by a workflow job.",
@@ -523,7 +541,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Disk"
     },
     "DisplayData": {
       "description": "Data provided with a pipeline or transform to provide descriptive info.",
@@ -581,7 +600,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DisplayData"
     },
     "DistributionUpdate": {
       "description": "A metric value representing a distribution.",
@@ -615,7 +635,8 @@
           "type": "number"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DistributionUpdate"
     },
     "DynamicSourceSplit": {
       "description": "When a task splits using WorkItemStatus.dynamic_source_split, this\nmessage describes the two parts of the split relative to the\ndescription of the current task's input.",
@@ -629,7 +650,8 @@
           "description": "Residual part (returned to the pool of work).\nSpecified relative to the previously-current source."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DynamicSourceSplit"
     },
     "Environment": {
       "description": "Describes the environment in which a Dataflow Job runs.",
@@ -693,7 +715,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Environment"
     },
     "ExecutionStageState": {
       "description": "A message describing the state of a particular execution stage.",
@@ -725,7 +748,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ExecutionStageState"
     },
     "ExecutionStageSummary": {
       "description": "Description of the composing transforms, names/ids, and input/outputs of a\nstage of execution.  Some composing transforms and sources may have been\ngenerated by the Dataflow service during execution planning.",
@@ -782,7 +806,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ExecutionStageSummary"
     },
     "FailedLocation": {
       "description": "Indicates which location failed to respond to a request for data.",
@@ -792,7 +817,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "FailedLocation"
     },
     "FlattenInstruction": {
       "description": "An instruction that copies its inputs (zero or more) to its (single) output.",
@@ -805,7 +831,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "FlattenInstruction"
     },
     "FloatingPointList": {
       "description": "A metric value representing a list of floating point numbers.",
@@ -819,7 +846,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "FloatingPointList"
     },
     "FloatingPointMean": {
       "description": "A representation of a floating point mean metric contribution.",
@@ -834,7 +862,8 @@
           "type": "number"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "FloatingPointMean"
     },
     "GetDebugConfigRequest": {
       "description": "Request to get updated debug configuration for component.",
@@ -852,7 +881,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetDebugConfigRequest"
     },
     "GetDebugConfigResponse": {
       "description": "Response to a get debug configuration request.",
@@ -862,7 +892,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetDebugConfigResponse"
     },
     "GetTemplateResponse": {
       "description": "The response to a GetTemplate request.",
@@ -876,7 +907,8 @@
           "description": "The status of the get template request. Any problems with the\nrequest will be indicated in the error_details."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetTemplateResponse"
     },
     "InstructionInput": {
       "description": "An input of an instruction, as a reference to an output of a\nproducer instruction.",
@@ -892,7 +924,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InstructionInput"
     },
     "InstructionOutput": {
       "description": "An output of an instruction.",
@@ -925,7 +958,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InstructionOutput"
     },
     "IntegerList": {
       "description": "A metric value representing a list of integers.",
@@ -938,7 +972,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "IntegerList"
     },
     "IntegerMean": {
       "description": "A representation of an integer mean metric contribution.",
@@ -952,7 +987,8 @@
           "description": "The sum of all values being aggregated."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "IntegerMean"
     },
     "Job": {
       "description": "Defines a job to be run by the Cloud Dataflow service.",
@@ -1086,7 +1122,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Job"
     },
     "JobExecutionInfo": {
       "description": "Additional information about how a Cloud Dataflow job will be executed that\nisn't contained in the submitted job.",
@@ -1099,7 +1136,8 @@
           "type": "object"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "JobExecutionInfo"
     },
     "JobExecutionStageInfo": {
       "description": "Contains information about how a particular\ngoogle.dataflow.v1beta3.Step will be executed.",
@@ -1112,7 +1150,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "JobExecutionStageInfo"
     },
     "JobMessage": {
       "description": "A particular message pertaining to a Dataflow job.",
@@ -1143,7 +1182,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "JobMessage"
     },
     "JobMetrics": {
       "description": "JobMetrics contains a collection of metrics descibing the detailed progress\nof a Dataflow job. Metrics correspond to user-defined and system-defined\nmetrics in the job.\n\nThis resource captures only the most recent values of each metric;\ntime-series data can be queried for them (under the same metric names)\nfrom Cloud Monitoring.",
@@ -1161,7 +1201,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "JobMetrics"
     },
     "KeyRangeDataDiskAssignment": {
       "description": "Data disk assignment information for a specific key-range of a sharded\ncomputation.\nCurrently we only support UTF-8 character splits to simplify encoding into\nJSON.",
@@ -1179,7 +1220,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "KeyRangeDataDiskAssignment"
     },
     "KeyRangeLocation": {
       "description": "Location information for a specific key-range of a sharded computation.\nCurrently we only support UTF-8 character splits to simplify encoding into\nJSON.",
@@ -1205,7 +1247,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "KeyRangeLocation"
     },
     "LaunchTemplateParameters": {
       "description": "Parameters to provide to the template being launched.",
@@ -1226,7 +1269,8 @@
           "type": "object"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LaunchTemplateParameters"
     },
     "LaunchTemplateResponse": {
       "description": "Response to the request to launch a template.",
@@ -1236,7 +1280,8 @@
           "description": "The job that was launched, if the request was not a dry run and\nthe job was successfully launched."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LaunchTemplateResponse"
     },
     "LeaseWorkItemRequest": {
       "description": "Request to lease WorkItems.",
@@ -1274,7 +1319,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LeaseWorkItemRequest"
     },
     "LeaseWorkItemResponse": {
       "description": "Response to a request to lease WorkItems.",
@@ -1287,7 +1333,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LeaseWorkItemResponse"
     },
     "ListJobMessagesResponse": {
       "description": "Response to a request to list job messages.",
@@ -1311,7 +1358,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListJobMessagesResponse"
     },
     "ListJobsResponse": {
       "description": "Response to a request to list Cloud Dataflow jobs.  This may be a partial\nresponse, depending on the page size in the ListJobsRequest.",
@@ -1335,7 +1383,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListJobsResponse"
     },
     "LogBucket": {
       "description": "Bucket of values for Distribution's logarithmic histogram.",
@@ -1351,7 +1400,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LogBucket"
     },
     "MapTask": {
       "description": "MapTask consists of an ordered set of instructions, each of which\ndescribes one particular low-level operation for the worker to\nperform in order to accomplish the MapTask's WorkItem.\n\nEach instruction must appear in the list before any instructions which\ndepends on its output.",
@@ -1372,7 +1422,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "MapTask"
     },
     "MetricShortId": {
       "description": "The metric short id is returned to the user alongside an offset into\nReportWorkItemStatusRequest",
@@ -1388,7 +1439,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "MetricShortId"
     },
     "MetricStructuredName": {
       "description": "Identifies a metric, by describing the source which generated the\nmetric.",
@@ -1409,7 +1461,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "MetricStructuredName"
     },
     "MetricUpdate": {
       "description": "Describes the state of a metric.",
@@ -1450,7 +1503,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "MetricUpdate"
     },
     "MountedDataDisk": {
       "description": "Describes mounted data disk.",
@@ -1460,7 +1514,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "MountedDataDisk"
     },
     "MultiOutputInfo": {
       "description": "Information about an output of a multi-output DoFn.",
@@ -1470,7 +1525,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "MultiOutputInfo"
     },
     "NameAndKind": {
       "description": "Basic metadata about a counter.",
@@ -1495,7 +1551,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "NameAndKind"
     },
     "Package": {
       "description": "The packages that must be installed in order for a worker to run the\nsteps of the Cloud Dataflow job that will be assigned to its worker\npool.\n\nThis is the mechanism by which the Cloud Dataflow SDK causes code to\nbe loaded onto the workers. For example, the Cloud Dataflow Java SDK\nmight use this to install jars containing the user's code and all of the\nvarious dependencies (libraries, data files, etc.) required in order\nfor that code to run.",
@@ -1509,7 +1566,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Package"
     },
     "ParDoInstruction": {
       "description": "An instruction that does a ParDo operation.\nTakes one main input and zero or more side inputs, and produces\nzero or more outputs.\nRuns user code.",
@@ -1545,7 +1603,8 @@
           "type": "object"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ParDoInstruction"
     },
     "ParallelInstruction": {
       "description": "Describes a particular operation comprising a MapTask.",
@@ -1590,7 +1649,8 @@
           "description": "Additional information for Write instructions."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ParallelInstruction"
     },
     "Parameter": {
       "description": "Structured data associated with this message.",
@@ -1603,7 +1663,8 @@
           "description": "Value for this parameter."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Parameter"
     },
     "ParameterMetadata": {
       "description": "Metadata for a specific parameter.",
@@ -1632,7 +1693,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ParameterMetadata"
     },
     "PartialGroupByKeyInstruction": {
       "description": "An instruction that does a partial group-by-key.\nOne input and one output.",
@@ -1671,7 +1733,8 @@
           "type": "object"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PartialGroupByKeyInstruction"
     },
     "PipelineDescription": {
       "description": "A descriptive representation of submitted pipeline as well as the executed\nform.  This data is provided by the Dataflow service for ease of visualizing\nthe pipeline and interpretting Dataflow provided metrics.",
@@ -1698,7 +1761,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PipelineDescription"
     },
     "Position": {
       "description": "Position defines a position within a collection of data.  The value\ncan be either the end position, a key (used with ordered\ncollections), a byte offset, or a record index.",
@@ -1730,7 +1794,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Position"
     },
     "PubsubLocation": {
       "description": "Identifies a pubsub location to use for transferring data into or\nout of a streaming Dataflow job.",
@@ -1764,7 +1829,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PubsubLocation"
     },
     "ReadInstruction": {
       "description": "An instruction that reads records.\nTakes no inputs, produces one output.",
@@ -1774,7 +1840,8 @@
           "description": "The source to read from."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ReadInstruction"
     },
     "ReportWorkItemStatusRequest": {
       "description": "Request to report the status of WorkItems.",
@@ -1800,7 +1867,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ReportWorkItemStatusRequest"
     },
     "ReportWorkItemStatusResponse": {
       "description": "Response from a request to report the status of WorkItems.",
@@ -1813,7 +1881,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ReportWorkItemStatusResponse"
     },
     "ReportedParallelism": {
       "description": "Represents the level of parallelism in a WorkItem's input,\nreported by the worker.",
@@ -1828,7 +1897,8 @@
           "type": "number"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ReportedParallelism"
     },
     "ResourceUtilizationReport": {
       "description": "Worker metrics exported from workers. This contains resource utilization\nmetrics accumulated from a variety of sources. For more information, see\ngo/df-resource-signals.",
@@ -1841,12 +1911,14 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ResourceUtilizationReport"
     },
     "ResourceUtilizationReportResponse": {
       "description": "Service-side response to WorkerMessage reporting resource utilization.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "ResourceUtilizationReportResponse"
     },
     "RuntimeEnvironment": {
       "description": "The environment values to set at runtime.",
@@ -1873,7 +1945,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RuntimeEnvironment"
     },
     "SendDebugCaptureRequest": {
       "description": "Request to send encoded debug information.",
@@ -1895,12 +1968,14 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SendDebugCaptureRequest"
     },
     "SendDebugCaptureResponse": {
       "description": "Response to a send capture request.\nnothing",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "SendDebugCaptureResponse"
     },
     "SendWorkerMessagesRequest": {
       "description": "A request for sending worker messages to the service.",
@@ -1917,7 +1992,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SendWorkerMessagesRequest"
     },
     "SendWorkerMessagesResponse": {
       "description": "The response to the worker messages.",
@@ -1930,7 +2006,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SendWorkerMessagesResponse"
     },
     "SeqMapTask": {
       "description": "Describes a particular function to invoke.",
@@ -1969,7 +2046,8 @@
           "type": "object"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SeqMapTask"
     },
     "SeqMapTaskOutputInfo": {
       "description": "Information about an output of a SeqMapTask.",
@@ -1983,7 +2061,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SeqMapTaskOutputInfo"
     },
     "ShellTask": {
       "description": "A task which consists of a shell command for the worker to execute.",
@@ -1998,7 +2077,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ShellTask"
     },
     "SideInputInfo": {
       "description": "Information about a side input of a DoFn or an input of a SeqDoFn.",
@@ -2022,7 +2102,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SideInputInfo"
     },
     "Sink": {
       "description": "A sink that records can be encoded and written to.",
@@ -2042,7 +2123,8 @@
           "type": "object"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Sink"
     },
     "Source": {
       "description": "A source that records can be read and decoded from.",
@@ -2080,7 +2162,8 @@
           "type": "object"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Source"
     },
     "SourceFork": {
       "description": "DEPRECATED in favor of DynamicSourceSplit.",
@@ -2102,7 +2185,8 @@
           "description": "DEPRECATED"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SourceFork"
     },
     "SourceGetMetadataRequest": {
       "description": "A request to compute the SourceMetadata of a Source.",
@@ -2112,7 +2196,8 @@
           "description": "Specification of the source whose metadata should be computed."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SourceGetMetadataRequest"
     },
     "SourceGetMetadataResponse": {
       "description": "The result of a SourceGetMetadataOperation.",
@@ -2122,7 +2207,8 @@
           "description": "The computed metadata."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SourceGetMetadataResponse"
     },
     "SourceMetadata": {
       "description": "Metadata about a Source useful for automatically optimizing\nand tuning the pipeline, etc.",
@@ -2141,7 +2227,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SourceMetadata"
     },
     "SourceOperationRequest": {
       "description": "A work item that represents the different operations that can be\nperformed on a user-defined Source specification.",
@@ -2155,7 +2242,8 @@
           "description": "Information about a request to split a source."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SourceOperationRequest"
     },
     "SourceOperationResponse": {
       "description": "The result of a SourceOperationRequest, specified in\nReportWorkItemStatusRequest.source_operation when the work item\nis completed.",
@@ -2169,7 +2257,8 @@
           "description": "A response to a request to split a source."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SourceOperationResponse"
     },
     "SourceSplitOptions": {
       "description": "Hints for splitting a Source into bundles (parts for parallel\nprocessing) using SourceSplitRequest.",
@@ -2185,7 +2274,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SourceSplitOptions"
     },
     "SourceSplitRequest": {
       "description": "Represents the operation to split a high-level Source specification\ninto bundles (parts for parallel processing).\n\nAt a high level, splitting of a source into bundles happens as follows:\nSourceSplitRequest is applied to the source. If it returns\nSOURCE_SPLIT_OUTCOME_USE_CURRENT, no further splitting happens and the source\nis used \"as is\". Otherwise, splitting is applied recursively to each\nproduced DerivedSource.\n\nAs an optimization, for any Source, if its does_not_need_splitting is\ntrue, the framework assumes that splitting this source would return\nSOURCE_SPLIT_OUTCOME_USE_CURRENT, and doesn't initiate a SourceSplitRequest.\nThis applies both to the initial source being split and to bundles\nproduced from it.",
@@ -2199,7 +2289,8 @@
           "description": "Specification of the source to be split."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SourceSplitRequest"
     },
     "SourceSplitResponse": {
       "description": "The response to a SourceSplitRequest.",
@@ -2228,7 +2319,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SourceSplitResponse"
     },
     "SourceSplitShard": {
       "description": "DEPRECATED in favor of DerivedSource.",
@@ -2248,7 +2340,8 @@
           "description": "DEPRECATED"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SourceSplitShard"
     },
     "SplitInt64": {
       "description": "A representation of an int64, n, that is immune to precision loss when\nencoded in JSON.",
@@ -2264,7 +2357,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SplitInt64"
     },
     "StageSource": {
       "description": "Description of an input or output of an execution stage.",
@@ -2287,7 +2381,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "StageSource"
     },
     "StateFamilyConfig": {
       "description": "State family configuration.",
@@ -2301,7 +2396,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "StateFamilyConfig"
     },
     "Status": {
       "description": "The `Status` type defines a logical error model that is suitable for different\nprogramming environments, including REST APIs and RPC APIs. It is used by\n[gRPC](https://github.com/grpc). The error model is designed to be:\n\n- Simple to use and understand for most users\n- Flexible enough to meet unexpected needs\n\n# Overview\n\nThe `Status` message contains three pieces of data: error code, error message,\nand error details. The error code should be an enum value of\ngoogle.rpc.Code, but it may accept additional error codes if needed.  The\nerror message should be a developer-facing English message that helps\ndevelopers *understand* and *resolve* the error. If a localized user-facing\nerror message is needed, put the localized message in the error details or\nlocalize it in the client. The optional error details may contain arbitrary\ninformation about the error. There is a predefined set of error detail types\nin the package `google.rpc` which can be used for common error conditions.\n\n# Language mapping\n\nThe `Status` message is the logical representation of the error model, but it\nis not necessarily the actual wire format. When the `Status` message is\nexposed in different client libraries and different wire protocols, it can be\nmapped differently. For example, it will likely be mapped to some exceptions\nin Java, but more likely mapped to some error codes in C.\n\n# Other uses\n\nThe error model and the `Status` message can be used in a variety of\nenvironments, either with or without APIs, to provide a\nconsistent developer experience across different environments.\n\nExample uses of this error model include:\n\n- Partial errors. If a service needs to return partial errors to the client,\n    it may embed the `Status` in the normal response to indicate the partial\n    errors.\n\n- Workflow errors. A typical workflow has multiple steps. Each step may\n    have a `Status` message for error reporting purpose.\n\n- Batch operations. If a client uses batch request and batch response, the\n    `Status` message should be used directly inside batch response, one for\n    each error sub-response.\n\n- Asynchronous operations. If an API call embeds asynchronous operation\n    results in its response, the status of those operations should be\n    represented directly using the `Status` message.\n\n- Logging. If some API errors are stored in logs, the message `Status` could\n    be used directly after any stripping needed for security/privacy reasons.",
@@ -2326,7 +2422,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Status"
     },
     "Step": {
       "description": "Defines a particular step within a Cloud Dataflow job.\n\nA job consists of multiple steps, each of which performs some\nspecific operation as part of the overall job.  Data is typically\npassed from one step to another as part of the job.\n\nHere's an example of a sequence of steps which together implement a\nMap-Reduce job:\n\n  * Read a collection of data from some source, parsing the\n    collection's elements.\n\n  * Validate the elements.\n\n  * Apply a user-defined function to map each element to some value\n    and extract an element-specific key value.\n\n  * Group elements with the same key into a single element with\n    that key, transforming a multiply-keyed collection into a\n    uniquely-keyed collection.\n\n  * Write the elements out to some data sink.\n\nNote that the Cloud Dataflow service may be used to run many different\ntypes of jobs, not just Map-Reduce.",
@@ -2347,7 +2444,8 @@
           "type": "object"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Step"
     },
     "StreamLocation": {
       "description": "Describes a stream of data, either as input to be processed or as\noutput of a streaming Dataflow job.",
@@ -2369,7 +2467,8 @@
           "description": "The stream is part of another computation within the current\nstreaming Dataflow job."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "StreamLocation"
     },
     "StreamingComputationConfig": {
       "description": "Configuration information for a single streaming computation.",
@@ -2394,7 +2493,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "StreamingComputationConfig"
     },
     "StreamingComputationRanges": {
       "description": "Describes full or partial data disk assignment information of the computation\nranges.",
@@ -2411,7 +2511,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "StreamingComputationRanges"
     },
     "StreamingComputationTask": {
       "description": "A task which describes what action should be performed for the specified\nstreaming computation ranges.",
@@ -2440,7 +2541,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "StreamingComputationTask"
     },
     "StreamingConfigTask": {
       "description": "A task that carries configuration information for streaming computations.",
@@ -2469,7 +2571,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "StreamingConfigTask"
     },
     "StreamingSetupTask": {
       "description": "A task which initializes part of a streaming Dataflow job.",
@@ -2493,7 +2596,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "StreamingSetupTask"
     },
     "StreamingSideInputLocation": {
       "description": "Identifies the location of a streaming side input.",
@@ -2507,7 +2611,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "StreamingSideInputLocation"
     },
     "StreamingStageLocation": {
       "description": "Identifies the location of a streaming computation stage, for\nstage-to-stage communication.",
@@ -2517,7 +2622,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "StreamingStageLocation"
     },
     "StringList": {
       "description": "A metric value representing a list of strings.",
@@ -2530,7 +2636,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "StringList"
     },
     "StructuredMessage": {
       "description": "A rich message format, including a human readable string, a key for\nidentifying the message, and structured data associated with the message for\nprogrammatic consumption.",
@@ -2551,7 +2658,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "StructuredMessage"
     },
     "TaskRunnerSettings": {
       "description": "Taskrunner configuration settings.",
@@ -2636,7 +2744,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TaskRunnerSettings"
     },
     "TemplateMetadata": {
       "description": "Metadata describing a template.",
@@ -2661,7 +2770,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TemplateMetadata"
     },
     "TopologyConfig": {
       "description": "Global topology of the streaming Dataflow job, including all\ncomputations and their sharded locations.",
@@ -2698,7 +2808,8 @@
           "type": "object"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TopologyConfig"
     },
     "TransformSummary": {
       "description": "Description of the type, names/ids, and input/outputs for a transform.",
@@ -2748,7 +2859,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TransformSummary"
     },
     "WorkItem": {
       "description": "WorkItem represents basic information about a WorkItem to be executed\nin the cloud.",
@@ -2821,7 +2933,8 @@
           "description": "Additional information for StreamingSetupTask WorkItems."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "WorkItem"
     },
     "WorkItemServiceState": {
       "description": "The Dataflow service's idea of the current state of a WorkItem\nbeing processed by a worker.",
@@ -2868,7 +2981,8 @@
           "description": "Obsolete, always empty."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "WorkItemServiceState"
     },
     "WorkItemStatus": {
       "description": "Conveys a worker's progress through the work described by a WorkItem.",
@@ -2937,7 +3051,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "WorkItemStatus"
     },
     "WorkerHealthReport": {
       "description": "WorkerHealthReport contains information about the health of a worker.\n\nThe VM should be identified by the labels attached to the WorkerMessage that\nthis health ping belongs to.",
@@ -2967,7 +3082,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "WorkerHealthReport"
     },
     "WorkerHealthReportResponse": {
       "description": "WorkerHealthReportResponse contains information returned to the worker\nin response to a health ping.",
@@ -2978,7 +3094,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "WorkerHealthReportResponse"
     },
     "WorkerMessage": {
       "description": "WorkerMessage provides information to the backend about a worker.",
@@ -3008,7 +3125,8 @@
           "description": "Resource metrics reported by workers."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "WorkerMessage"
     },
     "WorkerMessageCode": {
       "description": "A message code is used to report status and error messages to the service.\nThe message codes are intended to be machine readable. The service will\ntake care of translating these into user understandable messages if\nnecessary.\n\nExample use cases:\n  1. Worker processes reporting successful startup.\n  2. Worker processes reporting specific errors (e.g. package staging\n     failure).",
@@ -3025,7 +3143,8 @@
           "type": "object"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "WorkerMessageCode"
     },
     "WorkerMessageResponse": {
       "description": "A worker_message response allows the server to pass information to the\nsender.",
@@ -3039,7 +3158,8 @@
           "description": "Service's response to reporting worker metrics (currently empty)."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "WorkerMessageResponse"
     },
     "WorkerPool": {
       "description": "Describes one particular pool of Cloud Dataflow workers to be\ninstantiated by the Cloud Dataflow service in order to perform the\ncomputations required by a job.  Note that a workflow job may use\nmultiple pools, in order to match the various computational\nrequirements of the various stages of the job.",
@@ -3161,7 +3281,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "WorkerPool"
     },
     "WorkerSettings": {
       "description": "Provides data to pass through to the worker harness.",
@@ -3191,7 +3312,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "WorkerSettings"
     },
     "WriteInstruction": {
       "description": "An instruction that writes records.\nTakes one input, produces no outputs.",
@@ -3205,7 +3327,8 @@
           "description": "The sink to write to."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "WriteInstruction"
     }
   },
   "actions": [

@@ -33,7 +33,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Agent"
     },
     "Association": {
       "description": "Home Owners Association",
@@ -51,7 +52,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Association"
     },
     "Broker": {
       "description": "SimplyRETS Broker Api",
@@ -62,7 +64,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Broker"
     },
     "ContactInformation": {
       "description": "RETS MLS Contact Information",
@@ -80,7 +83,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ContactInformation"
     },
     "Error": {
       "description": "Error information",
@@ -95,7 +99,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Error"
     },
     "GeographicData": {
       "description": "RETS MLS Geographic Data",
@@ -123,7 +128,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GeographicData"
     },
     "Listing": {
       "description": "RETS MLS Listing Property",
@@ -231,7 +237,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Listing"
     },
     "MlsInformation": {
       "description": "RETS MLS Vendor Data",
@@ -270,7 +277,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "MlsInformation"
     },
     "Office": {
       "description": "RETS MLS Office",
@@ -292,7 +300,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Office"
     },
     "OpenHouse": {
       "description": "SimplyRETS Open House object",
@@ -335,7 +344,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "OpenHouse"
     },
     "Parking": {
       "description": "RETS MLS School Data",
@@ -352,7 +362,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Parking"
     },
     "Property": {
       "description": "Rets MLS Listing Property",
@@ -513,7 +524,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Property"
     },
     "Sales": {
       "description": "Sales Data",
@@ -542,7 +554,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Sales"
     },
     "School": {
       "description": "RETS MLS School Data",
@@ -564,7 +577,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "School"
     },
     "StreetAddress": {
       "description": "RETS MLS Street Address",
@@ -607,7 +621,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "StreetAddress"
     },
     "Tax": {
       "description": "RETS MLS Tax Data",
@@ -626,7 +641,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Tax"
     }
   },
   "actions": [

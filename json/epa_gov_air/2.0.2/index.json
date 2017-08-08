@@ -32,7 +32,8 @@
         "type",
         "coordinates"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "Geometry"
     },
     "air1_ClusterData": {
       "description": "Cluster Data Object",
@@ -144,7 +145,8 @@
         "INSPRows",
         "TotalPenalties"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "air1_ClusterData"
     },
     "air1_ClusterOutput": {
       "description": "Cluster Output Object",
@@ -157,7 +159,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "air1_ClusterOutput"
     },
     "air1_MapData": {
       "description": "Map Data Object",
@@ -233,7 +236,8 @@
         "FormalCount",
         "InformalCount"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "air1_MapData"
     },
     "air2_Facilities": {
       "description": "Facilities Object",
@@ -917,7 +921,8 @@
       "type": "object",
       "xml": {
         "name": "Facility"
-      }
+      },
+      "title": "air2_Facilities"
     },
     "air2_MapOutput": {
       "description": "Map Output Object",
@@ -954,7 +959,8 @@
         "PopUpBaseURL",
         "MapData"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "air2_MapOutput"
     },
     "air2_Results": {
       "description": "Results Object",
@@ -1051,7 +1057,8 @@
         "QueryID",
         "PageNo"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "air2_Results"
     },
     "air3_Facilities": {
       "description": "Facilities Object",
@@ -1742,7 +1749,8 @@
       "type": "object",
       "xml": {
         "name": "Facility"
-      }
+      },
+      "title": "air3_Facilities"
     },
     "air3_Results": {
       "description": "Results Object",
@@ -1867,7 +1875,8 @@
         "ServiceBaseURL",
         "QueryParameters"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "air3_Results"
     },
     "air4_MapOutput": {
       "description": "Map Output Object",
@@ -1904,7 +1913,8 @@
         "PopUpBaseURL",
         "MapData"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "air4_MapOutput"
     },
     "air5_Results": {
       "description": "Results Object",
@@ -1948,7 +1958,8 @@
         "PageNo",
         "Facilities"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "air5_Results"
     },
     "air6_Feature": {
       "description": "GeoJSON Feature Object",
@@ -1971,7 +1982,8 @@
         "geometry",
         "properties"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "air6_Feature"
     },
     "air6_FeatureCollection": {
       "description": "GeoJSON Feature Collection Object",
@@ -1995,7 +2007,8 @@
         "type",
         "features"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "air6_FeatureCollection"
     },
     "air6_properties": {
       "description": "GeoJSON Properties Object",
@@ -2662,7 +2675,8 @@
         "CalculatedAccuracyMeters",
         "Map"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "air6_properties"
     },
     "met_Results": {
       "description": "Results Object",
@@ -2684,7 +2698,8 @@
       "required": [
         "Message"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "met_Results"
     },
     "met_ResultsColumns": {
       "description": "Results Column Object",
@@ -2727,7 +2742,8 @@
         "ObjectName",
         "Description"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "met_ResultsColumns"
     },
     "qp0_QueryParameters": {
       "description": "Query Parameters Object",
@@ -2749,7 +2765,8 @@
         "QP",
         "QV"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "qp0_QueryParameters"
     }
   },
   "actions": [

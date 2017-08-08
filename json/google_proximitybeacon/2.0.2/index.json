@@ -49,7 +49,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AdvertisedId"
     },
     "AttachmentInfo": {
       "description": "A subset of attachment information served via the\n`beaconinfo.getforobserved` method, used when your users encounter your\nbeacons.",
@@ -64,7 +65,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AttachmentInfo"
     },
     "Beacon": {
       "description": "Details of a beacon device.",
@@ -131,7 +133,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Beacon"
     },
     "BeaconAttachment": {
       "description": "Project-specific data associated with a beacon.",
@@ -155,7 +158,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BeaconAttachment"
     },
     "BeaconInfo": {
       "description": "A subset of beacon information served via the `beaconinfo.getforobserved`\nmethod, which you call when users of your app encounter your beacons.",
@@ -176,7 +180,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BeaconInfo"
     },
     "Date": {
       "description": "Represents a whole calendar date, e.g. date of birth. The time of day and\ntime zone are either specified elsewhere or are not significant. The date\nis relative to the Proleptic Gregorian Calendar. The day may be 0 to\nrepresent a year and month where the day is not significant, e.g. credit card\nexpiration date. The year may be 0 to represent a month and day independent\nof year, e.g. anniversary date. Related types are google.type.TimeOfDay\nand `google.protobuf.Timestamp`.",
@@ -197,7 +202,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Date"
     },
     "DeleteAttachmentsResponse": {
       "description": "Response for a request to delete attachments.",
@@ -208,7 +214,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DeleteAttachmentsResponse"
     },
     "Diagnostics": {
       "description": "Diagnostics for a single beacon.",
@@ -234,12 +241,14 @@
           "description": "The date when the battery is expected to be low. If the value is missing\nthen there is no estimate for when the battery will be low.\nThis value is only an estimate, not an exact date."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Diagnostics"
     },
     "Empty": {
       "description": "A generic empty message that you can re-use to avoid defining duplicated\nempty messages in your APIs. A typical example is to use it as the request\nor the response type of an API method. For instance:\n\n    service Foo {\n      rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);\n    }\n\nThe JSON representation for `Empty` is empty JSON object `{}`.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "Empty"
     },
     "EphemeralIdRegistration": {
       "description": "Write-only registration parameters for beacons using Eddystone-EID format.\nTwo ways of securely registering an Eddystone-EID beacon with the service\nare supported:\n\n1. Perform an ECDH key exchange via this API, including a previous call\n   to `GET /v1beta1/eidparams`. In this case the fields\n   `beacon_ecdh_public_key` and `service_ecdh_public_key` should be\n   populated and `beacon_identity_key` should not be populated. This\n   method ensures that only the two parties in the ECDH key exchange can\n   compute the identity key, which becomes a secret between them.\n2. Derive or obtain the beacon's identity key via other secure means\n   (perhaps an ECDH key exchange between the beacon and a mobile device\n   or any other secure method), and then submit the resulting identity key\n   to the service. In this case `beacon_identity_key` field should be\n   populated, and neither of `beacon_ecdh_public_key` nor\n   `service_ecdh_public_key` fields should be. The security of this method\n   depends on how securely the parties involved (in particular the\n   bluetooth client) handle the identity key, and obviously on how\n   securely the identity key was generated.\n\nSee [the Eddystone specification](https://github.com/google/eddystone/tree/master/eddystone-eid) at GitHub.",
@@ -275,7 +284,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "EphemeralIdRegistration"
     },
     "EphemeralIdRegistrationParams": {
       "description": "Information a client needs to provision and register beacons that\nbroadcast Eddystone-EID format beacon IDs, using Elliptic curve\nDiffie-Hellman key exchange. See\n[the Eddystone specification](https://github.com/google/eddystone/tree/master/eddystone-eid) at GitHub.",
@@ -296,7 +306,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "EphemeralIdRegistrationParams"
     },
     "GetInfoForObservedBeaconsRequest": {
       "description": "Request for beacon and attachment information about beacons that\na mobile client has encountered \"in the wild\".",
@@ -316,7 +327,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetInfoForObservedBeaconsRequest"
     },
     "GetInfoForObservedBeaconsResponse": {
       "description": "Information about the requested beacons, optionally including attachment\ndata.",
@@ -329,7 +341,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetInfoForObservedBeaconsResponse"
     },
     "IndoorLevel": {
       "description": "Indoor level, a human-readable string as returned by Google Maps APIs,\nuseful to indicate which floor of a building a beacon is located on.",
@@ -339,7 +352,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "IndoorLevel"
     },
     "LatLng": {
       "description": "An object representing a latitude/longitude pair. This is expressed as a pair\nof doubles representing degrees latitude and degrees longitude. Unless\nspecified otherwise, this must conform to the\n<a href=\"http://www.unoosa.org/pdf/icg/2012/template/WGS_84.pdf\">WGS84\nstandard</a>. Values must be within normalized ranges.\n\nExample of normalization code in Python:\n\n    def NormalizeLongitude(longitude):\n      \"\"\"Wraps decimal degrees longitude to [-180.0, 180.0].\"\"\"\n      q, r = divmod(longitude, 360.0)\n      if r > 180.0 or (r == 180.0 and q <= -1.0):\n        return r - 360.0\n      return r\n\n    def NormalizeLatLng(latitude, longitude):\n      \"\"\"Wraps decimal degrees latitude and longitude to\n      [-90.0, 90.0] and [-180.0, 180.0], respectively.\"\"\"\n      r = latitude % 360.0\n      if r <= 90.0:\n        return r, NormalizeLongitude(longitude)\n      elif r >= 270.0:\n        return r - 360, NormalizeLongitude(longitude)\n      else:\n        return 180 - r, NormalizeLongitude(longitude + 180.0)\n\n    assert 180.0 == NormalizeLongitude(180.0)\n    assert -180.0 == NormalizeLongitude(-180.0)\n    assert -179.0 == NormalizeLongitude(181.0)\n    assert (0.0, 0.0) == NormalizeLatLng(360.0, 0.0)\n    assert (0.0, 0.0) == NormalizeLatLng(-360.0, 0.0)\n    assert (85.0, 180.0) == NormalizeLatLng(95.0, 0.0)\n    assert (-85.0, -170.0) == NormalizeLatLng(-95.0, 10.0)\n    assert (90.0, 10.0) == NormalizeLatLng(90.0, 10.0)\n    assert (-90.0, -10.0) == NormalizeLatLng(-90.0, -10.0)\n    assert (0.0, -170.0) == NormalizeLatLng(-180.0, 10.0)\n    assert (0.0, -170.0) == NormalizeLatLng(180.0, 10.0)\n    assert (-90.0, 10.0) == NormalizeLatLng(270.0, 10.0)\n    assert (90.0, 10.0) == NormalizeLatLng(-270.0, 10.0)\n\nThe code in logs/storage/validator/logs_validator_traits.cc treats this type\nas if it were annotated as ST_LOCATION.",
@@ -355,7 +369,8 @@
           "type": "number"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LatLng"
     },
     "ListBeaconAttachmentsResponse": {
       "description": "Response to `ListBeaconAttachments` that contains the requested attachments.",
@@ -368,7 +383,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListBeaconAttachmentsResponse"
     },
     "ListBeaconsResponse": {
       "description": "Response that contains list beacon results and pagination help.",
@@ -390,7 +406,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListBeaconsResponse"
     },
     "ListDiagnosticsResponse": {
       "description": "Response that contains the requested diagnostics.",
@@ -407,7 +424,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListDiagnosticsResponse"
     },
     "ListNamespacesResponse": {
       "description": "Response to ListNamespacesRequest that contains all the project's namespaces.",
@@ -420,7 +438,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListNamespacesResponse"
     },
     "Namespace": {
       "description": "An attachment namespace defines read and write access for all the attachments\ncreated under it. Each namespace is globally unique, and owned by one\nproject which is the only project that can create attachments under it.",
@@ -439,7 +458,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Namespace"
     },
     "Observation": {
       "description": "Represents one beacon observed once.",
@@ -459,7 +479,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Observation"
     }
   },
   "actions": [

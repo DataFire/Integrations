@@ -20,16 +20,19 @@
       "maxLength": 512,
       "minLength": 1,
       "pattern": "arn:.*",
-      "type": "string"
+      "type": "string",
+      "title": "AWSKMSKeyARN"
     },
     "BooleanObject": {
-      "type": "boolean"
+      "type": "boolean",
+      "title": "BooleanObject"
     },
     "BucketARN": {
       "maxLength": 2048,
       "minLength": 1,
       "pattern": "arn:.*",
-      "type": "string"
+      "type": "string",
+      "title": "BucketARN"
     },
     "BufferingHints": {
       "description": "Describes hints for the buffering to perform before delivering data to the destination. Please note that these options are treated as hints, and therefore Firehose may choose to use different values when it is optimal.",
@@ -43,7 +46,8 @@
           "description": "<p>Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.</p> <p>We recommend setting this parameter to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec, the value should be 10 MB or higher.</p>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BufferingHints"
     },
     "CloudWatchLoggingOptions": {
       "description": "Describes the CloudWatch logging options for your delivery stream.",
@@ -61,12 +65,14 @@
           "description": "The CloudWatch log stream name for logging. This value is required if CloudWatch logging is enabled."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CloudWatchLoggingOptions"
     },
     "ClusterJDBCURL": {
       "minLength": 1,
       "pattern": "jdbc:\\(redshift\\|postgresql\\)://\\(\\(\\?!-\\)[A-Za-z0-9-]\\{1,63\\}\\(\\?<!-\\)\\.\\)\\+redshift\\.amazonaws\\.com:\\d\\{1,5\\}/[a-zA-Z0-9_$]\\+",
-      "type": "string"
+      "type": "string",
+      "title": "ClusterJDBCURL"
     },
     "CompressionFormat": {
       "enum": [
@@ -75,7 +81,8 @@
         "ZIP",
         "Snappy"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "CompressionFormat"
     },
     "ConcurrentModificationException": {
       "description": "Another modification has already happened. Fetch <b>VersionId</b> again and use it to update the destination.",
@@ -85,7 +92,8 @@
           "description": "A message that provides information about the error."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ConcurrentModificationException"
     },
     "CopyCommand": {
       "description": "Describes a <code>COPY</code> command for Amazon Redshift.",
@@ -106,10 +114,12 @@
       "required": [
         "DataTableName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CopyCommand"
     },
     "CopyOptions": {
-      "type": "string"
+      "type": "string",
+      "title": "CopyOptions"
     },
     "CreateDeliveryStreamInput": {
       "properties": {
@@ -137,7 +147,8 @@
       "required": [
         "DeliveryStreamName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateDeliveryStreamInput"
     },
     "CreateDeliveryStreamOutput": {
       "properties": {
@@ -146,19 +157,23 @@
           "description": "The ARN of the delivery stream."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateDeliveryStreamOutput"
     },
     "Data": {
       "maxLength": 1024000,
       "minLength": 0,
-      "type": "string"
+      "type": "string",
+      "title": "Data"
     },
     "DataTableColumns": {
-      "type": "string"
+      "type": "string",
+      "title": "DataTableColumns"
     },
     "DataTableName": {
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "DataTableName"
     },
     "DeleteDeliveryStreamInput": {
       "properties": {
@@ -170,17 +185,20 @@
       "required": [
         "DeliveryStreamName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteDeliveryStreamInput"
     },
     "DeleteDeliveryStreamOutput": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DeleteDeliveryStreamOutput"
     },
     "DeliveryStreamARN": {
       "maxLength": 512,
       "minLength": 1,
       "pattern": "arn:.*",
-      "type": "string"
+      "type": "string",
+      "title": "DeliveryStreamARN"
     },
     "DeliveryStreamDescription": {
       "description": "Contains information about a delivery stream.",
@@ -226,19 +244,22 @@
         "Destinations",
         "HasMoreDestinations"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeliveryStreamDescription"
     },
     "DeliveryStreamName": {
       "maxLength": 64,
       "minLength": 1,
       "pattern": "[a-zA-Z0-9_.-]+",
-      "type": "string"
+      "type": "string",
+      "title": "DeliveryStreamName"
     },
     "DeliveryStreamNameList": {
       "items": {
         "$ref": "#/definitions/DeliveryStreamName"
       },
-      "type": "array"
+      "type": "array",
+      "title": "DeliveryStreamNameList"
     },
     "DeliveryStreamStatus": {
       "enum": [
@@ -246,13 +267,15 @@
         "DELETING",
         "ACTIVE"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "DeliveryStreamStatus"
     },
     "DeliveryStreamVersionId": {
       "maxLength": 50,
       "minLength": 1,
       "pattern": "[0-9]+",
-      "type": "string"
+      "type": "string",
+      "title": "DeliveryStreamVersionId"
     },
     "DescribeDeliveryStreamInput": {
       "properties": {
@@ -272,12 +295,14 @@
       "required": [
         "DeliveryStreamName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeDeliveryStreamInput"
     },
     "DescribeDeliveryStreamInputLimit": {
       "maximum": 10000,
       "minimum": 1,
-      "type": "integer"
+      "type": "integer",
+      "title": "DescribeDeliveryStreamInputLimit"
     },
     "DescribeDeliveryStreamOutput": {
       "properties": {
@@ -289,7 +314,8 @@
       "required": [
         "DeliveryStreamDescription"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeDeliveryStreamOutput"
     },
     "DestinationDescription": {
       "description": "Describes the destination for a delivery stream.",
@@ -318,18 +344,21 @@
       "required": [
         "DestinationId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DestinationDescription"
     },
     "DestinationDescriptionList": {
       "items": {
         "$ref": "#/definitions/DestinationDescription"
       },
-      "type": "array"
+      "type": "array",
+      "title": "DestinationDescriptionList"
     },
     "DestinationId": {
       "maxLength": 100,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "DestinationId"
     },
     "ElasticsearchBufferingHints": {
       "description": "Describes the buffering to perform before delivering data to the Amazon ES destination.",
@@ -343,17 +372,20 @@
           "description": "<p>Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.</p> <p>We recommend setting this parameter to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec, the value should be 10 MB or higher.</p>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ElasticsearchBufferingHints"
     },
     "ElasticsearchBufferingIntervalInSeconds": {
       "maximum": 900,
       "minimum": 60,
-      "type": "integer"
+      "type": "integer",
+      "title": "ElasticsearchBufferingIntervalInSeconds"
     },
     "ElasticsearchBufferingSizeInMBs": {
       "maximum": 100,
       "minimum": 1,
-      "type": "integer"
+      "type": "integer",
+      "title": "ElasticsearchBufferingSizeInMBs"
     },
     "ElasticsearchDestinationConfiguration": {
       "description": "Describes the configuration of a destination in Amazon ES.",
@@ -410,7 +442,8 @@
         "TypeName",
         "S3Configuration"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ElasticsearchDestinationConfiguration"
     },
     "ElasticsearchDestinationDescription": {
       "description": "The destination description in Amazon ES.",
@@ -460,7 +493,8 @@
           "description": "The Elasticsearch type name."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ElasticsearchDestinationDescription"
     },
     "ElasticsearchDestinationUpdate": {
       "description": "Describes an update for a destination in Amazon ES.",
@@ -506,18 +540,21 @@
           "description": "The Elasticsearch type name."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ElasticsearchDestinationUpdate"
     },
     "ElasticsearchDomainARN": {
       "maxLength": 512,
       "minLength": 1,
       "pattern": "arn:.*",
-      "type": "string"
+      "type": "string",
+      "title": "ElasticsearchDomainARN"
     },
     "ElasticsearchIndexName": {
       "maxLength": 80,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "ElasticsearchIndexName"
     },
     "ElasticsearchIndexRotationPeriod": {
       "enum": [
@@ -527,12 +564,14 @@
         "OneWeek",
         "OneMonth"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ElasticsearchIndexRotationPeriod"
     },
     "ElasticsearchRetryDurationInSeconds": {
       "maximum": 7200,
       "minimum": 0,
-      "type": "integer"
+      "type": "integer",
+      "title": "ElasticsearchRetryDurationInSeconds"
     },
     "ElasticsearchRetryOptions": {
       "description": "Configures retry behavior in the event that Firehose is unable to deliver documents to Amazon ES.",
@@ -542,19 +581,22 @@
           "description": "After an initial failure to deliver to Amazon ES, the total amount of time during which Firehose re-attempts delivery (including the first attempt). After this time has elapsed, the failed documents are written to Amazon S3. Default value is 300 seconds (5 minutes). A value of 0 (zero) results in no retries."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ElasticsearchRetryOptions"
     },
     "ElasticsearchS3BackupMode": {
       "enum": [
         "FailedDocumentsOnly",
         "AllDocuments"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ElasticsearchS3BackupMode"
     },
     "ElasticsearchTypeName": {
       "maxLength": 100,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "ElasticsearchTypeName"
     },
     "EncryptionConfiguration": {
       "description": "Describes the encryption for a destination in Amazon S3.",
@@ -568,13 +610,16 @@
           "description": "Specifically override existing encryption information to ensure no encryption is used."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "EncryptionConfiguration"
     },
     "ErrorCode": {
-      "type": "string"
+      "type": "string",
+      "title": "ErrorCode"
     },
     "ErrorMessage": {
-      "type": "string"
+      "type": "string",
+      "title": "ErrorMessage"
     },
     "ExtendedS3DestinationConfiguration": {
       "description": "Describes the configuration of a destination in Amazon S3.",
@@ -624,7 +669,8 @@
         "RoleARN",
         "BucketARN"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ExtendedS3DestinationConfiguration"
     },
     "ExtendedS3DestinationDescription": {
       "description": "Describes a destination in Amazon S3.",
@@ -677,7 +723,8 @@
         "CompressionFormat",
         "EncryptionConfiguration"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ExtendedS3DestinationDescription"
     },
     "ExtendedS3DestinationUpdate": {
       "description": "Describes an update for a destination in Amazon S3.",
@@ -723,12 +770,14 @@
           "description": "The Amazon S3 destination for backup."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ExtendedS3DestinationUpdate"
     },
     "IntervalInSeconds": {
       "maximum": 900,
       "minimum": 60,
-      "type": "integer"
+      "type": "integer",
+      "title": "IntervalInSeconds"
     },
     "InvalidArgumentException": {
       "description": "The specified input parameter has an value that is not valid.",
@@ -738,7 +787,8 @@
           "description": "A message that provides information about the error."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidArgumentException"
     },
     "KMSEncryptionConfig": {
       "description": "Describes an encryption key for a destination in Amazon S3.",
@@ -751,7 +801,8 @@
       "required": [
         "AWSKMSKeyARN"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "KMSEncryptionConfig"
     },
     "LimitExceededException": {
       "description": "You have already reached the limit for a requested resource.",
@@ -761,7 +812,8 @@
           "description": "A message that provides information about the error."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LimitExceededException"
     },
     "ListDeliveryStreamsInput": {
       "properties": {
@@ -774,12 +826,14 @@
           "description": "The maximum number of delivery streams to list."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListDeliveryStreamsInput"
     },
     "ListDeliveryStreamsInputLimit": {
       "maximum": 10000,
       "minimum": 1,
-      "type": "integer"
+      "type": "integer",
+      "title": "ListDeliveryStreamsInputLimit"
     },
     "ListDeliveryStreamsOutput": {
       "properties": {
@@ -796,31 +850,38 @@
         "DeliveryStreamNames",
         "HasMoreDeliveryStreams"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListDeliveryStreamsOutput"
     },
     "LogGroupName": {
-      "type": "string"
+      "type": "string",
+      "title": "LogGroupName"
     },
     "LogStreamName": {
-      "type": "string"
+      "type": "string",
+      "title": "LogStreamName"
     },
     "NoEncryptionConfig": {
       "enum": [
         "NoEncryption"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "NoEncryptionConfig"
     },
     "NonNegativeIntegerObject": {
       "minimum": 0,
-      "type": "integer"
+      "type": "integer",
+      "title": "NonNegativeIntegerObject"
     },
     "Password": {
       "format": "password",
       "minLength": 6,
-      "type": "string"
+      "type": "string",
+      "title": "Password"
     },
     "Prefix": {
-      "type": "string"
+      "type": "string",
+      "title": "Prefix"
     },
     "ProcessingConfiguration": {
       "description": "Describes a data processing configuration.",
@@ -834,7 +895,8 @@
           "description": "The data processors."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ProcessingConfiguration"
     },
     "Processor": {
       "description": "Describes a data processor.",
@@ -851,13 +913,15 @@
       "required": [
         "Type"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "Processor"
     },
     "ProcessorList": {
       "items": {
         "$ref": "#/definitions/Processor"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ProcessorList"
     },
     "ProcessorParameter": {
       "description": "Describes the processor parameter.",
@@ -875,31 +939,36 @@
         "ParameterName",
         "ParameterValue"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ProcessorParameter"
     },
     "ProcessorParameterList": {
       "items": {
         "$ref": "#/definitions/ProcessorParameter"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ProcessorParameterList"
     },
     "ProcessorParameterName": {
       "enum": [
         "LambdaArn",
         "NumberOfRetries"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ProcessorParameterName"
     },
     "ProcessorParameterValue": {
       "maxLength": 512,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "ProcessorParameterValue"
     },
     "ProcessorType": {
       "enum": [
         "Lambda"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ProcessorType"
     },
     "PutRecordBatchInput": {
       "properties": {
@@ -916,7 +985,8 @@
         "DeliveryStreamName",
         "Records"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "PutRecordBatchInput"
     },
     "PutRecordBatchOutput": {
       "properties": {
@@ -933,7 +1003,8 @@
         "FailedPutCount",
         "RequestResponses"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "PutRecordBatchOutput"
     },
     "PutRecordBatchRequestEntryList": {
       "items": {
@@ -941,7 +1012,8 @@
       },
       "maxItems": 500,
       "minItems": 1,
-      "type": "array"
+      "type": "array",
+      "title": "PutRecordBatchRequestEntryList"
     },
     "PutRecordBatchResponseEntry": {
       "description": "Contains the result for an individual record from a <a>PutRecordBatch</a> request. If the record is successfully added to your delivery stream, it receives a record ID. If the record fails to be added to your delivery stream, the result includes an error code and an error message.",
@@ -959,7 +1031,8 @@
           "description": "The ID of the record."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PutRecordBatchResponseEntry"
     },
     "PutRecordBatchResponseEntryList": {
       "items": {
@@ -967,7 +1040,8 @@
       },
       "maxItems": 500,
       "minItems": 1,
-      "type": "array"
+      "type": "array",
+      "title": "PutRecordBatchResponseEntryList"
     },
     "PutRecordInput": {
       "properties": {
@@ -984,7 +1058,8 @@
         "DeliveryStreamName",
         "Record"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "PutRecordInput"
     },
     "PutRecordOutput": {
       "properties": {
@@ -996,11 +1071,13 @@
       "required": [
         "RecordId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "PutRecordOutput"
     },
     "PutResponseRecordId": {
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "PutResponseRecordId"
     },
     "Record": {
       "description": "The unit of data in a delivery stream.",
@@ -1013,7 +1090,8 @@
       "required": [
         "Data"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "Record"
     },
     "RedshiftDestinationConfiguration": {
       "description": "Describes the configuration of a destination in Amazon Redshift.",
@@ -1071,7 +1149,8 @@
         "Password",
         "S3Configuration"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "RedshiftDestinationConfiguration"
     },
     "RedshiftDestinationDescription": {
       "description": "Describes a destination in Amazon Redshift.",
@@ -1124,7 +1203,8 @@
         "Username",
         "S3DestinationDescription"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "RedshiftDestinationDescription"
     },
     "RedshiftDestinationUpdate": {
       "description": "Describes an update for a destination in Amazon Redshift.",
@@ -1174,12 +1254,14 @@
           "description": "The name of the user."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RedshiftDestinationUpdate"
     },
     "RedshiftRetryDurationInSeconds": {
       "maximum": 7200,
       "minimum": 0,
-      "type": "integer"
+      "type": "integer",
+      "title": "RedshiftRetryDurationInSeconds"
     },
     "RedshiftRetryOptions": {
       "description": "Configures retry behavior in the event that Firehose is unable to deliver documents to Amazon Redshift.",
@@ -1189,14 +1271,16 @@
           "description": "The length of time during which Firehose retries delivery after a failure, starting from the initial request and including the first attempt. The default value is 3600 seconds (60 minutes). Firehose does not retry if the value of <code>DurationInSeconds</code> is 0 (zero) or if the first delivery attempt takes longer than the current value."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RedshiftRetryOptions"
     },
     "RedshiftS3BackupMode": {
       "enum": [
         "Disabled",
         "Enabled"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "RedshiftS3BackupMode"
     },
     "ResourceInUseException": {
       "description": "The resource is already in use and not available for this operation.",
@@ -1206,7 +1290,8 @@
           "description": "A message that provides information about the error."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ResourceInUseException"
     },
     "ResourceNotFoundException": {
       "description": "The specified resource could not be found.",
@@ -1216,20 +1301,23 @@
           "description": "A message that provides information about the error."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ResourceNotFoundException"
     },
     "RoleARN": {
       "maxLength": 512,
       "minLength": 1,
       "pattern": "arn:.*",
-      "type": "string"
+      "type": "string",
+      "title": "RoleARN"
     },
     "S3BackupMode": {
       "enum": [
         "Disabled",
         "Enabled"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "S3BackupMode"
     },
     "S3DestinationConfiguration": {
       "description": "Describes the configuration of a destination in Amazon S3.",
@@ -1267,7 +1355,8 @@
         "RoleARN",
         "BucketARN"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "S3DestinationConfiguration"
     },
     "S3DestinationDescription": {
       "description": "Describes a destination in Amazon S3.",
@@ -1308,7 +1397,8 @@
         "CompressionFormat",
         "EncryptionConfiguration"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "S3DestinationDescription"
     },
     "S3DestinationUpdate": {
       "description": "Describes an update for a destination in Amazon S3.",
@@ -1342,7 +1432,8 @@
           "description": "The ARN of the AWS credentials."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "S3DestinationUpdate"
     },
     "ServiceUnavailableException": {
       "description": "The service is unavailable, back off and retry the operation. If you continue to see the exception, throughput limits for the delivery stream may have been exceeded. For more information about limits and how to request an increase, see <a href=\"http://docs.aws.amazon.com/firehose/latest/dev/limits.html\">Amazon Kinesis Firehose Limits</a>.",
@@ -1352,16 +1443,19 @@
           "description": "A message that provides information about the error."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ServiceUnavailableException"
     },
     "SizeInMBs": {
       "maximum": 128,
       "minimum": 1,
-      "type": "integer"
+      "type": "integer",
+      "title": "SizeInMBs"
     },
     "Timestamp": {
       "format": "date-time",
-      "type": "string"
+      "type": "string",
+      "title": "Timestamp"
     },
     "UpdateDestinationInput": {
       "properties": {
@@ -1399,16 +1493,19 @@
         "CurrentDeliveryStreamVersionId",
         "DestinationId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateDestinationInput"
     },
     "UpdateDestinationOutput": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "UpdateDestinationOutput"
     },
     "Username": {
       "format": "password",
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "Username"
     }
   },
   "actions": [

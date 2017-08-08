@@ -49,7 +49,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AncestorReference"
     },
     "BaseCategoryTree": {
       "description": "This type contains identifying information for the category tree associated with a particular eBay marketplace.",
@@ -63,7 +64,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BaseCategoryTree"
     },
     "Category": {
       "description": "This type contains information about a particular eBay product category.",
@@ -77,7 +79,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Category"
     },
     "CategorySubtree": {
       "description": "This type contains information about a particular subtree of a specified eBay category tree. A category subtree consists of a non-root node of the category tree, and all of its descendants down to the leaf nodes.",
@@ -94,7 +97,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CategorySubtree"
     },
     "CategorySuggestion": {
       "description": "This type contains information about a suggested category tree leaf node that corresponds to keywords provided in the request. It includes details about each of the category's ancestor nodes extending up to the root of the category tree.",
@@ -118,7 +122,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CategorySuggestion"
     },
     "CategorySuggestionResponse": {
       "description": "This type contains an array of suggested category tree nodes that are considered by eBay to most closely correspond to the keywords provided in a query string, from a specified category tree.",
@@ -139,7 +144,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CategorySuggestionResponse"
     },
     "CategoryTree": {
       "description": "This type contains information about all nodes of a specified eBay category tree.",
@@ -164,7 +170,8 @@
           "$ref": "#/definitions/CategoryTreeNode"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CategoryTree"
     },
     "CategoryTreeNode": {
       "description": "This type contains information about all nodes of a category tree or subtree hierarchy, including and below the specified <b>Category</b>, down to the leaf nodes. It is a recursive structure.",
@@ -192,7 +199,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CategoryTreeNode"
     }
   },
   "actions": [

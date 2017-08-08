@@ -44,7 +44,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "EncryptionJwkResource"
     },
     "Error": {
       "description": "Error message.",
@@ -59,7 +60,8 @@
         "message": {
           "type": "string"
         }
-      }
+      },
+      "title": "Error"
     },
     "GatewayParameters": {
       "description": "Collection of parameters for operations on a gateway resource.",
@@ -91,7 +93,8 @@
           "description": "Resource tags.",
           "type": "object"
         }
-      }
+      },
+      "title": "GatewayParameters"
     },
     "GatewayProfile": {
       "description": "JSON properties that the gateway service uses know how to communicate with the resource.",
@@ -136,7 +139,8 @@
           "description": "Gateway upgrade manifest URL.",
           "type": "string"
         }
-      }
+      },
+      "title": "GatewayProfile"
     },
     "GatewayResource": {
       "allOf": [
@@ -209,7 +213,8 @@
           "type": "object",
           "x-ms-client-flatten": true
         }
-      }
+      },
+      "title": "GatewayResource"
     },
     "GatewayResources": {
       "description": "Collection of Gateway Resources.",
@@ -226,7 +231,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GatewayResources"
     },
     "GatewayStatus": {
       "description": "Expanded gateway status information.",
@@ -321,7 +327,8 @@
           "description": "CPU Utilization of the whole system.",
           "type": "number"
         }
-      }
+      },
+      "title": "GatewayStatus"
     },
     "NodeParameters": {
       "description": "Parameter collection for operations on arm node resource.",
@@ -358,7 +365,8 @@
           "description": "Resource tags.",
           "type": "object"
         }
-      }
+      },
+      "title": "NodeParameters"
     },
     "NodeResource": {
       "allOf": [
@@ -393,7 +401,8 @@
           "type": "object",
           "x-ms-client-flatten": true
         }
-      }
+      },
+      "title": "NodeResource"
     },
     "NodeResources": {
       "description": "A collection of node resource objects.",
@@ -410,7 +419,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "NodeResources"
     },
     "PowerShellCommandParameters": {
       "description": "The parameters to a PowerShell script execution command.",
@@ -426,7 +436,8 @@
           "type": "object",
           "x-ms-client-flatten": true
         }
-      }
+      },
+      "title": "PowerShellCommandParameters"
     },
     "PowerShellCommandResult": {
       "description": "Results from invoking a PowerShell command.",
@@ -474,7 +485,8 @@
           "description": "Actual result text from the PowerShell Command.",
           "type": "string"
         }
-      }
+      },
+      "title": "PowerShellCommandResult"
     },
     "PowerShellCommandResults": {
       "description": "A collection of results from a PowerShell command.",
@@ -495,7 +507,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PowerShellCommandResults"
     },
     "PowerShellCommandStatus": {
       "allOf": [
@@ -509,7 +522,8 @@
           "$ref": "#/definitions/PowerShellCommandResults",
           "x-ms-client-flatten": true
         }
-      }
+      },
+      "title": "PowerShellCommandStatus"
     },
     "PowerShellSessionResource": {
       "allOf": [
@@ -555,7 +569,8 @@
           "type": "object",
           "x-ms-client-flatten": true
         }
-      }
+      },
+      "title": "PowerShellSessionResource"
     },
     "PowerShellSessionResources": {
       "description": "A collection of PowerShell session resources",
@@ -572,7 +587,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PowerShellSessionResources"
     },
     "PowerShellTabCompletionParameters": {
       "description": "Collection of parameters for PowerShell tab completion.",
@@ -581,7 +597,8 @@
           "description": "Command to get tab completion for.",
           "type": "string"
         }
-      }
+      },
+      "title": "PowerShellTabCompletionParameters"
     },
     "PowerShellTabCompletionResults": {
       "description": "An array of strings representing the different values that can be selected through.",
@@ -592,7 +609,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "PowerShellTabCompletionResults"
     },
     "PromptFieldDescription": {
       "description": "Field description for the implementation of PSHostUserInterface.Prompt",
@@ -625,7 +643,8 @@
           "description": "When set to 'true' the prompt field type is a list of values.",
           "type": "boolean"
         }
-      }
+      },
+      "title": "PromptFieldDescription"
     },
     "PromptMessageResponse": {
       "description": "The response to a prompt message.",
@@ -637,7 +656,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "PromptMessageResponse"
     },
     "Resource": {
       "description": "Resource Manager Resource Information.",
@@ -673,7 +693,8 @@
           "type": "string"
         }
       },
-      "x-ms-azure-resource": true
+      "x-ms-azure-resource": true,
+      "title": "Resource"
     },
     "SessionParameters": {
       "description": "Parameter collection for creation and other operations on sessions.",
@@ -720,7 +741,8 @@
           "type": "object",
           "x-ms-client-flatten": true
         }
-      }
+      },
+      "title": "SessionParameters"
     },
     "SessionResource": {
       "allOf": [
@@ -751,7 +773,8 @@
           "type": "object",
           "x-ms-client-flatten": true
         }
-      }
+      },
+      "title": "SessionResource"
     },
     "Version": {
       "description": "A multipart-numeric version number.",
@@ -780,7 +803,8 @@
           "description": "The fourth number of the version.",
           "type": "integer"
         }
-      }
+      },
+      "title": "Version"
     }
   },
   "actions": [

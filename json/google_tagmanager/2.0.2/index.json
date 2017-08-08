@@ -55,7 +55,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Account"
     },
     "AccountAccess": {
       "description": "Defines the Google Tag Manager Account access permissions.",
@@ -75,7 +76,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AccountAccess"
     },
     "Condition": {
       "description": "Represents a predicate.",
@@ -105,7 +107,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Condition"
     },
     "Container": {
       "description": "Represents a Google Tag Manager Container.",
@@ -216,7 +219,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Container"
     },
     "ContainerAccess": {
       "description": "Defines the Google Tag Manager Container access permissions.",
@@ -240,7 +244,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ContainerAccess"
     },
     "ContainerVersion": {
       "description": "Represents a Google Tag Manager Container Version.",
@@ -320,7 +325,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ContainerVersion"
     },
     "ContainerVersionHeader": {
       "description": "Represents a Google Tag Manager Container Version Header.",
@@ -366,7 +372,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ContainerVersionHeader"
     },
     "CreateContainerVersionRequestVersionOptions": {
       "description": "Options for new container versions.",
@@ -384,7 +391,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateContainerVersionRequestVersionOptions"
     },
     "CreateContainerVersionResponse": {
       "description": "Create container versions response.",
@@ -398,7 +406,8 @@
           "description": "The container version created."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateContainerVersionResponse"
     },
     "Environment": {
       "description": "Represents a Google Tag Manager Environment. Note that a user can create, delete and update environments of type USER, but can only update the enable_debug and url fields of environments of other types.",
@@ -459,7 +468,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Environment"
     },
     "Folder": {
       "description": "Represents a Google Tag Manager Folder.",
@@ -485,7 +495,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Folder"
     },
     "FolderEntities": {
       "description": "Represents a Google Tag Manager Folder's contents.",
@@ -512,7 +523,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "FolderEntities"
     },
     "ListAccountUsersResponse": {
       "description": "List AccountUsers Response.",
@@ -525,7 +537,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListAccountUsersResponse"
     },
     "ListAccountsResponse": {
       "description": "List Accounts Response.",
@@ -538,7 +551,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListAccountsResponse"
     },
     "ListContainerVersionsResponse": {
       "description": "List container versions response.",
@@ -558,7 +572,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListContainerVersionsResponse"
     },
     "ListContainersResponse": {
       "description": "List Containers Response.",
@@ -571,7 +586,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListContainersResponse"
     },
     "ListEnvironmentsResponse": {
       "description": "List Environments Response.",
@@ -584,7 +600,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListEnvironmentsResponse"
     },
     "ListFoldersResponse": {
       "description": "List Folders Response.",
@@ -597,7 +614,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListFoldersResponse"
     },
     "ListTagsResponse": {
       "description": "List Tags Response.",
@@ -610,7 +628,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListTagsResponse"
     },
     "ListTriggersResponse": {
       "description": "List triggers response.",
@@ -623,7 +642,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListTriggersResponse"
     },
     "ListVariablesResponse": {
       "description": "List Variables Response.",
@@ -636,7 +656,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListVariablesResponse"
     },
     "Macro": {
       "description": "Represents a Google Tag Manager Macro.",
@@ -705,7 +726,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Macro"
     },
     "Parameter": {
       "description": "Represents a Google Tag Manager Parameter.",
@@ -744,7 +766,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Parameter"
     },
     "PublishContainerVersionResponse": {
       "description": "Publish container version response.",
@@ -758,7 +781,8 @@
           "description": "The container version created."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PublishContainerVersionResponse"
     },
     "Rule": {
       "description": "Represents a Google Tag Manager Rule.",
@@ -795,7 +819,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Rule"
     },
     "SetupTag": {
       "properties": {
@@ -808,7 +833,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SetupTag"
     },
     "Tag": {
       "description": "Represents a Google Tag Manager Tag.",
@@ -922,7 +948,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Tag"
     },
     "TeardownTag": {
       "properties": {
@@ -935,7 +962,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TeardownTag"
     },
     "Trigger": {
       "description": "Represents a Google Tag Manager Trigger",
@@ -1041,7 +1069,8 @@
           "description": "How long to wait (in milliseconds) for tags to fire when 'waits_for_tags' above evaluates to true. Only valid for Form Submission and Link Click triggers."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Trigger"
     },
     "UserAccess": {
       "description": "Represents a user's permissions to an account and its container.",
@@ -1070,7 +1099,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UserAccess"
     },
     "Variable": {
       "description": "Represents a Google Tag Manager Variable.",
@@ -1139,7 +1169,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Variable"
     }
   },
   "actions": [

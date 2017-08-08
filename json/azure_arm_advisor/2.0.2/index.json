@@ -48,7 +48,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "OperationDisplayInfo"
     },
     "OperationEntity": {
       "description": "The operation supported by Advisor.",
@@ -62,7 +63,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "OperationEntity"
     },
     "OperationEntityListResult": {
       "description": "The list of Advisor operations.",
@@ -79,7 +81,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "OperationEntityListResult"
     },
     "RecommendationProperties": {
       "description": "The properties of the recommendation.",
@@ -153,7 +156,8 @@
           "description": "A summary of the recommendation."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RecommendationProperties"
     },
     "Resource": {
       "description": "An Azure resource.",
@@ -185,7 +189,8 @@
           "type": "string"
         }
       },
-      "x-ms-azure-resource": true
+      "x-ms-azure-resource": true,
+      "title": "Resource"
     },
     "ResourceRecommendationBase": {
       "description": "Advisor Recommendation.",
@@ -216,7 +221,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ResourceRecommendationBase"
     },
     "ResourceRecommendationBaseListResult": {
       "description": "The list of Advisor recommendations.",
@@ -233,7 +239,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ResourceRecommendationBaseListResult"
     },
     "ShortDescription": {
       "description": "A summary of the recommendation.",
@@ -247,7 +254,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ShortDescription"
     },
     "SuppressionContract": {
       "allOf": [
@@ -266,7 +274,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SuppressionContract"
     }
   },
   "actions": [

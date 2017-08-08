@@ -56,7 +56,8 @@
         "value",
         "encryptionAlgorithm"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AsymmetricEncryptedSecret"
     },
     "AsymmetricEncryptedSecretList": {
       "description": "Collection of asymmetric encrypted secret entities",
@@ -72,7 +73,8 @@
       "required": [
         "value"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AsymmetricEncryptedSecretList"
     },
     "AvailableProviderOperation": {
       "description": "Represents available provider operation.",
@@ -95,7 +97,8 @@
           "x-ms-client-flatten": true
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AvailableProviderOperation"
     },
     "AvailableProviderOperationDisplay": {
       "description": "Contains the localized display information for this particular operation/action. These value will be used by several clients for (a) custom role definitions for RBAC, (b) complex query filters for the event service and (c) audit history/records for management operations.",
@@ -117,7 +120,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AvailableProviderOperationDisplay"
     },
     "AvailableProviderOperationList": {
       "description": "List of available provider operations.",
@@ -137,12 +141,14 @@
       "required": [
         "value"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AvailableProviderOperationList"
     },
     "AvailableProviderOperationProperties": {
       "description": "Represents properties of AvailableProviderOperation",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "AvailableProviderOperationProperties"
     },
     "BaseModel": {
       "description": "Represents the base class for all other ARM object models",
@@ -174,7 +180,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BaseModel"
     },
     "ConfigureDeviceRequest": {
       "allOf": [
@@ -193,7 +200,8 @@
       "required": [
         "properties"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ConfigureDeviceRequest"
     },
     "ConfigureDeviceRequestProperties": {
       "description": "Configure device properties",
@@ -224,7 +232,8 @@
         "currentDeviceName",
         "timeZone"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ConfigureDeviceRequestProperties"
     },
     "Device": {
       "allOf": [
@@ -243,7 +252,8 @@
       "required": [
         "properties"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "Device"
     },
     "DeviceDetails": {
       "description": "Additional details having endpoint count and volume container count",
@@ -259,7 +269,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DeviceDetails"
     },
     "DeviceList": {
       "description": "Collection of Devices",
@@ -275,7 +286,8 @@
       "required": [
         "value"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeviceList"
     },
     "DevicePatch": {
       "description": "Represents the patch request for the device.",
@@ -289,7 +301,8 @@
       "required": [
         "properties"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DevicePatch"
     },
     "DevicePatchProperties": {
       "description": "Patch Device properties.",
@@ -299,7 +312,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DevicePatchProperties"
     },
     "DeviceProperties": {
       "description": "Encases all the properties of the Device",
@@ -482,7 +496,8 @@
         "activeController",
         "friendlySoftwareVersion"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeviceProperties"
     },
     "EncryptionSettings": {
       "allOf": [
@@ -501,7 +516,8 @@
       "required": [
         "properties"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "EncryptionSettings"
     },
     "EncryptionSettingsProperties": {
       "description": "The properties of EncryptionSettings",
@@ -535,7 +551,8 @@
         "encryptionStatus",
         "keyRolloverStatus"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "EncryptionSettingsProperties"
     },
     "Key": {
       "description": "The key.",
@@ -548,7 +565,8 @@
       "required": [
         "activationKey"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "Key"
     },
     "Manager": {
       "allOf": [
@@ -568,7 +586,8 @@
           "x-ms-client-flatten": true
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Manager"
     },
     "ManagerExtendedInfo": {
       "allOf": [
@@ -588,7 +607,8 @@
           "x-ms-client-flatten": true
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ManagerExtendedInfo"
     },
     "ManagerExtendedInfoProperties": {
       "description": "Properties of the ManagerExtendedInfo",
@@ -622,7 +642,8 @@
         "integrityKey",
         "algorithm"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ManagerExtendedInfoProperties"
     },
     "ManagerIntrinsicSettings": {
       "description": "Intrinsic settings which refers to the type of the Storsimple manager",
@@ -643,7 +664,8 @@
       "required": [
         "type"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ManagerIntrinsicSettings"
     },
     "ManagerList": {
       "description": "List of storsimple Managers under a particular resourceGroup",
@@ -659,7 +681,8 @@
       "required": [
         "value"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ManagerList"
     },
     "ManagerProperties": {
       "description": "The properties of the Manager",
@@ -677,7 +700,8 @@
           "description": "Specifies the Sku"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ManagerProperties"
     },
     "ManagerSku": {
       "description": "The Sku.",
@@ -697,7 +721,8 @@
       "required": [
         "name"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ManagerSku"
     },
     "NetworkInterfaceData0Settings": {
       "description": "Network interface Data 0 IP settings",
@@ -711,7 +736,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "NetworkInterfaceData0Settings"
     },
     "PublicKey": {
       "description": "The public key.",
@@ -724,7 +750,8 @@
       "required": [
         "key"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "PublicKey"
     },
     "Resource": {
       "description": "The Azure Resource.",
@@ -760,7 +787,8 @@
         "location"
       ],
       "type": "object",
-      "x-ms-azure-resource": true
+      "x-ms-azure-resource": true,
+      "title": "Resource"
     },
     "SecondaryDNSSettings": {
       "description": "Mandatory DNS settings",
@@ -773,7 +801,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SecondaryDNSSettings"
     },
     "SymmetricEncryptedSecret": {
       "description": "Represents secrets encrypted using Symmetric Encryption Key.",
@@ -804,7 +833,8 @@
         "value",
         "encryptionAlgorithm"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "SymmetricEncryptedSecret"
     }
   },
   "actions": [

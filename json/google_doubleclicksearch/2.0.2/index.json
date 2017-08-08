@@ -61,7 +61,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Availability"
     },
     "Conversion": {
       "description": "A conversion containing data relevant to DoubleClick Search.",
@@ -221,7 +222,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Conversion"
     },
     "ConversionList": {
       "description": "A list of conversions.",
@@ -239,7 +241,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ConversionList"
     },
     "CustomDimension": {
       "description": "A message containing the custome dimension.",
@@ -253,7 +256,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CustomDimension"
     },
     "CustomMetric": {
       "description": "A message containing the custome metric.",
@@ -268,7 +272,8 @@
           "type": "number"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CustomMetric"
     },
     "Report": {
       "description": "A DoubleClick Search report. This object contains the report request, some report metadata such as currency code, and the generated report rows or report files.",
@@ -329,7 +334,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Report"
     },
     "ReportApiColumnSpec": {
       "description": "A request object used to create a DoubleClick Search report.",
@@ -376,7 +382,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ReportApiColumnSpec"
     },
     "ReportRequest": {
       "description": "A request object used to create a DoubleClick Search report.",
@@ -543,14 +550,16 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ReportRequest"
     },
     "ReportRow": {
       "additionalProperties": {
         "description": "Indicates the columns that are represented in this row. That is, each key corresponds to a column with a non-empty cell in this row."
       },
       "description": "A row in a DoubleClick Search report.",
-      "type": "object"
+      "type": "object",
+      "title": "ReportRow"
     },
     "SavedColumn": {
       "description": "A saved column",
@@ -569,7 +578,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SavedColumn"
     },
     "SavedColumnList": {
       "description": "A list of saved columns. Advertisers create saved columns to report on Floodlight activities, Google Analytics goals, or custom KPIs. To request reports with saved columns, you'll need the saved column names that are available from this list.",
@@ -587,7 +597,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SavedColumnList"
     },
     "UpdateAvailabilityRequest": {
       "description": "The request to update availability.",
@@ -600,7 +611,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UpdateAvailabilityRequest"
     },
     "UpdateAvailabilityResponse": {
       "description": "The response to a update availability request.",
@@ -613,7 +625,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UpdateAvailabilityResponse"
     }
   },
   "actions": [

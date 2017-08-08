@@ -28,27 +28,32 @@
           "description": "The value that is associated with the account limit name."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AccountLimit"
     },
     "AccountLimitList": {
       "items": {
         "$ref": "#/definitions/AccountLimit"
       },
-      "type": "array"
+      "type": "array",
+      "title": "AccountLimitList"
     },
     "AllowedValue": {
-      "type": "string"
+      "type": "string",
+      "title": "AllowedValue"
     },
     "AllowedValues": {
       "items": {
         "$ref": "#/definitions/AllowedValue"
       },
-      "type": "array"
+      "type": "array",
+      "title": "AllowedValues"
     },
     "AlreadyExistsException": {
       "description": "Resource with the name requested already exists.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "AlreadyExistsException"
     },
     "CancelUpdateStackInput": {
       "description": "The input for the <a>CancelUpdateStack</a> action.",
@@ -65,26 +70,31 @@
       "required": [
         "StackName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CancelUpdateStackInput"
     },
     "Capabilities": {
       "items": {
         "$ref": "#/definitions/Capability"
       },
-      "type": "array"
+      "type": "array",
+      "title": "Capabilities"
     },
     "CapabilitiesReason": {
-      "type": "string"
+      "type": "string",
+      "title": "CapabilitiesReason"
     },
     "Capability": {
       "enum": [
         "CAPABILITY_IAM",
         "CAPABILITY_NAMED_IAM"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "Capability"
     },
     "CausingEntity": {
-      "type": "string"
+      "type": "string",
+      "title": "CausingEntity"
     },
     "Change": {
       "description": "The <code>Change</code> structure describes the changes AWS CloudFormation will perform if you execute the change set.",
@@ -98,7 +108,8 @@
           "description": "The type of entity that AWS CloudFormation changes. Currently, the only entity type is <code>Resource</code>."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Change"
     },
     "ChangeAction": {
       "enum": [
@@ -106,29 +117,34 @@
         "Modify",
         "Remove"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ChangeAction"
     },
     "ChangeSetId": {
       "minLength": 1,
       "pattern": "arn:[-a-zA-Z0-9:/]*",
-      "type": "string"
+      "type": "string",
+      "title": "ChangeSetId"
     },
     "ChangeSetName": {
       "maxLength": 128,
       "minLength": 1,
       "pattern": "[a-zA-Z][-a-zA-Z0-9]*",
-      "type": "string"
+      "type": "string",
+      "title": "ChangeSetName"
     },
     "ChangeSetNameOrId": {
       "maxLength": 1600,
       "minLength": 1,
       "pattern": "[a-zA-Z][-a-zA-Z0-9]*|arn:[-a-zA-Z0-9:/]*",
-      "type": "string"
+      "type": "string",
+      "title": "ChangeSetNameOrId"
     },
     "ChangeSetNotFoundException": {
       "description": "The specified change set name or ID doesn't exit. To view valid change sets for a stack, use the <code>ListChangeSets</code> action.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "ChangeSetNotFoundException"
     },
     "ChangeSetStatus": {
       "enum": [
@@ -138,16 +154,19 @@
         "DELETE_COMPLETE",
         "FAILED"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ChangeSetStatus"
     },
     "ChangeSetStatusReason": {
-      "type": "string"
+      "type": "string",
+      "title": "ChangeSetStatusReason"
     },
     "ChangeSetSummaries": {
       "items": {
         "$ref": "#/definitions/ChangeSetSummary"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ChangeSetSummaries"
     },
     "ChangeSetSummary": {
       "description": "The <code>ChangeSetSummary</code> structure describes a change set, its status, and the stack with which it's associated.",
@@ -189,14 +208,16 @@
           "description": "A description of the change set's status. For example, if your change set is in the <code>FAILED</code> state, AWS CloudFormation shows the error message."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ChangeSetSummary"
     },
     "ChangeSetType": {
       "enum": [
         "CREATE",
         "UPDATE"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ChangeSetType"
     },
     "ChangeSource": {
       "enum": [
@@ -206,30 +227,35 @@
         "DirectModification",
         "Automatic"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ChangeSource"
     },
     "ChangeType": {
       "enum": [
         "Resource"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ChangeType"
     },
     "Changes": {
       "items": {
         "$ref": "#/definitions/Change"
       },
-      "type": "array"
+      "type": "array",
+      "title": "Changes"
     },
     "ClientRequestToken": {
       "maxLength": 128,
       "minLength": 1,
       "pattern": "[a-zA-Z][-a-zA-Z0-9]*",
-      "type": "string"
+      "type": "string",
+      "title": "ClientRequestToken"
     },
     "ClientToken": {
       "maxLength": 128,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "ClientToken"
     },
     "ContinueUpdateRollbackInput": {
       "description": "The input for the <a>ContinueUpdateRollback</a> action.",
@@ -254,12 +280,14 @@
       "required": [
         "StackName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ContinueUpdateRollbackInput"
     },
     "ContinueUpdateRollbackOutput": {
       "description": "The output for a <a>ContinueUpdateRollback</a> action.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "ContinueUpdateRollbackOutput"
     },
     "CreateChangeSetInput": {
       "description": "The input for the <a>CreateChangeSet</a> action.",
@@ -325,7 +353,8 @@
         "StackName",
         "ChangeSetName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateChangeSetInput"
     },
     "CreateChangeSetOutput": {
       "description": "The output for the <a>CreateChangeSet</a> action.",
@@ -339,7 +368,8 @@
           "description": "The unique ID of the stack."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateChangeSetOutput"
     },
     "CreateStackInput": {
       "description": "The input for <a>CreateStack</a> action.",
@@ -408,7 +438,8 @@
       "required": [
         "StackName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateStackInput"
     },
     "CreateStackOutput": {
       "description": "The output for a <a>CreateStack</a> action.",
@@ -418,11 +449,13 @@
           "description": "Unique identifier of the stack."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateStackOutput"
     },
     "CreationTime": {
       "format": "date-time",
-      "type": "string"
+      "type": "string",
+      "title": "CreationTime"
     },
     "DeleteChangeSetInput": {
       "description": "The input for the <a>DeleteChangeSet</a> action.",
@@ -439,12 +472,14 @@
       "required": [
         "ChangeSetName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteChangeSetInput"
     },
     "DeleteChangeSetOutput": {
       "description": "The output for the <a>DeleteChangeSet</a> action.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DeleteChangeSetOutput"
     },
     "DeleteStackInput": {
       "description": "The input for <a>DeleteStack</a> action.",
@@ -469,11 +504,13 @@
       "required": [
         "StackName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteStackInput"
     },
     "DeletionTime": {
       "format": "date-time",
-      "type": "string"
+      "type": "string",
+      "title": "DeletionTime"
     },
     "DescribeAccountLimitsInput": {
       "description": "The input for the <a>DescribeAccountLimits</a> action.",
@@ -483,7 +520,8 @@
           "description": "A string that identifies the next page of limits that you want to retrieve."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeAccountLimitsInput"
     },
     "DescribeAccountLimitsOutput": {
       "description": "The output for the <a>DescribeAccountLimits</a> action.",
@@ -497,7 +535,8 @@
           "description": "If the output exceeds 1 MB in size, a string that identifies the next page of limits. If no additional page exists, this value is null."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeAccountLimitsOutput"
     },
     "DescribeChangeSetInput": {
       "description": "The input for the <a>DescribeChangeSet</a> action.",
@@ -518,7 +557,8 @@
       "required": [
         "ChangeSetName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeChangeSetInput"
     },
     "DescribeChangeSetOutput": {
       "description": "The output for the <a>DescribeChangeSet</a> action.",
@@ -584,7 +624,8 @@
           "description": "If you execute the change set, the tags that will be associated with the stack."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeChangeSetOutput"
     },
     "DescribeStackEventsInput": {
       "description": "The input for <a>DescribeStackEvents</a> action.",
@@ -598,7 +639,8 @@
           "description": "<p>The name or the unique stack ID that is associated with the stack, which are not always interchangeable:</p> <ul> <li> <p>Running stacks: You can specify either the stack's name or its unique stack ID.</p> </li> <li> <p>Deleted stacks: You must specify the unique stack ID.</p> </li> </ul> <p>Default: There is no default value.</p>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeStackEventsInput"
     },
     "DescribeStackEventsOutput": {
       "description": "The output for a <a>DescribeStackEvents</a> action.",
@@ -612,7 +654,8 @@
           "description": "A list of <code>StackEvents</code> structures."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeStackEventsOutput"
     },
     "DescribeStackResourceInput": {
       "description": "The input for <a>DescribeStackResource</a> action.",
@@ -630,7 +673,8 @@
         "StackName",
         "LogicalResourceId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeStackResourceInput"
     },
     "DescribeStackResourceOutput": {
       "description": "The output for a <a>DescribeStackResource</a> action.",
@@ -640,7 +684,8 @@
           "description": "A <code>StackResourceDetail</code> structure containing the description of the specified resource in the specified stack."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeStackResourceOutput"
     },
     "DescribeStackResourcesInput": {
       "description": "The input for <a>DescribeStackResources</a> action.",
@@ -658,7 +703,8 @@
           "description": "<p>The name or the unique stack ID that is associated with the stack, which are not always interchangeable:</p> <ul> <li> <p>Running stacks: You can specify either the stack's name or its unique stack ID.</p> </li> <li> <p>Deleted stacks: You must specify the unique stack ID.</p> </li> </ul> <p>Default: There is no default value.</p> <p>Required: Conditional. If you do not specify <code>StackName</code>, you must specify <code>PhysicalResourceId</code>.</p>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeStackResourcesInput"
     },
     "DescribeStackResourcesOutput": {
       "description": "The output for a <a>DescribeStackResources</a> action.",
@@ -668,7 +714,8 @@
           "description": "A list of <code>StackResource</code> structures."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeStackResourcesOutput"
     },
     "DescribeStacksInput": {
       "description": "The input for <a>DescribeStacks</a> action.",
@@ -682,7 +729,8 @@
           "description": "<p>The name or the unique stack ID that is associated with the stack, which are not always interchangeable:</p> <ul> <li> <p>Running stacks: You can specify either the stack's name or its unique stack ID.</p> </li> <li> <p>Deleted stacks: You must specify the unique stack ID.</p> </li> </ul> <p>Default: There is no default value.</p>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeStacksInput"
     },
     "DescribeStacksOutput": {
       "description": "The output for a <a>DescribeStacks</a> action.",
@@ -696,15 +744,18 @@
           "description": "A list of stack structures."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeStacksOutput"
     },
     "Description": {
       "maxLength": 1024,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "Description"
     },
     "DisableRollback": {
-      "type": "boolean"
+      "type": "boolean",
+      "title": "DisableRollback"
     },
     "EstimateTemplateCostInput": {
       "description": "The input for an <a>EstimateTemplateCost</a> action.",
@@ -722,7 +773,8 @@
           "description": "<p>Location of file containing the template body. The URL must point to a template that is located in an Amazon S3 bucket. For more information, go to <a href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html\">Template Anatomy</a> in the AWS CloudFormation User Guide.</p> <p>Conditional: You must pass <code>TemplateURL</code> or <code>TemplateBody</code>. If both are passed, only <code>TemplateBody</code> is used.</p>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "EstimateTemplateCostInput"
     },
     "EstimateTemplateCostOutput": {
       "description": "The output for a <a>EstimateTemplateCost</a> action.",
@@ -732,17 +784,20 @@
           "description": "An AWS Simple Monthly Calculator URL with a query string that describes the resources required to run the template."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "EstimateTemplateCostOutput"
     },
     "EvaluationType": {
       "enum": [
         "Static",
         "Dynamic"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "EvaluationType"
     },
     "EventId": {
-      "type": "string"
+      "type": "string",
+      "title": "EventId"
     },
     "ExecuteChangeSetInput": {
       "description": "The input for the <a>ExecuteChangeSet</a> action.",
@@ -763,12 +818,14 @@
       "required": [
         "ChangeSetName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ExecuteChangeSetInput"
     },
     "ExecuteChangeSetOutput": {
       "description": "The output for the <a>ExecuteChangeSet</a> action.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "ExecuteChangeSetOutput"
     },
     "ExecutionStatus": {
       "enum": [
@@ -779,7 +836,8 @@
         "EXECUTE_FAILED",
         "OBSOLETE"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ExecutionStatus"
     },
     "Export": {
       "description": "The <code>Export</code> structure describes the exported output values for a stack.",
@@ -797,19 +855,23 @@
           "description": "The value of the exported output, such as a resource physical ID. This value is defined in the <code>Export</code> field in the associated stack's <code>Outputs</code> section."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Export"
     },
     "ExportName": {
-      "type": "string"
+      "type": "string",
+      "title": "ExportName"
     },
     "ExportValue": {
-      "type": "string"
+      "type": "string",
+      "title": "ExportValue"
     },
     "Exports": {
       "items": {
         "$ref": "#/definitions/Export"
       },
-      "type": "array"
+      "type": "array",
+      "title": "Exports"
     },
     "GetStackPolicyInput": {
       "description": "The input for the <a>GetStackPolicy</a> action.",
@@ -822,7 +884,8 @@
       "required": [
         "StackName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetStackPolicyInput"
     },
     "GetStackPolicyOutput": {
       "description": "The output for the <a>GetStackPolicy</a> action.",
@@ -832,7 +895,8 @@
           "description": "Structure containing the stack policy body. (For more information, go to <a href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html\"> Prevent Updates to Stack Resources</a> in the AWS CloudFormation User Guide.)"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetStackPolicyOutput"
     },
     "GetTemplateInput": {
       "description": "The input for a <a>GetTemplate</a> action.",
@@ -850,7 +914,8 @@
           "description": "<p>For templates that include transforms, the stage of the template that AWS CloudFormation returns. To get the user-submitted template, specify <code>Original</code>. To get the template after AWS CloudFormation has processed all transforms, specify <code>Processed</code>. </p> <p>If the template doesn't include transforms, <code>Original</code> and <code>Processed</code> return the same template. By default, AWS CloudFormation specifies <code>Original</code>. </p>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetTemplateInput"
     },
     "GetTemplateOutput": {
       "description": "The output for <a>GetTemplate</a> action.",
@@ -864,7 +929,8 @@
           "description": "<p>Structure containing the template body. (For more information, go to <a href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html\">Template Anatomy</a> in the AWS CloudFormation User Guide.)</p> <p>AWS CloudFormation returns the same template that was used when the stack was created.</p>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetTemplateOutput"
     },
     "GetTemplateSummaryInput": {
       "description": "The input for the <a>GetTemplateSummary</a> action.",
@@ -882,7 +948,8 @@
           "description": "<p>Location of file containing the template body. The URL must point to a template (max size: 460,800 bytes) that is located in an Amazon S3 bucket. For more information about templates, see <a href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html\">Template Anatomy</a> in the AWS CloudFormation User Guide.</p> <p>Conditional: You must specify only one of the following parameters: <code>StackName</code>, <code>TemplateBody</code>, or <code>TemplateURL</code>.</p>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetTemplateSummaryInput"
     },
     "GetTemplateSummaryOutput": {
       "description": "The output for the <a>GetTemplateSummary</a> action.",
@@ -920,38 +987,46 @@
           "description": "The AWS template format version, which identifies the capabilities of the template."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetTemplateSummaryOutput"
     },
     "Imports": {
       "items": {
         "$ref": "#/definitions/StackName"
       },
-      "type": "array"
+      "type": "array",
+      "title": "Imports"
     },
     "InsufficientCapabilitiesException": {
       "description": "The template contains resources with capabilities that were not specified in the Capabilities parameter.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "InsufficientCapabilitiesException"
     },
     "InvalidChangeSetStatusException": {
       "description": "The specified change set cannot be used to update the stack. For example, the change set status might be <code>CREATE_IN_PROGRESS</code> or the stack status might be <code>UPDATE_IN_PROGRESS</code>.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "InvalidChangeSetStatusException"
     },
     "LastUpdatedTime": {
       "format": "date-time",
-      "type": "string"
+      "type": "string",
+      "title": "LastUpdatedTime"
     },
     "LimitExceededException": {
       "description": "Quota for the resource has already been reached.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "LimitExceededException"
     },
     "LimitName": {
-      "type": "string"
+      "type": "string",
+      "title": "LimitName"
     },
     "LimitValue": {
-      "type": "integer"
+      "type": "integer",
+      "title": "LimitValue"
     },
     "ListChangeSetsInput": {
       "description": "The input for the <a>ListChangeSets</a> action.",
@@ -968,7 +1043,8 @@
       "required": [
         "StackName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListChangeSetsInput"
     },
     "ListChangeSetsOutput": {
       "description": "The output for the <a>ListChangeSets</a> action.",
@@ -982,7 +1058,8 @@
           "description": "A list of <code>ChangeSetSummary</code> structures that provides the ID and status of each change set for the specified stack."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListChangeSetsOutput"
     },
     "ListExportsInput": {
       "properties": {
@@ -991,7 +1068,8 @@
           "description": "A string (provided by the <a>ListExports</a> response output) that identifies the next page of exported output values that you asked to retrieve."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListExportsInput"
     },
     "ListExportsOutput": {
       "properties": {
@@ -1004,7 +1082,8 @@
           "description": "If the output exceeds 100 exported output values, a string that identifies the next page of exports. If there is no additional page, this value is null."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListExportsOutput"
     },
     "ListImportsInput": {
       "properties": {
@@ -1020,7 +1099,8 @@
       "required": [
         "ExportName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListImportsInput"
     },
     "ListImportsOutput": {
       "properties": {
@@ -1033,7 +1113,8 @@
           "description": "A string that identifies the next page of exports. If there is no additional page, this value is null."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListImportsOutput"
     },
     "ListStackResourcesInput": {
       "description": "The input for the <a>ListStackResource</a> action.",
@@ -1050,7 +1131,8 @@
       "required": [
         "StackName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListStackResourcesInput"
     },
     "ListStackResourcesOutput": {
       "description": "The output for a <a>ListStackResources</a> action.",
@@ -1064,7 +1146,8 @@
           "description": "A list of <code>StackResourceSummary</code> structures."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListStackResourcesOutput"
     },
     "ListStacksInput": {
       "description": "The input for <a>ListStacks</a> action.",
@@ -1078,7 +1161,8 @@
           "description": "Stack status to use as a filter. Specify one or more stack status codes to list only stacks with the specified status codes. For a complete list of stack status codes, see the <code>StackStatus</code> parameter of the <a>Stack</a> data type."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListStacksInput"
     },
     "ListStacksOutput": {
       "description": "The output for <a>ListStacks</a> action.",
@@ -1092,31 +1176,38 @@
           "description": "A list of <code>StackSummary</code> structures containing information about the specified stacks."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListStacksOutput"
     },
     "LogicalResourceId": {
-      "type": "string"
+      "type": "string",
+      "title": "LogicalResourceId"
     },
     "Metadata": {
-      "type": "string"
+      "type": "string",
+      "title": "Metadata"
     },
     "NextToken": {
       "maxLength": 1024,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "NextToken"
     },
     "NoEcho": {
-      "type": "boolean"
+      "type": "boolean",
+      "title": "NoEcho"
     },
     "NotificationARN": {
-      "type": "string"
+      "type": "string",
+      "title": "NotificationARN"
     },
     "NotificationARNs": {
       "items": {
         "$ref": "#/definitions/NotificationARN"
       },
       "maxItems": 5,
-      "type": "array"
+      "type": "array",
+      "title": "NotificationARNs"
     },
     "OnFailure": {
       "enum": [
@@ -1124,7 +1215,8 @@
         "ROLLBACK",
         "DELETE"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "OnFailure"
     },
     "Output": {
       "description": "The Output data type.",
@@ -1142,19 +1234,23 @@
           "description": "The value associated with the output."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Output"
     },
     "OutputKey": {
-      "type": "string"
+      "type": "string",
+      "title": "OutputKey"
     },
     "OutputValue": {
-      "type": "string"
+      "type": "string",
+      "title": "OutputValue"
     },
     "Outputs": {
       "items": {
         "$ref": "#/definitions/Output"
       },
-      "type": "array"
+      "type": "array",
+      "title": "Outputs"
     },
     "Parameter": {
       "description": "The Parameter data type.",
@@ -1172,7 +1268,8 @@
           "description": "During a stack update, use the existing parameter value that the stack is using for a given parameter key. If you specify <code>true</code>, do not specify a parameter value."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Parameter"
     },
     "ParameterConstraints": {
       "description": "A set of criteria that AWS CloudFormation uses to validate parameter values. Although other constraints might be defined in the stack template, AWS CloudFormation returns only the <code>AllowedValues</code> property.",
@@ -1182,7 +1279,8 @@
           "description": "A list of values that are permitted for a parameter."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ParameterConstraints"
     },
     "ParameterDeclaration": {
       "description": "The ParameterDeclaration data type.",
@@ -1212,34 +1310,42 @@
           "description": "The type of parameter."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ParameterDeclaration"
     },
     "ParameterDeclarations": {
       "items": {
         "$ref": "#/definitions/ParameterDeclaration"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ParameterDeclarations"
     },
     "ParameterKey": {
-      "type": "string"
+      "type": "string",
+      "title": "ParameterKey"
     },
     "ParameterType": {
-      "type": "string"
+      "type": "string",
+      "title": "ParameterType"
     },
     "ParameterValue": {
-      "type": "string"
+      "type": "string",
+      "title": "ParameterValue"
     },
     "Parameters": {
       "items": {
         "$ref": "#/definitions/Parameter"
       },
-      "type": "array"
+      "type": "array",
+      "title": "Parameters"
     },
     "PhysicalResourceId": {
-      "type": "string"
+      "type": "string",
+      "title": "PhysicalResourceId"
     },
     "PropertyName": {
-      "type": "string"
+      "type": "string",
+      "title": "PropertyName"
     },
     "Replacement": {
       "enum": [
@@ -1247,7 +1353,8 @@
         "False",
         "Conditional"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "Replacement"
     },
     "RequiresRecreation": {
       "enum": [
@@ -1255,7 +1362,8 @@
         "Conditionally",
         "Always"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "RequiresRecreation"
     },
     "ResourceAttribute": {
       "enum": [
@@ -1266,7 +1374,8 @@
         "DeletionPolicy",
         "Tags"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ResourceAttribute"
     },
     "ResourceChange": {
       "description": "The <code>ResourceChange</code> structure describes the resource and the action that AWS CloudFormation will perform on it if you execute this change set.",
@@ -1300,7 +1409,8 @@
           "description": "For the <code>Modify</code> action, indicates which resource attribute is triggering this update, such as a change in the resource attribute's <code>Metadata</code>, <code>Properties</code>, or <code>Tags</code>."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ResourceChange"
     },
     "ResourceChangeDetail": {
       "description": "For a resource with <code>Modify</code> as the action, the <code>ResourceChange</code> structure describes the changes AWS CloudFormation will make to that resource.",
@@ -1322,28 +1432,33 @@
           "description": "A <code>ResourceTargetDefinition</code> structure that describes the field that AWS CloudFormation will change and whether the resource will be recreated."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ResourceChangeDetail"
     },
     "ResourceChangeDetails": {
       "items": {
         "$ref": "#/definitions/ResourceChangeDetail"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ResourceChangeDetails"
     },
     "ResourceProperties": {
-      "type": "string"
+      "type": "string",
+      "title": "ResourceProperties"
     },
     "ResourceSignalStatus": {
       "enum": [
         "SUCCESS",
         "FAILURE"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ResourceSignalStatus"
     },
     "ResourceSignalUniqueId": {
       "maxLength": 64,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "ResourceSignalUniqueId"
     },
     "ResourceStatus": {
       "enum": [
@@ -1358,10 +1473,12 @@
         "UPDATE_FAILED",
         "UPDATE_COMPLETE"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ResourceStatus"
     },
     "ResourceStatusReason": {
-      "type": "string"
+      "type": "string",
+      "title": "ResourceStatusReason"
     },
     "ResourceTargetDefinition": {
       "description": "The field that AWS CloudFormation will change, such as the name of a resource's property, and whether the resource will be recreated.",
@@ -1379,45 +1496,53 @@
           "description": "If the <code>Attribute</code> value is <code>Properties</code>, indicates whether a change to this property causes the resource to be recreated. The value can be <code>Never</code>, <code>Always</code>, or <code>Conditionally</code>. To determine the conditions for a <code>Conditionally</code> recreation, see the update behavior for that <a href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html\">property</a> in the AWS CloudFormation User Guide."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ResourceTargetDefinition"
     },
     "ResourceToSkip": {
       "pattern": "[a-zA-Z0-9]+|[a-zA-Z][-a-zA-Z0-9]*\\.[a-zA-Z0-9]+",
-      "type": "string"
+      "type": "string",
+      "title": "ResourceToSkip"
     },
     "ResourceType": {
       "maxLength": 256,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "ResourceType"
     },
     "ResourceTypes": {
       "items": {
         "$ref": "#/definitions/ResourceType"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ResourceTypes"
     },
     "ResourcesToSkip": {
       "items": {
         "$ref": "#/definitions/ResourceToSkip"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ResourcesToSkip"
     },
     "RetainResources": {
       "items": {
         "$ref": "#/definitions/LogicalResourceId"
       },
-      "type": "array"
+      "type": "array",
+      "title": "RetainResources"
     },
     "RoleARN": {
       "maxLength": 2048,
       "minLength": 20,
-      "type": "string"
+      "type": "string",
+      "title": "RoleARN"
     },
     "Scope": {
       "items": {
         "$ref": "#/definitions/ResourceAttribute"
       },
-      "type": "array"
+      "type": "array",
+      "title": "Scope"
     },
     "SetStackPolicyInput": {
       "description": "The input for the <a>SetStackPolicy</a> action.",
@@ -1438,7 +1563,8 @@
       "required": [
         "StackName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "SetStackPolicyInput"
     },
     "SignalResourceInput": {
       "description": "The input for the <a>SignalResource</a> action.",
@@ -1466,7 +1592,8 @@
         "UniqueId",
         "Status"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "SignalResourceInput"
     },
     "Stack": {
       "description": "The Stack data type.",
@@ -1541,7 +1668,8 @@
         "CreationTime",
         "StackStatus"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "Stack"
     },
     "StackEvent": {
       "description": "The StackEvent data type.",
@@ -1597,44 +1725,53 @@
         "StackName",
         "Timestamp"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "StackEvent"
     },
     "StackEvents": {
       "items": {
         "$ref": "#/definitions/StackEvent"
       },
-      "type": "array"
+      "type": "array",
+      "title": "StackEvents"
     },
     "StackId": {
-      "type": "string"
+      "type": "string",
+      "title": "StackId"
     },
     "StackName": {
-      "type": "string"
+      "type": "string",
+      "title": "StackName"
     },
     "StackNameOrId": {
       "minLength": 1,
       "pattern": "([a-zA-Z][-a-zA-Z0-9]*)|(arn:\\b(aws|aws-us-gov|aws-cn)\\b:[-a-zA-Z0-9:/._+]*)",
-      "type": "string"
+      "type": "string",
+      "title": "StackNameOrId"
     },
     "StackPolicyBody": {
       "maxLength": 16384,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "StackPolicyBody"
     },
     "StackPolicyDuringUpdateBody": {
       "maxLength": 16384,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "StackPolicyDuringUpdateBody"
     },
     "StackPolicyDuringUpdateURL": {
       "maxLength": 1350,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "StackPolicyDuringUpdateURL"
     },
     "StackPolicyURL": {
       "maxLength": 1350,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "StackPolicyURL"
     },
     "StackResource": {
       "description": "The StackResource data type.",
@@ -1682,7 +1819,8 @@
         "Timestamp",
         "ResourceStatus"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "StackResource"
     },
     "StackResourceDetail": {
       "description": "Contains detailed information about the specified stack resource.",
@@ -1734,13 +1872,15 @@
         "LastUpdatedTimestamp",
         "ResourceStatus"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "StackResourceDetail"
     },
     "StackResourceSummaries": {
       "items": {
         "$ref": "#/definitions/StackResourceSummary"
       },
-      "type": "array"
+      "type": "array",
+      "title": "StackResourceSummaries"
     },
     "StackResourceSummary": {
       "description": "Contains high-level information about the specified stack resource.",
@@ -1776,13 +1916,15 @@
         "LastUpdatedTimestamp",
         "ResourceStatus"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "StackResourceSummary"
     },
     "StackResources": {
       "items": {
         "$ref": "#/definitions/StackResource"
       },
-      "type": "array"
+      "type": "array",
+      "title": "StackResources"
     },
     "StackStatus": {
       "enum": [
@@ -1804,22 +1946,26 @@
         "UPDATE_ROLLBACK_COMPLETE",
         "REVIEW_IN_PROGRESS"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "StackStatus"
     },
     "StackStatusFilter": {
       "items": {
         "$ref": "#/definitions/StackStatus"
       },
-      "type": "array"
+      "type": "array",
+      "title": "StackStatusFilter"
     },
     "StackStatusReason": {
-      "type": "string"
+      "type": "string",
+      "title": "StackStatusReason"
     },
     "StackSummaries": {
       "items": {
         "$ref": "#/definitions/StackSummary"
       },
-      "type": "array"
+      "type": "array",
+      "title": "StackSummaries"
     },
     "StackSummary": {
       "description": "The StackSummary Data Type",
@@ -1862,19 +2008,22 @@
         "CreationTime",
         "StackStatus"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "StackSummary"
     },
     "Stacks": {
       "items": {
         "$ref": "#/definitions/Stack"
       },
-      "type": "array"
+      "type": "array",
+      "title": "Stacks"
     },
     "StageList": {
       "items": {
         "$ref": "#/definitions/TemplateStage"
       },
-      "type": "array"
+      "type": "array",
+      "title": "StageList"
     },
     "Tag": {
       "description": "The Tag type enables you to specify a key-value pair that can be used to store information about an AWS CloudFormation stack.",
@@ -1888,26 +2037,32 @@
           "description": " <i>Required</i>. A string containing the value for this tag. You can specify a maximum of 256 characters for a tag value."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Tag"
     },
     "TagKey": {
-      "type": "string"
+      "type": "string",
+      "title": "TagKey"
     },
     "TagValue": {
-      "type": "string"
+      "type": "string",
+      "title": "TagValue"
     },
     "Tags": {
       "items": {
         "$ref": "#/definitions/Tag"
       },
-      "type": "array"
+      "type": "array",
+      "title": "Tags"
     },
     "TemplateBody": {
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "TemplateBody"
     },
     "TemplateDescription": {
-      "type": "string"
+      "type": "string",
+      "title": "TemplateDescription"
     },
     "TemplateParameter": {
       "description": "The TemplateParameter data type.",
@@ -1929,47 +2084,56 @@
           "description": "The name associated with the parameter."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TemplateParameter"
     },
     "TemplateParameters": {
       "items": {
         "$ref": "#/definitions/TemplateParameter"
       },
-      "type": "array"
+      "type": "array",
+      "title": "TemplateParameters"
     },
     "TemplateStage": {
       "enum": [
         "Original",
         "Processed"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "TemplateStage"
     },
     "TemplateURL": {
       "maxLength": 1024,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "TemplateURL"
     },
     "TimeoutMinutes": {
       "minimum": 1,
-      "type": "integer"
+      "type": "integer",
+      "title": "TimeoutMinutes"
     },
     "Timestamp": {
       "format": "date-time",
-      "type": "string"
+      "type": "string",
+      "title": "Timestamp"
     },
     "TokenAlreadyExistsException": {
       "description": "A client request token already exists.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "TokenAlreadyExistsException"
     },
     "TransformName": {
-      "type": "string"
+      "type": "string",
+      "title": "TransformName"
     },
     "TransformsList": {
       "items": {
         "$ref": "#/definitions/TransformName"
       },
-      "type": "array"
+      "type": "array",
+      "title": "TransformsList"
     },
     "UpdateStackInput": {
       "description": "The input for an <a>UpdateStack</a> action.",
@@ -2038,7 +2202,8 @@
       "required": [
         "StackName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateStackInput"
     },
     "UpdateStackOutput": {
       "description": "The output for an <a>UpdateStack</a> action.",
@@ -2048,16 +2213,20 @@
           "description": "Unique identifier of the stack."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UpdateStackOutput"
     },
     "Url": {
-      "type": "string"
+      "type": "string",
+      "title": "Url"
     },
     "UsePreviousTemplate": {
-      "type": "boolean"
+      "type": "boolean",
+      "title": "UsePreviousTemplate"
     },
     "UsePreviousValue": {
-      "type": "boolean"
+      "type": "boolean",
+      "title": "UsePreviousValue"
     },
     "ValidateTemplateInput": {
       "description": "The input for <a>ValidateTemplate</a> action.",
@@ -2071,7 +2240,8 @@
           "description": "<p>Location of file containing the template body. The URL must point to a template (max size: 460,800 bytes) that is located in an Amazon S3 bucket. For more information, go to <a href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html\">Template Anatomy</a> in the AWS CloudFormation User Guide.</p> <p>Conditional: You must pass <code>TemplateURL</code> or <code>TemplateBody</code>. If both are passed, only <code>TemplateBody</code> is used.</p>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ValidateTemplateInput"
     },
     "ValidateTemplateOutput": {
       "description": "The output for <a>ValidateTemplate</a> action.",
@@ -2097,10 +2267,12 @@
           "description": "A list of <code>TemplateParameter</code> structures."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ValidateTemplateOutput"
     },
     "Version": {
-      "type": "string"
+      "type": "string",
+      "title": "Version"
     }
   },
   "actions": [

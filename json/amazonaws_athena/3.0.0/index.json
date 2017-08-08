@@ -26,7 +26,8 @@
       "required": [
         "NamedQueryIds"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "BatchGetNamedQueryInput"
     },
     "BatchGetNamedQueryOutput": {
       "properties": {
@@ -39,7 +40,8 @@
           "description": "Information about provided query IDs."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BatchGetNamedQueryOutput"
     },
     "BatchGetQueryExecutionInput": {
       "properties": {
@@ -51,7 +53,8 @@
       "required": [
         "QueryExecutionIds"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "BatchGetQueryExecutionInput"
     },
     "BatchGetQueryExecutionOutput": {
       "properties": {
@@ -64,10 +67,12 @@
           "description": "Information about the query executions that failed to run."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BatchGetQueryExecutionOutput"
     },
     "Boolean": {
-      "type": "boolean"
+      "type": "boolean",
+      "title": "Boolean"
     },
     "ColumnInfo": {
       "description": "Information about the columns in a query execution result.",
@@ -117,13 +122,15 @@
         "Name",
         "Type"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ColumnInfo"
     },
     "ColumnInfoList": {
       "items": {
         "$ref": "#/definitions/ColumnInfo"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ColumnInfoList"
     },
     "ColumnNullable": {
       "enum": [
@@ -131,7 +138,8 @@
         "NULLABLE",
         "UNKNOWN"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ColumnNullable"
     },
     "CreateNamedQueryInput": {
       "properties": {
@@ -161,7 +169,8 @@
         "Database",
         "QueryString"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateNamedQueryInput"
     },
     "CreateNamedQueryOutput": {
       "properties": {
@@ -170,16 +179,19 @@
           "description": "The unique ID of the query."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateNamedQueryOutput"
     },
     "DatabaseString": {
       "maxLength": 32,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "DatabaseString"
     },
     "Date": {
       "format": "date-time",
-      "type": "string"
+      "type": "string",
+      "title": "Date"
     },
     "Datum": {
       "description": "A piece of data (a field in the table).",
@@ -189,7 +201,8 @@
           "description": "The value of the datum."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Datum"
     },
     "DeleteNamedQueryInput": {
       "properties": {
@@ -201,16 +214,19 @@
       "required": [
         "NamedQueryId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteNamedQueryInput"
     },
     "DeleteNamedQueryOutput": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DeleteNamedQueryOutput"
     },
     "DescriptionString": {
       "maxLength": 1024,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "DescriptionString"
     },
     "EncryptionConfiguration": {
       "description": "If query results are encrypted in Amazon S3, indicates the Amazon S3 encryption option used.",
@@ -227,7 +243,8 @@
       "required": [
         "EncryptionOption"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "EncryptionConfiguration"
     },
     "EncryptionOption": {
       "enum": [
@@ -235,15 +252,18 @@
         "SSE_KMS",
         "CSE_KMS"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "EncryptionOption"
     },
     "ErrorCode": {
       "maxLength": 256,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "ErrorCode"
     },
     "ErrorMessage": {
-      "type": "string"
+      "type": "string",
+      "title": "ErrorMessage"
     },
     "GetNamedQueryInput": {
       "properties": {
@@ -255,7 +275,8 @@
       "required": [
         "NamedQueryId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetNamedQueryInput"
     },
     "GetNamedQueryOutput": {
       "properties": {
@@ -264,7 +285,8 @@
           "description": "Information about the query."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetNamedQueryOutput"
     },
     "GetQueryExecutionInput": {
       "properties": {
@@ -276,7 +298,8 @@
       "required": [
         "QueryExecutionId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetQueryExecutionInput"
     },
     "GetQueryExecutionOutput": {
       "properties": {
@@ -285,7 +308,8 @@
           "description": "Information about the query execution."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetQueryExecutionOutput"
     },
     "GetQueryResultsInput": {
       "properties": {
@@ -305,7 +329,8 @@
       "required": [
         "QueryExecutionId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetQueryResultsInput"
     },
     "GetQueryResultsOutput": {
       "properties": {
@@ -318,15 +343,18 @@
           "description": "The results of the query execution."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetQueryResultsOutput"
     },
     "IdempotencyToken": {
       "maxLength": 128,
       "minLength": 32,
-      "type": "string"
+      "type": "string",
+      "title": "IdempotencyToken"
     },
     "Integer": {
-      "type": "integer"
+      "type": "integer",
+      "title": "Integer"
     },
     "InternalServerException": {
       "description": "Indicates a platform issue, which may be due to a transient condition or outage.",
@@ -335,7 +363,8 @@
           "$ref": "#/definitions/ErrorMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InternalServerException"
     },
     "InvalidRequestException": {
       "description": "Indicates that something is wrong with the input to the request. For example, a required parameter may be missing or out of range.",
@@ -347,7 +376,8 @@
           "$ref": "#/definitions/ErrorMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidRequestException"
     },
     "ListNamedQueriesInput": {
       "properties": {
@@ -360,7 +390,8 @@
           "description": "The token that specifies where to start pagination if a previous request was truncated."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListNamedQueriesInput"
     },
     "ListNamedQueriesOutput": {
       "properties": {
@@ -373,7 +404,8 @@
           "description": "A token to be used by the next request if this request is truncated."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListNamedQueriesOutput"
     },
     "ListQueryExecutionsInput": {
       "properties": {
@@ -386,7 +418,8 @@
           "description": "The token that specifies where to start pagination if a previous request was truncated."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListQueryExecutionsInput"
     },
     "ListQueryExecutionsOutput": {
       "properties": {
@@ -399,30 +432,36 @@
           "description": "The unique IDs of each query execution as an array of strings."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListQueryExecutionsOutput"
     },
     "Long": {
-      "type": "integer"
+      "type": "integer",
+      "title": "Long"
     },
     "MaxNamedQueriesCount": {
       "maximum": 50,
       "minimum": 0,
-      "type": "integer"
+      "type": "integer",
+      "title": "MaxNamedQueriesCount"
     },
     "MaxQueryExecutionsCount": {
       "maximum": 50,
       "minimum": 0,
-      "type": "integer"
+      "type": "integer",
+      "title": "MaxQueryExecutionsCount"
     },
     "MaxQueryResults": {
       "maximum": 1000,
       "minimum": 0,
-      "type": "integer"
+      "type": "integer",
+      "title": "MaxQueryResults"
     },
     "NameString": {
       "maxLength": 128,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "NameString"
     },
     "NamedQuery": {
       "description": "A query, where <code>QueryString</code> is the SQL query statements that comprise the query.",
@@ -453,10 +492,12 @@
         "Database",
         "QueryString"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "NamedQuery"
     },
     "NamedQueryId": {
-      "type": "string"
+      "type": "string",
+      "title": "NamedQueryId"
     },
     "NamedQueryIdList": {
       "items": {
@@ -464,13 +505,15 @@
       },
       "maxItems": 50,
       "minItems": 1,
-      "type": "array"
+      "type": "array",
+      "title": "NamedQueryIdList"
     },
     "NamedQueryList": {
       "items": {
         "$ref": "#/definitions/NamedQuery"
       },
-      "type": "array"
+      "type": "array",
+      "title": "NamedQueryList"
     },
     "QueryExecution": {
       "description": "Information about a single instance of a query execution.",
@@ -500,7 +543,8 @@
           "description": "The completion date, current state, submission time, and state change reason (if applicable) for the query execution."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "QueryExecution"
     },
     "QueryExecutionContext": {
       "description": "The database in which the query execution occurs.",
@@ -510,10 +554,12 @@
           "description": "The name of the database."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "QueryExecutionContext"
     },
     "QueryExecutionId": {
-      "type": "string"
+      "type": "string",
+      "title": "QueryExecutionId"
     },
     "QueryExecutionIdList": {
       "items": {
@@ -521,13 +567,15 @@
       },
       "maxItems": 50,
       "minItems": 1,
-      "type": "array"
+      "type": "array",
+      "title": "QueryExecutionIdList"
     },
     "QueryExecutionList": {
       "items": {
         "$ref": "#/definitions/QueryExecution"
       },
-      "type": "array"
+      "type": "array",
+      "title": "QueryExecutionList"
     },
     "QueryExecutionState": {
       "enum": [
@@ -537,7 +585,8 @@
         "FAILED",
         "CANCELLED"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "QueryExecutionState"
     },
     "QueryExecutionStatistics": {
       "description": "The amount of data scanned during the query execution and the amount of time that it took to execute.",
@@ -551,7 +600,8 @@
           "description": "The number of milliseconds that the query took to execute."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "QueryExecutionStatistics"
     },
     "QueryExecutionStatus": {
       "description": "The completion date, current state, submission time, and state change reason (if applicable) for the query execution.",
@@ -573,12 +623,14 @@
           "description": "The date and time that the query was submitted."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "QueryExecutionStatus"
     },
     "QueryString": {
       "maxLength": 262144,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "QueryString"
     },
     "ResultConfiguration": {
       "description": "The location in Amazon S3 where query results are stored and the encryption option, if any, used for query results.",
@@ -595,7 +647,8 @@
       "required": [
         "OutputLocation"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ResultConfiguration"
     },
     "ResultSet": {
       "description": "The metadata and rows that comprise a query result set. The metadata describes the column structure and data types.",
@@ -609,7 +662,8 @@
           "description": "The rows in the table."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ResultSet"
     },
     "ResultSetMetadata": {
       "description": "The metadata that describes the column structure and data types of a table of query results.",
@@ -619,7 +673,8 @@
           "description": "Information about the columns in a query execution result."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ResultSetMetadata"
     },
     "Row": {
       "description": "The rows that comprise a query result table.",
@@ -629,13 +684,15 @@
           "description": "The data that populates a row in a query result table."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Row"
     },
     "RowList": {
       "items": {
         "$ref": "#/definitions/Row"
       },
-      "type": "array"
+      "type": "array",
+      "title": "RowList"
     },
     "StartQueryExecutionInput": {
       "properties": {
@@ -660,7 +717,8 @@
         "QueryString",
         "ResultConfiguration"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "StartQueryExecutionInput"
     },
     "StartQueryExecutionOutput": {
       "properties": {
@@ -669,7 +727,8 @@
           "description": "The unique ID of the query that ran as a result of this request."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "StartQueryExecutionOutput"
     },
     "StopQueryExecutionInput": {
       "properties": {
@@ -681,23 +740,28 @@
       "required": [
         "QueryExecutionId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "StopQueryExecutionInput"
     },
     "StopQueryExecutionOutput": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "StopQueryExecutionOutput"
     },
     "String": {
-      "type": "string"
+      "type": "string",
+      "title": "String"
     },
     "ThrottleReason": {
       "enum": [
         "CONCURRENT_QUERY_LIMIT_EXCEEDED"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ThrottleReason"
     },
     "Token": {
-      "type": "string"
+      "type": "string",
+      "title": "Token"
     },
     "TooManyRequestsException": {
       "description": "Indicates that the request was throttled.",
@@ -709,7 +773,8 @@
           "$ref": "#/definitions/ThrottleReason"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TooManyRequestsException"
     },
     "UnprocessedNamedQueryId": {
       "description": "Information about a named query ID that could not be processed.",
@@ -727,13 +792,15 @@
           "description": "The unique identifier of the named query."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UnprocessedNamedQueryId"
     },
     "UnprocessedNamedQueryIdList": {
       "items": {
         "$ref": "#/definitions/UnprocessedNamedQueryId"
       },
-      "type": "array"
+      "type": "array",
+      "title": "UnprocessedNamedQueryIdList"
     },
     "UnprocessedQueryExecutionId": {
       "description": "Describes a query execution that failed to process.",
@@ -751,22 +818,26 @@
           "description": "The unique identifier of the query execution."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UnprocessedQueryExecutionId"
     },
     "UnprocessedQueryExecutionIdList": {
       "items": {
         "$ref": "#/definitions/UnprocessedQueryExecutionId"
       },
-      "type": "array"
+      "type": "array",
+      "title": "UnprocessedQueryExecutionIdList"
     },
     "datumList": {
       "items": {
         "$ref": "#/definitions/Datum"
       },
-      "type": "array"
+      "type": "array",
+      "title": "datumList"
     },
     "datumString": {
-      "type": "string"
+      "type": "string",
+      "title": "datumString"
     }
   },
   "actions": [

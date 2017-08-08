@@ -32,7 +32,8 @@
         "type",
         "coordinates"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "Geometry"
     },
     "ers0_MapData": {
       "description": "Map Data Object",
@@ -122,7 +123,8 @@
         "FormalCount",
         "InformalCount"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ers0_MapData"
     },
     "ers0_MapOutput": {
       "description": "Map Output Object",
@@ -159,7 +161,8 @@
         "PopUpBaseURL",
         "MapData"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ers0_MapOutput"
     },
     "ers1_Facilities": {
       "description": "Facilities Object",
@@ -1096,7 +1099,8 @@
         "Score",
         "MaxScore"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ers1_Facilities"
     },
     "ers1_Results": {
       "description": "Results Object",
@@ -1217,7 +1221,8 @@
         "QueryID",
         "PageNo"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ers1_Results"
     },
     "ers2_ClusterData": {
       "description": "Cluster Data Object",
@@ -1329,7 +1334,8 @@
         "INSPRows",
         "TotalPenalties"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ers2_ClusterData"
     },
     "ers2_ClusterOutput": {
       "description": "Cluster Output Object",
@@ -1345,7 +1351,8 @@
       "required": [
         "ClusterData"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ers2_ClusterOutput"
     },
     "ers2_Facilities": {
       "description": "Facilities Object",
@@ -2289,7 +2296,8 @@
         "Score",
         "MaxScore"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ers2_Facilities"
     },
     "ers2_Results": {
       "description": "Results Object",
@@ -2431,7 +2439,8 @@
         "ServiceBaseURL",
         "QueryParameters"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ers2_Results"
     },
     "ers4_Results": {
       "description": "Results Object",
@@ -2475,7 +2484,8 @@
         "PageNo",
         "Facilities"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ers4_Results"
     },
     "ers5_Feature": {
       "description": "GeoJSON Feature Object",
@@ -2498,7 +2508,8 @@
         "geometry",
         "properties"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ers5_Feature"
     },
     "ers5_FeatureCollection": {
       "description": "GeoJSON Feature Collection Object",
@@ -2522,7 +2533,8 @@
         "type",
         "features"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ers5_FeatureCollection"
     },
     "ers5_properties": {
       "description": "GeoJSON Properties Object",
@@ -3445,7 +3457,8 @@
         "Score",
         "MaxScore"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ers5_properties"
     },
     "met_Results": {
       "description": "Results Object",
@@ -3467,7 +3480,8 @@
       "required": [
         "Message"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "met_Results"
     },
     "met_ResultsColumns": {
       "description": "Results Column Object",
@@ -3510,7 +3524,8 @@
         "ObjectName",
         "Description"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "met_ResultsColumns"
     },
     "qp0_QueryParameters": {
       "description": "Query Parameters Object",
@@ -3532,7 +3547,8 @@
         "QP",
         "QV"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "qp0_QueryParameters"
     }
   },
   "actions": [

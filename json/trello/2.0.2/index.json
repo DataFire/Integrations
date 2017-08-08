@@ -26,7 +26,8 @@
       "type": "object",
       "xml": {
         "name": "action"
-      }
+      },
+      "title": "actions"
     },
     "actions_comments": {
       "properties": {
@@ -38,7 +39,8 @@
       "type": "object",
       "xml": {
         "name": "card"
-      }
+      },
+      "title": "actions_comments"
     },
     "actions_text": {
       "properties": {
@@ -50,7 +52,8 @@
       "type": "object",
       "xml": {
         "name": "action"
-      }
+      },
+      "title": "actions_text"
     },
     "boards": {
       "properties": {
@@ -182,7 +185,8 @@
       "type": "object",
       "xml": {
         "name": "board"
-      }
+      },
+      "title": "boards"
     },
     "boards_checklists": {
       "properties": {
@@ -194,7 +198,8 @@
       "type": "object",
       "xml": {
         "name": "board"
-      }
+      },
+      "title": "boards_checklists"
     },
     "boards_closed": {
       "properties": {
@@ -206,7 +211,8 @@
       "type": "object",
       "xml": {
         "name": "board"
-      }
+      },
+      "title": "boards_closed"
     },
     "boards_desc": {
       "properties": {
@@ -218,7 +224,8 @@
       "type": "object",
       "xml": {
         "name": "board"
-      }
+      },
+      "title": "boards_desc"
     },
     "boards_idOrganization": {
       "properties": {
@@ -230,7 +237,8 @@
       "type": "object",
       "xml": {
         "name": "board"
-      }
+      },
+      "title": "boards_idOrganization"
     },
     "boards_labels": {
       "properties": {
@@ -246,7 +254,8 @@
       "type": "object",
       "xml": {
         "name": "board"
-      }
+      },
+      "title": "boards_labels"
     },
     "boards_lists": {
       "properties": {
@@ -262,7 +271,8 @@
       "type": "object",
       "xml": {
         "name": "board"
-      }
+      },
+      "title": "boards_lists"
     },
     "boards_members": {
       "properties": {
@@ -282,7 +292,8 @@
       "type": "object",
       "xml": {
         "name": "board"
-      }
+      },
+      "title": "boards_members"
     },
     "boards_memberships": {
       "properties": {
@@ -298,7 +309,8 @@
       "type": "object",
       "xml": {
         "name": "board"
-      }
+      },
+      "title": "boards_memberships"
     },
     "boards_name": {
       "properties": {
@@ -310,7 +322,8 @@
       "type": "object",
       "xml": {
         "name": "board"
-      }
+      },
+      "title": "boards_name"
     },
     "boards_powerUps": {
       "properties": {
@@ -322,7 +335,8 @@
       "type": "object",
       "xml": {
         "name": "board"
-      }
+      },
+      "title": "boards_powerUps"
     },
     "boards_subscribed": {
       "properties": {
@@ -334,7 +348,8 @@
       "type": "object",
       "xml": {
         "name": "board"
-      }
+      },
+      "title": "boards_subscribed"
     },
     "cards": {
       "properties": {
@@ -406,7 +421,8 @@
       "type": "object",
       "xml": {
         "name": "card"
-      }
+      },
+      "title": "cards"
     },
     "cards_actions_comments": {
       "properties": {
@@ -418,7 +434,8 @@
       "type": "object",
       "xml": {
         "name": "card"
-      }
+      },
+      "title": "cards_actions_comments"
     },
     "cards_attachments": {
       "properties": {
@@ -442,7 +459,8 @@
       "type": "object",
       "xml": {
         "name": "card"
-      }
+      },
+      "title": "cards_attachments"
     },
     "cards_checklist_checkItem": {
       "properties": {
@@ -458,7 +476,8 @@
       "type": "object",
       "xml": {
         "name": "card"
-      }
+      },
+      "title": "cards_checklist_checkItem"
     },
     "cards_checklist_checkItem_name": {
       "properties": {
@@ -470,7 +489,8 @@
       "type": "object",
       "xml": {
         "name": "card"
-      }
+      },
+      "title": "cards_checklist_checkItem_name"
     },
     "cards_checklist_checkItem_pos": {
       "properties": {
@@ -482,7 +502,8 @@
       "type": "object",
       "xml": {
         "name": "card"
-      }
+      },
+      "title": "cards_checklist_checkItem_pos"
     },
     "cards_checklist_checkItem_state": {
       "properties": {
@@ -494,7 +515,8 @@
       "type": "object",
       "xml": {
         "name": "card"
-      }
+      },
+      "title": "cards_checklist_checkItem_state"
     },
     "cards_checklist_idChecklistCurrent_checkItem": {
       "properties": {
@@ -518,7 +540,8 @@
       "type": "object",
       "xml": {
         "name": "card"
-      }
+      },
+      "title": "cards_checklist_idChecklistCurrent_checkItem"
     },
     "cards_checklists": {
       "properties": {
@@ -538,7 +561,8 @@
       "type": "object",
       "xml": {
         "name": "card"
-      }
+      },
+      "title": "cards_checklists"
     },
     "cards_closed": {
       "properties": {
@@ -550,7 +574,8 @@
       "type": "object",
       "xml": {
         "name": "card"
-      }
+      },
+      "title": "cards_closed"
     },
     "cards_desc": {
       "properties": {
@@ -562,7 +587,8 @@
       "type": "object",
       "xml": {
         "name": "card"
-      }
+      },
+      "title": "cards_desc"
     },
     "cards_due": {
       "properties": {
@@ -574,7 +600,8 @@
       "type": "object",
       "xml": {
         "name": "card"
-      }
+      },
+      "title": "cards_due"
     },
     "cards_idAttachmentCover": {
       "properties": {
@@ -586,7 +613,8 @@
       "type": "object",
       "xml": {
         "name": "card"
-      }
+      },
+      "title": "cards_idAttachmentCover"
     },
     "cards_idBoard": {
       "properties": {
@@ -602,7 +630,8 @@
       "type": "object",
       "xml": {
         "name": "card"
-      }
+      },
+      "title": "cards_idBoard"
     },
     "cards_idLabels": {
       "properties": {
@@ -614,7 +643,8 @@
       "type": "object",
       "xml": {
         "name": "card"
-      }
+      },
+      "title": "cards_idLabels"
     },
     "cards_idList": {
       "properties": {
@@ -626,7 +656,8 @@
       "type": "object",
       "xml": {
         "name": "card"
-      }
+      },
+      "title": "cards_idList"
     },
     "cards_idMembers": {
       "properties": {
@@ -638,7 +669,8 @@
       "type": "object",
       "xml": {
         "name": "card"
-      }
+      },
+      "title": "cards_idMembers"
     },
     "cards_labels": {
       "properties": {
@@ -658,7 +690,8 @@
       "type": "object",
       "xml": {
         "name": "card"
-      }
+      },
+      "title": "cards_labels"
     },
     "cards_membersVoted": {
       "properties": {
@@ -670,7 +703,8 @@
       "type": "object",
       "xml": {
         "name": "card"
-      }
+      },
+      "title": "cards_membersVoted"
     },
     "cards_name": {
       "properties": {
@@ -682,7 +716,8 @@
       "type": "object",
       "xml": {
         "name": "card"
-      }
+      },
+      "title": "cards_name"
     },
     "cards_pos": {
       "properties": {
@@ -694,7 +729,8 @@
       "type": "object",
       "xml": {
         "name": "card"
-      }
+      },
+      "title": "cards_pos"
     },
     "cards_stickers": {
       "properties": {
@@ -722,7 +758,8 @@
       "type": "object",
       "xml": {
         "name": "card"
-      }
+      },
+      "title": "cards_stickers"
     },
     "cards_subscribed": {
       "properties": {
@@ -734,7 +771,8 @@
       "type": "object",
       "xml": {
         "name": "card"
-      }
+      },
+      "title": "cards_subscribed"
     },
     "checklists": {
       "properties": {
@@ -762,7 +800,8 @@
       "type": "object",
       "xml": {
         "name": "checklist"
-      }
+      },
+      "title": "checklists"
     },
     "checklists_checkItems": {
       "properties": {
@@ -782,7 +821,8 @@
       "type": "object",
       "xml": {
         "name": "checklist"
-      }
+      },
+      "title": "checklists_checkItems"
     },
     "checklists_idCard": {
       "properties": {
@@ -794,7 +834,8 @@
       "type": "object",
       "xml": {
         "name": "checklist"
-      }
+      },
+      "title": "checklists_idCard"
     },
     "checklists_name": {
       "properties": {
@@ -806,7 +847,8 @@
       "type": "object",
       "xml": {
         "name": "checklist"
-      }
+      },
+      "title": "checklists_name"
     },
     "checklists_pos": {
       "properties": {
@@ -818,7 +860,8 @@
       "type": "object",
       "xml": {
         "name": "checklist"
-      }
+      },
+      "title": "checklists_pos"
     },
     "labelNames_blue": {
       "properties": {
@@ -830,7 +873,8 @@
       "type": "object",
       "xml": {
         "name": "board"
-      }
+      },
+      "title": "labelNames_blue"
     },
     "labelNames_green": {
       "properties": {
@@ -842,7 +886,8 @@
       "type": "object",
       "xml": {
         "name": "board"
-      }
+      },
+      "title": "labelNames_green"
     },
     "labelNames_orange": {
       "properties": {
@@ -854,7 +899,8 @@
       "type": "object",
       "xml": {
         "name": "board"
-      }
+      },
+      "title": "labelNames_orange"
     },
     "labelNames_purple": {
       "properties": {
@@ -866,7 +912,8 @@
       "type": "object",
       "xml": {
         "name": "board"
-      }
+      },
+      "title": "labelNames_purple"
     },
     "labelNames_red": {
       "properties": {
@@ -878,7 +925,8 @@
       "type": "object",
       "xml": {
         "name": "board"
-      }
+      },
+      "title": "labelNames_red"
     },
     "labelNames_yellow": {
       "properties": {
@@ -890,7 +938,8 @@
       "type": "object",
       "xml": {
         "name": "board"
-      }
+      },
+      "title": "labelNames_yellow"
     },
     "labels": {
       "properties": {
@@ -910,7 +959,8 @@
       "type": "object",
       "xml": {
         "name": "label"
-      }
+      },
+      "title": "labels"
     },
     "labels_color": {
       "properties": {
@@ -922,7 +972,8 @@
       "type": "object",
       "xml": {
         "name": "label"
-      }
+      },
+      "title": "labels_color"
     },
     "labels_name": {
       "properties": {
@@ -934,7 +985,8 @@
       "type": "object",
       "xml": {
         "name": "label"
-      }
+      },
+      "title": "labels_name"
     },
     "lists": {
       "properties": {
@@ -966,7 +1018,8 @@
       "type": "object",
       "xml": {
         "name": "list"
-      }
+      },
+      "title": "lists"
     },
     "lists_cards": {
       "properties": {
@@ -994,7 +1047,8 @@
       "type": "object",
       "xml": {
         "name": "list"
-      }
+      },
+      "title": "lists_cards"
     },
     "lists_closed": {
       "properties": {
@@ -1006,7 +1060,8 @@
       "type": "object",
       "xml": {
         "name": "list"
-      }
+      },
+      "title": "lists_closed"
     },
     "lists_idBoard": {
       "properties": {
@@ -1022,7 +1077,8 @@
       "type": "object",
       "xml": {
         "name": "list"
-      }
+      },
+      "title": "lists_idBoard"
     },
     "lists_moveAllCards": {
       "properties": {
@@ -1034,7 +1090,8 @@
       "type": "object",
       "xml": {
         "name": "list"
-      }
+      },
+      "title": "lists_moveAllCards"
     },
     "lists_name": {
       "properties": {
@@ -1046,7 +1103,8 @@
       "type": "object",
       "xml": {
         "name": "list"
-      }
+      },
+      "title": "lists_name"
     },
     "lists_pos": {
       "properties": {
@@ -1058,7 +1116,8 @@
       "type": "object",
       "xml": {
         "name": "list"
-      }
+      },
+      "title": "lists_pos"
     },
     "lists_subscribed": {
       "properties": {
@@ -1070,7 +1129,8 @@
       "type": "object",
       "xml": {
         "name": "list"
-      }
+      },
+      "title": "lists_subscribed"
     },
     "members": {
       "properties": {
@@ -1110,7 +1170,8 @@
       "type": "object",
       "xml": {
         "name": "member"
-      }
+      },
+      "title": "members"
     },
     "members_avatar": {
       "properties": {
@@ -1122,7 +1183,8 @@
       "type": "object",
       "xml": {
         "name": "member"
-      }
+      },
+      "title": "members_avatar"
     },
     "members_avatarSource": {
       "properties": {
@@ -1134,7 +1196,8 @@
       "type": "object",
       "xml": {
         "name": "member"
-      }
+      },
+      "title": "members_avatarSource"
     },
     "members_bio": {
       "properties": {
@@ -1146,7 +1209,8 @@
       "type": "object",
       "xml": {
         "name": "member"
-      }
+      },
+      "title": "members_bio"
     },
     "members_boardBackgrounds": {
       "properties": {
@@ -1166,7 +1230,8 @@
       "type": "object",
       "xml": {
         "name": "member"
-      }
+      },
+      "title": "members_boardBackgrounds"
     },
     "members_boardStars": {
       "properties": {
@@ -1182,7 +1247,8 @@
       "type": "object",
       "xml": {
         "name": "member"
-      }
+      },
+      "title": "members_boardStars"
     },
     "members_boardStars_idBoard": {
       "properties": {
@@ -1194,7 +1260,8 @@
       "type": "object",
       "xml": {
         "name": "member"
-      }
+      },
+      "title": "members_boardStars_idBoard"
     },
     "members_boardStars_pos": {
       "properties": {
@@ -1206,7 +1273,8 @@
       "type": "object",
       "xml": {
         "name": "member"
-      }
+      },
+      "title": "members_boardStars_pos"
     },
     "members_customBoardBackgrounds": {
       "properties": {
@@ -1226,7 +1294,8 @@
       "type": "object",
       "xml": {
         "name": "member"
-      }
+      },
+      "title": "members_customBoardBackgrounds"
     },
     "members_customEmoji": {
       "properties": {
@@ -1242,7 +1311,8 @@
       "type": "object",
       "xml": {
         "name": "member"
-      }
+      },
+      "title": "members_customEmoji"
     },
     "members_customStickers": {
       "properties": {
@@ -1254,7 +1324,8 @@
       "type": "object",
       "xml": {
         "name": "member"
-      }
+      },
+      "title": "members_customStickers"
     },
     "members_fullName": {
       "properties": {
@@ -1266,7 +1337,8 @@
       "type": "object",
       "xml": {
         "name": "member"
-      }
+      },
+      "title": "members_fullName"
     },
     "members_initials": {
       "properties": {
@@ -1278,7 +1350,8 @@
       "type": "object",
       "xml": {
         "name": "member"
-      }
+      },
+      "title": "members_initials"
     },
     "members_oneTimeMessagesDismissed": {
       "properties": {
@@ -1290,7 +1363,8 @@
       "type": "object",
       "xml": {
         "name": "member"
-      }
+      },
+      "title": "members_oneTimeMessagesDismissed"
     },
     "members_savedSearches": {
       "properties": {
@@ -1310,7 +1384,8 @@
       "type": "object",
       "xml": {
         "name": "member"
-      }
+      },
+      "title": "members_savedSearches"
     },
     "members_savedSearches_name": {
       "properties": {
@@ -1322,7 +1397,8 @@
       "type": "object",
       "xml": {
         "name": "member"
-      }
+      },
+      "title": "members_savedSearches_name"
     },
     "members_savedSearches_pos": {
       "properties": {
@@ -1334,7 +1410,8 @@
       "type": "object",
       "xml": {
         "name": "member"
-      }
+      },
+      "title": "members_savedSearches_pos"
     },
     "members_savedSearches_query": {
       "properties": {
@@ -1346,7 +1423,8 @@
       "type": "object",
       "xml": {
         "name": "member"
-      }
+      },
+      "title": "members_savedSearches_query"
     },
     "members_username": {
       "properties": {
@@ -1358,7 +1436,8 @@
       "type": "object",
       "xml": {
         "name": "member"
-      }
+      },
+      "title": "members_username"
     },
     "myPrefs_emailPosition": {
       "properties": {
@@ -1370,7 +1449,8 @@
       "type": "object",
       "xml": {
         "name": "board"
-      }
+      },
+      "title": "myPrefs_emailPosition"
     },
     "myPrefs_idEmailList": {
       "properties": {
@@ -1382,7 +1462,8 @@
       "type": "object",
       "xml": {
         "name": "board"
-      }
+      },
+      "title": "myPrefs_idEmailList"
     },
     "myPrefs_showListGuide": {
       "properties": {
@@ -1394,7 +1475,8 @@
       "type": "object",
       "xml": {
         "name": "board"
-      }
+      },
+      "title": "myPrefs_showListGuide"
     },
     "myPrefs_showSidebar": {
       "properties": {
@@ -1406,7 +1488,8 @@
       "type": "object",
       "xml": {
         "name": "board"
-      }
+      },
+      "title": "myPrefs_showSidebar"
     },
     "myPrefs_showSidebarActivity": {
       "properties": {
@@ -1418,7 +1501,8 @@
       "type": "object",
       "xml": {
         "name": "board"
-      }
+      },
+      "title": "myPrefs_showSidebarActivity"
     },
     "myPrefs_showSidebarBoardActions": {
       "properties": {
@@ -1430,7 +1514,8 @@
       "type": "object",
       "xml": {
         "name": "board"
-      }
+      },
+      "title": "myPrefs_showSidebarBoardActions"
     },
     "myPrefs_showSidebarMembers": {
       "properties": {
@@ -1442,7 +1527,8 @@
       "type": "object",
       "xml": {
         "name": "board"
-      }
+      },
+      "title": "myPrefs_showSidebarMembers"
     },
     "notifications": {
       "properties": {
@@ -1454,7 +1540,8 @@
       "type": "object",
       "xml": {
         "name": "notification"
-      }
+      },
+      "title": "notifications"
     },
     "notifications_unread": {
       "properties": {
@@ -1466,7 +1553,8 @@
       "type": "object",
       "xml": {
         "name": "notification"
-      }
+      },
+      "title": "notifications_unread"
     },
     "organizations": {
       "properties": {
@@ -1522,7 +1610,8 @@
       "type": "object",
       "xml": {
         "name": "organization"
-      }
+      },
+      "title": "organizations"
     },
     "organizations_desc": {
       "properties": {
@@ -1534,7 +1623,8 @@
       "type": "object",
       "xml": {
         "name": "organization"
-      }
+      },
+      "title": "organizations_desc"
     },
     "organizations_displayName": {
       "properties": {
@@ -1546,7 +1636,8 @@
       "type": "object",
       "xml": {
         "name": "organization"
-      }
+      },
+      "title": "organizations_displayName"
     },
     "organizations_logo": {
       "properties": {
@@ -1558,7 +1649,8 @@
       "type": "object",
       "xml": {
         "name": "organization"
-      }
+      },
+      "title": "organizations_logo"
     },
     "organizations_members": {
       "properties": {
@@ -1578,7 +1670,8 @@
       "type": "object",
       "xml": {
         "name": "organization"
-      }
+      },
+      "title": "organizations_members"
     },
     "organizations_members_deactivated": {
       "properties": {
@@ -1590,7 +1683,8 @@
       "type": "object",
       "xml": {
         "name": "organization"
-      }
+      },
+      "title": "organizations_members_deactivated"
     },
     "organizations_memberships": {
       "properties": {
@@ -1606,7 +1700,8 @@
       "type": "object",
       "xml": {
         "name": "organization"
-      }
+      },
+      "title": "organizations_memberships"
     },
     "organizations_name": {
       "properties": {
@@ -1618,7 +1713,8 @@
       "type": "object",
       "xml": {
         "name": "organization"
-      }
+      },
+      "title": "organizations_name"
     },
     "organizations_website": {
       "properties": {
@@ -1630,7 +1726,8 @@
       "type": "object",
       "xml": {
         "name": "organization"
-      }
+      },
+      "title": "organizations_website"
     },
     "prefs_associatedDomain": {
       "properties": {
@@ -1642,7 +1739,8 @@
       "type": "object",
       "xml": {
         "name": "organization"
-      }
+      },
+      "title": "prefs_associatedDomain"
     },
     "prefs_background": {
       "properties": {
@@ -1654,7 +1752,8 @@
       "type": "object",
       "xml": {
         "name": "board"
-      }
+      },
+      "title": "prefs_background"
     },
     "prefs_boardVisibilityRestrict": {
       "properties": {
@@ -1666,7 +1765,8 @@
       "type": "object",
       "xml": {
         "name": "organization"
-      }
+      },
+      "title": "prefs_boardVisibilityRestrict"
     },
     "prefs_calendarFeedEnabled": {
       "properties": {
@@ -1678,7 +1778,8 @@
       "type": "object",
       "xml": {
         "name": "board"
-      }
+      },
+      "title": "prefs_calendarFeedEnabled"
     },
     "prefs_cardAging": {
       "properties": {
@@ -1690,7 +1791,8 @@
       "type": "object",
       "xml": {
         "name": "board"
-      }
+      },
+      "title": "prefs_cardAging"
     },
     "prefs_cardCovers": {
       "properties": {
@@ -1702,7 +1804,8 @@
       "type": "object",
       "xml": {
         "name": "board"
-      }
+      },
+      "title": "prefs_cardCovers"
     },
     "prefs_colorBlind": {
       "properties": {
@@ -1714,7 +1817,8 @@
       "type": "object",
       "xml": {
         "name": "member"
-      }
+      },
+      "title": "prefs_colorBlind"
     },
     "prefs_comments": {
       "properties": {
@@ -1726,7 +1830,8 @@
       "type": "object",
       "xml": {
         "name": "board"
-      }
+      },
+      "title": "prefs_comments"
     },
     "prefs_externalMembersDisabled": {
       "properties": {
@@ -1738,7 +1843,8 @@
       "type": "object",
       "xml": {
         "name": "organization"
-      }
+      },
+      "title": "prefs_externalMembersDisabled"
     },
     "prefs_googleAppsVersion": {
       "properties": {
@@ -1750,7 +1856,8 @@
       "type": "object",
       "xml": {
         "name": "organization"
-      }
+      },
+      "title": "prefs_googleAppsVersion"
     },
     "prefs_invitations": {
       "properties": {
@@ -1762,7 +1869,8 @@
       "type": "object",
       "xml": {
         "name": "board"
-      }
+      },
+      "title": "prefs_invitations"
     },
     "prefs_locale": {
       "properties": {
@@ -1774,7 +1882,8 @@
       "type": "object",
       "xml": {
         "name": "member"
-      }
+      },
+      "title": "prefs_locale"
     },
     "prefs_minutesBetweenSummaries": {
       "properties": {
@@ -1786,7 +1895,8 @@
       "type": "object",
       "xml": {
         "name": "member"
-      }
+      },
+      "title": "prefs_minutesBetweenSummaries"
     },
     "prefs_orgInviteRestrict": {
       "properties": {
@@ -1798,7 +1908,8 @@
       "type": "object",
       "xml": {
         "name": "organization"
-      }
+      },
+      "title": "prefs_orgInviteRestrict"
     },
     "prefs_permissionLevel": {
       "properties": {
@@ -1810,7 +1921,8 @@
       "type": "object",
       "xml": {
         "name": "board"
-      }
+      },
+      "title": "prefs_permissionLevel"
     },
     "prefs_selfJoin": {
       "properties": {
@@ -1822,7 +1934,8 @@
       "type": "object",
       "xml": {
         "name": "board"
-      }
+      },
+      "title": "prefs_selfJoin"
     },
     "prefs_voting": {
       "properties": {
@@ -1834,7 +1947,8 @@
       "type": "object",
       "xml": {
         "name": "board"
-      }
+      },
+      "title": "prefs_voting"
     },
     "sessions": {
       "properties": {
@@ -1850,7 +1964,8 @@
       "type": "object",
       "xml": {
         "name": "session"
-      }
+      },
+      "title": "sessions"
     },
     "sessions_status": {
       "properties": {
@@ -1862,7 +1977,8 @@
       "type": "object",
       "xml": {
         "name": "session"
-      }
+      },
+      "title": "sessions_status"
     },
     "tokens_webhooks": {
       "properties": {
@@ -1882,7 +1998,8 @@
       "type": "object",
       "xml": {
         "name": "token"
-      }
+      },
+      "title": "tokens_webhooks"
     },
     "webhooks": {
       "properties": {
@@ -1906,7 +2023,8 @@
       "type": "object",
       "xml": {
         "name": "webhook"
-      }
+      },
+      "title": "webhooks"
     },
     "webhooks_active": {
       "properties": {
@@ -1918,7 +2036,8 @@
       "type": "object",
       "xml": {
         "name": "webhook"
-      }
+      },
+      "title": "webhooks_active"
     },
     "webhooks_callbackURL": {
       "properties": {
@@ -1930,7 +2049,8 @@
       "type": "object",
       "xml": {
         "name": "webhook"
-      }
+      },
+      "title": "webhooks_callbackURL"
     },
     "webhooks_description": {
       "properties": {
@@ -1942,7 +2062,8 @@
       "type": "object",
       "xml": {
         "name": "webhook"
-      }
+      },
+      "title": "webhooks_description"
     },
     "webhooks_idModel": {
       "properties": {
@@ -1954,7 +2075,8 @@
       "type": "object",
       "xml": {
         "name": "webhook"
-      }
+      },
+      "title": "webhooks_idModel"
     }
   },
   "actions": [

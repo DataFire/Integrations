@@ -42,12 +42,14 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AcceleratorConfig"
     },
     "CancelJobRequest": {
       "description": "A request to cancel a job.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "CancelJobRequest"
     },
     "Cluster": {
       "description": "Describes the identifying information, config, and status of a cluster of Google Compute Engine instances.",
@@ -91,7 +93,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Cluster"
     },
     "ClusterConfig": {
       "description": "The cluster config.",
@@ -128,7 +131,8 @@
           "description": "Optional. The Google Compute Engine config settings for worker instances in a cluster."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ClusterConfig"
     },
     "ClusterMetrics": {
       "description": "Contains cluster daemon metrics, such as HDFS and YARN stats.Beta Feature: This report is available for testing purposes only. It may be changed before final release.",
@@ -150,7 +154,8 @@
           "type": "object"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ClusterMetrics"
     },
     "ClusterOperationMetadata": {
       "description": "Metadata describing the operation.",
@@ -197,7 +202,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ClusterOperationMetadata"
     },
     "ClusterOperationStatus": {
       "description": "The status of the operation.",
@@ -226,7 +232,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ClusterOperationStatus"
     },
     "ClusterStatus": {
       "description": "The status of a cluster and its instances.",
@@ -262,7 +269,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ClusterStatus"
     },
     "DiagnoseClusterOutputLocation": {
       "description": "The location where output from diagnostic command can be found.",
@@ -272,12 +280,14 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DiagnoseClusterOutputLocation"
     },
     "DiagnoseClusterRequest": {
       "description": "A request to collect cluster diagnostic information.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DiagnoseClusterRequest"
     },
     "DiagnoseClusterResults": {
       "description": "The location of diagnostic output.",
@@ -287,7 +297,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DiagnoseClusterResults"
     },
     "DiskConfig": {
       "description": "Specifies the config of disk options for a group of VM instances.",
@@ -303,12 +314,14 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DiskConfig"
     },
     "Empty": {
       "description": "A generic empty message that you can re-use to avoid defining duplicated empty messages in your APIs. A typical example is to use it as the request or the response type of an API method. For instance:\nservice Foo {\n  rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);\n}\nThe JSON representation for Empty is empty JSON object {}.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "Empty"
     },
     "GceClusterConfig": {
       "description": "Common config settings for resources of Google Compute Engine cluster instances, applicable to all instances in the cluster.",
@@ -355,7 +368,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GceClusterConfig"
     },
     "HadoopJob": {
       "description": "A Cloud Dataproc job for running Apache Hadoop MapReduce (https://hadoop.apache.org/docs/current/hadoop-mapreduce-client/hadoop-mapreduce-client-core/MapReduceTutorial.html) jobs on Apache Hadoop YARN (https://hadoop.apache.org/docs/r2.7.1/hadoop-yarn/hadoop-yarn-site/YARN.html).",
@@ -408,7 +422,8 @@
           "type": "object"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "HadoopJob"
     },
     "HiveJob": {
       "description": "A Cloud Dataproc job for running Apache Hive (https://hive.apache.org/) queries on YARN.",
@@ -447,7 +462,8 @@
           "type": "object"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "HiveJob"
     },
     "InstanceGroupConfig": {
       "description": "Optional. The config settings for Google Compute Engine resources in an instance group, such as a master or worker group.",
@@ -492,7 +508,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InstanceGroupConfig"
     },
     "Job": {
       "description": "A Cloud Dataproc job resource.",
@@ -567,7 +584,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Job"
     },
     "JobPlacement": {
       "description": "Cloud Dataproc job config.",
@@ -581,7 +599,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "JobPlacement"
     },
     "JobReference": {
       "description": "Encapsulates the full scoping used to reference a job.",
@@ -595,7 +614,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "JobReference"
     },
     "JobScheduling": {
       "description": "Job scheduling options.Beta Feature: These options are available for testing purposes only. They may be changed before final release.",
@@ -606,7 +626,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "JobScheduling"
     },
     "JobStatus": {
       "description": "Cloud Dataproc job status.",
@@ -647,7 +668,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "JobStatus"
     },
     "ListClustersResponse": {
       "description": "The list of all clusters in a project.",
@@ -664,7 +686,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListClustersResponse"
     },
     "ListJobsResponse": {
       "description": "A list of jobs in a project.",
@@ -681,7 +704,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListJobsResponse"
     },
     "ListOperationsResponse": {
       "description": "The response message for Operations.ListOperations.",
@@ -698,7 +722,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListOperationsResponse"
     },
     "LoggingConfig": {
       "description": "The runtime logging config of the job.",
@@ -722,7 +747,8 @@
           "type": "object"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LoggingConfig"
     },
     "ManagedGroupConfig": {
       "description": "Specifies the resources used to actively manage an instance group.",
@@ -736,7 +762,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ManagedGroupConfig"
     },
     "NodeInitializationAction": {
       "description": "Specifies an executable to run on a fully configured node and a timeout period for executable completion.",
@@ -751,7 +778,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "NodeInitializationAction"
     },
     "Operation": {
       "description": "This resource represents a long-running operation that is the result of a network API call.",
@@ -783,7 +811,8 @@
           "type": "object"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Operation"
     },
     "OperationMetadata": {
       "description": "Metadata describing the operation.",
@@ -856,7 +885,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "OperationMetadata"
     },
     "OperationStatus": {
       "description": "The status of the operation.",
@@ -885,7 +915,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "OperationStatus"
     },
     "PigJob": {
       "description": "A Cloud Dataproc job for running Apache Pig (https://pig.apache.org/) queries on YARN.",
@@ -928,7 +959,8 @@
           "type": "object"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PigJob"
     },
     "PySparkJob": {
       "description": "A Cloud Dataproc job for running Apache PySpark (https://spark.apache.org/docs/0.9.0/python-programming-guide.html) applications on YARN.",
@@ -984,7 +1016,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PySparkJob"
     },
     "QueryList": {
       "description": "A list of queries to run on a cluster.",
@@ -997,7 +1030,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "QueryList"
     },
     "SoftwareConfig": {
       "description": "Specifies the selection and config of software inside the cluster.",
@@ -1014,7 +1048,8 @@
           "type": "object"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SoftwareConfig"
     },
     "SparkJob": {
       "description": "A Cloud Dataproc job for running Apache Spark (http://spark.apache.org/) applications on YARN.",
@@ -1067,7 +1102,8 @@
           "type": "object"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SparkJob"
     },
     "SparkSqlJob": {
       "description": "A Cloud Dataproc job for running Apache Spark SQL (http://spark.apache.org/sql/) queries.",
@@ -1106,7 +1142,8 @@
           "type": "object"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SparkSqlJob"
     },
     "Status": {
       "description": "The Status type defines a logical error model that is suitable for different programming environments, including REST APIs and RPC APIs. It is used by gRPC (https://github.com/grpc). The error model is designed to be:\nSimple to use and understand for most users\nFlexible enough to meet unexpected needsOverviewThe Status message contains three pieces of data: error code, error message, and error details. The error code should be an enum value of google.rpc.Code, but it may accept additional error codes if needed. The error message should be a developer-facing English message that helps developers understand and resolve the error. If a localized user-facing error message is needed, put the localized message in the error details or localize it in the client. The optional error details may contain arbitrary information about the error. There is a predefined set of error detail types in the package google.rpc which can be used for common error conditions.Language mappingThe Status message is the logical representation of the error model, but it is not necessarily the actual wire format. When the Status message is exposed in different client libraries and different wire protocols, it can be mapped differently. For example, it will likely be mapped to some exceptions in Java, but more likely mapped to some error codes in C.Other usesThe error model and the Status message can be used in a variety of environments, either with or without APIs, to provide a consistent developer experience across different environments.Example uses of this error model include:\nPartial errors. If a service needs to return partial errors to the client, it may embed the Status in the normal response to indicate the partial errors.\nWorkflow errors. A typical workflow has multiple steps. Each step may have a Status message for error reporting purpose.\nBatch operations. If a client uses batch request and batch response, the Status message should be used directly inside batch response, one for each error sub-response.\nAsynchronous operations. If an API call embeds asynchronous operation results in its response, the status of those operations should be represented directly using the Status message.\nLogging. If some API errors are stored in logs, the message Status could be used directly after any stripping needed for security/privacy reasons.",
@@ -1131,7 +1168,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Status"
     },
     "SubmitJobRequest": {
       "description": "A request to submit a job.",
@@ -1141,7 +1179,8 @@
           "description": "Required. The job resource."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SubmitJobRequest"
     },
     "YarnApplication": {
       "description": "A YARN application created by a job. Application information is a subset of <code>org.apache.hadoop.yarn.proto.YarnProtos.ApplicationReportProto</code>.Beta Feature: This report is available for testing purposes only. It may be changed before final release.",
@@ -1175,7 +1214,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "YarnApplication"
     }
   },
   "actions": [

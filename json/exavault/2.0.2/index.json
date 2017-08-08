@@ -124,7 +124,8 @@
         "clientId",
         "created",
         "modified"
-      ]
+      ],
+      "title": "Account"
     },
     "AccountResponse": {
       "properties": {
@@ -143,7 +144,8 @@
         "success",
         "error",
         "results"
-      ]
+      ],
+      "title": "AccountResponse"
     },
     "Auth": {
       "properties": {
@@ -166,7 +168,8 @@
         "accessToken",
         "mode",
         "clientIp"
-      ]
+      ],
+      "title": "Auth"
     },
     "AuthResponse": {
       "properties": {
@@ -185,7 +188,8 @@
         "success",
         "error",
         "results"
-      ]
+      ],
+      "title": "AuthResponse"
     },
     "AvailableUser": {
       "properties": {
@@ -195,7 +199,8 @@
       },
       "required": [
         "available"
-      ]
+      ],
+      "title": "AvailableUser"
     },
     "AvailableUserResponse": {
       "properties": {
@@ -214,7 +219,8 @@
         "success",
         "error",
         "results"
-      ]
+      ],
+      "title": "AvailableUserResponse"
     },
     "DeletedResource": {
       "properties": {
@@ -234,7 +240,8 @@
         "file",
         "size",
         "success"
-      ]
+      ],
+      "title": "DeletedResource"
     },
     "DeletedResourcesResponse": {
       "properties": {
@@ -256,7 +263,8 @@
         "success",
         "error",
         "results"
-      ]
+      ],
+      "title": "DeletedResourcesResponse"
     },
     "Error": {
       "properties": {
@@ -271,7 +279,8 @@
       "required": [
         "message",
         "code"
-      ]
+      ],
+      "title": "Error"
     },
     "ExistingResource": {
       "properties": {
@@ -285,7 +294,8 @@
       "required": [
         "exists",
         "resource"
-      ]
+      ],
+      "title": "ExistingResource"
     },
     "ExistingResourcesResponse": {
       "properties": {
@@ -307,7 +317,8 @@
         "success",
         "error",
         "results"
-      ]
+      ],
+      "title": "ExistingResourcesResponse"
     },
     "LogEntry": {
       "properties": {
@@ -363,7 +374,8 @@
         "ipAddress",
         "protocol",
         "status"
-      ]
+      ],
+      "title": "LogEntry"
     },
     "LogResponse": {
       "properties": {
@@ -385,7 +397,8 @@
         "success",
         "error",
         "results"
-      ]
+      ],
+      "title": "LogResponse"
     },
     "Message": {
       "properties": {
@@ -421,7 +434,8 @@
         "body",
         "created",
         "modified"
-      ]
+      ],
+      "title": "Message"
     },
     "ModifiedResource": {
       "properties": {
@@ -445,7 +459,8 @@
         "destination",
         "size",
         "success"
-      ]
+      ],
+      "title": "ModifiedResource"
     },
     "ModifiedResourcesResponse": {
       "properties": {
@@ -467,7 +482,8 @@
         "success",
         "error",
         "results"
-      ]
+      ],
+      "title": "ModifiedResourcesResponse"
     },
     "Notification": {
       "properties": {
@@ -543,7 +559,8 @@
         "shareId",
         "created",
         "modified"
-      ]
+      ],
+      "title": "Notification"
     },
     "NotificationActivityResponse": {
       "properties": {
@@ -565,7 +582,8 @@
         "success",
         "error",
         "results"
-      ]
+      ],
+      "title": "NotificationActivityResponse"
     },
     "NotificationMessage": {
       "properties": {
@@ -608,7 +626,8 @@
         "sent",
         "read",
         "created"
-      ]
+      ],
+      "title": "NotificationMessage"
     },
     "NotificationResponse": {
       "properties": {
@@ -627,7 +646,8 @@
         "success",
         "error",
         "results"
-      ]
+      ],
+      "title": "NotificationResponse"
     },
     "NotificationsResponse": {
       "properties": {
@@ -649,7 +669,8 @@
         "success",
         "error",
         "results"
-      ]
+      ],
+      "title": "NotificationsResponse"
     },
     "PreviewFile": {
       "properties": {
@@ -668,7 +689,8 @@
         "image",
         "size",
         "imageId"
-      ]
+      ],
+      "title": "PreviewFile"
     },
     "PreviewFileResponse": {
       "properties": {
@@ -687,7 +709,8 @@
         "success",
         "error",
         "results"
-      ]
+      ],
+      "title": "PreviewFileResponse"
     },
     "Recipient": {
       "properties": {
@@ -726,7 +749,8 @@
         "sent",
         "received",
         "created"
-      ]
+      ],
+      "title": "Recipient"
     },
     "Resource": {
       "properties": {
@@ -752,7 +776,8 @@
         "resources",
         "inheritedShares",
         "inheritedNotifications"
-      ]
+      ],
+      "title": "Resource"
     },
     "ResourcePropertiesResponse": {
       "properties": {
@@ -774,7 +799,8 @@
         "success",
         "error",
         "results"
-      ]
+      ],
+      "title": "ResourcePropertiesResponse"
     },
     "ResourceProperty": {
       "properties": {
@@ -832,7 +858,8 @@
         "notificationSettings",
         "size",
         "previewable"
-      ]
+      ],
+      "title": "ResourceProperty"
     },
     "ResourceResponse": {
       "properties": {
@@ -851,7 +878,8 @@
         "success",
         "error",
         "results"
-      ]
+      ],
+      "title": "ResourceResponse"
     },
     "Response": {
       "properties": {
@@ -873,7 +901,8 @@
         "success",
         "error",
         "results"
-      ]
+      ],
+      "title": "Response"
     },
     "Share": {
       "properties": {
@@ -1006,7 +1035,8 @@
         "notification",
         "created",
         "modified"
-      ]
+      ],
+      "title": "Share"
     },
     "ShareActivityResponse": {
       "properties": {
@@ -1028,7 +1058,8 @@
         "success",
         "error",
         "results"
-      ]
+      ],
+      "title": "ShareActivityResponse"
     },
     "ShareLogEntry": {
       "properties": {
@@ -1063,7 +1094,8 @@
         "actionObjectId",
         "detail",
         "created"
-      ]
+      ],
+      "title": "ShareLogEntry"
     },
     "ShareResponse": {
       "properties": {
@@ -1082,7 +1114,8 @@
         "success",
         "error",
         "results"
-      ]
+      ],
+      "title": "ShareResponse"
     },
     "SharesResponse": {
       "properties": {
@@ -1104,7 +1137,8 @@
         "success",
         "error",
         "results"
-      ]
+      ],
+      "title": "SharesResponse"
     },
     "Url": {
       "properties": {
@@ -1118,7 +1152,8 @@
       },
       "required": [
         "url"
-      ]
+      ],
+      "title": "Url"
     },
     "UrlResponse": {
       "properties": {
@@ -1137,7 +1172,8 @@
         "success",
         "error",
         "results"
-      ]
+      ],
+      "title": "UrlResponse"
     },
     "User": {
       "properties": {
@@ -1235,7 +1271,8 @@
         "notification",
         "role",
         "timeZone"
-      ]
+      ],
+      "title": "User"
     },
     "UserResponse": {
       "properties": {
@@ -1254,7 +1291,8 @@
         "success",
         "error",
         "results"
-      ]
+      ],
+      "title": "UserResponse"
     },
     "UsersResponse": {
       "properties": {
@@ -1276,7 +1314,8 @@
         "success",
         "error",
         "results"
-      ]
+      ],
+      "title": "UsersResponse"
     }
   },
   "actions": [

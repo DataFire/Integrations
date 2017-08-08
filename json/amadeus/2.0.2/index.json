@@ -42,7 +42,8 @@
         "line1",
         "city",
         "country"
-      ]
+      ],
+      "title": "Address"
     },
     "AffiliateFlightSearchPrice": {
       "properties": {
@@ -76,7 +77,8 @@
         "total_price",
         "price_per_adult",
         "restrictions"
-      ]
+      ],
+      "title": "AffiliateFlightSearchPrice"
     },
     "AffiliatePayout": {
       "properties": {
@@ -92,7 +94,8 @@
           "$ref": "#/definitions/Amount",
           "description": "See https://en.wikipedia.org/wiki/Pay_per_sale for commission earned as a result of a booking made from the provided deep link"
         }
-      }
+      },
+      "title": "AffiliatePayout"
     },
     "AffiliateSearchMeta": {
       "properties": {
@@ -103,7 +106,8 @@
       },
       "required": [
         "carriers"
-      ]
+      ],
+      "title": "AffiliateSearchMeta"
     },
     "AffiliateSearchResponse": {
       "properties": {
@@ -120,7 +124,8 @@
       },
       "required": [
         "meta"
-      ]
+      ],
+      "title": "AffiliateSearchResponse"
     },
     "AffiliateSearchResult": {
       "properties": {
@@ -155,7 +160,8 @@
         "outbound",
         "airline",
         "deep_link"
-      ]
+      ],
+      "title": "AffiliateSearchResult"
     },
     "Airport": {
       "properties": {
@@ -170,7 +176,8 @@
       },
       "required": [
         "airport"
-      ]
+      ],
+      "title": "Airport"
     },
     "AirportAutocompleteResponse": {
       "properties": {
@@ -186,7 +193,8 @@
       "required": [
         "value",
         "label"
-      ]
+      ],
+      "title": "AirportAutocompleteResponse"
     },
     "AirportInformation": {
       "properties": {
@@ -235,7 +243,8 @@
         "country",
         "location",
         "timezone"
-      ]
+      ],
+      "title": "AirportInformation"
     },
     "Amenity": {
       "properties": {
@@ -251,7 +260,8 @@
           "description": "The <a href=\"http://www.opentravel.org/\">Open Travel Alliance</a> <a href=\"ota-hotel-amenity-code-table\">Hotel Amenities Code</a> for this amenity.",
           "type": "string"
         }
-      }
+      },
+      "title": "Amenity"
     },
     "Amount": {
       "description": "A monetary amount with a price and a currency",
@@ -268,7 +278,8 @@
       "required": [
         "currency",
         "amount"
-      ]
+      ],
+      "title": "Amount"
     },
     "Award": {
       "properties": {
@@ -284,7 +295,8 @@
       "required": [
         "provider",
         "rating"
-      ]
+      ],
+      "title": "Award"
     },
     "CarReservation": {
       "properties": {
@@ -331,7 +343,8 @@
         "drop_off",
         "origin",
         "car"
-      ]
+      ],
+      "title": "CarReservation"
     },
     "CarReservationBookingInfo": {
       "properties": {
@@ -347,7 +360,8 @@
       "required": [
         "reservation_code",
         "status"
-      ]
+      ],
+      "title": "CarReservationBookingInfo"
     },
     "CarSearchResponse": {
       "properties": {
@@ -357,7 +371,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "CarSearchResponse"
     },
     "CarSearchResult": {
       "properties": {
@@ -383,7 +398,8 @@
       },
       "required": [
         "provider"
-      ]
+      ],
+      "title": "CarSearchResult"
     },
     "CarrierInfo": {
       "properties": {
@@ -399,13 +415,15 @@
       "required": [
         "name",
         "logos"
-      ]
+      ],
+      "title": "CarrierInfo"
     },
     "CarrierMeta": {
       "additionalProperties": {
         "$ref": "#/definitions/CarrierInfo"
       },
-      "type": "object"
+      "type": "object",
+      "title": "CarrierMeta"
     },
     "CityInformation": {
       "properties": {
@@ -449,7 +467,8 @@
         "country",
         "location",
         "timezone"
-      ]
+      ],
+      "title": "CityInformation"
     },
     "Company": {
       "properties": {
@@ -465,7 +484,8 @@
       "required": [
         "company_code",
         "company_name"
-      ]
+      ],
+      "title": "Company"
     },
     "Contact": {
       "properties": {
@@ -485,7 +505,8 @@
       "required": [
         "type",
         "detail"
-      ]
+      ],
+      "title": "Contact"
     },
     "Error": {
       "properties": {
@@ -502,7 +523,8 @@
       "required": [
         "status",
         "message"
-      ]
+      ],
+      "title": "Error"
     },
     "ExtensiveTrainSearchResponse": {
       "properties": {
@@ -512,7 +534,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "ExtensiveTrainSearchResponse"
     },
     "ExtensiveTrainSearchResult": {
       "properties": {
@@ -536,7 +559,8 @@
         "origin",
         "destination",
         "itineraries"
-      ]
+      ],
+      "title": "ExtensiveTrainSearchResult"
     },
     "ExtremeSearchResponse": {
       "properties": {
@@ -559,7 +583,8 @@
         "origin",
         "currency",
         "results"
-      ]
+      ],
+      "title": "ExtremeSearchResponse"
     },
     "ExtremeSearchResult": {
       "properties": {
@@ -589,7 +614,8 @@
       "required": [
         "destination",
         "price"
-      ]
+      ],
+      "title": "ExtremeSearchResult"
     },
     "Fare": {
       "properties": {
@@ -605,7 +631,8 @@
       "required": [
         "total_fare",
         "tax"
-      ]
+      ],
+      "title": "Fare"
     },
     "FareRestrictions": {
       "properties": {
@@ -621,7 +648,8 @@
       "required": [
         "refundable",
         "change_penalties"
-      ]
+      ],
+      "title": "FareRestrictions"
     },
     "Fees": {
       "properties": {
@@ -633,7 +661,8 @@
           "description": "The cost of any required service fees in addition to the total price",
           "type": "string"
         }
-      }
+      },
+      "title": "Fees"
     },
     "FlightReservationBookingInfo": {
       "properties": {
@@ -659,7 +688,8 @@
         "booking_code",
         "airline_record_locator",
         "status"
-      ]
+      ],
+      "title": "FlightReservationBookingInfo"
     },
     "FlightReservationBound": {
       "properties": {
@@ -673,7 +703,8 @@
       },
       "required": [
         "flights"
-      ]
+      ],
+      "title": "FlightReservationBound"
     },
     "FlightReservationSegment": {
       "properties": {
@@ -732,7 +763,8 @@
         "flight_number",
         "traveler_ids",
         "booking_info"
-      ]
+      ],
+      "title": "FlightReservationSegment"
     },
     "FlightSearchBookingInfo": {
       "properties": {
@@ -765,7 +797,8 @@
         "travel_class",
         "booking_code",
         "seats_remaining"
-      ]
+      ],
+      "title": "FlightSearchBookingInfo"
     },
     "FlightSearchBound": {
       "properties": {
@@ -782,7 +815,8 @@
       },
       "required": [
         "flights"
-      ]
+      ],
+      "title": "FlightSearchBound"
     },
     "FlightSearchItinerary": {
       "properties": {
@@ -797,7 +831,8 @@
       },
       "required": [
         "outbound"
-      ]
+      ],
+      "title": "FlightSearchItinerary"
     },
     "FlightSearchPrice": {
       "properties": {
@@ -826,7 +861,8 @@
         "total_price",
         "price_per_adult",
         "restrictions"
-      ]
+      ],
+      "title": "FlightSearchPrice"
     },
     "FlightSearchSegment": {
       "properties": {
@@ -876,7 +912,8 @@
         "operating_airline",
         "flight_number",
         "booking_info"
-      ]
+      ],
+      "title": "FlightSearchSegment"
     },
     "FlightTicket": {
       "description": "The flight itineraries with a ticket or transitional stored ticket (TST) in this reservation, and their prices.",
@@ -909,7 +946,8 @@
         "price",
         "traveler_ids",
         "flight_bounds"
-      ]
+      ],
+      "title": "FlightTicket"
     },
     "FlightTrafficSearchResult": {
       "properties": {
@@ -934,7 +972,8 @@
         "period",
         "destination",
         "travelers"
-      ]
+      ],
+      "title": "FlightTrafficSearchResult"
     },
     "FrequentTravelerCard": {
       "properties": {
@@ -955,7 +994,8 @@
         "issuer_type",
         "company_code",
         "card_number"
-      ]
+      ],
+      "title": "FrequentTravelerCard"
     },
     "Geolocation": {
       "description": "An object to describe the coordinates of a map location",
@@ -976,7 +1016,8 @@
       "required": [
         "latitude",
         "longitude"
-      ]
+      ],
+      "title": "Geolocation"
     },
     "HotelPropertyResponse": {
       "properties": {
@@ -1048,7 +1089,8 @@
         "location",
         "total_price",
         "min_daily_rate"
-      ]
+      ],
+      "title": "HotelPropertyResponse"
     },
     "HotelReservation": {
       "properties": {
@@ -1098,7 +1140,8 @@
         "property_name",
         "traveler_ids",
         "booking_info"
-      ]
+      ],
+      "title": "HotelReservation"
     },
     "HotelReservationBookingInfo": {
       "properties": {
@@ -1114,7 +1157,8 @@
       "required": [
         "reservation_code",
         "status"
-      ]
+      ],
+      "title": "HotelReservationBookingInfo"
     },
     "HotelRoom": {
       "properties": {
@@ -1158,7 +1202,8 @@
       },
       "required": [
         "booking_code"
-      ]
+      ],
+      "title": "HotelRoom"
     },
     "HotelSearchResponse": {
       "properties": {
@@ -1168,7 +1213,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "HotelSearchResponse"
     },
     "Image": {
       "properties": {
@@ -1191,7 +1237,8 @@
       },
       "required": [
         "url"
-      ]
+      ],
+      "title": "Image"
     },
     "ImageSize": {
       "description": "An image size selector used in the YapQ API response. The size should correspond the the image_size parameter used during input",
@@ -1208,7 +1255,8 @@
         "small": {
           "$ref": "#/definitions/Image"
         }
-      }
+      },
+      "title": "ImageSize"
     },
     "Infant": {
       "properties": {
@@ -1225,7 +1273,8 @@
           "description": "The last name of the infant, as entered by the agent, in upper-case. If no value is provided, the last name of the infant can generally be assumed to be the same as that of the traveler which whom they are associated.",
           "type": "string"
         }
-      }
+      },
+      "title": "Infant"
     },
     "Link": {
       "properties": {
@@ -1237,7 +1286,8 @@
       },
       "required": [
         "href"
-      ]
+      ],
+      "title": "Link"
     },
     "LocationResponse": {
       "properties": {
@@ -1252,7 +1302,8 @@
           "$ref": "#/definitions/CityInformation",
           "description": "Information for any <a href=\"https://en.wikipedia.org/wiki/International_Air_Transport_Association_airport_code\">IATA code</a> of the city which corresponds to the provided code"
         }
-      }
+      },
+      "title": "LocationResponse"
     },
     "Logos": {
       "properties": {
@@ -1264,7 +1315,8 @@
           "description": "URL to logo of resolution 27x27px",
           "type": "string"
         }
-      }
+      },
+      "title": "Logos"
     },
     "LowFareSearchResponse": {
       "properties": {
@@ -1281,7 +1333,8 @@
       },
       "required": [
         "currency"
-      ]
+      ],
+      "title": "LowFareSearchResponse"
     },
     "LowFareSearchResult": {
       "properties": {
@@ -1298,7 +1351,8 @@
       },
       "required": [
         "fare"
-      ]
+      ],
+      "title": "LowFareSearchResult"
     },
     "Message": {
       "properties": {
@@ -1319,7 +1373,8 @@
         "severity",
         "type",
         "message"
-      ]
+      ],
+      "title": "Message"
     },
     "NearestAirport": {
       "properties": {
@@ -1368,7 +1423,8 @@
         "location",
         "distance",
         "timezone"
-      ]
+      ],
+      "title": "NearestAirport"
     },
     "OtherReservation": {
       "properties": {
@@ -1407,7 +1463,8 @@
         "location",
         "traveler_ids",
         "booking_info"
-      ]
+      ],
+      "title": "OtherReservation"
     },
     "OtherReservationBookingInfo": {
       "properties": {
@@ -1418,7 +1475,8 @@
       },
       "required": [
         "status"
-      ]
+      ],
+      "title": "OtherReservationBookingInfo"
     },
     "PeriodRate": {
       "properties": {
@@ -1446,7 +1504,8 @@
         "end_date",
         "currency",
         "price"
-      ]
+      ],
+      "title": "PeriodRate"
     },
     "PointOfInterestCity": {
       "properties": {
@@ -1470,7 +1529,8 @@
         "name",
         "location",
         "total_points_of_interest"
-      ]
+      ],
+      "title": "PointOfInterestCity"
     },
     "PointOfInterestDetails": {
       "properties": {
@@ -1491,7 +1551,8 @@
         "short_description",
         "description",
         "wiki_page_link"
-      ]
+      ],
+      "title": "PointOfInterestDetails"
     },
     "PointOfInterestResult": {
       "properties": {
@@ -1552,7 +1613,8 @@
         "grades",
         "categories",
         "location"
-      ]
+      ],
+      "title": "PointOfInterestResult"
     },
     "PointsOfInterestResponse": {
       "properties": {
@@ -1568,7 +1630,8 @@
       },
       "required": [
         "points_of_interest"
-      ]
+      ],
+      "title": "PointsOfInterestResponse"
     },
     "RailService": {
       "properties": {
@@ -1587,7 +1650,8 @@
       "required": [
         "destination_station_id",
         "services"
-      ]
+      ],
+      "title": "RailService"
     },
     "RailStationAutocompleteResponse": {
       "properties": {
@@ -1603,7 +1667,8 @@
       "required": [
         "value",
         "label"
-      ]
+      ],
+      "title": "RailStationAutocompleteResponse"
     },
     "RailStationResponse": {
       "properties": {
@@ -1644,7 +1709,8 @@
         "country",
         "location",
         "traffic"
-      ]
+      ],
+      "title": "RailStationResponse"
     },
     "Rate": {
       "properties": {
@@ -1660,7 +1726,8 @@
       "required": [
         "type",
         "price"
-      ]
+      ],
+      "title": "Rate"
     },
     "Reservation": {
       "properties": {
@@ -1695,7 +1762,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "Reservation"
     },
     "RestrictedRate": {
       "properties": {
@@ -1716,7 +1784,8 @@
         "rate_code",
         "rate_name",
         "restrictions"
-      ]
+      ],
+      "title": "RestrictedRate"
     },
     "RoomInfo": {
       "description": "More detailed structured information about the room.",
@@ -1738,7 +1807,8 @@
         "bed_type",
         "number_of_beds",
         "room_type"
-      ]
+      ],
+      "title": "RoomInfo"
     },
     "Station": {
       "properties": {
@@ -1754,7 +1824,8 @@
       "required": [
         "station_code",
         "station_name"
-      ]
+      ],
+      "title": "Station"
     },
     "TopDestinationsSearchResponse": {
       "properties": {
@@ -1777,7 +1848,8 @@
         "period",
         "origin",
         "results"
-      ]
+      ],
+      "title": "TopDestinationsSearchResponse"
     },
     "TopDestinationsSearchResult": {
       "properties": {
@@ -1797,7 +1869,8 @@
       "required": [
         "destination",
         "travelers"
-      ]
+      ],
+      "title": "TopDestinationsSearchResult"
     },
     "TopSearchesSearchResponse": {
       "properties": {
@@ -1830,7 +1903,8 @@
         "origin",
         "destination",
         "results"
-      ]
+      ],
+      "title": "TopSearchesSearchResponse"
     },
     "TopSearchesSearchResult": {
       "properties": {
@@ -1851,7 +1925,8 @@
         "destination",
         "searches",
         "searches_prior_year"
-      ]
+      ],
+      "title": "TopSearchesSearchResult"
     },
     "TrainScheduleSearchResponse": {
       "properties": {
@@ -1861,7 +1936,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "TrainScheduleSearchResponse"
     },
     "TrainScheduleSearchResult": {
       "properties": {
@@ -1886,7 +1962,8 @@
         "origin_station_id",
         "date",
         "services"
-      ]
+      ],
+      "title": "TrainScheduleSearchResult"
     },
     "TrainSearchItinerary": {
       "properties": {
@@ -1900,7 +1977,8 @@
       },
       "required": [
         "trains"
-      ]
+      ],
+      "title": "TrainSearchItinerary"
     },
     "TrainSearchPricing": {
       "properties": {
@@ -1931,7 +2009,8 @@
         "accomodation",
         "total_price",
         "rate"
-      ]
+      ],
+      "title": "TrainSearchPricing"
     },
     "TrainSearchSegment": {
       "properties": {
@@ -1984,7 +2063,8 @@
         "operating_company",
         "train_number",
         "prices"
-      ]
+      ],
+      "title": "TrainSearchSegment"
     },
     "TravelRecordHeader": {
       "properties": {
@@ -2000,7 +2080,8 @@
       "required": [
         "creation_office_id",
         "owner_office_id"
-      ]
+      ],
+      "title": "TravelRecordHeader"
     },
     "TravelRecordResponse": {
       "properties": {
@@ -2033,7 +2114,8 @@
       },
       "required": [
         "record_locator"
-      ]
+      ],
+      "title": "TravelRecordResponse"
     },
     "Traveler": {
       "properties": {
@@ -2082,7 +2164,8 @@
         "last_name",
         "first_name",
         "traveler_type"
-      ]
+      ],
+      "title": "Traveler"
     },
     "Vehicle": {
       "properties": {
@@ -2111,7 +2194,8 @@
       },
       "required": [
         "vehicle_info"
-      ]
+      ],
+      "title": "Vehicle"
     },
     "VehicleInfo": {
       "properties": {
@@ -2143,7 +2227,8 @@
       "required": [
         "acriss_code",
         "category"
-      ]
+      ],
+      "title": "VehicleInfo"
     }
   },
   "actions": [

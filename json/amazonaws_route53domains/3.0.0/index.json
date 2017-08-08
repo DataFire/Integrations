@@ -18,7 +18,8 @@
   "definitions": {
     "AddressLine": {
       "maxLength": 255,
-      "type": "string"
+      "type": "string",
+      "title": "AddressLine"
     },
     "BillingRecord": {
       "description": "Information for one billing record.",
@@ -44,16 +45,19 @@
           "description": "<p>The price that you were charged for the operation, in US dollars.</p> <p>Example value: 12.0</p>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BillingRecord"
     },
     "BillingRecords": {
       "items": {
         "$ref": "#/definitions/BillingRecord"
       },
-      "type": "array"
+      "type": "array",
+      "title": "BillingRecords"
     },
     "Boolean": {
-      "type": "boolean"
+      "type": "boolean",
+      "title": "Boolean"
     },
     "CheckDomainAvailabilityRequest": {
       "description": "The CheckDomainAvailability request contains the following elements.",
@@ -70,7 +74,8 @@
       "required": [
         "DomainName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CheckDomainAvailabilityRequest"
     },
     "CheckDomainAvailabilityResponse": {
       "description": "The CheckDomainAvailability response includes the following elements.",
@@ -83,11 +88,13 @@
       "required": [
         "Availability"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CheckDomainAvailabilityResponse"
     },
     "City": {
       "maxLength": 255,
-      "type": "string"
+      "type": "string",
+      "title": "City"
     },
     "ContactDetail": {
       "description": "ContactDetail includes the following elements.",
@@ -149,15 +156,18 @@
           "description": "The zip or postal code of the contact's address."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ContactDetail"
     },
     "ContactName": {
       "maxLength": 255,
-      "type": "string"
+      "type": "string",
+      "title": "ContactName"
     },
     "ContactNumber": {
       "maxLength": 30,
-      "type": "string"
+      "type": "string",
+      "title": "ContactNumber"
     },
     "ContactType": {
       "enum": [
@@ -167,7 +177,8 @@
         "PUBLIC_BODY",
         "RESELLER"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ContactType"
     },
     "CountryCode": {
       "enum": [
@@ -401,13 +412,16 @@
         "ZM",
         "ZW"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "CountryCode"
     },
     "CurrentExpiryYear": {
-      "type": "integer"
+      "type": "integer",
+      "title": "CurrentExpiryYear"
     },
     "DNSSec": {
-      "type": "string"
+      "type": "string",
+      "title": "DNSSec"
     },
     "DeleteTagsForDomainRequest": {
       "description": "The DeleteTagsForDomainRequest includes the following elements.",
@@ -425,11 +439,13 @@
         "DomainName",
         "TagsToDelete"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteTagsForDomainRequest"
     },
     "DeleteTagsForDomainResponse": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DeleteTagsForDomainResponse"
     },
     "DisableDomainAutoRenewRequest": {
       "properties": {
@@ -441,11 +457,13 @@
       "required": [
         "DomainName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DisableDomainAutoRenewRequest"
     },
     "DisableDomainAutoRenewResponse": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DisableDomainAutoRenewResponse"
     },
     "DisableDomainTransferLockRequest": {
       "description": "The DisableDomainTransferLock request includes the following element.",
@@ -458,7 +476,8 @@
       "required": [
         "DomainName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DisableDomainTransferLockRequest"
     },
     "DisableDomainTransferLockResponse": {
       "description": "The DisableDomainTransferLock response includes the following element.",
@@ -471,12 +490,14 @@
       "required": [
         "OperationId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DisableDomainTransferLockResponse"
     },
     "DomainAuthCode": {
       "format": "password",
       "maxLength": 1024,
-      "type": "string"
+      "type": "string",
+      "title": "DomainAuthCode"
     },
     "DomainAvailability": {
       "enum": [
@@ -489,7 +510,8 @@
         "RESERVED",
         "DONT_KNOW"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "DomainAvailability"
     },
     "DomainLimitExceeded": {
       "description": "The number of domains has exceeded the allowed threshold for the account.",
@@ -499,21 +521,25 @@
           "description": "The number of domains has exceeded the allowed threshold for the account."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DomainLimitExceeded"
     },
     "DomainName": {
       "maxLength": 255,
       "pattern": "[a-zA-Z0-9_\\-.]*",
-      "type": "string"
+      "type": "string",
+      "title": "DomainName"
     },
     "DomainStatus": {
-      "type": "string"
+      "type": "string",
+      "title": "DomainStatus"
     },
     "DomainStatusList": {
       "items": {
         "$ref": "#/definitions/DomainStatus"
       },
-      "type": "array"
+      "type": "array",
+      "title": "DomainStatusList"
     },
     "DomainSuggestion": {
       "description": "Information about one suggested domain name.",
@@ -527,13 +553,15 @@
           "description": "A suggested domain name."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DomainSuggestion"
     },
     "DomainSuggestionsList": {
       "items": {
         "$ref": "#/definitions/DomainSuggestion"
       },
-      "type": "array"
+      "type": "array",
+      "title": "DomainSuggestionsList"
     },
     "DomainSummary": {
       "description": "Summary information about one domain.",
@@ -558,13 +586,15 @@
       "required": [
         "DomainName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DomainSummary"
     },
     "DomainSummaryList": {
       "items": {
         "$ref": "#/definitions/DomainSummary"
       },
-      "type": "array"
+      "type": "array",
+      "title": "DomainSummaryList"
     },
     "DuplicateRequest": {
       "description": "The request is already in progress for the domain.",
@@ -574,16 +604,19 @@
           "description": "The request is already in progress for the domain."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DuplicateRequest"
     },
     "DurationInYears": {
       "maximum": 10,
       "minimum": 1,
-      "type": "integer"
+      "type": "integer",
+      "title": "DurationInYears"
     },
     "Email": {
       "maxLength": 254,
-      "type": "string"
+      "type": "string",
+      "title": "Email"
     },
     "EnableDomainAutoRenewRequest": {
       "properties": {
@@ -595,11 +628,13 @@
       "required": [
         "DomainName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "EnableDomainAutoRenewRequest"
     },
     "EnableDomainAutoRenewResponse": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "EnableDomainAutoRenewResponse"
     },
     "EnableDomainTransferLockRequest": {
       "description": "A request to set the transfer lock for the specified domain.",
@@ -612,7 +647,8 @@
       "required": [
         "DomainName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "EnableDomainTransferLockRequest"
     },
     "EnableDomainTransferLockResponse": {
       "description": "The EnableDomainTransferLock response includes the following elements.",
@@ -625,10 +661,12 @@
       "required": [
         "OperationId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "EnableDomainTransferLockResponse"
     },
     "ErrorMessage": {
-      "type": "string"
+      "type": "string",
+      "title": "ErrorMessage"
     },
     "ExtraParam": {
       "description": "ExtraParam includes the following elements.",
@@ -646,13 +684,15 @@
         "Name",
         "Value"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ExtraParam"
     },
     "ExtraParamList": {
       "items": {
         "$ref": "#/definitions/ExtraParam"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ExtraParamList"
     },
     "ExtraParamName": {
       "enum": [
@@ -678,14 +718,17 @@
         "SG_ID_NUMBER",
         "VAT_NUMBER"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ExtraParamName"
     },
     "ExtraParamValue": {
       "maxLength": 2048,
-      "type": "string"
+      "type": "string",
+      "title": "ExtraParamValue"
     },
     "FIAuthKey": {
-      "type": "string"
+      "type": "string",
+      "title": "FIAuthKey"
     },
     "GetContactReachabilityStatusRequest": {
       "properties": {
@@ -694,7 +737,8 @@
           "description": "The name of the domain for which you want to know whether the registrant contact has confirmed that the email address is valid."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetContactReachabilityStatusRequest"
     },
     "GetContactReachabilityStatusResponse": {
       "properties": {
@@ -707,7 +751,8 @@
           "description": "<p>Whether the registrant contact has responded. Values include the following:</p> <dl> <dt>PENDING</dt> <dd> <p>We sent the confirmation email and haven't received a response yet.</p> </dd> <dt>DONE</dt> <dd> <p>We sent the email and got confirmation from the registrant contact.</p> </dd> <dt>EXPIRED</dt> <dd> <p>The time limit expired before the registrant contact responded.</p> </dd> </dl>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetContactReachabilityStatusResponse"
     },
     "GetDomainDetailRequest": {
       "description": "The GetDomainDetail request includes the following element.",
@@ -720,7 +765,8 @@
       "required": [
         "DomainName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetDomainDetailRequest"
     },
     "GetDomainDetailResponse": {
       "description": "The GetDomainDetail response includes the following elements.",
@@ -817,7 +863,8 @@
         "RegistrantContact",
         "TechContact"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetDomainDetailResponse"
     },
     "GetDomainSuggestionsRequest": {
       "properties": {
@@ -839,7 +886,8 @@
         "SuggestionCount",
         "OnlyAvailable"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetDomainSuggestionsRequest"
     },
     "GetDomainSuggestionsResponse": {
       "properties": {
@@ -848,7 +896,8 @@
           "description": "A list of possible domain names. If you specified <code>true</code> for <code>OnlyAvailable</code> in the request, the list contains only domains that are available for registration."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetDomainSuggestionsResponse"
     },
     "GetOperationDetailRequest": {
       "description": "The <a>GetOperationDetail</a> request includes the following element.",
@@ -861,7 +910,8 @@
       "required": [
         "OperationId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetOperationDetailRequest"
     },
     "GetOperationDetailResponse": {
       "description": "The GetOperationDetail response includes the following elements.",
@@ -891,25 +941,30 @@
           "description": "The type of operation that was requested."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetOperationDetailResponse"
     },
     "GlueIp": {
       "maxLength": 45,
-      "type": "string"
+      "type": "string",
+      "title": "GlueIp"
     },
     "GlueIpList": {
       "items": {
         "$ref": "#/definitions/GlueIp"
       },
-      "type": "array"
+      "type": "array",
+      "title": "GlueIpList"
     },
     "HostName": {
       "maxLength": 255,
       "pattern": "[a-zA-Z0-9_\\-.]*",
-      "type": "string"
+      "type": "string",
+      "title": "HostName"
     },
     "Integer": {
-      "type": "integer"
+      "type": "integer",
+      "title": "Integer"
     },
     "InvalidInput": {
       "description": "The requested item is not acceptable. For example, for an OperationId it may refer to the ID of an operation that is already completed. For a domain name, it may not be a valid domain name or belong to the requester account.",
@@ -919,14 +974,17 @@
           "description": "The requested item is not acceptable. For example, for an OperationId it may refer to the ID of an operation that is already completed. For a domain name, it may not be a valid domain name or belong to the requester account."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidInput"
     },
     "InvoiceId": {
-      "type": "string"
+      "type": "string",
+      "title": "InvoiceId"
     },
     "LangCode": {
       "maxLength": 3,
-      "type": "string"
+      "type": "string",
+      "title": "LangCode"
     },
     "ListDomainsRequest": {
       "description": "The ListDomains request includes the following elements.",
@@ -940,7 +998,8 @@
           "description": "<p>Number of domains to be returned.</p> <p>Default: 20</p>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListDomainsRequest"
     },
     "ListDomainsResponse": {
       "description": "The ListDomains response includes the following elements.",
@@ -957,7 +1016,8 @@
       "required": [
         "Domains"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListDomainsResponse"
     },
     "ListOperationsRequest": {
       "description": "The ListOperations request includes the following elements.",
@@ -971,7 +1031,8 @@
           "description": "<p>Number of domains to be returned.</p> <p>Default: 20</p>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListOperationsRequest"
     },
     "ListOperationsResponse": {
       "description": "The ListOperations response includes the following elements.",
@@ -988,7 +1049,8 @@
       "required": [
         "Operations"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListOperationsResponse"
     },
     "ListTagsForDomainRequest": {
       "description": "The ListTagsForDomainRequest includes the following elements.",
@@ -1001,7 +1063,8 @@
       "required": [
         "DomainName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListTagsForDomainRequest"
     },
     "ListTagsForDomainResponse": {
       "description": "The ListTagsForDomain response includes the following elements.",
@@ -1014,7 +1077,8 @@
       "required": [
         "TagList"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListTagsForDomainResponse"
     },
     "Nameserver": {
       "description": "Nameserver includes the following elements.",
@@ -1031,17 +1095,20 @@
       "required": [
         "Name"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "Nameserver"
     },
     "NameserverList": {
       "items": {
         "$ref": "#/definitions/Nameserver"
       },
-      "type": "array"
+      "type": "array",
+      "title": "NameserverList"
     },
     "OperationId": {
       "maxLength": 255,
-      "type": "string"
+      "type": "string",
+      "title": "OperationId"
     },
     "OperationLimitExceeded": {
       "description": "The number of operations or jobs running exceeded the allowed threshold for the account.",
@@ -1051,7 +1118,8 @@
           "description": "The number of operations or jobs running exceeded the allowed threshold for the account."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "OperationLimitExceeded"
     },
     "OperationStatus": {
       "enum": [
@@ -1061,7 +1129,8 @@
         "SUCCESSFUL",
         "FAILED"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "OperationStatus"
     },
     "OperationSummary": {
       "description": "OperationSummary includes the following elements.",
@@ -1089,13 +1158,15 @@
         "Type",
         "SubmittedDate"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "OperationSummary"
     },
     "OperationSummaryList": {
       "items": {
         "$ref": "#/definitions/OperationSummary"
       },
-      "type": "array"
+      "type": "array",
+      "title": "OperationSummaryList"
     },
     "OperationType": {
       "enum": [
@@ -1107,19 +1178,23 @@
         "CHANGE_PRIVACY_PROTECTION",
         "DOMAIN_LOCK"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "OperationType"
     },
     "PageMarker": {
       "maxLength": 4096,
-      "type": "string"
+      "type": "string",
+      "title": "PageMarker"
     },
     "PageMaxItems": {
       "maximum": 100,
-      "type": "integer"
+      "type": "integer",
+      "title": "PageMaxItems"
     },
     "Price": {
       "format": "double",
-      "type": "number"
+      "type": "number",
+      "title": "Price"
     },
     "ReachabilityStatus": {
       "enum": [
@@ -1127,7 +1202,8 @@
         "DONE",
         "EXPIRED"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ReachabilityStatus"
     },
     "RegisterDomainRequest": {
       "description": "The RegisterDomain request includes the following elements.",
@@ -1180,7 +1256,8 @@
         "RegistrantContact",
         "TechContact"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "RegisterDomainRequest"
     },
     "RegisterDomainResponse": {
       "description": "The RegisterDomain response includes the following element.",
@@ -1193,19 +1270,24 @@
       "required": [
         "OperationId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "RegisterDomainResponse"
     },
     "RegistrarName": {
-      "type": "string"
+      "type": "string",
+      "title": "RegistrarName"
     },
     "RegistrarUrl": {
-      "type": "string"
+      "type": "string",
+      "title": "RegistrarUrl"
     },
     "RegistrarWhoIsServer": {
-      "type": "string"
+      "type": "string",
+      "title": "RegistrarWhoIsServer"
     },
     "RegistryDomainId": {
-      "type": "string"
+      "type": "string",
+      "title": "RegistryDomainId"
     },
     "RenewDomainRequest": {
       "description": "A <code>RenewDomain</code> request includes the number of years that you want to renew for and the current expiration year.",
@@ -1227,7 +1309,8 @@
         "DomainName",
         "CurrentExpiryYear"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "RenewDomainRequest"
     },
     "RenewDomainResponse": {
       "properties": {
@@ -1239,10 +1322,12 @@
       "required": [
         "OperationId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "RenewDomainResponse"
     },
     "Reseller": {
-      "type": "string"
+      "type": "string",
+      "title": "Reseller"
     },
     "ResendContactReachabilityEmailRequest": {
       "properties": {
@@ -1251,7 +1336,8 @@
           "description": "The name of the domain for which you want Amazon Route 53 to resend a confirmation email to the registrant contact."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ResendContactReachabilityEmailRequest"
     },
     "ResendContactReachabilityEmailResponse": {
       "properties": {
@@ -1268,7 +1354,8 @@
           "description": " <code>True</code> if the email address for the registrant contact has already been verified, and <code>false</code> otherwise. If the email address has already been verified, we don't send another confirmation email."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ResendContactReachabilityEmailResponse"
     },
     "RetrieveDomainAuthCodeRequest": {
       "description": "A request for the authorization code for the specified domain. To transfer a domain to another registrar, you provide this value to the new registrar.",
@@ -1281,7 +1368,8 @@
       "required": [
         "DomainName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "RetrieveDomainAuthCodeRequest"
     },
     "RetrieveDomainAuthCodeResponse": {
       "description": "The RetrieveDomainAuthCode response includes the following element.",
@@ -1294,14 +1382,17 @@
       "required": [
         "AuthCode"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "RetrieveDomainAuthCodeResponse"
     },
     "State": {
       "maxLength": 255,
-      "type": "string"
+      "type": "string",
+      "title": "State"
     },
     "String": {
-      "type": "string"
+      "type": "string",
+      "title": "String"
     },
     "TLDRulesViolation": {
       "description": "The top-level domain does not support this operation.",
@@ -1311,7 +1402,8 @@
           "description": "The top-level domain does not support this operation."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TLDRulesViolation"
     },
     "Tag": {
       "description": "Each tag includes the following elements.",
@@ -1325,29 +1417,35 @@
           "description": "<p>The value of a tag.</p> <p>Valid values: A-Z, a-z, 0-9, space, \".:/=+\\-@\"</p> <p>Constraints: Each value can be 0-256 characters long.</p>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Tag"
     },
     "TagKey": {
-      "type": "string"
+      "type": "string",
+      "title": "TagKey"
     },
     "TagKeyList": {
       "items": {
         "$ref": "#/definitions/TagKey"
       },
-      "type": "array"
+      "type": "array",
+      "title": "TagKeyList"
     },
     "TagList": {
       "items": {
         "$ref": "#/definitions/Tag"
       },
-      "type": "array"
+      "type": "array",
+      "title": "TagList"
     },
     "TagValue": {
-      "type": "string"
+      "type": "string",
+      "title": "TagValue"
     },
     "Timestamp": {
       "format": "date-time",
-      "type": "string"
+      "type": "string",
+      "title": "Timestamp"
     },
     "TransferDomainRequest": {
       "description": "The TransferDomain request includes the following elements.",
@@ -1408,7 +1506,8 @@
         "RegistrantContact",
         "TechContact"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "TransferDomainRequest"
     },
     "TransferDomainResponse": {
       "description": "The TranserDomain response includes the following element.",
@@ -1421,7 +1520,8 @@
       "required": [
         "OperationId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "TransferDomainResponse"
     },
     "UnsupportedTLD": {
       "description": "Amazon Route 53 does not support this top-level domain.",
@@ -1431,7 +1531,8 @@
           "description": "Amazon Route 53 does not support this top-level domain."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UnsupportedTLD"
     },
     "UpdateDomainContactPrivacyRequest": {
       "description": "The UpdateDomainContactPrivacy request includes the following elements.",
@@ -1456,7 +1557,8 @@
       "required": [
         "DomainName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateDomainContactPrivacyRequest"
     },
     "UpdateDomainContactPrivacyResponse": {
       "description": "The UpdateDomainContactPrivacy response includes the following element.",
@@ -1469,7 +1571,8 @@
       "required": [
         "OperationId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateDomainContactPrivacyResponse"
     },
     "UpdateDomainContactRequest": {
       "description": "The UpdateDomainContact request includes the following elements.",
@@ -1494,7 +1597,8 @@
       "required": [
         "DomainName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateDomainContactRequest"
     },
     "UpdateDomainContactResponse": {
       "description": "The UpdateDomainContact response includes the following element.",
@@ -1507,7 +1611,8 @@
       "required": [
         "OperationId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateDomainContactResponse"
     },
     "UpdateDomainNameserversRequest": {
       "description": "<p>Replaces the current set of name servers for the domain with the specified set of name servers. If you use Amazon Route 53 as your DNS service, specify the four name servers in the delegation set for the hosted zone for the domain.</p> <p>If successful, this operation returns an operation ID that you can use to track the progress and completion of the action. If the request is not completed successfully, the domain registrant will be notified by email. </p>",
@@ -1529,7 +1634,8 @@
         "DomainName",
         "Nameservers"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateDomainNameserversRequest"
     },
     "UpdateDomainNameserversResponse": {
       "description": "The UpdateDomainNameservers response includes the following element.",
@@ -1542,7 +1648,8 @@
       "required": [
         "OperationId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateDomainNameserversResponse"
     },
     "UpdateTagsForDomainRequest": {
       "description": "The UpdateTagsForDomainRequest includes the following elements.",
@@ -1559,11 +1666,13 @@
       "required": [
         "DomainName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateTagsForDomainRequest"
     },
     "UpdateTagsForDomainResponse": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "UpdateTagsForDomainResponse"
     },
     "ViewBillingRequest": {
       "description": "The ViewBilling request includes the following elements.",
@@ -1585,7 +1694,8 @@
           "description": "The beginning date and time for the time period for which you want a list of billing records. Specify the date in Unix time format."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ViewBillingRequest"
     },
     "ViewBillingResponse": {
       "description": "The ViewBilling response includes the following elements.",
@@ -1599,11 +1709,13 @@
           "description": "If there are more billing records than you specified for <code>MaxItems</code> in the request, submit another request and include the value of <code>NextPageMarker</code> in the value of <code>Marker</code>."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ViewBillingResponse"
     },
     "ZipCode": {
       "maxLength": 255,
-      "type": "string"
+      "type": "string",
+      "title": "ZipCode"
     }
   },
   "actions": [

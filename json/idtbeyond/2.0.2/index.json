@@ -51,7 +51,8 @@
           "description": "ID for the Terminal used to perform the topup. 'Kiosk 5'",
           "type": "string"
         }
-      }
+      },
+      "title": "Topups"
     },
     "TopupsReports": {
       "properties": {
@@ -80,7 +81,8 @@
           "description": "The type of query you would like to search by.",
           "type": "string"
         }
-      }
+      },
+      "title": "TopupsReports"
     },
     "TopupsReversal": {
       "properties": {
@@ -94,7 +96,8 @@
           "description": "UNIQUE IDT transaction number found in the response of a successful topup request. '0123456789'",
           "type": "string"
         }
-      }
+      },
+      "title": "TopupsReversal"
     }
   },
   "actions": [

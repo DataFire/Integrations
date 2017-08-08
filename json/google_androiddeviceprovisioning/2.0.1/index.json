@@ -29,7 +29,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ClaimDeviceRequest"
     },
     "ClaimDeviceResponse": {
       "description": "Response message containing device id of the claim.",
@@ -40,7 +41,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ClaimDeviceResponse"
     },
     "Company": {
       "description": "Company",
@@ -55,7 +57,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Company"
     },
     "Device": {
       "description": "Device",
@@ -85,7 +88,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Device"
     },
     "DeviceClaim": {
       "description": "containing the necessary info about a claim for a partner.",
@@ -104,7 +108,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DeviceClaim"
     },
     "DeviceIdentifier": {
       "description": "DeviceIdentifiers identifies an unique device.",
@@ -130,7 +135,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DeviceIdentifier"
     },
     "DeviceMetadata": {
       "description": "metadata",
@@ -143,12 +149,14 @@
           "type": "object"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DeviceMetadata"
     },
     "Empty": {
       "description": "A generic empty message that you can re-use to avoid defining duplicated\nempty messages in your APIs. A typical example is to use it as the request\nor the response type of an API method. For instance:\n\n    service Foo {\n      rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);\n    }\n\nThe JSON representation for `Empty` is empty JSON object `{}`.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "Empty"
     },
     "FindDevicesByDeviceIdentifierRequest": {
       "description": "Request to find devices.",
@@ -167,7 +175,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "FindDevicesByDeviceIdentifierRequest"
     },
     "FindDevicesByDeviceIdentifierResponse": {
       "description": "Response containing found devices.",
@@ -184,7 +193,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "FindDevicesByDeviceIdentifierResponse"
     },
     "FindDevicesByOwnerRequest": {
       "description": "Request to find devices by customers.",
@@ -215,7 +225,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "FindDevicesByOwnerRequest"
     },
     "FindDevicesByOwnerResponse": {
       "description": "Response containing found devices.",
@@ -232,7 +243,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "FindDevicesByOwnerResponse"
     },
     "ListCustomersResponse": {
       "description": "Response message of all customers related to this partner.",
@@ -245,7 +257,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListCustomersResponse"
     },
     "UnclaimDeviceRequest": {
       "description": "Request message to unclaim a device.",
@@ -268,7 +281,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UnclaimDeviceRequest"
     },
     "UpdateDeviceMetadataRequest": {
       "description": "Request to set metadata for a device.",
@@ -278,7 +292,8 @@
           "description": "The metdata to set."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UpdateDeviceMetadataRequest"
     }
   },
   "actions": [

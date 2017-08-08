@@ -48,7 +48,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Activity"
     },
     "Event": {
       "description": "Represents the changes associated with an action taken by a user.",
@@ -123,7 +124,8 @@
           "description": "Represents the user responsible for the event."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Event"
     },
     "ListActivitiesResponse": {
       "description": "The response from the list request. Contains a list of activities and a token to retrieve the next page of results.",
@@ -140,7 +142,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListActivitiesResponse"
     },
     "Move": {
       "description": "Contains information about changes in an object's parents as a result of a move type event.",
@@ -160,7 +163,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Move"
     },
     "Parent": {
       "description": "Contains information about a parent object. For example, a folder in Drive is a parent for all files within it.",
@@ -178,7 +182,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Parent"
     },
     "Permission": {
       "description": "Contains information about the permissions and type of access allowed with regards to a Google Drive object. This is a subset of the fields contained in a corresponding Drive Permissions object.",
@@ -220,7 +225,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Permission"
     },
     "PermissionChange": {
       "description": "Contains information about a Drive object's permissions that changed as a result of a permissionChange type event.",
@@ -240,7 +246,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PermissionChange"
     },
     "Photo": {
       "description": "Photo information for a user.",
@@ -250,7 +257,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Photo"
     },
     "Rename": {
       "description": "Contains information about a renametype event.",
@@ -264,7 +272,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Rename"
     },
     "Target": {
       "description": "Information about the object modified by the event.",
@@ -282,7 +291,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Target"
     },
     "User": {
       "description": "A representation of a user.",
@@ -308,7 +318,8 @@
           "description": "The profile photo of the user. Not present if the user has no profile photo."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "User"
     }
   },
   "actions": [

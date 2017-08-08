@@ -22,7 +22,8 @@
       },
       "required": [
         "sub"
-      ]
+      ],
+      "title": "AuthentiqID"
     },
     "Claims": {
       "description": "Claim in JWT format, self- or issuer-signed. \n",
@@ -51,7 +52,8 @@
       "required": [
         "sub",
         "scope"
-      ]
+      ],
+      "title": "Claims"
     },
     "Error": {
       "properties": {
@@ -71,7 +73,8 @@
       },
       "required": [
         "error"
-      ]
+      ],
+      "title": "Error"
     },
     "PushToken": {
       "description": "PushToken in JWT format, self-signed. \n",
@@ -102,7 +105,8 @@
         "sub",
         "iss",
         "aud"
-      ]
+      ],
+      "title": "PushToken"
     }
   },
   "actions": [

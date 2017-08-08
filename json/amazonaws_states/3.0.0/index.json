@@ -23,7 +23,8 @@
           "$ref": "#/definitions/ErrorMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ActivityDoesNotExist"
     },
     "ActivityFailedEventDetails": {
       "properties": {
@@ -36,7 +37,8 @@
           "description": "The error code of the failure."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ActivityFailedEventDetails"
     },
     "ActivityLimitExceeded": {
       "description": "The maximum number of activities has been reached. Existing activities must be deleted before a new activity can be created.",
@@ -45,13 +47,15 @@
           "$ref": "#/definitions/ErrorMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ActivityLimitExceeded"
     },
     "ActivityList": {
       "items": {
         "$ref": "#/definitions/ActivityListItem"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ActivityList"
     },
     "ActivityListItem": {
       "properties": {
@@ -73,7 +77,8 @@
         "name",
         "creationDate"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ActivityListItem"
     },
     "ActivityScheduleFailedEventDetails": {
       "properties": {
@@ -86,7 +91,8 @@
           "description": "The error code of the failure."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ActivityScheduleFailedEventDetails"
     },
     "ActivityScheduledEventDetails": {
       "properties": {
@@ -110,7 +116,8 @@
       "required": [
         "resource"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ActivityScheduledEventDetails"
     },
     "ActivityStartedEventDetails": {
       "properties": {
@@ -119,7 +126,8 @@
           "description": "The name of the worker that the task was assigned to. These names are provided by the workers when calling <a>GetActivityTask</a>."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ActivityStartedEventDetails"
     },
     "ActivitySucceededEventDetails": {
       "properties": {
@@ -128,7 +136,8 @@
           "description": "The JSON data output by the activity task."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ActivitySucceededEventDetails"
     },
     "ActivityTimedOutEventDetails": {
       "properties": {
@@ -141,7 +150,8 @@
           "description": "The error code of the failure."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ActivityTimedOutEventDetails"
     },
     "ActivityWorkerLimitExceeded": {
       "description": "The maximum number of workers concurrently polling for activity tasks has been reached.",
@@ -150,17 +160,20 @@
           "$ref": "#/definitions/ErrorMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ActivityWorkerLimitExceeded"
     },
     "Arn": {
       "maxLength": 256,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "Arn"
     },
     "Cause": {
       "maxLength": 32768,
       "minLength": 0,
-      "type": "string"
+      "type": "string",
+      "title": "Cause"
     },
     "CreateActivityInput": {
       "properties": {
@@ -172,7 +185,8 @@
       "required": [
         "name"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateActivityInput"
     },
     "CreateActivityOutput": {
       "properties": {
@@ -189,7 +203,8 @@
         "activityArn",
         "creationDate"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateActivityOutput"
     },
     "CreateStateMachineInput": {
       "properties": {
@@ -211,7 +226,8 @@
         "definition",
         "roleArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateStateMachineInput"
     },
     "CreateStateMachineOutput": {
       "properties": {
@@ -228,16 +244,19 @@
         "stateMachineArn",
         "creationDate"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateStateMachineOutput"
     },
     "Data": {
       "maxLength": 32768,
-      "type": "string"
+      "type": "string",
+      "title": "Data"
     },
     "Definition": {
       "maxLength": 1048576,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "Definition"
     },
     "DeleteActivityInput": {
       "properties": {
@@ -249,11 +268,13 @@
       "required": [
         "activityArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteActivityInput"
     },
     "DeleteActivityOutput": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DeleteActivityOutput"
     },
     "DeleteStateMachineInput": {
       "properties": {
@@ -265,11 +286,13 @@
       "required": [
         "stateMachineArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteStateMachineInput"
     },
     "DeleteStateMachineOutput": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DeleteStateMachineOutput"
     },
     "DescribeActivityInput": {
       "properties": {
@@ -281,7 +304,8 @@
       "required": [
         "activityArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeActivityInput"
     },
     "DescribeActivityOutput": {
       "properties": {
@@ -303,7 +327,8 @@
         "name",
         "creationDate"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeActivityOutput"
     },
     "DescribeExecutionInput": {
       "properties": {
@@ -315,7 +340,8 @@
       "required": [
         "executionArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeExecutionInput"
     },
     "DescribeExecutionOutput": {
       "properties": {
@@ -359,7 +385,8 @@
         "startDate",
         "input"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeExecutionOutput"
     },
     "DescribeStateMachineInput": {
       "properties": {
@@ -371,7 +398,8 @@
       "required": [
         "stateMachineArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeStateMachineInput"
     },
     "DescribeStateMachineOutput": {
       "properties": {
@@ -407,18 +435,22 @@
         "roleArn",
         "creationDate"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeStateMachineOutput"
     },
     "Error": {
       "maxLength": 256,
       "minLength": 0,
-      "type": "string"
+      "type": "string",
+      "title": "Error"
     },
     "ErrorMessage": {
-      "type": "string"
+      "type": "string",
+      "title": "ErrorMessage"
     },
     "EventId": {
-      "type": "integer"
+      "type": "integer",
+      "title": "EventId"
     },
     "ExecutionAbortedEventDetails": {
       "properties": {
@@ -431,7 +463,8 @@
           "description": "The error code of the failure."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ExecutionAbortedEventDetails"
     },
     "ExecutionAlreadyExists": {
       "description": "An execution with the same name already exists.",
@@ -440,7 +473,8 @@
           "$ref": "#/definitions/ErrorMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ExecutionAlreadyExists"
     },
     "ExecutionDoesNotExist": {
       "description": "The specified execution does not exist.",
@@ -449,7 +483,8 @@
           "$ref": "#/definitions/ErrorMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ExecutionDoesNotExist"
     },
     "ExecutionFailedEventDetails": {
       "properties": {
@@ -462,7 +497,8 @@
           "description": "The error code of the failure."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ExecutionFailedEventDetails"
     },
     "ExecutionLimitExceeded": {
       "description": "The maximum number of running executions has been reached. Running executions must end or be stopped before a new execution can be started.",
@@ -471,13 +507,15 @@
           "$ref": "#/definitions/ErrorMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ExecutionLimitExceeded"
     },
     "ExecutionList": {
       "items": {
         "$ref": "#/definitions/ExecutionListItem"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ExecutionList"
     },
     "ExecutionListItem": {
       "properties": {
@@ -513,7 +551,8 @@
         "status",
         "startDate"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ExecutionListItem"
     },
     "ExecutionStartedEventDetails": {
       "properties": {
@@ -526,7 +565,8 @@
           "description": "The Amazon Resource Name (ARN) of the IAM role used for executing AWS Lambda tasks."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ExecutionStartedEventDetails"
     },
     "ExecutionStatus": {
       "enum": [
@@ -536,7 +576,8 @@
         "TIMED_OUT",
         "ABORTED"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ExecutionStatus"
     },
     "ExecutionSucceededEventDetails": {
       "properties": {
@@ -545,7 +586,8 @@
           "description": "The JSON data output by the execution."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ExecutionSucceededEventDetails"
     },
     "ExecutionTimedOutEventDetails": {
       "properties": {
@@ -558,7 +600,8 @@
           "description": "The error code of the failure."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ExecutionTimedOutEventDetails"
     },
     "GetActivityTaskInput": {
       "properties": {
@@ -574,7 +617,8 @@
       "required": [
         "activityArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetActivityTaskInput"
     },
     "GetActivityTaskOutput": {
       "properties": {
@@ -587,7 +631,8 @@
           "description": "A token that identifies the scheduled task. This token must be copied and included in subsequent calls to <a>SendTaskHeartbeat</a>, <a>SendTaskSuccess</a> or <a>SendTaskFailure</a> in order to report the progress or completion of the task."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetActivityTaskOutput"
     },
     "GetExecutionHistoryInput": {
       "properties": {
@@ -611,7 +656,8 @@
       "required": [
         "executionArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetExecutionHistoryInput"
     },
     "GetExecutionHistoryOutput": {
       "properties": {
@@ -627,7 +673,8 @@
       "required": [
         "events"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetExecutionHistoryOutput"
     },
     "HistoryEvent": {
       "properties": {
@@ -710,13 +757,15 @@
         "type",
         "id"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "HistoryEvent"
     },
     "HistoryEventList": {
       "items": {
         "$ref": "#/definitions/HistoryEvent"
       },
-      "type": "array"
+      "type": "array",
+      "title": "HistoryEventList"
     },
     "HistoryEventType": {
       "enum": [
@@ -752,11 +801,13 @@
         "WaitStateEntered",
         "WaitStateExited"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "HistoryEventType"
     },
     "Identity": {
       "maxLength": 256,
-      "type": "string"
+      "type": "string",
+      "title": "Identity"
     },
     "InvalidArn": {
       "description": "The provided Amazon Resource Name (ARN) is invalid.",
@@ -765,7 +816,8 @@
           "$ref": "#/definitions/ErrorMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidArn"
     },
     "InvalidDefinition": {
       "description": "The provided Amazon States Language definition is invalid.",
@@ -774,7 +826,8 @@
           "$ref": "#/definitions/ErrorMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidDefinition"
     },
     "InvalidExecutionInput": {
       "description": "The provided JSON input data is invalid.",
@@ -783,7 +836,8 @@
           "$ref": "#/definitions/ErrorMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidExecutionInput"
     },
     "InvalidName": {
       "description": "The provided name is invalid.",
@@ -792,7 +846,8 @@
           "$ref": "#/definitions/ErrorMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidName"
     },
     "InvalidOutput": {
       "description": "The provided JSON output data is invalid.",
@@ -801,7 +856,8 @@
           "$ref": "#/definitions/ErrorMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidOutput"
     },
     "InvalidToken": {
       "description": "The provided token is invalid.",
@@ -810,7 +866,8 @@
           "$ref": "#/definitions/ErrorMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidToken"
     },
     "LambdaFunctionFailedEventDetails": {
       "properties": {
@@ -823,7 +880,8 @@
           "description": "The error code of the failure."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LambdaFunctionFailedEventDetails"
     },
     "LambdaFunctionScheduleFailedEventDetails": {
       "properties": {
@@ -836,7 +894,8 @@
           "description": "The error code of the failure."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LambdaFunctionScheduleFailedEventDetails"
     },
     "LambdaFunctionScheduledEventDetails": {
       "properties": {
@@ -856,7 +915,8 @@
       "required": [
         "resource"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "LambdaFunctionScheduledEventDetails"
     },
     "LambdaFunctionStartFailedEventDetails": {
       "properties": {
@@ -869,7 +929,8 @@
           "description": "The error code of the failure."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LambdaFunctionStartFailedEventDetails"
     },
     "LambdaFunctionSucceededEventDetails": {
       "properties": {
@@ -878,7 +939,8 @@
           "description": "The JSON data output by the lambda function."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LambdaFunctionSucceededEventDetails"
     },
     "LambdaFunctionTimedOutEventDetails": {
       "properties": {
@@ -891,7 +953,8 @@
           "description": "The error code of the failure."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LambdaFunctionTimedOutEventDetails"
     },
     "ListActivitiesInput": {
       "properties": {
@@ -904,7 +967,8 @@
           "description": "<p>If a <code>nextToken</code> was returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in <code>nextToken</code>. Keep all other arguments unchanged.</p> <p>The configured <code>maxResults</code> determines how many results can be returned in a single call.</p>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListActivitiesInput"
     },
     "ListActivitiesOutput": {
       "properties": {
@@ -920,7 +984,8 @@
       "required": [
         "activities"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListActivitiesOutput"
     },
     "ListExecutionsInput": {
       "properties": {
@@ -944,7 +1009,8 @@
       "required": [
         "stateMachineArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListExecutionsInput"
     },
     "ListExecutionsOutput": {
       "properties": {
@@ -960,7 +1026,8 @@
       "required": [
         "executions"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListExecutionsOutput"
     },
     "ListStateMachinesInput": {
       "properties": {
@@ -973,7 +1040,8 @@
           "description": "<p>If a <code>nextToken</code> was returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in <code>nextToken</code>. Keep all other arguments unchanged.</p> <p>The configured <code>maxResults</code> determines how many results can be returned in a single call.</p>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListStateMachinesInput"
     },
     "ListStateMachinesOutput": {
       "properties": {
@@ -988,25 +1056,30 @@
       "required": [
         "stateMachines"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListStateMachinesOutput"
     },
     "Name": {
       "maxLength": 80,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "Name"
     },
     "PageSize": {
       "maximum": 1000,
       "minimum": 0,
-      "type": "integer"
+      "type": "integer",
+      "title": "PageSize"
     },
     "PageToken": {
       "maxLength": 1024,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "PageToken"
     },
     "ReverseOrder": {
-      "type": "boolean"
+      "type": "boolean",
+      "title": "ReverseOrder"
     },
     "SendTaskFailureInput": {
       "properties": {
@@ -1026,11 +1099,13 @@
       "required": [
         "taskToken"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "SendTaskFailureInput"
     },
     "SendTaskFailureOutput": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "SendTaskFailureOutput"
     },
     "SendTaskHeartbeatInput": {
       "properties": {
@@ -1042,11 +1117,13 @@
       "required": [
         "taskToken"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "SendTaskHeartbeatInput"
     },
     "SendTaskHeartbeatOutput": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "SendTaskHeartbeatOutput"
     },
     "SendTaskSuccessInput": {
       "properties": {
@@ -1063,11 +1140,13 @@
         "taskToken",
         "output"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "SendTaskSuccessInput"
     },
     "SendTaskSuccessOutput": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "SendTaskSuccessOutput"
     },
     "StartExecutionInput": {
       "properties": {
@@ -1087,7 +1166,8 @@
       "required": [
         "stateMachineArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "StartExecutionInput"
     },
     "StartExecutionOutput": {
       "properties": {
@@ -1104,7 +1184,8 @@
         "executionArn",
         "startDate"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "StartExecutionOutput"
     },
     "StateEnteredEventDetails": {
       "properties": {
@@ -1120,7 +1201,8 @@
       "required": [
         "name"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "StateEnteredEventDetails"
     },
     "StateExitedEventDetails": {
       "properties": {
@@ -1136,7 +1218,8 @@
       "required": [
         "name"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "StateExitedEventDetails"
     },
     "StateMachineAlreadyExists": {
       "description": "A state machine with the same name but a different definition or role ARN already exists.",
@@ -1145,7 +1228,8 @@
           "$ref": "#/definitions/ErrorMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "StateMachineAlreadyExists"
     },
     "StateMachineDeleting": {
       "description": "The specified state machine is being deleted.",
@@ -1154,7 +1238,8 @@
           "$ref": "#/definitions/ErrorMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "StateMachineDeleting"
     },
     "StateMachineDoesNotExist": {
       "description": "The specified state machine does not exist.",
@@ -1163,7 +1248,8 @@
           "$ref": "#/definitions/ErrorMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "StateMachineDoesNotExist"
     },
     "StateMachineLimitExceeded": {
       "description": "The maximum number of state machines has been reached. Existing state machines must be deleted before a new state machine can be created.",
@@ -1172,13 +1258,15 @@
           "$ref": "#/definitions/ErrorMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "StateMachineLimitExceeded"
     },
     "StateMachineList": {
       "items": {
         "$ref": "#/definitions/StateMachineListItem"
       },
-      "type": "array"
+      "type": "array",
+      "title": "StateMachineList"
     },
     "StateMachineListItem": {
       "properties": {
@@ -1200,14 +1288,16 @@
         "name",
         "creationDate"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "StateMachineListItem"
     },
     "StateMachineStatus": {
       "enum": [
         "ACTIVE",
         "DELETING"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "StateMachineStatus"
     },
     "StopExecutionInput": {
       "properties": {
@@ -1227,7 +1317,8 @@
       "required": [
         "executionArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "StopExecutionInput"
     },
     "StopExecutionOutput": {
       "properties": {
@@ -1239,7 +1330,8 @@
       "required": [
         "stopDate"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "StopExecutionOutput"
     },
     "TaskDoesNotExist": {
       "properties": {
@@ -1247,7 +1339,8 @@
           "$ref": "#/definitions/ErrorMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TaskDoesNotExist"
     },
     "TaskTimedOut": {
       "properties": {
@@ -1255,19 +1348,23 @@
           "$ref": "#/definitions/ErrorMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TaskTimedOut"
     },
     "TaskToken": {
       "maxLength": 1024,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "TaskToken"
     },
     "TimeoutInSeconds": {
-      "type": "integer"
+      "type": "integer",
+      "title": "TimeoutInSeconds"
     },
     "Timestamp": {
       "format": "date-time",
-      "type": "string"
+      "type": "string",
+      "title": "Timestamp"
     }
   },
   "actions": [

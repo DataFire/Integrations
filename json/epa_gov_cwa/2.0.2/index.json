@@ -32,7 +32,8 @@
         "type",
         "coordinates"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "Geometry"
     },
     "cwa1_Facilities": {
       "description": "Facilities Object",
@@ -1084,7 +1085,8 @@
         "FacDerivedWBDHu8",
         "FacDerivedWBDHu8Name"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "cwa1_Facilities"
     },
     "cwa1_MapData": {
       "description": "Map Data Object",
@@ -1161,7 +1163,8 @@
         "FormalCount",
         "InformalCount"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "cwa1_MapData"
     },
     "cwa1_MapOutput": {
       "description": "Map Output Object",
@@ -1198,7 +1201,8 @@
         "PopUpBaseURL",
         "MapData"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "cwa1_MapOutput"
     },
     "cwa1_Results": {
       "description": "Results Object",
@@ -1302,7 +1306,8 @@
         "QueryID",
         "PageNo"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "cwa1_Results"
     },
     "cwa2_ClusterData": {
       "description": "Cluster Data Object",
@@ -1414,7 +1419,8 @@
         "INSPRows",
         "TotalPenalties"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "cwa2_ClusterData"
     },
     "cwa2_ClusterOutput": {
       "description": "Cluster Output Object",
@@ -1430,7 +1436,8 @@
       "required": [
         "ClusterData"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "cwa2_ClusterOutput"
     },
     "cwa2_Facilities": {
       "description": "Facilities Object",
@@ -2489,7 +2496,8 @@
         "FacDerivedWBDHu8",
         "FacDerivedWBDHu8Name"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "cwa2_Facilities"
     },
     "cwa2_Results": {
       "description": "Results Object",
@@ -2614,7 +2622,8 @@
         "ServiceBaseURL",
         "QueryParameters"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "cwa2_Results"
     },
     "cwa3_MapData": {
       "description": "Map Data Object",
@@ -2691,7 +2700,8 @@
         "FormalCount",
         "InformalCount"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "cwa3_MapData"
     },
     "cwa3_MapOutput": {
       "description": "Map Output Object",
@@ -2728,7 +2738,8 @@
         "PopUpBaseURL",
         "MapData"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "cwa3_MapOutput"
     },
     "cwa4_Results": {
       "description": "Results Object",
@@ -2772,7 +2783,8 @@
         "PageNo",
         "Facilities"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "cwa4_Results"
     },
     "cwa5_Feature": {
       "description": "GeoJSON Feature Object",
@@ -2795,7 +2807,8 @@
         "geometry",
         "properties"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "cwa5_Feature"
     },
     "cwa5_FeatureCollection": {
       "description": "GeoJSON Feature Collection Object",
@@ -2819,7 +2832,8 @@
         "type",
         "features"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "cwa5_FeatureCollection"
     },
     "cwa5_properties": {
       "description": "GeoJSON Properties Object",
@@ -3860,7 +3874,8 @@
         "FacDerivedWBDHu8",
         "FacDerivedWBDHu8Name"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "cwa5_properties"
     },
     "met_Results": {
       "description": "Results Object",
@@ -3882,7 +3897,8 @@
       "required": [
         "Message"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "met_Results"
     },
     "met_ResultsColumns": {
       "description": "Results Column Object",
@@ -3925,7 +3941,8 @@
         "ObjectName",
         "Description"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "met_ResultsColumns"
     },
     "qp0_QueryParameters": {
       "description": "Query Parameters Object",
@@ -3947,7 +3964,8 @@
         "QP",
         "QV"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "qp0_QueryParameters"
     },
     "rlk0_LuValues": {
       "description": "Lookup Values",
@@ -3967,7 +3985,8 @@
         "ValueCode",
         "ValueDescription"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "rlk0_LuValues"
     },
     "rlk1_Results": {
       "description": "Results Object",
@@ -3988,7 +4007,8 @@
       "required": [
         "Message"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "rlk1_Results"
     },
     "rlk2_Results": {
       "description": "Results Object",
@@ -4009,7 +4029,8 @@
       "required": [
         "Message"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "rlk2_Results"
     },
     "rlk7_Results": {
       "description": "Results Object",
@@ -4030,7 +4051,8 @@
       "required": [
         "Message"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "rlk7_Results"
     },
     "rlk9_Results": {
       "description": "Results Object",
@@ -4051,7 +4073,8 @@
       "required": [
         "Message"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "rlk9_Results"
     },
     "rlkA_Results": {
       "description": "Results Object",
@@ -4072,7 +4095,8 @@
       "required": [
         "Message"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "rlkA_Results"
     },
     "rlkb_Results": {
       "description": "Results Object",
@@ -4093,7 +4117,8 @@
       "required": [
         "Message"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "rlkb_Results"
     },
     "rlkf_Results": {
       "description": "Results Object",
@@ -4114,7 +4139,8 @@
       "required": [
         "Message"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "rlkf_Results"
     },
     "rlkh_Results": {
       "description": "Results Object",
@@ -4135,7 +4161,8 @@
       "required": [
         "Message"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "rlkh_Results"
     },
     "rlkn_Results": {
       "description": "Results Object",
@@ -4156,7 +4183,8 @@
       "required": [
         "Message"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "rlkn_Results"
     },
     "rlko_Results": {
       "description": "Results Object",
@@ -4177,7 +4205,8 @@
       "required": [
         "Message"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "rlko_Results"
     }
   },
   "actions": [

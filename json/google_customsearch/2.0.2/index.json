@@ -34,7 +34,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Context"
     },
     "Promotion": {
       "properties": {
@@ -87,7 +88,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Promotion"
     },
     "Query": {
       "properties": {
@@ -207,7 +209,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Query"
     },
     "Result": {
       "properties": {
@@ -307,7 +310,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Result"
     },
     "Search": {
       "properties": {
@@ -383,7 +387,8 @@
           "type": "object"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Search"
     }
   },
   "actions": [

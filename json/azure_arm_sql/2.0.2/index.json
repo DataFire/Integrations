@@ -14,7 +14,8 @@
           "$ref": "#/definitions/Resource"
         }
       ],
-      "description": "ARM proxy resource."
+      "description": "ARM proxy resource.",
+      "title": "ProxyResource"
     },
     "Resource": {
       "description": "ARM resource.",
@@ -35,7 +36,8 @@
           "type": "string"
         }
       },
-      "x-ms-azure-resource": true
+      "x-ms-azure-resource": true,
+      "title": "Resource"
     },
     "RestorePoint": {
       "allOf": [
@@ -50,7 +52,8 @@
           "description": "The properties representing the restore point.",
           "x-ms-client-flatten": true
         }
-      }
+      },
+      "title": "RestorePoint"
     },
     "RestorePointListResult": {
       "description": "Represents the response to a list database restore points request.",
@@ -65,7 +68,8 @@
       },
       "required": [
         "value"
-      ]
+      ],
+      "title": "RestorePointListResult"
     },
     "RestorePointProperties": {
       "description": "Represents the properties of a database restore point.",
@@ -94,7 +98,8 @@
             "name": "RestorePointTypes"
           }
         }
-      }
+      },
+      "title": "RestorePointProperties"
     },
     "TrackedResource": {
       "allOf": [
@@ -127,7 +132,8 @@
       },
       "required": [
         "location"
-      ]
+      ],
+      "title": "TrackedResource"
     }
   },
   "actions": [

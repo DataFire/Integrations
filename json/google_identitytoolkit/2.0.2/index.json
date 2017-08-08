@@ -70,7 +70,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateAuthUriResponse"
     },
     "DeleteAccountResponse": {
       "description": "Respone of deleting account.",
@@ -81,7 +82,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DeleteAccountResponse"
     },
     "DownloadAccountResponse": {
       "description": "Response of downloading accounts in batch.",
@@ -103,7 +105,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DownloadAccountResponse"
     },
     "EmailTemplate": {
       "description": "Template for an email template.",
@@ -133,7 +136,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "EmailTemplate"
     },
     "GetAccountInfoResponse": {
       "description": "Response of getting account information.",
@@ -151,7 +155,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetAccountInfoResponse"
     },
     "GetOobConfirmationCodeResponse": {
       "description": "Response of getting a code for user confirmation (reset password, change email etc.).",
@@ -170,7 +175,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetOobConfirmationCodeResponse"
     },
     "GetRecaptchaParamResponse": {
       "description": "Response of getting recaptcha param.",
@@ -189,7 +195,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetRecaptchaParamResponse"
     },
     "IdentitytoolkitRelyingpartyCreateAuthUriRequest": {
       "description": "Request to get the IDP authentication URL.",
@@ -255,7 +262,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "IdentitytoolkitRelyingpartyCreateAuthUriRequest"
     },
     "IdentitytoolkitRelyingpartyDeleteAccountRequest": {
       "description": "Request to delete account.",
@@ -274,7 +282,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "IdentitytoolkitRelyingpartyDeleteAccountRequest"
     },
     "IdentitytoolkitRelyingpartyDownloadAccountRequest": {
       "description": "Request to download user account in batch.",
@@ -298,7 +307,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "IdentitytoolkitRelyingpartyDownloadAccountRequest"
     },
     "IdentitytoolkitRelyingpartyGetAccountInfoRequest": {
       "description": "Request to get the account information.",
@@ -327,7 +337,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "IdentitytoolkitRelyingpartyGetAccountInfoRequest"
     },
     "IdentitytoolkitRelyingpartyGetProjectConfigResponse": {
       "description": "Response of getting the project configuration.",
@@ -386,14 +397,16 @@
           "description": "Verify email template."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "IdentitytoolkitRelyingpartyGetProjectConfigResponse"
     },
     "IdentitytoolkitRelyingpartyGetPublicKeysResponse": {
       "additionalProperties": {
         "type": "string"
       },
       "description": "Respone of getting public keys.",
-      "type": "object"
+      "type": "object",
+      "title": "IdentitytoolkitRelyingpartyGetPublicKeysResponse"
     },
     "IdentitytoolkitRelyingpartyResetPasswordRequest": {
       "description": "Request to reset the password.",
@@ -415,7 +428,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "IdentitytoolkitRelyingpartyResetPasswordRequest"
     },
     "IdentitytoolkitRelyingpartySetAccountInfoRequest": {
       "description": "Request to set the account information.",
@@ -518,7 +532,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "IdentitytoolkitRelyingpartySetAccountInfoRequest"
     },
     "IdentitytoolkitRelyingpartySetProjectConfigRequest": {
       "description": "Request to set the project configuration.",
@@ -575,7 +590,8 @@
           "description": "Verify email template."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "IdentitytoolkitRelyingpartySetProjectConfigRequest"
     },
     "IdentitytoolkitRelyingpartySetProjectConfigResponse": {
       "description": "Response of setting the project configuration.",
@@ -585,7 +601,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "IdentitytoolkitRelyingpartySetProjectConfigResponse"
     },
     "IdentitytoolkitRelyingpartySignOutUserRequest": {
       "description": "Request to sign out user.",
@@ -599,7 +616,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "IdentitytoolkitRelyingpartySignOutUserRequest"
     },
     "IdentitytoolkitRelyingpartySignOutUserResponse": {
       "description": "Response of signing out user.",
@@ -609,7 +627,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "IdentitytoolkitRelyingpartySignOutUserResponse"
     },
     "IdentitytoolkitRelyingpartySignupNewUserRequest": {
       "description": "Request to signup new user, create anonymous user or anonymous user reauth.",
@@ -659,7 +678,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "IdentitytoolkitRelyingpartySignupNewUserRequest"
     },
     "IdentitytoolkitRelyingpartyUploadAccountRequest": {
       "description": "Request to upload user account in batch.",
@@ -713,7 +733,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "IdentitytoolkitRelyingpartyUploadAccountRequest"
     },
     "IdentitytoolkitRelyingpartyVerifyAssertionRequest": {
       "description": "Request to verify the IDP assertion.",
@@ -764,7 +785,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "IdentitytoolkitRelyingpartyVerifyAssertionRequest"
     },
     "IdentitytoolkitRelyingpartyVerifyCustomTokenRequest": {
       "description": "Request to verify a custom token",
@@ -787,7 +809,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "IdentitytoolkitRelyingpartyVerifyCustomTokenRequest"
     },
     "IdentitytoolkitRelyingpartyVerifyPasswordRequest": {
       "description": "Request to verify the password.",
@@ -830,7 +853,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "IdentitytoolkitRelyingpartyVerifyPasswordRequest"
     },
     "IdpConfig": {
       "description": "Template for a single idp configuration.",
@@ -864,7 +888,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "IdpConfig"
     },
     "Relyingparty": {
       "description": "Request of getting a code for user confirmation (reset password, change email etc.)",
@@ -931,7 +956,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Relyingparty"
     },
     "ResetPasswordResponse": {
       "description": "Response of resetting the password.",
@@ -954,7 +980,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ResetPasswordResponse"
     },
     "SetAccountInfoResponse": {
       "description": "Respone of setting the account information.",
@@ -1032,7 +1059,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SetAccountInfoResponse"
     },
     "SignupNewUserResponse": {
       "description": "Response of signing up new user, creating anonymous user or anonymous user reauth.",
@@ -1068,7 +1096,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SignupNewUserResponse"
     },
     "UploadAccountResponse": {
       "description": "Respone of uploading accounts in batch.",
@@ -1097,7 +1126,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UploadAccountResponse"
     },
     "UserInfo": {
       "description": "Template for an individual account info.",
@@ -1219,7 +1249,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UserInfo"
     },
     "VerifyAssertionResponse": {
       "description": "Response of verifying the IDP assertion.",
@@ -1387,7 +1418,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "VerifyAssertionResponse"
     },
     "VerifyCustomTokenResponse": {
       "description": "Response from verifying a custom token",
@@ -1411,7 +1443,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "VerifyCustomTokenResponse"
     },
     "VerifyPasswordResponse": {
       "description": "Request of verifying the password.",
@@ -1468,7 +1501,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "VerifyPasswordResponse"
     }
   },
   "actions": [

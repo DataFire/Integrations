@@ -46,7 +46,8 @@
         "Status",
         "SecretAccessKey"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AccessKey"
     },
     "AccessKeyLastUsed": {
       "description": "<p>Contains information about the last time an AWS access key was used.</p> <p>This data type is used as a response element in the <a>GetAccessKeyLastUsed</a> action.</p>",
@@ -69,7 +70,8 @@
         "ServiceName",
         "Region"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AccessKeyLastUsed"
     },
     "AccessKeyMetadata": {
       "description": "<p>Contains information about an AWS access key, without its secret key.</p> <p>This data type is used as a response element in the <a>ListAccessKeys</a> action.</p>",
@@ -91,18 +93,21 @@
           "description": "The name of the IAM user that the key is associated with."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AccessKeyMetadata"
     },
     "ActionNameListType": {
       "items": {
         "$ref": "#/definitions/ActionNameType"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ActionNameListType"
     },
     "ActionNameType": {
       "maxLength": 128,
       "minLength": 3,
-      "type": "string"
+      "type": "string",
+      "title": "ActionNameType"
     },
     "AddClientIDToOpenIDConnectProviderRequest": {
       "example": {
@@ -123,7 +128,8 @@
         "OpenIDConnectProviderArn",
         "ClientID"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AddClientIDToOpenIDConnectProviderRequest"
     },
     "AddRoleToInstanceProfileRequest": {
       "example": {
@@ -144,7 +150,8 @@
         "InstanceProfileName",
         "RoleName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AddRoleToInstanceProfileRequest"
     },
     "AddUserToGroupRequest": {
       "example": {
@@ -165,7 +172,8 @@
         "GroupName",
         "UserName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AddUserToGroupRequest"
     },
     "AttachGroupPolicyRequest": {
       "example": {
@@ -186,7 +194,8 @@
         "GroupName",
         "PolicyArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AttachGroupPolicyRequest"
     },
     "AttachRolePolicyRequest": {
       "example": {
@@ -207,7 +216,8 @@
         "RoleName",
         "PolicyArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AttachRolePolicyRequest"
     },
     "AttachUserPolicyRequest": {
       "example": {
@@ -228,7 +238,8 @@
         "UserName",
         "PolicyArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AttachUserPolicyRequest"
     },
     "AttachedPolicy": {
       "description": "<p>Contains information about an attached policy.</p> <p>An attached policy is a managed policy that has been attached to a user, group, or role. This data type is used as a response element in the <a>ListAttachedGroupPolicies</a>, <a>ListAttachedRolePolicies</a>, <a>ListAttachedUserPolicies</a>, and <a>GetAccountAuthorizationDetails</a> actions. </p> <p>For more information about managed policies, refer to <a href=\"http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html\">Managed Policies and Inline Policies</a> in the <i>Using IAM</i> guide. </p>",
@@ -241,11 +252,13 @@
           "description": "The friendly name of the attached policy."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AttachedPolicy"
     },
     "BootstrapDatum": {
       "format": "password",
-      "type": "string"
+      "type": "string",
+      "title": "BootstrapDatum"
     },
     "ChangePasswordRequest": {
       "example": {
@@ -266,10 +279,12 @@
         "OldPassword",
         "NewPassword"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ChangePasswordRequest"
     },
     "ColumnNumber": {
-      "type": "integer"
+      "type": "integer",
+      "title": "ColumnNumber"
     },
     "ContextEntry": {
       "description": "<p>Contains information about a condition context key. It includes the name of the key and specifies the value (or values, if the context key supports multiple values) to use in the simulation. This information is used when evaluating the <code>Condition</code> elements of the input policies.</p> <p>This data type is used as an input parameter to <code> <a>SimulateCustomPolicy</a> </code> and <code> <a>SimulateCustomPolicy</a> </code>.</p>",
@@ -287,24 +302,28 @@
           "description": "The value (or values, if the condition context key supports multiple values) to provide to the simulation for use when the key is referenced by a <code>Condition</code> element in an input policy."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ContextEntry"
     },
     "ContextEntryListType": {
       "items": {
         "$ref": "#/definitions/ContextEntry"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ContextEntryListType"
     },
     "ContextKeyNameType": {
       "maxLength": 256,
       "minLength": 5,
-      "type": "string"
+      "type": "string",
+      "title": "ContextKeyNameType"
     },
     "ContextKeyNamesResultListType": {
       "items": {
         "$ref": "#/definitions/ContextKeyNameType"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ContextKeyNamesResultListType"
     },
     "ContextKeyTypeEnum": {
       "enum": [
@@ -321,16 +340,19 @@
         "date",
         "dateList"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ContextKeyTypeEnum"
     },
     "ContextKeyValueListType": {
       "items": {
         "$ref": "#/definitions/ContextKeyValueType"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ContextKeyValueListType"
     },
     "ContextKeyValueType": {
-      "type": "string"
+      "type": "string",
+      "title": "ContextKeyValueType"
     },
     "CreateAccessKeyRequest": {
       "example": {
@@ -342,7 +364,8 @@
           "description": "<p>The name of the IAM user that the new key will belong to.</p> <p>This parameter allows (per its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-</p>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateAccessKeyRequest"
     },
     "CreateAccessKeyResponse": {
       "description": "Contains the response to a successful <a>CreateAccessKey</a> request. ",
@@ -364,7 +387,8 @@
       "required": [
         "AccessKey"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateAccessKeyResponse"
     },
     "CreateAccountAliasRequest": {
       "example": {
@@ -379,7 +403,8 @@
       "required": [
         "AccountAlias"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateAccountAliasRequest"
     },
     "CreateGroupRequest": {
       "example": {
@@ -398,7 +423,8 @@
       "required": [
         "GroupName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateGroupRequest"
     },
     "CreateGroupResponse": {
       "description": "Contains the response to a successful <a>CreateGroup</a> request. ",
@@ -420,7 +446,8 @@
       "required": [
         "Group"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateGroupResponse"
     },
     "CreateInstanceProfileRequest": {
       "example": {
@@ -439,7 +466,8 @@
       "required": [
         "InstanceProfileName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateInstanceProfileRequest"
     },
     "CreateInstanceProfileResponse": {
       "description": "Contains the response to a successful <a>CreateInstanceProfile</a> request. ",
@@ -462,7 +490,8 @@
       "required": [
         "InstanceProfile"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateInstanceProfileResponse"
     },
     "CreateLoginProfileRequest": {
       "example": {
@@ -488,7 +517,8 @@
         "UserName",
         "Password"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateLoginProfileRequest"
     },
     "CreateLoginProfileResponse": {
       "description": "Contains the response to a successful <a>CreateLoginProfile</a> request. ",
@@ -508,7 +538,8 @@
       "required": [
         "LoginProfile"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateLoginProfileResponse"
     },
     "CreateOpenIDConnectProviderRequest": {
       "example": {
@@ -538,7 +569,8 @@
         "Url",
         "ThumbprintList"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateOpenIDConnectProviderRequest"
     },
     "CreateOpenIDConnectProviderResponse": {
       "description": "Contains the response to a successful <a>CreateOpenIDConnectProvider</a> request. ",
@@ -551,7 +583,8 @@
           "description": "The Amazon Resource Name (ARN) of the new IAM OpenID Connect provider that is created. For more information, see <a>OpenIDConnectProviderListEntry</a>. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateOpenIDConnectProviderResponse"
     },
     "CreatePolicyRequest": {
       "properties": {
@@ -576,7 +609,8 @@
         "PolicyName",
         "PolicyDocument"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreatePolicyRequest"
     },
     "CreatePolicyResponse": {
       "description": "Contains the response to a successful <a>CreatePolicy</a> request. ",
@@ -586,7 +620,8 @@
           "description": "A structure containing details about the new policy."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreatePolicyResponse"
     },
     "CreatePolicyVersionRequest": {
       "properties": {
@@ -607,7 +642,8 @@
         "PolicyArn",
         "PolicyDocument"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreatePolicyVersionRequest"
     },
     "CreatePolicyVersionResponse": {
       "description": "Contains the response to a successful <a>CreatePolicyVersion</a> request. ",
@@ -617,7 +653,8 @@
           "description": "A structure containing details about the new policy version."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreatePolicyVersionResponse"
     },
     "CreateRoleRequest": {
       "example": {
@@ -647,7 +684,8 @@
         "RoleName",
         "AssumeRolePolicyDocument"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateRoleRequest"
     },
     "CreateRoleResponse": {
       "description": "Contains the response to a successful <a>CreateRole</a> request. ",
@@ -670,7 +708,8 @@
       "required": [
         "Role"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateRoleResponse"
     },
     "CreateSAMLProviderRequest": {
       "properties": {
@@ -687,7 +726,8 @@
         "SAMLMetadataDocument",
         "Name"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateSAMLProviderRequest"
     },
     "CreateSAMLProviderResponse": {
       "description": "Contains the response to a successful <a>CreateSAMLProvider</a> request. ",
@@ -697,7 +737,8 @@
           "description": "The Amazon Resource Name (ARN) of the new SAML provider resource in IAM."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateSAMLProviderResponse"
     },
     "CreateServiceLinkedRoleRequest": {
       "properties": {
@@ -717,7 +758,8 @@
       "required": [
         "AWSServiceName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateServiceLinkedRoleRequest"
     },
     "CreateServiceLinkedRoleResponse": {
       "properties": {
@@ -726,7 +768,8 @@
           "description": "A <a>Role</a> object that contains details about the newly created role."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateServiceLinkedRoleResponse"
     },
     "CreateServiceSpecificCredentialRequest": {
       "properties": {
@@ -743,7 +786,8 @@
         "UserName",
         "ServiceName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateServiceSpecificCredentialRequest"
     },
     "CreateServiceSpecificCredentialResponse": {
       "properties": {
@@ -752,7 +796,8 @@
           "description": "<p>A structure that contains information about the newly created service-specific credential.</p> <important> <p>This is the only time that the password for this credential set is available. It cannot be recovered later. Instead, you will have to reset the password with <a>ResetServiceSpecificCredential</a>.</p> </important>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateServiceSpecificCredentialResponse"
     },
     "CreateUserRequest": {
       "example": {
@@ -771,7 +816,8 @@
       "required": [
         "UserName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateUserRequest"
     },
     "CreateUserResponse": {
       "description": "Contains the response to a successful <a>CreateUser</a> request. ",
@@ -790,7 +836,8 @@
           "description": "A structure with details about the new IAM user."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateUserResponse"
     },
     "CreateVirtualMFADeviceRequest": {
       "properties": {
@@ -806,7 +853,8 @@
       "required": [
         "VirtualMFADeviceName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateVirtualMFADeviceRequest"
     },
     "CreateVirtualMFADeviceResponse": {
       "description": "Contains the response to a successful <a>CreateVirtualMFADevice</a> request. ",
@@ -819,7 +867,8 @@
       "required": [
         "VirtualMFADevice"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateVirtualMFADeviceResponse"
     },
     "CredentialReportExpiredException": {
       "description": "The request was rejected because the most recent credential report has expired. To generate a new credential report, use <a>GenerateCredentialReport</a>. For more information about credential report expiration, see <a href=\"http://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html\">Getting Credential Reports</a> in the <i>IAM User Guide</i>.",
@@ -828,7 +877,8 @@
           "$ref": "#/definitions/credentialReportExpiredExceptionMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CredentialReportExpiredException"
     },
     "CredentialReportNotPresentException": {
       "description": "The request was rejected because the credential report does not exist. To generate a credential report, use <a>GenerateCredentialReport</a>.",
@@ -837,7 +887,8 @@
           "$ref": "#/definitions/credentialReportNotPresentExceptionMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CredentialReportNotPresentException"
     },
     "CredentialReportNotReadyException": {
       "description": "The request was rejected because the credential report is still being generated.",
@@ -846,7 +897,8 @@
           "$ref": "#/definitions/credentialReportNotReadyExceptionMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CredentialReportNotReadyException"
     },
     "DeactivateMFADeviceRequest": {
       "properties": {
@@ -863,7 +915,8 @@
         "UserName",
         "SerialNumber"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeactivateMFADeviceRequest"
     },
     "DeleteAccessKeyRequest": {
       "example": {
@@ -883,7 +936,8 @@
       "required": [
         "AccessKeyId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteAccessKeyRequest"
     },
     "DeleteAccountAliasRequest": {
       "example": {
@@ -898,7 +952,8 @@
       "required": [
         "AccountAlias"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteAccountAliasRequest"
     },
     "DeleteConflictException": {
       "description": "The request was rejected because it attempted to delete a resource that has attached subordinate entities. The error message describes these entities.",
@@ -907,7 +962,8 @@
           "$ref": "#/definitions/deleteConflictMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DeleteConflictException"
     },
     "DeleteGroupPolicyRequest": {
       "example": {
@@ -928,7 +984,8 @@
         "GroupName",
         "PolicyName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteGroupPolicyRequest"
     },
     "DeleteGroupRequest": {
       "properties": {
@@ -940,7 +997,8 @@
       "required": [
         "GroupName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteGroupRequest"
     },
     "DeleteInstanceProfileRequest": {
       "example": {
@@ -955,7 +1013,8 @@
       "required": [
         "InstanceProfileName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteInstanceProfileRequest"
     },
     "DeleteLoginProfileRequest": {
       "example": {
@@ -970,7 +1029,8 @@
       "required": [
         "UserName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteLoginProfileRequest"
     },
     "DeleteOpenIDConnectProviderRequest": {
       "properties": {
@@ -982,7 +1042,8 @@
       "required": [
         "OpenIDConnectProviderArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteOpenIDConnectProviderRequest"
     },
     "DeletePolicyRequest": {
       "properties": {
@@ -994,7 +1055,8 @@
       "required": [
         "PolicyArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeletePolicyRequest"
     },
     "DeletePolicyVersionRequest": {
       "properties": {
@@ -1011,7 +1073,8 @@
         "PolicyArn",
         "VersionId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeletePolicyVersionRequest"
     },
     "DeleteRolePolicyRequest": {
       "example": {
@@ -1032,7 +1095,8 @@
         "RoleName",
         "PolicyName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteRolePolicyRequest"
     },
     "DeleteRoleRequest": {
       "example": {
@@ -1047,7 +1111,8 @@
       "required": [
         "RoleName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteRoleRequest"
     },
     "DeleteSAMLProviderRequest": {
       "properties": {
@@ -1059,7 +1124,8 @@
       "required": [
         "SAMLProviderArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteSAMLProviderRequest"
     },
     "DeleteSSHPublicKeyRequest": {
       "properties": {
@@ -1076,7 +1142,8 @@
         "UserName",
         "SSHPublicKeyId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteSSHPublicKeyRequest"
     },
     "DeleteServerCertificateRequest": {
       "properties": {
@@ -1088,7 +1155,8 @@
       "required": [
         "ServerCertificateName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteServerCertificateRequest"
     },
     "DeleteServiceSpecificCredentialRequest": {
       "properties": {
@@ -1104,7 +1172,8 @@
       "required": [
         "ServiceSpecificCredentialId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteServiceSpecificCredentialRequest"
     },
     "DeleteSigningCertificateRequest": {
       "example": {
@@ -1124,7 +1193,8 @@
       "required": [
         "CertificateId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteSigningCertificateRequest"
     },
     "DeleteUserPolicyRequest": {
       "example": {
@@ -1145,7 +1215,8 @@
         "UserName",
         "PolicyName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteUserPolicyRequest"
     },
     "DeleteUserRequest": {
       "example": {
@@ -1160,7 +1231,8 @@
       "required": [
         "UserName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteUserRequest"
     },
     "DeleteVirtualMFADeviceRequest": {
       "example": {
@@ -1175,7 +1247,8 @@
       "required": [
         "SerialNumber"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteVirtualMFADeviceRequest"
     },
     "DetachGroupPolicyRequest": {
       "properties": {
@@ -1192,7 +1265,8 @@
         "GroupName",
         "PolicyArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DetachGroupPolicyRequest"
     },
     "DetachRolePolicyRequest": {
       "properties": {
@@ -1209,7 +1283,8 @@
         "RoleName",
         "PolicyArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DetachRolePolicyRequest"
     },
     "DetachUserPolicyRequest": {
       "properties": {
@@ -1226,7 +1301,8 @@
         "UserName",
         "PolicyArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DetachUserPolicyRequest"
     },
     "DuplicateCertificateException": {
       "description": "The request was rejected because the same certificate is associated with an IAM user in the account.",
@@ -1235,7 +1311,8 @@
           "$ref": "#/definitions/duplicateCertificateMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DuplicateCertificateException"
     },
     "DuplicateSSHPublicKeyException": {
       "description": "The request was rejected because the SSH public key is already associated with the specified IAM user.",
@@ -1244,7 +1321,8 @@
           "$ref": "#/definitions/duplicateSSHPublicKeyMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DuplicateSSHPublicKeyException"
     },
     "EnableMFADeviceRequest": {
       "properties": {
@@ -1271,7 +1349,8 @@
         "AuthenticationCode1",
         "AuthenticationCode2"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "EnableMFADeviceRequest"
     },
     "EntityAlreadyExistsException": {
       "description": "The request was rejected because it attempted to create a resource that already exists.",
@@ -1280,7 +1359,8 @@
           "$ref": "#/definitions/entityAlreadyExistsMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "EntityAlreadyExistsException"
     },
     "EntityTemporarilyUnmodifiableException": {
       "description": "The request was rejected because it referenced an entity that is temporarily unmodifiable, such as a user name that was deleted and then recreated. The error indicates that the request is likely to succeed if you try again after waiting several minutes. The error message describes the entity.",
@@ -1289,7 +1369,8 @@
           "$ref": "#/definitions/entityTemporarilyUnmodifiableMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "EntityTemporarilyUnmodifiableException"
     },
     "EntityType": {
       "enum": [
@@ -1299,7 +1380,8 @@
         "LocalManagedPolicy",
         "AWSManagedPolicy"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "EntityType"
     },
     "EvalDecisionDetailsType": {
       "items": {
@@ -1313,12 +1395,14 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "EvalDecisionDetailsType"
     },
     "EvalDecisionSourceType": {
       "maxLength": 256,
       "minLength": 3,
-      "type": "string"
+      "type": "string",
+      "title": "EvalDecisionSourceType"
     },
     "EvaluationResult": {
       "description": "<p>Contains the results of a simulation.</p> <p>This data type is used by the return parameter of <code> <a>SimulateCustomPolicy</a> </code> and <code> <a>SimulatePrincipalPolicy</a> </code>.</p>",
@@ -1360,13 +1444,15 @@
         "EvalActionName",
         "EvalDecision"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "EvaluationResult"
     },
     "EvaluationResultsListType": {
       "items": {
         "$ref": "#/definitions/EvaluationResult"
       },
-      "type": "array"
+      "type": "array",
+      "title": "EvaluationResultsListType"
     },
     "GenerateCredentialReportResponse": {
       "description": "Contains the response to a successful <a>GenerateCredentialReport</a> request. ",
@@ -1380,7 +1466,8 @@
           "description": "Information about the state of the credential report."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GenerateCredentialReportResponse"
     },
     "GetAccessKeyLastUsedRequest": {
       "properties": {
@@ -1392,7 +1479,8 @@
       "required": [
         "AccessKeyId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetAccessKeyLastUsedRequest"
     },
     "GetAccessKeyLastUsedResponse": {
       "description": "Contains the response to a successful <a>GetAccessKeyLastUsed</a> request. It is also returned as a member of the <a>AccessKeyMetaData</a> structure returned by the <a>ListAccessKeys</a> action.",
@@ -1406,7 +1494,8 @@
           "description": "<p>The name of the AWS IAM user that owns this access key.</p> <p/>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetAccessKeyLastUsedResponse"
     },
     "GetAccountAuthorizationDetailsRequest": {
       "properties": {
@@ -1423,7 +1512,8 @@
           "description": "<p>(Optional) Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the <code>IsTruncated</code> response element is <code>true</code>.</p> <p>If you do not include this parameter, it defaults to 100. Note that IAM might return fewer results, even when there are more results available. In that case, the <code>IsTruncated</code> response element returns <code>true</code> and <code>Marker</code> contains a value to include in the subsequent call that tells the service where to continue from.</p>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetAccountAuthorizationDetailsRequest"
     },
     "GetAccountAuthorizationDetailsResponse": {
       "description": "Contains the response to a successful <a>GetAccountAuthorizationDetails</a> request. ",
@@ -1453,7 +1543,8 @@
           "description": "A list containing information about IAM users."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetAccountAuthorizationDetailsResponse"
     },
     "GetAccountPasswordPolicyResponse": {
       "description": "Contains the response to a successful <a>GetAccountPasswordPolicy</a> request. ",
@@ -1480,7 +1571,8 @@
       "required": [
         "PasswordPolicy"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetAccountPasswordPolicyResponse"
     },
     "GetAccountSummaryResponse": {
       "description": "Contains the response to a successful <a>GetAccountSummary</a> request. ",
@@ -1519,7 +1611,8 @@
           "description": "A set of key value pairs containing information about IAM entity usage and IAM quotas."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetAccountSummaryResponse"
     },
     "GetContextKeysForCustomPolicyRequest": {
       "properties": {
@@ -1531,7 +1624,8 @@
       "required": [
         "PolicyInputList"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetContextKeysForCustomPolicyRequest"
     },
     "GetContextKeysForPolicyResponse": {
       "description": "Contains the response to a successful <a>GetContextKeysForPrincipalPolicy</a> or <a>GetContextKeysForCustomPolicy</a> request. ",
@@ -1541,7 +1635,8 @@
           "description": "The list of context keys that are referenced in the input policies."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetContextKeysForPolicyResponse"
     },
     "GetContextKeysForPrincipalPolicyRequest": {
       "properties": {
@@ -1557,7 +1652,8 @@
       "required": [
         "PolicySourceArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetContextKeysForPrincipalPolicyRequest"
     },
     "GetCredentialReportResponse": {
       "description": "Contains the response to a successful <a>GetCredentialReport</a> request. ",
@@ -1575,7 +1671,8 @@
           "description": "The format (MIME type) of the credential report."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetCredentialReportResponse"
     },
     "GetGroupPolicyRequest": {
       "properties": {
@@ -1592,7 +1689,8 @@
         "GroupName",
         "PolicyName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetGroupPolicyRequest"
     },
     "GetGroupPolicyResponse": {
       "description": "Contains the response to a successful <a>GetGroupPolicy</a> request. ",
@@ -1615,7 +1713,8 @@
         "PolicyName",
         "PolicyDocument"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetGroupPolicyResponse"
     },
     "GetGroupRequest": {
       "properties": {
@@ -1635,7 +1734,8 @@
       "required": [
         "GroupName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetGroupRequest"
     },
     "GetGroupResponse": {
       "description": "Contains the response to a successful <a>GetGroup</a> request. ",
@@ -1661,7 +1761,8 @@
         "Group",
         "Users"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetGroupResponse"
     },
     "GetInstanceProfileRequest": {
       "example": {
@@ -1676,7 +1777,8 @@
       "required": [
         "InstanceProfileName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetInstanceProfileRequest"
     },
     "GetInstanceProfileResponse": {
       "description": "Contains the response to a successful <a>GetInstanceProfile</a> request. ",
@@ -1708,7 +1810,8 @@
       "required": [
         "InstanceProfile"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetInstanceProfileResponse"
     },
     "GetLoginProfileRequest": {
       "example": {
@@ -1723,7 +1826,8 @@
       "required": [
         "UserName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetLoginProfileRequest"
     },
     "GetLoginProfileResponse": {
       "description": "Contains the response to a successful <a>GetLoginProfile</a> request. ",
@@ -1742,7 +1846,8 @@
       "required": [
         "LoginProfile"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetLoginProfileResponse"
     },
     "GetOpenIDConnectProviderRequest": {
       "properties": {
@@ -1754,7 +1859,8 @@
       "required": [
         "OpenIDConnectProviderArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetOpenIDConnectProviderRequest"
     },
     "GetOpenIDConnectProviderResponse": {
       "description": "Contains the response to a successful <a>GetOpenIDConnectProvider</a> request. ",
@@ -1776,7 +1882,8 @@
           "description": "The URL that the IAM OIDC provider resource object is associated with. For more information, see <a>CreateOpenIDConnectProvider</a>."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetOpenIDConnectProviderResponse"
     },
     "GetPolicyRequest": {
       "properties": {
@@ -1788,7 +1895,8 @@
       "required": [
         "PolicyArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetPolicyRequest"
     },
     "GetPolicyResponse": {
       "description": "Contains the response to a successful <a>GetPolicy</a> request. ",
@@ -1798,7 +1906,8 @@
           "description": "A structure containing details about the policy."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetPolicyResponse"
     },
     "GetPolicyVersionRequest": {
       "properties": {
@@ -1815,7 +1924,8 @@
         "PolicyArn",
         "VersionId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetPolicyVersionRequest"
     },
     "GetPolicyVersionResponse": {
       "description": "Contains the response to a successful <a>GetPolicyVersion</a> request. ",
@@ -1825,7 +1935,8 @@
           "description": "A structure containing details about the policy version."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetPolicyVersionResponse"
     },
     "GetRolePolicyRequest": {
       "properties": {
@@ -1842,7 +1953,8 @@
         "RoleName",
         "PolicyName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetRolePolicyRequest"
     },
     "GetRolePolicyResponse": {
       "description": "Contains the response to a successful <a>GetRolePolicy</a> request. ",
@@ -1865,7 +1977,8 @@
         "PolicyName",
         "PolicyDocument"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetRolePolicyResponse"
     },
     "GetRoleRequest": {
       "example": {
@@ -1880,7 +1993,8 @@
       "required": [
         "RoleName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetRoleRequest"
     },
     "GetRoleResponse": {
       "description": "Contains the response to a successful <a>GetRole</a> request. ",
@@ -1903,7 +2017,8 @@
       "required": [
         "Role"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetRoleResponse"
     },
     "GetSAMLProviderRequest": {
       "properties": {
@@ -1915,7 +2030,8 @@
       "required": [
         "SAMLProviderArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetSAMLProviderRequest"
     },
     "GetSAMLProviderResponse": {
       "description": "Contains the response to a successful <a>GetSAMLProvider</a> request. ",
@@ -1933,7 +2049,8 @@
           "description": "The expiration date and time for the SAML provider."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetSAMLProviderResponse"
     },
     "GetSSHPublicKeyRequest": {
       "properties": {
@@ -1955,7 +2072,8 @@
         "SSHPublicKeyId",
         "Encoding"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetSSHPublicKeyRequest"
     },
     "GetSSHPublicKeyResponse": {
       "description": "Contains the response to a successful <a>GetSSHPublicKey</a> request.",
@@ -1965,7 +2083,8 @@
           "description": "A structure containing details about the SSH public key."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetSSHPublicKeyResponse"
     },
     "GetServerCertificateRequest": {
       "properties": {
@@ -1977,7 +2096,8 @@
       "required": [
         "ServerCertificateName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetServerCertificateRequest"
     },
     "GetServerCertificateResponse": {
       "description": "Contains the response to a successful <a>GetServerCertificate</a> request. ",
@@ -1990,7 +2110,8 @@
       "required": [
         "ServerCertificate"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetServerCertificateResponse"
     },
     "GetUserPolicyRequest": {
       "properties": {
@@ -2007,7 +2128,8 @@
         "UserName",
         "PolicyName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetUserPolicyRequest"
     },
     "GetUserPolicyResponse": {
       "description": "Contains the response to a successful <a>GetUserPolicy</a> request. ",
@@ -2030,7 +2152,8 @@
         "PolicyName",
         "PolicyDocument"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetUserPolicyResponse"
     },
     "GetUserRequest": {
       "example": {
@@ -2042,7 +2165,8 @@
           "description": "<p>The name of the user to get information about.</p> <p>This parameter is optional. If it is not included, it defaults to the user making the request. This parameter allows (per its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-</p>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetUserRequest"
     },
     "GetUserResponse": {
       "description": "Contains the response to a successful <a>GetUser</a> request. ",
@@ -2064,7 +2188,8 @@
       "required": [
         "User"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetUserResponse"
     },
     "Group": {
       "description": "<p>Contains information about an IAM group entity.</p> <p>This data type is used as a response element in the following actions:</p> <ul> <li> <p> <a>CreateGroup</a> </p> </li> <li> <p> <a>GetGroup</a> </p> </li> <li> <p> <a>ListGroups</a> </p> </li> </ul>",
@@ -2097,7 +2222,8 @@
         "Arn",
         "CreateDate"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "Group"
     },
     "GroupDetail": {
       "description": "<p>Contains information about an IAM group, including all of the group's policies.</p> <p>This data type is used as a response element in the <a>GetAccountAuthorizationDetails</a> action.</p>",
@@ -2130,7 +2256,8 @@
           "description": "The path to the group. For more information about paths, see <a href=\"http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html\">IAM Identifiers</a> in the <i>Using IAM</i> guide."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GroupDetail"
     },
     "InstanceProfile": {
       "description": "<p>Contains information about an instance profile.</p> <p>This data type is used as a response element in the following actions:</p> <ul> <li> <p> <a>CreateInstanceProfile</a> </p> </li> <li> <p> <a>GetInstanceProfile</a> </p> </li> <li> <p> <a>ListInstanceProfiles</a> </p> </li> <li> <p> <a>ListInstanceProfilesForRole</a> </p> </li> </ul>",
@@ -2168,7 +2295,8 @@
         "CreateDate",
         "Roles"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "InstanceProfile"
     },
     "InvalidAuthenticationCodeException": {
       "description": "The request was rejected because the authentication code was not recognized. The error message describes the specific error.",
@@ -2177,7 +2305,8 @@
           "$ref": "#/definitions/invalidAuthenticationCodeMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidAuthenticationCodeException"
     },
     "InvalidCertificateException": {
       "description": "The request was rejected because the certificate is invalid.",
@@ -2186,7 +2315,8 @@
           "$ref": "#/definitions/invalidCertificateMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidCertificateException"
     },
     "InvalidInputException": {
       "description": "The request was rejected because an invalid or out-of-range value was supplied for an input parameter.",
@@ -2195,7 +2325,8 @@
           "$ref": "#/definitions/invalidInputMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidInputException"
     },
     "InvalidPublicKeyException": {
       "description": "The request was rejected because the public key is malformed or otherwise invalid.",
@@ -2204,7 +2335,8 @@
           "$ref": "#/definitions/invalidPublicKeyMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidPublicKeyException"
     },
     "InvalidUserTypeException": {
       "description": "The request was rejected because the type of user for the transaction was incorrect.",
@@ -2213,7 +2345,8 @@
           "$ref": "#/definitions/invalidUserTypeMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidUserTypeException"
     },
     "KeyPairMismatchException": {
       "description": "The request was rejected because the public key certificate and the private key do not match.",
@@ -2222,7 +2355,8 @@
           "$ref": "#/definitions/keyPairMismatchMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "KeyPairMismatchException"
     },
     "LimitExceededException": {
       "description": "The request was rejected because it attempted to create resources beyond the current AWS account limits. The error message describes the limit exceeded.",
@@ -2231,10 +2365,12 @@
           "$ref": "#/definitions/limitExceededMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LimitExceededException"
     },
     "LineNumber": {
-      "type": "integer"
+      "type": "integer",
+      "title": "LineNumber"
     },
     "ListAccessKeysRequest": {
       "example": {
@@ -2254,7 +2390,8 @@
           "description": "<p>The name of the user.</p> <p>This parameter allows (per its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-</p>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListAccessKeysRequest"
     },
     "ListAccessKeysResponse": {
       "description": "Contains the response to a successful <a>ListAccessKeys</a> request. ",
@@ -2291,7 +2428,8 @@
       "required": [
         "AccessKeyMetadata"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListAccessKeysResponse"
     },
     "ListAccountAliasesRequest": {
       "example": {},
@@ -2305,7 +2443,8 @@
           "description": "<p>(Optional) Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the <code>IsTruncated</code> response element is <code>true</code>.</p> <p>If you do not include this parameter, it defaults to 100. Note that IAM might return fewer results, even when there are more results available. In that case, the <code>IsTruncated</code> response element returns <code>true</code> and <code>Marker</code> contains a value to include in the subsequent call that tells the service where to continue from.</p>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListAccountAliasesRequest"
     },
     "ListAccountAliasesResponse": {
       "description": "Contains the response to a successful <a>ListAccountAliases</a> request. ",
@@ -2331,7 +2470,8 @@
       "required": [
         "AccountAliases"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListAccountAliasesResponse"
     },
     "ListAttachedGroupPoliciesRequest": {
       "properties": {
@@ -2355,7 +2495,8 @@
       "required": [
         "GroupName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListAttachedGroupPoliciesRequest"
     },
     "ListAttachedGroupPoliciesResponse": {
       "description": "Contains the response to a successful <a>ListAttachedGroupPolicies</a> request. ",
@@ -2373,7 +2514,8 @@
           "description": "When <code>IsTruncated</code> is <code>true</code>, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent pagination request."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListAttachedGroupPoliciesResponse"
     },
     "ListAttachedRolePoliciesRequest": {
       "properties": {
@@ -2397,7 +2539,8 @@
       "required": [
         "RoleName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListAttachedRolePoliciesRequest"
     },
     "ListAttachedRolePoliciesResponse": {
       "description": "Contains the response to a successful <a>ListAttachedRolePolicies</a> request. ",
@@ -2415,7 +2558,8 @@
           "description": "When <code>IsTruncated</code> is <code>true</code>, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent pagination request."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListAttachedRolePoliciesResponse"
     },
     "ListAttachedUserPoliciesRequest": {
       "properties": {
@@ -2439,7 +2583,8 @@
       "required": [
         "UserName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListAttachedUserPoliciesRequest"
     },
     "ListAttachedUserPoliciesResponse": {
       "description": "Contains the response to a successful <a>ListAttachedUserPolicies</a> request. ",
@@ -2457,7 +2602,8 @@
           "description": "When <code>IsTruncated</code> is <code>true</code>, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent pagination request."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListAttachedUserPoliciesResponse"
     },
     "ListEntitiesForPolicyRequest": {
       "properties": {
@@ -2485,7 +2631,8 @@
       "required": [
         "PolicyArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListEntitiesForPolicyRequest"
     },
     "ListEntitiesForPolicyResponse": {
       "description": "Contains the response to a successful <a>ListEntitiesForPolicy</a> request. ",
@@ -2511,7 +2658,8 @@
           "description": "A list of IAM users that the policy is attached to."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListEntitiesForPolicyResponse"
     },
     "ListGroupPoliciesRequest": {
       "example": {
@@ -2534,7 +2682,8 @@
       "required": [
         "GroupName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListGroupPoliciesRequest"
     },
     "ListGroupPoliciesResponse": {
       "description": "Contains the response to a successful <a>ListGroupPolicies</a> request. ",
@@ -2561,7 +2710,8 @@
       "required": [
         "PolicyNames"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListGroupPoliciesResponse"
     },
     "ListGroupsForUserRequest": {
       "example": {
@@ -2584,7 +2734,8 @@
       "required": [
         "UserName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListGroupsForUserRequest"
     },
     "ListGroupsForUserResponse": {
       "description": "Contains the response to a successful <a>ListGroupsForUser</a> request. ",
@@ -2623,7 +2774,8 @@
       "required": [
         "Groups"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListGroupsForUserResponse"
     },
     "ListGroupsRequest": {
       "example": {},
@@ -2641,7 +2793,8 @@
           "description": "<p> The path prefix for filtering the results. For example, the prefix <code>/division_abc/subdivision_xyz/</code> gets all groups whose path starts with <code>/division_abc/subdivision_xyz/</code>.</p> <p>This parameter is optional. If it is not included, it defaults to a slash (/), listing all groups. This paramater allows (per its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes, containing any ASCII character from the ! (\\u0021) thru the DEL character (\\u007F), including most punctuation characters, digits, and upper and lowercased letters.</p>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListGroupsRequest"
     },
     "ListGroupsResponse": {
       "description": "Contains the response to a successful <a>ListGroups</a> request. ",
@@ -2687,7 +2840,8 @@
       "required": [
         "Groups"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListGroupsResponse"
     },
     "ListInstanceProfilesForRoleRequest": {
       "properties": {
@@ -2707,7 +2861,8 @@
       "required": [
         "RoleName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListInstanceProfilesForRoleRequest"
     },
     "ListInstanceProfilesForRoleResponse": {
       "description": "Contains the response to a successful <a>ListInstanceProfilesForRole</a> request. ",
@@ -2728,7 +2883,8 @@
       "required": [
         "InstanceProfiles"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListInstanceProfilesForRoleResponse"
     },
     "ListInstanceProfilesRequest": {
       "properties": {
@@ -2745,7 +2901,8 @@
           "description": "<p> The path prefix for filtering the results. For example, the prefix <code>/application_abc/component_xyz/</code> gets all instance profiles whose path starts with <code>/application_abc/component_xyz/</code>.</p> <p>This parameter is optional. If it is not included, it defaults to a slash (/), listing all instance profiles. This paramater allows (per its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes, containing any ASCII character from the ! (\\u0021) thru the DEL character (\\u007F), including most punctuation characters, digits, and upper and lowercased letters.</p>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListInstanceProfilesRequest"
     },
     "ListInstanceProfilesResponse": {
       "description": "Contains the response to a successful <a>ListInstanceProfiles</a> request. ",
@@ -2766,7 +2923,8 @@
       "required": [
         "InstanceProfiles"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListInstanceProfilesResponse"
     },
     "ListMFADevicesRequest": {
       "properties": {
@@ -2783,7 +2941,8 @@
           "description": "<p>The name of the user whose MFA devices you want to list.</p> <p>This parameter allows (per its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-</p>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListMFADevicesRequest"
     },
     "ListMFADevicesResponse": {
       "description": "Contains the response to a successful <a>ListMFADevices</a> request. ",
@@ -2804,11 +2963,13 @@
       "required": [
         "MFADevices"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListMFADevicesResponse"
     },
     "ListOpenIDConnectProvidersRequest": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "ListOpenIDConnectProvidersRequest"
     },
     "ListOpenIDConnectProvidersResponse": {
       "description": "Contains the response to a successful <a>ListOpenIDConnectProviders</a> request. ",
@@ -2818,7 +2979,8 @@
           "description": "The list of IAM OIDC provider resource objects defined in the AWS account."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListOpenIDConnectProvidersResponse"
     },
     "ListPoliciesRequest": {
       "properties": {
@@ -2843,7 +3005,8 @@
           "description": "<p>The scope to use for filtering the results.</p> <p>To list only AWS managed policies, set <code>Scope</code> to <code>AWS</code>. To list only the customer managed policies in your AWS account, set <code>Scope</code> to <code>Local</code>.</p> <p>This parameter is optional. If it is not included, or if it is set to <code>All</code>, all policies are returned.</p>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListPoliciesRequest"
     },
     "ListPoliciesResponse": {
       "description": "Contains the response to a successful <a>ListPolicies</a> request. ",
@@ -2861,7 +3024,8 @@
           "description": "A list of policies."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListPoliciesResponse"
     },
     "ListPolicyVersionsRequest": {
       "properties": {
@@ -2881,7 +3045,8 @@
       "required": [
         "PolicyArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListPolicyVersionsRequest"
     },
     "ListPolicyVersionsResponse": {
       "description": "Contains the response to a successful <a>ListPolicyVersions</a> request. ",
@@ -2899,7 +3064,8 @@
           "description": "<p>A list of policy versions.</p> <p>For more information about managed policy versions, see <a href=\"http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html\">Versioning for Managed Policies</a> in the <i>IAM User Guide</i>.</p>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListPolicyVersionsResponse"
     },
     "ListRolePoliciesRequest": {
       "properties": {
@@ -2919,7 +3085,8 @@
       "required": [
         "RoleName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListRolePoliciesRequest"
     },
     "ListRolePoliciesResponse": {
       "description": "Contains the response to a successful <a>ListRolePolicies</a> request. ",
@@ -2940,7 +3107,8 @@
       "required": [
         "PolicyNames"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListRolePoliciesResponse"
     },
     "ListRolesRequest": {
       "properties": {
@@ -2957,7 +3125,8 @@
           "description": "<p> The path prefix for filtering the results. For example, the prefix <code>/application_abc/component_xyz/</code> gets all roles whose path starts with <code>/application_abc/component_xyz/</code>.</p> <p>This parameter is optional. If it is not included, it defaults to a slash (/), listing all roles. This paramater allows (per its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes, containing any ASCII character from the ! (\\u0021) thru the DEL character (\\u007F), including most punctuation characters, digits, and upper and lowercased letters.</p>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListRolesRequest"
     },
     "ListRolesResponse": {
       "description": "Contains the response to a successful <a>ListRoles</a> request. ",
@@ -2978,11 +3147,13 @@
       "required": [
         "Roles"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListRolesResponse"
     },
     "ListSAMLProvidersRequest": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "ListSAMLProvidersRequest"
     },
     "ListSAMLProvidersResponse": {
       "description": "Contains the response to a successful <a>ListSAMLProviders</a> request. ",
@@ -2992,7 +3163,8 @@
           "description": "The list of SAML provider resource objects defined in IAM for this AWS account."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListSAMLProvidersResponse"
     },
     "ListSSHPublicKeysRequest": {
       "properties": {
@@ -3009,7 +3181,8 @@
           "description": "<p>The name of the IAM user to list SSH public keys for. If none is specified, the UserName field is determined implicitly based on the AWS access key used to sign the request.</p> <p>This parameter allows (per its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-</p>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListSSHPublicKeysRequest"
     },
     "ListSSHPublicKeysResponse": {
       "description": "Contains the response to a successful <a>ListSSHPublicKeys</a> request.",
@@ -3027,7 +3200,8 @@
           "description": "A list of the SSH public keys assigned to IAM user."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListSSHPublicKeysResponse"
     },
     "ListServerCertificatesRequest": {
       "properties": {
@@ -3044,7 +3218,8 @@
           "description": "<p> The path prefix for filtering the results. For example: <code>/company/servercerts</code> would get all server certificates for which the path starts with <code>/company/servercerts</code>.</p> <p>This parameter is optional. If it is not included, it defaults to a slash (/), listing all server certificates. This paramater allows (per its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes, containing any ASCII character from the ! (\\u0021) thru the DEL character (\\u007F), including most punctuation characters, digits, and upper and lowercased letters.</p>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListServerCertificatesRequest"
     },
     "ListServerCertificatesResponse": {
       "description": "Contains the response to a successful <a>ListServerCertificates</a> request. ",
@@ -3065,7 +3240,8 @@
       "required": [
         "ServerCertificateMetadataList"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListServerCertificatesResponse"
     },
     "ListServiceSpecificCredentialsRequest": {
       "properties": {
@@ -3078,7 +3254,8 @@
           "description": "<p>The name of the user whose service-specific credentials you want information about. If this value is not specified then the operation assumes the user whose credentials are used to call the operation.</p> <p>This parameter allows (per its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-</p>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListServiceSpecificCredentialsRequest"
     },
     "ListServiceSpecificCredentialsResponse": {
       "properties": {
@@ -3087,7 +3264,8 @@
           "description": "A list of structures that each contain details about a service-specific credential."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListServiceSpecificCredentialsResponse"
     },
     "ListSigningCertificatesRequest": {
       "example": {
@@ -3107,7 +3285,8 @@
           "description": "<p>The name of the IAM user whose signing certificates you want to examine.</p> <p>This parameter allows (per its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-</p>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListSigningCertificatesRequest"
     },
     "ListSigningCertificatesResponse": {
       "description": "Contains the response to a successful <a>ListSigningCertificates</a> request. ",
@@ -3139,7 +3318,8 @@
       "required": [
         "Certificates"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListSigningCertificatesResponse"
     },
     "ListUserPoliciesRequest": {
       "properties": {
@@ -3159,7 +3339,8 @@
       "required": [
         "UserName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListUserPoliciesRequest"
     },
     "ListUserPoliciesResponse": {
       "description": "Contains the response to a successful <a>ListUserPolicies</a> request. ",
@@ -3180,7 +3361,8 @@
       "required": [
         "PolicyNames"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListUserPoliciesResponse"
     },
     "ListUsersRequest": {
       "example": {},
@@ -3198,7 +3380,8 @@
           "description": "<p> The path prefix for filtering the results. For example: <code>/division_abc/subdivision_xyz/</code>, which would get all user names whose path starts with <code>/division_abc/subdivision_xyz/</code>.</p> <p>This parameter is optional. If it is not included, it defaults to a slash (/), listing all user names. This paramater allows (per its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes, containing any ASCII character from the ! (\\u0021) thru the DEL character (\\u007F), including most punctuation characters, digits, and upper and lowercased letters.</p>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListUsersRequest"
     },
     "ListUsersResponse": {
       "description": "Contains the response to a successful <a>ListUsers</a> request. ",
@@ -3239,7 +3422,8 @@
       "required": [
         "Users"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListUsersResponse"
     },
     "ListVirtualMFADevicesRequest": {
       "example": {},
@@ -3257,7 +3441,8 @@
           "description": "<p>(Optional) Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the <code>IsTruncated</code> response element is <code>true</code>.</p> <p>If you do not include this parameter, it defaults to 100. Note that IAM might return fewer results, even when there are more results available. In that case, the <code>IsTruncated</code> response element returns <code>true</code> and <code>Marker</code> contains a value to include in the subsequent call that tells the service where to continue from.</p>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListVirtualMFADevicesRequest"
     },
     "ListVirtualMFADevicesResponse": {
       "description": "Contains the response to a successful <a>ListVirtualMFADevices</a> request. ",
@@ -3288,7 +3473,8 @@
       "required": [
         "VirtualMFADevices"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListVirtualMFADevicesResponse"
     },
     "LoginProfile": {
       "description": "<p>Contains the user name and password create date for a user.</p> <p> This data type is used as a response element in the <a>CreateLoginProfile</a> and <a>GetLoginProfile</a> actions. </p>",
@@ -3310,7 +3496,8 @@
         "UserName",
         "CreateDate"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "LoginProfile"
     },
     "MFADevice": {
       "description": "<p>Contains information about an MFA device.</p> <p>This data type is used as a response element in the <a>ListMFADevices</a> action.</p>",
@@ -3333,7 +3520,8 @@
         "SerialNumber",
         "EnableDate"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "MFADevice"
     },
     "MalformedCertificateException": {
       "description": "The request was rejected because the certificate was malformed or expired. The error message describes the specific error.",
@@ -3342,7 +3530,8 @@
           "$ref": "#/definitions/malformedCertificateMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "MalformedCertificateException"
     },
     "MalformedPolicyDocumentException": {
       "description": "The request was rejected because the policy document was malformed. The error message describes the specific error.",
@@ -3351,7 +3540,8 @@
           "$ref": "#/definitions/malformedPolicyDocumentMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "MalformedPolicyDocumentException"
     },
     "ManagedPolicyDetail": {
       "description": "<p>Contains information about a managed policy, including the policy's ARN, versions, and the number of principal entities (users, groups, and roles) that the policy is attached to.</p> <p>This data type is used as a response element in the <a>GetAccountAuthorizationDetails</a> action.</p> <p>For more information about managed policies, see <a href=\"http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html\">Managed Policies and Inline Policies</a> in the <i>Using IAM</i> guide. </p>",
@@ -3400,13 +3590,15 @@
           "description": "<p>The date and time, in <a href=\"http://www.iso.org/iso/iso8601\">ISO 8601 date-time format</a>, when the policy was last updated.</p> <p>When a policy has only one version, this field contains the date and time when the policy was created. When a policy has more than one version, this field contains the date and time when the most recent policy version was created.</p>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ManagedPolicyDetail"
     },
     "ManagedPolicyDetailListType": {
       "items": {
         "$ref": "#/definitions/ManagedPolicyDetail"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ManagedPolicyDetailListType"
     },
     "NoSuchEntityException": {
       "description": "The request was rejected because it referenced an entity that does not exist. The error message describes the entity.",
@@ -3415,7 +3607,8 @@
           "$ref": "#/definitions/noSuchEntityMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "NoSuchEntityException"
     },
     "OpenIDConnectProviderListEntry": {
       "description": "Contains the Amazon Resource Name (ARN) for an IAM OpenID Connect provider.",
@@ -3424,20 +3617,23 @@
           "$ref": "#/definitions/arnType"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "OpenIDConnectProviderListEntry"
     },
     "OpenIDConnectProviderListType": {
       "description": "Contains a list of IAM OpenID Connect providers.",
       "items": {
         "$ref": "#/definitions/OpenIDConnectProviderListEntry"
       },
-      "type": "array"
+      "type": "array",
+      "title": "OpenIDConnectProviderListType"
     },
     "OpenIDConnectProviderUrlType": {
       "description": "Contains a URL that specifies the endpoint for an OpenID Connect provider.",
       "maxLength": 255,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "OpenIDConnectProviderUrlType"
     },
     "OrganizationsDecisionDetail": {
       "description": "Contains information about AWS Organizations's affect on a policy simulation.",
@@ -3447,7 +3643,8 @@
           "description": "Specifies whether the simulated action is allowed by the AWS Organizations service control policies that impact the simulated user's account."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "OrganizationsDecisionDetail"
     },
     "PasswordPolicy": {
       "description": "<p>Contains information about the account password policy.</p> <p> This data type is used as a response element in the <a>GetAccountPasswordPolicy</a> action. </p>",
@@ -3493,7 +3690,8 @@
           "description": "Specifies whether to require uppercase characters for IAM user passwords."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PasswordPolicy"
     },
     "PasswordPolicyViolationException": {
       "description": "The request was rejected because the provided password did not meet the requirements imposed by the account password policy.",
@@ -3502,7 +3700,8 @@
           "$ref": "#/definitions/passwordPolicyViolationMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PasswordPolicyViolationException"
     },
     "Policy": {
       "description": "<p>Contains information about a managed policy.</p> <p>This data type is used as a response element in the <a>CreatePolicy</a>, <a>GetPolicy</a>, and <a>ListPolicies</a> actions. </p> <p>For more information about managed policies, refer to <a href=\"http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html\">Managed Policies and Inline Policies</a> in the <i>Using IAM</i> guide. </p>",
@@ -3547,7 +3746,8 @@
           "description": "<p>The date and time, in <a href=\"http://www.iso.org/iso/iso8601\">ISO 8601 date-time format</a>, when the policy was last updated.</p> <p>When a policy has only one version, this field contains the date and time when the policy was created. When a policy has more than one version, this field contains the date and time when the most recent policy version was created.</p>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Policy"
     },
     "PolicyDetail": {
       "description": "<p>Contains information about an IAM policy, including the policy document.</p> <p>This data type is used as a response element in the <a>GetAccountAuthorizationDetails</a> action.</p>",
@@ -3561,7 +3761,8 @@
           "description": "The name of the policy."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PolicyDetail"
     },
     "PolicyEvaluationDecisionType": {
       "enum": [
@@ -3569,7 +3770,8 @@
         "explicitDeny",
         "implicitDeny"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "PolicyEvaluationDecisionType"
     },
     "PolicyEvaluationException": {
       "description": "The request failed because a provided policy could not be successfully evaluated. An additional detail message indicates the source of the failure.",
@@ -3578,7 +3780,8 @@
           "$ref": "#/definitions/policyEvaluationErrorMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PolicyEvaluationException"
     },
     "PolicyGroup": {
       "description": "<p>Contains information about a group that a managed policy is attached to.</p> <p>This data type is used as a response element in the <a>ListEntitiesForPolicy</a> action. </p> <p>For more information about managed policies, refer to <a href=\"http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html\">Managed Policies and Inline Policies</a> in the <i>Using IAM</i> guide. </p>",
@@ -3592,16 +3795,19 @@
           "description": "The name (friendly name, not ARN) identifying the group."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PolicyGroup"
     },
     "PolicyGroupListType": {
       "items": {
         "$ref": "#/definitions/PolicyGroup"
       },
-      "type": "array"
+      "type": "array",
+      "title": "PolicyGroupListType"
     },
     "PolicyIdentifierType": {
-      "type": "string"
+      "type": "string",
+      "title": "PolicyIdentifierType"
     },
     "PolicyRole": {
       "description": "<p>Contains information about a role that a managed policy is attached to.</p> <p>This data type is used as a response element in the <a>ListEntitiesForPolicy</a> action. </p> <p>For more information about managed policies, refer to <a href=\"http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html\">Managed Policies and Inline Policies</a> in the <i>Using IAM</i> guide. </p>",
@@ -3615,13 +3821,15 @@
           "description": "The name (friendly name, not ARN) identifying the role."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PolicyRole"
     },
     "PolicyRoleListType": {
       "items": {
         "$ref": "#/definitions/PolicyRole"
       },
-      "type": "array"
+      "type": "array",
+      "title": "PolicyRoleListType"
     },
     "PolicySourceType": {
       "enum": [
@@ -3633,7 +3841,8 @@
         "resource",
         "none"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "PolicySourceType"
     },
     "PolicyUser": {
       "description": "<p>Contains information about a user that a managed policy is attached to.</p> <p>This data type is used as a response element in the <a>ListEntitiesForPolicy</a> action. </p> <p>For more information about managed policies, refer to <a href=\"http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html\">Managed Policies and Inline Policies</a> in the <i>Using IAM</i> guide. </p>",
@@ -3647,13 +3856,15 @@
           "description": "The name (friendly name, not ARN) identifying the user."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PolicyUser"
     },
     "PolicyUserListType": {
       "items": {
         "$ref": "#/definitions/PolicyUser"
       },
-      "type": "array"
+      "type": "array",
+      "title": "PolicyUserListType"
     },
     "PolicyVersion": {
       "description": "<p>Contains information about a version of a managed policy.</p> <p>This data type is used as a response element in the <a>CreatePolicyVersion</a>, <a>GetPolicyVersion</a>, <a>ListPolicyVersions</a>, and <a>GetAccountAuthorizationDetails</a> actions. </p> <p>For more information about managed policies, refer to <a href=\"http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html\">Managed Policies and Inline Policies</a> in the <i>Using IAM</i> guide. </p>",
@@ -3675,7 +3886,8 @@
           "description": "<p>The identifier for the policy version.</p> <p>Policy version identifiers always begin with <code>v</code> (always lowercase). When a policy is created, the first policy version is <code>v1</code>. </p>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PolicyVersion"
     },
     "Position": {
       "description": "<p>Contains the row and column of a location of a <code>Statement</code> element in a policy document.</p> <p>This data type is used as a member of the <code> <a>Statement</a> </code> type.</p>",
@@ -3689,7 +3901,8 @@
           "description": "The line containing the specified position in the document."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Position"
     },
     "PutGroupPolicyRequest": {
       "example": {
@@ -3716,7 +3929,8 @@
         "PolicyName",
         "PolicyDocument"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "PutGroupPolicyRequest"
     },
     "PutRolePolicyRequest": {
       "example": {
@@ -3743,7 +3957,8 @@
         "PolicyName",
         "PolicyDocument"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "PutRolePolicyRequest"
     },
     "PutUserPolicyRequest": {
       "example": {
@@ -3770,7 +3985,8 @@
         "PolicyName",
         "PolicyDocument"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "PutUserPolicyRequest"
     },
     "RemoveClientIDFromOpenIDConnectProviderRequest": {
       "properties": {
@@ -3787,7 +4003,8 @@
         "OpenIDConnectProviderArn",
         "ClientID"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "RemoveClientIDFromOpenIDConnectProviderRequest"
     },
     "RemoveRoleFromInstanceProfileRequest": {
       "example": {
@@ -3808,7 +4025,8 @@
         "InstanceProfileName",
         "RoleName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "RemoveRoleFromInstanceProfileRequest"
     },
     "RemoveUserFromGroupRequest": {
       "example": {
@@ -3829,19 +4047,23 @@
         "GroupName",
         "UserName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "RemoveUserFromGroupRequest"
     },
     "ReportContentType": {
-      "type": "string"
+      "type": "string",
+      "title": "ReportContentType"
     },
     "ReportFormatType": {
       "enum": [
         "text/csv"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ReportFormatType"
     },
     "ReportStateDescriptionType": {
-      "type": "string"
+      "type": "string",
+      "title": "ReportStateDescriptionType"
     },
     "ReportStateType": {
       "enum": [
@@ -3849,7 +4071,8 @@
         "INPROGRESS",
         "COMPLETE"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ReportStateType"
     },
     "ResetServiceSpecificCredentialRequest": {
       "properties": {
@@ -3865,7 +4088,8 @@
       "required": [
         "ServiceSpecificCredentialId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ResetServiceSpecificCredentialRequest"
     },
     "ResetServiceSpecificCredentialResponse": {
       "properties": {
@@ -3874,23 +4098,27 @@
           "description": "<p>A structure with details about the updated service-specific credential, including the new password.</p> <important> <p>This is the <b>only</b> time that you can access the password. You cannot recover the password later, but you can reset it again.</p> </important>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ResetServiceSpecificCredentialResponse"
     },
     "ResourceHandlingOptionType": {
       "maxLength": 64,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "ResourceHandlingOptionType"
     },
     "ResourceNameListType": {
       "items": {
         "$ref": "#/definitions/ResourceNameType"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ResourceNameListType"
     },
     "ResourceNameType": {
       "maxLength": 2048,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "ResourceNameType"
     },
     "ResourceSpecificResult": {
       "description": "<p>Contains the result of the simulation of a single API action call on a single resource.</p> <p>This data type is used by a member of the <a>EvaluationResult</a> data type.</p>",
@@ -3920,13 +4148,15 @@
         "EvalResourceName",
         "EvalResourceDecision"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ResourceSpecificResult"
     },
     "ResourceSpecificResultListType": {
       "items": {
         "$ref": "#/definitions/ResourceSpecificResult"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ResourceSpecificResultListType"
     },
     "ResyncMFADeviceRequest": {
       "properties": {
@@ -3953,7 +4183,8 @@
         "AuthenticationCode1",
         "AuthenticationCode2"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ResyncMFADeviceRequest"
     },
     "Role": {
       "description": "Contains information about an IAM role. This structure is returned as a response element in several APIs that interact with roles.",
@@ -3994,7 +4225,8 @@
         "Arn",
         "CreateDate"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "Role"
     },
     "RoleDetail": {
       "description": "<p>Contains information about an IAM role, including all of the role's policies.</p> <p>This data type is used as a response element in the <a>GetAccountAuthorizationDetails</a> action.</p>",
@@ -4035,12 +4267,14 @@
           "description": "A list of inline policies embedded in the role. These policies are the role's access (permissions) policies."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RoleDetail"
     },
     "SAMLMetadataDocumentType": {
       "maxLength": 10000000,
       "minLength": 1000,
-      "type": "string"
+      "type": "string",
+      "title": "SAMLMetadataDocumentType"
     },
     "SAMLProviderListEntry": {
       "description": "Contains the list of SAML providers for this account.",
@@ -4058,19 +4292,22 @@
           "description": "The expiration date and time for the SAML provider."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SAMLProviderListEntry"
     },
     "SAMLProviderListType": {
       "items": {
         "$ref": "#/definitions/SAMLProviderListEntry"
       },
-      "type": "array"
+      "type": "array",
+      "title": "SAMLProviderListType"
     },
     "SAMLProviderNameType": {
       "maxLength": 128,
       "minLength": 1,
       "pattern": "[\\w._-]+",
-      "type": "string"
+      "type": "string",
+      "title": "SAMLProviderNameType"
     },
     "SSHPublicKey": {
       "description": "<p>Contains information about an SSH public key.</p> <p>This data type is used as a response element in the <a>GetSSHPublicKey</a> and <a>UploadSSHPublicKey</a> actions. </p>",
@@ -4107,13 +4344,15 @@
         "SSHPublicKeyBody",
         "Status"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "SSHPublicKey"
     },
     "SSHPublicKeyListType": {
       "items": {
         "$ref": "#/definitions/SSHPublicKeyMetadata"
       },
-      "type": "array"
+      "type": "array",
+      "title": "SSHPublicKeyListType"
     },
     "SSHPublicKeyMetadata": {
       "description": "<p>Contains information about an SSH public key, without the key's body or fingerprint.</p> <p>This data type is used as a response element in the <a>ListSSHPublicKeys</a> action.</p>",
@@ -4141,7 +4380,8 @@
         "Status",
         "UploadDate"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "SSHPublicKeyMetadata"
     },
     "ServerCertificate": {
       "description": "<p>Contains information about a server certificate.</p> <p> This data type is used as a response element in the <a>GetServerCertificate</a> action. </p>",
@@ -4163,7 +4403,8 @@
         "ServerCertificateMetadata",
         "CertificateBody"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ServerCertificate"
     },
     "ServerCertificateMetadata": {
       "description": "<p>Contains information about a server certificate without its certificate body, certificate chain, and private key.</p> <p> This data type is used as a response element in the <a>UploadServerCertificate</a> and <a>ListServerCertificates</a> actions. </p>",
@@ -4199,7 +4440,8 @@
         "ServerCertificateId",
         "Arn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ServerCertificateMetadata"
     },
     "ServiceFailureException": {
       "description": "The request processing has failed because of an unknown error, exception or failure.",
@@ -4208,7 +4450,8 @@
           "$ref": "#/definitions/serviceFailureExceptionMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ServiceFailureException"
     },
     "ServiceNotSupportedException": {
       "description": "The specified service does not support service-specific credentials.",
@@ -4217,7 +4460,8 @@
           "$ref": "#/definitions/serviceNotSupportedMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ServiceNotSupportedException"
     },
     "ServiceSpecificCredential": {
       "description": "Contains the details of a service specific credential.",
@@ -4260,7 +4504,8 @@
         "UserName",
         "Status"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ServiceSpecificCredential"
     },
     "ServiceSpecificCredentialMetadata": {
       "description": "Contains additional details about a service-specific credential.",
@@ -4298,13 +4543,15 @@
         "ServiceSpecificCredentialId",
         "ServiceName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ServiceSpecificCredentialMetadata"
     },
     "ServiceSpecificCredentialsListType": {
       "items": {
         "$ref": "#/definitions/ServiceSpecificCredentialMetadata"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ServiceSpecificCredentialsListType"
     },
     "SetDefaultPolicyVersionRequest": {
       "properties": {
@@ -4321,7 +4568,8 @@
         "PolicyArn",
         "VersionId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "SetDefaultPolicyVersionRequest"
     },
     "SigningCertificate": {
       "description": "<p>Contains information about an X.509 signing certificate.</p> <p>This data type is used as a response element in the <a>UploadSigningCertificate</a> and <a>ListSigningCertificates</a> actions. </p>",
@@ -4353,7 +4601,8 @@
         "CertificateBody",
         "Status"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "SigningCertificate"
     },
     "SimulateCustomPolicyRequest": {
       "properties": {
@@ -4402,7 +4651,8 @@
         "PolicyInputList",
         "ActionNames"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "SimulateCustomPolicyRequest"
     },
     "SimulatePolicyResponse": {
       "description": "Contains the response to a successful <a>SimulatePrincipalPolicy</a> or <a>SimulateCustomPolicy</a> request.",
@@ -4420,7 +4670,8 @@
           "description": "When <code>IsTruncated</code> is <code>true</code>, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent pagination request."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SimulatePolicyResponse"
     },
     "SimulatePrincipalPolicyRequest": {
       "properties": {
@@ -4473,13 +4724,15 @@
         "PolicySourceArn",
         "ActionNames"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "SimulatePrincipalPolicyRequest"
     },
     "SimulationPolicyListType": {
       "items": {
         "$ref": "#/definitions/policyDocumentType"
       },
-      "type": "array"
+      "type": "array",
+      "title": "SimulationPolicyListType"
     },
     "Statement": {
       "description": "<p>Contains a reference to a <code>Statement</code> element in a policy document that determines the result of the simulation.</p> <p>This data type is used by the <code>MatchedStatements</code> member of the <code> <a>EvaluationResult</a> </code> type.</p>",
@@ -4501,13 +4754,15 @@
           "description": "The row and column of the beginning of the <code>Statement</code> in an IAM policy."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Statement"
     },
     "StatementListType": {
       "items": {
         "$ref": "#/definitions/Statement"
       },
-      "type": "array"
+      "type": "array",
+      "title": "StatementListType"
     },
     "UnmodifiableEntityException": {
       "description": "The request was rejected because only the service that depends on the service-linked role can modify or delete the role on your behalf. The error message includes the name of the service that depends on this service-linked role. You must request the change through that service.",
@@ -4516,7 +4771,8 @@
           "$ref": "#/definitions/unmodifiableEntityMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UnmodifiableEntityException"
     },
     "UnrecognizedPublicKeyEncodingException": {
       "description": "The request was rejected because the public key encoding format is unsupported or unrecognized.",
@@ -4525,7 +4781,8 @@
           "$ref": "#/definitions/unrecognizedPublicKeyEncodingMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UnrecognizedPublicKeyEncodingException"
     },
     "UpdateAccessKeyRequest": {
       "example": {
@@ -4551,7 +4808,8 @@
         "AccessKeyId",
         "Status"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateAccessKeyRequest"
     },
     "UpdateAccountPasswordPolicyRequest": {
       "example": {
@@ -4596,7 +4854,8 @@
           "description": "<p>Specifies whether IAM user passwords must contain at least one uppercase character from the ISO basic Latin alphabet (A to Z).</p> <p>Default value: false</p>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UpdateAccountPasswordPolicyRequest"
     },
     "UpdateAssumeRolePolicyRequest": {
       "example": {
@@ -4617,7 +4876,8 @@
         "RoleName",
         "PolicyDocument"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateAssumeRolePolicyRequest"
     },
     "UpdateGroupRequest": {
       "example": {
@@ -4641,7 +4901,8 @@
       "required": [
         "GroupName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateGroupRequest"
     },
     "UpdateLoginProfileRequest": {
       "example": {
@@ -4665,7 +4926,8 @@
       "required": [
         "UserName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateLoginProfileRequest"
     },
     "UpdateOpenIDConnectProviderThumbprintRequest": {
       "properties": {
@@ -4682,7 +4944,8 @@
         "OpenIDConnectProviderArn",
         "ThumbprintList"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateOpenIDConnectProviderThumbprintRequest"
     },
     "UpdateRoleDescriptionRequest": {
       "properties": {
@@ -4699,7 +4962,8 @@
         "RoleName",
         "Description"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateRoleDescriptionRequest"
     },
     "UpdateRoleDescriptionResponse": {
       "properties": {
@@ -4708,7 +4972,8 @@
           "description": "A structure that contains details about the modified role."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UpdateRoleDescriptionResponse"
     },
     "UpdateSAMLProviderRequest": {
       "properties": {
@@ -4725,7 +4990,8 @@
         "SAMLMetadataDocument",
         "SAMLProviderArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateSAMLProviderRequest"
     },
     "UpdateSAMLProviderResponse": {
       "description": "Contains the response to a successful <a>UpdateSAMLProvider</a> request. ",
@@ -4735,7 +5001,8 @@
           "description": "The Amazon Resource Name (ARN) of the SAML provider that was updated."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UpdateSAMLProviderResponse"
     },
     "UpdateSSHPublicKeyRequest": {
       "properties": {
@@ -4757,7 +5024,8 @@
         "SSHPublicKeyId",
         "Status"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateSSHPublicKeyRequest"
     },
     "UpdateServerCertificateRequest": {
       "properties": {
@@ -4777,7 +5045,8 @@
       "required": [
         "ServerCertificateName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateServerCertificateRequest"
     },
     "UpdateServiceSpecificCredentialRequest": {
       "properties": {
@@ -4798,7 +5067,8 @@
         "ServiceSpecificCredentialId",
         "Status"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateServiceSpecificCredentialRequest"
     },
     "UpdateSigningCertificateRequest": {
       "example": {
@@ -4824,7 +5094,8 @@
         "CertificateId",
         "Status"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateSigningCertificateRequest"
     },
     "UpdateUserRequest": {
       "example": {
@@ -4848,7 +5119,8 @@
       "required": [
         "UserName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateUserRequest"
     },
     "UploadSSHPublicKeyRequest": {
       "properties": {
@@ -4865,7 +5137,8 @@
         "UserName",
         "SSHPublicKeyBody"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UploadSSHPublicKeyRequest"
     },
     "UploadSSHPublicKeyResponse": {
       "description": "Contains the response to a successful <a>UploadSSHPublicKey</a> request.",
@@ -4875,7 +5148,8 @@
           "description": "Contains information about the SSH public key."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UploadSSHPublicKeyResponse"
     },
     "UploadServerCertificateRequest": {
       "example": {
@@ -4911,7 +5185,8 @@
         "CertificateBody",
         "PrivateKey"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UploadServerCertificateRequest"
     },
     "UploadServerCertificateResponse": {
       "description": "Contains the response to a successful <a>UploadServerCertificate</a> request. ",
@@ -4931,7 +5206,8 @@
           "description": "The meta information of the uploaded server certificate without its certificate body, certificate chain, and private key."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UploadServerCertificateResponse"
     },
     "UploadSigningCertificateRequest": {
       "example": {
@@ -4951,7 +5227,8 @@
       "required": [
         "CertificateBody"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UploadSigningCertificateRequest"
     },
     "UploadSigningCertificateResponse": {
       "description": "Contains the response to a successful <a>UploadSigningCertificate</a> request. ",
@@ -4973,7 +5250,8 @@
       "required": [
         "Certificate"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UploadSigningCertificateResponse"
     },
     "User": {
       "description": "<p>Contains information about an IAM user entity.</p> <p>This data type is used as a response element in the following actions:</p> <ul> <li> <p> <a>CreateUser</a> </p> </li> <li> <p> <a>GetUser</a> </p> </li> <li> <p> <a>ListUsers</a> </p> </li> </ul>",
@@ -5010,7 +5288,8 @@
         "Arn",
         "CreateDate"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "User"
     },
     "UserDetail": {
       "description": "<p>Contains information about an IAM user, including all the user's policies and all the IAM groups the user is in.</p> <p>This data type is used as a response element in the <a>GetAccountAuthorizationDetails</a> action.</p>",
@@ -5047,7 +5326,8 @@
           "description": "A list of the inline policies embedded in the user."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UserDetail"
     },
     "VirtualMFADevice": {
       "description": "Contains information about a virtual MFA device.",
@@ -5076,42 +5356,49 @@
       "required": [
         "SerialNumber"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "VirtualMFADevice"
     },
     "accessKeyIdType": {
       "maxLength": 32,
       "minLength": 16,
       "pattern": "[\\w]+",
-      "type": "string"
+      "type": "string",
+      "title": "accessKeyIdType"
     },
     "accessKeyMetadataListType": {
       "description": "<p>Contains a list of access key metadata.</p> <p>This data type is used as a response element in the <a>ListAccessKeys</a> action.</p>",
       "items": {
         "$ref": "#/definitions/AccessKeyMetadata"
       },
-      "type": "array"
+      "type": "array",
+      "title": "accessKeyMetadataListType"
     },
     "accessKeySecretType": {
       "format": "password",
-      "type": "string"
+      "type": "string",
+      "title": "accessKeySecretType"
     },
     "accountAliasListType": {
       "items": {
         "$ref": "#/definitions/accountAliasType"
       },
-      "type": "array"
+      "type": "array",
+      "title": "accountAliasListType"
     },
     "accountAliasType": {
       "maxLength": 63,
       "minLength": 3,
       "pattern": "^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$",
-      "type": "string"
+      "type": "string",
+      "title": "accountAliasType"
     },
     "arnType": {
       "description": "<p>The Amazon Resource Name (ARN). ARNs are unique identifiers for AWS resources.</p> <p>For more information about ARNs, go to <a href=\"http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>. </p>",
       "maxLength": 2048,
       "minLength": 20,
-      "type": "string"
+      "type": "string",
+      "title": "arnType"
     },
     "assignmentStatusType": {
       "enum": [
@@ -5119,294 +5406,355 @@
         "Unassigned",
         "Any"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "assignmentStatusType"
     },
     "attachedPoliciesListType": {
       "items": {
         "$ref": "#/definitions/AttachedPolicy"
       },
-      "type": "array"
+      "type": "array",
+      "title": "attachedPoliciesListType"
     },
     "attachmentCountType": {
-      "type": "integer"
+      "type": "integer",
+      "title": "attachmentCountType"
     },
     "authenticationCodeType": {
       "maxLength": 6,
       "minLength": 6,
       "pattern": "[\\d]+",
-      "type": "string"
+      "type": "string",
+      "title": "authenticationCodeType"
     },
     "booleanObjectType": {
-      "type": "boolean"
+      "type": "boolean",
+      "title": "booleanObjectType"
     },
     "booleanType": {
-      "type": "boolean"
+      "type": "boolean",
+      "title": "booleanType"
     },
     "certificateBodyType": {
       "maxLength": 16384,
       "minLength": 1,
       "pattern": "[\\u0009\\u000A\\u000D\\u0020-\\u00FF]+",
-      "type": "string"
+      "type": "string",
+      "title": "certificateBodyType"
     },
     "certificateChainType": {
       "maxLength": 2097152,
       "minLength": 1,
       "pattern": "[\\u0009\\u000A\\u000D\\u0020-\\u00FF]+",
-      "type": "string"
+      "type": "string",
+      "title": "certificateChainType"
     },
     "certificateIdType": {
       "maxLength": 128,
       "minLength": 24,
       "pattern": "[\\w]+",
-      "type": "string"
+      "type": "string",
+      "title": "certificateIdType"
     },
     "certificateListType": {
       "description": "<p>Contains a list of signing certificates.</p> <p>This data type is used as a response element in the <a>ListSigningCertificates</a> action.</p>",
       "items": {
         "$ref": "#/definitions/SigningCertificate"
       },
-      "type": "array"
+      "type": "array",
+      "title": "certificateListType"
     },
     "clientIDListType": {
       "items": {
         "$ref": "#/definitions/clientIDType"
       },
-      "type": "array"
+      "type": "array",
+      "title": "clientIDListType"
     },
     "clientIDType": {
       "maxLength": 255,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "clientIDType"
     },
     "credentialReportExpiredExceptionMessage": {
-      "type": "string"
+      "type": "string",
+      "title": "credentialReportExpiredExceptionMessage"
     },
     "credentialReportNotPresentExceptionMessage": {
-      "type": "string"
+      "type": "string",
+      "title": "credentialReportNotPresentExceptionMessage"
     },
     "credentialReportNotReadyExceptionMessage": {
-      "type": "string"
+      "type": "string",
+      "title": "credentialReportNotReadyExceptionMessage"
     },
     "customSuffixType": {
       "maxLength": 64,
       "minLength": 1,
       "pattern": "[\\w+=,.@-]+",
-      "type": "string"
+      "type": "string",
+      "title": "customSuffixType"
     },
     "dateType": {
       "format": "date-time",
-      "type": "string"
+      "type": "string",
+      "title": "dateType"
     },
     "deleteConflictMessage": {
-      "type": "string"
+      "type": "string",
+      "title": "deleteConflictMessage"
     },
     "duplicateCertificateMessage": {
-      "type": "string"
+      "type": "string",
+      "title": "duplicateCertificateMessage"
     },
     "duplicateSSHPublicKeyMessage": {
-      "type": "string"
+      "type": "string",
+      "title": "duplicateSSHPublicKeyMessage"
     },
     "encodingType": {
       "enum": [
         "SSH",
         "PEM"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "encodingType"
     },
     "entityAlreadyExistsMessage": {
-      "type": "string"
+      "type": "string",
+      "title": "entityAlreadyExistsMessage"
     },
     "entityListType": {
       "items": {
         "$ref": "#/definitions/EntityType"
       },
-      "type": "array"
+      "type": "array",
+      "title": "entityListType"
     },
     "entityTemporarilyUnmodifiableMessage": {
-      "type": "string"
+      "type": "string",
+      "title": "entityTemporarilyUnmodifiableMessage"
     },
     "existingUserNameType": {
       "maxLength": 128,
       "minLength": 1,
       "pattern": "[\\w+=,.@-]+",
-      "type": "string"
+      "type": "string",
+      "title": "existingUserNameType"
     },
     "groupDetailListType": {
       "items": {
         "$ref": "#/definitions/GroupDetail"
       },
-      "type": "array"
+      "type": "array",
+      "title": "groupDetailListType"
     },
     "groupListType": {
       "description": "<p>Contains a list of IAM groups.</p> <p>This data type is used as a response element in the <a>ListGroups</a> action.</p>",
       "items": {
         "$ref": "#/definitions/Group"
       },
-      "type": "array"
+      "type": "array",
+      "title": "groupListType"
     },
     "groupNameListType": {
       "items": {
         "$ref": "#/definitions/groupNameType"
       },
-      "type": "array"
+      "type": "array",
+      "title": "groupNameListType"
     },
     "groupNameType": {
       "maxLength": 128,
       "minLength": 1,
       "pattern": "[\\w+=,.@-]+",
-      "type": "string"
+      "type": "string",
+      "title": "groupNameType"
     },
     "idType": {
       "maxLength": 32,
       "minLength": 16,
       "pattern": "[\\w]+",
-      "type": "string"
+      "type": "string",
+      "title": "idType"
     },
     "instanceProfileListType": {
       "description": "Contains a list of instance profiles.",
       "items": {
         "$ref": "#/definitions/InstanceProfile"
       },
-      "type": "array"
+      "type": "array",
+      "title": "instanceProfileListType"
     },
     "instanceProfileNameType": {
       "maxLength": 128,
       "minLength": 1,
       "pattern": "[\\w+=,.@-]+",
-      "type": "string"
+      "type": "string",
+      "title": "instanceProfileNameType"
     },
     "invalidAuthenticationCodeMessage": {
-      "type": "string"
+      "type": "string",
+      "title": "invalidAuthenticationCodeMessage"
     },
     "invalidCertificateMessage": {
-      "type": "string"
+      "type": "string",
+      "title": "invalidCertificateMessage"
     },
     "invalidInputMessage": {
-      "type": "string"
+      "type": "string",
+      "title": "invalidInputMessage"
     },
     "invalidPublicKeyMessage": {
-      "type": "string"
+      "type": "string",
+      "title": "invalidPublicKeyMessage"
     },
     "invalidUserTypeMessage": {
-      "type": "string"
+      "type": "string",
+      "title": "invalidUserTypeMessage"
     },
     "keyPairMismatchMessage": {
-      "type": "string"
+      "type": "string",
+      "title": "keyPairMismatchMessage"
     },
     "limitExceededMessage": {
-      "type": "string"
+      "type": "string",
+      "title": "limitExceededMessage"
     },
     "malformedCertificateMessage": {
-      "type": "string"
+      "type": "string",
+      "title": "malformedCertificateMessage"
     },
     "malformedPolicyDocumentMessage": {
-      "type": "string"
+      "type": "string",
+      "title": "malformedPolicyDocumentMessage"
     },
     "markerType": {
       "maxLength": 320,
       "minLength": 1,
       "pattern": "[\\u0020-\\u00FF]+",
-      "type": "string"
+      "type": "string",
+      "title": "markerType"
     },
     "maxItemsType": {
       "maximum": 1000,
       "minimum": 1,
-      "type": "integer"
+      "type": "integer",
+      "title": "maxItemsType"
     },
     "maxPasswordAgeType": {
       "maximum": 1095,
       "minimum": 1,
-      "type": "integer"
+      "type": "integer",
+      "title": "maxPasswordAgeType"
     },
     "mfaDeviceListType": {
       "description": "<p>Contains a list of MFA devices.</p> <p>This data type is used as a response element in the <a>ListMFADevices</a> and <a>ListVirtualMFADevices</a> actions. </p>",
       "items": {
         "$ref": "#/definitions/MFADevice"
       },
-      "type": "array"
+      "type": "array",
+      "title": "mfaDeviceListType"
     },
     "minimumPasswordLengthType": {
       "maximum": 128,
       "minimum": 6,
-      "type": "integer"
+      "type": "integer",
+      "title": "minimumPasswordLengthType"
     },
     "noSuchEntityMessage": {
-      "type": "string"
+      "type": "string",
+      "title": "noSuchEntityMessage"
     },
     "passwordPolicyViolationMessage": {
-      "type": "string"
+      "type": "string",
+      "title": "passwordPolicyViolationMessage"
     },
     "passwordReusePreventionType": {
       "maximum": 24,
       "minimum": 1,
-      "type": "integer"
+      "type": "integer",
+      "title": "passwordReusePreventionType"
     },
     "passwordType": {
       "format": "password",
       "maxLength": 128,
       "minLength": 1,
       "pattern": "[\\u0009\\u000A\\u000D\\u0020-\\u00FF]+",
-      "type": "string"
+      "type": "string",
+      "title": "passwordType"
     },
     "pathPrefixType": {
       "maxLength": 512,
       "minLength": 1,
       "pattern": "\\u002F[\\u0021-\\u007F]*",
-      "type": "string"
+      "type": "string",
+      "title": "pathPrefixType"
     },
     "pathType": {
       "maxLength": 512,
       "minLength": 1,
       "pattern": "(\\u002F)|(\\u002F[\\u0021-\\u007F]+\\u002F)",
-      "type": "string"
+      "type": "string",
+      "title": "pathType"
     },
     "policyDescriptionType": {
       "maxLength": 1000,
-      "type": "string"
+      "type": "string",
+      "title": "policyDescriptionType"
     },
     "policyDetailListType": {
       "items": {
         "$ref": "#/definitions/PolicyDetail"
       },
-      "type": "array"
+      "type": "array",
+      "title": "policyDetailListType"
     },
     "policyDocumentType": {
       "maxLength": 131072,
       "minLength": 1,
       "pattern": "[\\u0009\\u000A\\u000D\\u0020-\\u00FF]+",
-      "type": "string"
+      "type": "string",
+      "title": "policyDocumentType"
     },
     "policyDocumentVersionListType": {
       "items": {
         "$ref": "#/definitions/PolicyVersion"
       },
-      "type": "array"
+      "type": "array",
+      "title": "policyDocumentVersionListType"
     },
     "policyEvaluationErrorMessage": {
-      "type": "string"
+      "type": "string",
+      "title": "policyEvaluationErrorMessage"
     },
     "policyListType": {
       "items": {
         "$ref": "#/definitions/Policy"
       },
-      "type": "array"
+      "type": "array",
+      "title": "policyListType"
     },
     "policyNameListType": {
       "description": "<p>Contains a list of policy names.</p> <p>This data type is used as a response element in the <a>ListPolicies</a> action.</p>",
       "items": {
         "$ref": "#/definitions/policyNameType"
       },
-      "type": "array"
+      "type": "array",
+      "title": "policyNameListType"
     },
     "policyNameType": {
       "maxLength": 128,
       "minLength": 1,
       "pattern": "[\\w+=,.@-]+",
-      "type": "string"
+      "type": "string",
+      "title": "policyNameType"
     },
     "policyPathType": {
       "pattern": "((/[A-Za-z0-9\\.,\\+@=_-]+)*)/",
-      "type": "string"
+      "type": "string",
+      "title": "policyPathType"
     },
     "policyScopeType": {
       "enum": [
@@ -5414,113 +5762,134 @@
         "AWS",
         "Local"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "policyScopeType"
     },
     "policyVersionIdType": {
       "pattern": "v[1-9][0-9]*(\\.[A-Za-z0-9-]*)?",
-      "type": "string"
+      "type": "string",
+      "title": "policyVersionIdType"
     },
     "privateKeyType": {
       "format": "password",
       "maxLength": 16384,
       "minLength": 1,
       "pattern": "[\\u0009\\u000A\\u000D\\u0020-\\u00FF]+",
-      "type": "string"
+      "type": "string",
+      "title": "privateKeyType"
     },
     "publicKeyFingerprintType": {
       "maxLength": 48,
       "minLength": 48,
       "pattern": "[:\\w]+",
-      "type": "string"
+      "type": "string",
+      "title": "publicKeyFingerprintType"
     },
     "publicKeyIdType": {
       "maxLength": 128,
       "minLength": 20,
       "pattern": "[\\w]+",
-      "type": "string"
+      "type": "string",
+      "title": "publicKeyIdType"
     },
     "publicKeyMaterialType": {
       "maxLength": 16384,
       "minLength": 1,
       "pattern": "[\\u0009\\u000A\\u000D\\u0020-\\u00FF]+",
-      "type": "string"
+      "type": "string",
+      "title": "publicKeyMaterialType"
     },
     "roleDescriptionType": {
       "maxLength": 1000,
       "pattern": "[\\p{L}\\p{M}\\p{Z}\\p{S}\\p{N}\\p{P}]*",
-      "type": "string"
+      "type": "string",
+      "title": "roleDescriptionType"
     },
     "roleDetailListType": {
       "items": {
         "$ref": "#/definitions/RoleDetail"
       },
-      "type": "array"
+      "type": "array",
+      "title": "roleDetailListType"
     },
     "roleListType": {
       "description": "<p>Contains a list of IAM roles.</p> <p>This data type is used as a response element in the <a>ListRoles</a> action.</p>",
       "items": {
         "$ref": "#/definitions/Role"
       },
-      "type": "array"
+      "type": "array",
+      "title": "roleListType"
     },
     "roleNameType": {
       "maxLength": 64,
       "minLength": 1,
       "pattern": "[\\w+=,.@-]+",
-      "type": "string"
+      "type": "string",
+      "title": "roleNameType"
     },
     "serialNumberType": {
       "maxLength": 256,
       "minLength": 9,
       "pattern": "[\\w+=/:,.@-]+",
-      "type": "string"
+      "type": "string",
+      "title": "serialNumberType"
     },
     "serverCertificateMetadataListType": {
       "items": {
         "$ref": "#/definitions/ServerCertificateMetadata"
       },
-      "type": "array"
+      "type": "array",
+      "title": "serverCertificateMetadataListType"
     },
     "serverCertificateNameType": {
       "maxLength": 128,
       "minLength": 1,
       "pattern": "[\\w+=,.@-]+",
-      "type": "string"
+      "type": "string",
+      "title": "serverCertificateNameType"
     },
     "serviceFailureExceptionMessage": {
-      "type": "string"
+      "type": "string",
+      "title": "serviceFailureExceptionMessage"
     },
     "serviceName": {
-      "type": "string"
+      "type": "string",
+      "title": "serviceName"
     },
     "serviceNotSupportedMessage": {
-      "type": "string"
+      "type": "string",
+      "title": "serviceNotSupportedMessage"
     },
     "servicePassword": {
       "format": "password",
-      "type": "string"
+      "type": "string",
+      "title": "servicePassword"
     },
     "serviceSpecificCredentialId": {
       "maxLength": 128,
       "minLength": 20,
       "pattern": "[\\w]+",
-      "type": "string"
+      "type": "string",
+      "title": "serviceSpecificCredentialId"
     },
     "serviceUserName": {
       "maxLength": 200,
       "minLength": 17,
       "pattern": "[\\w+=,.@-]+",
-      "type": "string"
+      "type": "string",
+      "title": "serviceUserName"
     },
     "statusType": {
       "enum": [
         "Active",
         "Inactive"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "statusType"
     },
     "stringType": {
-      "type": "string"
+      "type": "string",
+      "title": "stringType"
     },
     "summaryKeyType": {
       "enum": [
@@ -5550,7 +5919,8 @@
         "PolicyVersionsInUseQuota",
         "VersionsPerPolicyQuota"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "summaryKeyType"
     },
     "summaryMapType": {
       "items": {
@@ -5564,59 +5934,70 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "summaryMapType"
     },
     "summaryValueType": {
-      "type": "integer"
+      "type": "integer",
+      "title": "summaryValueType"
     },
     "thumbprintListType": {
       "description": "Contains a list of thumbprints of identity provider server certificates.",
       "items": {
         "$ref": "#/definitions/thumbprintType"
       },
-      "type": "array"
+      "type": "array",
+      "title": "thumbprintListType"
     },
     "thumbprintType": {
       "description": "<p>Contains a thumbprint for an identity provider's server certificate.</p> <p>The identity provider's server certificate thumbprint is the hex-encoded SHA-1 hash value of the self-signed X.509 certificate used by the domain where the OpenID Connect provider makes its keys available. It is always a 40-character string.</p>",
       "maxLength": 40,
       "minLength": 40,
-      "type": "string"
+      "type": "string",
+      "title": "thumbprintType"
     },
     "unmodifiableEntityMessage": {
-      "type": "string"
+      "type": "string",
+      "title": "unmodifiableEntityMessage"
     },
     "unrecognizedPublicKeyEncodingMessage": {
-      "type": "string"
+      "type": "string",
+      "title": "unrecognizedPublicKeyEncodingMessage"
     },
     "userDetailListType": {
       "items": {
         "$ref": "#/definitions/UserDetail"
       },
-      "type": "array"
+      "type": "array",
+      "title": "userDetailListType"
     },
     "userListType": {
       "description": "<p>Contains a list of users.</p> <p>This data type is used as a response element in the <a>GetGroup</a> and <a>ListUsers</a> actions. </p>",
       "items": {
         "$ref": "#/definitions/User"
       },
-      "type": "array"
+      "type": "array",
+      "title": "userListType"
     },
     "userNameType": {
       "maxLength": 64,
       "minLength": 1,
       "pattern": "[\\w+=,.@-]+",
-      "type": "string"
+      "type": "string",
+      "title": "userNameType"
     },
     "virtualMFADeviceListType": {
       "items": {
         "$ref": "#/definitions/VirtualMFADevice"
       },
-      "type": "array"
+      "type": "array",
+      "title": "virtualMFADeviceListType"
     },
     "virtualMFADeviceName": {
       "minLength": 1,
       "pattern": "[\\w+=,.@-]+",
-      "type": "string"
+      "type": "string",
+      "title": "virtualMFADeviceName"
     }
   },
   "actions": [

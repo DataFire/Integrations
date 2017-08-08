@@ -103,7 +103,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "articlesList"
     },
     "blogList": {
       "properties": {
@@ -177,7 +178,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "blogList"
     },
     "blogPage": {
       "properties": {
@@ -249,7 +251,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "blogPage"
     },
     "glossaryList": {
       "properties": {
@@ -307,7 +310,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "glossaryList"
     },
     "glossaryPage": {
       "properties": {
@@ -357,7 +361,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "glossaryPage"
     },
     "page": {
       "properties": {
@@ -412,7 +417,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "page"
     },
     "questionPage": {
       "properties": {
@@ -459,7 +465,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "questionPage"
     },
     "questionsList": {
       "properties": {
@@ -514,7 +521,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "questionsList"
     },
     "statePage": {
       "properties": {
@@ -565,7 +573,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "statePage"
     },
     "statesList": {
       "properties": {
@@ -627,7 +636,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "statesList"
     },
     "topicsList": {
       "properties": {
@@ -707,7 +717,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "topicsList"
     }
   },
   "actions": [

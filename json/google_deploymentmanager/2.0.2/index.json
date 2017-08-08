@@ -54,7 +54,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AuditConfig"
     },
     "AuditLogConfig": {
       "description": "Provides the configuration for logging a type of permissions. Example:\n\n{ \"audit_log_configs\": [ { \"log_type\": \"DATA_READ\", \"exempted_members\": [ \"user:foo@gmail.com\" ] }, { \"log_type\": \"DATA_WRITE\", } ] }\n\nThis enables 'DATA_READ' and 'DATA_WRITE' logging, while exempting foo@gmail.com from DATA_READ logging.",
@@ -71,7 +72,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AuditLogConfig"
     },
     "Binding": {
       "description": "Associates `members` with a `role`.",
@@ -88,7 +90,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Binding"
     },
     "Condition": {
       "description": "A condition to be met.",
@@ -121,7 +124,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Condition"
     },
     "ConfigFile": {
       "description": "",
@@ -131,7 +135,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ConfigFile"
     },
     "Deployment": {
       "description": "",
@@ -186,7 +191,8 @@
           "description": "[Output Only] If Deployment Manager is currently updating or previewing an update to this deployment, the updated configuration appears here."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Deployment"
     },
     "DeploymentLabelEntry": {
       "properties": {
@@ -197,7 +203,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DeploymentLabelEntry"
     },
     "DeploymentUpdate": {
       "description": "",
@@ -218,7 +225,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DeploymentUpdate"
     },
     "DeploymentUpdateLabelEntry": {
       "properties": {
@@ -229,7 +237,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DeploymentUpdateLabelEntry"
     },
     "DeploymentsCancelPreviewRequest": {
       "description": "",
@@ -240,7 +249,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DeploymentsCancelPreviewRequest"
     },
     "DeploymentsListResponse": {
       "description": "A response containing a partial list of deployments and a page token used to build the next request if the request has been truncated.",
@@ -257,7 +267,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DeploymentsListResponse"
     },
     "DeploymentsStopRequest": {
       "description": "",
@@ -268,7 +279,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DeploymentsStopRequest"
     },
     "ImportFile": {
       "description": "",
@@ -282,7 +294,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ImportFile"
     },
     "LogConfig": {
       "description": "Specifies what kind of log the caller must write",
@@ -292,7 +305,8 @@
           "description": "Counter options."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LogConfig"
     },
     "LogConfigCounterOptions": {
       "description": "Options for counters",
@@ -306,7 +320,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LogConfigCounterOptions"
     },
     "Manifest": {
       "description": "",
@@ -348,7 +363,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Manifest"
     },
     "ManifestsListResponse": {
       "description": "A response containing a partial list of manifests and a page token used to build the next request if the request has been truncated.",
@@ -365,7 +381,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ManifestsListResponse"
     },
     "Operation": {
       "description": "An Operation resource, used to manage asynchronous API requests.",
@@ -521,7 +538,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Operation"
     },
     "OperationsListResponse": {
       "description": "A response containing a partial list of operations and a page token used to build the next request if the request has been truncated.",
@@ -538,7 +556,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "OperationsListResponse"
     },
     "Policy": {
       "description": "Defines an Identity and Access Management (IAM) policy. It is used to specify access control policies for Cloud Platform resources.\n\n\n\nA `Policy` consists of a list of `bindings`. A `Binding` binds a list of `members` to a `role`, where the members can be user accounts, Google groups, Google domains, and service accounts. A `role` is a named list of permissions defined by IAM.\n\n**Example**\n\n{ \"bindings\": [ { \"role\": \"roles/owner\", \"members\": [ \"user:mike@example.com\", \"group:admins@example.com\", \"domain:google.com\", \"serviceAccount:my-other-app@appspot.gserviceaccount.com\", ] }, { \"role\": \"roles/viewer\", \"members\": [\"user:sean@example.com\"] } ] }\n\nFor a description of IAM and its features, see the [IAM developer's guide](https://cloud.google.com/iam).",
@@ -579,7 +598,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Policy"
     },
     "Resource": {
       "description": "",
@@ -664,7 +684,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Resource"
     },
     "ResourceAccessControl": {
       "description": "The access controls set on the resource.",
@@ -674,7 +695,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ResourceAccessControl"
     },
     "ResourceUpdate": {
       "description": "",
@@ -765,7 +787,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ResourceUpdate"
     },
     "ResourcesListResponse": {
       "description": "A response containing a partial list of resources and a page token used to build the next request if the request has been truncated.",
@@ -782,7 +805,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ResourcesListResponse"
     },
     "Rule": {
       "description": "A rule to be applied in a Policy.",
@@ -831,7 +855,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Rule"
     },
     "TargetConfiguration": {
       "description": "",
@@ -848,7 +873,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TargetConfiguration"
     },
     "TestPermissionsRequest": {
       "properties": {
@@ -860,7 +886,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TestPermissionsRequest"
     },
     "TestPermissionsResponse": {
       "properties": {
@@ -872,7 +899,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TestPermissionsResponse"
     },
     "Type": {
       "description": "A resource type supported by Deployment Manager.",
@@ -899,7 +927,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Type"
     },
     "TypesListResponse": {
       "description": "A response that returns all Types supported by Deployment Manager",
@@ -916,7 +945,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TypesListResponse"
     }
   },
   "actions": [

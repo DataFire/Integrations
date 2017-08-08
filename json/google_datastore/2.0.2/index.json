@@ -41,7 +41,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AllocateIdsRequest"
     },
     "AllocateIdsResponse": {
       "description": "The response for Datastore.AllocateIds.",
@@ -54,7 +55,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AllocateIdsResponse"
     },
     "ArrayValue": {
       "description": "An array value.",
@@ -67,12 +69,14 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ArrayValue"
     },
     "BeginTransactionRequest": {
       "description": "The request for Datastore.BeginTransaction.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "BeginTransactionRequest"
     },
     "BeginTransactionResponse": {
       "description": "The response for Datastore.BeginTransaction.",
@@ -83,7 +87,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BeginTransactionResponse"
     },
     "CommitRequest": {
       "description": "The request for Datastore.Commit.",
@@ -110,7 +115,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CommitRequest"
     },
     "CommitResponse": {
       "description": "The response for Datastore.Commit.",
@@ -128,7 +134,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CommitResponse"
     },
     "CompositeFilter": {
       "description": "A filter that merges multiple other filters using the given operator.",
@@ -149,7 +156,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CompositeFilter"
     },
     "Entity": {
       "description": "A Datastore data object.\n\nAn entity is limited to 1 megabyte when stored. That _roughly_\ncorresponds to a limit of 1 megabyte for the serialized form of this\nmessage.",
@@ -166,7 +174,8 @@
           "type": "object"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Entity"
     },
     "EntityResult": {
       "description": "The result of fetching an entity from Datastore.",
@@ -186,7 +195,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "EntityResult"
     },
     "Filter": {
       "description": "A holder for any type of filter.",
@@ -200,7 +210,8 @@
           "description": "A filter on a property."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Filter"
     },
     "GqlQuery": {
       "description": "A [GQL query](https://cloud.google.com/datastore/docs/apis/gql/gql_reference).",
@@ -228,7 +239,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GqlQuery"
     },
     "GqlQueryParameter": {
       "description": "A binding parameter for a GQL query.",
@@ -243,7 +255,8 @@
           "description": "A value parameter."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GqlQueryParameter"
     },
     "Key": {
       "description": "A unique identifier for an entity.\nIf a key's partition ID or any of its path kinds or names are\nreserved/read-only, the key is reserved/read-only.\nA reserved/read-only key is forbidden in certain documented contexts.",
@@ -260,7 +273,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Key"
     },
     "KindExpression": {
       "description": "A representation of a kind.",
@@ -270,7 +284,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "KindExpression"
     },
     "LatLng": {
       "description": "An object representing a latitude/longitude pair. This is expressed as a pair\nof doubles representing degrees latitude and degrees longitude. Unless\nspecified otherwise, this must conform to the\n<a href=\"http://www.unoosa.org/pdf/icg/2012/template/WGS_84.pdf\">WGS84\nstandard</a>. Values must be within normalized ranges.\n\nExample of normalization code in Python:\n\n    def NormalizeLongitude(longitude):\n      \"\"\"Wraps decimal degrees longitude to [-180.0, 180.0].\"\"\"\n      q, r = divmod(longitude, 360.0)\n      if r > 180.0 or (r == 180.0 and q <= -1.0):\n        return r - 360.0\n      return r\n\n    def NormalizeLatLng(latitude, longitude):\n      \"\"\"Wraps decimal degrees latitude and longitude to\n      [-90.0, 90.0] and [-180.0, 180.0], respectively.\"\"\"\n      r = latitude % 360.0\n      if r <= 90.0:\n        return r, NormalizeLongitude(longitude)\n      elif r >= 270.0:\n        return r - 360, NormalizeLongitude(longitude)\n      else:\n        return 180 - r, NormalizeLongitude(longitude + 180.0)\n\n    assert 180.0 == NormalizeLongitude(180.0)\n    assert -180.0 == NormalizeLongitude(-180.0)\n    assert -179.0 == NormalizeLongitude(181.0)\n    assert (0.0, 0.0) == NormalizeLatLng(360.0, 0.0)\n    assert (0.0, 0.0) == NormalizeLatLng(-360.0, 0.0)\n    assert (85.0, 180.0) == NormalizeLatLng(95.0, 0.0)\n    assert (-85.0, -170.0) == NormalizeLatLng(-95.0, 10.0)\n    assert (90.0, 10.0) == NormalizeLatLng(90.0, 10.0)\n    assert (-90.0, -10.0) == NormalizeLatLng(-90.0, -10.0)\n    assert (0.0, -170.0) == NormalizeLatLng(-180.0, 10.0)\n    assert (0.0, -170.0) == NormalizeLatLng(180.0, 10.0)\n    assert (-90.0, 10.0) == NormalizeLatLng(270.0, 10.0)\n    assert (90.0, 10.0) == NormalizeLatLng(-270.0, 10.0)\n\nThe code in logs/storage/validator/logs_validator_traits.cc treats this type\nas if it were annotated as ST_LOCATION.",
@@ -286,7 +301,8 @@
           "type": "number"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LatLng"
     },
     "LookupRequest": {
       "description": "The request for Datastore.Lookup.",
@@ -303,7 +319,8 @@
           "description": "The options for this lookup request."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LookupRequest"
     },
     "LookupResponse": {
       "description": "The response for Datastore.Lookup.",
@@ -330,7 +347,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LookupResponse"
     },
     "Mutation": {
       "description": "A mutation to apply to an entity.",
@@ -357,7 +375,8 @@
           "description": "The entity to upsert. The entity may or may not already exist.\nThe entity key's final path element may be incomplete."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Mutation"
     },
     "MutationResult": {
       "description": "The result of applying a mutation.",
@@ -376,7 +395,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "MutationResult"
     },
     "PartitionId": {
       "description": "A partition ID identifies a grouping of entities. The grouping is always\nby project and namespace, however the namespace ID may be empty.\n\nA partition ID contains several dimensions:\nproject ID and namespace ID.\n\nPartition dimensions:\n\n- May be `\"\"`.\n- Must be valid UTF-8 bytes.\n- Must have values that match regex `[A-Za-z\\d\\.\\-_]{1,100}`\nIf the value of any dimension matches regex `__.*__`, the partition is\nreserved/read-only.\nA reserved/read-only partition ID is forbidden in certain documented\ncontexts.\n\nForeign partition IDs (in which the project ID does\nnot match the context project ID ) are discouraged.\nReads and writes of foreign partition IDs may fail if the project is not in an active state.",
@@ -390,7 +410,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PartitionId"
     },
     "PathElement": {
       "description": "A (kind, ID/name) pair used to construct a key path.\n\nIf either name or ID is set, the element is complete.\nIf neither is set, the element is incomplete.",
@@ -409,7 +430,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PathElement"
     },
     "Projection": {
       "description": "A representation of a property in a projection.",
@@ -419,7 +441,8 @@
           "description": "The property to project."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Projection"
     },
     "PropertyFilter": {
       "description": "A filter on a specific property.",
@@ -446,7 +469,8 @@
           "description": "The value to compare the property to."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PropertyFilter"
     },
     "PropertyOrder": {
       "description": "The desired order for a specific property.",
@@ -465,7 +489,8 @@
           "description": "The property to order by."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PropertyOrder"
     },
     "PropertyReference": {
       "description": "A reference to a property relative to the kind expressions.",
@@ -475,7 +500,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PropertyReference"
     },
     "Query": {
       "description": "A query for entities.",
@@ -533,7 +559,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Query"
     },
     "QueryResultBatch": {
       "description": "A batch of results produced by a query.",
@@ -587,7 +614,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "QueryResultBatch"
     },
     "ReadOptions": {
       "description": "The options shared by read requests.",
@@ -607,7 +635,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ReadOptions"
     },
     "RollbackRequest": {
       "description": "The request for Datastore.Rollback.",
@@ -618,12 +647,14 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RollbackRequest"
     },
     "RollbackResponse": {
       "description": "The response for Datastore.Rollback.\n(an empty message).",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "RollbackResponse"
     },
     "RunQueryRequest": {
       "description": "The request for Datastore.RunQuery.",
@@ -645,7 +676,8 @@
           "description": "The options for this query."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RunQueryRequest"
     },
     "RunQueryResponse": {
       "description": "The response for Datastore.RunQuery.",
@@ -659,7 +691,8 @@
           "description": "The parsed form of the `GqlQuery` from the request, if it was set."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RunQueryResponse"
     },
     "Value": {
       "description": "A message that can hold any of the supported value types and associated\nmetadata.",
@@ -725,7 +758,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Value"
     }
   },
   "actions": [

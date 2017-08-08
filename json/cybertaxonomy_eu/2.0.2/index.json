@@ -22,7 +22,8 @@
         "specificEpithet": {
           "type": "string"
         }
-      }
+      },
+      "title": "AtomisedName"
     },
     "ClientStatus": {
       "properties": {
@@ -38,7 +39,8 @@
           "description": "Status of the request, possible values are 'ok', 'timeout', 'interrupted', 'unsupported search mode'.",
           "type": "string"
         }
-      }
+      },
+      "title": "ClientStatus"
     },
     "HigherClassificationElement": {
       "properties": {
@@ -51,7 +53,8 @@
         "taxonID": {
           "type": "string"
         }
-      }
+      },
+      "title": "HigherClassificationElement"
     },
     "OtherNames": {
       "properties": {
@@ -68,7 +71,8 @@
           "description": "The URL pointing to the original name record of the checklist provider.",
           "type": "string"
         }
-      }
+      },
+      "title": "OtherNames"
     },
     "Query": {
       "properties": {
@@ -87,7 +91,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "Query"
     },
     "Request": {
       "properties": {
@@ -103,7 +108,8 @@
           "description": "Specified the search mode to be usedPossible search modes are: scientificNameExact, scientificNameLike (begins with), vernacularNameExact, vernacularNameLike (contains).",
           "type": "string"
         }
-      }
+      },
+      "title": "Request"
     },
     "Response": {
       "properties": {
@@ -160,7 +166,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "Response"
     },
     "ServiceProviderInfo": {
       "properties": {
@@ -193,7 +200,8 @@
         "version": {
           "type": "string"
         }
-      }
+      },
+      "title": "ServiceProviderInfo"
     },
     "Source": {
       "properties": {
@@ -213,7 +221,8 @@
         "url": {
           "type": "string"
         }
-      }
+      },
+      "title": "Source"
     },
     "Synonym": {
       "properties": {
@@ -238,7 +247,8 @@
           "description": "The URL pointing to the original record of the checklist provider.",
           "type": "string"
         }
-      }
+      },
+      "title": "Synonym"
     },
     "Taxon": {
       "properties": {
@@ -272,7 +282,8 @@
           "description": "The URL pointing to the original record of the checklist provider.",
           "type": "string"
         }
-      }
+      },
+      "title": "Taxon"
     },
     "TaxonName": {
       "properties": {
@@ -297,7 +308,8 @@
           "description": "The full scientific name, with authorship, publication date information and potentially further taxonomic information.",
           "type": "string"
         }
-      }
+      },
+      "title": "TaxonName"
     },
     "TnrMsg": {
       "properties": {
@@ -307,7 +319,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "TnrMsg"
     }
   },
   "actions": [

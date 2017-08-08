@@ -87,7 +87,8 @@
         "signedResourceTypes",
         "signedPermission",
         "signedExpiry"
-      ]
+      ],
+      "title": "AccountSasParameters"
     },
     "CheckNameAvailabilityResult": {
       "description": "The CheckNameAvailability operation response.",
@@ -115,7 +116,8 @@
             "name": "Reason"
           }
         }
-      }
+      },
+      "title": "CheckNameAvailabilityResult"
     },
     "CustomDomain": {
       "description": "The custom domain assigned to this storage account. This can be set via Update.",
@@ -131,7 +133,8 @@
       },
       "required": [
         "name"
-      ]
+      ],
+      "title": "CustomDomain"
     },
     "Encryption": {
       "description": "The encryption settings on the storage account.",
@@ -150,7 +153,8 @@
       },
       "required": [
         "keySource"
-      ]
+      ],
+      "title": "Encryption"
     },
     "EncryptionService": {
       "description": "A service that allows server-side encryption to be used.",
@@ -165,7 +169,8 @@
           "readOnly": true,
           "type": "string"
         }
-      }
+      },
+      "title": "EncryptionService"
     },
     "EncryptionServices": {
       "description": "A list of services that support encryption.",
@@ -188,7 +193,8 @@
           "description": "The encryption function of the table storage service.",
           "readOnly": true
         }
-      }
+      },
+      "title": "EncryptionServices"
     },
     "Endpoints": {
       "description": "The URIs that are used to perform a retrieval of a public blob, queue, or table object.",
@@ -213,7 +219,8 @@
           "readOnly": true,
           "type": "string"
         }
-      }
+      },
+      "title": "Endpoints"
     },
     "ListAccountSasResponse": {
       "description": "The List SAS credentials operation response.",
@@ -223,7 +230,8 @@
           "readOnly": true,
           "type": "string"
         }
-      }
+      },
+      "title": "ListAccountSasResponse"
     },
     "ListServiceSasResponse": {
       "description": "The List service SAS credentials operation response.",
@@ -233,7 +241,8 @@
           "readOnly": true,
           "type": "string"
         }
-      }
+      },
+      "title": "ListServiceSasResponse"
     },
     "Resource": {
       "description": "Describes a storage resource.",
@@ -265,7 +274,8 @@
           "type": "string"
         }
       },
-      "x-ms-azure-resource": true
+      "x-ms-azure-resource": true,
+      "title": "Resource"
     },
     "ServiceSasParameters": {
       "description": "The parameters to list service SAS credentials of a speicific resource.",
@@ -389,7 +399,8 @@
       "required": [
         "canonicalizedResource",
         "signedResource"
-      ]
+      ],
+      "title": "ServiceSasParameters"
     },
     "Sku": {
       "description": "The SKU of the storage account.",
@@ -425,7 +436,8 @@
       },
       "required": [
         "name"
-      ]
+      ],
+      "title": "Sku"
     },
     "StorageAccount": {
       "allOf": [
@@ -457,7 +469,8 @@
           "description": "Gets the SKU.",
           "readOnly": true
         }
-      }
+      },
+      "title": "StorageAccount"
     },
     "StorageAccountCheckNameAvailabilityParameters": {
       "description": "The parameters used to check the availabity of the storage account name.",
@@ -475,7 +488,8 @@
       "required": [
         "name",
         "type"
-      ]
+      ],
+      "title": "StorageAccountCheckNameAvailabilityParameters"
     },
     "StorageAccountCreateParameters": {
       "description": "The parameters used when creating a storage account.",
@@ -516,7 +530,8 @@
         "sku",
         "kind",
         "location"
-      ]
+      ],
+      "title": "StorageAccountCreateParameters"
     },
     "StorageAccountKey": {
       "description": "An access key for the storage account.",
@@ -544,7 +559,8 @@
           "readOnly": true,
           "type": "string"
         }
-      }
+      },
+      "title": "StorageAccountKey"
     },
     "StorageAccountListKeysResult": {
       "description": "The response from the ListKeys operation.",
@@ -557,7 +573,8 @@
           "readOnly": true,
           "type": "array"
         }
-      }
+      },
+      "title": "StorageAccountListKeysResult"
     },
     "StorageAccountListResult": {
       "description": "The response from the List Storage Accounts operation.",
@@ -570,7 +587,8 @@
           "readOnly": true,
           "type": "array"
         }
-      }
+      },
+      "title": "StorageAccountListResult"
     },
     "StorageAccountProperties": {
       "description": "Properties of the storage account.",
@@ -676,7 +694,8 @@
           "type": "boolean",
           "x-ms-client-name": "EnableHttpsTrafficOnly"
         }
-      }
+      },
+      "title": "StorageAccountProperties"
     },
     "StorageAccountPropertiesCreateParameters": {
       "description": "The parameters used to create the storage account.",
@@ -707,7 +726,8 @@
           "type": "boolean",
           "x-ms-client-name": "EnableHttpsTrafficOnly"
         }
-      }
+      },
+      "title": "StorageAccountPropertiesCreateParameters"
     },
     "StorageAccountPropertiesUpdateParameters": {
       "description": "The parameters used when updating a storage account.",
@@ -738,7 +758,8 @@
           "type": "boolean",
           "x-ms-client-name": "EnableHttpsTrafficOnly"
         }
-      }
+      },
+      "title": "StorageAccountPropertiesUpdateParameters"
     },
     "StorageAccountRegenerateKeyParameters": {
       "description": "The parameters used to regenerate the storage account key.",
@@ -749,7 +770,8 @@
       },
       "required": [
         "keyName"
-      ]
+      ],
+      "title": "StorageAccountRegenerateKeyParameters"
     },
     "StorageAccountUpdateParameters": {
       "description": "The parameters that can be provided when updating the storage account properties.",
@@ -769,7 +791,8 @@
           "description": "Gets or sets a list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater in length than 128 characters and a value no greater in length than 256 characters.",
           "type": "object"
         }
-      }
+      },
+      "title": "StorageAccountUpdateParameters"
     },
     "Usage": {
       "description": "Describes Storage Resource Usage.",
@@ -808,7 +831,8 @@
             "name": "UsageUnit"
           }
         }
-      }
+      },
+      "title": "Usage"
     },
     "UsageListResult": {
       "description": "The response from the List Usages operation.",
@@ -820,7 +844,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "UsageListResult"
     },
     "UsageName": {
       "description": "The usage names that can be used; currently limited to StorageAccount.",
@@ -835,7 +860,8 @@
           "readOnly": true,
           "type": "string"
         }
-      }
+      },
+      "title": "UsageName"
     }
   },
   "actions": [

@@ -43,7 +43,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Account"
     },
     "AccountLookupTool": {
       "properties": {
@@ -57,7 +58,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AccountLookupTool"
     },
     "AccountReview": {
       "properties": {
@@ -88,7 +90,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AccountReview"
     },
     "AccountSignalResult": {
       "properties": {
@@ -147,7 +150,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AccountSignalResult"
     },
     "Action": {
       "properties": {
@@ -172,7 +176,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Action"
     },
     "Action1": {
       "properties": {
@@ -196,7 +201,8 @@
           "$ref": "#/definitions/TransferAction"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Action1"
     },
     "Address": {
       "properties": {
@@ -225,7 +231,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Address"
     },
     "AfterSendSetting": {
       "properties": {
@@ -238,7 +245,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AfterSendSetting"
     },
     "AgentActivity": {
       "properties": {
@@ -282,10 +290,12 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AgentActivity"
     },
     "AgentActivitySource": {
-      "type": "object"
+      "type": "object",
+      "title": "AgentActivitySource"
     },
     "AgentSetting": {
       "properties": {
@@ -338,7 +348,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AgentSetting"
     },
     "AgentTransfer": {
       "properties": {
@@ -349,7 +360,8 @@
           "$ref": "#/definitions/Identity"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AgentTransfer"
     },
     "AgentUnreadCasesInfo": {
       "properties": {
@@ -360,7 +372,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AgentUnreadCasesInfo"
     },
     "AliasInfo": {
       "properties": {
@@ -371,7 +384,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AliasInfo"
     },
     "Answer": {
       "properties": {
@@ -397,7 +411,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Answer"
     },
     "AnswerSet": {
       "properties": {
@@ -417,7 +432,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AnswerSet"
     },
     "AssignCohortsRequest": {
       "properties": {
@@ -425,7 +441,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AssignCohortsRequest"
     },
     "AssignCohortsResponse": {
       "properties": {
@@ -436,7 +453,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AssignCohortsResponse"
     },
     "AssignRequest": {
       "properties": {
@@ -447,7 +465,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AssignRequest"
     },
     "AssignResponse": {
       "properties": {
@@ -455,7 +474,8 @@
           "$ref": "#/definitions/Case"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AssignResponse"
     },
     "Assignee": {
       "properties": {
@@ -466,7 +486,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Assignee"
     },
     "Assignee1": {
       "properties": {
@@ -477,7 +498,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Assignee1"
     },
     "Assignee2": {
       "properties": {
@@ -488,7 +510,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Assignee2"
     },
     "Attachment": {
       "properties": {
@@ -499,7 +522,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Attachment"
     },
     "Attachment1": {
       "properties": {
@@ -510,7 +534,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Attachment1"
     },
     "AttachmentInfo": {
       "properties": {
@@ -527,7 +552,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AttachmentInfo"
     },
     "Attribute": {
       "properties": {
@@ -563,7 +589,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Attribute"
     },
     "Attribute1": {
       "properties": {
@@ -580,7 +607,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Attribute1"
     },
     "AuthenticateRequest": {
       "properties": {
@@ -597,7 +625,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AuthenticateRequest"
     },
     "AuthenticateResponse": {
       "properties": {
@@ -620,7 +649,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AuthenticateResponse"
     },
     "Authentication": {
       "properties": {
@@ -650,7 +680,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Authentication"
     },
     "AuthenticationBankAccount": {
       "properties": {
@@ -661,7 +692,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AuthenticationBankAccount"
     },
     "AuthenticationCreditCard": {
       "properties": {
@@ -672,7 +704,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AuthenticationCreditCard"
     },
     "AuthenticationCreditCard1": {
       "properties": {
@@ -683,7 +716,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AuthenticationCreditCard1"
     },
     "AuthenticationInfo": {
       "properties": {
@@ -696,7 +730,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AuthenticationInfo"
     },
     "AuthenticationSettings": {
       "properties": {
@@ -707,10 +742,12 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AuthenticationSettings"
     },
     "AutoAssignRequest": {
-      "type": "object"
+      "type": "object",
+      "title": "AutoAssignRequest"
     },
     "AutoAssignResponse": {
       "properties": {
@@ -721,7 +758,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AutoAssignResponse"
     },
     "AutocheckResult": {
       "properties": {
@@ -750,7 +788,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AutocheckResult"
     },
     "AvailableQuestion": {
       "properties": {
@@ -784,7 +823,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AvailableQuestion"
     },
     "BankAccount": {
       "properties": {
@@ -798,7 +838,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BankAccount"
     },
     "BankAccount1": {
       "properties": {
@@ -809,7 +850,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BankAccount1"
     },
     "BankAccountCountry": {
       "properties": {
@@ -820,7 +862,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BankAccountCountry"
     },
     "BatchCreatePitchRequest": {
       "properties": {
@@ -843,7 +886,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BatchCreatePitchRequest"
     },
     "BatchCreatePitchResponse": {
       "properties": {
@@ -854,7 +898,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BatchCreatePitchResponse"
     },
     "BatchGetCategoryInfosResponse": {
       "properties": {
@@ -865,7 +910,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BatchGetCategoryInfosResponse"
     },
     "BatchUpdateAttributesRequest": {
       "properties": {
@@ -876,7 +922,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BatchUpdateAttributesRequest"
     },
     "BatchUpdateAttributesResponse": {
       "properties": {
@@ -884,7 +931,8 @@
           "$ref": "#/definitions/Case"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BatchUpdateAttributesResponse"
     },
     "BlockRequest": {
       "properties": {
@@ -903,7 +951,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BlockRequest"
     },
     "BlockResponse": {
       "properties": {
@@ -911,7 +960,8 @@
           "$ref": "#/definitions/Case"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BlockResponse"
     },
     "BuildNewEmailRequest": {
       "properties": {
@@ -919,7 +969,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BuildNewEmailRequest"
     },
     "BuildNewEmailResponse": {
       "properties": {
@@ -939,7 +990,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BuildNewEmailResponse"
     },
     "BuildReplyEmailRequest": {
       "properties": {
@@ -961,7 +1013,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BuildReplyEmailRequest"
     },
     "BuildReplyEmailResponse": {
       "properties": {
@@ -969,7 +1022,8 @@
           "$ref": "#/definitions/Email"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BuildReplyEmailResponse"
     },
     "Business": {
       "properties": {
@@ -984,10 +1038,12 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Business"
     },
     "CallBackRequest": {
-      "type": "object"
+      "type": "object",
+      "title": "CallBackRequest"
     },
     "CallBackResponse": {
       "properties": {
@@ -1015,7 +1071,8 @@
           "$ref": "#/definitions/Customer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CallBackResponse"
     },
     "Campaign": {
       "properties": {
@@ -1031,7 +1088,8 @@
           "type": "number"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Campaign"
     },
     "CancelAuthHoldRequest": {
       "properties": {
@@ -1039,7 +1097,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CancelAuthHoldRequest"
     },
     "CancelComponentsRequest": {
       "properties": {
@@ -1071,7 +1130,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CancelComponentsRequest"
     },
     "CancelComponentsResponse": {
       "properties": {
@@ -1092,7 +1152,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CancelComponentsResponse"
     },
     "CancelEntitlementRequest": {
       "properties": {
@@ -1127,7 +1188,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CancelEntitlementRequest"
     },
     "CancelEntitlementResponse": {
       "properties": {
@@ -1151,7 +1213,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CancelEntitlementResponse"
     },
     "CancelHardwareOrderRequest": {
       "properties": {
@@ -1162,7 +1225,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CancelHardwareOrderRequest"
     },
     "CancelHistorySummaryInfo": {
       "properties": {
@@ -1197,7 +1261,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CancelHistorySummaryInfo"
     },
     "CancelInfo": {
       "properties": {
@@ -1216,7 +1281,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CancelInfo"
     },
     "CancelResultInfo": {
       "properties": {
@@ -1234,7 +1300,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CancelResultInfo"
     },
     "CancelRmaRequest": {
       "properties": {
@@ -1251,7 +1318,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CancelRmaRequest"
     },
     "CancelRmaResponse": {
       "properties": {
@@ -1266,7 +1334,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CancelRmaResponse"
     },
     "CancelSendRequest": {
       "properties": {
@@ -1274,7 +1343,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CancelSendRequest"
     },
     "CancelSubscriptionRequest": {
       "properties": {
@@ -1306,7 +1376,8 @@
           "$ref": "#/definitions/Subscription"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CancelSubscriptionRequest"
     },
     "CancelSubscriptionResponse": {
       "properties": {
@@ -1318,7 +1389,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CancelSubscriptionResponse"
     },
     "CannedResponse": {
       "properties": {
@@ -1339,7 +1411,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CannedResponse"
     },
     "CannedResponse1": {
       "properties": {
@@ -1362,7 +1435,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CannedResponse1"
     },
     "CannedResponseAction": {
       "properties": {
@@ -1374,7 +1448,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CannedResponseAction"
     },
     "CardLookupCriteria": {
       "properties": {
@@ -1385,7 +1460,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CardLookupCriteria"
     },
     "Case": {
       "properties": {
@@ -1462,7 +1538,8 @@
           "$ref": "#/definitions/WorkflowInfo"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Case"
     },
     "CaseData": {
       "properties": {
@@ -1496,7 +1573,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CaseData"
     },
     "CasesReviewKey": {
       "properties": {
@@ -1513,7 +1591,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CasesReviewKey"
     },
     "CasesTransactionIdentifier": {
       "properties": {
@@ -1537,7 +1616,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CasesTransactionIdentifier"
     },
     "CasesWorkflow": {
       "properties": {
@@ -1548,7 +1628,8 @@
           "$ref": "#/definitions/UnauthorizedChargesWorkflow"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CasesWorkflow"
     },
     "Category": {
       "properties": {
@@ -1559,7 +1640,8 @@
           "$ref": "#/definitions/Path"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Category"
     },
     "Category1": {
       "properties": {
@@ -1570,7 +1652,8 @@
           "$ref": "#/definitions/Path1"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Category1"
     },
     "Category2": {
       "properties": {
@@ -1581,7 +1664,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Category2"
     },
     "Category3": {
       "properties": {
@@ -1592,7 +1676,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Category3"
     },
     "Category4": {
       "properties": {
@@ -1603,7 +1688,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Category4"
     },
     "Category5": {
       "properties": {
@@ -1614,7 +1700,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Category5"
     },
     "CategoryInfo": {
       "properties": {
@@ -1648,7 +1735,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CategoryInfo"
     },
     "CategoryPath": {
       "properties": {
@@ -1660,7 +1748,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CategoryPath"
     },
     "CategoryPath1": {
       "properties": {
@@ -1672,7 +1761,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CategoryPath1"
     },
     "ChannelCount": {
       "properties": {
@@ -1700,7 +1790,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ChannelCount"
     },
     "Charge": {
       "properties": {
@@ -1726,7 +1817,8 @@
           "$ref": "#/definitions/Money"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Charge"
     },
     "Chat": {
       "properties": {
@@ -1737,7 +1829,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Chat"
     },
     "Chat1": {
       "properties": {
@@ -1748,7 +1841,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Chat1"
     },
     "ChatMessage": {
       "properties": {
@@ -1762,7 +1856,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ChatMessage"
     },
     "ChatPool": {
       "properties": {
@@ -1773,7 +1868,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ChatPool"
     },
     "ChatPool1": {
       "properties": {
@@ -1784,7 +1880,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ChatPool1"
     },
     "ChatPool2": {
       "properties": {
@@ -1795,7 +1892,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ChatPool2"
     },
     "ChatTransfer": {
       "properties": {
@@ -1806,7 +1904,8 @@
           "$ref": "#/definitions/ChatPool"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ChatTransfer"
     },
     "CheckRedeemerRequest": {
       "properties": {
@@ -1826,7 +1925,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CheckRedeemerRequest"
     },
     "CheckRedeemerResponse": {
       "properties": {
@@ -1837,7 +1937,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CheckRedeemerResponse"
     },
     "CheckWalletAccountResponse": {
       "properties": {
@@ -1845,7 +1946,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CheckWalletAccountResponse"
     },
     "Cohort": {
       "properties": {
@@ -1859,7 +1961,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Cohort"
     },
     "Cohort1": {
       "properties": {
@@ -1879,7 +1982,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Cohort1"
     },
     "Cohort2": {
       "properties": {
@@ -1908,7 +2012,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Cohort2"
     },
     "CohortMetadataCollection": {
       "properties": {
@@ -1919,7 +2024,8 @@
           "$ref": "#/definitions/FormMetadata"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CohortMetadataCollection"
     },
     "Communication": {
       "properties": {
@@ -1996,7 +2102,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Communication"
     },
     "CommunicationInfo": {
       "properties": {
@@ -2032,7 +2139,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CommunicationInfo"
     },
     "ComponentData": {
       "properties": {
@@ -2043,7 +2151,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ComponentData"
     },
     "ComponentToken": {
       "properties": {
@@ -2051,7 +2160,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ComponentToken"
     },
     "ConsultAction": {
       "properties": {
@@ -2065,10 +2175,12 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ConsultAction"
     },
     "ConsultInfo": {
-      "type": "object"
+      "type": "object",
+      "title": "ConsultInfo"
     },
     "ConsultSettings": {
       "properties": {
@@ -2076,7 +2188,8 @@
           "$ref": "#/definitions/Category2"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ConsultSettings"
     },
     "Contact": {
       "properties": {
@@ -2087,7 +2200,8 @@
           "$ref": "#/definitions/EmailAddress"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Contact"
     },
     "ContactInfo": {
       "properties": {
@@ -2101,7 +2215,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ContactInfo"
     },
     "ContentInfo": {
       "properties": {
@@ -2130,7 +2245,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ContentInfo"
     },
     "CreateAgentActivityRequest": {
       "properties": {
@@ -2138,7 +2254,8 @@
           "$ref": "#/definitions/AgentActivity"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateAgentActivityRequest"
     },
     "CreateConsultNoteRequest": {
       "properties": {
@@ -2158,7 +2275,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateConsultNoteRequest"
     },
     "CreateConsultNoteResponse": {
       "properties": {
@@ -2166,7 +2284,8 @@
           "$ref": "#/definitions/Communication"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateConsultNoteResponse"
     },
     "CreateEmailRequest": {
       "properties": {
@@ -2228,7 +2347,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateEmailRequest"
     },
     "CreateEmailResponse": {
       "properties": {
@@ -2236,7 +2356,8 @@
           "$ref": "#/definitions/Communication"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateEmailResponse"
     },
     "CreateExchangeWithoutReturnRequest": {
       "properties": {
@@ -2259,7 +2380,8 @@
           "$ref": "#/definitions/MailingAddress"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateExchangeWithoutReturnRequest"
     },
     "CreateExchangeWithoutReturnResponse": {
       "properties": {
@@ -2296,7 +2418,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateExchangeWithoutReturnResponse"
     },
     "CreateFromHelpCenterDeepLinkRequest": {
       "properties": {
@@ -2307,10 +2430,12 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateFromHelpCenterDeepLinkRequest"
     },
     "CreateNewCaseRequest": {
-      "type": "object"
+      "type": "object",
+      "title": "CreateNewCaseRequest"
     },
     "CreateNewCaseResponse": {
       "properties": {
@@ -2318,7 +2443,8 @@
           "$ref": "#/definitions/Case"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateNewCaseResponse"
     },
     "CreateNoteConsultCaseRequest": {
       "properties": {
@@ -2362,7 +2488,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateNoteConsultCaseRequest"
     },
     "CreateNoteConsultCaseResponse": {
       "properties": {
@@ -2370,7 +2497,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateNoteConsultCaseResponse"
     },
     "CreateNoteRequest": {
       "properties": {
@@ -2401,7 +2529,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateNoteRequest"
     },
     "CreateNoteResponse": {
       "properties": {
@@ -2409,7 +2538,8 @@
           "$ref": "#/definitions/Communication"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateNoteResponse"
     },
     "CreatePitchResponse": {
       "properties": {
@@ -2423,7 +2553,8 @@
           "$ref": "#/definitions/Status"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreatePitchResponse"
     },
     "CreateRealTimeConsultCaseRequest": {
       "properties": {
@@ -2467,7 +2598,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateRealTimeConsultCaseRequest"
     },
     "CreateRealTimeConsultCaseResponse": {
       "properties": {
@@ -2475,7 +2607,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateRealTimeConsultCaseResponse"
     },
     "CreateTroubleshooterSessionRequest": {
       "properties": {
@@ -2489,7 +2622,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateTroubleshooterSessionRequest"
     },
     "CreateWorkflowRequest": {
       "properties": {
@@ -2497,7 +2631,8 @@
           "$ref": "#/definitions/CasesWorkflow"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateWorkflowRequest"
     },
     "CreditCard": {
       "properties": {
@@ -2517,7 +2652,8 @@
           "$ref": "#/definitions/CreditCardType"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreditCard"
     },
     "CreditCard1": {
       "properties": {
@@ -2540,7 +2676,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreditCard1"
     },
     "CreditCardType": {
       "properties": {
@@ -2560,7 +2697,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreditCardType"
     },
     "Customer": {
       "properties": {
@@ -2600,7 +2738,8 @@
           "$ref": "#/definitions/Timezone"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Customer"
     },
     "CustomerAnswer": {
       "properties": {
@@ -2632,7 +2771,8 @@
           "$ref": "#/definitions/Money"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CustomerAnswer"
     },
     "CustomerDocsSubmissionStatus": {
       "properties": {
@@ -2643,7 +2783,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CustomerDocsSubmissionStatus"
     },
     "CustomerIssue": {
       "properties": {
@@ -2676,7 +2817,8 @@
           "type": "number"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CustomerIssue"
     },
     "Date": {
       "properties": {
@@ -2693,7 +2835,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Date"
     },
     "Dcb": {
       "properties": {
@@ -2701,7 +2844,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Dcb"
     },
     "DeauthenticateRequest": {
       "properties": {
@@ -2709,7 +2853,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DeauthenticateRequest"
     },
     "DeauthenticateResponse": {
       "properties": {
@@ -2717,7 +2862,8 @@
           "$ref": "#/definitions/Customer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DeauthenticateResponse"
     },
     "DedupeRequest": {
       "properties": {
@@ -2731,7 +2877,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DedupeRequest"
     },
     "DedupeResponse": {
       "properties": {
@@ -2739,7 +2886,8 @@
           "$ref": "#/definitions/Case"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DedupeResponse"
     },
     "DeliveryInfo": {
       "properties": {
@@ -2754,10 +2902,12 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DeliveryInfo"
     },
     "DesktopScreenshareAcceptEvent": {
-      "type": "object"
+      "type": "object",
+      "title": "DesktopScreenshareAcceptEvent"
     },
     "DesktopScreenshareAutoDeclineEvent": {
       "properties": {
@@ -2769,22 +2919,28 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DesktopScreenshareAutoDeclineEvent"
     },
     "DesktopScreenshareCancelEvent": {
-      "type": "object"
+      "type": "object",
+      "title": "DesktopScreenshareCancelEvent"
     },
     "DesktopScreenshareCleanupEvent": {
-      "type": "object"
+      "type": "object",
+      "title": "DesktopScreenshareCleanupEvent"
     },
     "DesktopScreenshareConnectEvent": {
-      "type": "object"
+      "type": "object",
+      "title": "DesktopScreenshareConnectEvent"
     },
     "DesktopScreenshareDeclineEvent": {
-      "type": "object"
+      "type": "object",
+      "title": "DesktopScreenshareDeclineEvent"
     },
     "DesktopScreenshareDisconnectEvent": {
-      "type": "object"
+      "type": "object",
+      "title": "DesktopScreenshareDisconnectEvent"
     },
     "DesktopScreenshareEndEvent": {
       "properties": {
@@ -2792,7 +2948,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DesktopScreenshareEndEvent"
     },
     "DesktopScreenshareEvent": {
       "properties": {
@@ -2845,7 +3002,8 @@
           "$ref": "#/definitions/DesktopScreenshareStartingConnectEvent"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DesktopScreenshareEvent"
     },
     "DesktopScreenshareInitiateEvent": {
       "properties": {
@@ -2859,10 +3017,12 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DesktopScreenshareInitiateEvent"
     },
     "DesktopScreenshareInviteEvent": {
-      "type": "object"
+      "type": "object",
+      "title": "DesktopScreenshareInviteEvent"
     },
     "DesktopScreenshareJoinEvent": {
       "properties": {
@@ -2870,7 +3030,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DesktopScreenshareJoinEvent"
     },
     "DesktopScreenshareLeaveEvent": {
       "properties": {
@@ -2878,16 +3039,20 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DesktopScreenshareLeaveEvent"
     },
     "DesktopScreenshareReceivedEvent": {
-      "type": "object"
+      "type": "object",
+      "title": "DesktopScreenshareReceivedEvent"
     },
     "DesktopScreenshareRevivedEvent": {
-      "type": "object"
+      "type": "object",
+      "title": "DesktopScreenshareRevivedEvent"
     },
     "DesktopScreenshareStartingConnectEvent": {
-      "type": "object"
+      "type": "object",
+      "title": "DesktopScreenshareStartingConnectEvent"
     },
     "Device": {
       "properties": {
@@ -3019,7 +3184,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Device"
     },
     "Device1": {
       "properties": {
@@ -3059,7 +3225,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Device1"
     },
     "Device2": {
       "properties": {
@@ -3085,7 +3252,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Device2"
     },
     "DeviceRma": {
       "properties": {
@@ -3124,7 +3292,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DeviceRma"
     },
     "DifmAction": {
       "properties": {
@@ -3133,7 +3302,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DifmAction"
     },
     "DirectCarrierBilling": {
       "properties": {
@@ -3141,7 +3311,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DirectCarrierBilling"
     },
     "DiscardDraftRequest": {
       "properties": {
@@ -3149,10 +3320,12 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DiscardDraftRequest"
     },
     "DiscardDraftResponse": {
-      "type": "object"
+      "type": "object",
+      "title": "DiscardDraftResponse"
     },
     "Docid": {
       "properties": {
@@ -3236,7 +3409,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Docid"
     },
     "DraftInfo": {
       "properties": {
@@ -3255,7 +3429,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DraftInfo"
     },
     "Duplicate": {
       "properties": {
@@ -3266,7 +3441,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Duplicate"
     },
     "EasterEggSettings": {
       "properties": {
@@ -3274,7 +3450,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "EasterEggSettings"
     },
     "Email": {
       "properties": {
@@ -3300,7 +3477,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Email"
     },
     "Email1": {
       "properties": {
@@ -3308,7 +3486,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Email1"
     },
     "Email2": {
       "properties": {
@@ -3322,7 +3501,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Email2"
     },
     "EmailAddress": {
       "properties": {
@@ -3340,7 +3520,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "EmailAddress"
     },
     "EmploymentInfo": {
       "properties": {
@@ -3354,10 +3535,12 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "EmploymentInfo"
     },
     "Empty": {
-      "type": "object"
+      "type": "object",
+      "title": "Empty"
     },
     "Entitlement": {
       "properties": {
@@ -3471,7 +3654,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Entitlement"
     },
     "EntitlementBadge": {
       "properties": {
@@ -3488,7 +3672,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "EntitlementBadge"
     },
     "EntitlementComponent": {
       "properties": {
@@ -3580,7 +3765,8 @@
           "$ref": "#/definitions/Period"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "EntitlementComponent"
     },
     "Entry": {
       "properties": {
@@ -3615,7 +3801,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Entry"
     },
     "EnumValue": {
       "properties": {
@@ -3626,7 +3813,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "EnumValue"
     },
     "EscalateRequest": {
       "properties": {
@@ -3643,7 +3831,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "EscalateRequest"
     },
     "EscalateResponse": {
       "properties": {
@@ -3651,10 +3840,12 @@
           "$ref": "#/definitions/Case"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "EscalateResponse"
     },
     "EscalateSettings": {
-      "type": "object"
+      "type": "object",
+      "title": "EscalateSettings"
     },
     "EscalationInfo": {
       "properties": {
@@ -3671,7 +3862,8 @@
           "$ref": "#/definitions/LocaleTransfer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "EscalationInfo"
     },
     "EscalationTarget": {
       "properties": {
@@ -3688,7 +3880,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "EscalationTarget"
     },
     "ExtendedWarrantyInfo": {
       "properties": {
@@ -3703,7 +3896,8 @@
           "$ref": "#/definitions/Money"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ExtendedWarrantyInfo"
     },
     "ExternalToolSettings": {
       "properties": {
@@ -3714,7 +3908,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ExternalToolSettings"
     },
     "FinalizeConsultNoteRequest": {
       "properties": {
@@ -3722,7 +3917,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "FinalizeConsultNoteRequest"
     },
     "FinalizeConsultNoteResponse": {
       "properties": {
@@ -3730,7 +3926,8 @@
           "$ref": "#/definitions/Communication"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "FinalizeConsultNoteResponse"
     },
     "FinalizeNoteRequest": {
       "properties": {
@@ -3738,7 +3935,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "FinalizeNoteRequest"
     },
     "FinalizeNoteResponse": {
       "properties": {
@@ -3746,10 +3944,12 @@
           "$ref": "#/definitions/Communication"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "FinalizeNoteResponse"
     },
     "FinishRequest": {
-      "type": "object"
+      "type": "object",
+      "title": "FinishRequest"
     },
     "FinishResponse": {
       "properties": {
@@ -3757,7 +3957,8 @@
           "$ref": "#/definitions/Case"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "FinishResponse"
     },
     "FocusInfo": {
       "properties": {
@@ -3765,10 +3966,12 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "FocusInfo"
     },
     "Form": {
-      "type": "object"
+      "type": "object",
+      "title": "Form"
     },
     "FormField": {
       "properties": {
@@ -3785,7 +3988,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "FormField"
     },
     "FormField1": {
       "properties": {
@@ -3808,7 +4012,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "FormField1"
     },
     "FormField2": {
       "properties": {
@@ -3831,7 +4036,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "FormField2"
     },
     "FormFieldValue": {
       "properties": {
@@ -3842,7 +4048,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "FormFieldValue"
     },
     "FormFieldValue1": {
       "properties": {
@@ -3853,7 +4060,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "FormFieldValue1"
     },
     "FormFieldValue2": {
       "properties": {
@@ -3864,7 +4072,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "FormFieldValue2"
     },
     "FormMetadata": {
       "properties": {
@@ -3881,7 +4090,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "FormMetadata"
     },
     "GetAccountReviewStatusRequest": {
       "properties": {
@@ -3895,7 +4105,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetAccountReviewStatusRequest"
     },
     "GetAccountReviewStatusResponse": {
       "properties": {
@@ -3919,7 +4130,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetAccountReviewStatusResponse"
     },
     "GetAccountSignalsResponse": {
       "properties": {
@@ -3930,7 +4142,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetAccountSignalsResponse"
     },
     "GetAgentSearchCountResponse": {
       "properties": {
@@ -3941,7 +4154,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetAgentSearchCountResponse"
     },
     "GetAgentUnreadCasesInfoResponse": {
       "properties": {
@@ -3949,7 +4163,8 @@
           "$ref": "#/definitions/AgentUnreadCasesInfo"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetAgentUnreadCasesInfoResponse"
     },
     "GetAuthenticationCreditCardTypesRequest": {
       "properties": {
@@ -3957,7 +4172,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetAuthenticationCreditCardTypesRequest"
     },
     "GetAuthenticationCreditCardTypesResponse": {
       "properties": {
@@ -3983,7 +4199,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetAuthenticationCreditCardTypesResponse"
     },
     "GetAuthenticationQuestionsRequest": {
       "properties": {
@@ -3994,7 +4211,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetAuthenticationQuestionsRequest"
     },
     "GetAuthenticationQuestionsResponse": {
       "properties": {
@@ -4005,7 +4223,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetAuthenticationQuestionsResponse"
     },
     "GetAuthenticationResultRequest": {
       "properties": {
@@ -4016,7 +4235,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetAuthenticationResultRequest"
     },
     "GetAuthenticationResultResponse": {
       "properties": {
@@ -4030,7 +4250,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetAuthenticationResultResponse"
     },
     "GetBusinessListingsRequest": {
       "properties": {
@@ -4038,7 +4259,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetBusinessListingsRequest"
     },
     "GetBusinessListingsResponse": {
       "properties": {
@@ -4049,7 +4271,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetBusinessListingsResponse"
     },
     "GetByDeviceIdResponse": {
       "properties": {
@@ -4057,7 +4280,8 @@
           "$ref": "#/definitions/Device"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetByDeviceIdResponse"
     },
     "GetCancellationStatusRequest": {
       "properties": {
@@ -4068,7 +4292,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetCancellationStatusRequest"
     },
     "GetCancellationStatusResponse": {
       "properties": {
@@ -4088,7 +4313,8 @@
           "$ref": "#/definitions/Subscription"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetCancellationStatusResponse"
     },
     "GetConsultSlaRequest": {
       "properties": {
@@ -4118,7 +4344,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetConsultSlaRequest"
     },
     "GetConsultSlaResponse": {
       "properties": {
@@ -4126,7 +4353,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetConsultSlaResponse"
     },
     "GetCustomerSummaryRequest": {
       "properties": {
@@ -4173,7 +4401,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetCustomerSummaryRequest"
     },
     "GetCustomerSummaryResponse": {
       "properties": {
@@ -4213,7 +4442,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetCustomerSummaryResponse"
     },
     "GetEscalationTargetsResponse": {
       "properties": {
@@ -4224,7 +4454,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetEscalationTargetsResponse"
     },
     "GetHardwareOrderDetailRequest": {
       "properties": {
@@ -4235,7 +4466,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetHardwareOrderDetailRequest"
     },
     "GetHardwareSignalsRequest": {
       "properties": {
@@ -4243,7 +4475,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetHardwareSignalsRequest"
     },
     "GetHardwareSignalsResponse": {
       "properties": {
@@ -4251,7 +4484,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetHardwareSignalsResponse"
     },
     "GetLostStolenEligibilityRequest": {
       "properties": {
@@ -4262,7 +4496,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetLostStolenEligibilityRequest"
     },
     "GetLostStolenRefundEligibilityRequest": {
       "properties": {
@@ -4273,7 +4508,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetLostStolenRefundEligibilityRequest"
     },
     "GetMailingAddressRequest": {
       "properties": {
@@ -4287,7 +4523,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetMailingAddressRequest"
     },
     "GetMyAssignStreamSearchesResponse": {
       "properties": {
@@ -4304,7 +4541,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetMyAssignStreamSearchesResponse"
     },
     "GetOneTimePurchasesRequest": {
       "properties": {
@@ -4325,7 +4563,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetOneTimePurchasesRequest"
     },
     "GetOneTimePurchasesResponse": {
       "properties": {
@@ -4339,7 +4578,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetOneTimePurchasesResponse"
     },
     "GetOrdersRequest": {
       "properties": {
@@ -4362,7 +4602,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetOrdersRequest"
     },
     "GetOrdersResponse": {
       "properties": {
@@ -4373,7 +4614,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetOrdersResponse"
     },
     "GetPaymentMethodHijackReviewsStatusRequest": {
       "properties": {
@@ -4390,7 +4632,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetPaymentMethodHijackReviewsStatusRequest"
     },
     "GetPaymentMethodHijackReviewsStatusResponse": {
       "properties": {
@@ -4465,7 +4708,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetPaymentMethodHijackReviewsStatusResponse"
     },
     "GetPaymentsInfoRequest": {
       "properties": {
@@ -4476,7 +4720,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetPaymentsInfoRequest"
     },
     "GetPaymentsInfoResponse": {
       "properties": {
@@ -4484,7 +4729,8 @@
           "$ref": "#/definitions/PaymentsInfo"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetPaymentsInfoResponse"
     },
     "GetPhoneSettingResponse": {
       "properties": {
@@ -4492,7 +4738,8 @@
           "$ref": "#/definitions/PhoneSetting"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetPhoneSettingResponse"
     },
     "GetRefundStatusRequest": {
       "properties": {
@@ -4503,7 +4750,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetRefundStatusRequest"
     },
     "GetRefundStatusResponse": {
       "properties": {
@@ -4613,7 +4861,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetRefundStatusResponse"
     },
     "GetReplacementDetailRequest": {
       "properties": {
@@ -4624,7 +4873,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetReplacementDetailRequest"
     },
     "GetRmaOrderDetailRequest": {
       "properties": {
@@ -4635,7 +4885,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetRmaOrderDetailRequest"
     },
     "GetRoutingTargetsResponse": {
       "properties": {
@@ -4646,7 +4897,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetRoutingTargetsResponse"
     },
     "GetShippingAddressRequest": {
       "properties": {
@@ -4660,7 +4912,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetShippingAddressRequest"
     },
     "GetShippingCustomerNameRequest": {
       "properties": {
@@ -4671,7 +4924,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetShippingCustomerNameRequest"
     },
     "GetShippingCustomerPhoneNumberRequest": {
       "properties": {
@@ -4682,7 +4936,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetShippingCustomerPhoneNumberRequest"
     },
     "GetSubscriptionsRequest": {
       "properties": {
@@ -4705,7 +4960,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetSubscriptionsRequest"
     },
     "GetSubscriptionsResponse": {
       "properties": {
@@ -4716,7 +4972,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetSubscriptionsResponse"
     },
     "GiftCard": {
       "properties": {
@@ -4744,7 +5001,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GiftCard"
     },
     "HardwareDiscount": {
       "properties": {
@@ -4755,7 +5013,8 @@
           "$ref": "#/definitions/Money"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "HardwareDiscount"
     },
     "HardwareId": {
       "properties": {
@@ -4778,7 +5037,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "HardwareId"
     },
     "HardwareOrderDetail": {
       "properties": {
@@ -4807,7 +5067,8 @@
           "$ref": "#/definitions/Money"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "HardwareOrderDetail"
     },
     "HardwareOrderLineItem": {
       "properties": {
@@ -4855,7 +5116,8 @@
           "$ref": "#/definitions/Money"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "HardwareOrderLineItem"
     },
     "HardwareOrderLineItemRefund": {
       "properties": {
@@ -4875,7 +5137,8 @@
           "$ref": "#/definitions/ShippingInfo"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "HardwareOrderLineItemRefund"
     },
     "HardwareOrderListItem": {
       "properties": {
@@ -4898,10 +5161,12 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "HardwareOrderListItem"
     },
     "HardwareOrderRefund": {
-      "type": "object"
+      "type": "object",
+      "title": "HardwareOrderRefund"
     },
     "HardwareOrderWorkflow": {
       "properties": {
@@ -4918,7 +5183,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "HardwareOrderWorkflow"
     },
     "HardwareRefund": {
       "properties": {
@@ -4981,7 +5247,8 @@
           "$ref": "#/definitions/Money"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "HardwareRefund"
     },
     "HardwareShipment": {
       "properties": {
@@ -5098,7 +5365,8 @@
           "$ref": "#/definitions/Money"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "HardwareShipment"
     },
     "HardwareShipmentInvestigation": {
       "properties": {
@@ -5115,7 +5383,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "HardwareShipmentInvestigation"
     },
     "HardwareShipmentRefund": {
       "properties": {
@@ -5123,7 +5392,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "HardwareShipmentRefund"
     },
     "Headers": {
       "properties": {
@@ -5155,7 +5425,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Headers"
     },
     "HelpCenterContent": {
       "properties": {
@@ -5185,7 +5456,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "HelpCenterContent"
     },
     "HelpCenterContent1": {
       "properties": {
@@ -5218,7 +5490,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "HelpCenterContent1"
     },
     "HelpCenterContent2": {
       "properties": {
@@ -5248,7 +5521,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "HelpCenterContent2"
     },
     "HelpCenterContent3": {
       "properties": {
@@ -5295,10 +5569,12 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "HelpCenterContent3"
     },
     "HelpCenterDeepLinkSource": {
-      "type": "object"
+      "type": "object",
+      "title": "HelpCenterDeepLinkSource"
     },
     "Identity": {
       "properties": {
@@ -5315,7 +5591,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Identity"
     },
     "InitiatePaymentMethodHijackReviewsRequest": {
       "properties": {
@@ -5347,7 +5624,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InitiatePaymentMethodHijackReviewsRequest"
     },
     "InitiatePaymentMethodHijackReviewsResponse": {
       "properties": {
@@ -5369,7 +5647,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InitiatePaymentMethodHijackReviewsResponse"
     },
     "Interaction": {
       "properties": {
@@ -5408,7 +5687,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Interaction"
     },
     "InteractionCount": {
       "properties": {
@@ -5420,7 +5700,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InteractionCount"
     },
     "Issue": {
       "properties": {
@@ -5449,7 +5730,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Issue"
     },
     "Issue1": {
       "properties": {
@@ -5469,7 +5751,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Issue1"
     },
     "IssueCategoryAction": {
       "properties": {
@@ -5480,7 +5763,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "IssueCategoryAction"
     },
     "IssueCategorySettings": {
       "properties": {
@@ -5503,7 +5787,8 @@
           "$ref": "#/definitions/Category2"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "IssueCategorySettings"
     },
     "IssueFailure": {
       "properties": {
@@ -5539,7 +5824,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "IssueFailure"
     },
     "LineItem": {
       "properties": {
@@ -5574,7 +5860,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LineItem"
     },
     "ListAgentActivitiesResponse": {
       "properties": {
@@ -5588,7 +5875,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListAgentActivitiesResponse"
     },
     "ListAgentSettingsResponse": {
       "properties": {
@@ -5599,7 +5887,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListAgentSettingsResponse"
     },
     "ListBankAccountCountriesRequest": {
       "properties": {
@@ -5607,7 +5896,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListBankAccountCountriesRequest"
     },
     "ListBankAccountCountriesResponse": {
       "properties": {
@@ -5618,7 +5908,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListBankAccountCountriesResponse"
     },
     "ListBillingAddressesRequest": {
       "properties": {
@@ -5629,7 +5920,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListBillingAddressesRequest"
     },
     "ListBillingAddressesResponse": {
       "properties": {
@@ -5640,7 +5932,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListBillingAddressesResponse"
     },
     "ListBuyersRemorseCountryCodesResponse": {
       "properties": {
@@ -5651,7 +5944,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListBuyersRemorseCountryCodesResponse"
     },
     "ListCasesByAgentResponse": {
       "properties": {
@@ -5669,7 +5963,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListCasesByAgentResponse"
     },
     "ListChildrenCategoryInfosResponse": {
       "properties": {
@@ -5680,7 +5975,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListChildrenCategoryInfosResponse"
     },
     "ListCommunicationsResponse": {
       "properties": {
@@ -5691,7 +5987,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListCommunicationsResponse"
     },
     "ListCreditCardTypesRequest": {
       "properties": {
@@ -5699,7 +5996,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListCreditCardTypesRequest"
     },
     "ListCreditCardTypesResponse": {
       "properties": {
@@ -5710,7 +6008,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListCreditCardTypesResponse"
     },
     "ListCustomerIssuesResponse": {
       "properties": {
@@ -5727,7 +6026,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListCustomerIssuesResponse"
     },
     "ListDevicesRequest": {
       "properties": {
@@ -5738,7 +6038,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListDevicesRequest"
     },
     "ListDevicesResponse": {
       "properties": {
@@ -5752,7 +6053,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListDevicesResponse"
     },
     "ListDevicesResponse1": {
       "properties": {
@@ -5763,7 +6065,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListDevicesResponse1"
     },
     "ListHardwareOrdersRequest": {
       "properties": {
@@ -5774,7 +6077,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListHardwareOrdersRequest"
     },
     "ListHardwareOrdersResponse": {
       "properties": {
@@ -5785,7 +6089,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListHardwareOrdersResponse"
     },
     "ListHardwareRefundsRequest": {
       "properties": {
@@ -5796,7 +6101,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListHardwareRefundsRequest"
     },
     "ListHardwareRefundsResponse": {
       "properties": {
@@ -5807,7 +6113,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListHardwareRefundsResponse"
     },
     "ListInteractionsResponse": {
       "properties": {
@@ -5821,7 +6128,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListInteractionsResponse"
     },
     "ListIssuesResponse": {
       "properties": {
@@ -5832,7 +6140,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListIssuesResponse"
     },
     "ListOpportunitiesResponse": {
       "properties": {
@@ -5860,7 +6169,8 @@
           "$ref": "#/definitions/Program1"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListOpportunitiesResponse"
     },
     "ListOtherDevicesRequest": {
       "properties": {
@@ -5878,7 +6188,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListOtherDevicesRequest"
     },
     "ListOtherDevicesResponse": {
       "properties": {
@@ -5892,7 +6203,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListOtherDevicesResponse"
     },
     "ListPaymentInstrumentTypeInfosResponse": {
       "properties": {
@@ -5903,7 +6215,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListPaymentInstrumentTypeInfosResponse"
     },
     "ListProductsResponse": {
       "properties": {
@@ -5920,7 +6233,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListProductsResponse"
     },
     "ListPropertiesResponse": {
       "properties": {
@@ -5931,7 +6245,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListPropertiesResponse"
     },
     "ListPurchasedAppsRequest": {
       "properties": {
@@ -5945,7 +6260,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListPurchasedAppsRequest"
     },
     "ListPurchasedAppsResponse": {
       "properties": {
@@ -5956,7 +6272,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListPurchasedAppsResponse"
     },
     "ListPurchasedBooksRequest": {
       "properties": {
@@ -5970,7 +6287,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListPurchasedBooksRequest"
     },
     "ListPurchasedBooksResponse": {
       "properties": {
@@ -5981,7 +6299,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListPurchasedBooksResponse"
     },
     "ListPurchasedVideosRequest": {
       "properties": {
@@ -5995,7 +6314,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListPurchasedVideosRequest"
     },
     "ListPurchasedVideosResponse": {
       "properties": {
@@ -6006,7 +6326,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListPurchasedVideosResponse"
     },
     "ListRelatedCommunicationsResponse": {
       "properties": {
@@ -6017,7 +6338,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListRelatedCommunicationsResponse"
     },
     "ListResolutionsResponse": {
       "properties": {
@@ -6034,7 +6356,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListResolutionsResponse"
     },
     "ListRmasResponse": {
       "properties": {
@@ -6045,7 +6368,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListRmasResponse"
     },
     "ListSettingsResponse": {
       "properties": {
@@ -6056,7 +6380,8 @@
           "$ref": "#/definitions/SearchSetting"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListSettingsResponse"
     },
     "ListSettingsResponse1": {
       "properties": {
@@ -6073,7 +6398,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListSettingsResponse1"
     },
     "ListShippingAddressesRequest": {
       "properties": {
@@ -6084,7 +6410,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListShippingAddressesRequest"
     },
     "ListShippingAddressesResponse": {
       "properties": {
@@ -6095,7 +6422,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListShippingAddressesResponse"
     },
     "ListSubscriptionsRequest": {
       "properties": {
@@ -6112,7 +6440,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListSubscriptionsRequest"
     },
     "ListSubscriptionsResponse": {
       "properties": {
@@ -6129,7 +6458,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListSubscriptionsResponse"
     },
     "ListTopLevelCategoryInfosResponse": {
       "properties": {
@@ -6143,7 +6473,8 @@
           "$ref": "#/definitions/CategoryInfo"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListTopLevelCategoryInfosResponse"
     },
     "ListTransactionsRequest": {
       "properties": {
@@ -6208,7 +6539,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListTransactionsRequest"
     },
     "ListTransactionsRequest1": {
       "properties": {
@@ -6260,7 +6592,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListTransactionsRequest1"
     },
     "ListTransactionsResponse": {
       "properties": {
@@ -6274,7 +6607,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListTransactionsResponse"
     },
     "ListTransactionsResponse1": {
       "properties": {
@@ -6294,7 +6628,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListTransactionsResponse1"
     },
     "LocaleTransfer": {
       "properties": {
@@ -6305,7 +6640,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LocaleTransfer"
     },
     "LocalizedTimestamp": {
       "properties": {
@@ -6320,7 +6656,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LocalizedTimestamp"
     },
     "LogDataAccessRequest": {
       "properties": {
@@ -6335,7 +6672,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LogDataAccessRequest"
     },
     "LogResolutionRequest": {
       "properties": {
@@ -6346,7 +6684,8 @@
           "$ref": "#/definitions/ResolutionEvent"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LogResolutionRequest"
     },
     "LogTroubleshooterActivityRequest": {
       "properties": {
@@ -6357,7 +6696,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LogTroubleshooterActivityRequest"
     },
     "LookupGiftCardRequest": {
       "properties": {
@@ -6371,7 +6711,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LookupGiftCardRequest"
     },
     "LookupGiftCardResponse": {
       "properties": {
@@ -6379,7 +6720,8 @@
           "$ref": "#/definitions/GiftCard"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LookupGiftCardResponse"
     },
     "LostStolenDevice": {
       "properties": {
@@ -6396,7 +6738,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LostStolenDevice"
     },
     "LostStolenEligibility": {
       "properties": {
@@ -6412,7 +6755,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LostStolenEligibility"
     },
     "LostStolenRefundEligibility": {
       "properties": {
@@ -6431,7 +6775,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LostStolenRefundEligibility"
     },
     "LostStolenShipment": {
       "properties": {
@@ -6442,7 +6787,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LostStolenShipment"
     },
     "MailingAddress": {
       "properties": {
@@ -6474,7 +6820,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "MailingAddress"
     },
     "MarkOriginalDeviceReceivedRequest": {
       "properties": {
@@ -6485,7 +6832,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "MarkOriginalDeviceReceivedRequest"
     },
     "MatchDetail": {
       "properties": {
@@ -6496,7 +6844,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "MatchDetail"
     },
     "MatchPair": {
       "properties": {
@@ -6521,10 +6870,12 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "MatchPair"
     },
     "MobileScreenshareAcceptEvent": {
-      "type": "object"
+      "type": "object",
+      "title": "MobileScreenshareAcceptEvent"
     },
     "MobileScreenshareAutoDeclineEvent": {
       "properties": {
@@ -6539,22 +6890,28 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "MobileScreenshareAutoDeclineEvent"
     },
     "MobileScreenshareCancelEvent": {
-      "type": "object"
+      "type": "object",
+      "title": "MobileScreenshareCancelEvent"
     },
     "MobileScreenshareCleanupEvent": {
-      "type": "object"
+      "type": "object",
+      "title": "MobileScreenshareCleanupEvent"
     },
     "MobileScreenshareConnectEvent": {
-      "type": "object"
+      "type": "object",
+      "title": "MobileScreenshareConnectEvent"
     },
     "MobileScreenshareDeclineEvent": {
-      "type": "object"
+      "type": "object",
+      "title": "MobileScreenshareDeclineEvent"
     },
     "MobileScreenshareDisconnectEvent": {
-      "type": "object"
+      "type": "object",
+      "title": "MobileScreenshareDisconnectEvent"
     },
     "MobileScreenshareEndEvent": {
       "properties": {
@@ -6562,7 +6919,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "MobileScreenshareEndEvent"
     },
     "MobileScreenshareEvent": {
       "properties": {
@@ -6606,19 +6964,24 @@
           "$ref": "#/definitions/MobileScreenshareStartingConnectEvent"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "MobileScreenshareEvent"
     },
     "MobileScreenshareInitiateEvent": {
-      "type": "object"
+      "type": "object",
+      "title": "MobileScreenshareInitiateEvent"
     },
     "MobileScreenshareInviteEvent": {
-      "type": "object"
+      "type": "object",
+      "title": "MobileScreenshareInviteEvent"
     },
     "MobileScreenshareReceivedEvent": {
-      "type": "object"
+      "type": "object",
+      "title": "MobileScreenshareReceivedEvent"
     },
     "MobileScreenshareStartingConnectEvent": {
-      "type": "object"
+      "type": "object",
+      "title": "MobileScreenshareStartingConnectEvent"
     },
     "Money": {
       "properties": {
@@ -6634,10 +6997,12 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Money"
     },
     "NeedsInfoRequest": {
-      "type": "object"
+      "type": "object",
+      "title": "NeedsInfoRequest"
     },
     "NeedsInfoResponse": {
       "properties": {
@@ -6645,7 +7010,8 @@
           "$ref": "#/definitions/Case"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "NeedsInfoResponse"
     },
     "Node": {
       "properties": {
@@ -6660,7 +7026,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Node"
     },
     "Node1": {
       "properties": {
@@ -6675,7 +7042,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Node1"
     },
     "Node2": {
       "properties": {
@@ -6684,7 +7052,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Node2"
     },
     "Node3": {
       "properties": {
@@ -6693,7 +7062,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Node3"
     },
     "Node4": {
       "properties": {
@@ -6702,7 +7072,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Node4"
     },
     "Node5": {
       "properties": {
@@ -6711,7 +7082,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Node5"
     },
     "Note": {
       "properties": {
@@ -6746,7 +7118,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Note"
     },
     "OfferedSolutionRequest": {
       "properties": {
@@ -6754,7 +7127,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "OfferedSolutionRequest"
     },
     "OfferedSolutionResponse": {
       "properties": {
@@ -6762,7 +7136,8 @@
           "$ref": "#/definitions/Case"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "OfferedSolutionResponse"
     },
     "Opportunity": {
       "properties": {
@@ -6785,7 +7160,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Opportunity"
     },
     "Opportunity1": {
       "properties": {
@@ -6821,7 +7197,8 @@
           "type": "number"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Opportunity1"
     },
     "Order": {
       "properties": {
@@ -6912,7 +7289,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Order"
     },
     "OrderItem": {
       "properties": {
@@ -6946,7 +7324,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "OrderItem"
     },
     "OrderRefundStatusInfo": {
       "properties": {
@@ -6957,7 +7336,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "OrderRefundStatusInfo"
     },
     "Path": {
       "properties": {
@@ -6968,7 +7348,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Path"
     },
     "Path1": {
       "properties": {
@@ -6979,7 +7360,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Path1"
     },
     "Path2": {
       "properties": {
@@ -6991,7 +7373,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Path2"
     },
     "PaymentDetail": {
       "properties": {
@@ -7016,7 +7399,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PaymentDetail"
     },
     "PaymentDetail1": {
       "properties": {
@@ -7024,7 +7408,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PaymentDetail1"
     },
     "PaymentInstrumentTypeInfo": {
       "properties": {
@@ -7046,7 +7431,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PaymentInstrumentTypeInfo"
     },
     "PaymentMethodHijackTransaction": {
       "properties": {
@@ -7061,7 +7447,8 @@
           "$ref": "#/definitions/Date"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PaymentMethodHijackTransaction"
     },
     "PaymentsInfo": {
       "properties": {
@@ -7070,7 +7457,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PaymentsInfo"
     },
     "PaymentsSuggestion": {
       "properties": {
@@ -7084,7 +7472,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PaymentsSuggestion"
     },
     "Paypal": {
       "properties": {
@@ -7092,7 +7481,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Paypal"
     },
     "Paypal1": {
       "properties": {
@@ -7100,7 +7490,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Paypal1"
     },
     "Period": {
       "properties": {
@@ -7118,7 +7509,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Period"
     },
     "PhoneCall": {
       "properties": {
@@ -7133,7 +7525,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PhoneCall"
     },
     "PhoneInfo": {
       "properties": {
@@ -7141,7 +7534,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PhoneInfo"
     },
     "PhoneNumber": {
       "properties": {
@@ -7183,7 +7577,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PhoneNumber"
     },
     "PhoneSetting": {
       "properties": {
@@ -7200,7 +7595,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PhoneSetting"
     },
     "PhysicalMailingAddress": {
       "properties": {
@@ -7232,7 +7628,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PhysicalMailingAddress"
     },
     "Pitch": {
       "properties": {
@@ -7258,7 +7655,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Pitch"
     },
     "Pitch1": {
       "properties": {
@@ -7282,7 +7680,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Pitch1"
     },
     "PitchId": {
       "properties": {
@@ -7294,7 +7693,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PitchId"
     },
     "Product": {
       "properties": {
@@ -7314,7 +7714,8 @@
           "$ref": "#/definitions/Category"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Product"
     },
     "Product1": {
       "properties": {
@@ -7331,7 +7732,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Product1"
     },
     "Product2": {
       "properties": {
@@ -7357,7 +7759,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Product2"
     },
     "ProductCount": {
       "properties": {
@@ -7369,7 +7772,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ProductCount"
     },
     "ProductTransfer": {
       "properties": {
@@ -7380,7 +7784,8 @@
           "$ref": "#/definitions/Product"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ProductTransfer"
     },
     "Program": {
       "properties": {
@@ -7392,7 +7797,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Program"
     },
     "Program1": {
       "properties": {
@@ -7404,7 +7810,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Program1"
     },
     "Property": {
       "properties": {
@@ -7415,7 +7822,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Property"
     },
     "Purchase": {
       "properties": {
@@ -7537,7 +7945,8 @@
           "$ref": "#/definitions/LocalizedTimestamp"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Purchase"
     },
     "PurchasedApp": {
       "properties": {
@@ -7551,7 +7960,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PurchasedApp"
     },
     "PurchasedBook": {
       "properties": {
@@ -7565,7 +7975,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PurchasedBook"
     },
     "PurchasedVideo": {
       "properties": {
@@ -7579,7 +7990,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PurchasedVideo"
     },
     "QuestionSet": {
       "properties": {
@@ -7645,7 +8057,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "QuestionSet"
     },
     "QuestionSource": {
       "properties": {
@@ -7661,7 +8074,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "QuestionSource"
     },
     "QuickResponse": {
       "properties": {
@@ -7672,7 +8086,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "QuickResponse"
     },
     "ReadCaseRequest": {
       "properties": {
@@ -7680,7 +8095,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ReadCaseRequest"
     },
     "RealTime": {
       "properties": {
@@ -7706,7 +8122,8 @@
           "$ref": "#/definitions/Identity"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RealTime"
     },
     "RealTimeEvent": {
       "properties": {
@@ -7717,7 +8134,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RealTimeEvent"
     },
     "RealTimePool": {
       "properties": {
@@ -7728,7 +8146,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RealTimePool"
     },
     "RealTimeSetting": {
       "properties": {
@@ -7777,10 +8196,12 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RealTimeSetting"
     },
     "RecentlyViewedSource": {
-      "type": "object"
+      "type": "object",
+      "title": "RecentlyViewedSource"
     },
     "RedSignals": {
       "properties": {
@@ -7799,7 +8220,8 @@
           "$ref": "#/definitions/SubscriptionSignals"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RedSignals"
     },
     "RedeemGiftCardRequest": {
       "properties": {
@@ -7816,7 +8238,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RedeemGiftCardRequest"
     },
     "RedeemGiftCardResponse": {
       "properties": {
@@ -7839,7 +8262,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RedeemGiftCardResponse"
     },
     "RedemptionToken": {
       "properties": {
@@ -7847,7 +8271,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RedemptionToken"
     },
     "RefundDetail": {
       "properties": {
@@ -7880,7 +8305,8 @@
           "$ref": "#/definitions/Money"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RefundDetail"
     },
     "RefundEntry": {
       "properties": {
@@ -7908,7 +8334,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RefundEntry"
     },
     "RefundHardwareOrderRequest": {
       "properties": {
@@ -7919,7 +8346,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RefundHardwareOrderRequest"
     },
     "RefundHardwareOrderResponse": {
       "properties": {
@@ -7934,7 +8362,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RefundHardwareOrderResponse"
     },
     "RefundHistorySummaryInfo": {
       "properties": {
@@ -7969,7 +8398,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RefundHistorySummaryInfo"
     },
     "RefundOrdersRequest": {
       "properties": {
@@ -8001,7 +8431,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RefundOrdersRequest"
     },
     "RefundOrdersResponse": {
       "properties": {
@@ -8099,7 +8530,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RefundOrdersResponse"
     },
     "RefundTransactionsRequest": {
       "properties": {
@@ -8119,7 +8551,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RefundTransactionsRequest"
     },
     "RefundTransactionsResponse": {
       "properties": {
@@ -8130,7 +8563,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RefundTransactionsResponse"
     },
     "RelatedCommunications": {
       "properties": {
@@ -8167,7 +8601,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RelatedCommunications"
     },
     "Relation": {
       "properties": {
@@ -8175,7 +8610,8 @@
           "$ref": "#/definitions/Duplicate"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Relation"
     },
     "Relation1": {
       "properties": {
@@ -8233,10 +8669,12 @@
           "$ref": "#/definitions/WalletSignInReviewIds"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Relation1"
     },
     "ReleaseRequest": {
-      "type": "object"
+      "type": "object",
+      "title": "ReleaseRequest"
     },
     "ReleaseResponse": {
       "properties": {
@@ -8244,7 +8682,8 @@
           "$ref": "#/definitions/Case"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ReleaseResponse"
     },
     "ReplacementDetail": {
       "properties": {
@@ -8255,7 +8694,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ReplacementDetail"
     },
     "ReplacementDevice": {
       "properties": {
@@ -8275,7 +8715,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ReplacementDevice"
     },
     "ReplacementShipment": {
       "properties": {
@@ -8338,7 +8779,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ReplacementShipment"
     },
     "RequestDeviceSignalsAcceptEvent": {
       "properties": {
@@ -8346,16 +8788,20 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RequestDeviceSignalsAcceptEvent"
     },
     "RequestDeviceSignalsCancelEvent": {
-      "type": "object"
+      "type": "object",
+      "title": "RequestDeviceSignalsCancelEvent"
     },
     "RequestDeviceSignalsCleanupEvent": {
-      "type": "object"
+      "type": "object",
+      "title": "RequestDeviceSignalsCleanupEvent"
     },
     "RequestDeviceSignalsDeclineEvent": {
-      "type": "object"
+      "type": "object",
+      "title": "RequestDeviceSignalsDeclineEvent"
     },
     "RequestDeviceSignalsEvent": {
       "properties": {
@@ -8387,19 +8833,24 @@
           "$ref": "#/definitions/RequestDeviceSignalsTimeoutEvent"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RequestDeviceSignalsEvent"
     },
     "RequestDeviceSignalsInitiateEvent": {
-      "type": "object"
+      "type": "object",
+      "title": "RequestDeviceSignalsInitiateEvent"
     },
     "RequestDeviceSignalsInviteEvent": {
-      "type": "object"
+      "type": "object",
+      "title": "RequestDeviceSignalsInviteEvent"
     },
     "RequestDeviceSignalsReceivedEvent": {
-      "type": "object"
+      "type": "object",
+      "title": "RequestDeviceSignalsReceivedEvent"
     },
     "RequestDeviceSignalsTimeoutEvent": {
-      "type": "object"
+      "type": "object",
+      "title": "RequestDeviceSignalsTimeoutEvent"
     },
     "Requirement": {
       "properties": {
@@ -8415,7 +8866,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Requirement"
     },
     "Resolution": {
       "properties": {
@@ -8463,7 +8915,8 @@
           "$ref": "#/definitions/Workflow1"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Resolution"
     },
     "Resolution1": {
       "properties": {
@@ -8487,7 +8940,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Resolution1"
     },
     "ResolutionActivity": {
       "properties": {
@@ -8507,7 +8961,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ResolutionActivity"
     },
     "ResolutionEvent": {
       "properties": {
@@ -8530,7 +8985,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ResolutionEvent"
     },
     "ResolutionOpened": {
       "properties": {
@@ -8556,7 +9012,8 @@
           "$ref": "#/definitions/Workflow"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ResolutionOpened"
     },
     "ResolutionSearchSource": {
       "properties": {
@@ -8564,7 +9021,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ResolutionSearchSource"
     },
     "ReviewKey": {
       "properties": {
@@ -8581,7 +9039,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ReviewKey"
     },
     "Rma": {
       "properties": {
@@ -8724,7 +9183,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Rma"
     },
     "RmaCategory": {
       "properties": {
@@ -8747,7 +9207,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RmaCategory"
     },
     "RmaDescription": {
       "properties": {
@@ -8776,7 +9237,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RmaDescription"
     },
     "RmaDevice": {
       "properties": {
@@ -8793,7 +9255,8 @@
           "$ref": "#/definitions/ShippingInfo1"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RmaDevice"
     },
     "RmaFailure": {
       "properties": {
@@ -8829,7 +9292,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RmaFailure"
     },
     "RmaIdentifier": {
       "properties": {
@@ -8840,7 +9304,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RmaIdentifier"
     },
     "RmaInfo": {
       "properties": {
@@ -8874,7 +9339,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RmaInfo"
     },
     "RmaOrderDetail": {
       "properties": {
@@ -8936,7 +9402,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RmaOrderDetail"
     },
     "RmaReasonCode": {
       "properties": {
@@ -8947,7 +9414,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RmaReasonCode"
     },
     "RmaType": {
       "properties": {
@@ -8976,7 +9444,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RmaType"
     },
     "RouteRequest": {
       "properties": {
@@ -8993,7 +9462,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RouteRequest"
     },
     "RouteResponse": {
       "properties": {
@@ -9001,7 +9471,8 @@
           "$ref": "#/definitions/Case"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RouteResponse"
     },
     "RoutingInfo": {
       "properties": {
@@ -9021,7 +9492,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RoutingInfo"
     },
     "RoutingTarget": {
       "properties": {
@@ -9038,7 +9510,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RoutingTarget"
     },
     "RunRmaStepsRequest": {
       "properties": {
@@ -9084,7 +9557,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RunRmaStepsRequest"
     },
     "RunRmaStepsResponse": {
       "properties": {
@@ -9095,7 +9569,8 @@
           "$ref": "#/definitions/Rma"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RunRmaStepsResponse"
     },
     "RunWorkflowRequest": {
       "properties": {
@@ -9132,7 +9607,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RunWorkflowRequest"
     },
     "RunWorkflowResponse": {
       "properties": {
@@ -9140,7 +9616,8 @@
           "$ref": "#/definitions/WorkflowResult"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RunWorkflowResponse"
     },
     "SaveRmaRequest": {
       "properties": {
@@ -9148,7 +9625,8 @@
           "$ref": "#/definitions/Rma"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SaveRmaRequest"
     },
     "SaveRmaResponse": {
       "properties": {
@@ -9156,7 +9634,8 @@
           "$ref": "#/definitions/Rma"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SaveRmaResponse"
     },
     "Search": {
       "properties": {
@@ -9173,7 +9652,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Search"
     },
     "SearchAccountReviewsRequest": {
       "properties": {
@@ -9184,7 +9664,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SearchAccountReviewsRequest"
     },
     "SearchAccountReviewsResponse": {
       "properties": {
@@ -9195,7 +9676,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SearchAccountReviewsResponse"
     },
     "SearchCategoryInfosResponse": {
       "properties": {
@@ -9206,7 +9688,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SearchCategoryInfosResponse"
     },
     "SearchCount": {
       "properties": {
@@ -9232,7 +9715,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SearchCount"
     },
     "SearchMultipleCategoryInfosRequest": {
       "properties": {
@@ -9259,7 +9743,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SearchMultipleCategoryInfosRequest"
     },
     "SearchOrdersRequest": {
       "properties": {
@@ -9310,7 +9795,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SearchOrdersRequest"
     },
     "SearchOrdersResponse": {
       "properties": {
@@ -9324,7 +9810,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SearchOrdersResponse"
     },
     "SearchSetting": {
       "properties": {
@@ -9347,7 +9834,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SearchSetting"
     },
     "SendEmailRequest": {
       "properties": {
@@ -9358,7 +9846,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SendEmailRequest"
     },
     "SendEmailResponse": {
       "properties": {
@@ -9366,7 +9855,8 @@
           "$ref": "#/definitions/Communication"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SendEmailResponse"
     },
     "SendRmaRequest": {
       "properties": {
@@ -9383,7 +9873,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SendRmaRequest"
     },
     "SendRmaResponse": {
       "properties": {
@@ -9394,7 +9885,8 @@
           "$ref": "#/definitions/Rma"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SendRmaResponse"
     },
     "SetCallbackNumberRequest": {
       "properties": {
@@ -9402,10 +9894,12 @@
           "$ref": "#/definitions/PhoneNumber"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SetCallbackNumberRequest"
     },
     "SetCallbackNumberResponse": {
-      "type": "object"
+      "type": "object",
+      "title": "SetCallbackNumberResponse"
     },
     "Settings": {
       "properties": {
@@ -9457,7 +9951,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Settings"
     },
     "ShippingAddress": {
       "properties": {
@@ -9471,7 +9966,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ShippingAddress"
     },
     "ShippingCustomerName": {
       "properties": {
@@ -9479,7 +9975,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ShippingCustomerName"
     },
     "ShippingCustomerPhoneNumber": {
       "properties": {
@@ -9487,7 +9984,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ShippingCustomerPhoneNumber"
     },
     "ShippingInfo": {
       "properties": {
@@ -9537,7 +10035,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ShippingInfo"
     },
     "ShippingInfo1": {
       "properties": {
@@ -9575,7 +10074,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ShippingInfo1"
     },
     "ShmoovieSignals": {
       "properties": {
@@ -9629,7 +10129,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ShmoovieSignals"
     },
     "ShowSummaryAction": {
       "properties": {
@@ -9670,7 +10171,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ShowSummaryAction"
     },
     "SidewinderRole": {
       "properties": {
@@ -9678,7 +10180,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SidewinderRole"
     },
     "Source": {
       "properties": {
@@ -9718,10 +10221,12 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Source"
     },
     "SpamRequest": {
-      "type": "object"
+      "type": "object",
+      "title": "SpamRequest"
     },
     "SpamResponse": {
       "properties": {
@@ -9729,7 +10234,8 @@
           "$ref": "#/definitions/Case"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SpamResponse"
     },
     "SplitRequest": {
       "properties": {
@@ -9737,7 +10243,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SplitRequest"
     },
     "SplitResponse": {
       "properties": {
@@ -9748,7 +10255,8 @@
           "$ref": "#/definitions/Case"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SplitResponse"
     },
     "SplitTender": {
       "properties": {
@@ -9773,7 +10281,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SplitTender"
     },
     "Status": {
       "properties": {
@@ -9792,7 +10301,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Status"
     },
     "StepResult": {
       "properties": {
@@ -9820,7 +10330,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "StepResult"
     },
     "SubmitRmaRequest": {
       "properties": {
@@ -9834,7 +10345,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SubmitRmaRequest"
     },
     "SubmitRmaResponse": {
       "properties": {
@@ -9848,7 +10360,8 @@
           "$ref": "#/definitions/Rma"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SubmitRmaResponse"
     },
     "Subscription": {
       "properties": {
@@ -9945,7 +10458,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Subscription"
     },
     "SubscriptionComponent": {
       "properties": {
@@ -9959,7 +10473,8 @@
           "$ref": "#/definitions/ComponentToken"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SubscriptionComponent"
     },
     "SubscriptionSignals": {
       "properties": {
@@ -9988,7 +10503,8 @@
           "$ref": "#/definitions/Money"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SubscriptionSignals"
     },
     "SuggestNewEmailHeadersResponse": {
       "properties": {
@@ -10005,7 +10521,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SuggestNewEmailHeadersResponse"
     },
     "SuggestNoteHeadersResponse": {
       "properties": {
@@ -10022,7 +10539,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SuggestNoteHeadersResponse"
     },
     "SuggestPaymentInstrumentIssuerResponse": {
       "properties": {
@@ -10033,7 +10551,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SuggestPaymentInstrumentIssuerResponse"
     },
     "SuggestReplyEmailHeadersResponse": {
       "properties": {
@@ -10056,7 +10575,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SuggestReplyEmailHeadersResponse"
     },
     "SuggestResolutionsRequest": {
       "properties": {
@@ -10064,7 +10584,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SuggestResolutionsRequest"
     },
     "SuggestResolutionsResponse": {
       "properties": {
@@ -10075,7 +10596,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SuggestResolutionsResponse"
     },
     "SuggestedResolution": {
       "properties": {
@@ -10094,7 +10616,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SuggestedResolution"
     },
     "SummarizeResponse": {
       "properties": {
@@ -10108,7 +10631,8 @@
           "$ref": "#/definitions/Summary"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SummarizeResponse"
     },
     "Summary": {
       "properties": {
@@ -10137,7 +10661,8 @@
           "$ref": "#/definitions/InteractionCount"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Summary"
     },
     "SupportLink": {
       "properties": {
@@ -10148,10 +10673,12 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SupportLink"
     },
     "TakeRequest": {
-      "type": "object"
+      "type": "object",
+      "title": "TakeRequest"
     },
     "TakeResponse": {
       "properties": {
@@ -10159,7 +10686,8 @@
           "$ref": "#/definitions/Case"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TakeResponse"
     },
     "Tax": {
       "properties": {
@@ -10175,7 +10703,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Tax"
     },
     "Team": {
       "properties": {
@@ -10189,7 +10718,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Team"
     },
     "TeamSearches": {
       "properties": {
@@ -10203,7 +10733,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TeamSearches"
     },
     "Timezone": {
       "properties": {
@@ -10212,7 +10743,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Timezone"
     },
     "Transaction": {
       "properties": {
@@ -10328,7 +10860,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Transaction"
     },
     "TransactionIdentifier": {
       "properties": {
@@ -10355,7 +10888,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TransactionIdentifier"
     },
     "TransactionLineItem": {
       "properties": {
@@ -10382,7 +10916,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TransactionLineItem"
     },
     "TransactionRefundRequestEntry": {
       "properties": {
@@ -10405,7 +10940,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TransactionRefundRequestEntry"
     },
     "TransactionRefundResponseStatus": {
       "properties": {
@@ -10426,7 +10962,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TransactionRefundResponseStatus"
     },
     "TransactionsSummary": {
       "properties": {
@@ -10438,7 +10975,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TransactionsSummary"
     },
     "TransferAction": {
       "properties": {
@@ -10447,7 +10985,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TransferAction"
     },
     "TransferRequest": {
       "properties": {
@@ -10455,7 +10994,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TransferRequest"
     },
     "TransferResponse": {
       "properties": {
@@ -10463,7 +11003,8 @@
           "$ref": "#/definitions/Case"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TransferResponse"
     },
     "TroubleShooter": {
       "properties": {
@@ -10483,7 +11024,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TroubleShooter"
     },
     "TroubleshootAccountRequest": {
       "properties": {
@@ -10500,7 +11042,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TroubleshootAccountRequest"
     },
     "TroubleshootAccountResponse": {
       "properties": {
@@ -10508,7 +11051,8 @@
           "$ref": "#/definitions/Action1"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TroubleshootAccountResponse"
     },
     "TroubleshootIssueRequest": {
       "properties": {
@@ -10525,7 +11069,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TroubleshootIssueRequest"
     },
     "TroubleshootIssueResponse": {
       "properties": {
@@ -10567,7 +11112,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TroubleshootIssueResponse"
     },
     "TroubleshootTransactionRequest": {
       "properties": {
@@ -10603,7 +11149,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TroubleshootTransactionRequest"
     },
     "TroubleshootTransactionResponse": {
       "properties": {
@@ -10611,7 +11158,8 @@
           "$ref": "#/definitions/Action1"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TroubleshootTransactionResponse"
     },
     "TroubleshooterSession": {
       "properties": {
@@ -10662,10 +11210,12 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TroubleshooterSession"
     },
     "UnassignRequest": {
-      "type": "object"
+      "type": "object",
+      "title": "UnassignRequest"
     },
     "UnassignResponse": {
       "properties": {
@@ -10673,7 +11223,8 @@
           "$ref": "#/definitions/Case"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UnassignResponse"
     },
     "UnauthorizedChargesWorkflow": {
       "properties": {
@@ -10703,7 +11254,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UnauthorizedChargesWorkflow"
     },
     "UnblockRequest": {
       "properties": {
@@ -10722,7 +11274,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UnblockRequest"
     },
     "UnblockResponse": {
       "properties": {
@@ -10730,7 +11283,8 @@
           "$ref": "#/definitions/Case"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UnblockResponse"
     },
     "UnpluggedSignals": {
       "properties": {
@@ -10754,7 +11308,8 @@
           "$ref": "#/definitions/SubscriptionSignals"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UnpluggedSignals"
     },
     "UnreadCaseInfo": {
       "properties": {
@@ -10768,10 +11323,12 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UnreadCaseInfo"
     },
     "UnspamRequest": {
-      "type": "object"
+      "type": "object",
+      "title": "UnspamRequest"
     },
     "UnspamResponse": {
       "properties": {
@@ -10779,7 +11336,8 @@
           "$ref": "#/definitions/Case"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UnspamResponse"
     },
     "UpdateAccountsRequest": {
       "properties": {
@@ -10790,7 +11348,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UpdateAccountsRequest"
     },
     "UpdateAccountsResponse": {
       "properties": {
@@ -10801,7 +11360,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UpdateAccountsResponse"
     },
     "UpdateAgentCategoriesRequest": {
       "properties": {
@@ -10812,7 +11372,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UpdateAgentCategoriesRequest"
     },
     "UpdateAgentCategoriesResponse": {
       "properties": {
@@ -10826,7 +11387,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UpdateAgentCategoriesResponse"
     },
     "UpdateAttributesRequest": {
       "properties": {
@@ -10837,7 +11399,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UpdateAttributesRequest"
     },
     "UpdateAttributesResponse": {
       "properties": {
@@ -10845,7 +11408,8 @@
           "$ref": "#/definitions/Case"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UpdateAttributesResponse"
     },
     "UpdateConsultNoteRequest": {
       "properties": {
@@ -10865,7 +11429,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UpdateConsultNoteRequest"
     },
     "UpdateConsultNoteResponse": {
       "properties": {
@@ -10873,7 +11438,8 @@
           "$ref": "#/definitions/Communication"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UpdateConsultNoteResponse"
     },
     "UpdateContactEmailRequest": {
       "properties": {
@@ -10881,7 +11447,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UpdateContactEmailRequest"
     },
     "UpdateContactEmailResponse": {
       "properties": {
@@ -10889,7 +11456,8 @@
           "$ref": "#/definitions/Customer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UpdateContactEmailResponse"
     },
     "UpdateContactNameRequest": {
       "properties": {
@@ -10897,7 +11465,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UpdateContactNameRequest"
     },
     "UpdateContactNameResponse": {
       "properties": {
@@ -10905,7 +11474,8 @@
           "$ref": "#/definitions/Customer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UpdateContactNameResponse"
     },
     "UpdateCustomerAttributesRequest": {
       "properties": {
@@ -10922,7 +11492,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UpdateCustomerAttributesRequest"
     },
     "UpdateCustomerAttributesResponse": {
       "properties": {
@@ -10930,7 +11501,8 @@
           "$ref": "#/definitions/Customer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UpdateCustomerAttributesResponse"
     },
     "UpdateDisconnectedChannelRequest": {
       "properties": {
@@ -10943,7 +11515,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UpdateDisconnectedChannelRequest"
     },
     "UpdateEligibleProgramRequest": {
       "properties": {
@@ -10951,7 +11524,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UpdateEligibleProgramRequest"
     },
     "UpdateEligibleProgramResponse": {
       "properties": {
@@ -10959,7 +11533,8 @@
           "$ref": "#/definitions/Customer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UpdateEligibleProgramResponse"
     },
     "UpdateEmailRequest": {
       "properties": {
@@ -11021,7 +11596,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UpdateEmailRequest"
     },
     "UpdateEmailResponse": {
       "properties": {
@@ -11029,7 +11605,8 @@
           "$ref": "#/definitions/Communication"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UpdateEmailResponse"
     },
     "UpdateLocaleRequest": {
       "properties": {
@@ -11037,7 +11614,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UpdateLocaleRequest"
     },
     "UpdateLocaleResponse": {
       "properties": {
@@ -11045,7 +11623,8 @@
           "$ref": "#/definitions/Issue"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UpdateLocaleResponse"
     },
     "UpdateNoteRequest": {
       "properties": {
@@ -11076,7 +11655,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UpdateNoteRequest"
     },
     "UpdateNoteResponse": {
       "properties": {
@@ -11084,10 +11664,12 @@
           "$ref": "#/definitions/Communication"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UpdateNoteResponse"
     },
     "UpdateOwnerResponse": {
-      "type": "object"
+      "type": "object",
+      "title": "UpdateOwnerResponse"
     },
     "UpdateProductRequest": {
       "properties": {
@@ -11101,7 +11683,8 @@
           "$ref": "#/definitions/Product"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UpdateProductRequest"
     },
     "UpdateSummaryRequest": {
       "properties": {
@@ -11109,7 +11692,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UpdateSummaryRequest"
     },
     "UpdateSummaryResponse": {
       "properties": {
@@ -11117,7 +11701,8 @@
           "$ref": "#/definitions/Issue"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UpdateSummaryResponse"
     },
     "UpdateWorkflowRequest": {
       "properties": {
@@ -11131,7 +11716,8 @@
           "$ref": "#/definitions/CasesWorkflow"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UpdateWorkflowRequest"
     },
     "ValidateConsultCategory": {
       "properties": {
@@ -11142,7 +11728,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ValidateConsultCategory"
     },
     "ValidateConsultFormRequest": {
       "properties": {
@@ -11171,7 +11758,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ValidateConsultFormRequest"
     },
     "ValidateConsultFormResponse": {
       "properties": {
@@ -11189,7 +11777,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ValidateConsultFormResponse"
     },
     "ValidateConsultNode": {
       "properties": {
@@ -11198,7 +11787,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ValidateConsultNode"
     },
     "VerificationResult": {
       "properties": {
@@ -11234,7 +11824,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "VerificationResult"
     },
     "VerifyGiftCardRequest": {
       "properties": {
@@ -11251,7 +11842,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "VerifyGiftCardRequest"
     },
     "VerifyGiftCardResponse": {
       "properties": {
@@ -11259,10 +11851,12 @@
           "$ref": "#/definitions/RedemptionToken"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "VerifyGiftCardResponse"
     },
     "WaitForConsultRequest": {
-      "type": "object"
+      "type": "object",
+      "title": "WaitForConsultRequest"
     },
     "WaitForConsultResponse": {
       "properties": {
@@ -11270,7 +11864,8 @@
           "$ref": "#/definitions/Case"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "WaitForConsultResponse"
     },
     "WalletPaymentMethodHijackReviewIds": {
       "properties": {
@@ -11281,7 +11876,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "WalletPaymentMethodHijackReviewIds"
     },
     "WalletSignInReviewIds": {
       "properties": {
@@ -11292,7 +11888,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "WalletSignInReviewIds"
     },
     "WalletTransaction": {
       "properties": {
@@ -11374,7 +11971,8 @@
           "$ref": "#/definitions/TransactionIdentifier"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "WalletTransaction"
     },
     "Workflow": {
       "properties": {
@@ -11391,7 +11989,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Workflow"
     },
     "Workflow1": {
       "properties": {
@@ -11414,7 +12013,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Workflow1"
     },
     "WorkflowInfo": {
       "properties": {
@@ -11426,7 +12026,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "WorkflowInfo"
     },
     "WorkflowResult": {
       "properties": {
@@ -11443,7 +12044,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "WorkflowResult"
     }
   },
   "actions": [

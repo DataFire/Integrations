@@ -46,7 +46,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Label"
     },
     "ListResourceResponseItem": {
       "description": "The list response item that contains the resource and end points information.",
@@ -68,7 +69,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListResourceResponseItem"
     },
     "Operation": {
       "description": "An operation resource, used to manage asynchronous API requests.",
@@ -220,7 +222,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Operation"
     },
     "OperationList": {
       "properties": {
@@ -249,7 +252,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "OperationList"
     },
     "ResourceView": {
       "description": "The resource view object.",
@@ -314,7 +318,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ResourceView"
     },
     "ServiceEndpoint": {
       "description": "The service endpoint that may be started in a VM.",
@@ -329,7 +334,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ServiceEndpoint"
     },
     "ZoneViewsAddResourcesRequest": {
       "description": "The request to add resources to the resource view.",
@@ -342,7 +348,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ZoneViewsAddResourcesRequest"
     },
     "ZoneViewsGetServiceResponse": {
       "properties": {
@@ -358,7 +365,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ZoneViewsGetServiceResponse"
     },
     "ZoneViewsList": {
       "description": "The response to a list request.",
@@ -384,7 +392,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ZoneViewsList"
     },
     "ZoneViewsListResourcesResponse": {
       "description": "The response to a list resource request.",
@@ -405,7 +414,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ZoneViewsListResourcesResponse"
     },
     "ZoneViewsRemoveResourcesRequest": {
       "description": "The request to remove resources from the resource view.",
@@ -418,7 +428,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ZoneViewsRemoveResourcesRequest"
     },
     "ZoneViewsSetServiceRequest": {
       "properties": {
@@ -438,7 +449,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ZoneViewsSetServiceRequest"
     }
   },
   "actions": [

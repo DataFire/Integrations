@@ -20,7 +20,8 @@
       "items": {
         "$ref": "#/definitions/action"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ActionsList"
     },
     "AddPermissionInput": {
       "properties": {
@@ -47,7 +48,8 @@
         "AWSAccountId",
         "ActionName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AddPermissionInput"
     },
     "AuthorizationErrorException": {
       "description": "Indicates that the user has been denied access to the requested resource.",
@@ -56,10 +58,12 @@
           "$ref": "#/definitions/string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AuthorizationErrorException"
     },
     "Binary": {
-      "type": "string"
+      "type": "string",
+      "title": "Binary"
     },
     "CheckIfPhoneNumberIsOptedOutInput": {
       "description": "The input for the <code>CheckIfPhoneNumberIsOptedOut</code> action.",
@@ -72,7 +76,8 @@
       "required": [
         "phoneNumber"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CheckIfPhoneNumberIsOptedOutInput"
     },
     "CheckIfPhoneNumberIsOptedOutResponse": {
       "description": "The response from the <code>CheckIfPhoneNumberIsOptedOut</code> action.",
@@ -82,7 +87,8 @@
           "description": "<p>Indicates whether the phone number is opted out:</p> <ul> <li> <p> <code>true</code> – The phone number is opted out, meaning you cannot publish SMS messages to it.</p> </li> <li> <p> <code>false</code> – The phone number is opted in, meaning you can publish SMS messages to it.</p> </li> </ul>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CheckIfPhoneNumberIsOptedOutResponse"
     },
     "ConfirmSubscriptionInput": {
       "description": "Input for ConfirmSubscription action.",
@@ -104,7 +110,8 @@
         "TopicArn",
         "Token"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ConfirmSubscriptionInput"
     },
     "ConfirmSubscriptionResponse": {
       "description": "Response for ConfirmSubscriptions action.",
@@ -114,7 +121,8 @@
           "description": "The ARN of the created subscription."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ConfirmSubscriptionResponse"
     },
     "CreateEndpointResponse": {
       "description": "Response from CreateEndpoint action.",
@@ -124,7 +132,8 @@
           "description": "EndpointArn returned from CreateEndpoint action."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateEndpointResponse"
     },
     "CreatePlatformApplicationInput": {
       "description": "Input for CreatePlatformApplication action.",
@@ -147,7 +156,8 @@
         "Platform",
         "Attributes"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreatePlatformApplicationInput"
     },
     "CreatePlatformApplicationResponse": {
       "description": "Response from CreatePlatformApplication action.",
@@ -157,7 +167,8 @@
           "description": "PlatformApplicationArn is returned."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreatePlatformApplicationResponse"
     },
     "CreatePlatformEndpointInput": {
       "description": "Input for CreatePlatformEndpoint action.",
@@ -183,7 +194,8 @@
         "PlatformApplicationArn",
         "Token"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreatePlatformEndpointInput"
     },
     "CreateTopicInput": {
       "description": "Input for CreateTopic action.",
@@ -196,7 +208,8 @@
       "required": [
         "Name"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateTopicInput"
     },
     "CreateTopicResponse": {
       "description": "Response from CreateTopic action.",
@@ -206,13 +219,15 @@
           "description": "The Amazon Resource Name (ARN) assigned to the created topic."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateTopicResponse"
     },
     "DelegatesList": {
       "items": {
         "$ref": "#/definitions/delegate"
       },
-      "type": "array"
+      "type": "array",
+      "title": "DelegatesList"
     },
     "DeleteEndpointInput": {
       "description": "Input for DeleteEndpoint action.",
@@ -225,7 +240,8 @@
       "required": [
         "EndpointArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteEndpointInput"
     },
     "DeletePlatformApplicationInput": {
       "description": "Input for DeletePlatformApplication action.",
@@ -238,7 +254,8 @@
       "required": [
         "PlatformApplicationArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeletePlatformApplicationInput"
     },
     "DeleteTopicInput": {
       "properties": {
@@ -250,7 +267,8 @@
       "required": [
         "TopicArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteTopicInput"
     },
     "Endpoint": {
       "description": "Endpoint for mobile app and device.",
@@ -264,7 +282,8 @@
           "description": "EndpointArn for mobile app and device."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Endpoint"
     },
     "EndpointDisabledException": {
       "description": "Exception error indicating endpoint disabled.",
@@ -274,7 +293,8 @@
           "description": "Message for endpoint disabled."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "EndpointDisabledException"
     },
     "GetEndpointAttributesInput": {
       "description": "Input for GetEndpointAttributes action.",
@@ -287,7 +307,8 @@
       "required": [
         "EndpointArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetEndpointAttributesInput"
     },
     "GetEndpointAttributesResponse": {
       "description": "Response from GetEndpointAttributes of the EndpointArn.",
@@ -297,7 +318,8 @@
           "description": "<p>Attributes include the following:</p> <ul> <li> <p> <code>CustomUserData</code> -- arbitrary user data to associate with the endpoint. Amazon SNS does not use this data. The data must be in UTF-8 format and less than 2KB.</p> </li> <li> <p> <code>Enabled</code> -- flag that enables/disables delivery to the endpoint. Amazon SNS will set this to false when a notification service indicates to Amazon SNS that the endpoint is invalid. Users can set it back to true, typically after updating Token.</p> </li> <li> <p> <code>Token</code> -- device token, also referred to as a registration id, for an app and mobile device. This is returned from the notification service when an app and mobile device are registered with the notification service.</p> </li> </ul>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetEndpointAttributesResponse"
     },
     "GetPlatformApplicationAttributesInput": {
       "description": "Input for GetPlatformApplicationAttributes action.",
@@ -310,7 +332,8 @@
       "required": [
         "PlatformApplicationArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetPlatformApplicationAttributesInput"
     },
     "GetPlatformApplicationAttributesResponse": {
       "description": "Response for GetPlatformApplicationAttributes action.",
@@ -320,7 +343,8 @@
           "description": "<p>Attributes include the following:</p> <ul> <li> <p> <code>EventEndpointCreated</code> -- Topic ARN to which EndpointCreated event notifications should be sent.</p> </li> <li> <p> <code>EventEndpointDeleted</code> -- Topic ARN to which EndpointDeleted event notifications should be sent.</p> </li> <li> <p> <code>EventEndpointUpdated</code> -- Topic ARN to which EndpointUpdate event notifications should be sent.</p> </li> <li> <p> <code>EventDeliveryFailure</code> -- Topic ARN to which DeliveryFailure event notifications should be sent upon Direct Publish delivery failure (permanent) to one of the application's endpoints.</p> </li> </ul>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetPlatformApplicationAttributesResponse"
     },
     "GetSMSAttributesInput": {
       "description": "The input for the <code>GetSMSAttributes</code> request.",
@@ -330,7 +354,8 @@
           "description": "<p>A list of the individual attribute names, such as <code>MonthlySpendLimit</code>, for which you want values.</p> <p>For all attribute names, see <a href=\"http://docs.aws.amazon.com/sns/latest/api/API_SetSMSAttributes.html\">SetSMSAttributes</a>.</p> <p>If you don't use this parameter, Amazon SNS returns all SMS attributes.</p>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetSMSAttributesInput"
     },
     "GetSMSAttributesResponse": {
       "description": "The response from the <code>GetSMSAttributes</code> request.",
@@ -340,7 +365,8 @@
           "description": "The SMS attribute names and their values."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetSMSAttributesResponse"
     },
     "GetSubscriptionAttributesInput": {
       "description": "Input for GetSubscriptionAttributes.",
@@ -353,7 +379,8 @@
       "required": [
         "SubscriptionArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetSubscriptionAttributesInput"
     },
     "GetSubscriptionAttributesResponse": {
       "description": "Response for GetSubscriptionAttributes action.",
@@ -363,7 +390,8 @@
           "description": "<p>A map of the subscription's attributes. Attributes in this map include the following:</p> <ul> <li> <p> <code>SubscriptionArn</code> -- the subscription's ARN</p> </li> <li> <p> <code>TopicArn</code> -- the topic ARN that the subscription is associated with</p> </li> <li> <p> <code>Owner</code> -- the AWS account ID of the subscription's owner</p> </li> <li> <p> <code>ConfirmationWasAuthenticated</code> -- true if the subscription confirmation request was authenticated</p> </li> <li> <p> <code>DeliveryPolicy</code> -- the JSON serialization of the subscription's delivery policy</p> </li> <li> <p> <code>EffectiveDeliveryPolicy</code> -- the JSON serialization of the effective delivery policy that takes into account the topic delivery policy and account system defaults</p> </li> </ul>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetSubscriptionAttributesResponse"
     },
     "GetTopicAttributesInput": {
       "description": "Input for GetTopicAttributes action.",
@@ -376,7 +404,8 @@
       "required": [
         "TopicArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetTopicAttributesInput"
     },
     "GetTopicAttributesResponse": {
       "description": "Response for GetTopicAttributes action.",
@@ -386,7 +415,8 @@
           "description": "<p>A map of the topic's attributes. Attributes in this map include the following:</p> <ul> <li> <p> <code>TopicArn</code> -- the topic's ARN</p> </li> <li> <p> <code>Owner</code> -- the AWS account ID of the topic's owner</p> </li> <li> <p> <code>Policy</code> -- the JSON serialization of the topic's access control policy</p> </li> <li> <p> <code>DisplayName</code> -- the human-readable name used in the \"From\" field for notifications to email and email-json endpoints</p> </li> <li> <p> <code>SubscriptionsPending</code> -- the number of subscriptions pending confirmation on this topic</p> </li> <li> <p> <code>SubscriptionsConfirmed</code> -- the number of confirmed subscriptions on this topic</p> </li> <li> <p> <code>SubscriptionsDeleted</code> -- the number of deleted subscriptions on this topic</p> </li> <li> <p> <code>DeliveryPolicy</code> -- the JSON serialization of the topic's delivery policy</p> </li> <li> <p> <code>EffectiveDeliveryPolicy</code> -- the JSON serialization of the effective delivery policy that takes into account system defaults</p> </li> </ul>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetTopicAttributesResponse"
     },
     "InternalErrorException": {
       "description": "Indicates an internal service error.",
@@ -395,7 +425,8 @@
           "$ref": "#/definitions/string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InternalErrorException"
     },
     "InvalidParameterException": {
       "description": "Indicates that a request parameter does not comply with the associated constraints.",
@@ -404,7 +435,8 @@
           "$ref": "#/definitions/string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidParameterException"
     },
     "InvalidParameterValueException": {
       "description": "Indicates that a request parameter does not comply with the associated constraints.",
@@ -414,7 +446,8 @@
           "description": "The parameter value is invalid."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidParameterValueException"
     },
     "ListEndpointsByPlatformApplicationInput": {
       "description": "Input for ListEndpointsByPlatformApplication action.",
@@ -431,7 +464,8 @@
       "required": [
         "PlatformApplicationArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListEndpointsByPlatformApplicationInput"
     },
     "ListEndpointsByPlatformApplicationResponse": {
       "description": "Response for ListEndpointsByPlatformApplication action.",
@@ -445,19 +479,22 @@
           "description": "NextToken string is returned when calling ListEndpointsByPlatformApplication action if additional records are available after the first page results."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListEndpointsByPlatformApplicationResponse"
     },
     "ListOfEndpoints": {
       "items": {
         "$ref": "#/definitions/Endpoint"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ListOfEndpoints"
     },
     "ListOfPlatformApplications": {
       "items": {
         "$ref": "#/definitions/PlatformApplication"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ListOfPlatformApplications"
     },
     "ListPhoneNumbersOptedOutInput": {
       "description": "The input for the <code>ListPhoneNumbersOptedOut</code> action.",
@@ -467,7 +504,8 @@
           "description": "A <code>NextToken</code> string is used when you call the <code>ListPhoneNumbersOptedOut</code> action to retrieve additional records that are available after the first page of results."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListPhoneNumbersOptedOutInput"
     },
     "ListPhoneNumbersOptedOutResponse": {
       "description": "The response from the <code>ListPhoneNumbersOptedOut</code> action.",
@@ -481,7 +519,8 @@
           "description": "A list of phone numbers that are opted out of receiving SMS messages. The list is paginated, and each page can contain up to 100 phone numbers."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListPhoneNumbersOptedOutResponse"
     },
     "ListPlatformApplicationsInput": {
       "description": "Input for ListPlatformApplications action.",
@@ -491,7 +530,8 @@
           "description": "NextToken string is used when calling ListPlatformApplications action to retrieve additional records that are available after the first page results."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListPlatformApplicationsInput"
     },
     "ListPlatformApplicationsResponse": {
       "description": "Response for ListPlatformApplications action.",
@@ -505,13 +545,15 @@
           "description": "Platform applications returned when calling ListPlatformApplications action."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListPlatformApplicationsResponse"
     },
     "ListString": {
       "items": {
         "$ref": "#/definitions/String"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ListString"
     },
     "ListSubscriptionsByTopicInput": {
       "description": "Input for ListSubscriptionsByTopic action.",
@@ -528,7 +570,8 @@
       "required": [
         "TopicArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListSubscriptionsByTopicInput"
     },
     "ListSubscriptionsByTopicResponse": {
       "description": "Response for ListSubscriptionsByTopic action.",
@@ -542,7 +585,8 @@
           "description": "A list of subscriptions."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListSubscriptionsByTopicResponse"
     },
     "ListSubscriptionsInput": {
       "description": "Input for ListSubscriptions action.",
@@ -552,7 +596,8 @@
           "description": "Token returned by the previous <code>ListSubscriptions</code> request."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListSubscriptionsInput"
     },
     "ListSubscriptionsResponse": {
       "description": "Response for ListSubscriptions action",
@@ -566,7 +611,8 @@
           "description": "A list of subscriptions."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListSubscriptionsResponse"
     },
     "ListTopicsInput": {
       "properties": {
@@ -575,7 +621,8 @@
           "description": "Token returned by the previous <code>ListTopics</code> request."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListTopicsInput"
     },
     "ListTopicsResponse": {
       "description": "Response for ListTopics action.",
@@ -589,7 +636,8 @@
           "description": "A list of topic ARNs."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListTopicsResponse"
     },
     "MapStringToString": {
       "items": {
@@ -603,7 +651,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "MapStringToString"
     },
     "MessageAttributeMap": {
       "items": {
@@ -617,7 +666,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "MessageAttributeMap"
     },
     "MessageAttributeValue": {
       "description": "<p>The user-specified message attribute value. For string data types, the value attribute has the same restrictions on the content as the message body. For more information, see <a href=\"http://docs.aws.amazon.com/sns/latest/api/API_Publish.html\">Publish</a>.</p> <p>Name, type, and value must not be empty or null. In addition, the message body should not be empty or null. All parts of the message attribute, including name, type, and value, are included in the message size restriction, which is currently 256 KB (262,144 bytes). For more information, see <a href=\"http://docs.aws.amazon.com/sns/latest/dg/SNSMessageAttributes.html\">Using Amazon SNS Message Attributes</a>.</p>",
@@ -638,7 +688,8 @@
       "required": [
         "DataType"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "MessageAttributeValue"
     },
     "NotFoundException": {
       "description": "Indicates that the requested resource does not exist.",
@@ -647,7 +698,8 @@
           "$ref": "#/definitions/string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "NotFoundException"
     },
     "OptInPhoneNumberInput": {
       "description": "Input for the OptInPhoneNumber action.",
@@ -660,21 +712,25 @@
       "required": [
         "phoneNumber"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "OptInPhoneNumberInput"
     },
     "OptInPhoneNumberResponse": {
       "description": "The response for the OptInPhoneNumber action.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "OptInPhoneNumberResponse"
     },
     "PhoneNumber": {
-      "type": "string"
+      "type": "string",
+      "title": "PhoneNumber"
     },
     "PhoneNumberList": {
       "items": {
         "$ref": "#/definitions/PhoneNumber"
       },
-      "type": "array"
+      "type": "array",
+      "title": "PhoneNumberList"
     },
     "PlatformApplication": {
       "description": "Platform application object.",
@@ -688,7 +744,8 @@
           "description": "PlatformApplicationArn for platform application object."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PlatformApplication"
     },
     "PlatformApplicationDisabledException": {
       "description": "Exception error indicating platform application disabled.",
@@ -698,7 +755,8 @@
           "description": "Message for platform application disabled."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PlatformApplicationDisabledException"
     },
     "PublishInput": {
       "description": "Input for Publish action.",
@@ -735,7 +793,8 @@
       "required": [
         "Message"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "PublishInput"
     },
     "PublishResponse": {
       "description": "Response for Publish action.",
@@ -745,7 +804,8 @@
           "description": "<p>Unique identifier assigned to the published message.</p> <p>Length Constraint: Maximum 100 characters</p>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PublishResponse"
     },
     "RemovePermissionInput": {
       "description": "Input for RemovePermission action.",
@@ -763,7 +823,8 @@
         "TopicArn",
         "Label"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "RemovePermissionInput"
     },
     "SetEndpointAttributesInput": {
       "description": "Input for SetEndpointAttributes action.",
@@ -781,7 +842,8 @@
         "EndpointArn",
         "Attributes"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "SetEndpointAttributesInput"
     },
     "SetPlatformApplicationAttributesInput": {
       "description": "Input for SetPlatformApplicationAttributes action.",
@@ -799,7 +861,8 @@
         "PlatformApplicationArn",
         "Attributes"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "SetPlatformApplicationAttributesInput"
     },
     "SetSMSAttributesInput": {
       "description": "The input for the SetSMSAttributes action.",
@@ -812,12 +875,14 @@
       "required": [
         "attributes"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "SetSMSAttributesInput"
     },
     "SetSMSAttributesResponse": {
       "description": "The response for the SetSMSAttributes action.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "SetSMSAttributesResponse"
     },
     "SetSubscriptionAttributesInput": {
       "description": "Input for SetSubscriptionAttributes action.",
@@ -839,7 +904,8 @@
         "SubscriptionArn",
         "AttributeName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "SetSubscriptionAttributesInput"
     },
     "SetTopicAttributesInput": {
       "description": "Input for SetTopicAttributes action.",
@@ -861,10 +927,12 @@
         "TopicArn",
         "AttributeName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "SetTopicAttributesInput"
     },
     "String": {
-      "type": "string"
+      "type": "string",
+      "title": "String"
     },
     "SubscribeInput": {
       "description": "Input for Subscribe action.",
@@ -886,7 +954,8 @@
         "TopicArn",
         "Protocol"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "SubscribeInput"
     },
     "SubscribeResponse": {
       "description": "Response for Subscribe action.",
@@ -896,7 +965,8 @@
           "description": "The ARN of the subscription, if the service was able to create a subscription immediately (without requiring endpoint owner confirmation)."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SubscribeResponse"
     },
     "Subscription": {
       "description": "A wrapper type for the attributes of an Amazon SNS subscription.",
@@ -922,7 +992,8 @@
           "description": "The ARN of the subscription's topic."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Subscription"
     },
     "SubscriptionAttributesMap": {
       "items": {
@@ -936,7 +1007,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "SubscriptionAttributesMap"
     },
     "SubscriptionLimitExceededException": {
       "description": "Indicates that the customer already owns the maximum allowed number of subscriptions.",
@@ -945,13 +1017,15 @@
           "$ref": "#/definitions/string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SubscriptionLimitExceededException"
     },
     "SubscriptionsList": {
       "items": {
         "$ref": "#/definitions/Subscription"
       },
-      "type": "array"
+      "type": "array",
+      "title": "SubscriptionsList"
     },
     "ThrottledException": {
       "description": "Indicates that the rate at which requests have been submitted for this action exceeds the limit for your account.",
@@ -961,7 +1035,8 @@
           "description": "Throttled request."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ThrottledException"
     },
     "Topic": {
       "description": "A wrapper type for the topic's Amazon Resource Name (ARN). To retrieve a topic's attributes, use <code>GetTopicAttributes</code>.",
@@ -971,7 +1046,8 @@
           "description": "The topic's ARN."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Topic"
     },
     "TopicAttributesMap": {
       "items": {
@@ -985,7 +1061,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "TopicAttributesMap"
     },
     "TopicLimitExceededException": {
       "description": "Indicates that the customer already owns the maximum allowed number of topics.",
@@ -994,13 +1071,15 @@
           "$ref": "#/definitions/string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TopicLimitExceededException"
     },
     "TopicsList": {
       "items": {
         "$ref": "#/definitions/Topic"
       },
-      "type": "array"
+      "type": "array",
+      "title": "TopicsList"
     },
     "UnsubscribeInput": {
       "description": "Input for Unsubscribe action.",
@@ -1013,67 +1092,88 @@
       "required": [
         "SubscriptionArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UnsubscribeInput"
     },
     "account": {
-      "type": "string"
+      "type": "string",
+      "title": "account"
     },
     "action": {
-      "type": "string"
+      "type": "string",
+      "title": "action"
     },
     "attributeName": {
-      "type": "string"
+      "type": "string",
+      "title": "attributeName"
     },
     "attributeValue": {
-      "type": "string"
+      "type": "string",
+      "title": "attributeValue"
     },
     "authenticateOnUnsubscribe": {
-      "type": "string"
+      "type": "string",
+      "title": "authenticateOnUnsubscribe"
     },
     "boolean": {
-      "type": "boolean"
+      "type": "boolean",
+      "title": "boolean"
     },
     "delegate": {
-      "type": "string"
+      "type": "string",
+      "title": "delegate"
     },
     "endpoint": {
-      "type": "string"
+      "type": "string",
+      "title": "endpoint"
     },
     "label": {
-      "type": "string"
+      "type": "string",
+      "title": "label"
     },
     "message": {
-      "type": "string"
+      "type": "string",
+      "title": "message"
     },
     "messageId": {
-      "type": "string"
+      "type": "string",
+      "title": "messageId"
     },
     "messageStructure": {
-      "type": "string"
+      "type": "string",
+      "title": "messageStructure"
     },
     "nextToken": {
-      "type": "string"
+      "type": "string",
+      "title": "nextToken"
     },
     "protocol": {
-      "type": "string"
+      "type": "string",
+      "title": "protocol"
     },
     "string": {
-      "type": "string"
+      "type": "string",
+      "title": "string"
     },
     "subject": {
-      "type": "string"
+      "type": "string",
+      "title": "subject"
     },
     "subscriptionARN": {
-      "type": "string"
+      "type": "string",
+      "title": "subscriptionARN"
     },
     "token": {
-      "type": "string"
+      "type": "string",
+      "title": "token"
     },
     "topicARN": {
-      "type": "string"
+      "type": "string",
+      "title": "topicARN"
     },
     "topicName": {
-      "type": "string"
+      "type": "string",
+      "title": "topicName"
     }
   },
   "actions": [

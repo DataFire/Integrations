@@ -42,7 +42,8 @@
           "readOnly": true,
           "type": "string"
         }
-      }
+      },
+      "title": "DownloadUrl"
     },
     "ErrorDetails": {
       "description": "The details of the error.",
@@ -62,7 +63,8 @@
           "readOnly": true,
           "type": "string"
         }
-      }
+      },
+      "title": "ErrorDetails"
     },
     "ErrorResponse": {
       "description": "Error response indicates that the service is not able to process the incoming request. The reason is provided in the error message.",
@@ -71,7 +73,8 @@
           "$ref": "#/definitions/ErrorDetails"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ErrorResponse"
     },
     "Invoice": {
       "allOf": [
@@ -86,7 +89,8 @@
           "x-ms-client-flatten": true
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Invoice"
     },
     "InvoiceProperties": {
       "description": "The properties of the invoice.",
@@ -107,7 +111,8 @@
           "readOnly": true,
           "type": "string"
         }
-      }
+      },
+      "title": "InvoiceProperties"
     },
     "InvoicesListResult": {
       "description": "Result of the request to list invoices. It contains a list of available invoices in reverse chronological order.",
@@ -125,7 +130,8 @@
           "readOnly": true,
           "type": "array"
         }
-      }
+      },
+      "title": "InvoicesListResult"
     },
     "Operation": {
       "description": "A Billing REST API operation",
@@ -156,7 +162,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Operation"
     },
     "OperationListResult": {
       "description": "Result of the request to list billing operations. It contains a list of operations and a URL link to get the next set of results.",
@@ -174,7 +181,8 @@
           "readOnly": true,
           "type": "array"
         }
-      }
+      },
+      "title": "OperationListResult"
     },
     "Resource": {
       "description": "The Resource model definition.",
@@ -195,7 +203,8 @@
           "type": "string"
         }
       },
-      "x-ms-azure-resource": true
+      "x-ms-azure-resource": true,
+      "title": "Resource"
     }
   },
   "actions": [

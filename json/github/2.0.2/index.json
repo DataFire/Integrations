@@ -137,7 +137,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "asset"
     },
     "assetPatch": {
       "properties": {
@@ -151,7 +152,8 @@
       "required": [
         "name"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "assetPatch"
     },
     "assets": {
       "items": {
@@ -245,7 +247,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "assets"
     },
     "assignees": {
       "items": {
@@ -268,7 +271,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "assignees"
     },
     "blob": {
       "properties": {
@@ -288,7 +292,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "blob"
     },
     "blobs": {
       "properties": {
@@ -296,7 +301,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "blobs"
     },
     "branch": {
       "properties": {
@@ -431,7 +437,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "branch"
     },
     "branches": {
       "items": {
@@ -453,13 +460,15 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "branches"
     },
     "codeFrequencyStats": {
       "items": {
         "type": "integer"
       },
-      "type": "array"
+      "type": "array",
+      "title": "codeFrequencyStats"
     },
     "collaborators": {
       "items": {
@@ -482,7 +491,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "collaborators"
     },
     "comment": {
       "properties": {
@@ -490,7 +500,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "comment"
     },
     "commentBody": {
       "properties": {
@@ -501,7 +512,8 @@
       "required": [
         "body"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "commentBody"
     },
     "comments": {
       "items": {
@@ -542,7 +554,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "comments"
     },
     "commit": {
       "properties": {
@@ -705,7 +718,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "commit"
     },
     "commitActivityStats": {
       "items": {
@@ -725,7 +739,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "commitActivityStats"
     },
     "commitBody": {
       "properties": {
@@ -757,7 +772,8 @@
         "sha",
         "body"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "commitBody"
     },
     "commitComments": {
       "properties": {
@@ -814,7 +830,8 @@
           "type": "object"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "commitComments"
     },
     "commits": {
       "items": {
@@ -934,7 +951,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "commits"
     },
     "compare-commits": {
       "properties": {
@@ -1381,7 +1399,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "compare-commits"
     },
     "contents-path": {
       "properties": {
@@ -1430,7 +1449,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "contents-path"
     },
     "contributors": {
       "items": {
@@ -1456,7 +1476,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "contributors"
     },
     "contributorsStats": {
       "items": {
@@ -1512,7 +1533,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "contributorsStats"
     },
     "createDownload": {
       "properties": {
@@ -1575,7 +1597,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "createDownload"
     },
     "createFile": {
       "properties": {
@@ -1696,7 +1719,8 @@
           "type": "object"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "createFile"
     },
     "createFileBody": {
       "properties": {
@@ -1718,7 +1742,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "createFileBody"
     },
     "deleteFile": {
       "properties": {
@@ -1795,7 +1820,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "deleteFile"
     },
     "deleteFileBody": {
       "properties": {
@@ -1817,7 +1843,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "deleteFileBody"
     },
     "deployment": {
       "properties": {
@@ -1842,7 +1869,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "deployment"
     },
     "deployment-resp": {
       "properties": {
@@ -1927,7 +1955,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "deployment-resp"
     },
     "deployment-statuses": {
       "items": {
@@ -2015,7 +2044,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "deployment-statuses"
     },
     "deployment-statuses-create": {
       "properties": {
@@ -2029,7 +2059,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "deployment-statuses-create"
     },
     "downloadBody": {
       "properties": {
@@ -2051,7 +2082,8 @@
         "name",
         "size"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "downloadBody"
     },
     "downloads": {
       "properties": {
@@ -2080,7 +2112,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "downloads"
     },
     "editTeam": {
       "properties": {
@@ -2098,13 +2131,15 @@
       "required": [
         "name"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "editTeam"
     },
     "emailsPost": {
       "items": {
         "type": "string"
       },
-      "type": "array"
+      "type": "array",
+      "title": "emailsPost"
     },
     "emojis": {
       "properties": {
@@ -2130,7 +2165,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "emojis"
     },
     "event": {
       "properties": {
@@ -2336,7 +2372,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "event"
     },
     "events": {
       "properties": {
@@ -2411,7 +2448,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "events"
     },
     "feeds": {
       "properties": {
@@ -2504,7 +2542,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "feeds"
     },
     "fork": {
       "properties": {
@@ -2610,7 +2649,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "fork"
     },
     "forkBody": {
       "properties": {
@@ -2618,7 +2658,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "forkBody"
     },
     "forks": {
       "items": {
@@ -2727,7 +2768,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "forks"
     },
     "gist": {
       "properties": {
@@ -2889,7 +2931,8 @@
           "type": "object"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "gist"
     },
     "gists": {
       "items": {
@@ -2966,7 +3009,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "gists"
     },
     "gitCommit": {
       "properties": {
@@ -2994,7 +3038,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "gitCommit"
     },
     "gitRefPatch": {
       "properties": {
@@ -3005,11 +3050,13 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "gitRefPatch"
     },
     "gitignore": {
       "items": {},
-      "type": "array"
+      "type": "array",
+      "title": "gitignore"
     },
     "gitignore-lang": {
       "properties": {
@@ -3020,7 +3067,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "gitignore-lang"
     },
     "headBranch": {
       "properties": {
@@ -3045,7 +3093,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "headBranch"
     },
     "headBranchBody": {
       "properties": {
@@ -3062,7 +3111,8 @@
         "sha",
         "force"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "headBranchBody"
     },
     "heads": {
       "items": {
@@ -3090,7 +3140,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "heads"
     },
     "hook": {
       "items": {
@@ -3151,7 +3202,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "hook"
     },
     "hookBody": {
       "properties": {
@@ -3165,7 +3217,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "hookBody"
     },
     "issue": {
       "properties": {
@@ -3188,7 +3241,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "issue"
     },
     "issueBody": {
       "properties": {
@@ -3211,7 +3265,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "issueBody"
     },
     "issues": {
       "items": {
@@ -3383,7 +3438,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "issues"
     },
     "issuesComment": {
       "properties": {
@@ -3428,7 +3484,8 @@
           "type": "object"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "issuesComment"
     },
     "issuesComments": {
       "items": {
@@ -3511,7 +3568,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "issuesComments"
     },
     "key": {
       "properties": {
@@ -3528,7 +3586,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "key"
     },
     "keyBody": {
       "properties": {
@@ -3539,7 +3598,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "keyBody"
     },
     "keys": {
       "items": {
@@ -3559,7 +3619,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "keys"
     },
     "label": {
       "properties": {
@@ -3575,7 +3636,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "label"
     },
     "labels": {
       "items": {
@@ -3594,19 +3656,22 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "labels"
     },
     "labelsBody": {
       "items": {
         "type": "string"
       },
-      "type": "array"
+      "type": "array",
+      "title": "labelsBody"
     },
     "languages": {
       "additionalProperties": {
         "type": "integer"
       },
-      "type": "object"
+      "type": "object",
+      "title": "languages"
     },
     "markdown": {
       "properties": {
@@ -3620,7 +3685,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "markdown"
     },
     "members": {
       "items": {
@@ -3643,7 +3709,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "members"
     },
     "merge": {
       "properties": {
@@ -3657,7 +3724,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "merge"
     },
     "mergePullBody": {
       "properties": {
@@ -3665,7 +3733,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "mergePullBody"
     },
     "mergesBody": {
       "properties": {
@@ -3679,7 +3748,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "mergesBody"
     },
     "mergesConflict": {
       "properties": {
@@ -3688,7 +3758,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "mergesConflict"
     },
     "mergesSuccessful": {
       "properties": {
@@ -3881,7 +3952,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "mergesSuccessful"
     },
     "meta": {
       "properties": {
@@ -3900,7 +3972,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "meta"
     },
     "milestone": {
       "properties": {
@@ -3957,7 +4030,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "milestone"
     },
     "milestoneBody": {
       "properties": {
@@ -3974,7 +4048,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "milestoneBody"
     },
     "milestoneUpdate": {
       "properties": {
@@ -3991,7 +4066,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "milestoneUpdate"
     },
     "notificationMarkRead": {
       "properties": {
@@ -3999,7 +4075,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "notificationMarkRead"
     },
     "notifications": {
       "properties": {
@@ -4088,7 +4165,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "notifications"
     },
     "orgMembers": {
       "items": {
@@ -4111,7 +4189,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "orgMembers"
     },
     "orgPublicMembers": {
       "items": {
@@ -4134,7 +4213,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "orgPublicMembers"
     },
     "orgTeams": {
       "items": {
@@ -4151,7 +4231,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "orgTeams"
     },
     "orgTeamsPost": {
       "properties": {
@@ -4175,7 +4256,8 @@
       "required": [
         "name"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "orgTeamsPost"
     },
     "organization": {
       "properties": {
@@ -4229,7 +4311,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "organization"
     },
     "organizationAsTeamMember": {
       "properties": {
@@ -4254,7 +4337,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "organizationAsTeamMember"
     },
     "participationStats": {
       "properties": {
@@ -4271,7 +4355,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "participationStats"
     },
     "patchGist": {
       "properties": {
@@ -4313,7 +4398,8 @@
           }
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "patchGist"
     },
     "patchOrg": {
       "properties": {
@@ -4335,7 +4421,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "patchOrg"
     },
     "postComment": {
       "properties": {
@@ -4346,7 +4433,8 @@
       "required": [
         "body"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "postComment"
     },
     "postGist": {
       "properties": {
@@ -4370,7 +4458,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "postGist"
     },
     "postRepo": {
       "properties": {
@@ -4415,7 +4504,8 @@
       "required": [
         "name"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "postRepo"
     },
     "pullRequest": {
       "properties": {
@@ -4834,7 +4924,8 @@
           "type": "object"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "pullRequest"
     },
     "pullUpdate": {
       "properties": {
@@ -4848,7 +4939,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "pullUpdate"
     },
     "pulls": {
       "items": {
@@ -5239,7 +5331,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "pulls"
     },
     "pullsComment": {
       "properties": {
@@ -5319,7 +5412,8 @@
           "type": "object"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "pullsComment"
     },
     "pullsCommentPost": {
       "properties": {
@@ -5336,7 +5430,8 @@
           "type": "number"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "pullsCommentPost"
     },
     "pullsComments": {
       "items": {
@@ -5419,7 +5514,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "pullsComments"
     },
     "pullsPost": {
       "properties": {
@@ -5436,13 +5532,15 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "pullsPost"
     },
     "punchCardStats": {
       "items": {
         "type": "integer"
       },
-      "type": "array"
+      "type": "array",
+      "title": "punchCardStats"
     },
     "putSubscription": {
       "properties": {
@@ -5465,7 +5563,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "putSubscription"
     },
     "rate_limit": {
       "properties": {
@@ -5483,7 +5582,8 @@
           }
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "rate_limit"
     },
     "readme": {
       "properties": {
@@ -5532,7 +5632,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "readme"
     },
     "ref": {
       "items": {
@@ -5583,7 +5684,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ref"
     },
     "refBody": {
       "properties": {
@@ -5608,7 +5710,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "refBody"
     },
     "refStatus": {
       "items": {
@@ -5663,7 +5766,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "refStatus"
     },
     "refs": {
       "items": {
@@ -5691,7 +5795,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "refs"
     },
     "refsBody": {
       "properties": {
@@ -5702,7 +5807,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "refsBody"
     },
     "release": {
       "properties": {
@@ -5902,7 +6008,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "release"
     },
     "release-create": {
       "properties": {
@@ -5925,7 +6032,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "release-create"
     },
     "releases": {
       "items": {
@@ -6128,7 +6236,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "releases"
     },
     "repo": {
       "properties": {
@@ -6480,7 +6589,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "repo"
     },
     "repo-deployments": {
       "items": {
@@ -6568,7 +6678,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "repo-deployments"
     },
     "repoComments": {
       "items": {
@@ -6628,7 +6739,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "repoComments"
     },
     "repoCommit": {
       "properties": {
@@ -6697,7 +6809,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "repoCommit"
     },
     "repoCommitBody": {
       "properties": {
@@ -6733,7 +6846,8 @@
         "parents",
         "tree"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "repoCommitBody"
     },
     "repoEdit": {
       "properties": {
@@ -6759,7 +6873,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "repoEdit"
     },
     "repos": {
       "items": {
@@ -6867,7 +6982,8 @@
           }
         }
       },
-      "type": "array"
+      "type": "array",
+      "title": "repos"
     },
     "repositories": {
       "items": {
@@ -6919,7 +7035,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "repositories"
     },
     "search-code": {
       "properties": {
@@ -7140,7 +7257,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "search-code"
     },
     "search-issues": {
       "properties": {
@@ -7291,7 +7409,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "search-issues"
     },
     "search-issues-by-keyword": {
       "properties": {
@@ -7346,7 +7465,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "search-issues-by-keyword"
     },
     "search-repositories": {
       "properties": {
@@ -7460,7 +7580,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "search-repositories"
     },
     "search-repositories-by-keyword": {
       "properties": {
@@ -7542,7 +7663,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "search-repositories-by-keyword"
     },
     "search-user-by-email": {
       "properties": {
@@ -7597,7 +7719,8 @@
           "type": "object"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "search-user-by-email"
     },
     "search-users": {
       "properties": {
@@ -7652,7 +7775,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "search-users"
     },
     "search-users-by-keyword": {
       "properties": {
@@ -7713,7 +7837,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "search-users-by-keyword"
     },
     "stargazers": {
       "items": {
@@ -7736,7 +7861,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "stargazers"
     },
     "subscribition": {
       "properties": {
@@ -7760,7 +7886,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "subscribition"
     },
     "subscribitionBody": {
       "properties": {
@@ -7771,7 +7898,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "subscribitionBody"
     },
     "subscription": {
       "properties": {
@@ -7794,7 +7922,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "subscription"
     },
     "tag": {
       "properties": {
@@ -7840,7 +7969,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "tag"
     },
     "tags": {
       "properties": {
@@ -7884,7 +8014,8 @@
         "type",
         "tagger"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "tags"
     },
     "team": {
       "properties": {
@@ -7907,7 +8038,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "team"
     },
     "teamMembership": {
       "properties": {
@@ -7918,7 +8050,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "teamMembership"
     },
     "teamRepos": {
       "items": {
@@ -8024,7 +8157,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "teamRepos"
     },
     "teams": {
       "items": {
@@ -8041,7 +8175,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "teams"
     },
     "teams-list": {
       "items": {
@@ -8084,7 +8219,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "teams-list"
     },
     "tree": {
       "properties": {
@@ -8121,7 +8257,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "tree"
     },
     "trees": {
       "properties": {
@@ -8173,7 +8310,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "trees"
     },
     "user": {
       "properties": {
@@ -8268,21 +8406,25 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "user"
     },
     "user-emails": {
       "items": {
         "type": "string"
       },
-      "type": "array"
+      "type": "array",
+      "title": "user-emails"
     },
     "user-emails_final": {
       "items": {},
-      "type": "array"
+      "type": "array",
+      "title": "user-emails_final"
     },
     "user-keys": {
       "items": {},
-      "type": "array"
+      "type": "array",
+      "title": "user-keys"
     },
     "user-keys-keyId": {
       "properties": {
@@ -8299,7 +8441,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "user-keys-keyId"
     },
     "user-keys-post": {
       "properties": {
@@ -8310,7 +8453,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "user-keys-post"
     },
     "user-update": {
       "properties": {
@@ -8336,7 +8480,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "user-update"
     },
     "user-userId": {
       "properties": {
@@ -8400,11 +8545,13 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "user-userId"
     },
     "user-userId-starred": {
       "items": {},
-      "type": "array"
+      "type": "array",
+      "title": "user-userId-starred"
     },
     "user-userId-subscribitions": {
       "items": {
@@ -8512,7 +8659,8 @@
           }
         }
       },
-      "type": "array"
+      "type": "array",
+      "title": "user-userId-subscribitions"
     },
     "users": {
       "items": {
@@ -8535,15 +8683,18 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "users"
     },
     "users-userId-keys": {
       "items": {},
-      "type": "array"
+      "type": "array",
+      "title": "users-userId-keys"
     },
     "users-userId-orgs": {
       "items": {},
-      "type": "array"
+      "type": "array",
+      "title": "users-userId-orgs"
     }
   },
   "actions": [

@@ -30,7 +30,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AddressJO"
     },
     "AreaJO": {
       "properties": {
@@ -91,7 +92,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AreaJO"
     },
     "BookingProposalJO": {
       "properties": {
@@ -139,7 +141,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BookingProposalJO"
     },
     "CategoryJO": {
       "properties": {
@@ -177,7 +180,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CategoryJO"
     },
     "Crs": {
       "properties": {
@@ -195,7 +199,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Crs"
     },
     "ErrorJO": {
       "properties": {
@@ -224,7 +229,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ErrorJO"
     },
     "Feature": {
       "discriminator": "type",
@@ -252,7 +258,8 @@
           "type": "object"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Feature"
     },
     "FeatureCollection": {
       "allOf": [
@@ -270,7 +277,8 @@
           },
           "type": "object"
         }
-      ]
+      ],
+      "title": "FeatureCollection"
     },
     "GeoJsonObject": {
       "discriminator": "type",
@@ -286,7 +294,8 @@
           "$ref": "#/definitions/Crs"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GeoJsonObject"
     },
     "GeometryJO": {
       "properties": {
@@ -297,7 +306,8 @@
           "$ref": "#/definitions/GeoJsonObject"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GeometryJO"
     },
     "JsonCollection": {
       "properties": {
@@ -329,7 +339,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "JsonCollection"
     },
     "JsonCollectionPriceJO": {
       "properties": {
@@ -361,7 +372,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "JsonCollectionPriceJO"
     },
     "JsonObject": {
       "properties": {
@@ -393,7 +405,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "JsonObject"
     },
     "LineString": {
       "allOf": [
@@ -403,7 +416,8 @@
         {
           "type": "object"
         }
-      ]
+      ],
+      "title": "LineString"
     },
     "LinkJO": {
       "properties": {
@@ -417,7 +431,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LinkJO"
     },
     "LngLatAlt": {
       "properties": {
@@ -434,7 +449,8 @@
           "type": "number"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LngLatAlt"
     },
     "MultiLineString": {
       "allOf": [
@@ -455,7 +471,8 @@
           },
           "type": "object"
         }
-      ]
+      ],
+      "title": "MultiLineString"
     },
     "MultiPoint": {
       "allOf": [
@@ -473,7 +490,8 @@
           },
           "type": "object"
         }
-      ]
+      ],
+      "title": "MultiPoint"
     },
     "MultiPolygon": {
       "allOf": [
@@ -497,7 +515,8 @@
           },
           "type": "object"
         }
-      ]
+      ],
+      "title": "MultiPolygon"
     },
     "Point": {
       "discriminator": "type",
@@ -516,7 +535,8 @@
           "$ref": "#/definitions/Crs"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Point"
     },
     "Polygon": {
       "allOf": [
@@ -537,7 +557,8 @@
           },
           "type": "object"
         }
-      ]
+      ],
+      "title": "Polygon"
     },
     "PriceJO": {
       "properties": {
@@ -595,7 +616,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PriceJO"
     },
     "ProviderJO": {
       "properties": {
@@ -627,7 +649,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ProviderJO"
     },
     "RentalObjectJO": {
       "properties": {
@@ -695,7 +718,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RentalObjectJO"
     }
   },
   "actions": [

@@ -18,13 +18,15 @@
   "definitions": {
     "AZ": {
       "pattern": "[a-zA-Z0-9\\-]*",
-      "type": "string"
+      "type": "string",
+      "title": "AZ"
     },
     "AZList": {
       "items": {
         "$ref": "#/definitions/AZ"
       },
-      "type": "array"
+      "type": "array",
+      "title": "AZList"
     },
     "AddTagsToResourceRequest": {
       "properties": {
@@ -41,7 +43,8 @@
         "ResourceArn",
         "TagList"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AddTagsToResourceRequest"
     },
     "AddTagsToResourceResponse": {
       "properties": {
@@ -53,50 +56,60 @@
       "required": [
         "Status"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AddTagsToResourceResponse"
     },
     "Boolean": {
-      "type": "boolean"
+      "type": "boolean",
+      "title": "Boolean"
     },
     "Certificate": {
       "maxLength": 2400,
       "minLength": 600,
       "pattern": "[\\w :+=./\\n-]*",
-      "type": "string"
+      "type": "string",
+      "title": "Certificate"
     },
     "CertificateFingerprint": {
       "pattern": "([0-9a-fA-F][0-9a-fA-F]:){15}[0-9a-fA-F][0-9a-fA-F]",
-      "type": "string"
+      "type": "string",
+      "title": "CertificateFingerprint"
     },
     "ClientArn": {
       "pattern": "arn:aws(-iso)?:cloudhsm:[a-zA-Z0-9\\-]*:[0-9]{12}:client-[0-9a-f]{8}",
-      "type": "string"
+      "type": "string",
+      "title": "ClientArn"
     },
     "ClientLabel": {
       "pattern": "[a-zA-Z0-9_.-]{2,64}",
-      "type": "string"
+      "type": "string",
+      "title": "ClientLabel"
     },
     "ClientList": {
       "items": {
         "$ref": "#/definitions/ClientArn"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ClientList"
     },
     "ClientToken": {
       "pattern": "[a-zA-Z0-9]{1,64}",
-      "type": "string"
+      "type": "string",
+      "title": "ClientToken"
     },
     "ClientVersion": {
       "enum": [
         "5.1",
         "5.3"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ClientVersion"
     },
     "CloudHsmInternalException": {
       "description": "Indicates that an internal error occurred.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "CloudHsmInternalException"
     },
     "CloudHsmObjectState": {
       "enum": [
@@ -104,7 +117,8 @@
         "UPDATING",
         "DEGRADED"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "CloudHsmObjectState"
     },
     "CloudHsmServiceException": {
       "description": "Indicates that an exception occurred in the AWS CloudHSM service.",
@@ -118,7 +132,8 @@
           "description": "Indicates if the action can be retried."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CloudHsmServiceException"
     },
     "CreateHapgRequest": {
       "description": "Contains the inputs for the <a>CreateHapgRequest</a> action.",
@@ -131,7 +146,8 @@
       "required": [
         "Label"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateHapgRequest"
     },
     "CreateHapgResponse": {
       "description": "Contains the output of the <a>CreateHAPartitionGroup</a> action.",
@@ -141,7 +157,8 @@
           "description": "The ARN of the high-availability partition group."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateHapgResponse"
     },
     "CreateHsmRequest": {
       "description": "Contains the inputs for the <a>CreateHsm</a> operation.",
@@ -184,7 +201,8 @@
         "IamRoleArn",
         "SubscriptionType"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateHsmRequest"
     },
     "CreateHsmResponse": {
       "description": "Contains the output of the <a>CreateHsm</a> operation.",
@@ -194,7 +212,8 @@
           "description": "The ARN of the HSM."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateHsmResponse"
     },
     "CreateLunaClientRequest": {
       "description": "Contains the inputs for the <a>CreateLunaClient</a> action.",
@@ -211,7 +230,8 @@
       "required": [
         "Certificate"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateLunaClientRequest"
     },
     "CreateLunaClientResponse": {
       "description": "Contains the output of the <a>CreateLunaClient</a> action.",
@@ -221,7 +241,8 @@
           "description": "The ARN of the client."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateLunaClientResponse"
     },
     "DeleteHapgRequest": {
       "description": "Contains the inputs for the <a>DeleteHapg</a> action.",
@@ -234,7 +255,8 @@
       "required": [
         "HapgArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteHapgRequest"
     },
     "DeleteHapgResponse": {
       "description": "Contains the output of the <a>DeleteHapg</a> action.",
@@ -247,7 +269,8 @@
       "required": [
         "Status"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteHapgResponse"
     },
     "DeleteHsmRequest": {
       "description": "Contains the inputs for the <a>DeleteHsm</a> operation.",
@@ -260,7 +283,8 @@
       "required": [
         "HsmArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteHsmRequest"
     },
     "DeleteHsmResponse": {
       "description": "Contains the output of the <a>DeleteHsm</a> operation.",
@@ -273,7 +297,8 @@
       "required": [
         "Status"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteHsmResponse"
     },
     "DeleteLunaClientRequest": {
       "properties": {
@@ -285,7 +310,8 @@
       "required": [
         "ClientArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteLunaClientRequest"
     },
     "DeleteLunaClientResponse": {
       "properties": {
@@ -297,7 +323,8 @@
       "required": [
         "Status"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteLunaClientResponse"
     },
     "DescribeHapgRequest": {
       "description": "Contains the inputs for the <a>DescribeHapg</a> action.",
@@ -310,7 +337,8 @@
       "required": [
         "HapgArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeHapgRequest"
     },
     "DescribeHapgResponse": {
       "description": "Contains the output of the <a>DescribeHapg</a> action.",
@@ -349,7 +377,8 @@
           "description": "The state of the high-availability partition group."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeHapgResponse"
     },
     "DescribeHsmRequest": {
       "description": "Contains the inputs for the <a>DescribeHsm</a> operation. ",
@@ -363,7 +392,8 @@
           "description": "The serial number of the HSM. Either the <i>HsmArn</i> or the <i>HsmSerialNumber</i> parameter must be specified."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeHsmRequest"
     },
     "DescribeHsmResponse": {
       "description": "Contains the output of the <a>DescribeHsm</a> operation.",
@@ -452,7 +482,8 @@
           "description": "The identifier of the VPC that the HSM is in."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeHsmResponse"
     },
     "DescribeLunaClientRequest": {
       "properties": {
@@ -465,7 +496,8 @@
           "description": "The ARN of the client."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeLunaClientRequest"
     },
     "DescribeLunaClientResponse": {
       "properties": {
@@ -490,15 +522,18 @@
           "description": "The date and time the client was last modified."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeLunaClientResponse"
     },
     "EniId": {
       "pattern": "eni-[0-9a-f]{8}",
-      "type": "string"
+      "type": "string",
+      "title": "EniId"
     },
     "ExternalId": {
       "pattern": "[\\w :+=./-]*",
-      "type": "string"
+      "type": "string",
+      "title": "ExternalId"
     },
     "GetConfigRequest": {
       "properties": {
@@ -520,7 +555,8 @@
         "ClientVersion",
         "HapgList"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetConfigRequest"
     },
     "GetConfigResponse": {
       "properties": {
@@ -537,33 +573,39 @@
           "description": "The type of credentials."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetConfigResponse"
     },
     "HapgArn": {
       "pattern": "arn:aws(-iso)?:cloudhsm:[a-zA-Z0-9\\-]*:[0-9]{12}:hapg-[0-9a-f]{8}",
-      "type": "string"
+      "type": "string",
+      "title": "HapgArn"
     },
     "HapgList": {
       "items": {
         "$ref": "#/definitions/HapgArn"
       },
-      "type": "array"
+      "type": "array",
+      "title": "HapgList"
     },
     "HsmArn": {
       "description": "An ARN that identifies an HSM.",
       "pattern": "arn:aws(-iso)?:cloudhsm:[a-zA-Z0-9\\-]*:[0-9]{12}:hsm-[0-9a-f]{8}",
-      "type": "string"
+      "type": "string",
+      "title": "HsmArn"
     },
     "HsmList": {
       "description": "Contains a list of ARNs that identify the HSMs.",
       "items": {
         "$ref": "#/definitions/HsmArn"
       },
-      "type": "array"
+      "type": "array",
+      "title": "HsmList"
     },
     "HsmSerialNumber": {
       "pattern": "\\d{1,16}",
-      "type": "string"
+      "type": "string",
+      "title": "HsmSerialNumber"
     },
     "HsmStatus": {
       "enum": [
@@ -575,29 +617,35 @@
         "TERMINATED",
         "DEGRADED"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "HsmStatus"
     },
     "IamRoleArn": {
       "pattern": "arn:aws(-iso)?:iam::[0-9]{12}:role/[a-zA-Z0-9_\\+=,\\.\\-@]{1,64}",
-      "type": "string"
+      "type": "string",
+      "title": "IamRoleArn"
     },
     "InvalidRequestException": {
       "description": "Indicates that one or more of the request parameters are not valid.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "InvalidRequestException"
     },
     "IpAddress": {
       "pattern": "\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}",
-      "type": "string"
+      "type": "string",
+      "title": "IpAddress"
     },
     "Label": {
       "pattern": "[a-zA-Z0-9_.-]{1,64}",
-      "type": "string"
+      "type": "string",
+      "title": "Label"
     },
     "ListAvailableZonesRequest": {
       "description": "Contains the inputs for the <a>ListAvailableZones</a> action.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "ListAvailableZonesRequest"
     },
     "ListAvailableZonesResponse": {
       "properties": {
@@ -606,7 +654,8 @@
           "description": "The list of Availability Zones that have available AWS CloudHSM capacity."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListAvailableZonesResponse"
     },
     "ListHapgsRequest": {
       "properties": {
@@ -615,7 +664,8 @@
           "description": "The <i>NextToken</i> value from a previous call to <a>ListHapgs</a>. Pass null if this is the first call."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListHapgsRequest"
     },
     "ListHapgsResponse": {
       "properties": {
@@ -631,7 +681,8 @@
       "required": [
         "HapgList"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListHapgsResponse"
     },
     "ListHsmsRequest": {
       "properties": {
@@ -640,7 +691,8 @@
           "description": "The <i>NextToken</i> value from a previous call to <a>ListHsms</a>. Pass null if this is the first call."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListHsmsRequest"
     },
     "ListHsmsResponse": {
       "description": "Contains the output of the <a>ListHsms</a> operation.",
@@ -654,7 +706,8 @@
           "description": "If not null, more results are available. Pass this value to <a>ListHsms</a> to retrieve the next set of items."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListHsmsResponse"
     },
     "ListLunaClientsRequest": {
       "properties": {
@@ -663,7 +716,8 @@
           "description": "The <i>NextToken</i> value from a previous call to <a>ListLunaClients</a>. Pass null if this is the first call."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListLunaClientsRequest"
     },
     "ListLunaClientsResponse": {
       "properties": {
@@ -679,7 +733,8 @@
       "required": [
         "ClientList"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListLunaClientsResponse"
     },
     "ListTagsForResourceRequest": {
       "properties": {
@@ -691,7 +746,8 @@
       "required": [
         "ResourceArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListTagsForResourceRequest"
     },
     "ListTagsForResourceResponse": {
       "properties": {
@@ -703,7 +759,8 @@
       "required": [
         "TagList"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListTagsForResourceResponse"
     },
     "ModifyHapgRequest": {
       "properties": {
@@ -723,7 +780,8 @@
       "required": [
         "HapgArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ModifyHapgRequest"
     },
     "ModifyHapgResponse": {
       "properties": {
@@ -732,7 +790,8 @@
           "description": "The ARN of the high-availability partition group."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ModifyHapgResponse"
     },
     "ModifyHsmRequest": {
       "description": "Contains the inputs for the <a>ModifyHsm</a> operation.",
@@ -765,7 +824,8 @@
       "required": [
         "HsmArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ModifyHsmRequest"
     },
     "ModifyHsmResponse": {
       "description": "Contains the output of the <a>ModifyHsm</a> operation.",
@@ -775,7 +835,8 @@
           "description": "The ARN of the HSM."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ModifyHsmResponse"
     },
     "ModifyLunaClientRequest": {
       "properties": {
@@ -792,7 +853,8 @@
         "ClientArn",
         "Certificate"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ModifyLunaClientRequest"
     },
     "ModifyLunaClientResponse": {
       "properties": {
@@ -801,31 +863,37 @@
           "description": "The ARN of the client."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ModifyLunaClientResponse"
     },
     "PaginationToken": {
       "pattern": "[a-zA-Z0-9+/]*",
-      "type": "string"
+      "type": "string",
+      "title": "PaginationToken"
     },
     "PartitionArn": {
       "pattern": "arn:aws(-iso)?:cloudhsm:[a-zA-Z0-9\\-]*:[0-9]{12}:hsm-[0-9a-f]{8}/partition-[0-9]{6,12}",
-      "type": "string"
+      "type": "string",
+      "title": "PartitionArn"
     },
     "PartitionList": {
       "items": {
         "$ref": "#/definitions/PartitionArn"
       },
-      "type": "array"
+      "type": "array",
+      "title": "PartitionList"
     },
     "PartitionSerial": {
       "pattern": "\\d{6,12}",
-      "type": "string"
+      "type": "string",
+      "title": "PartitionSerial"
     },
     "PartitionSerialList": {
       "items": {
         "$ref": "#/definitions/PartitionSerial"
       },
-      "type": "array"
+      "type": "array",
+      "title": "PartitionSerialList"
     },
     "RemoveTagsFromResourceRequest": {
       "properties": {
@@ -842,7 +910,8 @@
         "ResourceArn",
         "TagKeyList"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "RemoveTagsFromResourceRequest"
     },
     "RemoveTagsFromResourceResponse": {
       "properties": {
@@ -854,26 +923,31 @@
       "required": [
         "Status"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "RemoveTagsFromResourceResponse"
     },
     "SshKey": {
       "pattern": "[a-zA-Z0-9+/= ._:\\\\@-]*",
-      "type": "string"
+      "type": "string",
+      "title": "SshKey"
     },
     "String": {
       "pattern": "[\\w :+=./\\\\-]*",
-      "type": "string"
+      "type": "string",
+      "title": "String"
     },
     "SubnetId": {
       "pattern": "subnet-[0-9a-f]{8}",
-      "type": "string"
+      "type": "string",
+      "title": "SubnetId"
     },
     "SubscriptionType": {
       "description": "<p>Specifies the type of subscription for the HSM.</p> <ul> <li><b>PRODUCTION</b> - The HSM is being used in a production environment.</li> <li><b>TRIAL</b> - The HSM is being used in a product trial.</li> </ul>",
       "enum": [
         "PRODUCTION"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "SubscriptionType"
     },
     "Tag": {
       "description": "A key-value pair that identifies or specifies metadata about an AWS CloudHSM resource.",
@@ -891,37 +965,44 @@
         "Key",
         "Value"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "Tag"
     },
     "TagKey": {
       "maxLength": 128,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "TagKey"
     },
     "TagKeyList": {
       "items": {
         "$ref": "#/definitions/TagKey"
       },
-      "type": "array"
+      "type": "array",
+      "title": "TagKeyList"
     },
     "TagList": {
       "items": {
         "$ref": "#/definitions/Tag"
       },
-      "type": "array"
+      "type": "array",
+      "title": "TagList"
     },
     "TagValue": {
       "maxLength": 256,
       "minLength": 0,
-      "type": "string"
+      "type": "string",
+      "title": "TagValue"
     },
     "Timestamp": {
       "pattern": "\\d*",
-      "type": "string"
+      "type": "string",
+      "title": "Timestamp"
     },
     "VpcId": {
       "pattern": "vpc-[0-9a-f]{8}",
-      "type": "string"
+      "type": "string",
+      "title": "VpcId"
     }
   },
   "actions": [

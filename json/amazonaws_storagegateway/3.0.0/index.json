@@ -63,7 +63,8 @@
         "GatewayTimezone",
         "GatewayRegion"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ActivateGatewayInput"
     },
     "ActivateGatewayOutput": {
       "description": "<p>AWS Storage Gateway returns the Amazon Resource Name (ARN) of the activated gateway. It is a string made of information such as your account, gateway name, and region. This ARN is used to reference the gateway in other API operations as well as resource-based authorization.</p> <note> <p>For gateways activated prior to September 02, 2015 the gateway ARN contains the gateway name rather than the gateway id. Changing the name of the gateway has no effect on the gateway ARN.</p> </note>",
@@ -75,12 +76,14 @@
           "$ref": "#/definitions/GatewayARN"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ActivateGatewayOutput"
     },
     "ActivationKey": {
       "maxLength": 50,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "ActivationKey"
     },
     "AddCacheInput": {
       "example": {
@@ -102,7 +105,8 @@
         "GatewayARN",
         "DiskIds"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AddCacheInput"
     },
     "AddCacheOutput": {
       "example": {
@@ -113,7 +117,8 @@
           "$ref": "#/definitions/GatewayARN"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AddCacheOutput"
     },
     "AddTagsToResourceInput": {
       "description": "AddTagsToResourceInput",
@@ -140,7 +145,8 @@
         "ResourceARN",
         "Tags"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AddTagsToResourceInput"
     },
     "AddTagsToResourceOutput": {
       "description": "AddTagsToResourceOutput",
@@ -153,7 +159,8 @@
           "description": "The Amazon Resource Name (ARN) of the resource you want to add tags to."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AddTagsToResourceOutput"
     },
     "AddUploadBufferInput": {
       "example": {
@@ -175,7 +182,8 @@
         "GatewayARN",
         "DiskIds"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AddUploadBufferInput"
     },
     "AddUploadBufferOutput": {
       "example": {
@@ -186,7 +194,8 @@
           "$ref": "#/definitions/GatewayARN"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AddUploadBufferOutput"
     },
     "AddWorkingStorageInput": {
       "description": "<p>A JSON object containing one or more of the following fields:</p> <ul> <li> <p> <a>AddWorkingStorageInput$DiskIds</a> </p> </li> </ul>",
@@ -210,7 +219,8 @@
         "GatewayARN",
         "DiskIds"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AddWorkingStorageInput"
     },
     "AddWorkingStorageOutput": {
       "description": "A JSON object containing the of the gateway for which working storage was configured.",
@@ -222,24 +232,29 @@
           "$ref": "#/definitions/GatewayARN"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AddWorkingStorageOutput"
     },
     "BandwidthDownloadRateLimit": {
       "minimum": 102400,
-      "type": "integer"
+      "type": "integer",
+      "title": "BandwidthDownloadRateLimit"
     },
     "BandwidthType": {
       "maxLength": 25,
       "minLength": 3,
-      "type": "string"
+      "type": "string",
+      "title": "BandwidthType"
     },
     "BandwidthUploadRateLimit": {
       "minimum": 51200,
-      "type": "integer"
+      "type": "integer",
+      "title": "BandwidthUploadRateLimit"
     },
     "Boolean": {
       "description": "Indicates whether the write status of a file share is read-only. \"true\", if write status is read-only; otherwise \"false\".",
-      "type": "boolean"
+      "type": "boolean",
+      "title": "Boolean"
     },
     "CachediSCSIVolume": {
       "description": "Describes an iSCSI cached volume.",
@@ -280,13 +295,15 @@
           "description": "An <a>VolumeiSCSIAttributes</a> object that represents a collection of iSCSI attributes for one stored volume."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CachediSCSIVolume"
     },
     "CachediSCSIVolumes": {
       "items": {
         "$ref": "#/definitions/CachediSCSIVolume"
       },
-      "type": "array"
+      "type": "array",
+      "title": "CachediSCSIVolumes"
     },
     "CancelArchivalInput": {
       "description": "CancelArchivalInput",
@@ -307,7 +324,8 @@
         "GatewayARN",
         "TapeARN"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CancelArchivalInput"
     },
     "CancelArchivalOutput": {
       "description": "CancelArchivalOutput",
@@ -320,7 +338,8 @@
           "description": "The Amazon Resource Name (ARN) of the virtual tape for which archiving was canceled."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CancelArchivalOutput"
     },
     "CancelRetrievalInput": {
       "description": "CancelRetrievalInput",
@@ -341,7 +360,8 @@
         "GatewayARN",
         "TapeARN"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CancelRetrievalInput"
     },
     "CancelRetrievalOutput": {
       "description": "CancelRetrievalOutput",
@@ -354,13 +374,15 @@
           "description": "The Amazon Resource Name (ARN) of the virtual tape for which retrieval was canceled."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CancelRetrievalOutput"
     },
     "ChapCredentials": {
       "items": {
         "$ref": "#/definitions/ChapInfo"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ChapCredentials"
     },
     "ChapInfo": {
       "description": "Describes Challenge-Handshake Authentication Protocol (CHAP) information that supports authentication between your gateway and iSCSI initiators.",
@@ -382,17 +404,20 @@
           "description": "<p>The Amazon Resource Name (ARN) of the volume.</p> <p> Valid Values: 50 to 500 lowercase letters, numbers, periods (.), and hyphens (-).</p>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ChapInfo"
     },
     "ChapSecret": {
       "maxLength": 100,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "ChapSecret"
     },
     "ClientToken": {
       "maxLength": 100,
       "minLength": 5,
-      "type": "string"
+      "type": "string",
+      "title": "ClientToken"
     },
     "CreateCachediSCSIVolumeInput": {
       "example": {
@@ -434,7 +459,8 @@
         "NetworkInterfaceId",
         "ClientToken"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateCachediSCSIVolumeInput"
     },
     "CreateCachediSCSIVolumeOutput": {
       "example": {
@@ -449,7 +475,8 @@
           "$ref": "#/definitions/VolumeARN"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateCachediSCSIVolumeOutput"
     },
     "CreateNFSFileShareInput": {
       "description": "CreateNFSFileShareInput",
@@ -505,7 +532,8 @@
         "Role",
         "LocationARN"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateNFSFileShareInput"
     },
     "CreateNFSFileShareOutput": {
       "description": "CreateNFSFileShareOutput",
@@ -515,7 +543,8 @@
           "description": "The Amazon Resource Name (ARN) of the newly created file share. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateNFSFileShareOutput"
     },
     "CreateSnapshotFromVolumeRecoveryPointInput": {
       "example": {
@@ -534,7 +563,8 @@
         "VolumeARN",
         "SnapshotDescription"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateSnapshotFromVolumeRecoveryPointInput"
     },
     "CreateSnapshotFromVolumeRecoveryPointOutput": {
       "example": {
@@ -553,7 +583,8 @@
           "$ref": "#/definitions/string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateSnapshotFromVolumeRecoveryPointOutput"
     },
     "CreateSnapshotInput": {
       "description": "<p>A JSON object containing one or more of the following fields:</p> <ul> <li> <p> <a>CreateSnapshotInput$SnapshotDescription</a> </p> </li> <li> <p> <a>CreateSnapshotInput$VolumeARN</a> </p> </li> </ul>",
@@ -575,7 +606,8 @@
         "VolumeARN",
         "SnapshotDescription"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateSnapshotInput"
     },
     "CreateSnapshotOutput": {
       "description": "A JSON object containing the following fields:",
@@ -593,7 +625,8 @@
           "description": "The Amazon Resource Name (ARN) of the volume of which the snapshot was taken."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateSnapshotOutput"
     },
     "CreateStorediSCSIVolumeInput": {
       "description": "<p>A JSON object containing one or more of the following fields:</p> <ul> <li> <p> <a>CreateStorediSCSIVolumeInput$DiskId</a> </p> </li> <li> <p> <a>CreateStorediSCSIVolumeInput$NetworkInterfaceId</a> </p> </li> <li> <p> <a>CreateStorediSCSIVolumeInput$PreserveExistingData</a> </p> </li> <li> <p> <a>CreateStorediSCSIVolumeInput$SnapshotId</a> </p> </li> <li> <p> <a>CreateStorediSCSIVolumeInput$TargetName</a> </p> </li> </ul>",
@@ -637,7 +670,8 @@
         "TargetName",
         "NetworkInterfaceId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateStorediSCSIVolumeInput"
     },
     "CreateStorediSCSIVolumeOutput": {
       "description": "A JSON object containing the following fields:",
@@ -660,7 +694,8 @@
           "description": "The size of the volume in bytes."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateStorediSCSIVolumeOutput"
     },
     "CreateTapeWithBarcodeInput": {
       "description": "CreateTapeWithBarcodeInput",
@@ -688,7 +723,8 @@
         "TapeSizeInBytes",
         "TapeBarcode"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateTapeWithBarcodeInput"
     },
     "CreateTapeWithBarcodeOutput": {
       "description": "CreateTapeOutput",
@@ -701,7 +737,8 @@
           "description": "A unique Amazon Resource Name (ARN) that represents the virtual tape that was created."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateTapeWithBarcodeOutput"
     },
     "CreateTapesInput": {
       "description": "CreateTapesInput",
@@ -741,7 +778,8 @@
         "NumTapesToCreate",
         "TapeBarcodePrefix"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateTapesInput"
     },
     "CreateTapesOutput": {
       "description": "CreateTapeOutput",
@@ -758,16 +796,19 @@
           "description": "A list of unique Amazon Resource Names (ARNs) that represents the virtual tapes that were created."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateTapesOutput"
     },
     "CreatedDate": {
       "format": "date-time",
-      "type": "string"
+      "type": "string",
+      "title": "CreatedDate"
     },
     "DayOfWeek": {
       "maximum": 6,
       "minimum": 0,
-      "type": "integer"
+      "type": "integer",
+      "title": "DayOfWeek"
     },
     "DeleteBandwidthRateLimitInput": {
       "description": "<p>A JSON object containing the following fields:</p> <ul> <li> <p> <a>DeleteBandwidthRateLimitInput$BandwidthType</a> </p> </li> </ul>",
@@ -788,7 +829,8 @@
         "GatewayARN",
         "BandwidthType"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteBandwidthRateLimitInput"
     },
     "DeleteBandwidthRateLimitOutput": {
       "description": "A JSON object containing the of the gateway whose bandwidth rate information was deleted.",
@@ -800,7 +842,8 @@
           "$ref": "#/definitions/GatewayARN"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DeleteBandwidthRateLimitOutput"
     },
     "DeleteChapCredentialsInput": {
       "description": "<p>A JSON object containing one or more of the following fields:</p> <ul> <li> <p> <a>DeleteChapCredentialsInput$InitiatorName</a> </p> </li> <li> <p> <a>DeleteChapCredentialsInput$TargetARN</a> </p> </li> </ul>",
@@ -822,7 +865,8 @@
         "TargetARN",
         "InitiatorName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteChapCredentialsInput"
     },
     "DeleteChapCredentialsOutput": {
       "description": "A JSON object containing the following fields:",
@@ -840,7 +884,8 @@
           "description": "The Amazon Resource Name (ARN) of the target."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DeleteChapCredentialsOutput"
     },
     "DeleteFileShareInput": {
       "description": "DeleteFileShareInput",
@@ -853,7 +898,8 @@
       "required": [
         "FileShareARN"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteFileShareInput"
     },
     "DeleteFileShareOutput": {
       "description": "DeleteFileShareOutput",
@@ -863,7 +909,8 @@
           "description": "The Amazon Resource Name (ARN) of the deleted file share. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DeleteFileShareOutput"
     },
     "DeleteGatewayInput": {
       "description": "A JSON object containing the id of the gateway to delete.",
@@ -878,7 +925,8 @@
       "required": [
         "GatewayARN"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteGatewayInput"
     },
     "DeleteGatewayOutput": {
       "description": "A JSON object containing the id of the deleted gateway.",
@@ -890,7 +938,8 @@
           "$ref": "#/definitions/GatewayARN"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DeleteGatewayOutput"
     },
     "DeleteSnapshotScheduleInput": {
       "example": {
@@ -904,7 +953,8 @@
       "required": [
         "VolumeARN"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteSnapshotScheduleInput"
     },
     "DeleteSnapshotScheduleOutput": {
       "example": {
@@ -915,7 +965,8 @@
           "$ref": "#/definitions/VolumeARN"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DeleteSnapshotScheduleOutput"
     },
     "DeleteTapeArchiveInput": {
       "description": "DeleteTapeArchiveInput",
@@ -931,7 +982,8 @@
       "required": [
         "TapeARN"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteTapeArchiveInput"
     },
     "DeleteTapeArchiveOutput": {
       "description": "DeleteTapeArchiveOutput",
@@ -944,7 +996,8 @@
           "description": "The Amazon Resource Name (ARN) of the virtual tape that was deleted from the virtual tape shelf (VTS)."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DeleteTapeArchiveOutput"
     },
     "DeleteTapeInput": {
       "description": "DeleteTapeInput",
@@ -966,7 +1019,8 @@
         "GatewayARN",
         "TapeARN"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteTapeInput"
     },
     "DeleteTapeOutput": {
       "description": "DeleteTapeOutput",
@@ -979,7 +1033,8 @@
           "description": "The Amazon Resource Name (ARN) of the deleted virtual tape."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DeleteTapeOutput"
     },
     "DeleteVolumeInput": {
       "description": "A JSON object containing the <a>DeleteVolumeInput$VolumeARN</a> to delete.",
@@ -995,7 +1050,8 @@
       "required": [
         "VolumeARN"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteVolumeInput"
     },
     "DeleteVolumeOutput": {
       "description": "A JSON object containing the of the storage volume that was deleted",
@@ -1008,7 +1064,8 @@
           "description": "The Amazon Resource Name (ARN) of the storage volume that was deleted. It is the same ARN you provided in the request."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DeleteVolumeOutput"
     },
     "DescribeBandwidthRateLimitInput": {
       "description": "A JSON object containing the of the gateway.",
@@ -1023,7 +1080,8 @@
       "required": [
         "GatewayARN"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeBandwidthRateLimitInput"
     },
     "DescribeBandwidthRateLimitOutput": {
       "description": "A JSON object containing the following fields:",
@@ -1045,7 +1103,8 @@
           "$ref": "#/definitions/GatewayARN"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeBandwidthRateLimitOutput"
     },
     "DescribeCacheInput": {
       "example": {
@@ -1059,7 +1118,8 @@
       "required": [
         "GatewayARN"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeCacheInput"
     },
     "DescribeCacheOutput": {
       "example": {
@@ -1097,7 +1157,8 @@
           "$ref": "#/definitions/GatewayARN"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeCacheOutput"
     },
     "DescribeCachediSCSIVolumesInput": {
       "example": {
@@ -1113,7 +1174,8 @@
       "required": [
         "VolumeARNs"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeCachediSCSIVolumesInput"
     },
     "DescribeCachediSCSIVolumesOutput": {
       "description": "A JSON object containing the following fields:",
@@ -1141,7 +1203,8 @@
           "description": "An array of objects where each object contains metadata about one cached volume."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeCachediSCSIVolumesOutput"
     },
     "DescribeChapCredentialsInput": {
       "description": "A JSON object containing the Amazon Resource Name (ARN) of the iSCSI volume target.",
@@ -1157,7 +1220,8 @@
       "required": [
         "TargetARN"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeChapCredentialsInput"
     },
     "DescribeChapCredentialsOutput": {
       "description": "A JSON object containing a .",
@@ -1177,7 +1241,8 @@
           "description": "<p>An array of <a>ChapInfo</a> objects that represent CHAP credentials. Each object in the array contains CHAP credential information for one target-initiator pair. If no CHAP credentials are set, an empty array is returned. CHAP credential information is provided in a JSON object with the following fields:</p> <ul> <li> <p> <b>InitiatorName</b>: The iSCSI initiator that connects to the target.</p> </li> <li> <p> <b>SecretToAuthenticateInitiator</b>: The secret key that the initiator (for example, the Windows client) must provide to participate in mutual CHAP with the target.</p> </li> <li> <p> <b>SecretToAuthenticateTarget</b>: The secret key that the target must provide to participate in mutual CHAP with the initiator (e.g. Windows client).</p> </li> <li> <p> <b>TargetARN</b>: The Amazon Resource Name (ARN) of the storage volume.</p> </li> </ul>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeChapCredentialsOutput"
     },
     "DescribeGatewayInformationInput": {
       "description": "A JSON object containing the id of the gateway.",
@@ -1192,7 +1257,8 @@
       "required": [
         "GatewayARN"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeGatewayInformationInput"
     },
     "DescribeGatewayInformationOutput": {
       "description": "A JSON object containing the following fields:",
@@ -1248,7 +1314,8 @@
           "description": "The date on which an update to the gateway is available. This date is in the time zone of the gateway. If the gateway is not available for an update this field is not returned in the response."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeGatewayInformationOutput"
     },
     "DescribeMaintenanceStartTimeInput": {
       "description": "A JSON object containing the of the gateway.",
@@ -1263,7 +1330,8 @@
       "required": [
         "GatewayARN"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeMaintenanceStartTimeInput"
     },
     "DescribeMaintenanceStartTimeOutput": {
       "description": "<p>A JSON object containing the following fields:</p> <ul> <li> <p> <a>DescribeMaintenanceStartTimeOutput$DayOfWeek</a> </p> </li> <li> <p> <a>DescribeMaintenanceStartTimeOutput$HourOfDay</a> </p> </li> <li> <p> <a>DescribeMaintenanceStartTimeOutput$MinuteOfHour</a> </p> </li> <li> <p> <a>DescribeMaintenanceStartTimeOutput$Timezone</a> </p> </li> </ul>",
@@ -1294,7 +1362,8 @@
           "$ref": "#/definitions/GatewayTimezone"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeMaintenanceStartTimeOutput"
     },
     "DescribeNFSFileSharesInput": {
       "description": "DescribeNFSFileSharesInput",
@@ -1307,7 +1376,8 @@
       "required": [
         "FileShareARNList"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeNFSFileSharesInput"
     },
     "DescribeNFSFileSharesOutput": {
       "description": "DescribeNFSFileSharesOutput",
@@ -1317,7 +1387,8 @@
           "description": "An array containing a description for each requested file share. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeNFSFileSharesOutput"
     },
     "DescribeSnapshotScheduleInput": {
       "description": "A JSON object containing the <a>DescribeSnapshotScheduleInput$VolumeARN</a> of the volume.",
@@ -1333,7 +1404,8 @@
       "required": [
         "VolumeARN"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeSnapshotScheduleInput"
     },
     "DescribeSnapshotScheduleOutput": {
       "example": {
@@ -1360,7 +1432,8 @@
           "$ref": "#/definitions/VolumeARN"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeSnapshotScheduleOutput"
     },
     "DescribeStorediSCSIVolumesInput": {
       "description": "A JSON object containing a list of <a>DescribeStorediSCSIVolumesInput$VolumeARNs</a>.",
@@ -1378,7 +1451,8 @@
       "required": [
         "VolumeARNs"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeStorediSCSIVolumesInput"
     },
     "DescribeStorediSCSIVolumesOutput": {
       "example": {
@@ -1405,7 +1479,8 @@
           "$ref": "#/definitions/StorediSCSIVolumes"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeStorediSCSIVolumesOutput"
     },
     "DescribeTapeArchivesInput": {
       "description": "DescribeTapeArchivesInput",
@@ -1431,7 +1506,8 @@
           "description": "Specifies one or more unique Amazon Resource Names (ARNs) that represent the virtual tapes you want to describe."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeTapeArchivesInput"
     },
     "DescribeTapeArchivesOutput": {
       "description": "DescribeTapeArchivesOutput",
@@ -1464,7 +1540,8 @@
           "description": "An array of virtual tape objects in the virtual tape shelf (VTS). The description includes of the Amazon Resource Name(ARN) of the virtual tapes. The information returned includes the Amazon Resource Names (ARNs) of the tapes, size of the tapes, status of the tapes, progress of the description and tape barcode."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeTapeArchivesOutput"
     },
     "DescribeTapeRecoveryPointsInput": {
       "description": "DescribeTapeRecoveryPointsInput",
@@ -1489,7 +1566,8 @@
       "required": [
         "GatewayARN"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeTapeRecoveryPointsInput"
     },
     "DescribeTapeRecoveryPointsOutput": {
       "description": "DescribeTapeRecoveryPointsOutput",
@@ -1518,7 +1596,8 @@
           "description": "An array of TapeRecoveryPointInfos that are available for the specified gateway."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeTapeRecoveryPointsOutput"
     },
     "DescribeTapesInput": {
       "description": "DescribeTapesInput",
@@ -1551,7 +1630,8 @@
       "required": [
         "GatewayARN"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeTapesInput"
     },
     "DescribeTapesOutput": {
       "description": "DescribeTapesOutput",
@@ -1582,7 +1662,8 @@
           "description": "An array of virtual tape descriptions."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeTapesOutput"
     },
     "DescribeUploadBufferInput": {
       "example": {
@@ -1596,7 +1677,8 @@
       "required": [
         "GatewayARN"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeUploadBufferInput"
     },
     "DescribeUploadBufferOutput": {
       "example": {
@@ -1622,7 +1704,8 @@
           "$ref": "#/definitions/long"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeUploadBufferOutput"
     },
     "DescribeVTLDevicesInput": {
       "description": "DescribeVTLDevicesInput",
@@ -1652,7 +1735,8 @@
       "required": [
         "GatewayARN"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeVTLDevicesInput"
     },
     "DescribeVTLDevicesOutput": {
       "description": "DescribeVTLDevicesOutput",
@@ -1711,7 +1795,8 @@
           "description": "An array of VTL device objects composed of the Amazon Resource Name(ARN) of the VTL devices."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeVTLDevicesOutput"
     },
     "DescribeWorkingStorageInput": {
       "description": "A JSON object containing the of the gateway.",
@@ -1726,7 +1811,8 @@
       "required": [
         "GatewayARN"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeWorkingStorageInput"
     },
     "DescribeWorkingStorageOutput": {
       "description": "A JSON object containing the following fields:",
@@ -1756,17 +1842,20 @@
           "description": "The total working storage in bytes in use by the gateway. If no working storage is configured for the gateway, this field returns 0."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeWorkingStorageOutput"
     },
     "Description": {
       "maxLength": 255,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "Description"
     },
     "DeviceType": {
       "maxLength": 50,
       "minLength": 2,
-      "type": "string"
+      "type": "string",
+      "title": "DeviceType"
     },
     "DeviceiSCSIAttributes": {
       "description": "Lists iSCSI information about a VTL device.",
@@ -1788,7 +1877,8 @@
           "description": "Specifies the unique Amazon Resource Name(ARN) that encodes the iSCSI qualified name(iqn) of a tape drive or media changer target."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DeviceiSCSIAttributes"
     },
     "DisableGatewayInput": {
       "description": "DisableGatewayInput",
@@ -1803,7 +1893,8 @@
       "required": [
         "GatewayARN"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DisableGatewayInput"
     },
     "DisableGatewayOutput": {
       "description": "DisableGatewayOutput",
@@ -1816,7 +1907,8 @@
           "description": "The unique Amazon Resource Name of the disabled gateway."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DisableGatewayOutput"
     },
     "Disk": {
       "properties": {
@@ -1842,33 +1934,39 @@
           "$ref": "#/definitions/string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Disk"
     },
     "DiskAllocationType": {
       "maxLength": 100,
       "minLength": 3,
-      "type": "string"
+      "type": "string",
+      "title": "DiskAllocationType"
     },
     "DiskId": {
       "maxLength": 300,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "DiskId"
     },
     "DiskIds": {
       "items": {
         "$ref": "#/definitions/DiskId"
       },
-      "type": "array"
+      "type": "array",
+      "title": "DiskIds"
     },
     "Disks": {
       "items": {
         "$ref": "#/definitions/Disk"
       },
-      "type": "array"
+      "type": "array",
+      "title": "Disks"
     },
     "DoubleObject": {
       "format": "double",
-      "type": "number"
+      "type": "number",
+      "title": "DoubleObject"
     },
     "ErrorCode": {
       "enum": [
@@ -1934,13 +2032,15 @@
         "VolumeNotFound",
         "VolumeNotReady"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ErrorCode"
     },
     "FileShareARN": {
       "description": "The Amazon Resource Name (ARN) of the file share. ",
       "maxLength": 500,
       "minLength": 50,
-      "type": "string"
+      "type": "string",
+      "title": "FileShareARN"
     },
     "FileShareARNList": {
       "items": {
@@ -1948,7 +2048,8 @@
       },
       "maxItems": 10,
       "minItems": 1,
-      "type": "array"
+      "type": "array",
+      "title": "FileShareARNList"
     },
     "FileShareClientList": {
       "description": "The list of clients that are allowed to access the file gateway. The list must contain either valid IP addresses or valid CIDR blocks. ",
@@ -1957,13 +2058,15 @@
       },
       "maxItems": 100,
       "minItems": 1,
-      "type": "array"
+      "type": "array",
+      "title": "FileShareClientList"
     },
     "FileShareId": {
       "description": "The ID of the file share. ",
       "maxLength": 30,
       "minLength": 12,
-      "type": "string"
+      "type": "string",
+      "title": "FileShareId"
     },
     "FileShareInfo": {
       "description": "Describes a file share.",
@@ -1981,30 +2084,35 @@
           "$ref": "#/definitions/GatewayARN"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "FileShareInfo"
     },
     "FileShareInfoList": {
       "items": {
         "$ref": "#/definitions/FileShareInfo"
       },
-      "type": "array"
+      "type": "array",
+      "title": "FileShareInfoList"
     },
     "FileShareStatus": {
       "description": "The status of the file share. Possible values are CREATING, UPDATING, AVAILABLE and DELETING. ",
       "maxLength": 50,
       "minLength": 3,
-      "type": "string"
+      "type": "string",
+      "title": "FileShareStatus"
     },
     "GatewayARN": {
       "description": "The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a> operation to return a list of gateways for your account and region.",
       "maxLength": 500,
       "minLength": 50,
-      "type": "string"
+      "type": "string",
+      "title": "GatewayARN"
     },
     "GatewayId": {
       "maxLength": 30,
       "minLength": 12,
-      "type": "string"
+      "type": "string",
+      "title": "GatewayId"
     },
     "GatewayInfo": {
       "description": "Describes a gateway object.",
@@ -2030,66 +2138,78 @@
           "description": "The type of the gateway."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GatewayInfo"
     },
     "GatewayName": {
       "description": "The name you configured for your gateway.",
       "maxLength": 255,
       "minLength": 2,
       "pattern": "^[ -\\.0-\\[\\]-~]*[!-\\.0-\\[\\]-~][ -\\.0-\\[\\]-~]*$",
-      "type": "string"
+      "type": "string",
+      "title": "GatewayName"
     },
     "GatewayNetworkInterfaces": {
       "items": {
         "$ref": "#/definitions/NetworkInterface"
       },
-      "type": "array"
+      "type": "array",
+      "title": "GatewayNetworkInterfaces"
     },
     "GatewayOperationalState": {
       "maxLength": 25,
       "minLength": 2,
-      "type": "string"
+      "type": "string",
+      "title": "GatewayOperationalState"
     },
     "GatewayState": {
       "maxLength": 25,
       "minLength": 2,
-      "type": "string"
+      "type": "string",
+      "title": "GatewayState"
     },
     "GatewayTimezone": {
       "maxLength": 10,
       "minLength": 3,
-      "type": "string"
+      "type": "string",
+      "title": "GatewayTimezone"
     },
     "GatewayType": {
       "maxLength": 20,
       "minLength": 2,
-      "type": "string"
+      "type": "string",
+      "title": "GatewayType"
     },
     "Gateways": {
       "items": {
         "$ref": "#/definitions/GatewayInfo"
       },
-      "type": "array"
+      "type": "array",
+      "title": "Gateways"
     },
     "HourOfDay": {
       "maximum": 23,
       "minimum": 0,
-      "type": "integer"
+      "type": "integer",
+      "title": "HourOfDay"
     },
     "IPV4AddressCIDR": {
       "pattern": "^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])(\\/([0-9]|[1-2][0-9]|3[0-2]))?$",
-      "type": "string"
+      "type": "string",
+      "title": "IPV4AddressCIDR"
     },
     "Initiator": {
       "maxLength": 50,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "Initiator"
     },
     "Initiators": {
       "items": {
         "$ref": "#/definitions/Initiator"
       },
-      "type": "array"
+      "type": "array",
+      "title": "Initiators"
     },
     "InternalServerError": {
       "description": "An internal server error has occurred during the request. For more information, see the error and message fields.",
@@ -2103,7 +2223,8 @@
           "description": "A human-readable message describing the error that occurred."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InternalServerError"
     },
     "InvalidGatewayRequestException": {
       "description": "An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.",
@@ -2117,24 +2238,28 @@
           "description": "A human-readable message describing the error that occurred."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidGatewayRequestException"
     },
     "IqnName": {
       "maxLength": 255,
       "minLength": 1,
       "pattern": "[0-9a-z:.-]+",
-      "type": "string"
+      "type": "string",
+      "title": "IqnName"
     },
     "KMSKey": {
       "description": "The ARN of the KMS key used for Amazon S3 server side encryption. ",
       "maxLength": 2048,
       "minLength": 20,
-      "type": "string"
+      "type": "string",
+      "title": "KMSKey"
     },
     "LastSoftwareUpdate": {
       "maxLength": 25,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "LastSoftwareUpdate"
     },
     "ListFileSharesInput": {
       "description": "ListFileShareInput",
@@ -2152,7 +2277,8 @@
           "description": "Opaque pagination token returned from a previous ListFileShares operation. If present, <code>Marker</code> specifies where to continue the list from after a previous call to ListFileShares. Optional."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListFileSharesInput"
     },
     "ListFileSharesOutput": {
       "description": "ListFileShareOutput",
@@ -2170,7 +2296,8 @@
           "description": "If a value is present, there are more file shares to return. In a subsequent request, use <code>NextMarker</code> as the value for <code>Marker</code> to retrieve the next set of file shares. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListFileSharesOutput"
     },
     "ListGatewaysInput": {
       "description": "<p>A JSON object containing zero or more of the following fields:</p> <ul> <li> <p> <a>ListGatewaysInput$Limit</a> </p> </li> <li> <p> <a>ListGatewaysInput$Marker</a> </p> </li> </ul>",
@@ -2188,7 +2315,8 @@
           "description": "An opaque string that indicates the position at which to begin the returned list of gateways."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListGatewaysInput"
     },
     "ListGatewaysOutput": {
       "example": {
@@ -2210,7 +2338,8 @@
           "$ref": "#/definitions/Marker"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListGatewaysOutput"
     },
     "ListLocalDisksInput": {
       "description": "A JSON object containing the of the gateway.",
@@ -2225,7 +2354,8 @@
       "required": [
         "GatewayARN"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListLocalDisksInput"
     },
     "ListLocalDisksOutput": {
       "example": {
@@ -2258,7 +2388,8 @@
           "$ref": "#/definitions/GatewayARN"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListLocalDisksOutput"
     },
     "ListTagsForResourceInput": {
       "description": "ListTagsForResourceInput",
@@ -2284,7 +2415,8 @@
       "required": [
         "ResourceARN"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListTagsForResourceInput"
     },
     "ListTagsForResourceOutput": {
       "description": "ListTagsForResourceOutput",
@@ -2312,7 +2444,8 @@
           "description": "An array that contains the tags for the specified resource."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListTagsForResourceOutput"
     },
     "ListTapesInput": {
       "description": "<p>A JSON object that contains one or more of the following fields:</p> <ul> <li> <p> <a>ListTapesInput$Limit</a> </p> </li> <li> <p> <a>ListTapesInput$Marker</a> </p> </li> <li> <p> <a>ListTapesInput$TapeARNs</a> </p> </li> </ul>",
@@ -2329,7 +2462,8 @@
           "$ref": "#/definitions/TapeARNs"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListTapesInput"
     },
     "ListTapesOutput": {
       "description": "<p>A JSON object containing the following fields:</p> <ul> <li> <p> <a>ListTapesOutput$Marker</a> </p> </li> <li> <p> <a>ListTapesOutput$VolumeInfos</a> </p> </li> </ul>",
@@ -2342,7 +2476,8 @@
           "$ref": "#/definitions/TapeInfos"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListTapesOutput"
     },
     "ListVolumeInitiatorsInput": {
       "description": "ListVolumeInitiatorsInput",
@@ -2355,7 +2490,8 @@
       "required": [
         "VolumeARN"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListVolumeInitiatorsInput"
     },
     "ListVolumeInitiatorsOutput": {
       "description": "ListVolumeInitiatorsOutput",
@@ -2365,7 +2501,8 @@
           "description": "The host names and port numbers of all iSCSI initiators that are connected to the gateway."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListVolumeInitiatorsOutput"
     },
     "ListVolumeRecoveryPointsInput": {
       "example": {
@@ -2379,7 +2516,8 @@
       "required": [
         "GatewayARN"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListVolumeRecoveryPointsInput"
     },
     "ListVolumeRecoveryPointsOutput": {
       "example": {
@@ -2400,7 +2538,8 @@
           "$ref": "#/definitions/VolumeRecoveryPointInfos"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListVolumeRecoveryPointsOutput"
     },
     "ListVolumesInput": {
       "description": "<p>A JSON object that contains one or more of the following fields:</p> <ul> <li> <p> <a>ListVolumesInput$Limit</a> </p> </li> <li> <p> <a>ListVolumesInput$Marker</a> </p> </li> </ul>",
@@ -2422,7 +2561,8 @@
           "description": "A string that indicates the position at which to begin the returned list of volumes. Obtain the marker from the response of a previous List iSCSI Volumes request."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListVolumesInput"
     },
     "ListVolumesOutput": {
       "example": {
@@ -2458,35 +2598,41 @@
           "$ref": "#/definitions/VolumeInfos"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListVolumesOutput"
     },
     "LocalConsolePassword": {
       "format": "password",
       "maxLength": 512,
       "minLength": 6,
       "pattern": "^[ -~]+$",
-      "type": "string"
+      "type": "string",
+      "title": "LocalConsolePassword"
     },
     "LocationARN": {
       "description": "The ARN of the backend storage used for storing file data. ",
       "maxLength": 310,
       "minLength": 16,
-      "type": "string"
+      "type": "string",
+      "title": "LocationARN"
     },
     "Marker": {
       "maxLength": 1000,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "Marker"
     },
     "MediumChangerType": {
       "maxLength": 50,
       "minLength": 2,
-      "type": "string"
+      "type": "string",
+      "title": "MediumChangerType"
     },
     "MinuteOfHour": {
       "maximum": 59,
       "minimum": 0,
-      "type": "integer"
+      "type": "integer",
+      "title": "MinuteOfHour"
     },
     "NFSFileShareDefaults": {
       "description": "Describes file share default values. Files and folders stored as Amazon S3 objects in S3 buckets don't, by default, have Unix file permissions assigned to them. Upon discovery in an S3 bucket by Storage Gateway, the S3 objects that represent files and folders are assigned these default Unix permissions. This operation is only supported in file gateways.",
@@ -2508,7 +2654,8 @@
           "description": "The default owner ID for files in the file share (unless the files have another owner ID specified). The default value is nfsnobody. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "NFSFileShareDefaults"
     },
     "NFSFileShareInfo": {
       "description": "The Unix file permissions and ownership information assigned, by default, to native S3 objects when Storage Gateway discovers them in S3 buckets. This operation is only supported in file gateways.",
@@ -2558,13 +2705,15 @@
           "$ref": "#/definitions/Squash"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "NFSFileShareInfo"
     },
     "NFSFileShareInfoList": {
       "items": {
         "$ref": "#/definitions/NFSFileShareInfo"
       },
-      "type": "array"
+      "type": "array",
+      "title": "NFSFileShareInfoList"
     },
     "NetworkInterface": {
       "description": "Describes a gateway's network interface.",
@@ -2582,45 +2731,54 @@
           "description": "<p>The Media Access Control (MAC) address of the interface.</p> <note> <p>This is currently unsupported and will not be returned in output.</p> </note>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "NetworkInterface"
     },
     "NetworkInterfaceId": {
       "pattern": "\\A(25[0-5]|2[0-4]\\d|[0-1]?\\d?\\d)(\\.(25[0-5]|2[0-4]\\d|[0-1]?\\d?\\d)){3}\\z",
-      "type": "string"
+      "type": "string",
+      "title": "NetworkInterfaceId"
     },
     "NextUpdateAvailabilityDate": {
       "maxLength": 25,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "NextUpdateAvailabilityDate"
     },
     "NumTapesToCreate": {
       "maximum": 10,
       "minimum": 1,
-      "type": "integer"
+      "type": "integer",
+      "title": "NumTapesToCreate"
     },
     "Path": {
       "description": "The file share path used by the NFS client to identify the mount point. ",
-      "type": "string"
+      "type": "string",
+      "title": "Path"
     },
     "PermissionId": {
       "maximum": 4294967294,
       "minimum": 0,
-      "type": "integer"
+      "type": "integer",
+      "title": "PermissionId"
     },
     "PermissionMode": {
       "maxLength": 4,
       "minLength": 1,
       "pattern": "^[0-7]{4}$",
-      "type": "string"
+      "type": "string",
+      "title": "PermissionMode"
     },
     "PositiveIntObject": {
       "minimum": 1,
-      "type": "integer"
+      "type": "integer",
+      "title": "PositiveIntObject"
     },
     "RecurrenceInHours": {
       "maximum": 24,
       "minimum": 1,
-      "type": "integer"
+      "type": "integer",
+      "title": "RecurrenceInHours"
     },
     "RefreshCacheInput": {
       "properties": {
@@ -2631,7 +2789,8 @@
       "required": [
         "FileShareARN"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "RefreshCacheInput"
     },
     "RefreshCacheOutput": {
       "properties": {
@@ -2639,12 +2798,14 @@
           "$ref": "#/definitions/FileShareARN"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RefreshCacheOutput"
     },
     "RegionId": {
       "maxLength": 25,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "RegionId"
     },
     "RemoveTagsFromResourceInput": {
       "description": "RemoveTagsFromResourceInput",
@@ -2669,7 +2830,8 @@
         "ResourceARN",
         "TagKeys"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "RemoveTagsFromResourceInput"
     },
     "RemoveTagsFromResourceOutput": {
       "description": "RemoveTagsFromResourceOutput",
@@ -2682,7 +2844,8 @@
           "description": "The Amazon Resource Name (ARN) of the resource that the tags were removed from."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RemoveTagsFromResourceOutput"
     },
     "ResetCacheInput": {
       "example": {
@@ -2696,7 +2859,8 @@
       "required": [
         "GatewayARN"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ResetCacheInput"
     },
     "ResetCacheOutput": {
       "example": {
@@ -2707,12 +2871,14 @@
           "$ref": "#/definitions/GatewayARN"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ResetCacheOutput"
     },
     "ResourceARN": {
       "maxLength": 500,
       "minLength": 50,
-      "type": "string"
+      "type": "string",
+      "title": "ResourceARN"
     },
     "RetrieveTapeArchiveInput": {
       "description": "RetrieveTapeArchiveInput",
@@ -2734,7 +2900,8 @@
         "TapeARN",
         "GatewayARN"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "RetrieveTapeArchiveInput"
     },
     "RetrieveTapeArchiveOutput": {
       "description": "RetrieveTapeArchiveOutput",
@@ -2747,7 +2914,8 @@
           "description": "The Amazon Resource Name (ARN) of the retrieved virtual tape."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RetrieveTapeArchiveOutput"
     },
     "RetrieveTapeRecoveryPointInput": {
       "description": "RetrieveTapeRecoveryPointInput",
@@ -2768,7 +2936,8 @@
         "TapeARN",
         "GatewayARN"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "RetrieveTapeRecoveryPointInput"
     },
     "RetrieveTapeRecoveryPointOutput": {
       "description": "RetrieveTapeRecoveryPointOutput",
@@ -2781,13 +2950,15 @@
           "description": "The Amazon Resource Name (ARN) of the virtual tape for which the recovery point was retrieved."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RetrieveTapeRecoveryPointOutput"
     },
     "Role": {
       "description": "The ARN of the IAM role that file gateway assumes when it accesses the underlying storage. ",
       "maxLength": 2048,
       "minLength": 20,
-      "type": "string"
+      "type": "string",
+      "title": "Role"
     },
     "ServiceUnavailableError": {
       "description": "An internal server error has occurred because the service is unavailable. For more information, see the error and message fields.",
@@ -2801,7 +2972,8 @@
           "description": "A human-readable message describing the error that occurred."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ServiceUnavailableError"
     },
     "SetLocalConsolePasswordInput": {
       "description": "SetLocalConsolePasswordInput",
@@ -2822,7 +2994,8 @@
         "GatewayARN",
         "LocalConsolePassword"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "SetLocalConsolePasswordInput"
     },
     "SetLocalConsolePasswordOutput": {
       "example": {
@@ -2833,7 +3006,8 @@
           "$ref": "#/definitions/GatewayARN"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SetLocalConsolePasswordOutput"
     },
     "ShutdownGatewayInput": {
       "description": "A JSON object containing the of the gateway to shut down.",
@@ -2848,7 +3022,8 @@
       "required": [
         "GatewayARN"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ShutdownGatewayInput"
     },
     "ShutdownGatewayOutput": {
       "description": "A JSON object containing the of the gateway that was shut down.",
@@ -2860,22 +3035,26 @@
           "$ref": "#/definitions/GatewayARN"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ShutdownGatewayOutput"
     },
     "SnapshotDescription": {
       "maxLength": 255,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "SnapshotDescription"
     },
     "SnapshotId": {
       "pattern": "\\Asnap-([0-9A-Fa-f]{8}|[0-9A-Fa-f]{17})\\z",
-      "type": "string"
+      "type": "string",
+      "title": "SnapshotId"
     },
     "Squash": {
       "description": "Indicates the user mapped to anonymous user. Valid options: \"RootSquash\" - Only root is mapped to anonymous user, \"NoSquash\" - No one is mapped to anonymous user or \"AllSquash\" - Everyone is mapped to anonymous user.",
       "maxLength": 15,
       "minLength": 5,
-      "type": "string"
+      "type": "string",
+      "title": "Squash"
     },
     "StartGatewayInput": {
       "description": "A JSON object containing the of the gateway to start.",
@@ -2890,7 +3069,8 @@
       "required": [
         "GatewayARN"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "StartGatewayInput"
     },
     "StartGatewayOutput": {
       "description": "A JSON object containing the of the gateway that was restarted.",
@@ -2902,13 +3082,15 @@
           "$ref": "#/definitions/GatewayARN"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "StartGatewayOutput"
     },
     "StorageClass": {
       "description": "<p/>",
       "maxLength": 20,
       "minLength": 5,
-      "type": "string"
+      "type": "string",
+      "title": "StorageClass"
     },
     "StorageGatewayError": {
       "description": "Provides additional information about an error that was returned by the service as an or. See the <code>errorCode</code> and <code>errorDetails</code> members for more information about the error.",
@@ -2922,7 +3104,8 @@
           "description": "Human-readable text that provides detail about the error that occurred."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "StorageGatewayError"
     },
     "StorediSCSIVolume": {
       "description": "Describes an iSCSI stored volume.",
@@ -2971,13 +3154,15 @@
           "description": "An <a>VolumeiSCSIAttributes</a> object that represents a collection of iSCSI attributes for one stored volume."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "StorediSCSIVolume"
     },
     "StorediSCSIVolumes": {
       "items": {
         "$ref": "#/definitions/StorediSCSIVolume"
       },
-      "type": "array"
+      "type": "array",
+      "title": "StorediSCSIVolumes"
     },
     "Tag": {
       "properties": {
@@ -2992,29 +3177,34 @@
         "Key",
         "Value"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "Tag"
     },
     "TagKey": {
       "maxLength": 128,
       "minLength": 1,
       "pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-%@]*)$",
-      "type": "string"
+      "type": "string",
+      "title": "TagKey"
     },
     "TagKeys": {
       "items": {
         "$ref": "#/definitions/TagKey"
       },
-      "type": "array"
+      "type": "array",
+      "title": "TagKeys"
     },
     "TagValue": {
       "maxLength": 256,
-      "type": "string"
+      "type": "string",
+      "title": "TagValue"
     },
     "Tags": {
       "items": {
         "$ref": "#/definitions/Tag"
       },
-      "type": "array"
+      "type": "array",
+      "title": "Tags"
     },
     "Tape": {
       "description": "Describes a virtual tape object.",
@@ -3047,20 +3237,23 @@
           "description": "The virtual tape library (VTL) device that the virtual tape is associated with."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Tape"
     },
     "TapeARN": {
       "maxLength": 500,
       "minLength": 50,
       "pattern": "^arn:(aws|aws-cn):storagegateway:[a-z\\-0-9]+:[0-9]+:tape\\/[0-9A-Z]{7,16}$",
-      "type": "string"
+      "type": "string",
+      "title": "TapeARN"
     },
     "TapeARNs": {
       "description": "The Amazon Resource Name (ARN) of each of the tapes you want to list. If you don't specify a tape ARN, the response lists all tapes in both your VTL and VTS.",
       "items": {
         "$ref": "#/definitions/TapeARN"
       },
-      "type": "array"
+      "type": "array",
+      "title": "TapeARNs"
     },
     "TapeArchive": {
       "description": "Represents a virtual tape that is archived in the virtual tape shelf (VTS).",
@@ -3093,33 +3286,39 @@
           "description": "The current state of the archived virtual tape."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TapeArchive"
     },
     "TapeArchiveStatus": {
-      "type": "string"
+      "type": "string",
+      "title": "TapeArchiveStatus"
     },
     "TapeArchives": {
       "items": {
         "$ref": "#/definitions/TapeArchive"
       },
-      "type": "array"
+      "type": "array",
+      "title": "TapeArchives"
     },
     "TapeBarcode": {
       "maxLength": 16,
       "minLength": 7,
       "pattern": "^[A-Z0-9]*$",
-      "type": "string"
+      "type": "string",
+      "title": "TapeBarcode"
     },
     "TapeBarcodePrefix": {
       "maxLength": 4,
       "minLength": 1,
       "pattern": "^[A-Z]*$",
-      "type": "string"
+      "type": "string",
+      "title": "TapeBarcodePrefix"
     },
     "TapeDriveType": {
       "maxLength": 50,
       "minLength": 2,
-      "type": "string"
+      "type": "string",
+      "title": "TapeDriveType"
     },
     "TapeInfo": {
       "description": "Describes a virtual tape.",
@@ -3145,14 +3344,16 @@
           "description": "The status of the tape."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TapeInfo"
     },
     "TapeInfos": {
       "description": "An array of <a>TapeInfo</a> objects, where each object describes an a single tape. If there not tapes in the tape library or VTS, then the <code>TapeInfos</code> is an empty array.",
       "items": {
         "$ref": "#/definitions/TapeInfo"
       },
-      "type": "array"
+      "type": "array",
+      "title": "TapeInfos"
     },
     "TapeRecoveryPointInfo": {
       "description": "Describes a recovery point.",
@@ -3173,43 +3374,52 @@
           "$ref": "#/definitions/TapeRecoveryPointStatus"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TapeRecoveryPointInfo"
     },
     "TapeRecoveryPointInfos": {
       "items": {
         "$ref": "#/definitions/TapeRecoveryPointInfo"
       },
-      "type": "array"
+      "type": "array",
+      "title": "TapeRecoveryPointInfos"
     },
     "TapeRecoveryPointStatus": {
-      "type": "string"
+      "type": "string",
+      "title": "TapeRecoveryPointStatus"
     },
     "TapeSize": {
-      "type": "integer"
+      "type": "integer",
+      "title": "TapeSize"
     },
     "TapeStatus": {
-      "type": "string"
+      "type": "string",
+      "title": "TapeStatus"
     },
     "Tapes": {
       "items": {
         "$ref": "#/definitions/Tape"
       },
-      "type": "array"
+      "type": "array",
+      "title": "Tapes"
     },
     "TargetARN": {
       "maxLength": 800,
       "minLength": 50,
-      "type": "string"
+      "type": "string",
+      "title": "TargetARN"
     },
     "TargetName": {
       "maxLength": 200,
       "minLength": 1,
       "pattern": "^[-\\.;a-z0-9]+$",
-      "type": "string"
+      "type": "string",
+      "title": "TargetName"
     },
     "Time": {
       "format": "date-time",
-      "type": "string"
+      "type": "string",
+      "title": "Time"
     },
     "UpdateBandwidthRateLimitInput": {
       "description": "<p>A JSON object containing one or more of the following fields:</p> <ul> <li> <p> <a>UpdateBandwidthRateLimitInput$AverageDownloadRateLimitInBitsPerSec</a> </p> </li> <li> <p> <a>UpdateBandwidthRateLimitInput$AverageUploadRateLimitInBitsPerSec</a> </p> </li> </ul>",
@@ -3234,7 +3444,8 @@
       "required": [
         "GatewayARN"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateBandwidthRateLimitInput"
     },
     "UpdateBandwidthRateLimitOutput": {
       "description": "A JSON object containing the of the gateway whose throttle information was updated.",
@@ -3246,7 +3457,8 @@
           "$ref": "#/definitions/GatewayARN"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UpdateBandwidthRateLimitOutput"
     },
     "UpdateChapCredentialsInput": {
       "description": "<p>A JSON object containing one or more of the following fields:</p> <ul> <li> <p> <a>UpdateChapCredentialsInput$InitiatorName</a> </p> </li> <li> <p> <a>UpdateChapCredentialsInput$SecretToAuthenticateInitiator</a> </p> </li> <li> <p> <a>UpdateChapCredentialsInput$SecretToAuthenticateTarget</a> </p> </li> <li> <p> <a>UpdateChapCredentialsInput$TargetARN</a> </p> </li> </ul>",
@@ -3279,7 +3491,8 @@
         "SecretToAuthenticateInitiator",
         "InitiatorName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateChapCredentialsInput"
     },
     "UpdateChapCredentialsOutput": {
       "description": "A JSON object containing the following fields:",
@@ -3297,7 +3510,8 @@
           "description": "The Amazon Resource Name (ARN) of the target. This is the same target specified in the request."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UpdateChapCredentialsOutput"
     },
     "UpdateGatewayInformationInput": {
       "example": {
@@ -3319,7 +3533,8 @@
       "required": [
         "GatewayARN"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateGatewayInformationInput"
     },
     "UpdateGatewayInformationOutput": {
       "description": "A JSON object containing the ARN of the gateway that was updated.",
@@ -3335,7 +3550,8 @@
           "$ref": "#/definitions/string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UpdateGatewayInformationOutput"
     },
     "UpdateGatewaySoftwareNowInput": {
       "description": "A JSON object containing the of the gateway to update.",
@@ -3350,7 +3566,8 @@
       "required": [
         "GatewayARN"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateGatewaySoftwareNowInput"
     },
     "UpdateGatewaySoftwareNowOutput": {
       "description": "A JSON object containing the of the gateway that was updated.",
@@ -3362,7 +3579,8 @@
           "$ref": "#/definitions/GatewayARN"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UpdateGatewaySoftwareNowOutput"
     },
     "UpdateMaintenanceStartTimeInput": {
       "description": "<p>A JSON object containing the following fields:</p> <ul> <li> <p> <a>UpdateMaintenanceStartTimeInput$DayOfWeek</a> </p> </li> <li> <p> <a>UpdateMaintenanceStartTimeInput$HourOfDay</a> </p> </li> <li> <p> <a>UpdateMaintenanceStartTimeInput$MinuteOfHour</a> </p> </li> </ul>",
@@ -3395,7 +3613,8 @@
         "MinuteOfHour",
         "DayOfWeek"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateMaintenanceStartTimeInput"
     },
     "UpdateMaintenanceStartTimeOutput": {
       "description": "A JSON object containing the of the gateway whose maintenance start time is updated.",
@@ -3407,7 +3626,8 @@
           "$ref": "#/definitions/GatewayARN"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UpdateMaintenanceStartTimeOutput"
     },
     "UpdateNFSFileShareInput": {
       "description": "UpdateNFSFileShareInput",
@@ -3448,7 +3668,8 @@
       "required": [
         "FileShareARN"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateNFSFileShareInput"
     },
     "UpdateNFSFileShareOutput": {
       "description": "UpdateNFSFileShareOutput",
@@ -3458,7 +3679,8 @@
           "description": "The Amazon Resource Name (ARN) of the updated file share. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UpdateNFSFileShareOutput"
     },
     "UpdateSnapshotScheduleInput": {
       "description": "<p>A JSON object containing one or more of the following fields:</p> <ul> <li> <p> <a>UpdateSnapshotScheduleInput$Description</a> </p> </li> <li> <p> <a>UpdateSnapshotScheduleInput$RecurrenceInHours</a> </p> </li> <li> <p> <a>UpdateSnapshotScheduleInput$StartAt</a> </p> </li> <li> <p> <a>UpdateSnapshotScheduleInput$VolumeARN</a> </p> </li> </ul>",
@@ -3491,7 +3713,8 @@
         "StartAt",
         "RecurrenceInHours"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateSnapshotScheduleInput"
     },
     "UpdateSnapshotScheduleOutput": {
       "description": "A JSON object containing the of the updated storage volume.",
@@ -3504,7 +3727,8 @@
           "description": "<p/>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UpdateSnapshotScheduleOutput"
     },
     "UpdateVTLDeviceTypeInput": {
       "example": {
@@ -3525,7 +3749,8 @@
         "VTLDeviceARN",
         "DeviceType"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateVTLDeviceTypeInput"
     },
     "UpdateVTLDeviceTypeOutput": {
       "description": "UpdateVTLDeviceTypeOutput",
@@ -3538,7 +3763,8 @@
           "description": "The Amazon Resource Name (ARN) of the medium changer you have selected."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UpdateVTLDeviceTypeOutput"
     },
     "VTLDevice": {
       "description": "Represents a device object associated with a tape gateway.",
@@ -3561,49 +3787,59 @@
           "$ref": "#/definitions/VTLDeviceVendor"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "VTLDevice"
     },
     "VTLDeviceARN": {
       "maxLength": 500,
       "minLength": 50,
-      "type": "string"
+      "type": "string",
+      "title": "VTLDeviceARN"
     },
     "VTLDeviceARNs": {
       "items": {
         "$ref": "#/definitions/VTLDeviceARN"
       },
-      "type": "array"
+      "type": "array",
+      "title": "VTLDeviceARNs"
     },
     "VTLDeviceProductIdentifier": {
-      "type": "string"
+      "type": "string",
+      "title": "VTLDeviceProductIdentifier"
     },
     "VTLDeviceType": {
-      "type": "string"
+      "type": "string",
+      "title": "VTLDeviceType"
     },
     "VTLDeviceVendor": {
-      "type": "string"
+      "type": "string",
+      "title": "VTLDeviceVendor"
     },
     "VTLDevices": {
       "items": {
         "$ref": "#/definitions/VTLDevice"
       },
-      "type": "array"
+      "type": "array",
+      "title": "VTLDevices"
     },
     "VolumeARN": {
       "maxLength": 500,
       "minLength": 50,
-      "type": "string"
+      "type": "string",
+      "title": "VolumeARN"
     },
     "VolumeARNs": {
       "items": {
         "$ref": "#/definitions/VolumeARN"
       },
-      "type": "array"
+      "type": "array",
+      "title": "VolumeARNs"
     },
     "VolumeId": {
       "maxLength": 30,
       "minLength": 12,
-      "type": "string"
+      "type": "string",
+      "title": "VolumeId"
     },
     "VolumeInfo": {
       "description": "Describes a storage volume object.",
@@ -3631,13 +3867,15 @@
           "$ref": "#/definitions/VolumeType"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "VolumeInfo"
     },
     "VolumeInfos": {
       "items": {
         "$ref": "#/definitions/VolumeInfo"
       },
-      "type": "array"
+      "type": "array",
+      "title": "VolumeInfos"
     },
     "VolumeRecoveryPointInfo": {
       "properties": {
@@ -3654,23 +3892,27 @@
           "$ref": "#/definitions/long"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "VolumeRecoveryPointInfo"
     },
     "VolumeRecoveryPointInfos": {
       "items": {
         "$ref": "#/definitions/VolumeRecoveryPointInfo"
       },
-      "type": "array"
+      "type": "array",
+      "title": "VolumeRecoveryPointInfos"
     },
     "VolumeStatus": {
       "maxLength": 50,
       "minLength": 3,
-      "type": "string"
+      "type": "string",
+      "title": "VolumeStatus"
     },
     "VolumeType": {
       "maxLength": 100,
       "minLength": 3,
-      "type": "string"
+      "type": "string",
+      "title": "VolumeType"
     },
     "VolumeiSCSIAttributes": {
       "description": "Lists iSCSI information about a volume.",
@@ -3696,14 +3938,17 @@
           "description": "The Amazon Resource Name (ARN) of the volume target."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "VolumeiSCSIAttributes"
     },
     "boolean": {
-      "type": "boolean"
+      "type": "boolean",
+      "title": "boolean"
     },
     "double": {
       "format": "double",
-      "type": "number"
+      "type": "number",
+      "title": "double"
     },
     "errorDetails": {
       "items": {
@@ -3717,16 +3962,20 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "errorDetails"
     },
     "integer": {
-      "type": "integer"
+      "type": "integer",
+      "title": "integer"
     },
     "long": {
-      "type": "integer"
+      "type": "integer",
+      "title": "long"
     },
     "string": {
-      "type": "string"
+      "type": "string",
+      "title": "string"
     }
   },
   "actions": [

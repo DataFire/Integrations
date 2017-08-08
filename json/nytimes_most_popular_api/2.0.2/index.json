@@ -61,7 +61,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Article"
     },
     "ArticleWithCountType": {
       "properties": {
@@ -144,14 +145,16 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ArticleWithCountType"
     },
     "DesFacet": {
       "items": {},
       "type": [
         "array",
         "string"
-      ]
+      ],
+      "title": "DesFacet"
     },
     "GeoFacet": {
       "enum": [
@@ -162,21 +165,24 @@
         "array",
         "null",
         "string"
-      ]
+      ],
+      "title": "GeoFacet"
     },
     "OrgFacet": {
       "items": {},
       "type": [
         "array",
         "null"
-      ]
+      ],
+      "title": "OrgFacet"
     },
     "PerFacet": {
       "items": {},
       "type": [
         "array",
         "null"
-      ]
+      ],
+      "title": "PerFacet"
     }
   },
   "actions": [

@@ -41,7 +41,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AwsAccessKey"
     },
     "AwsS3Data": {
       "description": "An AwsS3Data can be a data source, but not a data sink.\nIn an AwsS3Data, an object's name is the S3 object's key name.",
@@ -55,7 +56,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AwsS3Data"
     },
     "Date": {
       "description": "Represents a whole calendar date, e.g. date of birth. The time of day and\ntime zone are either specified elsewhere or are not significant. The date\nis relative to the Proleptic Gregorian Calendar. The day may be 0 to\nrepresent a year and month where the day is not significant, e.g. credit card\nexpiration date. The year may be 0 to represent a month and day independent\nof year, e.g. anniversary date. Related types are google.type.TimeOfDay\nand `google.protobuf.Timestamp`.",
@@ -76,12 +78,14 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Date"
     },
     "Empty": {
       "description": "A generic empty message that you can re-use to avoid defining duplicated\nempty messages in your APIs. A typical example is to use it as the request\nor the response type of an API method. For instance:\n\n    service Foo {\n      rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);\n    }\n\nThe JSON representation for `Empty` is empty JSON object `{}`.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "Empty"
     },
     "ErrorLogEntry": {
       "description": "An entry describing an error that has occurred.",
@@ -98,7 +102,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ErrorLogEntry"
     },
     "ErrorSummary": {
       "description": "A summary of errors by error code, plus a count and sample error log\nentries.",
@@ -139,7 +144,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ErrorSummary"
     },
     "GcsData": {
       "description": "In a GcsData, an object's name is the Google Cloud Storage object's name and\nits `lastModificationTime` refers to the object's updated time, which changes\nwhen the content or the metadata of the object is updated.",
@@ -149,7 +155,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GcsData"
     },
     "GoogleServiceAccount": {
       "description": "Google service account",
@@ -159,7 +166,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GoogleServiceAccount"
     },
     "HttpData": {
       "description": "An HttpData specifies a list of objects on the web to be transferred over\nHTTP.  The information of the objects to be transferred is contained in a\nfile referenced by a URL. The first line in the file must be\n\"TsvHttpData-1.0\", which specifies the format of the file.  Subsequent lines\nspecify the information of the list of objects, one object per list entry.\nEach entry has the following tab-delimited fields:\n\n* HTTP URL - The location of the object.\n\n* Length - The size of the object in bytes.\n\n* MD5 - The base64-encoded MD5 hash of the object.\n\nFor an example of a valid TSV file, see\n[Transferring data from URLs](https://cloud.google.com/storage/transfer/#urls)\n\nWhen transferring data based on a URL list, keep the following in mind:\n\n* When an object located at `http(s)://hostname:port/<URL-path>` is transferred\nto a data sink, the name of the object at the data sink is\n`<hostname>/<URL-path>`.\n\n* If the specified size of an object does not match the actual size of the\nobject fetched, the object will not be transferred.\n\n* If the specified MD5 does not match the MD5 computed from the transferred\nbytes, the object transfer will fail. For more information, see\n[Generating MD5 hashes](https://cloud.google.com/storage/transfer/#md5)\n\n* Ensure that each URL you specify is publicly accessible. For\nexample, in Google Cloud Storage you can\n[share an object publicly]\n(https://cloud.google.com/storage/docs/cloud-console#_sharingdata) and get\na link to it.\n\n* Storage Transfer Service obeys `robots.txt` rules and requires the source\nHTTP server to support `Range` requests and to return a `Content-Length`\nheader in each response.\n\n* [ObjectConditions](#ObjectConditions) have no effect when filtering objects\nto transfer.",
@@ -169,7 +177,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "HttpData"
     },
     "ListOperationsResponse": {
       "description": "The response message for Operations.ListOperations.",
@@ -186,7 +195,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListOperationsResponse"
     },
     "ListTransferJobsResponse": {
       "description": "Response from ListTransferJobs.",
@@ -203,7 +213,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListTransferJobsResponse"
     },
     "ObjectConditions": {
       "description": "Conditions that determine which objects will be transferred.",
@@ -233,7 +244,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ObjectConditions"
     },
     "Operation": {
       "description": "This resource represents a long-running operation that is the result of a\nnetwork API call.",
@@ -265,17 +277,20 @@
           "type": "object"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Operation"
     },
     "PauseTransferOperationRequest": {
       "description": "Request passed to PauseTransferOperation.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "PauseTransferOperationRequest"
     },
     "ResumeTransferOperationRequest": {
       "description": "Request passed to ResumeTransferOperation.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "ResumeTransferOperationRequest"
     },
     "Schedule": {
       "description": "Transfers can be scheduled to recur or to run just once.",
@@ -293,7 +308,8 @@
           "description": "The time in UTC at which the transfer will be scheduled to start in a day.\nTransfers may start later than this time. If not specified, recurring and\none-time transfers that are scheduled to run today will run immediately;\nrecurring transfers that are scheduled to run on a future date will start\nat approximately midnight UTC on that date. Note that when configuring a\ntransfer with the Cloud Platform Console, the transfer's start time in a\nday is specified in your local timezone."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Schedule"
     },
     "Status": {
       "description": "The `Status` type defines a logical error model that is suitable for different\nprogramming environments, including REST APIs and RPC APIs. It is used by\n[gRPC](https://github.com/grpc). The error model is designed to be:\n\n- Simple to use and understand for most users\n- Flexible enough to meet unexpected needs\n\n# Overview\n\nThe `Status` message contains three pieces of data: error code, error message,\nand error details. The error code should be an enum value of\ngoogle.rpc.Code, but it may accept additional error codes if needed.  The\nerror message should be a developer-facing English message that helps\ndevelopers *understand* and *resolve* the error. If a localized user-facing\nerror message is needed, put the localized message in the error details or\nlocalize it in the client. The optional error details may contain arbitrary\ninformation about the error. There is a predefined set of error detail types\nin the package `google.rpc` which can be used for common error conditions.\n\n# Language mapping\n\nThe `Status` message is the logical representation of the error model, but it\nis not necessarily the actual wire format. When the `Status` message is\nexposed in different client libraries and different wire protocols, it can be\nmapped differently. For example, it will likely be mapped to some exceptions\nin Java, but more likely mapped to some error codes in C.\n\n# Other uses\n\nThe error model and the `Status` message can be used in a variety of\nenvironments, either with or without APIs, to provide a\nconsistent developer experience across different environments.\n\nExample uses of this error model include:\n\n- Partial errors. If a service needs to return partial errors to the client,\n    it may embed the `Status` in the normal response to indicate the partial\n    errors.\n\n- Workflow errors. A typical workflow has multiple steps. Each step may\n    have a `Status` message for error reporting purpose.\n\n- Batch operations. If a client uses batch request and batch response, the\n    `Status` message should be used directly inside batch response, one for\n    each error sub-response.\n\n- Asynchronous operations. If an API call embeds asynchronous operation\n    results in its response, the status of those operations should be\n    represented directly using the `Status` message.\n\n- Logging. If some API errors are stored in logs, the message `Status` could\n    be used directly after any stripping needed for security/privacy reasons.",
@@ -318,7 +334,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Status"
     },
     "TimeOfDay": {
       "description": "Represents a time of day. The date and time zone are either not significant\nor are specified elsewhere. An API may choose to allow leap seconds. Related\ntypes are google.type.Date and `google.protobuf.Timestamp`.",
@@ -344,7 +361,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TimeOfDay"
     },
     "TransferCounters": {
       "description": "A collection of counters that report the progress of a transfer operation.",
@@ -430,7 +448,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TransferCounters"
     },
     "TransferJob": {
       "description": "This resource represents the configuration of a transfer job that runs\nperiodically.",
@@ -481,7 +500,8 @@
           "description": "Transfer specification.\nRequired."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TransferJob"
     },
     "TransferOperation": {
       "description": "A description of the execution of a transfer.",
@@ -536,7 +556,8 @@
           "description": "Transfer specification.\nRequired."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TransferOperation"
     },
     "TransferOptions": {
       "description": "TransferOptions uses three boolean parameters to define the actions\nto be performed on objects in a transfer.",
@@ -554,7 +575,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TransferOptions"
     },
     "TransferSpec": {
       "description": "Configuration for running a transfer.",
@@ -584,7 +606,8 @@
           "description": "If the option `deleteObjectsUniqueInSink` is `true`, object conditions\nbased on objects' `lastModificationTime` are ignored and do not exclude\nobjects in a data source or a data sink."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TransferSpec"
     },
     "UpdateTransferJobRequest": {
       "description": "Request passed to UpdateTransferJob.",
@@ -603,7 +626,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UpdateTransferJobRequest"
     }
   },
   "actions": [

@@ -23,7 +23,8 @@
       "type": "array",
       "xml": {
         "wrapped": false
-      }
+      },
+      "title": "AWSAccountIdList"
     },
     "ActionNameList": {
       "items": {
@@ -32,7 +33,8 @@
       "type": "array",
       "xml": {
         "wrapped": false
-      }
+      },
+      "title": "ActionNameList"
     },
     "AddPermissionRequest": {
       "description": "<p/>",
@@ -60,7 +62,8 @@
         "AWSAccountIds",
         "Actions"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AddPermissionRequest"
     },
     "AttributeNameList": {
       "items": {
@@ -69,17 +72,20 @@
       "type": "array",
       "xml": {
         "wrapped": false
-      }
+      },
+      "title": "AttributeNameList"
     },
     "BatchEntryIdsNotDistinct": {
       "description": "Two or more batch entries in the request have the same <code>Id</code>.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "BatchEntryIdsNotDistinct"
     },
     "BatchRequestTooLong": {
       "description": "The length of all the messages put together is more than the limit.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "BatchRequestTooLong"
     },
     "BatchResultErrorEntry": {
       "description": "This is used in the responses of batch API to give a detailed description of the result of an action on each entry in the request.",
@@ -106,7 +112,8 @@
         "SenderFault",
         "Code"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "BatchResultErrorEntry"
     },
     "BatchResultErrorEntryList": {
       "items": {
@@ -115,19 +122,23 @@
       "type": "array",
       "xml": {
         "wrapped": false
-      }
+      },
+      "title": "BatchResultErrorEntryList"
     },
     "Binary": {
-      "type": "string"
+      "type": "string",
+      "title": "Binary"
     },
     "BinaryList": {
       "items": {
         "$ref": "#/definitions/Binary"
       },
-      "type": "array"
+      "type": "array",
+      "title": "BinaryList"
     },
     "Boolean": {
-      "type": "boolean"
+      "type": "boolean",
+      "title": "Boolean"
     },
     "ChangeMessageVisibilityBatchRequest": {
       "description": "<p/>",
@@ -145,7 +156,8 @@
         "QueueUrl",
         "Entries"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ChangeMessageVisibilityBatchRequest"
     },
     "ChangeMessageVisibilityBatchRequestEntry": {
       "description": "<p>Encloses a receipt handle and an entry id for each message in <code> <a>ChangeMessageVisibilityBatch</a>.</code> </p> <important> <p>All of the following list parameters must be prefixed with <code>ChangeMessageVisibilityBatchRequestEntry.n</code>, where <code>n</code> is an integer value starting with <code>1</code>. For example, a parameter list for this action might look like this:</p> </important> <p> <code>&amp;amp;ChangeMessageVisibilityBatchRequestEntry.1.Id=change_visibility_msg_2</code> </p> <p> <code>&amp;amp;ChangeMessageVisibilityBatchRequestEntry.1.ReceiptHandle=&lt;replaceable&gt;Your_Receipt_Handle&lt;/replaceable&gt;</code> </p> <p> <code>&amp;amp;ChangeMessageVisibilityBatchRequestEntry.1.VisibilityTimeout=45</code> </p>",
@@ -167,7 +179,8 @@
         "Id",
         "ReceiptHandle"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ChangeMessageVisibilityBatchRequestEntry"
     },
     "ChangeMessageVisibilityBatchRequestEntryList": {
       "items": {
@@ -176,7 +189,8 @@
       "type": "array",
       "xml": {
         "wrapped": false
-      }
+      },
+      "title": "ChangeMessageVisibilityBatchRequestEntryList"
     },
     "ChangeMessageVisibilityBatchResult": {
       "description": "For each message in the batch, the response contains a <code> <a>ChangeMessageVisibilityBatchResultEntry</a> </code> tag if the message succeeds or a <code> <a>BatchResultErrorEntry</a> </code> tag if the message fails.",
@@ -194,7 +208,8 @@
         "Successful",
         "Failed"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ChangeMessageVisibilityBatchResult"
     },
     "ChangeMessageVisibilityBatchResultEntry": {
       "description": "Encloses the <code>Id</code> of an entry in <code> <a>ChangeMessageVisibilityBatch</a>.</code> ",
@@ -207,7 +222,8 @@
       "required": [
         "Id"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ChangeMessageVisibilityBatchResultEntry"
     },
     "ChangeMessageVisibilityBatchResultEntryList": {
       "items": {
@@ -216,7 +232,8 @@
       "type": "array",
       "xml": {
         "wrapped": false
-      }
+      },
+      "title": "ChangeMessageVisibilityBatchResultEntryList"
     },
     "ChangeMessageVisibilityRequest": {
       "properties": {
@@ -238,7 +255,8 @@
         "ReceiptHandle",
         "VisibilityTimeout"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ChangeMessageVisibilityRequest"
     },
     "CreateQueueRequest": {
       "description": "<p/>",
@@ -255,7 +273,8 @@
       "required": [
         "QueueName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateQueueRequest"
     },
     "CreateQueueResult": {
       "description": "Returns the <code>QueueUrl</code> attribute of the created queue.",
@@ -265,7 +284,8 @@
           "description": "The URL of the created Amazon SQS queue."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateQueueResult"
     },
     "DeleteMessageBatchRequest": {
       "description": "<p/>",
@@ -283,7 +303,8 @@
         "QueueUrl",
         "Entries"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteMessageBatchRequest"
     },
     "DeleteMessageBatchRequestEntry": {
       "description": "Encloses a receipt handle and an identifier for it.",
@@ -301,7 +322,8 @@
         "Id",
         "ReceiptHandle"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteMessageBatchRequestEntry"
     },
     "DeleteMessageBatchRequestEntryList": {
       "items": {
@@ -310,7 +332,8 @@
       "type": "array",
       "xml": {
         "wrapped": false
-      }
+      },
+      "title": "DeleteMessageBatchRequestEntryList"
     },
     "DeleteMessageBatchResult": {
       "description": "For each message in the batch, the response contains a <code> <a>DeleteMessageBatchResultEntry</a> </code> tag if the message is deleted or a <code> <a>BatchResultErrorEntry</a> </code> tag if the message can't be deleted.",
@@ -328,7 +351,8 @@
         "Successful",
         "Failed"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteMessageBatchResult"
     },
     "DeleteMessageBatchResultEntry": {
       "description": "Encloses the <code>Id</code> of an entry in <code> <a>DeleteMessageBatch</a>.</code> ",
@@ -341,7 +365,8 @@
       "required": [
         "Id"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteMessageBatchResultEntry"
     },
     "DeleteMessageBatchResultEntryList": {
       "items": {
@@ -350,7 +375,8 @@
       "type": "array",
       "xml": {
         "wrapped": false
-      }
+      },
+      "title": "DeleteMessageBatchResultEntryList"
     },
     "DeleteMessageRequest": {
       "description": "<p/>",
@@ -368,7 +394,8 @@
         "QueueUrl",
         "ReceiptHandle"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteMessageRequest"
     },
     "DeleteQueueRequest": {
       "description": "<p/>",
@@ -381,12 +408,14 @@
       "required": [
         "QueueUrl"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteQueueRequest"
     },
     "EmptyBatchRequest": {
       "description": "The batch request doesn't contain any entries.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "EmptyBatchRequest"
     },
     "GetQueueAttributesRequest": {
       "description": "<p/>",
@@ -403,7 +432,8 @@
       "required": [
         "QueueUrl"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetQueueAttributesRequest"
     },
     "GetQueueAttributesResult": {
       "description": "A list of returned queue attributes.",
@@ -413,7 +443,8 @@
           "description": "A map of attributes to their respective values."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetQueueAttributesResult"
     },
     "GetQueueUrlRequest": {
       "description": "<p/>",
@@ -430,7 +461,8 @@
       "required": [
         "QueueName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetQueueUrlRequest"
     },
     "GetQueueUrlResult": {
       "description": "For more information, see <a href=\"http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/UnderstandingResponses.html\">Responses</a> in the <i>Amazon SQS Developer Guide</i>.",
@@ -440,30 +472,36 @@
           "description": "The URL of the queue."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetQueueUrlResult"
     },
     "Integer": {
-      "type": "integer"
+      "type": "integer",
+      "title": "Integer"
     },
     "InvalidAttributeName": {
       "description": "The attribute referred to doesn't exist.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "InvalidAttributeName"
     },
     "InvalidBatchEntryId": {
       "description": "The <code>Id</code> of a batch entry in a batch request doesn't abide by the specification.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "InvalidBatchEntryId"
     },
     "InvalidIdFormat": {
       "description": "The receipt handle isn't valid for the current version.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "InvalidIdFormat"
     },
     "InvalidMessageContents": {
       "description": "The message contains characters outside the allowed set.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "InvalidMessageContents"
     },
     "ListDeadLetterSourceQueuesRequest": {
       "description": "<p/>",
@@ -476,7 +514,8 @@
       "required": [
         "QueueUrl"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListDeadLetterSourceQueuesRequest"
     },
     "ListDeadLetterSourceQueuesResult": {
       "description": "A list of your dead letter source queues.",
@@ -489,7 +528,8 @@
       "required": [
         "queueUrls"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListDeadLetterSourceQueuesResult"
     },
     "ListQueuesRequest": {
       "description": "<p/>",
@@ -499,7 +539,8 @@
           "description": "<p>A string to use for filtering the list results. Only those queues whose name begins with the specified string are returned.</p> <p>Queue names are case-sensitive.</p>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListQueuesRequest"
     },
     "ListQueuesResult": {
       "description": "A list of your queues.",
@@ -509,7 +550,8 @@
           "description": "A list of queue URLs, up to 1,000 entries."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListQueuesResult"
     },
     "Message": {
       "description": "An Amazon SQS message.",
@@ -543,10 +585,12 @@
           "description": "An identifier associated with the act of receiving the message. A new receipt handle is returned every time you receive a message. When deleting a message, you provide the last received receipt handle to delete the message."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Message"
     },
     "MessageAttributeName": {
-      "type": "string"
+      "type": "string",
+      "title": "MessageAttributeName"
     },
     "MessageAttributeNameList": {
       "items": {
@@ -555,7 +599,8 @@
       "type": "array",
       "xml": {
         "wrapped": false
-      }
+      },
+      "title": "MessageAttributeNameList"
     },
     "MessageAttributeValue": {
       "description": "<p>The user-specified message attribute value. For string data types, the <code>Value</code> attribute has the same restrictions on the content as the message body. For more information, see <code> <a>SendMessage</a>.</code> </p> <p> <code>Name</code>, <code>type</code>, <code>value</code> and the message body must not be empty or null. All parts of the message attribute, including <code>Name</code>, <code>Type</code>, and <code>Value</code>, are part of the message size restriction (256 KB or 262,144 bytes).</p>",
@@ -587,7 +632,8 @@
       "type": "object",
       "xml": {
         "wrapped": false
-      }
+      },
+      "title": "MessageAttributeValue"
     },
     "MessageBodyAttributeMap": {
       "items": {
@@ -604,7 +650,8 @@
       "type": "array",
       "xml": {
         "wrapped": false
-      }
+      },
+      "title": "MessageBodyAttributeMap"
     },
     "MessageList": {
       "items": {
@@ -613,12 +660,14 @@
       "type": "array",
       "xml": {
         "wrapped": false
-      }
+      },
+      "title": "MessageList"
     },
     "MessageNotInflight": {
       "description": "The message referred to isn't in flight.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "MessageNotInflight"
     },
     "MessageSystemAttributeMap": {
       "items": {
@@ -635,7 +684,8 @@
       "type": "array",
       "xml": {
         "wrapped": false
-      }
+      },
+      "title": "MessageSystemAttributeMap"
     },
     "MessageSystemAttributeName": {
       "enum": [
@@ -647,17 +697,20 @@
         "MessageDeduplicationId",
         "MessageGroupId"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "MessageSystemAttributeName"
     },
     "OverLimit": {
       "description": "The action that you requested would violate a limit. For example, <code>ReceiveMessage</code> returns this error if the maximum number of inflight messages is reached. <code> <a>AddPermission</a> </code> returns this error if the maximum number of permissions for the queue is reached.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "OverLimit"
     },
     "PurgeQueueInProgress": {
       "description": "Indicates that the specified queue previously received a <code>PurgeQueue</code> request within the last 60 seconds (the time it can take to delete the messages in the queue).",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "PurgeQueueInProgress"
     },
     "PurgeQueueRequest": {
       "description": "<p/>",
@@ -670,7 +723,8 @@
       "required": [
         "QueueUrl"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "PurgeQueueRequest"
     },
     "QueueAttributeMap": {
       "items": {
@@ -687,7 +741,8 @@
       "type": "array",
       "xml": {
         "wrapped": false
-      }
+      },
+      "title": "QueueAttributeMap"
     },
     "QueueAttributeName": {
       "enum": [
@@ -710,22 +765,26 @@
         "KmsMasterKeyId",
         "KmsDataKeyReusePeriodSeconds"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "QueueAttributeName"
     },
     "QueueDeletedRecently": {
       "description": "You must wait 60 seconds after deleting a queue before you can create another one with the same name.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "QueueDeletedRecently"
     },
     "QueueDoesNotExist": {
       "description": "The queue referred to doesn't exist.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "QueueDoesNotExist"
     },
     "QueueNameExists": {
       "description": "A queue already exists with this name. Amazon SQS returns this error only if the request includes attributes whose values differ from those of the existing queue.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "QueueNameExists"
     },
     "QueueUrlList": {
       "items": {
@@ -734,12 +793,14 @@
       "type": "array",
       "xml": {
         "wrapped": false
-      }
+      },
+      "title": "QueueUrlList"
     },
     "ReceiptHandleIsInvalid": {
       "description": "The receipt handle provided isn't valid.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "ReceiptHandleIsInvalid"
     },
     "ReceiveMessageRequest": {
       "description": "<p/>",
@@ -776,7 +837,8 @@
       "required": [
         "QueueUrl"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ReceiveMessageRequest"
     },
     "ReceiveMessageResult": {
       "description": "A list of received messages.",
@@ -786,7 +848,8 @@
           "description": "A list of messages."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ReceiveMessageResult"
     },
     "RemovePermissionRequest": {
       "description": "<p/>",
@@ -804,7 +867,8 @@
         "QueueUrl",
         "Label"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "RemovePermissionRequest"
     },
     "SendMessageBatchRequest": {
       "description": "<p/>",
@@ -822,7 +886,8 @@
         "QueueUrl",
         "Entries"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "SendMessageBatchRequest"
     },
     "SendMessageBatchRequestEntry": {
       "description": "Contains the details of a single Amazon SQS message along with an <code>Id</code>.",
@@ -856,7 +921,8 @@
         "Id",
         "MessageBody"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "SendMessageBatchRequestEntry"
     },
     "SendMessageBatchRequestEntryList": {
       "items": {
@@ -865,7 +931,8 @@
       "type": "array",
       "xml": {
         "wrapped": false
-      }
+      },
+      "title": "SendMessageBatchRequestEntryList"
     },
     "SendMessageBatchResult": {
       "description": "For each message in the batch, the response contains a <code> <a>SendMessageBatchResultEntry</a> </code> tag if the message succeeds or a <code> <a>BatchResultErrorEntry</a> </code> tag if the message fails.",
@@ -883,7 +950,8 @@
         "Successful",
         "Failed"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "SendMessageBatchResult"
     },
     "SendMessageBatchResultEntry": {
       "description": "Encloses a <code>MessageId</code> for a successfully-enqueued message in a <code> <a>SendMessageBatch</a>.</code> ",
@@ -914,7 +982,8 @@
         "MessageId",
         "MD5OfMessageBody"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "SendMessageBatchResultEntry"
     },
     "SendMessageBatchResultEntryList": {
       "items": {
@@ -923,7 +992,8 @@
       "type": "array",
       "xml": {
         "wrapped": false
-      }
+      },
+      "title": "SendMessageBatchResultEntryList"
     },
     "SendMessageRequest": {
       "description": "<p/>",
@@ -957,7 +1027,8 @@
         "QueueUrl",
         "MessageBody"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "SendMessageRequest"
     },
     "SendMessageResult": {
       "description": "The <code>MD5OfMessageBody</code> and <code>MessageId</code> elements.",
@@ -979,7 +1050,8 @@
           "description": "<p>This parameter applies only to FIFO (first-in-first-out) queues.</p> <p>The large, non-consecutive number that Amazon SQS assigns to each message.</p> <p>The length of <code>SequenceNumber</code> is 128 bits. <code>SequenceNumber</code> continues to increase for a particular <code>MessageGroupId</code>.</p>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SendMessageResult"
     },
     "SetQueueAttributesRequest": {
       "description": "<p/>",
@@ -997,26 +1069,31 @@
         "QueueUrl",
         "Attributes"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "SetQueueAttributesRequest"
     },
     "String": {
-      "type": "string"
+      "type": "string",
+      "title": "String"
     },
     "StringList": {
       "items": {
         "$ref": "#/definitions/String"
       },
-      "type": "array"
+      "type": "array",
+      "title": "StringList"
     },
     "TooManyEntriesInBatchRequest": {
       "description": "The batch request contains more entries than permissible.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "TooManyEntriesInBatchRequest"
     },
     "UnsupportedOperation": {
       "description": "Error code 400. Unsupported operation.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "UnsupportedOperation"
     }
   },
   "actions": [

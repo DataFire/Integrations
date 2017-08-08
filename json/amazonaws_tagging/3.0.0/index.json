@@ -19,22 +19,26 @@
     "AmazonResourceType": {
       "maxLength": 256,
       "minLength": 0,
-      "type": "string"
+      "type": "string",
+      "title": "AmazonResourceType"
     },
     "ErrorCode": {
       "enum": [
         "InternalServiceException",
         "InvalidParameterException"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ErrorCode"
     },
     "ErrorMessage": {
-      "type": "string"
+      "type": "string",
+      "title": "ErrorMessage"
     },
     "ExceptionMessage": {
       "maxLength": 2048,
       "minLength": 0,
-      "type": "string"
+      "type": "string",
+      "title": "ExceptionMessage"
     },
     "FailedResourcesMap": {
       "items": {
@@ -48,7 +52,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "FailedResourcesMap"
     },
     "FailureInfo": {
       "description": "Details of the common errors that all actions return.",
@@ -66,7 +71,8 @@
           "description": "The HTTP status code of the common error."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "FailureInfo"
     },
     "GetResourcesInput": {
       "properties": {
@@ -90,7 +96,8 @@
       "required": [
         "TagsPerPage"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetResourcesInput"
     },
     "GetResourcesOutput": {
       "properties": {
@@ -103,7 +110,8 @@
           "description": "A list of resource ARNs and the tags (keys and values) associated with each."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetResourcesOutput"
     },
     "GetTagKeysInput": {
       "properties": {
@@ -112,7 +120,8 @@
           "description": "A string that indicates that additional data is available. Leave this value empty for your initial request. If the response includes a PaginationToken, use that string for this value to request an additional page of data."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetTagKeysInput"
     },
     "GetTagKeysOutput": {
       "properties": {
@@ -125,7 +134,8 @@
           "description": "A list of all tag keys in the AWS account."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetTagKeysOutput"
     },
     "GetTagValuesInput": {
       "properties": {
@@ -141,7 +151,8 @@
       "required": [
         "Key"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetTagValuesInput"
     },
     "GetTagValuesOutput": {
       "properties": {
@@ -154,7 +165,8 @@
           "description": "A list of all tag values for the specified key in the AWS account."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetTagValuesOutput"
     },
     "InternalServiceException": {
       "description": "The request processing failed because of an unknown error, exception, or failure. You can retry the request.",
@@ -163,7 +175,8 @@
           "$ref": "#/definitions/ExceptionMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InternalServiceException"
     },
     "InvalidParameterException": {
       "description": "A parameter is missing or a malformed string or invalid or out-of-range value was supplied for the request parameter.",
@@ -172,12 +185,14 @@
           "$ref": "#/definitions/ExceptionMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidParameterException"
     },
     "PaginationToken": {
       "maxLength": 2048,
       "minLength": 0,
-      "type": "string"
+      "type": "string",
+      "title": "PaginationToken"
     },
     "PaginationTokenExpiredException": {
       "description": "A <code>PaginationToken</code> is valid for a maximum of 15 minutes. Your request was denied because the specified <code>PaginationToken</code> has expired.",
@@ -186,12 +201,14 @@
           "$ref": "#/definitions/ExceptionMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PaginationTokenExpiredException"
     },
     "ResourceARN": {
       "maxLength": 1600,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "ResourceARN"
     },
     "ResourceARNList": {
       "items": {
@@ -199,7 +216,8 @@
       },
       "maxItems": 20,
       "minItems": 1,
-      "type": "array"
+      "type": "array",
+      "title": "ResourceARNList"
     },
     "ResourceTagMapping": {
       "description": "A list of resource ARNs and the tags (keys and values) that are associated with each.",
@@ -213,22 +231,26 @@
           "description": "The tags that have been applied to one or more AWS resources."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ResourceTagMapping"
     },
     "ResourceTagMappingList": {
       "items": {
         "$ref": "#/definitions/ResourceTagMapping"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ResourceTagMappingList"
     },
     "ResourceTypeFilterList": {
       "items": {
         "$ref": "#/definitions/AmazonResourceType"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ResourceTypeFilterList"
     },
     "StatusCode": {
-      "type": "integer"
+      "type": "integer",
+      "title": "StatusCode"
     },
     "Tag": {
       "description": "The metadata that you apply to AWS resources to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define. For more information, see <a href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#tag-basics\">Tag Basics</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.",
@@ -246,7 +268,8 @@
         "Key",
         "Value"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "Tag"
     },
     "TagFilter": {
       "description": "A list of tags (keys and values) that are used to specify the associated resources.",
@@ -260,7 +283,8 @@
           "description": "The optional part of a key-value pair that make up a tag. A value acts as a descriptor within a tag category (key)."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TagFilter"
     },
     "TagFilterList": {
       "items": {
@@ -268,18 +292,21 @@
       },
       "maxItems": 50,
       "minItems": 0,
-      "type": "array"
+      "type": "array",
+      "title": "TagFilterList"
     },
     "TagKey": {
       "maxLength": 128,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "TagKey"
     },
     "TagKeyList": {
       "items": {
         "$ref": "#/definitions/TagKey"
       },
-      "type": "array"
+      "type": "array",
+      "title": "TagKeyList"
     },
     "TagKeyListForUntag": {
       "items": {
@@ -287,13 +314,15 @@
       },
       "maxItems": 50,
       "minItems": 1,
-      "type": "array"
+      "type": "array",
+      "title": "TagKeyListForUntag"
     },
     "TagList": {
       "items": {
         "$ref": "#/definitions/Tag"
       },
-      "type": "array"
+      "type": "array",
+      "title": "TagList"
     },
     "TagMap": {
       "items": {
@@ -309,7 +338,8 @@
       },
       "maxItems": 50,
       "minItems": 1,
-      "type": "array"
+      "type": "array",
+      "title": "TagMap"
     },
     "TagResourcesInput": {
       "properties": {
@@ -326,7 +356,8 @@
         "ResourceARNList",
         "Tags"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "TagResourcesInput"
     },
     "TagResourcesOutput": {
       "properties": {
@@ -335,12 +366,14 @@
           "description": "Details of resources that could not be tagged. An error code, status code, and error message are returned for each failed item."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TagResourcesOutput"
     },
     "TagValue": {
       "maxLength": 256,
       "minLength": 0,
-      "type": "string"
+      "type": "string",
+      "title": "TagValue"
     },
     "TagValueList": {
       "items": {
@@ -348,18 +381,21 @@
       },
       "maxItems": 20,
       "minItems": 0,
-      "type": "array"
+      "type": "array",
+      "title": "TagValueList"
     },
     "TagValuesOutputList": {
       "items": {
         "$ref": "#/definitions/TagValue"
       },
-      "type": "array"
+      "type": "array",
+      "title": "TagValuesOutputList"
     },
     "TagsPerPage": {
       "maximum": 500,
       "minimum": 100,
-      "type": "integer"
+      "type": "integer",
+      "title": "TagsPerPage"
     },
     "ThrottledException": {
       "description": "The request was denied to limit the frequency of submitted requests.",
@@ -368,7 +404,8 @@
           "$ref": "#/definitions/ExceptionMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ThrottledException"
     },
     "UntagResourcesInput": {
       "properties": {
@@ -385,7 +422,8 @@
         "ResourceARNList",
         "TagKeys"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UntagResourcesInput"
     },
     "UntagResourcesOutput": {
       "properties": {
@@ -394,7 +432,8 @@
           "description": "Details of resources that could not be untagged. An error code, status code, and error message are returned for each failed item."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UntagResourcesOutput"
     }
   },
   "actions": [

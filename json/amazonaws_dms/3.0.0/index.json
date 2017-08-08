@@ -24,7 +24,8 @@
           "description": "<p/>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AccessDeniedFault"
     },
     "AccountQuota": {
       "description": "Describes a quota for an AWS account, for example, the number of replication instances allowed.",
@@ -42,13 +43,15 @@
           "description": "The amount currently used toward the quota maximum."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AccountQuota"
     },
     "AccountQuotaList": {
       "items": {
         "$ref": "#/definitions/AccountQuota"
       },
-      "type": "array"
+      "type": "array",
+      "title": "AccountQuotaList"
     },
     "AddTagsToResourceMessage": {
       "description": "<p/>",
@@ -66,12 +69,14 @@
         "ResourceArn",
         "Tags"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AddTagsToResourceMessage"
     },
     "AddTagsToResourceResponse": {
       "description": "<p/>",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "AddTagsToResourceResponse"
     },
     "AvailabilityZone": {
       "description": "<p/>",
@@ -81,13 +86,16 @@
           "description": "The name of the availability zone."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AvailabilityZone"
     },
     "Boolean": {
-      "type": "boolean"
+      "type": "boolean",
+      "title": "Boolean"
     },
     "BooleanOptional": {
-      "type": "boolean"
+      "type": "boolean",
+      "title": "BooleanOptional"
     },
     "Certificate": {
       "description": "The SSL certificate that can be used to encrypt connections between the endpoints and the replication instance.",
@@ -133,16 +141,19 @@
           "description": "The final date that the certificate is valid."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Certificate"
     },
     "CertificateList": {
       "items": {
         "$ref": "#/definitions/Certificate"
       },
-      "type": "array"
+      "type": "array",
+      "title": "CertificateList"
     },
     "CertificateWallet": {
-      "type": "string"
+      "type": "string",
+      "title": "CertificateWallet"
     },
     "Connection": {
       "description": "<p/>",
@@ -172,13 +183,15 @@
           "description": "The connection status."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Connection"
     },
     "ConnectionList": {
       "items": {
         "$ref": "#/definitions/Connection"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ConnectionList"
     },
     "CreateEndpointMessage": {
       "description": "<p/>",
@@ -241,7 +254,8 @@
         "EndpointType",
         "EngineName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateEndpointMessage"
     },
     "CreateEndpointResponse": {
       "description": "<p/>",
@@ -251,7 +265,8 @@
           "description": "The endpoint that was created."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateEndpointResponse"
     },
     "CreateReplicationInstanceMessage": {
       "description": "<p/>",
@@ -313,7 +328,8 @@
         "ReplicationInstanceIdentifier",
         "ReplicationInstanceClass"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateReplicationInstanceMessage"
     },
     "CreateReplicationInstanceResponse": {
       "description": "<p/>",
@@ -323,7 +339,8 @@
           "description": "The replication instance that was created."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateReplicationInstanceResponse"
     },
     "CreateReplicationSubnetGroupMessage": {
       "description": "<p/>",
@@ -350,7 +367,8 @@
         "ReplicationSubnetGroupDescription",
         "SubnetIds"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateReplicationSubnetGroupMessage"
     },
     "CreateReplicationSubnetGroupResponse": {
       "description": "<p/>",
@@ -360,7 +378,8 @@
           "description": "The replication subnet group that was created."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateReplicationSubnetGroupResponse"
     },
     "CreateReplicationTaskMessage": {
       "description": "<p/>",
@@ -410,7 +429,8 @@
         "MigrationType",
         "TableMappings"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateReplicationTaskMessage"
     },
     "CreateReplicationTaskResponse": {
       "description": "<p/>",
@@ -420,7 +440,8 @@
           "description": "The replication task that was created."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateReplicationTaskResponse"
     },
     "DeleteCertificateMessage": {
       "properties": {
@@ -432,7 +453,8 @@
       "required": [
         "CertificateArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteCertificateMessage"
     },
     "DeleteCertificateResponse": {
       "properties": {
@@ -441,7 +463,8 @@
           "description": "The Secure Sockets Layer (SSL) certificate."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DeleteCertificateResponse"
     },
     "DeleteEndpointMessage": {
       "description": "<p/>",
@@ -454,7 +477,8 @@
       "required": [
         "EndpointArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteEndpointMessage"
     },
     "DeleteEndpointResponse": {
       "description": "<p/>",
@@ -464,7 +488,8 @@
           "description": "The endpoint that was deleted."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DeleteEndpointResponse"
     },
     "DeleteReplicationInstanceMessage": {
       "description": "<p/>",
@@ -477,7 +502,8 @@
       "required": [
         "ReplicationInstanceArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteReplicationInstanceMessage"
     },
     "DeleteReplicationInstanceResponse": {
       "description": "<p/>",
@@ -487,7 +513,8 @@
           "description": "The replication instance that was deleted."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DeleteReplicationInstanceResponse"
     },
     "DeleteReplicationSubnetGroupMessage": {
       "description": "<p/>",
@@ -500,12 +527,14 @@
       "required": [
         "ReplicationSubnetGroupIdentifier"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteReplicationSubnetGroupMessage"
     },
     "DeleteReplicationSubnetGroupResponse": {
       "description": "<p/>",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DeleteReplicationSubnetGroupResponse"
     },
     "DeleteReplicationTaskMessage": {
       "description": "<p/>",
@@ -518,7 +547,8 @@
       "required": [
         "ReplicationTaskArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteReplicationTaskMessage"
     },
     "DeleteReplicationTaskResponse": {
       "description": "<p/>",
@@ -528,12 +558,14 @@
           "description": "The deleted replication task."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DeleteReplicationTaskResponse"
     },
     "DescribeAccountAttributesMessage": {
       "description": "<p/>",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DescribeAccountAttributesMessage"
     },
     "DescribeAccountAttributesResponse": {
       "description": "<p/>",
@@ -543,7 +575,8 @@
           "description": "Account quota information."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeAccountAttributesResponse"
     },
     "DescribeCertificatesMessage": {
       "properties": {
@@ -560,7 +593,8 @@
           "description": "<p> The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination token called a marker is included in the response so that the remaining results can be retrieved. </p> <p>Default: 10</p>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeCertificatesMessage"
     },
     "DescribeCertificatesResponse": {
       "properties": {
@@ -573,7 +607,8 @@
           "description": "The pagination token."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeCertificatesResponse"
     },
     "DescribeConnectionsMessage": {
       "description": "<p/>",
@@ -591,7 +626,8 @@
           "description": "<p> The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination token called a marker is included in the response so that the remaining results can be retrieved. </p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeConnectionsMessage"
     },
     "DescribeConnectionsResponse": {
       "description": "<p/>",
@@ -605,7 +641,8 @@
           "description": " An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeConnectionsResponse"
     },
     "DescribeEndpointTypesMessage": {
       "description": "<p/>",
@@ -623,7 +660,8 @@
           "description": "<p> The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination token called a marker is included in the response so that the remaining results can be retrieved. </p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeEndpointTypesMessage"
     },
     "DescribeEndpointTypesResponse": {
       "description": "<p/>",
@@ -637,7 +675,8 @@
           "description": "The type of endpoints that are supported."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeEndpointTypesResponse"
     },
     "DescribeEndpointsMessage": {
       "description": "<p/>",
@@ -655,7 +694,8 @@
           "description": "<p> The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination token called a marker is included in the response so that the remaining results can be retrieved. </p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeEndpointsMessage"
     },
     "DescribeEndpointsResponse": {
       "description": "<p/>",
@@ -669,7 +709,8 @@
           "description": " An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeEndpointsResponse"
     },
     "DescribeOrderableReplicationInstancesMessage": {
       "description": "<p/>",
@@ -683,7 +724,8 @@
           "description": "<p> The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination token called a marker is included in the response so that the remaining results can be retrieved. </p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeOrderableReplicationInstancesMessage"
     },
     "DescribeOrderableReplicationInstancesResponse": {
       "description": "<p/>",
@@ -697,7 +739,8 @@
           "description": "The order-able replication instances available."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeOrderableReplicationInstancesResponse"
     },
     "DescribeRefreshSchemasStatusMessage": {
       "description": "<p/>",
@@ -710,7 +753,8 @@
       "required": [
         "EndpointArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeRefreshSchemasStatusMessage"
     },
     "DescribeRefreshSchemasStatusResponse": {
       "description": "<p/>",
@@ -720,7 +764,8 @@
           "description": "The status of the schema."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeRefreshSchemasStatusResponse"
     },
     "DescribeReplicationInstancesMessage": {
       "description": "<p/>",
@@ -738,7 +783,8 @@
           "description": "<p> The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination token called a marker is included in the response so that the remaining results can be retrieved. </p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeReplicationInstancesMessage"
     },
     "DescribeReplicationInstancesResponse": {
       "description": "<p/>",
@@ -752,7 +798,8 @@
           "description": "The replication instances described."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeReplicationInstancesResponse"
     },
     "DescribeReplicationSubnetGroupsMessage": {
       "description": "<p/>",
@@ -770,7 +817,8 @@
           "description": "<p> The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination token called a marker is included in the response so that the remaining results can be retrieved. </p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeReplicationSubnetGroupsMessage"
     },
     "DescribeReplicationSubnetGroupsResponse": {
       "description": "<p/>",
@@ -784,7 +832,8 @@
           "description": "A description of the replication subnet groups."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeReplicationSubnetGroupsResponse"
     },
     "DescribeReplicationTasksMessage": {
       "description": "<p/>",
@@ -802,7 +851,8 @@
           "description": "<p> The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination token called a marker is included in the response so that the remaining results can be retrieved. </p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeReplicationTasksMessage"
     },
     "DescribeReplicationTasksResponse": {
       "description": "<p/>",
@@ -816,7 +866,8 @@
           "description": "A description of the replication tasks."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeReplicationTasksResponse"
     },
     "DescribeSchemasMessage": {
       "description": "<p/>",
@@ -837,7 +888,8 @@
       "required": [
         "EndpointArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeSchemasMessage"
     },
     "DescribeSchemasResponse": {
       "description": "<p/>",
@@ -851,7 +903,8 @@
           "description": "The described schema."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeSchemasResponse"
     },
     "DescribeTableStatisticsMessage": {
       "description": "<p/>",
@@ -872,7 +925,8 @@
       "required": [
         "ReplicationTaskArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeTableStatisticsMessage"
     },
     "DescribeTableStatisticsResponse": {
       "description": "<p/>",
@@ -890,7 +944,8 @@
           "description": "The table statistics."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeTableStatisticsResponse"
     },
     "DmsSslModeValue": {
       "enum": [
@@ -899,7 +954,8 @@
         "verify-ca",
         "verify-full"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "DmsSslModeValue"
     },
     "Endpoint": {
       "description": "<p/>",
@@ -957,16 +1013,19 @@
           "description": "The user name used to connect to the endpoint."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Endpoint"
     },
     "EndpointList": {
       "items": {
         "$ref": "#/definitions/Endpoint"
       },
-      "type": "array"
+      "type": "array",
+      "title": "EndpointList"
     },
     "ExceptionMessage": {
-      "type": "string"
+      "type": "string",
+      "title": "ExceptionMessage"
     },
     "Filter": {
       "description": "<p/>",
@@ -984,19 +1043,22 @@
         "Name",
         "Values"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "Filter"
     },
     "FilterList": {
       "items": {
         "$ref": "#/definitions/Filter"
       },
-      "type": "array"
+      "type": "array",
+      "title": "FilterList"
     },
     "FilterValueList": {
       "items": {
         "$ref": "#/definitions/String"
       },
-      "type": "array"
+      "type": "array",
+      "title": "FilterValueList"
     },
     "ImportCertificateMessage": {
       "properties": {
@@ -1016,7 +1078,8 @@
       "required": [
         "CertificateIdentifier"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ImportCertificateMessage"
     },
     "ImportCertificateResponse": {
       "properties": {
@@ -1025,7 +1088,8 @@
           "description": "The certificate to be uploaded."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ImportCertificateResponse"
     },
     "InsufficientResourceCapacityFault": {
       "description": "There are not enough resources allocated to the database migration.",
@@ -1035,13 +1099,16 @@
           "description": "<p/>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InsufficientResourceCapacityFault"
     },
     "Integer": {
-      "type": "integer"
+      "type": "integer",
+      "title": "Integer"
     },
     "IntegerOptional": {
-      "type": "integer"
+      "type": "integer",
+      "title": "IntegerOptional"
     },
     "InvalidCertificateFault": {
       "description": "The certificate was not valid.",
@@ -1050,7 +1117,8 @@
           "$ref": "#/definitions/ExceptionMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidCertificateFault"
     },
     "InvalidResourceStateFault": {
       "description": "The resource is in a state that prevents it from being used for database migration.",
@@ -1060,7 +1128,8 @@
           "description": "<p/>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidResourceStateFault"
     },
     "InvalidSubnet": {
       "description": "The subnet provided is invalid.",
@@ -1070,7 +1139,8 @@
           "description": "<p/>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidSubnet"
     },
     "KMSKeyNotAccessibleFault": {
       "description": "AWS DMS cannot access the KMS key.",
@@ -1080,13 +1150,15 @@
           "description": "<p/>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "KMSKeyNotAccessibleFault"
     },
     "KeyList": {
       "items": {
         "$ref": "#/definitions/String"
       },
-      "type": "array"
+      "type": "array",
+      "title": "KeyList"
     },
     "ListTagsForResourceMessage": {
       "description": "<p/>",
@@ -1099,7 +1171,8 @@
       "required": [
         "ResourceArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListTagsForResourceMessage"
     },
     "ListTagsForResourceResponse": {
       "description": "<p/>",
@@ -1109,10 +1182,12 @@
           "description": "A list of tags for the resource."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListTagsForResourceResponse"
     },
     "Long": {
-      "type": "integer"
+      "type": "integer",
+      "title": "Long"
     },
     "MigrationTypeValue": {
       "enum": [
@@ -1120,7 +1195,8 @@
         "cdc",
         "full-load-and-cdc"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "MigrationTypeValue"
     },
     "ModifyEndpointMessage": {
       "description": "<p/>",
@@ -1177,7 +1253,8 @@
       "required": [
         "EndpointArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ModifyEndpointMessage"
     },
     "ModifyEndpointResponse": {
       "description": "<p/>",
@@ -1187,7 +1264,8 @@
           "description": "The modified endpoint."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ModifyEndpointResponse"
     },
     "ModifyReplicationInstanceMessage": {
       "description": "<p/>",
@@ -1240,7 +1318,8 @@
       "required": [
         "ReplicationInstanceArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ModifyReplicationInstanceMessage"
     },
     "ModifyReplicationInstanceResponse": {
       "description": "<p/>",
@@ -1250,7 +1329,8 @@
           "description": "The modified replication instance."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ModifyReplicationInstanceResponse"
     },
     "ModifyReplicationSubnetGroupMessage": {
       "description": "<p/>",
@@ -1272,7 +1352,8 @@
         "ReplicationSubnetGroupIdentifier",
         "SubnetIds"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ModifyReplicationSubnetGroupMessage"
     },
     "ModifyReplicationSubnetGroupResponse": {
       "description": "<p/>",
@@ -1282,7 +1363,8 @@
           "description": "The modified replication subnet group."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ModifyReplicationSubnetGroupResponse"
     },
     "ModifyReplicationTaskMessage": {
       "description": "<p/>",
@@ -1315,7 +1397,8 @@
       "required": [
         "ReplicationTaskArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ModifyReplicationTaskMessage"
     },
     "ModifyReplicationTaskResponse": {
       "description": "<p/>",
@@ -1325,7 +1408,8 @@
           "description": "The replication task that was modified."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ModifyReplicationTaskResponse"
     },
     "OrderableReplicationInstance": {
       "description": "<p/>",
@@ -1359,13 +1443,15 @@
           "description": "The type of storage used by the replication instance."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "OrderableReplicationInstance"
     },
     "OrderableReplicationInstanceList": {
       "items": {
         "$ref": "#/definitions/OrderableReplicationInstance"
       },
-      "type": "array"
+      "type": "array",
+      "title": "OrderableReplicationInstanceList"
     },
     "RefreshSchemasMessage": {
       "description": "<p/>",
@@ -1383,7 +1469,8 @@
         "EndpointArn",
         "ReplicationInstanceArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "RefreshSchemasMessage"
     },
     "RefreshSchemasResponse": {
       "description": "<p/>",
@@ -1393,7 +1480,8 @@
           "description": "The status of the refreshed schema."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RefreshSchemasResponse"
     },
     "RefreshSchemasStatus": {
       "description": "<p/>",
@@ -1419,7 +1507,8 @@
           "description": "The status of the schema."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RefreshSchemasStatus"
     },
     "RefreshSchemasStatusTypeValue": {
       "enum": [
@@ -1427,7 +1516,8 @@
         "failed",
         "refreshing"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "RefreshSchemasStatusTypeValue"
     },
     "RemoveTagsFromResourceMessage": {
       "description": "<p/>",
@@ -1445,19 +1535,22 @@
         "ResourceArn",
         "TagKeys"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "RemoveTagsFromResourceMessage"
     },
     "RemoveTagsFromResourceResponse": {
       "description": "<p/>",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "RemoveTagsFromResourceResponse"
     },
     "ReplicationEndpointTypeValue": {
       "enum": [
         "source",
         "target"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ReplicationEndpointTypeValue"
     },
     "ReplicationInstance": {
       "description": "<p/>",
@@ -1547,25 +1640,29 @@
           "description": "The VPC security group for the instance."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ReplicationInstance"
     },
     "ReplicationInstanceList": {
       "items": {
         "$ref": "#/definitions/ReplicationInstance"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ReplicationInstanceList"
     },
     "ReplicationInstancePrivateIpAddressList": {
       "items": {
         "$ref": "#/definitions/String"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ReplicationInstancePrivateIpAddressList"
     },
     "ReplicationInstancePublicIpAddressList": {
       "items": {
         "$ref": "#/definitions/String"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ReplicationInstancePublicIpAddressList"
     },
     "ReplicationPendingModifiedValues": {
       "description": "<p/>",
@@ -1587,7 +1684,8 @@
           "description": "<p>The compute and memory capacity of the replication instance.</p> <p> Valid Values: <code>dms.t2.micro | dms.t2.small | dms.t2.medium | dms.t2.large | dms.c4.large | dms.c4.xlarge | dms.c4.2xlarge | dms.c4.4xlarge </code> </p>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ReplicationPendingModifiedValues"
     },
     "ReplicationSubnetGroup": {
       "description": "<p/>",
@@ -1613,7 +1711,8 @@
           "description": "The ID of the VPC."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ReplicationSubnetGroup"
     },
     "ReplicationSubnetGroupDoesNotCoverEnoughAZs": {
       "description": "The replication subnet group does not cover enough Availability Zones (AZs). Edit the replication subnet group and add more AZs.",
@@ -1623,13 +1722,15 @@
           "description": "<p/>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ReplicationSubnetGroupDoesNotCoverEnoughAZs"
     },
     "ReplicationSubnetGroups": {
       "items": {
         "$ref": "#/definitions/ReplicationSubnetGroup"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ReplicationSubnetGroups"
     },
     "ReplicationTask": {
       "description": "<p/>",
@@ -1691,13 +1792,15 @@
           "description": "The Amazon Resource Name (ARN) string that uniquely identifies the endpoint."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ReplicationTask"
     },
     "ReplicationTaskList": {
       "items": {
         "$ref": "#/definitions/ReplicationTask"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ReplicationTaskList"
     },
     "ReplicationTaskStats": {
       "description": "<p/>",
@@ -1727,7 +1830,8 @@
           "description": "The number of tables queued for this task."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ReplicationTaskStats"
     },
     "ResourceAlreadyExistsFault": {
       "description": "The resource you are attempting to create already exists.",
@@ -1737,7 +1841,8 @@
           "description": "<p/>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ResourceAlreadyExistsFault"
     },
     "ResourceNotFoundFault": {
       "description": "The resource could not be found.",
@@ -1747,7 +1852,8 @@
           "description": "<p/>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ResourceNotFoundFault"
     },
     "ResourceQuotaExceededFault": {
       "description": "The quota for this resource quota has been exceeded.",
@@ -1757,17 +1863,20 @@
           "description": "<p/>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ResourceQuotaExceededFault"
     },
     "SchemaList": {
       "items": {
         "$ref": "#/definitions/String"
       },
-      "type": "array"
+      "type": "array",
+      "title": "SchemaList"
     },
     "SecretString": {
       "format": "password",
-      "type": "string"
+      "type": "string",
+      "title": "SecretString"
     },
     "StartReplicationTaskMessage": {
       "description": "<p/>",
@@ -1789,7 +1898,8 @@
         "ReplicationTaskArn",
         "StartReplicationTaskType"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "StartReplicationTaskMessage"
     },
     "StartReplicationTaskResponse": {
       "description": "<p/>",
@@ -1799,7 +1909,8 @@
           "description": "The replication task started."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "StartReplicationTaskResponse"
     },
     "StartReplicationTaskTypeValue": {
       "enum": [
@@ -1807,7 +1918,8 @@
         "resume-processing",
         "reload-target"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "StartReplicationTaskTypeValue"
     },
     "StopReplicationTaskMessage": {
       "description": "<p/>",
@@ -1820,7 +1932,8 @@
       "required": [
         "ReplicationTaskArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "StopReplicationTaskMessage"
     },
     "StopReplicationTaskResponse": {
       "description": "<p/>",
@@ -1830,7 +1943,8 @@
           "description": "The replication task stopped."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "StopReplicationTaskResponse"
     },
     "StorageQuotaExceededFault": {
       "description": "The storage quota has been exceeded.",
@@ -1840,10 +1954,12 @@
           "description": "<p/>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "StorageQuotaExceededFault"
     },
     "String": {
-      "type": "string"
+      "type": "string",
+      "title": "String"
     },
     "Subnet": {
       "description": "<p/>",
@@ -1861,7 +1977,8 @@
           "description": "The status of the subnet."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Subnet"
     },
     "SubnetAlreadyInUse": {
       "description": "The specified subnet is already in use.",
@@ -1871,19 +1988,22 @@
           "description": "<p/>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SubnetAlreadyInUse"
     },
     "SubnetIdentifierList": {
       "items": {
         "$ref": "#/definitions/String"
       },
-      "type": "array"
+      "type": "array",
+      "title": "SubnetIdentifierList"
     },
     "SubnetList": {
       "items": {
         "$ref": "#/definitions/Subnet"
       },
-      "type": "array"
+      "type": "array",
+      "title": "SubnetList"
     },
     "SupportedEndpointType": {
       "description": "<p/>",
@@ -1901,17 +2021,20 @@
           "description": "Indicates if Change Data Capture (CDC) is supported."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SupportedEndpointType"
     },
     "SupportedEndpointTypeList": {
       "items": {
         "$ref": "#/definitions/SupportedEndpointType"
       },
-      "type": "array"
+      "type": "array",
+      "title": "SupportedEndpointTypeList"
     },
     "TStamp": {
       "format": "date-time",
-      "type": "string"
+      "type": "string",
+      "title": "TStamp"
     },
     "TableStatistics": {
       "description": "<p/>",
@@ -1953,13 +2076,15 @@
           "description": "The number of update actions performed on a table."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TableStatistics"
     },
     "TableStatisticsList": {
       "items": {
         "$ref": "#/definitions/TableStatistics"
       },
-      "type": "array"
+      "type": "array",
+      "title": "TableStatisticsList"
     },
     "Tag": {
       "description": "<p/>",
@@ -1973,13 +2098,15 @@
           "description": "A value is the optional value of the tag. The string value can be from 1 to 256 Unicode characters in length and cannot be prefixed with \"aws:\" or \"dms:\". The string can only contain only the set of Unicode letters, digits, white-space, '_', '.', '/', '=', '+', '-' (Java regex: \"^([\\\\p{L}\\\\p{Z}\\\\p{N}_.:/=+\\\\-]*)$\")."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Tag"
     },
     "TagList": {
       "items": {
         "$ref": "#/definitions/Tag"
       },
-      "type": "array"
+      "type": "array",
+      "title": "TagList"
     },
     "TestConnectionMessage": {
       "description": "<p/>",
@@ -1997,7 +2124,8 @@
         "ReplicationInstanceArn",
         "EndpointArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "TestConnectionMessage"
     },
     "TestConnectionResponse": {
       "description": "<p/>",
@@ -2007,7 +2135,8 @@
           "description": "The connection tested."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TestConnectionResponse"
     },
     "UpgradeDependencyFailureFault": {
       "description": "An upgrade dependency is preventing the database migration.",
@@ -2017,13 +2146,15 @@
           "description": "<p/>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UpgradeDependencyFailureFault"
     },
     "VpcSecurityGroupIdList": {
       "items": {
         "$ref": "#/definitions/String"
       },
-      "type": "array"
+      "type": "array",
+      "title": "VpcSecurityGroupIdList"
     },
     "VpcSecurityGroupMembership": {
       "description": "<p/>",
@@ -2037,13 +2168,15 @@
           "description": "The VPC security group Id."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "VpcSecurityGroupMembership"
     },
     "VpcSecurityGroupMembershipList": {
       "items": {
         "$ref": "#/definitions/VpcSecurityGroupMembership"
       },
-      "type": "array"
+      "type": "array",
+      "title": "VpcSecurityGroupMembershipList"
     }
   },
   "actions": [

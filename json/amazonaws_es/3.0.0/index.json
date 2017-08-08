@@ -18,7 +18,8 @@
   "definitions": {
     "ARN": {
       "description": "The Amazon Resource Name (ARN) of the Elasticsearch domain. See <a href=\"http://docs.aws.amazon.com/IAM/latest/UserGuide/index.html?Using_Identifiers.html\" target=\"_blank\">Identifiers for IAM Entities</a> in <i>Using AWS Identity and Access Management</i> for more information.",
-      "type": "string"
+      "type": "string",
+      "title": "ARN"
     },
     "AccessPoliciesStatus": {
       "description": "The configured access rules for the domain's document and search endpoints, and the current status of those rules.",
@@ -36,7 +37,8 @@
         "Options",
         "Status"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AccessPoliciesStatus"
     },
     "AddTagsRequest": {
       "description": "Container for the parameters to the <code><a>AddTags</a></code> operation. Specify the tags that you want to attach to the Elasticsearch domain.",
@@ -54,7 +56,8 @@
         "ARN",
         "TagList"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AddTagsRequest"
     },
     "AdditionalLimit": {
       "description": " List of limits that are specific to a given InstanceType and for each of it's <code> <a>InstanceRole</a> </code> . ",
@@ -68,13 +71,15 @@
           "description": " Value for given <code> <a>AdditionalLimit$LimitName</a> </code> . "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AdditionalLimit"
     },
     "AdditionalLimitList": {
       "items": {
         "$ref": "#/definitions/AdditionalLimit"
       },
-      "type": "array"
+      "type": "array",
+      "title": "AdditionalLimitList"
     },
     "AdvancedOptions": {
       "description": "<p> Exposes select native Elasticsearch configuration values from <code>elasticsearch.yml</code>. Currently, the following advanced options are available:</p> <ul> <li>Option to allow references to indices in an HTTP request body. Must be <code>false</code> when configuring access to individual sub-resources. By default, the value is <code>true</code>. See <a href=\"http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-advanced-options\" target=\"_blank\">Configuration Advanced Options</a> for more information.</li> <li>Option to specify the percentage of heap space that is allocated to field data. By default, this setting is unbounded.</li> </ul> <p>For more information, see <a href=\"http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-advanced-options\">Configuring Advanced Options</a>.</p>",
@@ -89,7 +94,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "AdvancedOptions"
     },
     "AdvancedOptionsStatus": {
       "description": "<p> Status of the advanced options for the specified Elasticsearch domain. Currently, the following advanced options are available:</p> <ul> <li>Option to allow references to indices in an HTTP request body. Must be <code>false</code> when configuring access to individual sub-resources. By default, the value is <code>true</code>. See <a href=\"http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-advanced-options\" target=\"_blank\">Configuration Advanced Options</a> for more information.</li> <li>Option to specify the percentage of heap space that is allocated to field data. By default, this setting is unbounded.</li> </ul> <p>For more information, see <a href=\"http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-advanced-options\">Configuring Advanced Options</a>.</p>",
@@ -107,7 +113,8 @@
         "Options",
         "Status"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AdvancedOptionsStatus"
     },
     "BaseException": {
       "description": "An error occurred while processing the request.",
@@ -117,10 +124,12 @@
           "description": "A description of the error."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BaseException"
     },
     "Boolean": {
-      "type": "boolean"
+      "type": "boolean",
+      "title": "Boolean"
     },
     "CreateElasticsearchDomainRequest": {
       "properties": {
@@ -156,7 +165,8 @@
       "required": [
         "DomainName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateElasticsearchDomainRequest"
     },
     "CreateElasticsearchDomainResponse": {
       "description": "The result of a <code>CreateElasticsearchDomain</code> operation. Contains the status of the newly created Elasticsearch domain.",
@@ -166,12 +176,14 @@
           "description": "The status of the newly created Elasticsearch domain. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateElasticsearchDomainResponse"
     },
     "DeleteElasticsearchDomainRequest": {
       "description": "Container for the parameters to the <code><a>DeleteElasticsearchDomain</a></code> operation. Specifies the name of the Elasticsearch domain that you want to delete.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DeleteElasticsearchDomainRequest"
     },
     "DeleteElasticsearchDomainResponse": {
       "description": "The result of a <code>DeleteElasticsearchDomain</code> request. Contains the status of the pending deletion, or no status if the domain and all of its resources have been deleted.",
@@ -181,12 +193,14 @@
           "description": "The status of the Elasticsearch domain being deleted."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DeleteElasticsearchDomainResponse"
     },
     "DescribeElasticsearchDomainConfigRequest": {
       "description": " Container for the parameters to the <code>DescribeElasticsearchDomainConfig</code> operation. Specifies the domain name for which you want configuration information.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DescribeElasticsearchDomainConfigRequest"
     },
     "DescribeElasticsearchDomainConfigResponse": {
       "description": "The result of a <code>DescribeElasticsearchDomainConfig</code> request. Contains the configuration information of the requested domain.",
@@ -199,12 +213,14 @@
       "required": [
         "DomainConfig"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeElasticsearchDomainConfigResponse"
     },
     "DescribeElasticsearchDomainRequest": {
       "description": "Container for the parameters to the <code><a>DescribeElasticsearchDomain</a></code> operation.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DescribeElasticsearchDomainRequest"
     },
     "DescribeElasticsearchDomainResponse": {
       "description": "The result of a <code>DescribeElasticsearchDomain</code> request. Contains the status of the domain specified in the request.",
@@ -217,7 +233,8 @@
       "required": [
         "DomainStatus"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeElasticsearchDomainResponse"
     },
     "DescribeElasticsearchDomainsRequest": {
       "description": "Container for the parameters to the <code><a>DescribeElasticsearchDomains</a></code> operation. By default, the API returns the status of all Elasticsearch domains.",
@@ -230,7 +247,8 @@
       "required": [
         "DomainNames"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeElasticsearchDomainsRequest"
     },
     "DescribeElasticsearchDomainsResponse": {
       "description": "The result of a <code>DescribeElasticsearchDomains</code> request. Contains the status of the specified domains or all domains owned by the account.",
@@ -243,12 +261,14 @@
       "required": [
         "DomainStatusList"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeElasticsearchDomainsResponse"
     },
     "DescribeElasticsearchInstanceTypeLimitsRequest": {
       "description": " Container for the parameters to <code> <a>DescribeElasticsearchInstanceTypeLimits</a> </code> operation. ",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DescribeElasticsearchInstanceTypeLimitsRequest"
     },
     "DescribeElasticsearchInstanceTypeLimitsResponse": {
       "description": " Container for the parameters received from <code> <a>DescribeElasticsearchInstanceTypeLimits</a> </code> operation. ",
@@ -257,18 +277,21 @@
           "$ref": "#/definitions/LimitsByRole"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeElasticsearchInstanceTypeLimitsResponse"
     },
     "DisabledOperationException": {
       "description": "An error occured because the client wanted to access a not supported operation. Gives http status code of 409.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DisabledOperationException"
     },
     "DomainId": {
       "description": "Unique identifier for an Elasticsearch domain.",
       "maxLength": 64,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "DomainId"
     },
     "DomainInfo": {
       "properties": {
@@ -277,28 +300,32 @@
           "description": " Specifies the <code>DomainName</code>."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DomainInfo"
     },
     "DomainInfoList": {
       "description": " Contains the list of Elasticsearch domain information.",
       "items": {
         "$ref": "#/definitions/DomainInfo"
       },
-      "type": "array"
+      "type": "array",
+      "title": "DomainInfoList"
     },
     "DomainName": {
       "description": "The name of an Elasticsearch domain. Domain names are unique across the domains owned by an account within an AWS region. Domain names start with a letter or number and can contain the following characters: a-z (lowercase), 0-9, and - (hyphen).",
       "maxLength": 28,
       "minLength": 3,
       "pattern": "[a-z][a-z0-9\\-]+",
-      "type": "string"
+      "type": "string",
+      "title": "DomainName"
     },
     "DomainNameList": {
       "description": "A list of Elasticsearch domain names.",
       "items": {
         "$ref": "#/definitions/DomainName"
       },
-      "type": "array"
+      "type": "array",
+      "title": "DomainNameList"
     },
     "EBSOptions": {
       "description": "Options to enable, disable, and specify the properties of EBS storage volumes. For more information, see <a href=\"http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-ebs\" target=\"_blank\"> Configuring EBS-based Storage</a>.",
@@ -320,7 +347,8 @@
           "description": " Specifies the volume type for EBS-based storage."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "EBSOptions"
     },
     "EBSOptionsStatus": {
       "description": " Status of the EBS options for the specified Elasticsearch domain.",
@@ -338,7 +366,8 @@
         "Options",
         "Status"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "EBSOptionsStatus"
     },
     "ESPartitionInstanceType": {
       "enum": [
@@ -377,7 +406,8 @@
         "r4.8xlarge.elasticsearch",
         "r4.16xlarge.elasticsearch"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ESPartitionInstanceType"
     },
     "ElasticsearchClusterConfig": {
       "description": "Specifies the configuration for the domain cluster, such as the type and number of instances.",
@@ -407,7 +437,8 @@
           "description": "A boolean value to indicate whether zone awareness is enabled. See <a href=\"http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-managedomains.html#es-managedomains-zoneawareness\" target=\"_blank\">About Zone Awareness</a> for more information."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ElasticsearchClusterConfig"
     },
     "ElasticsearchClusterConfigStatus": {
       "description": " Specifies the configuration status for the specified Elasticsearch domain.",
@@ -425,7 +456,8 @@
         "Options",
         "Status"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ElasticsearchClusterConfigStatus"
     },
     "ElasticsearchDomainConfig": {
       "description": "The configuration of an Elasticsearch domain.",
@@ -455,7 +487,8 @@
           "description": "Specifies the <code>SnapshotOptions</code> for the Elasticsearch domain."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ElasticsearchDomainConfig"
     },
     "ElasticsearchDomainStatus": {
       "description": "The current status of an Elasticsearch domain.",
@@ -518,28 +551,32 @@
         "ARN",
         "ElasticsearchClusterConfig"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ElasticsearchDomainStatus"
     },
     "ElasticsearchDomainStatusList": {
       "description": "A list that contains the status of each requested Elasticsearch domain.",
       "items": {
         "$ref": "#/definitions/ElasticsearchDomainStatus"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ElasticsearchDomainStatusList"
     },
     "ElasticsearchInstanceTypeList": {
       "description": " List of instance types supported by Amazon Elasticsearch service. ",
       "items": {
         "$ref": "#/definitions/ESPartitionInstanceType"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ElasticsearchInstanceTypeList"
     },
     "ElasticsearchVersionList": {
       "description": "List of supported elastic search versions. ",
       "items": {
         "$ref": "#/definitions/ElasticsearchVersionString"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ElasticsearchVersionList"
     },
     "ElasticsearchVersionStatus": {
       "description": " Status of the Elasticsearch version options for the specified Elasticsearch domain.",
@@ -557,13 +594,16 @@
         "Options",
         "Status"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ElasticsearchVersionStatus"
     },
     "ElasticsearchVersionString": {
-      "type": "string"
+      "type": "string",
+      "title": "ElasticsearchVersionString"
     },
     "ErrorMessage": {
-      "type": "string"
+      "type": "string",
+      "title": "ErrorMessage"
     },
     "InstanceCountLimits": {
       "description": " InstanceCountLimits represents the limits on number of instances that be created in Amazon Elasticsearch for given InstanceType. ",
@@ -575,7 +615,8 @@
           "$ref": "#/definitions/MinimumInstanceCount"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InstanceCountLimits"
     },
     "InstanceLimits": {
       "description": "InstanceLimits represents the list of instance related attributes that are available for given InstanceType. ",
@@ -584,40 +625,49 @@
           "$ref": "#/definitions/InstanceCountLimits"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InstanceLimits"
     },
     "InstanceRole": {
-      "type": "string"
+      "type": "string",
+      "title": "InstanceRole"
     },
     "IntegerClass": {
-      "type": "integer"
+      "type": "integer",
+      "title": "IntegerClass"
     },
     "InternalException": {
       "description": "The request processing has failed because of an unknown error, exception or failure (the failure is internal to the service) . Gives http status code of 500.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "InternalException"
     },
     "InvalidTypeException": {
       "description": "An exception for trying to create or access sub-resource that is either invalid or not supported. Gives http status code of 409.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "InvalidTypeException"
     },
     "LimitExceededException": {
       "description": "An exception for trying to create more than allowed resources or sub-resources. Gives http status code of 409.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "LimitExceededException"
     },
     "LimitName": {
-      "type": "string"
+      "type": "string",
+      "title": "LimitName"
     },
     "LimitValue": {
-      "type": "string"
+      "type": "string",
+      "title": "LimitValue"
     },
     "LimitValueList": {
       "items": {
         "$ref": "#/definitions/LimitValue"
       },
-      "type": "array"
+      "type": "array",
+      "title": "LimitValueList"
     },
     "Limits": {
       "description": " Limits for given InstanceType and for each of it's role. <br/> Limits contains following <code> <a>StorageTypes,</a> </code> <code> <a>InstanceLimits</a> </code> and <code> <a>AdditionalLimits</a> </code> ",
@@ -634,7 +684,8 @@
           "description": "StorageType represents the list of storage related types and attributes that are available for given InstanceType. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Limits"
     },
     "LimitsByRole": {
       "description": " Map of Role of the Instance and Limits that are applicable. Role performed by given Instance in Elasticsearch can be one of the following: <ul> <li>Data: If the given InstanceType is used as Data node</li> <li>Master: If the given InstanceType is used as Master node</li> </ul> ",
@@ -649,7 +700,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "LimitsByRole"
     },
     "ListDomainNamesResponse": {
       "description": "The result of a <code>ListDomainNames</code> operation. Contains the names of all Elasticsearch domains owned by this account.",
@@ -659,12 +711,14 @@
           "description": "List of Elasticsearch domain names."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListDomainNamesResponse"
     },
     "ListElasticsearchInstanceTypesRequest": {
       "description": " Container for the parameters to the <code> <a>ListElasticsearchInstanceTypes</a> </code> operation. ",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "ListElasticsearchInstanceTypesRequest"
     },
     "ListElasticsearchInstanceTypesResponse": {
       "description": " Container for the parameters returned by <code> <a>ListElasticsearchInstanceTypes</a> </code> operation. ",
@@ -678,12 +732,14 @@
           "description": "In case if there are more results available NextToken would be present, make further request to the same API with received NextToken to paginate remaining results. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListElasticsearchInstanceTypesResponse"
     },
     "ListElasticsearchVersionsRequest": {
       "description": "<p> Container for the parameters to the <code> <a>ListElasticsearchVersions</a> </code> operation. <p> Use <code> <a>MaxResults</a> </code> to control the maximum number of results to retrieve in a single call. </p> <p> Use <code> <a>NextToken</a> </code> in response to retrieve more results. If the received response does not contain a NextToken, then there are no more results to retrieve. </p> </p>",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "ListElasticsearchVersionsRequest"
     },
     "ListElasticsearchVersionsResponse": {
       "description": " Container for the parameters for response received from <code> <a>ListElasticsearchVersions</a> </code> operation. ",
@@ -695,12 +751,14 @@
           "$ref": "#/definitions/NextToken"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListElasticsearchVersionsResponse"
     },
     "ListTagsRequest": {
       "description": "Container for the parameters to the <code><a>ListTags</a></code> operation. Specify the <code>ARN</code> for the Elasticsearch domain to which the tags are attached that you want to view are attached.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "ListTagsRequest"
     },
     "ListTagsResponse": {
       "description": "The result of a <code>ListTags</code> operation. Contains tags for all requested Elasticsearch domains.",
@@ -710,24 +768,29 @@
           "description": " List of <code>Tag</code> for the requested Elasticsearch domain."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListTagsResponse"
     },
     "MaxResults": {
       "description": " Set this value to limit the number of results returned. ",
       "maximum": 100,
-      "type": "integer"
+      "type": "integer",
+      "title": "MaxResults"
     },
     "MaximumInstanceCount": {
       "description": " Maximum number of Instances that can be instantiated for given InstanceType. ",
-      "type": "integer"
+      "type": "integer",
+      "title": "MaximumInstanceCount"
     },
     "MinimumInstanceCount": {
       "description": " Minimum number of Instances that can be instantiated for given InstanceType. ",
-      "type": "integer"
+      "type": "integer",
+      "title": "MinimumInstanceCount"
     },
     "NextToken": {
       "description": " Paginated APIs accepts NextToken input to returns next page results and provides a NextToken output in the response which can be used by the client to retrieve more results. ",
-      "type": "string"
+      "type": "string",
+      "title": "NextToken"
     },
     "OptionState": {
       "description": "<p>The state of a requested change. One of the following:</p> <ul> <li>Processing: The request change is still in-process.</li> <li>Active: The request change is processed and deployed to the Elasticsearch domain.</li> </ul>",
@@ -736,7 +799,8 @@
         "Processing",
         "Active"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "OptionState"
     },
     "OptionStatus": {
       "description": "Provides the current status of the entity.",
@@ -767,11 +831,13 @@
         "UpdateDate",
         "State"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "OptionStatus"
     },
     "PolicyDocument": {
       "description": "Access policy rules for an Elasticsearch domain service endpoints. For more information, see <a href=\"http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-access-policies\" target=\"_blank\">Configuring Access Policies</a> in the <i>Amazon Elasticsearch Service Developer Guide</i>. The maximum size of a policy document is 100 KB.",
-      "type": "string"
+      "type": "string",
+      "title": "PolicyDocument"
     },
     "RemoveTagsRequest": {
       "description": "Container for the parameters to the <code><a>RemoveTags</a></code> operation. Specify the <code>ARN</code> for the Elasticsearch domain from which you want to remove the specified <code>TagKey</code>.",
@@ -789,21 +855,25 @@
         "ARN",
         "TagKeys"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "RemoveTagsRequest"
     },
     "ResourceAlreadyExistsException": {
       "description": "An exception for creating a resource that already exists. Gives http status code of 400.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "ResourceAlreadyExistsException"
     },
     "ResourceNotFoundException": {
       "description": "An exception for accessing or deleting a resource that does not exist. Gives http status code of 400.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "ResourceNotFoundException"
     },
     "ServiceUrl": {
       "description": "The endpoint to which service requests are submitted. For example, <code>search-imdb-movies-oopcnjfn6ugofer3zx5iadxxca.eu-west-1.es.amazonaws.com</code> or <code>doc-imdb-movies-oopcnjfn6ugofer3zx5iadxxca.eu-west-1.es.amazonaws.com</code>.",
-      "type": "string"
+      "type": "string",
+      "title": "ServiceUrl"
     },
     "SnapshotOptions": {
       "description": "Specifies the time, in UTC format, when the service takes a daily automated snapshot of the specified Elasticsearch domain. Default value is <code>0</code> hours.",
@@ -813,7 +883,8 @@
           "description": "Specifies the time, in UTC format, when the service takes a daily automated snapshot of the specified Elasticsearch domain. Default value is <code>0</code> hours."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SnapshotOptions"
     },
     "SnapshotOptionsStatus": {
       "description": "Status of a daily automated snapshot.",
@@ -831,11 +902,13 @@
         "Options",
         "Status"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "SnapshotOptionsStatus"
     },
     "StorageSubTypeName": {
       "description": " SubType of the given storage type. List of available sub-storage options: For \"instance\" storageType we wont have any storageSubType, in case of \"ebs\" storageType we will have following valid storageSubTypes <ol> <li>standard</li> <li>gp2</li> <li>io1</li> </ol> Refer <code><a>VolumeType</a></code> for more information regarding above EBS storage options. ",
-      "type": "string"
+      "type": "string",
+      "title": "StorageSubTypeName"
     },
     "StorageType": {
       "description": "StorageTypes represents the list of storage related types and their attributes that are available for given InstanceType. ",
@@ -851,7 +924,8 @@
           "$ref": "#/definitions/StorageTypeName"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "StorageType"
     },
     "StorageTypeLimit": {
       "description": "Limits that are applicable for given storage type. ",
@@ -865,32 +939,38 @@
           "description": " Values for the <code> <a>StorageTypeLimit$LimitName</a> </code> . "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "StorageTypeLimit"
     },
     "StorageTypeLimitList": {
       "items": {
         "$ref": "#/definitions/StorageTypeLimit"
       },
-      "type": "array"
+      "type": "array",
+      "title": "StorageTypeLimitList"
     },
     "StorageTypeList": {
       "items": {
         "$ref": "#/definitions/StorageType"
       },
-      "type": "array"
+      "type": "array",
+      "title": "StorageTypeList"
     },
     "StorageTypeName": {
       "description": " Type of the storage. List of available storage options: <ol> <li>instance</li> Inbuilt storage available for the given Instance <li>ebs</li> Elastic block storage that would be attached to the given Instance </ol> ",
-      "type": "string"
+      "type": "string",
+      "title": "StorageTypeName"
     },
     "String": {
-      "type": "string"
+      "type": "string",
+      "title": "String"
     },
     "StringList": {
       "items": {
         "$ref": "#/definitions/String"
       },
-      "type": "array"
+      "type": "array",
+      "title": "StringList"
     },
     "Tag": {
       "description": "Specifies a key value pair for a resource tag.",
@@ -908,30 +988,35 @@
         "Key",
         "Value"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "Tag"
     },
     "TagKey": {
       "description": "A string of length from 1 to 128 characters that specifies the key for a Tag. Tag keys must be unique for the Elasticsearch domain to which they are attached.",
       "maxLength": 128,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "TagKey"
     },
     "TagList": {
       "description": "A list of <code>Tag</code> ",
       "items": {
         "$ref": "#/definitions/Tag"
       },
-      "type": "array"
+      "type": "array",
+      "title": "TagList"
     },
     "TagValue": {
       "description": "A string of length from 0 to 256 characters that specifies the value for a Tag. Tag values can be null and do not have to be unique in a tag set.",
       "maxLength": 256,
       "minLength": 0,
-      "type": "string"
+      "type": "string",
+      "title": "TagValue"
     },
     "UIntValue": {
       "minimum": 0,
-      "type": "integer"
+      "type": "integer",
+      "title": "UIntValue"
     },
     "UpdateElasticsearchDomainConfigRequest": {
       "description": "Container for the parameters to the <code><a>UpdateElasticsearchDomain</a></code> operation. Specifies the type and number of instances in the domain cluster.",
@@ -957,7 +1042,8 @@
           "description": "Option to set the time, in UTC format, for the daily automated snapshot. Default value is <code>0</code> hours. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UpdateElasticsearchDomainConfigRequest"
     },
     "UpdateElasticsearchDomainConfigResponse": {
       "description": "The result of an <code>UpdateElasticsearchDomain</code> request. Contains the status of the Elasticsearch domain being updated.",
@@ -970,16 +1056,19 @@
       "required": [
         "DomainConfig"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateElasticsearchDomainConfigResponse"
     },
     "UpdateTimestamp": {
       "format": "date-time",
-      "type": "string"
+      "type": "string",
+      "title": "UpdateTimestamp"
     },
     "ValidationException": {
       "description": "An exception for missing / invalid input fields. Gives http status code of 400.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "ValidationException"
     },
     "VolumeType": {
       "description": " The type of EBS volume, standard, gp2, or io1. See <a href=\"http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-ebs\" target=\"_blank\">Configuring EBS-based Storage</a>for more information.",
@@ -988,7 +1077,8 @@
         "gp2",
         "io1"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "VolumeType"
     }
   },
   "actions": [

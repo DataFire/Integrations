@@ -15,7 +15,8 @@
           "description": "The IPv4 address of this A record.",
           "type": "string"
         }
-      }
+      },
+      "title": "ARecord"
     },
     "AaaaRecord": {
       "description": "An AAAA record.",
@@ -24,7 +25,8 @@
           "description": "The IPv6 address of this AAAA record.",
           "type": "string"
         }
-      }
+      },
+      "title": "AaaaRecord"
     },
     "CloudError": {
       "properties": {
@@ -33,7 +35,8 @@
         }
       },
       "type": "object",
-      "x-ms-external": true
+      "x-ms-external": true,
+      "title": "CloudError"
     },
     "CloudErrorBody": {
       "properties": {
@@ -54,7 +57,8 @@
         }
       },
       "type": "object",
-      "x-ms-external": true
+      "x-ms-external": true,
+      "title": "CloudErrorBody"
     },
     "CnameRecord": {
       "description": "A CNAME record.",
@@ -63,7 +67,8 @@
           "description": "The canonical name for this CNAME record.",
           "type": "string"
         }
-      }
+      },
+      "title": "CnameRecord"
     },
     "MxRecord": {
       "description": "An MX record.",
@@ -77,7 +82,8 @@
           "format": "int32",
           "type": "integer"
         }
-      }
+      },
+      "title": "MxRecord"
     },
     "NsRecord": {
       "description": "An NS record.",
@@ -86,7 +92,8 @@
           "description": "The name server name for this NS record.",
           "type": "string"
         }
-      }
+      },
+      "title": "NsRecord"
     },
     "PtrRecord": {
       "description": "A PTR record.",
@@ -95,7 +102,8 @@
           "description": "The PTR target domain name for this PTR record.",
           "type": "string"
         }
-      }
+      },
+      "title": "PtrRecord"
     },
     "RecordSet": {
       "description": "Describes a DNS record set (a collection of DNS records with the same name and type).",
@@ -121,7 +129,8 @@
           "description": "The type of the record set.",
           "type": "string"
         }
-      }
+      },
+      "title": "RecordSet"
     },
     "RecordSetListResult": {
       "description": "The response to a record set List operation.",
@@ -137,7 +146,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "RecordSetListResult"
     },
     "RecordSetProperties": {
       "description": "Represents the properties of the records in the record set.",
@@ -219,7 +229,8 @@
           "description": "The metadata attached to the record set.",
           "type": "object"
         }
-      }
+      },
+      "title": "RecordSetProperties"
     },
     "RecordSetUpdateParameters": {
       "description": "Parameters supplied to update a record set.",
@@ -228,7 +239,8 @@
           "$ref": "#/definitions/RecordSet",
           "description": "Specifies information about the record set being updated."
         }
-      }
+      },
+      "title": "RecordSetUpdateParameters"
     },
     "Resource": {
       "properties": {
@@ -262,7 +274,8 @@
       "required": [
         "location"
       ],
-      "x-ms-azure-resource": true
+      "x-ms-azure-resource": true,
+      "title": "Resource"
     },
     "SoaRecord": {
       "description": "An SOA record.",
@@ -301,7 +314,8 @@
           "format": "int64",
           "type": "integer"
         }
-      }
+      },
+      "title": "SoaRecord"
     },
     "SrvRecord": {
       "description": "An SRV record.",
@@ -325,7 +339,8 @@
           "format": "int32",
           "type": "integer"
         }
-      }
+      },
+      "title": "SrvRecord"
     },
     "SubResource": {
       "properties": {
@@ -334,7 +349,8 @@
           "type": "string"
         }
       },
-      "x-ms-external": true
+      "x-ms-external": true,
+      "title": "SubResource"
     },
     "TxtRecord": {
       "description": "A TXT record.",
@@ -346,7 +362,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "TxtRecord"
     },
     "Zone": {
       "allOf": [
@@ -365,7 +382,8 @@
           "description": "The properties of the zone.",
           "x-ms-client-flatten": true
         }
-      }
+      },
+      "title": "Zone"
     },
     "ZoneDeleteResult": {
       "description": "The response to a Zone Delete operation.",
@@ -445,7 +463,8 @@
             "name": "HttpStatusCode"
           }
         }
-      }
+      },
+      "title": "ZoneDeleteResult"
     },
     "ZoneListResult": {
       "description": "The response to a Zone List or ListAll operation.",
@@ -461,7 +480,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "ZoneListResult"
     },
     "ZoneProperties": {
       "description": "Represents the properties of the zone.",
@@ -484,7 +504,8 @@
           "format": "int64",
           "type": "integer"
         }
-      }
+      },
+      "title": "ZoneProperties"
     }
   },
   "actions": [

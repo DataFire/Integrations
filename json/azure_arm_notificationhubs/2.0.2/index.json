@@ -36,7 +36,8 @@
           "description": "Properties of NotificationHub AdmCredential.",
           "x-ms-client-flatten": true
         }
-      }
+      },
+      "title": "AdmCredential"
     },
     "AdmCredentialProperties": {
       "description": "Description of a NotificationHub AdmCredential.",
@@ -53,7 +54,8 @@
           "description": "The credential secret access key.",
           "type": "string"
         }
-      }
+      },
+      "title": "AdmCredentialProperties"
     },
     "ApnsCredential": {
       "description": "Description of a NotificationHub ApnsCredential.",
@@ -63,7 +65,8 @@
           "description": "Properties of NotificationHub ApnsCredential.",
           "x-ms-client-flatten": true
         }
-      }
+      },
+      "title": "ApnsCredential"
     },
     "ApnsCredentialProperties": {
       "description": "Description of a NotificationHub ApnsCredential.",
@@ -100,7 +103,8 @@
           "description": "Provider Authentication Token, obtained through your developer account",
           "type": "string"
         }
-      }
+      },
+      "title": "ApnsCredentialProperties"
     },
     "BaiduCredential": {
       "description": "Description of a NotificationHub BaiduCredential.",
@@ -110,7 +114,8 @@
           "description": "Properties of NotificationHub BaiduCredential.",
           "x-ms-client-flatten": true
         }
-      }
+      },
+      "title": "BaiduCredential"
     },
     "BaiduCredentialProperties": {
       "description": "Description of a NotificationHub BaiduCredential.",
@@ -127,7 +132,8 @@
           "description": "Baidu Secret Key",
           "type": "string"
         }
-      }
+      },
+      "title": "BaiduCredentialProperties"
     },
     "CheckAvailabilityParameters": {
       "description": "Parameters supplied to the Check Name Availability for Namespace and NotificationHubs.",
@@ -169,7 +175,8 @@
       "required": [
         "name",
         "location"
-      ]
+      ],
+      "title": "CheckAvailabilityParameters"
     },
     "CheckAvailabilityResult": {
       "allOf": [
@@ -183,7 +190,8 @@
           "description": "True if the name is available and can be used to create new Namespace/NotificationHub. Otherwise false.",
           "type": "boolean"
         }
-      }
+      },
+      "title": "CheckAvailabilityResult"
     },
     "GcmCredential": {
       "description": "Description of a NotificationHub GcmCredential.",
@@ -193,7 +201,8 @@
           "description": "Properties of NotificationHub GcmCredential.",
           "x-ms-client-flatten": true
         }
-      }
+      },
+      "title": "GcmCredential"
     },
     "GcmCredentialProperties": {
       "description": "Description of a NotificationHub GcmCredential.",
@@ -206,7 +215,8 @@
           "description": "The Google API key.",
           "type": "string"
         }
-      }
+      },
+      "title": "GcmCredentialProperties"
     },
     "MpnsCredential": {
       "description": "Description of a NotificationHub MpnsCredential.",
@@ -216,7 +226,8 @@
           "description": "Properties of NotificationHub MpnsCredential.",
           "x-ms-client-flatten": true
         }
-      }
+      },
+      "title": "MpnsCredential"
     },
     "MpnsCredentialProperties": {
       "description": "Description of a NotificationHub MpnsCredential.",
@@ -233,7 +244,8 @@
           "description": "The Mpns certificate Thumbprint",
           "type": "string"
         }
-      }
+      },
+      "title": "MpnsCredentialProperties"
     },
     "NamespaceCreateOrUpdateParameters": {
       "allOf": [
@@ -251,7 +263,8 @@
       },
       "required": [
         "location"
-      ]
+      ],
+      "title": "NamespaceCreateOrUpdateParameters"
     },
     "NamespaceListResult": {
       "description": "The response of the List Namespace operation.",
@@ -267,7 +280,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "NamespaceListResult"
     },
     "NamespacePatchParameters": {
       "description": "Parameters supplied to the Patch Namespace operation.",
@@ -283,7 +297,8 @@
           "description": "Resource tags",
           "type": "object"
         }
-      }
+      },
+      "title": "NamespacePatchParameters"
     },
     "NamespaceProperties": {
       "description": "Namespace properties.",
@@ -350,7 +365,8 @@
           "description": "The Id of the Azure subscription associated with the namespace.",
           "type": "string"
         }
-      }
+      },
+      "title": "NamespaceProperties"
     },
     "NamespaceResource": {
       "allOf": [
@@ -365,7 +381,8 @@
           "description": "Properties of the Namespace.",
           "x-ms-client-flatten": true
         }
-      }
+      },
+      "title": "NamespaceResource"
     },
     "NotificationHubCreateOrUpdateParameters": {
       "allOf": [
@@ -384,7 +401,8 @@
       "required": [
         "location",
         "properties"
-      ]
+      ],
+      "title": "NotificationHubCreateOrUpdateParameters"
     },
     "NotificationHubListResult": {
       "description": "The response of the List NotificationHub operation.",
@@ -400,7 +418,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "NotificationHubListResult"
     },
     "NotificationHubProperties": {
       "description": "NotificationHub properties.",
@@ -444,7 +463,8 @@
           "$ref": "#/definitions/WnsCredential",
           "description": "The WnsCredential of the created NotificationHub"
         }
-      }
+      },
+      "title": "NotificationHubProperties"
     },
     "NotificationHubResource": {
       "allOf": [
@@ -459,7 +479,8 @@
           "description": "Properties of the NotificationHub.",
           "x-ms-client-flatten": true
         }
-      }
+      },
+      "title": "NotificationHubResource"
     },
     "PnsCredentialsProperties": {
       "description": "Description of a NotificationHub PNS Credentials.",
@@ -488,7 +509,8 @@
           "$ref": "#/definitions/WnsCredential",
           "description": "The WnsCredential of the created NotificationHub"
         }
-      }
+      },
+      "title": "PnsCredentialsProperties"
     },
     "PnsCredentialsResource": {
       "allOf": [
@@ -503,7 +525,8 @@
           "description": "NotificationHub PNS Credentials.",
           "x-ms-client-flatten": true
         }
-      }
+      },
+      "title": "PnsCredentialsResource"
     },
     "PolicykeyResource": {
       "description": "Namespace/NotificationHub Regenerate Keys",
@@ -512,7 +535,8 @@
           "description": "Name of the key that has to be regenerated for the Namespace/Notification Hub Authorization Rule. The value can be Primary Key/Secondary Key.",
           "type": "string"
         }
-      }
+      },
+      "title": "PolicykeyResource"
     },
     "Resource": {
       "properties": {
@@ -550,7 +574,8 @@
       "required": [
         "location"
       ],
-      "x-ms-azure-resource": true
+      "x-ms-azure-resource": true,
+      "title": "Resource"
     },
     "ResourceListKeys": {
       "description": "Namespace/NotificationHub Connection String",
@@ -575,7 +600,8 @@
           "description": "SecondaryKey of the created AuthorizationRule",
           "type": "string"
         }
-      }
+      },
+      "title": "ResourceListKeys"
     },
     "SharedAccessAuthorizationRuleCreateOrUpdateParameters": {
       "allOf": [
@@ -592,7 +618,8 @@
       },
       "required": [
         "properties"
-      ]
+      ],
+      "title": "SharedAccessAuthorizationRuleCreateOrUpdateParameters"
     },
     "SharedAccessAuthorizationRuleListResult": {
       "description": "The response of the List Namespace operation.",
@@ -608,7 +635,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "SharedAccessAuthorizationRuleListResult"
     },
     "SharedAccessAuthorizationRuleProperties": {
       "description": "SharedAccessAuthorizationRule properties.",
@@ -629,7 +657,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "SharedAccessAuthorizationRuleProperties"
     },
     "SharedAccessAuthorizationRuleResource": {
       "allOf": [
@@ -644,7 +673,8 @@
           "description": "Pproperties of the Namespace AuthorizationRule.",
           "x-ms-client-flatten": true
         }
-      }
+      },
+      "title": "SharedAccessAuthorizationRuleResource"
     },
     "Sku": {
       "description": "The Sku description for a namespace",
@@ -681,7 +711,8 @@
       },
       "required": [
         "name"
-      ]
+      ],
+      "title": "Sku"
     },
     "SubResource": {
       "properties": {
@@ -690,7 +721,8 @@
           "type": "string"
         }
       },
-      "x-ms-azure-resource": true
+      "x-ms-azure-resource": true,
+      "title": "SubResource"
     },
     "WnsCredential": {
       "description": "Description of a NotificationHub WnsCredential.",
@@ -700,7 +732,8 @@
           "description": "Properties of NotificationHub WnsCredential.",
           "x-ms-client-flatten": true
         }
-      }
+      },
+      "title": "WnsCredential"
     },
     "WnsCredentialProperties": {
       "description": "Description of a NotificationHub WnsCredential.",
@@ -717,7 +750,8 @@
           "description": "The Windows Live endpoint.",
           "type": "string"
         }
-      }
+      },
+      "title": "WnsCredentialProperties"
     }
   },
   "actions": [

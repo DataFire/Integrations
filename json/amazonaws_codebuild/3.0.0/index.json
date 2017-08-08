@@ -19,21 +19,24 @@
     "AccountLimitExceededException": {
       "description": "An AWS service limit was exceeded for the calling AWS account.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "AccountLimitExceededException"
     },
     "ArtifactNamespace": {
       "enum": [
         "NONE",
         "BUILD_ID"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ArtifactNamespace"
     },
     "ArtifactPackaging": {
       "enum": [
         "NONE",
         "ZIP"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ArtifactPackaging"
     },
     "ArtifactsType": {
       "enum": [
@@ -41,7 +44,8 @@
         "S3",
         "NO_ARTIFACTS"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ArtifactsType"
     },
     "BatchGetBuildsInput": {
       "properties": {
@@ -53,7 +57,8 @@
       "required": [
         "ids"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "BatchGetBuildsInput"
     },
     "BatchGetBuildsOutput": {
       "properties": {
@@ -66,7 +71,8 @@
           "description": "The IDs of builds for which information could not be found."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BatchGetBuildsOutput"
     },
     "BatchGetProjectsInput": {
       "properties": {
@@ -78,7 +84,8 @@
       "required": [
         "names"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "BatchGetProjectsInput"
     },
     "BatchGetProjectsOutput": {
       "properties": {
@@ -91,10 +98,12 @@
           "description": "The names of build projects for which information could not be found."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BatchGetProjectsOutput"
     },
     "Boolean": {
-      "type": "boolean"
+      "type": "boolean",
+      "title": "Boolean"
     },
     "Build": {
       "description": "Information about a build.",
@@ -164,7 +173,8 @@
           "description": "How long, in minutes, for AWS CodeBuild to wait before timing out this build if it does not get marked as completed."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Build"
     },
     "BuildArtifacts": {
       "description": "Information about build output artifacts.",
@@ -182,7 +192,8 @@
           "description": "<p>The SHA-256 hash of the build artifact.</p> <p>You can use this hash along with a checksum tool to confirm both file integrity and authenticity.</p> <note> <p>This value is available only if the build project's <code>packaging</code> value is set to <code>ZIP</code>.</p> </note>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BuildArtifacts"
     },
     "BuildIds": {
       "items": {
@@ -190,7 +201,8 @@
       },
       "maxItems": 100,
       "minItems": 1,
-      "type": "array"
+      "type": "array",
+      "title": "BuildIds"
     },
     "BuildPhase": {
       "description": "Information about a stage for a build.",
@@ -220,7 +232,8 @@
           "description": "When the build phase started, expressed in Unix time format."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BuildPhase"
     },
     "BuildPhaseType": {
       "enum": [
@@ -235,19 +248,22 @@
         "FINALIZING",
         "COMPLETED"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "BuildPhaseType"
     },
     "BuildPhases": {
       "items": {
         "$ref": "#/definitions/BuildPhase"
       },
-      "type": "array"
+      "type": "array",
+      "title": "BuildPhases"
     },
     "Builds": {
       "items": {
         "$ref": "#/definitions/Build"
       },
-      "type": "array"
+      "type": "array",
+      "title": "Builds"
     },
     "ComputeType": {
       "enum": [
@@ -255,7 +271,8 @@
         "BUILD_GENERAL1_MEDIUM",
         "BUILD_GENERAL1_LARGE"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ComputeType"
     },
     "CreateProjectInput": {
       "properties": {
@@ -302,7 +319,8 @@
         "artifacts",
         "environment"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateProjectInput"
     },
     "CreateProjectOutput": {
       "properties": {
@@ -311,7 +329,8 @@
           "description": "Information about the build project that was created."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateProjectOutput"
     },
     "DeleteProjectInput": {
       "properties": {
@@ -323,11 +342,13 @@
       "required": [
         "name"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteProjectInput"
     },
     "DeleteProjectOutput": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DeleteProjectOutput"
     },
     "EnvironmentImage": {
       "description": "Information about a Docker image that is managed by AWS CodeBuild.",
@@ -341,13 +362,15 @@
           "description": "The name of the Docker image."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "EnvironmentImage"
     },
     "EnvironmentImages": {
       "items": {
         "$ref": "#/definitions/EnvironmentImage"
       },
-      "type": "array"
+      "type": "array",
+      "title": "EnvironmentImages"
     },
     "EnvironmentLanguage": {
       "description": "A set of Docker images that are related by programming language and are managed by AWS CodeBuild.",
@@ -361,13 +384,15 @@
           "description": "The programming language for the Docker images."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "EnvironmentLanguage"
     },
     "EnvironmentLanguages": {
       "items": {
         "$ref": "#/definitions/EnvironmentLanguage"
       },
-      "type": "array"
+      "type": "array",
+      "title": "EnvironmentLanguages"
     },
     "EnvironmentPlatform": {
       "description": "A set of Docker images that are related by platform and are managed by AWS CodeBuild.",
@@ -381,19 +406,22 @@
           "description": "The platform's name."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "EnvironmentPlatform"
     },
     "EnvironmentPlatforms": {
       "items": {
         "$ref": "#/definitions/EnvironmentPlatform"
       },
-      "type": "array"
+      "type": "array",
+      "title": "EnvironmentPlatforms"
     },
     "EnvironmentType": {
       "enum": [
         "LINUX_CONTAINER"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "EnvironmentType"
     },
     "EnvironmentVariable": {
       "description": "Information about an environment variable for a build project or a build.",
@@ -411,24 +439,28 @@
         "name",
         "value"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "EnvironmentVariable"
     },
     "EnvironmentVariables": {
       "items": {
         "$ref": "#/definitions/EnvironmentVariable"
       },
-      "type": "array"
+      "type": "array",
+      "title": "EnvironmentVariables"
     },
     "InvalidInputException": {
       "description": "The input value that was provided is not valid.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "InvalidInputException"
     },
     "KeyInput": {
       "maxLength": 127,
       "minLength": 1,
       "pattern": "^([\\\\p{L}\\\\p{Z}\\\\p{N}_.:/=@+\\\\-]*)$",
-      "type": "string"
+      "type": "string",
+      "title": "KeyInput"
     },
     "LanguageType": {
       "enum": [
@@ -441,7 +473,8 @@
         "ANDROID",
         "BASE"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "LanguageType"
     },
     "ListBuildsForProjectInput": {
       "properties": {
@@ -461,7 +494,8 @@
       "required": [
         "projectName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListBuildsForProjectInput"
     },
     "ListBuildsForProjectOutput": {
       "properties": {
@@ -474,7 +508,8 @@
           "description": "If there are more than 100 items in the list, only the first 100 items are returned, along with a unique string called a <i>next token</i>. To get the next batch of items in the list, call this operation again, adding the next token to the call."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListBuildsForProjectOutput"
     },
     "ListBuildsInput": {
       "properties": {
@@ -487,7 +522,8 @@
           "description": "<p>The order to list build IDs. Valid values include:</p> <ul> <li> <p> <code>ASCENDING</code>: List the build IDs in ascending order by build ID.</p> </li> <li> <p> <code>DESCENDING</code>: List the build IDs in descending order by build ID.</p> </li> </ul>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListBuildsInput"
     },
     "ListBuildsOutput": {
       "properties": {
@@ -500,11 +536,13 @@
           "description": "If there are more than 100 items in the list, only the first 100 items are returned, along with a unique string called a <i>next token</i>. To get the next batch of items in the list, call this operation again, adding the next token to the call."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListBuildsOutput"
     },
     "ListCuratedEnvironmentImagesInput": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "ListCuratedEnvironmentImagesInput"
     },
     "ListCuratedEnvironmentImagesOutput": {
       "properties": {
@@ -513,7 +551,8 @@
           "description": "Information about supported platforms for Docker images that are managed by AWS CodeBuild."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListCuratedEnvironmentImagesOutput"
     },
     "ListProjectsInput": {
       "properties": {
@@ -530,7 +569,8 @@
           "description": "<p>The order in which to list build projects. Valid values include:</p> <ul> <li> <p> <code>ASCENDING</code>: List the build project names in ascending order.</p> </li> <li> <p> <code>DESCENDING</code>: List the build project names in descending order.</p> </li> </ul> <p>Use <code>sortBy</code> to specify the criterion to be used to list build project names.</p>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListProjectsInput"
     },
     "ListProjectsOutput": {
       "properties": {
@@ -543,7 +583,8 @@
           "description": "The list of build project names, with each build project name representing a single build project."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListProjectsOutput"
     },
     "LogsLocation": {
       "description": "Information about build logs in Amazon CloudWatch Logs.",
@@ -561,11 +602,13 @@
           "description": "The name of the Amazon CloudWatch Logs stream for the build logs."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LogsLocation"
     },
     "NonEmptyString": {
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "NonEmptyString"
     },
     "PhaseContext": {
       "description": "Additional information about a build phase that has an error. You can use this information to help troubleshoot a failed build.",
@@ -579,13 +622,15 @@
           "description": "The status code for the context of the build phase."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PhaseContext"
     },
     "PhaseContexts": {
       "items": {
         "$ref": "#/definitions/PhaseContext"
       },
-      "type": "array"
+      "type": "array",
+      "title": "PhaseContexts"
     },
     "PlatformType": {
       "enum": [
@@ -593,7 +638,8 @@
         "AMAZON_LINUX",
         "UBUNTU"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "PlatformType"
     },
     "Project": {
       "description": "Information about a build project.",
@@ -647,7 +693,8 @@
           "description": "How long, in minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait before timing out any related build that did not get marked as completed. The default is 60 minutes."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Project"
     },
     "ProjectArtifacts": {
       "description": "Information about the build output artifacts for the build project.",
@@ -680,12 +727,14 @@
       "required": [
         "type"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ProjectArtifacts"
     },
     "ProjectDescription": {
       "maxLength": 255,
       "minLength": 0,
-      "type": "string"
+      "type": "string",
+      "title": "ProjectDescription"
     },
     "ProjectEnvironment": {
       "description": "Information about the build environment of the build project.",
@@ -712,13 +761,15 @@
         "image",
         "computeType"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ProjectEnvironment"
     },
     "ProjectName": {
       "maxLength": 255,
       "minLength": 2,
       "pattern": "[A-Za-z0-9][A-Za-z0-9\\-_]{1,254}",
-      "type": "string"
+      "type": "string",
+      "title": "ProjectName"
     },
     "ProjectNames": {
       "items": {
@@ -726,7 +777,8 @@
       },
       "maxItems": 100,
       "minItems": 1,
-      "type": "array"
+      "type": "array",
+      "title": "ProjectNames"
     },
     "ProjectSortByType": {
       "enum": [
@@ -734,7 +786,8 @@
         "CREATED_TIME",
         "LAST_MODIFIED_TIME"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ProjectSortByType"
     },
     "ProjectSource": {
       "description": "Information about the build input source code for the build project.",
@@ -759,30 +812,35 @@
       "required": [
         "type"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ProjectSource"
     },
     "Projects": {
       "items": {
         "$ref": "#/definitions/Project"
       },
-      "type": "array"
+      "type": "array",
+      "title": "Projects"
     },
     "ResourceAlreadyExistsException": {
       "description": "The specified AWS resource cannot be created, because an AWS resource with the same settings already exists.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "ResourceAlreadyExistsException"
     },
     "ResourceNotFoundException": {
       "description": "The specified AWS resource cannot be found.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "ResourceNotFoundException"
     },
     "SortOrderType": {
       "enum": [
         "ASCENDING",
         "DESCENDING"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "SortOrderType"
     },
     "SourceAuth": {
       "description": "<p>Information about the authorization settings for AWS CodeBuild to access the source code to be built.</p> <p>This information is for the AWS CodeBuild console's use only. Your code should not get or set this information directly (unless the build project's source <code>type</code> value is <code>GITHUB</code>).</p>",
@@ -799,13 +857,15 @@
       "required": [
         "type"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "SourceAuth"
     },
     "SourceAuthType": {
       "enum": [
         "OAUTH"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "SourceAuthType"
     },
     "SourceType": {
       "enum": [
@@ -814,7 +874,8 @@
         "GITHUB",
         "S3"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "SourceType"
     },
     "StartBuildInput": {
       "properties": {
@@ -846,7 +907,8 @@
       "required": [
         "projectName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "StartBuildInput"
     },
     "StartBuildOutput": {
       "properties": {
@@ -855,7 +917,8 @@
           "description": "Information about the build to be run."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "StartBuildOutput"
     },
     "StatusType": {
       "enum": [
@@ -866,7 +929,8 @@
         "IN_PROGRESS",
         "STOPPED"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "StatusType"
     },
     "StopBuildInput": {
       "properties": {
@@ -878,7 +942,8 @@
       "required": [
         "id"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "StopBuildInput"
     },
     "StopBuildOutput": {
       "properties": {
@@ -887,10 +952,12 @@
           "description": "Information about the build."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "StopBuildOutput"
     },
     "String": {
-      "type": "string"
+      "type": "string",
+      "title": "String"
     },
     "Tag": {
       "description": "<p>A tag, consisting of a key and a value.</p> <p>This tag is available for use by AWS services that support tags in AWS CodeBuild.</p>",
@@ -904,7 +971,8 @@
           "description": "The tag's value."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Tag"
     },
     "TagList": {
       "items": {
@@ -912,16 +980,19 @@
       },
       "maxItems": 50,
       "minItems": 0,
-      "type": "array"
+      "type": "array",
+      "title": "TagList"
     },
     "TimeOut": {
       "maximum": 480,
       "minimum": 1,
-      "type": "integer"
+      "type": "integer",
+      "title": "TimeOut"
     },
     "Timestamp": {
       "format": "date-time",
-      "type": "string"
+      "type": "string",
+      "title": "Timestamp"
     },
     "UpdateProjectInput": {
       "properties": {
@@ -965,7 +1036,8 @@
       "required": [
         "name"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateProjectInput"
     },
     "UpdateProjectOutput": {
       "properties": {
@@ -974,19 +1046,23 @@
           "description": "Information about the build project that was changed."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UpdateProjectOutput"
     },
     "ValueInput": {
       "maxLength": 255,
       "minLength": 1,
       "pattern": "^([\\\\p{L}\\\\p{Z}\\\\p{N}_.:/=@+\\\\-]*)$",
-      "type": "string"
+      "type": "string",
+      "title": "ValueInput"
     },
     "WrapperInt": {
-      "type": "integer"
+      "type": "integer",
+      "title": "WrapperInt"
     },
     "WrapperLong": {
-      "type": "integer"
+      "type": "integer",
+      "title": "WrapperLong"
     }
   },
   "actions": [

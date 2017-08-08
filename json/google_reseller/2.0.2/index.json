@@ -75,7 +75,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Address"
     },
     "ChangePlanRequest": {
       "description": "JSON template for the ChangePlan rpc request.",
@@ -102,7 +103,8 @@
           "description": "This is a required property. The seats property is the number of user seat licenses."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ChangePlanRequest"
     },
     "Customer": {
       "description": "JSON template for a customer.",
@@ -141,7 +143,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Customer"
     },
     "RenewalSettings": {
       "description": "JSON template for a subscription renewal settings.",
@@ -156,7 +159,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RenewalSettings"
     },
     "ResellernotifyGetwatchdetailsResponse": {
       "description": "JSON template for resellernotify getwatchdetails response.",
@@ -173,7 +177,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ResellernotifyGetwatchdetailsResponse"
     },
     "ResellernotifyResource": {
       "description": "JSON template for resellernotify response.",
@@ -183,7 +188,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ResellernotifyResource"
     },
     "Seats": {
       "description": "JSON template for subscription seats.",
@@ -209,7 +215,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Seats"
     },
     "Subscription": {
       "description": "JSON template for a subscription.",
@@ -341,7 +348,8 @@
           "type": "object"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Subscription"
     },
     "Subscriptions": {
       "description": "JSON template for a subscription list.",
@@ -363,7 +371,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Subscriptions"
     }
   },
   "actions": [

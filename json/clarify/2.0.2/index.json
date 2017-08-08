@@ -60,7 +60,8 @@
         "id",
         "updated",
         "version"
-      ]
+      ],
+      "title": "Bundle"
     },
     "BundleReport": {
       "$ref": "#/definitions/object",
@@ -107,7 +108,8 @@
         "bundle_count",
         "generated",
         "periods"
-      ]
+      ],
+      "title": "BundleReport"
     },
     "Collection": {
       "$ref": "#/definitions/object",
@@ -138,7 +140,8 @@
         "_links",
         "limit",
         "total"
-      ]
+      ],
+      "title": "Collection"
     },
     "Insight": {
       "$ref": "#/definitions/object",
@@ -194,7 +197,8 @@
         "name",
         "status",
         "updated"
-      ]
+      ],
+      "title": "Insight"
     },
     "Insights": {
       "$ref": "#/definitions/object",
@@ -226,7 +230,8 @@
         "bundle_id",
         "created",
         "updated"
-      ]
+      ],
+      "title": "Insights"
     },
     "ItemResult": {
       "$ref": "#/definitions/object",
@@ -246,7 +251,8 @@
       "required": [
         "score",
         "term_results"
-      ]
+      ],
+      "title": "ItemResult"
     },
     "MatchHit": {
       "$ref": "#/definitions/object",
@@ -262,7 +268,8 @@
       },
       "required": [
         "start"
-      ]
+      ],
+      "title": "MatchHit"
     },
     "Metadata": {
       "$ref": "#/definitions/object",
@@ -304,7 +311,8 @@
         "data",
         "updated",
         "version"
-      ]
+      ],
+      "title": "Metadata"
     },
     "Ref": {
       "$ref": "#/definitions/object",
@@ -321,7 +329,8 @@
       "required": [
         "_class",
         "_links"
-      ]
+      ],
+      "title": "Ref"
     },
     "Ref_(of_Bundle)": {
       "$ref": "#/definitions/object",
@@ -347,7 +356,8 @@
         "_class",
         "_links",
         "id"
-      ]
+      ],
+      "title": "Ref_(of_Bundle)"
     },
     "Ref_(of_Track)": {
       "$ref": "#/definitions/object",
@@ -369,7 +379,8 @@
         "_class",
         "_links",
         "id"
-      ]
+      ],
+      "title": "Ref_(of_Track)"
     },
     "ReportPeriod": {
       "$ref": "#/definitions/object",
@@ -384,7 +395,8 @@
       },
       "required": [
         "start"
-      ]
+      ],
+      "title": "ReportPeriod"
     },
     "ReportPeriodBundle": {
       "$ref": "#/definitions/object",
@@ -396,7 +408,8 @@
       },
       "required": [
         "count"
-      ]
+      ],
+      "title": "ReportPeriodBundle"
     },
     "SearchCollection": {
       "$ref": "#/definitions/object",
@@ -443,7 +456,8 @@
         "limit",
         "search_terms",
         "total"
-      ]
+      ],
+      "title": "SearchCollection"
     },
     "SearchTerm": {
       "$ref": "#/definitions/object",
@@ -455,7 +469,8 @@
       },
       "required": [
         "term"
-      ]
+      ],
+      "title": "SearchTerm"
     },
     "TermMatch": {
       "$ref": "#/definitions/object",
@@ -479,7 +494,8 @@
       "required": [
         "hits",
         "type"
-      ]
+      ],
+      "title": "TermMatch"
     },
     "TermResult": {
       "$ref": "#/definitions/object",
@@ -499,7 +515,8 @@
       "required": [
         "matches",
         "score"
-      ]
+      ],
+      "title": "TermResult"
     },
     "Track": {
       "$ref": "#/definitions/object",
@@ -600,7 +617,8 @@
         "status",
         "track",
         "updated"
-      ]
+      ],
+      "title": "Track"
     },
     "Track_(array_item)": {
       "$ref": "#/definitions/object",
@@ -691,7 +709,8 @@
         "status",
         "track",
         "updated"
-      ]
+      ],
+      "title": "Track_(array_item)"
     },
     "Tracks": {
       "$ref": "#/definitions/object",
@@ -741,10 +760,12 @@
         "tracks",
         "updated",
         "version"
-      ]
+      ],
+      "title": "Tracks"
     },
     "object": {
-      "$ref": "#/definitions/object"
+      "$ref": "#/definitions/object",
+      "title": "object"
     }
   },
   "actions": [

@@ -54,7 +54,8 @@
         }
       ],
       "description": "It references either a file or a folder",
-      "type": "object"
+      "type": "object",
+      "title": "FileReference"
     },
     "ItemReference": {
       "allOf": [
@@ -79,7 +80,8 @@
         }
       ],
       "description": "It references either a file or a folder",
-      "type": "object"
+      "type": "object",
+      "title": "ItemReference"
     },
     "OAuthError": {
       "properties": {
@@ -96,7 +98,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "OAuthError"
     },
     "Reference": {
       "properties": {
@@ -136,7 +139,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Reference"
     },
     "RestrictedTo": {
       "properties": {
@@ -147,7 +151,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RestrictedTo"
     }
   },
   "actions": [

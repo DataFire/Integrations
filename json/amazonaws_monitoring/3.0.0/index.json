@@ -19,20 +19,24 @@
     "ActionPrefix": {
       "maxLength": 1024,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "ActionPrefix"
     },
     "ActionsEnabled": {
-      "type": "boolean"
+      "type": "boolean",
+      "title": "ActionsEnabled"
     },
     "AlarmArn": {
       "maxLength": 1600,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "AlarmArn"
     },
     "AlarmDescription": {
       "maxLength": 1024,
       "minLength": 0,
-      "type": "string"
+      "type": "string",
+      "title": "AlarmDescription"
     },
     "AlarmHistoryItem": {
       "description": "Represents the history of a specific alarm.",
@@ -58,33 +62,39 @@
           "description": "The time stamp for the alarm history item."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AlarmHistoryItem"
     },
     "AlarmHistoryItems": {
       "items": {
         "$ref": "#/definitions/AlarmHistoryItem"
       },
-      "type": "array"
+      "type": "array",
+      "title": "AlarmHistoryItems"
     },
     "AlarmName": {
       "maxLength": 255,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "AlarmName"
     },
     "AlarmNamePrefix": {
       "maxLength": 255,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "AlarmNamePrefix"
     },
     "AlarmNames": {
       "items": {
         "$ref": "#/definitions/AlarmName"
       },
       "maxItems": 100,
-      "type": "array"
+      "type": "array",
+      "title": "AlarmNames"
     },
     "AwsQueryErrorMessage": {
-      "type": "string"
+      "type": "string",
+      "title": "AwsQueryErrorMessage"
     },
     "ComparisonOperator": {
       "enum": [
@@ -93,7 +103,8 @@
         "LessThanThreshold",
         "LessThanOrEqualToThreshold"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ComparisonOperator"
     },
     "Datapoint": {
       "description": "Encapsulates the statistical data that Amazon CloudWatch computes from metric data.",
@@ -131,11 +142,13 @@
           "description": "The standard unit for the data point."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Datapoint"
     },
     "DatapointValue": {
       "format": "double",
-      "type": "number"
+      "type": "number",
+      "title": "DatapointValue"
     },
     "DatapointValueMap": {
       "items": {
@@ -149,13 +162,15 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "DatapointValueMap"
     },
     "Datapoints": {
       "items": {
         "$ref": "#/definitions/Datapoint"
       },
-      "type": "array"
+      "type": "array",
+      "title": "Datapoints"
     },
     "DeleteAlarmsInput": {
       "properties": {
@@ -167,7 +182,8 @@
       "required": [
         "AlarmNames"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteAlarmsInput"
     },
     "DescribeAlarmHistoryInput": {
       "properties": {
@@ -196,7 +212,8 @@
           "description": "The starting date to retrieve alarm history."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeAlarmHistoryInput"
     },
     "DescribeAlarmHistoryOutput": {
       "properties": {
@@ -209,7 +226,8 @@
           "description": "The token that marks the start of the next batch of returned results."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeAlarmHistoryOutput"
     },
     "DescribeAlarmsForMetricInput": {
       "properties": {
@@ -246,7 +264,8 @@
         "MetricName",
         "Namespace"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeAlarmsForMetricInput"
     },
     "DescribeAlarmsForMetricOutput": {
       "properties": {
@@ -255,7 +274,8 @@
           "description": "The information for each alarm with the specified metric."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeAlarmsForMetricOutput"
     },
     "DescribeAlarmsInput": {
       "properties": {
@@ -284,7 +304,8 @@
           "description": "The state value to be used in matching alarms."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeAlarmsInput"
     },
     "DescribeAlarmsOutput": {
       "properties": {
@@ -297,7 +318,8 @@
           "description": "The token that marks the start of the next batch of returned results."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeAlarmsOutput"
     },
     "Dimension": {
       "description": "Expands the identity of a metric.",
@@ -315,7 +337,8 @@
         "Name",
         "Value"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "Dimension"
     },
     "DimensionFilter": {
       "description": "Represents filters for a dimension.",
@@ -332,31 +355,36 @@
       "required": [
         "Name"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DimensionFilter"
     },
     "DimensionFilters": {
       "items": {
         "$ref": "#/definitions/DimensionFilter"
       },
       "maxItems": 10,
-      "type": "array"
+      "type": "array",
+      "title": "DimensionFilters"
     },
     "DimensionName": {
       "maxLength": 255,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "DimensionName"
     },
     "DimensionValue": {
       "maxLength": 255,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "DimensionValue"
     },
     "Dimensions": {
       "items": {
         "$ref": "#/definitions/Dimension"
       },
       "maxItems": 10,
-      "type": "array"
+      "type": "array",
+      "title": "Dimensions"
     },
     "DisableAlarmActionsInput": {
       "properties": {
@@ -368,7 +396,8 @@
       "required": [
         "AlarmNames"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DisableAlarmActionsInput"
     },
     "EnableAlarmActionsInput": {
       "properties": {
@@ -380,25 +409,30 @@
       "required": [
         "AlarmNames"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "EnableAlarmActionsInput"
     },
     "ErrorMessage": {
       "maxLength": 255,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "ErrorMessage"
     },
     "EvaluateLowSampleCountPercentile": {
       "maxLength": 255,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "EvaluateLowSampleCountPercentile"
     },
     "EvaluationPeriods": {
       "minimum": 1,
-      "type": "integer"
+      "type": "integer",
+      "title": "EvaluationPeriods"
     },
     "ExtendedStatistic": {
       "pattern": "p(\\d{1,2}(\\.\\d{0,2})?|100)",
-      "type": "string"
+      "type": "string",
+      "title": "ExtendedStatistic"
     },
     "ExtendedStatistics": {
       "items": {
@@ -406,10 +440,12 @@
       },
       "maxItems": 10,
       "minItems": 1,
-      "type": "array"
+      "type": "array",
+      "title": "ExtendedStatistics"
     },
     "FaultDescription": {
-      "type": "string"
+      "type": "string",
+      "title": "FaultDescription"
     },
     "GetMetricStatisticsInput": {
       "properties": {
@@ -457,7 +493,8 @@
         "EndTime",
         "Period"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetMetricStatisticsInput"
     },
     "GetMetricStatisticsOutput": {
       "properties": {
@@ -470,12 +507,14 @@
           "description": "A label for the specified metric."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetMetricStatisticsOutput"
     },
     "HistoryData": {
       "maxLength": 4095,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "HistoryData"
     },
     "HistoryItemType": {
       "enum": [
@@ -483,12 +522,14 @@
         "StateUpdate",
         "Action"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "HistoryItemType"
     },
     "HistorySummary": {
       "maxLength": 255,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "HistorySummary"
     },
     "InternalServiceFault": {
       "description": "Request processing has failed due to some unknown error, exception, or failure.",
@@ -498,7 +539,8 @@
           "description": "<p/>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InternalServiceFault"
     },
     "InvalidFormatFault": {
       "description": "Data was not syntactically valid JSON.",
@@ -508,7 +550,8 @@
           "description": "<p/>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidFormatFault"
     },
     "InvalidNextToken": {
       "description": "The next token specified is invalid.",
@@ -518,7 +561,8 @@
           "description": "<p/>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidNextToken"
     },
     "InvalidParameterCombinationException": {
       "description": "Parameters that cannot be used together were used together.",
@@ -528,7 +572,8 @@
           "description": "<p/>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidParameterCombinationException"
     },
     "InvalidParameterValueException": {
       "description": "The value of an input parameter is bad or out-of-range.",
@@ -538,7 +583,8 @@
           "description": "<p/>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidParameterValueException"
     },
     "LimitExceededFault": {
       "description": "The quota for alarms for this customer has already been reached.",
@@ -548,7 +594,8 @@
           "description": "<p/>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LimitExceededFault"
     },
     "ListMetricsInput": {
       "properties": {
@@ -569,7 +616,8 @@
           "description": "The token returned by a previous call to indicate that there is more data available."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListMetricsInput"
     },
     "ListMetricsOutput": {
       "properties": {
@@ -582,12 +630,14 @@
           "description": "The token that marks the start of the next batch of returned results."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListMetricsOutput"
     },
     "MaxRecords": {
       "maximum": 100,
       "minimum": 1,
-      "type": "integer"
+      "type": "integer",
+      "title": "MaxRecords"
     },
     "Metric": {
       "description": "Represents a specific metric.",
@@ -605,7 +655,8 @@
           "description": "The namespace of the metric."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Metric"
     },
     "MetricAlarm": {
       "description": "Represents an alarm.",
@@ -705,19 +756,22 @@
           "description": "The unit of the metric associated with the alarm."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "MetricAlarm"
     },
     "MetricAlarms": {
       "items": {
         "$ref": "#/definitions/MetricAlarm"
       },
-      "type": "array"
+      "type": "array",
+      "title": "MetricAlarms"
     },
     "MetricData": {
       "items": {
         "$ref": "#/definitions/MetricDatum"
       },
-      "type": "array"
+      "type": "array",
+      "title": "MetricData"
     },
     "MetricDatum": {
       "description": "Encapsulates the information sent to either create a metric or add new values to be aggregated into an existing metric.",
@@ -750,21 +804,25 @@
       "required": [
         "MetricName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "MetricDatum"
     },
     "MetricLabel": {
-      "type": "string"
+      "type": "string",
+      "title": "MetricLabel"
     },
     "MetricName": {
       "maxLength": 255,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "MetricName"
     },
     "Metrics": {
       "items": {
         "$ref": "#/definitions/Metric"
       },
-      "type": "array"
+      "type": "array",
+      "title": "Metrics"
     },
     "MissingRequiredParameterException": {
       "description": "An input parameter that is required is missing.",
@@ -774,22 +832,26 @@
           "description": "<p/>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "MissingRequiredParameterException"
     },
     "Namespace": {
       "maxLength": 255,
       "minLength": 1,
       "pattern": "[^:].*",
-      "type": "string"
+      "type": "string",
+      "title": "Namespace"
     },
     "NextToken": {
       "maxLength": 1024,
       "minLength": 0,
-      "type": "string"
+      "type": "string",
+      "title": "NextToken"
     },
     "Period": {
       "minimum": 60,
-      "type": "integer"
+      "type": "integer",
+      "title": "Period"
     },
     "PutMetricAlarmInput": {
       "properties": {
@@ -875,7 +937,8 @@
         "Threshold",
         "ComparisonOperator"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "PutMetricAlarmInput"
     },
     "PutMetricDataInput": {
       "properties": {
@@ -892,19 +955,22 @@
         "Namespace",
         "MetricData"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "PutMetricDataInput"
     },
     "ResourceList": {
       "items": {
         "$ref": "#/definitions/ResourceName"
       },
       "maxItems": 5,
-      "type": "array"
+      "type": "array",
+      "title": "ResourceList"
     },
     "ResourceName": {
       "maxLength": 1024,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "ResourceName"
     },
     "ResourceNotFound": {
       "description": "The named resource does not exist.",
@@ -914,7 +980,8 @@
           "description": "<p/>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ResourceNotFound"
     },
     "SetAlarmStateInput": {
       "properties": {
@@ -940,7 +1007,8 @@
         "StateValue",
         "StateReason"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "SetAlarmStateInput"
     },
     "StandardUnit": {
       "enum": [
@@ -972,17 +1040,20 @@
         "Count/Second",
         "None"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "StandardUnit"
     },
     "StateReason": {
       "maxLength": 1023,
       "minLength": 0,
-      "type": "string"
+      "type": "string",
+      "title": "StateReason"
     },
     "StateReasonData": {
       "maxLength": 4000,
       "minLength": 0,
-      "type": "string"
+      "type": "string",
+      "title": "StateReasonData"
     },
     "StateValue": {
       "enum": [
@@ -990,7 +1061,8 @@
         "ALARM",
         "INSUFFICIENT_DATA"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "StateValue"
     },
     "Statistic": {
       "enum": [
@@ -1000,7 +1072,8 @@
         "Minimum",
         "Maximum"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "Statistic"
     },
     "StatisticSet": {
       "description": "Represents a set of statistics that describes a specific metric. ",
@@ -1028,7 +1101,8 @@
         "Minimum",
         "Maximum"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "StatisticSet"
     },
     "Statistics": {
       "items": {
@@ -1036,20 +1110,24 @@
       },
       "maxItems": 5,
       "minItems": 1,
-      "type": "array"
+      "type": "array",
+      "title": "Statistics"
     },
     "Threshold": {
       "format": "double",
-      "type": "number"
+      "type": "number",
+      "title": "Threshold"
     },
     "Timestamp": {
       "format": "date-time",
-      "type": "string"
+      "type": "string",
+      "title": "Timestamp"
     },
     "TreatMissingData": {
       "maxLength": 255,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "TreatMissingData"
     }
   },
   "actions": [

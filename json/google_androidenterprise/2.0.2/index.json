@@ -37,7 +37,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Administrator"
     },
     "AdministratorWebToken": {
       "description": "A token authorizing an admin to access an iframe.",
@@ -52,7 +53,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AdministratorWebToken"
     },
     "AdministratorWebTokenSpec": {
       "description": "Specification for a token used to generate iframes. The token specifies what data the admin is allowed to modify and the URI the iframe is allowed to communiate with.",
@@ -74,7 +76,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AdministratorWebTokenSpec"
     },
     "AppRestrictionsSchema": {
       "description": "Represents the list of app restrictions available to be pre-configured for the product.",
@@ -92,7 +95,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AppRestrictionsSchema"
     },
     "AppRestrictionsSchemaChangeEvent": {
       "description": "An event generated when a new app version is uploaded to Google Play and its app restrictions schema changed. To fetch the app restrictions schema for an app, use Products.getAppRestrictionsSchema on the EMM API.",
@@ -102,7 +106,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AppRestrictionsSchemaChangeEvent"
     },
     "AppRestrictionsSchemaRestriction": {
       "description": "A restriction in the App Restriction Schema represents a piece of configuration that may be pre-applied.",
@@ -149,7 +154,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AppRestrictionsSchemaRestriction"
     },
     "AppRestrictionsSchemaRestrictionRestrictionValue": {
       "description": "A typed value for the restriction.",
@@ -179,7 +185,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AppRestrictionsSchemaRestrictionRestrictionValue"
     },
     "AppUpdateEvent": {
       "description": "An event generated when a new version of an app is uploaded to Google Play. Notifications are sent for new public versions only: alpha, beta, or canary versions do not generate this event. To fetch up-to-date version history for an app, use Products.Get on the EMM API.",
@@ -189,7 +196,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AppUpdateEvent"
     },
     "AppVersion": {
       "description": "This represents a single version of the app.",
@@ -204,7 +212,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AppVersion"
     },
     "ApprovalUrlInfo": {
       "description": "Information on an approval URL.",
@@ -219,7 +228,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ApprovalUrlInfo"
     },
     "AuthenticationToken": {
       "description": "An AuthenticationToken is used by the EMM's device policy client on a device to provision the given EMM-managed user on that device.",
@@ -234,7 +244,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AuthenticationToken"
     },
     "Device": {
       "description": "A Devices resource represents a mobile device managed by the EMM and belonging to a specific enterprise user.\n\nThis collection cannot be modified via the API. It is automatically populated as devices are set up to be managed.",
@@ -253,7 +264,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Device"
     },
     "DeviceState": {
       "description": "The state of a user's device, as accessed by the getState and setState methods on device resources.",
@@ -268,7 +280,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DeviceState"
     },
     "DevicesListResponse": {
       "description": "The device resources for the user.",
@@ -286,7 +299,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DevicesListResponse"
     },
     "Enterprise": {
       "description": "An Enterprises resource represents the binding between an EMM and a specific organization. That binding can be instantiated in one of two different ways using this API as follows: \n- For Google managed domain customers, the process involves using Enterprises.enroll and Enterprises.setAccount (in conjunction with artifacts obtained from the Admin console and the Google API Console) and submitted to the EMM through a more-or-less manual process. \n- For managed Google Play Accounts customers, the process involves using Enterprises.generateSignupUrl and Enterprises.completeSignup in conjunction with the managed Google Play sign-up UI (Google-provided mechanism) to create the binding without manual steps. As an EMM, you can support either or both approaches in your EMM console. See Create an Enterprise for details.",
@@ -316,7 +330,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Enterprise"
     },
     "EnterpriseAccount": {
       "description": "A service account that can be used to authenticate as the enterprise to API calls that require such authentication.",
@@ -331,7 +346,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "EnterpriseAccount"
     },
     "EnterprisesListResponse": {
       "description": "The matching enterprise resources.",
@@ -349,7 +365,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "EnterprisesListResponse"
     },
     "EnterprisesSendTestPushNotificationResponse": {
       "properties": {
@@ -362,7 +379,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "EnterprisesSendTestPushNotificationResponse"
     },
     "Entitlement": {
       "description": "The presence of an Entitlements resource indicates that a user has the right to use a particular app. Entitlements are user specific, not device specific. This allows a user with an entitlement to an app to install the app on all their devices. It's also possible for a user to hold an entitlement to an app without installing the app on any device.\n\nThe API can be used to create an entitlement. As an option, you can also use the API to trigger the installation of an app on all a user's managed devices at the same time the entitlement is created.\n\nIf the app is free, creating the entitlement also creates a group license for that app. For paid apps, creating the entitlement consumes one license, and that license remains consumed until the entitlement is removed. If the enterprise hasn't purchased enough licenses, then no entitlement is created and the installation fails. An entitlement is also not created for an app if the app requires permissions that the enterprise hasn't accepted.\n\nIf an entitlement is deleted, the app may be uninstalled from a user's device. As a best practice, uninstall the app by calling  Installs.delete() before deleting the entitlement.\n\nEntitlements for apps that a user pays for on an unmanaged profile have \"userPurchase\" as the entitlement reason. These entitlements cannot be removed via the API.",
@@ -381,7 +399,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Entitlement"
     },
     "EntitlementsListResponse": {
       "description": "The entitlement resources for the user.",
@@ -399,7 +418,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "EntitlementsListResponse"
     },
     "GroupLicense": {
       "description": "A group license object indicates a product that an enterprise admin has approved for use in the enterprise. The product may be free or paid. For free products, a group license object is created in these cases: if the enterprise admin approves a product in Google Play, if the product is added to a collection, or if an entitlement for the product is created for a user via the API. For paid products, a group license object is only created as part of the first bulk purchase of that product in Google Play by the enterprise admin.\n\nThe API can be used to query group licenses; the available information includes the total number of licenses purchased (for paid products) and the total number of licenses that have been provisioned, that is, the total number of user entitlements in existence for the product.\n\nGroup license objects are never deleted. If, for example, a free app is added to a collection and then removed, the group license will remain, allowing the enterprise admin to keep track of any remaining entitlements. An enterprise admin may indicate they are no longer interested in the group license by marking it as unapproved in Google Play.",
@@ -432,7 +452,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GroupLicense"
     },
     "GroupLicenseUsersListResponse": {
       "description": "The user resources for the group license.",
@@ -450,7 +471,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GroupLicenseUsersListResponse"
     },
     "GroupLicensesListResponse": {
       "description": "The grouplicense resources for the enterprise.",
@@ -468,7 +490,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GroupLicensesListResponse"
     },
     "Install": {
       "description": "The existence of an Installs resource indicates that an app is installed on a particular device (or that an install is pending).\n\nThe API can be used to create an install resource using the update method. This triggers the actual install of the app on the device. If the user does not already have an entitlement for the app, then an attempt is made to create one. If this fails (for example, because the app is not free and there is no available license), then the creation of the install fails.\n\nThe API can also be used to update an installed app. If the update method is used on an existing install, then the app will be updated to the latest available version.\n\nNote that it is not possible to force the installation of a specific version of an app: the version code is read-only.\n\nIf a user installs an app themselves (as permitted by the enterprise), then again an install resource and possibly an entitlement resource are automatically created.\n\nThe API can also be used to delete an install resource, which triggers the removal of the app from the device. Note that deleting an install does not automatically remove the corresponding entitlement, even if there are no remaining installs. The install resource will also be deleted if the user uninstalls the app themselves.",
@@ -492,7 +515,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Install"
     },
     "InstallFailureEvent": {
       "description": "An event generated when an app installation failed on a device",
@@ -518,7 +542,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InstallFailureEvent"
     },
     "InstallsListResponse": {
       "description": "The install resources for the device.",
@@ -536,7 +561,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InstallsListResponse"
     },
     "LocalizedText": {
       "description": "A localized string with its locale.",
@@ -550,7 +576,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LocalizedText"
     },
     "ManagedConfiguration": {
       "description": "A managed configuration resource contains the set of managed properties that have been configured for an Android app. The app's developer would have defined configurable properties in the managed configurations schema.",
@@ -572,7 +599,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ManagedConfiguration"
     },
     "ManagedConfigurationsForDeviceListResponse": {
       "description": "The managed configuration resources for the device.",
@@ -590,7 +618,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ManagedConfigurationsForDeviceListResponse"
     },
     "ManagedConfigurationsForUserListResponse": {
       "description": "The managed configuration resources for the user.",
@@ -608,7 +637,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ManagedConfigurationsForUserListResponse"
     },
     "ManagedProperty": {
       "description": "A managed property of a managed configuration. The property must match one of the properties in the app restrictions schema of the product. Exactly one of the value fields must be populated, and it must match the property's type in the app restrictions schema.",
@@ -649,7 +679,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ManagedProperty"
     },
     "ManagedPropertyBundle": {
       "description": "A bundle of managed properties.",
@@ -662,7 +693,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ManagedPropertyBundle"
     },
     "NewDeviceEvent": {
       "description": "An event generated when a new device is ready to be managed.",
@@ -680,7 +712,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "NewDeviceEvent"
     },
     "NewPermissionsEvent": {
       "description": "An event generated when new permissions are added to an app.",
@@ -704,7 +737,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "NewPermissionsEvent"
     },
     "Notification": {
       "description": "A notification of one event relating to an enterprise.",
@@ -747,7 +781,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Notification"
     },
     "NotificationSet": {
       "description": "A resource returned by the PullNotificationSet API, which contains a collection of notifications for enterprises associated with the service account authenticated for the request.",
@@ -769,7 +804,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "NotificationSet"
     },
     "PageInfo": {
       "properties": {
@@ -786,7 +822,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PageInfo"
     },
     "Permission": {
       "description": "A Permissions resource represents some extra capability, to be granted to an Android app, which requires explicit consent. An enterprise admin must consent to these permissions on behalf of their users before an entitlement for the app can be created.\n\nThe permissions collection is read-only. The information provided for each permission (localized name and description) is intended to be used in the MDM user interface when obtaining consent from the enterprise.",
@@ -809,7 +846,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Permission"
     },
     "Product": {
       "description": "A Products resource represents an app in the Google Play store that is available to at least some users in the enterprise. (Some apps are restricted to a single enterprise, and no information about them is made available outside that enterprise.)\n\nThe information provided for each product (localized name, icon, link to the full Google Play details page) is intended to allow a basic representation of the product within an EMM user interface.",
@@ -867,7 +905,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Product"
     },
     "ProductApprovalEvent": {
       "description": "An event generated when a product's approval status is changed.",
@@ -881,7 +920,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ProductApprovalEvent"
     },
     "ProductAvailabilityChangeEvent": {
       "description": "An event generated whenever a product's availability changes.",
@@ -895,7 +935,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ProductAvailabilityChangeEvent"
     },
     "ProductPermission": {
       "description": "A product permissions resource represents the set of permissions required by a specific app and whether or not they have been accepted by an enterprise admin.\n\nThe API can be used to read the set of permissions, and also to update the set to indicate that permissions have been accepted.",
@@ -909,7 +950,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ProductPermission"
     },
     "ProductPermissions": {
       "description": "Information about the permissions required by a specific app and whether they have been accepted by the enterprise.",
@@ -931,7 +973,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ProductPermissions"
     },
     "ProductSet": {
       "description": "A set of products.",
@@ -953,7 +996,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ProductSet"
     },
     "ProductsApproveRequest": {
       "properties": {
@@ -962,7 +1006,8 @@
           "description": "The approval URL that was shown to the user. Only the permissions shown to the user with that URL will be accepted, which may not be the product's entire set of permissions. For example, the URL may only display new permissions from an update after the product was approved, or not include new permissions if the product was updated since the URL was generated."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ProductsApproveRequest"
     },
     "ProductsGenerateApprovalUrlResponse": {
       "properties": {
@@ -971,7 +1016,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ProductsGenerateApprovalUrlResponse"
     },
     "ProductsListResponse": {
       "description": "The matching products.",
@@ -997,7 +1043,8 @@
           "description": "Pagination information for token pagination."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ProductsListResponse"
     },
     "ServiceAccount": {
       "description": "A service account identity, including the name and credentials that can be used to authenticate as the service account.",
@@ -1016,7 +1063,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ServiceAccount"
     },
     "ServiceAccountKey": {
       "description": "Credentials that can be used to authenticate as a service account.",
@@ -1043,7 +1091,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ServiceAccountKey"
     },
     "ServiceAccountKeysListResponse": {
       "properties": {
@@ -1055,7 +1104,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ServiceAccountKeysListResponse"
     },
     "SignupInfo": {
       "description": "A resource returned by the GenerateSignupUrl API, which contains the Signup URL and Completion Token.",
@@ -1074,7 +1124,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SignupInfo"
     },
     "StoreCluster": {
       "description": "Definition of a managed Google Play store cluster, a list of products displayed as part of a store page.",
@@ -1107,7 +1158,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "StoreCluster"
     },
     "StoreLayout": {
       "description": "General setting for the managed Google Play store layout, currently only specifying the page to display the first time the store is opened.",
@@ -1126,7 +1178,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "StoreLayout"
     },
     "StoreLayoutClustersListResponse": {
       "description": "The store page resources for the enterprise.",
@@ -1144,7 +1197,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "StoreLayoutClustersListResponse"
     },
     "StoreLayoutPagesListResponse": {
       "description": "The store page resources for the enterprise.",
@@ -1162,7 +1216,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "StoreLayoutPagesListResponse"
     },
     "StorePage": {
       "description": "Definition of a managed Google Play store page, made of a localized name and links to other pages. A page also contains clusters defined as a subcollection.",
@@ -1191,7 +1246,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "StorePage"
     },
     "TokenPagination": {
       "properties": {
@@ -1202,7 +1258,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TokenPagination"
     },
     "User": {
       "description": "A Users resource represents an account associated with an enterprise. The account may be specific to a device or to an individual user (who can then use the account across multiple devices). The account may provide access to managed Google Play only, or to other Google services, depending on the identity model: \n- The Google managed domain identity model requires synchronization to Google account sources (via primaryEmail). \n- The managed Google Play Accounts identity model provides a dynamic means for enterprises to create user or device accounts as needed. These accounts provide access to managed Google Play.",
@@ -1237,7 +1294,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "User"
     },
     "UserToken": {
       "description": "A UserToken is used by a user when setting up a managed device or profile with their managed Google Play account on a device. When the user enters their email address and token (activation code) the appropriate EMM app can be automatically downloaded.",
@@ -1256,7 +1314,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UserToken"
     },
     "UsersListResponse": {
       "description": "The matching user resources.",
@@ -1274,7 +1333,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UsersListResponse"
     }
   },
   "actions": [

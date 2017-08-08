@@ -28,7 +28,8 @@
         "joinTime",
         "leaveTime",
         "timeInPartOfSession"
-      ]
+      ],
+      "title": "Attendance"
     },
     "Attendee": {
       "description": "Describes the attendee of a training session.",
@@ -64,7 +65,8 @@
         "email",
         "timeInSession",
         "inSessionTimes"
-      ]
+      ],
+      "title": "Attendee"
     },
     "DateTimeRange": {
       "description": "A pair of DateTime values, the first of which serves as a start time and the second as an end time of an interval",
@@ -83,7 +85,8 @@
       "required": [
         "startDate",
         "endDate"
-      ]
+      ],
+      "title": "DateTimeRange"
     },
     "HostUrl": {
       "description": "Host URL that can be used to start a training",
@@ -95,7 +98,8 @@
       },
       "required": [
         "hostURL"
-      ]
+      ],
+      "title": "HostUrl"
     },
     "NotifiedParties": {
       "description": "Number of parties notified of a change to a training session times",
@@ -114,7 +118,8 @@
       "required": [
         "notifiedRegistrants",
         "notifiedTrainers"
-      ]
+      ],
+      "title": "NotifiedParties"
     },
     "Organizer": {
       "description": "Describes a training organizer.",
@@ -141,7 +146,8 @@
         "email",
         "givenName",
         "surname"
-      ]
+      ],
+      "title": "Organizer"
     },
     "Recording": {
       "description": "Describes an online recording of a training",
@@ -183,7 +189,8 @@
         "name",
         "startDate",
         "endDate"
-      ]
+      ],
+      "title": "Recording"
     },
     "RecordingsListForTraining": {
       "description": "Contains a list of recordings for the training.",
@@ -204,7 +211,8 @@
       "required": [
         "trainingKey",
         "recordingList"
-      ]
+      ],
+      "title": "RecordingsListForTraining"
     },
     "Registrant": {
       "description": "Describes a training registrant.",
@@ -257,7 +265,8 @@
         "joinUrl",
         "confirmationUrl",
         "registrantKey"
-      ]
+      ],
+      "title": "Registrant"
     },
     "RegistrantCreated": {
       "description": "Describes a newly created training registrant",
@@ -279,7 +288,8 @@
         "joinUrl",
         "confirmationUrl",
         "registrantKey"
-      ]
+      ],
+      "title": "RegistrantCreated"
     },
     "RegistrantReqCreate": {
       "description": "Details required to make a new training registration.",
@@ -301,7 +311,8 @@
         "email",
         "givenName",
         "surname"
-      ]
+      ],
+      "title": "RegistrantReqCreate"
     },
     "RegistrationSettings": {
       "description": "Training settings, namely availability of web registration and confirmation emails to the training registrants",
@@ -318,7 +329,8 @@
       "required": [
         "disableConfirmationEmail",
         "disableWebRegistration"
-      ]
+      ],
+      "title": "RegistrationSettings"
     },
     "Session": {
       "description": "Describes a completed training session.",
@@ -367,7 +379,8 @@
         "attendanceCount",
         "duration",
         "organizers"
-      ]
+      ],
+      "title": "Session"
     },
     "Training": {
       "description": "Describes a scheduled training.",
@@ -420,7 +433,8 @@
         "organizers",
         "registrationSettings",
         "trainingKey"
-      ]
+      ],
+      "title": "Training"
     },
     "TrainingNameDescription": {
       "description": "Details required to update a training's name and description.",
@@ -436,7 +450,8 @@
       },
       "required": [
         "name"
-      ]
+      ],
+      "title": "TrainingNameDescription"
     },
     "TrainingOrganizers": {
       "description": "Details required to update the list of organizers for a training.",
@@ -456,7 +471,8 @@
       },
       "required": [
         "organizers"
-      ]
+      ],
+      "title": "TrainingOrganizers"
     },
     "TrainingReqCreate": {
       "description": "Describes the details used to create a new training.",
@@ -497,7 +513,8 @@
         "name",
         "timeZone",
         "times"
-      ]
+      ],
+      "title": "TrainingReqCreate"
     },
     "TrainingTimes": {
       "description": "Details required to update the session times of a training.",
@@ -525,7 +542,8 @@
       "required": [
         "timeZone",
         "times"
-      ]
+      ],
+      "title": "TrainingTimes"
     }
   },
   "actions": [

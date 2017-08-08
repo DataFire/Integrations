@@ -56,7 +56,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "Account"
     },
     "Bucket": {
       "properties": {
@@ -83,7 +84,8 @@
           "description": "True if this bucket is configured to verify ssl for requests made to it.",
           "type": "boolean"
         }
-      }
+      },
+      "title": "Bucket"
     },
     "Error": {
       "properties": {
@@ -97,7 +99,8 @@
         "message": {
           "type": "string"
         }
-      }
+      },
+      "title": "Error"
     },
     "Meta": {
       "properties": {
@@ -105,7 +108,8 @@
           "description": "Success or failure status of call.",
           "type": "string"
         }
-      }
+      },
+      "title": "Meta"
     },
     "NewBucket": {
       "properties": {
@@ -117,7 +121,8 @@
           "description": "Unique identifier for the team this to create this bucket for.",
           "type": "string"
         }
-      }
+      },
+      "title": "NewBucket"
     },
     "NewEnvironment": {
       "properties": {
@@ -125,7 +130,8 @@
           "description": "Name of this environment.",
           "type": "string"
         }
-      }
+      },
+      "title": "NewEnvironment"
     },
     "NewMessage": {
       "properties": {
@@ -198,7 +204,8 @@
           },
           "type": "object"
         }
-      }
+      },
+      "title": "NewMessage"
     },
     "NewStep": {
       "properties": {
@@ -206,7 +213,8 @@
           "description": "Type of test step -- request, pause, condition or ghost-inspector.",
           "type": "string"
         }
-      }
+      },
+      "title": "NewStep"
     },
     "NewTest": {
       "properties": {
@@ -218,7 +226,8 @@
           "description": "The name for the test.",
           "type": "string"
         }
-      }
+      },
+      "title": "NewTest"
     },
     "Team": {
       "properties": {
@@ -230,7 +239,8 @@
           "description": "The name of this team.",
           "type": "string"
         }
-      }
+      },
+      "title": "Team"
     },
     "Test": {
       "properties": {
@@ -264,7 +274,8 @@
         "name": {
           "type": "string"
         }
-      }
+      },
+      "title": "Test"
     }
   },
   "actions": [

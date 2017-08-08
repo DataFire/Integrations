@@ -47,7 +47,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ErrorResponse"
     },
     "availabilityStatus": {
       "description": "availabilityStatus of a resource.",
@@ -166,7 +167,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "availabilityStatus"
     },
     "availabilityStatusListResult": {
       "description": "The List availabilityStatus operation response.",
@@ -185,7 +187,8 @@
       },
       "required": [
         "value"
-      ]
+      ],
+      "title": "availabilityStatusListResult"
     },
     "operation": {
       "description": "Operation available in the resourcehealth resource provider.",
@@ -216,7 +219,8 @@
           "description": "Name of the operation.",
           "type": "string"
         }
-      }
+      },
+      "title": "operation"
     },
     "operationListResult": {
       "description": "Lists the operations response.",
@@ -231,7 +235,8 @@
       },
       "required": [
         "value"
-      ]
+      ],
+      "title": "operationListResult"
     },
     "recommendedAction": {
       "description": "Lists actions the user can take based on the current availabilityState of the resource.",
@@ -248,7 +253,8 @@
           "description": "Substring of action, it describes which text should host the action url.",
           "type": "string"
         }
-      }
+      },
+      "title": "recommendedAction"
     },
     "serviceImpactingEvent": {
       "description": "Lists the service impacting events that may be affecting the health of the resource.",
@@ -299,7 +305,8 @@
           },
           "type": "object"
         }
-      }
+      },
+      "title": "serviceImpactingEvent"
     }
   },
   "actions": [

@@ -31,7 +31,8 @@
         "count",
         "label",
         "mentions"
-      ]
+      ],
+      "title": "Attribute"
     },
     "AutoCategory": {
       "properties": {
@@ -77,7 +78,8 @@
         "strength_score",
         "title",
         "type"
-      ]
+      ],
+      "title": "AutoCategory"
     },
     "BlacklistItem_InsertVersion": {
       "properties": {
@@ -88,7 +90,8 @@
       },
       "required": [
         "name"
-      ]
+      ],
+      "title": "BlacklistItem_InsertVersion"
     },
     "BlacklistItem_ResponseVersion": {
       "properties": {
@@ -109,7 +112,8 @@
         "id",
         "modified",
         "name"
-      ]
+      ],
+      "title": "BlacklistItem_ResponseVersion"
     },
     "BlacklistItem_UpdateVersion": {
       "properties": {
@@ -125,7 +129,8 @@
       "required": [
         "id",
         "name"
-      ]
+      ],
+      "title": "BlacklistItem_UpdateVersion"
     },
     "Category_InsertVersion": {
       "properties": {
@@ -150,7 +155,8 @@
         "name",
         "samples",
         "weight"
-      ]
+      ],
+      "title": "Category_InsertVersion"
     },
     "Category_ResponseVersion": {
       "properties": {
@@ -185,7 +191,8 @@
         "name",
         "samples",
         "weight"
-      ]
+      ],
+      "title": "Category_ResponseVersion"
     },
     "Category_UpdateVersion": {
       "properties": {
@@ -215,7 +222,8 @@
         "name",
         "samples",
         "weight"
-      ]
+      ],
+      "title": "Category_UpdateVersion"
     },
     "Collection": {
       "properties": {
@@ -249,7 +257,8 @@
         "job_id",
         "metadata",
         "tag"
-      ]
+      ],
+      "title": "Collection"
     },
     "CollectionAnalyticData": {
       "properties": {
@@ -335,7 +344,8 @@
         "taxonomy",
         "themes",
         "topics"
-      ]
+      ],
+      "title": "CollectionAnalyticData"
     },
     "ConfigurationCollectionSection": {
       "properties": {
@@ -381,7 +391,8 @@
         "query_topics",
         "themes",
         "user_entities"
-      ]
+      ],
+      "title": "ConfigurationCollectionSection"
     },
     "ConfigurationDocumentSection": {
       "properties": {
@@ -474,7 +485,8 @@
         "summary_size",
         "themes",
         "user_entities"
-      ]
+      ],
+      "title": "ConfigurationDocumentSection"
     },
     "Configuration_InsertVersion": {
       "properties": {
@@ -543,7 +555,8 @@
         "name",
         "one_sentence_mode",
         "process_html"
-      ]
+      ],
+      "title": "Configuration_InsertVersion"
     },
     "Configuration_ResponseVersion": {
       "properties": {
@@ -632,7 +645,8 @@
         "process_html",
         "template",
         "version"
-      ]
+      ],
+      "title": "Configuration_ResponseVersion"
     },
     "Configuration_UpdateVersion": {
       "properties": {
@@ -706,7 +720,8 @@
         "name",
         "one_sentence_mode",
         "process_html"
-      ]
+      ],
+      "title": "Configuration_UpdateVersion"
     },
     "Details": {
       "properties": {
@@ -730,7 +745,8 @@
         "is_imperative",
         "is_polar",
         "words"
-      ]
+      ],
+      "title": "Details"
     },
     "Document": {
       "properties": {
@@ -761,7 +777,8 @@
         "metadata",
         "tag",
         "text"
-      ]
+      ],
+      "title": "Document"
     },
     "DocumentAnalyticData": {
       "properties": {
@@ -919,7 +936,8 @@
         "taxonomy",
         "themes",
         "topics"
-      ]
+      ],
+      "title": "DocumentAnalyticData"
     },
     "Entity": {
       "properties": {
@@ -981,7 +999,8 @@
         "positive_count",
         "title",
         "type"
-      ]
+      ],
+      "title": "Entity"
     },
     "Entity_InsertVersion": {
       "properties": {
@@ -1007,7 +1026,8 @@
         "name",
         "normalized",
         "type"
-      ]
+      ],
+      "title": "Entity_InsertVersion"
     },
     "Entity_ResponseVersion": {
       "properties": {
@@ -1043,7 +1063,8 @@
         "name",
         "normalized",
         "type"
-      ]
+      ],
+      "title": "Entity_ResponseVersion"
     },
     "Entity_UpdateVersion": {
       "properties": {
@@ -1074,7 +1095,8 @@
         "name",
         "normalized",
         "type"
-      ]
+      ],
+      "title": "Entity_UpdateVersion"
     },
     "Facet": {
       "properties": {
@@ -1125,7 +1147,8 @@
         "negative_count",
         "neutral_count",
         "positive_count"
-      ]
+      ],
+      "title": "Facet"
     },
     "Feature": {
       "properties": {
@@ -1171,7 +1194,8 @@
         "one_sentence_mode",
         "settings",
         "templates"
-      ]
+      ],
+      "title": "Feature"
     },
     "FeatureDetailedModeSection": {
       "properties": {
@@ -1262,7 +1286,8 @@
         "themes",
         "user_categories",
         "user_entities"
-      ]
+      ],
+      "title": "FeatureDetailedModeSection"
     },
     "FeatureDiscoveryModeSection": {
       "properties": {
@@ -1313,7 +1338,8 @@
         "taxonomy",
         "themes",
         "user_entities"
-      ]
+      ],
+      "title": "FeatureDiscoveryModeSection"
     },
     "FeatureSettingsSection": {
       "properties": {
@@ -1349,7 +1375,8 @@
         "sentiment_phrases",
         "taxonomy",
         "user_entities"
-      ]
+      ],
+      "title": "FeatureSettingsSection"
     },
     "FeatureTemplateSection": {
       "properties": {
@@ -1399,7 +1426,8 @@
         "name",
         "type",
         "version"
-      ]
+      ],
+      "title": "FeatureTemplateSection"
     },
     "Intention": {
       "properties": {
@@ -1425,9 +1453,12 @@
         "type",
         "what",
         "who"
-      ]
+      ],
+      "title": "Intention"
     },
-    "JSON": {},
+    "JSON": {
+      "title": "JSON"
+    },
     "Location": {
       "properties": {
         "index": {
@@ -1447,7 +1478,8 @@
         "index",
         "length",
         "offset"
-      ]
+      ],
+      "title": "Location"
     },
     "Mention": {
       "properties": {
@@ -1476,7 +1508,8 @@
         "label",
         "locations",
         "negating_phrase"
-      ]
+      ],
+      "title": "Mention"
     },
     "ModelSentiment": {
       "properties": {
@@ -1521,7 +1554,8 @@
         "neutral_score",
         "positive_score",
         "sentiment_polarity"
-      ]
+      ],
+      "title": "ModelSentiment"
     },
     "Opinion": {
       "properties": {
@@ -1568,7 +1602,8 @@
         "speaker",
         "topic",
         "type"
-      ]
+      ],
+      "title": "Opinion"
     },
     "Phrase": {
       "properties": {
@@ -1630,7 +1665,8 @@
         "sentiment_score",
         "title",
         "type"
-      ]
+      ],
+      "title": "Phrase"
     },
     "Phrase_InsertVersion": {
       "properties": {
@@ -1647,7 +1683,8 @@
       "required": [
         "name",
         "weight"
-      ]
+      ],
+      "title": "Phrase_InsertVersion"
     },
     "Phrase_ResponseVersion": {
       "properties": {
@@ -1674,7 +1711,8 @@
         "modified",
         "name",
         "weight"
-      ]
+      ],
+      "title": "Phrase_ResponseVersion"
     },
     "Phrase_UpdateVersion": {
       "properties": {
@@ -1696,7 +1734,8 @@
         "id",
         "name",
         "weight"
-      ]
+      ],
+      "title": "Phrase_UpdateVersion"
     },
     "Query_InsertVersion": {
       "properties": {
@@ -1712,7 +1751,8 @@
       "required": [
         "name",
         "query"
-      ]
+      ],
+      "title": "Query_InsertVersion"
     },
     "Query_ResponseVersion": {
       "properties": {
@@ -1738,7 +1778,8 @@
         "modified",
         "name",
         "query"
-      ]
+      ],
+      "title": "Query_ResponseVersion"
     },
     "Query_UpdateVersion": {
       "properties": {
@@ -1759,7 +1800,8 @@
         "id",
         "name",
         "query"
-      ]
+      ],
+      "title": "Query_UpdateVersion"
     },
     "Relation": {
       "properties": {
@@ -1798,7 +1840,8 @@
         "extra",
         "relation_type",
         "type"
-      ]
+      ],
+      "title": "Relation"
     },
     "RelationEntity": {
       "properties": {
@@ -1814,9 +1857,12 @@
       "required": [
         "entity_type",
         "title"
-      ]
+      ],
+      "title": "RelationEntity"
     },
-    "Request_class": {},
+    "Request_class": {
+      "title": "Request_class"
+    },
     "Statistic": {
       "properties": {
         "batches_queued": {
@@ -1893,7 +1939,8 @@
         "latest_used_app",
         "name",
         "total_api_calls"
-      ]
+      ],
+      "title": "Statistic"
     },
     "StatisticConfiguration": {
       "properties": {
@@ -1968,7 +2015,8 @@
         "latest_used_app",
         "name",
         "total_api_calls"
-      ]
+      ],
+      "title": "StatisticConfiguration"
     },
     "Status": {
       "properties": {
@@ -2012,7 +2060,8 @@
         "supported_compression",
         "supported_encoding",
         "supported_languages"
-      ]
+      ],
+      "title": "Status"
     },
     "SubCategory": {
       "properties": {
@@ -2034,7 +2083,8 @@
         "strength_score",
         "title",
         "type"
-      ]
+      ],
+      "title": "SubCategory"
     },
     "Subscription": {
       "properties": {
@@ -2065,7 +2115,8 @@
         "feature_settings",
         "name",
         "status"
-      ]
+      ],
+      "title": "Subscription"
     },
     "SubscriptionBasicSection": {
       "properties": {
@@ -2196,7 +2247,8 @@
         "taxonomy_limit",
         "taxonomy_topics_limit",
         "user_entities_limit"
-      ]
+      ],
+      "title": "SubscriptionBasicSection"
     },
     "SubscriptionBillingSection": {
       "properties": {
@@ -2291,7 +2343,8 @@
         "settings_calls_balance",
         "settings_calls_limit",
         "settings_calls_limit_interval"
-      ]
+      ],
+      "title": "SubscriptionBillingSection"
     },
     "SubscriptionFeatureSection": {
       "properties": {
@@ -2322,7 +2375,8 @@
         "html_processing",
         "supported_languages",
         "templates"
-      ]
+      ],
+      "title": "SubscriptionFeatureSection"
     },
     "SubscriptionFeatureSectionCollection": {
       "properties": {
@@ -2363,7 +2417,8 @@
         "query_topics",
         "themes",
         "user_entities"
-      ]
+      ],
+      "title": "SubscriptionFeatureSectionCollection"
     },
     "SubscriptionFeatureSectionDocument": {
       "properties": {
@@ -2444,7 +2499,8 @@
         "summary",
         "themes",
         "user_entities"
-      ]
+      ],
+      "title": "SubscriptionFeatureSectionDocument"
     },
     "SubscriptionFeatureSectionTemplate": {
       "properties": {
@@ -2494,9 +2550,12 @@
         "name",
         "type",
         "version"
-      ]
+      ],
+      "title": "SubscriptionFeatureSectionTemplate"
     },
-    "TaxonomyNode": {},
+    "TaxonomyNode": {
+      "title": "TaxonomyNode"
+    },
     "TaxonomyNode_InsertVersion": {
       "properties": {
         "enforce_parent_matching": {
@@ -2524,7 +2583,8 @@
       },
       "required": [
         "name"
-      ]
+      ],
+      "title": "TaxonomyNode_InsertVersion"
     },
     "TaxonomyNode_ResponseVersion": {
       "properties": {
@@ -2563,7 +2623,8 @@
         "id",
         "modified",
         "name"
-      ]
+      ],
+      "title": "TaxonomyNode_ResponseVersion"
     },
     "TaxonomyNode_UpdateVersion": {
       "properties": {
@@ -2597,7 +2658,8 @@
       "required": [
         "id",
         "name"
-      ]
+      ],
+      "title": "TaxonomyNode_UpdateVersion"
     },
     "TaxonomyTopic": {
       "properties": {
@@ -2612,7 +2674,8 @@
       },
       "required": [
         "type"
-      ]
+      ],
+      "title": "TaxonomyTopic"
     },
     "Theme": {
       "properties": {
@@ -2669,7 +2732,8 @@
         "stemmed",
         "themes_count",
         "title"
-      ]
+      ],
+      "title": "Theme"
     },
     "Topic": {
       "properties": {
@@ -2716,7 +2780,8 @@
         "sentiment_score",
         "title",
         "type"
-      ]
+      ],
+      "title": "Topic"
     },
     "Word": {
       "properties": {
@@ -2753,7 +2818,8 @@
         "tag",
         "title",
         "type"
-      ]
+      ],
+      "title": "Word"
     }
   },
   "actions": [

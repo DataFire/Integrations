@@ -41,7 +41,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Api.Core.Dto.Accounting.ConversionOptions"
     },
     "Api.Core.Dto.Accounting.DomainWhitelistEntry": {
       "properties": {
@@ -52,7 +53,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Api.Core.Dto.Accounting.DomainWhitelistEntry"
     },
     "Api.Core.Dto.Accounting.ExtendedGrants": {
       "properties": {
@@ -63,7 +65,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Api.Core.Dto.Accounting.ExtendedGrants"
     },
     "Api.Core.Dto.Accounting.Guest": {
       "properties": {
@@ -157,7 +160,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Api.Core.Dto.Accounting.Guest"
     },
     "Api.Core.Dto.Accounting.HitOptions": {
       "properties": {
@@ -165,7 +169,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Api.Core.Dto.Accounting.HitOptions"
     },
     "Api.Core.Dto.Accounting.IpBlacklistEntry": {
       "properties": {
@@ -176,7 +181,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Api.Core.Dto.Accounting.IpBlacklistEntry"
     },
     "Api.Core.Dto.Accounting.Plan": {
       "properties": {
@@ -241,7 +247,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Api.Core.Dto.Accounting.Plan"
     },
     "Api.Core.Dto.Accounting.User": {
       "properties": {
@@ -291,7 +298,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Api.Core.Dto.Accounting.User"
     },
     "Api.Core.Dto.Aggregated.AggregatedResult": {
       "properties": {
@@ -368,7 +376,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Api.Core.Dto.Aggregated.AggregatedResult"
     },
     "Api.Core.Dto.Aggregated.AggregatedSummaryResult": {
       "properties": {
@@ -391,7 +400,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Api.Core.Dto.Aggregated.AggregatedSummaryResult"
     },
     "Api.Core.Dto.ClickStream.Hit": {
       "properties": {
@@ -467,7 +477,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Api.Core.Dto.ClickStream.Hit"
     },
     "Api.Core.Dto.ClickStream.HitBrowserInfo": {
       "properties": {
@@ -489,7 +500,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Api.Core.Dto.ClickStream.HitBrowserInfo"
     },
     "Api.Core.Dto.ClickStream.HitConversionInfo": {
       "properties": {
@@ -529,7 +541,8 @@
           "type": "number"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Api.Core.Dto.ClickStream.HitConversionInfo"
     },
     "Api.Core.Dto.ClickStream.HitDatapointInfo": {
       "properties": {
@@ -595,7 +608,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Api.Core.Dto.ClickStream.HitDatapointInfo"
     },
     "Api.Core.Dto.ClickStream.HitListPage": {
       "properties": {
@@ -609,7 +623,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Api.Core.Dto.ClickStream.HitListPage"
     },
     "Api.Core.Dto.ClickStream.HitLocationInfo": {
       "properties": {
@@ -646,7 +661,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Api.Core.Dto.ClickStream.HitLocationInfo"
     },
     "Api.Core.Dto.ClickStream.HitOsInfo": {
       "properties": {
@@ -665,7 +681,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Api.Core.Dto.ClickStream.HitOsInfo"
     },
     "Api.Core.Dto.ClickStream.HitSource": {
       "properties": {
@@ -680,7 +697,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Api.Core.Dto.ClickStream.HitSource"
     },
     "Api.Core.Dto.Conversions.Conversion": {
       "properties": {
@@ -717,7 +735,8 @@
           "type": "number"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Api.Core.Dto.Conversions.Conversion"
     },
     "Api.Core.Dto.Datapoints.BrowserBaseDestinationItem": {
       "properties": {
@@ -731,7 +750,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Api.Core.Dto.Datapoints.BrowserBaseDestinationItem"
     },
     "Api.Core.Dto.Datapoints.Datapoint": {
       "properties": {
@@ -848,7 +868,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Api.Core.Dto.Datapoints.Datapoint"
     },
     "Api.Core.Dto.Datapoints.DatapointRetargetingInfo": {
       "properties": {
@@ -860,7 +881,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Api.Core.Dto.Datapoints.DatapointRetargetingInfo"
     },
     "Api.Core.Dto.Datapoints.MultipleDestinationItem": {
       "properties": {
@@ -868,7 +890,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Api.Core.Dto.Datapoints.MultipleDestinationItem"
     },
     "Api.Core.Dto.Datapoints.TrackingLinkSpecifics": {
       "properties": {
@@ -1004,7 +1027,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Api.Core.Dto.Datapoints.TrackingLinkSpecifics"
     },
     "Api.Core.Dto.Datapoints.TrackingPixelSpecifics": {
       "properties": {
@@ -1012,7 +1036,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Api.Core.Dto.Datapoints.TrackingPixelSpecifics"
     },
     "Api.Core.Dto.Datapoints.UniqueDestinationItem": {
       "properties": {
@@ -1020,7 +1045,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Api.Core.Dto.Datapoints.UniqueDestinationItem"
     },
     "Api.Core.Dto.Datapoints.UrlByLanguageItem": {
       "properties": {
@@ -1031,7 +1057,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Api.Core.Dto.Datapoints.UrlByLanguageItem"
     },
     "Api.Core.Dto.Datapoints.UrlByNationItem": {
       "properties": {
@@ -1042,7 +1069,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Api.Core.Dto.Datapoints.UrlByNationItem"
     },
     "Api.Core.Dto.Datapoints.WeightedDestinationItem": {
       "properties": {
@@ -1054,7 +1082,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Api.Core.Dto.Datapoints.WeightedDestinationItem"
     },
     "Api.Core.Dto.Domains.Domain": {
       "properties": {
@@ -1081,7 +1110,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Api.Core.Dto.Domains.Domain"
     },
     "Api.Core.Dto.EntityUriLong": {
       "properties": {
@@ -1093,7 +1123,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Api.Core.Dto.EntityUriLong"
     },
     "Api.Core.Dto.Grants.Grant": {
       "properties": {
@@ -1113,7 +1144,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Api.Core.Dto.Grants.Grant"
     },
     "Api.Core.Dto.Groups.Group": {
       "properties": {
@@ -1154,7 +1186,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Api.Core.Dto.Groups.Group"
     },
     "Api.Core.Dto.Retargeting.RetargetingScript": {
       "properties": {
@@ -1169,7 +1202,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Api.Core.Dto.Retargeting.RetargetingScript"
     },
     "Api.Core.Dto.Tags.Tag": {
       "properties": {
@@ -1195,7 +1229,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Api.Core.Dto.Tags.Tag"
     },
     "Api.Core.Dto.Tops.Top": {
       "properties": {
@@ -1214,7 +1249,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Api.Core.Dto.Tops.Top"
     },
     "Api.Core.Dto.Tops.TopItem": {
       "properties": {
@@ -1282,7 +1318,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Api.Core.Dto.Tops.TopItem"
     },
     "Api.Core.Requests.ConversionPatchBody": {
       "properties": {
@@ -1298,7 +1335,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Api.Core.Requests.ConversionPatchBody"
     },
     "Api.Core.Requests.DatapointsBatch": {
       "properties": {
@@ -1309,7 +1347,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Api.Core.Requests.DatapointsBatch"
     },
     "Api.Core.Requests.DeleteBatch": {
       "properties": {
@@ -1320,7 +1359,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Api.Core.Requests.DeleteBatch"
     },
     "Api.Core.Requests.GenericTextPatch": {
       "properties": {
@@ -1328,7 +1368,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Api.Core.Requests.GenericTextPatch"
     },
     "Api.Core.Requests.PatchBody": {
       "properties": {
@@ -1340,7 +1381,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Api.Core.Requests.PatchBody"
     },
     "Api.Core.Requests.PatchBodyBatch": {
       "properties": {
@@ -1351,7 +1393,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Api.Core.Requests.PatchBodyBatch"
     },
     "Api.Core.Requests.PermissionPatchRequest": {
       "properties": {
@@ -1366,7 +1409,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Api.Core.Requests.PermissionPatchRequest"
     },
     "Api.Core.Responses.CountResponce": {
       "properties": {
@@ -1375,7 +1419,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Api.Core.Responses.CountResponce"
     },
     "Api.Core.Responses.EntitiesResponse[Api.Core.Dto.Accounting.DomainWhitelistEntry]": {
       "properties": {
@@ -1386,7 +1431,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Api.Core.Responses.EntitiesResponse[Api.Core.Dto.Accounting.DomainWhitelistEntry]"
     },
     "Api.Core.Responses.EntitiesResponse[Api.Core.Dto.Accounting.IpBlacklistEntry]": {
       "properties": {
@@ -1397,7 +1443,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Api.Core.Responses.EntitiesResponse[Api.Core.Dto.Accounting.IpBlacklistEntry]"
     },
     "Api.Core.Responses.EntitiesResponse[Api.Core.Dto.Aggregated.AggregatedResult]": {
       "properties": {
@@ -1408,7 +1455,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Api.Core.Responses.EntitiesResponse[Api.Core.Dto.Aggregated.AggregatedResult]"
     },
     "Api.Core.Responses.EntitiesResponse[Api.Core.Dto.ClickStream.Hit]": {
       "properties": {
@@ -1419,7 +1467,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Api.Core.Responses.EntitiesResponse[Api.Core.Dto.ClickStream.Hit]"
     },
     "Api.Core.Responses.EntitiesResponse[Api.Core.Dto.Grants.Grant]": {
       "properties": {
@@ -1430,7 +1479,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Api.Core.Responses.EntitiesResponse[Api.Core.Dto.Grants.Grant]"
     },
     "Api.Core.Responses.EntitiesResponse[Api.Core.Responses.EntityUri[System.Int64]]": {
       "properties": {
@@ -1441,7 +1491,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Api.Core.Responses.EntitiesResponse[Api.Core.Responses.EntityUri[System.Int64]]"
     },
     "Api.Core.Responses.EntityUri[System.Int64]": {
       "properties": {
@@ -1453,7 +1504,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Api.Core.Responses.EntityUri[System.Int64]"
     },
     "Api.Core.Responses.ModifyBatchItemResponce[Api.Core.Dto.Datapoints.Datapoint,System.Int64]": {
       "properties": {
@@ -1473,7 +1525,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Api.Core.Responses.ModifyBatchItemResponce[Api.Core.Dto.Datapoints.Datapoint,System.Int64]"
     },
     "ClickMeter.Infrastructure.Validation.ValidationFailure": {
       "properties": {
@@ -1490,11 +1543,13 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ClickMeter.Infrastructure.Validation.ValidationFailure"
     },
     "System.Object": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "System.Object"
     }
   },
   "actions": [

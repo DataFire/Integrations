@@ -47,7 +47,8 @@
         "sourceTitle",
         "title"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "FeedEntryEntity"
     },
     "FeedResponseEntity": {
       "properties": {
@@ -100,7 +101,8 @@
         "processTime",
         "startTime"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "FeedResponseEntity"
     }
   },
   "actions": [

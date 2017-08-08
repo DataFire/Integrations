@@ -37,7 +37,8 @@
         "name",
         "tier"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AzureSku"
     },
     "CheckNameRequest": {
       "properties": {
@@ -51,7 +52,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CheckNameRequest"
     },
     "CheckNameResponse": {
       "properties": {
@@ -76,7 +78,8 @@
           }
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CheckNameResponse"
     },
     "CreateWorkspaceCollectionRequest": {
       "properties": {
@@ -94,7 +97,8 @@
           "type": "object"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateWorkspaceCollectionRequest"
     },
     "Display": {
       "properties": {
@@ -119,7 +123,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Display"
     },
     "Error": {
       "properties": {
@@ -139,7 +144,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Error"
     },
     "ErrorDetail": {
       "properties": {
@@ -153,7 +159,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ErrorDetail"
     },
     "MigrateWorkspaceCollectionRequest": {
       "properties": {
@@ -168,7 +175,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "MigrateWorkspaceCollectionRequest"
     },
     "Operation": {
       "properties": {
@@ -180,7 +188,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Operation"
     },
     "OperationList": {
       "properties": {
@@ -191,7 +200,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "OperationList"
     },
     "UpdateWorkspaceCollectionRequest": {
       "properties": {
@@ -205,7 +215,8 @@
           "type": "object"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UpdateWorkspaceCollectionRequest"
     },
     "Workspace": {
       "properties": {
@@ -226,7 +237,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Workspace"
     },
     "WorkspaceCollection": {
       "properties": {
@@ -260,7 +272,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "WorkspaceCollection"
     },
     "WorkspaceCollectionAccessKey": {
       "properties": {
@@ -277,7 +290,8 @@
           }
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "WorkspaceCollectionAccessKey"
     },
     "WorkspaceCollectionAccessKeys": {
       "properties": {
@@ -290,7 +304,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "WorkspaceCollectionAccessKeys"
     },
     "WorkspaceCollectionList": {
       "properties": {
@@ -301,7 +316,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "WorkspaceCollectionList"
     },
     "WorkspaceList": {
       "properties": {
@@ -312,7 +328,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "WorkspaceList"
     }
   },
   "actions": [

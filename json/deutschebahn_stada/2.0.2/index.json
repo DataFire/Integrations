@@ -24,7 +24,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Address"
     },
     "Aufgabentraeger": {
       "description": "local public sector entity, responsible for short distance public transport in a specific area",
@@ -38,7 +39,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Aufgabentraeger"
     },
     "EVANumber": {
       "properties": {
@@ -54,7 +56,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "EVANumber"
     },
     "Error": {
       "properties": {
@@ -68,7 +71,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Error"
     },
     "GeographicPoint": {
       "description": "GEOJSON objekt of type point. By default WGS84 is the coordinate system in GEOJSON.",
@@ -86,7 +90,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GeographicPoint"
     },
     "OpeningHours": {
       "description": "period of time from/to",
@@ -100,7 +105,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "OpeningHours"
     },
     "Partial": {
       "enum": [
@@ -108,7 +114,8 @@
         "no",
         "partial"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "Partial"
     },
     "QueryResult": {
       "properties": {
@@ -135,7 +142,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "QueryResult"
     },
     "RegionalBereichRef": {
       "description": "reference object. an internal organization type of Station&Service, regional department.",
@@ -153,7 +161,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RegionalBereichRef"
     },
     "Regionalbereich": {
       "description": "reference object. an internal organization type of Station&Service, regional department.",
@@ -171,11 +180,13 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Regionalbereich"
     },
     "ResultObject": {
       "description": "An object of type Station or of type SZentrale depending on the query submitted",
-      "type": "object"
+      "type": "object",
+      "title": "ResultObject"
     },
     "RiL100Identifier": {
       "properties": {
@@ -195,7 +206,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RiL100Identifier"
     },
     "SZentrale": {
       "description": "3-S-Zentralen are 7/24 hours operating centers for german railway stations",
@@ -236,7 +248,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SZentrale"
     },
     "SZentraleRef": {
       "description": "reference object contained in station",
@@ -254,7 +267,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SZentraleRef"
     },
     "Schedule": {
       "description": "a weekly schedule",
@@ -284,7 +298,8 @@
           "$ref": "#/definitions/OpeningHours"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Schedule"
     },
     "Station": {
       "properties": {
@@ -382,7 +397,8 @@
           "$ref": "#/definitions/TimetableOffice"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Station"
     },
     "StationManagement": {
       "properties": {
@@ -394,7 +410,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "StationManagement"
     },
     "StationManagementRef": {
       "properties": {
@@ -406,7 +423,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "StationManagementRef"
     },
     "TimetableOffice": {
       "properties": {
@@ -419,7 +437,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TimetableOffice"
     }
   },
   "actions": [

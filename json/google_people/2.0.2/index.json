@@ -89,7 +89,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Address"
     },
     "AgeRangeType": {
       "description": "A person's age range.",
@@ -109,7 +110,8 @@
           "description": "Metadata about the age range."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AgeRangeType"
     },
     "Biography": {
       "description": "A person's short biography.",
@@ -132,7 +134,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Biography"
     },
     "Birthday": {
       "description": "A person's birthday. At least one of the `date` and `text` fields are\nspecified. The `date` and `text` fields typically represent the same\ndate, but are not guaranteed to.",
@@ -150,7 +153,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Birthday"
     },
     "BraggingRights": {
       "description": "A person's bragging rights.",
@@ -164,7 +168,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BraggingRights"
     },
     "ContactGroupMembership": {
       "description": "A Google contact group membership.",
@@ -174,7 +179,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ContactGroupMembership"
     },
     "CoverPhoto": {
       "description": "A person's read-only cover photo. A large image shown on the person's\nprofile page that represents who they are or what they care about.",
@@ -192,7 +198,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CoverPhoto"
     },
     "Date": {
       "description": "Represents a whole calendar date, for example a date of birth. The time\nof day and time zone are either specified elsewhere or are not\nsignificant. The date is relative to the\n[Proleptic Gregorian Calendar](https://en.wikipedia.org/wiki/Proleptic_Gregorian_calendar).\nThe day may be 0 to represent a year and month where the day is not\nsignificant. The year may be 0 to represent a month and day independent\nof year; for example, anniversary date.",
@@ -213,7 +220,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Date"
     },
     "DomainMembership": {
       "description": "A Google Apps Domain membership.",
@@ -223,7 +231,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DomainMembership"
     },
     "EmailAddress": {
       "description": "A person's email address.",
@@ -249,7 +258,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "EmailAddress"
     },
     "Event": {
       "description": "An event related to the person.",
@@ -271,7 +281,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Event"
     },
     "FieldMetadata": {
       "description": "Metadata about a field.",
@@ -289,7 +300,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "FieldMetadata"
     },
     "Gender": {
       "description": "A person's gender.",
@@ -307,7 +319,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Gender"
     },
     "GetPeopleResponse": {
       "properties": {
@@ -319,7 +332,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetPeopleResponse"
     },
     "ImClient": {
       "description": "A person's instant messaging client.",
@@ -349,7 +363,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ImClient"
     },
     "Interest": {
       "description": "One of the person's interests.",
@@ -363,7 +378,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Interest"
     },
     "ListConnectionsResponse": {
       "properties": {
@@ -388,7 +404,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListConnectionsResponse"
     },
     "Locale": {
       "description": "A person's locale preference.",
@@ -402,7 +419,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Locale"
     },
     "Membership": {
       "description": "A person's read-only membership in a group.",
@@ -420,7 +438,8 @@
           "description": "Metadata about the membership."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Membership"
     },
     "Name": {
       "description": "A person's name. If the name is a mononym, the family name is empty.",
@@ -482,7 +501,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Name"
     },
     "Nickname": {
       "description": "A person's nickname.",
@@ -507,7 +527,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Nickname"
     },
     "Occupation": {
       "description": "A person's occupation.",
@@ -521,7 +542,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Occupation"
     },
     "Organization": {
       "description": "A person's past or current organization. Overlapping date ranges are\npermitted.",
@@ -583,7 +605,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Organization"
     },
     "Person": {
       "description": "Information about a person merged from various data sources such as the\nauthenticated user's contacts and profile data.\n\nMost fields can have multiple items. The items in a field have no guaranteed\norder, but each non-empty field is guaranteed to have exactly one field with\n`metadata.primary` set to true.",
@@ -793,7 +816,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Person"
     },
     "PersonMetadata": {
       "description": "The read-only metadata about a person.",
@@ -833,7 +857,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PersonMetadata"
     },
     "PersonResponse": {
       "description": "The response for a single person",
@@ -852,7 +877,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PersonResponse"
     },
     "PhoneNumber": {
       "description": "A person's phone number.",
@@ -878,7 +904,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PhoneNumber"
     },
     "Photo": {
       "description": "A person's read-only photo. A picture shown next to the person's name to\nhelp others recognize the person.",
@@ -892,7 +919,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Photo"
     },
     "ProfileMetadata": {
       "description": "The read-only metadata about a profile.",
@@ -907,7 +935,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ProfileMetadata"
     },
     "Relation": {
       "description": "A person's relation to another person.",
@@ -929,7 +958,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Relation"
     },
     "RelationshipInterest": {
       "description": "A person's read-only relationship interest .",
@@ -947,7 +977,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RelationshipInterest"
     },
     "RelationshipStatus": {
       "description": "A person's read-only relationship status.",
@@ -965,7 +996,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RelationshipStatus"
     },
     "Residence": {
       "description": "A person's past or current residence.",
@@ -983,7 +1015,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Residence"
     },
     "Skill": {
       "description": "A skill that the person has.",
@@ -997,7 +1030,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Skill"
     },
     "Source": {
       "description": "The source of a field.",
@@ -1026,7 +1060,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Source"
     },
     "Tagline": {
       "description": "A read-only brief one-line description of the person.",
@@ -1040,7 +1075,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Tagline"
     },
     "Url": {
       "description": "A person's associated URLs.",
@@ -1062,7 +1098,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Url"
     }
   },
   "actions": [

@@ -41,7 +41,8 @@
         "website": {
           "type": "string"
         }
-      }
+      },
+      "title": "Acquisition"
     },
     "Address": {
       "properties": {
@@ -66,7 +67,8 @@
         "street2": {
           "type": "string"
         }
-      }
+      },
+      "title": "Address"
     },
     "Ceo": {
       "properties": {
@@ -82,7 +84,8 @@
         "last_name": {
           "type": "string"
         }
-      }
+      },
+      "title": "Ceo"
     },
     "CompanyBasicSearchVO": {
       "properties": {
@@ -108,7 +111,8 @@
         "website": {
           "type": "string"
         }
-      }
+      },
+      "title": "CompanyBasicSearchVO"
     },
     "CompanyBasicVO": {
       "properties": {
@@ -138,7 +142,8 @@
         "website",
         "logo_url",
         "profile_url"
-      ]
+      ],
+      "title": "CompanyBasicVO"
     },
     "CompanyCompetitorVO": {
       "properties": {
@@ -148,7 +153,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "CompanyCompetitorVO"
     },
     "CompanySearchResultVO": {
       "properties": {
@@ -201,7 +207,8 @@
         "website",
         "logo_url",
         "profile_url"
-      ]
+      ],
+      "title": "CompanySearchResultVO"
     },
     "CompetitorBasicVO": {
       "properties": {
@@ -236,7 +243,8 @@
         "logo_url",
         "profile_url",
         "score"
-      ]
+      ],
+      "title": "CompetitorBasicVO"
     },
     "FeedsVO": {
       "properties": {
@@ -270,7 +278,8 @@
         "title": {
           "type": "string"
         }
-      }
+      },
+      "title": "FeedsVO"
     },
     "Funding": {
       "properties": {
@@ -292,7 +301,8 @@
         "undisclosed": {
           "type": "string"
         }
-      }
+      },
+      "title": "Funding"
     },
     "Investor": {
       "properties": {
@@ -305,7 +315,8 @@
         "website": {
           "type": "string"
         }
-      }
+      },
+      "title": "Investor"
     },
     "Stock": {
       "properties": {
@@ -315,7 +326,8 @@
         "ticker": {
           "type": "string"
         }
-      }
+      },
+      "title": "Stock"
     },
     "basic_results": {
       "properties": {
@@ -325,7 +337,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "basic_results"
     },
     "company": {
       "properties": {
@@ -427,7 +440,8 @@
         "website",
         "logo_url",
         "profile_url"
-      ]
+      ],
+      "title": "company"
     },
     "competitors": {
       "properties": {
@@ -440,7 +454,8 @@
         "pagination_id": {
           "type": "string"
         }
-      }
+      },
+      "title": "competitors"
     },
     "results": {
       "properties": {
@@ -453,7 +468,8 @@
         "pagination_id": {
           "type": "string"
         }
-      }
+      },
+      "title": "results"
     }
   },
   "actions": [

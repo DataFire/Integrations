@@ -51,7 +51,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SiteVerificationWebResourceGettokenRequest"
     },
     "SiteVerificationWebResourceGettokenResponse": {
       "properties": {
@@ -64,7 +65,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SiteVerificationWebResourceGettokenResponse"
     },
     "SiteVerificationWebResourceListResponse": {
       "properties": {
@@ -76,7 +78,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SiteVerificationWebResourceListResponse"
     },
     "SiteVerificationWebResourceResource": {
       "properties": {
@@ -106,7 +109,8 @@
           "type": "object"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SiteVerificationWebResourceResource"
     }
   },
   "actions": [

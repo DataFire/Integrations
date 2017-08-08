@@ -156,7 +156,8 @@
       "required": [
         "Response"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "combinedResult"
     }
   },
   "actions": [

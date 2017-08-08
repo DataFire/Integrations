@@ -519,7 +519,8 @@
           "type": "object"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "configuration"
     },
     "individual-update": {
       "properties": {
@@ -591,7 +592,8 @@
           "type": "object"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "individual-update"
     },
     "interactions": {
       "properties": {
@@ -642,7 +644,8 @@
           "type": "number"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "interactions"
     },
     "newUpdate": {
       "properties": {
@@ -714,7 +717,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "newUpdate"
     },
     "profile": {
       "properties": {
@@ -783,7 +787,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "profile"
     },
     "profiles": {
       "items": {
@@ -900,7 +905,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "profiles"
     },
     "reorder": {
       "properties": {
@@ -952,7 +958,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "reorder"
     },
     "schedules": {
       "properties": {
@@ -969,7 +976,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "schedules"
     },
     "schedules-update": {
       "properties": {
@@ -977,7 +985,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "schedules-update"
     },
     "share": {
       "properties": {
@@ -985,7 +994,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "share"
     },
     "shares": {
       "properties": {
@@ -993,7 +1003,8 @@
           "type": "number"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "shares"
     },
     "shuffle": {
       "properties": {
@@ -1045,7 +1056,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "shuffle"
     },
     "success": {
       "properties": {
@@ -1053,7 +1065,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "success"
     },
     "update": {
       "properties": {
@@ -1120,7 +1133,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "update"
     },
     "updates-array": {
       "properties": {
@@ -1172,7 +1186,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "updates-array"
     },
     "user": {
       "properties": {
@@ -1204,7 +1219,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "user"
     }
   },
   "actions": [

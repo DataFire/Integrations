@@ -26,7 +26,8 @@
         "id",
         "label"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "Choice"
     },
     "Condition": {
       "properties": {
@@ -83,7 +84,8 @@
         "name",
         "sex_filter"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "Condition"
     },
     "ConditionProbability": {
       "properties": {
@@ -105,7 +107,8 @@
         "name",
         "probability"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ConditionProbability"
     },
     "DatabaseInfo": {
       "properties": {
@@ -127,7 +130,8 @@
         "observations_count",
         "updated_at"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DatabaseInfo"
     },
     "DiagnosisRequest": {
       "properties": {
@@ -170,7 +174,8 @@
         "age",
         "sex"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DiagnosisRequest"
     },
     "DiagnosisResponse": {
       "properties": {
@@ -190,7 +195,8 @@
           "$ref": "#/definitions/Question"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DiagnosisResponse"
     },
     "Evidence": {
       "properties": {
@@ -215,7 +221,8 @@
         "choice_id",
         "id"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "Evidence"
     },
     "Observation": {
       "properties": {
@@ -269,7 +276,8 @@
         "name",
         "sex_filter"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "Observation"
     },
     "Question": {
       "properties": {
@@ -297,7 +305,8 @@
         "items",
         "text"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "Question"
     },
     "QuestionItem": {
       "properties": {
@@ -322,7 +331,8 @@
         "id",
         "name"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "QuestionItem"
     },
     "RiskFactor": {
       "properties": {
@@ -337,7 +347,8 @@
         "id",
         "name"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "RiskFactor"
     }
   },
   "actions": [

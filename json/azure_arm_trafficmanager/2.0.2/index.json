@@ -18,7 +18,8 @@
           "description": "Gets or sets the type of the resource.",
           "type": "string"
         }
-      }
+      },
+      "title": "CheckTrafficManagerRelativeDnsNameAvailabilityParameters"
     },
     "DnsConfig": {
       "description": "Class containing DNS settings in a Traffic Manager profile.",
@@ -36,7 +37,8 @@
           "format": "int64",
           "type": "integer"
         }
-      }
+      },
+      "title": "DnsConfig"
     },
     "Endpoint": {
       "description": "Class representing a Traffic Manager endpoint.",
@@ -57,7 +59,8 @@
           "description": "Gets or sets the endpoint type of the Traffic Manager endpoint.",
           "type": "string"
         }
-      }
+      },
+      "title": "Endpoint"
     },
     "EndpointProperties": {
       "description": "Class representing a Traffic Manager endpoint properties.",
@@ -97,7 +100,8 @@
           "format": "int64",
           "type": "integer"
         }
-      }
+      },
+      "title": "EndpointProperties"
     },
     "MonitorConfig": {
       "description": "Class containing endpoint monitoring settings in a Traffic Manager profile.",
@@ -119,7 +123,8 @@
           "description": "Gets or sets the protocol (HTTP or HTTPS) used to probe for endpoint health.",
           "type": "string"
         }
-      }
+      },
+      "title": "MonitorConfig"
     },
     "Profile": {
       "allOf": [
@@ -133,7 +138,8 @@
           "$ref": "#/definitions/ProfileProperties",
           "x-ms-client-flatten": true
         }
-      }
+      },
+      "title": "Profile"
     },
     "ProfileListResult": {
       "description": "The list Traffic Manager profiles operation response.",
@@ -145,7 +151,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "ProfileListResult"
     },
     "ProfileProperties": {
       "description": "Class representing the Traffic Manager profile properties.",
@@ -173,7 +180,8 @@
           "description": "Gets or sets the traffic routing method of the Traffic Manager profile.  Possible values are 'Performance', 'Weighted', or 'Priority'.",
           "type": "string"
         }
-      }
+      },
+      "title": "ProfileProperties"
     },
     "Resource": {
       "properties": {
@@ -204,7 +212,8 @@
           "type": "string"
         }
       },
-      "x-ms-azure-resource": true
+      "x-ms-azure-resource": true,
+      "title": "Resource"
     },
     "SubResource": {
       "properties": {
@@ -213,7 +222,8 @@
           "type": "string"
         }
       },
-      "x-ms-external": true
+      "x-ms-external": true,
+      "title": "SubResource"
     },
     "TrafficManagerNameAvailability": {
       "description": "Class representing a Traffic Manager Name Availability response.",
@@ -238,7 +248,8 @@
           "description": "Traffic Manager profile resource type.",
           "type": "string"
         }
-      }
+      },
+      "title": "TrafficManagerNameAvailability"
     }
   },
   "actions": [

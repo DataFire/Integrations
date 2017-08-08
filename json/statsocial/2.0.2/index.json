@@ -36,7 +36,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "18_24"
     },
     "25_34": {
       "properties": {
@@ -59,7 +60,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "25_34"
     },
     "35_44": {
       "properties": {
@@ -82,7 +84,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "35_44"
     },
     "400_Error": {
       "properties": {
@@ -96,7 +99,8 @@
           "default": "false",
           "type": "string"
         }
-      }
+      },
+      "title": "400_Error"
     },
     "401_Error": {
       "properties": {
@@ -110,7 +114,8 @@
           "default": "false",
           "type": "string"
         }
-      }
+      },
+      "title": "401_Error"
     },
     "403_Error": {
       "properties": {
@@ -124,7 +129,8 @@
           "default": "false",
           "type": "string"
         }
-      }
+      },
+      "title": "403_Error"
     },
     "404_Error": {
       "properties": {
@@ -138,7 +144,8 @@
           "default": "false",
           "type": "string"
         }
-      }
+      },
+      "title": "404_Error"
     },
     "500_Error": {
       "properties": {
@@ -152,7 +159,8 @@
           "default": "false",
           "type": "string"
         }
-      }
+      },
+      "title": "500_Error"
     },
     "Application_Status": {
       "properties": {
@@ -167,7 +175,8 @@
           "default": "true",
           "type": "string"
         }
-      }
+      },
+      "title": "Application_Status"
     },
     "Combined_Age": {
       "properties": {
@@ -181,7 +190,8 @@
           "$ref": "#/definitions/35_44"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Combined_Age"
     },
     "Create_Tweet": {
       "properties": {
@@ -196,7 +206,8 @@
           "default": "true",
           "type": "string"
         }
-      }
+      },
+      "title": "Create_Tweet"
     },
     "Create_Twitter": {
       "properties": {
@@ -211,7 +222,8 @@
           "default": "true",
           "type": "string"
         }
-      }
+      },
+      "title": "Create_Twitter"
     },
     "Custom_Create": {
       "properties": {
@@ -226,7 +238,8 @@
           "default": "true",
           "type": "string"
         }
-      }
+      },
+      "title": "Custom_Create"
     },
     "Custom_Generate": {
       "properties": {
@@ -241,7 +254,8 @@
           "default": "true",
           "type": "string"
         }
-      }
+      },
+      "title": "Custom_Generate"
     },
     "Custom_Insert": {
       "properties": {
@@ -256,7 +270,8 @@
           "default": "true",
           "type": "string"
         }
-      }
+      },
+      "title": "Custom_Insert"
     },
     "Female": {
       "properties": {
@@ -279,7 +294,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Female"
     },
     "Male": {
       "properties": {
@@ -302,7 +318,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Male"
     },
     "Report_Dates": {
       "properties": {
@@ -320,7 +337,8 @@
           "default": "true",
           "type": "string"
         }
-      }
+      },
+      "title": "Report_Dates"
     },
     "Report_Status": {
       "properties": {
@@ -331,7 +349,8 @@
           "default": "true",
           "type": "string"
         }
-      }
+      },
+      "title": "Report_Status"
     },
     "Report_Success": {
       "properties": {
@@ -347,7 +366,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Report_Success"
     },
     "Sex": {
       "properties": {
@@ -358,7 +378,8 @@
           "$ref": "#/definitions/Male"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Sex"
     },
     "application_response": {
       "properties": {
@@ -375,7 +396,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "application_response"
     },
     "create_tweet_response": {
       "properties": {
@@ -392,7 +414,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "create_tweet_response"
     },
     "custom_create_response": {
       "properties": {
@@ -400,7 +423,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "custom_create_response"
     },
     "custom_generate_response": {
       "properties": {
@@ -408,7 +432,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "custom_generate_response"
     },
     "custom_insert_response": {
       "properties": {
@@ -419,7 +444,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "custom_insert_response"
     },
     "follower_create_response": {
       "properties": {
@@ -427,7 +453,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "follower_create_response"
     },
     "report_info": {
       "properties": {
@@ -444,7 +471,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "report_info"
     },
     "report_response": {
       "properties": {
@@ -455,7 +483,8 @@
           "$ref": "#/definitions/Sex"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "report_response"
     },
     "statistical_info_18": {
       "properties": {
@@ -469,7 +498,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "statistical_info_18"
     },
     "statistical_info_25": {
       "properties": {
@@ -483,7 +513,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "statistical_info_25"
     },
     "statistical_info_35": {
       "properties": {
@@ -497,7 +528,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "statistical_info_35"
     },
     "statistical_info_f": {
       "properties": {
@@ -511,7 +543,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "statistical_info_f"
     },
     "statistical_info_m": {
       "properties": {
@@ -525,7 +558,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "statistical_info_m"
     }
   },
   "actions": [

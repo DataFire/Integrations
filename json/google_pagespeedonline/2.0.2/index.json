@@ -94,7 +94,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PagespeedApiFormatStringV2"
     },
     "PagespeedApiImageV2": {
       "properties": {
@@ -148,7 +149,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PagespeedApiImageV2"
     },
     "Result": {
       "properties": {
@@ -357,7 +359,8 @@
           "type": "object"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Result"
     }
   },
   "actions": [

@@ -21,7 +21,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "APIBoundary"
     },
     "APICounty": {
       "properties": {
@@ -35,7 +36,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "APICounty"
     },
     "APIDistrict": {
       "properties": {
@@ -136,7 +138,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "APIDistrict"
     },
     "APIDistrict1": {
       "properties": {
@@ -253,7 +256,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "APIDistrict1"
     },
     "APIDistrictList": {
       "properties": {
@@ -276,7 +280,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "APIDistrictList"
     },
     "APIDistrictListRank": {
       "properties": {
@@ -321,7 +326,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "APIDistrictListRank"
     },
     "APIDistrictSum": {
       "description": "District Summary",
@@ -345,7 +351,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "APIDistrictSum"
     },
     "APILEARankHistory": {
       "properties": {
@@ -386,7 +393,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "APILEARankHistory"
     },
     "APILEAYearlyDetail": {
       "properties": {
@@ -501,7 +509,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "APILEAYearlyDetail"
     },
     "APILatLong": {
       "properties": {
@@ -514,7 +523,8 @@
           "type": "number"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "APILatLong"
     },
     "APILocation": {
       "properties": {
@@ -559,7 +569,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "APILocation"
     },
     "APIPolyline": {
       "properties": {
@@ -573,7 +584,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "APIPolyline"
     },
     "APIRankHistory": {
       "properties": {
@@ -618,7 +630,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "APIRankHistory"
     },
     "APISchool": {
       "properties": {
@@ -772,7 +785,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "APISchool"
     },
     "APISchool1": {
       "description": "APISchool1: A summary of a school record. For the full school record, call /schools/{id}",
@@ -919,7 +933,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "APISchool1"
     },
     "APISchoolList": {
       "properties": {
@@ -942,7 +957,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "APISchoolList"
     },
     "APISchoolListRank": {
       "properties": {
@@ -985,7 +1001,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "APISchoolListRank"
     },
     "APITestScore": {
       "properties": {
@@ -1080,7 +1097,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "APITestScore"
     },
     "APITestScoreWrapper": {
       "properties": {
@@ -1145,7 +1163,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "APITestScoreWrapper"
     },
     "APIYearlyDemographics": {
       "properties": {
@@ -1257,7 +1276,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "APIYearlyDemographics"
     }
   },
   "actions": [

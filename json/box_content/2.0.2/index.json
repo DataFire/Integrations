@@ -45,7 +45,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AssignmentCounts"
     },
     "BoxFile": {
       "allOf": [
@@ -183,7 +184,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ChunkPagination"
     },
     "Collaboration": {
       "allOf": [
@@ -249,7 +251,8 @@
         }
       ],
       "description": "Collaborations are used to set and apply access permissions for users and groups to files and folders, similar to access control lists.",
-      "type": "object"
+      "type": "object",
+      "title": "Collaboration"
     },
     "CollaborationList": {
       "allOf": [
@@ -267,7 +270,8 @@
           }
         }
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CollaborationList"
     },
     "Collection": {
       "allOf": [
@@ -310,7 +314,8 @@
           }
         }
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CollectionList"
     },
     "Comment": {
       "allOf": [
@@ -371,7 +376,8 @@
           }
         }
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CommentList"
     },
     "CopyFile": {
       "properties": {
@@ -390,7 +396,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CopyFile"
     },
     "CreateLegalHoldPolicyAssignment": {
       "description": "Request object to create a new Legal Policy Hold Assignment",
@@ -404,7 +411,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateLegalHoldPolicyAssignment"
     },
     "CreateRetentionPolicyAssignment": {
       "description": "Request object to create a new Retention Policy Assignment",
@@ -418,7 +426,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateRetentionPolicyAssignment"
     },
     "CreateTaskAssignment": {
       "properties": {
@@ -429,7 +438,8 @@
           "$ref": "#/definitions/Task"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateTaskAssignment"
     },
     "DevicePinner": {
       "allOf": [
@@ -479,7 +489,8 @@
           }
         }
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DevicePinnerList"
     },
     "EmailAlias": {
       "allOf": [
@@ -497,7 +508,8 @@
           }
         }
       ],
-      "type": "object"
+      "type": "object",
+      "title": "EmailAlias"
     },
     "EmailAliasList": {
       "allOf": [
@@ -515,7 +527,8 @@
           }
         }
       ],
-      "type": "object"
+      "type": "object",
+      "title": "EmailAliasList"
     },
     "Enterprise": {
       "allOf": [
@@ -531,7 +544,8 @@
         }
       ],
       "description": "Mini representation of this user’s enterprise, including the ID of its enterprise.",
-      "type": "object"
+      "type": "object",
+      "title": "Enterprise"
     },
     "Error": {
       "properties": {
@@ -580,7 +594,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Error"
     },
     "Event": {
       "description": "",
@@ -635,7 +650,8 @@
           }
         }
       ],
-      "type": "object"
+      "type": "object",
+      "title": "EventList"
     },
     "FilePermissions": {
       "description": "The permissions that the current user has on the file",
@@ -665,7 +681,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "FilePermissions"
     },
     "FileReference": {
       "allOf": [
@@ -682,7 +699,8 @@
         }
       ],
       "description": "It references either a file or a folder",
-      "type": "object"
+      "type": "object",
+      "title": "FileReference"
     },
     "FileReferenceList": {
       "allOf": [
@@ -700,7 +718,8 @@
           }
         }
       ],
-      "type": "object"
+      "type": "object",
+      "title": "FileReferenceList"
     },
     "FileVersion": {
       "allOf": [
@@ -730,7 +749,8 @@
           }
         }
       ],
-      "type": "object"
+      "type": "object",
+      "title": "FileVersion"
     },
     "FileVersionLegalHold": {
       "allOf": [
@@ -782,7 +802,8 @@
           }
         }
       ],
-      "type": "object"
+      "type": "object",
+      "title": "FileVersionLegalHoldList"
     },
     "FileVersionList": {
       "allOf": [
@@ -801,7 +822,8 @@
         }
       ],
       "description": "A collection of FileVersions.",
-      "type": "object"
+      "type": "object",
+      "title": "FileVersionList"
     },
     "FileVersionReference": {
       "allOf": [
@@ -818,7 +840,8 @@
         }
       ],
       "description": "The version information of the file.",
-      "type": "object"
+      "type": "object",
+      "title": "FileVersionReference"
     },
     "FileVersionRetention": {
       "allOf": [
@@ -872,7 +895,8 @@
           }
         }
       ],
-      "type": "object"
+      "type": "object",
+      "title": "FileVersionRetentionList"
     },
     "Folder": {
       "allOf": [
@@ -1040,7 +1064,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "FolderPermissions"
     },
     "FolderUploadEmail": {
       "description": "The upload email address for this folder. Null if not set.",
@@ -1052,7 +1077,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "FolderUploadEmail"
     },
     "Group": {
       "allOf": [
@@ -1124,7 +1150,8 @@
           }
         }
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GroupList"
     },
     "GroupMembership": {
       "allOf": [
@@ -1180,7 +1207,8 @@
           }
         }
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GroupMembershipList"
     },
     "GroupReference": {
       "allOf": [
@@ -1197,7 +1225,8 @@
         }
       ],
       "description": "Mini representation of the group, including id and name of group.",
-      "type": "object"
+      "type": "object",
+      "title": "GroupReference"
     },
     "Invite": {
       "allOf": [
@@ -1229,7 +1258,8 @@
           }
         }
       ],
-      "type": "object"
+      "type": "object",
+      "title": "Invite"
     },
     "InviteUser": {
       "properties": {
@@ -1240,7 +1270,8 @@
           "$ref": "#/definitions/Reference"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InviteUser"
     },
     "ItemCollection": {
       "allOf": [
@@ -1259,7 +1290,8 @@
         }
       ],
       "description": "A collection of mini file and folder objects contained in this folder.",
-      "type": "object"
+      "type": "object",
+      "title": "ItemCollection"
     },
     "ItemReference": {
       "allOf": [
@@ -1284,7 +1316,8 @@
         }
       ],
       "description": "It references either a file or a folder",
-      "type": "object"
+      "type": "object",
+      "title": "ItemReference"
     },
     "ItemReferenceList": {
       "allOf": [
@@ -1302,7 +1335,8 @@
           }
         }
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ItemReferenceList"
     },
     "LegalHoldPolicy": {
       "allOf": [
@@ -1423,7 +1457,8 @@
           }
         }
       ],
-      "type": "object"
+      "type": "object",
+      "title": "LegalHoldPolicyAssignmentList"
     },
     "LegalHoldPolicyList": {
       "allOf": [
@@ -1441,7 +1476,8 @@
           }
         }
       ],
-      "type": "object"
+      "type": "object",
+      "title": "LegalHoldPolicyList"
     },
     "Lock": {
       "allOf": [
@@ -1468,7 +1504,8 @@
         }
       ],
       "description": "The lock held on the file.",
-      "type": "object"
+      "type": "object",
+      "title": "Lock"
     },
     "MarkerPagination": {
       "properties": {
@@ -1483,7 +1520,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "MarkerPagination"
     },
     "Metadata": {
       "additionalProperties": {
@@ -1510,7 +1548,8 @@
         }
       ],
       "description": "A collection of Metadata objects",
-      "type": "object"
+      "type": "object",
+      "title": "MetadataList"
     },
     "MetadataTemplate": {
       "description": "Metadata that belongs to a file or folder is grouped by templates. Templates allow the metadata service to provide a multitude of services, such as pre-defining sets of key:value pairs or schema enforcement on specific fields.",
@@ -1563,7 +1602,8 @@
         }
       ],
       "description": "A collection Metadata templates",
-      "type": "object"
+      "type": "object",
+      "title": "MetadataTemplateList"
     },
     "ObjectList": {
       "allOf": [
@@ -1581,7 +1621,8 @@
           }
         }
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ObjectList"
     },
     "Pagination": {
       "properties": {
@@ -1612,7 +1653,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Pagination"
     },
     "PathCollection": {
       "allOf": [
@@ -1631,7 +1673,8 @@
         }
       ],
       "description": "The path of folders, starting at the root.",
-      "type": "object"
+      "type": "object",
+      "title": "PathCollection"
     },
     "RealtimeServer": {
       "properties": {
@@ -1654,7 +1697,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RealtimeServer"
     },
     "RealtimeServerList": {
       "allOf": [
@@ -1672,7 +1716,8 @@
           }
         }
       ],
-      "type": "object"
+      "type": "object",
+      "title": "RealtimeServerList"
     },
     "Reference": {
       "properties": {
@@ -1712,7 +1757,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Reference"
     },
     "RetentionPolicy": {
       "allOf": [
@@ -1811,7 +1857,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RetentionPolicyAssignmentList"
     },
     "RetentionPolicyList": {
       "properties": {
@@ -1822,7 +1869,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RetentionPolicyList"
     },
     "RetentionPolicyReference": {
       "allOf": [
@@ -1839,7 +1887,8 @@
         }
       ],
       "description": "Mini representation of the retention policy",
-      "type": "object"
+      "type": "object",
+      "title": "RetentionPolicyReference"
     },
     "SharedLink": {
       "properties": {
@@ -1879,7 +1928,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SharedLink"
     },
     "SharedLinkPermissions": {
       "properties": {
@@ -1890,7 +1940,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SharedLinkPermissions"
     },
     "Task": {
       "allOf": [
@@ -1990,7 +2041,8 @@
           }
         }
       ],
-      "type": "object"
+      "type": "object",
+      "title": "TaskAssignment"
     },
     "TaskAssignmentList": {
       "allOf": [
@@ -2009,7 +2061,8 @@
         }
       ],
       "description": "A collection Task Assignment.",
-      "type": "object"
+      "type": "object",
+      "title": "TaskAssignmentList"
     },
     "TaskList": {
       "allOf": [
@@ -2028,7 +2081,8 @@
         }
       ],
       "description": "A collection Tasks.",
-      "type": "object"
+      "type": "object",
+      "title": "TaskList"
     },
     "TemplateFields": {
       "properties": {
@@ -2069,7 +2123,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TemplateFields"
     },
     "UpdateMetadata": {
       "items": {
@@ -2105,7 +2160,8 @@
         ],
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "UpdateMetadata"
     },
     "UpdateMetadataTemplate": {
       "items": {
@@ -2150,7 +2206,8 @@
         ],
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "UpdateMetadataTemplate"
     },
     "User": {
       "allOf": [
@@ -2291,7 +2348,8 @@
           }
         }
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UserList"
     },
     "UserReference": {
       "description": "It references a user",
@@ -2315,7 +2373,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UserReference"
     },
     "Watermark": {
       "properties": {
@@ -2323,7 +2382,8 @@
           "$ref": "#/definitions/WatermarkReference"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Watermark"
     },
     "WatermarkInfo": {
       "items": {
@@ -2333,7 +2393,8 @@
           }
         }
       },
-      "type": "array"
+      "type": "array",
+      "title": "WatermarkInfo"
     },
     "WatermarkReference": {
       "description": "Waternmark a semi-transparent overlay on an embedded file preview that displays a viewer's email address or user ID and the time of access over a file's content",
@@ -2355,7 +2416,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "WatermarkReference"
     },
     "WebLink": {
       "allOf": [
@@ -2480,7 +2542,8 @@
           }
         }
       ],
-      "type": "object"
+      "type": "object",
+      "title": "WebhookList"
     }
   },
   "actions": [

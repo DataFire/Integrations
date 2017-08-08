@@ -28,13 +28,15 @@
           "description": "The agent version."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AgentVersion"
     },
     "AgentVersions": {
       "items": {
         "$ref": "#/definitions/AgentVersion"
       },
-      "type": "array"
+      "type": "array",
+      "title": "AgentVersions"
     },
     "App": {
       "description": "A description of the app.",
@@ -96,7 +98,8 @@
           "description": "The app type."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "App"
     },
     "AppAttributes": {
       "items": {
@@ -110,7 +113,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "AppAttributes"
     },
     "AppAttributesKeys": {
       "enum": [
@@ -119,7 +123,8 @@
         "AutoBundleOnDeploy",
         "AwsFlowRubySettings"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "AppAttributesKeys"
     },
     "AppType": {
       "enum": [
@@ -131,20 +136,23 @@
         "static",
         "other"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "AppType"
     },
     "Apps": {
       "items": {
         "$ref": "#/definitions/App"
       },
-      "type": "array"
+      "type": "array",
+      "title": "Apps"
     },
     "Architecture": {
       "enum": [
         "x86_64",
         "i386"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "Architecture"
     },
     "AssignInstanceRequest": {
       "properties": {
@@ -161,7 +169,8 @@
         "InstanceId",
         "LayerIds"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AssignInstanceRequest"
     },
     "AssignVolumeRequest": {
       "properties": {
@@ -177,7 +186,8 @@
       "required": [
         "VolumeId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AssignVolumeRequest"
     },
     "AssociateElasticIpRequest": {
       "properties": {
@@ -193,7 +203,8 @@
       "required": [
         "ElasticIp"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AssociateElasticIpRequest"
     },
     "AttachElasticLoadBalancerRequest": {
       "properties": {
@@ -210,7 +221,8 @@
         "ElasticLoadBalancerName",
         "LayerId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AttachElasticLoadBalancerRequest"
     },
     "AutoScalingThresholds": {
       "description": "Describes a load-based auto scaling upscaling or downscaling threshold configuration, which specifies when AWS OpsWorks Stacks starts or stops load-based instances.",
@@ -244,14 +256,16 @@
           "description": "The amount of time, in minutes, that the load must exceed a threshold before more instances are added or removed."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AutoScalingThresholds"
     },
     "AutoScalingType": {
       "enum": [
         "load",
         "timer"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "AutoScalingType"
     },
     "BlockDeviceMapping": {
       "description": "Describes a block device mapping. This data type maps directly to the Amazon EC2 <a href=\"http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_BlockDeviceMapping.html\">BlockDeviceMapping</a> data type. ",
@@ -273,16 +287,19 @@
           "description": "The virtual device name. For more information, see <a href=\"http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_BlockDeviceMapping.html\">BlockDeviceMapping</a>."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BlockDeviceMapping"
     },
     "BlockDeviceMappings": {
       "items": {
         "$ref": "#/definitions/BlockDeviceMapping"
       },
-      "type": "array"
+      "type": "array",
+      "title": "BlockDeviceMappings"
     },
     "Boolean": {
-      "type": "boolean"
+      "type": "boolean",
+      "title": "Boolean"
     },
     "ChefConfiguration": {
       "description": "Describes the Chef configuration.",
@@ -296,7 +313,8 @@
           "description": "Whether to enable Berkshelf."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ChefConfiguration"
     },
     "CloneStackRequest": {
       "properties": {
@@ -392,7 +410,8 @@
         "SourceStackId",
         "ServiceRoleArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CloneStackRequest"
     },
     "CloneStackResult": {
       "description": "Contains the response to a <code>CloneStack</code> request.",
@@ -402,7 +421,8 @@
           "description": "The cloned stack ID."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CloneStackResult"
     },
     "CloudWatchLogsConfiguration": {
       "description": "Describes the Amazon CloudWatch logs configuration for a layer.",
@@ -416,7 +436,8 @@
           "description": "A list of configuration options for CloudWatch Logs."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CloudWatchLogsConfiguration"
     },
     "CloudWatchLogsEncoding": {
       "description": "Specifies the encoding of the log file so that the file can be read correctly. The default is <code>utf_8</code>. Encodings supported by Python <code>codecs.decode()</code> can be used here.",
@@ -514,7 +535,8 @@
         "utf_8",
         "utf_8_sig"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "CloudWatchLogsEncoding"
     },
     "CloudWatchLogsInitialPosition": {
       "description": "Specifies where to start to read data (start_of_file or end_of_file). The default is start_of_file. It's only used if there is no state persisted for that log stream.",
@@ -522,7 +544,8 @@
         "start_of_file",
         "end_of_file"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "CloudWatchLogsInitialPosition"
     },
     "CloudWatchLogsLogStream": {
       "description": "Describes the Amazon CloudWatch logs configuration for a layer. For detailed information about members of this data type, see the <a href=\"http://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AgentReference.html\">CloudWatch Logs Agent Reference</a>.",
@@ -572,14 +595,16 @@
           "description": "Specifies the time zone of log event time stamps."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CloudWatchLogsLogStream"
     },
     "CloudWatchLogsLogStreams": {
       "description": "Describes the Amazon CloudWatch logs configuration for a layer.",
       "items": {
         "$ref": "#/definitions/CloudWatchLogsLogStream"
       },
-      "type": "array"
+      "type": "array",
+      "title": "CloudWatchLogsLogStreams"
     },
     "CloudWatchLogsTimeZone": {
       "description": "The preferred time zone for logs streamed to CloudWatch Logs. Valid values are <code>LOCAL</code> and <code>UTC</code>, for Coordinated Universal Time.",
@@ -587,7 +612,8 @@
         "LOCAL",
         "UTC"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "CloudWatchLogsTimeZone"
     },
     "Command": {
       "description": "Describes a command.",
@@ -633,13 +659,15 @@
           "description": "<p>The command type:</p> <ul> <li> <p> <code>deploy</code> </p> </li> <li> <p> <code>rollback</code> </p> </li> <li> <p> <code>start</code> </p> </li> <li> <p> <code>stop</code> </p> </li> <li> <p> <code>restart</code> </p> </li> <li> <p> <code>undeploy</code> </p> </li> <li> <p> <code>update_dependencies</code> </p> </li> <li> <p> <code>install_dependencies</code> </p> </li> <li> <p> <code>update_custom_cookbooks</code> </p> </li> <li> <p> <code>execute_recipes</code> </p> </li> </ul>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Command"
     },
     "Commands": {
       "items": {
         "$ref": "#/definitions/Command"
       },
-      "type": "array"
+      "type": "array",
+      "title": "Commands"
     },
     "CreateAppRequest": {
       "properties": {
@@ -697,7 +725,8 @@
         "Name",
         "Type"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateAppRequest"
     },
     "CreateAppResult": {
       "description": "Contains the response to a <code>CreateApp</code> request.",
@@ -707,7 +736,8 @@
           "description": "The app ID."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateAppResult"
     },
     "CreateDeploymentRequest": {
       "properties": {
@@ -744,7 +774,8 @@
         "StackId",
         "Command"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateDeploymentRequest"
     },
     "CreateDeploymentResult": {
       "description": "Contains the response to a <code>CreateDeployment</code> request.",
@@ -754,7 +785,8 @@
           "description": "The deployment ID, which can be used with other requests to identify the deployment."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateDeploymentResult"
     },
     "CreateInstanceRequest": {
       "properties": {
@@ -836,7 +868,8 @@
         "LayerIds",
         "InstanceType"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateInstanceRequest"
     },
     "CreateInstanceResult": {
       "description": "Contains the response to a <code>CreateInstance</code> request.",
@@ -846,7 +879,8 @@
           "description": "The instance ID."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateInstanceResult"
     },
     "CreateLayerRequest": {
       "properties": {
@@ -929,7 +963,8 @@
         "Name",
         "Shortname"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateLayerRequest"
     },
     "CreateLayerResult": {
       "description": "Contains the response to a <code>CreateLayer</code> request.",
@@ -939,7 +974,8 @@
           "description": "The layer ID."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateLayerResult"
     },
     "CreateStackRequest": {
       "properties": {
@@ -1025,7 +1061,8 @@
         "ServiceRoleArn",
         "DefaultInstanceProfileArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateStackRequest"
     },
     "CreateStackResult": {
       "description": "Contains the response to a <code>CreateStack</code> request.",
@@ -1035,7 +1072,8 @@
           "description": "The stack ID, which is an opaque string that you use to identify the stack when performing actions such as <code>DescribeStacks</code>."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateStackResult"
     },
     "CreateUserProfileRequest": {
       "properties": {
@@ -1059,7 +1097,8 @@
       "required": [
         "IamUserArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateUserProfileRequest"
     },
     "CreateUserProfileResult": {
       "description": "Contains the response to a <code>CreateUserProfile</code> request.",
@@ -1069,7 +1108,8 @@
           "description": "The user's IAM ARN."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateUserProfileResult"
     },
     "DailyAutoScalingSchedule": {
       "items": {
@@ -1083,7 +1123,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "DailyAutoScalingSchedule"
     },
     "DataSource": {
       "description": "Describes an app's data source.",
@@ -1101,16 +1142,19 @@
           "description": "The data source's type, <code>AutoSelectOpsworksMysqlInstance</code>, <code>OpsworksMysqlInstance</code>, or <code>RdsDbInstance</code>."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DataSource"
     },
     "DataSources": {
       "items": {
         "$ref": "#/definitions/DataSource"
       },
-      "type": "array"
+      "type": "array",
+      "title": "DataSources"
     },
     "DateTime": {
-      "type": "string"
+      "type": "string",
+      "title": "DateTime"
     },
     "DeleteAppRequest": {
       "properties": {
@@ -1122,7 +1166,8 @@
       "required": [
         "AppId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteAppRequest"
     },
     "DeleteInstanceRequest": {
       "properties": {
@@ -1142,7 +1187,8 @@
       "required": [
         "InstanceId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteInstanceRequest"
     },
     "DeleteLayerRequest": {
       "properties": {
@@ -1154,7 +1200,8 @@
       "required": [
         "LayerId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteLayerRequest"
     },
     "DeleteStackRequest": {
       "properties": {
@@ -1166,7 +1213,8 @@
       "required": [
         "StackId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteStackRequest"
     },
     "DeleteUserProfileRequest": {
       "properties": {
@@ -1178,7 +1226,8 @@
       "required": [
         "IamUserArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteUserProfileRequest"
     },
     "Deployment": {
       "description": "Describes a deployment of a stack or app.",
@@ -1231,7 +1280,8 @@
           "description": "<p>The deployment status:</p> <ul> <li> <p>running</p> </li> <li> <p>successful</p> </li> <li> <p>failed</p> </li> </ul>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Deployment"
     },
     "DeploymentCommand": {
       "description": "Used to specify a stack or deployment command.",
@@ -1248,7 +1298,8 @@
       "required": [
         "Name"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeploymentCommand"
     },
     "DeploymentCommandArgs": {
       "items": {
@@ -1262,7 +1313,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "DeploymentCommandArgs"
     },
     "DeploymentCommandName": {
       "enum": [
@@ -1279,13 +1331,15 @@
         "restart",
         "undeploy"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "DeploymentCommandName"
     },
     "Deployments": {
       "items": {
         "$ref": "#/definitions/Deployment"
       },
-      "type": "array"
+      "type": "array",
+      "title": "Deployments"
     },
     "DeregisterEcsClusterRequest": {
       "properties": {
@@ -1297,7 +1351,8 @@
       "required": [
         "EcsClusterArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeregisterEcsClusterRequest"
     },
     "DeregisterElasticIpRequest": {
       "properties": {
@@ -1309,7 +1364,8 @@
       "required": [
         "ElasticIp"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeregisterElasticIpRequest"
     },
     "DeregisterInstanceRequest": {
       "properties": {
@@ -1321,7 +1377,8 @@
       "required": [
         "InstanceId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeregisterInstanceRequest"
     },
     "DeregisterRdsDbInstanceRequest": {
       "properties": {
@@ -1333,7 +1390,8 @@
       "required": [
         "RdsDbInstanceArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeregisterRdsDbInstanceRequest"
     },
     "DeregisterVolumeRequest": {
       "properties": {
@@ -1345,7 +1403,8 @@
       "required": [
         "VolumeId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeregisterVolumeRequest"
     },
     "DescribeAgentVersionsRequest": {
       "properties": {
@@ -1358,7 +1417,8 @@
           "description": "The stack ID."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeAgentVersionsRequest"
     },
     "DescribeAgentVersionsResult": {
       "description": "Contains the response to a <code>DescribeAgentVersions</code> request.",
@@ -1368,7 +1428,8 @@
           "description": "The agent versions for the specified stack or configuration manager. Note that this value is the complete version number, not the abbreviated number used by the console."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeAgentVersionsResult"
     },
     "DescribeAppsRequest": {
       "properties": {
@@ -1381,7 +1442,8 @@
           "description": "The app stack ID. If you use this parameter, <code>DescribeApps</code> returns a description of the apps in the specified stack."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeAppsRequest"
     },
     "DescribeAppsResult": {
       "description": "Contains the response to a <code>DescribeApps</code> request.",
@@ -1391,7 +1453,8 @@
           "description": "An array of <code>App</code> objects that describe the specified apps. "
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeAppsResult"
     },
     "DescribeCommandsRequest": {
       "properties": {
@@ -1408,7 +1471,8 @@
           "description": "The instance ID. If you include this parameter, <code>DescribeCommands</code> returns a description of the commands associated with the specified instance."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeCommandsRequest"
     },
     "DescribeCommandsResult": {
       "description": "Contains the response to a <code>DescribeCommands</code> request.",
@@ -1418,7 +1482,8 @@
           "description": "An array of <code>Command</code> objects that describe each of the specified commands."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeCommandsResult"
     },
     "DescribeDeploymentsRequest": {
       "properties": {
@@ -1435,7 +1500,8 @@
           "description": "The stack ID. If you include this parameter, <code>DescribeDeployments</code> returns a description of the commands associated with the specified stack."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeDeploymentsRequest"
     },
     "DescribeDeploymentsResult": {
       "description": "Contains the response to a <code>DescribeDeployments</code> request.",
@@ -1445,7 +1511,8 @@
           "description": "An array of <code>Deployment</code> objects that describe the deployments."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeDeploymentsResult"
     },
     "DescribeEcsClustersRequest": {
       "properties": {
@@ -1466,7 +1533,8 @@
           "description": "A stack ID. <code>DescribeEcsClusters</code> returns a description of the cluster that is registered with the stack."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeEcsClustersRequest"
     },
     "DescribeEcsClustersResult": {
       "description": "Contains the response to a <code>DescribeEcsClusters</code> request.",
@@ -1480,7 +1548,8 @@
           "description": "If a paginated request does not return all of the remaining results, this parameter is set to a token that you can assign to the request object's <code>NextToken</code> parameter to retrieve the next set of results. If the previous paginated request returned all of the remaining results, this parameter is set to <code>null</code>."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeEcsClustersResult"
     },
     "DescribeElasticIpsRequest": {
       "properties": {
@@ -1497,7 +1566,8 @@
           "description": "A stack ID. If you include this parameter, <code>DescribeElasticIps</code> returns a description of the Elastic IP addresses that are registered with the specified stack."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeElasticIpsRequest"
     },
     "DescribeElasticIpsResult": {
       "description": "Contains the response to a <code>DescribeElasticIps</code> request.",
@@ -1507,7 +1577,8 @@
           "description": "An <code>ElasticIps</code> object that describes the specified Elastic IP addresses."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeElasticIpsResult"
     },
     "DescribeElasticLoadBalancersRequest": {
       "properties": {
@@ -1520,7 +1591,8 @@
           "description": "A stack ID. The action describes the stack's Elastic Load Balancing instances."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeElasticLoadBalancersRequest"
     },
     "DescribeElasticLoadBalancersResult": {
       "description": "Contains the response to a <code>DescribeElasticLoadBalancers</code> request.",
@@ -1530,7 +1602,8 @@
           "description": "A list of <code>ElasticLoadBalancer</code> objects that describe the specified Elastic Load Balancing instances."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeElasticLoadBalancersResult"
     },
     "DescribeInstancesRequest": {
       "properties": {
@@ -1547,7 +1620,8 @@
           "description": "A stack ID. If you use this parameter, <code>DescribeInstances</code> returns descriptions of the instances associated with the specified stack."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeInstancesRequest"
     },
     "DescribeInstancesResult": {
       "description": "Contains the response to a <code>DescribeInstances</code> request.",
@@ -1557,7 +1631,8 @@
           "description": "An array of <code>Instance</code> objects that describe the instances."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeInstancesResult"
     },
     "DescribeLayersRequest": {
       "properties": {
@@ -1570,7 +1645,8 @@
           "description": "The stack ID."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeLayersRequest"
     },
     "DescribeLayersResult": {
       "description": "Contains the response to a <code>DescribeLayers</code> request.",
@@ -1580,7 +1656,8 @@
           "description": "An array of <code>Layer</code> objects that describe the layers."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeLayersResult"
     },
     "DescribeLoadBasedAutoScalingRequest": {
       "properties": {
@@ -1592,7 +1669,8 @@
       "required": [
         "LayerIds"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeLoadBasedAutoScalingRequest"
     },
     "DescribeLoadBasedAutoScalingResult": {
       "description": "Contains the response to a <code>DescribeLoadBasedAutoScaling</code> request.",
@@ -1602,7 +1680,8 @@
           "description": "An array of <code>LoadBasedAutoScalingConfiguration</code> objects that describe each layer's configuration."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeLoadBasedAutoScalingResult"
     },
     "DescribeMyUserProfileResult": {
       "description": "Contains the response to a <code>DescribeMyUserProfile</code> request.",
@@ -1612,7 +1691,8 @@
           "description": "A <code>UserProfile</code> object that describes the user's SSH information."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeMyUserProfileResult"
     },
     "DescribePermissionsRequest": {
       "properties": {
@@ -1625,7 +1705,8 @@
           "description": "The stack ID."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribePermissionsRequest"
     },
     "DescribePermissionsResult": {
       "description": "Contains the response to a <code>DescribePermissions</code> request.",
@@ -1635,7 +1716,8 @@
           "description": "<p>An array of <code>Permission</code> objects that describe the stack permissions.</p> <ul> <li> <p>If the request object contains only a stack ID, the array contains a <code>Permission</code> object with permissions for each of the stack IAM ARNs.</p> </li> <li> <p>If the request object contains only an IAM ARN, the array contains a <code>Permission</code> object with permissions for each of the user's stack IDs.</p> </li> <li> <p>If the request contains a stack ID and an IAM ARN, the array contains a single <code>Permission</code> object with permissions for the specified stack and IAM ARN.</p> </li> </ul>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribePermissionsResult"
     },
     "DescribeRaidArraysRequest": {
       "properties": {
@@ -1652,7 +1734,8 @@
           "description": "The stack ID."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeRaidArraysRequest"
     },
     "DescribeRaidArraysResult": {
       "description": "Contains the response to a <code>DescribeRaidArrays</code> request.",
@@ -1662,7 +1745,8 @@
           "description": "A <code>RaidArrays</code> object that describes the specified RAID arrays."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeRaidArraysResult"
     },
     "DescribeRdsDbInstancesRequest": {
       "properties": {
@@ -1678,7 +1762,8 @@
       "required": [
         "StackId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeRdsDbInstancesRequest"
     },
     "DescribeRdsDbInstancesResult": {
       "description": "Contains the response to a <code>DescribeRdsDbInstances</code> request.",
@@ -1688,7 +1773,8 @@
           "description": "An a array of <code>RdsDbInstance</code> objects that describe the instances."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeRdsDbInstancesResult"
     },
     "DescribeServiceErrorsRequest": {
       "properties": {
@@ -1705,7 +1791,8 @@
           "description": "The stack ID. If you use this parameter, <code>DescribeServiceErrors</code> returns descriptions of the errors associated with the specified stack."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeServiceErrorsRequest"
     },
     "DescribeServiceErrorsResult": {
       "description": "Contains the response to a <code>DescribeServiceErrors</code> request.",
@@ -1715,7 +1802,8 @@
           "description": "An array of <code>ServiceError</code> objects that describe the specified service errors."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeServiceErrorsResult"
     },
     "DescribeStackProvisioningParametersRequest": {
       "properties": {
@@ -1727,7 +1815,8 @@
       "required": [
         "StackId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeStackProvisioningParametersRequest"
     },
     "DescribeStackProvisioningParametersResult": {
       "description": "Contains the response to a <code>DescribeStackProvisioningParameters</code> request.",
@@ -1741,7 +1830,8 @@
           "description": "An embedded object that contains the provisioning parameters."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeStackProvisioningParametersResult"
     },
     "DescribeStackSummaryRequest": {
       "properties": {
@@ -1753,7 +1843,8 @@
       "required": [
         "StackId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeStackSummaryRequest"
     },
     "DescribeStackSummaryResult": {
       "description": "Contains the response to a <code>DescribeStackSummary</code> request.",
@@ -1763,7 +1854,8 @@
           "description": "A <code>StackSummary</code> object that contains the results."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeStackSummaryResult"
     },
     "DescribeStacksRequest": {
       "properties": {
@@ -1772,7 +1864,8 @@
           "description": "An array of stack IDs that specify the stacks to be described. If you omit this parameter, <code>DescribeStacks</code> returns a description of every stack."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeStacksRequest"
     },
     "DescribeStacksResult": {
       "description": "Contains the response to a <code>DescribeStacks</code> request.",
@@ -1782,7 +1875,8 @@
           "description": "An array of <code>Stack</code> objects that describe the stacks."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeStacksResult"
     },
     "DescribeTimeBasedAutoScalingRequest": {
       "properties": {
@@ -1794,7 +1888,8 @@
       "required": [
         "InstanceIds"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DescribeTimeBasedAutoScalingRequest"
     },
     "DescribeTimeBasedAutoScalingResult": {
       "description": "Contains the response to a <code>DescribeTimeBasedAutoScaling</code> request.",
@@ -1804,7 +1899,8 @@
           "description": "An array of <code>TimeBasedAutoScalingConfiguration</code> objects that describe the configuration for the specified instances."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeTimeBasedAutoScalingResult"
     },
     "DescribeUserProfilesRequest": {
       "properties": {
@@ -1813,7 +1909,8 @@
           "description": "An array of IAM or federated user ARNs that identify the users to be described."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeUserProfilesRequest"
     },
     "DescribeUserProfilesResult": {
       "description": "Contains the response to a <code>DescribeUserProfiles</code> request.",
@@ -1823,7 +1920,8 @@
           "description": "A <code>Users</code> object that describes the specified users."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeUserProfilesResult"
     },
     "DescribeVolumesRequest": {
       "properties": {
@@ -1844,7 +1942,8 @@
           "description": "Am array of volume IDs. If you use this parameter, <code>DescribeVolumes</code> returns descriptions of the specified volumes. Otherwise, it returns a description of every volume."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeVolumesRequest"
     },
     "DescribeVolumesResult": {
       "description": "Contains the response to a <code>DescribeVolumes</code> request.",
@@ -1854,7 +1953,8 @@
           "description": "An array of volume IDs."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeVolumesResult"
     },
     "DetachElasticLoadBalancerRequest": {
       "properties": {
@@ -1871,7 +1971,8 @@
         "ElasticLoadBalancerName",
         "LayerId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DetachElasticLoadBalancerRequest"
     },
     "DisassociateElasticIpRequest": {
       "properties": {
@@ -1883,11 +1984,13 @@
       "required": [
         "ElasticIp"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DisassociateElasticIpRequest"
     },
     "Double": {
       "format": "double",
-      "type": "number"
+      "type": "number",
+      "title": "Double"
     },
     "EbsBlockDevice": {
       "description": "Describes an Amazon EBS volume. This data type maps directly to the Amazon EC2 <a href=\"http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_EbsBlockDevice.html\">EbsBlockDevice</a> data type.",
@@ -1913,7 +2016,8 @@
           "description": "The volume type. <code>gp2</code> for General Purpose (SSD) volumes, <code>io1</code> for Provisioned IOPS (SSD) volumes, and <code>standard</code> for Magnetic volumes."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "EbsBlockDevice"
     },
     "EcsCluster": {
       "description": "Describes a registered Amazon ECS cluster.",
@@ -1935,13 +2039,15 @@
           "description": "The stack ID."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "EcsCluster"
     },
     "EcsClusters": {
       "items": {
         "$ref": "#/definitions/EcsCluster"
       },
-      "type": "array"
+      "type": "array",
+      "title": "EcsClusters"
     },
     "ElasticIp": {
       "description": "Describes an Elastic IP address.",
@@ -1967,13 +2073,15 @@
           "description": "The AWS region. For more information, see <a href=\"http://docs.aws.amazon.com/general/latest/gr/rande.html\">Regions and Endpoints</a>."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ElasticIp"
     },
     "ElasticIps": {
       "items": {
         "$ref": "#/definitions/ElasticIp"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ElasticIps"
     },
     "ElasticLoadBalancer": {
       "description": "Describes an Elastic Load Balancing instance.",
@@ -2015,13 +2123,15 @@
           "description": "The VPC ID."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ElasticLoadBalancer"
     },
     "ElasticLoadBalancers": {
       "items": {
         "$ref": "#/definitions/ElasticLoadBalancer"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ElasticLoadBalancers"
     },
     "EnvironmentVariable": {
       "description": "Represents an app's environment variable.",
@@ -2043,13 +2153,15 @@
         "Key",
         "Value"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "EnvironmentVariable"
     },
     "EnvironmentVariables": {
       "items": {
         "$ref": "#/definitions/EnvironmentVariable"
       },
-      "type": "array"
+      "type": "array",
+      "title": "EnvironmentVariables"
     },
     "GetHostnameSuggestionRequest": {
       "properties": {
@@ -2061,7 +2173,8 @@
       "required": [
         "LayerId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetHostnameSuggestionRequest"
     },
     "GetHostnameSuggestionResult": {
       "description": "Contains the response to a <code>GetHostnameSuggestion</code> request.",
@@ -2075,7 +2188,8 @@
           "description": "The layer ID."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetHostnameSuggestionResult"
     },
     "GrantAccessRequest": {
       "properties": {
@@ -2091,7 +2205,8 @@
       "required": [
         "InstanceId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GrantAccessRequest"
     },
     "GrantAccessResult": {
       "description": "Contains the response to a <code>GrantAccess</code> request.",
@@ -2101,10 +2216,12 @@
           "description": "A <code>TemporaryCredential</code> object that contains the data needed to log in to the instance by RDP clients, such as the Microsoft Remote Desktop Connection."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GrantAccessResult"
     },
     "Hour": {
-      "type": "string"
+      "type": "string",
+      "title": "Hour"
     },
     "Instance": {
       "description": "Describes an instance.",
@@ -2270,7 +2387,8 @@
           "description": "The instance's virtualization type: <code>paravirtual</code> or <code>hvm</code>."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Instance"
     },
     "InstanceIdentity": {
       "description": "Contains a description of an Amazon EC2 instance from the Amazon EC2 metadata service. For more information, see <a href=\"http://docs.aws.amazon.com/sdkfornet/latest/apidocs/Index.html\">Instance Metadata and User Data</a>.",
@@ -2284,13 +2402,15 @@
           "description": "A signature that can be used to verify the document's accuracy and authenticity."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InstanceIdentity"
     },
     "Instances": {
       "items": {
         "$ref": "#/definitions/Instance"
       },
-      "type": "array"
+      "type": "array",
+      "title": "Instances"
     },
     "InstancesCount": {
       "description": "Describes how many instances a stack has for each status.",
@@ -2372,10 +2492,12 @@
           "description": "The number of instances in the Unassigning state."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InstancesCount"
     },
     "Integer": {
-      "type": "integer"
+      "type": "integer",
+      "title": "Integer"
     },
     "Layer": {
       "description": "Describes a layer.",
@@ -2468,7 +2590,8 @@
           "description": "A <code>VolumeConfigurations</code> object that describes the layer's Amazon EBS volumes."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Layer"
     },
     "LayerAttributes": {
       "items": {
@@ -2482,7 +2605,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "LayerAttributes"
     },
     "LayerAttributesKeys": {
       "enum": [
@@ -2512,7 +2636,8 @@
         "JavaAppServer",
         "JavaAppServerVersion"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "LayerAttributesKeys"
     },
     "LayerType": {
       "enum": [
@@ -2529,13 +2654,15 @@
         "monitoring-master",
         "custom"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "LayerType"
     },
     "Layers": {
       "items": {
         "$ref": "#/definitions/Layer"
       },
-      "type": "array"
+      "type": "array",
+      "title": "Layers"
     },
     "LifecycleEventConfiguration": {
       "description": "Specifies the lifecycle event configuration",
@@ -2545,7 +2672,8 @@
           "description": "A <code>ShutdownEventConfiguration</code> object that specifies the Shutdown event configuration."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LifecycleEventConfiguration"
     },
     "LoadBasedAutoScalingConfiguration": {
       "description": "Describes a layer's load-based auto scaling configuration.",
@@ -2567,18 +2695,21 @@
           "description": "An <code>AutoScalingThresholds</code> object that describes the upscaling configuration, which defines how and when AWS OpsWorks Stacks increases the number of instances."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LoadBasedAutoScalingConfiguration"
     },
     "LoadBasedAutoScalingConfigurations": {
       "items": {
         "$ref": "#/definitions/LoadBasedAutoScalingConfiguration"
       },
-      "type": "array"
+      "type": "array",
+      "title": "LoadBasedAutoScalingConfigurations"
     },
     "Minute": {
       "maximum": 100,
       "minimum": 1,
-      "type": "integer"
+      "type": "integer",
+      "title": "Minute"
     },
     "Parameters": {
       "items": {
@@ -2592,7 +2723,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "Parameters"
     },
     "Permission": {
       "description": "Describes stack or user permissions.",
@@ -2618,13 +2750,15 @@
           "description": "A stack ID."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Permission"
     },
     "Permissions": {
       "items": {
         "$ref": "#/definitions/Permission"
       },
-      "type": "array"
+      "type": "array",
+      "title": "Permissions"
     },
     "RaidArray": {
       "description": "Describes an instance's RAID array.",
@@ -2682,13 +2816,15 @@
           "description": "The volume type, standard or PIOPS."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RaidArray"
     },
     "RaidArrays": {
       "items": {
         "$ref": "#/definitions/RaidArray"
       },
-      "type": "array"
+      "type": "array",
+      "title": "RaidArrays"
     },
     "RdsDbInstance": {
       "description": "Describes an Amazon RDS instance.",
@@ -2730,13 +2866,15 @@
           "description": "The ID of the stack with which the instance is registered."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RdsDbInstance"
     },
     "RdsDbInstances": {
       "items": {
         "$ref": "#/definitions/RdsDbInstance"
       },
-      "type": "array"
+      "type": "array",
+      "title": "RdsDbInstances"
     },
     "RebootInstanceRequest": {
       "properties": {
@@ -2748,7 +2886,8 @@
       "required": [
         "InstanceId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "RebootInstanceRequest"
     },
     "Recipes": {
       "description": "<p>AWS OpsWorks Stacks supports five lifecycle events: <b>setup</b>, <b>configuration</b>, <b>deploy</b>, <b>undeploy</b>, and <b>shutdown</b>. For each layer, AWS OpsWorks Stacks runs a set of standard recipes for each event. In addition, you can provide custom recipes for any or all layers and events. AWS OpsWorks Stacks runs custom event recipes after the standard recipes. <code>LayerCustomRecipes</code> specifies the custom recipes for a particular layer to be run in response to each of the five events. </p> <p>To specify a recipe, use the cookbook's directory name in the repository followed by two colons and the recipe name, which is the recipe's file name without the .rb extension. For example: phpapp2::dbsetup specifies the dbsetup.rb recipe in the repository's phpapp2 folder.</p>",
@@ -2774,7 +2913,8 @@
           "description": "An array of custom recipe names to be run following a <code>undeploy</code> event."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Recipes"
     },
     "RegisterEcsClusterRequest": {
       "properties": {
@@ -2791,7 +2931,8 @@
         "EcsClusterArn",
         "StackId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "RegisterEcsClusterRequest"
     },
     "RegisterEcsClusterResult": {
       "description": "Contains the response to a <code>RegisterEcsCluster</code> request.",
@@ -2801,7 +2942,8 @@
           "description": "The cluster's ARN."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RegisterEcsClusterResult"
     },
     "RegisterElasticIpRequest": {
       "properties": {
@@ -2818,7 +2960,8 @@
         "ElasticIp",
         "StackId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "RegisterElasticIpRequest"
     },
     "RegisterElasticIpResult": {
       "description": "Contains the response to a <code>RegisterElasticIp</code> request.",
@@ -2828,7 +2971,8 @@
           "description": "The Elastic IP address."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RegisterElasticIpResult"
     },
     "RegisterInstanceRequest": {
       "properties": {
@@ -2864,7 +3008,8 @@
       "required": [
         "StackId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "RegisterInstanceRequest"
     },
     "RegisterInstanceResult": {
       "description": "Contains the response to a <code>RegisterInstanceResult</code> request.",
@@ -2874,7 +3019,8 @@
           "description": "The registered instance's AWS OpsWorks Stacks ID."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RegisterInstanceResult"
     },
     "RegisterRdsDbInstanceRequest": {
       "properties": {
@@ -2901,7 +3047,8 @@
         "DbUser",
         "DbPassword"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "RegisterRdsDbInstanceRequest"
     },
     "RegisterVolumeRequest": {
       "properties": {
@@ -2917,7 +3064,8 @@
       "required": [
         "StackId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "RegisterVolumeRequest"
     },
     "RegisterVolumeResult": {
       "description": "Contains the response to a <code>RegisterVolume</code> request.",
@@ -2927,7 +3075,8 @@
           "description": "The volume ID."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RegisterVolumeResult"
     },
     "ReportedOs": {
       "description": "A registered instance's reported operating system.",
@@ -2945,7 +3094,8 @@
           "description": "The operating system version."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ReportedOs"
     },
     "ResourceNotFoundException": {
       "description": "Indicates that a resource was not found.",
@@ -2955,14 +3105,16 @@
           "description": "The exception message."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ResourceNotFoundException"
     },
     "RootDeviceType": {
       "enum": [
         "ebs",
         "instance-store"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "RootDeviceType"
     },
     "SelfUserProfile": {
       "description": "Describes a user's SSH information.",
@@ -2984,7 +3136,8 @@
           "description": "The user's SSH user name."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SelfUserProfile"
     },
     "ServiceError": {
       "description": "Describes an AWS OpsWorks Stacks service error.",
@@ -3014,13 +3167,15 @@
           "description": "The error type."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ServiceError"
     },
     "ServiceErrors": {
       "items": {
         "$ref": "#/definitions/ServiceError"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ServiceErrors"
     },
     "SetLoadBasedAutoScalingRequest": {
       "properties": {
@@ -3044,7 +3199,8 @@
       "required": [
         "LayerId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "SetLoadBasedAutoScalingRequest"
     },
     "SetPermissionRequest": {
       "properties": {
@@ -3073,7 +3229,8 @@
         "StackId",
         "IamUserArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "SetPermissionRequest"
     },
     "SetTimeBasedAutoScalingRequest": {
       "properties": {
@@ -3089,7 +3246,8 @@
       "required": [
         "InstanceId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "SetTimeBasedAutoScalingRequest"
     },
     "ShutdownEventConfiguration": {
       "description": "The Shutdown event configuration.",
@@ -3103,7 +3261,8 @@
           "description": "The time, in seconds, that AWS OpsWorks Stacks will wait after triggering a Shutdown event before shutting down an instance."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ShutdownEventConfiguration"
     },
     "Source": {
       "description": "Contains the information required to retrieve an app or cookbook from a repository. For more information, see <a href=\"http://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html\">Creating Apps</a> or <a href=\"http://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook.html\">Custom Recipes and Cookbooks</a>.",
@@ -3133,7 +3292,8 @@
           "description": "<p>This parameter depends on the repository type.</p> <ul> <li> <p>For Amazon S3 bundles, set <code>Username</code> to the appropriate IAM access key ID.</p> </li> <li> <p>For HTTP bundles, Git repositories, and Subversion repositories, set <code>Username</code> to the user name.</p> </li> </ul>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Source"
     },
     "SourceType": {
       "enum": [
@@ -3142,7 +3302,8 @@
         "archive",
         "s3"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "SourceType"
     },
     "SslConfiguration": {
       "description": "Describes an app's SSL configuration.",
@@ -3164,7 +3325,8 @@
         "Certificate",
         "PrivateKey"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "SslConfiguration"
     },
     "Stack": {
       "description": "Describes a stack.",
@@ -3257,7 +3419,8 @@
           "description": "The VPC ID; applicable only if the stack is running in a VPC."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Stack"
     },
     "StackAttributes": {
       "items": {
@@ -3271,13 +3434,15 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "StackAttributes"
     },
     "StackAttributesKeys": {
       "enum": [
         "Color"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "StackAttributesKeys"
     },
     "StackConfigurationManager": {
       "description": "Describes the configuration manager.",
@@ -3291,7 +3456,8 @@
           "description": "The Chef version. This parameter must be set to 12, 11.10, or 11.4 for Linux stacks, and to 12.2 for Windows stacks. The default value for Linux stacks is 11.4."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "StackConfigurationManager"
     },
     "StackSummary": {
       "description": "Summarizes the number of layers, instances, and apps in a stack.",
@@ -3321,13 +3487,15 @@
           "description": "The stack ID."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "StackSummary"
     },
     "Stacks": {
       "items": {
         "$ref": "#/definitions/Stack"
       },
-      "type": "array"
+      "type": "array",
+      "title": "Stacks"
     },
     "StartInstanceRequest": {
       "properties": {
@@ -3339,7 +3507,8 @@
       "required": [
         "InstanceId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "StartInstanceRequest"
     },
     "StartStackRequest": {
       "properties": {
@@ -3351,7 +3520,8 @@
       "required": [
         "StackId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "StartStackRequest"
     },
     "StopInstanceRequest": {
       "properties": {
@@ -3363,7 +3533,8 @@
       "required": [
         "InstanceId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "StopInstanceRequest"
     },
     "StopStackRequest": {
       "properties": {
@@ -3375,19 +3546,23 @@
       "required": [
         "StackId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "StopStackRequest"
     },
     "String": {
-      "type": "string"
+      "type": "string",
+      "title": "String"
     },
     "Strings": {
       "items": {
         "$ref": "#/definitions/String"
       },
-      "type": "array"
+      "type": "array",
+      "title": "Strings"
     },
     "Switch": {
-      "type": "string"
+      "type": "string",
+      "title": "Switch"
     },
     "TemporaryCredential": {
       "description": "Contains the data needed by RDP clients such as the Microsoft Remote Desktop Connection to log in to the instance.",
@@ -3409,7 +3584,8 @@
           "description": "The length of time (in minutes) that the grant is valid. When the grant expires, at the end of this period, the user will no longer be able to use the credentials to log in. If they are logged in at the time, they will be automatically logged out."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TemporaryCredential"
     },
     "TimeBasedAutoScalingConfiguration": {
       "description": "Describes an instance's time-based auto scaling configuration.",
@@ -3423,13 +3599,15 @@
           "description": "The instance ID."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TimeBasedAutoScalingConfiguration"
     },
     "TimeBasedAutoScalingConfigurations": {
       "items": {
         "$ref": "#/definitions/TimeBasedAutoScalingConfiguration"
       },
-      "type": "array"
+      "type": "array",
+      "title": "TimeBasedAutoScalingConfigurations"
     },
     "UnassignInstanceRequest": {
       "properties": {
@@ -3441,7 +3619,8 @@
       "required": [
         "InstanceId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UnassignInstanceRequest"
     },
     "UnassignVolumeRequest": {
       "properties": {
@@ -3453,7 +3632,8 @@
       "required": [
         "VolumeId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UnassignVolumeRequest"
     },
     "UpdateAppRequest": {
       "properties": {
@@ -3505,7 +3685,8 @@
       "required": [
         "AppId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateAppRequest"
     },
     "UpdateElasticIpRequest": {
       "properties": {
@@ -3521,7 +3702,8 @@
       "required": [
         "ElasticIp"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateElasticIpRequest"
     },
     "UpdateInstanceRequest": {
       "properties": {
@@ -3577,7 +3759,8 @@
       "required": [
         "InstanceId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateInstanceRequest"
     },
     "UpdateLayerRequest": {
       "properties": {
@@ -3653,7 +3836,8 @@
       "required": [
         "LayerId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateLayerRequest"
     },
     "UpdateMyUserProfileRequest": {
       "properties": {
@@ -3662,7 +3846,8 @@
           "description": "The user's SSH public key."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UpdateMyUserProfileRequest"
     },
     "UpdateRdsDbInstanceRequest": {
       "properties": {
@@ -3682,7 +3867,8 @@
       "required": [
         "RdsDbInstanceArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateRdsDbInstanceRequest"
     },
     "UpdateStackRequest": {
       "properties": {
@@ -3761,7 +3947,8 @@
       "required": [
         "StackId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateStackRequest"
     },
     "UpdateUserProfileRequest": {
       "properties": {
@@ -3785,7 +3972,8 @@
       "required": [
         "IamUserArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateUserProfileRequest"
     },
     "UpdateVolumeRequest": {
       "properties": {
@@ -3805,7 +3993,8 @@
       "required": [
         "VolumeId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateVolumeRequest"
     },
     "UserProfile": {
       "description": "Describes a user's SSH information.",
@@ -3831,18 +4020,21 @@
           "description": "The user's SSH user name."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UserProfile"
     },
     "UserProfiles": {
       "items": {
         "$ref": "#/definitions/UserProfile"
       },
-      "type": "array"
+      "type": "array",
+      "title": "UserProfiles"
     },
     "ValidForInMinutes": {
       "maximum": 1440,
       "minimum": 60,
-      "type": "integer"
+      "type": "integer",
+      "title": "ValidForInMinutes"
     },
     "ValidationException": {
       "description": "Indicates that a request was not valid.",
@@ -3852,14 +4044,16 @@
           "description": "The exception message."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ValidationException"
     },
     "VirtualizationType": {
       "enum": [
         "paravirtual",
         "hvm"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "VirtualizationType"
     },
     "Volume": {
       "description": "Describes an instance's Amazon EBS volume.",
@@ -3917,7 +4111,8 @@
           "description": "The volume type, standard or PIOPS."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Volume"
     },
     "VolumeConfiguration": {
       "description": "Describes an Amazon EBS volume configuration.",
@@ -3952,13 +4147,15 @@
         "NumberOfDisks",
         "Size"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "VolumeConfiguration"
     },
     "VolumeConfigurations": {
       "items": {
         "$ref": "#/definitions/VolumeConfiguration"
       },
-      "type": "array"
+      "type": "array",
+      "title": "VolumeConfigurations"
     },
     "VolumeType": {
       "enum": [
@@ -3966,13 +4163,15 @@
         "io1",
         "standard"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "VolumeType"
     },
     "Volumes": {
       "items": {
         "$ref": "#/definitions/Volume"
       },
-      "type": "array"
+      "type": "array",
+      "title": "Volumes"
     },
     "WeeklyAutoScalingSchedule": {
       "description": "<p>Describes a time-based instance's auto scaling schedule. The schedule consists of a set of key-value pairs.</p> <ul> <li> <p>The key is the time period (a UTC hour) and must be an integer from 0 - 23.</p> </li> <li> <p>The value indicates whether the instance should be online or offline for the specified period, and must be set to \"on\" or \"off\"</p> </li> </ul> <p>The default setting for all time periods is off, so you use the following parameters primarily to specify the online periods. You don't have to explicitly specify offline periods unless you want to change an online period to an offline period.</p> <p>The following example specifies that the instance should be online for four hours, from UTC 1200 - 1600. It will be off for the remainder of the day.</p> <p> <code> { \"12\":\"on\", \"13\":\"on\", \"14\":\"on\", \"15\":\"on\" } </code> </p>",
@@ -4006,7 +4205,8 @@
           "description": "The schedule for Wednesday."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "WeeklyAutoScalingSchedule"
     }
   },
   "actions": [

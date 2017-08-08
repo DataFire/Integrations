@@ -29,7 +29,8 @@
           "description": "Optional error message",
           "type": "string"
         }
-      }
+      },
+      "title": "ActivationError"
     },
     "AddOrganizationUnit": {
       "properties": {
@@ -68,7 +69,8 @@
       },
       "required": [
         "displayName"
-      ]
+      ],
+      "title": "AddOrganizationUnit"
     },
     "AddOrganizationUnitResponse": {
       "properties": {
@@ -78,7 +80,8 @@
           "format": "int64",
           "type": "number"
         }
-      }
+      },
+      "title": "AddOrganizationUnitResponse"
     },
     "AddParticipant": {
       "properties": {
@@ -97,7 +100,8 @@
           "format": "uuid",
           "type": "string"
         }
-      }
+      },
+      "title": "AddParticipant"
     },
     "AddProject": {
       "properties": {
@@ -150,7 +154,8 @@
       "required": [
         "name",
         "designId"
-      ]
+      ],
+      "title": "AddProject"
     },
     "AddUser": {
       "properties": {
@@ -194,7 +199,8 @@
           "example": "jane.doe@example.com",
           "type": "string"
         }
-      }
+      },
+      "title": "AddUser"
     },
     "AddUserGroup": {
       "properties": {
@@ -212,7 +218,8 @@
       },
       "required": [
         "name"
-      ]
+      ],
+      "title": "AddUserGroup"
     },
     "AddUserGroupMember": {
       "properties": {
@@ -224,7 +231,8 @@
       },
       "required": [
         "uuid"
-      ]
+      ],
+      "title": "AddUserGroupMember"
     },
     "AddUserResponse": {
       "properties": {
@@ -234,7 +242,8 @@
           "format": "uuid",
           "type": "string"
         }
-      }
+      },
+      "title": "AddUserResponse"
     },
     "BackOfficeRole": {
       "properties": {
@@ -250,7 +259,8 @@
       "required": [
         "id",
         "name"
-      ]
+      ],
+      "title": "BackOfficeRole"
     },
     "ClientRole": {
       "properties": {
@@ -262,7 +272,8 @@
           "description": "The name of the role",
           "type": "string"
         }
-      }
+      },
+      "title": "ClientRole"
     },
     "ClientRoles": {
       "properties": {
@@ -277,7 +288,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "ClientRoles"
     },
     "CourseDesign": {
       "properties": {
@@ -344,7 +356,8 @@
         "enabled",
         "lockedDesign",
         "sticky"
-      ]
+      ],
+      "title": "CourseDesign"
     },
     "Error": {
       "properties": {
@@ -361,7 +374,8 @@
           "description": "Optional error message",
           "type": "string"
         }
-      }
+      },
+      "title": "Error"
     },
     "GlobalUserGroup": {
       "properties": {
@@ -409,7 +423,8 @@
       "required": [
         "id",
         "created"
-      ]
+      ],
+      "title": "GlobalUserGroup"
     },
     "GroupId": {
       "properties": {
@@ -422,7 +437,8 @@
       },
       "required": [
         "groupId"
-      ]
+      ],
+      "title": "GroupId"
     },
     "LoginLink": {
       "properties": {
@@ -432,7 +448,8 @@
           "format": "url",
           "type": "string"
         }
-      }
+      },
+      "title": "LoginLink"
     },
     "OrgUnit": {
       "properties": {
@@ -462,7 +479,8 @@
       "required": [
         "id",
         "type"
-      ]
+      ],
+      "title": "OrgUnit"
     },
     "OrgUnits": {
       "properties": {
@@ -472,7 +490,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "OrgUnits"
     },
     "Participation": {
       "properties": {
@@ -560,7 +579,8 @@
           "format": "uuid",
           "type": "string"
         }
-      }
+      },
+      "title": "Participation"
     },
     "ProductFailure": {
       "properties": {
@@ -576,7 +596,8 @@
           "description": "The technical error type",
           "type": "string"
         }
-      }
+      },
+      "title": "ProductFailure"
     },
     "Project": {
       "properties": {
@@ -660,7 +681,8 @@
           "description": "The title presented to participants",
           "type": "string"
         }
-      }
+      },
+      "title": "Project"
     },
     "ProjectTeamMember": {
       "properties": {
@@ -674,7 +696,8 @@
           "format": "uuid",
           "type": "string"
         }
-      }
+      },
+      "title": "ProjectTeamMember"
     },
     "TeamRole": {
       "properties": {
@@ -686,7 +709,8 @@
           "format": "uuid",
           "type": "string"
         }
-      }
+      },
+      "title": "TeamRole"
     },
     "UpdateOrganizationUnit": {
       "properties": {
@@ -722,7 +746,8 @@
           "format": "id64",
           "type": "number"
         }
-      }
+      },
+      "title": "UpdateOrganizationUnit"
     },
     "UpdateProject": {
       "properties": {
@@ -770,7 +795,8 @@
           "description": "The title presented to participants",
           "type": "string"
         }
-      }
+      },
+      "title": "UpdateProject"
     },
     "User": {
       "properties": {
@@ -835,7 +861,8 @@
           "format": "email",
           "type": "string"
         }
-      }
+      },
+      "title": "User"
     },
     "UserGroup": {
       "properties": {
@@ -873,7 +900,8 @@
       },
       "required": [
         "name"
-      ]
+      ],
+      "title": "UserGroup"
     },
     "UserId": {
       "properties": {
@@ -886,7 +914,8 @@
       },
       "required": [
         "uuid"
-      ]
+      ],
+      "title": "UserId"
     },
     "UserParticipationInfo": {
       "properties": {
@@ -998,7 +1027,8 @@
           "description": "The title presented to participants",
           "type": "string"
         }
-      }
+      },
+      "title": "UserParticipationInfo"
     },
     "UserPreferences": {
       "properties": {
@@ -1008,7 +1038,8 @@
           "format": "locale",
           "type": "string"
         }
-      }
+      },
+      "title": "UserPreferences"
     },
     "UserWithPermissions": {
       "allOf": [
@@ -1033,7 +1064,8 @@
           },
           "type": "object"
         }
-      ]
+      ],
+      "title": "UserWithPermissions"
     }
   },
   "actions": [

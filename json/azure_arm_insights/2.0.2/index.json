@@ -20,7 +20,8 @@
       },
       "required": [
         "value"
-      ]
+      ],
+      "title": "LogProfileCollection"
     },
     "LogProfileProperties": {
       "description": "The log profile properties.",
@@ -54,7 +55,8 @@
       },
       "required": [
         "locations"
-      ]
+      ],
+      "title": "LogProfileProperties"
     },
     "LogProfileResource": {
       "allOf": [
@@ -72,7 +74,8 @@
       "required": [
         "properties"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "LogProfileResource"
     },
     "Resource": {
       "description": "An azure resource object",
@@ -105,7 +108,8 @@
       "required": [
         "location"
       ],
-      "x-ms-azure-resource": true
+      "x-ms-azure-resource": true,
+      "title": "Resource"
     },
     "RetentionPolicy": {
       "description": "Specifies the retention policy for the log.",
@@ -123,7 +127,8 @@
       "required": [
         "enabled",
         "days"
-      ]
+      ],
+      "title": "RetentionPolicy"
     }
   },
   "actions": [

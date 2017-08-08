@@ -42,7 +42,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GoogleApi__HttpBody"
     },
     "GoogleCloudMlV1_HyperparameterOutput_HyperparameterMetric": {
       "description": "An observed value of a metric.",
@@ -58,12 +59,14 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GoogleCloudMlV1_HyperparameterOutput_HyperparameterMetric"
     },
     "GoogleCloudMlV1__CancelJobRequest": {
       "description": "Request message for the CancelJob method.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "GoogleCloudMlV1__CancelJobRequest"
     },
     "GoogleCloudMlV1__GetConfigResponse": {
       "description": "Returns service account information associated with a project.",
@@ -78,7 +81,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GoogleCloudMlV1__GetConfigResponse"
     },
     "GoogleCloudMlV1__HyperparameterOutput": {
       "description": "Represents the result of a single hyperparameter tuning trial from a\ntraining job. The TrainingOutput object that is returned on successful\ncompletion of a training job with hyperparameter tuning includes a list\nof HyperparameterOutput objects, one for each successful trial.",
@@ -106,7 +110,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GoogleCloudMlV1__HyperparameterOutput"
     },
     "GoogleCloudMlV1__HyperparameterSpec": {
       "description": "Represents a set of hyperparameters to optimize.",
@@ -142,7 +147,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GoogleCloudMlV1__HyperparameterSpec"
     },
     "GoogleCloudMlV1__Job": {
       "description": "Represents a training or prediction job.",
@@ -201,7 +207,8 @@
           "description": "The current training job result."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GoogleCloudMlV1__Job"
     },
     "GoogleCloudMlV1__ListJobsResponse": {
       "description": "Response message for the ListJobs method.",
@@ -218,7 +225,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GoogleCloudMlV1__ListJobsResponse"
     },
     "GoogleCloudMlV1__ListModelsResponse": {
       "description": "Response message for the ListModels method.",
@@ -235,7 +243,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GoogleCloudMlV1__ListModelsResponse"
     },
     "GoogleCloudMlV1__ListVersionsResponse": {
       "description": "Response message for the ListVersions method.",
@@ -252,7 +261,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GoogleCloudMlV1__ListVersionsResponse"
     },
     "GoogleCloudMlV1__ManualScaling": {
       "description": "Options for manually scaling a model.",
@@ -263,7 +273,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GoogleCloudMlV1__ManualScaling"
     },
     "GoogleCloudMlV1__Model": {
       "description": "Represents a machine learning solution.\n\nA model can have multiple versions, each of which is a deployed, trained\nmodel ready to receive prediction requests. The model itself is just a\ncontainer.",
@@ -292,7 +303,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GoogleCloudMlV1__Model"
     },
     "GoogleCloudMlV1__OperationMetadata": {
       "description": "Represents the metadata of the long-running operation.",
@@ -335,7 +347,8 @@
           "description": "Contains the version associated with the operation."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GoogleCloudMlV1__OperationMetadata"
     },
     "GoogleCloudMlV1__ParameterSpec": {
       "description": "Represents a single hyperparameter to optimize.",
@@ -391,7 +404,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GoogleCloudMlV1__ParameterSpec"
     },
     "GoogleCloudMlV1__PredictRequest": {
       "description": "Request for predictions to be issued against a trained model.\n\nThe body of the request is a single JSON object with a single top-level\nfield:\n\n<dl>\n  <dt>instances</dt>\n  <dd>A JSON array containing values representing the instances to use for\n      prediction.</dd>\n</dl>\n\nThe structure of each element of the instances list is determined by your\nmodel's input definition. Instances can include named inputs or can contain\nonly unlabeled values.\n\nNot all data includes named inputs. Some instances will be simple\nJSON values (boolean, number, or string). However, instances are often lists\nof simple values, or complex nested lists. Here are some examples of request\nbodies:\n\nCSV data with each row encoded as a string value:\n<pre>\n{\"instances\": [\"1.0,true,\\\\\"x\\\\\"\", \"-2.0,false,\\\\\"y\\\\\"\"]}\n</pre>\nPlain text:\n<pre>\n{\"instances\": [\"the quick brown fox\", \"la bruja le dio\"]}\n</pre>\nSentences encoded as lists of words (vectors of strings):\n<pre>\n{\n  \"instances\": [\n    [\"the\",\"quick\",\"brown\"],\n    [\"la\",\"bruja\",\"le\"],\n    ...\n  ]\n}\n</pre>\nFloating point scalar values:\n<pre>\n{\"instances\": [0.0, 1.1, 2.2]}\n</pre>\nVectors of integers:\n<pre>\n{\n  \"instances\": [\n    [0, 1, 2],\n    [3, 4, 5],\n    ...\n  ]\n}\n</pre>\nTensors (in this case, two-dimensional tensors):\n<pre>\n{\n  \"instances\": [\n    [\n      [0, 1, 2],\n      [3, 4, 5]\n    ],\n    ...\n  ]\n}\n</pre>\nImages can be represented different ways. In this encoding scheme the first\ntwo dimensions represent the rows and columns of the image, and the third\ncontains lists (vectors) of the R, G, and B values for each pixel.\n<pre>\n{\n  \"instances\": [\n    [\n      [\n        [138, 30, 66],\n        [130, 20, 56],\n        ...\n      ],\n      [\n        [126, 38, 61],\n        [122, 24, 57],\n        ...\n      ],\n      ...\n    ],\n    ...\n  ]\n}\n</pre>\nJSON strings must be encoded as UTF-8. To send binary data, you must\nbase64-encode the data and mark it as binary. To mark a JSON string\nas binary, replace it with a JSON object with a single attribute named `b64`:\n<pre>{\"b64\": \"...\"} </pre>\nFor example:\n\nTwo Serialized tf.Examples (fake data, for illustrative purposes only):\n<pre>\n{\"instances\": [{\"b64\": \"X5ad6u\"}, {\"b64\": \"IA9j4nx\"}]}\n</pre>\nTwo JPEG image byte strings (fake data, for illustrative purposes only):\n<pre>\n{\"instances\": [{\"b64\": \"ASa8asdf\"}, {\"b64\": \"JLK7ljk3\"}]}\n</pre>\nIf your data includes named references, format each instance as a JSON object\nwith the named references as the keys:\n\nJSON input data to be preprocessed:\n<pre>\n{\n  \"instances\": [\n    {\n      \"a\": 1.0,\n      \"b\": true,\n      \"c\": \"x\"\n    },\n    {\n      \"a\": -2.0,\n      \"b\": false,\n      \"c\": \"y\"\n    }\n  ]\n}\n</pre>\nSome models have an underlying TensorFlow graph that accepts multiple input\ntensors. In this case, you should use the names of JSON name/value pairs to\nidentify the input tensors, as shown in the following exmaples:\n\nFor a graph with input tensor aliases \"tag\" (string) and \"image\"\n(base64-encoded string):\n<pre>\n{\n  \"instances\": [\n    {\n      \"tag\": \"beach\",\n      \"image\": {\"b64\": \"ASa8asdf\"}\n    },\n    {\n      \"tag\": \"car\",\n      \"image\": {\"b64\": \"JLK7ljk3\"}\n    }\n  ]\n}\n</pre>\nFor a graph with input tensor aliases \"tag\" (string) and \"image\"\n(3-dimensional array of 8-bit ints):\n<pre>\n{\n  \"instances\": [\n    {\n      \"tag\": \"beach\",\n      \"image\": [\n        [\n          [138, 30, 66],\n          [130, 20, 56],\n          ...\n        ],\n        [\n          [126, 38, 61],\n          [122, 24, 57],\n          ...\n        ],\n        ...\n      ]\n    },\n    {\n      \"tag\": \"car\",\n      \"image\": [\n        [\n          [255, 0, 102],\n          [255, 0, 97],\n          ...\n        ],\n        [\n          [254, 1, 101],\n          [254, 2, 93],\n          ...\n        ],\n        ...\n      ]\n    },\n    ...\n  ]\n}\n</pre>\nIf the call is successful, the response body will contain one prediction\nentry per instance in the request body. If prediction fails for any\ninstance, the response body will contain no predictions and will contian\na single error entry instead.",
@@ -401,7 +415,8 @@
           "description": "\nRequired. The prediction request body."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GoogleCloudMlV1__PredictRequest"
     },
     "GoogleCloudMlV1__PredictionInput": {
       "description": "Represents input parameters for a prediction job.",
@@ -453,7 +468,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GoogleCloudMlV1__PredictionInput"
     },
     "GoogleCloudMlV1__PredictionOutput": {
       "description": "Represents results of a prediction job.",
@@ -478,12 +494,14 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GoogleCloudMlV1__PredictionOutput"
     },
     "GoogleCloudMlV1__SetDefaultVersionRequest": {
       "description": "Request message for the SetDefaultVersion request.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "GoogleCloudMlV1__SetDefaultVersionRequest"
     },
     "GoogleCloudMlV1__TrainingInput": {
       "description": "Represents input parameters for a training job.",
@@ -556,7 +574,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GoogleCloudMlV1__TrainingInput"
     },
     "GoogleCloudMlV1__TrainingOutput": {
       "description": "Represents results of a training job. Output only.",
@@ -583,7 +602,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GoogleCloudMlV1__TrainingOutput"
     },
     "GoogleCloudMlV1__Version": {
       "description": "Represents a version of the model.\n\nEach version is a trained model deployed in the cloud, ready to handle\nprediction requests. A model can have multiple versions. You can get\ninformation about all of the versions of a given model by calling\n[projects.models.versions.list](/ml-engine/reference/rest/v1/projects.models.versions/list).",
@@ -623,7 +643,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GoogleCloudMlV1__Version"
     },
     "GoogleCloudMlV1beta1__ManualScaling": {
       "description": "Options for manually scaling a model.",
@@ -634,7 +655,8 @@
           "type": "integer"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GoogleCloudMlV1beta1__ManualScaling"
     },
     "GoogleCloudMlV1beta1__OperationMetadata": {
       "description": "Represents the metadata of the long-running operation.",
@@ -677,7 +699,8 @@
           "description": "Contains the version associated with the operation."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GoogleCloudMlV1beta1__OperationMetadata"
     },
     "GoogleCloudMlV1beta1__Version": {
       "description": "Represents a version of the model.\n\nEach version is a trained model deployed in the cloud, ready to handle\nprediction requests. A model can have multiple versions. You can get\ninformation about all of the versions of a given model by calling\n[projects.models.versions.list](/ml-engine/reference/rest/v1beta1/projects.models.versions/list).",
@@ -717,7 +740,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GoogleCloudMlV1beta1__Version"
     },
     "GoogleLongrunning__ListOperationsResponse": {
       "description": "The response message for Operations.ListOperations.",
@@ -734,7 +758,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GoogleLongrunning__ListOperationsResponse"
     },
     "GoogleLongrunning__Operation": {
       "description": "This resource represents a long-running operation that is the result of a\nnetwork API call.",
@@ -766,12 +791,14 @@
           "type": "object"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GoogleLongrunning__Operation"
     },
     "GoogleProtobuf__Empty": {
       "description": "A generic empty message that you can re-use to avoid defining duplicated\nempty messages in your APIs. A typical example is to use it as the request\nor the response type of an API method. For instance:\n\n    service Foo {\n      rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);\n    }\n\nThe JSON representation for `Empty` is empty JSON object `{}`.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "GoogleProtobuf__Empty"
     },
     "GoogleRpc__Status": {
       "description": "The `Status` type defines a logical error model that is suitable for different\nprogramming environments, including REST APIs and RPC APIs. It is used by\n[gRPC](https://github.com/grpc). The error model is designed to be:\n\n- Simple to use and understand for most users\n- Flexible enough to meet unexpected needs\n\n# Overview\n\nThe `Status` message contains three pieces of data: error code, error message,\nand error details. The error code should be an enum value of\ngoogle.rpc.Code, but it may accept additional error codes if needed.  The\nerror message should be a developer-facing English message that helps\ndevelopers *understand* and *resolve* the error. If a localized user-facing\nerror message is needed, put the localized message in the error details or\nlocalize it in the client. The optional error details may contain arbitrary\ninformation about the error. There is a predefined set of error detail types\nin the package `google.rpc` which can be used for common error conditions.\n\n# Language mapping\n\nThe `Status` message is the logical representation of the error model, but it\nis not necessarily the actual wire format. When the `Status` message is\nexposed in different client libraries and different wire protocols, it can be\nmapped differently. For example, it will likely be mapped to some exceptions\nin Java, but more likely mapped to some error codes in C.\n\n# Other uses\n\nThe error model and the `Status` message can be used in a variety of\nenvironments, either with or without APIs, to provide a\nconsistent developer experience across different environments.\n\nExample uses of this error model include:\n\n- Partial errors. If a service needs to return partial errors to the client,\n    it may embed the `Status` in the normal response to indicate the partial\n    errors.\n\n- Workflow errors. A typical workflow has multiple steps. Each step may\n    have a `Status` message for error reporting purpose.\n\n- Batch operations. If a client uses batch request and batch response, the\n    `Status` message should be used directly inside batch response, one for\n    each error sub-response.\n\n- Asynchronous operations. If an API call embeds asynchronous operation\n    results in its response, the status of those operations should be\n    represented directly using the `Status` message.\n\n- Logging. If some API errors are stored in logs, the message `Status` could\n    be used directly after any stripping needed for security/privacy reasons.",
@@ -796,7 +823,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GoogleRpc__Status"
     }
   },
   "actions": [

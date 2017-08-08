@@ -39,7 +39,8 @@
         "valid": {
           "type": "boolean"
         }
-      }
+      },
+      "title": "ApiTokenStatus"
     },
     "AudioFile": {
       "properties": {
@@ -95,7 +96,8 @@
       },
       "required": [
         "id"
-      ]
+      ],
+      "title": "AudioFile"
     },
     "AudioType": {
       "properties": {
@@ -106,7 +108,8 @@
         "name": {
           "type": "string"
         }
-      }
+      },
+      "title": "AudioType"
     },
     "AuthenticationToken": {
       "properties": {
@@ -120,7 +123,8 @@
         "userSignature": {
           "type": "string"
         }
-      }
+      },
+      "title": "AuthenticationToken"
     },
     "Bigram": {
       "properties": {
@@ -142,7 +146,8 @@
           "format": "double",
           "type": "number"
         }
-      }
+      },
+      "title": "Bigram"
     },
     "Category": {
       "properties": {
@@ -156,7 +161,8 @@
       },
       "required": [
         "id"
-      ]
+      ],
+      "title": "Category"
     },
     "Citation": {
       "properties": {
@@ -166,7 +172,8 @@
         "source": {
           "type": "string"
         }
-      }
+      },
+      "title": "Citation"
     },
     "ContentProvider": {
       "properties": {
@@ -177,7 +184,8 @@
         "name": {
           "type": "string"
         }
-      }
+      },
+      "title": "ContentProvider"
     },
     "Definition": {
       "properties": {
@@ -248,7 +256,8 @@
         "word": {
           "type": "string"
         }
-      }
+      },
+      "title": "Definition"
     },
     "DefinitionSearchResults": {
       "properties": {
@@ -262,7 +271,8 @@
           "format": "int32",
           "type": "integer"
         }
-      }
+      },
+      "title": "DefinitionSearchResults"
     },
     "Example": {
       "properties": {
@@ -307,7 +317,8 @@
           "format": "int32",
           "type": "integer"
         }
-      }
+      },
+      "title": "Example"
     },
     "ExampleSearchResults": {
       "properties": {
@@ -323,14 +334,16 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "ExampleSearchResults"
     },
     "ExampleUsage": {
       "properties": {
         "text": {
           "type": "string"
         }
-      }
+      },
+      "title": "ExampleUsage"
     },
     "Facet": {
       "properties": {
@@ -343,7 +356,8 @@
         "name": {
           "type": "string"
         }
-      }
+      },
+      "title": "Facet"
     },
     "FacetValue": {
       "properties": {
@@ -354,7 +368,8 @@
         "value": {
           "type": "string"
         }
-      }
+      },
+      "title": "FacetValue"
     },
     "Frequency": {
       "properties": {
@@ -366,7 +381,8 @@
           "format": "int32",
           "type": "integer"
         }
-      }
+      },
+      "title": "Frequency"
     },
     "FrequencySummary": {
       "properties": {
@@ -390,7 +406,8 @@
         "word": {
           "type": "string"
         }
-      }
+      },
+      "title": "FrequencySummary"
     },
     "Label": {
       "properties": {
@@ -400,7 +417,8 @@
         "type": {
           "type": "string"
         }
-      }
+      },
+      "title": "Label"
     },
     "Note": {
       "properties": {
@@ -420,7 +438,8 @@
         "value": {
           "type": "string"
         }
-      }
+      },
+      "title": "Note"
     },
     "PartOfSpeech": {
       "properties": {
@@ -442,7 +461,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "PartOfSpeech"
     },
     "Related": {
       "properties": {
@@ -470,7 +490,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "Related"
     },
     "Root": {
       "properties": {
@@ -490,7 +511,8 @@
       },
       "required": [
         "id"
-      ]
+      ],
+      "title": "Root"
     },
     "ScoredWord": {
       "properties": {
@@ -533,7 +555,8 @@
         "wordType": {
           "type": "string"
         }
-      }
+      },
+      "title": "ScoredWord"
     },
     "Sentence": {
       "properties": {
@@ -561,7 +584,8 @@
           },
           "type": "array"
         }
-      }
+      },
+      "title": "Sentence"
     },
     "SimpleDefinition": {
       "properties": {
@@ -577,7 +601,8 @@
         "text": {
           "type": "string"
         }
-      }
+      },
+      "title": "SimpleDefinition"
     },
     "SimpleExample": {
       "properties": {
@@ -594,14 +619,16 @@
         "url": {
           "type": "string"
         }
-      }
+      },
+      "title": "SimpleExample"
     },
     "StringValue": {
       "properties": {
         "word": {
           "type": "string"
         }
-      }
+      },
+      "title": "StringValue"
     },
     "Syllable": {
       "properties": {
@@ -615,7 +642,8 @@
         "type": {
           "type": "string"
         }
-      }
+      },
+      "title": "Syllable"
     },
     "TextPron": {
       "properties": {
@@ -629,7 +657,8 @@
           "format": "int32",
           "type": "integer"
         }
-      }
+      },
+      "title": "TextPron"
     },
     "User": {
       "properties": {
@@ -659,7 +688,8 @@
         "username": {
           "type": "string"
         }
-      }
+      },
+      "title": "User"
     },
     "WordList": {
       "properties": {
@@ -702,7 +732,8 @@
         "username": {
           "type": "string"
         }
-      }
+      },
+      "title": "WordList"
     },
     "WordListWord": {
       "properties": {
@@ -735,7 +766,8 @@
       },
       "required": [
         "id"
-      ]
+      ],
+      "title": "WordListWord"
     },
     "WordObject": {
       "properties": {
@@ -764,7 +796,8 @@
       },
       "required": [
         "id"
-      ]
+      ],
+      "title": "WordObject"
     },
     "WordOfTheDay": {
       "properties": {
@@ -816,7 +849,8 @@
       },
       "required": [
         "id"
-      ]
+      ],
+      "title": "WordOfTheDay"
     },
     "WordSearchResult": {
       "properties": {
@@ -831,7 +865,8 @@
         "word": {
           "type": "string"
         }
-      }
+      },
+      "title": "WordSearchResult"
     },
     "WordSearchResults": {
       "properties": {
@@ -845,7 +880,8 @@
           "format": "int32",
           "type": "integer"
         }
-      }
+      },
+      "title": "WordSearchResults"
     }
   },
   "actions": [

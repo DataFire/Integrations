@@ -23,7 +23,8 @@
           "$ref": "#/definitions/ExceptionMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AccessDeniedException"
     },
     "AddFacetToObjectRequest": {
       "properties": {
@@ -44,11 +45,13 @@
         "SchemaFacet",
         "ObjectReference"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AddFacetToObjectRequest"
     },
     "AddFacetToObjectResponse": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "AddFacetToObjectResponse"
     },
     "ApplySchemaRequest": {
       "properties": {
@@ -60,7 +63,8 @@
       "required": [
         "PublishedSchemaArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ApplySchemaRequest"
     },
     "ApplySchemaResponse": {
       "properties": {
@@ -73,16 +77,19 @@
           "description": "ARN associated with the <a>Directory</a>. For more information, see <a>arns</a>."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ApplySchemaResponse"
     },
     "Arn": {
-      "type": "string"
+      "type": "string",
+      "title": "Arn"
     },
     "Arns": {
       "items": {
         "$ref": "#/definitions/Arn"
       },
-      "type": "array"
+      "type": "array",
+      "title": "Arns"
     },
     "AttachObjectRequest": {
       "properties": {
@@ -104,7 +111,8 @@
         "ChildReference",
         "LinkName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AttachObjectRequest"
     },
     "AttachObjectResponse": {
       "properties": {
@@ -113,7 +121,8 @@
           "description": "Attached <code>ObjectIdentifier</code>, which is the child <code>ObjectIdentifier</code>."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AttachObjectResponse"
     },
     "AttachPolicyRequest": {
       "properties": {
@@ -130,11 +139,13 @@
         "PolicyReference",
         "ObjectReference"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AttachPolicyRequest"
     },
     "AttachPolicyResponse": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "AttachPolicyResponse"
     },
     "AttachToIndexRequest": {
       "properties": {
@@ -151,7 +162,8 @@
         "IndexReference",
         "TargetReference"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AttachToIndexRequest"
     },
     "AttachToIndexResponse": {
       "properties": {
@@ -160,7 +172,8 @@
           "description": "The <code>ObjectIdentifier</code> of the object that was attached to the index."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AttachToIndexResponse"
     },
     "AttributeKey": {
       "description": "A unique identifier for an attribute.",
@@ -183,7 +196,8 @@
         "FacetName",
         "Name"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AttributeKey"
     },
     "AttributeKeyAndValue": {
       "description": "The combination of an attribute key and an attribute value.",
@@ -201,25 +215,29 @@
         "Key",
         "Value"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AttributeKeyAndValue"
     },
     "AttributeKeyAndValueList": {
       "items": {
         "$ref": "#/definitions/AttributeKeyAndValue"
       },
-      "type": "array"
+      "type": "array",
+      "title": "AttributeKeyAndValueList"
     },
     "AttributeKeyList": {
       "items": {
         "$ref": "#/definitions/AttributeKey"
       },
-      "type": "array"
+      "type": "array",
+      "title": "AttributeKeyList"
     },
     "AttributeName": {
       "maxLength": 64,
       "minLength": 1,
       "pattern": "^[a-zA-Z0-9._-]*$",
-      "type": "string"
+      "type": "string",
+      "title": "AttributeName"
     },
     "BatchAddFacetToObject": {
       "description": "Represents the output of a batch add facet to object operation.",
@@ -242,12 +260,14 @@
         "ObjectAttributeList",
         "ObjectReference"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "BatchAddFacetToObject"
     },
     "BatchAddFacetToObjectResponse": {
       "description": "The result of a batch add facet to object operation.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "BatchAddFacetToObjectResponse"
     },
     "BatchAttachObject": {
       "description": "Represents the output of an AttachObject operation.",
@@ -270,7 +290,8 @@
         "ChildReference",
         "LinkName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "BatchAttachObject"
     },
     "BatchAttachObjectResponse": {
       "description": "Represents the output batch AttachObject response operation.",
@@ -280,7 +301,8 @@
           "description": "The <code>ObjectIdentifier</code> of the object that has been attached."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BatchAttachObjectResponse"
     },
     "BatchCreateObject": {
       "description": "Represents the output of a CreateObject operation.",
@@ -313,7 +335,8 @@
         "LinkName",
         "BatchReferenceName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "BatchCreateObject"
     },
     "BatchCreateObjectResponse": {
       "description": "Represents the output of a <code>CreateObject</code> response operation.",
@@ -323,7 +346,8 @@
           "description": "ID associated with the object."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BatchCreateObjectResponse"
     },
     "BatchDeleteObject": {
       "description": "Represents the output of a <code>DeleteObject</code> operation.",
@@ -336,12 +360,14 @@
       "required": [
         "ObjectReference"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "BatchDeleteObject"
     },
     "BatchDeleteObjectResponse": {
       "description": "Represents the output of a <code>DeleteObject</code> response operation.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "BatchDeleteObjectResponse"
     },
     "BatchDetachObject": {
       "description": "Represents the output of a <code>DetachObject</code> operation.",
@@ -364,7 +390,8 @@
         "LinkName",
         "BatchReferenceName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "BatchDetachObject"
     },
     "BatchDetachObjectResponse": {
       "description": "Represents the output of a <code>DetachObject</code> response operation.",
@@ -374,7 +401,8 @@
           "description": "The <code>ObjectIdentifier</code> of the detached object."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BatchDetachObjectResponse"
     },
     "BatchListObjectAttributes": {
       "description": "Represents the output of a <code>ListObjectAttributes</code> operation.",
@@ -399,7 +427,8 @@
       "required": [
         "ObjectReference"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "BatchListObjectAttributes"
     },
     "BatchListObjectAttributesResponse": {
       "description": "Represents the output of a <code>ListObjectAttributes</code> response operation.",
@@ -413,7 +442,8 @@
           "description": "The pagination token."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BatchListObjectAttributesResponse"
     },
     "BatchListObjectChildren": {
       "description": "Represents the output of a <code>ListObjectChildren</code> operation.",
@@ -434,7 +464,8 @@
       "required": [
         "ObjectReference"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "BatchListObjectChildren"
     },
     "BatchListObjectChildrenResponse": {
       "description": "Represents the output of a <code>ListObjectChildren</code> response operation.",
@@ -448,10 +479,12 @@
           "description": "The pagination token."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BatchListObjectChildrenResponse"
     },
     "BatchOperationIndex": {
-      "type": "integer"
+      "type": "integer",
+      "title": "BatchOperationIndex"
     },
     "BatchReadException": {
       "description": "Batch Read Exception structure, which contains exception type and message.",
@@ -465,7 +498,8 @@
           "description": "Type of exception, such as <code>InvalidArnException</code>."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BatchReadException"
     },
     "BatchReadExceptionType": {
       "enum": [
@@ -476,7 +510,8 @@
         "AccessDeniedException",
         "NotNodeException"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "BatchReadExceptionType"
     },
     "BatchReadOperation": {
       "description": "Represents the output of a <code>BatchRead</code> operation.",
@@ -490,13 +525,15 @@
           "description": "Returns a paginated list of child objects that are associated with a given object."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BatchReadOperation"
     },
     "BatchReadOperationList": {
       "items": {
         "$ref": "#/definitions/BatchReadOperation"
       },
-      "type": "array"
+      "type": "array",
+      "title": "BatchReadOperationList"
     },
     "BatchReadOperationResponse": {
       "description": "Represents the output of a <code>BatchRead</code> response operation.",
@@ -510,13 +547,15 @@
           "description": "Identifies which operation in a batch has succeeded."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BatchReadOperationResponse"
     },
     "BatchReadOperationResponseList": {
       "items": {
         "$ref": "#/definitions/BatchReadOperationResponse"
       },
-      "type": "array"
+      "type": "array",
+      "title": "BatchReadOperationResponseList"
     },
     "BatchReadRequest": {
       "properties": {
@@ -528,7 +567,8 @@
       "required": [
         "Operations"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "BatchReadRequest"
     },
     "BatchReadResponse": {
       "properties": {
@@ -537,7 +577,8 @@
           "description": "List of all the responses for each batch read."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BatchReadResponse"
     },
     "BatchReadSuccessfulResponse": {
       "description": "Represents the output of a <code>BatchRead</code> success response operation.",
@@ -551,10 +592,12 @@
           "description": "Returns a paginated list of child objects associated with a given object."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BatchReadSuccessfulResponse"
     },
     "BatchReferenceName": {
-      "type": "string"
+      "type": "string",
+      "title": "BatchReferenceName"
     },
     "BatchRemoveFacetFromObject": {
       "description": "Batch operation to remove a facet from an object.",
@@ -572,12 +615,14 @@
         "SchemaFacet",
         "ObjectReference"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "BatchRemoveFacetFromObject"
     },
     "BatchRemoveFacetFromObjectResponse": {
       "description": "Empty result representing success.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "BatchRemoveFacetFromObjectResponse"
     },
     "BatchUpdateObjectAttributes": {
       "description": "Represents the output of a <code>BatchUpdate</code> operation. ",
@@ -595,7 +640,8 @@
         "ObjectReference",
         "AttributeUpdates"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "BatchUpdateObjectAttributes"
     },
     "BatchUpdateObjectAttributesResponse": {
       "description": "Represents the output of a <code>BatchUpdate</code> response operation.",
@@ -605,7 +651,8 @@
           "description": "ID associated with the object."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BatchUpdateObjectAttributesResponse"
     },
     "BatchWriteException": {
       "description": "A <code>BatchWrite</code> exception has occurred.",
@@ -620,7 +667,8 @@
           "$ref": "#/definitions/BatchWriteExceptionType"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BatchWriteException"
     },
     "BatchWriteExceptionType": {
       "enum": [
@@ -634,7 +682,8 @@
         "ResourceNotFoundException",
         "AccessDeniedException"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "BatchWriteExceptionType"
     },
     "BatchWriteOperation": {
       "description": "Represents the output of a <code>BatchWrite</code> operation. ",
@@ -668,13 +717,15 @@
           "description": "Update a given object's attributes."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BatchWriteOperation"
     },
     "BatchWriteOperationList": {
       "items": {
         "$ref": "#/definitions/BatchWriteOperation"
       },
-      "type": "array"
+      "type": "array",
+      "title": "BatchWriteOperationList"
     },
     "BatchWriteOperationResponse": {
       "description": "Represents the output of a <code>BatchWrite</code> response operation.",
@@ -708,13 +759,15 @@
           "description": "Updates a given object’s attributes."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BatchWriteOperationResponse"
     },
     "BatchWriteOperationResponseList": {
       "items": {
         "$ref": "#/definitions/BatchWriteOperationResponse"
       },
-      "type": "array"
+      "type": "array",
+      "title": "BatchWriteOperationResponseList"
     },
     "BatchWriteRequest": {
       "properties": {
@@ -726,7 +779,8 @@
       "required": [
         "Operations"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "BatchWriteRequest"
     },
     "BatchWriteResponse": {
       "properties": {
@@ -735,16 +789,20 @@
           "description": "List of all the responses for each batch write."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BatchWriteResponse"
     },
     "BinaryAttributeValue": {
-      "type": "string"
+      "type": "string",
+      "title": "BinaryAttributeValue"
     },
     "Bool": {
-      "type": "boolean"
+      "type": "boolean",
+      "title": "Bool"
     },
     "BooleanAttributeValue": {
-      "type": "boolean"
+      "type": "boolean",
+      "title": "BooleanAttributeValue"
     },
     "CannotListParentOfRootException": {
       "description": "Cannot list the parents of a <a>Directory</a> root.",
@@ -753,14 +811,16 @@
           "$ref": "#/definitions/ExceptionMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CannotListParentOfRootException"
     },
     "ConsistencyLevel": {
       "enum": [
         "SERIALIZABLE",
         "EVENTUAL"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ConsistencyLevel"
     },
     "CreateDirectoryRequest": {
       "properties": {
@@ -772,7 +832,8 @@
       "required": [
         "Name"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateDirectoryRequest"
     },
     "CreateDirectoryResponse": {
       "properties": {
@@ -799,7 +860,8 @@
         "ObjectIdentifier",
         "AppliedSchemaArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateDirectoryResponse"
     },
     "CreateFacetRequest": {
       "properties": {
@@ -820,11 +882,13 @@
         "Name",
         "ObjectType"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateFacetRequest"
     },
     "CreateFacetResponse": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "CreateFacetResponse"
     },
     "CreateIndexRequest": {
       "properties": {
@@ -849,7 +913,8 @@
         "OrderedIndexedAttributeList",
         "IsUnique"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateIndexRequest"
     },
     "CreateIndexResponse": {
       "properties": {
@@ -858,7 +923,8 @@
           "description": "The <code>ObjectIdentifier</code> of the index created by this operation."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateIndexResponse"
     },
     "CreateObjectRequest": {
       "properties": {
@@ -882,7 +948,8 @@
       "required": [
         "SchemaFacets"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateObjectRequest"
     },
     "CreateObjectResponse": {
       "properties": {
@@ -891,7 +958,8 @@
           "description": "Identifier associated with the object."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateObjectResponse"
     },
     "CreateSchemaRequest": {
       "properties": {
@@ -903,7 +971,8 @@
       "required": [
         "Name"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "CreateSchemaRequest"
     },
     "CreateSchemaResponse": {
       "properties": {
@@ -912,19 +981,23 @@
           "description": "ARN associated with the schema. For more information, see <a>arns</a>."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CreateSchemaResponse"
     },
     "Date": {
       "format": "date-time",
-      "type": "string"
+      "type": "string",
+      "title": "Date"
     },
     "DatetimeAttributeValue": {
       "format": "date-time",
-      "type": "string"
+      "type": "string",
+      "title": "DatetimeAttributeValue"
     },
     "DeleteDirectoryRequest": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DeleteDirectoryRequest"
     },
     "DeleteDirectoryResponse": {
       "properties": {
@@ -936,7 +1009,8 @@
       "required": [
         "DirectoryArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteDirectoryResponse"
     },
     "DeleteFacetRequest": {
       "properties": {
@@ -948,11 +1022,13 @@
       "required": [
         "Name"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteFacetRequest"
     },
     "DeleteFacetResponse": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DeleteFacetResponse"
     },
     "DeleteObjectRequest": {
       "properties": {
@@ -964,15 +1040,18 @@
       "required": [
         "ObjectReference"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DeleteObjectRequest"
     },
     "DeleteObjectResponse": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DeleteObjectResponse"
     },
     "DeleteSchemaRequest": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DeleteSchemaRequest"
     },
     "DeleteSchemaResponse": {
       "properties": {
@@ -981,7 +1060,8 @@
           "description": "Input ARN that is returned as part of the response. For more information, see <a>arns</a>."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DeleteSchemaResponse"
     },
     "DetachFromIndexRequest": {
       "properties": {
@@ -998,7 +1078,8 @@
         "IndexReference",
         "TargetReference"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DetachFromIndexRequest"
     },
     "DetachFromIndexResponse": {
       "properties": {
@@ -1007,7 +1088,8 @@
           "description": "The <code>ObjectIdentifier</code> of the object that was detached from the index."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DetachFromIndexResponse"
     },
     "DetachObjectRequest": {
       "properties": {
@@ -1024,7 +1106,8 @@
         "ParentReference",
         "LinkName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DetachObjectRequest"
     },
     "DetachObjectResponse": {
       "properties": {
@@ -1033,7 +1116,8 @@
           "description": "The <code>ObjectIdentifier</code> that was detached from the object."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DetachObjectResponse"
     },
     "DetachPolicyRequest": {
       "properties": {
@@ -1050,11 +1134,13 @@
         "PolicyReference",
         "ObjectReference"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DetachPolicyRequest"
     },
     "DetachPolicyResponse": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DetachPolicyResponse"
     },
     "Directory": {
       "description": "Directory structure that includes the directory name and directory ARN.",
@@ -1076,7 +1162,8 @@
           "description": "The state of the directory. Can be either <code>Enabled</code>, <code>Disabled</code>, or <code>Deleted</code>."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Directory"
     },
     "DirectoryAlreadyExistsException": {
       "description": "Indicates that a <a>Directory</a> could not be created due to a naming conflict. Choose a different name and try again.",
@@ -1085,10 +1172,12 @@
           "$ref": "#/definitions/ExceptionMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DirectoryAlreadyExistsException"
     },
     "DirectoryArn": {
-      "type": "string"
+      "type": "string",
+      "title": "DirectoryArn"
     },
     "DirectoryDeletedException": {
       "description": "A directory that has been deleted has been attempted to be accessed. Note: The requested resource will eventually cease to exist.",
@@ -1097,19 +1186,22 @@
           "$ref": "#/definitions/ExceptionMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DirectoryDeletedException"
     },
     "DirectoryList": {
       "items": {
         "$ref": "#/definitions/Directory"
       },
-      "type": "array"
+      "type": "array",
+      "title": "DirectoryList"
     },
     "DirectoryName": {
       "maxLength": 64,
       "minLength": 1,
       "pattern": "^[a-zA-Z0-9._-]*$",
-      "type": "string"
+      "type": "string",
+      "title": "DirectoryName"
     },
     "DirectoryNotDisabledException": {
       "description": "An operation can only operate on a disabled directory.",
@@ -1118,7 +1210,8 @@
           "$ref": "#/definitions/ExceptionMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DirectoryNotDisabledException"
     },
     "DirectoryNotEnabledException": {
       "description": "An operation can only operate on a directory that is not enabled.",
@@ -1127,7 +1220,8 @@
           "$ref": "#/definitions/ExceptionMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DirectoryNotEnabledException"
     },
     "DirectoryState": {
       "enum": [
@@ -1135,11 +1229,13 @@
         "DISABLED",
         "DELETED"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "DirectoryState"
     },
     "DisableDirectoryRequest": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DisableDirectoryRequest"
     },
     "DisableDirectoryResponse": {
       "properties": {
@@ -1151,11 +1247,13 @@
       "required": [
         "DirectoryArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DisableDirectoryResponse"
     },
     "EnableDirectoryRequest": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "EnableDirectoryRequest"
     },
     "EnableDirectoryResponse": {
       "properties": {
@@ -1167,10 +1265,12 @@
       "required": [
         "DirectoryArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "EnableDirectoryResponse"
     },
     "ExceptionMessage": {
-      "type": "string"
+      "type": "string",
+      "title": "ExceptionMessage"
     },
     "Facet": {
       "description": "A structure that contains <code>Name</code>, <code>ARN</code>, <code>Attributes</code>, <a>Rule</a>s, and <code>ObjectTypes</code>.",
@@ -1184,7 +1284,8 @@
           "description": "Object type associated with the facet. See <a>CreateFacetRequest$ObjectType</a> for more details."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Facet"
     },
     "FacetAlreadyExistsException": {
       "description": "A facet with the same name already exists.",
@@ -1193,7 +1294,8 @@
           "$ref": "#/definitions/ExceptionMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "FacetAlreadyExistsException"
     },
     "FacetAttribute": {
       "description": "Attribute associated with the <a>Facet</a>.",
@@ -1218,7 +1320,8 @@
       "required": [
         "Name"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "FacetAttribute"
     },
     "FacetAttributeDefinition": {
       "description": "A facet attribute definition. See <a href=\"http://docs.aws.amazon.com/directoryservice/latest/admin-guide/cd_advanced.html#attributereferences\">Attribute References</a> for more information.",
@@ -1243,13 +1346,15 @@
       "required": [
         "Type"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "FacetAttributeDefinition"
     },
     "FacetAttributeList": {
       "items": {
         "$ref": "#/definitions/FacetAttribute"
       },
-      "type": "array"
+      "type": "array",
+      "title": "FacetAttributeList"
     },
     "FacetAttributeReference": {
       "description": "Facet attribute reference that specifies the attribute definition which contains attribute facet name and attribute name.",
@@ -1267,7 +1372,8 @@
         "TargetFacetName",
         "TargetAttributeName"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "FacetAttributeReference"
     },
     "FacetAttributeType": {
       "enum": [
@@ -1277,7 +1383,8 @@
         "NUMBER",
         "DATETIME"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "FacetAttributeType"
     },
     "FacetAttributeUpdate": {
       "description": "A structure that contains information used to update an attribute.",
@@ -1291,13 +1398,15 @@
           "description": "The attribute to update."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "FacetAttributeUpdate"
     },
     "FacetAttributeUpdateList": {
       "items": {
         "$ref": "#/definitions/FacetAttributeUpdate"
       },
-      "type": "array"
+      "type": "array",
+      "title": "FacetAttributeUpdateList"
     },
     "FacetInUseException": {
       "description": "Occurs when deleting a facet that contains an attribute which is a target to an attribute reference in a different facet.",
@@ -1306,19 +1415,22 @@
           "$ref": "#/definitions/ExceptionMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "FacetInUseException"
     },
     "FacetName": {
       "maxLength": 64,
       "minLength": 1,
       "pattern": "^[a-zA-Z0-9._-]*$",
-      "type": "string"
+      "type": "string",
+      "title": "FacetName"
     },
     "FacetNameList": {
       "items": {
         "$ref": "#/definitions/FacetName"
       },
-      "type": "array"
+      "type": "array",
+      "title": "FacetNameList"
     },
     "FacetNotFoundException": {
       "description": "The specified <a>Facet</a> could not be found.",
@@ -1327,7 +1439,8 @@
           "$ref": "#/definitions/ExceptionMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "FacetNotFoundException"
     },
     "FacetValidationException": {
       "description": "The <a>Facet</a> you provided was not well formed or could not be validated with the schema.",
@@ -1336,11 +1449,13 @@
           "$ref": "#/definitions/ExceptionMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "FacetValidationException"
     },
     "GetDirectoryRequest": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "GetDirectoryRequest"
     },
     "GetDirectoryResponse": {
       "properties": {
@@ -1352,7 +1467,8 @@
       "required": [
         "Directory"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetDirectoryResponse"
     },
     "GetFacetRequest": {
       "properties": {
@@ -1364,7 +1480,8 @@
       "required": [
         "Name"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetFacetRequest"
     },
     "GetFacetResponse": {
       "properties": {
@@ -1373,7 +1490,8 @@
           "description": " <a>Facet</a> structure associated with the facet."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetFacetResponse"
     },
     "GetObjectInformationRequest": {
       "properties": {
@@ -1385,7 +1503,8 @@
       "required": [
         "ObjectReference"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "GetObjectInformationRequest"
     },
     "GetObjectInformationResponse": {
       "properties": {
@@ -1398,11 +1517,13 @@
           "description": "The facets attached to the specified object."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetObjectInformationResponse"
     },
     "GetSchemaAsJsonRequest": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "GetSchemaAsJsonRequest"
     },
     "GetSchemaAsJsonResponse": {
       "properties": {
@@ -1415,7 +1536,8 @@
           "description": "The name of the retrieved schema."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetSchemaAsJsonResponse"
     },
     "IndexAttachment": {
       "description": "Represents an index and an attached object.",
@@ -1429,13 +1551,15 @@
           "description": "The <code>ObjectIdentifier</code> of the object attached to the index."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "IndexAttachment"
     },
     "IndexAttachmentList": {
       "items": {
         "$ref": "#/definitions/IndexAttachment"
       },
-      "type": "array"
+      "type": "array",
+      "title": "IndexAttachmentList"
     },
     "IndexedAttributeMissingException": {
       "description": "An object has been attempted to be attached to an object that does not have the appropriate attribute value.",
@@ -1444,7 +1568,8 @@
           "$ref": "#/definitions/ExceptionMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "IndexedAttributeMissingException"
     },
     "InternalServiceException": {
       "description": "Indicates a problem that must be resolved by Amazon Web Services. This might be a transient error in which case you can retry your request until it succeeds. Otherwise, go to the <a href=\"http://status.aws.amazon.com/\">AWS Service Health Dashboard</a> site to see if there are any operational issues with the service.",
@@ -1453,7 +1578,8 @@
           "$ref": "#/definitions/ExceptionMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InternalServiceException"
     },
     "InvalidArnException": {
       "description": "Indicates that the provided ARN value is not valid.",
@@ -1462,7 +1588,8 @@
           "$ref": "#/definitions/ExceptionMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidArnException"
     },
     "InvalidAttachmentException": {
       "description": "Indicates that an attempt to attach an object with the same link name or to apply a schema with same name has occurred. Rename the link or the schema and then try again.",
@@ -1471,7 +1598,8 @@
           "$ref": "#/definitions/ExceptionMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidAttachmentException"
     },
     "InvalidFacetUpdateException": {
       "description": "An attempt to modify a <a>Facet</a> resulted in an invalid schema exception.",
@@ -1480,7 +1608,8 @@
           "$ref": "#/definitions/ExceptionMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidFacetUpdateException"
     },
     "InvalidNextTokenException": {
       "description": "Indicates that the <code>NextToken</code> value is not valid.",
@@ -1489,7 +1618,8 @@
           "$ref": "#/definitions/ExceptionMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidNextTokenException"
     },
     "InvalidRuleException": {
       "description": "Occurs when any of the rule parameter keys or values are invalid.",
@@ -1498,7 +1628,8 @@
           "$ref": "#/definitions/ExceptionMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidRuleException"
     },
     "InvalidSchemaDocException": {
       "description": "Indicates that the provided <code>SchemaDoc</code> value is not valid.",
@@ -1507,7 +1638,8 @@
           "$ref": "#/definitions/ExceptionMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidSchemaDocException"
     },
     "InvalidTaggingRequestException": {
       "description": "Can occur for multiple reasons such as when you tag a resource that doesn’t exist or if you specify a higher number of tags for a resource than the allowed limit. Allowed limit is 50 tags per resource.",
@@ -1516,7 +1648,8 @@
           "$ref": "#/definitions/ExceptionMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "InvalidTaggingRequestException"
     },
     "LimitExceededException": {
       "description": "Indicates limits are exceeded. See <a href=\"http://docs.aws.amazon.com/directoryservice/latest/admin-guide/limits.html\">Limits</a> for more information.",
@@ -1525,11 +1658,13 @@
           "$ref": "#/definitions/ExceptionMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LimitExceededException"
     },
     "LinkName": {
       "maxLength": 64,
-      "type": "string"
+      "type": "string",
+      "title": "LinkName"
     },
     "LinkNameAlreadyInUseException": {
       "description": "Indicates that a link could not be created due to a naming conflict. Choose a different name and then try again.",
@@ -1538,7 +1673,8 @@
           "$ref": "#/definitions/ExceptionMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LinkNameAlreadyInUseException"
     },
     "LinkNameToObjectIdentifierMap": {
       "items": {
@@ -1552,7 +1688,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "LinkNameToObjectIdentifierMap"
     },
     "ListAppliedSchemaArnsRequest": {
       "properties": {
@@ -1572,7 +1709,8 @@
       "required": [
         "DirectoryArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListAppliedSchemaArnsRequest"
     },
     "ListAppliedSchemaArnsResponse": {
       "properties": {
@@ -1585,7 +1723,8 @@
           "description": "The ARNs of schemas that are applied to the directory."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListAppliedSchemaArnsResponse"
     },
     "ListAttachedIndicesRequest": {
       "properties": {
@@ -1605,7 +1744,8 @@
       "required": [
         "TargetReference"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListAttachedIndicesRequest"
     },
     "ListAttachedIndicesResponse": {
       "properties": {
@@ -1618,7 +1758,8 @@
           "description": "The pagination token."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListAttachedIndicesResponse"
     },
     "ListDevelopmentSchemaArnsRequest": {
       "properties": {
@@ -1631,7 +1772,8 @@
           "description": "The pagination token."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListDevelopmentSchemaArnsRequest"
     },
     "ListDevelopmentSchemaArnsResponse": {
       "properties": {
@@ -1644,7 +1786,8 @@
           "description": "The ARNs of retrieved development schemas."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListDevelopmentSchemaArnsResponse"
     },
     "ListDirectoriesRequest": {
       "properties": {
@@ -1661,7 +1804,8 @@
           "description": "The state of the directories in the list. Can be either Enabled, Disabled, or Deleted."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListDirectoriesRequest"
     },
     "ListDirectoriesResponse": {
       "properties": {
@@ -1677,7 +1821,8 @@
       "required": [
         "Directories"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListDirectoriesResponse"
     },
     "ListFacetAttributesRequest": {
       "properties": {
@@ -1697,7 +1842,8 @@
       "required": [
         "Name"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListFacetAttributesRequest"
     },
     "ListFacetAttributesResponse": {
       "properties": {
@@ -1710,7 +1856,8 @@
           "description": "The pagination token."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListFacetAttributesResponse"
     },
     "ListFacetNamesRequest": {
       "properties": {
@@ -1723,7 +1870,8 @@
           "description": "The pagination token."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListFacetNamesRequest"
     },
     "ListFacetNamesResponse": {
       "properties": {
@@ -1736,7 +1884,8 @@
           "description": "The pagination token."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListFacetNamesResponse"
     },
     "ListIndexRequest": {
       "properties": {
@@ -1760,7 +1909,8 @@
       "required": [
         "IndexReference"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListIndexRequest"
     },
     "ListIndexResponse": {
       "properties": {
@@ -1773,7 +1923,8 @@
           "description": "The pagination token."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListIndexResponse"
     },
     "ListObjectAttributesRequest": {
       "properties": {
@@ -1797,7 +1948,8 @@
       "required": [
         "ObjectReference"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListObjectAttributesRequest"
     },
     "ListObjectAttributesResponse": {
       "properties": {
@@ -1810,7 +1962,8 @@
           "description": "The pagination token."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListObjectAttributesResponse"
     },
     "ListObjectChildrenRequest": {
       "properties": {
@@ -1830,7 +1983,8 @@
       "required": [
         "ObjectReference"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListObjectChildrenRequest"
     },
     "ListObjectChildrenResponse": {
       "properties": {
@@ -1843,7 +1997,8 @@
           "description": "The pagination token."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListObjectChildrenResponse"
     },
     "ListObjectParentPathsRequest": {
       "properties": {
@@ -1863,7 +2018,8 @@
       "required": [
         "ObjectReference"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListObjectParentPathsRequest"
     },
     "ListObjectParentPathsResponse": {
       "properties": {
@@ -1876,7 +2032,8 @@
           "description": "Returns the path to the <code>ObjectIdentifiers</code> associated with the directory."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListObjectParentPathsResponse"
     },
     "ListObjectParentsRequest": {
       "properties": {
@@ -1896,7 +2053,8 @@
       "required": [
         "ObjectReference"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListObjectParentsRequest"
     },
     "ListObjectParentsResponse": {
       "properties": {
@@ -1909,7 +2067,8 @@
           "description": "Parent structure, which is a map with key as the <code>ObjectIdentifier</code> and LinkName as the value."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListObjectParentsResponse"
     },
     "ListObjectPoliciesRequest": {
       "properties": {
@@ -1929,7 +2088,8 @@
       "required": [
         "ObjectReference"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListObjectPoliciesRequest"
     },
     "ListObjectPoliciesResponse": {
       "properties": {
@@ -1942,7 +2102,8 @@
           "description": "The pagination token."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListObjectPoliciesResponse"
     },
     "ListPolicyAttachmentsRequest": {
       "properties": {
@@ -1962,7 +2123,8 @@
       "required": [
         "PolicyReference"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListPolicyAttachmentsRequest"
     },
     "ListPolicyAttachmentsResponse": {
       "properties": {
@@ -1975,7 +2137,8 @@
           "description": "List of <code>ObjectIdentifiers</code> to which the policy is attached."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListPolicyAttachmentsResponse"
     },
     "ListPublishedSchemaArnsRequest": {
       "properties": {
@@ -1988,7 +2151,8 @@
           "description": "The pagination token."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListPublishedSchemaArnsRequest"
     },
     "ListPublishedSchemaArnsResponse": {
       "properties": {
@@ -2001,7 +2165,8 @@
           "description": "The ARNs of published schemas."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListPublishedSchemaArnsResponse"
     },
     "ListTagsForResourceRequest": {
       "properties": {
@@ -2021,7 +2186,8 @@
       "required": [
         "ResourceArn"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ListTagsForResourceRequest"
     },
     "ListTagsForResourceResponse": {
       "properties": {
@@ -2034,7 +2200,8 @@
           "description": "List of tag key value pairs associated with the response."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListTagsForResourceResponse"
     },
     "LookupPolicyRequest": {
       "properties": {
@@ -2054,7 +2221,8 @@
       "required": [
         "ObjectReference"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "LookupPolicyRequest"
     },
     "LookupPolicyResponse": {
       "properties": {
@@ -2067,10 +2235,12 @@
           "description": "Provides list of path to policies. Policies contain <code>PolicyId</code>, <code>ObjectIdentifier</code>, and <code>PolicyType</code>."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LookupPolicyResponse"
     },
     "NextToken": {
-      "type": "string"
+      "type": "string",
+      "title": "NextToken"
     },
     "NotIndexException": {
       "description": "Indicates the requested operation can only operate on index objects.",
@@ -2079,7 +2249,8 @@
           "$ref": "#/definitions/ExceptionMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "NotIndexException"
     },
     "NotNodeException": {
       "description": "Occurs when any invalid operations are performed on an object which is not a node, such as calling <code>ListObjectChildren</code> for a leaf node object.",
@@ -2088,7 +2259,8 @@
           "$ref": "#/definitions/ExceptionMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "NotNodeException"
     },
     "NotPolicyException": {
       "description": "Indicates the requested operation can only operate on policy objects.",
@@ -2097,14 +2269,17 @@
           "$ref": "#/definitions/ExceptionMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "NotPolicyException"
     },
     "NumberAttributeValue": {
-      "type": "string"
+      "type": "string",
+      "title": "NumberAttributeValue"
     },
     "NumberResults": {
       "minimum": 1,
-      "type": "integer"
+      "type": "integer",
+      "title": "NumberResults"
     },
     "ObjectAlreadyDetachedException": {
       "description": "Indicates the object is not attached to the index.",
@@ -2113,7 +2288,8 @@
           "$ref": "#/definitions/ExceptionMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ObjectAlreadyDetachedException"
     },
     "ObjectAttributeAction": {
       "description": "The action to take on the object attribute.",
@@ -2127,7 +2303,8 @@
           "description": "The value that you want to update to."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ObjectAttributeAction"
     },
     "ObjectAttributeRange": {
       "description": "A range of attributes.",
@@ -2141,13 +2318,15 @@
           "description": "The range of attribute values being selected."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ObjectAttributeRange"
     },
     "ObjectAttributeRangeList": {
       "items": {
         "$ref": "#/definitions/ObjectAttributeRange"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ObjectAttributeRangeList"
     },
     "ObjectAttributeUpdate": {
       "description": "Structure that contains attribute update information.",
@@ -2161,22 +2340,26 @@
           "description": "The key of the attribute being updated."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ObjectAttributeUpdate"
     },
     "ObjectAttributeUpdateList": {
       "items": {
         "$ref": "#/definitions/ObjectAttributeUpdate"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ObjectAttributeUpdateList"
     },
     "ObjectIdentifier": {
-      "type": "string"
+      "type": "string",
+      "title": "ObjectIdentifier"
     },
     "ObjectIdentifierList": {
       "items": {
         "$ref": "#/definitions/ObjectIdentifier"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ObjectIdentifierList"
     },
     "ObjectIdentifierToLinkNameMap": {
       "items": {
@@ -2190,7 +2373,8 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ObjectIdentifierToLinkNameMap"
     },
     "ObjectNotDetachedException": {
       "description": "Indicates the requested operation cannot be completed because the object has not been detached from the tree.",
@@ -2199,7 +2383,8 @@
           "$ref": "#/definitions/ExceptionMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ObjectNotDetachedException"
     },
     "ObjectReference": {
       "description": "Reference that identifies an object.",
@@ -2209,7 +2394,8 @@
           "description": "<p>Allows you to specify an object. You can identify an object in one of the following ways:</p> <ul> <li> <p> <i>$ObjectIdentifier</i> - Identifies the object by <code>ObjectIdentifier</code> </p> </li> <li> <p> <i>/some/path</i> - Identifies the object based on path</p> </li> <li> <p> <i>#SomeBatchReference</i> - Identifies the object in a batch call</p> </li> </ul>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ObjectReference"
     },
     "ObjectType": {
       "enum": [
@@ -2218,10 +2404,12 @@
         "POLICY",
         "INDEX"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "ObjectType"
     },
     "PathString": {
-      "type": "string"
+      "type": "string",
+      "title": "PathString"
     },
     "PathToObjectIdentifiers": {
       "description": "Returns the path to the <code>ObjectIdentifiers</code> associated with the directory.",
@@ -2235,13 +2423,15 @@
           "description": "The path used to identify the object starting from directory root."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PathToObjectIdentifiers"
     },
     "PathToObjectIdentifiersList": {
       "items": {
         "$ref": "#/definitions/PathToObjectIdentifiers"
       },
-      "type": "array"
+      "type": "array",
+      "title": "PathToObjectIdentifiersList"
     },
     "PolicyAttachment": {
       "description": "Contains the <code>PolicyType</code>, <code>PolicyId</code>, and the <code>ObjectIdentifier</code> to which it is attached.",
@@ -2259,13 +2449,15 @@
           "description": "The type of policy that can be associated with <code>PolicyAttachment</code>."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PolicyAttachment"
     },
     "PolicyAttachmentList": {
       "items": {
         "$ref": "#/definitions/PolicyAttachment"
       },
-      "type": "array"
+      "type": "array",
+      "title": "PolicyAttachmentList"
     },
     "PolicyToPath": {
       "description": "Used when a regular object exists in a <a>Directory</a> and you want to find all of the policies associated with that object and the parent to that object.",
@@ -2279,16 +2471,19 @@
           "description": "List of policy objects."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PolicyToPath"
     },
     "PolicyToPathList": {
       "items": {
         "$ref": "#/definitions/PolicyToPath"
       },
-      "type": "array"
+      "type": "array",
+      "title": "PolicyToPathList"
     },
     "PolicyType": {
-      "type": "string"
+      "type": "string",
+      "title": "PolicyType"
     },
     "PublishSchemaRequest": {
       "properties": {
@@ -2304,7 +2499,8 @@
       "required": [
         "Version"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "PublishSchemaRequest"
     },
     "PublishSchemaResponse": {
       "properties": {
@@ -2313,7 +2509,8 @@
           "description": "ARN associated with the published schema. For more information, see <a>arns</a>."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PublishSchemaResponse"
     },
     "PutSchemaFromJsonRequest": {
       "properties": {
@@ -2325,7 +2522,8 @@
       "required": [
         "Document"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "PutSchemaFromJsonRequest"
     },
     "PutSchemaFromJsonResponse": {
       "properties": {
@@ -2334,7 +2532,8 @@
           "description": "The ARN of the schema to update."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PutSchemaFromJsonResponse"
     },
     "RangeMode": {
       "enum": [
@@ -2344,7 +2543,8 @@
         "INCLUSIVE",
         "EXCLUSIVE"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "RangeMode"
     },
     "RemoveFacetFromObjectRequest": {
       "properties": {
@@ -2361,18 +2561,21 @@
         "SchemaFacet",
         "ObjectReference"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "RemoveFacetFromObjectRequest"
     },
     "RemoveFacetFromObjectResponse": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "RemoveFacetFromObjectResponse"
     },
     "RequiredAttributeBehavior": {
       "enum": [
         "REQUIRED_ALWAYS",
         "NOT_REQUIRED"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "RequiredAttributeBehavior"
     },
     "ResourceNotFoundException": {
       "description": "The specified resource could not be found.",
@@ -2381,7 +2584,8 @@
           "$ref": "#/definitions/ExceptionMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ResourceNotFoundException"
     },
     "RetryableConflictException": {
       "description": "Occurs when a conflict with a previous successful write is detected. For example, if a write operation occurs on an object and then an attempt is made to read the object using “SERIALIZABLE” consistency, this exception may result. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.",
@@ -2390,7 +2594,8 @@
           "$ref": "#/definitions/ExceptionMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RetryableConflictException"
     },
     "Rule": {
       "description": "Contains an ARN and parameters associated with the rule.",
@@ -2404,13 +2609,15 @@
           "description": "The type of attribute validation rule."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Rule"
     },
     "RuleKey": {
       "maxLength": 64,
       "minLength": 1,
       "pattern": "^[a-zA-Z0-9._-]*$",
-      "type": "string"
+      "type": "string",
+      "title": "RuleKey"
     },
     "RuleMap": {
       "items": {
@@ -2424,10 +2631,12 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "RuleMap"
     },
     "RuleParameterKey": {
-      "type": "string"
+      "type": "string",
+      "title": "RuleParameterKey"
     },
     "RuleParameterMap": {
       "items": {
@@ -2441,10 +2650,12 @@
         },
         "type": "object"
       },
-      "type": "array"
+      "type": "array",
+      "title": "RuleParameterMap"
     },
     "RuleParameterValue": {
-      "type": "string"
+      "type": "string",
+      "title": "RuleParameterValue"
     },
     "RuleType": {
       "enum": [
@@ -2453,7 +2664,8 @@
         "STRING_FROM_SET",
         "STRING_LENGTH"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "RuleType"
     },
     "SchemaAlreadyExistsException": {
       "description": "Indicates that a schema could not be created due to a naming conflict. Please select a different name and then try again.",
@@ -2462,7 +2674,8 @@
           "$ref": "#/definitions/ExceptionMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SchemaAlreadyExistsException"
     },
     "SchemaAlreadyPublishedException": {
       "description": "Indicates a schema is already published.",
@@ -2471,7 +2684,8 @@
           "$ref": "#/definitions/ExceptionMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SchemaAlreadyPublishedException"
     },
     "SchemaFacet": {
       "description": "A facet.",
@@ -2485,25 +2699,30 @@
           "description": "The ARN of the schema that contains the facet."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SchemaFacet"
     },
     "SchemaFacetList": {
       "items": {
         "$ref": "#/definitions/SchemaFacet"
       },
-      "type": "array"
+      "type": "array",
+      "title": "SchemaFacetList"
     },
     "SchemaJsonDocument": {
-      "type": "string"
+      "type": "string",
+      "title": "SchemaJsonDocument"
     },
     "SchemaName": {
       "maxLength": 32,
       "minLength": 1,
       "pattern": "^[a-zA-Z0-9._-]*$",
-      "type": "string"
+      "type": "string",
+      "title": "SchemaName"
     },
     "SelectorObjectReference": {
-      "type": "string"
+      "type": "string",
+      "title": "SelectorObjectReference"
     },
     "StillContainsLinksException": {
       "description": "The object could not be deleted because links still exist. Remove the links and then try the operation again.",
@@ -2512,10 +2731,12 @@
           "$ref": "#/definitions/ExceptionMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "StillContainsLinksException"
     },
     "StringAttributeValue": {
-      "type": "string"
+      "type": "string",
+      "title": "StringAttributeValue"
     },
     "Tag": {
       "description": "Tag structure which contains tag key and value.",
@@ -2529,22 +2750,26 @@
           "description": "Value associated with the tag."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Tag"
     },
     "TagKey": {
-      "type": "string"
+      "type": "string",
+      "title": "TagKey"
     },
     "TagKeyList": {
       "items": {
         "$ref": "#/definitions/TagKey"
       },
-      "type": "array"
+      "type": "array",
+      "title": "TagKeyList"
     },
     "TagList": {
       "items": {
         "$ref": "#/definitions/Tag"
       },
-      "type": "array"
+      "type": "array",
+      "title": "TagList"
     },
     "TagResourceRequest": {
       "properties": {
@@ -2561,18 +2786,22 @@
         "ResourceArn",
         "Tags"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "TagResourceRequest"
     },
     "TagResourceResponse": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "TagResourceResponse"
     },
     "TagValue": {
-      "type": "string"
+      "type": "string",
+      "title": "TagValue"
     },
     "TagsNumberResults": {
       "minimum": 50,
-      "type": "integer"
+      "type": "integer",
+      "title": "TagsNumberResults"
     },
     "TypedAttributeValue": {
       "description": "Represents the data for a typed attribute. You can set one, and only one, of the elements. Each attribute in an item is a name-value pair. Attributes have a single value.",
@@ -2598,7 +2827,8 @@
           "description": "A string data value."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TypedAttributeValue"
     },
     "TypedAttributeValueRange": {
       "description": "A range of attribute values.",
@@ -2624,7 +2854,8 @@
         "StartMode",
         "EndMode"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "TypedAttributeValueRange"
     },
     "UnsupportedIndexTypeException": {
       "description": "Indicates the requested index type is not supported.",
@@ -2633,7 +2864,8 @@
           "$ref": "#/definitions/ExceptionMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UnsupportedIndexTypeException"
     },
     "UntagResourceRequest": {
       "properties": {
@@ -2650,18 +2882,21 @@
         "ResourceArn",
         "TagKeys"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UntagResourceRequest"
     },
     "UntagResourceResponse": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "UntagResourceResponse"
     },
     "UpdateActionType": {
       "enum": [
         "CREATE_OR_UPDATE",
         "DELETE"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "UpdateActionType"
     },
     "UpdateFacetRequest": {
       "properties": {
@@ -2681,11 +2916,13 @@
       "required": [
         "Name"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateFacetRequest"
     },
     "UpdateFacetResponse": {
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "UpdateFacetResponse"
     },
     "UpdateObjectAttributesRequest": {
       "properties": {
@@ -2702,7 +2939,8 @@
         "ObjectReference",
         "AttributeUpdates"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateObjectAttributesRequest"
     },
     "UpdateObjectAttributesResponse": {
       "properties": {
@@ -2711,7 +2949,8 @@
           "description": " <code>ObjectIdentifier</code> of the updated object."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UpdateObjectAttributesResponse"
     },
     "UpdateSchemaRequest": {
       "properties": {
@@ -2723,7 +2962,8 @@
       "required": [
         "Name"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateSchemaRequest"
     },
     "UpdateSchemaResponse": {
       "properties": {
@@ -2732,7 +2972,8 @@
           "description": "ARN associated with the updated schema. For more information, see <a>arns</a>."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UpdateSchemaResponse"
     },
     "ValidationException": {
       "description": "Indicates your request is malformed in some manner. See the exception message.",
@@ -2741,13 +2982,15 @@
           "$ref": "#/definitions/ExceptionMessage"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ValidationException"
     },
     "Version": {
       "maxLength": 10,
       "minLength": 1,
       "pattern": "^[a-zA-Z0-9._-]*$",
-      "type": "string"
+      "type": "string",
+      "title": "Version"
     }
   },
   "actions": [

@@ -30,7 +30,8 @@
         "id": {
           "type": "integer"
         }
-      }
+      },
+      "title": "AttributeAlias"
     },
     "Calendar": {
       "properties": {
@@ -45,7 +46,8 @@
         "name": {
           "type": "string"
         }
-      }
+      },
+      "title": "Calendar"
     },
     "CalendarPermission": {
       "properties": {
@@ -55,7 +57,8 @@
         "userId": {
           "type": "integer"
         }
-      }
+      },
+      "title": "CalendarPermission"
     },
     "Command": {
       "properties": {
@@ -66,14 +69,16 @@
         "type": {
           "type": "string"
         }
-      }
+      },
+      "title": "Command"
     },
     "CommandType": {
       "properties": {
         "type": {
           "type": "string"
         }
-      }
+      },
+      "title": "CommandType"
     },
     "Device": {
       "properties": {
@@ -119,7 +124,8 @@
         "uniqueId": {
           "type": "string"
         }
-      }
+      },
+      "title": "Device"
     },
     "DeviceGeofence": {
       "properties": {
@@ -129,7 +135,8 @@
         "geofenceId": {
           "type": "integer"
         }
-      }
+      },
+      "title": "DeviceGeofence"
     },
     "DevicePermission": {
       "properties": {
@@ -139,7 +146,8 @@
         "userId": {
           "type": "integer"
         }
-      }
+      },
+      "title": "DevicePermission"
     },
     "DeviceTotalDistance": {
       "properties": {
@@ -150,7 +158,8 @@
           "description": "in meters",
           "type": "number"
         }
-      }
+      },
+      "title": "DeviceTotalDistance"
     },
     "Event": {
       "properties": {
@@ -175,7 +184,8 @@
         "type": {
           "type": "string"
         }
-      }
+      },
+      "title": "Event"
     },
     "Geofence": {
       "properties": {
@@ -195,7 +205,8 @@
         "name": {
           "type": "string"
         }
-      }
+      },
+      "title": "Geofence"
     },
     "GeofencePermission": {
       "properties": {
@@ -205,7 +216,8 @@
         "userId": {
           "type": "integer"
         }
-      }
+      },
+      "title": "GeofencePermission"
     },
     "Group": {
       "properties": {
@@ -219,7 +231,8 @@
         "name": {
           "type": "string"
         }
-      }
+      },
+      "title": "Group"
     },
     "GroupGeofence": {
       "properties": {
@@ -229,7 +242,8 @@
         "groupId": {
           "type": "integer"
         }
-      }
+      },
+      "title": "GroupGeofence"
     },
     "GroupPermission": {
       "properties": {
@@ -239,7 +253,8 @@
         "userId": {
           "type": "integer"
         }
-      }
+      },
+      "title": "GroupPermission"
     },
     "Notification": {
       "properties": {
@@ -259,7 +274,8 @@
         "web": {
           "type": "boolean"
         }
-      }
+      },
+      "title": "Notification"
     },
     "Position": {
       "properties": {
@@ -319,7 +335,8 @@
         "valid": {
           "type": "boolean"
         }
-      }
+      },
+      "title": "Position"
     },
     "ReportSummary": {
       "properties": {
@@ -344,7 +361,8 @@
           "description": "in knots",
           "type": "number"
         }
-      }
+      },
+      "title": "ReportSummary"
     },
     "ReportTrips": {
       "properties": {
@@ -397,7 +415,8 @@
           "format": "date-time",
           "type": "string"
         }
-      }
+      },
+      "title": "ReportTrips"
     },
     "Server": {
       "properties": {
@@ -447,7 +466,8 @@
         "zoom": {
           "type": "integer"
         }
-      }
+      },
+      "title": "Server"
     },
     "Statistics": {
       "properties": {
@@ -471,7 +491,8 @@
         "requests": {
           "type": "integer"
         }
-      }
+      },
+      "title": "Statistics"
     },
     "User": {
       "properties": {
@@ -538,7 +559,8 @@
         "zoom": {
           "type": "integer"
         }
-      }
+      },
+      "title": "User"
     },
     "UserPermission": {
       "properties": {
@@ -548,7 +570,8 @@
         "userId": {
           "type": "integer"
         }
-      }
+      },
+      "title": "UserPermission"
     }
   },
   "actions": [

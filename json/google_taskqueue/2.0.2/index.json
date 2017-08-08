@@ -69,7 +69,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Task"
     },
     "TaskQueue": {
       "properties": {
@@ -141,7 +142,8 @@
           "type": "object"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TaskQueue"
     },
     "Tasks": {
       "properties": {
@@ -158,7 +160,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Tasks"
     },
     "Tasks2": {
       "properties": {
@@ -175,7 +178,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Tasks2"
     }
   },
   "actions": [

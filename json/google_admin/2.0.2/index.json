@@ -54,7 +54,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Activities"
     },
     "Activity": {
       "description": "JSON template for the activity resource.",
@@ -181,7 +182,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Activity"
     },
     "Channel": {
       "description": "An notification channel used to watch for resource changes.",
@@ -233,7 +235,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Channel"
     },
     "UsageReport": {
       "description": "JSON template for a usage report.",
@@ -325,7 +328,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UsageReport"
     },
     "UsageReports": {
       "description": "JSON template for a collection of usage reports.",
@@ -385,7 +389,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UsageReports"
     }
   },
   "actions": [

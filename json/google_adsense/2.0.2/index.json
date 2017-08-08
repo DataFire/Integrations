@@ -65,7 +65,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Account"
     },
     "Accounts": {
       "properties": {
@@ -90,7 +91,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Accounts"
     },
     "AdClient": {
       "properties": {
@@ -116,7 +118,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AdClient"
     },
     "AdClients": {
       "properties": {
@@ -141,7 +144,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AdClients"
     },
     "AdCode": {
       "properties": {
@@ -155,7 +159,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AdCode"
     },
     "AdStyle": {
       "properties": {
@@ -209,7 +214,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AdStyle"
     },
     "AdUnit": {
       "properties": {
@@ -321,7 +327,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AdUnit"
     },
     "AdUnits": {
       "properties": {
@@ -346,7 +353,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AdUnits"
     },
     "AdsenseReportsGenerateResponse": {
       "properties": {
@@ -421,7 +429,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AdsenseReportsGenerateResponse"
     },
     "Alert": {
       "properties": {
@@ -451,7 +460,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Alert"
     },
     "Alerts": {
       "properties": {
@@ -468,7 +478,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Alerts"
     },
     "CustomChannel": {
       "properties": {
@@ -512,7 +523,8 @@
           "type": "object"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CustomChannel"
     },
     "CustomChannels": {
       "properties": {
@@ -537,7 +549,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CustomChannels"
     },
     "Metadata": {
       "properties": {
@@ -553,7 +566,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Metadata"
     },
     "Payment": {
       "properties": {
@@ -579,7 +593,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Payment"
     },
     "Payments": {
       "properties": {
@@ -596,7 +611,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Payments"
     },
     "ReportingMetadataEntry": {
       "properties": {
@@ -645,7 +661,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ReportingMetadataEntry"
     },
     "SavedAdStyle": {
       "properties": {
@@ -667,7 +684,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SavedAdStyle"
     },
     "SavedAdStyles": {
       "properties": {
@@ -692,7 +710,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SavedAdStyles"
     },
     "SavedReport": {
       "properties": {
@@ -710,7 +729,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SavedReport"
     },
     "SavedReports": {
       "properties": {
@@ -735,7 +755,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SavedReports"
     },
     "UrlChannel": {
       "properties": {
@@ -753,7 +774,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UrlChannel"
     },
     "UrlChannels": {
       "properties": {
@@ -778,7 +800,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UrlChannels"
     }
   },
   "actions": [

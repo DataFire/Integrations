@@ -27,31 +27,37 @@
       "required": [
         "message"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AlreadyStreamedException"
     },
     "ApplicationArn": {
       "pattern": "arn:aws:sns:[-0-9a-z]+:\\d+:app/[A-Z_]+/[a-zA-Z0-9_.-]+",
-      "type": "string"
+      "type": "string",
+      "title": "ApplicationArn"
     },
     "ApplicationArnList": {
       "items": {
         "$ref": "#/definitions/ApplicationArn"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ApplicationArnList"
     },
     "AssumeRoleArn": {
       "maxLength": 2048,
       "minLength": 20,
       "pattern": "arn:aws:iam::\\d+:role/.*",
-      "type": "string"
+      "type": "string",
+      "title": "AssumeRoleArn"
     },
     "Boolean": {
-      "type": "boolean"
+      "type": "boolean",
+      "title": "Boolean"
     },
     "BulkPublishRequest": {
       "description": "The input for the BulkPublish operation.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "BulkPublishRequest"
     },
     "BulkPublishResponse": {
       "description": "The output for the BulkPublish operation.",
@@ -61,7 +67,8 @@
           "description": "A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "BulkPublishResponse"
     },
     "BulkPublishStatus": {
       "enum": [
@@ -70,13 +77,16 @@
         "FAILED",
         "SUCCEEDED"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "BulkPublishStatus"
     },
     "ClientContext": {
-      "type": "string"
+      "type": "string",
+      "title": "ClientContext"
     },
     "CognitoEventType": {
-      "type": "string"
+      "type": "string",
+      "title": "CognitoEventType"
     },
     "CognitoStreams": {
       "description": "Configuration options for configure Cognito streams.",
@@ -94,7 +104,8 @@
           "description": "Status of the Cognito streams. Valid values are: <p>ENABLED - Streaming of updates to identity pool is enabled.</p> <p>DISABLED - Streaming of updates to identity pool is disabled. Bulk publish will also fail if StreamingStatus is DISABLED.</p>"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "CognitoStreams"
     },
     "ConcurrentModificationException": {
       "description": "Thrown if there are parallel requests to modify a resource.",
@@ -107,7 +118,8 @@
       "required": [
         "message"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ConcurrentModificationException"
     },
     "Dataset": {
       "description": "A collection of data for an identity pool. An identity pool can have multiple datasets. A dataset is per identity and can be general or associated with a particular entity in an application (like a saved game). Datasets are automatically created if they don't exist. Data is synced by dataset, and a dataset can hold up to 1MB of key-value pairs.",
@@ -141,28 +153,33 @@
           "description": "Number of records in this dataset."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Dataset"
     },
     "DatasetList": {
       "items": {
         "$ref": "#/definitions/Dataset"
       },
-      "type": "array"
+      "type": "array",
+      "title": "DatasetList"
     },
     "DatasetName": {
       "maxLength": 128,
       "minLength": 1,
       "pattern": "[a-zA-Z0-9_.:-]+",
-      "type": "string"
+      "type": "string",
+      "title": "DatasetName"
     },
     "Date": {
       "format": "date-time",
-      "type": "string"
+      "type": "string",
+      "title": "Date"
     },
     "DeleteDatasetRequest": {
       "description": "A request to delete the specific dataset.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DeleteDatasetRequest"
     },
     "DeleteDatasetResponse": {
       "description": "Response to a successful DeleteDataset request.",
@@ -172,12 +189,14 @@
           "description": "A collection of data for an identity pool. An identity pool can have multiple datasets. A dataset is per identity and can be general or associated with a particular entity in an application (like a saved game). Datasets are automatically created if they don't exist. Data is synced by dataset, and a dataset can hold up to 1MB of key-value pairs."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DeleteDatasetResponse"
     },
     "DescribeDatasetRequest": {
       "description": "A request for meta data about a dataset (creation date, number of records, size) by owner and dataset name.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DescribeDatasetRequest"
     },
     "DescribeDatasetResponse": {
       "description": "Response to a successful DescribeDataset request.",
@@ -187,12 +206,14 @@
           "description": "Meta data for a collection of data for an identity. An identity can have multiple datasets. A dataset can be general or associated with a particular entity in an application (like a saved game). Datasets are automatically created if they don't exist. Data is synced by dataset, and a dataset can hold up to 1MB of key-value pairs."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeDatasetResponse"
     },
     "DescribeIdentityPoolUsageRequest": {
       "description": "A request for usage information about the identity pool.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DescribeIdentityPoolUsageRequest"
     },
     "DescribeIdentityPoolUsageResponse": {
       "description": "Response to a successful DescribeIdentityPoolUsage request.",
@@ -202,12 +223,14 @@
           "description": "Information about the usage of the identity pool."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeIdentityPoolUsageResponse"
     },
     "DescribeIdentityUsageRequest": {
       "description": "A request for information about the usage of an identity pool.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "DescribeIdentityUsageRequest"
     },
     "DescribeIdentityUsageResponse": {
       "description": "The response to a successful DescribeIdentityUsage request.",
@@ -217,12 +240,14 @@
           "description": "Usage information for the identity."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DescribeIdentityUsageResponse"
     },
     "DeviceId": {
       "maxLength": 256,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "DeviceId"
     },
     "DuplicateRequestException": {
       "description": "An exception thrown when there is an IN_PROGRESS bulk publish operation for the given identity pool.",
@@ -235,7 +260,8 @@
       "required": [
         "message"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DuplicateRequestException"
     },
     "Events": {
       "items": {
@@ -250,15 +276,18 @@
         "type": "object"
       },
       "maxItems": 1,
-      "type": "array"
+      "type": "array",
+      "title": "Events"
     },
     "ExceptionMessage": {
-      "type": "string"
+      "type": "string",
+      "title": "ExceptionMessage"
     },
     "GetBulkPublishDetailsRequest": {
       "description": "The input for the GetBulkPublishDetails operation.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "GetBulkPublishDetailsRequest"
     },
     "GetBulkPublishDetailsResponse": {
       "description": "The output for the GetBulkPublishDetails operation.",
@@ -284,12 +313,14 @@
           "description": "A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetBulkPublishDetailsResponse"
     },
     "GetCognitoEventsRequest": {
       "description": "A request for a list of the configured Cognito Events",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "GetCognitoEventsRequest"
     },
     "GetCognitoEventsResponse": {
       "description": "The response from the GetCognitoEvents request",
@@ -299,12 +330,14 @@
           "description": "The Cognito Events returned from the GetCognitoEvents request"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetCognitoEventsResponse"
     },
     "GetIdentityPoolConfigurationRequest": {
       "description": "The input for the GetIdentityPoolConfiguration operation.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "GetIdentityPoolConfigurationRequest"
     },
     "GetIdentityPoolConfigurationResponse": {
       "description": "The output for the GetIdentityPoolConfiguration operation.",
@@ -322,19 +355,22 @@
           "description": "Options to apply to this identity pool for push synchronization."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "GetIdentityPoolConfigurationResponse"
     },
     "IdentityId": {
       "maxLength": 55,
       "minLength": 1,
       "pattern": "[\\w-]+:[0-9a-f-]+",
-      "type": "string"
+      "type": "string",
+      "title": "IdentityId"
     },
     "IdentityPoolId": {
       "maxLength": 55,
       "minLength": 1,
       "pattern": "[\\w-]+:[0-9a-f-]+",
-      "type": "string"
+      "type": "string",
+      "title": "IdentityPoolId"
     },
     "IdentityPoolUsage": {
       "description": "Usage information for the identity pool.",
@@ -356,13 +392,15 @@
           "description": "Number of sync sessions for the identity pool."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "IdentityPoolUsage"
     },
     "IdentityPoolUsageList": {
       "items": {
         "$ref": "#/definitions/IdentityPoolUsage"
       },
-      "type": "array"
+      "type": "array",
+      "title": "IdentityPoolUsageList"
     },
     "IdentityUsage": {
       "description": "Usage information for the identity.",
@@ -388,13 +426,16 @@
           "description": "Date on which the identity was last modified."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "IdentityUsage"
     },
     "Integer": {
-      "type": "integer"
+      "type": "integer",
+      "title": "Integer"
     },
     "IntegerString": {
-      "type": "integer"
+      "type": "integer",
+      "title": "IntegerString"
     },
     "InternalErrorException": {
       "description": "Indicates an internal service error.",
@@ -407,7 +448,8 @@
       "required": [
         "message"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "InternalErrorException"
     },
     "InvalidConfigurationException": {
       "properties": {
@@ -419,7 +461,8 @@
       "required": [
         "message"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "InvalidConfigurationException"
     },
     "InvalidLambdaFunctionOutputException": {
       "description": "The AWS Lambda function returned invalid output or an exception.",
@@ -432,7 +475,8 @@
       "required": [
         "message"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "InvalidLambdaFunctionOutputException"
     },
     "InvalidParameterException": {
       "description": "Thrown when a request parameter does not comply with the associated constraints.",
@@ -445,10 +489,12 @@
       "required": [
         "message"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "InvalidParameterException"
     },
     "LambdaFunctionArn": {
-      "type": "string"
+      "type": "string",
+      "title": "LambdaFunctionArn"
     },
     "LambdaThrottledException": {
       "description": "AWS Lambda throttled your account, please contact AWS Support",
@@ -461,7 +507,8 @@
       "required": [
         "message"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "LambdaThrottledException"
     },
     "LimitExceededException": {
       "description": "Thrown when the limit on the number of objects or operations has been exceeded.",
@@ -474,12 +521,14 @@
       "required": [
         "message"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "LimitExceededException"
     },
     "ListDatasetsRequest": {
       "description": "Request for a list of datasets for an identity.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "ListDatasetsRequest"
     },
     "ListDatasetsResponse": {
       "description": "Returned for a successful ListDatasets request.",
@@ -497,12 +546,14 @@
           "description": "A pagination token for obtaining the next page of results."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListDatasetsResponse"
     },
     "ListIdentityPoolUsageRequest": {
       "description": "A request for usage information on an identity pool.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "ListIdentityPoolUsageRequest"
     },
     "ListIdentityPoolUsageResponse": {
       "description": "Returned for a successful ListIdentityPoolUsage request.",
@@ -524,12 +575,14 @@
           "description": "A pagination token for obtaining the next page of results."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListIdentityPoolUsageResponse"
     },
     "ListRecordsRequest": {
       "description": "A request for a list of records.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "ListRecordsRequest"
     },
     "ListRecordsResponse": {
       "description": "Returned for a successful ListRecordsRequest.",
@@ -571,16 +624,19 @@
           "description": "A token containing a session ID, identity ID, and expiration."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ListRecordsResponse"
     },
     "Long": {
-      "type": "integer"
+      "type": "integer",
+      "title": "Long"
     },
     "MergedDatasetNameList": {
       "items": {
         "$ref": "#/definitions/String"
       },
-      "type": "array"
+      "type": "array",
+      "title": "MergedDatasetNameList"
     },
     "NotAuthorizedException": {
       "description": "Thrown when a user is not authorized to access the requested resource.",
@@ -593,14 +649,16 @@
       "required": [
         "message"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "NotAuthorizedException"
     },
     "Operation": {
       "enum": [
         "replace",
         "remove"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "Operation"
     },
     "Platform": {
       "enum": [
@@ -609,7 +667,8 @@
         "GCM",
         "ADM"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "Platform"
     },
     "PushSync": {
       "description": "Configuration options to be applied to the identity pool.",
@@ -623,10 +682,12 @@
           "description": "A role configured to allow Cognito to call SNS on behalf of the developer."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PushSync"
     },
     "PushToken": {
-      "type": "string"
+      "type": "string",
+      "title": "PushToken"
     },
     "Record": {
       "description": "The basic data structure of a dataset.",
@@ -656,18 +717,21 @@
           "description": "The value for the record."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Record"
     },
     "RecordKey": {
       "maxLength": 1024,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "RecordKey"
     },
     "RecordList": {
       "items": {
         "$ref": "#/definitions/Record"
       },
-      "type": "array"
+      "type": "array",
+      "title": "RecordList"
     },
     "RecordPatch": {
       "description": "An update operation for a record.",
@@ -698,17 +762,20 @@
         "Key",
         "SyncCount"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "RecordPatch"
     },
     "RecordPatchList": {
       "items": {
         "$ref": "#/definitions/RecordPatch"
       },
-      "type": "array"
+      "type": "array",
+      "title": "RecordPatchList"
     },
     "RecordValue": {
       "maxLength": 1048575,
-      "type": "string"
+      "type": "string",
+      "title": "RecordValue"
     },
     "RegisterDeviceRequest": {
       "description": "A request to RegisterDevice.",
@@ -726,7 +793,8 @@
         "Platform",
         "Token"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "RegisterDeviceRequest"
     },
     "RegisterDeviceResponse": {
       "description": "Response to a RegisterDevice request.",
@@ -736,7 +804,8 @@
           "description": "The unique ID generated for this device by Cognito."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "RegisterDeviceResponse"
     },
     "ResourceConflictException": {
       "description": "Thrown if an update can't be applied because the resource was changed by another call and this would result in a conflict.",
@@ -749,7 +818,8 @@
       "required": [
         "message"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ResourceConflictException"
     },
     "ResourceNotFoundException": {
       "description": "Thrown if the resource doesn't exist.",
@@ -762,7 +832,8 @@
       "required": [
         "message"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ResourceNotFoundException"
     },
     "SetCognitoEventsRequest": {
       "description": "<p>A request to configure Cognito Events\"</p>\"",
@@ -775,7 +846,8 @@
       "required": [
         "Events"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "SetCognitoEventsRequest"
     },
     "SetIdentityPoolConfigurationRequest": {
       "description": "The input for the SetIdentityPoolConfiguration operation.",
@@ -789,7 +861,8 @@
           "description": "Options to apply to this identity pool for push synchronization."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SetIdentityPoolConfigurationRequest"
     },
     "SetIdentityPoolConfigurationResponse": {
       "description": "The output for the SetIdentityPoolConfiguration operation",
@@ -807,35 +880,42 @@
           "description": "Options to apply to this identity pool for push synchronization."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SetIdentityPoolConfigurationResponse"
     },
     "StreamName": {
       "maxLength": 128,
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "StreamName"
     },
     "StreamingStatus": {
       "enum": [
         "ENABLED",
         "DISABLED"
       ],
-      "type": "string"
+      "type": "string",
+      "title": "StreamingStatus"
     },
     "String": {
-      "type": "string"
+      "type": "string",
+      "title": "String"
     },
     "SubscribeToDatasetRequest": {
       "description": "A request to SubscribeToDatasetRequest.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "SubscribeToDatasetRequest"
     },
     "SubscribeToDatasetResponse": {
       "description": "Response to a SubscribeToDataset request.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "SubscribeToDatasetResponse"
     },
     "SyncSessionToken": {
-      "type": "string"
+      "type": "string",
+      "title": "SyncSessionToken"
     },
     "TooManyRequestsException": {
       "description": "Thrown if the request is throttled.",
@@ -848,17 +928,20 @@
       "required": [
         "message"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "TooManyRequestsException"
     },
     "UnsubscribeFromDatasetRequest": {
       "description": "A request to UnsubscribeFromDataset.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "UnsubscribeFromDatasetRequest"
     },
     "UnsubscribeFromDatasetResponse": {
       "description": "Response to an UnsubscribeFromDataset request.",
       "properties": {},
-      "type": "object"
+      "type": "object",
+      "title": "UnsubscribeFromDatasetResponse"
     },
     "UpdateRecordsRequest": {
       "description": "A request to post updates to records or add and delete records for a dataset and user.",
@@ -879,7 +962,8 @@
       "required": [
         "SyncSessionToken"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UpdateRecordsRequest"
     },
     "UpdateRecordsResponse": {
       "description": "Returned for a successful UpdateRecordsRequest.",
@@ -889,7 +973,8 @@
           "description": "A list of records that have been updated."
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UpdateRecordsResponse"
     }
   },
   "actions": [

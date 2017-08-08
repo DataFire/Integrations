@@ -36,7 +36,8 @@
         "code",
         "title",
         "category_type"
-      ]
+      ],
+      "title": "Category"
     },
     "CategoryResults": {
       "properties": {
@@ -60,7 +61,8 @@
         "metadata",
         "inputs",
         "result"
-      ]
+      ],
+      "title": "CategoryResults"
     },
     "FullCategory": {
       "properties": {
@@ -90,10 +92,12 @@
         "title",
         "category_type",
         "sort_order"
-      ]
+      ],
+      "title": "FullCategory"
     },
     "Inputs": {
-      "description": "The parameters that were passed to the API"
+      "description": "The parameters that were passed to the API",
+      "title": "Inputs"
     },
     "Law": {
       "description": "This is a Law",
@@ -215,7 +219,8 @@
         "types",
         "references",
         "topics"
-      ]
+      ],
+      "title": "Law"
     },
     "LawReference": {
       "description": "The URL associated with any bill or legislative reference included in the description.",
@@ -232,7 +237,8 @@
       "required": [
         "description",
         "url"
-      ]
+      ],
+      "title": "LawReference"
     },
     "LawResult": {
       "properties": {
@@ -253,7 +259,8 @@
         "metadata",
         "inputs",
         "result"
-      ]
+      ],
+      "title": "LawResult"
     },
     "LawTopics": {
       "description": "For local incentive/regulation descriptions, the category that the incentive/regulation falls under, described below: Infrastructure Requirements, Vehicle Purchase and Infrastructure Development Incentives, Fuel Use Incentives, Parking Incentives, Technical Assistance, Vehicle Acquisition Requirements, Promotion Initiatives, Idle Reduction Requirements, Renewable Fuels Mandates and Standards",
@@ -275,7 +282,8 @@
         "id",
         "title",
         "sort_order"
-      ]
+      ],
+      "title": "LawTopics"
     },
     "LawType": {
       "description": "The category that the incentive/law/regulation falls under, described below: -State Incentives, -Laws and Regulations, -Utility/Private Incentives",
@@ -297,7 +305,8 @@
         "id",
         "title",
         "code"
-      ]
+      ],
+      "title": "LawType"
     },
     "LawsResponse": {
       "properties": {
@@ -321,7 +330,8 @@
         "metadata",
         "inputs",
         "result"
-      ]
+      ],
+      "title": "LawsResponse"
     },
     "Metadata": {
       "description": "The identifying metadata.",
@@ -337,7 +347,8 @@
       },
       "required": [
         "version"
-      ]
+      ],
+      "title": "Metadata"
     },
     "Poc": {
       "properties": {
@@ -377,7 +388,8 @@
       "required": [
         "name",
         "state"
-      ]
+      ],
+      "title": "Poc"
     },
     "PocResults": {
       "properties": {
@@ -401,7 +413,8 @@
         "metadata",
         "inputs",
         "result"
-      ]
+      ],
+      "title": "PocResults"
     }
   },
   "actions": [

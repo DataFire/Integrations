@@ -23,11 +23,13 @@
       "minLength": 22,
       "pattern": "^[A-Za-z0-9-_]{22}$",
       "readOnly": true,
-      "type": "string"
+      "type": "string",
+      "title": "AccountId"
     },
     "AccountLogin": {
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "AccountLogin"
     },
     "ActionArgs": {
       "example": [
@@ -38,18 +40,21 @@
       "items": {
         "$ref": "#/definitions/AnyJSON"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ActionArgs"
     },
     "ActionMultiResult": {
       "items": {
         "$ref": "#/definitions/ActionResult"
       },
-      "type": "array"
+      "type": "array",
+      "title": "ActionMultiResult"
     },
     "ActionName": {
       "minLength": 1,
       "readOnly": true,
-      "type": "string"
+      "type": "string",
+      "title": "ActionName"
     },
     "ActionResult": {
       "example": {
@@ -84,20 +89,24 @@
           "href": "/functionalities/{functionality}",
           "rel": "functionality"
         }
-      ]
+      ],
+      "title": "ActionResult"
     },
     "AnyJSON": {
       "description": "null/boolean/integer/number/string/object/array",
-      "x-type": "any"
+      "x-type": "any",
+      "title": "AnyJSON"
     },
     "AppId": {
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "AppId"
     },
     "AttributeName": {
       "minLength": 1,
       "readOnly": true,
-      "type": "string"
+      "type": "string",
+      "title": "AttributeName"
     },
     "AttributeValue": {
       "example": {
@@ -117,7 +126,8 @@
         "when",
         "value"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AttributeValue"
     },
     "AttributesValues": {
       "additionalProperties": {
@@ -166,7 +176,8 @@
           }
         ]
       },
-      "type": "object"
+      "type": "object",
+      "title": "AttributesValues"
     },
     "AuthChangePassword": {
       "properties": {
@@ -181,7 +192,8 @@
         "oldPassword",
         "newPassword"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AuthChangePassword"
     },
     "AuthLogin": {
       "properties": {
@@ -207,7 +219,8 @@
         "password",
         "appId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AuthLogin"
     },
     "AuthRefresh": {
       "properties": {
@@ -223,7 +236,8 @@
         "refreshToken",
         "appId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AuthRefresh"
     },
     "AuthResetPassword": {
       "properties": {
@@ -241,7 +255,8 @@
       "required": [
         "appId"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AuthResetPassword"
     },
     "AuthTokens": {
       "properties": {
@@ -268,11 +283,13 @@
         "accessTokenExpires",
         "refreshTokenExpires"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "AuthTokens"
     },
     "BusId": {
       "minLength": 3,
-      "type": "string"
+      "type": "string",
+      "title": "BusId"
     },
     "BusItem": {
       "properties": {
@@ -292,7 +309,8 @@
         "functionality",
         "protocol"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "BusItem"
     },
     "BusPairing": {
       "properties": {
@@ -307,11 +325,13 @@
       "required": [
         "enabled"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "BusPairing"
     },
     "BusProtocol": {
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "BusProtocol"
     },
     "CountryCode": {
       "description": "Country code (ISO 3166-1 alpha-2)",
@@ -319,7 +339,8 @@
       "maxLength": 2,
       "minLength": 2,
       "pattern": "^[A-Z][A-Z]$",
-      "type": "string"
+      "type": "string",
+      "title": "CountryCode"
     },
     "DefaultError": {
       "description": "Any error.",
@@ -335,7 +356,8 @@
         "code",
         "message"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "DefaultError"
     },
     "Device": {
       "properties": {
@@ -400,20 +422,23 @@
           "href": "/places/{place}",
           "rel": "place"
         }
-      ]
+      ],
+      "title": "Device"
     },
     "DeviceAddress": {
       "minLength": 1,
       "pattern": "^[A-Z0-9]{1,32}$",
       "readOnly": true,
-      "type": "string"
+      "type": "string",
+      "title": "DeviceAddress"
     },
     "DeviceClass": {
       "maxLength": 4,
       "minLength": 4,
       "pattern": "^[A-Z][A-Z0-9]{3}$",
       "readOnly": true,
-      "type": "string"
+      "type": "string",
+      "title": "DeviceClass"
     },
     "DeviceId": {
       "description": "Unique identifier of the *Device*",
@@ -422,7 +447,8 @@
       "minLength": 22,
       "pattern": "^[A-Za-z0-9-_]{22}$",
       "readOnly": true,
-      "type": "string"
+      "type": "string",
+      "title": "DeviceId"
     },
     "DeviceItem": {
       "properties": {
@@ -476,7 +502,8 @@
           "href": "/places/{place}",
           "rel": "place"
         }
-      ]
+      ],
+      "title": "DeviceItem"
     },
     "DevicePatch": {
       "properties": {
@@ -485,13 +512,15 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "DevicePatch"
     },
     "DeviceTag": {
       "maxLength": 21,
       "minLength": 1,
       "pattern": "^[a-z](?=.{0,20}$)(?:[a-z0-9_]{0,4}:[a-z0-9_])?[a-z0-9_]{0,20}$",
-      "type": "string"
+      "type": "string",
+      "title": "DeviceTag"
     },
     "ElectricityAutonomy": {
       "example": {
@@ -528,21 +557,24 @@
       "required": [
         "code"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ElectricityAutonomy"
     },
     "ElectricityFlow": {
       "items": {
         "$ref": "#/definitions/ElectricityFunctionality"
       },
       "type": "array",
-      "uniqueItems": true
+      "uniqueItems": true,
+      "title": "ElectricityFlow"
     },
     "ElectricityFlowFormula": {
       "items": {
         "$ref": "#/definitions/ElectricityFlowFunctionality"
       },
       "type": "array",
-      "uniqueItems": true
+      "uniqueItems": true,
+      "title": "ElectricityFlowFormula"
     },
     "ElectricityFlowFunctionality": {
       "example": {
@@ -577,7 +609,8 @@
           "href": "/functionalities/{id}",
           "rel": "full"
         }
-      ]
+      ],
+      "title": "ElectricityFlowFunctionality"
     },
     "ElectricityFlowName": {
       "description": "Name of an electricity flow",
@@ -595,7 +628,8 @@
         "elec_usage"
       ],
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "ElectricityFlowName"
     },
     "ElectricityFlows": {
       "example": {
@@ -647,7 +681,8 @@
       "required": [
         "code"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ElectricityFlows"
     },
     "ElectricityFlowsSetup": {
       "example": {
@@ -705,7 +740,8 @@
           "$ref": "#/definitions/ElectricityFlow"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ElectricityFlowsSetup"
     },
     "ElectricityFunctionality": {
       "example": {
@@ -730,7 +766,8 @@
           "href": "/functionalities/{id}",
           "rel": "full"
         }
-      ]
+      ],
+      "title": "ElectricityFunctionality"
     },
     "ElectricityMissingFlows": {
       "description": "List of missing flows (not available either directly or indirectly)",
@@ -802,7 +839,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ElectricityMissingFlows"
     },
     "ElectricitySelfConsumption": {
       "example": {
@@ -839,7 +877,8 @@
       "required": [
         "code"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ElectricitySelfConsumption"
     },
     "ElectricityStatusCode": {
       "description": "Status code. 200000 means OK. Other codes indicate full or partial failure.",
@@ -849,12 +888,14 @@
         200002
       ],
       "example": 200000,
-      "type": "integer"
+      "type": "integer",
+      "title": "ElectricityStatusCode"
     },
     "ElectricityStatusMessage": {
       "description": "Message for cases where computation is not possible (codes 200001, 200002)",
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "ElectricityStatusMessage"
     },
     "ElectricityVirtualFlows": {
       "properties": {
@@ -892,7 +933,8 @@
           "$ref": "#/definitions/ElectricityFlowFormula"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ElectricityVirtualFlows"
     },
     "ErrorEntity": {
       "description": "An error related to access to an entity (400, 403, 404, 410)",
@@ -912,7 +954,8 @@
         "message",
         "resource"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ErrorEntity"
     },
     "ErrorGatewayUnreachable": {
       "description": "The gateway of the Place is not reachable.",
@@ -931,7 +974,8 @@
         "code",
         "message"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ErrorGatewayUnreachable"
     },
     "ErrorSubEntity": {
       "description": "An error related to access to an sub-entity (400, 403, 404, 410)",
@@ -995,7 +1039,8 @@
         "message",
         "resource"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ErrorSubEntity"
     },
     "Functionality": {
       "properties": {
@@ -1051,13 +1096,15 @@
           "href": "/devices/{id}",
           "rel": "device"
         }
-      ]
+      ],
+      "title": "Functionality"
     },
     "FunctionalityClass": {
       "minLength": 2,
       "pattern": "^[A-Z][A-Za-z0-9]+$",
       "readOnly": true,
-      "type": "string"
+      "type": "string",
+      "title": "FunctionalityClass"
     },
     "FunctionalityCreated": {
       "description": "A resource has been created. The `resource` property gives its reference.",
@@ -1093,13 +1140,15 @@
         "message",
         "resource"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "FunctionalityCreated"
     },
     "FunctionalityEndpoint": {
       "maximum": 255,
       "minimum": 0,
       "readOnly": true,
-      "type": "integer"
+      "type": "integer",
+      "title": "FunctionalityEndpoint"
     },
     "FunctionalityId": {
       "description": "Unique identifier of the *Functionality*",
@@ -1108,7 +1157,8 @@
       "minLength": 22,
       "pattern": "^[A-Za-z0-9-_]{22}$",
       "readOnly": true,
-      "type": "string"
+      "type": "string",
+      "title": "FunctionalityId"
     },
     "FunctionalityItem": {
       "properties": {
@@ -1155,11 +1205,13 @@
           "href": "/devices/{device}",
           "rel": "device"
         }
-      ]
+      ],
+      "title": "FunctionalityItem"
     },
     "FunctionalityName": {
       "description": "Free functionality name",
-      "type": "string"
+      "type": "string",
+      "title": "FunctionalityName"
     },
     "FunctionalityNew": {
       "properties": {
@@ -1187,7 +1239,8 @@
         "class",
         "endpoint"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "FunctionalityNew"
     },
     "FunctionalityPatch": {
       "properties": {
@@ -1195,7 +1248,8 @@
           "$ref": "#/definitions/FunctionalityName"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "FunctionalityPatch"
     },
     "FunctionalityResource": {
       "example": {
@@ -1223,33 +1277,38 @@
         "entity",
         "href"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "FunctionalityResource"
     },
     "FunctionalityTag": {
       "maxLength": 21,
       "minLength": 1,
       "pattern": "^[a-z](?=.{0,20}$)(?:[a-z0-9_]{0,4}:[a-z0-9_])?[a-z0-9_]{0,20}$",
-      "type": "string"
+      "type": "string",
+      "title": "FunctionalityTag"
     },
     "Locale": {
       "description": "Locale identifier (language, region). See https://tools.ietf.org/html/rfc5646 and https://www.iana.org/assignments/lang-subtags-templates/lang-subtags-templates.xhtml .\n",
       "example": "fr-FR",
       "minLength": 2,
       "pattern": "^[a-z]{2}[A-Za-z0-9-]*$",
-      "type": "string"
+      "type": "string",
+      "title": "Locale"
     },
     "Metadata": {
       "additionalProperties": {
         "$ref": "#/definitions/AnyJSON"
       },
       "description": "Keys are limited to the same format as tags (up to 21 characters, [a-z0-9], starting with [a-z]). Values can be any JSON value.",
-      "type": "object"
+      "type": "object",
+      "title": "Metadata"
     },
     "MetadataKey": {
       "maxLength": 21,
       "minLength": 1,
       "pattern": "^[a-z](?=.{0,20}$)(?:[a-z0-9_]{0,4}:[a-z0-9_])?[a-z0-9_]{0,20}$",
-      "type": "string"
+      "type": "string",
+      "title": "MetadataKey"
     },
     "MetadataPatch": {
       "properties": {
@@ -1269,14 +1328,16 @@
           "uniqueItems": true
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "MetadataPatch"
     },
     "MetadataSelected": {
       "additionalProperties": {
         "$ref": "#/definitions/AnyJSON"
       },
       "description": "Subset of metadata attached to the resource selected using the 'embed-metadata' parameter",
-      "type": "object"
+      "type": "object",
+      "title": "MetadataSelected"
     },
     "Notification": {
       "properties": {
@@ -1308,7 +1369,8 @@
           "href": "/places/{place}",
           "rel": "place"
         }
-      ]
+      ],
+      "title": "Notification"
     },
     "NotificationCreated": {
       "description": "A resource has been created. The `resource` property gives its reference.",
@@ -1344,7 +1406,8 @@
         "message",
         "resource"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "NotificationCreated"
     },
     "NotificationId": {
       "description": "Unique identifier of the *Notification*",
@@ -1353,7 +1416,8 @@
       "minLength": 22,
       "pattern": "^[A-Za-z0-9-_]{22}$",
       "readOnly": true,
-      "type": "string"
+      "type": "string",
+      "title": "NotificationId"
     },
     "NotificationItem": {
       "description": "Notification",
@@ -1379,7 +1443,8 @@
           "href": "/notifications/{id}",
           "rel": "full"
         }
-      ]
+      ],
+      "title": "NotificationItem"
     },
     "NotificationNew": {
       "properties": {
@@ -1401,7 +1466,8 @@
       "required": [
         "name"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "NotificationNew"
     },
     "NotificationPatch": {
       "properties": {
@@ -1417,7 +1483,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "NotificationPatch"
     },
     "NotificationResource": {
       "example": {
@@ -1445,19 +1512,22 @@
         "entity",
         "href"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "NotificationResource"
     },
     "Password": {
       "format": "password",
       "minLength": 5,
-      "type": "string"
+      "type": "string",
+      "title": "Password"
     },
     "PhoneNumber": {
       "description": "Phone number of the *User* in international format, for SMS notifications.",
       "example": "+33177494646",
       "minLength": 6,
       "pattern": "^\\+[0-9]{5,}$",
-      "type": "string"
+      "type": "string",
+      "title": "PhoneNumber"
     },
     "Place": {
       "properties": {
@@ -1488,7 +1558,8 @@
         "country",
         "timeZone"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "Place"
     },
     "PlaceCreated": {
       "description": "A resource has been created. The `resource` property gives its reference.",
@@ -1524,7 +1595,8 @@
         "message",
         "resource"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "PlaceCreated"
     },
     "PlaceId": {
       "description": "Unique identifier of the *Place*",
@@ -1533,7 +1605,8 @@
       "minLength": 22,
       "pattern": "^[A-Za-z0-9-_]{22}$",
       "readOnly": true,
-      "type": "string"
+      "type": "string",
+      "title": "PlaceId"
     },
     "PlaceItem": {
       "properties": {
@@ -1557,7 +1630,8 @@
         {
           "href": "/places/{id}"
         }
-      ]
+      ],
+      "title": "PlaceItem"
     },
     "PlaceNew": {
       "properties": {
@@ -1585,7 +1659,8 @@
         "country",
         "timeZone"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "PlaceNew"
     },
     "PlacePatch": {
       "properties": {
@@ -1604,7 +1679,8 @@
           "$ref": "#/definitions/ZipCode"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "PlacePatch"
     },
     "PlaceResource": {
       "example": {
@@ -1632,7 +1708,8 @@
         "entity",
         "href"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "PlaceResource"
     },
     "Program": {
       "properties": {
@@ -1664,7 +1741,8 @@
           "href": "/places/{place}",
           "rel": "place"
         }
-      ]
+      ],
+      "title": "Program"
     },
     "ProgramCreated": {
       "description": "A resource has been created. The `resource` property gives its reference.",
@@ -1700,7 +1778,8 @@
         "message",
         "resource"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ProgramCreated"
     },
     "ProgramId": {
       "description": "Unique identifier of the *Program*",
@@ -1709,7 +1788,8 @@
       "minLength": 22,
       "pattern": "^[A-Za-z0-9-_]{22}$",
       "readOnly": true,
-      "type": "string"
+      "type": "string",
+      "title": "ProgramId"
     },
     "ProgramItem": {
       "properties": {
@@ -1738,7 +1818,8 @@
           "href": "/programs/{id}",
           "rel": "full"
         }
-      ]
+      ],
+      "title": "ProgramItem"
     },
     "ProgramLog": {
       "properties": {
@@ -1769,7 +1850,8 @@
       "required": [
         "when"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ProgramLog"
     },
     "ProgramNew": {
       "example": {
@@ -1797,7 +1879,8 @@
         "name",
         "code"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ProgramNew"
     },
     "ProgramPatch": {
       "properties": {
@@ -1812,7 +1895,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ProgramPatch"
     },
     "ProgramResource": {
       "example": {
@@ -1840,7 +1924,8 @@
         "entity",
         "href"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ProgramResource"
     },
     "ResourceRef": {
       "properties": {
@@ -1871,20 +1956,23 @@
         "entity",
         "href"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "ResourceRef"
     },
     "Tag": {
       "maxLength": 21,
       "minLength": 1,
       "pattern": "^[a-z](?=.{0,20}$)(?:[a-z0-9_]{0,4}:[a-z0-9_])?[a-z0-9_]{0,20}$",
-      "type": "string"
+      "type": "string",
+      "title": "Tag"
     },
     "Tags": {
       "items": {
         "$ref": "#/definitions/Tag"
       },
       "type": "array",
-      "uniqueItems": true
+      "uniqueItems": true,
+      "title": "Tags"
     },
     "TagsPatch": {
       "properties": {
@@ -1905,19 +1993,22 @@
           "uniqueItems": true
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TagsPatch"
     },
     "TimeZone": {
       "description": "A time zone name from the Time Zone Database at https://www.iana.org/time-zones",
       "example": "Europe/Paris",
       "minLength": 2,
       "pattern": "^[A-Z][A-Za-z0-9-_+]+(?:/[A-Z][A-Za-z0-9-_+]+)*$",
-      "type": "string"
+      "type": "string",
+      "title": "TimeZone"
     },
     "TokenId": {
       "example": "dfSDdRcsd",
       "minLength": 1,
-      "type": "string"
+      "type": "string",
+      "title": "TokenId"
     },
     "User": {
       "properties": {
@@ -1954,7 +2045,8 @@
         "locale",
         "canLogin"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "User"
     },
     "UserCreated": {
       "description": "A resource has been created. The `resource` property gives its reference.",
@@ -1990,12 +2082,14 @@
         "message",
         "resource"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UserCreated"
     },
     "UserEmail": {
       "format": "email",
       "minLength": 6,
-      "type": "string"
+      "type": "string",
+      "title": "UserEmail"
     },
     "UserId": {
       "description": "Unique identifier of the *User*",
@@ -2004,7 +2098,8 @@
       "minLength": 22,
       "pattern": "^[A-Za-z0-9-_]{22}$",
       "readOnly": true,
-      "type": "string"
+      "type": "string",
+      "title": "UserId"
     },
     "UserItem": {
       "properties": {
@@ -2047,7 +2142,8 @@
           "href": "/users/{id}",
           "rel": "full"
         }
-      ]
+      ],
+      "title": "UserItem"
     },
     "UserMe": {
       "properties": {
@@ -2086,7 +2182,8 @@
           "href": "/account/users/{id}",
           "rel": "full"
         }
-      ]
+      ],
+      "title": "UserMe"
     },
     "UserMePatch": {
       "properties": {
@@ -2094,7 +2191,8 @@
           "$ref": "#/definitions/Locale"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UserMePatch"
     },
     "UserNew": {
       "properties": {
@@ -2120,7 +2218,8 @@
         "name",
         "locale"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UserNew"
     },
     "UserPatch": {
       "properties": {
@@ -2138,7 +2237,8 @@
           "$ref": "#/definitions/PhoneNumber"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UserPatch"
     },
     "UserResource": {
       "example": {
@@ -2166,7 +2266,8 @@
         "entity",
         "href"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UserResource"
     },
     "UserTokenItem": {
       "description": "Token for User API access",
@@ -2210,14 +2311,16 @@
         "appName",
         "user"
       ],
-      "type": "object"
+      "type": "object",
+      "title": "UserTokenItem"
     },
     "ZipCode": {
       "description": "Postal code",
       "maxLength": 10,
       "minLength": 0,
       "pattern": "^(?:[A-Z0-9](?:[A-Z0-9][- ]?)*[A-Z0-9])?$",
-      "type": "string"
+      "type": "string",
+      "title": "ZipCode"
     }
   },
   "actions": [

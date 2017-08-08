@@ -55,7 +55,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Account"
     },
     "Attachment": {
       "description": "Represents media content, such as a photo, that can be attached to a timeline item.",
@@ -77,7 +78,8 @@
           "type": "boolean"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Attachment"
     },
     "AttachmentsListResponse": {
       "description": "A list of Attachments. This is the response from the server to GET requests on the attachments collection.",
@@ -95,7 +97,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AttachmentsListResponse"
     },
     "AuthToken": {
       "properties": {
@@ -106,7 +109,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "AuthToken"
     },
     "Command": {
       "description": "A single menu command that is part of a Contact.",
@@ -116,7 +120,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Command"
     },
     "Contact": {
       "description": "A person or group that can be used as a creator or a contact.",
@@ -184,7 +189,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Contact"
     },
     "ContactsListResponse": {
       "description": "A list of Contacts representing contacts. This is the response from the server to GET requests on the contacts collection.",
@@ -202,7 +208,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "ContactsListResponse"
     },
     "Location": {
       "description": "A geographic location that can be associated with a timeline item.",
@@ -245,7 +252,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Location"
     },
     "LocationsListResponse": {
       "description": "A list of Locations. This is the response from the server to GET requests on the locations collection.",
@@ -263,7 +271,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "LocationsListResponse"
     },
     "MenuItem": {
       "description": "A custom menu item that can be presented to the user by a timeline item.",
@@ -296,7 +305,8 @@
           "type": "array"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "MenuItem"
     },
     "MenuValue": {
       "description": "A single value that is part of a MenuItem.",
@@ -314,7 +324,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "MenuValue"
     },
     "Notification": {
       "description": "A notification delivered by the API.",
@@ -347,7 +358,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Notification"
     },
     "NotificationConfig": {
       "description": "Controls how notifications for a timeline item are presented to the user.",
@@ -362,7 +374,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "NotificationConfig"
     },
     "Setting": {
       "description": "A setting for Glass.",
@@ -381,7 +394,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Setting"
     },
     "Subscription": {
       "description": "A subscription to events on a collection.",
@@ -428,7 +442,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "Subscription"
     },
     "SubscriptionsListResponse": {
       "description": "A list of Subscriptions. This is the response from the server to GET requests on the subscription collection.",
@@ -446,7 +461,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "SubscriptionsListResponse"
     },
     "TimelineItem": {
       "description": "Each item in the user's timeline is represented as a TimelineItem JSON structure, described below.",
@@ -570,7 +586,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TimelineItem"
     },
     "TimelineListResponse": {
       "description": "A list of timeline items. This is the response from the server to GET requests on the timeline collection.",
@@ -592,7 +609,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "TimelineListResponse"
     },
     "UserAction": {
       "description": "Represents an action taken by the user that triggered a notification.",
@@ -606,7 +624,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UserAction"
     },
     "UserData": {
       "properties": {
@@ -617,7 +636,8 @@
           "type": "string"
         }
       },
-      "type": "object"
+      "type": "object",
+      "title": "UserData"
     }
   },
   "actions": [
