@@ -41,6 +41,7 @@
           "200": {
             "description": "successful operation",
             "schema": {
+              "title": "StoryIDs",
               "type": "array",
               "items": {
                 "type": "integer"

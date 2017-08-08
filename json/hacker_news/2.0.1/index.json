@@ -117,6 +117,7 @@
         "additionalProperties": false
       },
       "outputSchema": {
+        "title": "StoryIDs",
         "type": "array",
         "items": {
           "type": "integer"
