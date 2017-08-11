@@ -4345,7 +4345,7 @@
       }
     },
     "logo": {
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/bitbucket.svg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/bitbucket.png"
     },
     "actionCount": 183,
     "tags": [
@@ -5709,7 +5709,6 @@
       }
     },
     "logo": {
-      "backgroundColor": "#FFFFFF",
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/gitlab.png"
     },
     "actionCount": 358,
@@ -10396,7 +10395,7 @@
     "description": "Magento Commerce is the leading provider of open omnichannel innovation.",
     "security": {},
     "logo": {
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/magento.svg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/magento.png"
     },
     "actionCount": 355,
     "tags": [
@@ -12169,7 +12168,7 @@
     "description": "Magento Commerce is the leading provider of open omnichannel innovation.",
     "security": {},
     "logo": {
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/t213_vg.svg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/t213_vg.png"
     },
     "actionCount": 355,
     "tags": [
@@ -12291,7 +12290,7 @@
       }
     },
     "logo": {
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/trello.svg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/trello.png"
     },
     "actionCount": 324,
     "tags": [
@@ -12341,7 +12340,7 @@
       }
     },
     "logo": {
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/twilio.svg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/twilio.ico"
     },
     "actionCount": 116,
     "tags": [
