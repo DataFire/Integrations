@@ -12742,7 +12742,7 @@
     "latestVersion": "1.0.1"
   },
   "http": {
-    "id": "",
+    "id": "http",
     "title": "HTTP",
     "description": "Make HTTP calls",
     "security": {},

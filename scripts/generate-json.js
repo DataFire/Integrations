@@ -68,6 +68,7 @@ iterateIntegs((dir, name, integ) => {
     }
     if (list[name] && !args.name) throw new Error("Duplicate name " + name);
     let listDetails = list[name] = Object.assign({}, integ.getDetails(), info);
+    listDetails.id = name;
     if (name.indexOf('google_') === 0) listDetails.tags.push('google');
     if (name.indexOf('amazonaws_') === 0) listDetails.tags.push('aws');
     if (name.indexOf('azure_') === 0) listDetails.tags.push('azure');
