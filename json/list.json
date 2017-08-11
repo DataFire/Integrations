@@ -80,8 +80,7 @@
       }
     },
     "logo": {
-      "backgroundColor": "#FFFFFF",
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_apigateway.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_apigateway.svg"
     },
     "actionCount": 47,
     "tags": [
@@ -126,8 +125,7 @@
       }
     },
     "logo": {
-      "backgroundColor": "#FFFFFF",
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_athena.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_athena.svg"
     },
     "actionCount": 11,
     "tags": [
@@ -149,8 +147,7 @@
       }
     },
     "logo": {
-      "backgroundColor": "#FFFFFF",
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_autoscaling.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_autoscaling.svg"
     },
     "actionCount": 7,
     "tags": [
@@ -172,8 +169,7 @@
       }
     },
     "logo": {
-      "backgroundColor": "#FFFFFF",
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_batch.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_batch.svg"
     },
     "actionCount": 16,
     "tags": [
@@ -241,8 +237,7 @@
       }
     },
     "logo": {
-      "backgroundColor": "#FFFFFF",
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_cloudformation.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_cloudformation.svg"
     },
     "actionCount": 26,
     "tags": [
@@ -264,8 +259,7 @@
       }
     },
     "logo": {
-      "backgroundColor": "#FFFFFF",
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_cloudfront.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_cloudfront.svg"
     },
     "actionCount": 17,
     "tags": [
@@ -287,8 +281,7 @@
       }
     },
     "logo": {
-      "backgroundColor": "#FFFFFF",
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_cloudhsm.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_cloudhsm.svg"
     },
     "actionCount": 20,
     "tags": [
@@ -310,8 +303,7 @@
       }
     },
     "logo": {
-      "backgroundColor": "#FFFFFF",
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_cloudsearch.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_cloudsearch.svg"
     },
     "actionCount": 24,
     "tags": [
@@ -356,8 +348,7 @@
       }
     },
     "logo": {
-      "backgroundColor": "#FFFFFF",
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_cloudtrail.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_cloudtrail.svg"
     },
     "actionCount": 14,
     "tags": [
@@ -379,8 +370,7 @@
       }
     },
     "logo": {
-      "backgroundColor": "#FFFFFF",
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_codebuild.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_codebuild.svg"
     },
     "actionCount": 11,
     "tags": [
@@ -402,8 +392,7 @@
       }
     },
     "logo": {
-      "backgroundColor": "#FFFFFF",
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_codecommit.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_codecommit.svg"
     },
     "actionCount": 17,
     "tags": [
@@ -425,8 +414,7 @@
       }
     },
     "logo": {
-      "backgroundColor": "#FFFFFF",
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_codedeploy.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_codedeploy.svg"
     },
     "actionCount": 37,
     "tags": [
@@ -448,8 +436,7 @@
       }
     },
     "logo": {
-      "backgroundColor": "#FFFFFF",
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_codepipeline.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_codepipeline.svg"
     },
     "actionCount": 26,
     "tags": [
@@ -563,8 +550,7 @@
       }
     },
     "logo": {
-      "backgroundColor": "#FFFFFF",
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_config.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_config.svg"
     },
     "actionCount": 26,
     "tags": [
@@ -632,8 +618,7 @@
       }
     },
     "logo": {
-      "backgroundColor": "#FFFFFF",
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_datapipeline.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_datapipeline.svg"
     },
     "actionCount": 19,
     "tags": [
@@ -678,8 +663,7 @@
       }
     },
     "logo": {
-      "backgroundColor": "#FFFFFF",
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_devicefarm.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_devicefarm.svg"
     },
     "actionCount": 49,
     "tags": [
@@ -701,8 +685,7 @@
       }
     },
     "logo": {
-      "backgroundColor": "#FFFFFF",
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_directconnect.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_directconnect.svg"
     },
     "actionCount": 37,
     "tags": [
@@ -747,8 +730,7 @@
       }
     },
     "logo": {
-      "backgroundColor": "#FFFFFF",
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_dms.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_dms.svg"
     },
     "actionCount": 33,
     "tags": [
@@ -770,8 +752,7 @@
       }
     },
     "logo": {
-      "backgroundColor": "#FFFFFF",
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_ds.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_ds.svg"
     },
     "actionCount": 38,
     "tags": [
@@ -793,8 +774,7 @@
       }
     },
     "logo": {
-      "backgroundColor": "#FFFFFF",
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_dynamodb.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_dynamodb.svg"
     },
     "actionCount": 19,
     "tags": [
@@ -816,8 +796,7 @@
       }
     },
     "logo": {
-      "backgroundColor": "#FFFFFF",
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_ec2.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_ec2.svg"
     },
     "actionCount": 228,
     "tags": [
@@ -839,8 +818,7 @@
       }
     },
     "logo": {
-      "backgroundColor": "#FFFFFF",
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_ecr.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_ecr.svg"
     },
     "actionCount": 17,
     "tags": [
@@ -862,8 +840,7 @@
       }
     },
     "logo": {
-      "backgroundColor": "#FFFFFF",
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_ecs.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_ecs.svg"
     },
     "actionCount": 31,
     "tags": [
@@ -885,8 +862,7 @@
       }
     },
     "logo": {
-      "backgroundColor": "#FFFFFF",
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_elasticache.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_elasticache.svg"
     },
     "actionCount": 39,
     "tags": [
@@ -908,8 +884,7 @@
       }
     },
     "logo": {
-      "backgroundColor": "#FFFFFF",
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_elasticbeanstalk.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_elasticbeanstalk.svg"
     },
     "actionCount": 41,
     "tags": [
@@ -954,8 +929,7 @@
       }
     },
     "logo": {
-      "backgroundColor": "#FFFFFF",
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_elasticloadbalancing.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_elasticloadbalancing.svg"
     },
     "actionCount": 31,
     "tags": [
@@ -1000,8 +974,7 @@
       }
     },
     "logo": {
-      "backgroundColor": "#FFFFFF",
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_elastictranscoder.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_elastictranscoder.svg"
     },
     "actionCount": 11,
     "tags": [
@@ -1023,8 +996,7 @@
       }
     },
     "logo": {
-      "backgroundColor": "#FFFFFF",
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_email.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_email.svg"
     },
     "actionCount": 49,
     "tags": [
@@ -1115,8 +1087,7 @@
       }
     },
     "logo": {
-      "backgroundColor": "#FFFFFF",
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_firehose.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_firehose.svg"
     },
     "actionCount": 7,
     "tags": [
@@ -1138,8 +1109,7 @@
       }
     },
     "logo": {
-      "backgroundColor": "#FFFFFF",
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_gamelift.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_gamelift.svg"
     },
     "actionCount": 47,
     "tags": [
@@ -1161,8 +1131,7 @@
       }
     },
     "logo": {
-      "backgroundColor": "#FFFFFF",
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_glacier.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_glacier.svg"
     },
     "actionCount": 18,
     "tags": [
@@ -1184,8 +1153,7 @@
       }
     },
     "logo": {
-      "backgroundColor": "#FFFFFF",
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_greengrass.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_greengrass.svg"
     },
     "actionCount": 32,
     "tags": [
@@ -1230,8 +1198,7 @@
       }
     },
     "logo": {
-      "backgroundColor": "#FFFFFF",
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_iam.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_iam.svg"
     },
     "actionCount": 120,
     "tags": [
@@ -1253,8 +1220,7 @@
       }
     },
     "logo": {
-      "backgroundColor": "#FFFFFF",
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_importexport.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_importexport.svg"
     },
     "actionCount": 6,
     "tags": [
@@ -1276,8 +1242,7 @@
       }
     },
     "logo": {
-      "backgroundColor": "#FFFFFF",
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_inspector.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_inspector.svg"
     },
     "actionCount": 32,
     "tags": [
@@ -1299,8 +1264,7 @@
       }
     },
     "logo": {
-      "backgroundColor": "#FFFFFF",
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_iot.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_iot.svg"
     },
     "actionCount": 34,
     "tags": [
@@ -1322,8 +1286,7 @@
       }
     },
     "logo": {
-      "backgroundColor": "#FFFFFF",
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_kinesis.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_kinesis.svg"
     },
     "actionCount": 19,
     "tags": [
@@ -1344,8 +1307,7 @@
       }
     },
     "logo": {
-      "backgroundColor": "#FFFFFF",
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_kinesisanalytics.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_kinesisanalytics.svg"
     },
     "actionCount": 13,
     "tags": [
@@ -1367,8 +1329,7 @@
       }
     },
     "logo": {
-      "backgroundColor": "#FFFFFF",
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_kms.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_kms.svg"
     },
     "actionCount": 35,
     "tags": [
@@ -1390,8 +1351,7 @@
       }
     },
     "logo": {
-      "backgroundColor": "#FFFFFF",
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_lambda.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_lambda.svg"
     },
     "actionCount": 16,
     "tags": [
@@ -1413,8 +1373,7 @@
       }
     },
     "logo": {
-      "backgroundColor": "#FFFFFF",
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_lightsail.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_lightsail.svg"
     },
     "actionCount": 47,
     "tags": [
@@ -1436,8 +1395,7 @@
       }
     },
     "logo": {
-      "backgroundColor": "#FFFFFF",
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_machinelearning.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_machinelearning.svg"
     },
     "actionCount": 28,
     "tags": [
@@ -1505,8 +1463,7 @@
       }
     },
     "logo": {
-      "backgroundColor": "#FFFFFF",
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_mobileanalytics.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_mobileanalytics.svg"
     },
     "actionCount": 1,
     "tags": [
@@ -1551,8 +1508,7 @@
       }
     },
     "logo": {
-      "backgroundColor": "#FFFFFF",
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_monitoring.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_monitoring.svg"
     },
     "actionCount": 11,
     "tags": [
@@ -1597,8 +1553,7 @@
       }
     },
     "logo": {
-      "backgroundColor": "#FFFFFF",
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_opsworks.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_opsworks.svg"
     },
     "actionCount": 70,
     "tags": [
@@ -1643,8 +1598,7 @@
       }
     },
     "logo": {
-      "backgroundColor": "#FFFFFF",
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_organizations.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_organizations.svg"
     },
     "actionCount": 39,
     "tags": [
@@ -1665,8 +1619,7 @@
       }
     },
     "logo": {
-      "backgroundColor": "#FFFFFF",
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_pinpoint.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_pinpoint.svg"
     },
     "actionCount": 18,
     "tags": [
@@ -1688,8 +1641,7 @@
       }
     },
     "logo": {
-      "backgroundColor": "#FFFFFF",
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_polly.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_polly.svg"
     },
     "actionCount": 4,
     "tags": [
@@ -1711,8 +1663,7 @@
       }
     },
     "logo": {
-      "backgroundColor": "#FFFFFF",
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_rds.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_rds.svg"
     },
     "actionCount": 87,
     "tags": [
@@ -1734,8 +1685,7 @@
       }
     },
     "logo": {
-      "backgroundColor": "#FFFFFF",
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_redshift.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_redshift.svg"
     },
     "actionCount": 63,
     "tags": [
@@ -1757,8 +1707,7 @@
       }
     },
     "logo": {
-      "backgroundColor": "#FFFFFF",
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_rekognition.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_rekognition.svg"
     },
     "actionCount": 12,
     "tags": [
@@ -1779,8 +1728,7 @@
       }
     },
     "logo": {
-      "backgroundColor": "#FFFFFF",
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_route53.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_route53.svg"
     },
     "actionCount": 35,
     "tags": [
@@ -1847,8 +1795,7 @@
       }
     },
     "logo": {
-      "backgroundColor": "#FFFFFF",
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_s3.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_s3.svg"
     },
     "actionCount": 66,
     "tags": [
@@ -1893,8 +1840,7 @@
       }
     },
     "logo": {
-      "backgroundColor": "#FFFFFF",
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_servicecatalog.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_servicecatalog.svg"
     },
     "actionCount": 43,
     "tags": [
@@ -1916,8 +1862,7 @@
       }
     },
     "logo": {
-      "backgroundColor": "#FFFFFF",
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_shield.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_shield.svg"
     },
     "actionCount": 9,
     "tags": [
@@ -1939,8 +1884,7 @@
       }
     },
     "logo": {
-      "backgroundColor": "#FFFFFF",
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_sms.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_sms.svg"
     },
     "actionCount": 11,
     "tags": [
@@ -1962,8 +1906,7 @@
       }
     },
     "logo": {
-      "backgroundColor": "#FFFFFF",
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_snowball.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_snowball.svg"
     },
     "actionCount": 17,
     "tags": [
@@ -1985,8 +1928,7 @@
       }
     },
     "logo": {
-      "backgroundColor": "#FFFFFF",
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_sns.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_sns.svg"
     },
     "actionCount": 30,
     "tags": [
@@ -2008,8 +1950,7 @@
       }
     },
     "logo": {
-      "backgroundColor": "#FFFFFF",
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_sqs.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_sqs.svg"
     },
     "actionCount": 17,
     "tags": [
@@ -2077,8 +2018,7 @@
       }
     },
     "logo": {
-      "backgroundColor": "#FFFFFF",
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_storagegateway.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_storagegateway.svg"
     },
     "actionCount": 62,
     "tags": [
@@ -2123,8 +2063,7 @@
       }
     },
     "logo": {
-      "backgroundColor": "#FFFFFF",
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_sts.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_sts.svg"
     },
     "actionCount": 7,
     "tags": [
@@ -2169,8 +2108,7 @@
       }
     },
     "logo": {
-      "backgroundColor": "#FFFFFF",
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_swf.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_swf.svg"
     },
     "actionCount": 31,
     "tags": [
@@ -2215,8 +2153,7 @@
       }
     },
     "logo": {
-      "backgroundColor": "#FFFFFF",
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_waf.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_waf.svg"
     },
     "actionCount": 38,
     "tags": [
@@ -2261,8 +2198,7 @@
       }
     },
     "logo": {
-      "backgroundColor": "#FFFFFF",
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_workdocs.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_workdocs.svg"
     },
     "actionCount": 16,
     "tags": [
@@ -2284,8 +2220,7 @@
       }
     },
     "logo": {
-      "backgroundColor": "#FFFFFF",
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_workspaces.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_workspaces.svg"
     },
     "actionCount": 14,
     "tags": [
@@ -4217,8 +4152,8 @@
   },
   "bbc": {
     "id": "bbc",
-    "title": "Radio & Music Services",
-    "description": "We encapsulate Radio & Music business logic for iPlayer Radio and BBC Music products on all platforms. We add value by r...",
+    "title": "BBC Nitro",
+    "description": "BBC Nitro is the BBC's application programming interface (API) for BBC Programmes Metadata.",
     "security": {
       "bbc": {
         "integration": "bbc",
@@ -4228,7 +4163,6 @@
       }
     },
     "logo": {
-      "backgroundColor": "#FFFFFF",
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/bbc.png"
     },
     "actionCount": 25,
@@ -10086,7 +10020,7 @@
     "title": "hetras Booking API Version 0",
     "security": {},
     "logo": {
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/hetras_certification_booking.gif"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/hetras_certification_booking.png"
     },
     "actionCount": 15,
     "tags": [],
@@ -10097,7 +10031,7 @@
     "title": "hetras Hotel API Version 0",
     "security": {},
     "logo": {
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/hetras_certification_hotel.gif"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/hetras_certification_hotel.png"
     },
     "actionCount": 19,
     "tags": [],

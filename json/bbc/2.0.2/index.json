@@ -1,7 +1,7 @@
 {
   "id": "bbc",
-  "title": "Radio & Music Services",
-  "description": "We encapsulate Radio & Music business logic for iPlayer Radio and BBC Music products on all platforms. We add value by reliably providing the right blend of metadata needed by clients.",
+  "title": "BBC Nitro",
+  "description": "BBC Nitro is the BBC's application programming interface (API) for BBC Programmes Metadata.",
   "security": {
     "bbc": {
       "integration": "bbc",
@@ -11,7 +11,6 @@
     }
   },
   "logo": {
-    "backgroundColor": "#FFFFFF",
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/bbc.png"
   },
   "actionCount": 25,

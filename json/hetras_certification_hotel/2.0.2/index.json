@@ -3,7 +3,7 @@
   "title": "hetras Hotel API Version 0",
   "security": {},
   "logo": {
-    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/hetras_certification_hotel.gif"
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/hetras_certification_hotel.png"
   },
   "actionCount": 19,
   "definitions": {
