@@ -4,7 +4,7 @@
   "description": "Call Twitter APIs.<BR />[Endpoint] https://api.apitore.com/api/23",
   "security": {},
   "logo": {
-    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apitore_twitterapis.jpg"
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apitore_twitterapis.png"
   },
   "actionCount": 3,
   "definitions": {

@@ -4,7 +4,7 @@
   "description": "This API allows programmers to build National Snow and Ice Data Center data and metadata services into their applications.",
   "security": {},
   "logo": {
-    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/nsidc.jpg"
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/nsidc.png"
   },
   "actionCount": 4,
   "actions": [

@@ -4,7 +4,7 @@
   "description": "An API for the distribution and annotation of open data, for small cities and big metropolitan areas.",
   "security": {},
   "logo": {
-    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/waag.svg"
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/waag.png"
   },
   "actionCount": 47,
   "actions": [

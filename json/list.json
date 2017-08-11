@@ -996,7 +996,7 @@
       }
     },
     "logo": {
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_email.svg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_email.png"
     },
     "actionCount": 49,
     "tags": [
@@ -2549,7 +2549,7 @@
     "description": "Call Twitter APIs.[Endpoint] https://api.apitore.com/api/23",
     "security": {},
     "logo": {
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apitore_twitterapis.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apitore_twitterapis.png"
     },
     "actionCount": 3,
     "tags": [],
@@ -4562,7 +4562,7 @@
     "description": "Cambase.io is a project by Evercam.io in order to make it easier for software developers to have a reliable, up to date ...",
     "security": {},
     "logo": {
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/cambase.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/cambase.png"
     },
     "actionCount": 17,
     "tags": [],
@@ -4779,7 +4779,7 @@
       }
     },
     "logo": {
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/clickmeter.svg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/clickmeter.png"
     },
     "actionCount": 108,
     "tags": [
@@ -4807,7 +4807,6 @@
     "description": "Processe arquivos de retorno CNAB",
     "security": {},
     "logo": {
-      "backgroundColor": "#FFFFFF",
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/cnab_online_herokuapp.png"
     },
     "actionCount": 4,
@@ -4919,7 +4918,7 @@
       }
     },
     "logo": {
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/datumbox.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/datumbox.jpg"
     },
     "actionCount": 14,
     "tags": [
@@ -5030,6 +5029,9 @@
     "title": "dweet.io",
     "description": "Dweet.io allows users to share data from mobile, tablets, and pcs, and them to other devices and accounts across social ...",
     "security": {},
+    "logo": {
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/dweet.png"
+    },
     "actionCount": 13,
     "tags": [
       "iot"
@@ -5571,7 +5573,7 @@
       }
     },
     "logo": {
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/geodesystems.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/geodesystems.ico"
     },
     "actionCount": 228,
     "tags": [],
@@ -5630,7 +5632,7 @@
       }
     },
     "logo": {
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/gettyimages.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/gettyimages.png"
     },
     "actionCount": 40,
     "tags": [
@@ -5757,7 +5759,7 @@
       }
     },
     "logo": {
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_adexchangebuyer.svg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_adexchangebuyer.png"
     },
     "actionCount": 40,
     "tags": [
@@ -5828,7 +5830,7 @@
       }
     },
     "logo": {
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_adexchangeseller.svg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_adexchangeseller.png"
     },
     "actionCount": 16,
     "tags": [
@@ -6597,7 +6599,7 @@
       }
     },
     "logo": {
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_clouddebugger.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_clouddebugger.jpg"
     },
     "actionCount": 10,
     "tags": [
@@ -6775,7 +6777,7 @@
       }
     },
     "logo": {
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_cloudresourcemanager.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_cloudresourcemanager.jpg"
     },
     "actionCount": 26,
     "tags": [
@@ -6812,7 +6814,7 @@
       }
     },
     "logo": {
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_cloudtrace.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_cloudtrace.jpg"
     },
     "actionCount": 5,
     "tags": [
@@ -6850,7 +6852,7 @@
       }
     },
     "logo": {
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_clouduseraccounts.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_clouduseraccounts.jpg"
     },
     "actionCount": 25,
     "tags": [
@@ -6997,7 +6999,7 @@
       }
     },
     "logo": {
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_content.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_content.jpg"
     },
     "actionCount": 59,
     "tags": [
@@ -7160,7 +7162,7 @@
       }
     },
     "logo": {
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_deploymentmanager.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_deploymentmanager.jpg"
     },
     "actionCount": 20,
     "tags": [
@@ -7298,7 +7300,7 @@
     "description": "API for viewing and managing your reports in DoubleClick Bid Manager.",
     "security": {},
     "logo": {
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_doubleclickbidmanager.svg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_doubleclickbidmanager.png"
     },
     "actionCount": 9,
     "tags": [
@@ -7333,7 +7335,7 @@
       }
     },
     "logo": {
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_doubleclicksearch.svg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_doubleclicksearch.png"
     },
     "actionCount": 12,
     "tags": [
@@ -7994,7 +7996,7 @@
       }
     },
     "logo": {
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_logging.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_logging.jpg"
     },
     "actionCount": 17,
     "tags": [
@@ -8206,7 +8208,7 @@
     "description": "Searches certified companies and creates contact leads with them, and also audits the usage of clients.",
     "security": {},
     "logo": {
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_partners.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_partners.jpg"
     },
     "actionCount": 18,
     "tags": [
@@ -9364,7 +9366,7 @@
       }
     },
     "logo": {
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_taskqueue.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_taskqueue.jpg"
     },
     "actionCount": 10,
     "tags": [
@@ -9487,7 +9489,7 @@
     "description": "The Google Cloud Translation API lets websites and programs integrate with",
     "security": {},
     "logo": {
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_translate.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_translate.jpg"
     },
     "actionCount": 3,
     "tags": [
@@ -10517,8 +10519,8 @@
     "description": "Turn nothing into something – make a drawing, make a mark.",
     "security": {},
     "logo": {
-      "backgroundColor": "#000000",
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/moonmoonmoonmoon.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/moonmoonmoonmoon.png",
+      "backgroundColor": "#000000"
     },
     "actionCount": 2,
     "tags": [],
@@ -10785,7 +10787,7 @@
     "description": "This API allows programmers to build National Snow and Ice Data Center data and metadata services into their application...",
     "security": {},
     "logo": {
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/nsidc.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/nsidc.png"
     },
     "actionCount": 4,
     "tags": [
@@ -11029,6 +11031,9 @@
     "title": "ODWeather",
     "description": "This is the api to access the ODWeather API information",
     "security": {},
+    "logo": {
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/oceandrivers.png"
+    },
     "actionCount": 8,
     "tags": [
       "open data"
@@ -11120,7 +11125,7 @@
       }
     },
     "logo": {
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/orghunter.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/orghunter.png"
     },
     "actionCount": 6,
     "tags": [],
@@ -11908,7 +11913,7 @@
       }
     },
     "logo": {
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/solarvps.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/solarvps.jpg"
     },
     "actionCount": 20,
     "tags": [],
@@ -11995,7 +12000,7 @@
       }
     },
     "logo": {
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/spotify.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/spotify.jpg"
     },
     "actionCount": 39,
     "tags": [
@@ -12098,7 +12103,7 @@
       }
     },
     "logo": {
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/statsocial.svg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/statsocial.jpg"
     },
     "actionCount": 17,
     "tags": [
@@ -12222,7 +12227,7 @@
     "description": "Icons for Everything",
     "security": {},
     "logo": {
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/thenounproject.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/thenounproject.jpg"
     },
     "actionCount": 13,
     "tags": [],
@@ -12241,7 +12246,7 @@
       }
     },
     "logo": {
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/thetvdb.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/thetvdb.jpg"
     },
     "actionCount": 30,
     "tags": [
@@ -12461,7 +12466,7 @@
     "description": "An API for the distribution and annotation of open data, for small cities and big metropolitan areas.",
     "security": {},
     "logo": {
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/waag.svg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/waag.png"
     },
     "actionCount": 47,
     "tags": [
@@ -12680,7 +12685,7 @@
     "description": "Professional Cloud Trading Platform for Digital Assets",
     "security": {},
     "logo": {
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/yunbi.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/yunbi.ico"
     },
     "actionCount": 23,
     "tags": [

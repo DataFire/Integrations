@@ -3,6 +3,9 @@
   "title": "ODWeather",
   "description": "This is the api to access the ODWeather API information",
   "security": {},
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/oceandrivers.png"
+  },
   "actionCount": 8,
   "actions": [
     {
