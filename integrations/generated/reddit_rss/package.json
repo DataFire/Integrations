@@ -1,6 +1,6 @@
 {
   "name": "@datafire/reddit_rss",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "main": "index.js",
   "description": "DataFire integration for reddit_rss",
   "repository": {

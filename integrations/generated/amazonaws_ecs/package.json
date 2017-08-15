@@ -1,6 +1,6 @@
 {
   "name": "@datafire/amazonaws_ecs",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "main": "index.js",
   "description": "DataFire integration for Amazon EC2 Container Service",
   "repository": {

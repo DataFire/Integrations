@@ -1,6 +1,6 @@
 {
   "name": "@datafire/epa_gov_cwa",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "main": "index.js",
   "description": "DataFire integration for U.S. EPA Enforcement and Compliance History Online (ECHO) - Clean Water Act (CWA) Rest Services",
   "repository": {

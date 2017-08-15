@@ -1,6 +1,6 @@
 {
   "name": "@datafire/ijenko",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "main": "index.js",
   "description": "DataFire integration for IoE² IoT API - to create end-user applications",
   "repository": {

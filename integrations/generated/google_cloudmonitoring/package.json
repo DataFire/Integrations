@@ -1,6 +1,6 @@
 {
   "name": "@datafire/google_cloudmonitoring",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "main": "index.js",
   "description": "DataFire integration for Cloud Monitoring",
   "repository": {

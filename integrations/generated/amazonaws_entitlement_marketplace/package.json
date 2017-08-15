@@ -1,6 +1,6 @@
 {
   "name": "@datafire/amazonaws_entitlement_marketplace",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "main": "index.js",
   "description": "DataFire integration for AWS Marketplace Entitlement Service",
   "repository": {

@@ -1,6 +1,6 @@
 {
   "name": "@datafire/synq_fm",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "main": "index.js",
   "description": "DataFire integration for SYNQ Video",
   "repository": {

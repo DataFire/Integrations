@@ -1,6 +1,6 @@
 {
   "name": "@datafire/gov_bc_ca_geomark",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "main": "index.js",
   "description": "DataFire integration for GeoMark Web Service",
   "repository": {
