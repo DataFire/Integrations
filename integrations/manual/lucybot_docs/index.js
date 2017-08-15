@@ -1,3 +1,5 @@
+'use strict';
+
 let datafire = require('datafire');
 let nodepath = require('path');
 let fileserver = require('@datafire/fileserver').actions;
