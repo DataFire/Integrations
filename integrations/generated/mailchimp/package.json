@@ -1,6 +1,6 @@
 {
   "name": "@datafire/mailchimp",
-  "version": "2.0.2",
+  "version": "3.0.0",
   "main": "index.js",
   "description": "DataFire integration for MailChimp",
   "repository": {

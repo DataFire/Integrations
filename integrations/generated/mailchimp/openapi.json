@@ -42,7 +42,7 @@
             "description": "Successful Response"
           }
         },
-        "operationId": "_method_templates.get"
+        "operationId": "templates"
       },
       "parameters": [
         {
@@ -51,21 +51,6 @@
           "in": "path",
           "required": true,
           "name": "dc"
-        },
-        {
-          "description": "a valid api key for your user account.",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "apikey"
-        },
-        {
-          "description": "is the method name from our api you are calling.",
-          "default": "templates",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "method"
         },
         {
           "enum": [
@@ -110,7 +95,7 @@
             "description": "Successful Response"
           }
         },
-        "operationId": "_method_templateUpdate.get"
+        "operationId": "templateUpdate"
       },
       "parameters": [
         {
@@ -119,21 +104,6 @@
           "in": "path",
           "required": true,
           "name": "dc"
-        },
-        {
-          "description": "a valid api key for your user account.",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "apikey"
-        },
-        {
-          "description": "is the method name from our api you are calling.",
-          "default": "templateUpdate",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "method"
         },
         {
           "enum": [
@@ -171,7 +141,7 @@
             "description": "Successful Response"
           }
         },
-        "operationId": "_method_templateUndel.get"
+        "operationId": "templateUndel"
       },
       "parameters": [
         {
@@ -180,21 +150,6 @@
           "in": "path",
           "required": true,
           "name": "dc"
-        },
-        {
-          "description": "a valid api key for your user account.",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "apikey"
-        },
-        {
-          "description": "is the method name from our api you are calling.",
-          "default": "templateUndel",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "method"
         },
         {
           "enum": [
@@ -245,7 +200,7 @@
             "description": "Successful Response"
           }
         },
-        "operationId": "_method_templateInfo.get"
+        "operationId": "templateInfo"
       },
       "parameters": [
         {
@@ -254,21 +209,6 @@
           "in": "path",
           "required": true,
           "name": "dc"
-        },
-        {
-          "description": "a valid api key for your user account.",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "apikey"
-        },
-        {
-          "description": "is the method name from our api you are calling.",
-          "default": "templateInfo",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "method"
         },
         {
           "enum": [
@@ -306,7 +246,7 @@
             "description": "Successful Response"
           }
         },
-        "operationId": "_method_templateDel.get"
+        "operationId": "templateDel"
       },
       "parameters": [
         {
@@ -315,21 +255,6 @@
           "in": "path",
           "required": true,
           "name": "dc"
-        },
-        {
-          "description": "a valid api key for your user account.",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "apikey"
-        },
-        {
-          "description": "is the method name from our api you are calling.",
-          "default": "templateDel",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "method"
         },
         {
           "enum": [
@@ -374,7 +299,7 @@
             "description": "Successful Response"
           }
         },
-        "operationId": "_method_templateAdd.get"
+        "operationId": "templateAdd"
       },
       "parameters": [
         {
@@ -383,21 +308,6 @@
           "in": "path",
           "required": true,
           "name": "dc"
-        },
-        {
-          "description": "a valid api key for your user account.",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "apikey"
-        },
-        {
-          "description": "is the method name from our api you are calling.",
-          "default": "templateAdd",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "method"
         },
         {
           "enum": [
@@ -450,7 +360,7 @@
             "description": "Successful Response"
           }
         },
-        "operationId": "_method_apikeys.get"
+        "operationId": "apikeys"
       },
       "parameters": [
         {
@@ -459,21 +369,6 @@
           "in": "path",
           "required": true,
           "name": "dc"
-        },
-        {
-          "description": "a valid api key for your user account.",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "apikey"
-        },
-        {
-          "description": "is the method name from our api you are calling.",
-          "default": "apikeys",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "method"
         },
         {
           "enum": [
@@ -518,7 +413,7 @@
             "description": "Successful Response"
           }
         },
-        "operationId": "_method_apikeyExpire.get"
+        "operationId": "apikeyExpire"
       },
       "parameters": [
         {
@@ -527,21 +422,6 @@
           "in": "path",
           "required": true,
           "name": "dc"
-        },
-        {
-          "description": "a valid api key for your user account.",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "apikey"
-        },
-        {
-          "description": "is the method name from our api you are calling.",
-          "default": "apikeyExpire",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "method"
         },
         {
           "enum": [
@@ -586,7 +466,7 @@
             "description": "Successful Response"
           }
         },
-        "operationId": "_method_apikeyAdd.get"
+        "operationId": "apikeyAdd"
       },
       "parameters": [
         {
@@ -595,21 +475,6 @@
           "in": "path",
           "required": true,
           "name": "dc"
-        },
-        {
-          "description": "a valid api key for your user account.",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "apikey"
-        },
-        {
-          "description": "is the method name from our api you are calling.",
-          "default": "apikeyAdd",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "method"
         },
         {
           "enum": [
@@ -663,7 +528,7 @@
             "description": "Successful Response"
           }
         },
-        "operationId": "_method_lists.get"
+        "operationId": "lists"
       },
       "parameters": [
         {
@@ -672,21 +537,6 @@
           "in": "path",
           "required": true,
           "name": "dc"
-        },
-        {
-          "description": "a valid api key for your user account.",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "apikey"
-        },
-        {
-          "description": "is the method name from our api you are calling.",
-          "default": "lists",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "method"
         },
         {
           "enum": [
@@ -724,7 +574,7 @@
             "description": "Successful Response"
           }
         },
-        "operationId": "_method_listWebhooks.get"
+        "operationId": "listWebhooks"
       },
       "parameters": [
         {
@@ -733,21 +583,6 @@
           "in": "path",
           "required": true,
           "name": "dc"
-        },
-        {
-          "description": "a valid api key for your user account.",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "apikey"
-        },
-        {
-          "description": "is the method name from our api you are calling.",
-          "default": "listWebhooks",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "method"
         },
         {
           "enum": [
@@ -792,7 +627,7 @@
             "description": "Successful Response"
           }
         },
-        "operationId": "_method_listWebhookDel.get"
+        "operationId": "listWebhookDel"
       },
       "parameters": [
         {
@@ -801,21 +636,6 @@
           "in": "path",
           "required": true,
           "name": "dc"
-        },
-        {
-          "description": "a valid api key for your user account.",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "apikey"
-        },
-        {
-          "description": "is the method name from our api you are calling.",
-          "default": "listWebhookDel",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "method"
         },
         {
           "enum": [
@@ -874,7 +694,7 @@
             "description": "Successful Response"
           }
         },
-        "operationId": "_method_listWebhookAdd.get"
+        "operationId": "listWebhookAdd"
       },
       "parameters": [
         {
@@ -883,21 +703,6 @@
           "in": "path",
           "required": true,
           "name": "dc"
-        },
-        {
-          "description": "a valid api key for your user account.",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "apikey"
-        },
-        {
-          "description": "is the method name from our api you are calling.",
-          "default": "listWebhookAdd",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "method"
         },
         {
           "enum": [
@@ -969,7 +774,7 @@
             "description": "Successful Response"
           }
         },
-        "operationId": "_method_listUpdateMember.get"
+        "operationId": "listUpdateMember"
       },
       "parameters": [
         {
@@ -978,21 +783,6 @@
           "in": "path",
           "required": true,
           "name": "dc"
-        },
-        {
-          "description": "a valid api key for your user account.",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "apikey"
-        },
-        {
-          "description": "is the method name from our api you are calling.",
-          "default": "listUpdateMember",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "method"
         },
         {
           "enum": [
@@ -1061,7 +851,7 @@
             "description": "Successful Response"
           }
         },
-        "operationId": "_method_listUnsubscribe.get"
+        "operationId": "listUnsubscribe"
       },
       "parameters": [
         {
@@ -1070,21 +860,6 @@
           "in": "path",
           "required": true,
           "name": "dc"
-        },
-        {
-          "description": "a valid api key for your user account.",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "apikey"
-        },
-        {
-          "description": "is the method name from our api you are calling.",
-          "default": "listUnsubscribe",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "method"
         },
         {
           "enum": [
@@ -1181,7 +956,7 @@
             "description": "Successful Response"
           }
         },
-        "operationId": "_method_listSubscribe.get"
+        "operationId": "listSubscribe"
       },
       "parameters": [
         {
@@ -1190,21 +965,6 @@
           "in": "path",
           "required": true,
           "name": "dc"
-        },
-        {
-          "description": "a valid api key for your user account.",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "apikey"
-        },
-        {
-          "description": "is the method name from our api you are calling.",
-          "default": "listSubscribe",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "method"
         },
         {
           "enum": [
@@ -1242,7 +1002,7 @@
             "description": "Successful Response"
           }
         },
-        "operationId": "_method_listStaticSegments.get"
+        "operationId": "listStaticSegments"
       },
       "parameters": [
         {
@@ -1251,21 +1011,6 @@
           "in": "path",
           "required": true,
           "name": "dc"
-        },
-        {
-          "description": "a valid api key for your user account.",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "apikey"
-        },
-        {
-          "description": "is the method name from our api you are calling.",
-          "default": "listStaticSegments",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "method"
         },
         {
           "enum": [
@@ -1310,7 +1055,7 @@
             "description": "Successful Response"
           }
         },
-        "operationId": "_method_listStaticSegmentReset.get"
+        "operationId": "listStaticSegmentReset"
       },
       "parameters": [
         {
@@ -1319,21 +1064,6 @@
           "in": "path",
           "required": true,
           "name": "dc"
-        },
-        {
-          "description": "a valid api key for your user account.",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "apikey"
-        },
-        {
-          "description": "is the method name from our api you are calling.",
-          "default": "listStaticSegmentReset",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "method"
         },
         {
           "enum": [
@@ -1385,7 +1115,7 @@
             "description": "Successful Response"
           }
         },
-        "operationId": "_method_listStaticSegmentMembersDel.get"
+        "operationId": "listStaticSegmentMembersDel"
       },
       "parameters": [
         {
@@ -1394,21 +1124,6 @@
           "in": "path",
           "required": true,
           "name": "dc"
-        },
-        {
-          "description": "a valid api key for your user account.",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "apikey"
-        },
-        {
-          "description": "is the method name from our api you are calling.",
-          "default": "listStaticSegmentMembersDel",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "method"
         },
         {
           "enum": [
@@ -1460,7 +1175,7 @@
             "description": "Successful Response"
           }
         },
-        "operationId": "_method_listStaticSegmentMembersAdd.get"
+        "operationId": "listStaticSegmentMembersAdd"
       },
       "parameters": [
         {
@@ -1469,21 +1184,6 @@
           "in": "path",
           "required": true,
           "name": "dc"
-        },
-        {
-          "description": "a valid api key for your user account.",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "apikey"
-        },
-        {
-          "description": "is the method name from our api you are calling.",
-          "default": "listStaticSegmentMembersAdd",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "method"
         },
         {
           "enum": [
@@ -1528,7 +1228,7 @@
             "description": "Successful Response"
           }
         },
-        "operationId": "_method_listStaticSegmentDel.get"
+        "operationId": "listStaticSegmentDel"
       },
       "parameters": [
         {
@@ -1537,21 +1237,6 @@
           "in": "path",
           "required": true,
           "name": "dc"
-        },
-        {
-          "description": "a valid api key for your user account.",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "apikey"
-        },
-        {
-          "description": "is the method name from our api you are calling.",
-          "default": "listStaticSegmentDel",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "method"
         },
         {
           "enum": [
@@ -1596,7 +1281,7 @@
             "description": "Successful Response"
           }
         },
-        "operationId": "_method_listStaticSegmentAdd.get"
+        "operationId": "listStaticSegmentAdd"
       },
       "parameters": [
         {
@@ -1605,21 +1290,6 @@
           "in": "path",
           "required": true,
           "name": "dc"
-        },
-        {
-          "description": "a valid api key for your user account.",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "apikey"
-        },
-        {
-          "description": "is the method name from our api you are calling.",
-          "default": "listStaticSegmentAdd",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "method"
         },
         {
           "enum": [
@@ -1657,7 +1327,7 @@
             "description": "Successful Response"
           }
         },
-        "operationId": "_method_listMergeVars.get"
+        "operationId": "listMergeVars"
       },
       "parameters": [
         {
@@ -1666,21 +1336,6 @@
           "in": "path",
           "required": true,
           "name": "dc"
-        },
-        {
-          "description": "a valid api key for your user account.",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "apikey"
-        },
-        {
-          "description": "is the method name from our api you are calling.",
-          "default": "listMergeVars",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "method"
         },
         {
           "enum": [
@@ -1732,7 +1387,7 @@
             "description": "Successful Response"
           }
         },
-        "operationId": "_method_listMergeVarUpdate.get"
+        "operationId": "listMergeVarUpdate"
       },
       "parameters": [
         {
@@ -1741,21 +1396,6 @@
           "in": "path",
           "required": true,
           "name": "dc"
-        },
-        {
-          "description": "a valid api key for your user account.",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "apikey"
-        },
-        {
-          "description": "is the method name from our api you are calling.",
-          "default": "listMergeVarUpdate",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "method"
         },
         {
           "enum": [
@@ -1800,7 +1440,7 @@
             "description": "Successful Response"
           }
         },
-        "operationId": "_method_listMergeVarDel.get"
+        "operationId": "listMergeVarDel"
       },
       "parameters": [
         {
@@ -1809,21 +1449,6 @@
           "in": "path",
           "required": true,
           "name": "dc"
-        },
-        {
-          "description": "a valid api key for your user account.",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "apikey"
-        },
-        {
-          "description": "is the method name from our api you are calling.",
-          "default": "listMergeVarDel",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "method"
         },
         {
           "enum": [
@@ -1882,7 +1507,7 @@
             "description": "Successful Response"
           }
         },
-        "operationId": "_method_listMergeVarAdd.get"
+        "operationId": "listMergeVarAdd"
       },
       "parameters": [
         {
@@ -1891,21 +1516,6 @@
           "in": "path",
           "required": true,
           "name": "dc"
-        },
-        {
-          "description": "a valid api key for your user account.",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "apikey"
-        },
-        {
-          "description": "is the method name from our api you are calling.",
-          "default": "listMergeVarAdd",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "method"
         },
         {
           "enum": [
@@ -1981,7 +1591,7 @@
             "description": "Successful Response"
           }
         },
-        "operationId": "_method_listMembers.get"
+        "operationId": "listMembers"
       },
       "parameters": [
         {
@@ -1990,21 +1600,6 @@
           "in": "path",
           "required": true,
           "name": "dc"
-        },
-        {
-          "description": "a valid api key for your user account.",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "apikey"
-        },
-        {
-          "description": "is the method name from our api you are calling.",
-          "default": "listMembers",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "method"
         },
         {
           "enum": [
@@ -2049,7 +1644,7 @@
             "description": "Successful Response"
           }
         },
-        "operationId": "_method_listMemberInfo.get"
+        "operationId": "listMemberInfo"
       },
       "parameters": [
         {
@@ -2058,21 +1653,6 @@
           "in": "path",
           "required": true,
           "name": "dc"
-        },
-        {
-          "description": "a valid api key for your user account.",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "apikey"
-        },
-        {
-          "description": "is the method name from our api you are calling.",
-          "default": "listMemberInfo",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "method"
         },
         {
           "enum": [
@@ -2117,7 +1697,7 @@
             "description": "Successful Response"
           }
         },
-        "operationId": "_method_listMemberActivity.get"
+        "operationId": "listMemberActivity"
       },
       "parameters": [
         {
@@ -2126,21 +1706,6 @@
           "in": "path",
           "required": true,
           "name": "dc"
-        },
-        {
-          "description": "a valid api key for your user account.",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "apikey"
-        },
-        {
-          "description": "is the method name from our api you are calling.",
-          "default": "listMemberActivity",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "method"
         },
         {
           "enum": [
@@ -2178,7 +1743,7 @@
             "description": "Successful Response"
           }
         },
-        "operationId": "_method_listLocations.get"
+        "operationId": "listLocations"
       },
       "parameters": [
         {
@@ -2187,21 +1752,6 @@
           "in": "path",
           "required": true,
           "name": "dc"
-        },
-        {
-          "description": "a valid api key for your user account.",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "apikey"
-        },
-        {
-          "description": "is the method name from our api you are calling.",
-          "default": "listLocations",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "method"
         },
         {
           "enum": [
@@ -2239,7 +1789,7 @@
             "description": "Successful Response"
           }
         },
-        "operationId": "_method_listInterestGroupings.get"
+        "operationId": "listInterestGroupings"
       },
       "parameters": [
         {
@@ -2248,21 +1798,6 @@
           "in": "path",
           "required": true,
           "name": "dc"
-        },
-        {
-          "description": "a valid api key for your user account.",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "apikey"
-        },
-        {
-          "description": "is the method name from our api you are calling.",
-          "default": "listInterestGroupings",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "method"
         },
         {
           "enum": [
@@ -2314,7 +1849,7 @@
             "description": "Successful Response"
           }
         },
-        "operationId": "_method_listInterestGroupingUpdate.get"
+        "operationId": "listInterestGroupingUpdate"
       },
       "parameters": [
         {
@@ -2323,21 +1858,6 @@
           "in": "path",
           "required": true,
           "name": "dc"
-        },
-        {
-          "description": "a valid api key for your user account.",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "apikey"
-        },
-        {
-          "description": "is the method name from our api you are calling.",
-          "default": "listInterestGroupingUpdate",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "method"
         },
         {
           "enum": [
@@ -2375,7 +1895,7 @@
             "description": "Successful Response"
           }
         },
-        "operationId": "_method_listInterestGroupingDel.get"
+        "operationId": "listInterestGroupingDel"
       },
       "parameters": [
         {
@@ -2384,21 +1904,6 @@
           "in": "path",
           "required": true,
           "name": "dc"
-        },
-        {
-          "description": "a valid api key for your user account.",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "apikey"
-        },
-        {
-          "description": "is the method name from our api you are calling.",
-          "default": "listInterestGroupingDel",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "method"
         },
         {
           "enum": [
@@ -2463,7 +1968,7 @@
             "description": "Successful Response"
           }
         },
-        "operationId": "_method_listInterestGroupingAdd.get"
+        "operationId": "listInterestGroupingAdd"
       },
       "parameters": [
         {
@@ -2472,21 +1977,6 @@
           "in": "path",
           "required": true,
           "name": "dc"
-        },
-        {
-          "description": "a valid api key for your user account.",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "apikey"
-        },
-        {
-          "description": "is the method name from our api you are calling.",
-          "default": "listInterestGroupingAdd",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "method"
         },
         {
           "enum": [
@@ -2545,7 +2035,7 @@
             "description": "Successful Response"
           }
         },
-        "operationId": "_method_listInterestGroupUpdate.get"
+        "operationId": "listInterestGroupUpdate"
       },
       "parameters": [
         {
@@ -2554,21 +2044,6 @@
           "in": "path",
           "required": true,
           "name": "dc"
-        },
-        {
-          "description": "a valid api key for your user account.",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "apikey"
-        },
-        {
-          "description": "is the method name from our api you are calling.",
-          "default": "listInterestGroupUpdate",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "method"
         },
         {
           "enum": [
@@ -2620,7 +2095,7 @@
             "description": "Successful Response"
           }
         },
-        "operationId": "_method_listInterestGroupDel.get"
+        "operationId": "listInterestGroupDel"
       },
       "parameters": [
         {
@@ -2629,21 +2104,6 @@
           "in": "path",
           "required": true,
           "name": "dc"
-        },
-        {
-          "description": "a valid api key for your user account.",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "apikey"
-        },
-        {
-          "description": "is the method name from our api you are calling.",
-          "default": "listInterestGroupDel",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "method"
         },
         {
           "enum": [
@@ -2695,7 +2155,7 @@
             "description": "Successful Response"
           }
         },
-        "operationId": "_method_listInterestGroupAdd.get"
+        "operationId": "listInterestGroupAdd"
       },
       "parameters": [
         {
@@ -2704,21 +2164,6 @@
           "in": "path",
           "required": true,
           "name": "dc"
-        },
-        {
-          "description": "a valid api key for your user account.",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "apikey"
-        },
-        {
-          "description": "is the method name from our api you are calling.",
-          "default": "listInterestGroupAdd",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "method"
         },
         {
           "enum": [
@@ -2756,7 +2201,7 @@
             "description": "Successful Response"
           }
         },
-        "operationId": "_method_listGrowthHistory.get"
+        "operationId": "listGrowthHistory"
       },
       "parameters": [
         {
@@ -2765,21 +2210,6 @@
           "in": "path",
           "required": true,
           "name": "dc"
-        },
-        {
-          "description": "a valid api key for your user account.",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "apikey"
-        },
-        {
-          "description": "is the method name from our api you are calling.",
-          "default": "listGrowthHistory",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "method"
         },
         {
           "enum": [
@@ -2817,7 +2247,7 @@
             "description": "Successful Response"
           }
         },
-        "operationId": "_method_listClients.get"
+        "operationId": "listClients"
       },
       "parameters": [
         {
@@ -2826,21 +2256,6 @@
           "in": "path",
           "required": true,
           "name": "dc"
-        },
-        {
-          "description": "a valid api key for your user account.",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "apikey"
-        },
-        {
-          "description": "is the method name from our api you are calling.",
-          "default": "listClients",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "method"
         },
         {
           "enum": [
@@ -2909,7 +2324,7 @@
             "description": "Successful Response"
           }
         },
-        "operationId": "_method_listBatchUnsubscribe.get"
+        "operationId": "listBatchUnsubscribe"
       },
       "parameters": [
         {
@@ -2918,21 +2333,6 @@
           "in": "path",
           "required": true,
           "name": "dc"
-        },
-        {
-          "description": "a valid api key for your user account.",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "apikey"
-        },
-        {
-          "description": "is the method name from our api you are calling.",
-          "default": "listBatchUnsubscribe",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "method"
         },
         {
           "enum": [
@@ -3001,7 +2401,7 @@
             "description": "Successful Response"
           }
         },
-        "operationId": "_method_listBatchSubscribe.get"
+        "operationId": "listBatchSubscribe"
       },
       "parameters": [
         {
@@ -3010,21 +2410,6 @@
           "in": "path",
           "required": true,
           "name": "dc"
-        },
-        {
-          "description": "a valid api key for your user account.",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "apikey"
-        },
-        {
-          "description": "is the method name from our api you are calling.",
-          "default": "listBatchSubscribe",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "method"
         },
         {
           "enum": [
@@ -3062,7 +2447,7 @@
             "description": "Successful Response"
           }
         },
-        "operationId": "_method_listActivity.get"
+        "operationId": "listActivity"
       },
       "parameters": [
         {
@@ -3071,21 +2456,6 @@
           "in": "path",
           "required": true,
           "name": "dc"
-        },
-        {
-          "description": "a valid api key for your user account.",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "apikey"
-        },
-        {
-          "description": "is the method name from our api you are calling.",
-          "default": "listActivity",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "method"
         },
         {
           "enum": [
@@ -3147,7 +2517,7 @@
             "description": "Successful Response"
           }
         },
-        "operationId": "_method_listAbuseReports.get"
+        "operationId": "listAbuseReports"
       },
       "parameters": [
         {
@@ -3156,21 +2526,6 @@
           "in": "path",
           "required": true,
           "name": "dc"
-        },
-        {
-          "description": "a valid api key for your user account.",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "apikey"
-        },
-        {
-          "description": "is the method name from our api you are calling.",
-          "default": "listAbuseReports",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "method"
         },
         {
           "enum": [
@@ -3199,7 +2554,7 @@
             "description": "Successful Response"
           }
         },
-        "operationId": "_method_ping.get"
+        "operationId": "ping"
       },
       "parameters": [
         {
@@ -3208,21 +2563,6 @@
           "in": "path",
           "required": true,
           "name": "dc"
-        },
-        {
-          "description": "a valid api key for your user account.",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "apikey"
-        },
-        {
-          "description": "is the method name from our api you are calling.",
-          "default": "ping",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "method"
         },
         {
           "enum": [
@@ -3260,7 +2600,7 @@
             "description": "Successful Response"
           }
         },
-        "operationId": "_method_listsForEmail.get"
+        "operationId": "listsForEmail"
       },
       "parameters": [
         {
@@ -3269,21 +2609,6 @@
           "in": "path",
           "required": true,
           "name": "dc"
-        },
-        {
-          "description": "a valid api key for your user account.",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "apikey"
-        },
-        {
-          "description": "is the method name from our api you are calling.",
-          "default": "listsForEmail",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "method"
         },
         {
           "enum": [
@@ -3329,7 +2654,7 @@
             "description": "Successful Response"
           }
         },
-        "operationId": "_method_inlineCss.get"
+        "operationId": "inlineCss"
       },
       "parameters": [
         {
@@ -3338,21 +2663,6 @@
           "in": "path",
           "required": true,
           "name": "dc"
-        },
-        {
-          "description": "a valid api key for your user account.",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "apikey"
-        },
-        {
-          "description": "is the method name from our api you are calling.",
-          "default": "inlineCss",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "method"
         },
         {
           "enum": [
@@ -3381,7 +2691,7 @@
             "description": "Successful Response"
           }
         },
-        "operationId": "_method_getAccountDetails.get"
+        "operationId": "getAccountDetails"
       },
       "parameters": [
         {
@@ -3390,21 +2700,6 @@
           "in": "path",
           "required": true,
           "name": "dc"
-        },
-        {
-          "description": "a valid api key for your user account.",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "apikey"
-        },
-        {
-          "description": "is the method name from our api you are calling.",
-          "default": "getAccountDetails",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "method"
         },
         {
           "enum": [
@@ -3456,7 +2751,7 @@
             "description": "Successful Response"
           }
         },
-        "operationId": "_method_generateText.get"
+        "operationId": "generateText"
       },
       "parameters": [
         {
@@ -3465,21 +2760,6 @@
           "in": "path",
           "required": true,
           "name": "dc"
-        },
-        {
-          "description": "a valid api key for your user account.",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "apikey"
-        },
-        {
-          "description": "is the method name from our api you are calling.",
-          "default": "generateText",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "method"
         },
         {
           "enum": [
@@ -3508,7 +2788,7 @@
             "description": "Successful Response"
           }
         },
-        "operationId": "_method_chimpChatter.get"
+        "operationId": "chimpChatter"
       },
       "parameters": [
         {
@@ -3517,21 +2797,6 @@
           "in": "path",
           "required": true,
           "name": "dc"
-        },
-        {
-          "description": "a valid api key for your user account.",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "apikey"
-        },
-        {
-          "description": "is the method name from our api you are calling.",
-          "default": "chimpChatter",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "method"
         },
         {
           "enum": [
@@ -3576,7 +2841,7 @@
             "description": "Successful Response"
           }
         },
-        "operationId": "_method_campaignsForEmail.get"
+        "operationId": "campaignsForEmail"
       },
       "parameters": [
         {
@@ -3585,21 +2850,6 @@
           "in": "path",
           "required": true,
           "name": "dc"
-        },
-        {
-          "description": "a valid api key for your user account.",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "apikey"
-        },
-        {
-          "description": "is the method name from our api you are calling.",
-          "default": "campaignsForEmail",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "method"
         },
         {
           "enum": [
@@ -3628,7 +2878,7 @@
             "description": "Successful Response"
           }
         },
-        "operationId": "_method_gmonkeyMembers.get"
+        "operationId": "gmonkeyMembers"
       },
       "parameters": [
         {
@@ -3637,21 +2887,6 @@
           "in": "path",
           "required": true,
           "name": "dc"
-        },
-        {
-          "description": "a valid api key for your user account.",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "apikey"
-        },
-        {
-          "description": "is the method name from our api you are calling.",
-          "default": "gmonkeyMembers",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "method"
         },
         {
           "enum": [
@@ -3696,7 +2931,7 @@
             "description": "Successful Response"
           }
         },
-        "operationId": "_method_gmonkeyDel.get"
+        "operationId": "gmonkeyDel"
       },
       "parameters": [
         {
@@ -3705,21 +2940,6 @@
           "in": "path",
           "required": true,
           "name": "dc"
-        },
-        {
-          "description": "a valid api key for your user account.",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "apikey"
-        },
-        {
-          "description": "is the method name from our api you are calling.",
-          "default": "gmonkeyDel",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "method"
         },
         {
           "enum": [
@@ -3764,7 +2984,7 @@
             "description": "Successful Response"
           }
         },
-        "operationId": "_method_gmonkeyAdd.get"
+        "operationId": "gmonkeyAdd"
       },
       "parameters": [
         {
@@ -3773,21 +2993,6 @@
           "in": "path",
           "required": true,
           "name": "dc"
-        },
-        {
-          "description": "a valid api key for your user account.",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "apikey"
-        },
-        {
-          "description": "is the method name from our api you are calling.",
-          "default": "gmonkeyAdd",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "method"
         },
         {
           "enum": [
@@ -3816,7 +3021,7 @@
             "description": "Successful Response"
           }
         },
-        "operationId": "_method_gmonkeyActivity.get"
+        "operationId": "gmonkeyActivity"
       },
       "parameters": [
         {
@@ -3825,21 +3030,6 @@
           "in": "path",
           "required": true,
           "name": "dc"
-        },
-        {
-          "description": "a valid api key for your user account.",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "apikey"
-        },
-        {
-          "description": "is the method name from our api you are calling.",
-          "default": "gmonkeyActivity",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "method"
         },
         {
           "enum": [
@@ -3882,7 +3072,7 @@
             "description": "Successful Response"
           }
         },
-        "operationId": "_method_folders.get"
+        "operationId": "folders"
       },
       "parameters": [
         {
@@ -3891,21 +3081,6 @@
           "in": "path",
           "required": true,
           "name": "dc"
-        },
-        {
-          "description": "a valid api key for your user account.",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "apikey"
-        },
-        {
-          "description": "is the method name from our api you are calling.",
-          "default": "folders",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "method"
         },
         {
           "enum": [
@@ -3962,7 +3137,7 @@
             "description": "Successful Response"
           }
         },
-        "operationId": "_method_folderUpdate.get"
+        "operationId": "folderUpdate"
       },
       "parameters": [
         {
@@ -3971,21 +3146,6 @@
           "in": "path",
           "required": true,
           "name": "dc"
-        },
-        {
-          "description": "a valid api key for your user account.",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "apikey"
-        },
-        {
-          "description": "is the method name from our api you are calling.",
-          "default": "folderUpdate",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "method"
         },
         {
           "enum": [
@@ -4035,7 +3195,7 @@
             "description": "Successful Response"
           }
         },
-        "operationId": "_method_folderDel.get"
+        "operationId": "folderDel"
       },
       "parameters": [
         {
@@ -4044,21 +3204,6 @@
           "in": "path",
           "required": true,
           "name": "dc"
-        },
-        {
-          "description": "a valid api key for your user account.",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "apikey"
-        },
-        {
-          "description": "is the method name from our api you are calling.",
-          "default": "folderDel",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "method"
         },
         {
           "enum": [
@@ -4108,7 +3253,7 @@
             "description": "Successful Response"
           }
         },
-        "operationId": "_method_folderAdd.get"
+        "operationId": "folderAdd"
       },
       "parameters": [
         {
@@ -4117,21 +3262,6 @@
           "in": "path",
           "required": true,
           "name": "dc"
-        },
-        {
-          "description": "a valid api key for your user account.",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "apikey"
-        },
-        {
-          "description": "is the method name from our api you are calling.",
-          "default": "folderAdd",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "method"
         },
         {
           "enum": [
@@ -4185,7 +3315,7 @@
             "description": "Successful Response"
           }
         },
-        "operationId": "_method_ecommOrders.get"
+        "operationId": "ecommOrders"
       },
       "parameters": [
         {
@@ -4194,21 +3324,6 @@
           "in": "path",
           "required": true,
           "name": "dc"
-        },
-        {
-          "description": "a valid api key for your user account.",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "apikey"
-        },
-        {
-          "description": "is the method name from our api you are calling.",
-          "default": "ecommOrders",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "method"
         },
         {
           "enum": [
@@ -4253,7 +3368,7 @@
             "description": "Successful Response"
           }
         },
-        "operationId": "_method_ecommOrderDel.get"
+        "operationId": "ecommOrderDel"
       },
       "parameters": [
         {
@@ -4262,21 +3377,6 @@
           "in": "path",
           "required": true,
           "name": "dc"
-        },
-        {
-          "description": "a valid api key for your user account.",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "apikey"
-        },
-        {
-          "description": "is the method name from our api you are calling.",
-          "default": "ecommOrderDel",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "method"
         },
         {
           "enum": [
@@ -4314,7 +3414,7 @@
             "description": "Successful Response"
           }
         },
-        "operationId": "_method_ecommOrderAdd.get"
+        "operationId": "ecommOrderAdd"
       },
       "parameters": [
         {
@@ -4323,21 +3423,6 @@
           "in": "path",
           "required": true,
           "name": "dc"
-        },
-        {
-          "description": "a valid api key for your user account.",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "apikey"
-        },
-        {
-          "description": "is the method name from our api you are calling.",
-          "default": "ecommOrderAdd",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "method"
         },
         {
           "enum": [
@@ -4391,7 +3476,7 @@
             "description": "Successful Response"
           }
         },
-        "operationId": "_method_campaignOpenedAIM.get"
+        "operationId": "campaignOpenedAIM"
       },
       "parameters": [
         {
@@ -4400,21 +3485,6 @@
           "in": "path",
           "required": true,
           "name": "dc"
-        },
-        {
-          "description": "a valid api key for your user account.",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "apikey"
-        },
-        {
-          "description": "is the method name from our api you are calling.",
-          "default": "campaignOpenedAIM",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "method"
         },
         {
           "enum": [
@@ -4468,7 +3538,7 @@
             "description": "Successful Response"
           }
         },
-        "operationId": "_method_campaignNotOpenedAIM.get"
+        "operationId": "campaignNotOpenedAIM"
       },
       "parameters": [
         {
@@ -4477,21 +3547,6 @@
           "in": "path",
           "required": true,
           "name": "dc"
-        },
-        {
-          "description": "a valid api key for your user account.",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "apikey"
-        },
-        {
-          "description": "is the method name from our api you are calling.",
-          "default": "campaignNotOpenedAIM",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "method"
         },
         {
           "enum": [
@@ -4545,7 +3600,7 @@
             "description": "Successful Response"
           }
         },
-        "operationId": "_method_campaignEmailStatsAIMAll.get"
+        "operationId": "campaignEmailStatsAIMAll"
       },
       "parameters": [
         {
@@ -4554,21 +3609,6 @@
           "in": "path",
           "required": true,
           "name": "dc"
-        },
-        {
-          "description": "a valid api key for your user account.",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "apikey"
-        },
-        {
-          "description": "is the method name from our api you are calling.",
-          "default": "campaignEmailStatsAIMAll",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "method"
         },
         {
           "enum": [
@@ -4613,7 +3653,7 @@
             "description": "Successful Response"
           }
         },
-        "operationId": "_method_campaignEmailStatsAIM.get"
+        "operationId": "campaignEmailStatsAIM"
       },
       "parameters": [
         {
@@ -4622,21 +3662,6 @@
           "in": "path",
           "required": true,
           "name": "dc"
-        },
-        {
-          "description": "a valid api key for your user account.",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "apikey"
-        },
-        {
-          "description": "is the method name from our api you are calling.",
-          "default": "campaignEmailStatsAIM",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "method"
         },
         {
           "enum": [
@@ -4697,7 +3722,7 @@
             "description": "Successful Response"
           }
         },
-        "operationId": "_method_campaignClickDetailAIM.get"
+        "operationId": "campaignClickDetailAIM"
       },
       "parameters": [
         {
@@ -4706,21 +3731,6 @@
           "in": "path",
           "required": true,
           "name": "dc"
-        },
-        {
-          "description": "a valid api key for your user account.",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "apikey"
-        },
-        {
-          "description": "is the method name from our api you are calling.",
-          "default": "campaignClickDetailAIM",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "method"
         },
         {
           "enum": [
@@ -4774,7 +3784,7 @@
             "description": "Successful Response"
           }
         },
-        "operationId": "_method_campaignUnsubscribes.get"
+        "operationId": "campaignUnsubscribes"
       },
       "parameters": [
         {
@@ -4783,21 +3793,6 @@
           "in": "path",
           "required": true,
           "name": "dc"
-        },
-        {
-          "description": "a valid api key for your user account.",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "apikey"
-        },
-        {
-          "description": "is the method name from our api you are calling.",
-          "default": "campaignUnsubscribes",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "method"
         },
         {
           "enum": [
@@ -4835,7 +3830,7 @@
             "description": "Successful Response"
           }
         },
-        "operationId": "_method_campaignStats.get"
+        "operationId": "campaignStats"
       },
       "parameters": [
         {
@@ -4844,21 +3839,6 @@
           "in": "path",
           "required": true,
           "name": "dc"
-        },
-        {
-          "description": "a valid api key for your user account.",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "apikey"
-        },
-        {
-          "description": "is the method name from our api you are calling.",
-          "default": "campaignStats",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "method"
         },
         {
           "enum": [
@@ -4924,7 +3904,7 @@
             "description": "Successful Response"
           }
         },
-        "operationId": "_method_campaignMembers.get"
+        "operationId": "campaignMembers"
       },
       "parameters": [
         {
@@ -4933,21 +3913,6 @@
           "in": "path",
           "required": true,
           "name": "dc"
-        },
-        {
-          "description": "a valid api key for your user account.",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "apikey"
-        },
-        {
-          "description": "is the method name from our api you are calling.",
-          "default": "campaignMembers",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "method"
         },
         {
           "enum": [
@@ -4992,7 +3957,7 @@
             "description": "Successful Response"
           }
         },
-        "operationId": "_method_campaignGeoOpensForCountry.get"
+        "operationId": "campaignGeoOpensForCountry"
       },
       "parameters": [
         {
@@ -5001,21 +3966,6 @@
           "in": "path",
           "required": true,
           "name": "dc"
-        },
-        {
-          "description": "a valid api key for your user account.",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "apikey"
-        },
-        {
-          "description": "is the method name from our api you are calling.",
-          "default": "campaignGeoOpensForCountry",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "method"
         },
         {
           "enum": [
@@ -5053,7 +4003,7 @@
             "description": "Successful Response"
           }
         },
-        "operationId": "_method_campaignGeoOpens.get"
+        "operationId": "campaignGeoOpens"
       },
       "parameters": [
         {
@@ -5062,21 +4012,6 @@
           "in": "path",
           "required": true,
           "name": "dc"
-        },
-        {
-          "description": "a valid api key for your user account.",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "apikey"
-        },
-        {
-          "description": "is the method name from our api you are calling.",
-          "default": "campaignGeoOpens",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "method"
         },
         {
           "enum": [
@@ -5114,7 +4049,7 @@
             "description": "Successful Response"
           }
         },
-        "operationId": "_method_campaignEmailDomainPerformance.get"
+        "operationId": "campaignEmailDomainPerformance"
       },
       "parameters": [
         {
@@ -5123,21 +4058,6 @@
           "in": "path",
           "required": true,
           "name": "dc"
-        },
-        {
-          "description": "a valid api key for your user account.",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "apikey"
-        },
-        {
-          "description": "is the method name from our api you are calling.",
-          "default": "campaignEmailDomainPerformance",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "method"
         },
         {
           "enum": [
@@ -5175,7 +4095,7 @@
             "description": "Successful Response"
           }
         },
-        "operationId": "_method_campaignEepUrlStats.get"
+        "operationId": "campaignEepUrlStats"
       },
       "parameters": [
         {
@@ -5184,21 +4104,6 @@
           "in": "path",
           "required": true,
           "name": "dc"
-        },
-        {
-          "description": "a valid api key for your user account.",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "apikey"
-        },
-        {
-          "description": "is the method name from our api you are calling.",
-          "default": "campaignEepUrlStats",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "method"
         },
         {
           "enum": [
@@ -5259,7 +4164,7 @@
             "description": "Successful Response"
           }
         },
-        "operationId": "_method_campaignEcommOrders.get"
+        "operationId": "campaignEcommOrders"
       },
       "parameters": [
         {
@@ -5268,21 +4173,6 @@
           "in": "path",
           "required": true,
           "name": "dc"
-        },
-        {
-          "description": "a valid api key for your user account.",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "apikey"
-        },
-        {
-          "description": "is the method name from our api you are calling.",
-          "default": "campaignEcommOrders",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "method"
         },
         {
           "enum": [
@@ -5320,7 +4210,7 @@
             "description": "Successful Response"
           }
         },
-        "operationId": "_method_campaignClickStats.get"
+        "operationId": "campaignClickStats"
       },
       "parameters": [
         {
@@ -5329,21 +4219,6 @@
           "in": "path",
           "required": true,
           "name": "dc"
-        },
-        {
-          "description": "a valid api key for your user account.",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "apikey"
-        },
-        {
-          "description": "is the method name from our api you are calling.",
-          "default": "campaignClickStats",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "method"
         },
         {
           "enum": [
@@ -5404,7 +4279,7 @@
             "description": "Successful Response"
           }
         },
-        "operationId": "_method_campaignBounceMessages.get"
+        "operationId": "campaignBounceMessages"
       },
       "parameters": [
         {
@@ -5413,21 +4288,6 @@
           "in": "path",
           "required": true,
           "name": "dc"
-        },
-        {
-          "description": "a valid api key for your user account.",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "apikey"
-        },
-        {
-          "description": "is the method name from our api you are calling.",
-          "default": "campaignBounceMessages",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "method"
         },
         {
           "enum": [
@@ -5472,7 +4332,7 @@
             "description": "Successful Response"
           }
         },
-        "operationId": "_method_campaignBounceMessage.get"
+        "operationId": "campaignBounceMessage"
       },
       "parameters": [
         {
@@ -5481,21 +4341,6 @@
           "in": "path",
           "required": true,
           "name": "dc"
-        },
-        {
-          "description": "a valid api key for your user account.",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "apikey"
-        },
-        {
-          "description": "is the method name from our api you are calling.",
-          "default": "campaignBounceMessage",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "method"
         },
         {
           "enum": [
@@ -5533,7 +4378,7 @@
             "description": "Successful Response"
           }
         },
-        "operationId": "_method_campaignAnalytics.get"
+        "operationId": "campaignAnalytics"
       },
       "parameters": [
         {
@@ -5542,21 +4387,6 @@
           "in": "path",
           "required": true,
           "name": "dc"
-        },
-        {
-          "description": "a valid api key for your user account.",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "apikey"
-        },
-        {
-          "description": "is the method name from our api you are calling.",
-          "default": "campaignAnalytics",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "method"
         },
         {
           "enum": [
@@ -5594,7 +4424,7 @@
             "description": "Successful Response"
           }
         },
-        "operationId": "_method_campaignAdvice.get"
+        "operationId": "campaignAdvice"
       },
       "parameters": [
         {
@@ -5603,21 +4433,6 @@
           "in": "path",
           "required": true,
           "name": "dc"
-        },
-        {
-          "description": "a valid api key for your user account.",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "apikey"
-        },
-        {
-          "description": "is the method name from our api you are calling.",
-          "default": "campaignAdvice",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "method"
         },
         {
           "enum": [
@@ -5679,7 +4494,7 @@
             "description": "Successful Response"
           }
         },
-        "operationId": "_method_campaignAbuseReports.get"
+        "operationId": "campaignAbuseReports"
       },
       "parameters": [
         {
@@ -5688,21 +4503,6 @@
           "in": "path",
           "required": true,
           "name": "dc"
-        },
-        {
-          "description": "a valid api key for your user account.",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "apikey"
-        },
-        {
-          "description": "is the method name from our api you are calling.",
-          "default": "campaignAbuseReports",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "method"
         },
         {
           "enum": [
@@ -5756,7 +4556,7 @@
             "description": "Successful Response"
           }
         },
-        "operationId": "_method_campaigns.get"
+        "operationId": "campaigns"
       },
       "parameters": [
         {
@@ -5765,21 +4565,6 @@
           "in": "path",
           "required": true,
           "name": "dc"
-        },
-        {
-          "description": "a valid api key for your user account.",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "apikey"
-        },
-        {
-          "description": "is the method name from our api you are calling.",
-          "default": "campaigns",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "method"
         },
         {
           "enum": [
@@ -5831,7 +4616,7 @@
             "description": "Successful Response"
           }
         },
-        "operationId": "_method_campaignUpdate.get"
+        "operationId": "campaignUpdate"
       },
       "parameters": [
         {
@@ -5840,21 +4625,6 @@
           "in": "path",
           "required": true,
           "name": "dc"
-        },
-        {
-          "description": "a valid api key for your user account.",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "apikey"
-        },
-        {
-          "description": "is the method name from our api you are calling.",
-          "default": "campaignUpdate",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "method"
         },
         {
           "enum": [
@@ -5892,7 +4662,7 @@
             "description": "Successful Response"
           }
         },
-        "operationId": "_method_campaignUnschedule.get"
+        "operationId": "campaignUnschedule"
       },
       "parameters": [
         {
@@ -5901,21 +4671,6 @@
           "in": "path",
           "required": true,
           "name": "dc"
-        },
-        {
-          "description": "a valid api key for your user account.",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "apikey"
-        },
-        {
-          "description": "is the method name from our api you are calling.",
-          "default": "campaignUnschedule",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "method"
         },
         {
           "enum": [
@@ -5953,7 +4708,7 @@
             "description": "Successful Response"
           }
         },
-        "operationId": "_method_campaignTemplateContent.get"
+        "operationId": "campaignTemplateContent"
       },
       "parameters": [
         {
@@ -5962,21 +4717,6 @@
           "in": "path",
           "required": true,
           "name": "dc"
-        },
-        {
-          "description": "a valid api key for your user account.",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "apikey"
-        },
-        {
-          "description": "is the method name from our api you are calling.",
-          "default": "campaignTemplateContent",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "method"
         },
         {
           "enum": [
@@ -6021,7 +4761,7 @@
             "description": "Successful Response"
           }
         },
-        "operationId": "_method_campaignShareReport.get"
+        "operationId": "campaignShareReport"
       },
       "parameters": [
         {
@@ -6030,21 +4770,6 @@
           "in": "path",
           "required": true,
           "name": "dc"
-        },
-        {
-          "description": "A valid API Key for your user account.",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "apikey"
-        },
-        {
-          "description": "Is the method name from our API you are calling.",
-          "default": "campaignShareReport",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "method"
         },
         {
           "enum": [
@@ -6096,7 +4821,7 @@
             "description": "Successful Response"
           }
         },
-        "operationId": "_method_campaignSendTest.get"
+        "operationId": "campaignSendTest"
       },
       "parameters": [
         {
@@ -6105,21 +4830,6 @@
           "in": "path",
           "required": true,
           "name": "dc"
-        },
-        {
-          "description": "A valid API Key for your user account.",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "apikey"
-        },
-        {
-          "description": "Is the method name from our API you are calling.",
-          "default": "campaignSendTest",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "method"
         },
         {
           "enum": [
@@ -6157,7 +4867,7 @@
             "description": "Successful Response"
           }
         },
-        "operationId": "_method_campaignSendNow.get"
+        "operationId": "campaignSendNow"
       },
       "parameters": [
         {
@@ -6166,21 +4876,6 @@
           "in": "path",
           "required": true,
           "name": "dc"
-        },
-        {
-          "description": "A valid API Key for your user account.",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "apikey"
-        },
-        {
-          "description": "Is the method name from our API you are calling.",
-          "default": "campaignSendNow",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "method"
         },
         {
           "enum": [
@@ -6225,7 +4920,7 @@
             "description": "Successful Response"
           }
         },
-        "operationId": "_method_campaignSegmentTest.get"
+        "operationId": "campaignSegmentTest"
       },
       "parameters": [
         {
@@ -6234,21 +4929,6 @@
           "in": "path",
           "required": true,
           "name": "dc"
-        },
-        {
-          "description": "A valid API Key for your user account.",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "apikey"
-        },
-        {
-          "description": "Is the method name from our API you are calling.",
-          "default": "campaignSegmentTest",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "method"
         },
         {
           "enum": [
@@ -6300,7 +4980,7 @@
             "description": "Successful Response"
           }
         },
-        "operationId": "_method_campaignSchedule.get"
+        "operationId": "campaignSchedule"
       },
       "parameters": [
         {
@@ -6309,21 +4989,6 @@
           "in": "path",
           "required": true,
           "name": "dc"
-        },
-        {
-          "description": "A valid API Key for your user account.",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "apikey"
-        },
-        {
-          "description": "Is the method name from our API you are calling.",
-          "default": "campaignSchedule",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "method"
         },
         {
           "enum": [
@@ -6361,7 +5026,7 @@
             "description": "Successful Response"
           }
         },
-        "operationId": "_method_campaignResume.get"
+        "operationId": "campaignResume"
       },
       "parameters": [
         {
@@ -6370,21 +5035,6 @@
           "in": "path",
           "required": true,
           "name": "dc"
-        },
-        {
-          "description": "A valid API Key for your user account.",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "apikey"
-        },
-        {
-          "description": "Is the method name from our API you are calling.",
-          "default": "campaignResume",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "method"
         },
         {
           "enum": [
@@ -6422,7 +5072,7 @@
             "description": "Successful Response"
           }
         },
-        "operationId": "_method_campaignReplicate.get"
+        "operationId": "campaignReplicate"
       },
       "parameters": [
         {
@@ -6431,21 +5081,6 @@
           "in": "path",
           "required": true,
           "name": "dc"
-        },
-        {
-          "description": "A valid API Key for your user account.",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "apikey"
-        },
-        {
-          "description": "Is the method name from our API you are calling.",
-          "default": "campaignReplicate",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "method"
         },
         {
           "enum": [
@@ -6483,7 +5118,7 @@
             "description": "Successful Response"
           }
         },
-        "operationId": "_method_campaignPause.get"
+        "operationId": "campaignPause"
       },
       "parameters": [
         {
@@ -6492,21 +5127,6 @@
           "in": "path",
           "required": true,
           "name": "dc"
-        },
-        {
-          "description": "A valid API Key for your user account.",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "apikey"
-        },
-        {
-          "description": "Is the method name from our API you are calling.",
-          "default": "campaignPause",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "method"
         },
         {
           "enum": [
@@ -6544,7 +5164,7 @@
             "description": "Successful Response"
           }
         },
-        "operationId": "_method_campaignEcommOrderAdd.get"
+        "operationId": "campaignEcommOrderAdd"
       },
       "parameters": [
         {
@@ -6553,21 +5173,6 @@
           "in": "path",
           "required": true,
           "name": "dc"
-        },
-        {
-          "description": "A valid API Key for your user account.",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "apikey"
-        },
-        {
-          "description": "Is the method name from our API you are calling.",
-          "default": "campaignEcommOrderAdd",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "method"
         },
         {
           "enum": [
@@ -6605,7 +5210,7 @@
             "description": "Successful Response"
           }
         },
-        "operationId": "_method_campaignDelete.get"
+        "operationId": "campaignDelete"
       },
       "parameters": [
         {
@@ -6614,21 +5219,6 @@
           "in": "path",
           "required": true,
           "name": "dc"
-        },
-        {
-          "description": "A valid API Key for your user account.",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "apikey"
-        },
-        {
-          "description": "Is the method name from our API you are calling.",
-          "default": "campaignDelete",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "method"
         },
         {
           "enum": [
@@ -6702,7 +5292,7 @@
             "description": "Successful Response"
           }
         },
-        "operationId": "_method_campaignCreate.get"
+        "operationId": "campaignCreate"
       },
       "parameters": [
         {
@@ -6711,21 +5301,6 @@
           "in": "path",
           "required": true,
           "name": "dc"
-        },
-        {
-          "description": "A valid API Key for your user account.",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "apikey"
-        },
-        {
-          "description": "Is the method name from our API you are calling.",
-          "default": "campaignCreate",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "method"
         },
         {
           "enum": [
@@ -6771,7 +5346,7 @@
             "description": "Successful Response"
           }
         },
-        "operationId": "_method_campaignContent.get"
+        "operationId": "campaignContent"
       },
       "parameters": [
         {
@@ -6780,21 +5355,6 @@
           "in": "path",
           "required": true,
           "name": "dc"
-        },
-        {
-          "description": "A valid API Key for your user account.",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "apikey"
-        },
-        {
-          "description": "Is the method name from our API you are calling.",
-          "default": "campaignContent",
-          "type": "string",
-          "in": "query",
-          "required": true,
-          "name": "method"
         },
         {
           "enum": [
