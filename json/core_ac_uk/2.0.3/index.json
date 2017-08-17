@@ -1,0 +1,1354 @@
+{
+  "id": "core_ac_uk",
+  "title": "CORE API v2",
+  "description": "You can use the CORE API to access the resources harvested and enriched by CORE. If you encounter any problems with the API, please [report them to us](/contact).\n\n## Overview\n\nThe API is organised by resource type. The resources are **articles**, **journals** and **repositories** and are represented using JSON data format. Furthermore, each resource has a list of methods. The API also provides two global methods for accessing all resources at once.\n\n## Response format\n\nResponse for each query contains two fields: **status** and **data**. In case of an error status, the data field is empty. The data field contains a single object in case the request is for a specific identifier (e.g. CORE ID, CORE repository ID, etc.), or contains a list of objects, for example for search queries. In case of batch requests, the response is an array of objects, each of which contains its own **status** and **data** fields. For search queries the response contains an additional field **totalHits**, which is the total number of items which match the search criteria.\n\n## Search query syntax\n\nComplex search queries can be used in all of the API search methods. The query can be a simple string or it can be built using terms and operators described in Elasticsearch [documentation](http://www.elastic.co/guide/en/elasticsearch/reference/1.4/query-dsl-query-string-query.html#query-string-syntax). The usable field names are **title**, **description**, **fullText**, **authorsString**, **publisher**, **repositories.id**, **repositories.name**, **doi**, **oai**, **identifiers** (which is a list of article identifiers including OAI, URL, etc.), **language.name** and **year**. Some example queries:\n\n*   title:psychology and language.name:English\n\n*   repositories.id:86 AND year:2014\n\n*   identifiers:\"oai:aura.abdn.ac.uk:2164/3837\" OR identifiers:\"oai:aura.abdn.ac.uk:2164/3843\"\n\n*   doi:\"10.1186/1471-2458-6-309\"\n\n## Sort order\n\nFor search queries, the results are ordered by relevance score. For batch requests, the results are retrieved in the order of the requests.\n\n## Parameters\n\nThe API methods allow different parameters to be passed. Additionally, there is an API key parameter which is common to all API methods. For all API methods the API key can be provided either as a query parameter or in the request header. If the API key is not provided, the API will return HTTP 401 error. You can register for an API key [here](/services#api).\n\n## API methods",
+  "security": {
+    "core_ac_uk": {
+      "integration": "core_ac_uk",
+      "fields": {
+        "apiKey": "Your Api Key. Also accepts apiKey as a header"
+      }
+    }
+  },
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/core_ac_uk.png"
+  },
+  "actionCount": 17,
+  "definitions": {
+    "Article": {
+      "properties": {
+        "authors": {
+          "description": "List of article authors",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "citations": {
+          "description": "Citations found in the article",
+          "items": {
+            "$ref": "#/definitions/Citation"
+          },
+          "type": "array"
+        },
+        "contributors": {
+          "description": "List of article contributors",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "datePublished": {
+          "description": "Date article published",
+          "type": "string"
+        },
+        "description": {
+          "description": "The abstract",
+          "type": "string"
+        },
+        "doi": {
+          "description": "The DOI of the article",
+          "type": "string"
+        },
+        "fulltext": {
+          "description": "Article full text",
+          "type": "string"
+        },
+        "fulltextIdentifier": {
+          "description": "The URL to the fulltext",
+          "type": "string"
+        },
+        "fulltextUrls": {
+          "description": "URLs of the fulltext version of this article",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "id": {
+          "description": "Article ID",
+          "type": "integer"
+        },
+        "identifiers": {
+          "description": "List of document identifiers",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "journals": {
+          "description": "List of journals this article belongs to",
+          "items": {
+            "$ref": "#/definitions/ArticleJournal"
+          },
+          "type": "array"
+        },
+        "language": {
+          "$ref": "#/definitions/Language",
+          "description": "Language of the article"
+        },
+        "oai": {
+          "description": "The OAI of the article",
+          "type": "string"
+        },
+        "publisher": {
+          "description": "Publisher of the article",
+          "type": "string"
+        },
+        "rawRecordXml": {
+          "$ref": "#/definitions/RawRecordXml",
+          "description": "Raw XML metadata"
+        },
+        "relations": {
+          "description": "URLs of relating articles, etc.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "repositories": {
+          "description": "List of repositories this article belongs to",
+          "items": {
+            "$ref": "#/definitions/Repository"
+          },
+          "type": "array"
+        },
+        "repositoryDocument": {
+          "$ref": "#/definitions/RepositoryDocument",
+          "description": "Information of CORE harvesting"
+        },
+        "similarities": {
+          "description": "Similar articles",
+          "items": {
+            "$ref": "#/definitions/Similar"
+          },
+          "type": "array"
+        },
+        "subjects": {
+          "description": "Article subjects",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "title": {
+          "description": "Article title",
+          "type": "string"
+        },
+        "topics": {
+          "description": "Article topics",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "types": {
+          "description": "Types, e.g. conference paper, journal paper, etc.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "year": {
+          "description": "Year the article was published",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "title": "Article"
+    },
+    "ArticleHistoryResponse": {
+      "properties": {
+        "data": {
+          "description": "List of article versions",
+          "items": {
+            "$ref": "#/definitions/RawRecordXml"
+          },
+          "type": "array"
+        },
+        "status": {
+          "description": "Operation status",
+          "enum": [
+            "OK",
+            "Not found",
+            "Too many queries",
+            "Missing parameter",
+            "Invalid parameter",
+            "Parameter out of bounds"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "status"
+      ],
+      "title": "ArticleHistoryResponse"
+    },
+    "ArticleJournal": {
+      "properties": {
+        "identifiers": {
+          "description": "List of journal identifiers",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "title": {
+          "description": "Title of the journal",
+          "type": "string"
+        }
+      },
+      "title": "ArticleJournal"
+    },
+    "ArticleResponse": {
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/Article",
+          "description": "The fetched article"
+        },
+        "status": {
+          "description": "Operation status",
+          "enum": [
+            "OK",
+            "Not found",
+            "Too many queries",
+            "Missing parameter",
+            "Invalid parameter",
+            "Parameter out of bounds"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "data",
+        "status"
+      ],
+      "title": "ArticleResponse"
+    },
+    "ArticleSearchResponse": {
+      "properties": {
+        "data": {
+          "description": "Search results",
+          "items": {
+            "$ref": "#/definitions/Article"
+          },
+          "type": "array"
+        },
+        "status": {
+          "description": "Operation status",
+          "enum": [
+            "OK",
+            "Not found",
+            "Too many queries",
+            "Missing parameter",
+            "Invalid parameter",
+            "Parameter out of bounds"
+          ],
+          "type": "string"
+        },
+        "totalHits": {
+          "description": "Total number of articles matching the search criteria",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "data",
+        "status",
+        "totalHits"
+      ],
+      "title": "ArticleSearchResponse"
+    },
+    "ArticleSimilarResponse": {
+      "properties": {
+        "data": {
+          "description": "Similar articles",
+          "items": {
+            "$ref": "#/definitions/Article"
+          },
+          "type": "array"
+        },
+        "status": {
+          "description": "Operation status",
+          "enum": [
+            "OK",
+            "Not found",
+            "Too many queries",
+            "Missing parameter",
+            "Invalid parameter",
+            "Parameter out of bounds"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "data",
+        "status"
+      ],
+      "title": "ArticleSimilarResponse"
+    },
+    "Citation": {
+      "properties": {
+        "authors": {
+          "description": "Authors of the article",
+          "type": "string"
+        },
+        "date": {
+          "description": "Date the cited article was published",
+          "type": "string"
+        },
+        "doi": {
+          "description": "Digital Object Identifier",
+          "type": "string"
+        },
+        "raw": {
+          "description": "Citation as raw string",
+          "type": "string"
+        },
+        "title": {
+          "description": "Title of the cited article",
+          "type": "string"
+        }
+      },
+      "title": "Citation"
+    },
+    "Journal": {
+      "properties": {
+        "identifiers": {
+          "description": "List of journal identifiers (e.g. URL, OAI or ISSN). The type is prepended to the identifier string (e.g. 'issn:2296-0597')",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "language": {
+          "description": "Language of the journal",
+          "type": "string"
+        },
+        "publisher": {
+          "description": "Publisher of the journal",
+          "type": "string"
+        },
+        "rights": {
+          "description": "Copyright license of the journal",
+          "type": "string"
+        },
+        "subjects": {
+          "description": "List of journal subjects",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "title": {
+          "description": "Journal title",
+          "type": "string"
+        }
+      },
+      "required": [
+        "identifiers"
+      ],
+      "title": "Journal"
+    },
+    "JournalResponse": {
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/Journal",
+          "description": "The fetched journal"
+        },
+        "status": {
+          "description": "Operation status",
+          "enum": [
+            "OK",
+            "NOT_FOUND",
+            "TOO_MANY_QUERIES",
+            "MISSING_PARAMETER",
+            "INVALID_PARAMETER"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "status"
+      ],
+      "title": "JournalResponse"
+    },
+    "JournalSearchResponse": {
+      "properties": {
+        "data": {
+          "description": "Search results",
+          "items": {
+            "$ref": "#/definitions/Journal"
+          },
+          "type": "array"
+        },
+        "status": {
+          "description": "Operation status",
+          "enum": [
+            "OK",
+            "NOT_FOUND",
+            "TOO_MANY_QUERIES",
+            "MISSING_PARAMETER",
+            "INVALID_PARAMETER"
+          ],
+          "type": "string"
+        },
+        "totalHits": {
+          "description": "Total number of journals matching the search criteria",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "status",
+        "totalHits"
+      ],
+      "title": "JournalSearchResponse"
+    },
+    "Language": {
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "title": "Language"
+    },
+    "RawRecordXml": {
+      "properties": {
+        "datetime": {
+          "description": "Timestamp when CORE harvested the metadata",
+          "format": "date-format",
+          "type": "string"
+        },
+        "metadata": {
+          "description": "The raw XML metadata",
+          "type": "string"
+        }
+      },
+      "title": "RawRecordXml"
+    },
+    "Repository": {
+      "properties": {
+        "id": {
+          "description": "CORE repository ID",
+          "type": "integer"
+        },
+        "name": {
+          "description": "Repository name",
+          "type": "string"
+        },
+        "openDoarId": {
+          "description": "ID of the repository in Open DOAR",
+          "type": "integer"
+        },
+        "repositoryLocation": {
+          "$ref": "#/definitions/RepositoryLocation",
+          "description": "Location of the repository"
+        },
+        "uri": {
+          "description": "Repository URI",
+          "type": "string"
+        }
+      },
+      "title": "Repository"
+    },
+    "RepositoryDocument": {
+      "title": "RepositoryDocument"
+    },
+    "RepositoryLocation": {
+      "properties": {
+        "country": {
+          "description": "Country name",
+          "type": "string"
+        },
+        "countryCode": {
+          "description": "Two letter country code",
+          "type": "string"
+        },
+        "id": {
+          "description": "CORE repository ID",
+          "type": "integer"
+        },
+        "latitude": {
+          "type": "integer"
+        },
+        "longitude": {
+          "type": "integer"
+        },
+        "repositoryName": {
+          "description": "Repository name",
+          "type": "string"
+        }
+      },
+      "title": "RepositoryLocation"
+    },
+    "RepositoryResponse": {
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/Repository",
+          "description": "The fetched repository"
+        },
+        "status": {
+          "description": "Operation status",
+          "enum": [
+            "OK",
+            "Not found",
+            "Too many queries",
+            "Missing parameter",
+            "Invalid parameter",
+            "Parameter out of bounds"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "status"
+      ],
+      "title": "RepositoryResponse"
+    },
+    "RepositorySearchResponse": {
+      "properties": {
+        "data": {
+          "description": "Search results",
+          "items": {
+            "$ref": "#/definitions/Repository"
+          },
+          "type": "array"
+        },
+        "status": {
+          "description": "Operation status",
+          "enum": [
+            "OK",
+            "Not found",
+            "Too many queries",
+            "Missing parameter",
+            "Invalid parameter",
+            "Parameter out of bounds"
+          ],
+          "type": "string"
+        },
+        "totalHits": {
+          "description": "Total number of repositories matching the search criteria",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "status",
+        "totalHits"
+      ],
+      "title": "RepositorySearchResponse"
+    },
+    "Resource": {
+      "properties": {
+        "id": {
+          "description": "Identifier of the resource",
+          "type": "string"
+        },
+        "type": {
+          "description": "Type of the resource",
+          "enum": [
+            "journal",
+            "article",
+            "repository"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "type"
+      ],
+      "title": "Resource"
+    },
+    "SearchAllResponse": {
+      "properties": {
+        "data": {
+          "description": "List of relevant resources",
+          "items": {
+            "$ref": "#/definitions/Resource"
+          },
+          "type": "array"
+        },
+        "status": {
+          "description": "Operation status",
+          "enum": [
+            "OK",
+            "Not found",
+            "Too many queries",
+            "Missing parameter",
+            "Invalid parameter",
+            "Parameter out of bounds"
+          ],
+          "type": "string"
+        },
+        "totalHits": {
+          "description": "Total number of items matching the search criteria",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "data",
+        "status",
+        "totalHits"
+      ],
+      "title": "SearchAllResponse"
+    },
+    "SearchRequest": {
+      "properties": {
+        "page": {
+          "default": 1,
+          "description": "Which page of the search results should be retrieved. Can be any number from 1 to 100, default is 1 (first page)",
+          "maximum": 100,
+          "minimum": 1,
+          "type": "integer"
+        },
+        "pageSize": {
+          "default": 10,
+          "description": "The number of results to return per page. Can be any number from 10 to 100, default is 10",
+          "maximum": 100,
+          "minimum": 10,
+          "type": "integer"
+        },
+        "query": {
+          "description": "Search query",
+          "type": "string"
+        }
+      },
+      "required": [
+        "query"
+      ],
+      "title": "SearchRequest"
+    },
+    "Similar": {
+      "properties": {
+        "id": {
+          "description": "CORE ID of the similar article",
+          "type": "integer"
+        },
+        "score": {
+          "description": "Similarity score",
+          "format": "double",
+          "type": "number"
+        },
+        "title": {
+          "description": "Title of the similar article",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "score"
+      ],
+      "title": "Similar"
+    },
+    "SimilarRequest": {
+      "properties": {
+        "text": {
+          "description": "Find Similar articles based on this string",
+          "type": "string"
+        }
+      },
+      "required": [
+        "text"
+      ],
+      "title": "SimilarRequest"
+    }
+  },
+  "actions": [
+    {
+      "id": "getArticleByCoreIdBatch",
+      "title": "getArticleByCoreIdBatch",
+      "description": "Method accepts a JSON array of CORE IDs and retrieves a list of articles. The response array is ordered based on the order of the IDs in the request array.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "items": {
+              "type": "integer"
+            },
+            "type": "array"
+          },
+          "metadata": {
+            "type": "boolean",
+            "description": "Whether to retrieve the full article metadata or only the IDs. The default value is true"
+          },
+          "fulltext": {
+            "type": "boolean",
+            "description": "Whether to retrieve fulltexts of the articles. The default value is false"
+          },
+          "citations": {
+            "type": "boolean",
+            "description": "Whether to retrieve citations found in the articles. The default value is false"
+          },
+          "similar": {
+            "type": "boolean",
+            "description": "Whether to retrieve lists of similar articles. The default value is false. Because the similar articles are calculated on demand, setting this parameter to true might slightly slow down the response time"
+          },
+          "duplicate": {
+            "type": "boolean",
+            "description": "Whether to retrieve CORE IDs of different versions of the articles. The default value is false"
+          },
+          "urls": {
+            "type": "boolean",
+            "description": "Whether to retrieve lists of URLs of the article fulltexts. The default value is false"
+          },
+          "faithfulMetadata": {
+            "type": "boolean",
+            "description": "Returns the records raw XML metadata from the original repository. The default value is false"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/ArticleResponse"
+        },
+        "type": "array"
+      },
+      "security": {
+        "core_ac_uk": {
+          "integration": "core_ac_uk"
+        }
+      }
+    },
+    {
+      "id": "getArticleByCoreId",
+      "title": "getArticleByCoreId",
+      "description": "Method will retrieve an article based on given CORE ID.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "coreId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "CORE ID of the article that needs to be fetched."
+          },
+          "metadata": {
+            "type": "boolean",
+            "description": "Whether to retrieve the full article metadata or only the ID. The default value is true."
+          },
+          "fulltext": {
+            "type": "boolean",
+            "description": "Whether to retrieve full text of the article. The default value is false"
+          },
+          "citations": {
+            "type": "boolean",
+            "description": "Whether to retrieve citations found in the article. The default value is false"
+          },
+          "similar": {
+            "type": "boolean",
+            "description": "Whether to retrieve a list of similar articles. The default value is false. Because the similar articles are calculated on demand, setting this parameter to true might slightly slow down the response time"
+          },
+          "duplicate": {
+            "type": "boolean",
+            "description": "Whether to retrieve a list of CORE IDs of different versions of the article. The default value is false"
+          },
+          "urls": {
+            "type": "boolean",
+            "description": "Whether to retrieve a list of URLs from which the article can be downloaded. This can include links to PDFs as well as HTML pages. The default value is false"
+          },
+          "faithfulMetadata": {
+            "type": "boolean",
+            "description": "Returns the records raw XML metadata from the original repository. The default value is false"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "coreId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ArticleResponse"
+      },
+      "security": {
+        "core_ac_uk": {
+          "integration": "core_ac_uk"
+        }
+      }
+    },
+    {
+      "id": "getArticlePdfByCoreId",
+      "title": "getArticlePdfByCoreId",
+      "description": "Method will retrieve an article based on given CORE ID.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "coreId": {
+            "type": "string",
+            "description": "ID of article history that needs to be fetched"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "coreId"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "core_ac_uk": {
+          "integration": "core_ac_uk"
+        }
+      }
+    },
+    {
+      "id": "getArticleHistoryByCoreId",
+      "title": "getArticleHistoryByCoreId",
+      "description": "Method accepts a single CORE ID and returns a list of all historical versions of the article, which are stored in CORE database. The results are ordered from the newest one to the oldest one.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "coreId": {
+            "type": "string",
+            "description": "CORE ID of the article which history should be fetched"
+          },
+          "page": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Which page of the history results should be retrieved. Can be any number betwen 1 and 100, default is 1 (first page).",
+            "maximum": 100,
+            "minimum": 1
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int32",
+            "description": "The number of results to return per page. Can be any number between 10 and 100, default is 10.",
+            "maximum": 100,
+            "minimum": 10
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "coreId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ArticleHistoryResponse"
+      },
+      "security": {
+        "core_ac_uk": {
+          "integration": "core_ac_uk"
+        }
+      }
+    },
+    {
+      "id": "searchArticlesBatch",
+      "title": "searchArticlesBatch",
+      "description": "Method accepts a JSON array of search queries and parameters. It then searches through all articles and returns a JSON array of search results for each of the queries. Method searches through all article fields (title, authors, subjects, identifiers, etc.).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "items": {
+              "$ref": "#/definitions/SearchRequest"
+            },
+            "type": "array"
+          },
+          "metadata": {
+            "type": "boolean",
+            "description": "Whether to retrieve the full article metadata or only the ID. The default value is true."
+          },
+          "fulltext": {
+            "type": "boolean",
+            "description": "Whether to retrieve full text of the article. The default value is false"
+          },
+          "citations": {
+            "type": "boolean",
+            "description": "Whether to retrieve citations found in the article. The default value is false"
+          },
+          "similar": {
+            "type": "boolean",
+            "description": "Whether to retrieve a list of similar articles. The default value is false. Because the similar articles are calculated on demand, setting this parameter to true might slightly slow down the response time"
+          },
+          "duplicate": {
+            "type": "boolean",
+            "description": "Whether to retrieve a list of CORE IDs of different versions of the article. The default value is false"
+          },
+          "urls": {
+            "type": "boolean",
+            "description": "Whether to retrieve a list of URLs from which the article can be downloaded. This can include links to PDFs as well as HTML pages. The default value is false"
+          },
+          "faithfulMetadata": {
+            "type": "boolean",
+            "description": "Whether to retrieve the raw XML metadata of the article. The default value is false"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/ArticleSearchResponse"
+        },
+        "type": "array"
+      },
+      "security": {
+        "core_ac_uk": {
+          "integration": "core_ac_uk"
+        }
+      }
+    },
+    {
+      "id": "searchArticles",
+      "title": "searchArticles",
+      "description": "Searches through all articles and returns a JSON array with search results. Method searches through all article fields.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "integer",
+            "format": "int64",
+            "description": "The search query"
+          },
+          "page": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Which page of the search results should be retrieved. Can be any number betwen 1 and 100, default is 1 (first page).",
+            "maximum": 100,
+            "minimum": 1
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int32",
+            "description": "The number of results to return per page. Can be any number between 10 and 100, default is 10.",
+            "maximum": 100,
+            "minimum": 10
+          },
+          "metadata": {
+            "type": "boolean",
+            "description": "Whether to retrieve the full article metadata or only the ID. The default value is true."
+          },
+          "fulltext": {
+            "type": "boolean",
+            "description": "Whether to retrieve full text of the article. The default value is false"
+          },
+          "citations": {
+            "type": "boolean",
+            "description": "Whether to retrieve citations found in the article. The default value is false"
+          },
+          "similar": {
+            "type": "boolean",
+            "description": "Whether to retrieve a list of similar articles. The default value is false. Because the similar articles are calculated on demand, setting this parameter to true might slightly slow down the response time"
+          },
+          "duplicate": {
+            "type": "boolean",
+            "description": "Whether to retrieve a list of CORE IDs of different versions of the article. The default value is false"
+          },
+          "urls": {
+            "type": "boolean",
+            "description": "Whether to retrieve a list of URLs from which the article can be downloaded. This can include links to PDFs as well as HTML pages. The default value is false"
+          },
+          "faithfulMetadata": {
+            "type": "boolean",
+            "description": "Returns the records raw XML metadata from the original repository. The default value is false"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "query"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ArticleSearchResponse"
+      },
+      "security": {
+        "core_ac_uk": {
+          "integration": "core_ac_uk"
+        }
+      }
+    },
+    {
+      "id": "similarArticles",
+      "title": "similarArticles",
+      "description": "Method accepts a text and retrieves a JSON array of articles which are similar to the given text. The response array is ordered based on similarity score, starting from the most similar.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/SimilarRequest"
+          },
+          "limit": {
+            "type": "integer",
+            "description": "How many similar articles to retrieve at most. Can be any number betwen 1 and 100, default is 10",
+            "maximum": 100,
+            "minimum": 1
+          },
+          "metadata": {
+            "type": "boolean",
+            "description": "Whether to retrieve the full article metadata or only the IDs of the similar articles. The default value is true"
+          },
+          "fulltext": {
+            "type": "boolean",
+            "description": "Whether to retrieve fulltexts of the similar articles. The default value is false"
+          },
+          "citations": {
+            "type": "boolean",
+            "description": "Whether to retrieve citations found in the articles. The default value is false"
+          },
+          "similar": {
+            "type": "boolean",
+            "description": "Whether to retrieve lists of similar articles. The default value is false. Because the similar articles are calculated on demand, setting this parameter to true might slightly slow down the response time"
+          },
+          "duplicate": {
+            "type": "boolean",
+            "description": "Whether to retrieve CORE IDs of different versions of the articles. The default value is false"
+          },
+          "urls": {
+            "type": "boolean",
+            "description": "Whether to retrieve lists of URLs of the article fulltexts. The default value is false"
+          },
+          "faithfulMetadata": {
+            "type": "boolean",
+            "description": "Whether to retrieve the raw XML metadata of the articles. The default value is false"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ArticleSimilarResponse"
+      },
+      "security": {
+        "core_ac_uk": {
+          "integration": "core_ac_uk"
+        }
+      }
+    },
+    {
+      "id": "getJournalByIssnBatch",
+      "title": "getJournalByIssnBatch",
+      "description": "Method accepts a JSON array of ISSNs and retrieves a list of journals.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/JournalResponse"
+        },
+        "type": "array"
+      },
+      "security": {
+        "core_ac_uk": {
+          "integration": "core_ac_uk"
+        }
+      }
+    },
+    {
+      "id": "getJournalByIssn",
+      "title": "getJournalByIssn",
+      "description": "Returns a journal with given ISSN identifier.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "issn": {
+            "type": "string",
+            "description": "ISSN identifier of journal that needs to be fetched."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "issn"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/JournalResponse"
+      },
+      "security": {
+        "core_ac_uk": {
+          "integration": "core_ac_uk"
+        }
+      }
+    },
+    {
+      "id": "journals.search.post",
+      "title": "journals.search.post",
+      "description": "Method accepts a JSON array of search queries and parameters. It then searches through all journals and returns a JSON array of search results for each of the queries. Method searches through all journal fields (title, identifiers, subjects, language, rights and publisher).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "items": {
+              "$ref": "#/definitions/SearchRequest"
+            },
+            "type": "array"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/JournalResponse"
+        },
+        "type": "array"
+      },
+      "security": {
+        "core_ac_uk": {
+          "integration": "core_ac_uk"
+        }
+      }
+    },
+    {
+      "id": "journals.search.query.get",
+      "title": "journals.search.query.get",
+      "description": "Searches through all journals and returns a JSON array of search results. Method searches through all journal fields (title, identifiers, subjects, language, rights and publisher).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string",
+            "description": "Search query"
+          },
+          "page": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Which page of the search results should be retrieved. Can be any number betwen 1 and 100, default is 1 (first page).",
+            "maximum": 100,
+            "minimum": 1
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int32",
+            "description": "The number of results to return per page. Can be any number between 10 and 100, default is 10.",
+            "maximum": 100,
+            "minimum": 10
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "query"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/JournalSearchResponse"
+      },
+      "security": {
+        "core_ac_uk": {
+          "integration": "core_ac_uk"
+        }
+      }
+    },
+    {
+      "id": "getRepositoryByIdBatch",
+      "title": "getRepositoryByIdBatch",
+      "description": "Method accepts a JSON array of CORE repository IDs and retrieves a list of repositories. The response array is ordered based on the order of the IDs in the request array. The maximum number of IDs in request is 100.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "items": {
+              "type": "integer"
+            },
+            "type": "array"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/RepositoryResponse"
+        },
+        "type": "array"
+      },
+      "security": {
+        "core_ac_uk": {
+          "integration": "core_ac_uk"
+        }
+      }
+    },
+    {
+      "id": "getRepositoryById",
+      "title": "getRepositoryById",
+      "description": "Method will retrieve a repository based on given CORE repository ID.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "repositoryId": {
+            "type": "integer",
+            "description": "CORE repository ID of the article that needs to be fetched."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "repositoryId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/RepositoryResponse"
+      },
+      "security": {
+        "core_ac_uk": {
+          "integration": "core_ac_uk"
+        }
+      }
+    },
+    {
+      "id": "repositories.search.post",
+      "title": "repositories.search.post",
+      "description": "Method accepts a JSON array of search queries and parameters. It then searches through all repositories and returns a JSON array of search results for each of the queries. Method searches through all repository fields.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "items": {
+              "$ref": "#/definitions/SearchRequest"
+            },
+            "type": "array"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/RepositorySearchResponse"
+      },
+      "security": {
+        "core_ac_uk": {
+          "integration": "core_ac_uk"
+        }
+      }
+    },
+    {
+      "id": "repositories.search.query.get",
+      "title": "repositories.search.query.get",
+      "description": "Searches through all repositories and returns a JSON array with search results. Method searches through all repository fields.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string",
+            "description": "The search query"
+          },
+          "page": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Which page of the search results should be retrieved. Can be any number betwen 1 and 100, default is 1 (first page).",
+            "maximum": 100,
+            "minimum": 1
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int32",
+            "description": "The number of results to return per page. Can be any number between 10 and 100, default is 10.",
+            "maximum": 100,
+            "minimum": 10
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "query"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/RepositorySearchResponse"
+      },
+      "security": {
+        "core_ac_uk": {
+          "integration": "core_ac_uk"
+        }
+      }
+    },
+    {
+      "id": "search.post",
+      "title": "search.post",
+      "description": "Method accepts a JSON array of search queries. It searches through all resources and returns a JSON array with search results for each of the queries. Method searches through all resources and all fields. The results are ordered by relevance score and contain type of the relevant resource and its ID. Furthermore, the responses are oredered based on the order of the request items. The metadata of each resource need to be obtained through an appropriate method.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "items": {
+              "$ref": "#/definitions/SearchRequest"
+            },
+            "type": "array"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/SearchAllResponse"
+        },
+        "type": "array"
+      },
+      "security": {
+        "core_ac_uk": {
+          "integration": "core_ac_uk"
+        }
+      }
+    },
+    {
+      "id": "search.query.get",
+      "title": "search.query.get",
+      "description": "Searches through all resources and returns a JSON array with search results. Method searches through all resources and all fields. The results are ordered by relevance score and contain type of the relevant resource and its ID. The metadata of each resource need to be obtained through an appropriate method.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string",
+            "description": "The search query"
+          },
+          "page": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Which page of the search results should be retrieved. Can be any number betwen 1 and 100, default is 1 (first page).",
+            "maximum": 100,
+            "minimum": 1
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int32",
+            "description": "The number of results to return per page. Can be any number between 10 and 100, default is 10.",
+            "maximum": 100,
+            "minimum": 10
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "query"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/SearchAllResponse"
+      },
+      "security": {
+        "core_ac_uk": {
+          "integration": "core_ac_uk"
+        }
+      }
+    }
+  ],
+  "tags": [
+    "open data"
+  ]
+}

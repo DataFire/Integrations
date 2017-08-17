@@ -1,0 +1,2072 @@
+{
+  "id": "wordnik",
+  "title": "Wordnik",
+  "description": "Wordnik is the world's biggest online English dictionary, by number of words\n",
+  "security": {
+    "wordnik": {
+      "integration": "wordnik",
+      "fields": {
+        "api_key": "API key"
+      }
+    }
+  },
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/wordnik.png"
+  },
+  "actionCount": 28,
+  "definitions": {
+    "ApiTokenStatus": {
+      "properties": {
+        "expiresInMillis": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "remainingCalls": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "resetsInMillis": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "token": {
+          "type": "string"
+        },
+        "totalRequests": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "valid": {
+          "type": "boolean"
+        }
+      },
+      "title": "ApiTokenStatus"
+    },
+    "AudioFile": {
+      "properties": {
+        "attributionText": {
+          "type": "string"
+        },
+        "attributionUrl": {
+          "type": "string"
+        },
+        "audioType": {
+          "type": "string"
+        },
+        "commentCount": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "createdAt": {
+          "format": "date",
+          "type": "string"
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "duration": {
+          "format": "double",
+          "type": "number"
+        },
+        "fileUrl": {
+          "type": "string"
+        },
+        "id": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "voteAverage": {
+          "format": "float",
+          "type": "number"
+        },
+        "voteCount": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "voteWeightedAverage": {
+          "format": "float",
+          "type": "number"
+        },
+        "word": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "title": "AudioFile"
+    },
+    "AudioType": {
+      "properties": {
+        "id": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "title": "AudioType"
+    },
+    "AuthenticationToken": {
+      "properties": {
+        "token": {
+          "type": "string"
+        },
+        "userId": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "userSignature": {
+          "type": "string"
+        }
+      },
+      "title": "AuthenticationToken"
+    },
+    "Bigram": {
+      "properties": {
+        "count": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "gram1": {
+          "type": "string"
+        },
+        "gram2": {
+          "type": "string"
+        },
+        "mi": {
+          "format": "double",
+          "type": "number"
+        },
+        "wlmi": {
+          "format": "double",
+          "type": "number"
+        }
+      },
+      "title": "Bigram"
+    },
+    "Category": {
+      "properties": {
+        "id": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "title": "Category"
+    },
+    "Citation": {
+      "properties": {
+        "cite": {
+          "type": "string"
+        },
+        "source": {
+          "type": "string"
+        }
+      },
+      "title": "Citation"
+    },
+    "ContentProvider": {
+      "properties": {
+        "id": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "title": "ContentProvider"
+    },
+    "Definition": {
+      "properties": {
+        "attributionText": {
+          "type": "string"
+        },
+        "attributionUrl": {
+          "type": "string"
+        },
+        "citations": {
+          "items": {
+            "$ref": "#/definitions/Citation"
+          },
+          "type": "array"
+        },
+        "exampleUses": {
+          "items": {
+            "$ref": "#/definitions/ExampleUsage"
+          },
+          "type": "array"
+        },
+        "extendedText": {
+          "type": "string"
+        },
+        "labels": {
+          "items": {
+            "$ref": "#/definitions/Label"
+          },
+          "type": "array"
+        },
+        "notes": {
+          "items": {
+            "$ref": "#/definitions/Note"
+          },
+          "type": "array"
+        },
+        "partOfSpeech": {
+          "type": "string"
+        },
+        "relatedWords": {
+          "items": {
+            "$ref": "#/definitions/Related"
+          },
+          "type": "array"
+        },
+        "score": {
+          "format": "float",
+          "type": "number"
+        },
+        "seqString": {
+          "type": "string"
+        },
+        "sequence": {
+          "type": "string"
+        },
+        "sourceDictionary": {
+          "type": "string"
+        },
+        "text": {
+          "type": "string"
+        },
+        "textProns": {
+          "items": {
+            "$ref": "#/definitions/TextPron"
+          },
+          "type": "array"
+        },
+        "word": {
+          "type": "string"
+        }
+      },
+      "title": "Definition"
+    },
+    "DefinitionSearchResults": {
+      "properties": {
+        "results": {
+          "items": {
+            "$ref": "#/definitions/Definition"
+          },
+          "type": "array"
+        },
+        "totalResults": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "title": "DefinitionSearchResults"
+    },
+    "Example": {
+      "properties": {
+        "documentId": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "exampleId": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "id": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "provider": {
+          "$ref": "#/definitions/ContentProvider"
+        },
+        "rating": {
+          "format": "float",
+          "type": "number"
+        },
+        "score": {
+          "$ref": "#/definitions/ScoredWord"
+        },
+        "sentence": {
+          "$ref": "#/definitions/Sentence"
+        },
+        "text": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        },
+        "word": {
+          "type": "string"
+        },
+        "year": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "title": "Example"
+    },
+    "ExampleSearchResults": {
+      "properties": {
+        "examples": {
+          "items": {
+            "$ref": "#/definitions/Example"
+          },
+          "type": "array"
+        },
+        "facets": {
+          "items": {
+            "$ref": "#/definitions/Facet"
+          },
+          "type": "array"
+        }
+      },
+      "title": "ExampleSearchResults"
+    },
+    "ExampleUsage": {
+      "properties": {
+        "text": {
+          "type": "string"
+        }
+      },
+      "title": "ExampleUsage"
+    },
+    "Facet": {
+      "properties": {
+        "facetValues": {
+          "items": {
+            "$ref": "#/definitions/FacetValue"
+          },
+          "type": "array"
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "title": "Facet"
+    },
+    "FacetValue": {
+      "properties": {
+        "count": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "title": "FacetValue"
+    },
+    "Frequency": {
+      "properties": {
+        "count": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "year": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "title": "Frequency"
+    },
+    "FrequencySummary": {
+      "properties": {
+        "frequency": {
+          "items": {
+            "$ref": "#/definitions/Frequency"
+          },
+          "type": "array"
+        },
+        "frequencyString": {
+          "type": "string"
+        },
+        "totalCount": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "unknownYearCount": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "word": {
+          "type": "string"
+        }
+      },
+      "title": "FrequencySummary"
+    },
+    "Label": {
+      "properties": {
+        "text": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        }
+      },
+      "title": "Label"
+    },
+    "Note": {
+      "properties": {
+        "appliesTo": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "noteType": {
+          "type": "string"
+        },
+        "pos": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "title": "Note"
+    },
+    "PartOfSpeech": {
+      "properties": {
+        "allCategories": {
+          "items": {
+            "$ref": "#/definitions/Category"
+          },
+          "type": "array"
+        },
+        "roots": {
+          "items": {
+            "$ref": "#/definitions/Root"
+          },
+          "type": "array"
+        },
+        "storageAbbr": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "title": "PartOfSpeech"
+    },
+    "Related": {
+      "properties": {
+        "gram": {
+          "type": "string"
+        },
+        "label1": {
+          "type": "string"
+        },
+        "label2": {
+          "type": "string"
+        },
+        "label3": {
+          "type": "string"
+        },
+        "label4": {
+          "type": "string"
+        },
+        "relationshipType": {
+          "type": "string"
+        },
+        "words": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "title": "Related"
+    },
+    "Root": {
+      "properties": {
+        "categories": {
+          "items": {
+            "$ref": "#/definitions/Category"
+          },
+          "type": "array"
+        },
+        "id": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "title": "Root"
+    },
+    "ScoredWord": {
+      "properties": {
+        "baseWordScore": {
+          "format": "double",
+          "type": "number"
+        },
+        "docTermCount": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "id": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "lemma": {
+          "type": "string"
+        },
+        "partOfSpeech": {
+          "type": "string"
+        },
+        "position": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "score": {
+          "format": "float",
+          "type": "number"
+        },
+        "sentenceId": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "stopword": {
+          "type": "boolean"
+        },
+        "word": {
+          "type": "string"
+        },
+        "wordType": {
+          "type": "string"
+        }
+      },
+      "title": "ScoredWord"
+    },
+    "Sentence": {
+      "properties": {
+        "display": {
+          "type": "string"
+        },
+        "documentMetadataId": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "hasScoredWords": {
+          "type": "boolean"
+        },
+        "id": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "rating": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "scoredWords": {
+          "items": {
+            "$ref": "#/definitions/ScoredWord"
+          },
+          "type": "array"
+        }
+      },
+      "title": "Sentence"
+    },
+    "SimpleDefinition": {
+      "properties": {
+        "note": {
+          "type": "string"
+        },
+        "partOfSpeech": {
+          "type": "string"
+        },
+        "source": {
+          "type": "string"
+        },
+        "text": {
+          "type": "string"
+        }
+      },
+      "title": "SimpleDefinition"
+    },
+    "SimpleExample": {
+      "properties": {
+        "id": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "text": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        }
+      },
+      "title": "SimpleExample"
+    },
+    "StringValue": {
+      "properties": {
+        "word": {
+          "type": "string"
+        }
+      },
+      "title": "StringValue"
+    },
+    "Syllable": {
+      "properties": {
+        "seq": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "text": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        }
+      },
+      "title": "Syllable"
+    },
+    "TextPron": {
+      "properties": {
+        "raw": {
+          "type": "string"
+        },
+        "rawType": {
+          "type": "string"
+        },
+        "seq": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "title": "TextPron"
+    },
+    "User": {
+      "properties": {
+        "displayName": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "faceBookId": {
+          "type": "string"
+        },
+        "id": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "password": {
+          "type": "string"
+        },
+        "status": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "userName": {
+          "type": "string"
+        },
+        "username": {
+          "type": "string"
+        }
+      },
+      "title": "User"
+    },
+    "WordList": {
+      "properties": {
+        "createdAt": {
+          "format": "date",
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "id": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "lastActivityAt": {
+          "format": "date",
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "numberWordsInList": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "permalink": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "updatedAt": {
+          "format": "date",
+          "type": "string"
+        },
+        "userId": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "username": {
+          "type": "string"
+        }
+      },
+      "title": "WordList"
+    },
+    "WordListWord": {
+      "properties": {
+        "createdAt": {
+          "format": "date",
+          "type": "string"
+        },
+        "id": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "numberCommentsOnWord": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "numberLists": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "userId": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "username": {
+          "type": "string"
+        },
+        "word": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "title": "WordListWord"
+    },
+    "WordObject": {
+      "properties": {
+        "canonicalForm": {
+          "type": "string"
+        },
+        "id": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "originalWord": {
+          "type": "string"
+        },
+        "suggestions": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "vulgar": {
+          "type": "string"
+        },
+        "word": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "title": "WordObject"
+    },
+    "WordOfTheDay": {
+      "properties": {
+        "category": {
+          "type": "string"
+        },
+        "contentProvider": {
+          "$ref": "#/definitions/ContentProvider"
+        },
+        "createdAt": {
+          "format": "date",
+          "type": "string"
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "definitions": {
+          "items": {
+            "$ref": "#/definitions/SimpleDefinition"
+          },
+          "type": "array"
+        },
+        "examples": {
+          "items": {
+            "$ref": "#/definitions/SimpleExample"
+          },
+          "type": "array"
+        },
+        "htmlExtra": {
+          "type": "string"
+        },
+        "id": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "note": {
+          "type": "string"
+        },
+        "parentId": {
+          "type": "string"
+        },
+        "publishDate": {
+          "format": "date",
+          "type": "string"
+        },
+        "word": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "title": "WordOfTheDay"
+    },
+    "WordSearchResult": {
+      "properties": {
+        "count": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "lexicality": {
+          "format": "double",
+          "type": "number"
+        },
+        "word": {
+          "type": "string"
+        }
+      },
+      "title": "WordSearchResult"
+    },
+    "WordSearchResults": {
+      "properties": {
+        "searchResults": {
+          "items": {
+            "$ref": "#/definitions/WordSearchResult"
+          },
+          "type": "array"
+        },
+        "totalResults": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "title": "WordSearchResults"
+    }
+  },
+  "actions": [
+    {
+      "id": "getApiTokenStatus",
+      "title": "getApiTokenStatus",
+      "description": "Returns usage statistics for the API account.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "api_key": {
+            "type": "string",
+            "description": "Wordnik authentication token"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ApiTokenStatus"
+      },
+      "security": {
+        "wordnik": {
+          "integration": "wordnik"
+        }
+      }
+    },
+    {
+      "id": "authenticate",
+      "title": "authenticate",
+      "description": "Authenticates a User",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string",
+            "description": "A confirmed Wordnik username"
+          },
+          "password": {
+            "type": "string",
+            "description": "The user's password"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "password"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/AuthenticationToken"
+      },
+      "security": {
+        "wordnik": {
+          "integration": "wordnik"
+        }
+      }
+    },
+    {
+      "id": "authenticatePost",
+      "title": "authenticatePost",
+      "description": "Authenticates a user",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string",
+            "description": "A confirmed Wordnik username"
+          },
+          "body": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/AuthenticationToken"
+      },
+      "security": {
+        "wordnik": {
+          "integration": "wordnik"
+        }
+      }
+    },
+    {
+      "id": "getLoggedInUser",
+      "title": "getLoggedInUser",
+      "description": "Requires a valid auth_token to be set.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "auth_token": {
+            "type": "string",
+            "description": "The auth token of the logged-in user, obtained by calling /account.{format}/authenticate/{username} (described above)"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "auth_token"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/User"
+      },
+      "security": {
+        "wordnik": {
+          "integration": "wordnik"
+        }
+      }
+    },
+    {
+      "id": "getWordListsForLoggedInUser",
+      "title": "getWordListsForLoggedInUser",
+      "description": "Fetches WordList objects for the logged-in user.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "auth_token": {
+            "type": "string",
+            "description": "auth_token of logged-in user"
+          },
+          "skip": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Results to skip"
+          },
+          "limit": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Maximum number of results to return"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "auth_token"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/WordList"
+        },
+        "type": "array"
+      },
+      "security": {
+        "wordnik": {
+          "integration": "wordnik"
+        }
+      }
+    },
+    {
+      "id": "getWord",
+      "title": "getWord",
+      "description": "Given a word as a string, returns the WordObject that represents it",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "word": {
+            "type": "string",
+            "description": "String value of WordObject to return"
+          },
+          "useCanonical": {
+            "type": "string",
+            "description": "If true will try to return the correct word root ('cats' -> 'cat'). If false returns exactly what was requested."
+          },
+          "includeSuggestions": {
+            "type": "string",
+            "description": "Return suggestions (for correct spelling, case variants, etc.)"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "word"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/WordObject"
+      },
+      "security": {
+        "wordnik": {
+          "integration": "wordnik"
+        }
+      }
+    },
+    {
+      "id": "getAudio",
+      "title": "getAudio",
+      "description": "The metadata includes a time-expiring fileUrl which allows reading the audio file directly from the API.  Currently only audio pronunciations from the American Heritage Dictionary in mp3 format are supported.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "word": {
+            "type": "string",
+            "description": "Word to get audio for."
+          },
+          "useCanonical": {
+            "type": "string",
+            "description": "Use the canonical form of the word"
+          },
+          "limit": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Maximum number of results to return"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "word"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/AudioFile"
+        },
+        "type": "array"
+      },
+      "security": {
+        "wordnik": {
+          "integration": "wordnik"
+        }
+      }
+    },
+    {
+      "id": "getDefinitions",
+      "title": "getDefinitions",
+      "description": "Return definitions for a word",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "word": {
+            "type": "string",
+            "description": "Word to return definitions for"
+          },
+          "limit": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Maximum number of results to return"
+          },
+          "partOfSpeech": {
+            "type": "string",
+            "description": "CSV list of part-of-speech types"
+          },
+          "includeRelated": {
+            "type": "string",
+            "description": "Return related words with definitions"
+          },
+          "sourceDictionaries": {
+            "type": "array",
+            "description": "Source dictionary to return definitions from.  If 'all' is received, results are returned from all sources. If multiple values are received (e.g. 'century,wiktionary'), results are returned from the first specified dictionary that has definitions. If left blank, results are returned from the first dictionary that has definitions. By default, dictionaries are searched in this order: ahd, wiktionary, webster, century, wordnet"
+          },
+          "useCanonical": {
+            "type": "string",
+            "description": "If true will try to return the correct word root ('cats' -> 'cat'). If false returns exactly what was requested."
+          },
+          "includeTags": {
+            "type": "string",
+            "description": "Return a closed set of XML tags in response"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "word"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Definition"
+        },
+        "type": "array"
+      },
+      "security": {
+        "wordnik": {
+          "integration": "wordnik"
+        }
+      }
+    },
+    {
+      "id": "getEtymologies",
+      "title": "getEtymologies",
+      "description": "Fetches etymology data",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "word": {
+            "type": "string",
+            "description": "Word to return"
+          },
+          "useCanonical": {
+            "type": "string",
+            "description": "If true will try to return the correct word root ('cats' -> 'cat'). If false returns exactly what was requested."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "word"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "type": "string"
+        },
+        "type": "array"
+      },
+      "security": {
+        "wordnik": {
+          "integration": "wordnik"
+        }
+      }
+    },
+    {
+      "id": "getExamples",
+      "title": "getExamples",
+      "description": "Returns examples for a word",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "word": {
+            "type": "string",
+            "description": "Word to return examples for"
+          },
+          "includeDuplicates": {
+            "type": "string",
+            "description": "Show duplicate examples from different sources"
+          },
+          "useCanonical": {
+            "type": "string",
+            "description": "If true will try to return the correct word root ('cats' -> 'cat'). If false returns exactly what was requested."
+          },
+          "skip": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Results to skip"
+          },
+          "limit": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Maximum number of results to return"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "word"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ExampleSearchResults"
+      },
+      "security": {
+        "wordnik": {
+          "integration": "wordnik"
+        }
+      }
+    },
+    {
+      "id": "getWordFrequency",
+      "title": "getWordFrequency",
+      "description": "Returns word usage over time",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "word": {
+            "type": "string",
+            "description": "Word to return"
+          },
+          "useCanonical": {
+            "type": "string",
+            "description": "If true will try to return the correct word root ('cats' -> 'cat'). If false returns exactly what was requested."
+          },
+          "startYear": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Starting Year"
+          },
+          "endYear": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Ending Year"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "word"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/FrequencySummary"
+      },
+      "security": {
+        "wordnik": {
+          "integration": "wordnik"
+        }
+      }
+    },
+    {
+      "id": "getHyphenation",
+      "title": "getHyphenation",
+      "description": "Returns syllable information for a word",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "word": {
+            "type": "string",
+            "description": "Word to get syllables for"
+          },
+          "useCanonical": {
+            "type": "string",
+            "description": "If true will try to return a correct word root ('cats' -> 'cat'). If false returns exactly what was requested."
+          },
+          "sourceDictionary": {
+            "type": "string",
+            "description": "Get from a single dictionary. Valid options: ahd, century, wiktionary, webster, and wordnet."
+          },
+          "limit": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Maximum number of results to return"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "word"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Syllable"
+        },
+        "type": "array"
+      },
+      "security": {
+        "wordnik": {
+          "integration": "wordnik"
+        }
+      }
+    },
+    {
+      "id": "getPhrases",
+      "title": "getPhrases",
+      "description": "Fetches bi-gram phrases for a word",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "word": {
+            "type": "string",
+            "description": "Word to fetch phrases for"
+          },
+          "limit": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Maximum number of results to return"
+          },
+          "wlmi": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Minimum WLMI for the phrase"
+          },
+          "useCanonical": {
+            "type": "string",
+            "description": "If true will try to return the correct word root ('cats' -> 'cat'). If false returns exactly what was requested."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "word"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Bigram"
+        },
+        "type": "array"
+      },
+      "security": {
+        "wordnik": {
+          "integration": "wordnik"
+        }
+      }
+    },
+    {
+      "id": "getTextPronunciations",
+      "title": "getTextPronunciations",
+      "description": "Returns text pronunciations for a given word",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "word": {
+            "type": "string",
+            "description": "Word to get pronunciations for"
+          },
+          "useCanonical": {
+            "type": "string",
+            "description": "If true will try to return a correct word root ('cats' -> 'cat'). If false returns exactly what was requested."
+          },
+          "sourceDictionary": {
+            "type": "string",
+            "description": "Get from a single dictionary"
+          },
+          "typeFormat": {
+            "type": "string",
+            "description": "Text pronunciation type"
+          },
+          "limit": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Maximum number of results to return"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "word"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/TextPron"
+        },
+        "type": "array"
+      },
+      "security": {
+        "wordnik": {
+          "integration": "wordnik"
+        }
+      }
+    },
+    {
+      "id": "getRelatedWords",
+      "title": "getRelatedWords",
+      "description": "Given a word as a string, returns relationships from the Word Graph",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "word": {
+            "type": "string",
+            "description": "Word to fetch relationships for"
+          },
+          "useCanonical": {
+            "type": "string",
+            "description": "If true will try to return the correct word root ('cats' -> 'cat'). If false returns exactly what was requested."
+          },
+          "relationshipTypes": {
+            "type": "string",
+            "description": "Limits the total results per type of relationship type"
+          },
+          "limitPerRelationshipType": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Restrict to the supplied relationship types"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "word"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Related"
+        },
+        "type": "array"
+      },
+      "security": {
+        "wordnik": {
+          "integration": "wordnik"
+        }
+      }
+    },
+    {
+      "id": "getTopExample",
+      "title": "getTopExample",
+      "description": "Returns a top example for a word",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "word": {
+            "type": "string",
+            "description": "Word to fetch examples for"
+          },
+          "useCanonical": {
+            "type": "string",
+            "description": "If true will try to return the correct word root ('cats' -> 'cat'). If false returns exactly what was requested."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "word"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Example"
+      },
+      "security": {
+        "wordnik": {
+          "integration": "wordnik"
+        }
+      }
+    },
+    {
+      "id": "deleteWordList",
+      "title": "deleteWordList",
+      "description": "Deletes an existing WordList",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "permalink": {
+            "type": "string",
+            "description": "ID of WordList to delete"
+          },
+          "auth_token": {
+            "type": "string",
+            "description": "The auth token of the logged-in user, obtained by calling /account.{format}/authenticate/{username} (described above)"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "permalink",
+          "auth_token"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "wordnik": {
+          "integration": "wordnik"
+        }
+      }
+    },
+    {
+      "id": "getWordListByPermalink",
+      "title": "getWordListByPermalink",
+      "description": "Fetches a WordList by ID",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "permalink": {
+            "type": "string",
+            "description": "permalink of WordList to fetch"
+          },
+          "auth_token": {
+            "type": "string",
+            "description": "The auth token of the logged-in user, obtained by calling /account.{format}/authenticate/{username} (described above)"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "permalink",
+          "auth_token"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/WordList"
+      },
+      "security": {
+        "wordnik": {
+          "integration": "wordnik"
+        }
+      }
+    },
+    {
+      "id": "updateWordList",
+      "title": "updateWordList",
+      "description": "Updates an existing WordList",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "permalink": {
+            "type": "string",
+            "description": "permalink of WordList to update"
+          },
+          "body": {
+            "$ref": "#/definitions/WordList"
+          },
+          "auth_token": {
+            "type": "string",
+            "description": "The auth token of the logged-in user, obtained by calling /account.{format}/authenticate/{username} (described above)"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "permalink",
+          "auth_token"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "wordnik": {
+          "integration": "wordnik"
+        }
+      }
+    },
+    {
+      "id": "deleteWordsFromWordList",
+      "title": "deleteWordsFromWordList",
+      "description": "Removes words from a WordList",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "permalink": {
+            "type": "string",
+            "description": "permalink of WordList to use"
+          },
+          "body": {
+            "items": {
+              "$ref": "#/definitions/StringValue"
+            },
+            "type": "array"
+          },
+          "auth_token": {
+            "type": "string",
+            "description": "The auth token of the logged-in user, obtained by calling /account.{format}/authenticate/{username} (described above)"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "permalink",
+          "auth_token"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "wordnik": {
+          "integration": "wordnik"
+        }
+      }
+    },
+    {
+      "id": "getWordListWords",
+      "title": "getWordListWords",
+      "description": "Fetches words in a WordList",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "permalink": {
+            "type": "string",
+            "description": "ID of WordList to use"
+          },
+          "sortBy": {
+            "type": "string",
+            "description": "Field to sort by"
+          },
+          "sortOrder": {
+            "type": "string",
+            "description": "Direction to sort"
+          },
+          "skip": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Results to skip"
+          },
+          "limit": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Maximum number of results to return"
+          },
+          "auth_token": {
+            "type": "string",
+            "description": "The auth token of the logged-in user, obtained by calling /account.{format}/authenticate/{username} (described above)"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "permalink",
+          "auth_token"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/WordListWord"
+        },
+        "type": "array"
+      },
+      "security": {
+        "wordnik": {
+          "integration": "wordnik"
+        }
+      }
+    },
+    {
+      "id": "addWordsToWordList",
+      "title": "addWordsToWordList",
+      "description": "Adds words to a WordList",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "permalink": {
+            "type": "string",
+            "description": "permalink of WordList to user"
+          },
+          "body": {
+            "items": {
+              "$ref": "#/definitions/StringValue"
+            },
+            "type": "array"
+          },
+          "auth_token": {
+            "type": "string",
+            "description": "The auth token of the logged-in user, obtained by calling /account.{format}/authenticate/{username} (described above)"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "permalink",
+          "auth_token"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "wordnik": {
+          "integration": "wordnik"
+        }
+      }
+    },
+    {
+      "id": "createWordList",
+      "title": "createWordList",
+      "description": "Creates a WordList.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/WordList"
+          },
+          "auth_token": {
+            "type": "string",
+            "description": "The auth token of the logged-in user, obtained by calling /account.{format}/authenticate/{username} (described above)"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "auth_token"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/WordList"
+      },
+      "security": {
+        "wordnik": {
+          "integration": "wordnik"
+        }
+      }
+    },
+    {
+      "id": "getRandomWord",
+      "title": "getRandomWord",
+      "description": "Returns a single random WordObject",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "hasDictionaryDef": {
+            "type": "string",
+            "description": "Only return words with dictionary definitions"
+          },
+          "includePartOfSpeech": {
+            "type": "string",
+            "description": "CSV part-of-speech values to include"
+          },
+          "excludePartOfSpeech": {
+            "type": "string",
+            "description": "CSV part-of-speech values to exclude"
+          },
+          "minCorpusCount": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Minimum corpus frequency for terms"
+          },
+          "maxCorpusCount": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Maximum corpus frequency for terms"
+          },
+          "minDictionaryCount": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Minimum dictionary count"
+          },
+          "maxDictionaryCount": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Maximum dictionary count"
+          },
+          "minLength": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Minimum word length"
+          },
+          "maxLength": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Maximum word length"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/WordObject"
+      },
+      "security": {
+        "wordnik": {
+          "integration": "wordnik"
+        }
+      }
+    },
+    {
+      "id": "getRandomWords",
+      "title": "getRandomWords",
+      "description": "Returns an array of random WordObjects",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "hasDictionaryDef": {
+            "type": "string",
+            "description": "Only return words with dictionary definitions"
+          },
+          "includePartOfSpeech": {
+            "type": "string",
+            "description": "CSV part-of-speech values to include"
+          },
+          "excludePartOfSpeech": {
+            "type": "string",
+            "description": "CSV part-of-speech values to exclude"
+          },
+          "minCorpusCount": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Minimum corpus frequency for terms"
+          },
+          "maxCorpusCount": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Maximum corpus frequency for terms"
+          },
+          "minDictionaryCount": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Minimum dictionary count"
+          },
+          "maxDictionaryCount": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Maximum dictionary count"
+          },
+          "minLength": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Minimum word length"
+          },
+          "maxLength": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Maximum word length"
+          },
+          "sortBy": {
+            "type": "string",
+            "description": "Attribute to sort by"
+          },
+          "sortOrder": {
+            "type": "string",
+            "description": "Sort direction"
+          },
+          "limit": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Maximum number of results to return"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/WordObject"
+        },
+        "type": "array"
+      },
+      "security": {
+        "wordnik": {
+          "integration": "wordnik"
+        }
+      }
+    },
+    {
+      "id": "reverseDictionary",
+      "title": "reverseDictionary",
+      "description": "Reverse dictionary search",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string",
+            "description": "Search term"
+          },
+          "findSenseForWord": {
+            "type": "string",
+            "description": "Restricts words and finds closest sense"
+          },
+          "includeSourceDictionaries": {
+            "type": "string",
+            "description": "Only include these comma-delimited source dictionaries"
+          },
+          "excludeSourceDictionaries": {
+            "type": "string",
+            "description": "Exclude these comma-delimited source dictionaries"
+          },
+          "includePartOfSpeech": {
+            "type": "string",
+            "description": "Only include these comma-delimited parts of speech"
+          },
+          "excludePartOfSpeech": {
+            "type": "string",
+            "description": "Exclude these comma-delimited parts of speech"
+          },
+          "minCorpusCount": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Minimum corpus frequency for terms"
+          },
+          "maxCorpusCount": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Maximum corpus frequency for terms"
+          },
+          "minLength": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Minimum word length"
+          },
+          "maxLength": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Maximum word length"
+          },
+          "expandTerms": {
+            "type": "string",
+            "description": "Expand terms"
+          },
+          "includeTags": {
+            "type": "string",
+            "description": "Return a closed set of XML tags in response"
+          },
+          "sortBy": {
+            "type": "string",
+            "description": "Attribute to sort by"
+          },
+          "sortOrder": {
+            "type": "string",
+            "description": "Sort direction"
+          },
+          "skip": {
+            "type": "string",
+            "description": "Results to skip"
+          },
+          "limit": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Maximum number of results to return"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "query"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DefinitionSearchResults"
+      },
+      "security": {
+        "wordnik": {
+          "integration": "wordnik"
+        }
+      }
+    },
+    {
+      "id": "searchWords",
+      "title": "searchWords",
+      "description": "Searches words",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string",
+            "description": "Search query"
+          },
+          "caseSensitive": {
+            "type": "string",
+            "description": "Search case sensitive"
+          },
+          "includePartOfSpeech": {
+            "type": "string",
+            "description": "Only include these comma-delimited parts of speech"
+          },
+          "excludePartOfSpeech": {
+            "type": "string",
+            "description": "Exclude these comma-delimited parts of speech"
+          },
+          "minCorpusCount": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Minimum corpus frequency for terms"
+          },
+          "maxCorpusCount": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Maximum corpus frequency for terms"
+          },
+          "minDictionaryCount": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Minimum number of dictionary entries for words returned"
+          },
+          "maxDictionaryCount": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Maximum dictionary definition count"
+          },
+          "minLength": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Minimum word length"
+          },
+          "maxLength": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Maximum word length"
+          },
+          "skip": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Results to skip"
+          },
+          "limit": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Maximum number of results to return"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "query"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/WordSearchResults"
+      },
+      "security": {
+        "wordnik": {
+          "integration": "wordnik"
+        }
+      }
+    },
+    {
+      "id": "getWordOfTheDay",
+      "title": "getWordOfTheDay",
+      "description": "Returns a specific WordOfTheDay",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "date": {
+            "type": "string",
+            "description": "Fetches by date in yyyy-MM-dd"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/WordOfTheDay"
+      },
+      "security": {
+        "wordnik": {
+          "integration": "wordnik"
+        }
+      }
+    }
+  ],
+  "tags": [
+    "text"
+  ]
+}

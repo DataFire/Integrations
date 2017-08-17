@@ -1,0 +1,181 @@
+{
+  "id": "apitore_twitterapiswithword2vecqueryexpansion",
+  "title": "Twitter APIs with Word2Vec query expansion",
+  "description": "Call Twitter APIs with word2vec query expansion.<BR />[Endpoint] https://api.apitore.com/api/24",
+  "security": {},
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apitore_twitterapiswithword2vecqueryexpansion.jpg"
+  },
+  "actionCount": 1,
+  "definitions": {
+    "TweetEntity": {
+      "properties": {
+        "createdAt": {
+          "description": "Tweet date",
+          "format": "int64",
+          "type": "integer"
+        },
+        "favorited": {
+          "type": "boolean"
+        },
+        "favoritedCount": {
+          "description": "Number of be favorited",
+          "format": "int32",
+          "type": "integer"
+        },
+        "retweetCount": {
+          "description": "Number of be retweeted",
+          "format": "int32",
+          "type": "integer"
+        },
+        "retweeted": {
+          "type": "boolean"
+        },
+        "sentiment": {
+          "description": "Tweet sentiment by Apitore sentiment API",
+          "type": "string"
+        },
+        "sentimentScore": {
+          "description": "Tweet sentiment score by Apitore sentiment API",
+          "format": "double",
+          "type": "number"
+        },
+        "source": {
+          "description": "Tweet client",
+          "type": "string"
+        },
+        "statusId": {
+          "description": "Status ID",
+          "format": "int64",
+          "type": "integer"
+        },
+        "text": {
+          "description": "Tweet text",
+          "type": "string"
+        },
+        "userId": {
+          "description": "User ID",
+          "format": "int64",
+          "type": "integer"
+        },
+        "userName": {
+          "description": "User name",
+          "type": "string"
+        },
+        "userProfileImageURL": {
+          "description": "User profile image URL",
+          "type": "string"
+        },
+        "userScreenName": {
+          "description": "User screen name",
+          "type": "string"
+        }
+      },
+      "required": [
+        "createdAt",
+        "favoritedCount",
+        "retweetCount",
+        "source",
+        "statusId",
+        "text",
+        "userId",
+        "userName",
+        "userProfileImageURL",
+        "userScreenName"
+      ],
+      "type": "object",
+      "title": "TweetEntity"
+    },
+    "TwitterResponseEntity": {
+      "properties": {
+        "endTime": {
+          "description": "End date",
+          "type": "string"
+        },
+        "log": {
+          "description": "Log message",
+          "type": "string"
+        },
+        "numofTweets": {
+          "description": "Output: Numof tweets",
+          "format": "int32",
+          "type": "integer"
+        },
+        "processTime": {
+          "description": "Process time [millisecond]",
+          "type": "string"
+        },
+        "query": {
+          "description": "Input: query",
+          "type": "string"
+        },
+        "startTime": {
+          "description": "Start date",
+          "type": "string"
+        },
+        "tweets": {
+          "description": "Output: Tweets",
+          "items": {
+            "$ref": "#/definitions/TweetEntity"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "endTime",
+        "log",
+        "numofTweets",
+        "processTime",
+        "query",
+        "startTime",
+        "tweets"
+      ],
+      "type": "object",
+      "title": "TwitterResponseEntity"
+    }
+  },
+  "actions": [
+    {
+      "id": "searchUsingGET_2",
+      "title": "searchUsingGET_2",
+      "description": "Tweets search API with Word2Vec query expansion.  \nResponse  \n  Github: [twitter-response](https://github.com/keigohtr/apitore-response-parent/tree/master/twitter-response)  \n  Class: com.apitore.banana.response.twitter.TwitterResponseEntity",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "access_token": {
+            "type": "string",
+            "description": "Access Token"
+          },
+          "q": {
+            "type": "string",
+            "description": "Search query"
+          },
+          "sinceId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Get after this id."
+          },
+          "maxId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Get before this id."
+          },
+          "iter": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Numof search requests. Return up to 100 x iter tweets."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "access_token",
+          "q"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/TwitterResponseEntity"
+      }
+    }
+  ],
+  "tags": []
+}

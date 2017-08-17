@@ -1,0 +1,110 @@
+{
+  "id": "apitore_synonymapis",
+  "title": "Synonym APIs",
+  "description": "Return synonymous words. (equal to \"word2vec distance\")<BR />[Endpoint] https://api.apitore.com/api/9",
+  "security": {},
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apitore_synonymapis.jpg"
+  },
+  "actionCount": 1,
+  "definitions": {
+    "DistanceEntity": {
+      "properties": {
+        "distance": {
+          "description": "cosine distance",
+          "format": "double",
+          "type": "number"
+        },
+        "word": {
+          "description": "word",
+          "type": "string"
+        }
+      },
+      "required": [
+        "distance",
+        "word"
+      ],
+      "type": "object",
+      "title": "DistanceEntity"
+    },
+    "DistanceResponseEntity": {
+      "properties": {
+        "distances": {
+          "description": "Distances",
+          "items": {
+            "$ref": "#/definitions/DistanceEntity"
+          },
+          "type": "array"
+        },
+        "endTime": {
+          "description": "End date",
+          "type": "string"
+        },
+        "input": {
+          "description": "Input word",
+          "type": "string"
+        },
+        "log": {
+          "description": "Log message",
+          "type": "string"
+        },
+        "num": {
+          "description": "Input num",
+          "type": "string"
+        },
+        "processTime": {
+          "description": "Process time [millisecond]",
+          "type": "string"
+        },
+        "startTime": {
+          "description": "Start date",
+          "type": "string"
+        }
+      },
+      "required": [
+        "endTime",
+        "input",
+        "log",
+        "num",
+        "processTime",
+        "startTime"
+      ],
+      "type": "object",
+      "title": "DistanceResponseEntity"
+    }
+  },
+  "actions": [
+    {
+      "id": "distanceUsingGET",
+      "title": "distanceUsingGET",
+      "description": "Word2Vec JaWikipedia 2016-9-15 dump.  \nResponse  \n  Github: [word2vec-response](https://github.com/keigohtr/apitore-response-parent/tree/master/word2vec-response)  \n  Class: com.apitore.banana.response.word2vec.DistanceResponseEntity",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "access_token": {
+            "type": "string",
+            "description": "Access Token"
+          },
+          "word": {
+            "type": "string",
+            "description": "word"
+          },
+          "num": {
+            "type": "integer",
+            "format": "int32",
+            "description": "num [max 10, default 1]"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "access_token",
+          "word"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DistanceResponseEntity"
+      }
+    }
+  ],
+  "tags": []
+}

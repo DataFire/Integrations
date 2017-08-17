@@ -1,0 +1,80 @@
+{
+  "id": "moonmoonmoonmoon",
+  "title": "Moon by Ai Weiwei & Olafur Eliasson",
+  "description": "Turn nothing into something – make a drawing, make a mark.",
+  "security": {},
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/moonmoonmoonmoon.png",
+    "backgroundColor": "#000000"
+  },
+  "actionCount": 2,
+  "actions": [
+    {
+      "id": "api.hashtags.get",
+      "title": "api.hashtags.get",
+      "description": "Search for specified tag (no pound sign necessary). If **tag** is empty, the 50 most popular hashtags will be returned.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "tag": {
+            "type": "string",
+            "description": "Hashtag to search for"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "api.marks.get",
+      "title": "api.marks.get",
+      "description": "The main method for querying the marks database. You may use the following options:\n\n1.  No parameters to retrieve all marks in descending chronological order (use **before** for pagination)\n2.  **popular** (and optionally **last_popular_id**) to retrieve all popular marks\n3.  **featured** to retrieve all featured marks\n4.  **x & y** to retrieve mark at specific coordinate\n5.  **user** to retrieve all marks created by the specified user\n6.  **collection** to retrieve all marks collected by the specified user",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "before": {
+            "type": "string",
+            "description": "Before ID (pagination purposes)"
+          },
+          "popular": {
+            "type": "boolean",
+            "description": "Popular marks"
+          },
+          "last_popular_id": {
+            "type": "string",
+            "description": "Last popular ID (for pagination purposes)"
+          },
+          "featured": {
+            "type": "boolean",
+            "description": "Featured marks"
+          },
+          "x": {
+            "type": "integer",
+            "description": "X coordinate"
+          },
+          "y": {
+            "type": "integer",
+            "description": "Y coordinate"
+          },
+          "user": {
+            "type": "string",
+            "description": "Created by user ID"
+          },
+          "collection": {
+            "type": "string",
+            "description": "Collection ID"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {}
+    }
+  ],
+  "tags": []
+}

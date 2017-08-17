@@ -1,0 +1,2868 @@
+{
+  "id": "google_adexchangebuyer2",
+  "title": "Ad Exchange Buyer API II",
+  "description": "Accesses the latest features for managing Ad Exchange accounts, Real-Time Bidding configurations and auction metrics, and Marketplace programmatic deals.",
+  "security": {
+    "google_adexchangebuyer2": {
+      "integration": "google_adexchangebuyer2",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)",
+        "redirect_uri": "The callback URL for your application"
+      },
+      "oauth": {
+        "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+        "description": "Oauth 2.0 accessCode authentication",
+        "flow": "accessCode",
+        "scopes": {
+          "https://www.googleapis.com/auth/adexchange.buyer": "Manage your Ad Exchange buyer account configuration"
+        },
+        "tokenUrl": "https://accounts.google.com/o/oauth2/token",
+        "type": "oauth2"
+      }
+    }
+  },
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_adexchangebuyer2.png"
+  },
+  "actionCount": 21,
+  "definitions": {
+    "AddDealAssociationRequest": {
+      "description": "A request for associating a deal and a creative.",
+      "properties": {
+        "association": {
+          "$ref": "#/definitions/CreativeDealAssociation",
+          "description": "The association between a creative and a deal that should be added."
+        }
+      },
+      "type": "object",
+      "title": "AddDealAssociationRequest"
+    },
+    "AppContext": {
+      "description": "@OutputOnly The app type the restriction applies to for mobile device.",
+      "properties": {
+        "appTypes": {
+          "description": "The app types this restriction applies to.",
+          "items": {
+            "enum": [
+              "NATIVE",
+              "WEB"
+            ],
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "AppContext"
+    },
+    "AuctionContext": {
+      "description": "@OutputOnly The auction type the restriction applies to.",
+      "properties": {
+        "auctionTypes": {
+          "description": "The auction types this restriction applies to.",
+          "items": {
+            "enum": [
+              "OPEN_AUCTION",
+              "DIRECT_DEALS"
+            ],
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "AuctionContext"
+    },
+    "Client": {
+      "description": "A client resource represents a client buyer&mdash;an agency,\na brand, or an advertiser customer of the sponsor buyer.\nUsers associated with the client buyer have restricted access to\nthe Ad Exchange Marketplace and certain other sections\nof the Ad Exchange Buyer UI based on the role\ngranted to the client buyer.\nAll fields are required unless otherwise specified.",
+      "properties": {
+        "clientAccountId": {
+          "description": "The globally-unique numerical ID of the client.\nThe value of this field is ignored in create and update operations.",
+          "format": "int64",
+          "type": "string"
+        },
+        "clientName": {
+          "description": "Name used to represent this client to publishers.\nYou may have multiple clients that map to the same entity,\nbut for each client the combination of `clientName` and entity\nmust be unique.\nYou can specify this field as empty.",
+          "type": "string"
+        },
+        "entityId": {
+          "description": "Numerical identifier of the client entity.\nThe entity can be an advertiser, a brand, or an agency.\nThis identifier is unique among all the entities with the same type.\n\nA list of all known advertisers with their identifiers is available in the\n[advertisers.txt](https://storage.googleapis.com/adx-rtb-dictionaries/advertisers.txt)\nfile.\n\nA list of all known brands with their identifiers is available in the\n[brands.txt](https://storage.googleapis.com/adx-rtb-dictionaries/brands.txt)\nfile.\n\nA list of all known agencies with their identifiers is available in the\n[agencies.txt](https://storage.googleapis.com/adx-rtb-dictionaries/agencies.txt)\nfile.",
+          "format": "int64",
+          "type": "string"
+        },
+        "entityName": {
+          "description": "The name of the entity. This field is automatically fetched based on\nthe type and ID.\nThe value of this field is ignored in create and update operations.",
+          "type": "string"
+        },
+        "entityType": {
+          "description": "The type of the client entity: `ADVERTISER`, `BRAND`, or `AGENCY`.",
+          "enum": [
+            "ENTITY_TYPE_UNSPECIFIED",
+            "ADVERTISER",
+            "BRAND",
+            "AGENCY"
+          ],
+          "type": "string"
+        },
+        "role": {
+          "description": "The role which is assigned to the client buyer. Each role implies a set of\npermissions granted to the client. Must be one of `CLIENT_DEAL_VIEWER`,\n`CLIENT_DEAL_NEGOTIATOR` or `CLIENT_DEAL_APPROVER`.",
+          "enum": [
+            "CLIENT_ROLE_UNSPECIFIED",
+            "CLIENT_DEAL_VIEWER",
+            "CLIENT_DEAL_NEGOTIATOR",
+            "CLIENT_DEAL_APPROVER"
+          ],
+          "type": "string"
+        },
+        "status": {
+          "description": "The status of the client buyer.",
+          "enum": [
+            "CLIENT_STATUS_UNSPECIFIED",
+            "DISABLED",
+            "ACTIVE"
+          ],
+          "type": "string"
+        },
+        "visibleToSeller": {
+          "description": "Whether the client buyer will be visible to sellers.",
+          "type": "boolean"
+        }
+      },
+      "type": "object",
+      "title": "Client"
+    },
+    "ClientUser": {
+      "description": "A client user is created under a client buyer and has restricted access to\nthe Ad Exchange Marketplace and certain other sections\nof the Ad Exchange Buyer UI based on the role\ngranted to the associated client buyer.\n\nThe only way a new client user can be created is via accepting an\nemail invitation\n(see the\naccounts.clients.invitations.create\nmethod).\n\nAll fields are required unless otherwise specified.",
+      "properties": {
+        "clientAccountId": {
+          "description": "Numerical account ID of the client buyer\nwith which the user is associated; the\nbuyer must be a client of the current sponsor buyer.\nThe value of this field is ignored in an update operation.",
+          "format": "int64",
+          "type": "string"
+        },
+        "email": {
+          "description": "User's email address. The value of this field\nis ignored in an update operation.",
+          "type": "string"
+        },
+        "status": {
+          "description": "The status of the client user.",
+          "enum": [
+            "USER_STATUS_UNSPECIFIED",
+            "PENDING",
+            "ACTIVE",
+            "DISABLED"
+          ],
+          "type": "string"
+        },
+        "userId": {
+          "description": "The unique numerical ID of the client user\nthat has accepted an invitation.\nThe value of this field is ignored in an update operation.",
+          "format": "int64",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "ClientUser"
+    },
+    "ClientUserInvitation": {
+      "description": "An invitation for a new client user to get access to the Ad Exchange\nBuyer UI.\nAll fields are required unless otherwise specified.",
+      "properties": {
+        "clientAccountId": {
+          "description": "Numerical account ID of the client buyer\nthat the invited user is associated with.\nThe value of this field is ignored in create operations.",
+          "format": "int64",
+          "type": "string"
+        },
+        "email": {
+          "description": "The email address to which the invitation is sent. Email\naddresses should be unique among all client users under each sponsor\nbuyer.",
+          "type": "string"
+        },
+        "invitationId": {
+          "description": "The unique numerical ID of the invitation that is sent to the user.\nThe value of this field is ignored in create operations.",
+          "format": "int64",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "ClientUserInvitation"
+    },
+    "Correction": {
+      "description": "@OutputOnly Shows any corrections that were applied to this creative.",
+      "properties": {
+        "contexts": {
+          "description": "The contexts for the correction.",
+          "items": {
+            "$ref": "#/definitions/ServingContext"
+          },
+          "type": "array"
+        },
+        "details": {
+          "description": "Additional details about what was corrected.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "type": {
+          "description": "The type of correction that was applied to the creative.",
+          "enum": [
+            "CORRECTION_TYPE_UNSPECIFIED",
+            "VENDOR_IDS_ADDED",
+            "SSL_ATTRIBUTE_REMOVED",
+            "FLASH_FREE_ATTRIBUTE_REMOVED",
+            "FLASH_FREE_ATTRIBUTE_ADDED",
+            "REQUIRED_ATTRIBUTE_ADDED",
+            "REQUIRED_VENDOR_ADDED",
+            "SSL_ATTRIBUTE_ADDED",
+            "IN_BANNER_VIDEO_ATTRIBUTE_ADDED",
+            "MRAID_ATTRIBUTE_ADDED",
+            "FLASH_ATTRIBUTE_REMOVED",
+            "VIDEO_IN_SNIPPET_ATTRIBUTE_ADDED"
+          ],
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "Correction"
+    },
+    "Creative": {
+      "description": "A creative and its classification data.",
+      "properties": {
+        "accountId": {
+          "description": "The account that this creative belongs to.\nCan be used to filter the response of the\ncreatives.list\nmethod.",
+          "type": "string"
+        },
+        "adChoicesDestinationUrl": {
+          "description": "The link to AdChoices destination page.",
+          "type": "string"
+        },
+        "advertiserName": {
+          "description": "The name of the company being advertised in the creative.",
+          "type": "string"
+        },
+        "agencyId": {
+          "description": "The agency ID for this creative.",
+          "format": "int64",
+          "type": "string"
+        },
+        "apiUpdateTime": {
+          "description": "@OutputOnly The last update timestamp of the creative via API.",
+          "format": "google-datetime",
+          "type": "string"
+        },
+        "attributes": {
+          "description": "All attributes for the ads that may be shown from this creative.\nCan be used to filter the response of the\ncreatives.list\nmethod.",
+          "items": {
+            "enum": [
+              "ATTRIBUTE_UNSPECIFIED",
+              "IS_TAGGED",
+              "IS_COOKIE_TARGETED",
+              "IS_USER_INTEREST_TARGETED",
+              "EXPANDING_DIRECTION_NONE",
+              "EXPANDING_DIRECTION_UP",
+              "EXPANDING_DIRECTION_DOWN",
+              "EXPANDING_DIRECTION_LEFT",
+              "EXPANDING_DIRECTION_RIGHT",
+              "EXPANDING_DIRECTION_UP_LEFT",
+              "EXPANDING_DIRECTION_UP_RIGHT",
+              "EXPANDING_DIRECTION_DOWN_LEFT",
+              "EXPANDING_DIRECTION_DOWN_RIGHT",
+              "EXPANDING_DIRECTION_UP_OR_DOWN",
+              "EXPANDING_DIRECTION_LEFT_OR_RIGHT",
+              "EXPANDING_DIRECTION_ANY_DIAGONAL",
+              "EXPANDING_ACTION_ROLLOVER_TO_EXPAND",
+              "INSTREAM_VAST_VIDEO_TYPE_VPAID_FLASH",
+              "RICH_MEDIA_CAPABILITY_TYPE_MRAID",
+              "RICH_MEDIA_CAPABILITY_TYPE_SSL",
+              "RICH_MEDIA_CAPABILITY_TYPE_INTERSTITIAL",
+              "NATIVE_ELIGIBILITY_ELIGIBLE",
+              "NATIVE_ELIGIBILITY_NOT_ELIGIBLE",
+              "RENDERING_SIZELESS_ADX"
+            ],
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "clickThroughUrls": {
+          "description": "The set of destination URLs for the creative.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "corrections": {
+          "description": "@OutputOnly Shows any corrections that were applied to this creative.",
+          "items": {
+            "$ref": "#/definitions/Correction"
+          },
+          "type": "array"
+        },
+        "creativeId": {
+          "description": "The buyer-defined creative ID of this creative.\nCan be used to filter the response of the\ncreatives.list\nmethod.",
+          "type": "string"
+        },
+        "dealsStatus": {
+          "description": "@OutputOnly The top-level deals status of this creative.\nIf disapproved, an entry for 'auctionType=DIRECT_DEALS' (or 'ALL') in\nserving_restrictions will also exist. Note\nthat this may be nuanced with other contextual restrictions, in which case,\nit may be preferable to read from serving_restrictions directly.\nCan be used to filter the response of the\ncreatives.list\nmethod.",
+          "enum": [
+            "STATUS_UNSPECIFIED",
+            "NOT_CHECKED",
+            "CONDITIONALLY_APPROVED",
+            "APPROVED",
+            "DISAPPROVED"
+          ],
+          "type": "string"
+        },
+        "detectedAdvertiserIds": {
+          "description": "@OutputOnly Detected advertiser IDs, if any.",
+          "items": {
+            "format": "int64",
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "detectedDomains": {
+          "description": "@OutputOnly\nThe detected domains for this creative.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "detectedLanguages": {
+          "description": "@OutputOnly\nThe detected languages for this creative. The order is arbitrary. The codes\nare 2 or 5 characters and are documented at\nhttps://developers.google.com/adwords/api/docs/appendix/languagecodes.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "detectedProductCategories": {
+          "description": "@OutputOnly Detected product categories, if any.\nSee the ad-product-categories.txt file in the technical documentation\nfor a list of IDs.",
+          "items": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "type": "array"
+        },
+        "detectedSensitiveCategories": {
+          "description": "@OutputOnly Detected sensitive categories, if any.\nSee the ad-sensitive-categories.txt file in the technical documentation for\na list of IDs. You should use these IDs along with the\nexcluded-sensitive-category field in the bid request to filter your bids.",
+          "items": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "type": "array"
+        },
+        "filteringStats": {
+          "$ref": "#/definitions/FilteringStats",
+          "description": "@OutputOnly The filtering stats for this creative."
+        },
+        "html": {
+          "$ref": "#/definitions/HtmlContent",
+          "description": "An HTML creative."
+        },
+        "impressionTrackingUrls": {
+          "description": "The set of URLs to be called to record an impression.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "native": {
+          "$ref": "#/definitions/NativeContent",
+          "description": "A native creative."
+        },
+        "openAuctionStatus": {
+          "description": "@OutputOnly The top-level open auction status of this creative.\nIf disapproved, an entry for 'auctionType = OPEN_AUCTION' (or 'ALL') in\nserving_restrictions will also exist. Note\nthat this may be nuanced with other contextual restrictions, in which case,\nit may be preferable to read from serving_restrictions directly.\nCan be used to filter the response of the\ncreatives.list\nmethod.",
+          "enum": [
+            "STATUS_UNSPECIFIED",
+            "NOT_CHECKED",
+            "CONDITIONALLY_APPROVED",
+            "APPROVED",
+            "DISAPPROVED"
+          ],
+          "type": "string"
+        },
+        "restrictedCategories": {
+          "description": "All restricted categories for the ads that may be shown from this creative.",
+          "items": {
+            "enum": [
+              "NO_RESTRICTED_CATEGORIES",
+              "ALCOHOL"
+            ],
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "servingRestrictions": {
+          "description": "@OutputOnly The granular status of this ad in specific contexts.\nA context here relates to where something ultimately serves (for example,\na physical location, a platform, an HTTPS vs HTTP request, or the type\nof auction).",
+          "items": {
+            "$ref": "#/definitions/ServingRestriction"
+          },
+          "type": "array"
+        },
+        "vendorIds": {
+          "description": "All vendor IDs for the ads that may be shown from this creative.\nSee https://storage.googleapis.com/adx-rtb-dictionaries/vendors.txt\nfor possible values.",
+          "items": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "type": "array"
+        },
+        "version": {
+          "description": "@OutputOnly The version of this creative.",
+          "format": "int32",
+          "type": "integer"
+        },
+        "video": {
+          "$ref": "#/definitions/VideoContent",
+          "description": "A video creative."
+        }
+      },
+      "type": "object",
+      "title": "Creative"
+    },
+    "CreativeDealAssociation": {
+      "description": "The association between a creative and a deal.",
+      "properties": {
+        "accountId": {
+          "description": "The account the creative belongs to.",
+          "type": "string"
+        },
+        "creativeId": {
+          "description": "The ID of the creative associated with the deal.",
+          "type": "string"
+        },
+        "dealsId": {
+          "description": "The externalDealId for the deal associated with the creative.",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "CreativeDealAssociation"
+    },
+    "Date": {
+      "description": "Represents a whole calendar date, e.g. date of birth. The time of day and\ntime zone are either specified elsewhere or are not significant. The date\nis relative to the Proleptic Gregorian Calendar. The day may be 0 to\nrepresent a year and month where the day is not significant, e.g. credit card\nexpiration date. The year may be 0 to represent a month and day independent\nof year, e.g. anniversary date. Related types are google.type.TimeOfDay\nand `google.protobuf.Timestamp`.",
+      "properties": {
+        "day": {
+          "description": "Day of month. Must be from 1 to 31 and valid for the year and month, or 0\nif specifying a year/month where the day is not significant.",
+          "format": "int32",
+          "type": "integer"
+        },
+        "month": {
+          "description": "Month of year. Must be from 1 to 12.",
+          "format": "int32",
+          "type": "integer"
+        },
+        "year": {
+          "description": "Year of date. Must be from 1 to 9999, or 0 if specifying a date without\na year.",
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object",
+      "title": "Date"
+    },
+    "Disapproval": {
+      "description": "@OutputOnly The reason and details for a disapproval.",
+      "properties": {
+        "details": {
+          "description": "Additional details about the reason for disapproval.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "reason": {
+          "description": "The categorized reason for disapproval.",
+          "enum": [
+            "LENGTH_OF_IMAGE_ANIMATION",
+            "BROKEN_URL",
+            "MEDIA_NOT_FUNCTIONAL",
+            "INVALID_FOURTH_PARTY_CALL",
+            "INCORRECT_REMARKETING_DECLARATION",
+            "LANDING_PAGE_ERROR",
+            "AD_SIZE_DOES_NOT_MATCH_AD_SLOT",
+            "NO_BORDER",
+            "FOURTH_PARTY_BROWSER_COOKIES",
+            "LSO_OBJECTS",
+            "BLANK_CREATIVE",
+            "DESTINATION_URLS_UNDECLARED",
+            "PROBLEM_WITH_CLICK_MACRO",
+            "INCORRECT_AD_TECHNOLOGY_DECLARATION",
+            "INCORRECT_DESTINATION_URL_DECLARATION",
+            "EXPANDABLE_INCORRECT_DIRECTION",
+            "EXPANDABLE_DIRECTION_NOT_SUPPORTED",
+            "EXPANDABLE_INVALID_VENDOR",
+            "EXPANDABLE_FUNCTIONALITY",
+            "VIDEO_INVALID_VENDOR",
+            "VIDEO_UNSUPPORTED_LENGTH",
+            "VIDEO_UNSUPPORTED_FORMAT",
+            "VIDEO_FUNCTIONALITY",
+            "LANDING_PAGE_DISABLED",
+            "MALWARE_SUSPECTED",
+            "ADULT_IMAGE_OR_VIDEO",
+            "INACCURATE_AD_TEXT",
+            "COUNTERFEIT_DESIGNER_GOODS",
+            "POP_UP",
+            "INVALID_RTB_PROTOCOL_USAGE",
+            "RAW_IP_ADDRESS_IN_SNIPPET",
+            "UNACCEPTABLE_CONTENT_SOFTWARE",
+            "UNAUTHORIZED_COOKIE_ON_GOOGLE_DOMAIN",
+            "UNDECLARED_FLASH_OBJECTS",
+            "INVALID_SSL_DECLARATION",
+            "DIRECT_DOWNLOAD_IN_AD",
+            "MAXIMUM_DOWNLOAD_SIZE_EXCEEDED",
+            "DESTINATION_URL_SITE_NOT_CRAWLABLE",
+            "BAD_URL_LEGAL_DISAPPROVAL",
+            "PHARMA_GAMBLING_ALCOHOL_NOT_ALLOWED",
+            "DYNAMIC_DNS_AT_DESTINATION_URL",
+            "POOR_IMAGE_OR_VIDEO_QUALITY",
+            "UNACCEPTABLE_IMAGE_CONTENT",
+            "INCORRECT_IMAGE_LAYOUT",
+            "IRRELEVANT_IMAGE_OR_VIDEO",
+            "DESTINATION_SITE_DOES_NOT_ALLOW_GOING_BACK",
+            "MISLEADING_CLAIMS_IN_AD",
+            "RESTRICTED_PRODUCTS",
+            "UNACCEPTABLE_CONTENT",
+            "AUTOMATED_AD_CLICKING",
+            "INVALID_URL_PROTOCOL",
+            "UNDECLARED_RESTRICTED_CONTENT",
+            "INVALID_REMARKETING_LIST_USAGE",
+            "DESTINATION_SITE_NOT_CRAWLABLE_ROBOTS_TXT",
+            "CLICK_TO_DOWNLOAD_NOT_AN_APP",
+            "INACCURATE_REVIEW_EXTENSION",
+            "SEXUALLY_EXPLICIT_CONTENT",
+            "GAINING_AN_UNFAIR_ADVANTAGE",
+            "GAMING_THE_GOOGLE_NETWORK",
+            "DANGEROUS_PRODUCTS_KNIVES",
+            "DANGEROUS_PRODUCTS_EXPLOSIVES",
+            "DANGEROUS_PRODUCTS_GUNS",
+            "DANGEROUS_PRODUCTS_DRUGS",
+            "DANGEROUS_PRODUCTS_TOBACCO",
+            "DANGEROUS_PRODUCTS_WEAPONS",
+            "UNCLEAR_OR_IRRELEVANT_AD",
+            "PROFESSIONAL_STANDARDS",
+            "DYSFUNCTIONAL_PROMOTION",
+            "INVALID_INTEREST_BASED_AD",
+            "MISUSE_OF_PERSONAL_INFORMATION",
+            "OMISSION_OF_RELEVANT_INFORMATION",
+            "UNAVAILABLE_PROMOTIONS",
+            "MISLEADING_PROMOTIONS",
+            "INAPPROPRIATE_CONTENT",
+            "SENSITIVE_EVENTS",
+            "SHOCKING_CONTENT",
+            "ENABLING_DISHONEST_BEHAVIOR",
+            "TECHNICAL_REQUIREMENTS",
+            "RESTRICTED_POLITICAL_CONTENT",
+            "UNSUPPORTED_CONTENT",
+            "INVALID_BIDDING_METHOD",
+            "VIDEO_TOO_LONG",
+            "VIOLATES_JAPANESE_PHARMACY_LAW",
+            "UNACCREDITED_PET_PHARMACY",
+            "ABORTION",
+            "CONTRACEPTIVES",
+            "NEED_CERTIFICATES_TO_ADVERTISE_IN_CHINA",
+            "KCDSP_REGISTRATION",
+            "NOT_FAMILY_SAFE",
+            "CLINICAL_TRIAL_RECRUITMENT",
+            "MAXIMUM_NUMBER_OF_HTTP_CALLS_EXCEEDED",
+            "MAXIMUM_NUMBER_OF_COOKIES_EXCEEDED",
+            "PERSONAL_LOANS",
+            "UNSUPPORTED_FLASH_CONTENT"
+          ],
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "Disapproval"
+    },
+    "Empty": {
+      "description": "A generic empty message that you can re-use to avoid defining duplicated\nempty messages in your APIs. A typical example is to use it as the request\nor the response type of an API method. For instance:\n\n    service Foo {\n      rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);\n    }\n\nThe JSON representation for `Empty` is empty JSON object `{}`.",
+      "properties": {},
+      "type": "object",
+      "title": "Empty"
+    },
+    "FilteringStats": {
+      "description": "@OutputOnly Filtering reasons for this creative during a period of a single\nday (from midnight to midnight Pacific).",
+      "properties": {
+        "date": {
+          "$ref": "#/definitions/Date",
+          "description": "The day during which the data was collected.\nThe data is collected from 00:00:00 to 23:59:59 PT.\nDuring switches from PST to PDT and back, the day may\ncontain 23 or 25 hours of data instead of the usual 24."
+        },
+        "reasons": {
+          "description": "The set of filtering reasons for this date.",
+          "items": {
+            "$ref": "#/definitions/Reason"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "FilteringStats"
+    },
+    "HtmlContent": {
+      "description": "HTML content for a creative.",
+      "properties": {
+        "height": {
+          "description": "The height of the HTML snippet in pixels.",
+          "format": "int32",
+          "type": "integer"
+        },
+        "snippet": {
+          "description": "The HTML snippet that displays the ad when inserted in the web page.",
+          "type": "string"
+        },
+        "width": {
+          "description": "The width of the HTML snippet in pixels.",
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object",
+      "title": "HtmlContent"
+    },
+    "Image": {
+      "description": "An image resource. You may provide a larger image than was requested,\nso long as the aspect ratio is preserved.",
+      "properties": {
+        "height": {
+          "description": "Image height in pixels.",
+          "format": "int32",
+          "type": "integer"
+        },
+        "url": {
+          "description": "The URL of the image.",
+          "type": "string"
+        },
+        "width": {
+          "description": "Image width in pixels.",
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object",
+      "title": "Image"
+    },
+    "ListClientUserInvitationsResponse": {
+      "properties": {
+        "invitations": {
+          "description": "The returned list of client users.",
+          "items": {
+            "$ref": "#/definitions/ClientUserInvitation"
+          },
+          "type": "array"
+        },
+        "nextPageToken": {
+          "description": "A token to retrieve the next page of results.\nPass this value in the\nListClientUserInvitationsRequest.pageToken\nfield in the subsequent call to the\nclients.invitations.list\nmethod to retrieve the next\npage of results.",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "ListClientUserInvitationsResponse"
+    },
+    "ListClientUsersResponse": {
+      "properties": {
+        "nextPageToken": {
+          "description": "A token to retrieve the next page of results.\nPass this value in the\nListClientUsersRequest.pageToken\nfield in the subsequent call to the\nclients.invitations.list\nmethod to retrieve the next\npage of results.",
+          "type": "string"
+        },
+        "users": {
+          "description": "The returned list of client users.",
+          "items": {
+            "$ref": "#/definitions/ClientUser"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "ListClientUsersResponse"
+    },
+    "ListClientsResponse": {
+      "properties": {
+        "clients": {
+          "description": "The returned list of clients.",
+          "items": {
+            "$ref": "#/definitions/Client"
+          },
+          "type": "array"
+        },
+        "nextPageToken": {
+          "description": "A token to retrieve the next page of results.\nPass this value in the\nListClientsRequest.pageToken\nfield in the subsequent call to the\naccounts.clients.list method\nto retrieve the next page of results.",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "ListClientsResponse"
+    },
+    "ListCreativesResponse": {
+      "description": "A response for listing creatives.",
+      "properties": {
+        "creatives": {
+          "description": "The list of creatives.",
+          "items": {
+            "$ref": "#/definitions/Creative"
+          },
+          "type": "array"
+        },
+        "nextPageToken": {
+          "description": "A token to retrieve the next page of results.\nPass this value in the\nListCreativesRequest.page_token\nfield in the subsequent call to `ListCreatives` method to retrieve the next\npage of results.",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "ListCreativesResponse"
+    },
+    "ListDealAssociationsResponse": {
+      "description": "A response for listing creative and deal associations",
+      "properties": {
+        "associations": {
+          "description": "The list of associations.",
+          "items": {
+            "$ref": "#/definitions/CreativeDealAssociation"
+          },
+          "type": "array"
+        },
+        "nextPageToken": {
+          "description": "A token to retrieve the next page of results.\nPass this value in the\nListDealAssociationsRequest.page_token\nfield in the subsequent call to 'ListDealAssociation' method to retrieve\nthe next page of results.",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "ListDealAssociationsResponse"
+    },
+    "LocationContext": {
+      "description": "@OutputOnly The Geo criteria the restriction applies to.",
+      "properties": {
+        "geoCriteriaIds": {
+          "description": "IDs representing the geo location for this context.\nPlease refer to the\n[geo-table.csv](https://storage.googleapis.com/adx-rtb-dictionaries/geo-table.csv)\nfile for different geo criteria IDs.",
+          "items": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "LocationContext"
+    },
+    "NativeContent": {
+      "description": "Native content for a creative.",
+      "properties": {
+        "advertiserName": {
+          "description": "The name of the advertiser or sponsor, to be displayed in the ad creative.",
+          "type": "string"
+        },
+        "appIcon": {
+          "$ref": "#/definitions/Image",
+          "description": "The app icon, for app download ads."
+        },
+        "body": {
+          "description": "A long description of the ad.",
+          "type": "string"
+        },
+        "callToAction": {
+          "description": "A label for the button that the user is supposed to click.",
+          "type": "string"
+        },
+        "clickLinkUrl": {
+          "description": "The URL that the browser/SDK will load when the user clicks the ad.",
+          "type": "string"
+        },
+        "clickTrackingUrl": {
+          "description": "The URL to use for click tracking.",
+          "type": "string"
+        },
+        "headline": {
+          "description": "A short title for the ad.",
+          "type": "string"
+        },
+        "image": {
+          "$ref": "#/definitions/Image",
+          "description": "A large image."
+        },
+        "logo": {
+          "$ref": "#/definitions/Image",
+          "description": "A smaller image, for the advertiser's logo."
+        },
+        "priceDisplayText": {
+          "description": "The price of the promoted app including currency info.",
+          "type": "string"
+        },
+        "starRating": {
+          "description": "The app rating in the app store. Must be in the range [0-5].",
+          "format": "double",
+          "type": "number"
+        },
+        "storeUrl": {
+          "description": "The URL to the app store to purchase/download the promoted app.",
+          "type": "string"
+        },
+        "videoUrl": {
+          "description": "The URL to fetch a native video ad.",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "NativeContent"
+    },
+    "PlatformContext": {
+      "description": "@OutputOnly The type of platform the restriction applies to.",
+      "properties": {
+        "platforms": {
+          "description": "The platforms this restriction applies to.",
+          "items": {
+            "enum": [
+              "DESKTOP",
+              "ANDROID",
+              "IOS"
+            ],
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "PlatformContext"
+    },
+    "Reason": {
+      "description": "A specific filtering status and how many times it occurred.",
+      "properties": {
+        "count": {
+          "description": "The number of times the creative was filtered for the status. The\ncount is aggregated across all publishers on the exchange.",
+          "format": "int64",
+          "type": "string"
+        },
+        "status": {
+          "description": "The filtering status code. Please refer to the\n[creative-status-codes.txt](https://storage.googleapis.com/adx-rtb-dictionaries/creative-status-codes.txt)\nfile for different statuses.",
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object",
+      "title": "Reason"
+    },
+    "RemoveDealAssociationRequest": {
+      "description": "A request for removing the association between a deal and a creative.",
+      "properties": {
+        "association": {
+          "$ref": "#/definitions/CreativeDealAssociation",
+          "description": "The association between a creative and a deal that should be removed."
+        }
+      },
+      "type": "object",
+      "title": "RemoveDealAssociationRequest"
+    },
+    "SecurityContext": {
+      "description": "@OutputOnly A security context.",
+      "properties": {
+        "securities": {
+          "description": "The security types in this context.",
+          "items": {
+            "enum": [
+              "INSECURE",
+              "SSL"
+            ],
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "SecurityContext"
+    },
+    "ServingContext": {
+      "description": "The serving context for this restriction.",
+      "properties": {
+        "all": {
+          "description": "Matches all contexts.",
+          "enum": [
+            "SIMPLE_CONTEXT"
+          ],
+          "type": "string"
+        },
+        "appType": {
+          "$ref": "#/definitions/AppContext",
+          "description": "Matches impressions for a particular app type."
+        },
+        "auctionType": {
+          "$ref": "#/definitions/AuctionContext",
+          "description": "Matches impressions for a particular auction type."
+        },
+        "location": {
+          "$ref": "#/definitions/LocationContext",
+          "description": "Matches impressions coming from users *or* publishers in a specific\nlocation."
+        },
+        "platform": {
+          "$ref": "#/definitions/PlatformContext",
+          "description": "Matches impressions coming from a particular platform."
+        },
+        "securityType": {
+          "$ref": "#/definitions/SecurityContext",
+          "description": "Matches impressions for a particular security type."
+        }
+      },
+      "type": "object",
+      "title": "ServingContext"
+    },
+    "ServingRestriction": {
+      "description": "@OutputOnly A representation of the status of an ad in a\nspecific context. A context here relates to where something ultimately serves\n(for example, a user or publisher geo, a platform, an HTTPS vs HTTP request,\nor the type of auction).",
+      "properties": {
+        "contexts": {
+          "description": "The contexts for the restriction.",
+          "items": {
+            "$ref": "#/definitions/ServingContext"
+          },
+          "type": "array"
+        },
+        "disapprovalReasons": {
+          "description": "Any disapprovals bound to this restriction.\nOnly present if status=DISAPPROVED.\nCan be used to filter the response of the\ncreatives.list\nmethod.",
+          "items": {
+            "$ref": "#/definitions/Disapproval"
+          },
+          "type": "array"
+        },
+        "status": {
+          "description": "The status of the creative in this context (for example, it has been\nexplicitly disapproved or is pending review).",
+          "enum": [
+            "STATUS_UNSPECIFIED",
+            "DISAPPROVAL",
+            "PENDING_REVIEW"
+          ],
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "ServingRestriction"
+    },
+    "StopWatchingCreativeRequest": {
+      "description": "A request for stopping notifications for changes to creative Status.",
+      "properties": {},
+      "type": "object",
+      "title": "StopWatchingCreativeRequest"
+    },
+    "VideoContent": {
+      "description": "Video content for a creative.",
+      "properties": {
+        "videoUrl": {
+          "description": "The URL to fetch a video ad.",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "VideoContent"
+    },
+    "WatchCreativeRequest": {
+      "description": "A request for watching changes to creative Status.",
+      "properties": {
+        "topic": {
+          "description": "The Pub/Sub topic to publish notifications to.\nThis topic must already exist and must give permission to\nad-exchange-buyside-reports@google.com to write to the topic.\nThis should be the full resource name in\n\"projects/{project_id}/topics/{topic_id}\" format.",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "WatchCreativeRequest"
+    }
+  },
+  "actions": [
+    {
+      "id": "oauthCallback",
+      "title": "",
+      "description": "Exchange the code passed to your redirect URI for an access_token",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "title": "code",
+            "type": "string"
+          }
+        },
+        "required": [
+          "code"
+        ]
+      },
+      "outputSchema": {
+        "properties": {
+          "access_token": {
+            "type": "string"
+          },
+          "refresh_token": {
+            "type": "string"
+          },
+          "token_type": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "expiration": {
+            "type": "string"
+          }
+        }
+      },
+      "security": {
+        "google_adexchangebuyer2": {
+          "integration": "google_adexchangebuyer2"
+        }
+      }
+    },
+    {
+      "id": "oauthRefresh",
+      "title": "",
+      "description": "Exchange a refresh_token for an access_token",
+      "inputSchema": {},
+      "outputSchema": {
+        "properties": {
+          "access_token": {
+            "type": "string"
+          },
+          "refresh_token": {
+            "type": "string"
+          },
+          "token_type": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "expiration": {
+            "type": "string"
+          }
+        }
+      },
+      "security": {
+        "google_adexchangebuyer2": {
+          "integration": "google_adexchangebuyer2"
+        }
+      }
+    },
+    {
+      "id": "accounts.clients.list",
+      "title": "accounts.clients.list",
+      "description": "Lists all the clients for the current sponsor buyer.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "accountId": {
+            "type": "string",
+            "description": "Unique numerical account ID of the sponsor buyer to list the clients for."
+          },
+          "pageToken": {
+            "type": "string",
+            "description": "A token identifying a page of results the server should return.\nTypically, this is the value of\nListClientsResponse.nextPageToken\nreturned from the previous call to the\naccounts.clients.list method."
+          },
+          "pageSize": {
+            "type": "integer",
+            "description": "Requested page size. The server may return fewer clients than requested.\nIf unspecified, the server will pick an appropriate default."
+          },
+          "upload_protocol": {
+            "type": "string",
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
+          },
+          "prettyPrint": {
+            "type": "boolean",
+            "description": "Returns response with indentations and line breaks."
+          },
+          "fields": {
+            "type": "string",
+            "description": "Selector specifying which fields to include in a partial response."
+          },
+          "uploadType": {
+            "type": "string",
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
+          },
+          "$.xgafv": {
+            "type": "string",
+            "description": "V1 error format.",
+            "enum": [
+              "1",
+              "2"
+            ]
+          },
+          "callback": {
+            "type": "string",
+            "description": "JSONP"
+          },
+          "alt": {
+            "type": "string",
+            "description": "Data format for response.",
+            "enum": [
+              "json",
+              "media",
+              "proto"
+            ]
+          },
+          "key": {
+            "type": "string",
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+          },
+          "access_token": {
+            "type": "string",
+            "description": "OAuth access token."
+          },
+          "quotaUser": {
+            "type": "string",
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
+          },
+          "pp": {
+            "type": "boolean",
+            "description": "Pretty-print response."
+          },
+          "oauth_token": {
+            "type": "string",
+            "description": "OAuth 2.0 token for the current user."
+          },
+          "bearer_token": {
+            "type": "string",
+            "description": "OAuth bearer token."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "accountId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListClientsResponse"
+      },
+      "security": {
+        "google_adexchangebuyer2": {
+          "integration": "google_adexchangebuyer2"
+        }
+      }
+    },
+    {
+      "id": "accounts.clients.create",
+      "title": "accounts.clients.create",
+      "description": "Creates a new client buyer.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "accountId": {
+            "type": "string",
+            "description": "Unique numerical account ID for the buyer of which the client buyer\nis a customer; the sponsor buyer to create a client for. (required)"
+          },
+          "body": {
+            "$ref": "#/definitions/Client"
+          },
+          "upload_protocol": {
+            "type": "string",
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
+          },
+          "prettyPrint": {
+            "type": "boolean",
+            "description": "Returns response with indentations and line breaks."
+          },
+          "fields": {
+            "type": "string",
+            "description": "Selector specifying which fields to include in a partial response."
+          },
+          "uploadType": {
+            "type": "string",
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
+          },
+          "$.xgafv": {
+            "type": "string",
+            "description": "V1 error format.",
+            "enum": [
+              "1",
+              "2"
+            ]
+          },
+          "callback": {
+            "type": "string",
+            "description": "JSONP"
+          },
+          "alt": {
+            "type": "string",
+            "description": "Data format for response.",
+            "enum": [
+              "json",
+              "media",
+              "proto"
+            ]
+          },
+          "key": {
+            "type": "string",
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+          },
+          "access_token": {
+            "type": "string",
+            "description": "OAuth access token."
+          },
+          "quotaUser": {
+            "type": "string",
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
+          },
+          "pp": {
+            "type": "boolean",
+            "description": "Pretty-print response."
+          },
+          "oauth_token": {
+            "type": "string",
+            "description": "OAuth 2.0 token for the current user."
+          },
+          "bearer_token": {
+            "type": "string",
+            "description": "OAuth bearer token."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "accountId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Client"
+      },
+      "security": {
+        "google_adexchangebuyer2": {
+          "integration": "google_adexchangebuyer2"
+        }
+      }
+    },
+    {
+      "id": "accounts.clients.get",
+      "title": "accounts.clients.get",
+      "description": "Gets a client buyer with a given client account ID.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "accountId": {
+            "type": "string",
+            "description": "Numerical account ID of the client's sponsor buyer. (required)"
+          },
+          "clientAccountId": {
+            "type": "string",
+            "description": "Numerical account ID of the client buyer to retrieve. (required)"
+          },
+          "upload_protocol": {
+            "type": "string",
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
+          },
+          "prettyPrint": {
+            "type": "boolean",
+            "description": "Returns response with indentations and line breaks."
+          },
+          "fields": {
+            "type": "string",
+            "description": "Selector specifying which fields to include in a partial response."
+          },
+          "uploadType": {
+            "type": "string",
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
+          },
+          "$.xgafv": {
+            "type": "string",
+            "description": "V1 error format.",
+            "enum": [
+              "1",
+              "2"
+            ]
+          },
+          "callback": {
+            "type": "string",
+            "description": "JSONP"
+          },
+          "alt": {
+            "type": "string",
+            "description": "Data format for response.",
+            "enum": [
+              "json",
+              "media",
+              "proto"
+            ]
+          },
+          "key": {
+            "type": "string",
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+          },
+          "access_token": {
+            "type": "string",
+            "description": "OAuth access token."
+          },
+          "quotaUser": {
+            "type": "string",
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
+          },
+          "pp": {
+            "type": "boolean",
+            "description": "Pretty-print response."
+          },
+          "oauth_token": {
+            "type": "string",
+            "description": "OAuth 2.0 token for the current user."
+          },
+          "bearer_token": {
+            "type": "string",
+            "description": "OAuth bearer token."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "accountId",
+          "clientAccountId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Client"
+      },
+      "security": {
+        "google_adexchangebuyer2": {
+          "integration": "google_adexchangebuyer2"
+        }
+      }
+    },
+    {
+      "id": "accounts.clients.update",
+      "title": "accounts.clients.update",
+      "description": "Updates an existing client buyer.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "accountId": {
+            "type": "string",
+            "description": "Unique numerical account ID for the buyer of which the client buyer\nis a customer; the sponsor buyer to update a client for. (required)"
+          },
+          "clientAccountId": {
+            "type": "string",
+            "description": "Unique numerical account ID of the client to update. (required)"
+          },
+          "body": {
+            "$ref": "#/definitions/Client"
+          },
+          "upload_protocol": {
+            "type": "string",
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
+          },
+          "prettyPrint": {
+            "type": "boolean",
+            "description": "Returns response with indentations and line breaks."
+          },
+          "fields": {
+            "type": "string",
+            "description": "Selector specifying which fields to include in a partial response."
+          },
+          "uploadType": {
+            "type": "string",
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
+          },
+          "$.xgafv": {
+            "type": "string",
+            "description": "V1 error format.",
+            "enum": [
+              "1",
+              "2"
+            ]
+          },
+          "callback": {
+            "type": "string",
+            "description": "JSONP"
+          },
+          "alt": {
+            "type": "string",
+            "description": "Data format for response.",
+            "enum": [
+              "json",
+              "media",
+              "proto"
+            ]
+          },
+          "key": {
+            "type": "string",
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+          },
+          "access_token": {
+            "type": "string",
+            "description": "OAuth access token."
+          },
+          "quotaUser": {
+            "type": "string",
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
+          },
+          "pp": {
+            "type": "boolean",
+            "description": "Pretty-print response."
+          },
+          "oauth_token": {
+            "type": "string",
+            "description": "OAuth 2.0 token for the current user."
+          },
+          "bearer_token": {
+            "type": "string",
+            "description": "OAuth bearer token."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "accountId",
+          "clientAccountId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Client"
+      },
+      "security": {
+        "google_adexchangebuyer2": {
+          "integration": "google_adexchangebuyer2"
+        }
+      }
+    },
+    {
+      "id": "accounts.clients.invitations.list",
+      "title": "accounts.clients.invitations.list",
+      "description": "Lists all the client users invitations for a client\nwith a given account ID.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "accountId": {
+            "type": "string",
+            "description": "Numerical account ID of the client's sponsor buyer. (required)"
+          },
+          "clientAccountId": {
+            "type": "string",
+            "description": "Numerical account ID of the client buyer to list invitations for.\n(required)\nYou must either specify a string representation of a\nnumerical account identifier or the `-` character\nto list all the invitations for all the clients\nof a given sponsor buyer."
+          },
+          "pageToken": {
+            "type": "string",
+            "description": "A token identifying a page of results the server should return.\nTypically, this is the value of\nListClientUserInvitationsResponse.nextPageToken\nreturned from the previous call to the\nclients.invitations.list\nmethod."
+          },
+          "pageSize": {
+            "type": "integer",
+            "description": "Requested page size. Server may return fewer clients than requested.\nIf unspecified, server will pick an appropriate default."
+          },
+          "upload_protocol": {
+            "type": "string",
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
+          },
+          "prettyPrint": {
+            "type": "boolean",
+            "description": "Returns response with indentations and line breaks."
+          },
+          "fields": {
+            "type": "string",
+            "description": "Selector specifying which fields to include in a partial response."
+          },
+          "uploadType": {
+            "type": "string",
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
+          },
+          "$.xgafv": {
+            "type": "string",
+            "description": "V1 error format.",
+            "enum": [
+              "1",
+              "2"
+            ]
+          },
+          "callback": {
+            "type": "string",
+            "description": "JSONP"
+          },
+          "alt": {
+            "type": "string",
+            "description": "Data format for response.",
+            "enum": [
+              "json",
+              "media",
+              "proto"
+            ]
+          },
+          "key": {
+            "type": "string",
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+          },
+          "access_token": {
+            "type": "string",
+            "description": "OAuth access token."
+          },
+          "quotaUser": {
+            "type": "string",
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
+          },
+          "pp": {
+            "type": "boolean",
+            "description": "Pretty-print response."
+          },
+          "oauth_token": {
+            "type": "string",
+            "description": "OAuth 2.0 token for the current user."
+          },
+          "bearer_token": {
+            "type": "string",
+            "description": "OAuth bearer token."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "accountId",
+          "clientAccountId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListClientUserInvitationsResponse"
+      },
+      "security": {
+        "google_adexchangebuyer2": {
+          "integration": "google_adexchangebuyer2"
+        }
+      }
+    },
+    {
+      "id": "accounts.clients.invitations.create",
+      "title": "accounts.clients.invitations.create",
+      "description": "Creates and sends out an email invitation to access\nan Ad Exchange client buyer account.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "accountId": {
+            "type": "string",
+            "description": "Numerical account ID of the client's sponsor buyer. (required)"
+          },
+          "clientAccountId": {
+            "type": "string",
+            "description": "Numerical account ID of the client buyer that the user\nshould be associated with. (required)"
+          },
+          "body": {
+            "$ref": "#/definitions/ClientUserInvitation"
+          },
+          "upload_protocol": {
+            "type": "string",
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
+          },
+          "prettyPrint": {
+            "type": "boolean",
+            "description": "Returns response with indentations and line breaks."
+          },
+          "fields": {
+            "type": "string",
+            "description": "Selector specifying which fields to include in a partial response."
+          },
+          "uploadType": {
+            "type": "string",
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
+          },
+          "$.xgafv": {
+            "type": "string",
+            "description": "V1 error format.",
+            "enum": [
+              "1",
+              "2"
+            ]
+          },
+          "callback": {
+            "type": "string",
+            "description": "JSONP"
+          },
+          "alt": {
+            "type": "string",
+            "description": "Data format for response.",
+            "enum": [
+              "json",
+              "media",
+              "proto"
+            ]
+          },
+          "key": {
+            "type": "string",
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+          },
+          "access_token": {
+            "type": "string",
+            "description": "OAuth access token."
+          },
+          "quotaUser": {
+            "type": "string",
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
+          },
+          "pp": {
+            "type": "boolean",
+            "description": "Pretty-print response."
+          },
+          "oauth_token": {
+            "type": "string",
+            "description": "OAuth 2.0 token for the current user."
+          },
+          "bearer_token": {
+            "type": "string",
+            "description": "OAuth bearer token."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "accountId",
+          "clientAccountId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ClientUserInvitation"
+      },
+      "security": {
+        "google_adexchangebuyer2": {
+          "integration": "google_adexchangebuyer2"
+        }
+      }
+    },
+    {
+      "id": "accounts.clients.invitations.get",
+      "title": "accounts.clients.invitations.get",
+      "description": "Retrieves an existing client user invitation.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "accountId": {
+            "type": "string",
+            "description": "Numerical account ID of the client's sponsor buyer. (required)"
+          },
+          "clientAccountId": {
+            "type": "string",
+            "description": "Numerical account ID of the client buyer that the user invitation\nto be retrieved is associated with. (required)"
+          },
+          "invitationId": {
+            "type": "string",
+            "description": "Numerical identifier of the user invitation to retrieve. (required)"
+          },
+          "upload_protocol": {
+            "type": "string",
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
+          },
+          "prettyPrint": {
+            "type": "boolean",
+            "description": "Returns response with indentations and line breaks."
+          },
+          "fields": {
+            "type": "string",
+            "description": "Selector specifying which fields to include in a partial response."
+          },
+          "uploadType": {
+            "type": "string",
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
+          },
+          "$.xgafv": {
+            "type": "string",
+            "description": "V1 error format.",
+            "enum": [
+              "1",
+              "2"
+            ]
+          },
+          "callback": {
+            "type": "string",
+            "description": "JSONP"
+          },
+          "alt": {
+            "type": "string",
+            "description": "Data format for response.",
+            "enum": [
+              "json",
+              "media",
+              "proto"
+            ]
+          },
+          "key": {
+            "type": "string",
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+          },
+          "access_token": {
+            "type": "string",
+            "description": "OAuth access token."
+          },
+          "quotaUser": {
+            "type": "string",
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
+          },
+          "pp": {
+            "type": "boolean",
+            "description": "Pretty-print response."
+          },
+          "oauth_token": {
+            "type": "string",
+            "description": "OAuth 2.0 token for the current user."
+          },
+          "bearer_token": {
+            "type": "string",
+            "description": "OAuth bearer token."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "accountId",
+          "clientAccountId",
+          "invitationId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ClientUserInvitation"
+      },
+      "security": {
+        "google_adexchangebuyer2": {
+          "integration": "google_adexchangebuyer2"
+        }
+      }
+    },
+    {
+      "id": "accounts.clients.users.list",
+      "title": "accounts.clients.users.list",
+      "description": "Lists all the known client users for a specified\nsponsor buyer account ID.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "accountId": {
+            "type": "string",
+            "description": "Numerical account ID of the sponsor buyer of the client to list users for.\n(required)"
+          },
+          "clientAccountId": {
+            "type": "string",
+            "description": "The account ID of the client buyer to list users for. (required)\nYou must specify either a string representation of a\nnumerical account identifier or the `-` character\nto list all the client users for all the clients\nof a given sponsor buyer."
+          },
+          "pageToken": {
+            "type": "string",
+            "description": "A token identifying a page of results the server should return.\nTypically, this is the value of\nListClientUsersResponse.nextPageToken\nreturned from the previous call to the\naccounts.clients.users.list method."
+          },
+          "pageSize": {
+            "type": "integer",
+            "description": "Requested page size. The server may return fewer clients than requested.\nIf unspecified, the server will pick an appropriate default."
+          },
+          "upload_protocol": {
+            "type": "string",
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
+          },
+          "prettyPrint": {
+            "type": "boolean",
+            "description": "Returns response with indentations and line breaks."
+          },
+          "fields": {
+            "type": "string",
+            "description": "Selector specifying which fields to include in a partial response."
+          },
+          "uploadType": {
+            "type": "string",
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
+          },
+          "$.xgafv": {
+            "type": "string",
+            "description": "V1 error format.",
+            "enum": [
+              "1",
+              "2"
+            ]
+          },
+          "callback": {
+            "type": "string",
+            "description": "JSONP"
+          },
+          "alt": {
+            "type": "string",
+            "description": "Data format for response.",
+            "enum": [
+              "json",
+              "media",
+              "proto"
+            ]
+          },
+          "key": {
+            "type": "string",
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+          },
+          "access_token": {
+            "type": "string",
+            "description": "OAuth access token."
+          },
+          "quotaUser": {
+            "type": "string",
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
+          },
+          "pp": {
+            "type": "boolean",
+            "description": "Pretty-print response."
+          },
+          "oauth_token": {
+            "type": "string",
+            "description": "OAuth 2.0 token for the current user."
+          },
+          "bearer_token": {
+            "type": "string",
+            "description": "OAuth bearer token."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "accountId",
+          "clientAccountId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListClientUsersResponse"
+      },
+      "security": {
+        "google_adexchangebuyer2": {
+          "integration": "google_adexchangebuyer2"
+        }
+      }
+    },
+    {
+      "id": "accounts.clients.users.get",
+      "title": "accounts.clients.users.get",
+      "description": "Retrieves an existing client user.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "accountId": {
+            "type": "string",
+            "description": "Numerical account ID of the client's sponsor buyer. (required)"
+          },
+          "clientAccountId": {
+            "type": "string",
+            "description": "Numerical account ID of the client buyer\nthat the user to be retrieved is associated with. (required)"
+          },
+          "userId": {
+            "type": "string",
+            "description": "Numerical identifier of the user to retrieve. (required)"
+          },
+          "upload_protocol": {
+            "type": "string",
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
+          },
+          "prettyPrint": {
+            "type": "boolean",
+            "description": "Returns response with indentations and line breaks."
+          },
+          "fields": {
+            "type": "string",
+            "description": "Selector specifying which fields to include in a partial response."
+          },
+          "uploadType": {
+            "type": "string",
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
+          },
+          "$.xgafv": {
+            "type": "string",
+            "description": "V1 error format.",
+            "enum": [
+              "1",
+              "2"
+            ]
+          },
+          "callback": {
+            "type": "string",
+            "description": "JSONP"
+          },
+          "alt": {
+            "type": "string",
+            "description": "Data format for response.",
+            "enum": [
+              "json",
+              "media",
+              "proto"
+            ]
+          },
+          "key": {
+            "type": "string",
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+          },
+          "access_token": {
+            "type": "string",
+            "description": "OAuth access token."
+          },
+          "quotaUser": {
+            "type": "string",
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
+          },
+          "pp": {
+            "type": "boolean",
+            "description": "Pretty-print response."
+          },
+          "oauth_token": {
+            "type": "string",
+            "description": "OAuth 2.0 token for the current user."
+          },
+          "bearer_token": {
+            "type": "string",
+            "description": "OAuth bearer token."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "accountId",
+          "clientAccountId",
+          "userId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ClientUser"
+      },
+      "security": {
+        "google_adexchangebuyer2": {
+          "integration": "google_adexchangebuyer2"
+        }
+      }
+    },
+    {
+      "id": "accounts.clients.users.update",
+      "title": "accounts.clients.users.update",
+      "description": "Updates an existing client user.\nOnly the user status can be changed on update.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "accountId": {
+            "type": "string",
+            "description": "Numerical account ID of the client's sponsor buyer. (required)"
+          },
+          "clientAccountId": {
+            "type": "string",
+            "description": "Numerical account ID of the client buyer that the user to be retrieved\nis associated with. (required)"
+          },
+          "userId": {
+            "type": "string",
+            "description": "Numerical identifier of the user to retrieve. (required)"
+          },
+          "body": {
+            "$ref": "#/definitions/ClientUser"
+          },
+          "upload_protocol": {
+            "type": "string",
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
+          },
+          "prettyPrint": {
+            "type": "boolean",
+            "description": "Returns response with indentations and line breaks."
+          },
+          "fields": {
+            "type": "string",
+            "description": "Selector specifying which fields to include in a partial response."
+          },
+          "uploadType": {
+            "type": "string",
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
+          },
+          "$.xgafv": {
+            "type": "string",
+            "description": "V1 error format.",
+            "enum": [
+              "1",
+              "2"
+            ]
+          },
+          "callback": {
+            "type": "string",
+            "description": "JSONP"
+          },
+          "alt": {
+            "type": "string",
+            "description": "Data format for response.",
+            "enum": [
+              "json",
+              "media",
+              "proto"
+            ]
+          },
+          "key": {
+            "type": "string",
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+          },
+          "access_token": {
+            "type": "string",
+            "description": "OAuth access token."
+          },
+          "quotaUser": {
+            "type": "string",
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
+          },
+          "pp": {
+            "type": "boolean",
+            "description": "Pretty-print response."
+          },
+          "oauth_token": {
+            "type": "string",
+            "description": "OAuth 2.0 token for the current user."
+          },
+          "bearer_token": {
+            "type": "string",
+            "description": "OAuth bearer token."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "accountId",
+          "clientAccountId",
+          "userId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ClientUser"
+      },
+      "security": {
+        "google_adexchangebuyer2": {
+          "integration": "google_adexchangebuyer2"
+        }
+      }
+    },
+    {
+      "id": "accounts.creatives.list",
+      "title": "accounts.creatives.list",
+      "description": "Lists creatives.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "accountId": {
+            "type": "string",
+            "description": "The account to list the creatives from.\nSpecify \"-\" to list all creatives the current user has access to."
+          },
+          "pageToken": {
+            "type": "string",
+            "description": "A token identifying a page of results the server should return.\nTypically, this is the value of\nListCreativesResponse.next_page_token\nreturned from the previous call to 'ListCreatives' method."
+          },
+          "pageSize": {
+            "type": "integer",
+            "description": "Requested page size. The server may return fewer creatives than requested\n(due to timeout constraint) even if more are available via another call.\nIf unspecified, server will pick an appropriate default.\nAcceptable values are 1 to 1000, inclusive."
+          },
+          "query": {
+            "type": "string",
+            "description": "An optional query string to filter creatives. If no filter is specified,\nall active creatives will be returned.\nSupported queries are:\n<ul>\n<li>accountId=<i>account_id_string</i>\n<li>creativeId=<i>creative_id_string</i>\n<li>dealsStatus: {approved, conditionally_approved, disapproved,\n                   not_checked}\n<li>openAuctionStatus: {approved, conditionally_approved, disapproved,\n                          not_checked}\n<li>attribute: {a numeric attribute from the list of attributes}\n<li>disapprovalReason: {a reason from DisapprovalReason\n</ul>\nExample: 'accountId=12345 AND (dealsStatus:disapproved AND disapprovalReason:unacceptable_content) OR attribute:47'"
+          },
+          "upload_protocol": {
+            "type": "string",
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
+          },
+          "prettyPrint": {
+            "type": "boolean",
+            "description": "Returns response with indentations and line breaks."
+          },
+          "fields": {
+            "type": "string",
+            "description": "Selector specifying which fields to include in a partial response."
+          },
+          "uploadType": {
+            "type": "string",
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
+          },
+          "$.xgafv": {
+            "type": "string",
+            "description": "V1 error format.",
+            "enum": [
+              "1",
+              "2"
+            ]
+          },
+          "callback": {
+            "type": "string",
+            "description": "JSONP"
+          },
+          "alt": {
+            "type": "string",
+            "description": "Data format for response.",
+            "enum": [
+              "json",
+              "media",
+              "proto"
+            ]
+          },
+          "key": {
+            "type": "string",
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+          },
+          "access_token": {
+            "type": "string",
+            "description": "OAuth access token."
+          },
+          "quotaUser": {
+            "type": "string",
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
+          },
+          "pp": {
+            "type": "boolean",
+            "description": "Pretty-print response."
+          },
+          "oauth_token": {
+            "type": "string",
+            "description": "OAuth 2.0 token for the current user."
+          },
+          "bearer_token": {
+            "type": "string",
+            "description": "OAuth bearer token."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "accountId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListCreativesResponse"
+      },
+      "security": {
+        "google_adexchangebuyer2": {
+          "integration": "google_adexchangebuyer2"
+        }
+      }
+    },
+    {
+      "id": "accounts.creatives.create",
+      "title": "accounts.creatives.create",
+      "description": "Creates a creative.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "accountId": {
+            "type": "string",
+            "description": "The account that this creative belongs to.\nCan be used to filter the response of the\ncreatives.list\nmethod."
+          },
+          "duplicateIdMode": {
+            "type": "string",
+            "description": "Indicates if multiple creatives can share an ID or not. Default is\nNO_DUPLICATES (one ID per creative).",
+            "enum": [
+              "NO_DUPLICATES",
+              "FORCE_ENABLE_DUPLICATE_IDS"
+            ]
+          },
+          "body": {
+            "$ref": "#/definitions/Creative"
+          },
+          "upload_protocol": {
+            "type": "string",
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
+          },
+          "prettyPrint": {
+            "type": "boolean",
+            "description": "Returns response with indentations and line breaks."
+          },
+          "fields": {
+            "type": "string",
+            "description": "Selector specifying which fields to include in a partial response."
+          },
+          "uploadType": {
+            "type": "string",
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
+          },
+          "$.xgafv": {
+            "type": "string",
+            "description": "V1 error format.",
+            "enum": [
+              "1",
+              "2"
+            ]
+          },
+          "callback": {
+            "type": "string",
+            "description": "JSONP"
+          },
+          "alt": {
+            "type": "string",
+            "description": "Data format for response.",
+            "enum": [
+              "json",
+              "media",
+              "proto"
+            ]
+          },
+          "key": {
+            "type": "string",
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+          },
+          "access_token": {
+            "type": "string",
+            "description": "OAuth access token."
+          },
+          "quotaUser": {
+            "type": "string",
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
+          },
+          "pp": {
+            "type": "boolean",
+            "description": "Pretty-print response."
+          },
+          "oauth_token": {
+            "type": "string",
+            "description": "OAuth 2.0 token for the current user."
+          },
+          "bearer_token": {
+            "type": "string",
+            "description": "OAuth bearer token."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "accountId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Creative"
+      },
+      "security": {
+        "google_adexchangebuyer2": {
+          "integration": "google_adexchangebuyer2"
+        }
+      }
+    },
+    {
+      "id": "accounts.creatives.get",
+      "title": "accounts.creatives.get",
+      "description": "Gets a creative.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "accountId": {
+            "type": "string",
+            "description": "The account the creative belongs to."
+          },
+          "creativeId": {
+            "type": "string",
+            "description": "The ID of the creative to retrieve."
+          },
+          "upload_protocol": {
+            "type": "string",
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
+          },
+          "prettyPrint": {
+            "type": "boolean",
+            "description": "Returns response with indentations and line breaks."
+          },
+          "fields": {
+            "type": "string",
+            "description": "Selector specifying which fields to include in a partial response."
+          },
+          "uploadType": {
+            "type": "string",
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
+          },
+          "$.xgafv": {
+            "type": "string",
+            "description": "V1 error format.",
+            "enum": [
+              "1",
+              "2"
+            ]
+          },
+          "callback": {
+            "type": "string",
+            "description": "JSONP"
+          },
+          "alt": {
+            "type": "string",
+            "description": "Data format for response.",
+            "enum": [
+              "json",
+              "media",
+              "proto"
+            ]
+          },
+          "key": {
+            "type": "string",
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+          },
+          "access_token": {
+            "type": "string",
+            "description": "OAuth access token."
+          },
+          "quotaUser": {
+            "type": "string",
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
+          },
+          "pp": {
+            "type": "boolean",
+            "description": "Pretty-print response."
+          },
+          "oauth_token": {
+            "type": "string",
+            "description": "OAuth 2.0 token for the current user."
+          },
+          "bearer_token": {
+            "type": "string",
+            "description": "OAuth bearer token."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "accountId",
+          "creativeId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Creative"
+      },
+      "security": {
+        "google_adexchangebuyer2": {
+          "integration": "google_adexchangebuyer2"
+        }
+      }
+    },
+    {
+      "id": "accounts.creatives.update",
+      "title": "accounts.creatives.update",
+      "description": "Updates a creative.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "accountId": {
+            "type": "string",
+            "description": "The account that this creative belongs to.\nCan be used to filter the response of the\ncreatives.list\nmethod."
+          },
+          "creativeId": {
+            "type": "string",
+            "description": "The buyer-defined creative ID of this creative.\nCan be used to filter the response of the\ncreatives.list\nmethod."
+          },
+          "body": {
+            "$ref": "#/definitions/Creative"
+          },
+          "upload_protocol": {
+            "type": "string",
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
+          },
+          "prettyPrint": {
+            "type": "boolean",
+            "description": "Returns response with indentations and line breaks."
+          },
+          "fields": {
+            "type": "string",
+            "description": "Selector specifying which fields to include in a partial response."
+          },
+          "uploadType": {
+            "type": "string",
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
+          },
+          "$.xgafv": {
+            "type": "string",
+            "description": "V1 error format.",
+            "enum": [
+              "1",
+              "2"
+            ]
+          },
+          "callback": {
+            "type": "string",
+            "description": "JSONP"
+          },
+          "alt": {
+            "type": "string",
+            "description": "Data format for response.",
+            "enum": [
+              "json",
+              "media",
+              "proto"
+            ]
+          },
+          "key": {
+            "type": "string",
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+          },
+          "access_token": {
+            "type": "string",
+            "description": "OAuth access token."
+          },
+          "quotaUser": {
+            "type": "string",
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
+          },
+          "pp": {
+            "type": "boolean",
+            "description": "Pretty-print response."
+          },
+          "oauth_token": {
+            "type": "string",
+            "description": "OAuth 2.0 token for the current user."
+          },
+          "bearer_token": {
+            "type": "string",
+            "description": "OAuth bearer token."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "accountId",
+          "creativeId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Creative"
+      },
+      "security": {
+        "google_adexchangebuyer2": {
+          "integration": "google_adexchangebuyer2"
+        }
+      }
+    },
+    {
+      "id": "accounts.creatives.dealAssociations.list",
+      "title": "accounts.creatives.dealAssociations.list",
+      "description": "List all creative-deal associations.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "accountId": {
+            "type": "string",
+            "description": "The account to list the associations from.\nSpecify \"-\" to list all creatives the current user has access to."
+          },
+          "creativeId": {
+            "type": "string",
+            "description": "The creative ID to list the associations from.\nSpecify \"-\" to list all creatives under the above account."
+          },
+          "pageToken": {
+            "type": "string",
+            "description": "A token identifying a page of results the server should return.\nTypically, this is the value of\nListDealAssociationsResponse.next_page_token\nreturned from the previous call to 'ListDealAssociations' method."
+          },
+          "pageSize": {
+            "type": "integer",
+            "description": "Requested page size. Server may return fewer associations than requested.\nIf unspecified, server will pick an appropriate default."
+          },
+          "query": {
+            "type": "string",
+            "description": "An optional query string to filter deal associations. If no filter is\nspecified, all associations will be returned.\nSupported queries are:\n<ul>\n<li>accountId=<i>account_id_string</i>\n<li>creativeId=<i>creative_id_string</i>\n<li>dealsId=<i>deals_id_string</i>\n<li>dealsStatus:{approved, conditionally_approved, disapproved,\n                  not_checked}\n<li>openAuctionStatus:{approved, conditionally_approved, disapproved,\n                         not_checked}\n</ul>\nExample: 'dealsId=12345 AND dealsStatus:disapproved'"
+          },
+          "upload_protocol": {
+            "type": "string",
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
+          },
+          "prettyPrint": {
+            "type": "boolean",
+            "description": "Returns response with indentations and line breaks."
+          },
+          "fields": {
+            "type": "string",
+            "description": "Selector specifying which fields to include in a partial response."
+          },
+          "uploadType": {
+            "type": "string",
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
+          },
+          "$.xgafv": {
+            "type": "string",
+            "description": "V1 error format.",
+            "enum": [
+              "1",
+              "2"
+            ]
+          },
+          "callback": {
+            "type": "string",
+            "description": "JSONP"
+          },
+          "alt": {
+            "type": "string",
+            "description": "Data format for response.",
+            "enum": [
+              "json",
+              "media",
+              "proto"
+            ]
+          },
+          "key": {
+            "type": "string",
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+          },
+          "access_token": {
+            "type": "string",
+            "description": "OAuth access token."
+          },
+          "quotaUser": {
+            "type": "string",
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
+          },
+          "pp": {
+            "type": "boolean",
+            "description": "Pretty-print response."
+          },
+          "oauth_token": {
+            "type": "string",
+            "description": "OAuth 2.0 token for the current user."
+          },
+          "bearer_token": {
+            "type": "string",
+            "description": "OAuth bearer token."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "accountId",
+          "creativeId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListDealAssociationsResponse"
+      },
+      "security": {
+        "google_adexchangebuyer2": {
+          "integration": "google_adexchangebuyer2"
+        }
+      }
+    },
+    {
+      "id": "accounts.creatives.dealAssociations.add",
+      "title": "accounts.creatives.dealAssociations.add",
+      "description": "Associate an existing deal with a creative.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "accountId": {
+            "type": "string",
+            "description": "The account the creative belongs to."
+          },
+          "creativeId": {
+            "type": "string",
+            "description": "The ID of the creative associated with the deal."
+          },
+          "body": {
+            "$ref": "#/definitions/AddDealAssociationRequest"
+          },
+          "upload_protocol": {
+            "type": "string",
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
+          },
+          "prettyPrint": {
+            "type": "boolean",
+            "description": "Returns response with indentations and line breaks."
+          },
+          "fields": {
+            "type": "string",
+            "description": "Selector specifying which fields to include in a partial response."
+          },
+          "uploadType": {
+            "type": "string",
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
+          },
+          "$.xgafv": {
+            "type": "string",
+            "description": "V1 error format.",
+            "enum": [
+              "1",
+              "2"
+            ]
+          },
+          "callback": {
+            "type": "string",
+            "description": "JSONP"
+          },
+          "alt": {
+            "type": "string",
+            "description": "Data format for response.",
+            "enum": [
+              "json",
+              "media",
+              "proto"
+            ]
+          },
+          "key": {
+            "type": "string",
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+          },
+          "access_token": {
+            "type": "string",
+            "description": "OAuth access token."
+          },
+          "quotaUser": {
+            "type": "string",
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
+          },
+          "pp": {
+            "type": "boolean",
+            "description": "Pretty-print response."
+          },
+          "oauth_token": {
+            "type": "string",
+            "description": "OAuth 2.0 token for the current user."
+          },
+          "bearer_token": {
+            "type": "string",
+            "description": "OAuth bearer token."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "accountId",
+          "creativeId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Empty"
+      },
+      "security": {
+        "google_adexchangebuyer2": {
+          "integration": "google_adexchangebuyer2"
+        }
+      }
+    },
+    {
+      "id": "accounts.creatives.dealAssociations.remove",
+      "title": "accounts.creatives.dealAssociations.remove",
+      "description": "Remove the association between a deal and a creative.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "accountId": {
+            "type": "string",
+            "description": "The account the creative belongs to."
+          },
+          "creativeId": {
+            "type": "string",
+            "description": "The ID of the creative associated with the deal."
+          },
+          "body": {
+            "$ref": "#/definitions/RemoveDealAssociationRequest"
+          },
+          "upload_protocol": {
+            "type": "string",
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
+          },
+          "prettyPrint": {
+            "type": "boolean",
+            "description": "Returns response with indentations and line breaks."
+          },
+          "fields": {
+            "type": "string",
+            "description": "Selector specifying which fields to include in a partial response."
+          },
+          "uploadType": {
+            "type": "string",
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
+          },
+          "$.xgafv": {
+            "type": "string",
+            "description": "V1 error format.",
+            "enum": [
+              "1",
+              "2"
+            ]
+          },
+          "callback": {
+            "type": "string",
+            "description": "JSONP"
+          },
+          "alt": {
+            "type": "string",
+            "description": "Data format for response.",
+            "enum": [
+              "json",
+              "media",
+              "proto"
+            ]
+          },
+          "key": {
+            "type": "string",
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+          },
+          "access_token": {
+            "type": "string",
+            "description": "OAuth access token."
+          },
+          "quotaUser": {
+            "type": "string",
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
+          },
+          "pp": {
+            "type": "boolean",
+            "description": "Pretty-print response."
+          },
+          "oauth_token": {
+            "type": "string",
+            "description": "OAuth 2.0 token for the current user."
+          },
+          "bearer_token": {
+            "type": "string",
+            "description": "OAuth bearer token."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "accountId",
+          "creativeId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Empty"
+      },
+      "security": {
+        "google_adexchangebuyer2": {
+          "integration": "google_adexchangebuyer2"
+        }
+      }
+    },
+    {
+      "id": "accounts.creatives.stopWatching",
+      "title": "accounts.creatives.stopWatching",
+      "description": "Stops watching a creative. Will stop push notifications being sent to the\ntopics when the creative changes status.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "accountId": {
+            "type": "string",
+            "description": "The account of the creative to stop notifications for."
+          },
+          "creativeId": {
+            "type": "string",
+            "description": "The creative ID of the creative to stop notifications for.\nSpecify \"-\" to specify stopping account level notifications."
+          },
+          "body": {
+            "$ref": "#/definitions/StopWatchingCreativeRequest"
+          },
+          "upload_protocol": {
+            "type": "string",
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
+          },
+          "prettyPrint": {
+            "type": "boolean",
+            "description": "Returns response with indentations and line breaks."
+          },
+          "fields": {
+            "type": "string",
+            "description": "Selector specifying which fields to include in a partial response."
+          },
+          "uploadType": {
+            "type": "string",
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
+          },
+          "$.xgafv": {
+            "type": "string",
+            "description": "V1 error format.",
+            "enum": [
+              "1",
+              "2"
+            ]
+          },
+          "callback": {
+            "type": "string",
+            "description": "JSONP"
+          },
+          "alt": {
+            "type": "string",
+            "description": "Data format for response.",
+            "enum": [
+              "json",
+              "media",
+              "proto"
+            ]
+          },
+          "key": {
+            "type": "string",
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+          },
+          "access_token": {
+            "type": "string",
+            "description": "OAuth access token."
+          },
+          "quotaUser": {
+            "type": "string",
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
+          },
+          "pp": {
+            "type": "boolean",
+            "description": "Pretty-print response."
+          },
+          "oauth_token": {
+            "type": "string",
+            "description": "OAuth 2.0 token for the current user."
+          },
+          "bearer_token": {
+            "type": "string",
+            "description": "OAuth bearer token."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "accountId",
+          "creativeId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Empty"
+      },
+      "security": {
+        "google_adexchangebuyer2": {
+          "integration": "google_adexchangebuyer2"
+        }
+      }
+    },
+    {
+      "id": "accounts.creatives.watch",
+      "title": "accounts.creatives.watch",
+      "description": "Watches a creative. Will result in push notifications being sent to the\ntopic when the creative changes status.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "accountId": {
+            "type": "string",
+            "description": "The account of the creative to watch."
+          },
+          "creativeId": {
+            "type": "string",
+            "description": "The creative ID to watch for status changes.\nSpecify \"-\" to watch all creatives under the above account.\nIf both creative-level and account-level notifications are\nsent, only a single notification will be sent to the\ncreative-level notification topic."
+          },
+          "body": {
+            "$ref": "#/definitions/WatchCreativeRequest"
+          },
+          "upload_protocol": {
+            "type": "string",
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
+          },
+          "prettyPrint": {
+            "type": "boolean",
+            "description": "Returns response with indentations and line breaks."
+          },
+          "fields": {
+            "type": "string",
+            "description": "Selector specifying which fields to include in a partial response."
+          },
+          "uploadType": {
+            "type": "string",
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
+          },
+          "$.xgafv": {
+            "type": "string",
+            "description": "V1 error format.",
+            "enum": [
+              "1",
+              "2"
+            ]
+          },
+          "callback": {
+            "type": "string",
+            "description": "JSONP"
+          },
+          "alt": {
+            "type": "string",
+            "description": "Data format for response.",
+            "enum": [
+              "json",
+              "media",
+              "proto"
+            ]
+          },
+          "key": {
+            "type": "string",
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+          },
+          "access_token": {
+            "type": "string",
+            "description": "OAuth access token."
+          },
+          "quotaUser": {
+            "type": "string",
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
+          },
+          "pp": {
+            "type": "boolean",
+            "description": "Pretty-print response."
+          },
+          "oauth_token": {
+            "type": "string",
+            "description": "OAuth 2.0 token for the current user."
+          },
+          "bearer_token": {
+            "type": "string",
+            "description": "OAuth bearer token."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "accountId",
+          "creativeId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Empty"
+      },
+      "security": {
+        "google_adexchangebuyer2": {
+          "integration": "google_adexchangebuyer2"
+        }
+      }
+    }
+  ],
+  "tags": [
+    "google"
+  ]
+}

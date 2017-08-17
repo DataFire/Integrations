@@ -1,0 +1,3568 @@
+{
+  "id": "swaggerhub",
+  "title": "SwaggerHub Registry",
+  "description": "# Introduction\nThis is the registry API for SwaggerHub. It allows you to access, manage, and update your APIs and Domains in SwaggerHub bypassing the Web application.\n\n# Authentication\nUse your personal API Key: you may find it by visiting the   [API Key page](https://app.swaggerhub.com/settings/apiKey).\n",
+  "security": {
+    "swaggerhub": {
+      "integration": "swaggerhub",
+      "fields": {
+        "TokenSecured": "API key"
+      }
+    }
+  },
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/swaggerhub.jpg"
+  },
+  "actionCount": 69,
+  "definitions": {
+    "AccessToken": {
+      "properties": {
+        "token": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "AccessToken"
+    },
+    "ApiMetadata": {
+      "properties": {
+        "categories": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "defaultVersion": {
+          "type": "string"
+        },
+        "links": {
+          "items": {
+            "$ref": "#/definitions/ApiMetadataLink"
+          },
+          "type": "array"
+        },
+        "tags": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "categories",
+        "tags"
+      ],
+      "type": "object",
+      "title": "ApiMetadata"
+    },
+    "ApiMetadataLink": {
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "url"
+      ],
+      "type": "object",
+      "title": "ApiMetadataLink"
+    },
+    "ApisJson": {
+      "properties": {
+        "apis": {
+          "items": {
+            "$ref": "#/definitions/ApisJsonApi"
+          },
+          "type": "array"
+        },
+        "created": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "modified": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "offset": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "specificationVersion": {
+          "type": "string"
+        },
+        "totalCount": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "url": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "ApisJson"
+    },
+    "ApisJsonApi": {
+      "properties": {
+        "description": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "properties": {
+          "items": {
+            "$ref": "#/definitions/ApisJsonProperty"
+          },
+          "type": "array"
+        },
+        "tags": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "ApisJsonApi"
+    },
+    "ApisJsonProperty": {
+      "description": "an API property",
+      "properties": {
+        "type": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "ApisJsonProperty"
+    },
+    "ApisJsonUrlProperty": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/ApisJsonProperty"
+        },
+        {
+          "description": "an API property where the value is a URL",
+          "properties": {
+            "url": {
+              "format": "url",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        }
+      ],
+      "title": "ApisJsonUrlProperty"
+    },
+    "ApisJsonValueProperty": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/ApisJsonProperty"
+        },
+        {
+          "description": "an API property with a string value",
+          "properties": {
+            "value": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        }
+      ],
+      "title": "ApisJsonValueProperty"
+    },
+    "ClosableComment": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/Comment"
+        },
+        {
+          "properties": {
+            "position": {
+              "format": "int32",
+              "type": "integer"
+            },
+            "replies": {
+              "items": {
+                "$ref": "#/definitions/Comment"
+              },
+              "type": "array"
+            },
+            "status": {
+              "enum": [
+                "OPEN",
+                "RESOLVED"
+              ],
+              "type": "string"
+            }
+          },
+          "type": "object"
+        }
+      ],
+      "title": "ClosableComment"
+    },
+    "ClosableCommentPatch": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/CommentPatch"
+        },
+        {
+          "properties": {
+            "position": {
+              "format": "int32",
+              "type": "integer"
+            }
+          },
+          "type": "object"
+        }
+      ],
+      "title": "ClosableCommentPatch"
+    },
+    "CodegenLanguage": {
+      "properties": {
+        "customValues": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "type": "object"
+        },
+        "visible": {
+          "default": true,
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "visible"
+      ],
+      "type": "object",
+      "title": "CodegenLanguage"
+    },
+    "CodegenSettings": {
+      "properties": {
+        "client": {
+          "additionalProperties": {
+            "$ref": "#/definitions/CodegenLanguage"
+          },
+          "type": "object"
+        },
+        "server": {
+          "additionalProperties": {
+            "$ref": "#/definitions/CodegenLanguage"
+          },
+          "type": "object"
+        }
+      },
+      "type": "object",
+      "title": "CodegenSettings"
+    },
+    "Collaboration": {
+      "properties": {
+        "hint": {
+          "$ref": "#/definitions/CollaborationHint"
+        },
+        "members": {
+          "items": {
+            "$ref": "#/definitions/CollaborationMembership"
+          },
+          "type": "array"
+        },
+        "owner": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "owners": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "pendingMembers": {
+          "items": {
+            "$ref": "#/definitions/CollaborationMembership"
+          },
+          "type": "array"
+        },
+        "teams": {
+          "items": {
+            "$ref": "#/definitions/CollaborationTeamMembership"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "hint"
+      ],
+      "type": "object",
+      "title": "Collaboration"
+    },
+    "CollaborationHint": {
+      "properties": {
+        "type": {
+          "description": "type identifier of the managed entity",
+          "format": "uuid",
+          "type": "string"
+        }
+      },
+      "required": [
+        "type"
+      ],
+      "type": "object",
+      "title": "CollaborationHint"
+    },
+    "CollaborationMember": {
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "startTime": {
+          "format": "date-time",
+          "readOnly": true,
+          "type": "string"
+        },
+        "title": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "uuid": {
+          "readOnly": true,
+          "type": "string"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "type": "object",
+      "title": "CollaborationMember"
+    },
+    "CollaborationMembership": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/CollaborationMember"
+        },
+        {
+          "properties": {
+            "blocked": {
+              "readOnly": true,
+              "type": "boolean"
+            },
+            "donotdisturb": {
+              "readOnly": true,
+              "type": "boolean"
+            },
+            "roles": {
+              "items": {
+                "enum": [
+                  "EDIT",
+                  "COMMENT",
+                  "VIEW"
+                ],
+                "type": "string"
+              },
+              "type": "array"
+            }
+          },
+          "required": [
+            "roles"
+          ],
+          "type": "object"
+        }
+      ],
+      "title": "CollaborationMembership"
+    },
+    "CollaborationMembershipList": {
+      "properties": {
+        "hint": {
+          "$ref": "#/definitions/CollaborationHint"
+        },
+        "items": {
+          "items": {
+            "$ref": "#/definitions/CollaborationMembership"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "hint"
+      ],
+      "type": "object",
+      "title": "CollaborationMembershipList"
+    },
+    "CollaborationRoles": {
+      "properties": {
+        "api": {
+          "type": "string"
+        },
+        "owner": {
+          "type": "string"
+        },
+        "roles": {
+          "items": {
+            "enum": [
+              "EDIT",
+              "COMMENT",
+              "VIEW"
+            ],
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "CollaborationRoles"
+    },
+    "CollaborationTeamMembership": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/CollaborationMembership"
+        },
+        {
+          "properties": {
+            "members": {
+              "items": {
+                "$ref": "#/definitions/CollaborationMember"
+              },
+              "type": "array"
+            }
+          },
+          "type": "object"
+        }
+      ],
+      "title": "CollaborationTeamMembership"
+    },
+    "Comment": {
+      "properties": {
+        "body": {
+          "type": "string"
+        },
+        "created": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "modified": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "user": {
+          "$ref": "#/definitions/User"
+        }
+      },
+      "required": [
+        "body",
+        "created",
+        "id",
+        "user"
+      ],
+      "type": "object",
+      "title": "Comment"
+    },
+    "CommentPatch": {
+      "properties": {
+        "body": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "CommentPatch"
+    },
+    "CommentsBatch": {
+      "properties": {
+        "addComment": {
+          "items": {
+            "$ref": "#/definitions/NewComment"
+          },
+          "type": "array"
+        },
+        "addReply": {
+          "additionalProperties": {
+            "items": {
+              "$ref": "#/definitions/NewReply"
+            },
+            "type": "array"
+          },
+          "type": "object"
+        },
+        "deleteComment": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "deleteReply": {
+          "additionalProperties": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "type": "object"
+        },
+        "updateComment": {
+          "additionalProperties": {
+            "$ref": "#/definitions/ClosableCommentPatch"
+          },
+          "type": "object"
+        },
+        "updateReply": {
+          "additionalProperties": {
+            "additionalProperties": {
+              "$ref": "#/definitions/CommentPatch"
+            },
+            "type": "object"
+          },
+          "type": "object"
+        },
+        "updateStatus": {
+          "additionalProperties": {
+            "enum": [
+              "OPEN",
+              "RESOLVED"
+            ],
+            "type": "string"
+          },
+          "type": "object"
+        }
+      },
+      "type": "object",
+      "title": "CommentsBatch"
+    },
+    "Comparison": {
+      "description": "a list of differences between two APIs",
+      "items": {
+        "$ref": "#/definitions/ComparisonPart"
+      },
+      "properties": {},
+      "type": "array",
+      "title": "Comparison"
+    },
+    "ComparisonDetail": {
+      "description": "details for one side of a ComparisonPart",
+      "properties": {
+        "content": {
+          "description": "the content of the API definition between `startPosition` and `endPosition`",
+          "type": "string"
+        },
+        "endPosition": {
+          "$ref": "#/definitions/Position"
+        },
+        "path": {
+          "description": "the path to the object (notation similar to JSONPath)",
+          "type": "string"
+        },
+        "startPosition": {
+          "$ref": "#/definitions/Position"
+        }
+      },
+      "required": [
+        "content",
+        "endPosition",
+        "startPosition"
+      ],
+      "type": "object",
+      "title": "ComparisonDetail"
+    },
+    "ComparisonPart": {
+      "description": "a part of the API that was (or wasn't) changed",
+      "properties": {
+        "base": {
+          "$ref": "#/definitions/ComparisonDetail"
+        },
+        "other": {
+          "$ref": "#/definitions/ComparisonDetail"
+        },
+        "type": {
+          "description": "the type of change that this part describes\n* UNMODIFIED - this part is the same in both APIs. Only available for FULL compare.\n* INSERTED - this is present in `other` but missing in `base`. `base` will not be present.\n* DELETED - this is present in `base` but missing in `other`. `other` will not be present.\n* CHANGED - this has been changed between `base` and `other`. Both `base` and `other` present.\n",
+          "enum": [
+            "UNMODIFIED",
+            "INSERTED",
+            "DELETED",
+            "CHANGED"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "type"
+      ],
+      "type": "object",
+      "title": "ComparisonPart"
+    },
+    "GitHubExportSettings": {
+      "properties": {
+        "branch": {
+          "type": "string"
+        },
+        "notificationEmail": {
+          "type": "string"
+        },
+        "owner": {
+          "type": "string"
+        },
+        "path": {
+          "type": "string"
+        },
+        "repository": {
+          "type": "string"
+        },
+        "token": {
+          "type": "string"
+        },
+        "yamlPath": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "branch",
+        "notificationEmail",
+        "owner",
+        "repository",
+        "token"
+      ],
+      "type": "object",
+      "title": "GitHubExportSettings"
+    },
+    "LifecycleSettings": {
+      "properties": {
+        "published": {
+          "type": "boolean"
+        }
+      },
+      "type": "object",
+      "title": "LifecycleSettings"
+    },
+    "NewComment": {
+      "properties": {
+        "body": {
+          "type": "string"
+        },
+        "position": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "replies": {
+          "items": {
+            "$ref": "#/definitions/NewReply"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "body",
+        "position"
+      ],
+      "type": "object",
+      "title": "NewComment"
+    },
+    "NewReply": {
+      "properties": {
+        "body": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "body"
+      ],
+      "type": "object",
+      "title": "NewReply"
+    },
+    "PluginConfiguration": {
+      "properties": {
+        "configuration": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "type": "object"
+        },
+        "definitionId": {
+          "type": "string"
+        },
+        "draft": {
+          "type": "boolean"
+        },
+        "id": {
+          "format": "UUID",
+          "type": "string"
+        },
+        "lifecycles": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "name": {
+          "type": "string"
+        },
+        "objectId": {
+          "type": "string"
+        },
+        "ownerName": {
+          "type": "string"
+        },
+        "path": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "definitionId",
+        "lifecycles",
+        "name",
+        "objectId",
+        "ownerName",
+        "path"
+      ],
+      "type": "object",
+      "title": "PluginConfiguration"
+    },
+    "PluginDefinition": {
+      "properties": {
+        "configurationSchema": {
+          "properties": {},
+          "type": "object"
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "createdOn": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "enabled": {
+          "type": "boolean"
+        },
+        "id": {
+          "type": "string"
+        },
+        "implementingClass": {
+          "type": "string"
+        },
+        "limit": {
+          "description": "count of allowed configurations",
+          "format": "int64",
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "configurationSchema",
+        "createdBy",
+        "createdOn",
+        "enabled",
+        "implementingClass",
+        "name",
+        "version"
+      ],
+      "type": "object",
+      "title": "PluginDefinition"
+    },
+    "Position": {
+      "description": "a position in a text document",
+      "properties": {
+        "column": {
+          "type": "integer"
+        },
+        "line": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "column",
+        "line"
+      ],
+      "type": "object",
+      "title": "Position"
+    },
+    "Private": {
+      "properties": {
+        "private": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "private"
+      ],
+      "type": "object",
+      "title": "Private"
+    },
+    "SpecId": {
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "owner": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "owner",
+        "version"
+      ],
+      "type": "object",
+      "title": "SpecId"
+    },
+    "SystemPluginConfiguration": {
+      "properties": {
+        "configuration": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "type": "object"
+        },
+        "id": {
+          "format": "UUID",
+          "type": "string"
+        },
+        "implementingClass": {
+          "type": "string"
+        },
+        "lifecycles": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "version": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "implementingClass",
+        "lifecycles",
+        "version"
+      ],
+      "type": "object",
+      "title": "SystemPluginConfiguration"
+    },
+    "Template": {
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "title"
+      ],
+      "type": "object",
+      "title": "Template"
+    },
+    "TemplateCatalog": {
+      "properties": {
+        "default": {
+          "$ref": "#/definitions/Template"
+        },
+        "templates": {
+          "items": {
+            "$ref": "#/definitions/Template"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "TemplateCatalog"
+    },
+    "User": {
+      "properties": {
+        "active": {
+          "type": "boolean"
+        },
+        "id": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "User"
+    },
+    "UserCredentials": {
+      "properties": {
+        "password": {
+          "type": "string"
+        },
+        "username": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "UserCredentials"
+    },
+    "VersionMetadata": {
+      "properties": {
+        "codegenSettings": {
+          "$ref": "#/definitions/CodegenSettings"
+        }
+      },
+      "type": "object",
+      "title": "VersionMetadata"
+    }
+  },
+  "actions": [
+    {
+      "id": "searchApis",
+      "title": "searchApis",
+      "description": "Retrieves a list of currently defined APIs in APIs.json format",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "query": {
+            "type": "string",
+            "description": "free text query to match"
+          },
+          "state": {
+            "type": "string",
+            "description": "matches against published state",
+            "enum": [
+              "ALL",
+              "PUBLISHED"
+            ]
+          },
+          "tag": {
+            "type": "array",
+            "description": "matches against tags associated with an API"
+          },
+          "page": {
+            "type": "integer",
+            "format": "int32",
+            "description": "page to return"
+          },
+          "limit": {
+            "type": "integer",
+            "format": "int32",
+            "description": "number of results per page"
+          },
+          "sort": {
+            "type": "string",
+            "description": "sort criteria",
+            "enum": [
+              "NAME",
+              "UPDATED"
+            ]
+          },
+          "order": {
+            "type": "string",
+            "description": "sort order",
+            "enum": [
+              "ASC",
+              "DESC"
+            ]
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ApisJson"
+      },
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
+      }
+    },
+    {
+      "id": "getApiTemplates",
+      "title": "getApiTemplates",
+      "description": "Retrieves list of apis templates",
+      "inputSchema": {},
+      "outputSchema": {
+        "$ref": "#/definitions/TemplateCatalog"
+      },
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
+      }
+    },
+    {
+      "id": "getOwnerApis",
+      "title": "getOwnerApis",
+      "description": "Retrieves an APIs.json listing of all APIs defined for this owner",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "owner": {
+            "type": "string",
+            "description": "API owner identifier"
+          },
+          "page": {
+            "type": "integer",
+            "format": "int32",
+            "description": "page to return"
+          },
+          "limit": {
+            "type": "integer",
+            "format": "int32",
+            "description": "number of results per page"
+          },
+          "sort": {
+            "type": "string",
+            "description": "sort criteria",
+            "enum": [
+              "NAME",
+              "UPDATED"
+            ]
+          },
+          "order": {
+            "type": "string",
+            "description": "sort order",
+            "enum": [
+              "ASC",
+              "DESC"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "owner"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ApisJson"
+      },
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
+      }
+    },
+    {
+      "id": "updateOwner",
+      "title": "updateOwner",
+      "description": "Updates owner",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "owner": {
+            "type": "string",
+            "description": "API owner identifier"
+          },
+          "newNameToken": {
+            "type": "string",
+            "description": "Token for updating owner name"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "newNameToken"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
+      }
+    },
+    {
+      "id": "deleteApi",
+      "title": "deleteApi",
+      "description": "Deletes the specified API",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "owner": {
+            "type": "string",
+            "description": "API owner identifier"
+          },
+          "api": {
+            "type": "string",
+            "description": "API identifier"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "api"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
+      }
+    },
+    {
+      "id": "getApiVersions",
+      "title": "getApiVersions",
+      "description": "Retrieves an APIs.json listing for all API versions for this owner and API",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "owner": {
+            "type": "string",
+            "description": "API owner identifier"
+          },
+          "api": {
+            "type": "string",
+            "description": "API identifier"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "api"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ApisJson"
+      },
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
+      }
+    },
+    {
+      "id": "saveDefinition",
+      "title": "saveDefinition",
+      "description": "Saves the provided Swagger definition; the owner must match the token owner. The version will be extracted from the Swagger definitions itself.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "owner": {
+            "type": "string",
+            "description": "API owner identifier"
+          },
+          "api": {
+            "type": "string",
+            "description": "API identifier"
+          },
+          "isPrivate": {
+            "type": "boolean",
+            "description": "Defines whether the API has to be private"
+          },
+          "version": {
+            "type": "string",
+            "description": "api version"
+          },
+          "definition": {
+            "type": "string"
+          },
+          "force": {
+            "type": "boolean",
+            "description": "force update"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "api",
+          "definition"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
+      }
+    },
+    {
+      "id": "deleteCollaboration",
+      "title": "deleteCollaboration",
+      "description": "Deletes API's collaboration",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "owner": {
+            "type": "string",
+            "description": "API owner identifier"
+          },
+          "api": {
+            "type": "string",
+            "description": "API identifier"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "api"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
+      }
+    },
+    {
+      "id": "getCollaboration",
+      "title": "getCollaboration",
+      "description": "Gets API's collaboration",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "owner": {
+            "type": "string",
+            "description": "API owner identifier"
+          },
+          "api": {
+            "type": "string",
+            "description": "API identifier"
+          },
+          "expandTeams": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "api"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Collaboration"
+      },
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
+      }
+    },
+    {
+      "id": "updateCollaboration",
+      "title": "updateCollaboration",
+      "description": "Updates API's collaboration",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "owner": {
+            "type": "string",
+            "description": "API owner identifier"
+          },
+          "api": {
+            "type": "string",
+            "description": "API identifier"
+          },
+          "body": {
+            "$ref": "#/definitions/Collaboration"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "api"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
+      }
+    },
+    {
+      "id": "renameApi",
+      "title": "renameApi",
+      "description": "Renames API",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "owner": {
+            "type": "string",
+            "description": "API owner identifier"
+          },
+          "api": {
+            "type": "string",
+            "description": "API identifier"
+          },
+          "newName": {
+            "type": "string",
+            "description": "New name"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "api",
+          "newName"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
+      }
+    },
+    {
+      "id": "saveApiDefinitionByTemplate",
+      "title": "saveApiDefinitionByTemplate",
+      "description": "Creates API by template",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "owner": {
+            "type": "string",
+            "description": "API owner identifier"
+          },
+          "api": {
+            "type": "string",
+            "description": "API identifier"
+          },
+          "isPrivate": {
+            "type": "boolean",
+            "description": "Defines whether the API has to be private"
+          },
+          "template": {
+            "type": "string",
+            "description": "Template id"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "api",
+          "template"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
+      }
+    },
+    {
+      "id": "transferApi",
+      "title": "transferApi",
+      "description": "transfers api to another owner",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "owner": {
+            "type": "string",
+            "description": "API owner identifier"
+          },
+          "api": {
+            "type": "string",
+            "description": "API identifier"
+          },
+          "newOwner": {
+            "type": "string",
+            "description": "New owner"
+          },
+          "transferIntegrations": {
+            "type": "boolean",
+            "description": "Transfer integrations"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "api",
+          "newOwner"
+        ]
+      },
+      "outputSchema": {
+        "properties": {},
+        "type": "object"
+      },
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
+      }
+    },
+    {
+      "id": "deleteApiVersion",
+      "title": "deleteApiVersion",
+      "description": "Deletes a particular version of the specified API",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "owner": {
+            "type": "string",
+            "description": "API owner identifier"
+          },
+          "api": {
+            "type": "string",
+            "description": "API identifier"
+          },
+          "version": {
+            "type": "string",
+            "description": "version identifier"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "api",
+          "version"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
+      }
+    },
+    {
+      "id": "getDefinition",
+      "title": "getDefinition",
+      "description": "Retrieves the Swagger definition for the specified API and version",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "owner": {
+            "type": "string",
+            "description": "API owner identifier"
+          },
+          "api": {
+            "type": "string",
+            "description": "API identifier"
+          },
+          "version": {
+            "type": "string",
+            "description": "version identifier"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "api",
+          "version"
+        ]
+      },
+      "outputSchema": {
+        "properties": {},
+        "type": "object"
+      },
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
+      }
+    },
+    {
+      "id": "bumpApi",
+      "title": "bumpApi",
+      "description": "Adds API version.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "owner": {
+            "type": "string",
+            "description": "API owner identifier"
+          },
+          "api": {
+            "type": "string",
+            "description": "API identifier"
+          },
+          "version": {
+            "type": "string",
+            "description": "version identifier"
+          },
+          "isPrivate": {
+            "type": "boolean",
+            "description": "Defines whether the API has to be private"
+          },
+          "newVersion": {
+            "type": "string",
+            "description": "New api version"
+          },
+          "force": {
+            "type": "boolean",
+            "description": "force update"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "api",
+          "version",
+          "newVersion"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
+      }
+    },
+    {
+      "id": "getApiComments",
+      "title": "getApiComments",
+      "description": "Returns the list of comments for the specified API",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "owner": {
+            "type": "string",
+            "description": "API owner identifier"
+          },
+          "api": {
+            "type": "string",
+            "description": "API identifier"
+          },
+          "version": {
+            "type": "string",
+            "description": "version identifier"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "api",
+          "version"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/ClosableComment"
+        },
+        "type": "array"
+      },
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
+      }
+    },
+    {
+      "id": "addApiComment",
+      "title": "addApiComment",
+      "description": "Adds a new comment to the specified API",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "owner": {
+            "type": "string",
+            "description": "API owner identifier"
+          },
+          "api": {
+            "type": "string",
+            "description": "API identifier"
+          },
+          "version": {
+            "type": "string",
+            "description": "version identifier"
+          },
+          "body": {
+            "$ref": "#/definitions/NewComment"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "api",
+          "version",
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ClosableComment"
+      },
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
+      }
+    },
+    {
+      "id": "updateApiComments",
+      "title": "updateApiComments",
+      "description": "Updates passed batch of comments",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "owner": {
+            "type": "string",
+            "description": "API owner identifier"
+          },
+          "api": {
+            "type": "string",
+            "description": "API identifier"
+          },
+          "version": {
+            "type": "string",
+            "description": "version identifier"
+          },
+          "body": {
+            "$ref": "#/definitions/CommentsBatch"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "api",
+          "version",
+          "body"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
+      }
+    },
+    {
+      "id": "deleteApiComment",
+      "title": "deleteApiComment",
+      "description": "Deletes specified comment",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "owner": {
+            "type": "string",
+            "description": "API owner identifier"
+          },
+          "api": {
+            "type": "string",
+            "description": "API identifier"
+          },
+          "version": {
+            "type": "string",
+            "description": "version identifier"
+          },
+          "comment": {
+            "type": "string",
+            "description": "comment identifier"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "api",
+          "version",
+          "comment"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
+      }
+    },
+    {
+      "id": "updateApiComment",
+      "title": "updateApiComment",
+      "description": "Updates specified comment",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "owner": {
+            "type": "string",
+            "description": "API owner identifier"
+          },
+          "api": {
+            "type": "string",
+            "description": "API identifier"
+          },
+          "version": {
+            "type": "string",
+            "description": "version identifier"
+          },
+          "comment": {
+            "type": "string",
+            "description": "comment identifier"
+          },
+          "body": {
+            "$ref": "#/definitions/ClosableCommentPatch"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "api",
+          "version",
+          "comment"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ClosableComment"
+      },
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
+      }
+    },
+    {
+      "id": "addApiCommentReply",
+      "title": "addApiCommentReply",
+      "description": "Adds a new reply to the specified comment",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "owner": {
+            "type": "string",
+            "description": "API owner identifier"
+          },
+          "api": {
+            "type": "string",
+            "description": "API identifier"
+          },
+          "version": {
+            "type": "string",
+            "description": "version identifier"
+          },
+          "comment": {
+            "type": "string",
+            "description": "comment identifier"
+          },
+          "body": {
+            "$ref": "#/definitions/NewReply"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "api",
+          "version",
+          "comment",
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Comment"
+        },
+        "type": "array"
+      },
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
+      }
+    },
+    {
+      "id": "deleteApiCommentReply",
+      "title": "deleteApiCommentReply",
+      "description": "Deletes specified comment reply",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "owner": {
+            "type": "string",
+            "description": "API owner identifier"
+          },
+          "api": {
+            "type": "string",
+            "description": "API identifier"
+          },
+          "version": {
+            "type": "string",
+            "description": "version identifier"
+          },
+          "comment": {
+            "type": "string",
+            "description": "comment identifier"
+          },
+          "reply": {
+            "type": "string",
+            "description": "reply identifier"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "api",
+          "version",
+          "comment",
+          "reply"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
+      }
+    },
+    {
+      "id": "updateApiCommentReply",
+      "title": "updateApiCommentReply",
+      "description": "Updates specified comment reply",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "owner": {
+            "type": "string",
+            "description": "API owner identifier"
+          },
+          "api": {
+            "type": "string",
+            "description": "API identifier"
+          },
+          "version": {
+            "type": "string",
+            "description": "version identifier"
+          },
+          "comment": {
+            "type": "string",
+            "description": "comment identifier"
+          },
+          "reply": {
+            "type": "string",
+            "description": "reply identifier"
+          },
+          "body": {
+            "$ref": "#/definitions/CommentPatch"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "api",
+          "version",
+          "comment",
+          "reply"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Comment"
+      },
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
+      }
+    },
+    {
+      "id": "setApiCommentStatus",
+      "title": "setApiCommentStatus",
+      "description": "Updates status to the specified comment",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "owner": {
+            "type": "string",
+            "description": "API owner identifier"
+          },
+          "api": {
+            "type": "string",
+            "description": "API identifier"
+          },
+          "version": {
+            "type": "string",
+            "description": "version identifier"
+          },
+          "comment": {
+            "type": "string",
+            "description": "comment identifier"
+          },
+          "status": {
+            "type": "string",
+            "description": "comment status",
+            "enum": [
+              "OPEN",
+              "RESOLVED"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "api",
+          "version",
+          "comment",
+          "status"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
+      }
+    },
+    {
+      "id": "deleteDraftApi",
+      "title": "deleteDraftApi",
+      "description": "Deletes a particular version of the specified API",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "owner": {
+            "type": "string",
+            "description": "API owner identifier"
+          },
+          "api": {
+            "type": "string",
+            "description": "API identifier"
+          },
+          "version": {
+            "type": "string",
+            "description": "version identifier"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "api",
+          "version"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
+      }
+    },
+    {
+      "id": "getDraft",
+      "title": "getDraft",
+      "description": "Retrieves the draft for the specified API and version",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "owner": {
+            "type": "string",
+            "description": "API owner identifier"
+          },
+          "api": {
+            "type": "string",
+            "description": "API identifier"
+          },
+          "version": {
+            "type": "string",
+            "description": "version identifier"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "api",
+          "version"
+        ]
+      },
+      "outputSchema": {
+        "properties": {},
+        "type": "object"
+      },
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
+      }
+    },
+    {
+      "id": "saveDraft",
+      "title": "saveDraft",
+      "description": "Saves the provided draft for a swagger definition.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "owner": {
+            "type": "string",
+            "description": "API owner identifier"
+          },
+          "api": {
+            "type": "string",
+            "description": "API identifier"
+          },
+          "version": {
+            "type": "string",
+            "description": "version identifier"
+          },
+          "definition": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "api",
+          "version",
+          "definition"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
+      }
+    },
+    {
+      "id": "forkApi",
+      "title": "forkApi",
+      "description": "Forks the provided Swagger definition.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "owner": {
+            "type": "string",
+            "description": "API owner identifier"
+          },
+          "api": {
+            "type": "string",
+            "description": "API identifier"
+          },
+          "version": {
+            "type": "string",
+            "description": "version identifier"
+          },
+          "isPrivate": {
+            "type": "boolean",
+            "description": "Defines whether the API has to be private"
+          },
+          "newSpec": {
+            "$ref": "#/definitions/SpecId"
+          },
+          "force": {
+            "type": "boolean",
+            "description": "force update"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "api",
+          "version",
+          "newSpec"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
+      }
+    },
+    {
+      "id": "compareApis",
+      "title": "compareApis",
+      "description": "Compares two APIs",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "owner": {
+            "type": "string",
+            "description": "API owner identifier"
+          },
+          "api": {
+            "type": "string",
+            "description": "API identifier"
+          },
+          "version": {
+            "type": "string",
+            "description": "version identifier"
+          },
+          "method": {
+            "type": "string",
+            "description": "The method to use for comparing two APIs.\n* FULL - Full line-by-line text comparison of the two APIs\n* LOGICAL - Compares if the two API's are logically equivalent. Ignores non-structural fields like descriptions, examples etc. Also ignores order when not important.\n* STRUCTURAL - Like LOGICAL but also compares non-structural fields\n",
+            "enum": [
+              "FULL",
+              "LOGICAL",
+              "STRUCTURAL"
+            ]
+          },
+          "otherApiPath": {
+            "type": "string",
+            "description": "URL to external API or path to internal API"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "api",
+          "version",
+          "method",
+          "otherApiPath"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Comparison"
+      },
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
+      }
+    },
+    {
+      "id": "compareApisFromFile",
+      "title": "compareApisFromFile",
+      "description": "Compares two APIs",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "owner": {
+            "type": "string",
+            "description": "API owner identifier"
+          },
+          "api": {
+            "type": "string",
+            "description": "API identifier"
+          },
+          "version": {
+            "type": "string",
+            "description": "version identifier"
+          },
+          "method": {
+            "type": "string",
+            "description": "The method to use for comparing two APIs.\n* FULL - Full line-by-line text comparison of the two APIs\n* LOGICAL - Compares if the two API's are logically equivalent. Ignores non-structural fields like descriptions, examples etc. Also ignores order when not important.\n* STRUCTURAL - Like LOGICAL but also compares non-structural fields\n",
+            "enum": [
+              "FULL",
+              "LOGICAL",
+              "STRUCTURAL"
+            ]
+          },
+          "definition": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "api",
+          "version",
+          "method",
+          "definition"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Comparison"
+      },
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
+      }
+    },
+    {
+      "id": "getJsonDefinition",
+      "title": "getJsonDefinition",
+      "description": "Retrieves the Swagger definition for the specified API and version in JSON format",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "owner": {
+            "type": "string",
+            "description": "API owner identifier"
+          },
+          "api": {
+            "type": "string",
+            "description": "API identifier"
+          },
+          "version": {
+            "type": "string",
+            "description": "version identifier"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "api",
+          "version"
+        ]
+      },
+      "outputSchema": {
+        "properties": {},
+        "type": "object"
+      },
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
+      }
+    },
+    {
+      "id": "getYamlDefinition",
+      "title": "getYamlDefinition",
+      "description": "Retrieves the Swagger definition for the specified API and version in YAML format",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "owner": {
+            "type": "string",
+            "description": "API owner identifier"
+          },
+          "api": {
+            "type": "string",
+            "description": "API identifier"
+          },
+          "version": {
+            "type": "string",
+            "description": "version identifier"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "api",
+          "version"
+        ]
+      },
+      "outputSchema": {
+        "properties": {},
+        "type": "object"
+      },
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
+      }
+    },
+    {
+      "id": "searchDomains",
+      "title": "searchDomains",
+      "description": "Retrieves a list of currently defined domains in APIs.json format",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "query": {
+            "type": "string",
+            "description": "free text query to match"
+          },
+          "state": {
+            "type": "string",
+            "description": "matches against published state",
+            "enum": [
+              "ALL",
+              "PUBLISHED"
+            ]
+          },
+          "tag": {
+            "type": "array",
+            "description": "matches against tags associated with a domain"
+          },
+          "page": {
+            "type": "integer",
+            "format": "int32",
+            "description": "page to return"
+          },
+          "limit": {
+            "type": "integer",
+            "format": "int32",
+            "description": "number of results per page"
+          },
+          "sort": {
+            "type": "string",
+            "description": "sort criteria",
+            "enum": [
+              "NAME",
+              "UPDATED"
+            ]
+          },
+          "order": {
+            "type": "string",
+            "description": "sort order",
+            "enum": [
+              "ASC",
+              "DESC"
+            ]
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ApisJson"
+      },
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
+      }
+    },
+    {
+      "id": "getDomainTemplates",
+      "title": "getDomainTemplates",
+      "description": "Retrieves list of domains templates",
+      "inputSchema": {},
+      "outputSchema": {
+        "$ref": "#/definitions/TemplateCatalog"
+      },
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
+      }
+    },
+    {
+      "id": "getOwnerDomains",
+      "title": "getOwnerDomains",
+      "description": "Retrieves an APIs.json listing of all domains defined for this owner",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "owner": {
+            "type": "string",
+            "description": "API owner identifier"
+          },
+          "page": {
+            "type": "integer",
+            "format": "int32",
+            "description": "page to return"
+          },
+          "limit": {
+            "type": "integer",
+            "format": "int32",
+            "description": "number of results per page"
+          },
+          "sort": {
+            "type": "string",
+            "description": "sort criteria",
+            "enum": [
+              "NAME",
+              "UPDATED"
+            ]
+          },
+          "order": {
+            "type": "string",
+            "description": "sort order",
+            "enum": [
+              "ASC",
+              "DESC"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "owner"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ApisJson"
+      },
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
+      }
+    },
+    {
+      "id": "getOwnerReferences",
+      "title": "getOwnerReferences",
+      "description": "Retrieves an APIs.json listing of entries referensing owner domains",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "owner": {
+            "type": "string",
+            "description": "API owner identifier"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "owner"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ApisJson"
+      },
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
+      }
+    },
+    {
+      "id": "deleteDomain",
+      "title": "deleteDomain",
+      "description": "Deletes the specified domain",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "owner": {
+            "type": "string",
+            "description": "API owner identifier"
+          },
+          "domain": {
+            "type": "string",
+            "description": "domain identifier"
+          },
+          "force": {
+            "type": "boolean",
+            "description": "force update"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "domain"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
+      }
+    },
+    {
+      "id": "getDomainVersions",
+      "title": "getDomainVersions",
+      "description": "Retrieves an APIs.json listing for all domain versions for this owner and domain",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "owner": {
+            "type": "string",
+            "description": "API owner identifier"
+          },
+          "domain": {
+            "type": "string",
+            "description": "domain identifier"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "domain"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ApisJson"
+      },
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
+      }
+    },
+    {
+      "id": "saveDomainDefinition",
+      "title": "saveDomainDefinition",
+      "description": "Saves the provided Swagger definition of a domain",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "owner": {
+            "type": "string",
+            "description": "API owner identifier"
+          },
+          "domain": {
+            "type": "string",
+            "description": "domain identifier"
+          },
+          "isPrivate": {
+            "type": "boolean",
+            "description": "Defines whether the API has to be private"
+          },
+          "version": {
+            "type": "string",
+            "description": "domain version"
+          },
+          "definition": {
+            "type": "string"
+          },
+          "force": {
+            "type": "boolean",
+            "description": "force update"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "domain",
+          "version"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
+      }
+    },
+    {
+      "id": "renameDomain",
+      "title": "renameDomain",
+      "description": "Renames domain",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "owner": {
+            "type": "string",
+            "description": "API owner identifier"
+          },
+          "domain": {
+            "type": "string",
+            "description": "domain identifier"
+          },
+          "newName": {
+            "type": "string",
+            "description": "New name"
+          },
+          "force": {
+            "type": "boolean",
+            "description": "force update"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "domain",
+          "newName"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
+      }
+    },
+    {
+      "id": "transferDomain",
+      "title": "transferDomain",
+      "description": "transfers domain to another owner",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "owner": {
+            "type": "string",
+            "description": "API owner identifier"
+          },
+          "domain": {
+            "type": "string",
+            "description": "domain identifier"
+          },
+          "newOwner": {
+            "type": "string",
+            "description": "New owner"
+          },
+          "force": {
+            "type": "boolean",
+            "description": "force update"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "domain",
+          "newOwner"
+        ]
+      },
+      "outputSchema": {
+        "properties": {},
+        "type": "object"
+      },
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
+      }
+    },
+    {
+      "id": "deleteDomainVersion",
+      "title": "deleteDomainVersion",
+      "description": "Deletes a particular version of the specified domain",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "owner": {
+            "type": "string",
+            "description": "API owner identifier"
+          },
+          "domain": {
+            "type": "string",
+            "description": "domain identifier"
+          },
+          "version": {
+            "type": "string",
+            "description": "version identifier"
+          },
+          "force": {
+            "type": "boolean",
+            "description": "force update"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "domain",
+          "version"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
+      }
+    },
+    {
+      "id": "getDomainDefinition",
+      "title": "getDomainDefinition",
+      "description": "Retrieves the Swagger definition for the specified domain and version",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "owner": {
+            "type": "string",
+            "description": "API owner identifier"
+          },
+          "domain": {
+            "type": "string",
+            "description": "domain identifier"
+          },
+          "version": {
+            "type": "string",
+            "description": "version identifier"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "domain",
+          "version"
+        ]
+      },
+      "outputSchema": {
+        "properties": {},
+        "type": "object"
+      },
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
+      }
+    },
+    {
+      "id": "bumpDomain",
+      "title": "bumpDomain",
+      "description": "Adds domain version.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "owner": {
+            "type": "string",
+            "description": "API owner identifier"
+          },
+          "domain": {
+            "type": "string",
+            "description": "domain identifier"
+          },
+          "version": {
+            "type": "string",
+            "description": "version identifier"
+          },
+          "isPrivate": {
+            "type": "boolean",
+            "description": "Defines whether the API has to be private"
+          },
+          "newVersion": {
+            "type": "string",
+            "description": "New domain version"
+          },
+          "force": {
+            "type": "boolean",
+            "description": "force update"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "domain",
+          "version",
+          "newVersion"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
+      }
+    },
+    {
+      "id": "getDomainComments",
+      "title": "getDomainComments",
+      "description": "Returns the list of comments for the specified domain",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "owner": {
+            "type": "string",
+            "description": "API owner identifier"
+          },
+          "domain": {
+            "type": "string",
+            "description": "domain identifier"
+          },
+          "version": {
+            "type": "string",
+            "description": "version identifier"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "domain",
+          "version"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/ClosableComment"
+        },
+        "type": "array"
+      },
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
+      }
+    },
+    {
+      "id": "addDomainComment",
+      "title": "addDomainComment",
+      "description": "Adds a new comment to the specified domain",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "owner": {
+            "type": "string",
+            "description": "API owner identifier"
+          },
+          "domain": {
+            "type": "string",
+            "description": "domain identifier"
+          },
+          "version": {
+            "type": "string",
+            "description": "version identifier"
+          },
+          "body": {
+            "$ref": "#/definitions/NewComment"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "domain",
+          "version",
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ClosableComment"
+      },
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
+      }
+    },
+    {
+      "id": "updateDomainComments",
+      "title": "updateDomainComments",
+      "description": "Updates passed batch of comments",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "owner": {
+            "type": "string",
+            "description": "API owner identifier"
+          },
+          "domain": {
+            "type": "string",
+            "description": "domain identifier"
+          },
+          "version": {
+            "type": "string",
+            "description": "version identifier"
+          },
+          "body": {
+            "$ref": "#/definitions/CommentsBatch"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "domain",
+          "version",
+          "body"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
+      }
+    },
+    {
+      "id": "deleteDomainComment",
+      "title": "deleteDomainComment",
+      "description": "Deletes specified comment",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "owner": {
+            "type": "string",
+            "description": "API owner identifier"
+          },
+          "domain": {
+            "type": "string",
+            "description": "domain identifier"
+          },
+          "version": {
+            "type": "string",
+            "description": "version identifier"
+          },
+          "comment": {
+            "type": "string",
+            "description": "comment identifier"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "domain",
+          "version",
+          "comment"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
+      }
+    },
+    {
+      "id": "updateDomainComment",
+      "title": "updateDomainComment",
+      "description": "Updates specified comment",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "owner": {
+            "type": "string",
+            "description": "API owner identifier"
+          },
+          "domain": {
+            "type": "string",
+            "description": "domain identifier"
+          },
+          "version": {
+            "type": "string",
+            "description": "version identifier"
+          },
+          "comment": {
+            "type": "string",
+            "description": "comment identifier"
+          },
+          "body": {
+            "$ref": "#/definitions/ClosableCommentPatch"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "domain",
+          "version",
+          "comment"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ClosableComment"
+      },
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
+      }
+    },
+    {
+      "id": "addDomainCommentReply",
+      "title": "addDomainCommentReply",
+      "description": "Adds a new reply to the specified comment",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "owner": {
+            "type": "string",
+            "description": "API owner identifier"
+          },
+          "domain": {
+            "type": "string",
+            "description": "domain identifier"
+          },
+          "version": {
+            "type": "string",
+            "description": "version identifier"
+          },
+          "comment": {
+            "type": "string",
+            "description": "comment identifier"
+          },
+          "body": {
+            "$ref": "#/definitions/NewReply"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "domain",
+          "version",
+          "comment",
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Comment"
+        },
+        "type": "array"
+      },
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
+      }
+    },
+    {
+      "id": "deleteDomainCommentReply",
+      "title": "deleteDomainCommentReply",
+      "description": "Deletes specified comment reply",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "owner": {
+            "type": "string",
+            "description": "API owner identifier"
+          },
+          "domain": {
+            "type": "string",
+            "description": "domain identifier"
+          },
+          "version": {
+            "type": "string",
+            "description": "version identifier"
+          },
+          "comment": {
+            "type": "string",
+            "description": "comment identifier"
+          },
+          "reply": {
+            "type": "string",
+            "description": "reply identifier"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "domain",
+          "version",
+          "comment",
+          "reply"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
+      }
+    },
+    {
+      "id": "updateDomainCommentReply",
+      "title": "updateDomainCommentReply",
+      "description": "Updates specified comment reply",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "owner": {
+            "type": "string",
+            "description": "API owner identifier"
+          },
+          "domain": {
+            "type": "string",
+            "description": "domain identifier"
+          },
+          "version": {
+            "type": "string",
+            "description": "version identifier"
+          },
+          "comment": {
+            "type": "string",
+            "description": "comment identifier"
+          },
+          "reply": {
+            "type": "string",
+            "description": "reply identifier"
+          },
+          "body": {
+            "$ref": "#/definitions/CommentPatch"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "domain",
+          "version",
+          "comment",
+          "reply"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Comment"
+      },
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
+      }
+    },
+    {
+      "id": "setDomainCommentStatus",
+      "title": "setDomainCommentStatus",
+      "description": "Updates status to the specified comment",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "owner": {
+            "type": "string",
+            "description": "API owner identifier"
+          },
+          "domain": {
+            "type": "string",
+            "description": "domain identifier"
+          },
+          "version": {
+            "type": "string",
+            "description": "version identifier"
+          },
+          "comment": {
+            "type": "string",
+            "description": "comment identifier"
+          },
+          "status": {
+            "type": "string",
+            "description": "comment status",
+            "enum": [
+              "OPEN",
+              "RESOLVED"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "domain",
+          "version",
+          "comment",
+          "status"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
+      }
+    },
+    {
+      "id": "deleteDraftDomain",
+      "title": "deleteDraftDomain",
+      "description": "Deletes a particular version of the specified Domain",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "owner": {
+            "type": "string",
+            "description": "API owner identifier"
+          },
+          "domain": {
+            "type": "string",
+            "description": "domain identifier"
+          },
+          "version": {
+            "type": "string",
+            "description": "version identifier"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "domain",
+          "version"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
+      }
+    },
+    {
+      "id": "getDraftDomain",
+      "title": "getDraftDomain",
+      "description": "Retrieves the draft for the specified domain",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "owner": {
+            "type": "string",
+            "description": "API owner identifier"
+          },
+          "domain": {
+            "type": "string",
+            "description": "domain identifier"
+          },
+          "version": {
+            "type": "string",
+            "description": "version identifier"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "domain",
+          "version"
+        ]
+      },
+      "outputSchema": {
+        "properties": {},
+        "type": "object"
+      },
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
+      }
+    },
+    {
+      "id": "saveDraftDomain",
+      "title": "saveDraftDomain",
+      "description": "Saves the provided draft for a domain definition.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "owner": {
+            "type": "string",
+            "description": "API owner identifier"
+          },
+          "domain": {
+            "type": "string",
+            "description": "domain identifier"
+          },
+          "version": {
+            "type": "string",
+            "description": "version identifier"
+          },
+          "definition": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "domain",
+          "version"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
+      }
+    },
+    {
+      "id": "forkDomain",
+      "title": "forkDomain",
+      "description": "Forks the provided domain definition.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "owner": {
+            "type": "string",
+            "description": "API owner identifier"
+          },
+          "domain": {
+            "type": "string",
+            "description": "domain identifier"
+          },
+          "version": {
+            "type": "string",
+            "description": "version identifier"
+          },
+          "isPrivate": {
+            "type": "boolean",
+            "description": "Defines whether the API has to be private"
+          },
+          "newSpec": {
+            "$ref": "#/definitions/SpecId"
+          },
+          "force": {
+            "type": "boolean",
+            "description": "force update"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "domain",
+          "version",
+          "newSpec"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
+      }
+    },
+    {
+      "id": "saveDomainDefinitionByTemplate",
+      "title": "saveDomainDefinitionByTemplate",
+      "description": "Creates Domain by template",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "owner": {
+            "type": "string",
+            "description": "API owner identifier"
+          },
+          "domain": {
+            "type": "string",
+            "description": "domain identifier"
+          },
+          "version": {
+            "type": "string",
+            "description": "version identifier"
+          },
+          "isPrivate": {
+            "type": "boolean",
+            "description": "Defines whether the API has to be private"
+          },
+          "template": {
+            "type": "string",
+            "description": "Template id"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "domain",
+          "version",
+          "template"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
+      }
+    },
+    {
+      "id": "getDomainJsonDefinition",
+      "title": "getDomainJsonDefinition",
+      "description": "Retrieves the definition for the specified domain and version in JSON format",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "owner": {
+            "type": "string",
+            "description": "API owner identifier"
+          },
+          "domain": {
+            "type": "string",
+            "description": "domain identifier"
+          },
+          "version": {
+            "type": "string",
+            "description": "version identifier"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "domain",
+          "version"
+        ]
+      },
+      "outputSchema": {
+        "properties": {},
+        "type": "object"
+      },
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
+      }
+    },
+    {
+      "id": "getDomainYamlDefinition",
+      "title": "getDomainYamlDefinition",
+      "description": "Retrieves the definition for the specified domain and version in YAML format",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "owner": {
+            "type": "string",
+            "description": "API owner identifier"
+          },
+          "domain": {
+            "type": "string",
+            "description": "domain identifier"
+          },
+          "version": {
+            "type": "string",
+            "description": "version identifier"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "domain",
+          "version"
+        ]
+      },
+      "outputSchema": {
+        "properties": {},
+        "type": "object"
+      },
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
+      }
+    },
+    {
+      "id": "getAvailablePlugins",
+      "title": "getAvailablePlugins",
+      "description": "Retrieves a list of all available plugins (ignore system plugins)",
+      "inputSchema": {},
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/PluginDefinition"
+        },
+        "type": "array"
+      },
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
+      }
+    },
+    {
+      "id": "removePluginConfiguration",
+      "title": "removePluginConfiguration",
+      "description": "Deletes the provided Plugin configuration",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "pluginConfiguration": {
+            "$ref": "#/definitions/PluginConfiguration"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "pluginConfiguration"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
+      }
+    },
+    {
+      "id": "getPlugins",
+      "title": "getPlugins",
+      "description": "Retrieves a list of enabled plugin configurations",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "objectId": {
+            "type": "string",
+            "description": "plugin configuration objectId"
+          },
+          "page": {
+            "type": "integer",
+            "format": "int32",
+            "description": "page to return"
+          },
+          "limit": {
+            "type": "integer",
+            "format": "int32",
+            "description": "number of results per page"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "objectId"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/PluginConfiguration"
+        },
+        "type": "array"
+      },
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
+      }
+    },
+    {
+      "id": "addPluginConfiguration",
+      "title": "addPluginConfiguration",
+      "description": "Saves the provided Plugin configuration",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "pluginConfiguration": {
+            "$ref": "#/definitions/PluginConfiguration"
+          },
+          "trigger": {
+            "type": "boolean",
+            "description": "if true, also execute plugin"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "pluginConfiguration"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
+      }
+    },
+    {
+      "id": "updatePluginConfiguration",
+      "title": "updatePluginConfiguration",
+      "description": "Updated the provided Plugin configuration",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "pluginConfiguration": {
+            "$ref": "#/definitions/PluginConfiguration"
+          },
+          "trigger": {
+            "type": "boolean",
+            "description": "if true, also execute plugin"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "pluginConfiguration"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
+      }
+    },
+    {
+      "id": "triggerPluginConfiguration",
+      "title": "triggerPluginConfiguration",
+      "description": "triggers execution of plugin configuration identified by id",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "plugin configuration id"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
+      }
+    },
+    {
+      "id": "buildConfigurationSchema",
+      "title": "buildConfigurationSchema",
+      "description": "Get configuration schema for the provided Plugin configuration",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "pluginConfiguration": {
+            "$ref": "#/definitions/PluginConfiguration"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "pluginConfiguration"
+        ]
+      },
+      "outputSchema": {
+        "properties": {},
+        "type": "object"
+      },
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
+      }
+    },
+    {
+      "id": "getApiTokenByCredentials",
+      "title": "getApiTokenByCredentials",
+      "description": "Retrieves an API token valid for the user identified by user object in body",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "user": {
+            "$ref": "#/definitions/UserCredentials"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "user"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/AccessToken"
+      },
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
+      }
+    }
+  ],
+  "tags": [
+    "developer tools"
+  ]
+}

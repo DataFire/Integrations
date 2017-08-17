@@ -1,0 +1,132 @@
+{
+  "id": "apitore_languagedetectionapis",
+  "title": "Language Detection APIs",
+  "description": "Language detection.<BR />[Endpoint] https://api.apitore.com/api/22",
+  "security": {},
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apitore_languagedetectionapis.jpg"
+  },
+  "actionCount": 2,
+  "definitions": {
+    "LanguageEntity": {
+      "properties": {
+        "lang": {
+          "description": "language",
+          "type": "string"
+        },
+        "prob": {
+          "description": "probability",
+          "format": "double",
+          "type": "number"
+        }
+      },
+      "required": [
+        "lang",
+        "prob"
+      ],
+      "type": "object",
+      "title": "LanguageEntity"
+    },
+    "LanguageResponseEntity": {
+      "properties": {
+        "endTime": {
+          "description": "End date",
+          "type": "string"
+        },
+        "language": {
+          "description": "Output: prediction",
+          "type": "string"
+        },
+        "log": {
+          "description": "Log message",
+          "type": "string"
+        },
+        "probabilities": {
+          "description": "Output: probabilities",
+          "items": {
+            "$ref": "#/definitions/LanguageEntity"
+          },
+          "type": "array"
+        },
+        "processTime": {
+          "description": "Process time [millisecond]",
+          "type": "string"
+        },
+        "startTime": {
+          "description": "Start date",
+          "type": "string"
+        },
+        "text": {
+          "description": "Input: text",
+          "type": "string"
+        }
+      },
+      "required": [
+        "endTime",
+        "language",
+        "log",
+        "probabilities",
+        "processTime",
+        "startTime",
+        "text"
+      ],
+      "type": "object",
+      "title": "LanguageResponseEntity"
+    }
+  },
+  "actions": [
+    {
+      "id": "getUsingGET",
+      "title": "getUsingGET",
+      "description": "Language Detection.  \nResponse  \n  Github: [langdetect-response](https://github.com/keigohtr/apitore-response-parent/tree/master/langdetect-response)  \n  Class: com.apitore.banana.response.org.jsoup.LanguageResponseEntity",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "access_token": {
+            "type": "string",
+            "description": "Access Token"
+          },
+          "text": {
+            "type": "string",
+            "description": "Text [10-20 words over is recommended]"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "access_token",
+          "text"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/LanguageResponseEntity"
+      }
+    },
+    {
+      "id": "smGetUsingGET",
+      "title": "smGetUsingGET",
+      "description": "Language Detection.  \nResponse  \n  Github: [langdetect-response](https://github.com/keigohtr/apitore-response-parent/tree/master/langdetect-response)  \n  Class: com.apitore.banana.response.org.jsoup.LanguageResponseEntity",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "access_token": {
+            "type": "string",
+            "description": "Access Token"
+          },
+          "text": {
+            "type": "string",
+            "description": "Text [Short message like tweet is supported]"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "access_token",
+          "text"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/LanguageResponseEntity"
+      }
+    }
+  ],
+  "tags": []
+}

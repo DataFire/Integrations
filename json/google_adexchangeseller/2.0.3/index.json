@@ -1,0 +1,1560 @@
+{
+  "id": "google_adexchangeseller",
+  "title": "Ad Exchange Seller",
+  "description": "Accesses the inventory of Ad Exchange seller users and generates reports.",
+  "security": {
+    "google_adexchangeseller": {
+      "integration": "google_adexchangeseller",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)",
+        "redirect_uri": "The callback URL for your application"
+      },
+      "oauth": {
+        "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+        "description": "Oauth 2.0 accessCode authentication",
+        "flow": "accessCode",
+        "scopes": {
+          "https://www.googleapis.com/auth/adexchange.seller": "View and manage your Ad Exchange data",
+          "https://www.googleapis.com/auth/adexchange.seller.readonly": "View your Ad Exchange data"
+        },
+        "tokenUrl": "https://accounts.google.com/o/oauth2/token",
+        "type": "oauth2"
+      }
+    }
+  },
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_adexchangeseller.png"
+  },
+  "actionCount": 16,
+  "definitions": {
+    "Account": {
+      "properties": {
+        "id": {
+          "description": "Unique identifier of this account.",
+          "type": "string"
+        },
+        "kind": {
+          "default": "adexchangeseller#account",
+          "description": "Kind of resource this is, in this case adexchangeseller#account.",
+          "type": "string"
+        },
+        "name": {
+          "description": "Name of this account.",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "Account"
+    },
+    "Accounts": {
+      "properties": {
+        "etag": {
+          "description": "ETag of this response for caching purposes.",
+          "type": "string"
+        },
+        "items": {
+          "description": "The accounts returned in this list response.",
+          "items": {
+            "$ref": "#/definitions/Account"
+          },
+          "type": "array"
+        },
+        "kind": {
+          "default": "adexchangeseller#accounts",
+          "description": "Kind of list this is, in this case adexchangeseller#accounts.",
+          "type": "string"
+        },
+        "nextPageToken": {
+          "description": "Continuation token used to page through accounts. To retrieve the next page of results, set the next request's \"pageToken\" value to this.",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "Accounts"
+    },
+    "AdClient": {
+      "properties": {
+        "arcOptIn": {
+          "description": "Whether this ad client is opted in to ARC.",
+          "type": "boolean"
+        },
+        "id": {
+          "description": "Unique identifier of this ad client.",
+          "type": "string"
+        },
+        "kind": {
+          "default": "adexchangeseller#adClient",
+          "description": "Kind of resource this is, in this case adexchangeseller#adClient.",
+          "type": "string"
+        },
+        "productCode": {
+          "description": "This ad client's product code, which corresponds to the PRODUCT_CODE report dimension.",
+          "type": "string"
+        },
+        "supportsReporting": {
+          "description": "Whether this ad client supports being reported on.",
+          "type": "boolean"
+        }
+      },
+      "type": "object",
+      "title": "AdClient"
+    },
+    "AdClients": {
+      "properties": {
+        "etag": {
+          "description": "ETag of this response for caching purposes.",
+          "type": "string"
+        },
+        "items": {
+          "description": "The ad clients returned in this list response.",
+          "items": {
+            "$ref": "#/definitions/AdClient"
+          },
+          "type": "array"
+        },
+        "kind": {
+          "default": "adexchangeseller#adClients",
+          "description": "Kind of list this is, in this case adexchangeseller#adClients.",
+          "type": "string"
+        },
+        "nextPageToken": {
+          "description": "Continuation token used to page through ad clients. To retrieve the next page of results, set the next request's \"pageToken\" value to this.",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "AdClients"
+    },
+    "Alert": {
+      "properties": {
+        "id": {
+          "description": "Unique identifier of this alert. This should be considered an opaque identifier; it is not safe to rely on it being in any particular format.",
+          "type": "string"
+        },
+        "kind": {
+          "default": "adexchangeseller#alert",
+          "description": "Kind of resource this is, in this case adexchangeseller#alert.",
+          "type": "string"
+        },
+        "message": {
+          "description": "The localized alert message.",
+          "type": "string"
+        },
+        "severity": {
+          "description": "Severity of this alert. Possible values: INFO, WARNING, SEVERE.",
+          "type": "string"
+        },
+        "type": {
+          "description": "Type of this alert. Possible values: SELF_HOLD, MIGRATED_TO_BILLING3, ADDRESS_PIN_VERIFICATION, PHONE_PIN_VERIFICATION, CORPORATE_ENTITY, GRAYLISTED_PUBLISHER, API_HOLD.",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "Alert"
+    },
+    "Alerts": {
+      "properties": {
+        "items": {
+          "description": "The alerts returned in this list response.",
+          "items": {
+            "$ref": "#/definitions/Alert"
+          },
+          "type": "array"
+        },
+        "kind": {
+          "default": "adexchangeseller#alerts",
+          "description": "Kind of list this is, in this case adexchangeseller#alerts.",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "Alerts"
+    },
+    "CustomChannel": {
+      "properties": {
+        "code": {
+          "description": "Code of this custom channel, not necessarily unique across ad clients.",
+          "type": "string"
+        },
+        "id": {
+          "description": "Unique identifier of this custom channel. This should be considered an opaque identifier; it is not safe to rely on it being in any particular format.",
+          "type": "string"
+        },
+        "kind": {
+          "default": "adexchangeseller#customChannel",
+          "description": "Kind of resource this is, in this case adexchangeseller#customChannel.",
+          "type": "string"
+        },
+        "name": {
+          "description": "Name of this custom channel.",
+          "type": "string"
+        },
+        "targetingInfo": {
+          "description": "The targeting information of this custom channel, if activated.",
+          "properties": {
+            "adsAppearOn": {
+              "description": "The name used to describe this channel externally.",
+              "type": "string"
+            },
+            "description": {
+              "description": "The external description of the channel.",
+              "type": "string"
+            },
+            "location": {
+              "description": "The locations in which ads appear. (Only valid for content and mobile content ads). Acceptable values for content ads are: TOP_LEFT, TOP_CENTER, TOP_RIGHT, MIDDLE_LEFT, MIDDLE_CENTER, MIDDLE_RIGHT, BOTTOM_LEFT, BOTTOM_CENTER, BOTTOM_RIGHT, MULTIPLE_LOCATIONS. Acceptable values for mobile content ads are: TOP, MIDDLE, BOTTOM, MULTIPLE_LOCATIONS.",
+              "type": "string"
+            },
+            "siteLanguage": {
+              "description": "The language of the sites ads will be displayed on.",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "type": "object",
+      "title": "CustomChannel"
+    },
+    "CustomChannels": {
+      "properties": {
+        "etag": {
+          "description": "ETag of this response for caching purposes.",
+          "type": "string"
+        },
+        "items": {
+          "description": "The custom channels returned in this list response.",
+          "items": {
+            "$ref": "#/definitions/CustomChannel"
+          },
+          "type": "array"
+        },
+        "kind": {
+          "default": "adexchangeseller#customChannels",
+          "description": "Kind of list this is, in this case adexchangeseller#customChannels.",
+          "type": "string"
+        },
+        "nextPageToken": {
+          "description": "Continuation token used to page through custom channels. To retrieve the next page of results, set the next request's \"pageToken\" value to this.",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "CustomChannels"
+    },
+    "Metadata": {
+      "properties": {
+        "items": {
+          "items": {
+            "$ref": "#/definitions/ReportingMetadataEntry"
+          },
+          "type": "array"
+        },
+        "kind": {
+          "default": "adexchangeseller#metadata",
+          "description": "Kind of list this is, in this case adexchangeseller#metadata.",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "Metadata"
+    },
+    "PreferredDeal": {
+      "properties": {
+        "advertiserName": {
+          "description": "The name of the advertiser this deal is for.",
+          "type": "string"
+        },
+        "buyerNetworkName": {
+          "description": "The name of the buyer network this deal is for.",
+          "type": "string"
+        },
+        "currencyCode": {
+          "description": "The currency code that applies to the fixed_cpm value. If not set then assumed to be USD.",
+          "type": "string"
+        },
+        "endTime": {
+          "description": "Time when this deal stops being active in seconds since the epoch (GMT). If not set then this deal is valid until manually disabled by the publisher.",
+          "format": "uint64",
+          "type": "string"
+        },
+        "fixedCpm": {
+          "description": "The fixed price for this preferred deal. In cpm micros of currency according to currencyCode. If set, then this preferred deal is eligible for the fixed price tier of buying (highest priority, pay exactly the configured fixed price).",
+          "format": "int64",
+          "type": "string"
+        },
+        "id": {
+          "description": "Unique identifier of this preferred deal.",
+          "format": "int64",
+          "type": "string"
+        },
+        "kind": {
+          "default": "adexchangeseller#preferredDeal",
+          "description": "Kind of resource this is, in this case adexchangeseller#preferredDeal.",
+          "type": "string"
+        },
+        "startTime": {
+          "description": "Time when this deal becomes active in seconds since the epoch (GMT). If not set then this deal is active immediately upon creation.",
+          "format": "uint64",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "PreferredDeal"
+    },
+    "PreferredDeals": {
+      "properties": {
+        "items": {
+          "description": "The preferred deals returned in this list response.",
+          "items": {
+            "$ref": "#/definitions/PreferredDeal"
+          },
+          "type": "array"
+        },
+        "kind": {
+          "default": "adexchangeseller#preferredDeals",
+          "description": "Kind of list this is, in this case adexchangeseller#preferredDeals.",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "PreferredDeals"
+    },
+    "Report": {
+      "properties": {
+        "averages": {
+          "description": "The averages of the report. This is the same length as any other row in the report; cells corresponding to dimension columns are empty.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "headers": {
+          "description": "The header information of the columns requested in the report. This is a list of headers; one for each dimension in the request, followed by one for each metric in the request.",
+          "items": {
+            "properties": {
+              "currency": {
+                "description": "The currency of this column. Only present if the header type is METRIC_CURRENCY.",
+                "type": "string"
+              },
+              "name": {
+                "description": "The name of the header.",
+                "type": "string"
+              },
+              "type": {
+                "description": "The type of the header; one of DIMENSION, METRIC_TALLY, METRIC_RATIO, or METRIC_CURRENCY.",
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "kind": {
+          "default": "adexchangeseller#report",
+          "description": "Kind this is, in this case adexchangeseller#report.",
+          "type": "string"
+        },
+        "rows": {
+          "description": "The output rows of the report. Each row is a list of cells; one for each dimension in the request, followed by one for each metric in the request. The dimension cells contain strings, and the metric cells contain numbers.",
+          "items": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "type": "array"
+        },
+        "totalMatchedRows": {
+          "description": "The total number of rows matched by the report request. Fewer rows may be returned in the response due to being limited by the row count requested or the report row limit.",
+          "format": "int64",
+          "type": "string"
+        },
+        "totals": {
+          "description": "The totals of the report. This is the same length as any other row in the report; cells corresponding to dimension columns are empty.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "warnings": {
+          "description": "Any warnings associated with generation of the report.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "Report"
+    },
+    "ReportingMetadataEntry": {
+      "properties": {
+        "compatibleDimensions": {
+          "description": "For metrics this is a list of dimension IDs which the metric is compatible with, for dimensions it is a list of compatibility groups the dimension belongs to.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "compatibleMetrics": {
+          "description": "The names of the metrics the dimension or metric this reporting metadata entry describes is compatible with.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "id": {
+          "description": "Unique identifier of this reporting metadata entry, corresponding to the name of the appropriate dimension or metric.",
+          "type": "string"
+        },
+        "kind": {
+          "default": "adexchangeseller#reportingMetadataEntry",
+          "description": "Kind of resource this is, in this case adexchangeseller#reportingMetadataEntry.",
+          "type": "string"
+        },
+        "requiredDimensions": {
+          "description": "The names of the dimensions which the dimension or metric this reporting metadata entry describes requires to also be present in order for the report to be valid. Omitting these will not cause an error or warning, but may result in data which cannot be correctly interpreted.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "requiredMetrics": {
+          "description": "The names of the metrics which the dimension or metric this reporting metadata entry describes requires to also be present in order for the report to be valid. Omitting these will not cause an error or warning, but may result in data which cannot be correctly interpreted.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "supportedProducts": {
+          "description": "The codes of the projects supported by the dimension or metric this reporting metadata entry describes.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "ReportingMetadataEntry"
+    },
+    "SavedReport": {
+      "properties": {
+        "id": {
+          "description": "Unique identifier of this saved report.",
+          "type": "string"
+        },
+        "kind": {
+          "default": "adexchangeseller#savedReport",
+          "description": "Kind of resource this is, in this case adexchangeseller#savedReport.",
+          "type": "string"
+        },
+        "name": {
+          "description": "This saved report's name.",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "SavedReport"
+    },
+    "SavedReports": {
+      "properties": {
+        "etag": {
+          "description": "ETag of this response for caching purposes.",
+          "type": "string"
+        },
+        "items": {
+          "description": "The saved reports returned in this list response.",
+          "items": {
+            "$ref": "#/definitions/SavedReport"
+          },
+          "type": "array"
+        },
+        "kind": {
+          "default": "adexchangeseller#savedReports",
+          "description": "Kind of list this is, in this case adexchangeseller#savedReports.",
+          "type": "string"
+        },
+        "nextPageToken": {
+          "description": "Continuation token used to page through saved reports. To retrieve the next page of results, set the next request's \"pageToken\" value to this.",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "SavedReports"
+    },
+    "UrlChannel": {
+      "properties": {
+        "id": {
+          "description": "Unique identifier of this URL channel. This should be considered an opaque identifier; it is not safe to rely on it being in any particular format.",
+          "type": "string"
+        },
+        "kind": {
+          "default": "adexchangeseller#urlChannel",
+          "description": "Kind of resource this is, in this case adexchangeseller#urlChannel.",
+          "type": "string"
+        },
+        "urlPattern": {
+          "description": "URL Pattern of this URL channel. Does not include \"http://\" or \"https://\". Example: www.example.com/home",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "UrlChannel"
+    },
+    "UrlChannels": {
+      "properties": {
+        "etag": {
+          "description": "ETag of this response for caching purposes.",
+          "type": "string"
+        },
+        "items": {
+          "description": "The URL channels returned in this list response.",
+          "items": {
+            "$ref": "#/definitions/UrlChannel"
+          },
+          "type": "array"
+        },
+        "kind": {
+          "default": "adexchangeseller#urlChannels",
+          "description": "Kind of list this is, in this case adexchangeseller#urlChannels.",
+          "type": "string"
+        },
+        "nextPageToken": {
+          "description": "Continuation token used to page through URL channels. To retrieve the next page of results, set the next request's \"pageToken\" value to this.",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "UrlChannels"
+    }
+  },
+  "actions": [
+    {
+      "id": "oauthCallback",
+      "title": "",
+      "description": "Exchange the code passed to your redirect URI for an access_token",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "title": "code",
+            "type": "string"
+          }
+        },
+        "required": [
+          "code"
+        ]
+      },
+      "outputSchema": {
+        "properties": {
+          "access_token": {
+            "type": "string"
+          },
+          "refresh_token": {
+            "type": "string"
+          },
+          "token_type": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "expiration": {
+            "type": "string"
+          }
+        }
+      },
+      "security": {
+        "google_adexchangeseller": {
+          "integration": "google_adexchangeseller"
+        }
+      }
+    },
+    {
+      "id": "oauthRefresh",
+      "title": "",
+      "description": "Exchange a refresh_token for an access_token",
+      "inputSchema": {},
+      "outputSchema": {
+        "properties": {
+          "access_token": {
+            "type": "string"
+          },
+          "refresh_token": {
+            "type": "string"
+          },
+          "token_type": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "expiration": {
+            "type": "string"
+          }
+        }
+      },
+      "security": {
+        "google_adexchangeseller": {
+          "integration": "google_adexchangeseller"
+        }
+      }
+    },
+    {
+      "id": "accounts.list",
+      "title": "accounts.list",
+      "description": "List all accounts available to this Ad Exchange account.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "maxResults": {
+            "type": "integer",
+            "description": "The maximum number of accounts to include in the response, used for paging.",
+            "maximum": 10000,
+            "minimum": 0
+          },
+          "pageToken": {
+            "type": "string",
+            "description": "A continuation token, used to page through accounts. To retrieve the next page, set this parameter to the value of \"nextPageToken\" from the previous response."
+          },
+          "alt": {
+            "type": "string",
+            "description": "Data format for the response.",
+            "enum": [
+              "csv",
+              "json"
+            ]
+          },
+          "fields": {
+            "type": "string",
+            "description": "Selector specifying which fields to include in a partial response."
+          },
+          "key": {
+            "type": "string",
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+          },
+          "oauth_token": {
+            "type": "string",
+            "description": "OAuth 2.0 token for the current user."
+          },
+          "prettyPrint": {
+            "type": "boolean",
+            "description": "Returns response with indentations and line breaks."
+          },
+          "quotaUser": {
+            "type": "string",
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
+          },
+          "userIp": {
+            "type": "string",
+            "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Accounts"
+      },
+      "security": {
+        "google_adexchangeseller": {
+          "integration": "google_adexchangeseller"
+        }
+      }
+    },
+    {
+      "id": "accounts.get",
+      "title": "accounts.get",
+      "description": "Get information about the selected Ad Exchange account.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "accountId": {
+            "type": "string",
+            "description": "Account to get information about. Tip: 'myaccount' is a valid ID."
+          },
+          "alt": {
+            "type": "string",
+            "description": "Data format for the response.",
+            "enum": [
+              "csv",
+              "json"
+            ]
+          },
+          "fields": {
+            "type": "string",
+            "description": "Selector specifying which fields to include in a partial response."
+          },
+          "key": {
+            "type": "string",
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+          },
+          "oauth_token": {
+            "type": "string",
+            "description": "OAuth 2.0 token for the current user."
+          },
+          "prettyPrint": {
+            "type": "boolean",
+            "description": "Returns response with indentations and line breaks."
+          },
+          "quotaUser": {
+            "type": "string",
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
+          },
+          "userIp": {
+            "type": "string",
+            "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "accountId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Account"
+      },
+      "security": {
+        "google_adexchangeseller": {
+          "integration": "google_adexchangeseller"
+        }
+      }
+    },
+    {
+      "id": "accounts.adclients.list",
+      "title": "accounts.adclients.list",
+      "description": "List all ad clients in this Ad Exchange account.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "accountId": {
+            "type": "string",
+            "description": "Account to which the ad client belongs."
+          },
+          "maxResults": {
+            "type": "integer",
+            "description": "The maximum number of ad clients to include in the response, used for paging.",
+            "maximum": 10000,
+            "minimum": 0
+          },
+          "pageToken": {
+            "type": "string",
+            "description": "A continuation token, used to page through ad clients. To retrieve the next page, set this parameter to the value of \"nextPageToken\" from the previous response."
+          },
+          "alt": {
+            "type": "string",
+            "description": "Data format for the response.",
+            "enum": [
+              "csv",
+              "json"
+            ]
+          },
+          "fields": {
+            "type": "string",
+            "description": "Selector specifying which fields to include in a partial response."
+          },
+          "key": {
+            "type": "string",
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+          },
+          "oauth_token": {
+            "type": "string",
+            "description": "OAuth 2.0 token for the current user."
+          },
+          "prettyPrint": {
+            "type": "boolean",
+            "description": "Returns response with indentations and line breaks."
+          },
+          "quotaUser": {
+            "type": "string",
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
+          },
+          "userIp": {
+            "type": "string",
+            "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "accountId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/AdClients"
+      },
+      "security": {
+        "google_adexchangeseller": {
+          "integration": "google_adexchangeseller"
+        }
+      }
+    },
+    {
+      "id": "accounts.customchannels.list",
+      "title": "accounts.customchannels.list",
+      "description": "List all custom channels in the specified ad client for this Ad Exchange account.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "accountId": {
+            "type": "string",
+            "description": "Account to which the ad client belongs."
+          },
+          "adClientId": {
+            "type": "string",
+            "description": "Ad client for which to list custom channels."
+          },
+          "maxResults": {
+            "type": "integer",
+            "description": "The maximum number of custom channels to include in the response, used for paging.",
+            "maximum": 10000,
+            "minimum": 0
+          },
+          "pageToken": {
+            "type": "string",
+            "description": "A continuation token, used to page through custom channels. To retrieve the next page, set this parameter to the value of \"nextPageToken\" from the previous response."
+          },
+          "alt": {
+            "type": "string",
+            "description": "Data format for the response.",
+            "enum": [
+              "csv",
+              "json"
+            ]
+          },
+          "fields": {
+            "type": "string",
+            "description": "Selector specifying which fields to include in a partial response."
+          },
+          "key": {
+            "type": "string",
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+          },
+          "oauth_token": {
+            "type": "string",
+            "description": "OAuth 2.0 token for the current user."
+          },
+          "prettyPrint": {
+            "type": "boolean",
+            "description": "Returns response with indentations and line breaks."
+          },
+          "quotaUser": {
+            "type": "string",
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
+          },
+          "userIp": {
+            "type": "string",
+            "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "accountId",
+          "adClientId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CustomChannels"
+      },
+      "security": {
+        "google_adexchangeseller": {
+          "integration": "google_adexchangeseller"
+        }
+      }
+    },
+    {
+      "id": "accounts.customchannels.get",
+      "title": "accounts.customchannels.get",
+      "description": "Get the specified custom channel from the specified ad client.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "accountId": {
+            "type": "string",
+            "description": "Account to which the ad client belongs."
+          },
+          "adClientId": {
+            "type": "string",
+            "description": "Ad client which contains the custom channel."
+          },
+          "customChannelId": {
+            "type": "string",
+            "description": "Custom channel to retrieve."
+          },
+          "alt": {
+            "type": "string",
+            "description": "Data format for the response.",
+            "enum": [
+              "csv",
+              "json"
+            ]
+          },
+          "fields": {
+            "type": "string",
+            "description": "Selector specifying which fields to include in a partial response."
+          },
+          "key": {
+            "type": "string",
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+          },
+          "oauth_token": {
+            "type": "string",
+            "description": "OAuth 2.0 token for the current user."
+          },
+          "prettyPrint": {
+            "type": "boolean",
+            "description": "Returns response with indentations and line breaks."
+          },
+          "quotaUser": {
+            "type": "string",
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
+          },
+          "userIp": {
+            "type": "string",
+            "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "accountId",
+          "adClientId",
+          "customChannelId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CustomChannel"
+      },
+      "security": {
+        "google_adexchangeseller": {
+          "integration": "google_adexchangeseller"
+        }
+      }
+    },
+    {
+      "id": "accounts.urlchannels.list",
+      "title": "accounts.urlchannels.list",
+      "description": "List all URL channels in the specified ad client for this Ad Exchange account.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "accountId": {
+            "type": "string",
+            "description": "Account to which the ad client belongs."
+          },
+          "adClientId": {
+            "type": "string",
+            "description": "Ad client for which to list URL channels."
+          },
+          "maxResults": {
+            "type": "integer",
+            "description": "The maximum number of URL channels to include in the response, used for paging.",
+            "maximum": 10000,
+            "minimum": 0
+          },
+          "pageToken": {
+            "type": "string",
+            "description": "A continuation token, used to page through URL channels. To retrieve the next page, set this parameter to the value of \"nextPageToken\" from the previous response."
+          },
+          "alt": {
+            "type": "string",
+            "description": "Data format for the response.",
+            "enum": [
+              "csv",
+              "json"
+            ]
+          },
+          "fields": {
+            "type": "string",
+            "description": "Selector specifying which fields to include in a partial response."
+          },
+          "key": {
+            "type": "string",
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+          },
+          "oauth_token": {
+            "type": "string",
+            "description": "OAuth 2.0 token for the current user."
+          },
+          "prettyPrint": {
+            "type": "boolean",
+            "description": "Returns response with indentations and line breaks."
+          },
+          "quotaUser": {
+            "type": "string",
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
+          },
+          "userIp": {
+            "type": "string",
+            "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "accountId",
+          "adClientId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UrlChannels"
+      },
+      "security": {
+        "google_adexchangeseller": {
+          "integration": "google_adexchangeseller"
+        }
+      }
+    },
+    {
+      "id": "accounts.alerts.list",
+      "title": "accounts.alerts.list",
+      "description": "List the alerts for this Ad Exchange account.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "accountId": {
+            "type": "string",
+            "description": "Account owning the alerts."
+          },
+          "locale": {
+            "type": "string",
+            "description": "The locale to use for translating alert messages. The account locale will be used if this is not supplied. The AdSense default (English) will be used if the supplied locale is invalid or unsupported."
+          },
+          "alt": {
+            "type": "string",
+            "description": "Data format for the response.",
+            "enum": [
+              "csv",
+              "json"
+            ]
+          },
+          "fields": {
+            "type": "string",
+            "description": "Selector specifying which fields to include in a partial response."
+          },
+          "key": {
+            "type": "string",
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+          },
+          "oauth_token": {
+            "type": "string",
+            "description": "OAuth 2.0 token for the current user."
+          },
+          "prettyPrint": {
+            "type": "boolean",
+            "description": "Returns response with indentations and line breaks."
+          },
+          "quotaUser": {
+            "type": "string",
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
+          },
+          "userIp": {
+            "type": "string",
+            "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "accountId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Alerts"
+      },
+      "security": {
+        "google_adexchangeseller": {
+          "integration": "google_adexchangeseller"
+        }
+      }
+    },
+    {
+      "id": "accounts.metadata.dimensions.list",
+      "title": "accounts.metadata.dimensions.list",
+      "description": "List the metadata for the dimensions available to this AdExchange account.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "accountId": {
+            "type": "string",
+            "description": "Account with visibility to the dimensions."
+          },
+          "alt": {
+            "type": "string",
+            "description": "Data format for the response.",
+            "enum": [
+              "csv",
+              "json"
+            ]
+          },
+          "fields": {
+            "type": "string",
+            "description": "Selector specifying which fields to include in a partial response."
+          },
+          "key": {
+            "type": "string",
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+          },
+          "oauth_token": {
+            "type": "string",
+            "description": "OAuth 2.0 token for the current user."
+          },
+          "prettyPrint": {
+            "type": "boolean",
+            "description": "Returns response with indentations and line breaks."
+          },
+          "quotaUser": {
+            "type": "string",
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
+          },
+          "userIp": {
+            "type": "string",
+            "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "accountId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Metadata"
+      },
+      "security": {
+        "google_adexchangeseller": {
+          "integration": "google_adexchangeseller"
+        }
+      }
+    },
+    {
+      "id": "accounts.metadata.metrics.list",
+      "title": "accounts.metadata.metrics.list",
+      "description": "List the metadata for the metrics available to this AdExchange account.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "accountId": {
+            "type": "string",
+            "description": "Account with visibility to the metrics."
+          },
+          "alt": {
+            "type": "string",
+            "description": "Data format for the response.",
+            "enum": [
+              "csv",
+              "json"
+            ]
+          },
+          "fields": {
+            "type": "string",
+            "description": "Selector specifying which fields to include in a partial response."
+          },
+          "key": {
+            "type": "string",
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+          },
+          "oauth_token": {
+            "type": "string",
+            "description": "OAuth 2.0 token for the current user."
+          },
+          "prettyPrint": {
+            "type": "boolean",
+            "description": "Returns response with indentations and line breaks."
+          },
+          "quotaUser": {
+            "type": "string",
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
+          },
+          "userIp": {
+            "type": "string",
+            "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "accountId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Metadata"
+      },
+      "security": {
+        "google_adexchangeseller": {
+          "integration": "google_adexchangeseller"
+        }
+      }
+    },
+    {
+      "id": "accounts.preferreddeals.list",
+      "title": "accounts.preferreddeals.list",
+      "description": "List the preferred deals for this Ad Exchange account.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "accountId": {
+            "type": "string",
+            "description": "Account owning the deals."
+          },
+          "alt": {
+            "type": "string",
+            "description": "Data format for the response.",
+            "enum": [
+              "csv",
+              "json"
+            ]
+          },
+          "fields": {
+            "type": "string",
+            "description": "Selector specifying which fields to include in a partial response."
+          },
+          "key": {
+            "type": "string",
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+          },
+          "oauth_token": {
+            "type": "string",
+            "description": "OAuth 2.0 token for the current user."
+          },
+          "prettyPrint": {
+            "type": "boolean",
+            "description": "Returns response with indentations and line breaks."
+          },
+          "quotaUser": {
+            "type": "string",
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
+          },
+          "userIp": {
+            "type": "string",
+            "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "accountId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/PreferredDeals"
+      },
+      "security": {
+        "google_adexchangeseller": {
+          "integration": "google_adexchangeseller"
+        }
+      }
+    },
+    {
+      "id": "accounts.preferreddeals.get",
+      "title": "accounts.preferreddeals.get",
+      "description": "Get information about the selected Ad Exchange Preferred Deal.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "accountId": {
+            "type": "string",
+            "description": "Account owning the deal."
+          },
+          "dealId": {
+            "type": "string",
+            "description": "Preferred deal to get information about."
+          },
+          "alt": {
+            "type": "string",
+            "description": "Data format for the response.",
+            "enum": [
+              "csv",
+              "json"
+            ]
+          },
+          "fields": {
+            "type": "string",
+            "description": "Selector specifying which fields to include in a partial response."
+          },
+          "key": {
+            "type": "string",
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+          },
+          "oauth_token": {
+            "type": "string",
+            "description": "OAuth 2.0 token for the current user."
+          },
+          "prettyPrint": {
+            "type": "boolean",
+            "description": "Returns response with indentations and line breaks."
+          },
+          "quotaUser": {
+            "type": "string",
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
+          },
+          "userIp": {
+            "type": "string",
+            "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "accountId",
+          "dealId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/PreferredDeal"
+      },
+      "security": {
+        "google_adexchangeseller": {
+          "integration": "google_adexchangeseller"
+        }
+      }
+    },
+    {
+      "id": "accounts.reports.generate",
+      "title": "accounts.reports.generate",
+      "description": "Generate an Ad Exchange report based on the report request sent in the query parameters. Returns the result as JSON; to retrieve output in CSV format specify \"alt=csv\" as a query parameter.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "accountId": {
+            "type": "string",
+            "description": "Account which owns the generated report."
+          },
+          "startDate": {
+            "type": "string",
+            "description": "Start of the date range to report on in \"YYYY-MM-DD\" format, inclusive."
+          },
+          "endDate": {
+            "type": "string",
+            "description": "End of the date range to report on in \"YYYY-MM-DD\" format, inclusive."
+          },
+          "dimension": {
+            "type": "array",
+            "description": "Dimensions to base the report on."
+          },
+          "filter": {
+            "type": "array",
+            "description": "Filters to be run on the report."
+          },
+          "locale": {
+            "type": "string",
+            "description": "Optional locale to use for translating report output to a local language. Defaults to \"en_US\" if not specified."
+          },
+          "maxResults": {
+            "type": "integer",
+            "description": "The maximum number of rows of report data to return.",
+            "maximum": 50000,
+            "minimum": 0
+          },
+          "metric": {
+            "type": "array",
+            "description": "Numeric columns to include in the report."
+          },
+          "sort": {
+            "type": "array",
+            "description": "The name of a dimension or metric to sort the resulting report on, optionally prefixed with \"+\" to sort ascending or \"-\" to sort descending. If no prefix is specified, the column is sorted ascending."
+          },
+          "startIndex": {
+            "type": "integer",
+            "description": "Index of the first row of report data to return.",
+            "maximum": 5000,
+            "minimum": 0
+          },
+          "alt": {
+            "type": "string",
+            "description": "Data format for the response.",
+            "enum": [
+              "csv",
+              "json"
+            ]
+          },
+          "fields": {
+            "type": "string",
+            "description": "Selector specifying which fields to include in a partial response."
+          },
+          "key": {
+            "type": "string",
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+          },
+          "oauth_token": {
+            "type": "string",
+            "description": "OAuth 2.0 token for the current user."
+          },
+          "prettyPrint": {
+            "type": "boolean",
+            "description": "Returns response with indentations and line breaks."
+          },
+          "quotaUser": {
+            "type": "string",
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
+          },
+          "userIp": {
+            "type": "string",
+            "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "accountId",
+          "startDate",
+          "endDate"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Report"
+      },
+      "security": {
+        "google_adexchangeseller": {
+          "integration": "google_adexchangeseller"
+        }
+      }
+    },
+    {
+      "id": "accounts.reports.saved.list",
+      "title": "accounts.reports.saved.list",
+      "description": "List all saved reports in this Ad Exchange account.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "accountId": {
+            "type": "string",
+            "description": "Account owning the saved reports."
+          },
+          "maxResults": {
+            "type": "integer",
+            "description": "The maximum number of saved reports to include in the response, used for paging.",
+            "maximum": 100,
+            "minimum": 0
+          },
+          "pageToken": {
+            "type": "string",
+            "description": "A continuation token, used to page through saved reports. To retrieve the next page, set this parameter to the value of \"nextPageToken\" from the previous response."
+          },
+          "alt": {
+            "type": "string",
+            "description": "Data format for the response.",
+            "enum": [
+              "csv",
+              "json"
+            ]
+          },
+          "fields": {
+            "type": "string",
+            "description": "Selector specifying which fields to include in a partial response."
+          },
+          "key": {
+            "type": "string",
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+          },
+          "oauth_token": {
+            "type": "string",
+            "description": "OAuth 2.0 token for the current user."
+          },
+          "prettyPrint": {
+            "type": "boolean",
+            "description": "Returns response with indentations and line breaks."
+          },
+          "quotaUser": {
+            "type": "string",
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
+          },
+          "userIp": {
+            "type": "string",
+            "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "accountId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/SavedReports"
+      },
+      "security": {
+        "google_adexchangeseller": {
+          "integration": "google_adexchangeseller"
+        }
+      }
+    },
+    {
+      "id": "accounts.reports.saved.generate",
+      "title": "accounts.reports.saved.generate",
+      "description": "Generate an Ad Exchange report based on the saved report ID sent in the query parameters.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "accountId": {
+            "type": "string",
+            "description": "Account owning the saved report."
+          },
+          "savedReportId": {
+            "type": "string",
+            "description": "The saved report to retrieve."
+          },
+          "locale": {
+            "type": "string",
+            "description": "Optional locale to use for translating report output to a local language. Defaults to \"en_US\" if not specified."
+          },
+          "maxResults": {
+            "type": "integer",
+            "description": "The maximum number of rows of report data to return.",
+            "maximum": 50000,
+            "minimum": 0
+          },
+          "startIndex": {
+            "type": "integer",
+            "description": "Index of the first row of report data to return.",
+            "maximum": 5000,
+            "minimum": 0
+          },
+          "alt": {
+            "type": "string",
+            "description": "Data format for the response.",
+            "enum": [
+              "csv",
+              "json"
+            ]
+          },
+          "fields": {
+            "type": "string",
+            "description": "Selector specifying which fields to include in a partial response."
+          },
+          "key": {
+            "type": "string",
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+          },
+          "oauth_token": {
+            "type": "string",
+            "description": "OAuth 2.0 token for the current user."
+          },
+          "prettyPrint": {
+            "type": "boolean",
+            "description": "Returns response with indentations and line breaks."
+          },
+          "quotaUser": {
+            "type": "string",
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
+          },
+          "userIp": {
+            "type": "string",
+            "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "accountId",
+          "savedReportId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Report"
+      },
+      "security": {
+        "google_adexchangeseller": {
+          "integration": "google_adexchangeseller"
+        }
+      }
+    }
+  ],
+  "tags": [
+    "google"
+  ]
+}

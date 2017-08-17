@@ -1,0 +1,643 @@
+{
+  "id": "onenote",
+  "title": "Microsoft OneNote",
+  "description": "Easily capture content into OneNote with this REST API.",
+  "security": {},
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/onenote.png"
+  },
+  "actionCount": 19,
+  "actions": [
+    {
+      "id": "sections.sectionId.get",
+      "title": "sections.sectionId.get",
+      "description": "Returns a specific section.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "select": {
+            "type": "string",
+            "description": "The properties to return. Example: name,pagesUrl,createdTime"
+          },
+          "expand": {
+            "type": "string",
+            "description": "The navigation properties (parentNotebook, or parentSectionGroup) to return inline in the response. Example: parentNotebook"
+          },
+          "sectionId": {
+            "type": "string",
+            "description": "Specifies the specific Section"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "sectionId"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "sections.get",
+      "title": "sections.get",
+      "description": "Returns a collection of sections.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "count": {
+            "type": "boolean",
+            "description": "true, to return the number of entities in the collection."
+          },
+          "filter": {
+            "type": "string",
+            "description": "The filter for the query. Example: createdTime ge 2015-09-01"
+          },
+          "orderby": {
+            "type": "string",
+            "description": "The property to order by. Default is \"name asc\". Example: lastModifiedTime desc"
+          },
+          "select": {
+            "type": "string",
+            "description": "The properties to return. Example: name,pagesUrl,createdTime"
+          },
+          "top": {
+            "description": "The number of entities to return from the result set. Example: 10"
+          },
+          "expand": {
+            "type": "string",
+            "description": "The navigation properties (parentNotebook or parentSectionGroup) to return inline in the response. The default query expands parentNotebook and parentSectionGroup, and selects their id, name, and self properties."
+          },
+          "skip": {
+            "description": "The number of entities to skip in the result set. Example: 10"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "sectionGroups.sectionGroupId.sectionGroups.get",
+      "title": "sectionGroups.sectionGroupId.sectionGroups.get",
+      "description": "Returns a collection of section groups within a specific section group.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "count": {
+            "type": "boolean",
+            "description": "true, to return the number of entities in the collection."
+          },
+          "filter": {
+            "type": "string",
+            "description": "The filter for the query. Example: createdTime ge 2015-09-01"
+          },
+          "orderby": {
+            "type": "string",
+            "description": "The property to order by. Default is \"name asc\". Example: lastModifiedTime desc"
+          },
+          "select": {
+            "type": "string",
+            "description": "The properties to return. Example: name,sectionsUrl,createdTime"
+          },
+          "top": {
+            "description": "The number of entities to return from the result set. Example: 10"
+          },
+          "expand": {
+            "type": "string",
+            "description": "The navigation properties (sections, sectionGroups, parentNotebook, or parentSectionGroup) to return inline in the response. The default query expands parentNotebook and parentSectionGroup, and selects their id, name, and self properties.  Example: sections,sectionGroups"
+          },
+          "skip": {
+            "description": "The number of entities to skip in the result set. Example: 10"
+          },
+          "sectionGroupId": {
+            "type": "string",
+            "description": "Specifies the section group."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "sectionGroupId"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "sectionGroups.sectionGroupId.sections.get",
+      "title": "sectionGroups.sectionGroupId.sections.get",
+      "description": "Returns a collection of sections within a specific section group.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "count": {
+            "type": "boolean",
+            "description": "true, to return the number of entities in the collection."
+          },
+          "filter": {
+            "type": "string",
+            "description": "The filter for the query. Example: createdTime ge 2015-09-01"
+          },
+          "orderby": {
+            "type": "string",
+            "description": "The property to order by. Default is \"name asc\". Example: lastModifiedTime desc"
+          },
+          "select": {
+            "type": "string",
+            "description": "The properties to return. Example: name,pagesUrl,createdTime"
+          },
+          "top": {
+            "description": "The number of entities to return from the result set. Example: 10"
+          },
+          "expand": {
+            "type": "string",
+            "description": "The navigation properties (parentNotebook or parentSectionGroup) to return inline in the response. The default query expands parentNotebook and parentSectionGroup, and selects their id, name, and self properties."
+          },
+          "skip": {
+            "description": "The number of entities to skip in the result set. Example: 10"
+          },
+          "sectionGroupId": {
+            "type": "string",
+            "description": "Specifies the section group."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "sectionGroupId"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "sectionGroups.sectionGroupId.get",
+      "title": "sectionGroups.sectionGroupId.get",
+      "description": "Returns a specific section group object.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "select": {
+            "type": "string",
+            "description": "The properties to return. Example: name,sectionsUrl,createdTime"
+          },
+          "expand": {
+            "type": "string",
+            "description": "The navigation properties (sections, sectionGroups, parentNotebook, or parentSectionGroup) to return inline in the response. Example: sections,parentNotebook"
+          },
+          "sectionGroupId": {
+            "type": "string",
+            "description": "Specifies the specific section group"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "sectionGroupId"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "sectionGroups.get",
+      "title": "sectionGroups.get",
+      "description": "Returns a collection of section groups.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "count": {
+            "type": "boolean",
+            "description": "true, to return the number of entities in the collection."
+          },
+          "filter": {
+            "type": "string",
+            "description": "The filter for the query. Example: createdTime ge 2015-09-01"
+          },
+          "orderby": {
+            "type": "string",
+            "description": "The property to order by. Default is \"name asc\". Example: lastModifiedTime desc"
+          },
+          "select": {
+            "type": "string",
+            "description": "The properties to return. Example: name,sectionsUrl,createdTime"
+          },
+          "top": {
+            "description": "The number of entities to return from the result set. Example: 10"
+          },
+          "expand": {
+            "type": "string",
+            "description": "The navigation properties (sections, sectionGroups, parentNotebook, or parentSectionGroup) to return inline in the response. The default query expands parentNotebook and parentSectionGroup, and selects their id, name, and self properties.  Example: sections,sectionGroups"
+          },
+          "skip": {
+            "description": "The number of entities to skip in the result set. Example: 10"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "notebooks.notebookId.sectiongroups.get",
+      "title": "notebooks.notebookId.sectiongroups.get",
+      "description": "Returns a collection of section groups within a specific notebook.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "count": {
+            "type": "boolean",
+            "description": "true, to return the number of entities in the collection."
+          },
+          "filter": {
+            "type": "string",
+            "description": "The filter for the query. Example: createdTime ge 2015-09-01"
+          },
+          "orderby": {
+            "type": "string",
+            "description": "The property to order by. Default is \"name asc\". Example: lastModifiedTime desc"
+          },
+          "select": {
+            "type": "string",
+            "description": "The properties to return. Example: name,sectionsUrl,createdTime"
+          },
+          "top": {
+            "description": "The number of entities to return from the result set. Example: 10"
+          },
+          "expand": {
+            "type": "string",
+            "description": "The navigation properties (sections, sectionGroups, parentNotebook, or parentSectionGroup) to return inline in the response. The default query expands parentNotebook and parentSectionGroup, and selects their id, name, and self properties.  Example: sections,sectionGroups"
+          },
+          "skip": {
+            "description": "The number of entities to skip in the result set. Example: 10"
+          },
+          "notebookId": {
+            "type": "string",
+            "description": "Specifies the notebook."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "notebookId"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "notebooks.notebookId.sections.get",
+      "title": "notebooks.notebookId.sections.get",
+      "description": "Returns a collection of sections within a specific notebook.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "count": {
+            "type": "boolean",
+            "description": "true, to return the number of entities in the collection."
+          },
+          "filter": {
+            "type": "string",
+            "description": "The filter for the query. Example: createdTime ge 2015-09-01"
+          },
+          "orderby": {
+            "type": "string",
+            "description": "The property to order by. Default is \"name asc\". Example: lastModifiedTime desc"
+          },
+          "select": {
+            "type": "string",
+            "description": "The properties to return. Example: name,pagesUrl,createdTime"
+          },
+          "top": {
+            "description": "The number of entities to return from the result set. Example: 10"
+          },
+          "expand": {
+            "type": "string",
+            "description": "The navigation properties (parentNotebook or parentSectionGroup) to return inline in the response. The default query expands parentNotebook and parentSectionGroup, and selects their id, name, and self properties."
+          },
+          "skip": {
+            "description": "The number of entities to skip in the result set. Example: 10"
+          },
+          "notebookId": {
+            "type": "string",
+            "description": "Specifies the notebook."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "notebookId"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "notebooks.notebookId.sections.post",
+      "title": "notebooks.notebookId.sections.post",
+      "description": "Creates a new section in a specific notebook.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Content-Type": {
+            "type": "string",
+            "description": "Required: indicates type of content being sent"
+          },
+          "notebookId": {
+            "type": "string",
+            "description": "Specifies the notebook."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Content-Type",
+          "notebookId"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "notebooks.notebookId.get",
+      "title": "notebooks.notebookId.get",
+      "description": "Returns a specific notebook object.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "select": {
+            "type": "string",
+            "description": "The properties to return. Example: name,sectionsUrl,links"
+          },
+          "expand": {
+            "type": "string",
+            "description": "The navigation properties (sections and sectionGroups) to return inline in the response. Example: sections,sectionGroups"
+          },
+          "notebookId": {
+            "type": "string",
+            "description": "Specifies the specific notebook"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "notebookId"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "notebooks.get",
+      "title": "notebooks.get",
+      "description": "Returns a collection of notebooks.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "count": {
+            "type": "boolean",
+            "description": "true, to return the number of entities in the collection."
+          },
+          "filter": {
+            "type": "string",
+            "description": "The filter for the query. Example: createdTime ge 2015-09-01"
+          },
+          "orderby": {
+            "type": "string",
+            "description": "The property to order by. Default is \"name asc\". Example: lastModifiedTime desc"
+          },
+          "select": {
+            "type": "string",
+            "description": "The properties to return. Example: name,self,links"
+          },
+          "top": {
+            "description": "The number of entities to return from the result set. Example: 10"
+          },
+          "expand": {
+            "type": "string",
+            "description": "The navigation properties (sections or sectionGroups) to return inline in the response. Example: sections"
+          },
+          "skip": {
+            "description": "The number of entities to skip in the result set. Example: 10"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "notebooks.post",
+      "title": "notebooks.post",
+      "description": "Creates a new notebook.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Content-Type": {
+            "type": "string",
+            "description": "Required: indicates type of content being sent"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Content-Type"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "pages.pageId.content.get",
+      "title": "pages.pageId.content.get",
+      "description": "Returns HTML content of the specified page.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Accept": {
+            "type": "string",
+            "description": "Required: indicates type of content returned in the response."
+          },
+          "includeIDs": {
+            "type": "string",
+            "description": "Optional: set to true to get generated IDs to use for PATCH operations."
+          },
+          "pageId": {
+            "type": "string",
+            "description": "Specifies the page whose content you want to retrieve."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Accept",
+          "pageId"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "pages.pageId.delete",
+      "title": "pages.pageId.delete",
+      "description": "Deletes the specified page.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "pageId": {
+            "type": "string",
+            "description": "Specifies the page to delete."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "pageId"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "pages.pageId.get",
+      "title": "pages.pageId.get",
+      "description": "Returns the specified page.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "select": {
+            "type": "string",
+            "description": "The properties to return. Example: title,contentUrl,links"
+          },
+          "pageId": {
+            "type": "string",
+            "description": "Specifies the page to delete."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "pageId"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "sections.sectionId.pages.get",
+      "title": "sections.sectionId.pages.get",
+      "description": "Get the pages (metadata) in the specified section.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "count": {
+            "type": "boolean",
+            "description": "true, to return the number of entities in the collection."
+          },
+          "filter": {
+            "type": "string",
+            "description": "The filter for the query. Example: title eq 'Homework'"
+          },
+          "orderby": {
+            "type": "string",
+            "description": "The property to order by. Default is \"lastModifiedTime desc\". Example: createdTime desc"
+          },
+          "select": {
+            "type": "string",
+            "description": "The properties to return. Example: title,self,createdTime"
+          },
+          "top": {
+            "description": "The number of entities to return from the result set. Default is 20, maximum is 100. Example: 10"
+          },
+          "search": {
+            "type": "string",
+            "description": "The term or phrase to search for. Example: todo"
+          },
+          "skip": {
+            "description": "The number of entities to skip in the result set. Example: 10"
+          },
+          "sectionId": {
+            "type": "string",
+            "description": "Specifies the section that contains the pages."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "sectionId"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "sections.sectionId.pages.post",
+      "title": "sections.sectionId.pages.post",
+      "description": "Creates a new page in a specific section.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Content-Type": {
+            "type": "string",
+            "description": "Required: indicates type of content sent"
+          },
+          "sectionId": {
+            "type": "string",
+            "description": "Specifies the section that contains the pages."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Content-Type",
+          "sectionId"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "pages.get",
+      "title": "pages.get",
+      "description": "Get the pages (metadata) from all notebooks in OneDrive that are owned by the user.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "count": {
+            "type": "boolean",
+            "description": "true, to return the number of entities in the collection."
+          },
+          "filter": {
+            "type": "string",
+            "description": "The filter for the query. Example: title eq 'Homework'"
+          },
+          "orderby": {
+            "type": "string",
+            "description": "The property to order by. Default is \"lastModifiedTime desc\". Example: createdTime desc"
+          },
+          "select": {
+            "type": "string",
+            "description": "The properties to return. Example: title,self,createdTime"
+          },
+          "top": {
+            "description": "The number of entities to return from the result set. Default is 20, maximum is 100. Example: 10"
+          },
+          "search": {
+            "type": "string",
+            "description": "The term or phrase to search for. Example: todo"
+          },
+          "skip": {
+            "description": "The number of entities to skip in the result set. Example: 10"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "pages.post",
+      "title": "pages.post",
+      "description": "Creates a new page in the default notebook and section.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Content-Type": {
+            "type": "string",
+            "description": "Required: indicates type of content sent"
+          },
+          "sectionName": {
+            "type": "string",
+            "description": "Optional: indicates the name of the section in the default notebook that the page should be created in. This section will be created if it does not already exist."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Content-Type"
+        ]
+      },
+      "outputSchema": {}
+    }
+  ],
+  "tags": []
+}

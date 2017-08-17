@@ -1,0 +1,92 @@
+{
+  "id": "reddit_rss",
+  "title": "Reddit RSS",
+  "security": {},
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/reddit_rss.svg"
+  },
+  "actionCount": 2,
+  "definitions": {
+    "Feed": {
+      "type": "object",
+      "properties": {
+        "feed": {
+          "type": "object",
+          "properties": {
+            "link": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            },
+            "feedUrl": {
+              "type": "string"
+            },
+            "entries": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "link": {
+                    "type": "string"
+                  },
+                  "title": {
+                    "type": "string"
+                  },
+                  "pubDate": {
+                    "type": "string"
+                  },
+                  "author": {
+                    "type": "string"
+                  },
+                  "content": {
+                    "type": "string"
+                  },
+                  "contentSnippet": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "title": "Feed"
+    }
+  },
+  "actions": [
+    {
+      "id": "frontPage",
+      "title": "frontPage",
+      "description": "reddit: the front page of the internet",
+      "inputSchema": {},
+      "outputSchema": {
+        "$ref": "#/definitions/Feed"
+      }
+    },
+    {
+      "id": "subreddit",
+      "title": "subreddit",
+      "description": "Retrieve the RSS feed",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "subreddit": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "subreddit"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Feed"
+      }
+    }
+  ],
+  "tags": []
+}

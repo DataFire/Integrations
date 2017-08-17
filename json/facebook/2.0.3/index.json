@@ -1,0 +1,5326 @@
+{
+  "id": "facebook",
+  "title": "Facebook Graph",
+  "description": "Connect to the social network with the Graph API.",
+  "security": {
+    "facebook": {
+      "integration": "facebook",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)",
+        "redirect_uri": "The callback URL for your application"
+      },
+      "oauth": {
+        "description": "OAuth 2.0 authentication",
+        "flow": "implicit",
+        "type": "oauth2",
+        "scopes": {
+          "public_profile": "",
+          "user_friends": "",
+          "email": "",
+          "user_about_me": "",
+          "user_actions.video": "",
+          "user_actions.music": "",
+          "user_actions.fitness": "",
+          "user_actions.news": "",
+          "user_actions.books": "",
+          "user_birthday": "",
+          "user_education_history": "",
+          "user_events": "",
+          "user_games_activity": "",
+          "user_hometown": "",
+          "user_likes": "",
+          "user_location": "",
+          "user_managed_groups": "",
+          "user_photos": "",
+          "user_posts": "",
+          "user_relationships": "",
+          "user_relationship_details": "",
+          "user_religion_politics": "",
+          "user_tagged_places": "",
+          "user_videos": "",
+          "user_website": "",
+          "user_work_history": "",
+          "read_custom_friendlists": "",
+          "read_insights": "",
+          "read_audience_network_insights": "",
+          "read_page_mailboxes": "",
+          "manage_pages": "",
+          "publish_pages": "",
+          "publish_actions": "",
+          "rsvp_event": "",
+          "pages_show_list": "",
+          "pages_manage_cta": "",
+          "pages_manage_leads": "",
+          "ads_read": "",
+          "ads_management": ""
+        },
+        "tokenUrl": "https://graph.facebook.com/oauth/access_token",
+        "authorizationUrl": "https://www.facebook.com/dialog/oauth"
+      }
+    }
+  },
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/facebook.png"
+  },
+  "actionCount": 195,
+  "actions": [
+    {
+      "id": "video.picture.get",
+      "title": "video.picture.get",
+      "description": "The image which represents the content of the video",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "video": {
+            "type": "string",
+            "description": "Represents the ID of the video object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "video"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "video.likes.delete",
+      "title": "video.likes.delete",
+      "description": "Unlikes this video.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "video": {
+            "type": "string",
+            "description": "Represents the ID of the video object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "video"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "video.likes.post",
+      "title": "video.likes.post",
+      "description": "Likes this video.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "video": {
+            "type": "string",
+            "description": "Represents the ID of the video object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "video"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "video.likes.get",
+      "title": "video.likes.get",
+      "description": "Users who like this video.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "video": {
+            "type": "string",
+            "description": "Represents the ID of the video object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "video"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "video.comments.post",
+      "title": "video.comments.post",
+      "description": "Posts a comment to this video.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "description": "Comment text"
+          },
+          "video": {
+            "type": "string",
+            "description": "Represents the ID of the video object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "message",
+          "video"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "video.comments.get",
+      "title": "video.comments.get",
+      "description": "All of the comments on this video.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "video": {
+            "type": "string",
+            "description": "Represents the ID of the video object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "video"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "video.get",
+      "title": "video.get",
+      "description": "An individual video",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "video": {
+            "type": "string",
+            "description": "Represents the ID of the video object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "video"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "notification.post",
+      "title": "notification.post",
+      "description": "Marks the notification as read",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "unread": {
+            "type": "boolean"
+          },
+          "notification": {
+            "type": "string",
+            "description": "Represents the ID of the notification."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "unread",
+          "notification"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "user.videos.post",
+      "title": "user.videos.post",
+      "description": "Publishes a video on behalf of the user",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "description": "Video title"
+          },
+          "description": {
+            "type": "string",
+            "description": "Video description"
+          },
+          "user": {
+            "type": "string",
+            "description": "Represents the ID of the user object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "user"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "user.videos.get",
+      "title": "user.videos.get",
+      "description": "The videos this user has been tagged in",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "user": {
+            "type": "string",
+            "description": "Represents the ID of the user object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "user"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "user.updates.get",
+      "title": "user.updates.get",
+      "description": "The updates in this user's inbox.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "user": {
+            "type": "string",
+            "description": "Represents the ID of the user object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "user"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "user.television.get",
+      "title": "user.television.get",
+      "description": "The television listed on the user's profile",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "user": {
+            "type": "string",
+            "description": "Represents the ID of the user object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "user"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "user.tagged.get",
+      "title": "user.tagged.get",
+      "description": "Posts the user is tagged in",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "user": {
+            "type": "string",
+            "description": "Represents the ID of the user object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "user"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "user.statuses.post",
+      "title": "user.statuses.post",
+      "description": "Posts a status message on the user",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "description": "Status Message content"
+          },
+          "user": {
+            "type": "string",
+            "description": "Represents the ID of the user object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "message",
+          "user"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "user.statuses.get",
+      "title": "user.statuses.get",
+      "description": "The user's status updates",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "user": {
+            "type": "string",
+            "description": "Represents the ID of the user object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "user"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "user.scores.post",
+      "title": "user.scores.post",
+      "description": "Posts a score for the user",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "score": {
+            "type": "integer",
+            "description": "Numeric score with value < 0."
+          },
+          "user": {
+            "type": "string",
+            "description": "Represents the ID of the user object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "score",
+          "user"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "user.scores.get",
+      "title": "user.scores.get",
+      "description": "The scores for the user",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "user": {
+            "type": "string",
+            "description": "Represents the ID of the user object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "user"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "user.posts.post",
+      "title": "user.posts.post",
+      "description": "Creates a post on behalf of the user",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "description": "Post message"
+          },
+          "link": {
+            "type": "string",
+            "description": "Post URL"
+          },
+          "picture": {
+            "type": "string",
+            "description": "Post thumbnail image"
+          },
+          "name": {
+            "type": "string",
+            "description": "Post name"
+          },
+          "caption": {
+            "type": "string",
+            "description": "Post caption"
+          },
+          "description": {
+            "type": "string",
+            "description": "Post description"
+          },
+          "actions": {
+            "type": "string",
+            "description": "Post actions"
+          },
+          "privacy": {
+            "type": "string",
+            "description": "Post privacy settings"
+          },
+          "object_attachment": {
+            "type": "string",
+            "description": "Facebook ID for an existing picture in the User's photo albums to use as the thumbnail image. The User must be the owner of the photo, and the photo cannot be part of a message attachment."
+          },
+          "user": {
+            "type": "string",
+            "description": "Represents the ID of the user object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "message",
+          "link",
+          "user"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "user.posts.get",
+      "title": "user.posts.get",
+      "description": "The user's posts",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "user": {
+            "type": "string",
+            "description": "Represents the ID of the user object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "user"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "user.pokes.get",
+      "title": "user.pokes.get",
+      "description": "The user's pokes",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "user": {
+            "type": "string",
+            "description": "Represents the ID of the user object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "user"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "user.picture.get",
+      "title": "user.picture.get",
+      "description": "The user's profile picture",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "One of square (50x50), small (50 pixels wide, variable height), and large (about 200 pixels wide,\n                            variable height)",
+            "enum": [
+              "square",
+              "small",
+              "large"
+            ]
+          },
+          "user": {
+            "type": "string",
+            "description": "Represents the ID of the user object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "user"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "user.photos.post",
+      "title": "user.photos.post",
+      "description": "Posts a photo to the user's Wall",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "description": "Photo description"
+          },
+          "user": {
+            "type": "string",
+            "description": "Represents the ID of the user object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "user"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "user.photos.get",
+      "title": "user.photos.get",
+      "description": "The photos the user is tagged in",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "user": {
+            "type": "string",
+            "description": "Represents the ID of the user object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "user"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "user.permissions.delete",
+      "title": "user.permissions.delete",
+      "description": "De-authorizes an application or revokes a specific extended permissions on behalf of a user",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "permission": {
+            "type": "string",
+            "description": "The permission you wish to revoke. If you don't specify a permission then this will de-authorize the application completely."
+          },
+          "user": {
+            "type": "string",
+            "description": "Represents the ID of the user object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "user"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "user.permissions.get",
+      "title": "user.permissions.get",
+      "description": "The permissions that user has granted the application.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "user": {
+            "type": "string",
+            "description": "Represents the ID of the user object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "user"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "user.payments.get",
+      "title": "user.payments.get",
+      "description": "The transactions the user placed with an application.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "user": {
+            "type": "string",
+            "description": "Represents the ID of the user object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "user"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "user.outbox.get",
+      "title": "user.outbox.get",
+      "description": "The messages in this user's outbox.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "user": {
+            "type": "string",
+            "description": "Represents the ID of the user object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "user"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "user.notifications.get",
+      "title": "user.notifications.get",
+      "description": "The user's notifications",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "include_read": {
+            "type": "boolean",
+            "description": "Enables you to see notifications that the user has already read in addition to the ones which are unread"
+          },
+          "user": {
+            "type": "string",
+            "description": "Represents the ID of the user object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "user"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "user.notes.post",
+      "title": "user.notes.post",
+      "description": "Creates a note on behalf of the user",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "subject": {
+            "type": "string",
+            "description": "The subject of the Note"
+          },
+          "message": {
+            "type": "string",
+            "description": "Note content"
+          },
+          "user": {
+            "type": "string",
+            "description": "Represents the ID of the user object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "subject",
+          "user"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "user.notes.get",
+      "title": "user.notes.get",
+      "description": "The user's notes",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "user": {
+            "type": "string",
+            "description": "Represents the ID of the user object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "user"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "user.music.get",
+      "title": "user.music.get",
+      "description": "The music listed on the user's profile",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "user": {
+            "type": "string",
+            "description": "Represents the ID of the user object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "user"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "user.movies.get",
+      "title": "user.movies.get",
+      "description": "The movies listed on the user's profile",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "user": {
+            "type": "string",
+            "description": "Represents the ID of the user object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "user"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "user.links.post",
+      "title": "user.links.post",
+      "description": "Posts a link on the user's profile page",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "link": {
+            "type": "string",
+            "description": "Link URL"
+          },
+          "message": {
+            "type": "string",
+            "description": "Link message"
+          },
+          "user": {
+            "type": "string",
+            "description": "Represents the ID of the user object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "link",
+          "user"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "user.links.get",
+      "title": "user.links.get",
+      "description": "The user's posted links.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "user": {
+            "type": "string",
+            "description": "Represents the ID of the user object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "user"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "user.likes.page.get",
+      "title": "user.likes.page.get",
+      "description": "Checks if the user likes the given page.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "user": {
+            "type": "string",
+            "description": "Represents the ID of the user object."
+          },
+          "page": {
+            "type": "string",
+            "description": "Represents the ID of the page."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "user",
+          "page"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "user.likes.get",
+      "title": "user.likes.get",
+      "description": "All the pages this user has liked.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "user": {
+            "type": "string",
+            "description": "Represents the ID of the user object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "user"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "user.interests.get",
+      "title": "user.interests.get",
+      "description": "The interests listed on the user's profile",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "user": {
+            "type": "string",
+            "description": "Represents the ID of the user object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "user"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "user.inbox.get",
+      "title": "user.inbox.get",
+      "description": "The threads in this user's inbox.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "user": {
+            "type": "string",
+            "description": "Represents the ID of the user object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "user"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "user.home.get",
+      "title": "user.home.get",
+      "description": "The user's news feed",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "user": {
+            "type": "string",
+            "description": "Represents the ID of the user object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "user"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "user.groups.get",
+      "title": "user.groups.get",
+      "description": "The Groups that the user belongs to.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "user": {
+            "type": "string",
+            "description": "Represents the ID of the user object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "user"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "user.games.get",
+      "title": "user.games.get",
+      "description": "Games the user has added to the Arts and Entertainment section of their profile.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "user": {
+            "type": "string",
+            "description": "Represents the ID of the user object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "user"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "user.friends.friend.get",
+      "title": "user.friends.friend.get",
+      "description": "Checks if the given user is a friend of the current user",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "user": {
+            "type": "string",
+            "description": "Represents the ID of the user object."
+          },
+          "friend": {
+            "type": "string",
+            "description": "Represents the ID of the user's friend."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "user",
+          "friend"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "user.friends.get",
+      "title": "user.friends.get",
+      "description": "The user's friends",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "user": {
+            "type": "string",
+            "description": "Represents the ID of the user object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "user"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "user.friendlists.post",
+      "title": "user.friendlists.post",
+      "description": "Creates a FriendList for the user",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Friend list name"
+          },
+          "user": {
+            "type": "string",
+            "description": "Represents the ID of the user object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "name",
+          "user"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "user.feed.post",
+      "title": "user.feed.post",
+      "description": "Posts a status message on this user's wall",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "description": "Status Message content"
+          },
+          "user": {
+            "type": "string",
+            "description": "Represents the ID of the user object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "message",
+          "user"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "user.feed.get",
+      "title": "user.feed.get",
+      "description": "This user's wall",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "user": {
+            "type": "string",
+            "description": "Represents the ID of the user object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "user"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "user.events.post",
+      "title": "user.events.post",
+      "description": "Creates an event for the user",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Event name"
+          },
+          "start_time": {
+            "type": "integer",
+            "description": "Event start time",
+            "maximum": 9223372036854776000,
+            "minimum": -9223372036854776000
+          },
+          "end_time": {
+            "type": "integer",
+            "description": "Event end time",
+            "maximum": 9223372036854776000,
+            "minimum": -9223372036854776000
+          },
+          "message": {
+            "type": "string",
+            "description": "Event description"
+          },
+          "location": {
+            "type": "string",
+            "description": "Event location"
+          },
+          "privacy_type": {
+            "type": "string",
+            "description": "Event privacy setting",
+            "enum": [
+              "OPEN",
+              "CLOSED",
+              "SECRET"
+            ]
+          },
+          "user": {
+            "type": "string",
+            "description": "Represents the ID of the user object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "name",
+          "start_time",
+          "user"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "user.events.get",
+      "title": "user.events.get",
+      "description": "The events this user is attending.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "user": {
+            "type": "string",
+            "description": "Represents the ID of the user object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "user"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "user.checkins.post",
+      "title": "user.checkins.post",
+      "description": "Checks the user into a place",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "place": {
+            "type": "string",
+            "description": "Checkin Place ID; for example 110506962309835 for Facebook HQ"
+          },
+          "coordinates": {
+            "type": "string",
+            "description": "The user's location, as a string containing latitude and longitude: {\"latitude\":\"...\", \"longitude\": \"...\"}"
+          },
+          "tags": {
+            "type": "string",
+            "description": "Comma-separated list of tagged friends' user IDs"
+          },
+          "message": {
+            "type": "string",
+            "description": "Checkin description"
+          },
+          "link": {
+            "type": "string",
+            "description": "Checkin link"
+          },
+          "picture": {
+            "type": "string",
+            "description": "Checkin picture"
+          },
+          "user": {
+            "type": "string",
+            "description": "Represents the ID of the user object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "place",
+          "coordinates",
+          "user"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "user.checkins.get",
+      "title": "user.checkins.get",
+      "description": "The places that the user has checked-into",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "user": {
+            "type": "string",
+            "description": "Represents the ID of the user object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "user"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "user.books.get",
+      "title": "user.books.get",
+      "description": "The books listed on the user's profile.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "user": {
+            "type": "string",
+            "description": "Represents the ID of the user object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "user"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "user.apprequests.get",
+      "title": "user.apprequests.get",
+      "description": "The user's outstanding requests from an app.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "user": {
+            "type": "string",
+            "description": "Represents the ID of the user object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "user"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "user.albums.post",
+      "title": "user.albums.post",
+      "description": "Creates an album for the user",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Album name"
+          },
+          "message": {
+            "type": "string",
+            "description": "Album description"
+          },
+          "privacy": {
+            "type": "string",
+            "description": "Privacy settings for the Album. Format: A JSON-encoded object that defines the privacy setting for the album, for example: {\"value\":\"SELF\"}. Only the user can specify the privacy settings for the post."
+          },
+          "user": {
+            "type": "string",
+            "description": "Represents the ID of the user object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "name",
+          "user"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "user.albums.get",
+      "title": "user.albums.get",
+      "description": "The photo albums this user has created",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "user": {
+            "type": "string",
+            "description": "Represents the ID of the user object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "user"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "user.activities.get",
+      "title": "user.activities.get",
+      "description": "The activities listed on the user's profile",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "user": {
+            "type": "string",
+            "description": "Represents the ID of the user object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "user"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "user.achievements.delete",
+      "title": "user.achievements.delete",
+      "description": "Deletes an achievement for the user",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "achievement": {
+            "type": "string",
+            "description": "The unique URL of the achievement you wish to delete."
+          },
+          "user": {
+            "type": "string",
+            "description": "Represents the ID of the user object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "achievement",
+          "user"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "user.achievements.post",
+      "title": "user.achievements.post",
+      "description": "Posts an achievement for the user",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "achievement": {
+            "type": "string",
+            "description": "The unique URL of the achievement which the user achieved."
+          },
+          "user": {
+            "type": "string",
+            "description": "Represents the ID of the user object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "achievement",
+          "user"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "user.accounts.get",
+      "title": "user.accounts.get",
+      "description": "The Facebook apps and pages owned by the current user",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "user": {
+            "type": "string",
+            "description": "Represents the ID of the user object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "user"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "user.get",
+      "title": "user.get",
+      "description": "A user profile.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "fields": {
+            "type": "string",
+            "description": "The fields to return"
+          },
+          "user": {
+            "type": "string",
+            "description": "Represents the ID of the user object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "user"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "status.likes.delete",
+      "title": "status.likes.delete",
+      "description": "Unlikes this status.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "description": "Represents the ID of the status object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "status"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "status.likes.post",
+      "title": "status.likes.post",
+      "description": "Likes this status.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "description": "Represents the ID of the status object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "status"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "status.likes.get",
+      "title": "status.likes.get",
+      "description": "Users who like this status.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "description": "Represents the ID of the status object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "status"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "status.comments.post",
+      "title": "status.comments.post",
+      "description": "Posts a comment to this status.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "description": "Comment text"
+          },
+          "status": {
+            "type": "string",
+            "description": "Represents the ID of the status object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "message",
+          "status"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "status.comments.get",
+      "title": "status.comments.get",
+      "description": "All of the comments on this status.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "description": "Represents the ID of the status object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "status"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "status.get",
+      "title": "status.get",
+      "description": "A Facebook status",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "description": "Represents the ID of the status object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "status"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "post.likes.delete",
+      "title": "post.likes.delete",
+      "description": "Unlikes this post.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "post": {
+            "type": "string",
+            "description": "Represents the ID of the post object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "post"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "post.likes.post",
+      "title": "post.likes.post",
+      "description": "Likes this post.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "post": {
+            "type": "string",
+            "description": "Represents the ID of the post object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "post"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "post.likes.get",
+      "title": "post.likes.get",
+      "description": "Users who like this post.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "post": {
+            "type": "string",
+            "description": "Represents the ID of the post object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "post"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "post.comments.post",
+      "title": "post.comments.post",
+      "description": "Posts a comment to this post.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "description": "Comment text"
+          },
+          "post": {
+            "type": "string",
+            "description": "Represents the ID of the post object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "message",
+          "post"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "post.comments.get",
+      "title": "post.comments.get",
+      "description": "All of the comments on this post.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "post": {
+            "type": "string",
+            "description": "Represents the ID of the post object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "post"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "post.get",
+      "title": "post.get",
+      "description": "A Facebook post",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "post": {
+            "type": "string",
+            "description": "Represents the ID of the post object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "post"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "photo.tags.user.post",
+      "title": "photo.tags.user.post",
+      "description": "Updates the position of a tag on this photo for the user.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "x": {
+            "type": "string",
+            "description": "x coordinate of tag, as a percentage offset from the left edge of the picture"
+          },
+          "y": {
+            "type": "string",
+            "description": "y coordinate of tag, as a percentage offset from the top edge of the picture"
+          },
+          "photo": {
+            "type": "string",
+            "description": "Represents the ID of the photo object."
+          },
+          "user": {
+            "type": "string",
+            "description": "Represents the ID of the user."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "photo",
+          "user"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "photo.tags.post",
+      "title": "photo.tags.post",
+      "description": "Creates a tag on this photo.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "to": {
+            "type": "string",
+            "description": "USER_ID of the User to tag; can also be provided in URL path"
+          },
+          "x": {
+            "type": "string",
+            "description": "x coordinate of tag, as a percentage offset from the left edge of the picture"
+          },
+          "y": {
+            "type": "string",
+            "description": "y coordinate of tag, as a percentage offset from the top edge of the picture"
+          },
+          "photo": {
+            "type": "string",
+            "description": "Represents the ID of the photo object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "to",
+          "photo"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "photo.tags.get",
+      "title": "photo.tags.get",
+      "description": "Tags for this photo.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "photo": {
+            "type": "string",
+            "description": "Represents the ID of the photo object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "photo"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "photo.picture.get",
+      "title": "photo.picture.get",
+      "description": "The album-sized view of the photo",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "photo": {
+            "type": "string",
+            "description": "Represents the ID of the photo object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "photo"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "photo.likes.delete",
+      "title": "photo.likes.delete",
+      "description": "Unlikes this photo.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "photo": {
+            "type": "string",
+            "description": "Represents the ID of the photo object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "photo"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "photo.likes.post",
+      "title": "photo.likes.post",
+      "description": "Likes this photo.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "photo": {
+            "type": "string",
+            "description": "Represents the ID of the photo object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "photo"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "photo.likes.get",
+      "title": "photo.likes.get",
+      "description": "Users who like this photo.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "photo": {
+            "type": "string",
+            "description": "Represents the ID of the photo object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "photo"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "photo.comments.post",
+      "title": "photo.comments.post",
+      "description": "Posts a comment to this photo.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "description": "Comment text"
+          },
+          "photo": {
+            "type": "string",
+            "description": "Represents the ID of the photo object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "message",
+          "photo"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "photo.comments.get",
+      "title": "photo.comments.get",
+      "description": "All of the comments on this photo.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "photo": {
+            "type": "string",
+            "description": "Represents the ID of the photo object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "photo"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "photo.get",
+      "title": "photo.get",
+      "description": "An individual photo",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "photo": {
+            "type": "string",
+            "description": "Represents the ID of the photo object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "photo"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "page.blocked.user.get",
+      "title": "page.blocked.user.get",
+      "description": "Checks if a user is blocked from the page",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "page": {
+            "type": "string",
+            "description": "Represents the ID of the page object."
+          },
+          "user": {
+            "type": "string",
+            "description": "Represents the ID of a user."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "page",
+          "user"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "page.blocked.delete",
+      "title": "page.blocked.delete",
+      "description": "Unblocks a user (or users) for the page",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "uids": {
+            "type": "string",
+            "description": "Comma-separated list of the user IDs you wish to unblock"
+          },
+          "page": {
+            "type": "string",
+            "description": "Represents the ID of the page object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "uids",
+          "page"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "page.blocked.post",
+      "title": "page.blocked.post",
+      "description": "Blocks a user (or users) from posting content to the page",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "uids": {
+            "type": "string",
+            "description": "Comma-separated list of the user IDs you wish to block"
+          },
+          "page": {
+            "type": "string",
+            "description": "Represents the ID of the page object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "uids",
+          "page"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "page.blocked.get",
+      "title": "page.blocked.get",
+      "description": "A list of the users blocked from the page.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "page": {
+            "type": "string",
+            "description": "Represents the ID of the page object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "page"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "page.admins.get",
+      "title": "page.admins.get",
+      "description": "A list of the Page's admins.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "page": {
+            "type": "string",
+            "description": "Represents the ID of the page object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "page"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "page.tabs.tab.delete",
+      "title": "page.tabs.tab.delete",
+      "description": "Deletes an installed profile tab (where is_permanent is not true) for a page",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "page": {
+            "type": "string",
+            "description": "Represents the ID of the page object."
+          },
+          "tab": {
+            "type": "string",
+            "description": "Represents the ID of the tab."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "page",
+          "tab"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "page.tabs.tab.post",
+      "title": "page.tabs.tab.post",
+      "description": "Updates an installed profile tab for a page",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "position": {
+            "type": "integer",
+            "description": "Order in which the tab will appear on the profile. Must be after permanent tabs and less than the number of installed tabs. Index starts at 0"
+          },
+          "custom_name": {
+            "type": "string",
+            "description": "Name to be used for the tab. If this is set to an empty string, the tab will use the application’s default tab name."
+          },
+          "is_non_connection_landing_tab": {
+            "type": "boolean",
+            "description": "Set this tab as the default landing tab for users who have not liked and are not admins of the Page. If provided, value must be true."
+          },
+          "page": {
+            "type": "string",
+            "description": "Represents the ID of the page object."
+          },
+          "tab": {
+            "type": "string",
+            "description": "Represents the ID of the tab."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "page",
+          "tab"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "page.tabs.post",
+      "title": "page.tabs.post",
+      "description": "Installs a profile tab at the end of the current list of installed tabs for the page",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "app_id": {
+            "type": "string",
+            "description": "ID of the application for which to install the tab"
+          },
+          "page": {
+            "type": "string",
+            "description": "Represents the ID of the page object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "app_id",
+          "page"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "page.tabs.get",
+      "title": "page.tabs.get",
+      "description": "The page's profile tabs",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "page": {
+            "type": "string",
+            "description": "Represents the ID of the page object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "page"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "page.checkins.get",
+      "title": "page.checkins.get",
+      "description": "Checkins made to this Place Page by the current user, and friends of the current user",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "page": {
+            "type": "string",
+            "description": "Represents the ID of the page object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "page"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "page.events.post",
+      "title": "page.events.post",
+      "description": "Creates an event for the page",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Event name"
+          },
+          "start_time": {
+            "type": "integer",
+            "description": "Event start time",
+            "maximum": 9223372036854776000,
+            "minimum": -9223372036854776000
+          },
+          "end_time": {
+            "type": "integer",
+            "description": "Event end time",
+            "maximum": 9223372036854776000,
+            "minimum": -9223372036854776000
+          },
+          "message": {
+            "type": "string",
+            "description": "Event description"
+          },
+          "location": {
+            "type": "string",
+            "description": "Event location"
+          },
+          "privacy_type": {
+            "type": "string",
+            "description": "Event privacy setting",
+            "enum": [
+              "OPEN",
+              "CLOSED",
+              "SECRET"
+            ]
+          },
+          "page": {
+            "type": "string",
+            "description": "Represents the ID of the page object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "name",
+          "start_time",
+          "page"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "page.events.get",
+      "title": "page.events.get",
+      "description": "The events the Page is attending",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "page": {
+            "type": "string",
+            "description": "Represents the ID of the page object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "page"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "page.posts.get",
+      "title": "page.posts.get",
+      "description": "The page's own posts",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "page": {
+            "type": "string",
+            "description": "Represents the ID of the page object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "page"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "page.notes.post",
+      "title": "page.notes.post",
+      "description": "Creates a note on the page",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "subject": {
+            "type": "string",
+            "description": "The subject of the Note"
+          },
+          "message": {
+            "type": "string",
+            "description": "Note content"
+          },
+          "page": {
+            "type": "string",
+            "description": "Represents the ID of the page object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "subject",
+          "page"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "page.notes.get",
+      "title": "page.notes.get",
+      "description": "The notes contained on this page",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "page": {
+            "type": "string",
+            "description": "Represents the ID of the page object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "page"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "page.videos.post",
+      "title": "page.videos.post",
+      "description": "Publishes a video to the page",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "description": "Video title"
+          },
+          "description": {
+            "type": "string",
+            "description": "Video description"
+          },
+          "page": {
+            "type": "string",
+            "description": "Represents the ID of the page object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "page"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "page.videos.get",
+      "title": "page.videos.get",
+      "description": "The videos contained on this page",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "page": {
+            "type": "string",
+            "description": "Represents the ID of the page object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "page"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "page.statuses.post",
+      "title": "page.statuses.post",
+      "description": "Posts a status message on the page",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "description": "Status Message content"
+          },
+          "page": {
+            "type": "string",
+            "description": "Represents the ID of the page object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "message",
+          "page"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "page.statuses.get",
+      "title": "page.statuses.get",
+      "description": "The page's status updates",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "page": {
+            "type": "string",
+            "description": "Represents the ID of the page object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "page"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "page.albums.get",
+      "title": "page.albums.get",
+      "description": "The photo albums this Page has uploaded",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "page": {
+            "type": "string",
+            "description": "Represents the ID of the page object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "page"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "page.groups.get",
+      "title": "page.groups.get",
+      "description": "The groups this page is a member of",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "page": {
+            "type": "string",
+            "description": "Represents the ID of the page object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "page"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "page.photos.post",
+      "title": "page.photos.post",
+      "description": "Adds a photo to the page",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "description": "Photo description"
+          },
+          "page": {
+            "type": "string",
+            "description": "Represents the ID of the page object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "page"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "page.photos.get",
+      "title": "page.photos.get",
+      "description": "The photos contained on this page",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "page": {
+            "type": "string",
+            "description": "Represents the ID of the page object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "page"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "page.links.post",
+      "title": "page.links.post",
+      "description": "Posts a link on the page",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "link": {
+            "type": "string",
+            "description": "Link URL"
+          },
+          "message": {
+            "type": "string",
+            "description": "Link message"
+          },
+          "page": {
+            "type": "string",
+            "description": "Represents the ID of the page object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "link",
+          "page"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "page.links.get",
+      "title": "page.links.get",
+      "description": "The page's posted links",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "page": {
+            "type": "string",
+            "description": "Represents the ID of the page object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "page"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "page.tagged.get",
+      "title": "page.tagged.get",
+      "description": "The photos, videos, and posts in which this page has been tagged",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "page": {
+            "type": "string",
+            "description": "Represents the ID of the page object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "page"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "page.settings.post",
+      "title": "page.settings.post",
+      "description": "The page's post permission settings",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "setting": {
+            "type": "string",
+            "description": "Which single setting to update: USERS_CAN_POST, USERS_CAN_POST_PHOTOS, USERS_CAN_TAG_PHOTOS, USERS_CAN_POST_VIDEOS",
+            "enum": [
+              "USERS_CAN_POST",
+              "USERS_CAN_POST_PHOTOS",
+              "USERS_CAN_TAG_PHOTOS",
+              "USERS_CAN_POST_VIDEOS"
+            ]
+          },
+          "value": {
+            "type": "boolean"
+          },
+          "page": {
+            "type": "string",
+            "description": "Represents the ID of the page object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "setting",
+          "value",
+          "page"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "page.settings.get",
+      "title": "page.settings.get",
+      "description": "The page's post permission settings",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "page": {
+            "type": "string",
+            "description": "Represents the ID of the page object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "page"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "page.picture.get",
+      "title": "page.picture.get",
+      "description": "The page's profile picture",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "One of square (50x50), small (50 pixels wide, variable height), and large (about 200 pixels wide,\n                            variable height)",
+            "enum": [
+              "square",
+              "small",
+              "large"
+            ]
+          },
+          "page": {
+            "type": "string",
+            "description": "Represents the ID of the page object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "page"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "page.feed.post",
+      "title": "page.feed.post",
+      "description": "Posts a status message on this page's wall",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "description": "Status Message content"
+          },
+          "page": {
+            "type": "string",
+            "description": "Represents the ID of the page object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "message",
+          "page"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "page.feed.get",
+      "title": "page.feed.get",
+      "description": "This page's wall",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "page": {
+            "type": "string",
+            "description": "Represents the ID of the page object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "page"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "page.get",
+      "title": "page.get",
+      "description": "Returns a Page",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "page": {
+            "type": "string",
+            "description": "Represents the ID of the page object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "page"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "note.likes.delete",
+      "title": "note.likes.delete",
+      "description": "Unlikes this note.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "note": {
+            "type": "string",
+            "description": "Represents the ID of the note object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "note"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "note.likes.post",
+      "title": "note.likes.post",
+      "description": "Likes this note.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "note": {
+            "type": "string",
+            "description": "Represents the ID of the note object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "note"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "note.likes.get",
+      "title": "note.likes.get",
+      "description": "Users who like this note.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "note": {
+            "type": "string",
+            "description": "Represents the ID of the note object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "note"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "note.comments.post",
+      "title": "note.comments.post",
+      "description": "Posts a comment to this note.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "description": "Comment text"
+          },
+          "note": {
+            "type": "string",
+            "description": "Represents the ID of the note object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "message",
+          "note"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "note.comments.get",
+      "title": "note.comments.get",
+      "description": "All of the comments on this note.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "note": {
+            "type": "string",
+            "description": "Represents the ID of the note object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "note"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "note.get",
+      "title": "note.get",
+      "description": "A Facebook note",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "note": {
+            "type": "string",
+            "description": "Represents the ID of the note object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "note"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "link.likes.delete",
+      "title": "link.likes.delete",
+      "description": "Unlikes this link.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "link": {
+            "type": "string",
+            "description": "Represents the ID of the link object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "link"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "link.likes.post",
+      "title": "link.likes.post",
+      "description": "Likes this link.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "link": {
+            "type": "string",
+            "description": "Represents the ID of the link object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "link"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "link.likes.get",
+      "title": "link.likes.get",
+      "description": "Users who like this link.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "link": {
+            "type": "string",
+            "description": "Represents the ID of the link object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "link"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "link.comments.post",
+      "title": "link.comments.post",
+      "description": "Posts a comment to this link.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "description": "Comment text"
+          },
+          "link": {
+            "type": "string",
+            "description": "Represents the ID of the link object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "message",
+          "link"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "link.comments.get",
+      "title": "link.comments.get",
+      "description": "All of the comments on this link.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "link": {
+            "type": "string",
+            "description": "Represents the ID of the link object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "link"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "link.get",
+      "title": "link.get",
+      "description": "A link shared on a user's wall",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "link": {
+            "type": "string",
+            "description": "Represents the ID of the link object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "link"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "group.docs.get",
+      "title": "group.docs.get",
+      "description": "The docs in this group",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "group": {
+            "type": "string",
+            "description": "Represents the ID of the group object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "group"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "group.picture.get",
+      "title": "group.picture.get",
+      "description": "The profile picture of this group",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "One of square (50x50), small (50 pixels wide, variable height), and large (about 200 pixels wide,\n                            variable height)",
+            "enum": [
+              "square",
+              "small",
+              "large"
+            ]
+          },
+          "group": {
+            "type": "string",
+            "description": "Represents the ID of the group object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "group"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "group.members.get",
+      "title": "group.members.get",
+      "description": "All of the users who are members of this group",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "group": {
+            "type": "string",
+            "description": "Represents the ID of the group object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "group"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "group.feed.post",
+      "title": "group.feed.post",
+      "description": "Posts a status message on this group's wall",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "description": "Status Message content"
+          },
+          "group": {
+            "type": "string",
+            "description": "Represents the ID of the group object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "message",
+          "group"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "group.feed.get",
+      "title": "group.feed.get",
+      "description": "This group's wall",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "group": {
+            "type": "string",
+            "description": "Represents the ID of the group object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "group"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "group.get",
+      "title": "group.get",
+      "description": "A Facebook group",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "group": {
+            "type": "string",
+            "description": "Represents the ID of the group object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "group"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "friendlist.members.user.delete",
+      "title": "friendlist.members.user.delete",
+      "description": "Removes a user from the friend list",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "friendlist": {
+            "type": "string",
+            "description": "Represents the ID of the FriendList object."
+          },
+          "user": {
+            "type": "string",
+            "description": "Represents the ID of the User to add to or remove from the friend list."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "friendlist",
+          "user"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "friendlist.members.user.post",
+      "title": "friendlist.members.user.post",
+      "description": "Adds a user to the friend list",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "friendlist": {
+            "type": "string",
+            "description": "Represents the ID of the FriendList object."
+          },
+          "user": {
+            "type": "string",
+            "description": "Represents the ID of the User to add to or remove from the friend list."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "friendlist",
+          "user"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "friendlist.members.get",
+      "title": "friendlist.members.get",
+      "description": "All of the users who are members of this list.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "friendlist": {
+            "type": "string",
+            "description": "Represents the ID of the FriendList object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "friendlist"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "friendlist.delete",
+      "title": "friendlist.delete",
+      "description": "Deletes the FriendList.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "friendlist": {
+            "type": "string",
+            "description": "Represents the ID of the FriendList object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "friendlist"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "friendlist.get",
+      "title": "friendlist.get",
+      "description": "A Facebook friend list. This object represents the list itself and not the members of the list.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "friendlist": {
+            "type": "string",
+            "description": "Represents the ID of the FriendList object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "friendlist"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "event.picture.get",
+      "title": "event.picture.get",
+      "description": "The event's profile picture",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "One of square (50x50), small (50 pixels wide, variable height), and large (about 200 pixels wide,\n                            variable height)",
+            "enum": [
+              "square",
+              "small",
+              "large"
+            ]
+          },
+          "event": {
+            "type": "string",
+            "description": "Represents the ID of the event object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "event"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "event.declined.post",
+      "title": "event.declined.post",
+      "description": "RSVPs the user as 'declined' for the event",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "event": {
+            "type": "string",
+            "description": "Represents the ID of the event object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "event"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "event.declined.get",
+      "title": "event.declined.get",
+      "description": "All of the users who declined their invitation to this event",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "event": {
+            "type": "string",
+            "description": "Represents the ID of the event object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "event"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "event.attending.post",
+      "title": "event.attending.post",
+      "description": "RSVPs the user as 'attending' for the event",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "event": {
+            "type": "string",
+            "description": "Represents the ID of the event object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "event"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "event.attending.get",
+      "title": "event.attending.get",
+      "description": "All of the users who are attending this event",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "event": {
+            "type": "string",
+            "description": "Represents the ID of the event object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "event"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "event.invited.get",
+      "title": "event.invited.get",
+      "description": "All of the users who have been invited to this event",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "event": {
+            "type": "string",
+            "description": "Represents the ID of the event object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "event"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "event.maybe.post",
+      "title": "event.maybe.post",
+      "description": "RSVPs the user as a 'maybe' for the event",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "event": {
+            "type": "string",
+            "description": "Represents the ID of the event object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "event"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "event.maybe.get",
+      "title": "event.maybe.get",
+      "description": "All of the users who have been responded \"Maybe\" to their invitation to this event",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "event": {
+            "type": "string",
+            "description": "Represents the ID of the event object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "event"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "event.noreply.get",
+      "title": "event.noreply.get",
+      "description": "All of the users who have been not yet responded to their invitation to this event",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "event": {
+            "type": "string",
+            "description": "Represents the ID of the event object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "event"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "event.feed.post",
+      "title": "event.feed.post",
+      "description": "Posts a status message on this event's wall",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "description": "Status Message content"
+          },
+          "event": {
+            "type": "string",
+            "description": "Represents the ID of the event object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "message",
+          "event"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "event.feed.get",
+      "title": "event.feed.get",
+      "description": "This event's wall",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "event": {
+            "type": "string",
+            "description": "Represents the ID of the event object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "event"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "event.get",
+      "title": "event.get",
+      "description": "Specifies information about an event, including the location, event name, and which invitees plan to attend.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "event": {
+            "type": "string",
+            "description": "Represents the ID of the event object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "event"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "comment.likes.delete",
+      "title": "comment.likes.delete",
+      "description": "Unlikes the comment",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "comment": {
+            "type": "string",
+            "description": "Represents the ID of the comment object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "comment"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "comment.likes.post",
+      "title": "comment.likes.post",
+      "description": "Likes the comment",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "comment": {
+            "type": "string",
+            "description": "Represents the ID of the comment object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "comment"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "comment.likes.get",
+      "title": "comment.likes.get",
+      "description": "All the likes on this comment",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "comment": {
+            "type": "string",
+            "description": "Represents the ID of the comment object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "comment"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "comment.delete",
+      "title": "comment.delete",
+      "description": "Deletes a comment",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "comment": {
+            "type": "string",
+            "description": "Represents the ID of the comment object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "comment"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "comment.get",
+      "title": "comment.get",
+      "description": "Returns a comment",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "comment": {
+            "type": "string",
+            "description": "Represents the ID of the comment object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "comment"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "checkin.likes.delete",
+      "title": "checkin.likes.delete",
+      "description": "Unlikes this checkin.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "checkin": {
+            "type": "string",
+            "description": "Represents the ID of the checkin object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "checkin"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "checkin.likes.post",
+      "title": "checkin.likes.post",
+      "description": "Likes this checkin.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "checkin": {
+            "type": "string",
+            "description": "Represents the ID of the checkin object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "checkin"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "checkin.likes.get",
+      "title": "checkin.likes.get",
+      "description": "Users who like this checkin.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "checkin": {
+            "type": "string",
+            "description": "Represents the ID of the checkin object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "checkin"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "checkin.comments.post",
+      "title": "checkin.comments.post",
+      "description": "Posts a comment to this checkin.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "description": "Comment text"
+          },
+          "checkin": {
+            "type": "string",
+            "description": "Represents the ID of the checkin object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "message",
+          "checkin"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "checkin.comments.get",
+      "title": "checkin.comments.get",
+      "description": "All of the comments on this checkin.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "checkin": {
+            "type": "string",
+            "description": "Represents the ID of the checkin object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "checkin"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "checkin.get",
+      "title": "checkin.get",
+      "description": "Represents a single visit by a user to a location",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "checkin": {
+            "type": "string",
+            "description": "Represents the ID of the checkin object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "checkin"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "application.achievements.delete",
+      "title": "application.achievements.delete",
+      "description": "Unregisters an achievement for the application",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "achievement": {
+            "type": "string",
+            "description": "Unique URL to the achievement."
+          },
+          "application": {
+            "type": "string",
+            "description": "Represents the ID of the application object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "achievement",
+          "application"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "application.achievements.post",
+      "title": "application.achievements.post",
+      "description": "Registers an achievement for the application",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "achievement": {
+            "type": "string",
+            "description": "Unique URL to the achievement."
+          },
+          "display_order": {
+            "type": "integer",
+            "description": "Order of this achievement as it shows up in the achievement stories UI (low to high). For example a display order of 100 will be displayed in the UI before 200. We use this value to surface achievements according to the order the developer has specified. Please make sure this value is unique and increments in the correct order for your achievements."
+          },
+          "application": {
+            "type": "string",
+            "description": "Represents the ID of the application object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "achievement",
+          "display_order",
+          "application"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "application.scores.delete",
+      "title": "application.scores.delete",
+      "description": "Deletes all the scores for the application.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "application": {
+            "type": "string",
+            "description": "Represents the ID of the application object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "application"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "application.scores.get",
+      "title": "application.scores.get",
+      "description": "Scores for the user and their friends.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "application": {
+            "type": "string",
+            "description": "Represents the ID of the application object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "application"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "application.translations.delete",
+      "title": "application.translations.delete",
+      "description": "Deletes a translation string for this application.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "native_hashes": {
+            "type": "string",
+            "description": "An array of native hashes. The native hash is a unique identifier of the native string and a description and is generated by the Translations application."
+          },
+          "application": {
+            "type": "string",
+            "description": "Represents the ID of the application object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "native_hashes",
+          "application"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "application.translations.post",
+      "title": "application.translations.post",
+      "description": "Uploads translated strings for this application.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "native_strings": {
+            "type": "string",
+            "description": "A JSON-encoded array of strings to translate. Each element of the string array is an object, with text storing the actual string, description storing the description of the text."
+          },
+          "application": {
+            "type": "string",
+            "description": "Represents the ID of the application object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "native_strings",
+          "application"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "application.translations.get",
+      "title": "application.translations.get",
+      "description": "The translated strings for this application.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "application": {
+            "type": "string",
+            "description": "Represents the ID of the application object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "application"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "application.tagged.get",
+      "title": "application.tagged.get",
+      "description": "The photos, videos, and posts in which this application has been tagged.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "application": {
+            "type": "string",
+            "description": "Represents the ID of the application object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "application"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "application.subscriptions.delete",
+      "title": "application.subscriptions.delete",
+      "description": "Deletes a real-time notification subscription for this application.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "object": {
+            "type": "string",
+            "description": "Object to monitor - `user`, `permissions`, or `page`. If no object is specified all subscriptions are deleted.",
+            "enum": [
+              "user",
+              "permissions",
+              "page"
+            ]
+          },
+          "application": {
+            "type": "string",
+            "description": "Represents the ID of the application object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "application"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "application.subscriptions.post",
+      "title": "application.subscriptions.post",
+      "description": "Adds a real-time notification subscription for this application.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "object": {
+            "type": "string",
+            "description": "Object to monitor - `user`, `permissions`, or `page`.",
+            "enum": [
+              "user",
+              "permissions",
+              "page"
+            ]
+          },
+          "fields": {
+            "type": "string",
+            "description": "List of properties for the `object` to monitor."
+          },
+          "callback_url": {
+            "type": "string",
+            "description": "A callback URL to which Facebook will post subscription updates."
+          },
+          "verify_token": {
+            "type": "string",
+            "description": "Token sent in the verification request."
+          },
+          "application": {
+            "type": "string",
+            "description": "Represents the ID of the application object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "object",
+          "callback_url",
+          "application"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "application.subscriptions.get",
+      "title": "application.subscriptions.get",
+      "description": "All of the subscriptions this application has for real-time notifications.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "application": {
+            "type": "string",
+            "description": "Represents the ID of the application object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "application"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "application.statuses.post",
+      "title": "application.statuses.post",
+      "description": "Posts a status message on the application's profile page",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "description": "Status Message content"
+          },
+          "application": {
+            "type": "string",
+            "description": "Represents the ID of the application object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "message",
+          "application"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "application.statuses.get",
+      "title": "application.statuses.get",
+      "description": "The application's status updates",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "application": {
+            "type": "string",
+            "description": "Represents the ID of the application object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "application"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "application.staticresources.get",
+      "title": "application.staticresources.get",
+      "description": "Usage stats about the canvas application's static resources, such as javascript and CSS, and which ones are being flushed to browsers early.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "application": {
+            "type": "string",
+            "description": "Represents the ID of the application object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "application"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "application.reviews.get",
+      "title": "application.reviews.get",
+      "description": "Reviews of this application",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "application": {
+            "type": "string",
+            "description": "Represents the ID of the application object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "application"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "application.posts.get",
+      "title": "application.posts.get",
+      "description": "The application's own posts.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "application": {
+            "type": "string",
+            "description": "Represents the ID of the application object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "application"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "application.picture.get",
+      "title": "application.picture.get",
+      "description": "The application's logo",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "One of square (50x50), small (50 pixels wide, variable height), and large (about 200 pixels wide,\n                            variable height)",
+            "enum": [
+              "square",
+              "small",
+              "large"
+            ]
+          },
+          "application": {
+            "type": "string",
+            "description": "Represents the ID of the application object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "application"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "application.links.post",
+      "title": "application.links.post",
+      "description": "Posts a link on the application's profile page",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "link": {
+            "type": "string",
+            "description": "Link URL"
+          },
+          "message": {
+            "type": "string",
+            "description": "Link message"
+          },
+          "application": {
+            "type": "string",
+            "description": "Represents the ID of the application object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "link",
+          "application"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "application.links.get",
+      "title": "application.links.get",
+      "description": "The application's posted links.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "application": {
+            "type": "string",
+            "description": "Represents the ID of the application object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "application"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "application.insights.get",
+      "title": "application.insights.get",
+      "description": "Usage metrics for this application",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "application": {
+            "type": "string",
+            "description": "Represents the ID of the application object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "application"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "application.feed.post",
+      "title": "application.feed.post",
+      "description": "Posts a status message on the application's profile page",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "description": "Status Message content"
+          },
+          "application": {
+            "type": "string",
+            "description": "Represents the ID of the application object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "message",
+          "application"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "application.feed.get",
+      "title": "application.feed.get",
+      "description": "The application's wall.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "application": {
+            "type": "string",
+            "description": "Represents the ID of the application object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "application"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "application.albums.get",
+      "title": "application.albums.get",
+      "description": "The photo albums this application has created.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "application": {
+            "type": "string",
+            "description": "Represents the ID of the application object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "application"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "application.accounts.test_users.post",
+      "title": "application.accounts.test_users.post",
+      "description": "Creates a test account for the application",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "installed": {
+            "type": "boolean",
+            "description": "Install app for the test user upon creation"
+          },
+          "permissions": {
+            "type": "string",
+            "description": "List of extended permissions app granted for the new test user if installed is true"
+          },
+          "name": {
+            "type": "string",
+            "description": "A name for the test user. The specified name will also be used in the email address assigned to the test user."
+          },
+          "application": {
+            "type": "string",
+            "description": "Represents the ID of the application object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "application"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "application.accounts.get",
+      "title": "application.accounts.get",
+      "description": "Test User accounts associated with the application.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "application": {
+            "type": "string",
+            "description": "Represents the ID of the application object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "application"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "application.get",
+      "title": "application.get",
+      "description": "An application's profile",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "application": {
+            "type": "string",
+            "description": "Represents the ID of the application object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "application"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "album.picture.get",
+      "title": "album.picture.get",
+      "description": "The album's cover photo; the first picture uploaded to an album becomes the cover photo for the album.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "One of square (50x50), small (50 pixels wide, variable height), and large (about 200 pixels wide,\n                            variable height)",
+            "enum": [
+              "square",
+              "small",
+              "large"
+            ]
+          },
+          "album": {
+            "type": "string",
+            "description": "Represents the ID of the album object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "album"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "album.comments.post",
+      "title": "album.comments.post",
+      "description": "Posts a comment on the album",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "description": "Comment text"
+          },
+          "album": {
+            "type": "string",
+            "description": "Represents the ID of the album object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "message",
+          "album"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "album.comments.get",
+      "title": "album.comments.get",
+      "description": "The comments made on this album",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "album": {
+            "type": "string",
+            "description": "Represents the ID of the album object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "album"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "album.likes.delete",
+      "title": "album.likes.delete",
+      "description": "Unlikes the album",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "album": {
+            "type": "string",
+            "description": "Represents the ID of the album object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "album"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "album.likes.post",
+      "title": "album.likes.post",
+      "description": "Likes the album",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "album": {
+            "type": "string",
+            "description": "Represents the ID of the album object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "album"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "album.likes.get",
+      "title": "album.likes.get",
+      "description": "The likes made on this album",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "album": {
+            "type": "string",
+            "description": "Represents the ID of the album object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "album"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "album.photos.post",
+      "title": "album.photos.post",
+      "description": "Adds a photo to the album",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "description": "Photo description"
+          },
+          "album": {
+            "type": "string",
+            "description": "Represents the ID of the album object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "album"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "album.photos.get",
+      "title": "album.photos.get",
+      "description": "The photos contained in this album",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "album": {
+            "type": "string",
+            "description": "Represents the ID of the album object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "album"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "album.get",
+      "title": "album.get",
+      "description": "A photo album",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "album": {
+            "type": "string",
+            "description": "Represents the ID of the album object."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "album"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    },
+    {
+      "id": "search.get",
+      "title": "search.get",
+      "description": "Search over all public objects in the social graph",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "q": {
+            "type": "string",
+            "description": "The search string"
+          },
+          "type": {
+            "type": "string",
+            "description": "Supports these types of objects: All public posts (post), people (user), pages (page), events\n                            (event), groups (group), check-ins (checkin)",
+            "enum": [
+              "post",
+              "user",
+              "page",
+              "event",
+              "group",
+              "checkin"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "q"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "facebook": {
+          "integration": "facebook"
+        }
+      }
+    }
+  ],
+  "tags": []
+}

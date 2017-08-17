@@ -1,0 +1,249 @@
+{
+  "id": "amazonaws_entitlement_marketplace",
+  "title": "AWS Marketplace Entitlement Service",
+  "description": "AWS Marketplace Entitlement Service\n\nThis reference provides descriptions of the AWS Marketplace Entitlement Service API.\n\nAWS Marketplace Entitlement Service is used to determine the entitlement of a customer to a given product. An entitlement represents capacity in a product owned by the customer. For example, a customer might own some number of users or seats in an SaaS application or some amount of data capacity in a multi-tenant database.\n\n**Getting Entitlement Records**\n\n*   _GetEntitlements_- Gets the entitlements for a Marketplace product.",
+  "security": {
+    "amazonaws_entitlement_marketplace": {
+      "integration": "amazonaws_entitlement_marketplace",
+      "accessKeyId": "",
+      "secretAccessKey": "",
+      "region": "AWS region (if applicable)"
+    }
+  },
+  "logo": {
+    "backgroundColor": "#FFFFFF",
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_entitlement_marketplace.jpg"
+  },
+  "actionCount": 1,
+  "definitions": {
+    "Boolean": {
+      "type": "boolean",
+      "title": "Boolean"
+    },
+    "Double": {
+      "format": "double",
+      "type": "number",
+      "title": "Double"
+    },
+    "Entitlement": {
+      "description": "An entitlement represents capacity in a product owned by the customer. For example, a customer might own some number of users or seats in an SaaS application or some amount of data capacity in a multi-tenant database.",
+      "properties": {
+        "CustomerIdentifier": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "The customer identifier is a handle to each unique customer in an application. Customer identifiers are obtained through the ResolveCustomer operation in AWS Marketplace Metering Service."
+        },
+        "Dimension": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "The dimension for which the given entitlement applies. Dimensions represent categories of capacity in a product and are specified when the product is listed in AWS Marketplace."
+        },
+        "ExpirationDate": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The expiration date represents the minimum date through which this entitlement is expected to remain valid. For contractual products listed on AWS Marketplace, the expiration date is the date at which the customer will renew or cancel their contract. Customers who are opting to renew their contract will still have entitlements with an expiration date."
+        },
+        "ProductCode": {
+          "$ref": "#/definitions/ProductCode",
+          "description": "The product code for which the given entitlement applies. Product codes are provided by AWS Marketplace when the product listing is created."
+        },
+        "Value": {
+          "$ref": "#/definitions/EntitlementValue",
+          "description": "The EntitlementValue represents the amount of capacity that the customer is entitled to for the product."
+        }
+      },
+      "type": "object",
+      "title": "Entitlement"
+    },
+    "EntitlementList": {
+      "items": {
+        "$ref": "#/definitions/Entitlement"
+      },
+      "minItems": 0,
+      "type": "array",
+      "title": "EntitlementList"
+    },
+    "EntitlementValue": {
+      "description": "The EntitlementValue represents the amount of capacity that the customer is entitled to for the product.",
+      "properties": {
+        "BooleanValue": {
+          "$ref": "#/definitions/Boolean",
+          "description": "The BooleanValue field will be populated with a boolean value when the entitlement is a boolean type. Otherwise, the field will not be set."
+        },
+        "DoubleValue": {
+          "$ref": "#/definitions/Double",
+          "description": "The DoubleValue field will be populated with a double value when the entitlement is a double type. Otherwise, the field will not be set."
+        },
+        "IntegerValue": {
+          "$ref": "#/definitions/Integer",
+          "description": "The IntegerValue field will be populated with an integer value when the entitlement is an integer type. Otherwise, the field will not be set."
+        },
+        "StringValue": {
+          "$ref": "#/definitions/String",
+          "description": "The StringValue field will be populated with a string value when the entitlement is a string type. Otherwise, the field will not be set."
+        }
+      },
+      "type": "object",
+      "title": "EntitlementValue"
+    },
+    "ErrorMessage": {
+      "type": "string",
+      "title": "ErrorMessage"
+    },
+    "FilterValue": {
+      "type": "string",
+      "title": "FilterValue"
+    },
+    "FilterValueList": {
+      "items": {
+        "$ref": "#/definitions/FilterValue"
+      },
+      "minItems": 1,
+      "type": "array",
+      "title": "FilterValueList"
+    },
+    "GetEntitlementFilterName": {
+      "enum": [
+        "CUSTOMER_IDENTIFIER",
+        "DIMENSION"
+      ],
+      "type": "string",
+      "title": "GetEntitlementFilterName"
+    },
+    "GetEntitlementFilters": {
+      "items": {
+        "properties": {
+          "key": {
+            "$ref": "#/definitions/GetEntitlementFilterName"
+          },
+          "value": {
+            "$ref": "#/definitions/FilterValueList"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array",
+      "title": "GetEntitlementFilters"
+    },
+    "GetEntitlementsRequest": {
+      "description": "The GetEntitlementsRequest contains parameters for the GetEntitlements operation.",
+      "properties": {
+        "Filter": {
+          "$ref": "#/definitions/GetEntitlementFilters",
+          "description": "Filter is used to return entitlements for a specific customer or for a specific dimension. Filters are described as keys mapped to a lists of values. Filtered requests are <i>unioned</i> for each value in the value list, and then <i>intersected</i> for each filter key."
+        },
+        "MaxResults": {
+          "$ref": "#/definitions/Integer",
+          "description": "The maximum number of items to retrieve from the GetEntitlements operation. For pagination, use the NextToken field in subsequent calls to GetEntitlements."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "For paginated calls to GetEntitlements, pass the NextToken from the previous GetEntitlementsResult."
+        },
+        "ProductCode": {
+          "$ref": "#/definitions/ProductCode",
+          "description": "Product code is used to uniquely identify a product in AWS Marketplace. The product code will be provided by AWS Marketplace when the product listing is created."
+        }
+      },
+      "required": [
+        "ProductCode"
+      ],
+      "type": "object",
+      "title": "GetEntitlementsRequest"
+    },
+    "GetEntitlementsResult": {
+      "description": "The GetEntitlementsRequest contains results from the GetEntitlements operation.",
+      "properties": {
+        "Entitlements": {
+          "$ref": "#/definitions/EntitlementList",
+          "description": "The set of entitlements found through the GetEntitlements operation. If the result contains an empty set of entitlements, NextToken might still be present and should be used."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "For paginated results, use NextToken in subsequent calls to GetEntitlements. If the result contains an empty set of entitlements, NextToken might still be present and should be used."
+        }
+      },
+      "type": "object",
+      "title": "GetEntitlementsResult"
+    },
+    "Integer": {
+      "type": "integer",
+      "title": "Integer"
+    },
+    "InternalServiceErrorException": {
+      "description": "An internal error has occurred. Retry your request. If the problem persists, post a message with details on the AWS forums.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "type": "object",
+      "title": "InternalServiceErrorException"
+    },
+    "InvalidParameterException": {
+      "description": "One or more parameters in your request was invalid.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "type": "object",
+      "title": "InvalidParameterException"
+    },
+    "NonEmptyString": {
+      "pattern": "\\S+",
+      "type": "string",
+      "title": "NonEmptyString"
+    },
+    "ProductCode": {
+      "maxLength": 255,
+      "minLength": 1,
+      "type": "string",
+      "title": "ProductCode"
+    },
+    "String": {
+      "type": "string",
+      "title": "String"
+    },
+    "ThrottlingException": {
+      "description": "The calls to the GetEntitlements API are throttled.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "type": "object",
+      "title": "ThrottlingException"
+    },
+    "Timestamp": {
+      "format": "date-time",
+      "type": "string",
+      "title": "Timestamp"
+    }
+  },
+  "actions": [
+    {
+      "id": "GetEntitlements",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetEntitlementsRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetEntitlementsResult"
+      },
+      "security": {
+        "amazonaws_entitlement_marketplace": {
+          "integration": "amazonaws_entitlement_marketplace"
+        }
+      }
+    }
+  ],
+  "tags": [
+    "cloud",
+    "aws"
+  ]
+}

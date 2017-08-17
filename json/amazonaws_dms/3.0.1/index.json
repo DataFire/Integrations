@@ -1,0 +1,2913 @@
+{
+  "id": "amazonaws_dms",
+  "title": "AWS Database Migration Service",
+  "description": "AWS Database Migration Service\n\nAWS Database Migration Service (AWS DMS) can migrate your data to and from the most widely used commercial and open-source databases such as Oracle, PostgreSQL, Microsoft SQL Server, Amazon Redshift, MariaDB, Amazon Aurora, MySQL, and SAP Adaptive Server Enterprise (ASE). The service supports homogeneous migrations such as Oracle to Oracle, as well as heterogeneous migrations between different database platforms, such as Oracle to MySQL or SQL Server to PostgreSQL.\n\nFor more information about AWS DMS, see the AWS DMS user guide at [What Is AWS Database Migration Service?](http://docs.aws.amazon.com/dms/latest/userguide/Welcome.html)",
+  "security": {
+    "amazonaws_dms": {
+      "integration": "amazonaws_dms",
+      "accessKeyId": "",
+      "secretAccessKey": "",
+      "region": "AWS region (if applicable)"
+    }
+  },
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_dms.svg"
+  },
+  "actionCount": 33,
+  "definitions": {
+    "AccessDeniedFault": {
+      "description": "AWS DMS was denied access to the endpoint.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/ExceptionMessage",
+          "description": "<p/>"
+        }
+      },
+      "type": "object",
+      "title": "AccessDeniedFault"
+    },
+    "AccountQuota": {
+      "description": "Describes a quota for an AWS account, for example, the number of replication instances allowed.",
+      "properties": {
+        "AccountQuotaName": {
+          "$ref": "#/definitions/String",
+          "description": "The name of the AWS DMS quota for this AWS account."
+        },
+        "Max": {
+          "$ref": "#/definitions/Long",
+          "description": "The maximum allowed value for the quota."
+        },
+        "Used": {
+          "$ref": "#/definitions/Long",
+          "description": "The amount currently used toward the quota maximum."
+        }
+      },
+      "type": "object",
+      "title": "AccountQuota"
+    },
+    "AccountQuotaList": {
+      "items": {
+        "$ref": "#/definitions/AccountQuota"
+      },
+      "type": "array",
+      "title": "AccountQuotaList"
+    },
+    "AddTagsToResourceMessage": {
+      "description": "<p/>",
+      "properties": {
+        "ResourceArn": {
+          "$ref": "#/definitions/String",
+          "description": "The Amazon Resource Name (ARN) of the AWS DMS resource the tag is to be added to. AWS DMS resources include a replication instance, endpoint, and a replication task."
+        },
+        "Tags": {
+          "$ref": "#/definitions/TagList",
+          "description": "The tag to be assigned to the DMS resource."
+        }
+      },
+      "required": [
+        "ResourceArn",
+        "Tags"
+      ],
+      "type": "object",
+      "title": "AddTagsToResourceMessage"
+    },
+    "AddTagsToResourceResponse": {
+      "description": "<p/>",
+      "properties": {},
+      "type": "object",
+      "title": "AddTagsToResourceResponse"
+    },
+    "AvailabilityZone": {
+      "description": "<p/>",
+      "properties": {
+        "Name": {
+          "$ref": "#/definitions/String",
+          "description": "The name of the availability zone."
+        }
+      },
+      "type": "object",
+      "title": "AvailabilityZone"
+    },
+    "Boolean": {
+      "type": "boolean",
+      "title": "Boolean"
+    },
+    "BooleanOptional": {
+      "type": "boolean",
+      "title": "BooleanOptional"
+    },
+    "Certificate": {
+      "description": "The SSL certificate that can be used to encrypt connections between the endpoints and the replication instance.",
+      "properties": {
+        "CertificateArn": {
+          "$ref": "#/definitions/String",
+          "description": "The Amazon Resource Name (ARN) for the certificate."
+        },
+        "CertificateCreationDate": {
+          "$ref": "#/definitions/TStamp",
+          "description": "The date that the certificate was created."
+        },
+        "CertificateIdentifier": {
+          "$ref": "#/definitions/String",
+          "description": "The customer-assigned name of the certificate. Valid characters are A-z and 0-9."
+        },
+        "CertificateOwner": {
+          "$ref": "#/definitions/String",
+          "description": "The owner of the certificate."
+        },
+        "CertificatePem": {
+          "$ref": "#/definitions/String",
+          "description": "The contents of the .pem X.509 certificate file for the certificate."
+        },
+        "CertificateWallet": {
+          "$ref": "#/definitions/CertificateWallet",
+          "description": "The location of the imported Oracle Wallet certificate for use with SSL."
+        },
+        "KeyLength": {
+          "$ref": "#/definitions/IntegerOptional",
+          "description": "The key length of the cryptographic algorithm being used."
+        },
+        "SigningAlgorithm": {
+          "$ref": "#/definitions/String",
+          "description": "The signing algorithm for the certificate."
+        },
+        "ValidFromDate": {
+          "$ref": "#/definitions/TStamp",
+          "description": "The beginning date that the certificate is valid."
+        },
+        "ValidToDate": {
+          "$ref": "#/definitions/TStamp",
+          "description": "The final date that the certificate is valid."
+        }
+      },
+      "type": "object",
+      "title": "Certificate"
+    },
+    "CertificateList": {
+      "items": {
+        "$ref": "#/definitions/Certificate"
+      },
+      "type": "array",
+      "title": "CertificateList"
+    },
+    "CertificateWallet": {
+      "type": "string",
+      "title": "CertificateWallet"
+    },
+    "Connection": {
+      "description": "<p/>",
+      "properties": {
+        "EndpointArn": {
+          "$ref": "#/definitions/String",
+          "description": "The Amazon Resource Name (ARN) string that uniquely identifies the endpoint."
+        },
+        "EndpointIdentifier": {
+          "$ref": "#/definitions/String",
+          "description": "The identifier of the endpoint. Identifiers must begin with a letter; must contain only ASCII letters, digits, and hyphens; and must not end with a hyphen or contain two consecutive hyphens."
+        },
+        "LastFailureMessage": {
+          "$ref": "#/definitions/String",
+          "description": "The error message when the connection last failed."
+        },
+        "ReplicationInstanceArn": {
+          "$ref": "#/definitions/String",
+          "description": "The Amazon Resource Name (ARN) of the replication instance."
+        },
+        "ReplicationInstanceIdentifier": {
+          "$ref": "#/definitions/String",
+          "description": "The replication instance identifier. This parameter is stored as a lowercase string."
+        },
+        "Status": {
+          "$ref": "#/definitions/String",
+          "description": "The connection status."
+        }
+      },
+      "type": "object",
+      "title": "Connection"
+    },
+    "ConnectionList": {
+      "items": {
+        "$ref": "#/definitions/Connection"
+      },
+      "type": "array",
+      "title": "ConnectionList"
+    },
+    "CreateEndpointMessage": {
+      "description": "<p/>",
+      "properties": {
+        "CertificateArn": {
+          "$ref": "#/definitions/String",
+          "description": "The Amazon Resource Number (ARN) for the certificate."
+        },
+        "DatabaseName": {
+          "$ref": "#/definitions/String",
+          "description": "The name of the endpoint database."
+        },
+        "EndpointIdentifier": {
+          "$ref": "#/definitions/String",
+          "description": "The database endpoint identifier. Identifiers must begin with a letter; must contain only ASCII letters, digits, and hyphens; and must not end with a hyphen or contain two consecutive hyphens."
+        },
+        "EndpointType": {
+          "$ref": "#/definitions/ReplicationEndpointTypeValue",
+          "description": "The type of endpoint."
+        },
+        "EngineName": {
+          "$ref": "#/definitions/String",
+          "description": "The type of engine for the endpoint. Valid values include MYSQL, ORACLE, POSTGRES, MARIADB, AURORA, REDSHIFT, SYBASE, and SQLSERVER."
+        },
+        "ExtraConnectionAttributes": {
+          "$ref": "#/definitions/String",
+          "description": "Additional attributes associated with the connection."
+        },
+        "KmsKeyId": {
+          "$ref": "#/definitions/String",
+          "description": "The KMS key identifier that will be used to encrypt the connection parameters. If you do not specify a value for the KmsKeyId parameter, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region."
+        },
+        "Password": {
+          "$ref": "#/definitions/SecretString",
+          "description": "The password to be used to login to the endpoint database."
+        },
+        "Port": {
+          "$ref": "#/definitions/IntegerOptional",
+          "description": "The port used by the endpoint database."
+        },
+        "ServerName": {
+          "$ref": "#/definitions/String",
+          "description": "The name of the server where the endpoint database resides."
+        },
+        "SslMode": {
+          "$ref": "#/definitions/DmsSslModeValue",
+          "description": "<p>The SSL mode to use for the SSL connection.</p> <p>SSL mode can be one of four values: none, require, verify-ca, verify-full. </p> <p>The default value is none.</p>"
+        },
+        "Tags": {
+          "$ref": "#/definitions/TagList",
+          "description": "Tags to be added to the endpoint."
+        },
+        "Username": {
+          "$ref": "#/definitions/String",
+          "description": "The user name to be used to login to the endpoint database."
+        }
+      },
+      "required": [
+        "EndpointIdentifier",
+        "EndpointType",
+        "EngineName"
+      ],
+      "type": "object",
+      "title": "CreateEndpointMessage"
+    },
+    "CreateEndpointResponse": {
+      "description": "<p/>",
+      "properties": {
+        "Endpoint": {
+          "$ref": "#/definitions/Endpoint",
+          "description": "The endpoint that was created."
+        }
+      },
+      "type": "object",
+      "title": "CreateEndpointResponse"
+    },
+    "CreateReplicationInstanceMessage": {
+      "description": "<p/>",
+      "properties": {
+        "AllocatedStorage": {
+          "$ref": "#/definitions/IntegerOptional",
+          "description": "The amount of storage (in gigabytes) to be initially allocated for the replication instance."
+        },
+        "AutoMinorVersionUpgrade": {
+          "$ref": "#/definitions/BooleanOptional",
+          "description": "<p>Indicates that minor engine upgrades will be applied automatically to the replication instance during the maintenance window.</p> <p>Default: <code>true</code> </p>"
+        },
+        "AvailabilityZone": {
+          "$ref": "#/definitions/String",
+          "description": "<p>The EC2 Availability Zone that the replication instance will be created in.</p> <p>Default: A random, system-chosen Availability Zone in the endpoint's region.</p> <p> Example: <code>us-east-1d</code> </p>"
+        },
+        "EngineVersion": {
+          "$ref": "#/definitions/String",
+          "description": "The engine version number of the replication instance."
+        },
+        "KmsKeyId": {
+          "$ref": "#/definitions/String",
+          "description": "The KMS key identifier that will be used to encrypt the content on the replication instance. If you do not specify a value for the KmsKeyId parameter, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region."
+        },
+        "MultiAZ": {
+          "$ref": "#/definitions/BooleanOptional",
+          "description": " Specifies if the replication instance is a Multi-AZ deployment. You cannot set the <code>AvailabilityZone</code> parameter if the Multi-AZ parameter is set to <code>true</code>. "
+        },
+        "PreferredMaintenanceWindow": {
+          "$ref": "#/definitions/String",
+          "description": "<p>The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).</p> <p> Format: <code>ddd:hh24:mi-ddd:hh24:mi</code> </p> <p>Default: A 30-minute window selected at random from an 8-hour block of time per region, occurring on a random day of the week.</p> <p>Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun</p> <p>Constraints: Minimum 30-minute window.</p>"
+        },
+        "PubliclyAccessible": {
+          "$ref": "#/definitions/BooleanOptional",
+          "description": " Specifies the accessibility options for the replication instance. A value of <code>true</code> represents an instance with a public IP address. A value of <code>false</code> represents an instance with a private IP address. The default value is <code>true</code>. "
+        },
+        "ReplicationInstanceClass": {
+          "$ref": "#/definitions/String",
+          "description": "<p>The compute and memory capacity of the replication instance as specified by the replication instance class.</p> <p> Valid Values: <code>dms.t2.micro | dms.t2.small | dms.t2.medium | dms.t2.large | dms.c4.large | dms.c4.xlarge | dms.c4.2xlarge | dms.c4.4xlarge </code> </p>"
+        },
+        "ReplicationInstanceIdentifier": {
+          "$ref": "#/definitions/String",
+          "description": "<p>The replication instance identifier. This parameter is stored as a lowercase string.</p> <p>Constraints:</p> <ul> <li> <p>Must contain from 1 to 63 alphanumeric characters or hyphens.</p> </li> <li> <p>First character must be a letter.</p> </li> <li> <p>Cannot end with a hyphen or contain two consecutive hyphens.</p> </li> </ul> <p>Example: <code>myrepinstance</code> </p>"
+        },
+        "ReplicationSubnetGroupIdentifier": {
+          "$ref": "#/definitions/String",
+          "description": "A subnet group to associate with the replication instance."
+        },
+        "Tags": {
+          "$ref": "#/definitions/TagList",
+          "description": "Tags to be associated with the replication instance."
+        },
+        "VpcSecurityGroupIds": {
+          "$ref": "#/definitions/VpcSecurityGroupIdList",
+          "description": " Specifies the VPC security group to be used with the replication instance. The VPC security group must work with the VPC containing the replication instance. "
+        }
+      },
+      "required": [
+        "ReplicationInstanceIdentifier",
+        "ReplicationInstanceClass"
+      ],
+      "type": "object",
+      "title": "CreateReplicationInstanceMessage"
+    },
+    "CreateReplicationInstanceResponse": {
+      "description": "<p/>",
+      "properties": {
+        "ReplicationInstance": {
+          "$ref": "#/definitions/ReplicationInstance",
+          "description": "The replication instance that was created."
+        }
+      },
+      "type": "object",
+      "title": "CreateReplicationInstanceResponse"
+    },
+    "CreateReplicationSubnetGroupMessage": {
+      "description": "<p/>",
+      "properties": {
+        "ReplicationSubnetGroupDescription": {
+          "$ref": "#/definitions/String",
+          "description": "The description for the subnet group."
+        },
+        "ReplicationSubnetGroupIdentifier": {
+          "$ref": "#/definitions/String",
+          "description": "<p>The name for the replication subnet group. This value is stored as a lowercase string.</p> <p>Constraints: Must contain no more than 255 alphanumeric characters, periods, spaces, underscores, or hyphens. Must not be \"default\".</p> <p>Example: <code>mySubnetgroup</code> </p>"
+        },
+        "SubnetIds": {
+          "$ref": "#/definitions/SubnetIdentifierList",
+          "description": "The EC2 subnet IDs for the subnet group."
+        },
+        "Tags": {
+          "$ref": "#/definitions/TagList",
+          "description": "The tag to be assigned to the subnet group."
+        }
+      },
+      "required": [
+        "ReplicationSubnetGroupIdentifier",
+        "ReplicationSubnetGroupDescription",
+        "SubnetIds"
+      ],
+      "type": "object",
+      "title": "CreateReplicationSubnetGroupMessage"
+    },
+    "CreateReplicationSubnetGroupResponse": {
+      "description": "<p/>",
+      "properties": {
+        "ReplicationSubnetGroup": {
+          "$ref": "#/definitions/ReplicationSubnetGroup",
+          "description": "The replication subnet group that was created."
+        }
+      },
+      "type": "object",
+      "title": "CreateReplicationSubnetGroupResponse"
+    },
+    "CreateReplicationTaskMessage": {
+      "description": "<p/>",
+      "properties": {
+        "CdcStartTime": {
+          "$ref": "#/definitions/TStamp",
+          "description": "The start time for the Change Data Capture (CDC) operation."
+        },
+        "MigrationType": {
+          "$ref": "#/definitions/MigrationTypeValue",
+          "description": "The migration type."
+        },
+        "ReplicationInstanceArn": {
+          "$ref": "#/definitions/String",
+          "description": "The Amazon Resource Name (ARN) of the replication instance."
+        },
+        "ReplicationTaskIdentifier": {
+          "$ref": "#/definitions/String",
+          "description": "<p>The replication task identifier.</p> <p>Constraints:</p> <ul> <li> <p>Must contain from 1 to 63 alphanumeric characters or hyphens.</p> </li> <li> <p>First character must be a letter.</p> </li> <li> <p>Cannot end with a hyphen or contain two consecutive hyphens.</p> </li> </ul>"
+        },
+        "ReplicationTaskSettings": {
+          "$ref": "#/definitions/String",
+          "description": "Settings for the task, such as target metadata settings. For a complete list of task settings, see <a href=\"http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.html\">Task Settings for AWS Database Migration Service Tasks</a>."
+        },
+        "SourceEndpointArn": {
+          "$ref": "#/definitions/String",
+          "description": "The Amazon Resource Name (ARN) string that uniquely identifies the endpoint."
+        },
+        "TableMappings": {
+          "$ref": "#/definitions/String",
+          "description": "<p>The path of the JSON file that contains the table mappings. Preceed the path with \"file://\".</p> <p>For example, --table-mappings file://mappingfile.json</p>"
+        },
+        "Tags": {
+          "$ref": "#/definitions/TagList",
+          "description": "Tags to be added to the replication instance."
+        },
+        "TargetEndpointArn": {
+          "$ref": "#/definitions/String",
+          "description": "The Amazon Resource Name (ARN) string that uniquely identifies the endpoint."
+        }
+      },
+      "required": [
+        "ReplicationTaskIdentifier",
+        "SourceEndpointArn",
+        "TargetEndpointArn",
+        "ReplicationInstanceArn",
+        "MigrationType",
+        "TableMappings"
+      ],
+      "type": "object",
+      "title": "CreateReplicationTaskMessage"
+    },
+    "CreateReplicationTaskResponse": {
+      "description": "<p/>",
+      "properties": {
+        "ReplicationTask": {
+          "$ref": "#/definitions/ReplicationTask",
+          "description": "The replication task that was created."
+        }
+      },
+      "type": "object",
+      "title": "CreateReplicationTaskResponse"
+    },
+    "DeleteCertificateMessage": {
+      "properties": {
+        "CertificateArn": {
+          "$ref": "#/definitions/String",
+          "description": "The Amazon Resource Name (ARN) of the deleted certificate."
+        }
+      },
+      "required": [
+        "CertificateArn"
+      ],
+      "type": "object",
+      "title": "DeleteCertificateMessage"
+    },
+    "DeleteCertificateResponse": {
+      "properties": {
+        "Certificate": {
+          "$ref": "#/definitions/Certificate",
+          "description": "The Secure Sockets Layer (SSL) certificate."
+        }
+      },
+      "type": "object",
+      "title": "DeleteCertificateResponse"
+    },
+    "DeleteEndpointMessage": {
+      "description": "<p/>",
+      "properties": {
+        "EndpointArn": {
+          "$ref": "#/definitions/String",
+          "description": "The Amazon Resource Name (ARN) string that uniquely identifies the endpoint."
+        }
+      },
+      "required": [
+        "EndpointArn"
+      ],
+      "type": "object",
+      "title": "DeleteEndpointMessage"
+    },
+    "DeleteEndpointResponse": {
+      "description": "<p/>",
+      "properties": {
+        "Endpoint": {
+          "$ref": "#/definitions/Endpoint",
+          "description": "The endpoint that was deleted."
+        }
+      },
+      "type": "object",
+      "title": "DeleteEndpointResponse"
+    },
+    "DeleteReplicationInstanceMessage": {
+      "description": "<p/>",
+      "properties": {
+        "ReplicationInstanceArn": {
+          "$ref": "#/definitions/String",
+          "description": "The Amazon Resource Name (ARN) of the replication instance to be deleted."
+        }
+      },
+      "required": [
+        "ReplicationInstanceArn"
+      ],
+      "type": "object",
+      "title": "DeleteReplicationInstanceMessage"
+    },
+    "DeleteReplicationInstanceResponse": {
+      "description": "<p/>",
+      "properties": {
+        "ReplicationInstance": {
+          "$ref": "#/definitions/ReplicationInstance",
+          "description": "The replication instance that was deleted."
+        }
+      },
+      "type": "object",
+      "title": "DeleteReplicationInstanceResponse"
+    },
+    "DeleteReplicationSubnetGroupMessage": {
+      "description": "<p/>",
+      "properties": {
+        "ReplicationSubnetGroupIdentifier": {
+          "$ref": "#/definitions/String",
+          "description": "The subnet group name of the replication instance."
+        }
+      },
+      "required": [
+        "ReplicationSubnetGroupIdentifier"
+      ],
+      "type": "object",
+      "title": "DeleteReplicationSubnetGroupMessage"
+    },
+    "DeleteReplicationSubnetGroupResponse": {
+      "description": "<p/>",
+      "properties": {},
+      "type": "object",
+      "title": "DeleteReplicationSubnetGroupResponse"
+    },
+    "DeleteReplicationTaskMessage": {
+      "description": "<p/>",
+      "properties": {
+        "ReplicationTaskArn": {
+          "$ref": "#/definitions/String",
+          "description": "The Amazon Resource Name (ARN) of the replication task to be deleted."
+        }
+      },
+      "required": [
+        "ReplicationTaskArn"
+      ],
+      "type": "object",
+      "title": "DeleteReplicationTaskMessage"
+    },
+    "DeleteReplicationTaskResponse": {
+      "description": "<p/>",
+      "properties": {
+        "ReplicationTask": {
+          "$ref": "#/definitions/ReplicationTask",
+          "description": "The deleted replication task."
+        }
+      },
+      "type": "object",
+      "title": "DeleteReplicationTaskResponse"
+    },
+    "DescribeAccountAttributesMessage": {
+      "description": "<p/>",
+      "properties": {},
+      "type": "object",
+      "title": "DescribeAccountAttributesMessage"
+    },
+    "DescribeAccountAttributesResponse": {
+      "description": "<p/>",
+      "properties": {
+        "AccountQuotas": {
+          "$ref": "#/definitions/AccountQuotaList",
+          "description": "Account quota information."
+        }
+      },
+      "type": "object",
+      "title": "DescribeAccountAttributesResponse"
+    },
+    "DescribeCertificatesMessage": {
+      "properties": {
+        "Filters": {
+          "$ref": "#/definitions/FilterList",
+          "description": "Filters applied to the certificate described in the form of key-value pairs."
+        },
+        "Marker": {
+          "$ref": "#/definitions/String",
+          "description": " An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>. "
+        },
+        "MaxRecords": {
+          "$ref": "#/definitions/IntegerOptional",
+          "description": "<p> The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination token called a marker is included in the response so that the remaining results can be retrieved. </p> <p>Default: 10</p>"
+        }
+      },
+      "type": "object",
+      "title": "DescribeCertificatesMessage"
+    },
+    "DescribeCertificatesResponse": {
+      "properties": {
+        "Certificates": {
+          "$ref": "#/definitions/CertificateList",
+          "description": "The Secure Sockets Layer (SSL) certificates associated with the replication instance."
+        },
+        "Marker": {
+          "$ref": "#/definitions/String",
+          "description": "The pagination token."
+        }
+      },
+      "type": "object",
+      "title": "DescribeCertificatesResponse"
+    },
+    "DescribeConnectionsMessage": {
+      "description": "<p/>",
+      "properties": {
+        "Filters": {
+          "$ref": "#/definitions/FilterList",
+          "description": "<p>The filters applied to the connection.</p> <p>Valid filter names: endpoint-arn | replication-instance-arn</p>"
+        },
+        "Marker": {
+          "$ref": "#/definitions/String",
+          "description": " An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>. "
+        },
+        "MaxRecords": {
+          "$ref": "#/definitions/IntegerOptional",
+          "description": "<p> The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination token called a marker is included in the response so that the remaining results can be retrieved. </p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>"
+        }
+      },
+      "type": "object",
+      "title": "DescribeConnectionsMessage"
+    },
+    "DescribeConnectionsResponse": {
+      "description": "<p/>",
+      "properties": {
+        "Connections": {
+          "$ref": "#/definitions/ConnectionList",
+          "description": "A description of the connections."
+        },
+        "Marker": {
+          "$ref": "#/definitions/String",
+          "description": " An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>. "
+        }
+      },
+      "type": "object",
+      "title": "DescribeConnectionsResponse"
+    },
+    "DescribeEndpointTypesMessage": {
+      "description": "<p/>",
+      "properties": {
+        "Filters": {
+          "$ref": "#/definitions/FilterList",
+          "description": "<p>Filters applied to the describe action.</p> <p>Valid filter names: engine-name | endpoint-type</p>"
+        },
+        "Marker": {
+          "$ref": "#/definitions/String",
+          "description": " An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>. "
+        },
+        "MaxRecords": {
+          "$ref": "#/definitions/IntegerOptional",
+          "description": "<p> The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination token called a marker is included in the response so that the remaining results can be retrieved. </p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>"
+        }
+      },
+      "type": "object",
+      "title": "DescribeEndpointTypesMessage"
+    },
+    "DescribeEndpointTypesResponse": {
+      "description": "<p/>",
+      "properties": {
+        "Marker": {
+          "$ref": "#/definitions/String",
+          "description": " An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>. "
+        },
+        "SupportedEndpointTypes": {
+          "$ref": "#/definitions/SupportedEndpointTypeList",
+          "description": "The type of endpoints that are supported."
+        }
+      },
+      "type": "object",
+      "title": "DescribeEndpointTypesResponse"
+    },
+    "DescribeEndpointsMessage": {
+      "description": "<p/>",
+      "properties": {
+        "Filters": {
+          "$ref": "#/definitions/FilterList",
+          "description": "<p>Filters applied to the describe action.</p> <p>Valid filter names: endpoint-arn | endpoint-type | endpoint-id | engine-name</p>"
+        },
+        "Marker": {
+          "$ref": "#/definitions/String",
+          "description": " An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>. "
+        },
+        "MaxRecords": {
+          "$ref": "#/definitions/IntegerOptional",
+          "description": "<p> The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination token called a marker is included in the response so that the remaining results can be retrieved. </p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>"
+        }
+      },
+      "type": "object",
+      "title": "DescribeEndpointsMessage"
+    },
+    "DescribeEndpointsResponse": {
+      "description": "<p/>",
+      "properties": {
+        "Endpoints": {
+          "$ref": "#/definitions/EndpointList",
+          "description": "Endpoint description."
+        },
+        "Marker": {
+          "$ref": "#/definitions/String",
+          "description": " An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>. "
+        }
+      },
+      "type": "object",
+      "title": "DescribeEndpointsResponse"
+    },
+    "DescribeOrderableReplicationInstancesMessage": {
+      "description": "<p/>",
+      "properties": {
+        "Marker": {
+          "$ref": "#/definitions/String",
+          "description": " An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>. "
+        },
+        "MaxRecords": {
+          "$ref": "#/definitions/IntegerOptional",
+          "description": "<p> The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination token called a marker is included in the response so that the remaining results can be retrieved. </p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>"
+        }
+      },
+      "type": "object",
+      "title": "DescribeOrderableReplicationInstancesMessage"
+    },
+    "DescribeOrderableReplicationInstancesResponse": {
+      "description": "<p/>",
+      "properties": {
+        "Marker": {
+          "$ref": "#/definitions/String",
+          "description": " An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>. "
+        },
+        "OrderableReplicationInstances": {
+          "$ref": "#/definitions/OrderableReplicationInstanceList",
+          "description": "The order-able replication instances available."
+        }
+      },
+      "type": "object",
+      "title": "DescribeOrderableReplicationInstancesResponse"
+    },
+    "DescribeRefreshSchemasStatusMessage": {
+      "description": "<p/>",
+      "properties": {
+        "EndpointArn": {
+          "$ref": "#/definitions/String",
+          "description": "The Amazon Resource Name (ARN) string that uniquely identifies the endpoint."
+        }
+      },
+      "required": [
+        "EndpointArn"
+      ],
+      "type": "object",
+      "title": "DescribeRefreshSchemasStatusMessage"
+    },
+    "DescribeRefreshSchemasStatusResponse": {
+      "description": "<p/>",
+      "properties": {
+        "RefreshSchemasStatus": {
+          "$ref": "#/definitions/RefreshSchemasStatus",
+          "description": "The status of the schema."
+        }
+      },
+      "type": "object",
+      "title": "DescribeRefreshSchemasStatusResponse"
+    },
+    "DescribeReplicationInstancesMessage": {
+      "description": "<p/>",
+      "properties": {
+        "Filters": {
+          "$ref": "#/definitions/FilterList",
+          "description": "<p>Filters applied to the describe action.</p> <p>Valid filter names: replication-instance-arn | replication-instance-id | replication-instance-class | engine-version</p>"
+        },
+        "Marker": {
+          "$ref": "#/definitions/String",
+          "description": " An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>. "
+        },
+        "MaxRecords": {
+          "$ref": "#/definitions/IntegerOptional",
+          "description": "<p> The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination token called a marker is included in the response so that the remaining results can be retrieved. </p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>"
+        }
+      },
+      "type": "object",
+      "title": "DescribeReplicationInstancesMessage"
+    },
+    "DescribeReplicationInstancesResponse": {
+      "description": "<p/>",
+      "properties": {
+        "Marker": {
+          "$ref": "#/definitions/String",
+          "description": " An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>. "
+        },
+        "ReplicationInstances": {
+          "$ref": "#/definitions/ReplicationInstanceList",
+          "description": "The replication instances described."
+        }
+      },
+      "type": "object",
+      "title": "DescribeReplicationInstancesResponse"
+    },
+    "DescribeReplicationSubnetGroupsMessage": {
+      "description": "<p/>",
+      "properties": {
+        "Filters": {
+          "$ref": "#/definitions/FilterList",
+          "description": "Filters applied to the describe action."
+        },
+        "Marker": {
+          "$ref": "#/definitions/String",
+          "description": " An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>. "
+        },
+        "MaxRecords": {
+          "$ref": "#/definitions/IntegerOptional",
+          "description": "<p> The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination token called a marker is included in the response so that the remaining results can be retrieved. </p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>"
+        }
+      },
+      "type": "object",
+      "title": "DescribeReplicationSubnetGroupsMessage"
+    },
+    "DescribeReplicationSubnetGroupsResponse": {
+      "description": "<p/>",
+      "properties": {
+        "Marker": {
+          "$ref": "#/definitions/String",
+          "description": " An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>. "
+        },
+        "ReplicationSubnetGroups": {
+          "$ref": "#/definitions/ReplicationSubnetGroups",
+          "description": "A description of the replication subnet groups."
+        }
+      },
+      "type": "object",
+      "title": "DescribeReplicationSubnetGroupsResponse"
+    },
+    "DescribeReplicationTasksMessage": {
+      "description": "<p/>",
+      "properties": {
+        "Filters": {
+          "$ref": "#/definitions/FilterList",
+          "description": "<p>Filters applied to the describe action.</p> <p>Valid filter names: replication-task-arn | replication-task-id | migration-type | endpoint-arn | replication-instance-arn</p>"
+        },
+        "Marker": {
+          "$ref": "#/definitions/String",
+          "description": " An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>. "
+        },
+        "MaxRecords": {
+          "$ref": "#/definitions/IntegerOptional",
+          "description": "<p> The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination token called a marker is included in the response so that the remaining results can be retrieved. </p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>"
+        }
+      },
+      "type": "object",
+      "title": "DescribeReplicationTasksMessage"
+    },
+    "DescribeReplicationTasksResponse": {
+      "description": "<p/>",
+      "properties": {
+        "Marker": {
+          "$ref": "#/definitions/String",
+          "description": " An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>. "
+        },
+        "ReplicationTasks": {
+          "$ref": "#/definitions/ReplicationTaskList",
+          "description": "A description of the replication tasks."
+        }
+      },
+      "type": "object",
+      "title": "DescribeReplicationTasksResponse"
+    },
+    "DescribeSchemasMessage": {
+      "description": "<p/>",
+      "properties": {
+        "EndpointArn": {
+          "$ref": "#/definitions/String",
+          "description": "The Amazon Resource Name (ARN) string that uniquely identifies the endpoint."
+        },
+        "Marker": {
+          "$ref": "#/definitions/String",
+          "description": " An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>. "
+        },
+        "MaxRecords": {
+          "$ref": "#/definitions/IntegerOptional",
+          "description": "<p> The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination token called a marker is included in the response so that the remaining results can be retrieved. </p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>"
+        }
+      },
+      "required": [
+        "EndpointArn"
+      ],
+      "type": "object",
+      "title": "DescribeSchemasMessage"
+    },
+    "DescribeSchemasResponse": {
+      "description": "<p/>",
+      "properties": {
+        "Marker": {
+          "$ref": "#/definitions/String",
+          "description": " An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>. "
+        },
+        "Schemas": {
+          "$ref": "#/definitions/SchemaList",
+          "description": "The described schema."
+        }
+      },
+      "type": "object",
+      "title": "DescribeSchemasResponse"
+    },
+    "DescribeTableStatisticsMessage": {
+      "description": "<p/>",
+      "properties": {
+        "Marker": {
+          "$ref": "#/definitions/String",
+          "description": " An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>. "
+        },
+        "MaxRecords": {
+          "$ref": "#/definitions/IntegerOptional",
+          "description": "<p> The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination token called a marker is included in the response so that the remaining results can be retrieved. </p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>"
+        },
+        "ReplicationTaskArn": {
+          "$ref": "#/definitions/String",
+          "description": "The Amazon Resource Name (ARN) of the replication task."
+        }
+      },
+      "required": [
+        "ReplicationTaskArn"
+      ],
+      "type": "object",
+      "title": "DescribeTableStatisticsMessage"
+    },
+    "DescribeTableStatisticsResponse": {
+      "description": "<p/>",
+      "properties": {
+        "Marker": {
+          "$ref": "#/definitions/String",
+          "description": " An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>. "
+        },
+        "ReplicationTaskArn": {
+          "$ref": "#/definitions/String",
+          "description": "The Amazon Resource Name (ARN) of the replication task."
+        },
+        "TableStatistics": {
+          "$ref": "#/definitions/TableStatisticsList",
+          "description": "The table statistics."
+        }
+      },
+      "type": "object",
+      "title": "DescribeTableStatisticsResponse"
+    },
+    "DmsSslModeValue": {
+      "enum": [
+        "none",
+        "require",
+        "verify-ca",
+        "verify-full"
+      ],
+      "type": "string",
+      "title": "DmsSslModeValue"
+    },
+    "Endpoint": {
+      "description": "<p/>",
+      "properties": {
+        "CertificateArn": {
+          "$ref": "#/definitions/String",
+          "description": "The Amazon Resource Name (ARN) used for SSL connection to the endpoint."
+        },
+        "DatabaseName": {
+          "$ref": "#/definitions/String",
+          "description": "The name of the database at the endpoint."
+        },
+        "EndpointArn": {
+          "$ref": "#/definitions/String",
+          "description": "The Amazon Resource Name (ARN) string that uniquely identifies the endpoint."
+        },
+        "EndpointIdentifier": {
+          "$ref": "#/definitions/String",
+          "description": "The database endpoint identifier. Identifiers must begin with a letter; must contain only ASCII letters, digits, and hyphens; and must not end with a hyphen or contain two consecutive hyphens."
+        },
+        "EndpointType": {
+          "$ref": "#/definitions/ReplicationEndpointTypeValue",
+          "description": "The type of endpoint."
+        },
+        "EngineName": {
+          "$ref": "#/definitions/String",
+          "description": "The database engine name. Valid values include MYSQL, ORACLE, POSTGRES, MARIADB, AURORA, REDSHIFT, SYBASE, and SQLSERVER."
+        },
+        "ExtraConnectionAttributes": {
+          "$ref": "#/definitions/String",
+          "description": "Additional connection attributes used to connect to the endpoint."
+        },
+        "KmsKeyId": {
+          "$ref": "#/definitions/String",
+          "description": "The KMS key identifier that will be used to encrypt the connection parameters. If you do not specify a value for the KmsKeyId parameter, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region."
+        },
+        "Port": {
+          "$ref": "#/definitions/IntegerOptional",
+          "description": "The port value used to access the endpoint."
+        },
+        "ServerName": {
+          "$ref": "#/definitions/String",
+          "description": "The name of the server at the endpoint."
+        },
+        "SslMode": {
+          "$ref": "#/definitions/DmsSslModeValue",
+          "description": "<p>The SSL mode used to connect to the endpoint.</p> <p>SSL mode can be one of four values: none, require, verify-ca, verify-full. </p> <p>The default value is none.</p>"
+        },
+        "Status": {
+          "$ref": "#/definitions/String",
+          "description": "The status of the endpoint."
+        },
+        "Username": {
+          "$ref": "#/definitions/String",
+          "description": "The user name used to connect to the endpoint."
+        }
+      },
+      "type": "object",
+      "title": "Endpoint"
+    },
+    "EndpointList": {
+      "items": {
+        "$ref": "#/definitions/Endpoint"
+      },
+      "type": "array",
+      "title": "EndpointList"
+    },
+    "ExceptionMessage": {
+      "type": "string",
+      "title": "ExceptionMessage"
+    },
+    "Filter": {
+      "description": "<p/>",
+      "properties": {
+        "Name": {
+          "$ref": "#/definitions/String",
+          "description": "The name of the filter."
+        },
+        "Values": {
+          "$ref": "#/definitions/FilterValueList",
+          "description": "The filter value."
+        }
+      },
+      "required": [
+        "Name",
+        "Values"
+      ],
+      "type": "object",
+      "title": "Filter"
+    },
+    "FilterList": {
+      "items": {
+        "$ref": "#/definitions/Filter"
+      },
+      "type": "array",
+      "title": "FilterList"
+    },
+    "FilterValueList": {
+      "items": {
+        "$ref": "#/definitions/String"
+      },
+      "type": "array",
+      "title": "FilterValueList"
+    },
+    "ImportCertificateMessage": {
+      "properties": {
+        "CertificateIdentifier": {
+          "$ref": "#/definitions/String",
+          "description": "The customer-assigned name of the certificate. Valid characters are A-z and 0-9."
+        },
+        "CertificatePem": {
+          "$ref": "#/definitions/String",
+          "description": "The contents of the .pem X.509 certificate file for the certificate."
+        },
+        "CertificateWallet": {
+          "$ref": "#/definitions/CertificateWallet",
+          "description": "The location of the imported Oracle Wallet certificate for use with SSL."
+        }
+      },
+      "required": [
+        "CertificateIdentifier"
+      ],
+      "type": "object",
+      "title": "ImportCertificateMessage"
+    },
+    "ImportCertificateResponse": {
+      "properties": {
+        "Certificate": {
+          "$ref": "#/definitions/Certificate",
+          "description": "The certificate to be uploaded."
+        }
+      },
+      "type": "object",
+      "title": "ImportCertificateResponse"
+    },
+    "InsufficientResourceCapacityFault": {
+      "description": "There are not enough resources allocated to the database migration.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/ExceptionMessage",
+          "description": "<p/>"
+        }
+      },
+      "type": "object",
+      "title": "InsufficientResourceCapacityFault"
+    },
+    "Integer": {
+      "type": "integer",
+      "title": "Integer"
+    },
+    "IntegerOptional": {
+      "type": "integer",
+      "title": "IntegerOptional"
+    },
+    "InvalidCertificateFault": {
+      "description": "The certificate was not valid.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/ExceptionMessage"
+        }
+      },
+      "type": "object",
+      "title": "InvalidCertificateFault"
+    },
+    "InvalidResourceStateFault": {
+      "description": "The resource is in a state that prevents it from being used for database migration.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/ExceptionMessage",
+          "description": "<p/>"
+        }
+      },
+      "type": "object",
+      "title": "InvalidResourceStateFault"
+    },
+    "InvalidSubnet": {
+      "description": "The subnet provided is invalid.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/ExceptionMessage",
+          "description": "<p/>"
+        }
+      },
+      "type": "object",
+      "title": "InvalidSubnet"
+    },
+    "KMSKeyNotAccessibleFault": {
+      "description": "AWS DMS cannot access the KMS key.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/ExceptionMessage",
+          "description": "<p/>"
+        }
+      },
+      "type": "object",
+      "title": "KMSKeyNotAccessibleFault"
+    },
+    "KeyList": {
+      "items": {
+        "$ref": "#/definitions/String"
+      },
+      "type": "array",
+      "title": "KeyList"
+    },
+    "ListTagsForResourceMessage": {
+      "description": "<p/>",
+      "properties": {
+        "ResourceArn": {
+          "$ref": "#/definitions/String",
+          "description": "The Amazon Resource Name (ARN) string that uniquely identifies the AWS DMS resource."
+        }
+      },
+      "required": [
+        "ResourceArn"
+      ],
+      "type": "object",
+      "title": "ListTagsForResourceMessage"
+    },
+    "ListTagsForResourceResponse": {
+      "description": "<p/>",
+      "properties": {
+        "TagList": {
+          "$ref": "#/definitions/TagList",
+          "description": "A list of tags for the resource."
+        }
+      },
+      "type": "object",
+      "title": "ListTagsForResourceResponse"
+    },
+    "Long": {
+      "type": "integer",
+      "title": "Long"
+    },
+    "MigrationTypeValue": {
+      "enum": [
+        "full-load",
+        "cdc",
+        "full-load-and-cdc"
+      ],
+      "type": "string",
+      "title": "MigrationTypeValue"
+    },
+    "ModifyEndpointMessage": {
+      "description": "<p/>",
+      "properties": {
+        "CertificateArn": {
+          "$ref": "#/definitions/String",
+          "description": "The Amazon Resource Name (ARN) of the certificate used for SSL connection."
+        },
+        "DatabaseName": {
+          "$ref": "#/definitions/String",
+          "description": "The name of the endpoint database."
+        },
+        "EndpointArn": {
+          "$ref": "#/definitions/String",
+          "description": "The Amazon Resource Name (ARN) string that uniquely identifies the endpoint."
+        },
+        "EndpointIdentifier": {
+          "$ref": "#/definitions/String",
+          "description": "The database endpoint identifier. Identifiers must begin with a letter; must contain only ASCII letters, digits, and hyphens; and must not end with a hyphen or contain two consecutive hyphens."
+        },
+        "EndpointType": {
+          "$ref": "#/definitions/ReplicationEndpointTypeValue",
+          "description": "The type of endpoint."
+        },
+        "EngineName": {
+          "$ref": "#/definitions/String",
+          "description": "The type of engine for the endpoint. Valid values include MYSQL, ORACLE, POSTGRES, MARIADB, AURORA, REDSHIFT, SYBASE, and SQLSERVER."
+        },
+        "ExtraConnectionAttributes": {
+          "$ref": "#/definitions/String",
+          "description": "Additional attributes associated with the connection."
+        },
+        "Password": {
+          "$ref": "#/definitions/SecretString",
+          "description": "The password to be used to login to the endpoint database."
+        },
+        "Port": {
+          "$ref": "#/definitions/IntegerOptional",
+          "description": "The port used by the endpoint database."
+        },
+        "ServerName": {
+          "$ref": "#/definitions/String",
+          "description": "The name of the server where the endpoint database resides."
+        },
+        "SslMode": {
+          "$ref": "#/definitions/DmsSslModeValue",
+          "description": "<p>The SSL mode to be used.</p> <p>SSL mode can be one of four values: none, require, verify-ca, verify-full. </p> <p>The default value is none.</p>"
+        },
+        "Username": {
+          "$ref": "#/definitions/String",
+          "description": "The user name to be used to login to the endpoint database."
+        }
+      },
+      "required": [
+        "EndpointArn"
+      ],
+      "type": "object",
+      "title": "ModifyEndpointMessage"
+    },
+    "ModifyEndpointResponse": {
+      "description": "<p/>",
+      "properties": {
+        "Endpoint": {
+          "$ref": "#/definitions/Endpoint",
+          "description": "The modified endpoint."
+        }
+      },
+      "type": "object",
+      "title": "ModifyEndpointResponse"
+    },
+    "ModifyReplicationInstanceMessage": {
+      "description": "<p/>",
+      "properties": {
+        "AllocatedStorage": {
+          "$ref": "#/definitions/IntegerOptional",
+          "description": "The amount of storage (in gigabytes) to be allocated for the replication instance."
+        },
+        "AllowMajorVersionUpgrade": {
+          "$ref": "#/definitions/Boolean",
+          "description": "<p>Indicates that major version upgrades are allowed. Changing this parameter does not result in an outage and the change is asynchronously applied as soon as possible.</p> <p>Constraints: This parameter must be set to true when specifying a value for the <code>EngineVersion</code> parameter that is a different major version than the replication instance's current version.</p>"
+        },
+        "ApplyImmediately": {
+          "$ref": "#/definitions/Boolean",
+          "description": "Indicates whether the changes should be applied immediately or during the next maintenance window."
+        },
+        "AutoMinorVersionUpgrade": {
+          "$ref": "#/definitions/BooleanOptional",
+          "description": " Indicates that minor version upgrades will be applied automatically to the replication instance during the maintenance window. Changing this parameter does not result in an outage except in the following case and the change is asynchronously applied as soon as possible. An outage will result if this parameter is set to <code>true</code> during the maintenance window, and a newer minor version is available, and AWS DMS has enabled auto patching for that engine version. "
+        },
+        "EngineVersion": {
+          "$ref": "#/definitions/String",
+          "description": "The engine version number of the replication instance."
+        },
+        "MultiAZ": {
+          "$ref": "#/definitions/BooleanOptional",
+          "description": " Specifies if the replication instance is a Multi-AZ deployment. You cannot set the <code>AvailabilityZone</code> parameter if the Multi-AZ parameter is set to <code>true</code>. "
+        },
+        "PreferredMaintenanceWindow": {
+          "$ref": "#/definitions/String",
+          "description": "<p>The weekly time range (in UTC) during which system maintenance can occur, which might result in an outage. Changing this parameter does not result in an outage, except in the following situation, and the change is asynchronously applied as soon as possible. If moving this window to the current time, there must be at least 30 minutes between the current time and end of the window to ensure pending changes are applied.</p> <p>Default: Uses existing setting</p> <p>Format: ddd:hh24:mi-ddd:hh24:mi</p> <p>Valid Days: Mon | Tue | Wed | Thu | Fri | Sat | Sun</p> <p>Constraints: Must be at least 30 minutes</p>"
+        },
+        "ReplicationInstanceArn": {
+          "$ref": "#/definitions/String",
+          "description": "The Amazon Resource Name (ARN) of the replication instance."
+        },
+        "ReplicationInstanceClass": {
+          "$ref": "#/definitions/String",
+          "description": "<p>The compute and memory capacity of the replication instance.</p> <p> Valid Values: <code>dms.t2.micro | dms.t2.small | dms.t2.medium | dms.t2.large | dms.c4.large | dms.c4.xlarge | dms.c4.2xlarge | dms.c4.4xlarge </code> </p>"
+        },
+        "ReplicationInstanceIdentifier": {
+          "$ref": "#/definitions/String",
+          "description": "The replication instance identifier. This parameter is stored as a lowercase string."
+        },
+        "VpcSecurityGroupIds": {
+          "$ref": "#/definitions/VpcSecurityGroupIdList",
+          "description": " Specifies the VPC security group to be used with the replication instance. The VPC security group must work with the VPC containing the replication instance. "
+        }
+      },
+      "required": [
+        "ReplicationInstanceArn"
+      ],
+      "type": "object",
+      "title": "ModifyReplicationInstanceMessage"
+    },
+    "ModifyReplicationInstanceResponse": {
+      "description": "<p/>",
+      "properties": {
+        "ReplicationInstance": {
+          "$ref": "#/definitions/ReplicationInstance",
+          "description": "The modified replication instance."
+        }
+      },
+      "type": "object",
+      "title": "ModifyReplicationInstanceResponse"
+    },
+    "ModifyReplicationSubnetGroupMessage": {
+      "description": "<p/>",
+      "properties": {
+        "ReplicationSubnetGroupDescription": {
+          "$ref": "#/definitions/String",
+          "description": "The description of the replication instance subnet group."
+        },
+        "ReplicationSubnetGroupIdentifier": {
+          "$ref": "#/definitions/String",
+          "description": "The name of the replication instance subnet group."
+        },
+        "SubnetIds": {
+          "$ref": "#/definitions/SubnetIdentifierList",
+          "description": "A list of subnet IDs."
+        }
+      },
+      "required": [
+        "ReplicationSubnetGroupIdentifier",
+        "SubnetIds"
+      ],
+      "type": "object",
+      "title": "ModifyReplicationSubnetGroupMessage"
+    },
+    "ModifyReplicationSubnetGroupResponse": {
+      "description": "<p/>",
+      "properties": {
+        "ReplicationSubnetGroup": {
+          "$ref": "#/definitions/ReplicationSubnetGroup",
+          "description": "The modified replication subnet group."
+        }
+      },
+      "type": "object",
+      "title": "ModifyReplicationSubnetGroupResponse"
+    },
+    "ModifyReplicationTaskMessage": {
+      "description": "<p/>",
+      "properties": {
+        "CdcStartTime": {
+          "$ref": "#/definitions/TStamp",
+          "description": "The start time for the Change Data Capture (CDC) operation."
+        },
+        "MigrationType": {
+          "$ref": "#/definitions/MigrationTypeValue",
+          "description": "<p>The migration type.</p> <p>Valid values: full-load | cdc | full-load-and-cdc</p>"
+        },
+        "ReplicationTaskArn": {
+          "$ref": "#/definitions/String",
+          "description": "The Amazon Resource Name (ARN) of the replication task."
+        },
+        "ReplicationTaskIdentifier": {
+          "$ref": "#/definitions/String",
+          "description": "<p>The replication task identifier.</p> <p>Constraints:</p> <ul> <li> <p>Must contain from 1 to 63 alphanumeric characters or hyphens.</p> </li> <li> <p>First character must be a letter.</p> </li> <li> <p>Cannot end with a hyphen or contain two consecutive hyphens.</p> </li> </ul>"
+        },
+        "ReplicationTaskSettings": {
+          "$ref": "#/definitions/String",
+          "description": "JSON file that contains settings for the task, such as target metadata settings."
+        },
+        "TableMappings": {
+          "$ref": "#/definitions/String",
+          "description": "<p>The path of the JSON file that contains the table mappings. Preceed the path with \"file://\".</p> <p>For example, --table-mappings file://mappingfile.json</p>"
+        }
+      },
+      "required": [
+        "ReplicationTaskArn"
+      ],
+      "type": "object",
+      "title": "ModifyReplicationTaskMessage"
+    },
+    "ModifyReplicationTaskResponse": {
+      "description": "<p/>",
+      "properties": {
+        "ReplicationTask": {
+          "$ref": "#/definitions/ReplicationTask",
+          "description": "The replication task that was modified."
+        }
+      },
+      "type": "object",
+      "title": "ModifyReplicationTaskResponse"
+    },
+    "OrderableReplicationInstance": {
+      "description": "<p/>",
+      "properties": {
+        "DefaultAllocatedStorage": {
+          "$ref": "#/definitions/Integer",
+          "description": "The default amount of storage (in gigabytes) that is allocated for the replication instance."
+        },
+        "EngineVersion": {
+          "$ref": "#/definitions/String",
+          "description": "The version of the replication engine."
+        },
+        "IncludedAllocatedStorage": {
+          "$ref": "#/definitions/Integer",
+          "description": "The amount of storage (in gigabytes) that is allocated for the replication instance."
+        },
+        "MaxAllocatedStorage": {
+          "$ref": "#/definitions/Integer",
+          "description": "The minimum amount of storage (in gigabytes) that can be allocated for the replication instance."
+        },
+        "MinAllocatedStorage": {
+          "$ref": "#/definitions/Integer",
+          "description": "The minimum amount of storage (in gigabytes) that can be allocated for the replication instance."
+        },
+        "ReplicationInstanceClass": {
+          "$ref": "#/definitions/String",
+          "description": "<p>The compute and memory capacity of the replication instance.</p> <p> Valid Values: <code>dms.t2.micro | dms.t2.small | dms.t2.medium | dms.t2.large | dms.c4.large | dms.c4.xlarge | dms.c4.2xlarge | dms.c4.4xlarge </code> </p>"
+        },
+        "StorageType": {
+          "$ref": "#/definitions/String",
+          "description": "The type of storage used by the replication instance."
+        }
+      },
+      "type": "object",
+      "title": "OrderableReplicationInstance"
+    },
+    "OrderableReplicationInstanceList": {
+      "items": {
+        "$ref": "#/definitions/OrderableReplicationInstance"
+      },
+      "type": "array",
+      "title": "OrderableReplicationInstanceList"
+    },
+    "RefreshSchemasMessage": {
+      "description": "<p/>",
+      "properties": {
+        "EndpointArn": {
+          "$ref": "#/definitions/String",
+          "description": "The Amazon Resource Name (ARN) string that uniquely identifies the endpoint."
+        },
+        "ReplicationInstanceArn": {
+          "$ref": "#/definitions/String",
+          "description": "The Amazon Resource Name (ARN) of the replication instance."
+        }
+      },
+      "required": [
+        "EndpointArn",
+        "ReplicationInstanceArn"
+      ],
+      "type": "object",
+      "title": "RefreshSchemasMessage"
+    },
+    "RefreshSchemasResponse": {
+      "description": "<p/>",
+      "properties": {
+        "RefreshSchemasStatus": {
+          "$ref": "#/definitions/RefreshSchemasStatus",
+          "description": "The status of the refreshed schema."
+        }
+      },
+      "type": "object",
+      "title": "RefreshSchemasResponse"
+    },
+    "RefreshSchemasStatus": {
+      "description": "<p/>",
+      "properties": {
+        "EndpointArn": {
+          "$ref": "#/definitions/String",
+          "description": "The Amazon Resource Name (ARN) string that uniquely identifies the endpoint."
+        },
+        "LastFailureMessage": {
+          "$ref": "#/definitions/String",
+          "description": "The last failure message for the schema."
+        },
+        "LastRefreshDate": {
+          "$ref": "#/definitions/TStamp",
+          "description": "The date the schema was last refreshed."
+        },
+        "ReplicationInstanceArn": {
+          "$ref": "#/definitions/String",
+          "description": "The Amazon Resource Name (ARN) of the replication instance."
+        },
+        "Status": {
+          "$ref": "#/definitions/RefreshSchemasStatusTypeValue",
+          "description": "The status of the schema."
+        }
+      },
+      "type": "object",
+      "title": "RefreshSchemasStatus"
+    },
+    "RefreshSchemasStatusTypeValue": {
+      "enum": [
+        "successful",
+        "failed",
+        "refreshing"
+      ],
+      "type": "string",
+      "title": "RefreshSchemasStatusTypeValue"
+    },
+    "RemoveTagsFromResourceMessage": {
+      "description": "<p/>",
+      "properties": {
+        "ResourceArn": {
+          "$ref": "#/definitions/String",
+          "description": "&gt;The Amazon Resource Name (ARN) of the AWS DMS resource the tag is to be removed from."
+        },
+        "TagKeys": {
+          "$ref": "#/definitions/KeyList",
+          "description": "The tag key (name) of the tag to be removed."
+        }
+      },
+      "required": [
+        "ResourceArn",
+        "TagKeys"
+      ],
+      "type": "object",
+      "title": "RemoveTagsFromResourceMessage"
+    },
+    "RemoveTagsFromResourceResponse": {
+      "description": "<p/>",
+      "properties": {},
+      "type": "object",
+      "title": "RemoveTagsFromResourceResponse"
+    },
+    "ReplicationEndpointTypeValue": {
+      "enum": [
+        "source",
+        "target"
+      ],
+      "type": "string",
+      "title": "ReplicationEndpointTypeValue"
+    },
+    "ReplicationInstance": {
+      "description": "<p/>",
+      "properties": {
+        "AllocatedStorage": {
+          "$ref": "#/definitions/Integer",
+          "description": "The amount of storage (in gigabytes) that is allocated for the replication instance."
+        },
+        "AutoMinorVersionUpgrade": {
+          "$ref": "#/definitions/Boolean",
+          "description": "Boolean value indicating if minor version upgrades will be automatically applied to the instance."
+        },
+        "AvailabilityZone": {
+          "$ref": "#/definitions/String",
+          "description": "The Availability Zone for the instance."
+        },
+        "EngineVersion": {
+          "$ref": "#/definitions/String",
+          "description": "The engine version number of the replication instance."
+        },
+        "InstanceCreateTime": {
+          "$ref": "#/definitions/TStamp",
+          "description": "The time the replication instance was created."
+        },
+        "KmsKeyId": {
+          "$ref": "#/definitions/String",
+          "description": "The KMS key identifier that is used to encrypt the content on the replication instance. If you do not specify a value for the KmsKeyId parameter, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region."
+        },
+        "MultiAZ": {
+          "$ref": "#/definitions/Boolean",
+          "description": " Specifies if the replication instance is a Multi-AZ deployment. You cannot set the <code>AvailabilityZone</code> parameter if the Multi-AZ parameter is set to <code>true</code>. "
+        },
+        "PendingModifiedValues": {
+          "$ref": "#/definitions/ReplicationPendingModifiedValues",
+          "description": "The pending modification values."
+        },
+        "PreferredMaintenanceWindow": {
+          "$ref": "#/definitions/String",
+          "description": "The maintenance window times for the replication instance."
+        },
+        "PubliclyAccessible": {
+          "$ref": "#/definitions/Boolean",
+          "description": " Specifies the accessibility options for the replication instance. A value of <code>true</code> represents an instance with a public IP address. A value of <code>false</code> represents an instance with a private IP address. The default value is <code>true</code>. "
+        },
+        "ReplicationInstanceArn": {
+          "$ref": "#/definitions/String",
+          "description": "The Amazon Resource Name (ARN) of the replication instance."
+        },
+        "ReplicationInstanceClass": {
+          "$ref": "#/definitions/String",
+          "description": "<p>The compute and memory capacity of the replication instance.</p> <p> Valid Values: <code>dms.t2.micro | dms.t2.small | dms.t2.medium | dms.t2.large | dms.c4.large | dms.c4.xlarge | dms.c4.2xlarge | dms.c4.4xlarge </code> </p>"
+        },
+        "ReplicationInstanceIdentifier": {
+          "$ref": "#/definitions/String",
+          "description": "<p>The replication instance identifier. This parameter is stored as a lowercase string.</p> <p>Constraints:</p> <ul> <li> <p>Must contain from 1 to 63 alphanumeric characters or hyphens.</p> </li> <li> <p>First character must be a letter.</p> </li> <li> <p>Cannot end with a hyphen or contain two consecutive hyphens.</p> </li> </ul> <p>Example: <code>myrepinstance</code> </p>"
+        },
+        "ReplicationInstancePrivateIpAddress": {
+          "$ref": "#/definitions/String",
+          "description": "The private IP address of the replication instance."
+        },
+        "ReplicationInstancePrivateIpAddresses": {
+          "$ref": "#/definitions/ReplicationInstancePrivateIpAddressList",
+          "description": "The private IP address of the replication instance."
+        },
+        "ReplicationInstancePublicIpAddress": {
+          "$ref": "#/definitions/String",
+          "description": "The public IP address of the replication instance."
+        },
+        "ReplicationInstancePublicIpAddresses": {
+          "$ref": "#/definitions/ReplicationInstancePublicIpAddressList",
+          "description": "The public IP address of the replication instance."
+        },
+        "ReplicationInstanceStatus": {
+          "$ref": "#/definitions/String",
+          "description": "The status of the replication instance."
+        },
+        "ReplicationSubnetGroup": {
+          "$ref": "#/definitions/ReplicationSubnetGroup",
+          "description": "The subnet group for the replication instance."
+        },
+        "SecondaryAvailabilityZone": {
+          "$ref": "#/definitions/String",
+          "description": "The availability zone of the standby replication instance in a Multi-AZ deployment."
+        },
+        "VpcSecurityGroups": {
+          "$ref": "#/definitions/VpcSecurityGroupMembershipList",
+          "description": "The VPC security group for the instance."
+        }
+      },
+      "type": "object",
+      "title": "ReplicationInstance"
+    },
+    "ReplicationInstanceList": {
+      "items": {
+        "$ref": "#/definitions/ReplicationInstance"
+      },
+      "type": "array",
+      "title": "ReplicationInstanceList"
+    },
+    "ReplicationInstancePrivateIpAddressList": {
+      "items": {
+        "$ref": "#/definitions/String"
+      },
+      "type": "array",
+      "title": "ReplicationInstancePrivateIpAddressList"
+    },
+    "ReplicationInstancePublicIpAddressList": {
+      "items": {
+        "$ref": "#/definitions/String"
+      },
+      "type": "array",
+      "title": "ReplicationInstancePublicIpAddressList"
+    },
+    "ReplicationPendingModifiedValues": {
+      "description": "<p/>",
+      "properties": {
+        "AllocatedStorage": {
+          "$ref": "#/definitions/IntegerOptional",
+          "description": "The amount of storage (in gigabytes) that is allocated for the replication instance."
+        },
+        "EngineVersion": {
+          "$ref": "#/definitions/String",
+          "description": "The engine version number of the replication instance."
+        },
+        "MultiAZ": {
+          "$ref": "#/definitions/BooleanOptional",
+          "description": " Specifies if the replication instance is a Multi-AZ deployment. You cannot set the <code>AvailabilityZone</code> parameter if the Multi-AZ parameter is set to <code>true</code>. "
+        },
+        "ReplicationInstanceClass": {
+          "$ref": "#/definitions/String",
+          "description": "<p>The compute and memory capacity of the replication instance.</p> <p> Valid Values: <code>dms.t2.micro | dms.t2.small | dms.t2.medium | dms.t2.large | dms.c4.large | dms.c4.xlarge | dms.c4.2xlarge | dms.c4.4xlarge </code> </p>"
+        }
+      },
+      "type": "object",
+      "title": "ReplicationPendingModifiedValues"
+    },
+    "ReplicationSubnetGroup": {
+      "description": "<p/>",
+      "properties": {
+        "ReplicationSubnetGroupDescription": {
+          "$ref": "#/definitions/String",
+          "description": "The description of the replication subnet group."
+        },
+        "ReplicationSubnetGroupIdentifier": {
+          "$ref": "#/definitions/String",
+          "description": "The identifier of the replication instance subnet group."
+        },
+        "SubnetGroupStatus": {
+          "$ref": "#/definitions/String",
+          "description": "The status of the subnet group."
+        },
+        "Subnets": {
+          "$ref": "#/definitions/SubnetList",
+          "description": "The subnets that are in the subnet group."
+        },
+        "VpcId": {
+          "$ref": "#/definitions/String",
+          "description": "The ID of the VPC."
+        }
+      },
+      "type": "object",
+      "title": "ReplicationSubnetGroup"
+    },
+    "ReplicationSubnetGroupDoesNotCoverEnoughAZs": {
+      "description": "The replication subnet group does not cover enough Availability Zones (AZs). Edit the replication subnet group and add more AZs.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/ExceptionMessage",
+          "description": "<p/>"
+        }
+      },
+      "type": "object",
+      "title": "ReplicationSubnetGroupDoesNotCoverEnoughAZs"
+    },
+    "ReplicationSubnetGroups": {
+      "items": {
+        "$ref": "#/definitions/ReplicationSubnetGroup"
+      },
+      "type": "array",
+      "title": "ReplicationSubnetGroups"
+    },
+    "ReplicationTask": {
+      "description": "<p/>",
+      "properties": {
+        "LastFailureMessage": {
+          "$ref": "#/definitions/String",
+          "description": "The last error (failure) message generated for the replication instance."
+        },
+        "MigrationType": {
+          "$ref": "#/definitions/MigrationTypeValue",
+          "description": "The type of migration."
+        },
+        "ReplicationInstanceArn": {
+          "$ref": "#/definitions/String",
+          "description": "The Amazon Resource Name (ARN) of the replication instance."
+        },
+        "ReplicationTaskArn": {
+          "$ref": "#/definitions/String",
+          "description": "The Amazon Resource Name (ARN) of the replication task."
+        },
+        "ReplicationTaskCreationDate": {
+          "$ref": "#/definitions/TStamp",
+          "description": "The date the replication task was created."
+        },
+        "ReplicationTaskIdentifier": {
+          "$ref": "#/definitions/String",
+          "description": "<p>The replication task identifier.</p> <p>Constraints:</p> <ul> <li> <p>Must contain from 1 to 63 alphanumeric characters or hyphens.</p> </li> <li> <p>First character must be a letter.</p> </li> <li> <p>Cannot end with a hyphen or contain two consecutive hyphens.</p> </li> </ul>"
+        },
+        "ReplicationTaskSettings": {
+          "$ref": "#/definitions/String",
+          "description": "The settings for the replication task."
+        },
+        "ReplicationTaskStartDate": {
+          "$ref": "#/definitions/TStamp",
+          "description": "The date the replication task is scheduled to start."
+        },
+        "ReplicationTaskStats": {
+          "$ref": "#/definitions/ReplicationTaskStats",
+          "description": "The statistics for the task, including elapsed time, tables loaded, and table errors."
+        },
+        "SourceEndpointArn": {
+          "$ref": "#/definitions/String",
+          "description": "The Amazon Resource Name (ARN) string that uniquely identifies the endpoint."
+        },
+        "Status": {
+          "$ref": "#/definitions/String",
+          "description": "The status of the replication task."
+        },
+        "StopReason": {
+          "$ref": "#/definitions/String",
+          "description": "The reason the replication task was stopped."
+        },
+        "TableMappings": {
+          "$ref": "#/definitions/String",
+          "description": "Table mappings specified in the task."
+        },
+        "TargetEndpointArn": {
+          "$ref": "#/definitions/String",
+          "description": "The Amazon Resource Name (ARN) string that uniquely identifies the endpoint."
+        }
+      },
+      "type": "object",
+      "title": "ReplicationTask"
+    },
+    "ReplicationTaskList": {
+      "items": {
+        "$ref": "#/definitions/ReplicationTask"
+      },
+      "type": "array",
+      "title": "ReplicationTaskList"
+    },
+    "ReplicationTaskStats": {
+      "description": "<p/>",
+      "properties": {
+        "ElapsedTimeMillis": {
+          "$ref": "#/definitions/Long",
+          "description": "The elapsed time of the task, in milliseconds."
+        },
+        "FullLoadProgressPercent": {
+          "$ref": "#/definitions/Integer",
+          "description": "The percent complete for the full load migration task."
+        },
+        "TablesErrored": {
+          "$ref": "#/definitions/Integer",
+          "description": "The number of errors that have occurred during this task."
+        },
+        "TablesLoaded": {
+          "$ref": "#/definitions/Integer",
+          "description": "The number of tables loaded for this task."
+        },
+        "TablesLoading": {
+          "$ref": "#/definitions/Integer",
+          "description": "The number of tables currently loading for this task."
+        },
+        "TablesQueued": {
+          "$ref": "#/definitions/Integer",
+          "description": "The number of tables queued for this task."
+        }
+      },
+      "type": "object",
+      "title": "ReplicationTaskStats"
+    },
+    "ResourceAlreadyExistsFault": {
+      "description": "The resource you are attempting to create already exists.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/ExceptionMessage",
+          "description": "<p/>"
+        }
+      },
+      "type": "object",
+      "title": "ResourceAlreadyExistsFault"
+    },
+    "ResourceNotFoundFault": {
+      "description": "The resource could not be found.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/ExceptionMessage",
+          "description": "<p/>"
+        }
+      },
+      "type": "object",
+      "title": "ResourceNotFoundFault"
+    },
+    "ResourceQuotaExceededFault": {
+      "description": "The quota for this resource quota has been exceeded.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/ExceptionMessage",
+          "description": "<p/>"
+        }
+      },
+      "type": "object",
+      "title": "ResourceQuotaExceededFault"
+    },
+    "SchemaList": {
+      "items": {
+        "$ref": "#/definitions/String"
+      },
+      "type": "array",
+      "title": "SchemaList"
+    },
+    "SecretString": {
+      "format": "password",
+      "type": "string",
+      "title": "SecretString"
+    },
+    "StartReplicationTaskMessage": {
+      "description": "<p/>",
+      "properties": {
+        "CdcStartTime": {
+          "$ref": "#/definitions/TStamp",
+          "description": "The start time for the Change Data Capture (CDC) operation."
+        },
+        "ReplicationTaskArn": {
+          "$ref": "#/definitions/String",
+          "description": "The Amazon Resource Number (ARN) of the replication task to be started."
+        },
+        "StartReplicationTaskType": {
+          "$ref": "#/definitions/StartReplicationTaskTypeValue",
+          "description": "The type of replication task."
+        }
+      },
+      "required": [
+        "ReplicationTaskArn",
+        "StartReplicationTaskType"
+      ],
+      "type": "object",
+      "title": "StartReplicationTaskMessage"
+    },
+    "StartReplicationTaskResponse": {
+      "description": "<p/>",
+      "properties": {
+        "ReplicationTask": {
+          "$ref": "#/definitions/ReplicationTask",
+          "description": "The replication task started."
+        }
+      },
+      "type": "object",
+      "title": "StartReplicationTaskResponse"
+    },
+    "StartReplicationTaskTypeValue": {
+      "enum": [
+        "start-replication",
+        "resume-processing",
+        "reload-target"
+      ],
+      "type": "string",
+      "title": "StartReplicationTaskTypeValue"
+    },
+    "StopReplicationTaskMessage": {
+      "description": "<p/>",
+      "properties": {
+        "ReplicationTaskArn": {
+          "$ref": "#/definitions/String",
+          "description": "The Amazon Resource Number(ARN) of the replication task to be stopped."
+        }
+      },
+      "required": [
+        "ReplicationTaskArn"
+      ],
+      "type": "object",
+      "title": "StopReplicationTaskMessage"
+    },
+    "StopReplicationTaskResponse": {
+      "description": "<p/>",
+      "properties": {
+        "ReplicationTask": {
+          "$ref": "#/definitions/ReplicationTask",
+          "description": "The replication task stopped."
+        }
+      },
+      "type": "object",
+      "title": "StopReplicationTaskResponse"
+    },
+    "StorageQuotaExceededFault": {
+      "description": "The storage quota has been exceeded.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/ExceptionMessage",
+          "description": "<p/>"
+        }
+      },
+      "type": "object",
+      "title": "StorageQuotaExceededFault"
+    },
+    "String": {
+      "type": "string",
+      "title": "String"
+    },
+    "Subnet": {
+      "description": "<p/>",
+      "properties": {
+        "SubnetAvailabilityZone": {
+          "$ref": "#/definitions/AvailabilityZone",
+          "description": "The Availability Zone of the subnet."
+        },
+        "SubnetIdentifier": {
+          "$ref": "#/definitions/String",
+          "description": "The subnet identifier."
+        },
+        "SubnetStatus": {
+          "$ref": "#/definitions/String",
+          "description": "The status of the subnet."
+        }
+      },
+      "type": "object",
+      "title": "Subnet"
+    },
+    "SubnetAlreadyInUse": {
+      "description": "The specified subnet is already in use.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/ExceptionMessage",
+          "description": "<p/>"
+        }
+      },
+      "type": "object",
+      "title": "SubnetAlreadyInUse"
+    },
+    "SubnetIdentifierList": {
+      "items": {
+        "$ref": "#/definitions/String"
+      },
+      "type": "array",
+      "title": "SubnetIdentifierList"
+    },
+    "SubnetList": {
+      "items": {
+        "$ref": "#/definitions/Subnet"
+      },
+      "type": "array",
+      "title": "SubnetList"
+    },
+    "SupportedEndpointType": {
+      "description": "<p/>",
+      "properties": {
+        "EndpointType": {
+          "$ref": "#/definitions/ReplicationEndpointTypeValue",
+          "description": "The type of endpoint."
+        },
+        "EngineName": {
+          "$ref": "#/definitions/String",
+          "description": "The database engine name. Valid values include MYSQL, ORACLE, POSTGRES, MARIADB, AURORA, REDSHIFT, SYBASE, and SQLSERVER."
+        },
+        "SupportsCDC": {
+          "$ref": "#/definitions/Boolean",
+          "description": "Indicates if Change Data Capture (CDC) is supported."
+        }
+      },
+      "type": "object",
+      "title": "SupportedEndpointType"
+    },
+    "SupportedEndpointTypeList": {
+      "items": {
+        "$ref": "#/definitions/SupportedEndpointType"
+      },
+      "type": "array",
+      "title": "SupportedEndpointTypeList"
+    },
+    "TStamp": {
+      "format": "date-time",
+      "type": "string",
+      "title": "TStamp"
+    },
+    "TableStatistics": {
+      "description": "<p/>",
+      "properties": {
+        "Ddls": {
+          "$ref": "#/definitions/Long",
+          "description": "The Data Definition Language (DDL) used to build and modify the structure of your tables."
+        },
+        "Deletes": {
+          "$ref": "#/definitions/Long",
+          "description": "The number of delete actions performed on a table."
+        },
+        "FullLoadRows": {
+          "$ref": "#/definitions/Long",
+          "description": "The number of rows added during the Full Load operation."
+        },
+        "Inserts": {
+          "$ref": "#/definitions/Long",
+          "description": "The number of insert actions performed on a table."
+        },
+        "LastUpdateTime": {
+          "$ref": "#/definitions/TStamp",
+          "description": "The last time the table was updated."
+        },
+        "SchemaName": {
+          "$ref": "#/definitions/String",
+          "description": "The schema name."
+        },
+        "TableName": {
+          "$ref": "#/definitions/String",
+          "description": "The name of the table."
+        },
+        "TableState": {
+          "$ref": "#/definitions/String",
+          "description": "The state of the table."
+        },
+        "Updates": {
+          "$ref": "#/definitions/Long",
+          "description": "The number of update actions performed on a table."
+        }
+      },
+      "type": "object",
+      "title": "TableStatistics"
+    },
+    "TableStatisticsList": {
+      "items": {
+        "$ref": "#/definitions/TableStatistics"
+      },
+      "type": "array",
+      "title": "TableStatisticsList"
+    },
+    "Tag": {
+      "description": "<p/>",
+      "properties": {
+        "Key": {
+          "$ref": "#/definitions/String",
+          "description": "A key is the required name of the tag. The string value can be from 1 to 128 Unicode characters in length and cannot be prefixed with \"aws:\" or \"dms:\". The string can only contain only the set of Unicode letters, digits, white-space, '_', '.', '/', '=', '+', '-' (Java regex: \"^([\\\\p{L}\\\\p{Z}\\\\p{N}_.:/=+\\\\-]*)$\")."
+        },
+        "Value": {
+          "$ref": "#/definitions/String",
+          "description": "A value is the optional value of the tag. The string value can be from 1 to 256 Unicode characters in length and cannot be prefixed with \"aws:\" or \"dms:\". The string can only contain only the set of Unicode letters, digits, white-space, '_', '.', '/', '=', '+', '-' (Java regex: \"^([\\\\p{L}\\\\p{Z}\\\\p{N}_.:/=+\\\\-]*)$\")."
+        }
+      },
+      "type": "object",
+      "title": "Tag"
+    },
+    "TagList": {
+      "items": {
+        "$ref": "#/definitions/Tag"
+      },
+      "type": "array",
+      "title": "TagList"
+    },
+    "TestConnectionMessage": {
+      "description": "<p/>",
+      "properties": {
+        "EndpointArn": {
+          "$ref": "#/definitions/String",
+          "description": "The Amazon Resource Name (ARN) string that uniquely identifies the endpoint."
+        },
+        "ReplicationInstanceArn": {
+          "$ref": "#/definitions/String",
+          "description": "The Amazon Resource Name (ARN) of the replication instance."
+        }
+      },
+      "required": [
+        "ReplicationInstanceArn",
+        "EndpointArn"
+      ],
+      "type": "object",
+      "title": "TestConnectionMessage"
+    },
+    "TestConnectionResponse": {
+      "description": "<p/>",
+      "properties": {
+        "Connection": {
+          "$ref": "#/definitions/Connection",
+          "description": "The connection tested."
+        }
+      },
+      "type": "object",
+      "title": "TestConnectionResponse"
+    },
+    "UpgradeDependencyFailureFault": {
+      "description": "An upgrade dependency is preventing the database migration.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/ExceptionMessage",
+          "description": "<p/>"
+        }
+      },
+      "type": "object",
+      "title": "UpgradeDependencyFailureFault"
+    },
+    "VpcSecurityGroupIdList": {
+      "items": {
+        "$ref": "#/definitions/String"
+      },
+      "type": "array",
+      "title": "VpcSecurityGroupIdList"
+    },
+    "VpcSecurityGroupMembership": {
+      "description": "<p/>",
+      "properties": {
+        "Status": {
+          "$ref": "#/definitions/String",
+          "description": "The status of the VPC security group."
+        },
+        "VpcSecurityGroupId": {
+          "$ref": "#/definitions/String",
+          "description": "The VPC security group Id."
+        }
+      },
+      "type": "object",
+      "title": "VpcSecurityGroupMembership"
+    },
+    "VpcSecurityGroupMembershipList": {
+      "items": {
+        "$ref": "#/definitions/VpcSecurityGroupMembership"
+      },
+      "type": "array",
+      "title": "VpcSecurityGroupMembershipList"
+    }
+  },
+  "actions": [
+    {
+      "id": "AddTagsToResource",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/AddTagsToResourceMessage"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/AddTagsToResourceResponse"
+      },
+      "security": {
+        "amazonaws_dms": {
+          "integration": "amazonaws_dms"
+        }
+      }
+    },
+    {
+      "id": "CreateEndpoint",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/CreateEndpointMessage"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CreateEndpointResponse"
+      },
+      "security": {
+        "amazonaws_dms": {
+          "integration": "amazonaws_dms"
+        }
+      }
+    },
+    {
+      "id": "CreateReplicationInstance",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/CreateReplicationInstanceMessage"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CreateReplicationInstanceResponse"
+      },
+      "security": {
+        "amazonaws_dms": {
+          "integration": "amazonaws_dms"
+        }
+      }
+    },
+    {
+      "id": "CreateReplicationSubnetGroup",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/CreateReplicationSubnetGroupMessage"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CreateReplicationSubnetGroupResponse"
+      },
+      "security": {
+        "amazonaws_dms": {
+          "integration": "amazonaws_dms"
+        }
+      }
+    },
+    {
+      "id": "CreateReplicationTask",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/CreateReplicationTaskMessage"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CreateReplicationTaskResponse"
+      },
+      "security": {
+        "amazonaws_dms": {
+          "integration": "amazonaws_dms"
+        }
+      }
+    },
+    {
+      "id": "DeleteCertificate",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DeleteCertificateMessage"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DeleteCertificateResponse"
+      },
+      "security": {
+        "amazonaws_dms": {
+          "integration": "amazonaws_dms"
+        }
+      }
+    },
+    {
+      "id": "DeleteEndpoint",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DeleteEndpointMessage"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DeleteEndpointResponse"
+      },
+      "security": {
+        "amazonaws_dms": {
+          "integration": "amazonaws_dms"
+        }
+      }
+    },
+    {
+      "id": "DeleteReplicationInstance",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DeleteReplicationInstanceMessage"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DeleteReplicationInstanceResponse"
+      },
+      "security": {
+        "amazonaws_dms": {
+          "integration": "amazonaws_dms"
+        }
+      }
+    },
+    {
+      "id": "DeleteReplicationSubnetGroup",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DeleteReplicationSubnetGroupMessage"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DeleteReplicationSubnetGroupResponse"
+      },
+      "security": {
+        "amazonaws_dms": {
+          "integration": "amazonaws_dms"
+        }
+      }
+    },
+    {
+      "id": "DeleteReplicationTask",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DeleteReplicationTaskMessage"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DeleteReplicationTaskResponse"
+      },
+      "security": {
+        "amazonaws_dms": {
+          "integration": "amazonaws_dms"
+        }
+      }
+    },
+    {
+      "id": "DescribeAccountAttributes",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DescribeAccountAttributesMessage"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeAccountAttributesResponse"
+      },
+      "security": {
+        "amazonaws_dms": {
+          "integration": "amazonaws_dms"
+        }
+      }
+    },
+    {
+      "id": "DescribeCertificates",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DescribeCertificatesMessage"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeCertificatesResponse"
+      },
+      "security": {
+        "amazonaws_dms": {
+          "integration": "amazonaws_dms"
+        }
+      }
+    },
+    {
+      "id": "DescribeConnections",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DescribeConnectionsMessage"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeConnectionsResponse"
+      },
+      "security": {
+        "amazonaws_dms": {
+          "integration": "amazonaws_dms"
+        }
+      }
+    },
+    {
+      "id": "DescribeEndpointTypes",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DescribeEndpointTypesMessage"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeEndpointTypesResponse"
+      },
+      "security": {
+        "amazonaws_dms": {
+          "integration": "amazonaws_dms"
+        }
+      }
+    },
+    {
+      "id": "DescribeEndpoints",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DescribeEndpointsMessage"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeEndpointsResponse"
+      },
+      "security": {
+        "amazonaws_dms": {
+          "integration": "amazonaws_dms"
+        }
+      }
+    },
+    {
+      "id": "DescribeOrderableReplicationInstances",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DescribeOrderableReplicationInstancesMessage"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeOrderableReplicationInstancesResponse"
+      },
+      "security": {
+        "amazonaws_dms": {
+          "integration": "amazonaws_dms"
+        }
+      }
+    },
+    {
+      "id": "DescribeRefreshSchemasStatus",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DescribeRefreshSchemasStatusMessage"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeRefreshSchemasStatusResponse"
+      },
+      "security": {
+        "amazonaws_dms": {
+          "integration": "amazonaws_dms"
+        }
+      }
+    },
+    {
+      "id": "DescribeReplicationInstances",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DescribeReplicationInstancesMessage"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeReplicationInstancesResponse"
+      },
+      "security": {
+        "amazonaws_dms": {
+          "integration": "amazonaws_dms"
+        }
+      }
+    },
+    {
+      "id": "DescribeReplicationSubnetGroups",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DescribeReplicationSubnetGroupsMessage"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeReplicationSubnetGroupsResponse"
+      },
+      "security": {
+        "amazonaws_dms": {
+          "integration": "amazonaws_dms"
+        }
+      }
+    },
+    {
+      "id": "DescribeReplicationTasks",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DescribeReplicationTasksMessage"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeReplicationTasksResponse"
+      },
+      "security": {
+        "amazonaws_dms": {
+          "integration": "amazonaws_dms"
+        }
+      }
+    },
+    {
+      "id": "DescribeSchemas",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DescribeSchemasMessage"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeSchemasResponse"
+      },
+      "security": {
+        "amazonaws_dms": {
+          "integration": "amazonaws_dms"
+        }
+      }
+    },
+    {
+      "id": "DescribeTableStatistics",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DescribeTableStatisticsMessage"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeTableStatisticsResponse"
+      },
+      "security": {
+        "amazonaws_dms": {
+          "integration": "amazonaws_dms"
+        }
+      }
+    },
+    {
+      "id": "ImportCertificate",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/ImportCertificateMessage"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ImportCertificateResponse"
+      },
+      "security": {
+        "amazonaws_dms": {
+          "integration": "amazonaws_dms"
+        }
+      }
+    },
+    {
+      "id": "ListTagsForResource",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListTagsForResourceMessage"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListTagsForResourceResponse"
+      },
+      "security": {
+        "amazonaws_dms": {
+          "integration": "amazonaws_dms"
+        }
+      }
+    },
+    {
+      "id": "ModifyEndpoint",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/ModifyEndpointMessage"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ModifyEndpointResponse"
+      },
+      "security": {
+        "amazonaws_dms": {
+          "integration": "amazonaws_dms"
+        }
+      }
+    },
+    {
+      "id": "ModifyReplicationInstance",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/ModifyReplicationInstanceMessage"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ModifyReplicationInstanceResponse"
+      },
+      "security": {
+        "amazonaws_dms": {
+          "integration": "amazonaws_dms"
+        }
+      }
+    },
+    {
+      "id": "ModifyReplicationSubnetGroup",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/ModifyReplicationSubnetGroupMessage"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ModifyReplicationSubnetGroupResponse"
+      },
+      "security": {
+        "amazonaws_dms": {
+          "integration": "amazonaws_dms"
+        }
+      }
+    },
+    {
+      "id": "ModifyReplicationTask",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/ModifyReplicationTaskMessage"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ModifyReplicationTaskResponse"
+      },
+      "security": {
+        "amazonaws_dms": {
+          "integration": "amazonaws_dms"
+        }
+      }
+    },
+    {
+      "id": "RefreshSchemas",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/RefreshSchemasMessage"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/RefreshSchemasResponse"
+      },
+      "security": {
+        "amazonaws_dms": {
+          "integration": "amazonaws_dms"
+        }
+      }
+    },
+    {
+      "id": "RemoveTagsFromResource",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/RemoveTagsFromResourceMessage"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/RemoveTagsFromResourceResponse"
+      },
+      "security": {
+        "amazonaws_dms": {
+          "integration": "amazonaws_dms"
+        }
+      }
+    },
+    {
+      "id": "StartReplicationTask",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/StartReplicationTaskMessage"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/StartReplicationTaskResponse"
+      },
+      "security": {
+        "amazonaws_dms": {
+          "integration": "amazonaws_dms"
+        }
+      }
+    },
+    {
+      "id": "StopReplicationTask",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/StopReplicationTaskMessage"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/StopReplicationTaskResponse"
+      },
+      "security": {
+        "amazonaws_dms": {
+          "integration": "amazonaws_dms"
+        }
+      }
+    },
+    {
+      "id": "TestConnection",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/TestConnectionMessage"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/TestConnectionResponse"
+      },
+      "security": {
+        "amazonaws_dms": {
+          "integration": "amazonaws_dms"
+        }
+      }
+    }
+  ],
+  "tags": [
+    "cloud",
+    "aws"
+  ]
+}

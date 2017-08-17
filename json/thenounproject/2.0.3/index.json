@@ -1,0 +1,345 @@
+{
+  "id": "thenounproject",
+  "title": "The Noun Project",
+  "description": "Icons for Everything",
+  "security": {},
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/thenounproject.jpg"
+  },
+  "actionCount": 13,
+  "actions": [
+    {
+      "id": "getCollectionById",
+      "title": "getCollectionById",
+      "description": "Returns a single collection",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Collection id"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getCollectionIconsById",
+      "title": "getCollectionIconsById",
+      "description": "Returns a list of icons associated with a collection",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Collection id"
+          },
+          "limit": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Maximum number of results"
+          },
+          "offset": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Number of results to displace or skip over"
+          },
+          "page": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Number of results of limit length to displace or skip over"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getCollectionBySlug",
+      "title": "getCollectionBySlug",
+      "description": "Returns a single collection",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string",
+            "description": "Collection slug"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "slug"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getCollectionIconsBySlug",
+      "title": "getCollectionIconsBySlug",
+      "description": "Returns a list of icons associated with a collection",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string",
+            "description": "Collection slug"
+          },
+          "limit": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Maximum number of results"
+          },
+          "offset": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Number of results to displace or skip over"
+          },
+          "page": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Number of results of limit length to displace or skip over"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "slug"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getAllCollections",
+      "title": "getAllCollections",
+      "description": "Return's a list of all collections",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "limit": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Maximum number of results"
+          },
+          "offset": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Number of results to displace or skip over"
+          },
+          "page": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Number of results of limit length to displace or skip over"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getIconById",
+      "title": "getIconById",
+      "description": "Returns a single icon",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Icon id"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getIconByTerm",
+      "title": "getIconByTerm",
+      "description": "Returns a single icon",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "term": {
+            "type": "string",
+            "description": "Icon term"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "term"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getRecentIcons",
+      "title": "getRecentIcons",
+      "description": "Returns list of most recently uploaded icons",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "limit": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Maximum number of results"
+          },
+          "offset": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Number of results to displace or skip over"
+          },
+          "page": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Number of results of limit length to displace or skip over"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getIconsByTerm",
+      "title": "getIconsByTerm",
+      "description": "Returns a list of icons",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "term": {
+            "type": "string",
+            "description": "Icon term"
+          },
+          "limit_to_public_domain": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Limit results to public domain icons only"
+          },
+          "limit": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Maximum number of results"
+          },
+          "offset": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Number of results to displace or skip over"
+          },
+          "page": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Number of results of limit length to displace or skip over"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "term"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getApiQuotaStatus",
+      "title": "getApiQuotaStatus",
+      "description": "Returns current oauth usage and limits",
+      "inputSchema": {},
+      "outputSchema": {}
+    },
+    {
+      "id": "getUserCollections",
+      "title": "getUserCollections",
+      "description": "Returns a list of collections associated with a user",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "user_id": {
+            "type": "integer",
+            "format": "int32",
+            "description": "User id"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "user_id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getUserCollection",
+      "title": "getUserCollection",
+      "description": "Returns a single collection associated with a user",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "user_id": {
+            "type": "integer",
+            "format": "int32",
+            "description": "User id"
+          },
+          "slug": {
+            "type": "string",
+            "description": "Collection slug"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "user_id",
+          "slug"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getUserUploadsWithUser",
+      "title": "getUserUploadsWithUser",
+      "description": "Returns a list of uploads associated with a user",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string",
+            "description": "Username"
+          },
+          "limit": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Maximum number of results"
+          },
+          "offset": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Number of results to displace or skip over"
+          },
+          "page": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Number of results of limit length to displace or skip over"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "username"
+        ]
+      },
+      "outputSchema": {}
+    }
+  ],
+  "tags": []
+}

@@ -1,0 +1,108 @@
+{
+  "id": "nytimes_rss",
+  "title": "New York Times RSS",
+  "security": {},
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/nytimes_rss.png"
+  },
+  "actionCount": 5,
+  "definitions": {
+    "Feed": {
+      "type": "object",
+      "properties": {
+        "feed": {
+          "type": "object",
+          "properties": {
+            "link": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            },
+            "feedUrl": {
+              "type": "string"
+            },
+            "entries": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "link": {
+                    "type": "string"
+                  },
+                  "title": {
+                    "type": "string"
+                  },
+                  "pubDate": {
+                    "type": "string"
+                  },
+                  "author": {
+                    "type": "string"
+                  },
+                  "content": {
+                    "type": "string"
+                  },
+                  "contentSnippet": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "title": "Feed"
+    }
+  },
+  "actions": [
+    {
+      "id": "homePage",
+      "title": "homePage",
+      "description": "NYT > Home Page",
+      "inputSchema": {},
+      "outputSchema": {
+        "$ref": "#/definitions/Feed"
+      }
+    },
+    {
+      "id": "world",
+      "title": "world",
+      "description": "NYT > World",
+      "inputSchema": {},
+      "outputSchema": {
+        "$ref": "#/definitions/Feed"
+      }
+    },
+    {
+      "id": "business",
+      "title": "business",
+      "description": "NYT > Business Day",
+      "inputSchema": {},
+      "outputSchema": {
+        "$ref": "#/definitions/Feed"
+      }
+    },
+    {
+      "id": "sports",
+      "title": "sports",
+      "description": "NYT > Sports",
+      "inputSchema": {},
+      "outputSchema": {
+        "$ref": "#/definitions/Feed"
+      }
+    },
+    {
+      "id": "science",
+      "title": "science",
+      "description": "NYT > Science",
+      "inputSchema": {},
+      "outputSchema": {
+        "$ref": "#/definitions/Feed"
+      }
+    }
+  ],
+  "tags": []
+}

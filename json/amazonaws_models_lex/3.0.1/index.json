@@ -1,0 +1,2930 @@
+{
+  "id": "amazonaws_models_lex",
+  "title": "Amazon Lex Model Building Service",
+  "description": "Amazon Lex Build-Time Actions\n\nAmazon Lex is an AWS service for building conversational voice and text interfaces. Use these actions to create, update, and delete conversational bots for new and existing client applications.",
+  "security": {
+    "amazonaws_models_lex": {
+      "integration": "amazonaws_models_lex",
+      "accessKeyId": "",
+      "secretAccessKey": "",
+      "region": "AWS region (if applicable)"
+    }
+  },
+  "logo": {
+    "backgroundColor": "#FFFFFF",
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_models_lex.jpg"
+  },
+  "actionCount": 29,
+  "definitions": {
+    "AliasName": {
+      "maxLength": 100,
+      "minLength": 1,
+      "pattern": "^[a-zA-Z]+((_[a-zA-Z]+)*|([a-zA-Z]+_)*|_)",
+      "type": "string",
+      "title": "AliasName"
+    },
+    "AliasNameOrListAll": {
+      "maxLength": 100,
+      "minLength": 1,
+      "pattern": "^(-|^[a-zA-Z]+((_[a-zA-Z]+)*|([a-zA-Z]+_)*))$",
+      "type": "string",
+      "title": "AliasNameOrListAll"
+    },
+    "BadRequestException": {
+      "description": "The request is not well formed. For example, a value is invalid or a required field is missing. Check the field values, and try again.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/String"
+        }
+      },
+      "type": "object",
+      "title": "BadRequestException"
+    },
+    "Boolean": {
+      "type": "boolean",
+      "title": "Boolean"
+    },
+    "BotAliasMetadata": {
+      "description": "Provides information about a bot alias.",
+      "properties": {
+        "botName": {
+          "$ref": "#/definitions/BotName",
+          "description": "The name of the bot to which the alias points."
+        },
+        "botVersion": {
+          "$ref": "#/definitions/Version",
+          "description": "The version of the Amazon Lex bot to which the alias points."
+        },
+        "checksum": {
+          "$ref": "#/definitions/String",
+          "description": "Checksum of the bot alias."
+        },
+        "createdDate": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The date that the bot alias was created."
+        },
+        "description": {
+          "$ref": "#/definitions/Description",
+          "description": "A description of the bot alias."
+        },
+        "lastUpdatedDate": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The date that the bot alias was updated. When you create a resource, the creation date and last updated date are the same."
+        },
+        "name": {
+          "$ref": "#/definitions/AliasName",
+          "description": "The name of the bot alias."
+        }
+      },
+      "type": "object",
+      "title": "BotAliasMetadata"
+    },
+    "BotAliasMetadataList": {
+      "items": {
+        "$ref": "#/definitions/BotAliasMetadata"
+      },
+      "type": "array",
+      "title": "BotAliasMetadataList"
+    },
+    "BotChannelAssociation": {
+      "description": "Represents an association between an Amazon Lex bot and an external messaging platform.",
+      "properties": {
+        "botAlias": {
+          "$ref": "#/definitions/AliasName",
+          "description": "An alias pointing to the specific version of the Amazon Lex bot to which this association is being made. "
+        },
+        "botConfiguration": {
+          "$ref": "#/definitions/ChannelConfigurationMap",
+          "description": "Provides information necessary to communicate with the messaging platform. "
+        },
+        "botName": {
+          "$ref": "#/definitions/BotName",
+          "description": "<p>The name of the Amazon Lex bot to which this association is being made. </p> <note> <p>Currently, Amazon Lex supports associations with Facebook and Slack, and Twilio.</p> </note>"
+        },
+        "createdDate": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The date that the association between the Amazon Lex bot and the channel was created. "
+        },
+        "description": {
+          "$ref": "#/definitions/Description",
+          "description": "A text description of the association you are creating. "
+        },
+        "name": {
+          "$ref": "#/definitions/BotChannelName",
+          "description": "The name of the association between the bot and the channel. "
+        },
+        "type": {
+          "$ref": "#/definitions/ChannelType",
+          "description": "Specifies the type of association by indicating the type of channel being established between the Amazon Lex bot and the external messaging platform."
+        }
+      },
+      "type": "object",
+      "title": "BotChannelAssociation"
+    },
+    "BotChannelAssociationList": {
+      "items": {
+        "$ref": "#/definitions/BotChannelAssociation"
+      },
+      "type": "array",
+      "title": "BotChannelAssociationList"
+    },
+    "BotChannelName": {
+      "maxLength": 100,
+      "minLength": 1,
+      "pattern": "^[a-zA-Z]+((_[a-zA-Z]+)*|([a-zA-Z]+_)*|_)",
+      "type": "string",
+      "title": "BotChannelName"
+    },
+    "BotMetadata": {
+      "description": "Provides information about a bot. .",
+      "properties": {
+        "createdDate": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The date that the bot was created."
+        },
+        "description": {
+          "$ref": "#/definitions/Description",
+          "description": "A description of the bot."
+        },
+        "lastUpdatedDate": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The date that the bot was updated. When you create a bot, the creation date and last updated date are the same. "
+        },
+        "name": {
+          "$ref": "#/definitions/BotName",
+          "description": "The name of the bot. "
+        },
+        "status": {
+          "$ref": "#/definitions/Status",
+          "description": "The status of the bot."
+        },
+        "version": {
+          "$ref": "#/definitions/Version",
+          "description": "The version of the bot. For a new bot, the version is always <code>$LATEST</code>."
+        }
+      },
+      "type": "object",
+      "title": "BotMetadata"
+    },
+    "BotMetadataList": {
+      "items": {
+        "$ref": "#/definitions/BotMetadata"
+      },
+      "type": "array",
+      "title": "BotMetadataList"
+    },
+    "BotName": {
+      "maxLength": 50,
+      "minLength": 2,
+      "pattern": "^[a-zA-Z]+((_[a-zA-Z]+)*|([a-zA-Z]+_)*|_)",
+      "type": "string",
+      "title": "BotName"
+    },
+    "BotVersions": {
+      "items": {
+        "$ref": "#/definitions/Version"
+      },
+      "maxItems": 5,
+      "minItems": 1,
+      "type": "array",
+      "title": "BotVersions"
+    },
+    "BuiltinIntentMetadata": {
+      "description": "Provides metadata for a built-in intent.",
+      "properties": {
+        "signature": {
+          "$ref": "#/definitions/BuiltinIntentSignature",
+          "description": "A unique identifier for the built-in intent. To find the signature for an intent, see <a href=\"https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/standard-intents\">Standard Built-in Intents</a> in the <i>Alexa Skills Kit</i>."
+        },
+        "supportedLocales": {
+          "$ref": "#/definitions/LocaleList",
+          "description": "A list of identifiers for the locales that the intent supports."
+        }
+      },
+      "type": "object",
+      "title": "BuiltinIntentMetadata"
+    },
+    "BuiltinIntentMetadataList": {
+      "items": {
+        "$ref": "#/definitions/BuiltinIntentMetadata"
+      },
+      "type": "array",
+      "title": "BuiltinIntentMetadataList"
+    },
+    "BuiltinIntentSignature": {
+      "type": "string",
+      "title": "BuiltinIntentSignature"
+    },
+    "BuiltinIntentSlot": {
+      "description": "Provides information about a slot used in a built-in intent.",
+      "properties": {
+        "name": {
+          "$ref": "#/definitions/String",
+          "description": "A list of the slots defined for the intent."
+        }
+      },
+      "type": "object",
+      "title": "BuiltinIntentSlot"
+    },
+    "BuiltinIntentSlotList": {
+      "items": {
+        "$ref": "#/definitions/BuiltinIntentSlot"
+      },
+      "type": "array",
+      "title": "BuiltinIntentSlotList"
+    },
+    "BuiltinSlotTypeMetadata": {
+      "description": "Provides information about a built in slot type.",
+      "properties": {
+        "signature": {
+          "$ref": "#/definitions/BuiltinSlotTypeSignature",
+          "description": "A unique identifier for the built-in slot type. To find the signature for a slot type, see <a href=\"https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/slot-type-reference\">Slot Type Reference</a> in the <i>Alexa Skills Kit</i>."
+        },
+        "supportedLocales": {
+          "$ref": "#/definitions/LocaleList",
+          "description": "A list of target locales for the slot. "
+        }
+      },
+      "type": "object",
+      "title": "BuiltinSlotTypeMetadata"
+    },
+    "BuiltinSlotTypeMetadataList": {
+      "items": {
+        "$ref": "#/definitions/BuiltinSlotTypeMetadata"
+      },
+      "type": "array",
+      "title": "BuiltinSlotTypeMetadataList"
+    },
+    "BuiltinSlotTypeSignature": {
+      "type": "string",
+      "title": "BuiltinSlotTypeSignature"
+    },
+    "ChannelConfigurationMap": {
+      "items": {
+        "properties": {
+          "key": {
+            "$ref": "#/definitions/String"
+          },
+          "value": {
+            "$ref": "#/definitions/String"
+          }
+        },
+        "type": "object"
+      },
+      "maxItems": 10,
+      "minItems": 1,
+      "type": "array",
+      "title": "ChannelConfigurationMap"
+    },
+    "ChannelType": {
+      "enum": [
+        "Facebook",
+        "Slack",
+        "Twilio-Sms"
+      ],
+      "type": "string",
+      "title": "ChannelType"
+    },
+    "CodeHook": {
+      "description": "Specifies a Lambda function that verifies requests to a bot or fulfills the user's request to a bot..",
+      "properties": {
+        "messageVersion": {
+          "$ref": "#/definitions/MessageVersion",
+          "description": "The version of the request-response that you want Amazon Lex to use to invoke your Lambda function. For more information, see <a>using-lambda</a>."
+        },
+        "uri": {
+          "$ref": "#/definitions/LambdaARN",
+          "description": "The Amazon Resource Name (ARN) of the Lambda function."
+        }
+      },
+      "required": [
+        "uri",
+        "messageVersion"
+      ],
+      "type": "object",
+      "title": "CodeHook"
+    },
+    "ConflictException": {
+      "description": " There was a conflict processing the request. Try your request again. ",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/String"
+        }
+      },
+      "type": "object",
+      "title": "ConflictException"
+    },
+    "ContentString": {
+      "maxLength": 1000,
+      "minLength": 1,
+      "type": "string",
+      "title": "ContentString"
+    },
+    "ContentType": {
+      "enum": [
+        "PlainText",
+        "SSML"
+      ],
+      "type": "string",
+      "title": "ContentType"
+    },
+    "Count": {
+      "type": "integer",
+      "title": "Count"
+    },
+    "CreateBotVersionRequest": {
+      "properties": {
+        "checksum": {
+          "$ref": "#/definitions/String",
+          "description": "Identifies a specific revision of the <code>$LATEST</code> version of the bot. If you specify a checksum and the <code>$LATEST</code> version of the bot has a different checksum, a <code>PreconditionFailedException</code> exception is returned and Amazon Lex doesn't publish a new version. If you don't specify a checksum, Amazon Lex publishes the <code>$LATEST</code> version."
+        }
+      },
+      "type": "object",
+      "title": "CreateBotVersionRequest"
+    },
+    "CreateBotVersionResponse": {
+      "properties": {
+        "abortStatement": {
+          "$ref": "#/definitions/Statement",
+          "description": "The message that Amazon Lex uses to abort a conversation. For more information, see ."
+        },
+        "checksum": {
+          "$ref": "#/definitions/String",
+          "description": "Checksum identifying the version of the bot that was created."
+        },
+        "childDirected": {
+          "$ref": "#/definitions/Boolean",
+          "description": "<p>For each Amazon Lex bot created with the Amazon Lex Model Building Service, you must specify whether your use of Amazon Lex is related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to the Children's Online Privacy Protection Act (COPPA) by specifying <code>true</code> or <code>false</code> in the <code>childDirected</code> field. By specifying <code>true</code> in the <code>childDirected</code> field, you confirm that your use of Amazon Lex <b>is</b> related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to COPPA. By specifying <code>false</code> in the <code>childDirected</code> field, you confirm that your use of Amazon Lex <b>is not</b> related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to COPPA. You may not specify a default value for the <code>childDirected</code> field that does not accurately reflect whether your use of Amazon Lex is related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to COPPA.</p> <p>If your use of Amazon Lex relates to a website, program, or other application that is directed in whole or in part, to children under age 13, you must obtain any required verifiable parental consent under COPPA. For information regarding the use of Amazon Lex in connection with websites, programs, or other applications that are directed or targeted, in whole or in part, to children under age 13, see the <a href=\"https://aws.amazon.com/lex/faqs#data-security\">Amazon Lex FAQ.</a> </p>"
+        },
+        "clarificationPrompt": {
+          "$ref": "#/definitions/Prompt",
+          "description": "The message that Amazon Lex uses when it doesn't understand the user's request. For more information, see . "
+        },
+        "createdDate": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The date when the bot version was created."
+        },
+        "description": {
+          "$ref": "#/definitions/Description",
+          "description": "A description of the bot."
+        },
+        "failureReason": {
+          "$ref": "#/definitions/String",
+          "description": "If <code>status</code> is <code>FAILED</code>, Amazon Lex provides the reason that it failed to build the bot."
+        },
+        "idleSessionTTLInSeconds": {
+          "$ref": "#/definitions/SessionTTL",
+          "description": "The maximum time in seconds that Amazon Lex retains the data gathered in a conversation. For more information, see ."
+        },
+        "intents": {
+          "$ref": "#/definitions/IntentList",
+          "description": "An array of <code>Intent</code> objects. For more information, see ."
+        },
+        "lastUpdatedDate": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The date when the <code>$LATEST</code> version of this bot was updated. "
+        },
+        "locale": {
+          "$ref": "#/definitions/Locale",
+          "description": " Specifies the target locale for the bot. "
+        },
+        "name": {
+          "$ref": "#/definitions/BotName",
+          "description": "The name of the bot."
+        },
+        "status": {
+          "$ref": "#/definitions/Status",
+          "description": " When you send a request to create or update a bot, Amazon Lex sets the <code>status</code> response element to <code>BUILDING</code>. After Amazon Lex builds the bot, it sets <code>status</code> to <code>READY</code>. If Amazon Lex can't build the bot, it sets <code>status</code> to <code>FAILED</code>. Amazon Lex returns the reason for the failure in the <code>failureReason</code> response element. "
+        },
+        "version": {
+          "$ref": "#/definitions/Version",
+          "description": "The version of the bot. "
+        },
+        "voiceId": {
+          "$ref": "#/definitions/String",
+          "description": "The Amazon Parrot voice ID that Amazon Lex uses for voice interactions with the user."
+        }
+      },
+      "type": "object",
+      "title": "CreateBotVersionResponse"
+    },
+    "CreateIntentVersionRequest": {
+      "properties": {
+        "checksum": {
+          "$ref": "#/definitions/String",
+          "description": "Checksum of the <code>$LATEST</code> version of the intent that should be used to create the new version. If you specify a checksum and the <code>$LATEST</code> version of the intent has a different checksum, Amazon Lex returns a <code>PreconditionFailedException</code> exception and doesn't publish a new version. If you don't specify a checksum, Amazon Lex publishes the <code>$LATEST</code> version."
+        }
+      },
+      "type": "object",
+      "title": "CreateIntentVersionRequest"
+    },
+    "CreateIntentVersionResponse": {
+      "properties": {
+        "checksum": {
+          "$ref": "#/definitions/String",
+          "description": "Checksum of the intent version created."
+        },
+        "conclusionStatement": {
+          "$ref": "#/definitions/Statement",
+          "description": "After the Lambda function specified in the <code>fulfillmentActivity</code> field fulfills the intent, Amazon Lex conveys this statement to the user. "
+        },
+        "confirmationPrompt": {
+          "$ref": "#/definitions/Prompt",
+          "description": "If defined, the prompt that Amazon Lex uses to confirm the user's intent before fulfilling it. "
+        },
+        "createdDate": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The date that the intent was created."
+        },
+        "description": {
+          "$ref": "#/definitions/Description",
+          "description": "A description of the intent."
+        },
+        "dialogCodeHook": {
+          "$ref": "#/definitions/CodeHook",
+          "description": "If defined, Amazon Lex invokes this Lambda function for each user input."
+        },
+        "followUpPrompt": {
+          "$ref": "#/definitions/FollowUpPrompt",
+          "description": "If defined, Amazon Lex uses this prompt to solicit additional user activity after the intent is fulfilled. "
+        },
+        "fulfillmentActivity": {
+          "$ref": "#/definitions/FulfillmentActivity",
+          "description": " Describes how the intent is fulfilled. "
+        },
+        "lastUpdatedDate": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The date that the intent was updated. "
+        },
+        "name": {
+          "$ref": "#/definitions/IntentName",
+          "description": "The name of the intent."
+        },
+        "parentIntentSignature": {
+          "$ref": "#/definitions/BuiltinIntentSignature",
+          "description": "A unique identifier for a built-in intent."
+        },
+        "rejectionStatement": {
+          "$ref": "#/definitions/Statement",
+          "description": "If the user answers \"no\" to the question defined in <code>confirmationPrompt</code>, Amazon Lex responds with this statement to acknowledge that the intent was canceled. "
+        },
+        "sampleUtterances": {
+          "$ref": "#/definitions/IntentUtteranceList",
+          "description": "An array of sample utterances configured for the intent. "
+        },
+        "slots": {
+          "$ref": "#/definitions/SlotList",
+          "description": "An array of slot types that defines the information required to fulfill the intent."
+        },
+        "version": {
+          "$ref": "#/definitions/Version",
+          "description": "The version number assigned to the new version of the intent."
+        }
+      },
+      "type": "object",
+      "title": "CreateIntentVersionResponse"
+    },
+    "CreateSlotTypeVersionRequest": {
+      "properties": {
+        "checksum": {
+          "$ref": "#/definitions/String",
+          "description": "Checksum for the <code>$LATEST</code> version of the slot type that you want to publish. If you specify a checksum and the <code>$LATEST</code> version of the slot type has a different checksum, Amazon Lex returns a <code>PreconditionFailedException</code> exception and doesn't publish the new version. If you don't specify a checksum, Amazon Lex publishes the <code>$LATEST</code> version."
+        }
+      },
+      "type": "object",
+      "title": "CreateSlotTypeVersionRequest"
+    },
+    "CreateSlotTypeVersionResponse": {
+      "properties": {
+        "checksum": {
+          "$ref": "#/definitions/String",
+          "description": "Checksum of the <code>$LATEST</code> version of the slot type."
+        },
+        "createdDate": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The date that the slot type was created."
+        },
+        "description": {
+          "$ref": "#/definitions/Description",
+          "description": "A description of the slot type."
+        },
+        "enumerationValues": {
+          "$ref": "#/definitions/EnumerationValues",
+          "description": "A list of <code>EnumerationValue</code> objects that defines the values that the slot type can take."
+        },
+        "lastUpdatedDate": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The date that the slot type was updated. When you create a resource, the creation date and last update date are the same."
+        },
+        "name": {
+          "$ref": "#/definitions/SlotTypeName",
+          "description": "The name of the slot type."
+        },
+        "version": {
+          "$ref": "#/definitions/Version",
+          "description": "The version assigned to the new slot type version. "
+        }
+      },
+      "type": "object",
+      "title": "CreateSlotTypeVersionResponse"
+    },
+    "CustomOrBuiltinSlotTypeName": {
+      "maxLength": 100,
+      "minLength": 1,
+      "pattern": "^([a-zA-Z]|AMAZON.)+((_[a-zA-Z]+)*|([a-zA-Z]+_)*|_)",
+      "type": "string",
+      "title": "CustomOrBuiltinSlotTypeName"
+    },
+    "DeleteBotAliasRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "DeleteBotAliasRequest"
+    },
+    "DeleteBotChannelAssociationRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "DeleteBotChannelAssociationRequest"
+    },
+    "DeleteBotRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "DeleteBotRequest"
+    },
+    "DeleteBotVersionRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "DeleteBotVersionRequest"
+    },
+    "DeleteIntentRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "DeleteIntentRequest"
+    },
+    "DeleteIntentVersionRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "DeleteIntentVersionRequest"
+    },
+    "DeleteSlotTypeRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "DeleteSlotTypeRequest"
+    },
+    "DeleteSlotTypeVersionRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "DeleteSlotTypeVersionRequest"
+    },
+    "DeleteUtterancesRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "DeleteUtterancesRequest"
+    },
+    "Description": {
+      "maxLength": 200,
+      "minLength": 0,
+      "type": "string",
+      "title": "Description"
+    },
+    "EnumerationValue": {
+      "description": "<p>Each slot type can have a set of values. Each enumeration value represents a value the slot type can take. </p> <p>For example, a pizza ordering bot could have a slot type that specifies the type of crust that the pizza should have. The slot type could include the values </p> <ul> <li> <p>thick</p> </li> <li> <p>thin</p> </li> <li> <p>stuffed</p> </li> </ul>",
+      "properties": {
+        "value": {
+          "$ref": "#/definitions/Value",
+          "description": "The value of the slot type."
+        }
+      },
+      "required": [
+        "value"
+      ],
+      "type": "object",
+      "title": "EnumerationValue"
+    },
+    "EnumerationValues": {
+      "items": {
+        "$ref": "#/definitions/EnumerationValue"
+      },
+      "maxItems": 10000,
+      "minItems": 1,
+      "type": "array",
+      "title": "EnumerationValues"
+    },
+    "FollowUpPrompt": {
+      "description": "After an intent is fulfilled, you might prompt the user for additional activity. For example, after the <code>OrderPizza</code> intent is fulfilled (the pizza order is placed with a pizzeria), you might prompt the user to find out whether the user wants to order drinks (another intent you defined in your bot).",
+      "properties": {
+        "prompt": {
+          "$ref": "#/definitions/Prompt",
+          "description": "Obtains information from the user. "
+        },
+        "rejectionStatement": {
+          "$ref": "#/definitions/Statement",
+          "description": "If the user answers \"no\" to the question defined in <code>confirmationPrompt</code>, Amazon Lex responds with this statement to acknowledge that the intent was canceled. "
+        }
+      },
+      "required": [
+        "prompt",
+        "rejectionStatement"
+      ],
+      "type": "object",
+      "title": "FollowUpPrompt"
+    },
+    "FulfillmentActivity": {
+      "description": "<p> Describes how the intent is fulfilled after the user provides all of the information required for the intent. You can provide a Lambda function to process the intent, or you can return the intent information to the client application. We recommend that you use a Lambda function so that the relevant logic lives in the Cloud and limit the client-side code primarily to presentation. If you need to update the logic, you only update the Lambda function; you don't need to upgrade your client application. </p> <p>Consider the following examples:</p> <ul> <li> <p>In a pizza ordering application, after the user provides all of the information for placing an order, you use a Lambda function to place an order with a pizzeria. </p> </li> <li> <p>In a gaming application, when a user says \"pick up a rock,\" this information must go back to the client application so that it can perform the operation and update the graphics. In this case, you want Amazon Lex to return the intent data to the client. </p> </li> </ul>",
+      "properties": {
+        "codeHook": {
+          "$ref": "#/definitions/CodeHook",
+          "description": " A description of the Lambda function that is run to fulfill the intent. "
+        },
+        "type": {
+          "$ref": "#/definitions/FulfillmentActivityType",
+          "description": " How the intent should be fulfilled, either by running a Lambda function or by returning the slot data to the client application. "
+        }
+      },
+      "required": [
+        "type"
+      ],
+      "type": "object",
+      "title": "FulfillmentActivity"
+    },
+    "FulfillmentActivityType": {
+      "enum": [
+        "ReturnIntent",
+        "CodeHook"
+      ],
+      "type": "string",
+      "title": "FulfillmentActivityType"
+    },
+    "GetBotAliasRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "GetBotAliasRequest"
+    },
+    "GetBotAliasResponse": {
+      "properties": {
+        "botName": {
+          "$ref": "#/definitions/BotName",
+          "description": "The name of the bot that the alias points to."
+        },
+        "botVersion": {
+          "$ref": "#/definitions/Version",
+          "description": "The version of the bot that the alias points to."
+        },
+        "checksum": {
+          "$ref": "#/definitions/String",
+          "description": "Checksum of the bot alias."
+        },
+        "createdDate": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The date that the bot alias was created."
+        },
+        "description": {
+          "$ref": "#/definitions/Description",
+          "description": "A description of the bot alias."
+        },
+        "lastUpdatedDate": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The date that the bot alias was updated. When you create a resource, the creation date and the last updated date are the same."
+        },
+        "name": {
+          "$ref": "#/definitions/AliasName",
+          "description": "The name of the bot alias."
+        }
+      },
+      "type": "object",
+      "title": "GetBotAliasResponse"
+    },
+    "GetBotAliasesRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "GetBotAliasesRequest"
+    },
+    "GetBotAliasesResponse": {
+      "properties": {
+        "BotAliases": {
+          "$ref": "#/definitions/BotAliasMetadataList",
+          "description": "An array of <code>BotAliasMetadata</code> objects, each describing a bot alias."
+        },
+        "nextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "A pagination token for fetching next page of aliases. If the response to this call is truncated, Amazon Lex returns a pagination token in the response. To fetch the next page of aliases, specify the pagination token in the next request. "
+        }
+      },
+      "type": "object",
+      "title": "GetBotAliasesResponse"
+    },
+    "GetBotChannelAssociationRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "GetBotChannelAssociationRequest"
+    },
+    "GetBotChannelAssociationResponse": {
+      "properties": {
+        "botAlias": {
+          "$ref": "#/definitions/AliasName",
+          "description": "An alias pointing to the specific version of the Amazon Lex bot to which this association is being made."
+        },
+        "botConfiguration": {
+          "$ref": "#/definitions/ChannelConfigurationMap",
+          "description": "Provides information that the messaging platform needs to communicate with the Amazon Lex bot."
+        },
+        "botName": {
+          "$ref": "#/definitions/BotName",
+          "description": "The name of the Amazon Lex bot."
+        },
+        "createdDate": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The date that the association between the bot and the channel was created."
+        },
+        "description": {
+          "$ref": "#/definitions/Description",
+          "description": "A description of the association between the bot and the channel."
+        },
+        "name": {
+          "$ref": "#/definitions/BotChannelName",
+          "description": "The name of the association between the bot and the channel."
+        },
+        "type": {
+          "$ref": "#/definitions/ChannelType",
+          "description": "The type of the messaging platform."
+        }
+      },
+      "type": "object",
+      "title": "GetBotChannelAssociationResponse"
+    },
+    "GetBotChannelAssociationsRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "GetBotChannelAssociationsRequest"
+    },
+    "GetBotChannelAssociationsResponse": {
+      "properties": {
+        "botChannelAssociations": {
+          "$ref": "#/definitions/BotChannelAssociationList",
+          "description": "An array of objects, one for each association, that provides information about the Amazon Lex bot and its association with the channel. "
+        },
+        "nextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "A pagination token that fetches the next page of associations. If the response to this call is truncated, Amazon Lex returns a pagination token in the response. To fetch the next page of associations, specify the pagination token in the next request. "
+        }
+      },
+      "type": "object",
+      "title": "GetBotChannelAssociationsResponse"
+    },
+    "GetBotRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "GetBotRequest"
+    },
+    "GetBotResponse": {
+      "properties": {
+        "abortStatement": {
+          "$ref": "#/definitions/Statement",
+          "description": "The message that Amazon Lex returns when the user elects to end the conversation without completing it. For more information, see ."
+        },
+        "checksum": {
+          "$ref": "#/definitions/String",
+          "description": "Checksum of the bot used to identify a specific revision of the bot's <code>$LATEST</code> version."
+        },
+        "childDirected": {
+          "$ref": "#/definitions/Boolean",
+          "description": "<p>For each Amazon Lex bot created with the Amazon Lex Model Building Service, you must specify whether your use of Amazon Lex is related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to the Children's Online Privacy Protection Act (COPPA) by specifying <code>true</code> or <code>false</code> in the <code>childDirected</code> field. By specifying <code>true</code> in the <code>childDirected</code> field, you confirm that your use of Amazon Lex <b>is</b> related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to COPPA. By specifying <code>false</code> in the <code>childDirected</code> field, you confirm that your use of Amazon Lex <b>is not</b> related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to COPPA. You may not specify a default value for the <code>childDirected</code> field that does not accurately reflect whether your use of Amazon Lex is related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to COPPA.</p> <p>If your use of Amazon Lex relates to a website, program, or other application that is directed in whole or in part, to children under age 13, you must obtain any required verifiable parental consent under COPPA. For information regarding the use of Amazon Lex in connection with websites, programs, or other applications that are directed or targeted, in whole or in part, to children under age 13, see the <a href=\"https://aws.amazon.com/lex/faqs#data-security\">Amazon Lex FAQ.</a> </p>"
+        },
+        "clarificationPrompt": {
+          "$ref": "#/definitions/Prompt",
+          "description": "The message Amazon Lex uses when it doesn't understand the user's request. For more information, see . "
+        },
+        "createdDate": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The date that the bot was created."
+        },
+        "description": {
+          "$ref": "#/definitions/Description",
+          "description": "A description of the bot."
+        },
+        "failureReason": {
+          "$ref": "#/definitions/String",
+          "description": "If <code>status</code> is <code>FAILED</code>, Amazon Lex explains why it failed to build the bot."
+        },
+        "idleSessionTTLInSeconds": {
+          "$ref": "#/definitions/SessionTTL",
+          "description": "The maximum time in seconds that Amazon Lex retains the data gathered in a conversation. For more information, see ."
+        },
+        "intents": {
+          "$ref": "#/definitions/IntentList",
+          "description": "An array of <code>intent</code> objects. For more information, see ."
+        },
+        "lastUpdatedDate": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The date that the bot was updated. When you create a resource, the creation date and last updated date are the same. "
+        },
+        "locale": {
+          "$ref": "#/definitions/Locale",
+          "description": " The target locale for the bot. "
+        },
+        "name": {
+          "$ref": "#/definitions/BotName",
+          "description": "The name of the bot."
+        },
+        "status": {
+          "$ref": "#/definitions/Status",
+          "description": "The status of the bot. If the bot is ready to run, the status is <code>READY</code>. If there was a problem with building the bot, the status is <code>FAILED</code> and the <code>failureReason</code> explains why the bot did not build. If the bot was saved but not built, the status is <code>NOT BUILT</code>."
+        },
+        "version": {
+          "$ref": "#/definitions/Version",
+          "description": "The version of the bot. For a new bot, the version is always <code>$LATEST</code>."
+        },
+        "voiceId": {
+          "$ref": "#/definitions/String",
+          "description": "The Amazon Parrot voice ID that Amazon Lex uses for voice interaction with the user. For more information, see ."
+        }
+      },
+      "type": "object",
+      "title": "GetBotResponse"
+    },
+    "GetBotVersionsRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "GetBotVersionsRequest"
+    },
+    "GetBotVersionsResponse": {
+      "properties": {
+        "bots": {
+          "$ref": "#/definitions/BotMetadataList",
+          "description": "An array of <code>BotMetadata</code> objects, one for each numbered version of the bot plus one for the <code>$LATEST</code> version."
+        },
+        "nextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "A pagination token for fetching the next page of bot versions. If the response to this call is truncated, Amazon Lex returns a pagination token in the response. To fetch the next page of versions, specify the pagination token in the next request. "
+        }
+      },
+      "type": "object",
+      "title": "GetBotVersionsResponse"
+    },
+    "GetBotsRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "GetBotsRequest"
+    },
+    "GetBotsResponse": {
+      "properties": {
+        "bots": {
+          "$ref": "#/definitions/BotMetadataList",
+          "description": "An array of <code>botMetadata</code> objects, with one entry for each bot. "
+        },
+        "nextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "If the response is truncated, it includes a pagination token that you can specify in your next request to fetch the next page of bots. "
+        }
+      },
+      "type": "object",
+      "title": "GetBotsResponse"
+    },
+    "GetBuiltinIntentRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "GetBuiltinIntentRequest"
+    },
+    "GetBuiltinIntentResponse": {
+      "properties": {
+        "signature": {
+          "$ref": "#/definitions/BuiltinIntentSignature",
+          "description": "The unique identifier for a built-in intent."
+        },
+        "slots": {
+          "$ref": "#/definitions/BuiltinIntentSlotList",
+          "description": "An array of <code>BuiltinIntentSlot</code> objects, one entry for each slot type in the intent."
+        },
+        "supportedLocales": {
+          "$ref": "#/definitions/LocaleList",
+          "description": "A list of locales that the intent supports."
+        }
+      },
+      "type": "object",
+      "title": "GetBuiltinIntentResponse"
+    },
+    "GetBuiltinIntentsRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "GetBuiltinIntentsRequest"
+    },
+    "GetBuiltinIntentsResponse": {
+      "properties": {
+        "intents": {
+          "$ref": "#/definitions/BuiltinIntentMetadataList",
+          "description": "An array of <code>builtinIntentMetadata</code> objects, one for each intent in the response."
+        },
+        "nextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "A pagination token that fetches the next page of intents. If the response to this API call is truncated, Amazon Lex returns a pagination token in the response. To fetch the next page of intents, specify the pagination token in the next request."
+        }
+      },
+      "type": "object",
+      "title": "GetBuiltinIntentsResponse"
+    },
+    "GetBuiltinSlotTypesRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "GetBuiltinSlotTypesRequest"
+    },
+    "GetBuiltinSlotTypesResponse": {
+      "properties": {
+        "nextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "If the response is truncated, the response includes a pagination token that you can use in your next request to fetch the next page of slot types."
+        },
+        "slotTypes": {
+          "$ref": "#/definitions/BuiltinSlotTypeMetadataList",
+          "description": "An array of <code>BuiltInSlotTypeMetadata</code> objects, one entry for each slot type returned."
+        }
+      },
+      "type": "object",
+      "title": "GetBuiltinSlotTypesResponse"
+    },
+    "GetIntentRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "GetIntentRequest"
+    },
+    "GetIntentResponse": {
+      "properties": {
+        "checksum": {
+          "$ref": "#/definitions/String",
+          "description": "Checksum of the intent."
+        },
+        "conclusionStatement": {
+          "$ref": "#/definitions/Statement",
+          "description": "After the Lambda function specified in the <code>fulfillmentActivity</code> element fulfills the intent, Amazon Lex conveys this statement to the user."
+        },
+        "confirmationPrompt": {
+          "$ref": "#/definitions/Prompt",
+          "description": "If defined in the bot, Amazon Lex uses prompt to confirm the intent before fulfilling the user's request. For more information, see . "
+        },
+        "createdDate": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The date that the intent was created."
+        },
+        "description": {
+          "$ref": "#/definitions/Description",
+          "description": "A description of the intent."
+        },
+        "dialogCodeHook": {
+          "$ref": "#/definitions/CodeHook",
+          "description": "If defined in the bot, Amazon Amazon Lex invokes this Lambda function for each user input. For more information, see . "
+        },
+        "followUpPrompt": {
+          "$ref": "#/definitions/FollowUpPrompt",
+          "description": "If defined in the bot, Amazon Lex uses this prompt to solicit additional user activity after the intent is fulfilled. For more information, see ."
+        },
+        "fulfillmentActivity": {
+          "$ref": "#/definitions/FulfillmentActivity",
+          "description": "Describes how the intent is fulfilled. For more information, see . "
+        },
+        "lastUpdatedDate": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The date that the intent was updated. When you create a resource, the creation date and the last updated date are the same. "
+        },
+        "name": {
+          "$ref": "#/definitions/IntentName",
+          "description": "The name of the intent."
+        },
+        "parentIntentSignature": {
+          "$ref": "#/definitions/BuiltinIntentSignature",
+          "description": "A unique identifier for a built-in intent."
+        },
+        "rejectionStatement": {
+          "$ref": "#/definitions/Statement",
+          "description": "If the user answers \"no\" to the question defined in <code>confirmationPrompt</code>, Amazon Lex responds with this statement to acknowledge that the intent was canceled. "
+        },
+        "sampleUtterances": {
+          "$ref": "#/definitions/IntentUtteranceList",
+          "description": "An array of sample utterances configured for the intent."
+        },
+        "slots": {
+          "$ref": "#/definitions/SlotList",
+          "description": "An array of intent slots configured for the intent."
+        },
+        "version": {
+          "$ref": "#/definitions/Version",
+          "description": "The version of the intent."
+        }
+      },
+      "type": "object",
+      "title": "GetIntentResponse"
+    },
+    "GetIntentVersionsRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "GetIntentVersionsRequest"
+    },
+    "GetIntentVersionsResponse": {
+      "properties": {
+        "intents": {
+          "$ref": "#/definitions/IntentMetadataList",
+          "description": "An array of <code>IntentMetadata</code> objects, one for each numbered version of the intent plus one for the <code>$LATEST</code> version."
+        },
+        "nextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "A pagination token for fetching the next page of intent versions. If the response to this call is truncated, Amazon Lex returns a pagination token in the response. To fetch the next page of versions, specify the pagination token in the next request. "
+        }
+      },
+      "type": "object",
+      "title": "GetIntentVersionsResponse"
+    },
+    "GetIntentsRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "GetIntentsRequest"
+    },
+    "GetIntentsResponse": {
+      "properties": {
+        "intents": {
+          "$ref": "#/definitions/IntentMetadataList",
+          "description": "An array of <code>Intent</code> objects. For more information, see ."
+        },
+        "nextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "If the response is truncated, the response includes a pagination token that you can specify in your next request to fetch the next page of intents. "
+        }
+      },
+      "type": "object",
+      "title": "GetIntentsResponse"
+    },
+    "GetSlotTypeRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "GetSlotTypeRequest"
+    },
+    "GetSlotTypeResponse": {
+      "properties": {
+        "checksum": {
+          "$ref": "#/definitions/String",
+          "description": "Checksum of the <code>$LATEST</code> version of the slot type."
+        },
+        "createdDate": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The date that the slot type was created."
+        },
+        "description": {
+          "$ref": "#/definitions/Description",
+          "description": "A description of the slot type."
+        },
+        "enumerationValues": {
+          "$ref": "#/definitions/EnumerationValues",
+          "description": "A list of <code>EnumerationValue</code> objects that defines the values that the slot type can take."
+        },
+        "lastUpdatedDate": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The date that the slot type was updated. When you create a resource, the creation date and last update date are the same."
+        },
+        "name": {
+          "$ref": "#/definitions/SlotTypeName",
+          "description": "The name of the slot type."
+        },
+        "version": {
+          "$ref": "#/definitions/Version",
+          "description": "The version of the slot type."
+        }
+      },
+      "type": "object",
+      "title": "GetSlotTypeResponse"
+    },
+    "GetSlotTypeVersionsRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "GetSlotTypeVersionsRequest"
+    },
+    "GetSlotTypeVersionsResponse": {
+      "properties": {
+        "nextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "A pagination token for fetching the next page of slot type versions. If the response to this call is truncated, Amazon Lex returns a pagination token in the response. To fetch the next page of versions, specify the pagination token in the next request. "
+        },
+        "slotTypes": {
+          "$ref": "#/definitions/SlotTypeMetadataList",
+          "description": "An array of <code>SlotTypeMetadata</code> objects, one for each numbered version of the slot type plus one for the <code>$LATEST</code> version."
+        }
+      },
+      "type": "object",
+      "title": "GetSlotTypeVersionsResponse"
+    },
+    "GetSlotTypesRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "GetSlotTypesRequest"
+    },
+    "GetSlotTypesResponse": {
+      "properties": {
+        "nextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "If the response is truncated, it includes a pagination token that you can specify in your next request to fetch the next page of slot types."
+        },
+        "slotTypes": {
+          "$ref": "#/definitions/SlotTypeMetadataList",
+          "description": "An array of objects, one for each slot type, that provides information such as the name of the slot type, the version, and a description."
+        }
+      },
+      "type": "object",
+      "title": "GetSlotTypesResponse"
+    },
+    "GetUtterancesViewRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "GetUtterancesViewRequest"
+    },
+    "GetUtterancesViewResponse": {
+      "properties": {
+        "botName": {
+          "$ref": "#/definitions/BotName",
+          "description": "The name of the bot for which utterance information was returned."
+        },
+        "utterances": {
+          "$ref": "#/definitions/ListsOfUtterances",
+          "description": "An array of objects, each containing a list of objects describing the utterances that were processed by your bot. The response contains a maximum of 100 <code>UtteranceData</code> objects for each version."
+        }
+      },
+      "type": "object",
+      "title": "GetUtterancesViewResponse"
+    },
+    "Intent": {
+      "description": "Identifies the specific version of an intent.",
+      "properties": {
+        "intentName": {
+          "$ref": "#/definitions/IntentName",
+          "description": "The name of the intent."
+        },
+        "intentVersion": {
+          "$ref": "#/definitions/Version",
+          "description": "The version of the intent."
+        }
+      },
+      "required": [
+        "intentName",
+        "intentVersion"
+      ],
+      "type": "object",
+      "title": "Intent"
+    },
+    "IntentList": {
+      "items": {
+        "$ref": "#/definitions/Intent"
+      },
+      "maxItems": 100,
+      "minItems": 1,
+      "type": "array",
+      "title": "IntentList"
+    },
+    "IntentMetadata": {
+      "description": "Provides information about an intent.",
+      "properties": {
+        "createdDate": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The date that the intent was created."
+        },
+        "description": {
+          "$ref": "#/definitions/Description",
+          "description": "A description of the intent."
+        },
+        "lastUpdatedDate": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The date that the intent was updated. When you create an intent, the creation date and last updated date are the same."
+        },
+        "name": {
+          "$ref": "#/definitions/IntentName",
+          "description": "The name of the intent."
+        },
+        "version": {
+          "$ref": "#/definitions/Version",
+          "description": "The version of the intent."
+        }
+      },
+      "type": "object",
+      "title": "IntentMetadata"
+    },
+    "IntentMetadataList": {
+      "items": {
+        "$ref": "#/definitions/IntentMetadata"
+      },
+      "type": "array",
+      "title": "IntentMetadataList"
+    },
+    "IntentName": {
+      "maxLength": 100,
+      "minLength": 1,
+      "pattern": "^[a-zA-Z]+((_[a-zA-Z]+)*|([a-zA-Z]+_)*|_)",
+      "type": "string",
+      "title": "IntentName"
+    },
+    "IntentUtteranceList": {
+      "items": {
+        "$ref": "#/definitions/Utterance"
+      },
+      "maxItems": 1500,
+      "minItems": 0,
+      "type": "array",
+      "title": "IntentUtteranceList"
+    },
+    "InternalFailureException": {
+      "description": "An internal Amazon Lex error occurred. Try your request again.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/String"
+        }
+      },
+      "type": "object",
+      "title": "InternalFailureException"
+    },
+    "LambdaARN": {
+      "maxLength": 2048,
+      "minLength": 20,
+      "pattern": "arn:aws:lambda:[a-z]+-[a-z]+-[0-9]:[0-9]{12}:function:[a-zA-Z0-9-_]+(/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})?(:[a-zA-Z0-9-_]+)?",
+      "type": "string",
+      "title": "LambdaARN"
+    },
+    "LimitExceededException": {
+      "description": "The request exceeded a limit. Try your request again.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/String"
+        }
+      },
+      "type": "object",
+      "title": "LimitExceededException"
+    },
+    "ListOfUtterance": {
+      "items": {
+        "$ref": "#/definitions/UtteranceData"
+      },
+      "type": "array",
+      "title": "ListOfUtterance"
+    },
+    "ListsOfUtterances": {
+      "items": {
+        "$ref": "#/definitions/UtteranceList"
+      },
+      "type": "array",
+      "title": "ListsOfUtterances"
+    },
+    "Locale": {
+      "enum": [
+        "en-US"
+      ],
+      "type": "string",
+      "title": "Locale"
+    },
+    "LocaleList": {
+      "items": {
+        "$ref": "#/definitions/Locale"
+      },
+      "type": "array",
+      "title": "LocaleList"
+    },
+    "MaxResults": {
+      "maximum": 50,
+      "minimum": 1,
+      "type": "integer",
+      "title": "MaxResults"
+    },
+    "Message": {
+      "description": "The message object that provides the message text and its type.",
+      "properties": {
+        "content": {
+          "$ref": "#/definitions/ContentString",
+          "description": "The text of the message."
+        },
+        "contentType": {
+          "$ref": "#/definitions/ContentType",
+          "description": "The content type of the message string."
+        }
+      },
+      "required": [
+        "contentType",
+        "content"
+      ],
+      "type": "object",
+      "title": "Message"
+    },
+    "MessageList": {
+      "items": {
+        "$ref": "#/definitions/Message"
+      },
+      "maxItems": 5,
+      "minItems": 1,
+      "type": "array",
+      "title": "MessageList"
+    },
+    "MessageVersion": {
+      "maxLength": 5,
+      "minLength": 1,
+      "type": "string",
+      "title": "MessageVersion"
+    },
+    "Name": {
+      "maxLength": 64,
+      "minLength": 1,
+      "pattern": "[a-zA-Z]+",
+      "type": "string",
+      "title": "Name"
+    },
+    "NextToken": {
+      "type": "string",
+      "title": "NextToken"
+    },
+    "NotFoundException": {
+      "description": "The resource specified in the request was not found. Check the resource and try again.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/String"
+        }
+      },
+      "type": "object",
+      "title": "NotFoundException"
+    },
+    "NumericalVersion": {
+      "maxLength": 64,
+      "minLength": 1,
+      "pattern": "[0-9]+",
+      "type": "string",
+      "title": "NumericalVersion"
+    },
+    "PreconditionFailedException": {
+      "description": " The checksum of the resource that you are trying to change does not match the checksum in the request. Check the resource's checksum and try again.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/String"
+        }
+      },
+      "type": "object",
+      "title": "PreconditionFailedException"
+    },
+    "Priority": {
+      "maximum": 100,
+      "minimum": 0,
+      "type": "integer",
+      "title": "Priority"
+    },
+    "ProcessBehavior": {
+      "enum": [
+        "SAVE",
+        "BUILD"
+      ],
+      "type": "string",
+      "title": "ProcessBehavior"
+    },
+    "Prompt": {
+      "description": "Obtains information from the user. To define a prompt, provide one or more messages and specify the number of attempts to get information from the user. If you provide more than one message, Amazon Lex chooses one of the messages to use to prompt the user. For more information, see <a>how-it-works</a>.",
+      "properties": {
+        "maxAttempts": {
+          "$ref": "#/definitions/PromptMaxAttempts",
+          "description": "The number of times to prompt the user for information."
+        },
+        "messages": {
+          "$ref": "#/definitions/MessageList",
+          "description": "An array of objects, each of which provides a message string and its type. You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML)."
+        },
+        "responseCard": {
+          "$ref": "#/definitions/ResponseCard",
+          "description": "A response card. Amazon Lex uses this prompt at runtime, in the <code>PostText</code> API response. It substitutes session attributes and slot values for placeholders in the response card. For more information, see <a>ex-resp-card</a>. "
+        }
+      },
+      "required": [
+        "messages",
+        "maxAttempts"
+      ],
+      "type": "object",
+      "title": "Prompt"
+    },
+    "PromptMaxAttempts": {
+      "maximum": 5,
+      "minimum": 1,
+      "type": "integer",
+      "title": "PromptMaxAttempts"
+    },
+    "PutBotAliasRequest": {
+      "properties": {
+        "botVersion": {
+          "$ref": "#/definitions/Version",
+          "description": "The version of the bot."
+        },
+        "checksum": {
+          "$ref": "#/definitions/String",
+          "description": "<p>Identifies a specific revision of the <code>$LATEST</code> version.</p> <p>When you create a new bot alias, leave the <code>checksum</code> field blank. If you specify a checksum you get a <code>BadRequestException</code> exception.</p> <p>When you want to update a bot alias, set the <code>checksum</code> field to the checksum of the most recent revision of the <code>$LATEST</code> version. If you don't specify the <code> checksum</code> field, or if the checksum does not match the <code>$LATEST</code> version, you get a <code>PreconditionFailedException</code> exception.</p>"
+        },
+        "description": {
+          "$ref": "#/definitions/Description",
+          "description": "A description of the alias."
+        }
+      },
+      "required": [
+        "botVersion"
+      ],
+      "type": "object",
+      "title": "PutBotAliasRequest"
+    },
+    "PutBotAliasResponse": {
+      "properties": {
+        "botName": {
+          "$ref": "#/definitions/BotName",
+          "description": "The name of the bot that the alias points to."
+        },
+        "botVersion": {
+          "$ref": "#/definitions/Version",
+          "description": "The version of the bot that the alias points to."
+        },
+        "checksum": {
+          "$ref": "#/definitions/String",
+          "description": "The checksum for the current version of the alias."
+        },
+        "createdDate": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The date that the bot alias was created."
+        },
+        "description": {
+          "$ref": "#/definitions/Description",
+          "description": "A description of the alias."
+        },
+        "lastUpdatedDate": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The date that the bot alias was updated. When you create a resource, the creation date and the last updated date are the same."
+        },
+        "name": {
+          "$ref": "#/definitions/AliasName",
+          "description": "The name of the alias."
+        }
+      },
+      "type": "object",
+      "title": "PutBotAliasResponse"
+    },
+    "PutBotRequest": {
+      "properties": {
+        "abortStatement": {
+          "$ref": "#/definitions/Statement",
+          "description": "<p>When Amazon Lex can't understand the user's input in context, it tries to elicit the information a few times. After that, Amazon Lex sends the message defined in <code>abortStatement</code> to the user, and then aborts the conversation. To set the number of retries, use the <code>valueElicitationPrompt</code> field for the slot type. </p> <p>For example, in a pizza ordering bot, Amazon Lex might ask a user \"What type of crust would you like?\" If the user's response is not one of the expected responses (for example, \"thin crust, \"deep dish,\" etc.), Amazon Lex tries to elicit a correct response a few more times. </p> <p>For example, in a pizza ordering application, <code>OrderPizza</code> might be one of the intents. This intent might require the <code>CrustType</code> slot. You specify the <code>valueElicitationPrompt</code> field when you create the <code>CrustType</code> slot.</p>"
+        },
+        "checksum": {
+          "$ref": "#/definitions/String",
+          "description": "<p>Identifies a specific revision of the <code>$LATEST</code> version.</p> <p>When you create a new bot, leave the <code>checksum</code> field blank. If you specify a checksum you get a <code>BadRequestException</code> exception.</p> <p>When you want to update a bot, set the <code>checksum</code> field to the checksum of the most recent revision of the <code>$LATEST</code> version. If you don't specify the <code> checksum</code> field, or if the checksum does not match the <code>$LATEST</code> version, you get a <code>PreconditionFailedException</code> exception.</p>"
+        },
+        "childDirected": {
+          "$ref": "#/definitions/Boolean",
+          "description": "<p>For each Amazon Lex bot created with the Amazon Lex Model Building Service, you must specify whether your use of Amazon Lex is related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to the Children's Online Privacy Protection Act (COPPA) by specifying <code>true</code> or <code>false</code> in the <code>childDirected</code> field. By specifying <code>true</code> in the <code>childDirected</code> field, you confirm that your use of Amazon Lex <b>is</b> related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to COPPA. By specifying <code>false</code> in the <code>childDirected</code> field, you confirm that your use of Amazon Lex <b>is not</b> related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to COPPA. You may not specify a default value for the <code>childDirected</code> field that does not accurately reflect whether your use of Amazon Lex is related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to COPPA.</p> <p>If your use of Amazon Lex relates to a website, program, or other application that is directed in whole or in part, to children under age 13, you must obtain any required verifiable parental consent under COPPA. For information regarding the use of Amazon Lex in connection with websites, programs, or other applications that are directed or targeted, in whole or in part, to children under age 13, see the <a href=\"https://aws.amazon.com/lex/faqs#data-security\">Amazon Lex FAQ.</a> </p>"
+        },
+        "clarificationPrompt": {
+          "$ref": "#/definitions/Prompt",
+          "description": "When Amazon Lex doesn't understand the user's intent, it uses one of these messages to get clarification. For example, \"Sorry, I didn't understand. Please repeat.\" Amazon Lex repeats the clarification prompt the number of times specified in <code>maxAttempts</code>. If Amazon Lex still can't understand, it sends the message specified in <code>abortStatement</code>. "
+        },
+        "description": {
+          "$ref": "#/definitions/Description",
+          "description": "A description of the bot."
+        },
+        "idleSessionTTLInSeconds": {
+          "$ref": "#/definitions/SessionTTL",
+          "description": "<p>The maximum time in seconds that Amazon Lex retains the data gathered in a conversation.</p> <p>A user interaction session remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Lex deletes any data provided before the timeout.</p> <p>For example, suppose that a user chooses the OrderPizza intent, but gets sidetracked halfway through placing an order. If the user doesn't complete the order within the specified time, Amazon Lex discards the slot information that it gathered, and the user must start over.</p> <p>If you don't include the <code>idleSessionTTLInSeconds</code> element in a <code>PutBot</code> operation request, Amazon Lex uses the default value. This is also true if the request replaces an existing bot.</p> <p>The default is 300 seconds (5 minutes).</p>"
+        },
+        "intents": {
+          "$ref": "#/definitions/IntentList",
+          "description": "An array of <code>Intent</code> objects. Each intent represents a command that a user can express. For example, a pizza ordering bot might support an OrderPizza intent. For more information, see <a>how-it-works</a>."
+        },
+        "locale": {
+          "$ref": "#/definitions/Locale",
+          "description": "<p> Specifies the target locale for the bot. Any intent used in the bot must be compatible with the locale of the bot. </p> <p>The default is <code>en-US</code>.</p>"
+        },
+        "processBehavior": {
+          "$ref": "#/definitions/ProcessBehavior",
+          "description": "<p>If you set the <code>processBehavior</code> element to <code>Build</code>, Amazon Lex builds the bot so that it can be run. If you set the element to <code>Save</code>Amazon Lex saves the bot, but doesn't build it. </p> <p>If you don't specify this value, the default value is <code>Save</code>.</p>"
+        },
+        "voiceId": {
+          "$ref": "#/definitions/String",
+          "description": "The Amazon Parrot voice ID that you want Amazon Lex to use for voice interactions with the user. The locale configured for the voice must match the locale of the bot. For more information, see <a href=\"http://docs.aws.amazon.com/polly/latest/dg/API_Voice.html\">Voice</a> in the <i>Amazon Polly Developer Guide</i>."
+        }
+      },
+      "required": [
+        "locale",
+        "childDirected"
+      ],
+      "type": "object",
+      "title": "PutBotRequest"
+    },
+    "PutBotResponse": {
+      "properties": {
+        "abortStatement": {
+          "$ref": "#/definitions/Statement",
+          "description": "The message that Amazon Lex uses to abort a conversation. For more information, see ."
+        },
+        "checksum": {
+          "$ref": "#/definitions/String",
+          "description": "Checksum of the bot that you created."
+        },
+        "childDirected": {
+          "$ref": "#/definitions/Boolean",
+          "description": "<p>For each Amazon Lex bot created with the Amazon Lex Model Building Service, you must specify whether your use of Amazon Lex is related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to the Children's Online Privacy Protection Act (COPPA) by specifying <code>true</code> or <code>false</code> in the <code>childDirected</code> field. By specifying <code>true</code> in the <code>childDirected</code> field, you confirm that your use of Amazon Lex <b>is</b> related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to COPPA. By specifying <code>false</code> in the <code>childDirected</code> field, you confirm that your use of Amazon Lex <b>is not</b> related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to COPPA. You may not specify a default value for the <code>childDirected</code> field that does not accurately reflect whether your use of Amazon Lex is related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to COPPA.</p> <p>If your use of Amazon Lex relates to a website, program, or other application that is directed in whole or in part, to children under age 13, you must obtain any required verifiable parental consent under COPPA. For information regarding the use of Amazon Lex in connection with websites, programs, or other applications that are directed or targeted, in whole or in part, to children under age 13, see the <a href=\"https://aws.amazon.com/lex/faqs#data-security\">Amazon Lex FAQ.</a> </p>"
+        },
+        "clarificationPrompt": {
+          "$ref": "#/definitions/Prompt",
+          "description": " The prompts that Amazon Lex uses when it doesn't understand the user's intent. For more information, see . "
+        },
+        "createdDate": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The date that the bot was created."
+        },
+        "description": {
+          "$ref": "#/definitions/Description",
+          "description": "A description of the bot."
+        },
+        "failureReason": {
+          "$ref": "#/definitions/String",
+          "description": "If <code>status</code> is <code>FAILED</code>, Amazon Lex provides the reason that it failed to build the bot."
+        },
+        "idleSessionTTLInSeconds": {
+          "$ref": "#/definitions/SessionTTL",
+          "description": "The maximum length of time that Amazon Lex retains the data gathered in a conversation. For more information, see ."
+        },
+        "intents": {
+          "$ref": "#/definitions/IntentList",
+          "description": "An array of <code>Intent</code> objects. For more information, see ."
+        },
+        "lastUpdatedDate": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The date that the bot was updated. When you create a resource, the creation date and last updated date are the same."
+        },
+        "locale": {
+          "$ref": "#/definitions/Locale",
+          "description": " The target locale for the bot. "
+        },
+        "name": {
+          "$ref": "#/definitions/BotName",
+          "description": "The name of the bot."
+        },
+        "status": {
+          "$ref": "#/definitions/Status",
+          "description": "<p> When you send a request to create a bot with <code>processBehavior</code> set to <code>BUILD</code>, Amazon Lex sets the <code>status</code> response element to <code>BUILDING</code>. After Amazon Lex builds the bot, it sets <code>status</code> to <code>READY</code>. If Amazon Lex can't build the bot, Amazon Lex sets <code>status</code> to <code>FAILED</code>. Amazon Lex returns the reason for the failure in the <code>failureReason</code> response element. </p> <p>When you set <code>processBehavior</code>to <code>SAVE</code>, Amazon Lex sets the status code to <code>NOT BUILT</code>.</p>"
+        },
+        "version": {
+          "$ref": "#/definitions/Version",
+          "description": "The version of the bot. For a new bot, the version is always <code>$LATEST</code>."
+        },
+        "voiceId": {
+          "$ref": "#/definitions/String",
+          "description": "The Amazon Parrot voice ID that Amazon Lex uses for voice interaction with the user. For more information, see ."
+        }
+      },
+      "type": "object",
+      "title": "PutBotResponse"
+    },
+    "PutIntentRequest": {
+      "properties": {
+        "checksum": {
+          "$ref": "#/definitions/String",
+          "description": "<p>Identifies a specific revision of the <code>$LATEST</code> version.</p> <p>When you create a new intent, leave the <code>checksum</code> field blank. If you specify a checksum you get a <code>BadRequestException</code> exception.</p> <p>When you want to update a intent, set the <code>checksum</code> field to the checksum of the most recent revision of the <code>$LATEST</code> version. If you don't specify the <code> checksum</code> field, or if the checksum does not match the <code>$LATEST</code> version, you get a <code>PreconditionFailedException</code> exception.</p>"
+        },
+        "conclusionStatement": {
+          "$ref": "#/definitions/Statement",
+          "description": "<p> The statement that you want Amazon Lex to convey to the user after the intent is successfully fulfilled by the Lambda function. </p> <p>This element is relevant only if you provide a Lambda function in the <code>fulfillmentActivity</code>. If you return the intent to the client application, you can't specify this element.</p> <note> <p>The <code>followUpPrompt</code> and <code>conclusionStatement</code> are mutually exclusive. You can specify only one.</p> </note>"
+        },
+        "confirmationPrompt": {
+          "$ref": "#/definitions/Prompt",
+          "description": "<p>Prompts the user to confirm the intent. This question should have a yes or no answer.</p> <p>Amazon Lex uses this prompt to ensure that the user acknowledges that the intent is ready for fulfillment. For example, with the <code>OrderPizza</code> intent, you might want to confirm that the order is correct before placing it. For other intents, such as intents that simply respond to user questions, you might not need to ask the user for confirmation before providing the information. </p> <note> <p>You you must provide both the <code>rejectionStatement</code> and the <code>confirmationPrompt</code>, or neither.</p> </note>"
+        },
+        "description": {
+          "$ref": "#/definitions/Description",
+          "description": "A description of the intent."
+        },
+        "dialogCodeHook": {
+          "$ref": "#/definitions/CodeHook",
+          "description": "<p> Specifies a Lambda function to invoke for each user input. You can invoke this Lambda function to personalize user interaction. </p> <p>For example, suppose your bot determines that the user is John. Your Lambda function might retrieve John's information from a backend database and prepopulate some of the values. For example, if you find that John is gluten intolerant, you might set the corresponding intent slot, <code>GlutenIntolerant</code>, to true. You might find John's phone number and set the corresponding session attribute. </p>"
+        },
+        "followUpPrompt": {
+          "$ref": "#/definitions/FollowUpPrompt",
+          "description": "<p>A user prompt for additional activity after an intent is fulfilled. For example, after the <code>OrderPizza</code> intent is fulfilled (your Lambda function placed an order with a pizzeria), you might prompt the user to find if they want to order a drink (assuming that you have defined an <code>OrderDrink</code> intent in your bot).</p> <note> <p>The <code>followUpPrompt</code> and <code>conclusionStatement</code> are mutually exclusive. You can specify only one. For example, your bot may not solicit both the following: </p> <p> Follow up prompt - \"<code>$session.FirstName</code>, your pizza order has been placed. Would you like to order a drink or a dessert?\" </p> <p> Conclusion statement - \"<code>$session.FirstName</code>, your pizza order has been placed.\" </p> </note>"
+        },
+        "fulfillmentActivity": {
+          "$ref": "#/definitions/FulfillmentActivity",
+          "description": "<p> Describes how the intent is fulfilled. For example, after a user provides all of the information for a pizza order, <code>fulfillmentActivity</code> defines how the bot places an order with a local pizza store. </p> <p> You might configure Amazon Lex to return all of the intent information to the client application, or direct it to invoke a Lambda function that can process the intent (for example, place an order with a pizzeria). </p>"
+        },
+        "parentIntentSignature": {
+          "$ref": "#/definitions/BuiltinIntentSignature",
+          "description": "A unique identifier for the built-in intent to base this intent on. To find the signature for an intent, see <a href=\"https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/standard-intents\">Standard Built-in Intents</a> in the <i>Alexa Skills Kit</i>."
+        },
+        "rejectionStatement": {
+          "$ref": "#/definitions/Statement",
+          "description": "<p>When the user answers \"no\" to the question defined in <code>confirmationPrompt</code>, Amazon Lex responds with this statement to acknowledge that the intent was canceled. </p> <note> <p>You must provide both the <code>rejectionStatement</code> and the <code>confirmationPrompt</code>, or neither.</p> </note>"
+        },
+        "sampleUtterances": {
+          "$ref": "#/definitions/IntentUtteranceList",
+          "description": "<p>An array of utterances (strings) that a user might say to signal the intent. For example, \"I want {PizzaSize} pizza\", \"Order {Quantity} {PizzaSize} pizzas\". </p> <p>In each utterance, a slot name is enclosed in curly braces. </p>"
+        },
+        "slots": {
+          "$ref": "#/definitions/SlotList",
+          "description": "An array of intent slots. At runtime, Amazon Lex elicits required slot values from the user using prompts defined in the slots. For more information, see &lt;xref linkend=\"how-it-works\"/&gt;. "
+        }
+      },
+      "type": "object",
+      "title": "PutIntentRequest"
+    },
+    "PutIntentResponse": {
+      "properties": {
+        "checksum": {
+          "$ref": "#/definitions/String",
+          "description": "Checksum of the <code>$LATEST</code>version of the intent created or updated."
+        },
+        "conclusionStatement": {
+          "$ref": "#/definitions/Statement",
+          "description": "After the Lambda function specified in the<code>fulfillmentActivity</code>intent fulfills the intent, Amazon Lex conveys this statement to the user."
+        },
+        "confirmationPrompt": {
+          "$ref": "#/definitions/Prompt",
+          "description": "If defined in the intent, Amazon Lex prompts the user to confirm the intent before fulfilling it."
+        },
+        "createdDate": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The date that the intent was created."
+        },
+        "description": {
+          "$ref": "#/definitions/Description",
+          "description": "A description of the intent."
+        },
+        "dialogCodeHook": {
+          "$ref": "#/definitions/CodeHook",
+          "description": "If defined in the intent, Amazon Lex invokes this Lambda function for each user input."
+        },
+        "followUpPrompt": {
+          "$ref": "#/definitions/FollowUpPrompt",
+          "description": "If defined in the intent, Amazon Lex uses this prompt to solicit additional user activity after the intent is fulfilled."
+        },
+        "fulfillmentActivity": {
+          "$ref": "#/definitions/FulfillmentActivity",
+          "description": "If defined in the intent, Amazon Lex invokes this Lambda function to fulfill the intent after the user provides all of the information required by the intent."
+        },
+        "lastUpdatedDate": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The date that the intent was updated. When you create a resource, the creation date and last update dates are the same."
+        },
+        "name": {
+          "$ref": "#/definitions/IntentName",
+          "description": "The name of the intent."
+        },
+        "parentIntentSignature": {
+          "$ref": "#/definitions/BuiltinIntentSignature",
+          "description": "A unique identifier for the built-in intent that this intent is based on."
+        },
+        "rejectionStatement": {
+          "$ref": "#/definitions/Statement",
+          "description": "If the user answers \"no\" to the question defined in <code>confirmationPrompt</code> Amazon Lex responds with this statement to acknowledge that the intent was canceled. "
+        },
+        "sampleUtterances": {
+          "$ref": "#/definitions/IntentUtteranceList",
+          "description": " An array of sample utterances that are configured for the intent. "
+        },
+        "slots": {
+          "$ref": "#/definitions/SlotList",
+          "description": "An array of intent slots that are configured for the intent."
+        },
+        "version": {
+          "$ref": "#/definitions/Version",
+          "description": "The version of the intent. For a new intent, the version is always <code>$LATEST</code>."
+        }
+      },
+      "type": "object",
+      "title": "PutIntentResponse"
+    },
+    "PutSlotTypeRequest": {
+      "properties": {
+        "checksum": {
+          "$ref": "#/definitions/String",
+          "description": "<p>Identifies a specific revision of the <code>$LATEST</code> version.</p> <p>When you create a new slot type, leave the <code>checksum</code> field blank. If you specify a checksum you get a <code>BadRequestException</code> exception.</p> <p>When you want to update a slot type, set the <code>checksum</code> field to the checksum of the most recent revision of the <code>$LATEST</code> version. If you don't specify the <code> checksum</code> field, or if the checksum does not match the <code>$LATEST</code> version, you get a <code>PreconditionFailedException</code> exception.</p>"
+        },
+        "description": {
+          "$ref": "#/definitions/Description",
+          "description": "A description of the slot type."
+        },
+        "enumerationValues": {
+          "$ref": "#/definitions/EnumerationValues",
+          "description": "A list of <code>EnumerationValue</code> objects that defines the values that the slot type can take."
+        }
+      },
+      "type": "object",
+      "title": "PutSlotTypeRequest"
+    },
+    "PutSlotTypeResponse": {
+      "properties": {
+        "checksum": {
+          "$ref": "#/definitions/String",
+          "description": "Checksum of the <code>$LATEST</code> version of the slot type."
+        },
+        "createdDate": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The date that the slot type was created."
+        },
+        "description": {
+          "$ref": "#/definitions/Description",
+          "description": "A description of the slot type."
+        },
+        "enumerationValues": {
+          "$ref": "#/definitions/EnumerationValues",
+          "description": "A list of <code>EnumerationValue</code> objects that defines the values that the slot type can take."
+        },
+        "lastUpdatedDate": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The date that the slot type was updated. When you create a slot type, the creation date and last update date are the same."
+        },
+        "name": {
+          "$ref": "#/definitions/SlotTypeName",
+          "description": "The name of the slot type."
+        },
+        "version": {
+          "$ref": "#/definitions/Version",
+          "description": "The version of the slot type. For a new slot type, the version is always <code>$LATEST</code>. "
+        }
+      },
+      "type": "object",
+      "title": "PutSlotTypeResponse"
+    },
+    "ReferenceType": {
+      "enum": [
+        "Intent",
+        "Bot",
+        "BotAlias",
+        "BotChannel"
+      ],
+      "type": "string",
+      "title": "ReferenceType"
+    },
+    "ResourceInUseException": {
+      "description": "<p>The resource that you are attempting to delete is referred to by another resource. Use this information to remove references to the resource that you are trying to delete.</p> <p>The body of the exception contains a JSON object that describes the resource.</p> <p> <code>{ \"resourceType\": BOT | BOTALIAS | BOTCHANNEL | INTENT,</code> </p> <p> <code>\"resourceReference\": {</code> </p> <p> <code>\"name\": <i>string</i>, \"version\": <i>string</i> } }</code> </p>",
+      "properties": {
+        "exampleReference": {
+          "$ref": "#/definitions/ResourceReference"
+        },
+        "referenceType": {
+          "$ref": "#/definitions/ReferenceType"
+        }
+      },
+      "type": "object",
+      "title": "ResourceInUseException"
+    },
+    "ResourceReference": {
+      "description": "Describes the resource that refers to the resource that you are attempting to delete. This object is returned as part of the <code>ResourceInUseException</code> exception. ",
+      "properties": {
+        "name": {
+          "$ref": "#/definitions/Name",
+          "description": "The name of the resource that is using the resource that you are trying to delete."
+        },
+        "version": {
+          "$ref": "#/definitions/Version",
+          "description": "The version of the resource that is using the resource that you are trying to delete."
+        }
+      },
+      "type": "object",
+      "title": "ResourceReference"
+    },
+    "ResponseCard": {
+      "maxLength": 50000,
+      "minLength": 1,
+      "type": "string",
+      "title": "ResponseCard"
+    },
+    "SessionTTL": {
+      "maximum": 86400,
+      "minimum": 60,
+      "type": "integer",
+      "title": "SessionTTL"
+    },
+    "Slot": {
+      "description": "Identifies the version of a specific slot.",
+      "properties": {
+        "description": {
+          "$ref": "#/definitions/Description",
+          "description": "A description of the slot."
+        },
+        "name": {
+          "$ref": "#/definitions/SlotName",
+          "description": "The name of the slot."
+        },
+        "priority": {
+          "$ref": "#/definitions/Priority",
+          "description": "<p> Directs Lex the order in which to elicit this slot value from the user. For example, if the intent has two slots with priorities 1 and 2, AWS Lex first elicits a value for the slot with priority 1.</p> <p>If multiple slots share the same priority, the order in which Lex elicits values is arbitrary.</p>"
+        },
+        "responseCard": {
+          "$ref": "#/definitions/ResponseCard",
+          "description": " A set of possible responses for the slot type used by text-based clients. A user chooses an option from the response card, instead of using text to reply. "
+        },
+        "sampleUtterances": {
+          "$ref": "#/definitions/SlotUtteranceList",
+          "description": " If you know a specific pattern with which users might respond to an Amazon Lex request for a slot value, you can provide those utterances to improve accuracy. This is optional. In most cases, Amazon Lex is capable of understanding user utterances. "
+        },
+        "slotConstraint": {
+          "$ref": "#/definitions/SlotConstraint",
+          "description": "Specifies whether the slot is required or optional. "
+        },
+        "slotType": {
+          "$ref": "#/definitions/CustomOrBuiltinSlotTypeName",
+          "description": "The type of the slot, either a custom slot type that you defined or one of the built-in slot types."
+        },
+        "slotTypeVersion": {
+          "$ref": "#/definitions/Version",
+          "description": "The version of the slot type."
+        },
+        "valueElicitationPrompt": {
+          "$ref": "#/definitions/Prompt",
+          "description": "The prompt that Amazon Lex uses to elicit the slot value from the user."
+        }
+      },
+      "required": [
+        "name",
+        "slotConstraint"
+      ],
+      "type": "object",
+      "title": "Slot"
+    },
+    "SlotConstraint": {
+      "enum": [
+        "Required",
+        "Optional"
+      ],
+      "type": "string",
+      "title": "SlotConstraint"
+    },
+    "SlotList": {
+      "items": {
+        "$ref": "#/definitions/Slot"
+      },
+      "maxItems": 100,
+      "minItems": 0,
+      "type": "array",
+      "title": "SlotList"
+    },
+    "SlotName": {
+      "maxLength": 100,
+      "minLength": 1,
+      "pattern": "^[a-zA-Z]+(((_|.)[a-zA-Z]+)*|([a-zA-Z]+(_|.))*|(_|.))",
+      "type": "string",
+      "title": "SlotName"
+    },
+    "SlotTypeMetadata": {
+      "description": "Provides information about a slot type..",
+      "properties": {
+        "createdDate": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The date that the slot type was created."
+        },
+        "description": {
+          "$ref": "#/definitions/Description",
+          "description": "A description of the slot type."
+        },
+        "lastUpdatedDate": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The date that the slot type was updated. When you create a resource, the creation date and last updated date are the same. "
+        },
+        "name": {
+          "$ref": "#/definitions/SlotTypeName",
+          "description": "The name of the slot type."
+        },
+        "version": {
+          "$ref": "#/definitions/Version",
+          "description": "The version of the slot type."
+        }
+      },
+      "type": "object",
+      "title": "SlotTypeMetadata"
+    },
+    "SlotTypeMetadataList": {
+      "items": {
+        "$ref": "#/definitions/SlotTypeMetadata"
+      },
+      "type": "array",
+      "title": "SlotTypeMetadataList"
+    },
+    "SlotTypeName": {
+      "maxLength": 100,
+      "minLength": 1,
+      "pattern": "^[a-zA-Z]+((_[a-zA-Z]+)*|([a-zA-Z]+_)*|_)",
+      "type": "string",
+      "title": "SlotTypeName"
+    },
+    "SlotUtteranceList": {
+      "items": {
+        "$ref": "#/definitions/Utterance"
+      },
+      "maxItems": 10,
+      "minItems": 0,
+      "type": "array",
+      "title": "SlotUtteranceList"
+    },
+    "Statement": {
+      "description": "A collection of messages that convey information to the user. At runtime, Amazon Lex selects the message to convey. ",
+      "properties": {
+        "messages": {
+          "$ref": "#/definitions/MessageList",
+          "description": "A collection of message objects."
+        },
+        "responseCard": {
+          "$ref": "#/definitions/ResponseCard",
+          "description": " At runtime, if the client is using the API, Amazon Lex includes the response card in the response. It substitutes all of the session attributes and slot values for placeholders in the response card. "
+        }
+      },
+      "required": [
+        "messages"
+      ],
+      "type": "object",
+      "title": "Statement"
+    },
+    "Status": {
+      "enum": [
+        "BUILDING",
+        "READY",
+        "FAILED",
+        "NOT_BUILT"
+      ],
+      "type": "string",
+      "title": "Status"
+    },
+    "StatusType": {
+      "enum": [
+        "Detected",
+        "Missed"
+      ],
+      "type": "string",
+      "title": "StatusType"
+    },
+    "String": {
+      "type": "string",
+      "title": "String"
+    },
+    "Timestamp": {
+      "format": "date-time",
+      "type": "string",
+      "title": "Timestamp"
+    },
+    "UserId": {
+      "maxLength": 100,
+      "minLength": 2,
+      "type": "string",
+      "title": "UserId"
+    },
+    "Utterance": {
+      "maxLength": 200,
+      "minLength": 1,
+      "type": "string",
+      "title": "Utterance"
+    },
+    "UtteranceData": {
+      "description": "Provides information about a single utterance that was made to your bot. ",
+      "properties": {
+        "count": {
+          "$ref": "#/definitions/Count",
+          "description": "The number of times that the utterance was processed."
+        },
+        "distinctUsers": {
+          "$ref": "#/definitions/Count",
+          "description": "The total number of individuals that used the utterance."
+        },
+        "firstUtteredDate": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The date that the utterance was first recorded."
+        },
+        "lastUtteredDate": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The date that the utterance was last recorded."
+        },
+        "utteranceString": {
+          "$ref": "#/definitions/UtteranceString",
+          "description": "The text that was entered by the user or the text representation of an audio clip."
+        }
+      },
+      "type": "object",
+      "title": "UtteranceData"
+    },
+    "UtteranceList": {
+      "description": "Provides a list of utterances that have been made to a specific version of your bot. The list contains a maximum of 100 utterances.",
+      "properties": {
+        "botVersion": {
+          "$ref": "#/definitions/Version",
+          "description": "The version of the bot that processed the list."
+        },
+        "utterances": {
+          "$ref": "#/definitions/ListOfUtterance",
+          "description": "One or more objects that contain information about the utterances that have been made to a bot. The maximum number of object is 100."
+        }
+      },
+      "type": "object",
+      "title": "UtteranceList"
+    },
+    "UtteranceString": {
+      "maxLength": 2000,
+      "minLength": 1,
+      "type": "string",
+      "title": "UtteranceString"
+    },
+    "Value": {
+      "maxLength": 140,
+      "minLength": 1,
+      "type": "string",
+      "title": "Value"
+    },
+    "Version": {
+      "maxLength": 64,
+      "minLength": 1,
+      "pattern": "\\$LATEST|[0-9]+",
+      "type": "string",
+      "title": "Version"
+    }
+  },
+  "actions": [
+    {
+      "id": "GetBots",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "maxResults": {
+            "type": "string"
+          },
+          "nextToken": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetBotsRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetBotsResponse"
+      },
+      "security": {
+        "amazonaws_models_lex": {
+          "integration": "amazonaws_models_lex"
+        }
+      }
+    },
+    {
+      "id": "GetBotAliases",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "maxResults": {
+            "type": "string"
+          },
+          "nextToken": {
+            "type": "string"
+          },
+          "botName": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetBotAliasesRequest"
+          }
+        ],
+        "required": [
+          "botName"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetBotAliasesResponse"
+      },
+      "security": {
+        "amazonaws_models_lex": {
+          "integration": "amazonaws_models_lex"
+        }
+      }
+    },
+    {
+      "id": "GetBotChannelAssociations",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "maxResults": {
+            "type": "string"
+          },
+          "nextToken": {
+            "type": "string"
+          },
+          "botName": {
+            "type": "string"
+          },
+          "aliasName": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetBotChannelAssociationsRequest"
+          }
+        ],
+        "required": [
+          "botName",
+          "aliasName"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetBotChannelAssociationsResponse"
+      },
+      "security": {
+        "amazonaws_models_lex": {
+          "integration": "amazonaws_models_lex"
+        }
+      }
+    },
+    {
+      "id": "GetBotChannelAssociation",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "botName": {
+            "type": "string"
+          },
+          "aliasName": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetBotChannelAssociationRequest"
+          }
+        ],
+        "required": [
+          "name",
+          "botName",
+          "aliasName"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetBotChannelAssociationResponse"
+      },
+      "security": {
+        "amazonaws_models_lex": {
+          "integration": "amazonaws_models_lex"
+        }
+      }
+    },
+    {
+      "id": "PutBotAlias",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "botName": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/PutBotAliasRequest"
+          }
+        ],
+        "required": [
+          "name",
+          "botName"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/PutBotAliasResponse"
+      },
+      "security": {
+        "amazonaws_models_lex": {
+          "integration": "amazonaws_models_lex"
+        }
+      }
+    },
+    {
+      "id": "DeleteUtterances",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "botName": {
+            "type": "string"
+          },
+          "userId": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/DeleteUtterancesRequest"
+          }
+        ],
+        "required": [
+          "botName",
+          "userId"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_models_lex": {
+          "integration": "amazonaws_models_lex"
+        }
+      }
+    },
+    {
+      "id": "GetUtterancesView",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "botname": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetUtterancesViewRequest"
+          }
+        ],
+        "required": [
+          "botname"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetUtterancesViewResponse"
+      },
+      "security": {
+        "amazonaws_models_lex": {
+          "integration": "amazonaws_models_lex"
+        }
+      }
+    },
+    {
+      "id": "DeleteBot",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/DeleteBotRequest"
+          }
+        ],
+        "required": [
+          "name"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_models_lex": {
+          "integration": "amazonaws_models_lex"
+        }
+      }
+    },
+    {
+      "id": "CreateBotVersion",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/CreateBotVersionRequest"
+          }
+        ],
+        "required": [
+          "name"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_models_lex": {
+          "integration": "amazonaws_models_lex"
+        }
+      }
+    },
+    {
+      "id": "GetBotVersions",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "maxResults": {
+            "type": "string"
+          },
+          "nextToken": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetBotVersionsRequest"
+          }
+        ],
+        "required": [
+          "name"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetBotVersionsResponse"
+      },
+      "security": {
+        "amazonaws_models_lex": {
+          "integration": "amazonaws_models_lex"
+        }
+      }
+    },
+    {
+      "id": "PutBot",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/PutBotRequest"
+          }
+        ],
+        "required": [
+          "name"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/PutBotResponse"
+      },
+      "security": {
+        "amazonaws_models_lex": {
+          "integration": "amazonaws_models_lex"
+        }
+      }
+    },
+    {
+      "id": "GetBot",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "versionoralias": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetBotRequest"
+          }
+        ],
+        "required": [
+          "name",
+          "versionoralias"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetBotResponse"
+      },
+      "security": {
+        "amazonaws_models_lex": {
+          "integration": "amazonaws_models_lex"
+        }
+      }
+    },
+    {
+      "id": "DeleteBotVersion",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "version": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/DeleteBotVersionRequest"
+          }
+        ],
+        "required": [
+          "name",
+          "version"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_models_lex": {
+          "integration": "amazonaws_models_lex"
+        }
+      }
+    },
+    {
+      "id": "GetBuiltinIntents",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "maxResults": {
+            "type": "string"
+          },
+          "nextToken": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetBuiltinIntentsRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetBuiltinIntentsResponse"
+      },
+      "security": {
+        "amazonaws_models_lex": {
+          "integration": "amazonaws_models_lex"
+        }
+      }
+    },
+    {
+      "id": "GetBuiltinIntent",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "signature": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetBuiltinIntentRequest"
+          }
+        ],
+        "required": [
+          "signature"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetBuiltinIntentResponse"
+      },
+      "security": {
+        "amazonaws_models_lex": {
+          "integration": "amazonaws_models_lex"
+        }
+      }
+    },
+    {
+      "id": "GetBuiltinSlotTypes",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "maxResults": {
+            "type": "string"
+          },
+          "nextToken": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetBuiltinSlotTypesRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetBuiltinSlotTypesResponse"
+      },
+      "security": {
+        "amazonaws_models_lex": {
+          "integration": "amazonaws_models_lex"
+        }
+      }
+    },
+    {
+      "id": "GetIntents",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "maxResults": {
+            "type": "string"
+          },
+          "nextToken": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetIntentsRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetIntentsResponse"
+      },
+      "security": {
+        "amazonaws_models_lex": {
+          "integration": "amazonaws_models_lex"
+        }
+      }
+    },
+    {
+      "id": "DeleteIntent",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/DeleteIntentRequest"
+          }
+        ],
+        "required": [
+          "name"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_models_lex": {
+          "integration": "amazonaws_models_lex"
+        }
+      }
+    },
+    {
+      "id": "CreateIntentVersion",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/CreateIntentVersionRequest"
+          }
+        ],
+        "required": [
+          "name"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_models_lex": {
+          "integration": "amazonaws_models_lex"
+        }
+      }
+    },
+    {
+      "id": "GetIntentVersions",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "maxResults": {
+            "type": "string"
+          },
+          "nextToken": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetIntentVersionsRequest"
+          }
+        ],
+        "required": [
+          "name"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetIntentVersionsResponse"
+      },
+      "security": {
+        "amazonaws_models_lex": {
+          "integration": "amazonaws_models_lex"
+        }
+      }
+    },
+    {
+      "id": "PutIntent",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/PutIntentRequest"
+          }
+        ],
+        "required": [
+          "name"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/PutIntentResponse"
+      },
+      "security": {
+        "amazonaws_models_lex": {
+          "integration": "amazonaws_models_lex"
+        }
+      }
+    },
+    {
+      "id": "GetIntent",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "version": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetIntentRequest"
+          }
+        ],
+        "required": [
+          "name",
+          "version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetIntentResponse"
+      },
+      "security": {
+        "amazonaws_models_lex": {
+          "integration": "amazonaws_models_lex"
+        }
+      }
+    },
+    {
+      "id": "GetSlotTypes",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "maxResults": {
+            "type": "string"
+          },
+          "nextToken": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetSlotTypesRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetSlotTypesResponse"
+      },
+      "security": {
+        "amazonaws_models_lex": {
+          "integration": "amazonaws_models_lex"
+        }
+      }
+    },
+    {
+      "id": "DeleteSlotType",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/DeleteSlotTypeRequest"
+          }
+        ],
+        "required": [
+          "name"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_models_lex": {
+          "integration": "amazonaws_models_lex"
+        }
+      }
+    },
+    {
+      "id": "DeleteSlotTypeVersion",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "version": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/DeleteSlotTypeVersionRequest"
+          }
+        ],
+        "required": [
+          "name",
+          "version"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_models_lex": {
+          "integration": "amazonaws_models_lex"
+        }
+      }
+    },
+    {
+      "id": "CreateSlotTypeVersion",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/CreateSlotTypeVersionRequest"
+          }
+        ],
+        "required": [
+          "name"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_models_lex": {
+          "integration": "amazonaws_models_lex"
+        }
+      }
+    },
+    {
+      "id": "GetSlotTypeVersions",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "maxResults": {
+            "type": "string"
+          },
+          "nextToken": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetSlotTypeVersionsRequest"
+          }
+        ],
+        "required": [
+          "name"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetSlotTypeVersionsResponse"
+      },
+      "security": {
+        "amazonaws_models_lex": {
+          "integration": "amazonaws_models_lex"
+        }
+      }
+    },
+    {
+      "id": "PutSlotType",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/PutSlotTypeRequest"
+          }
+        ],
+        "required": [
+          "name"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/PutSlotTypeResponse"
+      },
+      "security": {
+        "amazonaws_models_lex": {
+          "integration": "amazonaws_models_lex"
+        }
+      }
+    },
+    {
+      "id": "GetSlotType",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "version": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetSlotTypeRequest"
+          }
+        ],
+        "required": [
+          "name",
+          "version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetSlotTypeResponse"
+      },
+      "security": {
+        "amazonaws_models_lex": {
+          "integration": "amazonaws_models_lex"
+        }
+      }
+    }
+  ],
+  "tags": [
+    "cloud",
+    "aws"
+  ]
+}

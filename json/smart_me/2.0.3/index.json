@@ -1,0 +1,1283 @@
+{
+  "id": "smart_me",
+  "title": "smart-me",
+  "description": "With the smart-me REST API you get Access to all your devices in the smart-me Cloud and you can add your own devices. So it's a easy way to add the smart-me Cloud support to your Hardware or Software Product.",
+  "security": {
+    "smart_me": {
+      "integration": "smart_me",
+      "fields": {
+        "username": "Your username",
+        "password": "Your password"
+      }
+    }
+  },
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/smart_me.png"
+  },
+  "actionCount": 23,
+  "definitions": {
+    "AccessTokenToPut": {
+      "description": "Container Class for the Put action of an Access Token",
+      "properties": {
+        "CardId": {
+          "description": "The ID of the Card",
+          "format": "int64",
+          "type": "integer"
+        },
+        "UserId": {
+          "description": "The ID of the User. The credentials provided must have permission to edit the user.\r\n            If no ID is provided, the user in the credentials is taken.",
+          "format": "int64",
+          "type": "integer"
+        }
+      },
+      "type": "object",
+      "title": "AccessTokenToPut"
+    },
+    "ActionInformation": {
+      "description": "The Information about an Action of a device",
+      "properties": {
+        "ActionType": {
+          "description": "The Type of this action.",
+          "enum": [
+            "OnOffAction",
+            "AnalogAction"
+          ],
+          "type": "string"
+        },
+        "MaxValue": {
+          "description": "The maximum value of this action (e.g. for an AnalogAction)",
+          "format": "double",
+          "type": "number"
+        },
+        "MinValue": {
+          "description": "The minimum value of this action (e.g. for an AnalogAction)",
+          "format": "double",
+          "type": "number"
+        },
+        "Name": {
+          "description": "The Name of this action",
+          "type": "string"
+        },
+        "ObisCode": {
+          "description": "The Obis Code of this action. This is used as ID.",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "ActionInformation"
+    },
+    "ActionToPost": {
+      "description": "Container Class for an action to post",
+      "properties": {
+        "Actions": {
+          "description": "List with all Actions for this device",
+          "items": {
+            "$ref": "#/definitions/ActionToPostItem"
+          },
+          "type": "array"
+        },
+        "DeviceID": {
+          "description": "The ID of the Device",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "ActionToPost"
+    },
+    "ActionToPostItem": {
+      "description": "Container class for an action item",
+      "properties": {
+        "ObisCode": {
+          "description": "The ObisCode (ID) of the Action",
+          "type": "string"
+        },
+        "Value": {
+          "description": "The Value to Post",
+          "format": "double",
+          "type": "number"
+        }
+      },
+      "type": "object",
+      "title": "ActionToPostItem"
+    },
+    "CustomDeviceToPost": {
+      "description": "Container Class for the Web API",
+      "properties": {
+        "Id": {
+          "description": "The ID of the device",
+          "type": "string"
+        },
+        "Name": {
+          "description": "The Name of the Device",
+          "type": "string"
+        },
+        "Serial": {
+          "description": "The Serial number",
+          "format": "int64",
+          "type": "integer"
+        },
+        "ValueDate": {
+          "description": "The Date of the Value (in UTC). If this is null the Server Time is used.",
+          "format": "date-time",
+          "type": "string"
+        },
+        "Values": {
+          "description": "The Values of the custom Device",
+          "items": {
+            "$ref": "#/definitions/CustomDeviceValues"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "CustomDeviceToPost"
+    },
+    "CustomDeviceValues": {
+      "description": "Container Class for the Custom Device Values",
+      "properties": {
+        "Name": {
+          "description": "The Name of the Value.",
+          "type": "string"
+        },
+        "Value": {
+          "description": "The Value",
+          "format": "double",
+          "type": "number"
+        }
+      },
+      "type": "object",
+      "title": "CustomDeviceValues"
+    },
+    "Device": {
+      "description": "Container Class for the Web API",
+      "properties": {
+        "ActivePower": {
+          "description": "The Actvie Power or current flow rate",
+          "format": "double",
+          "type": "number"
+        },
+        "ActivePowerL1": {
+          "description": "The Actvie Power Phase L1",
+          "format": "double",
+          "type": "number"
+        },
+        "ActivePowerL2": {
+          "description": "The Actvie Power Phase L2",
+          "format": "double",
+          "type": "number"
+        },
+        "ActivePowerL3": {
+          "description": "The Actvie Power Phase L3",
+          "format": "double",
+          "type": "number"
+        },
+        "ActiveTariff": {
+          "description": "The Number of the Active Tariff",
+          "format": "int32",
+          "type": "integer"
+        },
+        "ActviePowerUnit": {
+          "description": "The Unit of the Active Power Value",
+          "type": "string"
+        },
+        "CounterReading": {
+          "description": "The Meter Counter Reading (Total Energy used)",
+          "format": "double",
+          "type": "number"
+        },
+        "CounterReadingT1": {
+          "description": "The Meter Counter Reading Tariff 1",
+          "format": "double",
+          "type": "number"
+        },
+        "CounterReadingT2": {
+          "description": "The Meter Counter Reading Tariff 2",
+          "format": "double",
+          "type": "number"
+        },
+        "CounterReadingT3": {
+          "description": "The Meter Counter Reading Tariff 3",
+          "format": "double",
+          "type": "number"
+        },
+        "CounterReadingT4": {
+          "description": "The Meter Counter Reading Tariff 4",
+          "format": "double",
+          "type": "number"
+        },
+        "CounterReadingUnit": {
+          "description": "The Unit of the Counter Reading",
+          "type": "string"
+        },
+        "Current": {
+          "description": "The Current (in A)",
+          "format": "double",
+          "type": "number"
+        },
+        "CurrentL1": {
+          "description": "The Current Phase L1 (in A)",
+          "format": "double",
+          "type": "number"
+        },
+        "CurrentL2": {
+          "description": "The Current Phase L2 (in A)",
+          "format": "double",
+          "type": "number"
+        },
+        "CurrentL3": {
+          "description": "The Current Phase L3 (in A)",
+          "format": "double",
+          "type": "number"
+        },
+        "DeviceEnergyType": {
+          "description": "The Energy Type of this device",
+          "enum": [
+            "MeterTypeUnknown",
+            "MeterTypeElectricity",
+            "MeterTypeWater",
+            "MeterTypeGas",
+            "MeterTypeHeat",
+            "MeterTypeHCA",
+            "MeterTypeAllMeters",
+            "MeterTypeTemperature",
+            "MeterTypeMBusGateway",
+            "MeterTypeRS485Gateway",
+            "MeterTypeCustomDevice",
+            "MeterTypeCompressedAir",
+            "MeterTypeSolarLog"
+          ],
+          "type": "string"
+        },
+        "FamilyType": {
+          "description": "The Family Type of the device.",
+          "enum": [
+            "MeterFamilyTypeUnknown",
+            "MeterFamilyTypeSmartMeConnectV1",
+            "MeterFamiliyTypeSmartMeMeter",
+            "MeterFamiliyTypeSmartMeMeterWithSwitch",
+            "MeterFamilyTypeMBusGatewayV1",
+            "MeterFamilyTypeRS485GatewayV1",
+            "MeterFamilyTypeKamstrupModule",
+            "MeterFamilyTypeSmartMe3PhaseMeter80A",
+            "MeterFamilyTypeSmartMe3PhaseMeter32A",
+            "MeterFamilyTypeSmartMe3PhaseMeterTransformer",
+            "MeterFamilyTypeLandisGyrModule",
+            "MeterFamilyTypeRestApiMeter",
+            "MeterFamilyTypeVirtualMeter"
+          ],
+          "type": "string"
+        },
+        "Id": {
+          "description": "The ID of the device",
+          "type": "string"
+        },
+        "Name": {
+          "description": "The Name of the Device",
+          "type": "string"
+        },
+        "PowerFactor": {
+          "description": "The Power Factor (cos phi). Range: 0 - 1",
+          "format": "double",
+          "type": "number"
+        },
+        "PowerFactorL1": {
+          "description": "The Power Factor (cos phi) Phase L1. Range: 0 - 1",
+          "format": "double",
+          "type": "number"
+        },
+        "PowerFactorL2": {
+          "description": "The Power Factor (cos phi) Phase L2. Range: 0 - 1",
+          "format": "double",
+          "type": "number"
+        },
+        "PowerFactorL3": {
+          "description": "The Power Factor (cos phi) Phase L3. Range: 0 - 1",
+          "format": "double",
+          "type": "number"
+        },
+        "Serial": {
+          "description": "The Serial number",
+          "format": "int64",
+          "type": "integer"
+        },
+        "SwitchOn": {
+          "description": "Flag if the Switch is on on this device.",
+          "type": "boolean"
+        },
+        "SwitchPhaseL1On": {
+          "description": "Flag if the Phase L1 is on on this device.",
+          "type": "boolean"
+        },
+        "SwitchPhaseL2On": {
+          "description": "Flag if the Phase L2 is on on this device.",
+          "type": "boolean"
+        },
+        "SwitchPhaseL3On": {
+          "description": "Flag if the Phase L3 is on on this device.",
+          "type": "boolean"
+        },
+        "Temperature": {
+          "description": "The Temperature (in degree celsius)",
+          "format": "double",
+          "type": "number"
+        },
+        "ValueDate": {
+          "description": "Time of last successful connection the the smart-me Cloud.",
+          "format": "date-time",
+          "type": "string"
+        },
+        "Voltage": {
+          "description": "The Voltage (in V)",
+          "format": "double",
+          "type": "number"
+        },
+        "VoltageL1": {
+          "description": "The Voltage Phase L1 (in V)",
+          "format": "double",
+          "type": "number"
+        },
+        "VoltageL2": {
+          "description": "The Voltage Phase L2 (in V)",
+          "format": "double",
+          "type": "number"
+        },
+        "VoltageL3": {
+          "description": "The Voltage Phase L3 (in V)",
+          "format": "double",
+          "type": "number"
+        }
+      },
+      "type": "object",
+      "title": "Device"
+    },
+    "DeviceInPast": {
+      "description": "Container Class for the Web API. Conatinas the MeterValues in the Past",
+      "properties": {
+        "CounterReading": {
+          "description": "The Meter Counter Reading (Total Energy used)",
+          "format": "double",
+          "type": "number"
+        },
+        "CounterReadingExport": {
+          "description": "The Meter Counter Reading Export",
+          "format": "double",
+          "type": "number"
+        },
+        "CounterReadingExportT1": {
+          "description": "The Meter Counter Reading Export Tariff 1",
+          "format": "double",
+          "type": "number"
+        },
+        "CounterReadingExportT2": {
+          "description": "The Meter Counter Reading Export Tariff 2",
+          "format": "double",
+          "type": "number"
+        },
+        "CounterReadingExportT3": {
+          "description": "The Meter Counter Reading Export Tariff 3",
+          "format": "double",
+          "type": "number"
+        },
+        "CounterReadingExportT4": {
+          "description": "The Meter Counter Reading Export Tariff 4",
+          "format": "double",
+          "type": "number"
+        },
+        "CounterReadingImport": {
+          "description": "The Meter Counter Reading Import",
+          "format": "double",
+          "type": "number"
+        },
+        "CounterReadingImportT1": {
+          "description": "The Meter Counter Reading Import Tariff 1",
+          "format": "double",
+          "type": "number"
+        },
+        "CounterReadingImportT2": {
+          "description": "The Meter Counter Reading Import Tariff 2",
+          "format": "double",
+          "type": "number"
+        },
+        "CounterReadingImportT3": {
+          "description": "The Meter Counter Reading Import Tariff 3",
+          "format": "double",
+          "type": "number"
+        },
+        "CounterReadingImportT4": {
+          "description": "The Meter Counter Reading Import Tariff 4",
+          "format": "double",
+          "type": "number"
+        },
+        "CounterReadingT1": {
+          "description": "The Meter Counter Reading Tariff 1",
+          "format": "double",
+          "type": "number"
+        },
+        "CounterReadingT2": {
+          "description": "The Meter Counter Reading Tariff 2",
+          "format": "double",
+          "type": "number"
+        },
+        "CounterReadingT3": {
+          "description": "The Meter Counter Reading Tariff 3",
+          "format": "double",
+          "type": "number"
+        },
+        "CounterReadingT4": {
+          "description": "The Meter Counter Reading Tariff 4",
+          "format": "double",
+          "type": "number"
+        },
+        "CounterReadingUnit": {
+          "description": "The Unit of the Counter Reading",
+          "type": "string"
+        },
+        "Date": {
+          "description": "The Date of the Values",
+          "format": "date-time",
+          "type": "string"
+        },
+        "Id": {
+          "description": "The ID of the device",
+          "type": "string"
+        },
+        "Serial": {
+          "description": "The Serial number",
+          "format": "int64",
+          "type": "integer"
+        }
+      },
+      "type": "object",
+      "title": "DeviceInPast"
+    },
+    "DeviceToPost": {
+      "description": "Container Class for the Web API",
+      "properties": {
+        "ActivePower": {
+          "description": "The Active Power or current flow rate. In kW or m3/h",
+          "format": "double",
+          "type": "number"
+        },
+        "CounterReading": {
+          "description": "The Meter Counter Reading (Total Energy used) in kWh or m3.",
+          "format": "double",
+          "type": "number"
+        },
+        "CounterReadingT1": {
+          "description": "The Meter Counter Reading Tariff 1 in kWh or m3.",
+          "format": "double",
+          "type": "number"
+        },
+        "CounterReadingT2": {
+          "description": "The Meter Counter Reading Tariff 2 in kWh or m3.",
+          "format": "double",
+          "type": "number"
+        },
+        "DeviceEnergyType": {
+          "description": "The Energy Type of this device",
+          "enum": [
+            "MeterTypeUnknown",
+            "MeterTypeElectricity",
+            "MeterTypeWater",
+            "MeterTypeGas",
+            "MeterTypeHeat",
+            "MeterTypeHCA",
+            "MeterTypeAllMeters",
+            "MeterTypeTemperature",
+            "MeterTypeMBusGateway",
+            "MeterTypeRS485Gateway",
+            "MeterTypeCustomDevice",
+            "MeterTypeCompressedAir",
+            "MeterTypeSolarLog"
+          ],
+          "type": "string"
+        },
+        "Id": {
+          "description": "The ID of the device",
+          "type": "string"
+        },
+        "Name": {
+          "description": "The Name of the Device",
+          "type": "string"
+        },
+        "Serial": {
+          "description": "The Serial number",
+          "format": "int64",
+          "type": "integer"
+        },
+        "Temperature": {
+          "description": "The Temperature (in degree celsius)",
+          "format": "double",
+          "type": "number"
+        },
+        "ValueDate": {
+          "description": "The Date of the Value (in UTC). If this is null the Server Time is used.",
+          "format": "date-time",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "DeviceToPost"
+    },
+    "InputInformation": {
+      "description": "Informations about the Inputs of a Meter or Folder",
+      "properties": {
+        "Name": {
+          "description": "The Name of the Input",
+          "type": "string"
+        },
+        "Number": {
+          "description": "The Number of this Input. Use this as ID to switch it on or off.",
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object",
+      "title": "InputInformation"
+    },
+    "MBusData": {
+      "properties": {
+        "Date": {
+          "description": "The Date of the M-BUS Telegram Readout (in UTC). If this is null the Server Time is used.",
+          "format": "date-time",
+          "type": "string"
+        },
+        "Telegram": {
+          "description": "The M-BUS Telegram as Hex string. \r\n            Example: 68 1F 1F 68 08 02 72 78 56 34 12 24 40 01 07 55 00 00 00 03 13 15 31 00 DA 02 3B 13 01 8B 60 04 37 18 02 18 16",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "MBusData"
+    },
+    "MeterFolderInformation": {
+      "description": "Container Class for the Web API",
+      "properties": {
+        "FirmwareVersion": {
+          "description": "The Firmware Version of a Meter",
+          "format": "int32",
+          "type": "integer"
+        },
+        "HardwareVersion": {
+          "description": "The Hardware Version of a Meter.",
+          "format": "int32",
+          "type": "integer"
+        },
+        "InputInformations": {
+          "description": "Informations about the available Inputs",
+          "items": {
+            "$ref": "#/definitions/InputInformation"
+          },
+          "type": "array"
+        },
+        "IsFolder": {
+          "description": "Flag if it's a Folder or a Meter",
+          "type": "boolean"
+        },
+        "Name": {
+          "description": "Name of the Meter or Folder",
+          "type": "string"
+        },
+        "OutputInformations": {
+          "description": "Informations about the available Outputs",
+          "items": {
+            "$ref": "#/definitions/OutputInformation"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "MeterFolderInformation"
+    },
+    "MeterFolderInformationToPost": {
+      "description": "Container for a Meter or Folder Information to Post",
+      "properties": {
+        "Id": {
+          "description": "The ID of the device or folder",
+          "type": "string"
+        },
+        "Name": {
+          "description": "Name of the Meter or Folder",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "MeterFolderInformationToPost"
+    },
+    "Object": {
+      "properties": {},
+      "type": "object",
+      "title": "Object"
+    },
+    "OutputInformation": {
+      "description": "Informations about the Outputs of a Meter or Folder",
+      "properties": {
+        "Name": {
+          "description": "The Name of the Output",
+          "type": "string"
+        },
+        "Number": {
+          "description": "The Number of this Output. Use this as ID to switch it on or off.",
+          "format": "int32",
+          "type": "integer"
+        },
+        "ObisCode": {
+          "description": "The Obis Code for this Output",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "OutputInformation"
+    },
+    "SignUpData": {
+      "description": "Container for the Sign UP API",
+      "properties": {
+        "Email": {
+          "description": "The Email Address to register",
+          "type": "string"
+        },
+        "Password": {
+          "description": "The Password to register",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "SignUpData"
+    },
+    "User": {
+      "description": "Container Class for the Web API",
+      "properties": {
+        "ChildUsers": {
+          "description": "The Users created by this users.",
+          "items": {
+            "$ref": "#/definitions/User"
+          },
+          "type": "array"
+        },
+        "Email": {
+          "description": "The EMail Address of the User",
+          "type": "string"
+        },
+        "Id": {
+          "description": "The ID of the User",
+          "format": "int64",
+          "type": "integer"
+        },
+        "IsAdmin": {
+          "description": "Flag if this User is an Admin User",
+          "type": "boolean"
+        },
+        "Username": {
+          "description": "The Username of the User",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "User"
+    },
+    "VMeterToActivate": {
+      "description": "Actives a virtual Meter",
+      "properties": {
+        "SerialNumber": {
+          "description": "The Serialnumber of the Meter to activate.",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "VMeterToActivate"
+    },
+    "VMeterToDeactivate": {
+      "description": "Deactivates a virtual Meter",
+      "properties": {
+        "ID": {
+          "description": "The ID of the Virtual meter to deactivate",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "VMeterToDeactivate"
+    }
+  },
+  "actions": [
+    {
+      "id": "AccessToken_Put",
+      "title": "AccessToken_Put",
+      "description": "Creates a Access Token to write on a Card (e.g. NFC)",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "accessTokenToPut": {
+            "$ref": "#/definitions/AccessTokenToPut"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "accessTokenToPut"
+        ]
+      },
+      "outputSchema": {
+        "type": "string"
+      },
+      "security": {
+        "smart_me": {
+          "integration": "smart_me"
+        }
+      }
+    },
+    {
+      "id": "Actions_Post",
+      "title": "Actions_Post",
+      "description": "Set an action for the specified device.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "actionToPost": {
+            "$ref": "#/definitions/ActionToPost"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "actionToPost"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "smart_me": {
+          "integration": "smart_me"
+        }
+      }
+    },
+    {
+      "id": "Actions_Get",
+      "title": "Actions_Get",
+      "description": "Gets all available Actions of a Device",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The ID of the device"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/ActionInformation"
+        },
+        "type": "array"
+      },
+      "security": {
+        "smart_me": {
+          "integration": "smart_me"
+        }
+      }
+    },
+    {
+      "id": "api.CustomDevice.get",
+      "title": "api.CustomDevice.get",
+      "description": "Gets all Devices",
+      "inputSchema": {},
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/CustomDeviceToPost"
+        },
+        "type": "array"
+      },
+      "security": {
+        "smart_me": {
+          "integration": "smart_me"
+        }
+      }
+    },
+    {
+      "id": "CustomDevice_Post",
+      "title": "CustomDevice_Post",
+      "description": "Creates or updates a Custom Device or updates it's values.\r\n            A Custom Device can be any device that like to add some measurement values to the smart-me Cloud.\r\n            Only use a custom device for all non meters.\r\n            For a new device leave the ID empty. To create a device you have to set the DeviceEnergyType.\r\n            To update values, add the ID of the device and the values you like to set.  (See the Data Type Model for more Information)",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "newDevice": {
+            "$ref": "#/definitions/CustomDeviceToPost"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "newDevice"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CustomDeviceToPost"
+      },
+      "security": {
+        "smart_me": {
+          "integration": "smart_me"
+        }
+      }
+    },
+    {
+      "id": "api.CustomDevice.id.get",
+      "title": "api.CustomDevice.id.get",
+      "description": "Gets a Device by it's ID",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The ID of the device"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CustomDeviceToPost"
+      },
+      "security": {
+        "smart_me": {
+          "integration": "smart_me"
+        }
+      }
+    },
+    {
+      "id": "DeviceBySerial_Get",
+      "title": "DeviceBySerial_Get",
+      "description": "Gets a Device by it's Serial Number. The Serial is the part before the \"-\".",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "serial": {
+            "type": "integer",
+            "format": "int64",
+            "description": "The Serial Number of the device"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "serial"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Device"
+      },
+      "security": {
+        "smart_me": {
+          "integration": "smart_me"
+        }
+      }
+    },
+    {
+      "id": "api.Devices.get",
+      "title": "api.Devices.get",
+      "description": "Gets all Devices",
+      "inputSchema": {},
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Device"
+        },
+        "type": "array"
+      },
+      "security": {
+        "smart_me": {
+          "integration": "smart_me"
+        }
+      }
+    },
+    {
+      "id": "Devices_Post",
+      "title": "Devices_Post",
+      "description": "Creates or updates a Device or updates it's values. \r\n            For a new device leave the ID empty. To create a device you have to set the DeviceEnergyType.\r\n            To update values, add the ID of the device and the values you like to set.  (See the Data Type Model for more Information)",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "newDevice": {
+            "$ref": "#/definitions/DeviceToPost"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "newDevice"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DeviceToPost"
+      },
+      "security": {
+        "smart_me": {
+          "integration": "smart_me"
+        }
+      }
+    },
+    {
+      "id": "api.Devices.id.get",
+      "title": "api.Devices.id.get",
+      "description": "Gets a Device by it's ID",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The ID of the device"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Device"
+      },
+      "security": {
+        "smart_me": {
+          "integration": "smart_me"
+        }
+      }
+    },
+    {
+      "id": "Devices_Put",
+      "title": "Devices_Put",
+      "description": "Updates the On/Off Switch on a device\r\n            For new implementations please use the \"actions\" command",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The ID of the device"
+          },
+          "switchState": {
+            "type": "boolean",
+            "description": "The new state of the switch"
+          },
+          "switchNumber": {
+            "type": "integer",
+            "format": "int32",
+            "description": "The number of the switch if there are multiple (1 for L1, 3 for L3)"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "switchState"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Object"
+      },
+      "security": {
+        "smart_me": {
+          "integration": "smart_me"
+        }
+      }
+    },
+    {
+      "id": "DevicesByEnergy_Get",
+      "title": "DevicesByEnergy_Get",
+      "description": "Gets all Devices for an Energy Type",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "meterEnergyType": {
+            "type": "string",
+            "enum": [
+              "MeterTypeUnknown",
+              "MeterTypeElectricity",
+              "MeterTypeWater",
+              "MeterTypeGas",
+              "MeterTypeHeat",
+              "MeterTypeHCA",
+              "MeterTypeAllMeters",
+              "MeterTypeTemperature",
+              "MeterTypeMBusGateway",
+              "MeterTypeRS485Gateway",
+              "MeterTypeCustomDevice",
+              "MeterTypeCompressedAir",
+              "MeterTypeSolarLog"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "meterEnergyType"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Device"
+        },
+        "type": "array"
+      },
+      "security": {
+        "smart_me": {
+          "integration": "smart_me"
+        }
+      }
+    },
+    {
+      "id": "DevicesBySubType_Get",
+      "title": "DevicesBySubType_Get",
+      "description": "Gets all Devices by it's Sub Type (e.g. E-Charging Station)",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "meterSubType": {
+            "type": "string",
+            "enum": [
+              "MeterSubTypeUnknown",
+              "MeterSubTypeCold",
+              "MeterSubTypeHeat",
+              "MeterSubTypeChargingStation"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "meterSubType"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Device"
+        },
+        "type": "array"
+      },
+      "security": {
+        "smart_me": {
+          "integration": "smart_me"
+        }
+      }
+    },
+    {
+      "id": "MBus_Post",
+      "title": "MBus_Post",
+      "description": "M-BUS API: Adds data of a M-BUS Meter to the smart-me Cloud.\r\n            Just send us the M-BUS Telegram (RSP_UD) and we will do the Rest.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "mbusData": {
+            "$ref": "#/definitions/MBusData"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "mbusData"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Object"
+      },
+      "security": {
+        "smart_me": {
+          "integration": "smart_me"
+        }
+      }
+    },
+    {
+      "id": "MeterFolderInformation_Post",
+      "title": "MeterFolderInformation_Post",
+      "description": "Sets the Name of a Meter or a Folder",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "meterFolderInformation": {
+            "$ref": "#/definitions/MeterFolderInformationToPost"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "meterFolderInformation"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "smart_me": {
+          "integration": "smart_me"
+        }
+      }
+    },
+    {
+      "id": "MeterFolderInformation_Get",
+      "title": "MeterFolderInformation_Get",
+      "description": "Beta: Gets the General Information for a Meter or a Folder",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/MeterFolderInformation"
+      },
+      "security": {
+        "smart_me": {
+          "integration": "smart_me"
+        }
+      }
+    },
+    {
+      "id": "MeterValues_Get",
+      "title": "MeterValues_Get",
+      "description": "Gets the Values for a Meter at a given Date. The first Value found before the given Date is returned.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "date": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "date"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DeviceInPast"
+      },
+      "security": {
+        "smart_me": {
+          "integration": "smart_me"
+        }
+      }
+    },
+    {
+      "id": "SignUp_Post",
+      "title": "SignUp_Post",
+      "description": "Sign up a new User.\r\n            The sign up is done on the smart-me Cloud.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "signUpData": {
+            "$ref": "#/definitions/SignUpData"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "signUpData"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/User"
+      },
+      "security": {
+        "smart_me": {
+          "integration": "smart_me"
+        }
+      }
+    },
+    {
+      "id": "User_Get",
+      "title": "User_Get",
+      "description": "Gets the informations for the user.",
+      "inputSchema": {},
+      "outputSchema": {
+        "$ref": "#/definitions/User"
+      },
+      "security": {
+        "smart_me": {
+          "integration": "smart_me"
+        }
+      }
+    },
+    {
+      "id": "VirtualMeterActive_Get",
+      "title": "VirtualMeterActive_Get",
+      "description": "Beta: Gets all active virtual meters.",
+      "inputSchema": {},
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Device"
+        },
+        "type": "array"
+      },
+      "security": {
+        "smart_me": {
+          "integration": "smart_me"
+        }
+      }
+    },
+    {
+      "id": "VirtualMeterActive_Post",
+      "title": "VirtualMeterActive_Post",
+      "description": "Beta: Virtual Meter API: Activates a Meter and add the Consumption to a Virtual Meter assosiated with the User.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "meterToActivate": {
+            "$ref": "#/definitions/VMeterToActivate"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "meterToActivate"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Device"
+      },
+      "security": {
+        "smart_me": {
+          "integration": "smart_me"
+        }
+      }
+    },
+    {
+      "id": "VirtualMeterDeactivate_Post",
+      "title": "VirtualMeterDeactivate_Post",
+      "description": "Beta: Virtual Meter API: Deactivates a Virtual Meter.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "meterToDeactivate": {
+            "$ref": "#/definitions/VMeterToDeactivate"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "meterToDeactivate"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Object"
+      },
+      "security": {
+        "smart_me": {
+          "integration": "smart_me"
+        }
+      }
+    },
+    {
+      "id": "VirtualMeters_Get",
+      "title": "VirtualMeters_Get",
+      "description": "Beta: Gets all Meters available to activate as a Virtual Meter.",
+      "inputSchema": {},
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Device"
+        },
+        "type": "array"
+      },
+      "security": {
+        "smart_me": {
+          "integration": "smart_me"
+        }
+      }
+    }
+  ],
+  "tags": []
+}

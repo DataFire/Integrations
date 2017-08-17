@@ -1,0 +1,80 @@
+{
+  "id": "apitore_documentfrequencyapis",
+  "title": "Document frequency APIs",
+  "description": "Document frequency of Wikipedia.<BR />[Endpoint] https://api.apitore.com/api/16",
+  "security": {},
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apitore_documentfrequencyapis.jpg"
+  },
+  "actionCount": 1,
+  "definitions": {
+    "DocumentFrequencyResponseEntity": {
+      "properties": {
+        "documentFrequency": {
+          "description": "Output: document frequency",
+          "format": "double",
+          "type": "number"
+        },
+        "endTime": {
+          "description": "End date",
+          "type": "string"
+        },
+        "log": {
+          "description": "Log message",
+          "type": "string"
+        },
+        "processTime": {
+          "description": "Process time [millisecond]",
+          "type": "string"
+        },
+        "startTime": {
+          "description": "Start date",
+          "type": "string"
+        },
+        "word": {
+          "description": "Input: word",
+          "type": "string"
+        }
+      },
+      "required": [
+        "documentFrequency",
+        "endTime",
+        "log",
+        "processTime",
+        "startTime",
+        "word"
+      ],
+      "type": "object",
+      "title": "DocumentFrequencyResponseEntity"
+    }
+  },
+  "actions": [
+    {
+      "id": "getUsingGET",
+      "title": "getUsingGET",
+      "description": "Document Frequency by JaWikipedia 2016-9-15 dump.  \nResponse  \n  Github: [summarize-response](https://github.com/keigohtr/apitore-response-parent/tree/master/summarize-response)  \n  Class: com.apitore.banana.response.summarize.DocumentFrequencyResponseEntity",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "access_token": {
+            "type": "string",
+            "description": "Access Token"
+          },
+          "word": {
+            "type": "string",
+            "description": "word"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "access_token",
+          "word"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DocumentFrequencyResponseEntity"
+      }
+    }
+  ],
+  "tags": []
+}

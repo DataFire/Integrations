@@ -1,0 +1,2100 @@
+{
+  "id": "traccar",
+  "title": "traccar",
+  "description": "Open Source GPS Tracking Platform",
+  "security": {
+    "traccar": {
+      "integration": "traccar",
+      "fields": {
+        "username": "Your username",
+        "password": "Your password"
+      }
+    }
+  },
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/traccar.png"
+  },
+  "actionCount": 55,
+  "definitions": {
+    "AttributeAlias": {
+      "properties": {
+        "alias": {
+          "type": "string"
+        },
+        "attribute": {
+          "type": "string"
+        },
+        "deviceId": {
+          "type": "integer"
+        },
+        "id": {
+          "type": "integer"
+        }
+      },
+      "title": "AttributeAlias"
+    },
+    "Calendar": {
+      "properties": {
+        "atributes": {},
+        "data": {
+          "description": "base64 encoded in iCalendar format",
+          "type": "string"
+        },
+        "id": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "title": "Calendar"
+    },
+    "CalendarPermission": {
+      "properties": {
+        "calendarId": {
+          "type": "integer"
+        },
+        "userId": {
+          "type": "integer"
+        }
+      },
+      "title": "CalendarPermission"
+    },
+    "Command": {
+      "properties": {
+        "attributes": {},
+        "deviceId": {
+          "type": "integer"
+        },
+        "type": {
+          "type": "string"
+        }
+      },
+      "title": "Command"
+    },
+    "CommandType": {
+      "properties": {
+        "type": {
+          "type": "string"
+        }
+      },
+      "title": "CommandType"
+    },
+    "Device": {
+      "properties": {
+        "attributes": {},
+        "category": {
+          "type": "string"
+        },
+        "contact": {
+          "type": "string"
+        },
+        "geofenceIds": {
+          "items": {
+            "type": "integer"
+          },
+          "type": "array"
+        },
+        "groupId": {
+          "type": "integer"
+        },
+        "id": {
+          "type": "integer"
+        },
+        "lastUpdate": {
+          "description": "in IS0 8601 format. eg. `1963-11-22T18:30:00Z`",
+          "format": "date-time",
+          "type": "string"
+        },
+        "model": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "positionId": {
+          "type": "integer"
+        },
+        "status": {
+          "type": "string"
+        },
+        "uniqueId": {
+          "type": "string"
+        }
+      },
+      "title": "Device"
+    },
+    "DeviceGeofence": {
+      "properties": {
+        "deviceId": {
+          "type": "integer"
+        },
+        "geofenceId": {
+          "type": "integer"
+        }
+      },
+      "title": "DeviceGeofence"
+    },
+    "DevicePermission": {
+      "properties": {
+        "deviceId": {
+          "type": "integer"
+        },
+        "userId": {
+          "type": "integer"
+        }
+      },
+      "title": "DevicePermission"
+    },
+    "DeviceTotalDistance": {
+      "properties": {
+        "deviceId": {
+          "type": "integer"
+        },
+        "totalDistance": {
+          "description": "in meters",
+          "type": "number"
+        }
+      },
+      "title": "DeviceTotalDistance"
+    },
+    "Event": {
+      "properties": {
+        "attributes": {},
+        "deviceId": {
+          "type": "integer"
+        },
+        "geofenceId": {
+          "type": "integer"
+        },
+        "id": {
+          "type": "integer"
+        },
+        "positionId": {
+          "type": "integer"
+        },
+        "serverTime": {
+          "description": "in IS0 8601 format. eg. `1963-11-22T18:30:00Z`",
+          "format": "date-time",
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        }
+      },
+      "title": "Event"
+    },
+    "Geofence": {
+      "properties": {
+        "area": {
+          "type": "string"
+        },
+        "attributes": {},
+        "calendarId": {
+          "type": "integer"
+        },
+        "description": {
+          "type": "string"
+        },
+        "id": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "title": "Geofence"
+    },
+    "GeofencePermission": {
+      "properties": {
+        "geofenceId": {
+          "type": "integer"
+        },
+        "userId": {
+          "type": "integer"
+        }
+      },
+      "title": "GeofencePermission"
+    },
+    "Group": {
+      "properties": {
+        "attributes": {},
+        "groupId": {
+          "type": "integer"
+        },
+        "id": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "title": "Group"
+    },
+    "GroupGeofence": {
+      "properties": {
+        "geofenceId": {
+          "type": "integer"
+        },
+        "groupId": {
+          "type": "integer"
+        }
+      },
+      "title": "GroupGeofence"
+    },
+    "GroupPermission": {
+      "properties": {
+        "groupId": {
+          "type": "integer"
+        },
+        "userId": {
+          "type": "integer"
+        }
+      },
+      "title": "GroupPermission"
+    },
+    "Notification": {
+      "properties": {
+        "attributes": {},
+        "id": {
+          "type": "integer"
+        },
+        "mail": {
+          "type": "boolean"
+        },
+        "type": {
+          "type": "string"
+        },
+        "userId": {
+          "type": "integer"
+        },
+        "web": {
+          "type": "boolean"
+        }
+      },
+      "title": "Notification"
+    },
+    "Position": {
+      "properties": {
+        "accuracy": {
+          "type": "number"
+        },
+        "address": {
+          "type": "string"
+        },
+        "altitude": {
+          "type": "number"
+        },
+        "attributes": {},
+        "course": {
+          "type": "number"
+        },
+        "deviceId": {
+          "type": "integer"
+        },
+        "deviceTime": {
+          "description": "in IS0 8601 format. eg. `1963-11-22T18:30:00Z`",
+          "format": "date-time",
+          "type": "string"
+        },
+        "fixTime": {
+          "description": "in IS0 8601 format. eg. `1963-11-22T18:30:00Z`",
+          "format": "date-time",
+          "type": "string"
+        },
+        "id": {
+          "type": "integer"
+        },
+        "latitude": {
+          "type": "number"
+        },
+        "longitude": {
+          "type": "number"
+        },
+        "network": {
+          "type": "string"
+        },
+        "outdated": {
+          "type": "boolean"
+        },
+        "protocol": {
+          "type": "string"
+        },
+        "serverTime": {
+          "description": "in IS0 8601 format. eg. `1963-11-22T18:30:00Z`",
+          "format": "date-time",
+          "type": "string"
+        },
+        "speed": {
+          "description": "in knots",
+          "type": "number"
+        },
+        "valid": {
+          "type": "boolean"
+        }
+      },
+      "title": "Position"
+    },
+    "ReportSummary": {
+      "properties": {
+        "averageSpeed": {
+          "description": "in knots",
+          "type": "number"
+        },
+        "deviceId": {
+          "type": "integer"
+        },
+        "deviceName": {
+          "type": "string"
+        },
+        "distance": {
+          "description": "in meters",
+          "type": "number"
+        },
+        "engineHours": {
+          "type": "integer"
+        },
+        "maxSpeed": {
+          "description": "in knots",
+          "type": "number"
+        }
+      },
+      "title": "ReportSummary"
+    },
+    "ReportTrips": {
+      "properties": {
+        "averageSpeed": {
+          "description": "in knots",
+          "type": "number"
+        },
+        "deviceId": {
+          "type": "integer"
+        },
+        "deviceName": {
+          "type": "string"
+        },
+        "distance": {
+          "description": "in meters",
+          "type": "number"
+        },
+        "duration": {
+          "type": "integer"
+        },
+        "endAddress": {
+          "type": "string"
+        },
+        "endLat": {
+          "type": "number"
+        },
+        "endLon": {
+          "type": "number"
+        },
+        "endTime": {
+          "description": "in IS0 8601 format. eg. `1963-11-22T18:30:00Z`",
+          "format": "date-time",
+          "type": "string"
+        },
+        "maxSpeed": {
+          "description": "in knots",
+          "type": "number"
+        },
+        "startAddress": {
+          "type": "string"
+        },
+        "startLat": {
+          "type": "number"
+        },
+        "startLon": {
+          "type": "number"
+        },
+        "startTime": {
+          "description": "in IS0 8601 format. eg. `1963-11-22T18:30:00Z`",
+          "format": "date-time",
+          "type": "string"
+        }
+      },
+      "title": "ReportTrips"
+    },
+    "Server": {
+      "properties": {
+        "attributes": {},
+        "bingKey": {
+          "type": "string"
+        },
+        "coordinateFormat": {
+          "type": "string"
+        },
+        "distanceUnit": {
+          "type": "string"
+        },
+        "forceSettings": {
+          "type": "boolean"
+        },
+        "id": {
+          "type": "integer"
+        },
+        "latitude": {
+          "type": "number"
+        },
+        "longitude": {
+          "type": "number"
+        },
+        "map": {
+          "type": "string"
+        },
+        "mapUrl": {
+          "type": "string"
+        },
+        "readonly": {
+          "type": "boolean"
+        },
+        "registration": {
+          "type": "boolean"
+        },
+        "speedUnit": {
+          "type": "string"
+        },
+        "twelveHourFormat": {
+          "type": "boolean"
+        },
+        "version": {
+          "type": "string"
+        },
+        "zoom": {
+          "type": "integer"
+        }
+      },
+      "title": "Server"
+    },
+    "Statistics": {
+      "properties": {
+        "activeDevices": {
+          "type": "integer"
+        },
+        "activeUsers": {
+          "type": "integer"
+        },
+        "captureTime": {
+          "description": "in IS0 8601 format. eg. `1963-11-22T18:30:00Z`",
+          "format": "date-time",
+          "type": "string"
+        },
+        "messagesReceived": {
+          "type": "integer"
+        },
+        "messagesStored": {
+          "type": "integer"
+        },
+        "requests": {
+          "type": "integer"
+        }
+      },
+      "title": "Statistics"
+    },
+    "User": {
+      "properties": {
+        "admin": {
+          "type": "boolean"
+        },
+        "attributes": {},
+        "coordinateFormat": {
+          "type": "string"
+        },
+        "deviceLimit": {
+          "type": "integer"
+        },
+        "deviceReadonly": {
+          "type": "boolean"
+        },
+        "disabled": {
+          "type": "boolean"
+        },
+        "distanceUnit": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "expirationTime": {
+          "description": "in IS0 8601 format. eg. `1963-11-22T18:30:00Z`",
+          "format": "date-time",
+          "type": "string"
+        },
+        "id": {
+          "type": "integer"
+        },
+        "latitude": {
+          "type": "number"
+        },
+        "longitude": {
+          "type": "number"
+        },
+        "map": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        },
+        "readonly": {
+          "type": "boolean"
+        },
+        "speedUnit": {
+          "type": "string"
+        },
+        "token": {
+          "type": "string"
+        },
+        "twelveHourFormat": {
+          "type": "boolean"
+        },
+        "userLimit": {
+          "type": "integer"
+        },
+        "zoom": {
+          "type": "integer"
+        }
+      },
+      "title": "User"
+    },
+    "UserPermission": {
+      "properties": {
+        "managedUserId": {
+          "type": "integer"
+        },
+        "userId": {
+          "type": "integer"
+        }
+      },
+      "title": "UserPermission"
+    }
+  },
+  "actions": [
+    {
+      "id": "attributes.aliases.get",
+      "title": "attributes.aliases.get",
+      "description": "Without params, it returns a list of AttributeAlias from all the user's Devices",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "deviceId": {
+            "type": "integer",
+            "description": "Standard users can use this only with _userId_s, they have access to"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/AttributeAlias"
+        },
+        "type": "array"
+      },
+      "security": {
+        "traccar": {
+          "integration": "traccar"
+        }
+      }
+    },
+    {
+      "id": "attributes.aliases.post",
+      "title": "attributes.aliases.post",
+      "description": "Set an AttributeAlias",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/AttributeAlias"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/AttributeAlias"
+      },
+      "security": {
+        "traccar": {
+          "integration": "traccar"
+        }
+      }
+    },
+    {
+      "id": "attributes.aliases.id.delete",
+      "title": "attributes.aliases.id.delete",
+      "description": "Delete an AttributeAlias",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "traccar": {
+          "integration": "traccar"
+        }
+      }
+    },
+    {
+      "id": "attributes.aliases.id.put",
+      "title": "attributes.aliases.id.put",
+      "description": "Update an AttributeAlias",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "body": {
+            "$ref": "#/definitions/AttributeAlias"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/AttributeAlias"
+      },
+      "security": {
+        "traccar": {
+          "integration": "traccar"
+        }
+      }
+    },
+    {
+      "id": "calendars.get",
+      "title": "calendars.get",
+      "description": "Without params, it returns a list of Calendars the user has access to",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "all": {
+            "type": "boolean",
+            "description": "Can only be used by admins or managers to fetch all entities"
+          },
+          "userId": {
+            "type": "integer",
+            "description": "Standard users can use this only with their own _userId_"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Calendar"
+        },
+        "type": "array"
+      },
+      "security": {
+        "traccar": {
+          "integration": "traccar"
+        }
+      }
+    },
+    {
+      "id": "calendars.post",
+      "title": "calendars.post",
+      "description": "Create a Calendar",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/Calendar"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Calendar"
+      },
+      "security": {
+        "traccar": {
+          "integration": "traccar"
+        }
+      }
+    },
+    {
+      "id": "calendars.id.delete",
+      "title": "calendars.id.delete",
+      "description": "Delete a Calendar",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "traccar": {
+          "integration": "traccar"
+        }
+      }
+    },
+    {
+      "id": "calendars.id.put",
+      "title": "calendars.id.put",
+      "description": "Update a Calendar",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "body": {
+            "$ref": "#/definitions/Calendar"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Calendar"
+      },
+      "security": {
+        "traccar": {
+          "integration": "traccar"
+        }
+      }
+    },
+    {
+      "id": "commands.post",
+      "title": "commands.post",
+      "description": "Dispatch commands to device",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/Command"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Command"
+      },
+      "security": {
+        "traccar": {
+          "integration": "traccar"
+        }
+      }
+    },
+    {
+      "id": "commandtypes.get",
+      "title": "commandtypes.get",
+      "description": "Fetch a list of available Commands for the Device",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "deviceId": {
+            "type": "integer"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "deviceId"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/CommandType"
+        },
+        "type": "array"
+      },
+      "security": {
+        "traccar": {
+          "integration": "traccar"
+        }
+      }
+    },
+    {
+      "id": "devices.get",
+      "title": "devices.get",
+      "description": "Without any params, returns a list of the user's devices",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "all": {
+            "type": "boolean",
+            "description": "Can only be used by admins or managers to fetch all entities"
+          },
+          "userId": {
+            "type": "integer",
+            "description": "Standard users can use this only with their own _userId_"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Device"
+        },
+        "type": "array"
+      },
+      "security": {
+        "traccar": {
+          "integration": "traccar"
+        }
+      }
+    },
+    {
+      "id": "devices.post",
+      "title": "devices.post",
+      "description": "Create a Device",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/Device"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Device"
+      },
+      "security": {
+        "traccar": {
+          "integration": "traccar"
+        }
+      }
+    },
+    {
+      "id": "devices.geofences.delete",
+      "title": "devices.geofences.delete",
+      "description": "Remove a Geofence from a Device",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/DeviceGeofence"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "traccar": {
+          "integration": "traccar"
+        }
+      }
+    },
+    {
+      "id": "devices.geofences.post",
+      "title": "devices.geofences.post",
+      "description": "Link a Geofence to a Device",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/DeviceGeofence"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DeviceGeofence"
+      },
+      "security": {
+        "traccar": {
+          "integration": "traccar"
+        }
+      }
+    },
+    {
+      "id": "devices.id.delete",
+      "title": "devices.id.delete",
+      "description": "Update a Device",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "traccar": {
+          "integration": "traccar"
+        }
+      }
+    },
+    {
+      "id": "devices.id.put",
+      "title": "devices.id.put",
+      "description": "Update a Device",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "body": {
+            "$ref": "#/definitions/Device"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Device"
+      },
+      "security": {
+        "traccar": {
+          "integration": "traccar"
+        }
+      }
+    },
+    {
+      "id": "devices.id.distance.put",
+      "title": "devices.id.distance.put",
+      "description": "Update the distance counter of the Device",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "body": {
+            "$ref": "#/definitions/DeviceTotalDistance"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "body"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "traccar": {
+          "integration": "traccar"
+        }
+      }
+    },
+    {
+      "id": "events.id.get",
+      "title": "events.id.get",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Event"
+      },
+      "security": {
+        "traccar": {
+          "integration": "traccar"
+        }
+      }
+    },
+    {
+      "id": "geofences.get",
+      "title": "geofences.get",
+      "description": "Without params, it returns a list of Geofences the user has access to",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "all": {
+            "type": "boolean",
+            "description": "Can only be used by admins or managers to fetch all entities"
+          },
+          "userId": {
+            "type": "integer",
+            "description": "Standard users can use this only with their own _userId_"
+          },
+          "groupId": {
+            "type": "integer"
+          },
+          "deviceId": {
+            "type": "integer",
+            "description": "Standard users can use this only with _userId_s, they have access to"
+          },
+          "refresh": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Geofence"
+        },
+        "type": "array"
+      },
+      "security": {
+        "traccar": {
+          "integration": "traccar"
+        }
+      }
+    },
+    {
+      "id": "geofences.post",
+      "title": "geofences.post",
+      "description": "Create a Geofence",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/Geofence"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Geofence"
+      },
+      "security": {
+        "traccar": {
+          "integration": "traccar"
+        }
+      }
+    },
+    {
+      "id": "geofences.id.delete",
+      "title": "geofences.id.delete",
+      "description": "Delete a Geofence",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "traccar": {
+          "integration": "traccar"
+        }
+      }
+    },
+    {
+      "id": "geofences.id.put",
+      "title": "geofences.id.put",
+      "description": "Update a Geofence",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "body": {
+            "$ref": "#/definitions/Geofence"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Geofence"
+      },
+      "security": {
+        "traccar": {
+          "integration": "traccar"
+        }
+      }
+    },
+    {
+      "id": "groups.get",
+      "title": "groups.get",
+      "description": "Without any params, returns a list of the Groups the user belongs to",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "all": {
+            "type": "boolean",
+            "description": "Can only be used by admins or managers to fetch all entities"
+          },
+          "userId": {
+            "type": "integer",
+            "description": "Standard users can use this only with their own _userId_"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Group"
+        },
+        "type": "array"
+      },
+      "security": {
+        "traccar": {
+          "integration": "traccar"
+        }
+      }
+    },
+    {
+      "id": "groups.post",
+      "title": "groups.post",
+      "description": "Create a Group",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/Group"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Group"
+      },
+      "security": {
+        "traccar": {
+          "integration": "traccar"
+        }
+      }
+    },
+    {
+      "id": "groups.geofences.delete",
+      "title": "groups.geofences.delete",
+      "description": "Remove a Geofence from a Group",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/GroupGeofence"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "traccar": {
+          "integration": "traccar"
+        }
+      }
+    },
+    {
+      "id": "groups.geofences.post",
+      "title": "groups.geofences.post",
+      "description": "Link a Geofence to a Group",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/GroupGeofence"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GroupGeofence"
+      },
+      "security": {
+        "traccar": {
+          "integration": "traccar"
+        }
+      }
+    },
+    {
+      "id": "groups.id.delete",
+      "title": "groups.id.delete",
+      "description": "Delete a Group",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "traccar": {
+          "integration": "traccar"
+        }
+      }
+    },
+    {
+      "id": "groups.id.put",
+      "title": "groups.id.put",
+      "description": "Update a Group",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "body": {
+            "$ref": "#/definitions/Group"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Group"
+      },
+      "security": {
+        "traccar": {
+          "integration": "traccar"
+        }
+      }
+    },
+    {
+      "id": "permissions.calendars.delete",
+      "title": "permissions.calendars.delete",
+      "description": "Remove a Calendar from a User",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/CalendarPermission"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "traccar": {
+          "integration": "traccar"
+        }
+      }
+    },
+    {
+      "id": "permissions.calendars.post",
+      "title": "permissions.calendars.post",
+      "description": "Link a Calendar to a User",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/CalendarPermission"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CalendarPermission"
+      },
+      "security": {
+        "traccar": {
+          "integration": "traccar"
+        }
+      }
+    },
+    {
+      "id": "permissions.devices.delete",
+      "title": "permissions.devices.delete",
+      "description": "Remove a Device from a User",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/DevicePermission"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "traccar": {
+          "integration": "traccar"
+        }
+      }
+    },
+    {
+      "id": "permissions.devices.post",
+      "title": "permissions.devices.post",
+      "description": "Link a Device to a User",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/DevicePermission"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DevicePermission"
+      },
+      "security": {
+        "traccar": {
+          "integration": "traccar"
+        }
+      }
+    },
+    {
+      "id": "permissions.geofences.delete",
+      "title": "permissions.geofences.delete",
+      "description": "Remove a Geofence from a User",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/GeofencePermission"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "traccar": {
+          "integration": "traccar"
+        }
+      }
+    },
+    {
+      "id": "permissions.geofences.post",
+      "title": "permissions.geofences.post",
+      "description": "Link a Geofence to a User",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/GeofencePermission"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GeofencePermission"
+      },
+      "security": {
+        "traccar": {
+          "integration": "traccar"
+        }
+      }
+    },
+    {
+      "id": "permissions.groups.delete",
+      "title": "permissions.groups.delete",
+      "description": "Remove a Group from a User",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/GroupPermission"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "traccar": {
+          "integration": "traccar"
+        }
+      }
+    },
+    {
+      "id": "permissions.groups.post",
+      "title": "permissions.groups.post",
+      "description": "Link a Group to a User",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/GroupPermission"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GroupPermission"
+      },
+      "security": {
+        "traccar": {
+          "integration": "traccar"
+        }
+      }
+    },
+    {
+      "id": "permissions.users.delete",
+      "title": "permissions.users.delete",
+      "description": "Remove a User from a manager User",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/UserPermission"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "traccar": {
+          "integration": "traccar"
+        }
+      }
+    },
+    {
+      "id": "permissions.users.post",
+      "title": "permissions.users.post",
+      "description": "Link a User to a manager User",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/UserPermission"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UserPermission"
+      },
+      "security": {
+        "traccar": {
+          "integration": "traccar"
+        }
+      }
+    },
+    {
+      "id": "positions.get",
+      "title": "positions.get",
+      "description": "Without any params, it returns a list of last known positions for all the user's Devices. _from_ and _to_ fields are not required with _id_",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "deviceId": {
+            "type": "integer",
+            "description": "_deviceId_ is optional, but requires the _from_ and _to_ parameters when used"
+          },
+          "from": {
+            "type": "string",
+            "format": "date-time",
+            "description": "in IS0 8601 format. eg. `1963-11-22T18:30:00Z`"
+          },
+          "to": {
+            "type": "string",
+            "format": "date-time",
+            "description": "in IS0 8601 format. eg. `1963-11-22T18:30:00Z`"
+          },
+          "id": {
+            "type": "integer",
+            "description": "To fetch one or more positions. Multiple params can be passed like `id=31&id=42`"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Position"
+        },
+        "type": "array"
+      },
+      "security": {
+        "traccar": {
+          "integration": "traccar"
+        }
+      }
+    },
+    {
+      "id": "reports.events.get",
+      "title": "reports.events.get",
+      "description": "At least one _deviceId_ or one _groupId_ must be passed",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "deviceId": {
+            "type": "array"
+          },
+          "groupId": {
+            "type": "array"
+          },
+          "type": {
+            "type": "array",
+            "description": "% can be used to return events of all types"
+          },
+          "from": {
+            "type": "string",
+            "format": "date-time",
+            "description": "in IS0 8601 format. eg. `1963-11-22T18:30:00Z`"
+          },
+          "to": {
+            "type": "string",
+            "format": "date-time",
+            "description": "in IS0 8601 format. eg. `1963-11-22T18:30:00Z`"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "from",
+          "to"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Event"
+        },
+        "type": "array"
+      },
+      "security": {
+        "traccar": {
+          "integration": "traccar"
+        }
+      }
+    },
+    {
+      "id": "reports.route.get",
+      "title": "reports.route.get",
+      "description": "At least one _deviceId_ or one _groupId_ must be passed",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "deviceId": {
+            "type": "array"
+          },
+          "groupId": {
+            "type": "array"
+          },
+          "from": {
+            "type": "string",
+            "format": "date-time",
+            "description": "in IS0 8601 format. eg. `1963-11-22T18:30:00Z`"
+          },
+          "to": {
+            "type": "string",
+            "format": "date-time",
+            "description": "in IS0 8601 format. eg. `1963-11-22T18:30:00Z`"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "from",
+          "to"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Position"
+        },
+        "type": "array"
+      },
+      "security": {
+        "traccar": {
+          "integration": "traccar"
+        }
+      }
+    },
+    {
+      "id": "reports.summary.get",
+      "title": "reports.summary.get",
+      "description": "At least one _deviceId_ or one _groupId_ must be passed",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "deviceId": {
+            "type": "array"
+          },
+          "groupId": {
+            "type": "array"
+          },
+          "from": {
+            "type": "string",
+            "format": "date-time",
+            "description": "in IS0 8601 format. eg. `1963-11-22T18:30:00Z`"
+          },
+          "to": {
+            "type": "string",
+            "format": "date-time",
+            "description": "in IS0 8601 format. eg. `1963-11-22T18:30:00Z`"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "from",
+          "to"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/ReportSummary"
+        },
+        "type": "array"
+      },
+      "security": {
+        "traccar": {
+          "integration": "traccar"
+        }
+      }
+    },
+    {
+      "id": "reports.trips.get",
+      "title": "reports.trips.get",
+      "description": "At least one _deviceId_ or one _groupId_ must be passed",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "deviceId": {
+            "type": "array"
+          },
+          "groupId": {
+            "type": "array"
+          },
+          "from": {
+            "type": "string",
+            "format": "date-time",
+            "description": "in IS0 8601 format. eg. `1963-11-22T18:30:00Z`"
+          },
+          "to": {
+            "type": "string",
+            "format": "date-time",
+            "description": "in IS0 8601 format. eg. `1963-11-22T18:30:00Z`"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "from",
+          "to"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/ReportTrips"
+        },
+        "type": "array"
+      },
+      "security": {
+        "traccar": {
+          "integration": "traccar"
+        }
+      }
+    },
+    {
+      "id": "server.get",
+      "title": "server.get",
+      "description": "Fetch Server information",
+      "inputSchema": {},
+      "outputSchema": {
+        "$ref": "#/definitions/Server"
+      },
+      "security": {
+        "traccar": {
+          "integration": "traccar"
+        }
+      }
+    },
+    {
+      "id": "server.put",
+      "title": "server.put",
+      "description": "Update Server information",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/Server"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Server"
+      },
+      "security": {
+        "traccar": {
+          "integration": "traccar"
+        }
+      }
+    },
+    {
+      "id": "session.delete",
+      "title": "session.delete",
+      "description": "Close the Session",
+      "inputSchema": {},
+      "outputSchema": {},
+      "security": {
+        "traccar": {
+          "integration": "traccar"
+        }
+      }
+    },
+    {
+      "id": "session.get",
+      "title": "session.get",
+      "description": "Fetch Session information",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "token": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/User"
+      },
+      "security": {
+        "traccar": {
+          "integration": "traccar"
+        }
+      }
+    },
+    {
+      "id": "session.post",
+      "title": "session.post",
+      "description": "Create a new Session",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string",
+            "format": "password"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "email",
+          "password"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/User"
+      },
+      "security": {
+        "traccar": {
+          "integration": "traccar"
+        }
+      }
+    },
+    {
+      "id": "statistics.get",
+      "title": "statistics.get",
+      "description": "Fetch server Statistics",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "from": {
+            "type": "string",
+            "format": "date-time",
+            "description": "in IS0 8601 format. eg. `1963-11-22T18:30:00Z`"
+          },
+          "to": {
+            "type": "string",
+            "format": "date-time",
+            "description": "in IS0 8601 format. eg. `1963-11-22T18:30:00Z`"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "from",
+          "to"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Statistics"
+        },
+        "type": "array"
+      },
+      "security": {
+        "traccar": {
+          "integration": "traccar"
+        }
+      }
+    },
+    {
+      "id": "users.get",
+      "title": "users.get",
+      "description": "Fetch a list of Users",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "userId": {
+            "type": "string",
+            "description": "Can only be used by admin or manager users"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/User"
+        },
+        "type": "array"
+      },
+      "security": {
+        "traccar": {
+          "integration": "traccar"
+        }
+      }
+    },
+    {
+      "id": "users.post",
+      "title": "users.post",
+      "description": "Create a User",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/User"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/User"
+      },
+      "security": {
+        "traccar": {
+          "integration": "traccar"
+        }
+      }
+    },
+    {
+      "id": "users.notifications.get",
+      "title": "users.notifications.get",
+      "description": "Without params, it returns a list of the user's enabled Notifications",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "all": {
+            "type": "boolean",
+            "description": "To fetch a list of all available Notifications"
+          },
+          "userId": {
+            "type": "integer",
+            "description": "Standard users can use this only with their own _userId_"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Notification"
+        },
+        "type": "array"
+      },
+      "security": {
+        "traccar": {
+          "integration": "traccar"
+        }
+      }
+    },
+    {
+      "id": "users.notifications.post",
+      "title": "users.notifications.post",
+      "description": "Set or unset a Notification",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/Notification"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Notification"
+      },
+      "security": {
+        "traccar": {
+          "integration": "traccar"
+        }
+      }
+    },
+    {
+      "id": "users.id.delete",
+      "title": "users.id.delete",
+      "description": "Delete a User",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "traccar": {
+          "integration": "traccar"
+        }
+      }
+    },
+    {
+      "id": "users.id.put",
+      "title": "users.id.put",
+      "description": "Update a User",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "body": {
+            "$ref": "#/definitions/User"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/User"
+      },
+      "security": {
+        "traccar": {
+          "integration": "traccar"
+        }
+      }
+    }
+  ],
+  "tags": [
+    "location"
+  ]
+}

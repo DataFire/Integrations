@@ -1,0 +1,1731 @@
+{
+  "id": "zoomconnect",
+  "title": "Zoom Connect",
+  "description": "The world's greatest SMS API",
+  "security": {
+    "zoomconnect": {
+      "integration": "zoomconnect",
+      "fields": {
+        "email": "API key",
+        "token": "API key"
+      }
+    }
+  },
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/zoomconnect.png"
+  },
+  "actionCount": 44,
+  "definitions": {
+    "Link": {
+      "properties": {
+        "href": {
+          "type": "string"
+        },
+        "rel": {
+          "type": "string"
+        },
+        "templated": {
+          "type": "boolean"
+        }
+      },
+      "title": "Link"
+    },
+    "RestErrorDTO": {
+      "description": "RestErrorDTO",
+      "properties": {
+        "code": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "developerMessage": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "moreInfoUrl": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        }
+      },
+      "title": "RestErrorDTO"
+    },
+    "Void": {
+      "title": "Void"
+    },
+    "WebServiceAccount": {
+      "description": "WebServiceAccount",
+      "properties": {
+        "creditBalance": {
+          "format": "double",
+          "type": "number"
+        },
+        "links": {
+          "items": {
+            "$ref": "#/definitions/Link"
+          },
+          "type": "array"
+        }
+      },
+      "title": "WebServiceAccount"
+    },
+    "WebServiceContact": {
+      "description": "WebServiceContact",
+      "properties": {
+        "contactId": {
+          "type": "string"
+        },
+        "contactNumber": {
+          "type": "string"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "links": {
+          "items": {
+            "$ref": "#/definitions/Link"
+          },
+          "type": "array"
+        },
+        "title": {
+          "type": "string"
+        }
+      },
+      "title": "WebServiceContact"
+    },
+    "WebServiceContactLink": {
+      "description": "WebServiceContactLink",
+      "properties": {
+        "contactId": {
+          "type": "string"
+        },
+        "links": {
+          "items": {
+            "$ref": "#/definitions/Link"
+          },
+          "type": "array"
+        }
+      },
+      "title": "WebServiceContactLink"
+    },
+    "WebServiceContacts": {
+      "description": "WebServiceContacts",
+      "properties": {
+        "links": {
+          "items": {
+            "$ref": "#/definitions/Link"
+          },
+          "type": "array"
+        },
+        "webServiceContacts": {
+          "items": {
+            "$ref": "#/definitions/WebServiceContact"
+          },
+          "type": "array"
+        }
+      },
+      "title": "WebServiceContacts"
+    },
+    "WebServiceGroup": {
+      "description": "WebServiceGroup",
+      "properties": {
+        "groupId": {
+          "type": "string"
+        },
+        "links": {
+          "items": {
+            "$ref": "#/definitions/Link"
+          },
+          "type": "array"
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "title": "WebServiceGroup"
+    },
+    "WebServiceGroups": {
+      "description": "WebServiceGroups",
+      "properties": {
+        "links": {
+          "items": {
+            "$ref": "#/definitions/Link"
+          },
+          "type": "array"
+        },
+        "webServiceGroups": {
+          "items": {
+            "$ref": "#/definitions/WebServiceGroup"
+          },
+          "type": "array"
+        }
+      },
+      "title": "WebServiceGroups"
+    },
+    "WebServiceMessage": {
+      "description": "WebServiceMessage",
+      "properties": {
+        "campaign": {
+          "type": "string"
+        },
+        "contact": {
+          "$ref": "#/definitions/WebServiceContactLink"
+        },
+        "creditCost": {
+          "format": "double",
+          "type": "number"
+        },
+        "dateTimeReceived": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "dateTimeScheduled": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "dateTimeSent": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "deleted": {
+          "type": "boolean"
+        },
+        "fromNumber": {
+          "type": "string"
+        },
+        "links": {
+          "items": {
+            "$ref": "#/definitions/Link"
+          },
+          "type": "array"
+        },
+        "message": {
+          "type": "string"
+        },
+        "messageId": {
+          "type": "string"
+        },
+        "messageStatus": {
+          "type": "string"
+        },
+        "messageType": {
+          "type": "string"
+        },
+        "numberOfMessages": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "read": {
+          "type": "boolean"
+        },
+        "toNumber": {
+          "type": "string"
+        },
+        "userDataField": {
+          "type": "string"
+        }
+      },
+      "title": "WebServiceMessage"
+    },
+    "WebServiceMessages": {
+      "description": "WebServiceMessages",
+      "properties": {
+        "elements": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "links": {
+          "items": {
+            "$ref": "#/definitions/Link"
+          },
+          "type": "array"
+        },
+        "page": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "pageSize": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "totalElements": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "totalPages": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "webServiceMessages": {
+          "items": {
+            "$ref": "#/definitions/WebServiceMessage"
+          },
+          "type": "array"
+        }
+      },
+      "title": "WebServiceMessages"
+    },
+    "WebServiceNumberContextLookupRequest": {
+      "description": "WebServiceNumberContextLookupRequest",
+      "properties": {
+        "links": {
+          "items": {
+            "$ref": "#/definitions/Link"
+          },
+          "type": "array"
+        },
+        "numbers": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "title": "WebServiceNumberContextLookupRequest"
+    },
+    "WebServiceNumberContextLookupResponse": {
+      "description": "WebServiceNumberContextLookupResponse",
+      "properties": {
+        "links": {
+          "items": {
+            "$ref": "#/definitions/Link"
+          },
+          "type": "array"
+        },
+        "number": {
+          "type": "string"
+        },
+        "numberValid": {
+          "type": "boolean"
+        }
+      },
+      "title": "WebServiceNumberContextLookupResponse"
+    },
+    "WebServiceSendSmsRequest": {
+      "description": "WebServiceSendSmsRequest",
+      "properties": {
+        "campaign": {
+          "type": "string"
+        },
+        "dataField": {
+          "type": "string"
+        },
+        "dateToSend": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "recipientNumber": {
+          "type": "string"
+        }
+      },
+      "title": "WebServiceSendSmsRequest"
+    },
+    "WebServiceSendSmsRequests": {
+      "description": "WebServiceSendSmsRequests",
+      "properties": {
+        "defaultDateToSend": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "messagesPerMinute": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "sendSmsRequests": {
+          "items": {
+            "$ref": "#/definitions/WebServiceSendSmsRequest"
+          },
+          "type": "array"
+        }
+      },
+      "title": "WebServiceSendSmsRequests"
+    },
+    "WebServiceSendSmsResponse": {
+      "description": "WebServiceSendSmsResponse",
+      "properties": {
+        "error": {
+          "type": "string"
+        },
+        "messageId": {
+          "type": "string"
+        }
+      },
+      "title": "WebServiceSendSmsResponse"
+    },
+    "WebServiceSendSmsResponses": {
+      "description": "WebServiceSendSmsResponses",
+      "properties": {
+        "sendSmsResponses": {
+          "items": {
+            "$ref": "#/definitions/WebServiceSendSmsResponse"
+          },
+          "type": "array"
+        }
+      },
+      "title": "WebServiceSendSmsResponses"
+    },
+    "WebServiceTemplate": {
+      "description": "WebServiceTemplate",
+      "properties": {
+        "data": {
+          "type": "string"
+        },
+        "links": {
+          "items": {
+            "$ref": "#/definitions/Link"
+          },
+          "type": "array"
+        },
+        "name": {
+          "type": "string"
+        },
+        "templateId": {
+          "format": "int64",
+          "type": "integer"
+        }
+      },
+      "title": "WebServiceTemplate"
+    },
+    "WebServiceTemplates": {
+      "description": "WebServiceTemplates",
+      "properties": {
+        "links": {
+          "items": {
+            "$ref": "#/definitions/Link"
+          },
+          "type": "array"
+        },
+        "webServiceTemplates": {
+          "items": {
+            "$ref": "#/definitions/WebServiceTemplate"
+          },
+          "type": "array"
+        }
+      },
+      "title": "WebServiceTemplates"
+    },
+    "WebServiceTransferCreditsRequest": {
+      "description": "WebServiceTransferCreditsRequest",
+      "properties": {
+        "numberOfCreditsToTransfer": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "transferFromEmailAddress": {
+          "type": "string"
+        },
+        "transferToEmailAddress": {
+          "type": "string"
+        }
+      },
+      "title": "WebServiceTransferCreditsRequest"
+    },
+    "WebServiceUser": {
+      "description": "WebServiceUser",
+      "properties": {
+        "company": {
+          "type": "string"
+        },
+        "contactNumber": {
+          "type": "string"
+        },
+        "creditBalance": {
+          "format": "double",
+          "type": "number"
+        },
+        "emailAddress": {
+          "type": "string"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        },
+        "userId": {
+          "format": "int64",
+          "type": "integer"
+        }
+      },
+      "title": "WebServiceUser"
+    },
+    "WebServiceUsers": {
+      "description": "WebServiceUsers",
+      "properties": {
+        "webServiceUserList": {
+          "items": {
+            "$ref": "#/definitions/WebServiceUser"
+          },
+          "type": "array"
+        }
+      },
+      "title": "WebServiceUsers"
+    }
+  },
+  "actions": [
+    {
+      "id": "getBalance",
+      "title": "getBalance",
+      "description": "Returns your account's credit balance",
+      "inputSchema": {},
+      "outputSchema": {
+        "$ref": "#/definitions/WebServiceAccount"
+      },
+      "security": {
+        "zoomconnect": {
+          "integration": "zoomconnect"
+        }
+      }
+    },
+    {
+      "id": "transfer",
+      "title": "transfer",
+      "description": "Transfers credits between two users in the same team. The _account email address_ fields as well as the _number of credits to transfer_ are required.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/WebServiceTransferCreditsRequest"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {},
+      "security": {
+        "zoomconnect": {
+          "integration": "zoomconnect"
+        }
+      }
+    },
+    {
+      "id": "search",
+      "title": "search",
+      "description": "Find a user for a particular email address",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "searchEmail": {
+            "type": "string",
+            "description": "search by email address"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "searchEmail"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/WebServiceUsers"
+      },
+      "security": {
+        "zoomconnect": {
+          "integration": "zoomconnect"
+        }
+      }
+    },
+    {
+      "id": "account.user.put",
+      "title": "account.user.put",
+      "description": "Creates a new sub-account in your team. The following fields are required _firstname, lastname, email address, contact number_ and _password._",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/WebServiceUser"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/WebServiceUser"
+      },
+      "security": {
+        "zoomconnect": {
+          "integration": "zoomconnect"
+        }
+      }
+    },
+    {
+      "id": "getUser",
+      "title": "getUser",
+      "description": "Gets a user from a given user id",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "userId"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "userId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/WebServiceUser"
+      },
+      "security": {
+        "zoomconnect": {
+          "integration": "zoomconnect"
+        }
+      }
+    },
+    {
+      "id": "account.user.userId.post",
+      "title": "account.user.userId.post",
+      "description": "Updates a sub-account in your team. The following fields can be updated _firstname, lastname, contact number_ and _password._",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "userId"
+          },
+          "body": {
+            "$ref": "#/definitions/WebServiceUser"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "userId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/WebServiceUser"
+      },
+      "security": {
+        "zoomconnect": {
+          "integration": "zoomconnect"
+        }
+      }
+    },
+    {
+      "id": "contacts.all.get",
+      "title": "contacts.all.get",
+      "description": "Returns all contacts",
+      "inputSchema": {},
+      "outputSchema": {
+        "$ref": "#/definitions/WebServiceContacts"
+      },
+      "security": {
+        "zoomconnect": {
+          "integration": "zoomconnect"
+        }
+      }
+    },
+    {
+      "id": "contacts.create.post",
+      "title": "contacts.create.post",
+      "description": "Creates a  contact",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/WebServiceContact"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/WebServiceContact"
+      },
+      "security": {
+        "zoomconnect": {
+          "integration": "zoomconnect"
+        }
+      }
+    },
+    {
+      "id": "contacts.contactId.delete",
+      "title": "contacts.contactId.delete",
+      "description": "Deletes a  contact",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "contactId": {
+            "type": "string",
+            "description": "contactId"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "contactId"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "zoomconnect": {
+          "integration": "zoomconnect"
+        }
+      }
+    },
+    {
+      "id": "contacts.contactId.get",
+      "title": "contacts.contactId.get",
+      "description": "Returns details for a single contact",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "contactId": {
+            "type": "string",
+            "description": "contactId"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "contactId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/WebServiceContact"
+      },
+      "security": {
+        "zoomconnect": {
+          "integration": "zoomconnect"
+        }
+      }
+    },
+    {
+      "id": "contacts.contactId.post",
+      "title": "contacts.contactId.post",
+      "description": "Updates a  contact",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "contactId": {
+            "type": "string",
+            "description": "contactId"
+          },
+          "body": {
+            "$ref": "#/definitions/WebServiceContact"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "contactId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/WebServiceContact"
+      },
+      "security": {
+        "zoomconnect": {
+          "integration": "zoomconnect"
+        }
+      }
+    },
+    {
+      "id": "contacts.contactId.addFromGroup.groupId.get",
+      "title": "contacts.contactId.addFromGroup.groupId.get",
+      "description": "Remove a contact from a group",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "contactId": {
+            "type": "string",
+            "description": "contactId"
+          },
+          "groupId": {
+            "type": "string",
+            "description": "groupId"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "contactId",
+          "groupId"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "zoomconnect": {
+          "integration": "zoomconnect"
+        }
+      }
+    },
+    {
+      "id": "contacts.contactId.addFromGroup.groupId.post",
+      "title": "contacts.contactId.addFromGroup.groupId.post",
+      "description": "Remove a contact from a group",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "contactId": {
+            "type": "string",
+            "description": "contactId"
+          },
+          "groupId": {
+            "type": "string",
+            "description": "groupId"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "contactId",
+          "groupId"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "zoomconnect": {
+          "integration": "zoomconnect"
+        }
+      }
+    },
+    {
+      "id": "contacts.contactId.addToGroup.groupId.get",
+      "title": "contacts.contactId.addToGroup.groupId.get",
+      "description": "Add a contact to a group",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "contactId": {
+            "type": "string",
+            "description": "contactId"
+          },
+          "groupId": {
+            "type": "string",
+            "description": "groupId"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "contactId",
+          "groupId"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "zoomconnect": {
+          "integration": "zoomconnect"
+        }
+      }
+    },
+    {
+      "id": "contacts.contactId.addToGroup.groupId.post",
+      "title": "contacts.contactId.addToGroup.groupId.post",
+      "description": "Add a contact to a group",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "contactId": {
+            "type": "string",
+            "description": "contactId"
+          },
+          "groupId": {
+            "type": "string",
+            "description": "groupId"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "contactId",
+          "groupId"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "zoomconnect": {
+          "integration": "zoomconnect"
+        }
+      }
+    },
+    {
+      "id": "context.lookup.get",
+      "title": "context.lookup.get",
+      "description": "Returns context information for a single provided",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "body": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/WebServiceNumberContextLookupResponse"
+      },
+      "security": {
+        "zoomconnect": {
+          "integration": "zoomconnect"
+        }
+      }
+    },
+    {
+      "id": "context.lookup.post",
+      "title": "context.lookup.post",
+      "description": "Returns context information for a single provided",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "body": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/WebServiceNumberContextLookupResponse"
+      },
+      "security": {
+        "zoomconnect": {
+          "integration": "zoomconnect"
+        }
+      }
+    },
+    {
+      "id": "groups.all.get",
+      "title": "groups.all.get",
+      "description": "Returns all groups",
+      "inputSchema": {},
+      "outputSchema": {
+        "$ref": "#/definitions/WebServiceGroups"
+      },
+      "security": {
+        "zoomconnect": {
+          "integration": "zoomconnect"
+        }
+      }
+    },
+    {
+      "id": "groups.create.post",
+      "title": "groups.create.post",
+      "description": "Create a  group",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/WebServiceGroup"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/WebServiceGroup"
+      },
+      "security": {
+        "zoomconnect": {
+          "integration": "zoomconnect"
+        }
+      }
+    },
+    {
+      "id": "groups.groupId.delete",
+      "title": "groups.groupId.delete",
+      "description": "Deletes a  group",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "groupId": {
+            "type": "string",
+            "description": "groupId"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "groupId"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "zoomconnect": {
+          "integration": "zoomconnect"
+        }
+      }
+    },
+    {
+      "id": "groups.groupId.get",
+      "title": "groups.groupId.get",
+      "description": "Returns details for a single group",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "groupId": {
+            "type": "string",
+            "description": "groupId"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "groupId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/WebServiceGroup"
+      },
+      "security": {
+        "zoomconnect": {
+          "integration": "zoomconnect"
+        }
+      }
+    },
+    {
+      "id": "groups.groupId.post",
+      "title": "groups.groupId.post",
+      "description": "Update a  group",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "groupId": {
+            "type": "string",
+            "description": "groupId"
+          },
+          "body": {
+            "$ref": "#/definitions/WebServiceGroup"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "groupId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/WebServiceGroup"
+      },
+      "security": {
+        "zoomconnect": {
+          "integration": "zoomconnect"
+        }
+      }
+    },
+    {
+      "id": "groups.groupId.addContact.contactId.get",
+      "title": "groups.groupId.addContact.contactId.get",
+      "description": "Add a contact to a group",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "groupId": {
+            "type": "string",
+            "description": "groupId"
+          },
+          "contactId": {
+            "type": "string",
+            "description": "contactId"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "groupId",
+          "contactId"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "zoomconnect": {
+          "integration": "zoomconnect"
+        }
+      }
+    },
+    {
+      "id": "groups.groupId.addContact.contactId.post",
+      "title": "groups.groupId.addContact.contactId.post",
+      "description": "Add a contact to a group",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "groupId": {
+            "type": "string",
+            "description": "groupId"
+          },
+          "contactId": {
+            "type": "string",
+            "description": "contactId"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "groupId",
+          "contactId"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "zoomconnect": {
+          "integration": "zoomconnect"
+        }
+      }
+    },
+    {
+      "id": "groups.groupId.removeContact.contactId.get",
+      "title": "groups.groupId.removeContact.contactId.get",
+      "description": "Remove a contact from a group",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "groupId": {
+            "type": "string",
+            "description": "groupId"
+          },
+          "contactId": {
+            "type": "string",
+            "description": "contactId"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "groupId",
+          "contactId"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "zoomconnect": {
+          "integration": "zoomconnect"
+        }
+      }
+    },
+    {
+      "id": "groups.groupId.removeContact.contactId.post",
+      "title": "groups.groupId.removeContact.contactId.post",
+      "description": "Remove a contact from a group",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "groupId": {
+            "type": "string",
+            "description": "groupId"
+          },
+          "contactId": {
+            "type": "string",
+            "description": "contactId"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "groupId",
+          "contactId"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "zoomconnect": {
+          "integration": "zoomconnect"
+        }
+      }
+    },
+    {
+      "id": "messages.all.get",
+      "title": "messages.all.get",
+      "description": "Returns all messages",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "pageSize": {
+            "type": "integer",
+            "format": "int32",
+            "description": "number of elements to return at a time"
+          },
+          "page": {
+            "type": "integer",
+            "format": "int32",
+            "description": "page number"
+          },
+          "type": {
+            "type": "string",
+            "description": "filter by message type",
+            "enum": [
+              "OUTBOUND",
+              "INBOUND"
+            ]
+          },
+          "status": {
+            "type": "string",
+            "description": "filter by message status",
+            "enum": [
+              "SCHEDULED",
+              "UNKNOWN",
+              "SENT",
+              "FAILED",
+              "FAILED_REFUNDED",
+              "FAILED_OPTOUT",
+              "DELIVERED",
+              "RECEIVED"
+            ]
+          },
+          "fromDateTimeSent": {
+            "type": "string",
+            "format": "date-time",
+            "description": "date format: yyyyMMdd"
+          },
+          "toDateTimeSent": {
+            "type": "string",
+            "format": "date-time",
+            "description": "date format: yyyyMMdd"
+          },
+          "fromDateTimeReceived": {
+            "type": "string",
+            "format": "date-time",
+            "description": "date format: yyyyMMdd"
+          },
+          "toDateTimeReceived": {
+            "type": "string",
+            "format": "date-time",
+            "description": "date format: yyyyMMdd"
+          },
+          "fromNumber": {
+            "type": "string",
+            "description": "phone number the message was sent from"
+          },
+          "toNumber": {
+            "type": "string",
+            "description": "phone number the message was sent to"
+          },
+          "message": {
+            "type": "string",
+            "description": "search matching message text"
+          },
+          "campaign": {
+            "type": "string",
+            "description": "search by campaign"
+          },
+          "dataField": {
+            "type": "string",
+            "description": "search by data field"
+          },
+          "deleted": {
+            "type": "boolean",
+            "description": "return only deleted / not deleted messages"
+          },
+          "read": {
+            "type": "boolean",
+            "description": "return only read / unread messages (inbox messages only)"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/WebServiceMessages"
+      },
+      "security": {
+        "zoomconnect": {
+          "integration": "zoomconnect"
+        }
+      }
+    },
+    {
+      "id": "messages.messageId.delete",
+      "title": "messages.messageId.delete",
+      "description": "Deletes a  message",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "messageId": {
+            "type": "string",
+            "description": "messageId"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "messageId"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "zoomconnect": {
+          "integration": "zoomconnect"
+        }
+      }
+    },
+    {
+      "id": "messages.messageId.get",
+      "title": "messages.messageId.get",
+      "description": "Returns details for a single message",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "messageId": {
+            "type": "string",
+            "description": "messageId"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "messageId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/WebServiceMessage"
+      },
+      "security": {
+        "zoomconnect": {
+          "integration": "zoomconnect"
+        }
+      }
+    },
+    {
+      "id": "messages.messageId.markRead.post",
+      "title": "messages.messageId.markRead.post",
+      "description": "Marks a  message as read",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "messageId": {
+            "type": "string",
+            "description": "messageId"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "messageId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/WebServiceMessage"
+      },
+      "security": {
+        "zoomconnect": {
+          "integration": "zoomconnect"
+        }
+      }
+    },
+    {
+      "id": "messages.messageId.markRead.put",
+      "title": "messages.messageId.markRead.put",
+      "description": "Marks a  message as read",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "messageId": {
+            "type": "string",
+            "description": "messageId"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "messageId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/WebServiceMessage"
+      },
+      "security": {
+        "zoomconnect": {
+          "integration": "zoomconnect"
+        }
+      }
+    },
+    {
+      "id": "messages.messageId.markUnread.post",
+      "title": "messages.messageId.markUnread.post",
+      "description": "Marks a  message as unread",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "messageId": {
+            "type": "string",
+            "description": "messageId"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "messageId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/WebServiceMessage"
+      },
+      "security": {
+        "zoomconnect": {
+          "integration": "zoomconnect"
+        }
+      }
+    },
+    {
+      "id": "messages.messageId.markUnread.put",
+      "title": "messages.messageId.markUnread.put",
+      "description": "Marks a  message as unread",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "messageId": {
+            "type": "string",
+            "description": "messageId"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "messageId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/WebServiceMessage"
+      },
+      "security": {
+        "zoomconnect": {
+          "integration": "zoomconnect"
+        }
+      }
+    },
+    {
+      "id": "sms.send.get",
+      "title": "sms.send.get",
+      "description": "Returns an example of the data to POST to send a single message.",
+      "inputSchema": {},
+      "outputSchema": {
+        "$ref": "#/definitions/WebServiceSendSmsRequest"
+      },
+      "security": {
+        "zoomconnect": {
+          "integration": "zoomconnect"
+        }
+      }
+    },
+    {
+      "id": "sms.send.post",
+      "title": "sms.send.post",
+      "description": "Sends a single message. The _recipientNumber_ and _message_ fields are required. All other fields are optional.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/WebServiceSendSmsRequest"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/WebServiceSendSmsResponse"
+      },
+      "security": {
+        "zoomconnect": {
+          "integration": "zoomconnect"
+        }
+      }
+    },
+    {
+      "id": "sms.send_bulk.get",
+      "title": "sms.send_bulk.get",
+      "description": "Returns an example of the data to POST to send multiple messages in one transaction.",
+      "inputSchema": {},
+      "outputSchema": {
+        "$ref": "#/definitions/WebServiceSendSmsRequests"
+      },
+      "security": {
+        "zoomconnect": {
+          "integration": "zoomconnect"
+        }
+      }
+    },
+    {
+      "id": "sms.send_bulk.post",
+      "title": "sms.send_bulk.post",
+      "description": "Send multiple messages in one transaction.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/WebServiceSendSmsRequests"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/WebServiceSendSmsResponses"
+      },
+      "security": {
+        "zoomconnect": {
+          "integration": "zoomconnect"
+        }
+      }
+    },
+    {
+      "id": "sms.send_url_parameters.get",
+      "title": "sms.send_url_parameters.get",
+      "description": "Send a single message using URL parameters.The _recipientNumber_ and _message_ parameters are required. All other parameters are optional.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "recipientNumber": {
+            "type": "string",
+            "description": "the phone number of the recipient to send to"
+          },
+          "message": {
+            "type": "string",
+            "description": "the message to send"
+          },
+          "dateToSend": {
+            "type": "string",
+            "format": "date-time",
+            "description": "date format: yyyyMMddHHmm"
+          },
+          "campaign": {
+            "type": "string",
+            "description": "optional campaign name"
+          },
+          "dataField": {
+            "type": "string",
+            "description": "optional extra data"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "recipientNumber",
+          "message"
+        ]
+      },
+      "outputSchema": {
+        "type": "string"
+      },
+      "security": {
+        "zoomconnect": {
+          "integration": "zoomconnect"
+        }
+      }
+    },
+    {
+      "id": "sms.send_url_parameters.post",
+      "title": "sms.send_url_parameters.post",
+      "description": "Send a single message using URL parameters.The _recipientNumber_ and _message_ parameters are required. All other parameters are optional.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "recipientNumber": {
+            "type": "string",
+            "description": "the phone number of the recipient to send to"
+          },
+          "message": {
+            "type": "string",
+            "description": "the message to send"
+          },
+          "dateToSend": {
+            "type": "string",
+            "format": "date-time",
+            "description": "date format: yyyyMMddHHmm"
+          },
+          "campaign": {
+            "type": "string",
+            "description": "optional campaign name"
+          },
+          "dataField": {
+            "type": "string",
+            "description": "optional extra data"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "recipientNumber",
+          "message"
+        ]
+      },
+      "outputSchema": {
+        "type": "string"
+      },
+      "security": {
+        "zoomconnect": {
+          "integration": "zoomconnect"
+        }
+      }
+    },
+    {
+      "id": "sms.send_url.token.get",
+      "title": "sms.send_url.token.get",
+      "description": "Send a single message using your unique URL.The _recipientNumber_ and _message_ parameters are required. All other parameters are optional.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "token": {
+            "type": "string",
+            "description": "token"
+          },
+          "recipientNumber": {
+            "type": "string",
+            "description": "the phone number of the recipient to send to"
+          },
+          "message": {
+            "type": "string",
+            "description": "the message to send"
+          },
+          "dateToSend": {
+            "type": "string",
+            "format": "date-time",
+            "description": "date format: yyyyMMddHHmm"
+          },
+          "campaign": {
+            "type": "string",
+            "description": "optional campaign name"
+          },
+          "dataField": {
+            "type": "string",
+            "description": "optional extra data"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "token",
+          "recipientNumber",
+          "message"
+        ]
+      },
+      "outputSchema": {
+        "type": "string"
+      },
+      "security": {
+        "zoomconnect": {
+          "integration": "zoomconnect"
+        }
+      }
+    },
+    {
+      "id": "sms.send_url.token.post",
+      "title": "sms.send_url.token.post",
+      "description": "Send a single message using your unique URL.The _recipientNumber_ and _message_ parameters are required. All other parameters are optional.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "token": {
+            "type": "string",
+            "description": "token"
+          },
+          "recipientNumber": {
+            "type": "string",
+            "description": "the phone number of the recipient to send to"
+          },
+          "message": {
+            "type": "string",
+            "description": "the message to send"
+          },
+          "dateToSend": {
+            "type": "string",
+            "format": "date-time",
+            "description": "date format: yyyyMMddHHmm"
+          },
+          "campaign": {
+            "type": "string",
+            "description": "optional campaign name"
+          },
+          "dataField": {
+            "type": "string",
+            "description": "optional extra data"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "token",
+          "recipientNumber",
+          "message"
+        ]
+      },
+      "outputSchema": {
+        "type": "string"
+      },
+      "security": {
+        "zoomconnect": {
+          "integration": "zoomconnect"
+        }
+      }
+    },
+    {
+      "id": "templates.all.get",
+      "title": "templates.all.get",
+      "description": "Returns all templates",
+      "inputSchema": {},
+      "outputSchema": {
+        "$ref": "#/definitions/WebServiceTemplates"
+      },
+      "security": {
+        "zoomconnect": {
+          "integration": "zoomconnect"
+        }
+      }
+    },
+    {
+      "id": "templates.templateId.delete",
+      "title": "templates.templateId.delete",
+      "description": "Deletes a  template",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "templateId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "templateId"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "templateId"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "zoomconnect": {
+          "integration": "zoomconnect"
+        }
+      }
+    },
+    {
+      "id": "templates.templateId.get",
+      "title": "templates.templateId.get",
+      "description": "Returns details for a single template",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "templateId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "templateId"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "templateId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/WebServiceTemplate"
+      },
+      "security": {
+        "zoomconnect": {
+          "integration": "zoomconnect"
+        }
+      }
+    }
+  ],
+  "tags": [
+    "messaging",
+    "marketing"
+  ]
+}

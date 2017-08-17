@@ -1,0 +1,6761 @@
+{
+  "id": "bbc",
+  "title": "BBC Nitro",
+  "description": "BBC Nitro is the BBC's application programming interface (API) for BBC Programmes Metadata.",
+  "security": {
+    "bbc": {
+      "integration": "bbc",
+      "fields": {
+        "api_key": "API key"
+      }
+    }
+  },
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/bbc.png"
+  },
+  "actionCount": 25,
+  "definitions": {
+    "ErrorModel": {
+      "properties": {
+        "fault": {
+          "properties": {
+            "detail": {
+              "properties": {
+                "errorcode": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "faultString": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "type": "object",
+      "title": "ErrorModel"
+    },
+    "accurate_programme_time": {
+      "$ref": "#/definitions/dateRange",
+      "title": "accurate_programme_time"
+    },
+    "accurate_time": {
+      "$ref": "#/definitions/broadcastTime",
+      "title": "accurate_time"
+    },
+    "actual_start": {
+      "format": "date-time",
+      "type": "string",
+      "title": "actual_start"
+    },
+    "advertising_allowed": {
+      "pattern": "[a-z0-9_]+",
+      "type": "string",
+      "title": "advertising_allowed"
+    },
+    "affected_by": {
+      "additionalProperties": false,
+      "properties": {
+        "filter": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "description": {
+                "type": "string"
+              },
+              "filter": {
+                "items": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "description": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "name",
+                    "description"
+                  ],
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              "name": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "name",
+              "description"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "affected_by"
+    },
+    "alternate_images_mixin": {
+      "additionalProperties": false,
+      "properties": {
+        "alternate_images": {
+          "additionalProperties": false,
+          "properties": {
+            "alternate_image": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "alternate_images": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "alternate_image": {
+                        "items": {
+                          "additionalProperties": false,
+                          "properties": {
+                            "href": {
+                              "type": "string"
+                            },
+                            "template_url": {
+                              "type": "string"
+                            },
+                            "type": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "template_url"
+                          ],
+                          "type": "object"
+                        },
+                        "type": "array"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "href": {
+                    "type": "string"
+                  },
+                  "template_url": {
+                    "type": "string"
+                  },
+                  "type": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "template_url",
+                  "alternate_images"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "required": [
+        "alternate_images"
+      ],
+      "type": "object",
+      "title": "alternate_images_mixin"
+    },
+    "ancestor_titles": {
+      "additionalProperties": false,
+      "properties": {
+        "brand": {
+          "additionalProperties": false,
+          "properties": {
+            "pid": {
+              "$ref": "#/definitions/pid"
+            },
+            "title": {
+              "$ref": "#/definitions/title"
+            }
+          },
+          "required": [
+            "pid"
+          ],
+          "type": "object"
+        },
+        "episode": {
+          "additionalProperties": false,
+          "properties": {
+            "brand": {
+              "additionalProperties": false,
+              "properties": {
+                "pid": {
+                  "$ref": "#/definitions/pid"
+                },
+                "title": {
+                  "$ref": "#/definitions/title"
+                }
+              },
+              "required": [
+                "pid"
+              ],
+              "type": "object"
+            },
+            "containers_title": {
+              "$ref": "#/definitions/containers_title"
+            },
+            "episode": {
+              "additionalProperties": false,
+              "properties": {
+                "containers_title": {
+                  "$ref": "#/definitions/containers_title"
+                },
+                "pid": {
+                  "$ref": "#/definitions/pid"
+                },
+                "presentation_title": {
+                  "$ref": "#/definitions/presentation_title"
+                },
+                "title": {
+                  "$ref": "#/definitions/title"
+                }
+              },
+              "required": [
+                "pid"
+              ],
+              "type": "object"
+            },
+            "pid": {
+              "$ref": "#/definitions/pid"
+            },
+            "presentation_title": {
+              "$ref": "#/definitions/presentation_title"
+            },
+            "series": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "pid": {
+                    "$ref": "#/definitions/pid"
+                  },
+                  "title": {
+                    "$ref": "#/definitions/title"
+                  }
+                },
+                "required": [
+                  "pid"
+                ],
+                "type": "object"
+              },
+              "maxItems": 5,
+              "type": "array"
+            },
+            "title": {
+              "$ref": "#/definitions/title"
+            }
+          },
+          "required": [
+            "pid"
+          ],
+          "type": "object"
+        },
+        "series": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "pid": {
+                "$ref": "#/definitions/pid"
+              },
+              "title": {
+                "$ref": "#/definitions/title"
+              }
+            },
+            "required": [
+              "pid"
+            ],
+            "type": "object"
+          },
+          "maxItems": 5,
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "ancestor_titles"
+    },
+    "ancestors": {
+      "$ref": "#/definitions/reference",
+      "title": "ancestors"
+    },
+    "ancestors_titles": {
+      "additionalProperties": false,
+      "properties": {
+        "brand": {
+          "additionalProperties": false,
+          "properties": {
+            "pid": {
+              "$ref": "#/definitions/pid"
+            },
+            "title": {
+              "$ref": "#/definitions/title"
+            }
+          },
+          "required": [
+            "pid"
+          ],
+          "type": "object"
+        },
+        "episode": {
+          "additionalProperties": false,
+          "properties": {
+            "brand": {
+              "additionalProperties": false,
+              "properties": {
+                "pid": {
+                  "$ref": "#/definitions/pid"
+                },
+                "title": {
+                  "$ref": "#/definitions/title"
+                }
+              },
+              "required": [
+                "pid"
+              ],
+              "type": "object"
+            },
+            "containers_title": {
+              "$ref": "#/definitions/containers_title"
+            },
+            "episode": {
+              "additionalProperties": false,
+              "properties": {
+                "containers_title": {
+                  "$ref": "#/definitions/containers_title"
+                },
+                "pid": {
+                  "$ref": "#/definitions/pid"
+                },
+                "presentation_title": {
+                  "$ref": "#/definitions/presentation_title"
+                },
+                "title": {
+                  "$ref": "#/definitions/title"
+                }
+              },
+              "required": [
+                "pid"
+              ],
+              "type": "object"
+            },
+            "pid": {
+              "$ref": "#/definitions/pid"
+            },
+            "presentation_title": {
+              "$ref": "#/definitions/presentation_title"
+            },
+            "series": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "pid": {
+                    "$ref": "#/definitions/pid"
+                  },
+                  "title": {
+                    "$ref": "#/definitions/title"
+                  }
+                },
+                "required": [
+                  "pid"
+                ],
+                "type": "object"
+              },
+              "maxItems": 5,
+              "type": "array"
+            },
+            "title": {
+              "$ref": "#/definitions/title"
+            }
+          },
+          "required": [
+            "pid"
+          ],
+          "type": "object"
+        },
+        "series": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "pid": {
+                "$ref": "#/definitions/pid"
+              },
+              "title": {
+                "$ref": "#/definitions/title"
+              }
+            },
+            "required": [
+              "pid"
+            ],
+            "type": "object"
+          },
+          "maxItems": 5,
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "ancestors_titles"
+    },
+    "availability": {
+      "additionalProperties": false,
+      "properties": {
+        "accurate_programme_time": {
+          "$ref": "#/definitions/accurate_programme_time"
+        },
+        "actual_start": {
+          "$ref": "#/definitions/actual_start"
+        },
+        "availability-debug": {
+          "$ref": "#/definitions/availability-debug"
+        },
+        "availability_of": {
+          "items": {
+            "$ref": "#/definitions/availability_of"
+          },
+          "type": "array"
+        },
+        "availability_type": {
+          "$ref": "#/definitions/availability_type"
+        },
+        "media_availability_time": {
+          "$ref": "#/definitions/media_availability_time"
+        },
+        "media_set": {
+          "items": {
+            "$ref": "#/definitions/media_set"
+          },
+          "type": "array"
+        },
+        "revocation_status": {
+          "$ref": "#/definitions/revocation_status"
+        },
+        "scheduled_time": {
+          "$ref": "#/definitions/scheduled_time"
+        },
+        "status": {
+          "$ref": "#/definitions/status"
+        }
+      },
+      "required": [
+        "status",
+        "availability_type"
+      ],
+      "type": "object",
+      "title": "availability"
+    },
+    "availability-debug": {
+      "additionalProperties": false,
+      "properties": {
+        "availability_of": {
+          "$ref": "#/definitions/pidReference"
+        },
+        "media_profile_groups": {
+          "$ref": "#/definitions/media_profile_groups"
+        },
+        "service": {
+          "$ref": "#/definitions/serviceReference"
+        },
+        "territory": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "availability_of"
+      ],
+      "type": "object",
+      "title": "availability-debug"
+    },
+    "availability_mixin": {
+      "additionalProperties": false,
+      "properties": {
+        "availability": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "status": {
+                "$ref": "#/definitions/status"
+              },
+              "version_types": {
+                "additionalProperties": false,
+                "properties": {
+                  "version_type": {
+                    "items": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "end": {
+                          "format": "date-time",
+                          "type": "string"
+                        },
+                        "id": {
+                          "type": "string"
+                        },
+                        "start": {
+                          "format": "date-time",
+                          "type": "string"
+                        },
+                        "version_type": {
+                          "items": {
+                            "additionalProperties": false,
+                            "properties": {
+                              "availability": {
+                                "items": {
+                                  "additionalProperties": false,
+                                  "properties": {
+                                    "status": {
+                                      "$ref": "#/definitions/status"
+                                    },
+                                    "version_types": {
+                                      "additionalProperties": false,
+                                      "properties": {
+                                        "version_type": {
+                                          "items": {
+                                            "additionalProperties": false,
+                                            "properties": {
+                                              "end": {
+                                                "format": "date-time",
+                                                "type": "string"
+                                              },
+                                              "id": {
+                                                "type": "string"
+                                              },
+                                              "start": {
+                                                "format": "date-time",
+                                                "type": "string"
+                                              },
+                                              "version_type": {
+                                                "items": {
+                                                  "additionalProperties": false,
+                                                  "properties": {
+                                                    "end": {
+                                                      "format": "date-time",
+                                                      "type": "string"
+                                                    },
+                                                    "id": {
+                                                      "type": "string"
+                                                    },
+                                                    "start": {
+                                                      "format": "date-time",
+                                                      "type": "string"
+                                                    }
+                                                  },
+                                                  "type": "object"
+                                                },
+                                                "minItems": 1,
+                                                "type": "array"
+                                              }
+                                            },
+                                            "required": [
+                                              "version_type"
+                                            ],
+                                            "type": "object"
+                                          },
+                                          "minItems": 1,
+                                          "type": "array"
+                                        }
+                                      },
+                                      "required": [
+                                        "version_type"
+                                      ],
+                                      "type": "object"
+                                    }
+                                  },
+                                  "required": [
+                                    "status",
+                                    "version_types"
+                                  ],
+                                  "type": "object"
+                                },
+                                "type": "array"
+                              },
+                              "end": {
+                                "format": "date-time",
+                                "type": "string"
+                              },
+                              "id": {
+                                "type": "string"
+                              },
+                              "start": {
+                                "format": "date-time",
+                                "type": "string"
+                              }
+                            },
+                            "type": "object"
+                          },
+                          "minItems": 1,
+                          "type": "array"
+                        }
+                      },
+                      "required": [
+                        "version_type"
+                      ],
+                      "type": "object"
+                    },
+                    "minItems": 1,
+                    "type": "array"
+                  }
+                },
+                "required": [
+                  "version_type"
+                ],
+                "type": "object"
+              }
+            },
+            "required": [
+              "status",
+              "version_types"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "availability_mixin"
+    },
+    "availability_of": {
+      "additionalProperties": false,
+      "properties": {
+        "href": {
+          "type": "string"
+        },
+        "pid": {
+          "$ref": "#/definitions/pid"
+        },
+        "result_type": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "result_type",
+        "pid",
+        "href"
+      ],
+      "type": "object",
+      "title": "availability_of"
+    },
+    "availability_type": {
+      "enum": [
+        "ondemand",
+        "simulcast",
+        "webcast"
+      ],
+      "title": "availability_type"
+    },
+    "available_media_sets": {
+      "additionalProperties": false,
+      "properties": {
+        "media_sets": {
+          "additionalProperties": false,
+          "properties": {
+            "media_set": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "#text": {
+                    "type": "string"
+                  },
+                  "media_sets": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "media_set": {
+                        "items": {
+                          "additionalProperties": false,
+                          "properties": {
+                            "#text": {
+                              "type": "string"
+                            }
+                          },
+                          "type": "object"
+                        },
+                        "minItems": 1,
+                        "type": "array"
+                      }
+                    },
+                    "required": [
+                      "media_set"
+                    ],
+                    "type": "object"
+                  }
+                },
+                "type": "object"
+              },
+              "minItems": 1,
+              "type": "array"
+            }
+          },
+          "required": [
+            "media_set"
+          ],
+          "type": "object"
+        }
+      },
+      "type": "object",
+      "title": "available_media_sets"
+    },
+    "available_mixins": {
+      "additionalProperties": false,
+      "properties": {
+        "availabilities": {
+          "additionalProperties": false,
+          "properties": {
+            "availabilities": {
+              "additionalProperties": false,
+              "properties": {
+                "availability": {
+                  "items": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "accurate_end": {
+                        "format": "date-time",
+                        "type": "string"
+                      },
+                      "accurate_start": {
+                        "format": "date-time",
+                        "type": "string"
+                      },
+                      "available_versions_media_sets": {
+                        "$ref": "#/definitions/available_versions_media_sets"
+                      },
+                      "media_availability_end": {
+                        "format": "date-time",
+                        "type": "string"
+                      },
+                      "media_availability_start": {
+                        "format": "date-time",
+                        "type": "string"
+                      },
+                      "payment_type": {
+                        "type": "string"
+                      },
+                      "scheduled_end": {
+                        "format": "date-time",
+                        "type": "string"
+                      },
+                      "scheduled_start": {
+                        "format": "date-time",
+                        "type": "string"
+                      },
+                      "status": {
+                        "type": "string"
+                      },
+                      "type": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "available_versions_media_sets"
+                    ],
+                    "type": "object"
+                  },
+                  "minItems": 1,
+                  "type": "array"
+                },
+                "type": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "availability"
+              ],
+              "type": "object"
+            },
+            "availability": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "accurate_end": {
+                    "format": "date-time",
+                    "type": "string"
+                  },
+                  "accurate_start": {
+                    "format": "date-time",
+                    "type": "string"
+                  },
+                  "available_versions_media_sets": {
+                    "$ref": "#/definitions/available_versions_media_sets"
+                  },
+                  "media_availability_end": {
+                    "format": "date-time",
+                    "type": "string"
+                  },
+                  "media_availability_start": {
+                    "format": "date-time",
+                    "type": "string"
+                  },
+                  "payment_type": {
+                    "type": "string"
+                  },
+                  "scheduled_end": {
+                    "format": "date-time",
+                    "type": "string"
+                  },
+                  "scheduled_start": {
+                    "format": "date-time",
+                    "type": "string"
+                  },
+                  "status": {
+                    "type": "string"
+                  },
+                  "type": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "available_versions_media_sets"
+                ],
+                "type": "object"
+              },
+              "minItems": 1,
+              "type": "array"
+            },
+            "type": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "availability",
+            "availabilities"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "availabilities"
+      ],
+      "type": "object",
+      "title": "available_mixins"
+    },
+    "available_simulcasts": {
+      "additionalProperties": false,
+      "properties": {
+        "available": {
+          "type": "integer"
+        },
+        "available_versions_element": {
+          "$ref": "#/definitions/available_versions_element"
+        }
+      },
+      "required": [
+        "available_versions_element",
+        "available"
+      ],
+      "type": "object",
+      "title": "available_simulcasts"
+    },
+    "available_versions": {
+      "additionalProperties": false,
+      "properties": {
+        "available": {
+          "type": "integer"
+        },
+        "available_versions_element": {
+          "$ref": "#/definitions/available_versions_element"
+        }
+      },
+      "required": [
+        "available_versions_element",
+        "available"
+      ],
+      "type": "object",
+      "title": "available_versions"
+    },
+    "available_versions_element": {
+      "additionalProperties": false,
+      "properties": {
+        "version": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "available_mixins": {
+                "$ref": "#/definitions/available_mixins"
+              },
+              "competition_warning": {
+                "type": "boolean"
+              },
+              "duration": {
+                "pattern": "^(-)?P(?:([0-9,.]*)Y)?(?:([0-9,.]*)M)?(?:([0-9,.]*)W)?(?:([0-9,.]*)D)?(?:T(?:([0-9,.]*)H)?(?:([0-9,.]*)M)?(?:([0-9,.]*)S)?)?$",
+                "type": "string"
+              },
+              "guidance_warnings": {
+                "$ref": "#/definitions/guidance_warnings"
+              },
+              "pid": {
+                "$ref": "#/definitions/pid"
+              },
+              "types": {
+                "items": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "type": {
+                      "items": {
+                        "type": "string"
+                      },
+                      "type": "array"
+                    }
+                  },
+                  "type": "object"
+                },
+                "minItems": 1,
+                "type": "array"
+              },
+              "version": {
+                "items": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "available_mixins": {
+                      "$ref": "#/definitions/available_mixins"
+                    },
+                    "competition_warning": {
+                      "type": "boolean"
+                    },
+                    "duration": {
+                      "pattern": "^(-)?P(?:([0-9,.]*)Y)?(?:([0-9,.]*)M)?(?:([0-9,.]*)W)?(?:([0-9,.]*)D)?(?:T(?:([0-9,.]*)H)?(?:([0-9,.]*)M)?(?:([0-9,.]*)S)?)?$",
+                      "type": "string"
+                    },
+                    "guidance_warnings": {
+                      "$ref": "#/definitions/guidance_warnings"
+                    },
+                    "pid": {
+                      "$ref": "#/definitions/pid"
+                    },
+                    "types": {
+                      "items": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "type": {
+                            "items": {
+                              "type": "string"
+                            },
+                            "type": "array"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "minItems": 1,
+                      "type": "array"
+                    }
+                  },
+                  "required": [
+                    "types"
+                  ],
+                  "type": "object"
+                },
+                "type": "array"
+              }
+            },
+            "required": [
+              "types"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "available_versions_element"
+    },
+    "available_versions_media_sets": {
+      "additionalProperties": false,
+      "properties": {
+        "media_sets": {
+          "additionalProperties": false,
+          "properties": {
+            "media_set": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "actual_start": {
+                    "format": "date-time",
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "territories": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "media_sets": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "media_set": {
+                            "items": {
+                              "additionalProperties": false,
+                              "properties": {
+                                "actual_start": {
+                                  "format": "date-time",
+                                  "type": "string"
+                                },
+                                "name": {
+                                  "type": "string"
+                                },
+                                "territories": {
+                                  "additionalProperties": false,
+                                  "properties": {
+                                    "territory": {
+                                      "items": {
+                                        "type": "string"
+                                      },
+                                      "type": "array"
+                                    }
+                                  },
+                                  "type": "object"
+                                }
+                              },
+                              "required": [
+                                "name"
+                              ],
+                              "type": "object"
+                            },
+                            "minItems": 1,
+                            "type": "array"
+                          }
+                        },
+                        "required": [
+                          "media_set"
+                        ],
+                        "type": "object"
+                      },
+                      "territory": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      }
+                    },
+                    "type": "object"
+                  }
+                },
+                "required": [
+                  "name"
+                ],
+                "type": "object"
+              },
+              "minItems": 1,
+              "type": "array"
+            }
+          },
+          "required": [
+            "media_set"
+          ],
+          "type": "object"
+        }
+      },
+      "type": "object",
+      "title": "available_versions_media_sets"
+    },
+    "available_webcasts": {
+      "additionalProperties": false,
+      "properties": {
+        "available": {
+          "type": "integer"
+        },
+        "available_versions_element": {
+          "$ref": "#/definitions/available_versions_element"
+        }
+      },
+      "required": [
+        "available_versions_element",
+        "available"
+      ],
+      "type": "object",
+      "title": "available_webcasts"
+    },
+    "brand": {
+      "additionalProperties": false,
+      "properties": {
+        "alternate_images_mixin": {
+          "$ref": "#/definitions/alternate_images_mixin"
+        },
+        "availability_mixin": {
+          "$ref": "#/definitions/availability_mixin"
+        },
+        "contributions_mixin": {
+          "$ref": "#/definitions/contributions_mixin"
+        },
+        "embargoed": {
+          "$ref": "#/definitions/embargoed"
+        },
+        "expected_child_count": {
+          "$ref": "#/definitions/expected_child_count"
+        },
+        "franchises": {
+          "$ref": "#/definitions/franchises"
+        },
+        "genre_groupings": {
+          "$ref": "#/definitions/genre_groupings"
+        },
+        "identifiers": {
+          "$ref": "#/definitions/identifiers"
+        },
+        "image_link": {
+          "$ref": "#/definitions/image_link"
+        },
+        "images_mixin": {
+          "$ref": "#/definitions/images_mixin"
+        },
+        "is_embeddable": {
+          "$ref": "#/definitions/is_embeddable"
+        },
+        "items_for": {
+          "$ref": "#/definitions/items_for"
+        },
+        "master_brand_link": {
+          "$ref": "#/definitions/master_brand_link"
+        },
+        "partner": {
+          "$ref": "#/definitions/partner"
+        },
+        "pid": {
+          "$ref": "#/definitions/pid"
+        },
+        "previous_next_mixin": {
+          "$ref": "#/definitions/previous_next_mixin"
+        },
+        "programme_formats": {
+          "$ref": "#/definitions/programme_formats"
+        },
+        "related_links": {
+          "$ref": "#/definitions/related_links"
+        },
+        "release_date_group": {
+          "$ref": "#/definitions/release_date_group"
+        },
+        "synopses": {
+          "$ref": "#/definitions/synopses"
+        },
+        "title": {
+          "$ref": "#/definitions/title"
+        },
+        "updated_time": {
+          "$ref": "#/definitions/updated_time"
+        },
+        "uri": {
+          "$ref": "#/definitions/uri"
+        }
+      },
+      "required": [
+        "pid",
+        "partner",
+        "updated_time",
+        "embargoed"
+      ],
+      "type": "object",
+      "title": "brand"
+    },
+    "broadcast": {
+      "additionalProperties": false,
+      "properties": {
+        "ancestor_titles": {
+          "$ref": "#/definitions/ancestor_titles"
+        },
+        "ancestors_titles": {
+          "$ref": "#/definitions/ancestors_titles"
+        },
+        "broadcast_of": {
+          "items": {
+            "$ref": "#/definitions/broadcast_of"
+          },
+          "type": "array"
+        },
+        "identifiers": {
+          "$ref": "#/definitions/identifiers"
+        },
+        "ids": {
+          "$ref": "#/definitions/ids"
+        },
+        "image_link": {
+          "$ref": "#/definitions/image_link"
+        },
+        "images_mixin": {
+          "$ref": "#/definitions/images_mixin"
+        },
+        "is_audio_described": {
+          "$ref": "#/definitions/is_audio_described"
+        },
+        "is_blanked": {
+          "$ref": "#/definitions/is_blanked"
+        },
+        "is_critical": {
+          "$ref": "#/definitions/is_critical"
+        },
+        "is_repeat": {
+          "$ref": "#/definitions/is_repeat"
+        },
+        "is_simulcast": {
+          "$ref": "#/definitions/is_simulcast"
+        },
+        "partner": {
+          "$ref": "#/definitions/partner"
+        },
+        "pid": {
+          "$ref": "#/definitions/pid"
+        },
+        "published_time": {
+          "$ref": "#/definitions/published_time"
+        },
+        "service": {
+          "$ref": "#/definitions/serviceReference"
+        },
+        "tx_time": {
+          "$ref": "#/definitions/tx_time"
+        },
+        "updated_time": {
+          "$ref": "#/definitions/updated_time"
+        }
+      },
+      "required": [
+        "pid",
+        "partner"
+      ],
+      "type": "object",
+      "title": "broadcast"
+    },
+    "broadcastTime": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/dateRange"
+        },
+        {
+          "additionalProperties": true,
+          "properties": {
+            "duration": {
+              "pattern": "^(-)?P(?:([0-9,.]*)Y)?(?:([0-9,.]*)M)?(?:([0-9,.]*)W)?(?:([0-9,.]*)D)?(?:T(?:([0-9,.]*)H)?(?:([0-9,.]*)M)?(?:([0-9,.]*)S)?)?$",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        }
+      ],
+      "title": "broadcastTime"
+    },
+    "broadcast_of": {
+      "$ref": "#/definitions/pidReference",
+      "title": "broadcast_of"
+    },
+    "broadcaster": {
+      "additionalProperties": false,
+      "properties": {
+        "href": {
+          "type": "string"
+        },
+        "result_type": {
+          "type": "string"
+        },
+        "sid": {
+          "$ref": "#/definitions/sid"
+        }
+      },
+      "required": [
+        "href",
+        "sid",
+        "result_type"
+      ],
+      "type": "object",
+      "title": "broadcaster"
+    },
+    "caption": {
+      "type": "string",
+      "title": "caption"
+    },
+    "catalogue_number": {
+      "maxLength": 32,
+      "minLength": 1,
+      "type": "string",
+      "title": "catalogue_number"
+    },
+    "chapter": {
+      "$ref": "#/definitions/item",
+      "title": "chapter"
+    },
+    "clip": {
+      "additionalProperties": false,
+      "properties": {
+        "advertising_allowed": {
+          "$ref": "#/definitions/advertising_allowed"
+        },
+        "alternate_images_mixin": {
+          "$ref": "#/definitions/alternate_images_mixin"
+        },
+        "ancestor_titles": {
+          "$ref": "#/definitions/ancestor_titles"
+        },
+        "ancestors": {
+          "$ref": "#/definitions/ancestors"
+        },
+        "ancestors_titles": {
+          "$ref": "#/definitions/ancestors_titles"
+        },
+        "availability_mixin": {
+          "$ref": "#/definitions/availability_mixin"
+        },
+        "caption": {
+          "$ref": "#/definitions/caption"
+        },
+        "clip_of": {
+          "$ref": "#/definitions/clip_of"
+        },
+        "contributions_mixin": {
+          "$ref": "#/definitions/contributions_mixin"
+        },
+        "embargoed": {
+          "$ref": "#/definitions/embargoed"
+        },
+        "genre_groupings": {
+          "$ref": "#/definitions/genre_groupings"
+        },
+        "genre_groups": {
+          "$ref": "#/definitions/genre_groups"
+        },
+        "identifiers": {
+          "$ref": "#/definitions/identifiers"
+        },
+        "image_link": {
+          "$ref": "#/definitions/image_link"
+        },
+        "images_mixin": {
+          "$ref": "#/definitions/images_mixin"
+        },
+        "is_embeddable": {
+          "$ref": "#/definitions/is_embeddable"
+        },
+        "items_for": {
+          "$ref": "#/definitions/items_for"
+        },
+        "master_brand_link": {
+          "$ref": "#/definitions/master_brand_link"
+        },
+        "media_type": {
+          "$ref": "#/definitions/media_type"
+        },
+        "most_popular": {
+          "$ref": "#/definitions/most_popular"
+        },
+        "original_version_duration": {
+          "$ref": "#/definitions/original_version_duration"
+        },
+        "partner": {
+          "$ref": "#/definitions/partner"
+        },
+        "pid": {
+          "$ref": "#/definitions/pid"
+        },
+        "previous_next_mixin": {
+          "$ref": "#/definitions/previous_next_mixin"
+        },
+        "programme_formats": {
+          "$ref": "#/definitions/programme_formats"
+        },
+        "related_links": {
+          "$ref": "#/definitions/related_links"
+        },
+        "release_date_group": {
+          "$ref": "#/definitions/release_date_group"
+        },
+        "synopses": {
+          "$ref": "#/definitions/synopses"
+        },
+        "title": {
+          "$ref": "#/definitions/title"
+        },
+        "updated_time": {
+          "$ref": "#/definitions/updated_time"
+        },
+        "uri": {
+          "$ref": "#/definitions/uri"
+        },
+        "versions_mixin": {
+          "$ref": "#/definitions/versions_mixin"
+        }
+      },
+      "required": [
+        "pid",
+        "partner",
+        "updated_time",
+        "embargoed",
+        "advertising_allowed"
+      ],
+      "type": "object",
+      "title": "clip"
+    },
+    "clip_of": {
+      "$ref": "#/definitions/pidReference",
+      "title": "clip_of"
+    },
+    "code": {
+      "type": "string",
+      "title": "code"
+    },
+    "collection": {
+      "$ref": "#/definitions/group-body",
+      "title": "collection"
+    },
+    "competition_warning": {
+      "type": "boolean",
+      "title": "competition_warning"
+    },
+    "containers_title": {
+      "type": "string",
+      "title": "containers_title"
+    },
+    "context": {
+      "additionalProperties": false,
+      "properties": {
+        "cascades_to_descendants": {
+          "type": "boolean"
+        },
+        "href": {
+          "type": "string"
+        },
+        "pid": {
+          "$ref": "#/definitions/pid"
+        },
+        "result_type": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "pid",
+        "result_type"
+      ],
+      "type": "object",
+      "title": "context"
+    },
+    "contributions_mixin": {
+      "additionalProperties": false,
+      "properties": {
+        "contributions": {
+          "additionalProperties": false,
+          "properties": {
+            "contributions": {
+              "additionalProperties": false,
+              "properties": {
+                "contributions_mixin_contribution": {
+                  "items": {
+                    "$ref": "#/definitions/contributions_mixin_contribution"
+                  },
+                  "type": "array"
+                },
+                "href": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "contributions_mixin_contribution": {
+              "items": {
+                "$ref": "#/definitions/contributions_mixin_contribution"
+              },
+              "type": "array"
+            },
+            "href": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "contributions"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "contributions"
+      ],
+      "type": "object",
+      "title": "contributions_mixin"
+    },
+    "contributions_mixin_contribution": {
+      "additionalProperties": false,
+      "properties": {
+        "contribution": {
+          "additionalProperties": false,
+          "properties": {
+            "character_name": {
+              "type": "string"
+            },
+            "contribution": {
+              "additionalProperties": false,
+              "properties": {
+                "character_name": {
+                  "type": "string"
+                },
+                "contributions_mixin_contributor": {
+                  "$ref": "#/definitions/contributions_mixin_contributor"
+                },
+                "credit_role": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "#text": {
+                      "type": "string"
+                    },
+                    "id": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            },
+            "contributions_mixin_contributor": {
+              "$ref": "#/definitions/contributions_mixin_contributor"
+            },
+            "credit_role": {
+              "additionalProperties": false,
+              "properties": {
+                "#text": {
+                  "type": "string"
+                },
+                "id": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "required": [
+            "contribution"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "contribution"
+      ],
+      "type": "object",
+      "title": "contributions_mixin_contribution"
+    },
+    "contributions_mixin_contributor": {
+      "additionalProperties": false,
+      "properties": {
+        "contributor": {
+          "additionalProperties": false,
+          "properties": {
+            "contributions_mixin_contributor_name": {
+              "$ref": "#/definitions/contributions_mixin_contributor_name"
+            },
+            "contributor": {
+              "additionalProperties": false,
+              "properties": {
+                "contributions_mixin_contributor_name": {
+                  "$ref": "#/definitions/contributions_mixin_contributor_name"
+                },
+                "href": {
+                  "type": "string"
+                },
+                "type": {
+                  "$ref": "#/definitions/type"
+                }
+              },
+              "type": "object"
+            },
+            "href": {
+              "type": "string"
+            },
+            "type": {
+              "$ref": "#/definitions/type"
+            }
+          },
+          "required": [
+            "contributor"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "contributor"
+      ],
+      "type": "object",
+      "title": "contributions_mixin_contributor"
+    },
+    "contributions_mixin_contributor_name": {
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "additionalProperties": false,
+          "properties": {
+            "family": {
+              "type": "string"
+            },
+            "given": {
+              "type": "string"
+            },
+            "name": {
+              "additionalProperties": false,
+              "properties": {
+                "family": {
+                  "type": "string"
+                },
+                "given": {
+                  "type": "string"
+                },
+                "presentation": {
+                  "type": "string"
+                },
+                "title": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "presentation": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "name"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "type": "object",
+      "title": "contributions_mixin_contributor_name"
+    },
+    "contributor": {
+      "additionalProperties": false,
+      "properties": {
+        "contributor_name": {
+          "$ref": "#/definitions/contributor_name"
+        },
+        "contributor_to": {
+          "items": {
+            "$ref": "#/definitions/contributor_to"
+          },
+          "type": "array"
+        },
+        "disambiguation": {
+          "$ref": "#/definitions/disambiguation"
+        },
+        "href": {
+          "type": "string"
+        },
+        "identifiers": {
+          "$ref": "#/definitions/identifiers"
+        },
+        "ids": {
+          "$ref": "#/definitions/ids"
+        },
+        "partner": {
+          "$ref": "#/definitions/partner"
+        },
+        "pid": {
+          "$ref": "#/definitions/pid"
+        },
+        "type": {
+          "$ref": "#/definitions/type"
+        }
+      },
+      "required": [
+        "pid",
+        "partner"
+      ],
+      "type": "object",
+      "title": "contributor"
+    },
+    "contributor_name": {
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "additionalProperties": false,
+          "properties": {
+            "family": {
+              "type": "string"
+            },
+            "given": {
+              "type": "string"
+            },
+            "lang": {
+              "type": "string"
+            },
+            "name": {
+              "additionalProperties": false,
+              "properties": {
+                "family": {
+                  "type": "string"
+                },
+                "given": {
+                  "type": "string"
+                },
+                "lang": {
+                  "type": "string"
+                },
+                "presentation": {
+                  "type": "string"
+                },
+                "title": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "presentation": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "name"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "type": "object",
+      "title": "contributor_name"
+    },
+    "contributor_to": {
+      "additionalProperties": false,
+      "properties": {
+        "href": {
+          "type": "string"
+        },
+        "result_type": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "result_type",
+        "href"
+      ],
+      "type": "object",
+      "title": "contributor_to"
+    },
+    "credits_time": {
+      "additionalProperties": false,
+      "properties": {
+        "squeeze_end": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "squeeze_start": {
+          "format": "date-time",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "credits_time"
+    },
+    "data": {
+      "additionalProperties": false,
+      "properties": {
+        "datum": {
+          "$ref": "#/definitions/datum"
+        }
+      },
+      "type": "object",
+      "title": "data"
+    },
+    "dateRange": {
+      "additionalProperties": false,
+      "properties": {
+        "end": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "start": {
+          "format": "date-time",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "dateRange"
+    },
+    "date_range": {
+      "$ref": "#/definitions/dateRange",
+      "title": "date_range"
+    },
+    "datum": {
+      "type": "string",
+      "title": "datum"
+    },
+    "dependency_on": {
+      "additionalProperties": false,
+      "properties": {
+        "filter": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "dependency_on"
+    },
+    "deprecated": {
+      "additionalProperties": false,
+      "properties": {
+        "deprecated_since": {
+          "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}.*$",
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "replaced_by": {
+          "type": "string"
+        },
+        "replacement_type": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "type",
+        "deprecated_since"
+      ],
+      "type": "object",
+      "title": "deprecated"
+    },
+    "deprecatedReferenceElement": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/referenceAttributes"
+        },
+        {
+          "$ref": "#/definitions/deprecationAttributes"
+        }
+      ],
+      "title": "deprecatedReferenceElement"
+    },
+    "deprecationAttributes": {
+      "additionalProperties": false,
+      "properties": {
+        "deprecated": {
+          "type": "boolean"
+        },
+        "deprecated_since": {
+          "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}.*$",
+          "type": "string"
+        },
+        "replaced_by": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "deprecated",
+        "deprecated_since",
+        "replaced_by"
+      ],
+      "type": "object",
+      "title": "deprecationAttributes"
+    },
+    "deprecations": {
+      "additionalProperties": false,
+      "properties": {
+        "deprecated": {
+          "items": {
+            "$ref": "#/definitions/deprecated"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "deprecations"
+    },
+    "description": {
+      "type": "string",
+      "title": "description"
+    },
+    "dimensions": {
+      "additionalProperties": false,
+      "properties": {
+        "height": {
+          "type": "integer"
+        },
+        "width": {
+          "type": "integer"
+        }
+      },
+      "type": "object",
+      "title": "dimensions"
+    },
+    "disambiguation": {
+      "type": "string",
+      "title": "disambiguation"
+    },
+    "embargoed": {
+      "enum": [
+        "true",
+        "false"
+      ],
+      "title": "embargoed"
+    },
+    "end": {
+      "format": "date-time",
+      "type": "string",
+      "title": "end"
+    },
+    "end_time": {
+      "format": "date-time",
+      "type": "string",
+      "title": "end_time"
+    },
+    "episode": {
+      "additionalProperties": false,
+      "properties": {
+        "advertising_allowed": {
+          "$ref": "#/definitions/advertising_allowed"
+        },
+        "alternate_images_mixin": {
+          "$ref": "#/definitions/alternate_images_mixin"
+        },
+        "ancestor_titles": {
+          "$ref": "#/definitions/ancestor_titles"
+        },
+        "ancestors": {
+          "$ref": "#/definitions/ancestors"
+        },
+        "ancestors_titles": {
+          "$ref": "#/definitions/ancestors_titles"
+        },
+        "availability_mixin": {
+          "$ref": "#/definitions/availability_mixin"
+        },
+        "contributions_mixin": {
+          "$ref": "#/definitions/contributions_mixin"
+        },
+        "embargoed": {
+          "$ref": "#/definitions/embargoed"
+        },
+        "episode_of": {
+          "$ref": "#/definitions/episode_of"
+        },
+        "genre_groupings": {
+          "$ref": "#/definitions/genre_groupings"
+        },
+        "genre_groups": {
+          "$ref": "#/definitions/genre_groups"
+        },
+        "has_guidance": {
+          "$ref": "#/definitions/has_guidance"
+        },
+        "identifiers": {
+          "$ref": "#/definitions/identifiers"
+        },
+        "image_link": {
+          "$ref": "#/definitions/image_link"
+        },
+        "images_mixin": {
+          "$ref": "#/definitions/images_mixin"
+        },
+        "is_embeddable": {
+          "$ref": "#/definitions/is_embeddable"
+        },
+        "is_stacked": {
+          "$ref": "#/definitions/is_stacked"
+        },
+        "items_for": {
+          "$ref": "#/definitions/items_for"
+        },
+        "master_brand_link": {
+          "$ref": "#/definitions/master_brand_link"
+        },
+        "media_type": {
+          "$ref": "#/definitions/media_type"
+        },
+        "most_popular": {
+          "$ref": "#/definitions/most_popular"
+        },
+        "original_version_duration": {
+          "$ref": "#/definitions/original_version_duration"
+        },
+        "partner": {
+          "$ref": "#/definitions/partner"
+        },
+        "pid": {
+          "$ref": "#/definitions/pid"
+        },
+        "presentation_title": {
+          "$ref": "#/definitions/presentation_title"
+        },
+        "previous_next_mixin": {
+          "$ref": "#/definitions/previous_next_mixin"
+        },
+        "programme_formats": {
+          "$ref": "#/definitions/programme_formats"
+        },
+        "related_links": {
+          "$ref": "#/definitions/related_links"
+        },
+        "release_date_group": {
+          "$ref": "#/definitions/release_date_group"
+        },
+        "synopses": {
+          "$ref": "#/definitions/synopses"
+        },
+        "title": {
+          "$ref": "#/definitions/title"
+        },
+        "updated_time": {
+          "$ref": "#/definitions/updated_time"
+        },
+        "uri": {
+          "$ref": "#/definitions/uri"
+        },
+        "versions_mixin": {
+          "$ref": "#/definitions/versions_mixin"
+        }
+      },
+      "required": [
+        "pid",
+        "partner",
+        "updated_time",
+        "embargoed",
+        "advertising_allowed"
+      ],
+      "type": "object",
+      "title": "episode"
+    },
+    "episode_of": {
+      "$ref": "#/definitions/pidReference",
+      "title": "episode_of"
+    },
+    "error": {
+      "additionalProperties": false,
+      "properties": {
+        "code": {
+          "$ref": "#/definitions/code"
+        },
+        "data": {
+          "$ref": "#/definitions/data"
+        },
+        "error-name": {
+          "$ref": "#/definitions/error-name"
+        },
+        "expr": {
+          "$ref": "#/definitions/expr"
+        },
+        "format-string": {
+          "$ref": "#/definitions/format-string"
+        },
+        "message": {
+          "$ref": "#/definitions/message"
+        },
+        "retryable": {
+          "$ref": "#/definitions/retryable"
+        },
+        "xquery-version": {
+          "$ref": "#/definitions/xquery-version"
+        }
+      },
+      "required": [
+        "code",
+        "error-name",
+        "xquery-version",
+        "message",
+        "format-string",
+        "retryable",
+        "expr",
+        "data"
+      ],
+      "type": "object",
+      "title": "error"
+    },
+    "error-name": {
+      "type": "string",
+      "title": "error-name"
+    },
+    "errors": {
+      "additionalProperties": false,
+      "properties": {
+        "error": {
+          "$ref": "#/definitions/error"
+        }
+      },
+      "type": "object",
+      "title": "errors"
+    },
+    "expected_child_count": {
+      "type": "integer",
+      "title": "expected_child_count"
+    },
+    "expr": {
+      "type": "string",
+      "title": "expr"
+    },
+    "feed": {
+      "additionalProperties": false,
+      "properties": {
+        "deprecations": {
+          "$ref": "#/definitions/deprecations"
+        },
+        "filters": {
+          "$ref": "#/definitions/filters"
+        },
+        "href": {
+          "type": "string"
+        },
+        "mixins": {
+          "$ref": "#/definitions/mixins"
+        },
+        "name": {
+          "type": "string"
+        },
+        "rel": {
+          "type": "string"
+        },
+        "release_status": {
+          "$ref": "#/definitions/release_status_type"
+        },
+        "sorts": {
+          "$ref": "#/definitions/sorts"
+        },
+        "title": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "href",
+        "name",
+        "rel",
+        "title"
+      ],
+      "type": "object",
+      "title": "feed"
+    },
+    "feeds": {
+      "additionalProperties": false,
+      "properties": {
+        "deployment_root": {
+          "type": "string"
+        },
+        "deprecations": {
+          "$ref": "#/definitions/deprecations"
+        },
+        "feed": {
+          "items": {
+            "$ref": "#/definitions/feed"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "feeds"
+    },
+    "filter": {
+      "additionalProperties": false,
+      "properties": {
+        "default": {
+          "type": "string"
+        },
+        "depends_on": {
+          "type": "string"
+        },
+        "deprecated": {
+          "type": "boolean"
+        },
+        "deprecated_since": {
+          "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}.*$",
+          "type": "string"
+        },
+        "guaranteed_until": {
+          "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}.*$",
+          "type": "string"
+        },
+        "max_value": {
+          "type": "integer"
+        },
+        "min_value": {
+          "type": "integer"
+        },
+        "multiple_values": {
+          "type": "boolean"
+        },
+        "name": {
+          "type": "string"
+        },
+        "option": {
+          "items": {
+            "$ref": "#/definitions/option"
+          },
+          "type": "array"
+        },
+        "prefer": {
+          "type": "string"
+        },
+        "prohibits": {
+          "items": {
+            "$ref": "#/definitions/prohibits"
+          },
+          "type": "array"
+        },
+        "release_status": {
+          "$ref": "#/definitions/release_status_type"
+        },
+        "replaced_by": {
+          "type": "string"
+        },
+        "required": {
+          "type": "boolean"
+        },
+        "title": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "title",
+        "type"
+      ],
+      "type": "object",
+      "title": "filter"
+    },
+    "filters": {
+      "additionalProperties": false,
+      "properties": {
+        "filter": {
+          "items": {
+            "$ref": "#/definitions/filter"
+          },
+          "type": "array"
+        },
+        "unstable_filters": {
+          "$ref": "#/definitions/unstable_filters"
+        }
+      },
+      "type": "object",
+      "title": "filters"
+    },
+    "focus_point": {
+      "additionalProperties": false,
+      "properties": {
+        "x": {
+          "type": "integer"
+        },
+        "y": {
+          "type": "integer"
+        }
+      },
+      "type": "object",
+      "title": "focus_point"
+    },
+    "for_programme": {
+      "additionalProperties": false,
+      "properties": {
+        "href": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "for_programme"
+    },
+    "for_programmes": {
+      "additionalProperties": false,
+      "properties": {
+        "for_programme": {
+          "items": {
+            "$ref": "#/definitions/for_programme"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "for_programmes"
+    },
+    "format": {
+      "additionalProperties": false,
+      "properties": {
+        "#text": {
+          "type": "string"
+        },
+        "format_id": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "format"
+    },
+    "format-string": {
+      "type": "string",
+      "title": "format-string"
+    },
+    "franchise": {
+      "$ref": "#/definitions/group-body",
+      "title": "franchise"
+    },
+    "franchises": {
+      "$ref": "#/definitions/reference",
+      "title": "franchises"
+    },
+    "gallery": {
+      "$ref": "#/definitions/group-body",
+      "title": "gallery"
+    },
+    "genre": {
+      "additionalProperties": false,
+      "properties": {
+        "#text": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "genre"
+    },
+    "genreGroupingsType": {
+      "additionalProperties": false,
+      "properties": {
+        "genre_group": {
+          "items": {
+            "$ref": "#/definitions/genre_group"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "genreGroupingsType"
+    },
+    "genreGroupsType": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/deprecatedReferenceElement"
+        },
+        {
+          "additionalProperties": true,
+          "properties": {
+            "genre_group": {
+              "items": {
+                "$ref": "#/definitions/genre_group"
+              },
+              "type": "array"
+            }
+          },
+          "type": "object"
+        }
+      ],
+      "title": "genreGroupsType"
+    },
+    "genre_group": {
+      "additionalProperties": false,
+      "properties": {
+        "genres": {
+          "additionalProperties": false,
+          "properties": {
+            "genre": {
+              "items": {
+                "$ref": "#/definitions/genre"
+              },
+              "type": "array"
+            }
+          },
+          "type": "object"
+        },
+        "id": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "genres"
+      ],
+      "type": "object",
+      "title": "genre_group"
+    },
+    "genre_groupings": {
+      "$ref": "#/definitions/genreGroupingsType",
+      "title": "genre_groupings"
+    },
+    "genre_groups": {
+      "$ref": "#/definitions/genreGroupsType",
+      "title": "genre_groups"
+    },
+    "group-body": {
+      "additionalProperties": false,
+      "properties": {
+        "alternate_images_mixin": {
+          "$ref": "#/definitions/alternate_images_mixin"
+        },
+        "embargoed": {
+          "$ref": "#/definitions/embargoed"
+        },
+        "for_programmes": {
+          "$ref": "#/definitions/for_programmes"
+        },
+        "identifiers": {
+          "$ref": "#/definitions/identifiers"
+        },
+        "ids": {
+          "$ref": "#/definitions/ids"
+        },
+        "images_mixin": {
+          "$ref": "#/definitions/images_mixin"
+        },
+        "master_brand_link": {
+          "$ref": "#/definitions/master_brand_link"
+        },
+        "partner": {
+          "$ref": "#/definitions/partner"
+        },
+        "pid": {
+          "$ref": "#/definitions/pid"
+        },
+        "related_links": {
+          "$ref": "#/definitions/related_links"
+        },
+        "scheduled": {
+          "$ref": "#/definitions/scheduled"
+        },
+        "synopses": {
+          "$ref": "#/definitions/synopses"
+        },
+        "title": {
+          "$ref": "#/definitions/title"
+        },
+        "updated_time": {
+          "$ref": "#/definitions/updated_time"
+        },
+        "url_key": {
+          "$ref": "#/definitions/url_key"
+        }
+      },
+      "required": [
+        "pid",
+        "embargoed",
+        "partner",
+        "updated_time"
+      ],
+      "type": "object",
+      "title": "group-body"
+    },
+    "guidance_warnings": {
+      "additionalProperties": false,
+      "properties": {
+        "warnings": {
+          "additionalProperties": false,
+          "properties": {
+            "warning_items": {
+              "$ref": "#/definitions/warning_items"
+            },
+            "warning_texts": {
+              "$ref": "#/definitions/warning_texts"
+            },
+            "warnings": {
+              "additionalProperties": false,
+              "properties": {
+                "warning_items": {
+                  "$ref": "#/definitions/warning_items"
+                },
+                "warning_texts": {
+                  "$ref": "#/definitions/warning_texts"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "type": "object",
+      "title": "guidance_warnings"
+    },
+    "has_guidance": {
+      "type": "boolean",
+      "title": "has_guidance"
+    },
+    "highlight": {
+      "$ref": "#/definitions/item",
+      "title": "highlight"
+    },
+    "id": {
+      "additionalProperties": false,
+      "properties": {
+        "#text": {
+          "type": "string"
+        },
+        "authority": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "id"
+    },
+    "identifier": {
+      "additionalProperties": false,
+      "properties": {
+        "#text": {
+          "type": "string"
+        },
+        "authority": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "identifier"
+    },
+    "identifiers": {
+      "additionalProperties": false,
+      "properties": {
+        "identifier": {
+          "items": {
+            "$ref": "#/definitions/identifier"
+          },
+          "minItems": 1,
+          "type": "array"
+        }
+      },
+      "required": [
+        "identifier"
+      ],
+      "type": "object",
+      "title": "identifiers"
+    },
+    "ids": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "items": {
+            "$ref": "#/definitions/id"
+          },
+          "minItems": 1,
+          "type": "array"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "type": "object",
+      "title": "ids"
+    },
+    "image": {
+      "additionalProperties": false,
+      "properties": {
+        "author": {
+          "type": "string"
+        },
+        "embargoed": {
+          "$ref": "#/definitions/embargoed"
+        },
+        "identifiers": {
+          "$ref": "#/definitions/identifiers"
+        },
+        "partner": {
+          "$ref": "#/definitions/partner"
+        },
+        "pid": {
+          "$ref": "#/definitions/pid"
+        },
+        "shoot_date": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "source_asset": {
+          "$ref": "#/definitions/source_asset"
+        },
+        "synopses": {
+          "$ref": "#/definitions/synopses"
+        },
+        "template_url": {
+          "type": "string"
+        },
+        "title": {
+          "$ref": "#/definitions/title"
+        },
+        "type": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "pid",
+        "embargoed",
+        "partner"
+      ],
+      "type": "object",
+      "title": "image"
+    },
+    "image_link": {
+      "additionalProperties": false,
+      "properties": {
+        "image": {
+          "additionalProperties": true,
+          "type": "object",
+          "x-anyOf": [
+            {
+              "$ref": "#/definitions/deprecationAttributes"
+            },
+            {
+              "properties": {
+                "image": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "pid": {
+                      "$ref": "#/definitions/pid"
+                    },
+                    "template_url": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "template_url"
+                  ],
+                  "type": "object"
+                },
+                "pid": {
+                  "$ref": "#/definitions/pid"
+                },
+                "template_url": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "template_url",
+                "image"
+              ]
+            }
+          ]
+        }
+      },
+      "required": [
+        "image"
+      ],
+      "type": "object",
+      "title": "image_link"
+    },
+    "images_mixin": {
+      "additionalProperties": false,
+      "properties": {
+        "images": {
+          "additionalProperties": false,
+          "properties": {
+            "image": {
+              "additionalProperties": false,
+              "properties": {
+                "href": {
+                  "type": "string"
+                },
+                "images": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "image": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "href": {
+                          "type": "string"
+                        },
+                        "inherited_from": {
+                          "additionalProperties": false,
+                          "properties": {
+                            "href": {
+                              "type": "string"
+                            },
+                            "result_type": {
+                              "type": "string"
+                            }
+                          },
+                          "type": "object"
+                        },
+                        "template_url": {
+                          "type": "string"
+                        },
+                        "type": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "template_url"
+                      ],
+                      "type": "object"
+                    }
+                  },
+                  "type": "object"
+                },
+                "inherited_from": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "href": {
+                      "type": "string"
+                    },
+                    "result_type": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "template_url": {
+                  "type": "string"
+                },
+                "type": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "template_url",
+                "images"
+              ],
+              "type": "object"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "required": [
+        "images"
+      ],
+      "type": "object",
+      "title": "images_mixin"
+    },
+    "is_audio_described": {
+      "type": "boolean",
+      "title": "is_audio_described"
+    },
+    "is_blanked": {
+      "type": "boolean",
+      "title": "is_blanked"
+    },
+    "is_concrete": {
+      "type": "boolean",
+      "title": "is_concrete"
+    },
+    "is_critical": {
+      "type": "boolean",
+      "title": "is_critical"
+    },
+    "is_downloadable": {
+      "type": "boolean",
+      "title": "is_downloadable"
+    },
+    "is_embeddable": {
+      "type": "boolean",
+      "title": "is_embeddable"
+    },
+    "is_external": {
+      "type": "boolean",
+      "title": "is_external"
+    },
+    "is_repeat": {
+      "type": "boolean",
+      "title": "is_repeat"
+    },
+    "is_signed": {
+      "type": "boolean",
+      "title": "is_signed"
+    },
+    "is_simulcast": {
+      "type": "boolean",
+      "title": "is_simulcast"
+    },
+    "is_stacked": {
+      "type": "boolean",
+      "title": "is_stacked"
+    },
+    "is_streamable": {
+      "type": "boolean",
+      "title": "is_streamable"
+    },
+    "item": {
+      "additionalProperties": false,
+      "properties": {
+        "catalogue_number": {
+          "$ref": "#/definitions/catalogue_number"
+        },
+        "contributions_mixin": {
+          "$ref": "#/definitions/contributions_mixin"
+        },
+        "duration": {
+          "format": "float",
+          "type": "number"
+        },
+        "identifiers": {
+          "$ref": "#/definitions/identifiers"
+        },
+        "ids": {
+          "$ref": "#/definitions/ids"
+        },
+        "images_mixin": {
+          "$ref": "#/definitions/images_mixin"
+        },
+        "item_of": {
+          "$ref": "#/definitions/item_of"
+        },
+        "music_code": {
+          "$ref": "#/definitions/music_code"
+        },
+        "offsets": {
+          "$ref": "#/definitions/offsets"
+        },
+        "partner": {
+          "$ref": "#/definitions/partner"
+        },
+        "pid": {
+          "$ref": "#/definitions/pid"
+        },
+        "play_events": {
+          "$ref": "#/definitions/play_events"
+        },
+        "publisher": {
+          "$ref": "#/definitions/publisher"
+        },
+        "record_label": {
+          "$ref": "#/definitions/record_label"
+        },
+        "recording_date": {
+          "$ref": "#/definitions/recording_date"
+        },
+        "release_title": {
+          "$ref": "#/definitions/release_title"
+        },
+        "snippet_url": {
+          "$ref": "#/definitions/snippet_url"
+        },
+        "source_media": {
+          "$ref": "#/definitions/source_media"
+        },
+        "synopses": {
+          "$ref": "#/definitions/synopses"
+        },
+        "title": {
+          "$ref": "#/definitions/title"
+        },
+        "track_number": {
+          "$ref": "#/definitions/track_number"
+        },
+        "track_side": {
+          "$ref": "#/definitions/track_side"
+        },
+        "type": {
+          "type": "string"
+        },
+        "updated_time": {
+          "$ref": "#/definitions/updated_time"
+        }
+      },
+      "required": [
+        "pid",
+        "partner"
+      ],
+      "type": "object",
+      "title": "item"
+    },
+    "item_of": {
+      "$ref": "#/definitions/reference",
+      "title": "item_of"
+    },
+    "items_for": {
+      "$ref": "#/definitions/reference",
+      "title": "items_for"
+    },
+    "long": {
+      "type": "string",
+      "title": "long"
+    },
+    "master_brand": {
+      "additionalProperties": false,
+      "properties": {
+        "colour": {
+          "type": "string"
+        },
+        "competition_warning": {
+          "additionalProperties": false,
+          "properties": {
+            "href": {
+              "type": "string"
+            },
+            "pid": {
+              "$ref": "#/definitions/pid"
+            }
+          },
+          "required": [
+            "href",
+            "pid"
+          ],
+          "type": "object"
+        },
+        "ident": {
+          "type": "string"
+        },
+        "identifiers": {
+          "$ref": "#/definitions/identifiers"
+        },
+        "image_link": {
+          "$ref": "#/definitions/image_link"
+        },
+        "images_mixin": {
+          "$ref": "#/definitions/images_mixin"
+        },
+        "master_brand_date_range": {
+          "additionalProperties": false,
+          "properties": {
+            "end": {
+              "format": "date-time",
+              "type": "string"
+            },
+            "start": {
+              "format": "date-time",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "mid": {
+          "$ref": "#/definitions/mid"
+        },
+        "name": {
+          "$ref": "#/definitions/name"
+        },
+        "partner": {
+          "$ref": "#/definitions/partner"
+        },
+        "position": {
+          "$ref": "#/definitions/position"
+        },
+        "synopses": {
+          "additionalProperties": false,
+          "properties": {
+            "long": {
+              "$ref": "#/definitions/long"
+            },
+            "medium": {
+              "$ref": "#/definitions/medium"
+            },
+            "short": {
+              "$ref": "#/definitions/short"
+            }
+          },
+          "type": "object"
+        },
+        "title": {
+          "$ref": "#/definitions/title"
+        },
+        "url_key": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "mid",
+        "partner"
+      ],
+      "type": "object",
+      "title": "master_brand"
+    },
+    "master_brand_link": {
+      "additionalProperties": false,
+      "properties": {
+        "master_brand": {
+          "additionalProperties": false,
+          "properties": {
+            "href": {
+              "type": "string"
+            },
+            "master_brand": {
+              "additionalProperties": false,
+              "properties": {
+                "href": {
+                  "type": "string"
+                },
+                "mid": {
+                  "$ref": "#/definitions/mid"
+                },
+                "result_type": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "href",
+                "mid",
+                "result_type"
+              ],
+              "type": "object"
+            },
+            "mid": {
+              "$ref": "#/definitions/mid"
+            },
+            "result_type": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "href",
+            "mid",
+            "result_type",
+            "master_brand"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "master_brand"
+      ],
+      "type": "object",
+      "title": "master_brand_link"
+    },
+    "media_availability_time": {
+      "$ref": "#/definitions/dateRange",
+      "title": "media_availability_time"
+    },
+    "media_profile_group": {
+      "additionalProperties": false,
+      "properties": {
+        "#text": {
+          "type": "string"
+        },
+        "context": {
+          "type": "string"
+        },
+        "pid": {
+          "$ref": "#/definitions/pid"
+        },
+        "platform": {
+          "type": "string"
+        },
+        "territory": {
+          "type": "string"
+        },
+        "transport": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "media_profile_group"
+    },
+    "media_profile_groups": {
+      "additionalProperties": false,
+      "properties": {
+        "media_profile_group": {
+          "items": {
+            "$ref": "#/definitions/media_profile_group"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "media_profile_groups"
+    },
+    "media_set": {
+      "type": "string",
+      "title": "media_set"
+    },
+    "media_type": {
+      "enum": [
+        "Video",
+        "Audio"
+      ],
+      "title": "media_type"
+    },
+    "medium": {
+      "type": "string",
+      "title": "medium"
+    },
+    "message": {
+      "type": "string",
+      "title": "message"
+    },
+    "mid": {
+      "type": "string",
+      "title": "mid"
+    },
+    "mixin": {
+      "additionalProperties": false,
+      "properties": {
+        "affected_by": {
+          "items": {
+            "$ref": "#/definitions/affected_by"
+          },
+          "type": "array"
+        },
+        "dependency_on": {
+          "items": {
+            "$ref": "#/definitions/dependency_on"
+          },
+          "type": "array"
+        },
+        "depends_on": {
+          "type": "string"
+        },
+        "deprecated": {
+          "type": "boolean"
+        },
+        "deprecated_since": {
+          "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}.*$",
+          "type": "string"
+        },
+        "guaranteed_until": {
+          "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}.*$",
+          "type": "string"
+        },
+        "href": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "prohibits": {
+          "items": {
+            "$ref": "#/definitions/prohibits"
+          },
+          "type": "array"
+        },
+        "release_status": {
+          "$ref": "#/definitions/release_status_type"
+        },
+        "replaced_by": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "title"
+      ],
+      "type": "object",
+      "title": "mixin"
+    },
+    "mixins": {
+      "additionalProperties": false,
+      "properties": {
+        "mixin": {
+          "items": {
+            "$ref": "#/definitions/mixin"
+          },
+          "type": "array"
+        },
+        "unstable_mixins": {
+          "$ref": "#/definitions/unstable_mixins"
+        }
+      },
+      "type": "object",
+      "title": "mixins"
+    },
+    "most_popular": {
+      "additionalProperties": false,
+      "properties": {
+        "updated_at": {
+          "format": "date-time",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "most_popular"
+    },
+    "music": {
+      "$ref": "#/definitions/item",
+      "title": "music"
+    },
+    "music_code": {
+      "maxLength": 8,
+      "minLength": 1,
+      "type": "string",
+      "title": "music_code"
+    },
+    "name": {
+      "type": "string",
+      "title": "name"
+    },
+    "next": {
+      "additionalProperties": false,
+      "properties": {
+        "href": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "href"
+      ],
+      "type": "object",
+      "title": "next"
+    },
+    "nitro": {
+      "additionalProperties": true,
+      "properties": {
+        "deprecations": {
+          "$ref": "#/definitions/deprecations"
+        },
+        "filters": {
+          "$ref": "#/definitions/filters"
+        },
+        "mixins": {
+          "$ref": "#/definitions/mixins"
+        },
+        "pagination": {
+          "$ref": "#/definitions/pagination"
+        },
+        "results": {
+          "$ref": "#/definitions/results"
+        },
+        "sorts": {
+          "$ref": "#/definitions/sorts"
+        }
+      },
+      "title": "nitro"
+    },
+    "offset_in": {
+      "additionalProperties": false,
+      "properties": {
+        "href": {
+          "type": "string"
+        },
+        "offset": {
+          "type": "integer"
+        },
+        "position": {
+          "type": "number"
+        },
+        "programme": {
+          "$ref": "#/definitions/pid"
+        },
+        "version": {
+          "$ref": "#/definitions/pid"
+        }
+      },
+      "required": [
+        "programme",
+        "version",
+        "href"
+      ],
+      "type": "object",
+      "title": "offset_in"
+    },
+    "offsets": {
+      "additionalProperties": false,
+      "properties": {
+        "offset_in": {
+          "items": {
+            "$ref": "#/definitions/offset_in"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "offsets"
+    },
+    "option": {
+      "additionalProperties": false,
+      "properties": {
+        "href": {
+          "type": "string"
+        },
+        "release_status": {
+          "$ref": "#/definitions/release_status_type"
+        },
+        "title": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value",
+        "title"
+      ],
+      "type": "object",
+      "title": "option"
+    },
+    "original_version_duration": {
+      "additionalProperties": false,
+      "properties": {
+        "version": {
+          "additionalProperties": false,
+          "properties": {
+            "duration": {
+              "pattern": "^(-)?P(?:([0-9,.]*)Y)?(?:([0-9,.]*)M)?(?:([0-9,.]*)W)?(?:([0-9,.]*)D)?(?:T(?:([0-9,.]*)H)?(?:([0-9,.]*)M)?(?:([0-9,.]*)S)?)?$",
+              "type": "string"
+            },
+            "href": {
+              "type": "string"
+            },
+            "pid": {
+              "$ref": "#/definitions/pid"
+            },
+            "version": {
+              "additionalProperties": false,
+              "properties": {
+                "duration": {
+                  "pattern": "^(-)?P(?:([0-9,.]*)Y)?(?:([0-9,.]*)M)?(?:([0-9,.]*)W)?(?:([0-9,.]*)D)?(?:T(?:([0-9,.]*)H)?(?:([0-9,.]*)M)?(?:([0-9,.]*)S)?)?$",
+                  "type": "string"
+                },
+                "href": {
+                  "type": "string"
+                },
+                "pid": {
+                  "$ref": "#/definitions/pid"
+                }
+              },
+              "required": [
+                "pid",
+                "href"
+              ],
+              "type": "object"
+            }
+          },
+          "required": [
+            "pid",
+            "href"
+          ],
+          "type": "object"
+        }
+      },
+      "type": "object",
+      "title": "original_version_duration"
+    },
+    "other": {
+      "$ref": "#/definitions/item",
+      "title": "other"
+    },
+    "pagination": {
+      "additionalProperties": false,
+      "properties": {
+        "next": {
+          "$ref": "#/definitions/next"
+        },
+        "previous": {
+          "$ref": "#/definitions/previous"
+        }
+      },
+      "type": "object",
+      "title": "pagination"
+    },
+    "partner": {
+      "$ref": "#/definitions/pid",
+      "title": "partner"
+    },
+    "pid": {
+      "pattern": "([a-z0-9\\.\\-]+|.*PID.*)",
+      "type": "string",
+      "title": "pid"
+    },
+    "pidReference": {
+      "additionalProperties": false,
+      "properties": {
+        "href": {
+          "type": "string"
+        },
+        "pid": {
+          "$ref": "#/definitions/pid"
+        },
+        "position": {
+          "type": "integer"
+        },
+        "result_type": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "pid",
+        "result_type"
+      ],
+      "type": "object",
+      "title": "pidReference"
+    },
+    "play_event": {
+      "additionalProperties": false,
+      "properties": {
+        "offset": {
+          "type": "integer"
+        },
+        "pid": {
+          "$ref": "#/definitions/pid"
+        },
+        "played_in_links": {
+          "items": {
+            "$ref": "#/definitions/played_in_links"
+          },
+          "type": "array"
+        },
+        "position": {
+          "type": "number"
+        },
+        "synopses": {
+          "$ref": "#/definitions/synopses"
+        },
+        "title": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "pid"
+      ],
+      "type": "object",
+      "title": "play_event"
+    },
+    "play_events": {
+      "additionalProperties": false,
+      "properties": {
+        "play_event": {
+          "items": {
+            "$ref": "#/definitions/play_event"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "play_events"
+    },
+    "played_in_links": {
+      "additionalProperties": false,
+      "properties": {
+        "played_in": {
+          "additionalProperties": false,
+          "properties": {
+            "href": {
+              "type": "string"
+            },
+            "played_in": {
+              "additionalProperties": false,
+              "properties": {
+                "href": {
+                  "type": "string"
+                },
+                "result_type": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "result_type": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "type": "object",
+      "title": "played_in_links"
+    },
+    "position": {
+      "type": "integer",
+      "title": "position"
+    },
+    "presentation_title": {
+      "type": "string",
+      "title": "presentation_title"
+    },
+    "previous": {
+      "additionalProperties": false,
+      "properties": {
+        "href": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "href"
+      ],
+      "type": "object",
+      "title": "previous"
+    },
+    "previous_next_mixin": {
+      "additionalProperties": false,
+      "properties": {
+        "previous_next": {
+          "additionalProperties": false,
+          "properties": {
+            "next": {
+              "$ref": "#/definitions/reference"
+            },
+            "previous": {
+              "$ref": "#/definitions/reference"
+            },
+            "previous_next": {
+              "additionalProperties": false,
+              "properties": {
+                "next": {
+                  "$ref": "#/definitions/reference"
+                },
+                "previous": {
+                  "$ref": "#/definitions/reference"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "required": [
+            "previous_next"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "previous_next"
+      ],
+      "type": "object",
+      "title": "previous_next_mixin"
+    },
+    "priority": {
+      "type": "integer",
+      "title": "priority"
+    },
+    "programme_formats": {
+      "additionalProperties": false,
+      "properties": {
+        "format": {
+          "items": {
+            "$ref": "#/definitions/format"
+          },
+          "minItems": 1,
+          "type": "array"
+        }
+      },
+      "required": [
+        "format"
+      ],
+      "type": "object",
+      "title": "programme_formats"
+    },
+    "prohibits": {
+      "additionalProperties": false,
+      "properties": {
+        "filter": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "name": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "name"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "mixin": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "filter": {
+                "items": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "name"
+                  ],
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              "mixin": {
+                "items": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "name"
+                  ],
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              "name": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "name"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "prohibits"
+    },
+    "promoted_by": {
+      "type": "string",
+      "title": "promoted_by"
+    },
+    "promoted_for": {
+      "type": "string",
+      "title": "promoted_for"
+    },
+    "promotion": {
+      "additionalProperties": false,
+      "properties": {
+        "context": {
+          "$ref": "#/definitions/context"
+        },
+        "end_time": {
+          "$ref": "#/definitions/end_time"
+        },
+        "identifiers": {
+          "$ref": "#/definitions/identifiers"
+        },
+        "partner": {
+          "$ref": "#/definitions/partner"
+        },
+        "pid": {
+          "$ref": "#/definitions/pid"
+        },
+        "priority": {
+          "$ref": "#/definitions/priority"
+        },
+        "promoted_by": {
+          "$ref": "#/definitions/promoted_by"
+        },
+        "promoted_for": {
+          "$ref": "#/definitions/promoted_for"
+        },
+        "promotion_of": {
+          "$ref": "#/definitions/promotion_of"
+        },
+        "related_links": {
+          "$ref": "#/definitions/related_links"
+        },
+        "start_time": {
+          "$ref": "#/definitions/start_time"
+        },
+        "status": {
+          "$ref": "#/definitions/status"
+        },
+        "synopses": {
+          "$ref": "#/definitions/synopses"
+        },
+        "title": {
+          "$ref": "#/definitions/title"
+        },
+        "updated_time": {
+          "$ref": "#/definitions/updated_time"
+        },
+        "uri": {
+          "$ref": "#/definitions/uri"
+        },
+        "url": {
+          "$ref": "#/definitions/url"
+        }
+      },
+      "required": [
+        "pid",
+        "partner",
+        "updated_time"
+      ],
+      "type": "object",
+      "title": "promotion"
+    },
+    "promotion_of": {
+      "$ref": "#/definitions/pidReference",
+      "title": "promotion_of"
+    },
+    "publication_rights": {
+      "additionalProperties": false,
+      "properties": {
+        "#text": {
+          "type": "string"
+        },
+        "context": {
+          "type": "string"
+        },
+        "platform": {
+          "type": "string"
+        },
+        "territory": {
+          "type": "string"
+        },
+        "transport": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "publication_rights"
+    },
+    "published_time": {
+      "$ref": "#/definitions/broadcastTime",
+      "title": "published_time"
+    },
+    "publisher": {
+      "maxLength": 255,
+      "minLength": 1,
+      "type": "string",
+      "title": "publisher"
+    },
+    "record_label": {
+      "maxLength": 255,
+      "minLength": 1,
+      "type": "string",
+      "title": "record_label"
+    },
+    "recording_date": {
+      "maxLength": 10,
+      "minLength": 4,
+      "type": "string",
+      "title": "recording_date"
+    },
+    "reference": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/referenceAttributes"
+        },
+        {
+          "additionalProperties": true,
+          "properties": {
+            "href_deprecated": {
+              "type": "boolean"
+            },
+            "result_type_deprecated": {
+              "type": "boolean"
+            }
+          },
+          "type": "object"
+        }
+      ],
+      "title": "reference"
+    },
+    "referenceAttributes": {
+      "additionalProperties": false,
+      "properties": {
+        "href": {
+          "type": "string"
+        },
+        "result_type": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "href",
+        "result_type"
+      ],
+      "type": "object",
+      "title": "referenceAttributes"
+    },
+    "region": {
+      "type": "string",
+      "title": "region"
+    },
+    "related_link": {
+      "additionalProperties": false,
+      "properties": {
+        "availability": {
+          "additionalProperties": false,
+          "properties": {
+            "end": {
+              "format": "date-time",
+              "type": "string"
+            },
+            "start": {
+              "format": "date-time",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "is_external": {
+          "$ref": "#/definitions/is_external"
+        },
+        "pid": {
+          "$ref": "#/definitions/pid"
+        },
+        "position": {
+          "$ref": "#/definitions/position"
+        },
+        "synopses": {
+          "$ref": "#/definitions/synopses"
+        },
+        "title": {
+          "$ref": "#/definitions/title"
+        },
+        "type": {
+          "$ref": "#/definitions/type"
+        },
+        "uri": {
+          "$ref": "#/definitions/uri"
+        }
+      },
+      "required": [
+        "pid"
+      ],
+      "type": "object",
+      "title": "related_link"
+    },
+    "related_links": {
+      "additionalProperties": false,
+      "properties": {
+        "related_link": {
+          "items": {
+            "$ref": "#/definitions/related_link"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "related_links"
+    },
+    "release_date_group": {
+      "additionalProperties": false,
+      "properties": {
+        "release_date": {
+          "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}.*$",
+          "type": "string"
+        },
+        "release_year": {
+          "pattern": "[0-9]{4}",
+          "type": "string"
+        },
+        "release_year_month": {
+          "pattern": "[0-9]{4}-[0-9]{2}",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "release_date_group"
+    },
+    "release_status_type": {
+      "enum": [
+        "alpha",
+        "beta",
+        "supported",
+        "deprecated"
+      ],
+      "title": "release_status_type"
+    },
+    "release_title": {
+      "maxLength": 255,
+      "minLength": 1,
+      "type": "string",
+      "title": "release_title"
+    },
+    "results": {
+      "additionalProperties": false,
+      "properties": {
+        "availability": {
+          "$ref": "#/definitions/availability"
+        },
+        "brand": {
+          "$ref": "#/definitions/brand"
+        },
+        "broadcast": {
+          "$ref": "#/definitions/broadcast"
+        },
+        "chapter": {
+          "$ref": "#/definitions/chapter"
+        },
+        "clip": {
+          "$ref": "#/definitions/clip"
+        },
+        "collection": {
+          "$ref": "#/definitions/collection"
+        },
+        "contributor": {
+          "$ref": "#/definitions/contributor"
+        },
+        "episode": {
+          "$ref": "#/definitions/episode"
+        },
+        "franchise": {
+          "$ref": "#/definitions/franchise"
+        },
+        "gallery": {
+          "$ref": "#/definitions/gallery"
+        },
+        "highlight": {
+          "$ref": "#/definitions/highlight"
+        },
+        "image": {
+          "$ref": "#/definitions/image"
+        },
+        "master_brand": {
+          "$ref": "#/definitions/master_brand"
+        },
+        "more_than": {
+          "type": "integer"
+        },
+        "music": {
+          "$ref": "#/definitions/music"
+        },
+        "other": {
+          "$ref": "#/definitions/other"
+        },
+        "page": {
+          "type": "integer"
+        },
+        "page_size": {
+          "type": "integer"
+        },
+        "promotion": {
+          "$ref": "#/definitions/promotion"
+        },
+        "season": {
+          "$ref": "#/definitions/season"
+        },
+        "series": {
+          "$ref": "#/definitions/series"
+        },
+        "service": {
+          "$ref": "#/definitions/service"
+        },
+        "speech": {
+          "$ref": "#/definitions/speech"
+        },
+        "total": {
+          "type": "integer"
+        },
+        "version_group": {
+          "$ref": "#/definitions/version_group"
+        },
+        "window": {
+          "$ref": "#/definitions/window"
+        }
+      },
+      "required": [
+        "page",
+        "page_size"
+      ],
+      "type": "object",
+      "title": "results"
+    },
+    "retryable": {
+      "type": "boolean",
+      "title": "retryable"
+    },
+    "revocation_status": {
+      "type": "string",
+      "title": "revocation_status"
+    },
+    "schedule_date": {
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}.*$",
+      "type": "string",
+      "title": "schedule_date"
+    },
+    "scheduled": {
+      "additionalProperties": false,
+      "properties": {
+        "end": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "start": {
+          "format": "date-time",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "scheduled"
+    },
+    "scheduled_publication_rights": {
+      "additionalProperties": false,
+      "properties": {
+        "publication_rights": {
+          "items": {
+            "$ref": "#/definitions/publication_rights"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "scheduled_publication_rights"
+    },
+    "scheduled_time": {
+      "additionalProperties": false,
+      "properties": {
+        "end": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "start": {
+          "format": "date-time",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "scheduled_time"
+    },
+    "season": {
+      "$ref": "#/definitions/group-body",
+      "title": "season"
+    },
+    "series": {
+      "additionalProperties": false,
+      "properties": {
+        "alternate_images_mixin": {
+          "$ref": "#/definitions/alternate_images_mixin"
+        },
+        "ancestor_titles": {
+          "$ref": "#/definitions/ancestor_titles"
+        },
+        "ancestors": {
+          "$ref": "#/definitions/ancestors"
+        },
+        "ancestors_titles": {
+          "$ref": "#/definitions/ancestors_titles"
+        },
+        "availability_mixin": {
+          "$ref": "#/definitions/availability_mixin"
+        },
+        "contributions_mixin": {
+          "$ref": "#/definitions/contributions_mixin"
+        },
+        "embargoed": {
+          "$ref": "#/definitions/embargoed"
+        },
+        "expected_child_count": {
+          "$ref": "#/definitions/expected_child_count"
+        },
+        "genre_groupings": {
+          "$ref": "#/definitions/genre_groupings"
+        },
+        "identifiers": {
+          "$ref": "#/definitions/identifiers"
+        },
+        "image_link": {
+          "$ref": "#/definitions/image_link"
+        },
+        "images_mixin": {
+          "$ref": "#/definitions/images_mixin"
+        },
+        "is_embeddable": {
+          "$ref": "#/definitions/is_embeddable"
+        },
+        "items_for": {
+          "$ref": "#/definitions/items_for"
+        },
+        "master_brand_link": {
+          "$ref": "#/definitions/master_brand_link"
+        },
+        "partner": {
+          "$ref": "#/definitions/partner"
+        },
+        "pid": {
+          "$ref": "#/definitions/pid"
+        },
+        "previous_next_mixin": {
+          "$ref": "#/definitions/previous_next_mixin"
+        },
+        "programme_formats": {
+          "$ref": "#/definitions/programme_formats"
+        },
+        "related_links": {
+          "$ref": "#/definitions/related_links"
+        },
+        "release_date_group": {
+          "$ref": "#/definitions/release_date_group"
+        },
+        "series_of": {
+          "$ref": "#/definitions/series_of"
+        },
+        "synopses": {
+          "$ref": "#/definitions/synopses"
+        },
+        "title": {
+          "$ref": "#/definitions/title"
+        },
+        "updated_time": {
+          "$ref": "#/definitions/updated_time"
+        },
+        "uri": {
+          "$ref": "#/definitions/uri"
+        }
+      },
+      "required": [
+        "pid",
+        "partner",
+        "updated_time",
+        "embargoed"
+      ],
+      "type": "object",
+      "title": "series"
+    },
+    "series_of": {
+      "$ref": "#/definitions/pidReference",
+      "title": "series_of"
+    },
+    "service": {
+      "additionalProperties": false,
+      "properties": {
+        "date_range": {
+          "$ref": "#/definitions/date_range"
+        },
+        "description": {
+          "$ref": "#/definitions/description"
+        },
+        "identifiers": {
+          "$ref": "#/definitions/identifiers"
+        },
+        "ids": {
+          "$ref": "#/definitions/ids"
+        },
+        "is_concrete": {
+          "$ref": "#/definitions/is_concrete"
+        },
+        "is_downloadable": {
+          "$ref": "#/definitions/is_downloadable"
+        },
+        "is_streamable": {
+          "$ref": "#/definitions/is_streamable"
+        },
+        "master_brand_link": {
+          "$ref": "#/definitions/master_brand_link"
+        },
+        "media_type": {
+          "$ref": "#/definitions/media_type"
+        },
+        "name": {
+          "$ref": "#/definitions/name"
+        },
+        "partner": {
+          "$ref": "#/definitions/partner"
+        },
+        "region": {
+          "$ref": "#/definitions/region"
+        },
+        "sid": {
+          "$ref": "#/definitions/sid"
+        },
+        "type": {
+          "$ref": "#/definitions/type"
+        },
+        "updated_time": {
+          "$ref": "#/definitions/updated_time"
+        }
+      },
+      "required": [
+        "sid",
+        "partner"
+      ],
+      "type": "object",
+      "title": "service"
+    },
+    "serviceReference": {
+      "additionalProperties": false,
+      "properties": {
+        "href": {
+          "type": "string"
+        },
+        "result_type": {
+          "type": "string"
+        },
+        "sid": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "result_type",
+        "href",
+        "sid"
+      ],
+      "type": "object",
+      "title": "serviceReference"
+    },
+    "short": {
+      "type": "string",
+      "title": "short"
+    },
+    "sid": {
+      "pattern": "[a-z0-9A-Z_\\.\\-]+",
+      "type": "string",
+      "title": "sid"
+    },
+    "size": {
+      "additionalProperties": false,
+      "properties": {
+        "units": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "size"
+    },
+    "snippet_url": {
+      "type": "string",
+      "title": "snippet_url"
+    },
+    "sort": {
+      "additionalProperties": false,
+      "properties": {
+        "deprecated": {
+          "type": "boolean"
+        },
+        "deprecated_since": {
+          "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}.*$",
+          "type": "string"
+        },
+        "guaranteed_until": {
+          "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}.*$",
+          "type": "string"
+        },
+        "is_default": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "release_status": {
+          "$ref": "#/definitions/release_status_type"
+        },
+        "replaced_by": {
+          "type": "string"
+        },
+        "sort_direction": {
+          "items": {
+            "$ref": "#/definitions/sort_direction"
+          },
+          "type": "array"
+        },
+        "title": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "title"
+      ],
+      "type": "object",
+      "title": "sort"
+    },
+    "sort_direction": {
+      "additionalProperties": false,
+      "properties": {
+        "href": {
+          "type": "string"
+        },
+        "is_default": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "value",
+        "is_default",
+        "href"
+      ],
+      "type": "object",
+      "title": "sort_direction"
+    },
+    "sorts": {
+      "additionalProperties": false,
+      "properties": {
+        "sort": {
+          "items": {
+            "$ref": "#/definitions/sort"
+          },
+          "type": "array"
+        },
+        "unstable_sorts": {
+          "$ref": "#/definitions/unstable_sorts"
+        }
+      },
+      "type": "object",
+      "title": "sorts"
+    },
+    "source_asset": {
+      "additionalProperties": false,
+      "properties": {
+        "dimensions": {
+          "$ref": "#/definitions/dimensions"
+        },
+        "focus_point": {
+          "$ref": "#/definitions/focus_point"
+        },
+        "mime_type": {
+          "type": "string"
+        },
+        "size": {
+          "$ref": "#/definitions/size"
+        },
+        "uri": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "source_asset"
+    },
+    "source_media": {
+      "maxLength": 64,
+      "minLength": 1,
+      "type": "string",
+      "title": "source_media"
+    },
+    "speech": {
+      "$ref": "#/definitions/item",
+      "title": "speech"
+    },
+    "start_time": {
+      "format": "date-time",
+      "type": "string",
+      "title": "start_time"
+    },
+    "status": {
+      "type": "string",
+      "title": "status"
+    },
+    "synopses": {
+      "additionalProperties": false,
+      "properties": {
+        "long": {
+          "$ref": "#/definitions/long"
+        },
+        "medium": {
+          "$ref": "#/definitions/medium"
+        },
+        "short": {
+          "$ref": "#/definitions/short"
+        }
+      },
+      "type": "object",
+      "title": "synopses"
+    },
+    "title": {
+      "type": "string",
+      "title": "title"
+    },
+    "track_number": {
+      "maxLength": 8,
+      "minLength": 1,
+      "type": "string",
+      "title": "track_number"
+    },
+    "track_side": {
+      "maxLength": 8,
+      "minLength": 1,
+      "type": "string",
+      "title": "track_side"
+    },
+    "tx_time": {
+      "additionalProperties": false,
+      "properties": {
+        "credits_showing": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "end": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "start": {
+          "format": "date-time",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "tx_time"
+    },
+    "type": {
+      "type": "string",
+      "title": "type"
+    },
+    "types_with_id": {
+      "additionalProperties": false,
+      "properties": {
+        "types": {
+          "additionalProperties": false,
+          "properties": {
+            "type": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "types": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "type": {
+                        "items": {
+                          "additionalProperties": false,
+                          "properties": {
+                            "id": {
+                              "type": "string"
+                            }
+                          },
+                          "type": "object"
+                        },
+                        "minItems": 1,
+                        "type": "array"
+                      }
+                    },
+                    "required": [
+                      "type"
+                    ],
+                    "type": "object"
+                  }
+                },
+                "required": [
+                  "types"
+                ],
+                "type": "object"
+              },
+              "minItems": 1,
+              "type": "array"
+            }
+          },
+          "required": [
+            "type"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "types"
+      ],
+      "type": "object",
+      "title": "types_with_id"
+    },
+    "unstable_filters": {
+      "additionalProperties": false,
+      "properties": {
+        "filter": {
+          "items": {
+            "$ref": "#/definitions/filter"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "unstable_filters"
+    },
+    "unstable_mixins": {
+      "additionalProperties": false,
+      "properties": {
+        "mixin": {
+          "items": {
+            "$ref": "#/definitions/mixin"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "unstable_mixins"
+    },
+    "unstable_sorts": {
+      "additionalProperties": false,
+      "properties": {
+        "sort": {
+          "items": {
+            "$ref": "#/definitions/sort"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "unstable_sorts"
+    },
+    "updated_time": {
+      "format": "date-time",
+      "type": "string",
+      "title": "updated_time"
+    },
+    "uri": {
+      "type": "string",
+      "title": "uri"
+    },
+    "url": {
+      "type": "string",
+      "title": "url"
+    },
+    "url_key": {
+      "type": "string",
+      "title": "url_key"
+    },
+    "version_availability": {
+      "additionalProperties": false,
+      "properties": {
+        "availability": {
+          "additionalProperties": false,
+          "properties": {
+            "availability": {
+              "additionalProperties": false,
+              "properties": {
+                "availability_end": {
+                  "format": "date-time",
+                  "type": "string"
+                },
+                "availability_start": {
+                  "format": "date-time",
+                  "type": "string"
+                },
+                "available_media_sets": {
+                  "$ref": "#/definitions/available_media_sets"
+                },
+                "status": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "available_media_sets"
+              ],
+              "type": "object"
+            },
+            "availability_end": {
+              "format": "date-time",
+              "type": "string"
+            },
+            "availability_start": {
+              "format": "date-time",
+              "type": "string"
+            },
+            "available_media_sets": {
+              "$ref": "#/definitions/available_media_sets"
+            },
+            "status": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "available_media_sets",
+            "availability"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "availability"
+      ],
+      "type": "object",
+      "title": "version_availability"
+    },
+    "version_availability_mixin": {
+      "additionalProperties": false,
+      "properties": {
+        "version": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "availabilities": {
+                "items": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "version_availability": {
+                      "items": {
+                        "$ref": "#/definitions/version_availability"
+                      },
+                      "minItems": 1,
+                      "type": "array"
+                    }
+                  },
+                  "required": [
+                    "version_availability"
+                  ],
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              "competition_warning": {
+                "type": "string"
+              },
+              "duration": {
+                "pattern": "^(-)?P(?:([0-9,.]*)Y)?(?:([0-9,.]*)M)?(?:([0-9,.]*)W)?(?:([0-9,.]*)D)?(?:T(?:([0-9,.]*)H)?(?:([0-9,.]*)M)?(?:([0-9,.]*)S)?)?$",
+                "type": "string"
+              },
+              "guidance_warnings": {
+                "$ref": "#/definitions/guidance_warnings"
+              },
+              "pid": {
+                "$ref": "#/definitions/pid"
+              },
+              "types": {
+                "items": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "type": {
+                      "items": {
+                        "type": "string"
+                      },
+                      "type": "array"
+                    }
+                  },
+                  "type": "object"
+                },
+                "minItems": 1,
+                "type": "array"
+              },
+              "version": {
+                "items": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "availabilities": {
+                      "items": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "version_availability": {
+                            "items": {
+                              "$ref": "#/definitions/version_availability"
+                            },
+                            "minItems": 1,
+                            "type": "array"
+                          }
+                        },
+                        "required": [
+                          "version_availability"
+                        ],
+                        "type": "object"
+                      },
+                      "type": "array"
+                    },
+                    "competition_warning": {
+                      "type": "string"
+                    },
+                    "duration": {
+                      "pattern": "^(-)?P(?:([0-9,.]*)Y)?(?:([0-9,.]*)M)?(?:([0-9,.]*)W)?(?:([0-9,.]*)D)?(?:T(?:([0-9,.]*)H)?(?:([0-9,.]*)M)?(?:([0-9,.]*)S)?)?$",
+                      "type": "string"
+                    },
+                    "guidance_warnings": {
+                      "$ref": "#/definitions/guidance_warnings"
+                    },
+                    "pid": {
+                      "$ref": "#/definitions/pid"
+                    },
+                    "types": {
+                      "items": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "type": {
+                            "items": {
+                              "type": "string"
+                            },
+                            "type": "array"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "minItems": 1,
+                      "type": "array"
+                    }
+                  },
+                  "required": [
+                    "types"
+                  ],
+                  "type": "object"
+                },
+                "type": "array"
+              }
+            },
+            "required": [
+              "types"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "version_availability_mixin"
+    },
+    "version_group": {
+      "additionalProperties": false,
+      "properties": {
+        "version": {
+          "additionalProperties": false,
+          "properties": {
+            "aspect_ratio": {
+              "type": "string"
+            },
+            "competition_warning": {
+              "$ref": "#/definitions/competition_warning"
+            },
+            "duration": {
+              "pattern": "^(-)?P(?:([0-9,.]*)Y)?(?:([0-9,.]*)M)?(?:([0-9,.]*)W)?(?:([0-9,.]*)D)?(?:T(?:([0-9,.]*)H)?(?:([0-9,.]*)M)?(?:([0-9,.]*)S)?)?$",
+              "type": "string"
+            },
+            "identifiers": {
+              "$ref": "#/definitions/identifiers"
+            },
+            "ids": {
+              "$ref": "#/definitions/ids"
+            },
+            "pid": {
+              "$ref": "#/definitions/pid"
+            },
+            "types_with_id": {
+              "$ref": "#/definitions/types_with_id"
+            },
+            "updated_time": {
+              "$ref": "#/definitions/updated_time"
+            },
+            "version": {
+              "additionalProperties": false,
+              "properties": {
+                "aspect_ratio": {
+                  "type": "string"
+                },
+                "competition_warning": {
+                  "$ref": "#/definitions/competition_warning"
+                },
+                "duration": {
+                  "pattern": "^(-)?P(?:([0-9,.]*)Y)?(?:([0-9,.]*)M)?(?:([0-9,.]*)W)?(?:([0-9,.]*)D)?(?:T(?:([0-9,.]*)H)?(?:([0-9,.]*)M)?(?:([0-9,.]*)S)?)?$",
+                  "type": "string"
+                },
+                "identifiers": {
+                  "$ref": "#/definitions/identifiers"
+                },
+                "ids": {
+                  "$ref": "#/definitions/ids"
+                },
+                "pid": {
+                  "$ref": "#/definitions/pid"
+                },
+                "types_with_id": {
+                  "$ref": "#/definitions/types_with_id"
+                },
+                "updated_time": {
+                  "$ref": "#/definitions/updated_time"
+                },
+                "version_of": {
+                  "$ref": "#/definitions/version_of"
+                },
+                "version_types_with_id": {
+                  "$ref": "#/definitions/version_types_with_id"
+                },
+                "warnings": {
+                  "$ref": "#/definitions/warnings"
+                }
+              },
+              "required": [
+                "pid",
+                "updated_time"
+              ],
+              "type": "object"
+            },
+            "version_of": {
+              "$ref": "#/definitions/version_of"
+            },
+            "version_types_with_id": {
+              "$ref": "#/definitions/version_types_with_id"
+            },
+            "warnings": {
+              "$ref": "#/definitions/warnings"
+            }
+          },
+          "required": [
+            "pid",
+            "updated_time",
+            "version"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "version"
+      ],
+      "type": "object",
+      "title": "version_group"
+    },
+    "version_of": {
+      "$ref": "#/definitions/pidReference",
+      "title": "version_of"
+    },
+    "version_types_with_id": {
+      "additionalProperties": false,
+      "properties": {
+        "version_types": {
+          "additionalProperties": false,
+          "properties": {
+            "version_type": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "version_types": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "version_type": {
+                        "items": {
+                          "additionalProperties": false,
+                          "properties": {
+                            "id": {
+                              "type": "string"
+                            }
+                          },
+                          "type": "object"
+                        },
+                        "minItems": 1,
+                        "type": "array"
+                      }
+                    },
+                    "required": [
+                      "version_type"
+                    ],
+                    "type": "object"
+                  }
+                },
+                "required": [
+                  "version_types"
+                ],
+                "type": "object"
+              },
+              "minItems": 1,
+              "type": "array"
+            }
+          },
+          "required": [
+            "version_type"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "version_types"
+      ],
+      "type": "object",
+      "title": "version_types_with_id"
+    },
+    "versions": {
+      "additionalProperties": false,
+      "properties": {
+        "available": {
+          "type": "integer"
+        },
+        "version_availability_mixin": {
+          "$ref": "#/definitions/version_availability_mixin"
+        }
+      },
+      "required": [
+        "version_availability_mixin",
+        "available"
+      ],
+      "type": "object",
+      "title": "versions"
+    },
+    "versions_mixin": {
+      "additionalProperties": false,
+      "properties": {
+        "available_simulcasts": {
+          "$ref": "#/definitions/available_simulcasts"
+        },
+        "available_versions": {
+          "$ref": "#/definitions/available_versions"
+        },
+        "available_webcasts": {
+          "$ref": "#/definitions/available_webcasts"
+        },
+        "versions": {
+          "items": {
+            "$ref": "#/definitions/versions"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "versions_mixin"
+    },
+    "warning": {
+      "additionalProperties": false,
+      "properties": {
+        "#text": {
+          "type": "string"
+        },
+        "short_description": {
+          "type": "string"
+        },
+        "warning_code": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "warning"
+    },
+    "warning_items": {
+      "additionalProperties": false,
+      "properties": {
+        "warning": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "#text": {
+                "type": "string"
+              },
+              "short_description": {
+                "type": "string"
+              },
+              "warning": {
+                "items": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "#text": {
+                      "type": "string"
+                    },
+                    "short_description": {
+                      "type": "string"
+                    },
+                    "warning_code": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              "warning_code": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "warning_items"
+    },
+    "warning_text": {
+      "additionalProperties": false,
+      "properties": {
+        "#text": {
+          "type": "string"
+        },
+        "length": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "warning_text"
+    },
+    "warning_texts": {
+      "additionalProperties": false,
+      "properties": {
+        "warning_text": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "#text": {
+                "type": "string"
+              },
+              "length": {
+                "type": "string"
+              },
+              "warning_text": {
+                "items": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "#text": {
+                      "type": "string"
+                    },
+                    "length": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "type": "array"
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "warning_texts"
+    },
+    "warnings": {
+      "additionalProperties": false,
+      "properties": {
+        "warning": {
+          "items": {
+            "$ref": "#/definitions/warning"
+          },
+          "type": "array"
+        },
+        "warning_text": {
+          "items": {
+            "$ref": "#/definitions/warning_text"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "warnings"
+    },
+    "window": {
+      "additionalProperties": false,
+      "properties": {
+        "accurate_programme_time": {
+          "$ref": "#/definitions/accurate_programme_time"
+        },
+        "ancestor_titles": {
+          "$ref": "#/definitions/ancestor_titles"
+        },
+        "ancestors_titles": {
+          "$ref": "#/definitions/ancestors_titles"
+        },
+        "identifiers": {
+          "$ref": "#/definitions/identifiers"
+        },
+        "ids": {
+          "$ref": "#/definitions/ids"
+        },
+        "image_link": {
+          "$ref": "#/definitions/image_link"
+        },
+        "images_mixin": {
+          "$ref": "#/definitions/images_mixin"
+        },
+        "media_availability_time": {
+          "$ref": "#/definitions/media_availability_time"
+        },
+        "partner": {
+          "$ref": "#/definitions/partner"
+        },
+        "pid": {
+          "$ref": "#/definitions/pid"
+        },
+        "scheduled_publication_rights": {
+          "$ref": "#/definitions/scheduled_publication_rights"
+        },
+        "scheduled_time": {
+          "$ref": "#/definitions/scheduled_time"
+        },
+        "service": {
+          "$ref": "#/definitions/serviceReference"
+        },
+        "updated_time": {
+          "$ref": "#/definitions/updated_time"
+        },
+        "window_of": {
+          "items": {
+            "$ref": "#/definitions/window_of"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "pid",
+        "partner"
+      ],
+      "type": "object",
+      "title": "window"
+    },
+    "window_of": {
+      "$ref": "#/definitions/pidReference",
+      "title": "window_of"
+    },
+    "xquery-version": {
+      "description": "The XQuery language version.",
+      "enum": [
+        "1.0-ml",
+        "0.9-ml",
+        "1.0",
+        "XSLT"
+      ],
+      "title": "xquery-version"
+    }
+  },
+  "actions": [
+    {
+      "id": "getAPI",
+      "title": "getAPI",
+      "description": "Get API definition",
+      "inputSchema": {},
+      "outputSchema": {},
+      "security": {
+        "bbc": {
+          "integration": "bbc"
+        }
+      }
+    },
+    {
+      "id": "listAvailability",
+      "title": "listAvailability",
+      "description": "Discover details of on-demand availability for programmes and their versions",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "sort": {
+            "type": "string",
+            "description": "Sorts:\n* scheduled_start: sort chronologically by scheduled start time/date, ascending\n",
+            "enum": [
+              "scheduled_start"
+            ]
+          },
+          "sort_direction": {
+            "type": "string",
+            "description": "Sort direction",
+            "enum": [
+              "ascending",
+              "descending"
+            ]
+          },
+          "availability": {
+            "type": "array",
+            "description": "filter for subset of availabilities",
+            "enum": [
+              "available"
+            ]
+          },
+          "descendants_of": {
+            "type": "array",
+            "description": "filter for subset of availabilities that have PID as ancestor"
+          },
+          "media_set": {
+            "type": "array",
+            "description": "filter for subset of availabilities with media set"
+          },
+          "page": {
+            "type": "integer",
+            "description": "which page of results to return",
+            "minimum": 1
+          },
+          "page_size": {
+            "type": "integer",
+            "description": "number of results in each page",
+            "maximum": 300
+          },
+          "territory": {
+            "type": "array",
+            "description": "filter for availabilities in given territory",
+            "enum": [
+              "uk",
+              "nonuk",
+              "world"
+            ]
+          },
+          "debug": {
+            "type": "boolean",
+            "description": "Turn on debug information (undocumented)"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/nitro"
+      },
+      "security": {
+        "bbc": {
+          "integration": "bbc"
+        }
+      }
+    },
+    {
+      "id": "listBroadcasts",
+      "title": "listBroadcasts",
+      "description": "Fetch metadata about linear Broadcasts and Services, allowing the generation of Television and Radio schedules and other datasets for broadcast items. Use /schedules instead of this feed as it is more efficient. Broadcasts will be deprecated in the future.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "sort": {
+            "type": "string",
+            "description": "Sorts:\n* start_date: sort chronologically by scheduled start time/date, ascending\n",
+            "enum": [
+              "start_date"
+            ]
+          },
+          "sort_direction": {
+            "type": "string",
+            "description": "Sort direction",
+            "enum": [
+              "ascending",
+              "descending"
+            ]
+          },
+          "mixin": {
+            "type": "array",
+            "description": "Mixins:\n* titles: return ancestor programme titles\n",
+            "enum": [
+              "titles"
+            ]
+          },
+          "authority": {
+            "type": "array",
+            "description": "filter for subset of broadcasts that have given authority"
+          },
+          "descendants_of": {
+            "type": "array",
+            "description": "filter for subset of broadcasts that are descendants of the given programme PID"
+          },
+          "end_from": {
+            "type": "string",
+            "format": "date-time",
+            "description": "filter for subset of broadcasts that end on or later than the specified datetime"
+          },
+          "end_to": {
+            "type": "string",
+            "format": "date-time",
+            "description": "filter for subset of broadcasts that end on or earlier than the specified datetime"
+          },
+          "format": {
+            "type": "array",
+            "description": "filter for subset of broadcasts that are classified in the given format ID"
+          },
+          "genre": {
+            "type": "array",
+            "description": "filter for subset of broadcasts that are classified in the given genre ID"
+          },
+          "id": {
+            "type": "array",
+            "description": "filter for subset of broadcasts that have given identifier"
+          },
+          "item": {
+            "type": "array",
+            "description": "filter for subset of broadcasts with the given item performed on it"
+          },
+          "page": {
+            "type": "integer",
+            "description": "which page of results to return",
+            "minimum": 1
+          },
+          "page_size": {
+            "type": "integer",
+            "description": "number of results in each page",
+            "maximum": 300
+          },
+          "people": {
+            "type": "string",
+            "description": "filter for subset of broadcasts that have given contributor"
+          },
+          "pid": {
+            "type": "array",
+            "description": "filter for subset of broadcasts having given PID"
+          },
+          "q": {
+            "type": "string",
+            "description": "filter for subset of broadcasts matching supplied keyword/phrase (boolean operators permitted)"
+          },
+          "schedule_day": {
+            "type": "string",
+            "format": "date",
+            "description": "filter for subset of broadcasts that start on the specified day (BBC time)"
+          },
+          "schedule_day_from": {
+            "type": "string",
+            "format": "date",
+            "description": "filter for subset of broadcasts that start on or after the specified day (BBC time)"
+          },
+          "schedule_day_to": {
+            "type": "string",
+            "format": "date",
+            "description": "filter for subset of broadcasts that start on or before the specified day (BBC time)"
+          },
+          "service_master_brand": {
+            "type": "array",
+            "description": "filter for subset of broadcasts with given service master brand"
+          },
+          "sid": {
+            "type": "array",
+            "description": "filter for subset of broadcasts that are on the specified linear service"
+          },
+          "start_from": {
+            "type": "string",
+            "format": "date-time",
+            "description": "filter for subset of broadcasts that start on or later than the specified datetime"
+          },
+          "start_to": {
+            "type": "string",
+            "format": "date-time",
+            "description": "filter for subset of broadcasts that start on or earlier than the specified datetime"
+          },
+          "version": {
+            "type": "array",
+            "description": "filter for subset of broadcasts with given PID as their parent version"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/nitro"
+      },
+      "security": {
+        "bbc": {
+          "integration": "bbc"
+        }
+      }
+    },
+    {
+      "id": "listGroups",
+      "title": "listGroups",
+      "description": "Long-lived curated collections of programmes and more, including Collections, Seasons, Franchises and Galleries",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "sort": {
+            "type": "string",
+            "description": "Sorts:\n* pid: sort alphabetically by PID\n",
+            "enum": [
+              "pid"
+            ]
+          },
+          "sort_direction": {
+            "type": "string",
+            "description": "Sort direction",
+            "enum": [
+              "descending"
+            ]
+          },
+          "mixin": {
+            "type": "array",
+            "description": "Mixins:\n* alternate_images: mixin to return the alternate images for a group\n* group_for: mixin to return links to programme entities that group belongs to\n* images: mixin to add image information for a group\n* related_links: mixin to return related links for the group\n",
+            "enum": [
+              "alternate_images",
+              "group_for",
+              "images",
+              "related_links"
+            ]
+          },
+          "for_descendants_of": {
+            "type": "string",
+            "description": "filter for groups related to given programme or its descendants",
+            "pattern": "^([0-9,a-d,f-h,j-n,p-t,v-z]){8,}$",
+            "minLength": 8
+          },
+          "for_programme": {
+            "type": "string",
+            "description": "filter for subset of groups directly related to a given programme",
+            "pattern": "^([0-9,a-d,f-h,j-n,p-t,v-z]){8,}$",
+            "minLength": 8
+          },
+          "group": {
+            "type": "string",
+            "description": "filter for subset of groups which belong to the given group pid",
+            "pattern": "^([0-9,a-d,f-h,j-n,p-t,v-z]){8,}$",
+            "minLength": 8
+          },
+          "group_type": {
+            "type": "array",
+            "description": "filter for subset of groups that have the given group type",
+            "enum": [
+              "collection",
+              "franchise",
+              "gallery",
+              "season"
+            ]
+          },
+          "member": {
+            "type": "string",
+            "description": "filter for subset of groups which contain an entity with the given pid as a member",
+            "pattern": "^([0-9,a-d,f-h,j-n,p-t,v-z]){8,}$",
+            "minLength": 8
+          },
+          "page": {
+            "type": "integer",
+            "description": "which page of results to return",
+            "minimum": 1
+          },
+          "page_size": {
+            "type": "integer",
+            "description": "number of results in each page",
+            "maximum": 300
+          },
+          "partner_id": {
+            "type": "array",
+            "description": "filter for groups by partner ID"
+          },
+          "partner_pid": {
+            "type": "array",
+            "description": "filter for groups by partner PID"
+          },
+          "pid": {
+            "type": "array",
+            "description": "filter for subset of seasons, collections, galleries or franchises having given PID"
+          },
+          "q": {
+            "type": "string",
+            "description": "filter for subset of groups matching supplied keyword/phrase (boolean operators permitted)"
+          },
+          "embargoed": {
+            "type": "string",
+            "description": "Control return of embargoed items (undocumented)",
+            "enum": [
+              "include",
+              "exclude",
+              "only"
+            ]
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/nitro"
+      },
+      "security": {
+        "bbc": {
+          "integration": "bbc"
+        }
+      }
+    },
+    {
+      "id": "listImages",
+      "title": "listImages",
+      "description": "Find metadata for images, particularly those in galleries",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "sort": {
+            "type": "string",
+            "description": "Sorts:\n* group_position: sort numerically by position, ascending only\n* pid: sort alphabetically by PID\n",
+            "enum": [
+              "group_position",
+              "pid"
+            ]
+          },
+          "sort_direction": {
+            "type": "string",
+            "description": "Sort direction",
+            "enum": [
+              "ascending",
+              "descending"
+            ]
+          },
+          "group": {
+            "type": "string",
+            "description": "filter for images belonging to the given group (i.e. Gallery)",
+            "pattern": "^([0-9,a-d,f-h,j-n,p-t,v-z]){8,}$",
+            "minLength": 8
+          },
+          "image_type": {
+            "type": "array",
+            "description": "filter for images by type",
+            "enum": [
+              "standard",
+              "podcast",
+              "store",
+              "portrait",
+              "letterbox"
+            ]
+          },
+          "is_alternate_image_for": {
+            "type": "string",
+            "description": "filter for alternate images by entity PID",
+            "pattern": "^([0-9,a-d,f-h,j-n,p-t,v-z]){8,}$",
+            "minLength": 8
+          },
+          "is_image_for": {
+            "type": "string",
+            "description": "filter for images by entity PID",
+            "pattern": "^([0-9,a-d,f-h,j-n,p-t,v-z]){8,}$",
+            "minLength": 8
+          },
+          "page": {
+            "type": "integer",
+            "description": "which page of results to return",
+            "minimum": 1
+          },
+          "page_size": {
+            "type": "integer",
+            "description": "number of results in each page",
+            "maximum": 300
+          },
+          "partner_id": {
+            "type": "array",
+            "description": "filter for images by partner ID"
+          },
+          "partner_pid": {
+            "type": "array",
+            "description": "filter for images by partner PID"
+          },
+          "pid": {
+            "type": "array",
+            "description": "filter for subset of images having given PID"
+          },
+          "q": {
+            "type": "string",
+            "description": "filter for subset of images matching supplied keyword/phrase (boolean operators permitted)"
+          },
+          "embargoed": {
+            "type": "string",
+            "description": "Control return of embargoed items (undocumented)",
+            "enum": [
+              "include",
+              "exclude",
+              "only"
+            ]
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/nitro"
+      },
+      "security": {
+        "bbc": {
+          "integration": "bbc"
+        }
+      }
+    },
+    {
+      "id": "listItems",
+      "title": "listItems",
+      "description": "Look inside programmes to find segments: chapters, tracks and more",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "sort": {
+            "type": "string",
+            "description": "Sorts:\n* pid: sort by pid, descending\n",
+            "enum": [
+              "pid"
+            ]
+          },
+          "sort_direction": {
+            "type": "string",
+            "description": "Sort direction",
+            "enum": [
+              "descending"
+            ]
+          },
+          "mixin": {
+            "type": "array",
+            "description": "Mixins:\n* contributions: mixin to return information about contributors to items\n* images: mixin to add image information for an item\n* offset: mixin to return programme segment offsets, works in conjunction with programme filter\n* play_event: mixin to return programme segment events, works in conjunction with programme or segment_event filters\n",
+            "enum": [
+              "contributions",
+              "images",
+              "offset",
+              "play_event"
+            ]
+          },
+          "authority": {
+            "type": "string",
+            "description": "filter for subset of items that have an ID issued by the given authority"
+          },
+          "id": {
+            "type": "array",
+            "description": "filter for subset of items having given ID"
+          },
+          "id_type": {
+            "type": "string",
+            "description": "filter for subset of items that have given an ID of the given type"
+          },
+          "item_type": {
+            "type": "array",
+            "description": "filter for specific type(s) of items",
+            "enum": [
+              "chapter",
+              "highlight",
+              "music",
+              "speech",
+              "other"
+            ]
+          },
+          "page": {
+            "type": "integer",
+            "description": "which page of results to return",
+            "minimum": 1
+          },
+          "page_size": {
+            "type": "integer",
+            "description": "number of results in each page",
+            "maximum": 300
+          },
+          "partner_id": {
+            "type": "array",
+            "description": "filter for items by partner ID"
+          },
+          "partner_pid": {
+            "type": "array",
+            "description": "filter for items by partner PID"
+          },
+          "people": {
+            "type": "string",
+            "description": "filter for subset of items that have specified person involved"
+          },
+          "pid": {
+            "type": "array",
+            "description": "filter for subset of items matching one of the given PIDs"
+          },
+          "programme": {
+            "type": "string",
+            "description": "filter for subset of items that are part of the given programme",
+            "pattern": "^([0-9,a-d,f-h,j-n,p-t,v-z]){8,}$",
+            "minLength": 8
+          },
+          "q": {
+            "type": "string",
+            "description": "filter for subset of items matching supplied keyword/phrase (boolean operators permitted)"
+          },
+          "segment_event": {
+            "type": "string",
+            "description": "filter for item with the given segment_event"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/nitro"
+      },
+      "security": {
+        "bbc": {
+          "integration": "bbc"
+        }
+      }
+    },
+    {
+      "id": "listMasterbrands",
+      "title": "listMasterbrands",
+      "description": "List all Master Brands",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "sort": {
+            "type": "string",
+            "description": "Sorts:\n* mid: sort by mid, ascending\n",
+            "enum": [
+              "mid"
+            ]
+          },
+          "sort_direction": {
+            "type": "string",
+            "description": "Sort direction",
+            "enum": [
+              "ascending"
+            ]
+          },
+          "mixin": {
+            "type": "array",
+            "description": "Mixins:\n* images: mixin to add image information for a masterbrand\n",
+            "enum": [
+              "images"
+            ]
+          },
+          "mid": {
+            "type": "array",
+            "description": "filter for subset of masterbrands that have given identifier"
+          },
+          "page": {
+            "type": "integer",
+            "description": "which page of results to return",
+            "minimum": 1
+          },
+          "page_size": {
+            "type": "integer",
+            "description": "number of results in each page",
+            "maximum": 300
+          },
+          "partner_id": {
+            "type": "array",
+            "description": "filter for masterbrands by partner ID"
+          },
+          "partner_pid": {
+            "type": "array",
+            "description": "filter for masterbrands by partner PID"
+          },
+          "q": {
+            "type": "string",
+            "description": "filter for subset of masterbrands matching supplied keyword/phrase (boolean operators permitted)"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/nitro"
+      },
+      "security": {
+        "bbc": {
+          "integration": "bbc"
+        }
+      }
+    },
+    {
+      "id": "listPeople",
+      "title": "listPeople",
+      "description": "The People feed allows you to search for the people and groups that contribute to programmes. This is the starting point for cast and crew credits, as well as finding contributors using external IDs (such as Wikipedia URLs)",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "authority": {
+            "type": "string",
+            "description": "filter for subset of people that have an ID issued by the given authority"
+          },
+          "has_external_id": {
+            "type": "array",
+            "description": "filter for people who have an external identifier",
+            "enum": [
+              "true",
+              "false"
+            ]
+          },
+          "id": {
+            "type": "array",
+            "description": "filter for subset of people having given ID"
+          },
+          "id_type": {
+            "type": "string",
+            "description": "filter for subset of people that have given an ID of the given type"
+          },
+          "page": {
+            "type": "integer",
+            "description": "which page of results to return",
+            "minimum": 1
+          },
+          "page_size": {
+            "type": "integer",
+            "description": "number of results in each page",
+            "maximum": 300
+          },
+          "partner_id": {
+            "type": "array",
+            "description": "filter for people by partner ID"
+          },
+          "partner_pid": {
+            "type": "array",
+            "description": "filter for people by partner PID"
+          },
+          "pid": {
+            "type": "array",
+            "description": "filter for subset of people having given PID"
+          },
+          "programme": {
+            "type": "string",
+            "description": "filter for subset of people that have contributed to the given programme pid"
+          },
+          "q": {
+            "type": "string",
+            "description": "filter for subset of people matching supplied keyword/phrase (boolean operators permitted)"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/nitro"
+      },
+      "security": {
+        "bbc": {
+          "integration": "bbc"
+        }
+      }
+    },
+    {
+      "id": "listPips",
+      "title": "listPips",
+      "description": "Look inside pips entities",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "page": {
+            "type": "integer",
+            "description": "which page of results to return",
+            "minimum": 1
+          },
+          "page_size": {
+            "type": "integer",
+            "description": "number of results in each page",
+            "maximum": 300
+          },
+          "q": {
+            "type": "string",
+            "description": "filter for subset of programmes matching supplied keyword/phrase (boolean operators permitted)"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/nitro"
+      },
+      "security": {
+        "bbc": {
+          "integration": "bbc"
+        }
+      }
+    },
+    {
+      "id": "listProgrammeDetails",
+      "title": "listProgrammeDetails",
+      "description": "Exposes programme information for a single pid",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "page": {
+            "type": "integer",
+            "description": "which page of results to return",
+            "minimum": 1
+          },
+          "page_size": {
+            "type": "integer",
+            "description": "number of results in each page",
+            "maximum": 300
+          },
+          "partner_pid": {
+            "type": "string",
+            "description": "Filter for programme information by partner PID",
+            "pattern": "^([0-9,a-d,f-h,j-n,p-t,v-z]){8,}$",
+            "minLength": 8
+          },
+          "pid": {
+            "type": "string",
+            "description": "Filter for programme information for the provided PID",
+            "pattern": "^([0-9,a-d,f-h,j-n,p-t,v-z]){8,}$",
+            "minLength": 8
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/nitro"
+      },
+      "security": {
+        "bbc": {
+          "integration": "bbc"
+        }
+      }
+    },
+    {
+      "id": "listProgrammes",
+      "title": "listProgrammes",
+      "description": "Fetch metadata about Programmes (brands, series, episodes, clips). By applying different filter restrictions this feed can be used in many ways, for example to retrieve all series belonging to a brand, all the episodes and/or clips for a specific series, or any TLEO objects for a masterbrand. Other filters permit restricting to specific formats and/or genres, and you can request specific versions (for example Signed or Audio-Described). Parameters may be combined in any way suitable for your application.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "sort": {
+            "type": "string",
+            "description": "Sorts:\n* group_position: sort numerically by position in group, ascending\n* pid: sort alphabetically by PID, descending\n* position: sort numerically by position, ascending\n* promotion: sort by promotion rank, ascending\n* release_date: sort chronologically by release date, descending\n* relevance: sort by weighting of search term (use with q parameter)\n* scheduled_start: sort chronologically by scheduled start time/date, ascending\n* strict_title: sort alphabetically by title, ascending\n* title: sort by title librarian style (ignoring leading 'The', 'A', etc), ascending\n* tree: sort by root pid and then preorder tree sort. Requires entities to have release date.\n",
+            "enum": [
+              "group_position",
+              "pid",
+              "position",
+              "promotion",
+              "release_date",
+              "relevance",
+              "scheduled_start",
+              "strict_title",
+              "title",
+              "tree"
+            ]
+          },
+          "sort_direction": {
+            "type": "string",
+            "description": "Sort direction",
+            "enum": [
+              "ascending",
+              "descending"
+            ]
+          },
+          "mixin": {
+            "type": "array",
+            "description": "Mixins:\n* alternate_images: mixin to return the alternate images for a programme\n* ancestor_titles: mixin to return ancestor programme titles\n* availability: mixin to return programme availability information\n* available_simulcasts: mixin to return information about programmes that are currently available as simulcasts\n* available_versions: mixin to return information about programmes that are currently available on demand\n* available_webcasts: mixin to return information about programmes that are currently available as webcasts\n* contributions: mixin to return information about contributors to a programme\n* duration: mixin to return original version duration in programme concept entities\n* genre_groupings: mixin to return list of genre groupings\n* genre_groups: mixin to return list of genre groups\n* images: mixin to add image information for a programme\n* is_embeddable: mixin to add embeddable information for a programme\n* previous_next: mixin to return the programmes which appear before and after a programme (as determined by the sort applied in the request)\n* related_links: mixin to return information about related links to a programme\n* titles: mixin to return ancestor programme titles\n* versions_availability: mixin to return information about programmes that are currently available\n",
+            "enum": [
+              "alternate_images",
+              "ancestor_titles",
+              "availability",
+              "available_simulcasts",
+              "available_versions",
+              "available_webcasts",
+              "contributions",
+              "duration",
+              "genre_groupings",
+              "genre_groups",
+              "images",
+              "is_embeddable",
+              "previous_next",
+              "related_links",
+              "titles",
+              "versions_availability"
+            ]
+          },
+          "audio_described": {
+            "type": "array",
+            "description": "filter for subset of programmes that are audio-described",
+            "enum": [
+              "true",
+              "false"
+            ]
+          },
+          "availability": {
+            "type": "array",
+            "description": "filter for subset of programmes that have availability",
+            "enum": [
+              "available",
+              "pending"
+            ]
+          },
+          "availability_entity_type": {
+            "type": "array",
+            "description": "additional filter when availability=available",
+            "enum": [
+              "episode",
+              "clip"
+            ]
+          },
+          "availability_from": {
+            "type": "string",
+            "format": "date-time",
+            "description": "filter for subset of programmes that are available after or at the specified datetime"
+          },
+          "availability_type": {
+            "type": "array",
+            "description": "filter for a subset of programmes that are available for a given type",
+            "enum": [
+              "ondemand",
+              "webcast",
+              "simulcast"
+            ]
+          },
+          "children_of": {
+            "type": "array",
+            "description": "filter for subset of programmes that have PID as immediate parent"
+          },
+          "descendants_of": {
+            "type": "array",
+            "description": "filter for subset of programmes that have PID as ancestor"
+          },
+          "duration": {
+            "type": "array",
+            "description": "filter for subset of programmes that have given duration",
+            "enum": [
+              "short",
+              "medium",
+              "long"
+            ]
+          },
+          "entity_type": {
+            "type": "array",
+            "description": "filter for subset of programmes that have given entity type",
+            "enum": [
+              "brand",
+              "series",
+              "episode",
+              "clip"
+            ]
+          },
+          "format": {
+            "type": "array",
+            "description": "filter for subset of programmes with format"
+          },
+          "genre": {
+            "type": "array",
+            "description": "filter for subset of programmes with genre"
+          },
+          "group": {
+            "type": "string",
+            "description": "filter for subset of programmes which belong to the given group pid",
+            "pattern": "^([0-9,a-d,f-h,j-n,p-t,v-z]){8,}$",
+            "minLength": 8
+          },
+          "initial_letter": {
+            "type": "string",
+            "description": "filter for subset of programmes with title beginning with initial letter librarian style (ignoring leading 'The', 'An' (Welsh), etc) 0-9 a-z",
+            "maxLength": 1,
+            "minLength": 1
+          },
+          "initial_letter_end": {
+            "type": "string",
+            "description": "Programmes with (librarian) titles whose initial letter is equal/before given letter. Use with initial_letter_start for a range",
+            "maxLength": 1,
+            "minLength": 1
+          },
+          "initial_letter_start": {
+            "type": "string",
+            "description": "Programmes with (librarian) titles whose initial letter is equal/after given letter. Use with initial_letter_end for range.",
+            "maxLength": 1,
+            "minLength": 1
+          },
+          "initial_letter_strict": {
+            "type": "array",
+            "description": "filter for subset of programmes with title beginning with initial letter"
+          },
+          "item": {
+            "type": "array",
+            "description": "filter for subset of programmes with linked to versions which have the given item pids"
+          },
+          "master_brand": {
+            "type": "array",
+            "description": "filter for subset of programmes with master_brand"
+          },
+          "media_set": {
+            "type": "string",
+            "description": "filter for subset of programmes with media set"
+          },
+          "media_type": {
+            "type": "array",
+            "description": "filter for subset of programmes with media type",
+            "enum": [
+              "audio",
+              "audio_video"
+            ]
+          },
+          "page": {
+            "type": "integer",
+            "description": "which page of results to return",
+            "minimum": 1
+          },
+          "page_size": {
+            "type": "integer",
+            "description": "number of results in each page",
+            "maximum": 300
+          },
+          "partner_id": {
+            "type": "array",
+            "description": "filter for programmes by partner ID"
+          },
+          "partner_pid": {
+            "type": "array",
+            "description": "filter for programmes by partner PID"
+          },
+          "payment_type": {
+            "type": "array",
+            "description": "filter for a subset of programmes that are of the given payment_type",
+            "enum": [
+              "free",
+              "bbcstore",
+              "uscansvod"
+            ]
+          },
+          "people": {
+            "type": "string",
+            "description": "filter for subset of programmes with contributions by given people PID",
+            "pattern": "^([0-9,a-d,f-h,j-n,p-t,v-z]){8,}$",
+            "minLength": 8
+          },
+          "pid": {
+            "type": "array",
+            "description": "filter for subset of programmes having given PID"
+          },
+          "promoted_for": {
+            "type": "string",
+            "description": "filter for subset of programmes which are promoted for given service"
+          },
+          "q": {
+            "type": "string",
+            "description": "filter for subset of programmes matching supplied keyword/phrase (boolean operators permitted)"
+          },
+          "signed": {
+            "type": "array",
+            "description": "filter for subset of programmes that are signed",
+            "enum": [
+              "exclusive",
+              "inclusive",
+              "exclude"
+            ]
+          },
+          "tag_name": {
+            "type": "string",
+            "description": "filter for subset of programmes with tag"
+          },
+          "tag_scheme": {
+            "type": "string",
+            "description": "filter for subset of programmes with a tag"
+          },
+          "tleo": {
+            "type": "array",
+            "description": "filter for subset of programmes that are TLEOs",
+            "enum": [
+              "true",
+              "false"
+            ]
+          },
+          "version": {
+            "type": "array",
+            "description": "filter for subset of programmes with given PID as one of their versions"
+          },
+          "embargoed": {
+            "type": "string",
+            "description": "Control return of embargoed items (undocumented)",
+            "enum": [
+              "include",
+              "exclude",
+              "only"
+            ]
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/nitro"
+      },
+      "security": {
+        "bbc": {
+          "integration": "bbc"
+        }
+      }
+    },
+    {
+      "id": "listPromotions",
+      "title": "listPromotions",
+      "description": "Details of short-term editorially curated \"promotions\", for instance those programmes featured on iPlayer today",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "mixin": {
+            "type": "array",
+            "description": "Mixins:\n* related_links: mixin to return information about related links to a promotion\n",
+            "enum": [
+              "related_links"
+            ]
+          },
+          "context": {
+            "type": "string",
+            "description": "filter for subset of promotions belonging to a given context",
+            "pattern": "^([0-9,a-d,f-h,j-n,p-t,v-z]){8,}$",
+            "minLength": 8
+          },
+          "page": {
+            "type": "integer",
+            "description": "which page of results to return",
+            "minimum": 1
+          },
+          "page_size": {
+            "type": "integer",
+            "description": "number of results in each page",
+            "maximum": 300
+          },
+          "partner_id": {
+            "type": "array",
+            "description": "filter for promotions by partner ID"
+          },
+          "partner_pid": {
+            "type": "array",
+            "description": "filter for promotions by partner PID"
+          },
+          "pid": {
+            "type": "array",
+            "description": "filter for subset of promotions having given PID"
+          },
+          "promoted_by": {
+            "type": "array",
+            "description": "filter for subset of promotions having given promoted by"
+          },
+          "promoted_for": {
+            "type": "array",
+            "description": "filter for subset of promotions having given promoted for"
+          },
+          "q": {
+            "type": "string",
+            "description": "filter for subset of promotions matching supplied keyword/phrase (boolean operators permitted)"
+          },
+          "status": {
+            "type": "array",
+            "description": "filter for subset of promotions with status",
+            "enum": [
+              "current"
+            ]
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/nitro"
+      },
+      "security": {
+        "bbc": {
+          "integration": "bbc"
+        }
+      }
+    },
+    {
+      "id": "listSchedules",
+      "title": "listSchedules",
+      "description": "Dates, Times, Schedules: when and where are programmes being shown?",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "sort": {
+            "type": "string",
+            "description": "Sorts:\n* start_date: sort chronologically by scheduled start time/date, ascending\n",
+            "enum": [
+              "start_date"
+            ]
+          },
+          "sort_direction": {
+            "type": "string",
+            "description": "Sort direction",
+            "enum": [
+              "ascending",
+              "descending"
+            ]
+          },
+          "mixin": {
+            "type": "array",
+            "description": "Mixins:\n* ancestor_titles: return ancestor programme titles\n* images: mixin to add image information for broadcasts and webcasts\n* titles: return ancestor programme titles\n",
+            "enum": [
+              "ancestor_titles",
+              "images",
+              "titles"
+            ]
+          },
+          "authority": {
+            "type": "array",
+            "description": "filter for subset of broadcasts and webcasts that have given authority"
+          },
+          "descendants_of": {
+            "type": "array",
+            "description": "filter for subset of broadcasts and webcasts that are descendants of the given programme PID"
+          },
+          "end_from": {
+            "type": "string",
+            "format": "date-time",
+            "description": "filter for subset of broadcasts and webcasts that end on or later than the specified datetime"
+          },
+          "end_to": {
+            "type": "string",
+            "format": "date-time",
+            "description": "filter for subset of broadcasts and webcasts that end on or earlier than the specified datetime"
+          },
+          "format": {
+            "type": "array",
+            "description": "filter for subset of broadcasts and webcasts that are classified in the given format ID"
+          },
+          "genre": {
+            "type": "array",
+            "description": "filter for subset of broadcasts and webcasts that are classified in the given genre ID"
+          },
+          "group": {
+            "type": "string",
+            "description": "filter for subset of broadcasts and webcasts that have programmes in the given group",
+            "pattern": "^([0-9,a-d,f-h,j-n,p-t,v-z]){8,}$",
+            "minLength": 8
+          },
+          "id": {
+            "type": "array",
+            "description": "filter for subset of broadcasts and webcasts that have given identifier"
+          },
+          "id_type": {
+            "type": "array",
+            "description": "filter for subset of broadcasts and webcasts that have given id type"
+          },
+          "item": {
+            "type": "array",
+            "description": "filter for subset of broadcasts and webcasts with the given item performed on it"
+          },
+          "page": {
+            "type": "integer",
+            "description": "which page of results to return",
+            "minimum": 1
+          },
+          "page_size": {
+            "type": "integer",
+            "description": "number of results in each page",
+            "maximum": 300
+          },
+          "partner_id": {
+            "type": "array",
+            "description": "filter for broadcasts and webcasts by partner ID"
+          },
+          "partner_pid": {
+            "type": "array",
+            "description": "filter for broadcasts and webcasts by partner PID"
+          },
+          "people": {
+            "type": "string",
+            "description": "filter for subset of broadcasts and webcasts that have given contributor"
+          },
+          "pid": {
+            "type": "array",
+            "description": "filter for subset of broadcasts and webcasts having given PID"
+          },
+          "q": {
+            "type": "string",
+            "description": "filter for subset of broadcasts and webcasts matching supplied keyword/phrase (boolean operators permitted)"
+          },
+          "repeat": {
+            "type": "boolean",
+            "description": "filter to show either only repeats or non-repeats"
+          },
+          "schedule_day": {
+            "type": "string",
+            "format": "date",
+            "description": "filter for subset of broadcasts and webcasts that start on the specified day (BBC time)"
+          },
+          "schedule_day_from": {
+            "type": "string",
+            "format": "date",
+            "description": "filter for subset of broadcasts and webcasts that start on or after the specified day (BBC time)"
+          },
+          "schedule_day_to": {
+            "type": "string",
+            "format": "date",
+            "description": "filter for subset of broadcasts and webcasts that start on or before the specified day (BBC time)"
+          },
+          "service_master_brand": {
+            "type": "array",
+            "description": "filter for subset of broadcasts and webcasts with given service master brand"
+          },
+          "sid": {
+            "type": "array",
+            "description": "filter for subset of broadcasts and webcasts that are on the specified linear service"
+          },
+          "start_from": {
+            "type": "string",
+            "format": "date-time",
+            "description": "filter for subset of broadcasts and webcasts that start on or later than the specified datetime"
+          },
+          "start_to": {
+            "type": "string",
+            "format": "date-time",
+            "description": "filter for subset of broadcasts and webcasts that start on or earlier than the specified datetime"
+          },
+          "version": {
+            "type": "array",
+            "description": "filter for subset of broadcasts and webcasts with given PID as their parent version"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/nitro"
+      },
+      "security": {
+        "bbc": {
+          "integration": "bbc"
+        }
+      }
+    },
+    {
+      "id": "getXSD",
+      "title": "getXSD",
+      "description": "Get Schema definition",
+      "inputSchema": {},
+      "outputSchema": {},
+      "security": {
+        "bbc": {
+          "integration": "bbc"
+        }
+      }
+    },
+    {
+      "id": "listServices",
+      "title": "listServices",
+      "description": "The services feed exposes the linear broadcast \"services\" from PIPs. These are the actual services which broadcast programmes (eg bbc_one_oxford is the service for BBC One in Oxford).",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "end_from": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Return services that end on or later than the specified datetime"
+          },
+          "end_to": {
+            "type": "string",
+            "format": "date-time",
+            "description": "filter for subset of broadcasts that end on or earlier than the specified datetime"
+          },
+          "mid": {
+            "type": "array",
+            "description": "filter for services by masterbrand MID"
+          },
+          "page": {
+            "type": "integer",
+            "description": "which page of results to return",
+            "minimum": 1
+          },
+          "page_size": {
+            "type": "integer",
+            "description": "number of results in each page",
+            "maximum": 300
+          },
+          "partner_id": {
+            "type": "array",
+            "description": "filter for services by partner ID"
+          },
+          "partner_pid": {
+            "type": "array",
+            "description": "filter for services by partner PID"
+          },
+          "q": {
+            "type": "string",
+            "description": "filter for subset of services matching supplied keyword/phrase (boolean operators permitted)"
+          },
+          "service_type": {
+            "type": "array",
+            "description": "filter for specified type of linear services",
+            "enum": [
+              "Interactive",
+              "Local Radio",
+              "Master Brand Only",
+              "National Radio",
+              "On Demand",
+              "Regional Radio",
+              "Simulcast",
+              "TV",
+              "Web Only",
+              "Webcast"
+            ]
+          },
+          "sid": {
+            "type": "array",
+            "description": "filter for specified linear service"
+          },
+          "start_from": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Return services that start on or later than the specified datetime"
+          },
+          "start_to": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Return services that start earlier than the specified datetime"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/nitro"
+      },
+      "security": {
+        "bbc": {
+          "integration": "bbc"
+        }
+      }
+    },
+    {
+      "id": "Get_Raw_brand",
+      "title": "Get_Raw_brand",
+      "description": "Get raw brand",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "pid": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "pid"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/nitro"
+      },
+      "security": {
+        "bbc": {
+          "integration": "bbc"
+        }
+      }
+    },
+    {
+      "id": "v1.brands.pid.franchises.get",
+      "title": "v1.brands.pid.franchises.get",
+      "description": "Get raw brand franchises",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "pid": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "pid"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/nitro"
+      },
+      "security": {
+        "bbc": {
+          "integration": "bbc"
+        }
+      }
+    },
+    {
+      "id": "Get_Raw_episode",
+      "title": "Get_Raw_episode",
+      "description": "Get raw episode",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "pid": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "pid"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/nitro"
+      },
+      "security": {
+        "bbc": {
+          "integration": "bbc"
+        }
+      }
+    },
+    {
+      "id": "Get_Raw_ancestors",
+      "title": "Get_Raw_ancestors",
+      "description": "Get raw ancestors",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "pid": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "pid"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/nitro"
+      },
+      "security": {
+        "bbc": {
+          "integration": "bbc"
+        }
+      }
+    },
+    {
+      "id": "Get_Raw_formats",
+      "title": "Get_Raw_formats",
+      "description": "Get raw formats",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "pid": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "pid"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/nitro"
+      },
+      "security": {
+        "bbc": {
+          "integration": "bbc"
+        }
+      }
+    },
+    {
+      "id": "Get_Raw_genre_groups",
+      "title": "Get_Raw_genre_groups",
+      "description": "Get raw genre groups",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "pid": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "pid"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/nitro"
+      },
+      "security": {
+        "bbc": {
+          "integration": "bbc"
+        }
+      }
+    },
+    {
+      "id": "Get_Raw_image",
+      "title": "Get_Raw_image",
+      "description": "Get raw image",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "pid": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "pid"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/nitro"
+      },
+      "security": {
+        "bbc": {
+          "integration": "bbc"
+        }
+      }
+    },
+    {
+      "id": "Get_Raw_masterbrand",
+      "title": "Get_Raw_masterbrand",
+      "description": "Get raw masterbrand",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "mbid": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "mbid"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/nitro"
+      },
+      "security": {
+        "bbc": {
+          "integration": "bbc"
+        }
+      }
+    },
+    {
+      "id": "Get_Raw_promotion",
+      "title": "Get_Raw_promotion",
+      "description": "Get raw promotion",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "pid": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "pid"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/nitro"
+      },
+      "security": {
+        "bbc": {
+          "integration": "bbc"
+        }
+      }
+    },
+    {
+      "id": "listVersions",
+      "title": "listVersions",
+      "description": "The versions feed exposes editorial \"Versions\" of programmes. These are concepts used to capture different presentations of an overall programme: for example, versions of a programme may include one with sign language, one with audio description, one edited for content and more. Versions are also important to understand for broadcasts: a linear broadcast or an ondemand is always of a specific version, not merely of a programme.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "availability": {
+            "type": "array",
+            "description": "filter for subset of versions that have availability",
+            "enum": [
+              "available"
+            ]
+          },
+          "descendants_of": {
+            "type": "array",
+            "description": "filter for subset of versions having given programme PID"
+          },
+          "media_set": {
+            "type": "array",
+            "description": "filter for subset of versions with availability in the given media set"
+          },
+          "page": {
+            "type": "integer",
+            "description": "which page of results to return",
+            "minimum": 1
+          },
+          "page_size": {
+            "type": "integer",
+            "description": "number of results in each page",
+            "maximum": 300
+          },
+          "partner_id": {
+            "type": "array",
+            "description": "filter for versions by partner ID"
+          },
+          "partner_pid": {
+            "type": "array",
+            "description": "filter for versions by partner PID"
+          },
+          "payment_type": {
+            "type": "array",
+            "description": "filter for a subset of versions that are of the given payment_type",
+            "enum": [
+              "free",
+              "bbcstore",
+              "uscansvod"
+            ]
+          },
+          "pid": {
+            "type": "array",
+            "description": "filter for subset of versions having given PID"
+          },
+          "embargoed": {
+            "type": "string",
+            "description": "Control return of embargoed items (undocumented)",
+            "enum": [
+              "include",
+              "exclude",
+              "only"
+            ]
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/nitro"
+      },
+      "security": {
+        "bbc": {
+          "integration": "bbc"
+        }
+      }
+    }
+  ],
+  "tags": [
+    "media",
+    "open data"
+  ]
+}

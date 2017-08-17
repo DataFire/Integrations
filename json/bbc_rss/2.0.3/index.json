@@ -1,0 +1,99 @@
+{
+  "id": "bbc_rss",
+  "title": "BBC RSS",
+  "security": {},
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/bbc_rss.png"
+  },
+  "actionCount": 4,
+  "definitions": {
+    "Feed": {
+      "type": "object",
+      "properties": {
+        "feed": {
+          "type": "object",
+          "properties": {
+            "link": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            },
+            "feedUrl": {
+              "type": "string"
+            },
+            "entries": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "link": {
+                    "type": "string"
+                  },
+                  "title": {
+                    "type": "string"
+                  },
+                  "pubDate": {
+                    "type": "string"
+                  },
+                  "author": {
+                    "type": "string"
+                  },
+                  "content": {
+                    "type": "string"
+                  },
+                  "contentSnippet": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "title": "Feed"
+    }
+  },
+  "actions": [
+    {
+      "id": "topStories",
+      "title": "topStories",
+      "description": "BBC News - Home",
+      "inputSchema": {},
+      "outputSchema": {
+        "$ref": "#/definitions/Feed"
+      }
+    },
+    {
+      "id": "world",
+      "title": "world",
+      "description": "BBC News - World",
+      "inputSchema": {},
+      "outputSchema": {
+        "$ref": "#/definitions/Feed"
+      }
+    },
+    {
+      "id": "uk",
+      "title": "uk",
+      "description": "BBC News - UK",
+      "inputSchema": {},
+      "outputSchema": {
+        "$ref": "#/definitions/Feed"
+      }
+    },
+    {
+      "id": "technology",
+      "title": "technology",
+      "description": "BBC News - Technology",
+      "inputSchema": {},
+      "outputSchema": {
+        "$ref": "#/definitions/Feed"
+      }
+    }
+  ],
+  "tags": []
+}

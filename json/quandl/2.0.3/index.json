@@ -1,0 +1,962 @@
+{
+  "id": "quandl",
+  "title": "Quandl",
+  "description": "The Quandl API",
+  "security": {
+    "quandl": {
+      "integration": "quandl",
+      "fields": {
+        "apiKey": "API key"
+      }
+    }
+  },
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/quandl.png"
+  },
+  "actionCount": 8,
+  "actions": [
+    {
+      "id": "datasets.database_code.dataset_code.metadata.get",
+      "title": "datasets.database_code.dataset_code.metadata.get",
+      "description": "To download the metadata associated with any dataset object, append /metadata to your API request. (You can replace .csv with .json or .xml in this request). The following metadata fields are available in the response:",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "column_names": {
+            "type": "string"
+          },
+          "database_code": {
+            "type": "string",
+            "description": "The unique database code on Quandl (ex. WIKI)"
+          },
+          "dataset_code": {
+            "type": "string",
+            "description": "The unique dataset code on Quandl (ex. APPL)"
+          },
+          "description": {
+            "type": "string"
+          },
+          "frequency": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "newest_available_date": {
+            "type": "string"
+          },
+          "oldest_available_date": {
+            "type": "string"
+          },
+          "premium": {
+            "type": "string"
+          },
+          "refreshed_at": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "column_names",
+          "database_code",
+          "dataset_code",
+          "description",
+          "frequency",
+          "name",
+          "newest_available_date",
+          "oldest_available_date",
+          "premium",
+          "refreshed_at",
+          "type"
+        ]
+      },
+      "outputSchema": {
+        "required": [
+          "dataset"
+        ],
+        "properties": {
+          "dataset": {
+            "required": [
+              "id",
+              "dataset_code",
+              "database_code",
+              "name",
+              "description",
+              "refreshed_at",
+              "newest_available_date",
+              "oldest_available_date",
+              "column_names",
+              "frequency",
+              "type",
+              "premium",
+              "database_id"
+            ],
+            "properties": {
+              "database_id": {
+                "type": "number"
+              },
+              "premium": {
+                "type": "boolean"
+              },
+              "type": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "frequency": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "column_names": {
+                "items": {
+                  "properties": {},
+                  "required": []
+                },
+                "type": "array"
+              },
+              "oldest_available_date": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "newest_available_date": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "refreshed_at": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "description": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "name": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "database_code": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "dataset_code": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "id": {
+                "type": "number"
+              }
+            },
+            "type": "object"
+          }
+        },
+        "type": "object",
+        "description": "",
+        "$schema": "http://json-schema.org/draft-04/schema#"
+      },
+      "security": {
+        "quandl": {
+          "integration": "quandl"
+        }
+      }
+    },
+    {
+      "id": "datasets.database_code.dataset_code.data.get",
+      "title": "datasets.database_code.dataset_code.data.get",
+      "description": "To download the data in a dataset, simply append /data to the Quandl code in your API request. (You can replace .csv with .json or .xml in this request). If you request CSV, only the data you requested will be returned.  If you request JSON or XML, both data and input parameters will be returned. You can customize the dataset object being returned by adding various optional parameters to your query. Available parameters are tabulated below: If a datapoint for time t is denoted as y[t] and the transformed data as y’[t], the available transformations are defined as below: y[0] in the above table refers to the starting date for the API call, i.e., the date specified by start_date= or rows=, NOT the starting date of the underlying dataset.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Cumulative": {
+            "type": "string",
+            "description": "y’[t] = y[t] +y[t-1] + … + y[0]"
+          },
+          "Row-on-row": {
+            "type": "string",
+            "description": "y’[t] = y[t] - y[t-1]"
+          },
+          "Start": {
+            "type": "string",
+            "description": "y’[t] = (y[t]/y[0]) * 100"
+          },
+          "collapse": {
+            "type": "string",
+            "description": "Parameters to indicate the desired frequency. When you change the frequency of a dataset, Quandl returns the last observation for the given period. By collapsing a daily dataset to monthly, you will get a sample of the original dataset where the observation for each month is the last data point available for that month. Set collapse with: collapse=none|daily|weekly|monthly|quarterly|annual"
+          },
+          "column_index": {
+            "type": "string",
+            "description": "Request a specific column by passing the column_index=n parameter. Column 0 is the date column and is always returned. Data begins at column 1."
+          },
+          "database_code": {
+            "type": "string",
+            "description": "Each database on Quandl has a unique database code. For example, the database code for “Wiki EOD Stock Prices” has the Quandl code WIKI."
+          },
+          "dataset_code": {
+            "type": "string",
+            "description": "Each dataset on Quandl has a unique dataset code. For example, to access the dataset named Apple Inc. (AAPL) use the dataset code AAPL. The dataset code must be used in combination with the database code, for example, to retrieve the dataset named Apple, use WIKI/AAPL."
+          },
+          "end_date": {
+            "type": "string",
+            "description": "Retrieve data within a specific date range, by setting end dates for your query. Set the end date with: end_date=yyyy-mm-dd"
+          },
+          "limit": {
+            "type": "string",
+            "description": "You can use limit=n to get only the first n rows of your dataset. Use limit=1 to get the latest observation for any dataset."
+          },
+          "order": {
+            "type": "string",
+            "description": "Select the sort order by passing the parameter order=asc|desc. (Notice that the | in the parameter specification separates various mutually-exclusive options). The default sort order is descending."
+          },
+          "rows": {
+            "type": "string",
+            "description": "You can use rows=n to get only the first n rows of your dataset. Use rows=1 to get the latest observation for any dataset."
+          },
+          "start_date": {
+            "type": "string",
+            "description": "Retrieve data within a specific date range, by setting start dates for your query. Set the start date with: start_date=yyyy-mm-dd"
+          },
+          "transform": {
+            "type": "string",
+            "description": "Perform  calculations on your data prior to downloading. The transformations currently availabe are row-on-row change, percentage change, cumulative sum, and normalize (set starting value at 100). Set the transform parameter with: transform=none|diff|rdiff|cumul|normalize"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Cumulative",
+          "Row-on-row",
+          "Start",
+          "database_code",
+          "dataset_code"
+        ]
+      },
+      "outputSchema": {
+        "required": [
+          "dataset_data"
+        ],
+        "properties": {
+          "dataset_data": {
+            "required": [
+              "column_names",
+              "start_date",
+              "end_date",
+              "frequency",
+              "data",
+              "order"
+            ],
+            "properties": {
+              "order": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "collapse": {},
+              "data": {
+                "items": {
+                  "properties": {
+                    "0": {
+                      "items": {
+                        "properties": {},
+                        "required": []
+                      },
+                      "uniqueItems": true,
+                      "type": "array"
+                    },
+                    "1": {
+                      "items": {
+                        "properties": {},
+                        "required": []
+                      },
+                      "uniqueItems": true,
+                      "type": "array"
+                    },
+                    "2": {
+                      "items": {
+                        "properties": {},
+                        "required": []
+                      },
+                      "uniqueItems": true,
+                      "type": "array"
+                    },
+                    "3": {
+                      "items": {
+                        "properties": {},
+                        "required": []
+                      },
+                      "uniqueItems": true,
+                      "type": "array"
+                    }
+                  },
+                  "required": []
+                },
+                "type": "array"
+              },
+              "frequency": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "end_date": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "start_date": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "column_names": {
+                "items": {
+                  "properties": {},
+                  "required": []
+                },
+                "type": "array"
+              },
+              "column_index": {},
+              "transform": {},
+              "limit": {}
+            },
+            "type": "object"
+          }
+        },
+        "type": "object",
+        "description": "",
+        "$schema": "http://json-schema.org/draft-04/schema#"
+      },
+      "security": {
+        "quandl": {
+          "integration": "quandl"
+        }
+      }
+    },
+    {
+      "id": "datasets.database_code.dataset_code.get",
+      "title": "datasets.database_code.dataset_code.get",
+      "description": "You can download both data and metadata in a single call, using the following API request. (You can replace .json with .csv or .xml in this request.  If you use .csv, only data will be returned.). In this call, you can customize the dataset object being returned, exactly as in the /data request above.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "collapse": {
+            "type": "string",
+            "description": "Parameters to indicate the desired frequency. When you change the frequency of a dataset, Quandl returns the last observation for the given period. By collapsing a daily dataset to monthly, you will get a sample of the original dataset where the observation for each month is the last data point available for that month. Set collapse with: collapse=none|daily|weekly|monthly|quarterly|annual"
+          },
+          "column_index": {
+            "type": "string",
+            "description": "Request a specific column by passing the column_index=n parameter. Column 0 is the date column and is always returned. Data begins at column 1."
+          },
+          "database_code": {
+            "type": "string",
+            "description": "Each database on Quandl has a unique database code. For example, the database code for “Wiki EOD Stock Prices” will have the Qunadl code WIKI."
+          },
+          "dataset_code": {
+            "type": "string",
+            "description": "Each dataset on Quandl has a unique dataset code. For example, to access the dataset named Apple Inc. (AAPL) use the dataset code AAPL. The dataset code must be used in combination with the database code, for example, to retrieve the dataset named Apple, use WIKI/AAPL."
+          },
+          "end_date": {
+            "type": "string",
+            "description": "Retrieve data within a specific date range, by setting end dates for your query. Set the end date with: end_date=yyyy-mm-dd"
+          },
+          "exclude_column_names": {
+            "type": "string",
+            "description": "Request data without column names by passing the exclude_column_names=true parameter. This can only be applied to CSV."
+          },
+          "limit": {
+            "type": "string",
+            "description": "You can use limit=n to get only the first n rows of your dataset. Use limit=1 to get the latest observation for any dataset."
+          },
+          "order": {
+            "type": "string",
+            "description": "You can select the sort order by passing the parameter order=asc|desc. (Notice that the | in the parameter specification separates various mutually-exclusive options). The default sort order is descending."
+          },
+          "rows": {
+            "type": "string",
+            "description": "You can use rows=n to get only the first n rows of your dataset. Use rows=1 to get the latest observation for any dataset."
+          },
+          "start_date": {
+            "type": "string",
+            "description": "Retrieve data within a specific date range, by setting start for your query. Set the start date with: start_date=yyyy-mm-dd"
+          },
+          "transform": {
+            "type": "string",
+            "description": "Perform  calculations on your data prior to downloading. The transformations currently availabe are row-on-row change, percentage change, cumulative sum, and normalize (set starting value at 100). Set the transform parameter with: transform=none|diff|rdiff|cumul|normalize"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "database_code",
+          "dataset_code"
+        ]
+      },
+      "outputSchema": {
+        "required": [
+          "dataset"
+        ],
+        "properties": {
+          "dataset": {
+            "required": [
+              "id",
+              "dataset_code",
+              "database_code",
+              "name",
+              "description",
+              "refreshed_at",
+              "newest_available_date",
+              "oldest_available_date",
+              "column_names",
+              "frequency",
+              "type",
+              "premium",
+              "start_date",
+              "end_date",
+              "data",
+              "order",
+              "database_id"
+            ],
+            "properties": {
+              "database_id": {
+                "type": "number"
+              },
+              "order": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "collapse": {},
+              "data": {
+                "items": {
+                  "properties": {
+                    "0": {
+                      "items": {
+                        "properties": {},
+                        "required": []
+                      },
+                      "uniqueItems": true,
+                      "type": "array"
+                    },
+                    "1": {
+                      "items": {
+                        "properties": {},
+                        "required": []
+                      },
+                      "uniqueItems": true,
+                      "type": "array"
+                    },
+                    "2": {
+                      "items": {
+                        "properties": {},
+                        "required": []
+                      },
+                      "uniqueItems": true,
+                      "type": "array"
+                    },
+                    "3": {
+                      "items": {
+                        "properties": {},
+                        "required": []
+                      },
+                      "uniqueItems": true,
+                      "type": "array"
+                    },
+                    "4": {
+                      "items": {
+                        "properties": {},
+                        "required": []
+                      },
+                      "uniqueItems": true,
+                      "type": "array"
+                    }
+                  },
+                  "required": []
+                },
+                "type": "array"
+              },
+              "end_date": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "start_date": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "column_index": {},
+              "transform": {},
+              "limit": {},
+              "premium": {
+                "type": "boolean"
+              },
+              "type": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "frequency": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "column_names": {
+                "items": {
+                  "properties": {},
+                  "required": []
+                },
+                "type": "array"
+              },
+              "oldest_available_date": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "newest_available_date": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "refreshed_at": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "description": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "name": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "database_code": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "dataset_code": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "id": {
+                "type": "number"
+              }
+            },
+            "type": "object"
+          }
+        },
+        "type": "object",
+        "description": "",
+        "$schema": "http://json-schema.org/draft-04/schema#"
+      },
+      "security": {
+        "quandl": {
+          "integration": "quandl"
+        }
+      }
+    },
+    {
+      "id": "datasets.get",
+      "title": "datasets.get",
+      "description": "You can search for individual datasets on Quandl by making the following API request.  The API will return datasets related to your query, as well as datasets that belong to databases related to your query.  Datasets are returned 100 results at a time. You can page through the results using these parameters:",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "database_code": {
+            "type": "string",
+            "description": "You can restrict your search to a specific database by including a Quandl database code. For example, the database code for “IMF Cross Country Macroeconomic Statistics” is ODA."
+          },
+          "page": {
+            "type": "string",
+            "description": "The current page of total available pages you wish to view."
+          },
+          "per_page": {
+            "type": "string",
+            "description": "The number of results per page that will be returned."
+          },
+          "query": {
+            "type": "string",
+            "description": "You can retrieve all datasets related to a search term using the query parameter. Multiple search terms should be separated by a + character."
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "required": [
+          "datasets",
+          "meta"
+        ],
+        "properties": {
+          "meta": {
+            "required": [
+              "query",
+              "per_page",
+              "current_page",
+              "total_pages",
+              "total_count",
+              "current_first_item",
+              "current_last_item"
+            ],
+            "properties": {
+              "current_last_item": {
+                "type": "number"
+              },
+              "current_first_item": {
+                "type": "number"
+              },
+              "next_page": {},
+              "total_count": {
+                "type": "number"
+              },
+              "total_pages": {
+                "type": "number"
+              },
+              "prev_page": {},
+              "current_page": {
+                "type": "number"
+              },
+              "per_page": {
+                "type": "number"
+              },
+              "query": {
+                "minLength": 1,
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "datasets": {
+            "items": {
+              "properties": {
+                "database_id": {
+                  "type": "number"
+                },
+                "premium": {
+                  "type": "boolean"
+                },
+                "type": {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "frequency": {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "column_names": {
+                  "items": {
+                    "properties": {},
+                    "required": []
+                  },
+                  "type": "array"
+                },
+                "oldest_available_date": {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "newest_available_date": {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "refreshed_at": {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "description": {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "name": {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "database_code": {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "dataset_code": {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "id": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "id",
+                "dataset_code",
+                "database_code",
+                "name",
+                "description",
+                "refreshed_at",
+                "newest_available_date",
+                "oldest_available_date",
+                "frequency",
+                "type",
+                "premium",
+                "database_id"
+              ]
+            },
+            "minItems": 1,
+            "uniqueItems": true,
+            "type": "array"
+          }
+        },
+        "type": "object",
+        "description": "",
+        "$schema": "http://json-schema.org/draft-04/schema#"
+      },
+      "security": {
+        "quandl": {
+          "integration": "quandl"
+        }
+      }
+    },
+    {
+      "id": "databases.database_code.data.get",
+      "title": "databases.database_code.data.get",
+      "description": "You can download all the data in a premium database in a single call, by appending /data to your database request. You can specify whether you want the entire history, or merely the last day’s worth of updates, by setting the correct query parameters.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "database_code": {
+            "type": "string",
+            "description": "The unique database code on Quandl (ex. YC)"
+          },
+          "download_type": {
+            "type": "string",
+            "description": "Data returned can be either partial or complete. Partial returns results from the last day, while complete returns the entire database. Default is complete."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "database_code"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "quandl": {
+          "integration": "quandl"
+        }
+      }
+    },
+    {
+      "id": "databases.database_code.codes.get",
+      "title": "databases.database_code.codes.get",
+      "description": "You can download a list of all dataset codes in a database in a single call, by appending /codes to your database request. The call will return a ZIP file containing a CSV.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "database_code": {
+            "type": "string",
+            "description": "The unique database code on Quandl (ex. YC)"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "database_code"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "quandl": {
+          "integration": "quandl"
+        }
+      }
+    },
+    {
+      "id": "databases.database_code.get",
+      "title": "databases.database_code.get",
+      "description": "This call returns descriptive metadata for the specified database.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "database_code": {
+            "type": "string",
+            "description": "The unique database code on Quandl (ex. WIKI)"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "database_code"
+        ]
+      },
+      "outputSchema": {
+        "required": [
+          "database"
+        ],
+        "properties": {
+          "database": {
+            "required": [
+              "id",
+              "name",
+              "database_code",
+              "description",
+              "datasets_count",
+              "downloads",
+              "premium",
+              "image"
+            ],
+            "properties": {
+              "image": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "premium": {
+                "type": "boolean"
+              },
+              "downloads": {
+                "type": "number"
+              },
+              "datasets_count": {
+                "type": "number"
+              },
+              "description": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "database_code": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "name": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "id": {
+                "type": "number"
+              }
+            },
+            "type": "object"
+          }
+        },
+        "type": "object",
+        "description": "",
+        "$schema": "http://json-schema.org/draft-04/schema#"
+      },
+      "security": {
+        "quandl": {
+          "integration": "quandl"
+        }
+      }
+    },
+    {
+      "id": "databases.get",
+      "title": "databases.get",
+      "description": "You can search for specific databases on Quandl by making the following API request.  The API will return databases related to your query. Databases are returned 100 results at a time. You can page through the results using these parameters:",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "page": {
+            "type": "string",
+            "description": "The current page of total available pages you wish to view."
+          },
+          "per_page": {
+            "type": "string",
+            "description": "The number of results per page that will be returned."
+          },
+          "query": {
+            "type": "string",
+            "description": "You can retrieve all databases related to a search term using the query parameter. Multiple search terms should be separated by a + character."
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "required": [
+          "databases",
+          "meta"
+        ],
+        "properties": {
+          "meta": {
+            "required": [
+              "query",
+              "per_page",
+              "current_page",
+              "total_pages",
+              "total_count",
+              "next_page",
+              "current_first_item",
+              "current_last_item"
+            ],
+            "properties": {
+              "current_last_item": {
+                "type": "number"
+              },
+              "current_first_item": {
+                "type": "number"
+              },
+              "next_page": {
+                "type": "number"
+              },
+              "total_count": {
+                "type": "number"
+              },
+              "total_pages": {
+                "type": "number"
+              },
+              "prev_page": {},
+              "current_page": {
+                "type": "number"
+              },
+              "per_page": {
+                "type": "number"
+              },
+              "query": {
+                "minLength": 1,
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "databases": {
+            "items": {
+              "properties": {
+                "image": {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "premium": {
+                  "type": "boolean"
+                },
+                "downloads": {
+                  "type": "number"
+                },
+                "datasets_count": {
+                  "type": "number"
+                },
+                "description": {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "database_code": {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "name": {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "id": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "id",
+                "name",
+                "database_code",
+                "description",
+                "datasets_count",
+                "downloads",
+                "premium",
+                "image"
+              ]
+            },
+            "minItems": 1,
+            "uniqueItems": true,
+            "type": "array"
+          }
+        },
+        "type": "object",
+        "description": "",
+        "$schema": "http://json-schema.org/draft-04/schema#"
+      },
+      "security": {
+        "quandl": {
+          "integration": "quandl"
+        }
+      }
+    }
+  ],
+  "tags": []
+}

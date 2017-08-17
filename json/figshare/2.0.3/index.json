@@ -1,0 +1,6095 @@
+{
+  "id": "figshare",
+  "title": "Figshare",
+  "description": "Figshare apiv2. Using Swagger 2.0",
+  "security": {
+    "figshare": {
+      "integration": "figshare",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)",
+        "redirect_uri": "The callback URL for your application"
+      },
+      "oauth": {
+        "authorizationUrl": "https://figshare.com/account/applications/authorize",
+        "flow": "accessCode",
+        "scopes": {
+          "all": "Grants all access"
+        },
+        "tokenUrl": "https://api.figshare.com/v2/token",
+        "type": "oauth2"
+      }
+    }
+  },
+  "logo": {
+    "backgroundColor": "#FFFFFF",
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/figshare.png"
+  },
+  "actionCount": 111,
+  "definitions": {
+    "Account": {
+      "properties": {
+        "active": {
+          "description": "Account activity status",
+          "example": 0,
+          "format": "int64",
+          "type": "integer"
+        },
+        "created_date": {
+          "description": "Date when account was created",
+          "example": "2018-05-22T04:04:04",
+          "type": "string"
+        },
+        "email": {
+          "description": "User email",
+          "example": "user@domain.com",
+          "type": "string"
+        },
+        "first_name": {
+          "description": "First Name",
+          "example": "Doe",
+          "type": "string"
+        },
+        "id": {
+          "description": "Account id",
+          "example": 1495682,
+          "format": "int64",
+          "type": "integer"
+        },
+        "institution_id": {
+          "description": "Account institution",
+          "example": 1,
+          "format": "int64",
+          "type": "integer"
+        },
+        "institution_user_id": {
+          "description": "Account institution user id",
+          "example": 1,
+          "type": "string"
+        },
+        "last_name": {
+          "description": "Last Name",
+          "example": "John",
+          "type": "string"
+        },
+        "maximum_file_size": {
+          "description": "Maximum upload size for account",
+          "example": 0,
+          "format": "int64",
+          "type": "integer"
+        },
+        "modified_date": {
+          "description": "Date of last account modification",
+          "example": "2018-05-22T04:04:04",
+          "type": "string"
+        },
+        "pending_quota_request": {
+          "description": "True if a quota request is pending",
+          "example": true,
+          "type": "boolean"
+        },
+        "quota": {
+          "description": "Account quota",
+          "example": 0,
+          "format": "int64",
+          "type": "integer"
+        },
+        "used_quota": {
+          "description": "Account total used quota",
+          "example": 0,
+          "format": "int64",
+          "type": "integer"
+        },
+        "used_quota_private": {
+          "description": "Account used private quota",
+          "example": 0,
+          "format": "int64",
+          "type": "integer"
+        },
+        "used_quota_public": {
+          "description": "Account public used quota",
+          "example": 0,
+          "format": "int64",
+          "type": "integer"
+        }
+      },
+      "type": "object",
+      "x-tag": "other",
+      "title": "Account"
+    },
+    "Article": {
+      "properties": {
+        "defined_type": {
+          "description": "Type of article identificator",
+          "example": 3,
+          "format": "int64",
+          "type": "integer"
+        },
+        "doi": {
+          "description": "DOI",
+          "example": "10.6084/m9.figshare.1434614",
+          "type": "string"
+        },
+        "group_id": {
+          "description": "Group ID",
+          "example": 1234,
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "id": {
+          "description": "Unique identifier for article",
+          "example": 1434614,
+          "format": "int64",
+          "type": "integer"
+        },
+        "published_date": {
+          "description": "Publishing date",
+          "example": "2015-12-31T23:59:59.000Z",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "thumb": {
+          "description": "Thumbnail image",
+          "example": "https://ndownloader.figshare.com/files/123456789/preview/12345678/thumb.png",
+          "format": "url",
+          "type": "string"
+        },
+        "title": {
+          "description": "Title of article",
+          "example": "Test article title",
+          "type": "string"
+        },
+        "url": {
+          "description": "Api endpoint for article",
+          "example": "http://api.figshare.com/articles/1434614",
+          "format": "url",
+          "type": "string"
+        },
+        "url_private_api": {
+          "description": "Private Api endpoint for article",
+          "example": "https://api.figshare.com/account/articles/1434614",
+          "format": "url",
+          "type": "string"
+        },
+        "url_private_html": {
+          "description": "Private site endpoint for article",
+          "example": "https://figshare.com/account/articles/1434614",
+          "format": "url",
+          "type": "string"
+        },
+        "url_public_api": {
+          "description": "Public Api endpoint for article",
+          "example": "https://api.figshare.com/articles/1434614",
+          "format": "url",
+          "type": "string"
+        },
+        "url_public_html": {
+          "description": "Public site endpoint for article",
+          "example": "https://figshare.com/articles/Test_article_title/1434614",
+          "format": "url",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "x-tag": "articles",
+      "title": "Article"
+    },
+    "ArticleComplete": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/ProjectArticle"
+        }
+      ],
+      "properties": {
+        "authors": {
+          "description": "List of article authors",
+          "items": {
+            "$ref": "#/definitions/Author"
+          },
+          "type": "array"
+        },
+        "custom_fields": {
+          "description": "List of custom fields values",
+          "items": {
+            "$ref": "#/definitions/CustomArticleField"
+          },
+          "type": "array"
+        },
+        "figshare_url": {
+          "description": "Article public url",
+          "example": "http://figshare.com/articles/article_name/2000005",
+          "format": "url",
+          "type": "string"
+        },
+        "files": {
+          "description": "List of article files",
+          "items": {
+            "$ref": "#/definitions/PublicFile"
+          },
+          "type": "array"
+        },
+        "resource_doi": {
+          "description": "Article DOI",
+          "example": "10.5072/FK2.developmentfigshare.2000005",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "resource_title": {
+          "description": "Article resource title",
+          "example": "first article",
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "type": "object",
+      "x-tag": "articles",
+      "title": "ArticleComplete"
+    },
+    "ArticleCompletePrivate": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/ArticleComplete"
+        }
+      ],
+      "properties": {
+        "group_resource_id": {
+          "description": "Group resource id",
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "type": "object",
+      "x-tag": "articles",
+      "title": "ArticleCompletePrivate"
+    },
+    "ArticleConfidentiality": {
+      "properties": {
+        "is_confidential": {
+          "description": "True if article is confidential",
+          "example": true,
+          "type": "boolean"
+        },
+        "reason": {
+          "description": "Reason for confidentiality",
+          "example": "need to",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "x-tag": "articles",
+      "title": "ArticleConfidentiality"
+    },
+    "ArticleCreate": {
+      "properties": {
+        "authors": {
+          "default": [],
+          "description": "List of authors to be assosciated with the article. The list can contain author ids or author names. No more than 10 authors. For adding more authors use the specific authors endpoint.",
+          "example": [
+            {
+              "name": "John Doe"
+            },
+            {
+              "id": 1000008
+            }
+          ],
+          "items": {
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "categories": {
+          "default": [],
+          "description": "List of category ids to be associated with the article(e.g [1, 23, 33, 66])",
+          "example": [
+            1,
+            10,
+            11
+          ],
+          "items": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "type": "array"
+        },
+        "custom_fields": {
+          "description": "List of key, values pairs to be associated with the article",
+          "example": {
+            "defined_key": "value for it"
+          },
+          "type": "object"
+        },
+        "defined_type": {
+          "description": "Article type",
+          "enum": [
+            "figure",
+            "media",
+            "dataset",
+            "fileset",
+            "poster",
+            "paper",
+            "presentation",
+            "thesis",
+            "code",
+            "metadata",
+            "preprint"
+          ],
+          "example": "media",
+          "type": "string"
+        },
+        "description": {
+          "default": "",
+          "description": "The article description. In a publisher case, usually this is the remote article description",
+          "example": "Test description of article",
+          "maxLength": 10000,
+          "type": "string"
+        },
+        "doi": {
+          "default": "",
+          "description": "Not appliable for regular users. In an institutional case, make sure your group supports setting DOIs. This setting is applied by figshare via opening a ticket through our support/helpdesk system.",
+          "type": "string"
+        },
+        "funding": {
+          "default": "",
+          "description": "Grant number or funding authority",
+          "type": "string"
+        },
+        "keywords": {
+          "default": [],
+          "description": "List of tags to be associated with the article. Tags can be used instead",
+          "example": [
+            "tag1",
+            "tag2"
+          ],
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "license": {
+          "default": 0,
+          "description": "License id for this article.",
+          "example": 1,
+          "format": "int64",
+          "type": "integer"
+        },
+        "references": {
+          "default": [],
+          "description": "List of links to be associated with the article (e.g [\"http://link1\", \"http://link2\", \"http://link3\"])",
+          "example": [
+            "http://figshare.com",
+            "http://api.figshare.com"
+          ],
+          "items": {
+            "format": "link",
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "resource_doi": {
+          "default": "",
+          "description": "Not applicable to regular users. In a publisher case, this is the publisher article DOI.",
+          "type": "string"
+        },
+        "resource_title": {
+          "default": "",
+          "description": "Not applicable to regular users. In a publisher case, this is the publisher article title.",
+          "type": "string"
+        },
+        "tags": {
+          "default": [],
+          "description": "List of tags to be associated with the article. Keywords can be used instead",
+          "example": [
+            "tag1",
+            "tag2"
+          ],
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "title": {
+          "description": "Title of article",
+          "example": "Test article title",
+          "maxLength": 500,
+          "minLength": 3,
+          "type": "string"
+        }
+      },
+      "required": [
+        "title"
+      ],
+      "type": "object",
+      "x-tag": "articles",
+      "title": "ArticleCreate"
+    },
+    "ArticleDOI": {
+      "properties": {
+        "doi": {
+          "description": "Reserved DOI",
+          "example": "10.5072/FK2.FIGSHARE.20345",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "x-tag": "articles",
+      "title": "ArticleDOI"
+    },
+    "ArticleEmbargo": {
+      "properties": {
+        "embargo_date": {
+          "description": "Date when embargo lifts",
+          "example": "2018-05-22T04:04:04",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "embargo_reason": {
+          "description": "Reason for embargo",
+          "example": "",
+          "type": "string"
+        },
+        "embargo_type": {
+          "description": "Embargo type",
+          "example": "",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "is_embargoed": {
+          "description": "True if embargoed",
+          "example": true,
+          "type": "boolean"
+        }
+      },
+      "type": "object",
+      "x-tag": "articles",
+      "title": "ArticleEmbargo"
+    },
+    "ArticleEmbargoUpdater": {
+      "properties": {
+        "embargo_date": {
+          "description": "Date when the embargo expires and the article gets published",
+          "example": "2018-05-22T04:04:04",
+          "type": "string"
+        },
+        "embargo_reason": {
+          "description": "Reason for setting embargo",
+          "example": "",
+          "type": "string"
+        },
+        "embargo_type": {
+          "description": "Embargo can be enabled at the article or the file level. Possible values: article, file",
+          "enum": [
+            "article",
+            "file"
+          ],
+          "example": "file",
+          "type": "string"
+        },
+        "is_embargoed": {
+          "description": "Confidentiality status",
+          "example": true,
+          "type": "boolean"
+        }
+      },
+      "type": "object",
+      "x-tag": "articles",
+      "title": "ArticleEmbargoUpdater"
+    },
+    "ArticleSearch": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/CommonSearch"
+        }
+      ],
+      "properties": {
+        "item_type": {
+          "description": "Only return collections with the respective type. Mapping for item_type is: 1 - Figure, 2 - Media, 3 - Dataset, 4 - Fileset, 5 - Poster, 6 - Paper, 7 - Presentation, 8 - Thesis, 9 - Code, 12 - Preprint",
+          "example": 1,
+          "format": "int64",
+          "maximum": 12,
+          "minimum": 1,
+          "type": "integer"
+        },
+        "resource_doi": {
+          "description": "only return collections with this resource_doi",
+          "example": "10.6084/m9.figshare.1407024",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "x-tag": "articles",
+      "title": "ArticleSearch"
+    },
+    "ArticleUpdate": {
+      "properties": {
+        "authors": {
+          "default": [],
+          "description": "List of authors to be assosciated with the article. The list can contain author ids or author names. No more than 10 authors. For adding more authors use the specific authors endpoint.",
+          "example": [
+            {
+              "name": "John Doe"
+            },
+            {
+              "id": 1000008
+            }
+          ],
+          "items": {
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "categories": {
+          "default": [],
+          "description": "List of category ids to be associated with the article(e.g [1, 23, 33, 66])",
+          "example": [
+            1,
+            10,
+            11
+          ],
+          "items": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "type": "array"
+        },
+        "custom_fields": {
+          "description": "List of key, values pairs to be associated with the article",
+          "example": {
+            "defined_key": "value for it"
+          },
+          "type": "object"
+        },
+        "defined_type": {
+          "description": "Article type",
+          "enum": [
+            "figure",
+            "media",
+            "dataset",
+            "fileset",
+            "poster",
+            "paper",
+            "presentation",
+            "thesis",
+            "code",
+            "metadata",
+            "preprint"
+          ],
+          "example": "media",
+          "type": "string"
+        },
+        "description": {
+          "default": "",
+          "description": "The article description. In a publisher case, usually this is the remote article description",
+          "example": "Test description of article",
+          "maxLength": 10000,
+          "type": "string"
+        },
+        "doi": {
+          "default": "",
+          "description": "Not appliable for regular users. In an institutional case, make sure your group supports setting DOIs. This setting is applied by figshare via opening a ticket through our support/helpdesk system.",
+          "type": "string"
+        },
+        "funding": {
+          "default": "",
+          "description": "Grant number or funding authority",
+          "type": "string"
+        },
+        "keywords": {
+          "default": [],
+          "description": "List of tags to be associated with the article. Tags can be used instead",
+          "example": [
+            "tag1",
+            "tag2"
+          ],
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "license": {
+          "default": 0,
+          "description": "License id for this article.",
+          "example": 1,
+          "format": "int64",
+          "type": "integer"
+        },
+        "references": {
+          "default": [],
+          "description": "List of links to be associated with the article (e.g [\"http://link1\", \"http://link2\", \"http://link3\"])",
+          "example": [
+            "http://figshare.com",
+            "http://api.figshare.com"
+          ],
+          "items": {
+            "format": "link",
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "resource_doi": {
+          "default": "",
+          "description": "Not applicable to regular users. In a publisher case, this is the publisher article DOI.",
+          "type": "string"
+        },
+        "resource_title": {
+          "default": "",
+          "description": "Not applicable to regular users. In a publisher case, this is the publisher article title.",
+          "type": "string"
+        },
+        "tags": {
+          "default": [],
+          "description": "List of tags to be associated with the article. Keywords can be used instead",
+          "example": [
+            "tag1",
+            "tag2"
+          ],
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "title": {
+          "description": "Title of article",
+          "example": "Test article title",
+          "maxLength": 500,
+          "minLength": 3,
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "x-tag": "articles",
+      "title": "ArticleUpdate"
+    },
+    "ArticlesCreator": {
+      "properties": {
+        "articles": {
+          "description": "List of article ids",
+          "example": [
+            2000003,
+            2000004
+          ],
+          "items": {
+            "description": "Id of article",
+            "format": "int64",
+            "type": "integer"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "articles"
+      ],
+      "type": "object",
+      "x-tag": "articles",
+      "title": "ArticlesCreator"
+    },
+    "Author": {
+      "properties": {
+        "full_name": {
+          "description": "Author full name",
+          "example": "John Doe",
+          "type": "string"
+        },
+        "id": {
+          "description": "Author id",
+          "example": 97657,
+          "format": "int64",
+          "type": "integer"
+        },
+        "is_active": {
+          "description": "True if author has published items",
+          "example": 1,
+          "type": "boolean"
+        },
+        "orcid_id": {
+          "description": "Author Orcid",
+          "example": "1234-5678-9123-1234",
+          "type": "string"
+        },
+        "url_name": {
+          "description": "Author url name",
+          "example": "John_Doe",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "x-tag": "authors",
+      "title": "Author"
+    },
+    "AuthorComplete": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/Author"
+        }
+      ],
+      "properties": {
+        "first_name": {
+          "description": "First Name",
+          "type": "string"
+        },
+        "group_id": {
+          "description": "Group id",
+          "format": "int64",
+          "type": "integer"
+        },
+        "institution_id": {
+          "description": "Institution id",
+          "format": "int64",
+          "type": "integer"
+        },
+        "is_public": {
+          "description": "if 1 then the author has published items",
+          "format": "int64",
+          "type": "integer"
+        },
+        "job_title": {
+          "description": "Job title",
+          "type": "string"
+        },
+        "last_name": {
+          "description": "Last Name",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "x-tag": "authors",
+      "title": "AuthorComplete"
+    },
+    "AuthorsCreator": {
+      "properties": {
+        "authors": {
+          "description": "List of authors to be assosciated with the article. The list can contain author ids or author names [{\"id\": 12121}, {\"id\": 34345}, {\"name\": \"John Doe\"}]. No more than 10 authors. For adding more authors use the specific authors endpoint.",
+          "example": [
+            {
+              "id": 12121
+            },
+            {
+              "id": 34345
+            },
+            {
+              "name": "John Doe"
+            }
+          ],
+          "items": {
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "authors"
+      ],
+      "type": "object",
+      "x-tag": "articles",
+      "title": "AuthorsCreator"
+    },
+    "CategoriesCreator": {
+      "properties": {
+        "categories": {
+          "description": "List of category ids",
+          "example": [
+            1,
+            10,
+            11
+          ],
+          "items": {
+            "description": "Id of category",
+            "format": "int64",
+            "type": "integer"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "categories"
+      ],
+      "type": "object",
+      "x-tag": "articles",
+      "title": "CategoriesCreator"
+    },
+    "Category": {
+      "properties": {
+        "id": {
+          "description": "Category id",
+          "example": 11,
+          "format": "int64",
+          "type": "integer"
+        },
+        "parent_id": {
+          "description": "Parent category",
+          "example": 1,
+          "format": "int64",
+          "type": "integer"
+        },
+        "title": {
+          "description": "Category title",
+          "example": "Anatomy",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "x-tag": "common",
+      "title": "Category"
+    },
+    "Collaborator": {
+      "properties": {
+        "name": {
+          "description": "Collaborator name",
+          "example": "name",
+          "type": "string"
+        },
+        "role_name": {
+          "description": "Collaborator role",
+          "example": "Owner",
+          "type": "string"
+        },
+        "user_id": {
+          "description": "Collaborator id",
+          "example": 1,
+          "type": "integer"
+        }
+      },
+      "type": "object",
+      "x-tag": "projects",
+      "title": "Collaborator"
+    },
+    "Collection": {
+      "properties": {
+        "doi": {
+          "description": "Collection DOI",
+          "example": "http://dx.doi.org/10.6084/m9.figshare.123",
+          "type": "string"
+        },
+        "id": {
+          "description": "Collection id",
+          "example": 123,
+          "format": "int64",
+          "type": "integer"
+        },
+        "published_date": {
+          "description": "Date when collection was published ",
+          "example": "2015-08-12T00:39:55",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "title": {
+          "description": "Collection title",
+          "example": "Sample collection",
+          "type": "string"
+        },
+        "url": {
+          "description": "Api endpoint",
+          "example": "https://api.figshare.com/v2/collections/123",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "x-tag": "collections",
+      "title": "Collection"
+    },
+    "CollectionComplete": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/Collection"
+        }
+      ],
+      "properties": {
+        "articles_count": {
+          "description": "Number of articles in collection",
+          "example": 1,
+          "format": "int64",
+          "type": "integer"
+        },
+        "authors": {
+          "description": "List of collection authors",
+          "items": {
+            "$ref": "#/definitions/Author"
+          },
+          "type": "array"
+        },
+        "categories": {
+          "description": "List of collection categories",
+          "items": {
+            "$ref": "#/definitions/Category"
+          },
+          "type": "array"
+        },
+        "citation": {
+          "description": "Collection citation",
+          "example": "citation",
+          "type": "string"
+        },
+        "created_date": {
+          "description": "Date when collection was created",
+          "example": "2017-05-15T15:12:26Z",
+          "type": "string"
+        },
+        "custom_fields": {
+          "description": "Collection custom fields",
+          "items": {
+            "$ref": "#/definitions/CustomArticleField"
+          },
+          "type": "array"
+        },
+        "description": {
+          "description": "Collection description",
+          "example": "description",
+          "type": "string"
+        },
+        "group_id": {
+          "description": "Collection group",
+          "example": 1,
+          "format": "int64",
+          "type": "integer"
+        },
+        "group_resource_id": {
+          "description": "Collection group resource id",
+          "example": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "institution_id": {
+          "description": "Collection institution",
+          "example": 1,
+          "format": "int64",
+          "type": "integer"
+        },
+        "modified_date": {
+          "description": "Date when collection was last modified",
+          "example": "2017-05-15T15:12:26Z",
+          "type": "string"
+        },
+        "public": {
+          "description": "True if collection is published",
+          "example": true,
+          "type": "boolean"
+        },
+        "references": {
+          "description": "List of collection references",
+          "items": {
+            "format": "url",
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "resource_doi": {
+          "description": "Collection resource doi",
+          "example": "http://dx.doi.org/10.6084/m9.figshare.123",
+          "type": "string"
+        },
+        "resource_id": {
+          "description": "Collection resource id",
+          "example": "",
+          "type": "string"
+        },
+        "resource_link": {
+          "description": "Collection resource link",
+          "example": "http://figshare.com",
+          "type": "string"
+        },
+        "resource_title": {
+          "description": "Collection resource title",
+          "example": "test",
+          "type": "string"
+        },
+        "resource_version": {
+          "description": "Collection resource version",
+          "example": 0,
+          "format": "int64",
+          "type": "integer"
+        },
+        "tags": {
+          "description": "List of collection tags",
+          "example": [
+            "t1",
+            "t2"
+          ],
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "version": {
+          "description": "Collection version",
+          "example": 1,
+          "format": "int64",
+          "type": "integer"
+        }
+      },
+      "type": "object",
+      "x-tag": "collections",
+      "title": "CollectionComplete"
+    },
+    "CollectionCreate": {
+      "properties": {
+        "articles": {
+          "description": "List of articles to be associated with the collection",
+          "example": [
+            2000001,
+            2000005
+          ],
+          "items": {
+            "type": "integer"
+          },
+          "type": "array"
+        },
+        "authors": {
+          "default": [],
+          "description": "List of authors to be assosciated with the article. The list can contain author ids or author names. No more than 10 authors. For adding more authors use the specific authors endpoint.",
+          "example": [
+            {
+              "name": "John Doe"
+            },
+            {
+              "id": 20005
+            }
+          ],
+          "items": {
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "categories": {
+          "default": [],
+          "description": "List of category ids to be associated with the article(e.g [1, 23, 33, 66])",
+          "example": [
+            1,
+            10,
+            11
+          ],
+          "items": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "type": "array"
+        },
+        "custom_fields": {
+          "description": "List of key, values pairs to be associated with the article",
+          "example": {
+            "defined_key": "value for it"
+          },
+          "type": "object"
+        },
+        "description": {
+          "default": "",
+          "description": "The article description. In a publisher case, usually this is the remote article description",
+          "example": "Test description of article",
+          "maxLength": 10000,
+          "type": "string"
+        },
+        "keywords": {
+          "default": [],
+          "description": "List of tags to be associated with the article. Tags can be used instead",
+          "example": [
+            "tag1",
+            "tag2"
+          ],
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "references": {
+          "default": [],
+          "description": "List of links to be associated with the article (e.g [\"http://link1\", \"http://link2\", \"http://link3\"])",
+          "example": [
+            "http://figshare.com",
+            "http://api.figshare.com"
+          ],
+          "items": {
+            "format": "link",
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "resource_doi": {
+          "default": "",
+          "description": "Not applicable to regular users. In a publisher case, this is the publisher article DOI.",
+          "type": "string"
+        },
+        "resource_id": {
+          "description": "Not applicable to regular users. In a publisher case, this is the publisher article id",
+          "type": "string"
+        },
+        "resource_link": {
+          "description": "Not applicable to regular users. In a publisher case, this is the publisher article link",
+          "type": "string"
+        },
+        "resource_title": {
+          "default": "",
+          "description": "Not applicable to regular users. In a publisher case, this is the publisher article title.",
+          "type": "string"
+        },
+        "resource_version": {
+          "description": "Not applicable to regular users. In a publisher case, this is the publisher article version",
+          "type": "integer"
+        },
+        "tags": {
+          "default": [],
+          "description": "List of tags to be associated with the article. Keywords can be used instead",
+          "example": [
+            "tag1",
+            "tag2"
+          ],
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "title": {
+          "description": "Title of article",
+          "example": "Test article title",
+          "maxLength": 500,
+          "minLength": 3,
+          "type": "string"
+        }
+      },
+      "required": [
+        "title"
+      ],
+      "type": "object",
+      "x-tag": "collections",
+      "title": "CollectionCreate"
+    },
+    "CollectionPrivateLinkCreator": {
+      "properties": {
+        "expires_date": {
+          "description": "Date when this private link should expire - optional. By default private links expire in 365 days.",
+          "example": "2018-02-22 22:22:22",
+          "type": "string"
+        },
+        "read_only": {
+          "description": "Optional, default true. Set to false to give private link users editing rights for this collection.",
+          "example": true,
+          "type": "boolean"
+        }
+      },
+      "type": "object",
+      "x-tag": "collections",
+      "title": "CollectionPrivateLinkCreator"
+    },
+    "CollectionSearch": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/CommonSearch"
+        }
+      ],
+      "properties": {
+        "resource_doi": {
+          "description": "only return collections with this resource_doi",
+          "example": "10.6084/m9.figshare.1407024",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "x-tag": "collections",
+      "title": "CollectionSearch"
+    },
+    "CollectionUpdate": {
+      "properties": {
+        "articles": {
+          "description": "List of articles to be associated with the collection",
+          "example": [
+            2000001,
+            2000005
+          ],
+          "items": {
+            "type": "integer"
+          },
+          "type": "array"
+        },
+        "authors": {
+          "default": [],
+          "description": "List of authors to be assosciated with the article. The list can contain author ids or author names. No more than 10 authors. For adding more authors use the specific authors endpoint.",
+          "example": [
+            {
+              "name": "John Doe"
+            },
+            {
+              "id": 20005
+            }
+          ],
+          "items": {
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "categories": {
+          "default": [],
+          "description": "List of category ids to be associated with the article(e.g [1, 23, 33, 66])",
+          "example": [
+            1,
+            10,
+            11
+          ],
+          "items": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "type": "array"
+        },
+        "custom_fields": {
+          "description": "List of key, values pairs to be associated with the article",
+          "example": {
+            "defined_key": "value for it"
+          },
+          "type": "object"
+        },
+        "description": {
+          "default": "",
+          "description": "The article description. In a publisher case, usually this is the remote article description",
+          "example": "Test description of article",
+          "maxLength": 10000,
+          "type": "string"
+        },
+        "keywords": {
+          "default": [],
+          "description": "List of tags to be associated with the article. Tags can be used instead",
+          "example": [
+            "tag1",
+            "tag2"
+          ],
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "references": {
+          "default": [],
+          "description": "List of links to be associated with the article (e.g [\"http://link1\", \"http://link2\", \"http://link3\"])",
+          "example": [
+            "http://figshare.com",
+            "http://api.figshare.com"
+          ],
+          "items": {
+            "format": "link",
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "resource_doi": {
+          "default": "",
+          "description": "Not applicable to regular users. In a publisher case, this is the publisher article DOI.",
+          "type": "string"
+        },
+        "resource_id": {
+          "description": "Not applicable to regular users. In a publisher case, this is the publisher article id",
+          "type": "string"
+        },
+        "resource_link": {
+          "description": "Not applicable to regular users. In a publisher case, this is the publisher article link",
+          "type": "string"
+        },
+        "resource_title": {
+          "default": "",
+          "description": "Not applicable to regular users. In a publisher case, this is the publisher article title.",
+          "type": "string"
+        },
+        "resource_version": {
+          "description": "Not applicable to regular users. In a publisher case, this is the publisher article version",
+          "type": "integer"
+        },
+        "tags": {
+          "default": [],
+          "description": "List of tags to be associated with the article. Keywords can be used instead",
+          "example": [
+            "tag1",
+            "tag2"
+          ],
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "title": {
+          "description": "Title of article",
+          "example": "Test article title",
+          "maxLength": 500,
+          "minLength": 3,
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "x-tag": "collections",
+      "title": "CollectionUpdate"
+    },
+    "CommonSearch": {
+      "properties": {
+        "group": {
+          "description": "only return collections from this group",
+          "example": 2000013,
+          "format": "int64",
+          "type": "integer"
+        },
+        "institution": {
+          "description": "only return collections from this institution",
+          "example": 2000013,
+          "format": "int64",
+          "type": "integer"
+        },
+        "limit": {
+          "description": "Number of results included on a page. Used for pagination with query",
+          "example": 10,
+          "format": "int64",
+          "maximum": 100,
+          "minimum": 1,
+          "type": "integer"
+        },
+        "modified_since": {
+          "description": "Filter by article modified date. Will only return articles published after the date. date(ISO 8601) YYYY-MM-DD",
+          "example": "2017-12-22",
+          "type": "string"
+        },
+        "offset": {
+          "description": "Where to start the listing(the offset of the first result). Used for pagination with limit",
+          "example": 1,
+          "format": "int64",
+          "maximum": 5000,
+          "minimum": 1,
+          "type": "integer"
+        },
+        "order": {
+          "default": "published_date",
+          "description": "The field by which to order. Default varies by endpoint/resource.",
+          "enum": [
+            "published_date",
+            "modified_date",
+            "views",
+            "shares",
+            "downloads",
+            "cites"
+          ],
+          "example": "published_date",
+          "type": "string"
+        },
+        "order_direction": {
+          "default": "desc",
+          "description": "Direction of ordering",
+          "enum": [
+            "asc",
+            "desc"
+          ],
+          "example": "desc",
+          "type": "string"
+        },
+        "page": {
+          "description": "Page number. Used for pagination with page_size",
+          "example": 1,
+          "format": "int64",
+          "maximum": 5000,
+          "minimum": 1,
+          "type": "integer"
+        },
+        "page_size": {
+          "default": 10,
+          "description": "The number of results included on a page. Used for pagination with page",
+          "example": 10,
+          "format": "int64",
+          "maximum": 100,
+          "minimum": 1,
+          "type": "integer"
+        },
+        "published_since": {
+          "description": "Filter by article publishing date. Will only return articles published after the date. date(ISO 8601) YYYY-MM-DD",
+          "example": "2017-12-22",
+          "type": "string"
+        },
+        "search_for": {
+          "description": "Search term",
+          "example": "figshare",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "x-tag": "common",
+      "title": "CommonSearch"
+    },
+    "ConfidentialityCreator": {
+      "properties": {
+        "reason": {
+          "description": "Reason for confidentiality",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "ConfidentialityCreator"
+    },
+    "CustomArticleField": {
+      "properties": {
+        "is_mandatory": {
+          "description": "True if field completion is mandatory",
+          "example": false,
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "name": {
+          "description": "Custom  metadata name",
+          "example": "key",
+          "type": "string"
+        },
+        "value": {
+          "description": "Custom metadata value",
+          "example": "value",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "x-tag": "articles",
+      "title": "CustomArticleField"
+    },
+    "ErrorMessage": {
+      "properties": {
+        "code": {
+          "description": "A machine friendly error code, used by the dev team to identify the error.",
+          "format": "int64",
+          "type": "integer"
+        },
+        "message": {
+          "description": "A human friendly message explaining the error.",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "x-tag": "common",
+      "title": "ErrorMessage"
+    },
+    "FileCreator": {
+      "properties": {
+        "link": {
+          "description": "Url for an existing file that will not be uploaded on figshare",
+          "example": "http://figshare.com/file.txt",
+          "type": "string"
+        },
+        "md5": {
+          "description": "MD5 sum pre computed on the client side",
+          "example": "6c16e6e7d7587bd078e5117dda01d565",
+          "type": "string"
+        },
+        "name": {
+          "description": "File name including the extension",
+          "example": "test.py",
+          "type": "string"
+        },
+        "size": {
+          "description": "File size in bytes",
+          "example": 70,
+          "format": "int64",
+          "type": "integer"
+        }
+      },
+      "type": "object",
+      "x-tag": "articles",
+      "title": "FileCreator"
+    },
+    "Group": {
+      "properties": {
+        "id": {
+          "description": "Group id",
+          "example": 1,
+          "format": "int64",
+          "type": "integer"
+        },
+        "name": {
+          "description": "Group name",
+          "example": "Materials",
+          "type": "string"
+        },
+        "parent_id": {
+          "description": "Parent group if any",
+          "example": 0,
+          "format": "int64",
+          "type": "integer"
+        },
+        "resource_id": {
+          "description": "Group resource id",
+          "example": "",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "x-tag": "institutions",
+      "title": "Group"
+    },
+    "Institution": {
+      "properties": {
+        "domain": {
+          "description": "Institution domain",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "id": {
+          "description": "Institution id",
+          "example": 0,
+          "format": "int64",
+          "type": "integer"
+        },
+        "name": {
+          "description": "Institution name",
+          "example": "Institution",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "x-tag": "institutions",
+      "title": "Institution"
+    },
+    "License": {
+      "properties": {
+        "name": {
+          "description": "License name",
+          "example": "CC BY",
+          "type": "string"
+        },
+        "url": {
+          "description": "License url",
+          "example": "http://creativecommons.org/licenses/by/4.0/",
+          "format": "url",
+          "type": "string"
+        },
+        "value": {
+          "description": "License value",
+          "example": 1,
+          "format": "int64",
+          "type": "integer"
+        }
+      },
+      "type": "object",
+      "x-tag": "institutions",
+      "title": "License"
+    },
+    "Location": {
+      "properties": {
+        "location": {
+          "description": "Url for item",
+          "format": "url",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "x-tag": "common",
+      "title": "Location"
+    },
+    "PrivateArticleSearch": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/ArticleSearch"
+        }
+      ],
+      "properties": {
+        "resource_id": {
+          "description": "only return collections with this resource_id",
+          "example": "1407024",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "x-tag": "articles",
+      "title": "PrivateArticleSearch"
+    },
+    "PrivateAuthorsSearch": {
+      "properties": {
+        "group_id": {
+          "description": "Return only authors in this group or subgroups of the group",
+          "format": "int64",
+          "type": "integer"
+        },
+        "institution_id": {
+          "description": "Return only authors associated to this institution",
+          "example": 1,
+          "format": "int64",
+          "type": "integer"
+        },
+        "is_active": {
+          "description": "Return only active authors if True",
+          "type": "boolean"
+        },
+        "is_public": {
+          "description": "Return only authors that have published items if True",
+          "type": "boolean"
+        },
+        "limit": {
+          "description": "Number of results included on a page. Used for pagination with query",
+          "example": 10,
+          "format": "int64",
+          "maximum": 100,
+          "minimum": 1,
+          "type": "integer"
+        },
+        "offset": {
+          "description": "Where to start the listing(the offset of the first result). Used for pagination with limit",
+          "example": 1,
+          "format": "int64",
+          "maximum": 5000,
+          "minimum": 1,
+          "type": "integer"
+        },
+        "orcid": {
+          "description": "Orcid of author",
+          "type": "string"
+        },
+        "order": {
+          "default": "published_date",
+          "description": "The field by which to order. Default varies by endpoint/resource.",
+          "enum": [
+            "published_date",
+            "modified_date",
+            "views",
+            "shares",
+            "downloads",
+            "cites"
+          ],
+          "example": "published_date",
+          "type": "string"
+        },
+        "order_direction": {
+          "default": "desc",
+          "description": "Direction of ordering",
+          "enum": [
+            "asc",
+            "desc"
+          ],
+          "example": "desc",
+          "type": "string"
+        },
+        "page": {
+          "description": "Page number. Used for pagination with page_size",
+          "example": 1,
+          "format": "int64",
+          "maximum": 5000,
+          "minimum": 1,
+          "type": "integer"
+        },
+        "page_size": {
+          "default": 10,
+          "description": "The number of results included on a page. Used for pagination with page",
+          "example": 10,
+          "format": "int64",
+          "maximum": 100,
+          "minimum": 1,
+          "type": "integer"
+        },
+        "search_for": {
+          "description": "Search term",
+          "example": "figshare",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "x-tag": "authors",
+      "title": "PrivateAuthorsSearch"
+    },
+    "PrivateCollectionSearch": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/CollectionSearch"
+        }
+      ],
+      "properties": {
+        "resource_id": {
+          "description": "only return collections with this resource_id",
+          "example": "1407024",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "x-tag": "collections",
+      "title": "PrivateCollectionSearch"
+    },
+    "PrivateFile": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/PublicFile"
+        }
+      ],
+      "properties": {
+        "computed_md5": {
+          "description": "File computed md5",
+          "example": "043a51806d646e88cafbf19e7b82846f",
+          "type": "string"
+        },
+        "preview_state": {
+          "description": "File preview state",
+          "example": "preview not available",
+          "type": "string"
+        },
+        "status": {
+          "description": "Status for file upload",
+          "example": "created",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "supplied_md5": {
+          "description": "File supplied md5",
+          "example": "043a51806d646e88cafbf19e7b82846f",
+          "type": "string"
+        },
+        "upload_token": {
+          "description": "Token for file upload",
+          "example": "9dfc5fe3-d617-4d93-ac11-8afe7e984a4b",
+          "type": "string"
+        },
+        "upload_url": {
+          "description": "Upload url for file",
+          "example": "https://uploads.figshare.com",
+          "format": "url",
+          "type": "string"
+        },
+        "viewer_type": {
+          "description": "File viewer type",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "x-tag": "common",
+      "title": "PrivateFile"
+    },
+    "PrivateLink": {
+      "properties": {
+        "expires_date": {
+          "description": "Date when link will expire",
+          "example": "2015-07-03T00:00:00",
+          "type": "string"
+        },
+        "id": {
+          "description": "Private link id",
+          "example": "0cfb0dbeac92df445df4aba45f63fdc85fa0b9a888b64e157ce3c93b576aa300fb3621ef3a219515dd482",
+          "type": "string"
+        },
+        "is_active": {
+          "description": "True if private link is active",
+          "example": true,
+          "type": "boolean"
+        }
+      },
+      "type": "object",
+      "x-tag": "articles",
+      "title": "PrivateLink"
+    },
+    "PrivateLinkCreator": {
+      "properties": {
+        "expires_date": {
+          "description": "Date when this private link should expire - optional. By default private links expire in 365 days.",
+          "example": "2018-02-22 22:22:22",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "x-tag": "articles",
+      "title": "PrivateLinkCreator"
+    },
+    "Project": {
+      "properties": {
+        "id": {
+          "description": "Project id",
+          "example": 1,
+          "format": "int64",
+          "type": "integer"
+        },
+        "published_date": {
+          "description": "Date when project was published",
+          "example": "2017-05-16T14:55:08Z",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "title": {
+          "description": "Project title",
+          "example": "project",
+          "type": "string"
+        },
+        "url": {
+          "description": "Api endpoint",
+          "example": "http://api.figshare.com/v2/account/projects/1",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "x-tag": "projects",
+      "title": "Project"
+    },
+    "ProjectArticle": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/Article"
+        }
+      ],
+      "properties": {
+        "categories": {
+          "description": "List of categories selected for the article",
+          "items": {
+            "$ref": "#/definitions/Category"
+          },
+          "type": "array"
+        },
+        "citation": {
+          "description": "Article citation",
+          "example": "lilliput, figshare admin (2017): first project item. figshare.\n \n Retrieved: 14 01, May 22, 2017 (GMT)",
+          "type": "string"
+        },
+        "confidential_reason": {
+          "description": "Confidentiality reason",
+          "example": "none",
+          "type": "string"
+        },
+        "created_date": {
+          "description": "Date when article was created",
+          "example": "2017-05-18T11:49:03Z",
+          "type": "string"
+        },
+        "description": {
+          "description": "Article description",
+          "example": "article description",
+          "type": "string"
+        },
+        "embargo_date": {
+          "description": "Date when embargo lifts",
+          "example": "2017-05-18T11:49:03Z",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "embargo_reason": {
+          "description": "Reason for embargo",
+          "example": "not complete",
+          "type": "string"
+        },
+        "embargo_type": {
+          "description": "Article embargo",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "funding": {
+          "description": "Article funding",
+          "example": "none",
+          "type": "string"
+        },
+        "has_linked_file": {
+          "description": "True if any files are linked to the article",
+          "example": true,
+          "type": "boolean"
+        },
+        "is_active": {
+          "description": "True if article is active",
+          "example": true,
+          "type": "boolean"
+        },
+        "is_confidential": {
+          "description": "Article Confidentiality",
+          "example": true,
+          "type": "boolean"
+        },
+        "is_embargoed": {
+          "description": "True if article is embargoed",
+          "example": true,
+          "type": "boolean"
+        },
+        "is_metadata_record": {
+          "description": "True if article has no files",
+          "example": false,
+          "type": "boolean"
+        },
+        "is_public": {
+          "description": "True if article is published",
+          "example": true,
+          "type": "boolean"
+        },
+        "license": {
+          "$ref": "#/definitions/License",
+          "description": "Article selected license"
+        },
+        "metadata_reason": {
+          "description": "Article metadata reason",
+          "example": "hosted somewhere else",
+          "type": "string"
+        },
+        "modified_date": {
+          "description": "Date when article was last modified",
+          "example": "2017-05-18T11:49:03Z",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "references": {
+          "description": "List of references",
+          "example": [
+            "http://figshare.com",
+            "http://figshare.com/api"
+          ],
+          "items": {
+            "format": "url",
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "size": {
+          "description": "Article size",
+          "example": 69939,
+          "format": "int64",
+          "type": "integer"
+        },
+        "status": {
+          "description": "Article status",
+          "example": "public",
+          "type": "string"
+        },
+        "tags": {
+          "description": "List of article tags",
+          "example": [
+            "t1",
+            "t2",
+            "t3"
+          ],
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "version": {
+          "description": "Article version",
+          "example": 1,
+          "format": "int64",
+          "type": "integer"
+        }
+      },
+      "type": "object",
+      "x-tag": "articles",
+      "title": "ProjectArticle"
+    },
+    "ProjectCollaborator": {
+      "properties": {
+        "name": {
+          "description": "Collaborator name",
+          "example": "name",
+          "type": "string"
+        },
+        "role_name": {
+          "description": "Collaborator role",
+          "example": "Owner",
+          "type": "string"
+        },
+        "status": {
+          "description": "Status of collaborator invitation",
+          "example": "invited",
+          "type": "string"
+        },
+        "user_id": {
+          "description": "Collaborator id",
+          "example": 1,
+          "type": "integer"
+        }
+      },
+      "type": "object",
+      "x-tag": "projects",
+      "title": "ProjectCollaborator"
+    },
+    "ProjectCollaboratorInvite": {
+      "properties": {
+        "comment": {
+          "description": "Text sent when inviting the user to the project",
+          "example": "hey",
+          "type": "string"
+        },
+        "email": {
+          "description": "Collaborator email",
+          "example": "user@domain.com",
+          "type": "string"
+        },
+        "role_name": {
+          "description": "Role of the the collaborator inside the project",
+          "enum": [
+            "viewer",
+            "collaborator"
+          ],
+          "example": "viewer",
+          "type": "string"
+        },
+        "user_id": {
+          "description": "User id of the collaborator",
+          "example": 100008,
+          "format": "int64",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "role_name"
+      ],
+      "type": "object",
+      "x-tag": "projects",
+      "title": "ProjectCollaboratorInvite"
+    },
+    "ProjectComplete": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/Project"
+        }
+      ],
+      "properties": {
+        "collaborators": {
+          "description": "List of project collaborators",
+          "items": {
+            "$ref": "#/definitions/Collaborator"
+          },
+          "type": "array"
+        },
+        "description": {
+          "description": "Project description",
+          "example": "description",
+          "type": "string"
+        },
+        "figshare_url": {
+          "description": "Project public url",
+          "example": "https://figshare.com/projects/project/1",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "funding": {
+          "description": "Project funding",
+          "example": "none",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "x-tag": "projects",
+      "title": "ProjectComplete"
+    },
+    "ProjectCompletePrivate": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/ProjectPrivate"
+        }
+      ],
+      "properties": {
+        "collaborators": {
+          "description": "List of project collaborators",
+          "items": {
+            "$ref": "#/definitions/Collaborator"
+          },
+          "type": "array"
+        },
+        "created_date": {
+          "description": "Date when project was created",
+          "example": "2017-05-16T14:52:54Z",
+          "type": "string"
+        },
+        "description": {
+          "description": "Project description",
+          "example": "description",
+          "type": "string"
+        },
+        "figshare_url": {
+          "description": "Project public url",
+          "example": "https://figshare.com/projects/project/1",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "funding": {
+          "description": "Project funding",
+          "example": "none",
+          "type": "string"
+        },
+        "group_id": {
+          "description": "Group of project if any",
+          "example": 0,
+          "format": "int64",
+          "type": "integer"
+        },
+        "modified_date": {
+          "description": "Date when project was last modified",
+          "example": "2017-05-16T14:52:54Z",
+          "type": "string"
+        },
+        "quota": {
+          "description": "Project quota",
+          "example": 0,
+          "format": "int64",
+          "type": "integer"
+        },
+        "used_quota": {
+          "description": "Project used quota",
+          "example": 0,
+          "format": "int64",
+          "type": "integer"
+        },
+        "used_quota_private": {
+          "description": "Project private quota used",
+          "example": 0,
+          "format": "int64",
+          "type": "integer"
+        },
+        "used_quota_public": {
+          "description": "Project public quota used",
+          "example": 0,
+          "format": "int64",
+          "type": "integer"
+        }
+      },
+      "type": "object",
+      "x-tag": "projects",
+      "title": "ProjectCompletePrivate"
+    },
+    "ProjectCreate": {
+      "properties": {
+        "description": {
+          "description": "Project description",
+          "example": "project description",
+          "maxLength": 10000,
+          "type": "string"
+        },
+        "funding": {
+          "description": "Grant number or organization(s) that funded this project. Up to 2000 characters permitted.",
+          "example": "",
+          "type": "string"
+        },
+        "group_id": {
+          "description": "Only if project type is group.",
+          "example": 0,
+          "format": "int64",
+          "type": "integer"
+        },
+        "title": {
+          "description": "The title for this project - mandatory. 3 - 500 characters.",
+          "example": "project title",
+          "maxLength": 500,
+          "minLength": 3,
+          "type": "string"
+        }
+      },
+      "required": [
+        "title"
+      ],
+      "type": "object",
+      "x-tag": "projects",
+      "title": "ProjectCreate"
+    },
+    "ProjectNote": {
+      "properties": {
+        "abstract": {
+          "description": "Note Abstract - short/truncated content",
+          "example": "text",
+          "type": "string"
+        },
+        "created_date": {
+          "description": "Date when note was created",
+          "example": "2017-05-16T16:49:11Z",
+          "type": "string"
+        },
+        "id": {
+          "description": "Project note id",
+          "example": 1,
+          "format": "int64",
+          "type": "integer"
+        },
+        "modified_date": {
+          "description": "Date when note was last modified",
+          "example": "2017-05-16T16:49:11Z",
+          "type": "string"
+        },
+        "user_id": {
+          "description": "User who wrote the note",
+          "example": 100008,
+          "format": "int64",
+          "type": "integer"
+        },
+        "user_name": {
+          "description": "Username of the one who wrote the note",
+          "example": "user",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "x-tag": "projects",
+      "title": "ProjectNote"
+    },
+    "ProjectNoteCreate": {
+      "properties": {
+        "text": {
+          "description": "Text of the note",
+          "example": "note to remember",
+          "minLength": 3,
+          "type": "string"
+        }
+      },
+      "required": [
+        "text"
+      ],
+      "type": "object",
+      "x-tag": "projects",
+      "title": "ProjectNoteCreate"
+    },
+    "ProjectNotePrivate": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/ProjectNote"
+        }
+      ],
+      "properties": {
+        "text": {
+          "description": "Full text of note",
+          "example": "text",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "x-tag": "projects",
+      "title": "ProjectNotePrivate"
+    },
+    "ProjectPrivate": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/Project"
+        }
+      ],
+      "properties": {
+        "role": {
+          "description": "Role inside this project",
+          "enum": [
+            "Owner",
+            "Collaborator",
+            "Viewer"
+          ],
+          "example": "Owner",
+          "type": "string"
+        },
+        "storage": {
+          "description": "Project storage type",
+          "enum": [
+            "individual",
+            "group"
+          ],
+          "example": "individual",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "x-tag": "projects",
+      "title": "ProjectPrivate"
+    },
+    "ProjectUpdate": {
+      "properties": {
+        "description": {
+          "description": "Project description",
+          "example": "project description",
+          "maxLength": 10000,
+          "type": "string"
+        },
+        "funding": {
+          "description": "Grant number or organization(s) that funded this project. Up to 2000 characters permitted.",
+          "example": "",
+          "type": "string"
+        },
+        "title": {
+          "description": "The title for this project - mandatory. 3 - 500 characters.",
+          "example": "project title",
+          "maxLength": 500,
+          "minLength": 3,
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "x-tag": "projects",
+      "title": "ProjectUpdate"
+    },
+    "PublicFile": {
+      "properties": {
+        "download_url": {
+          "description": "Url for file download",
+          "example": "https://ndownloader.figshare.com/files/3000002",
+          "format": "url",
+          "type": "string"
+        },
+        "id": {
+          "description": "File id",
+          "example": 3000002,
+          "format": "int64",
+          "type": "integer"
+        },
+        "is_link_only": {
+          "description": "True if file is hosted somewhere else",
+          "example": false,
+          "type": "boolean"
+        },
+        "name": {
+          "description": "File name",
+          "example": "test.xls",
+          "type": "string"
+        },
+        "size": {
+          "description": "File size",
+          "example": 14848,
+          "format": "int64",
+          "type": "integer"
+        }
+      },
+      "type": "object",
+      "x-tag": "common",
+      "title": "PublicFile"
+    },
+    "ResponseMessage": {
+      "properties": {
+        "message": {
+          "description": "Response message text",
+          "example": "Project 1 has been published",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "x-tag": "common",
+      "title": "ResponseMessage"
+    },
+    "UploadFilePart": {
+      "properties": {
+        "endOffset": {
+          "description": "Indexes on byte range. zero-based and inclusive",
+          "example": 69,
+          "format": "int64",
+          "type": "integer"
+        },
+        "locked": {
+          "description": "When a part is being uploaded it is being locked, by setting the locked flag to true. No changes/uploads can happen on this part from other requests.",
+          "type": "boolean"
+        },
+        "partNo": {
+          "description": "File part id",
+          "example": 1,
+          "format": "int64",
+          "type": "integer"
+        },
+        "startOffset": {
+          "description": "Indexes on byte range. zero-based and inclusive",
+          "example": 0,
+          "format": "int64",
+          "type": "integer"
+        },
+        "status": {
+          "description": "part status",
+          "enum": [
+            "PENDING",
+            "COMPLETE"
+          ],
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "x-tag": "upload",
+      "title": "UploadFilePart"
+    },
+    "UploadInfo": {
+      "properties": {
+        "md5": {
+          "description": "md5 provided on upload initialization",
+          "example": "3a7f451c068f4e13260034c611378140",
+          "type": "string"
+        },
+        "name": {
+          "description": "name of file on upload server",
+          "example": "3000017/test.py",
+          "type": "string"
+        },
+        "parts": {
+          "description": "Uploads parts",
+          "items": {
+            "$ref": "#/definitions/UploadFilePart"
+          },
+          "type": "array"
+        },
+        "size": {
+          "description": "size of file in bytes",
+          "example": 70,
+          "format": "int64",
+          "type": "integer"
+        },
+        "status": {
+          "description": "Upload status",
+          "enum": [
+            "PENDING",
+            "COMPLETED",
+            "ABORTED"
+          ],
+          "type": "string"
+        },
+        "token": {
+          "description": "token received after initializing a file upload",
+          "example": "693a2802-cd61-430d-b89f-507f0f6d8fd3",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "x-tag": "upload",
+      "title": "UploadInfo"
+    },
+    "Version": {
+      "properties": {
+        "id": {
+          "description": "Version number",
+          "example": 1,
+          "format": "int64",
+          "type": "integer"
+        },
+        "url": {
+          "description": "Api endpoint for the item version",
+          "example": "https://api.figshare.com/v2/articles/2000005/versions/1",
+          "format": "url",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "x-tag": "articles",
+      "title": "Version"
+    }
+  },
+  "actions": [
+    {
+      "id": "oauthCallback",
+      "title": "",
+      "description": "Exchange the code passed to your redirect URI for an access_token",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "title": "code",
+            "type": "string"
+          }
+        },
+        "required": [
+          "code"
+        ]
+      },
+      "outputSchema": {
+        "properties": {
+          "access_token": {
+            "type": "string"
+          },
+          "refresh_token": {
+            "type": "string"
+          },
+          "token_type": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "expiration": {
+            "type": "string"
+          }
+        }
+      },
+      "security": {
+        "figshare": {
+          "integration": "figshare"
+        }
+      }
+    },
+    {
+      "id": "oauthRefresh",
+      "title": "",
+      "description": "Exchange a refresh_token for an access_token",
+      "inputSchema": {},
+      "outputSchema": {
+        "properties": {
+          "access_token": {
+            "type": "string"
+          },
+          "refresh_token": {
+            "type": "string"
+          },
+          "token_type": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "expiration": {
+            "type": "string"
+          }
+        }
+      },
+      "security": {
+        "figshare": {
+          "integration": "figshare"
+        }
+      }
+    },
+    {
+      "id": "private_account",
+      "title": "private_account",
+      "description": "Account information for token/personal token",
+      "inputSchema": {},
+      "outputSchema": {
+        "$ref": "#/definitions/Account"
+      },
+      "security": {
+        "figshare": {
+          "integration": "figshare"
+        }
+      }
+    },
+    {
+      "id": "private_articles_list",
+      "title": "private_articles_list",
+      "description": "Get Own Articles",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "page": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Page number. Used for pagination with page_size",
+            "maximum": 5000,
+            "minimum": 1
+          },
+          "page_size": {
+            "type": "integer",
+            "format": "int64",
+            "description": "The number of results included on a page. Used for pagination with page",
+            "maximum": 100,
+            "minimum": 1
+          },
+          "limit": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Number of results included on a page. Used for pagination with query",
+            "maximum": 100,
+            "minimum": 1
+          },
+          "offset": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Where to start the listing(the offset of the first result). Used for pagination with limit",
+            "maximum": 5000,
+            "minimum": 1
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Article"
+        },
+        "type": "array"
+      },
+      "security": {
+        "figshare": {
+          "integration": "figshare"
+        }
+      }
+    },
+    {
+      "id": "private_article_create",
+      "title": "private_article_create",
+      "description": "Create a new Article by sending article information",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Article": {
+            "$ref": "#/definitions/ArticleCreate"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Article"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Location"
+      },
+      "security": {
+        "figshare": {
+          "integration": "figshare"
+        }
+      }
+    },
+    {
+      "id": "private_articles_search",
+      "title": "private_articles_search",
+      "description": "Returns a list of private articles filtered by the search parameters",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "search": {
+            "$ref": "#/definitions/PrivateArticleSearch"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "search"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Article"
+        },
+        "type": "array"
+      },
+      "security": {
+        "figshare": {
+          "integration": "figshare"
+        }
+      }
+    },
+    {
+      "id": "private_article_delete",
+      "title": "private_article_delete",
+      "description": "Delete an article",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "article_id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Article unique identifier",
+            "minimum": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "article_id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "figshare": {
+          "integration": "figshare"
+        }
+      }
+    },
+    {
+      "id": "private_article_details",
+      "title": "private_article_details",
+      "description": "View a private article",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "article_id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Article unique identifier",
+            "minimum": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "article_id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ArticleCompletePrivate"
+      },
+      "security": {
+        "figshare": {
+          "integration": "figshare"
+        }
+      }
+    },
+    {
+      "id": "private_article_update",
+      "title": "private_article_update",
+      "description": "Updating an article by passing body parameters",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Article": {
+            "$ref": "#/definitions/ArticleUpdate"
+          },
+          "article_id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Article unique identifier",
+            "minimum": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Article",
+          "article_id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "figshare": {
+          "integration": "figshare"
+        }
+      }
+    },
+    {
+      "id": "private_article_authors_list",
+      "title": "private_article_authors_list",
+      "description": "List article authors",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "article_id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Article unique identifier",
+            "minimum": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "article_id"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Author"
+        },
+        "type": "array"
+      },
+      "security": {
+        "figshare": {
+          "integration": "figshare"
+        }
+      }
+    },
+    {
+      "id": "private_article_authors_add",
+      "title": "private_article_authors_add",
+      "description": "Associate new authors with the article. This will add new authors to the list of already associated authors",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Authors": {
+            "$ref": "#/definitions/AuthorsCreator"
+          },
+          "article_id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Article unique identifier",
+            "minimum": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Authors",
+          "article_id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "figshare": {
+          "integration": "figshare"
+        }
+      }
+    },
+    {
+      "id": "private_article_authors_replace",
+      "title": "private_article_authors_replace",
+      "description": "Associate new authors with the article. This will remove all already associated authors and add these new ones",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Authors": {
+            "$ref": "#/definitions/AuthorsCreator"
+          },
+          "article_id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Article unique identifier",
+            "minimum": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Authors",
+          "article_id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "figshare": {
+          "integration": "figshare"
+        }
+      }
+    },
+    {
+      "id": "private_article_author_delete",
+      "title": "private_article_author_delete",
+      "description": "De-associate author from article",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "article_id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Article unique identifier",
+            "minimum": 1
+          },
+          "author_id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Article Author unique identifier",
+            "minimum": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "article_id",
+          "author_id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "figshare": {
+          "integration": "figshare"
+        }
+      }
+    },
+    {
+      "id": "private_article_categories_list",
+      "title": "private_article_categories_list",
+      "description": "List article categories",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "article_id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Article unique identifier",
+            "minimum": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "article_id"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Category"
+        },
+        "type": "array"
+      },
+      "security": {
+        "figshare": {
+          "integration": "figshare"
+        }
+      }
+    },
+    {
+      "id": "private_article_categories_add",
+      "title": "private_article_categories_add",
+      "description": "Associate new categories with the article. This will add new categories to the list of already associated categories",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "categories": {
+            "$ref": "#/definitions/CategoriesCreator"
+          },
+          "article_id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Article unique identifier",
+            "minimum": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "categories",
+          "article_id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "figshare": {
+          "integration": "figshare"
+        }
+      }
+    },
+    {
+      "id": "private_article_categories_replace",
+      "title": "private_article_categories_replace",
+      "description": "Associate new categories with the article. This will remove all already associated categories and add these new ones",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "categories": {
+            "$ref": "#/definitions/CategoriesCreator"
+          },
+          "article_id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Article unique identifier",
+            "minimum": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "categories",
+          "article_id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "figshare": {
+          "integration": "figshare"
+        }
+      }
+    },
+    {
+      "id": "private_article_category_delete",
+      "title": "private_article_category_delete",
+      "description": "De-associate category from article",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "article_id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Article unique identifier",
+            "minimum": 1
+          },
+          "category_id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Category unique identifier",
+            "minimum": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "article_id",
+          "category_id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "figshare": {
+          "integration": "figshare"
+        }
+      }
+    },
+    {
+      "id": "private_article_confidentiality_delete",
+      "title": "private_article_confidentiality_delete",
+      "description": "Delete confidentiality settings",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "article_id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Article unique identifier",
+            "minimum": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "article_id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "figshare": {
+          "integration": "figshare"
+        }
+      }
+    },
+    {
+      "id": "private_article_confidentiality_details",
+      "title": "private_article_confidentiality_details",
+      "description": "View confidentiality settings",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "article_id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Article unique identifier",
+            "minimum": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "article_id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ArticleConfidentiality"
+      },
+      "security": {
+        "figshare": {
+          "integration": "figshare"
+        }
+      }
+    },
+    {
+      "id": "private_article_confidentiality_update",
+      "title": "private_article_confidentiality_update",
+      "description": "Update confidentiality settings",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "reason": {
+            "$ref": "#/definitions/ConfidentialityCreator"
+          },
+          "article_id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Article unique identifier",
+            "minimum": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "reason",
+          "article_id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "figshare": {
+          "integration": "figshare"
+        }
+      }
+    },
+    {
+      "id": "private_article_embargo_delete",
+      "title": "private_article_embargo_delete",
+      "description": "Will lift the embargo for the specified article",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "article_id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Article unique identifier",
+            "minimum": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "article_id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "figshare": {
+          "integration": "figshare"
+        }
+      }
+    },
+    {
+      "id": "private_article_embargo_details",
+      "title": "private_article_embargo_details",
+      "description": "View a private article embargo details",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "article_id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Article unique identifier",
+            "minimum": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "article_id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ArticleEmbargo"
+      },
+      "security": {
+        "figshare": {
+          "integration": "figshare"
+        }
+      }
+    },
+    {
+      "id": "private_article_embargo_update",
+      "title": "private_article_embargo_update",
+      "description": "Note: setting an article under whole embargo does not imply that the article will be published when the embargo will expire. You must explicitly call the publish endpoint to enable this functionality.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Embargo": {
+            "$ref": "#/definitions/ArticleEmbargoUpdater"
+          },
+          "article_id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Article unique identifier",
+            "minimum": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Embargo",
+          "article_id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "figshare": {
+          "integration": "figshare"
+        }
+      }
+    },
+    {
+      "id": "private_article_files_list",
+      "title": "private_article_files_list",
+      "description": "List private files",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "article_id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Article unique identifier",
+            "minimum": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "article_id"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/PrivateFile"
+        },
+        "type": "array"
+      },
+      "security": {
+        "figshare": {
+          "integration": "figshare"
+        }
+      }
+    },
+    {
+      "id": "private_article_upload_initiate",
+      "title": "private_article_upload_initiate",
+      "description": "Initiate new file upload within the article. Either use link to provide only an existing file that will not be uploaded on figshare or use the other 3 parameters(md5, name, size)",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "File": {
+            "$ref": "#/definitions/FileCreator"
+          },
+          "article_id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Article unique identifier",
+            "minimum": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "File",
+          "article_id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Location"
+      },
+      "security": {
+        "figshare": {
+          "integration": "figshare"
+        }
+      }
+    },
+    {
+      "id": "private_article_file_delete",
+      "title": "private_article_file_delete",
+      "description": "Complete file upload",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "article_id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Article unique identifier",
+            "minimum": 1
+          },
+          "file_id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "File unique identifier",
+            "minimum": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "article_id",
+          "file_id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "figshare": {
+          "integration": "figshare"
+        }
+      }
+    },
+    {
+      "id": "private_article_file",
+      "title": "private_article_file",
+      "description": "View details of file for specified article",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "article_id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Article unique identifier",
+            "minimum": 1
+          },
+          "file_id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "File unique identifier",
+            "minimum": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "article_id",
+          "file_id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/PrivateFile"
+      },
+      "security": {
+        "figshare": {
+          "integration": "figshare"
+        }
+      }
+    },
+    {
+      "id": "private_article_upload_complete",
+      "title": "private_article_upload_complete",
+      "description": "Complete file upload",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "article_id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Article unique identifier",
+            "minimum": 1
+          },
+          "file_id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "File unique identifier",
+            "minimum": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "article_id",
+          "file_id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "figshare": {
+          "integration": "figshare"
+        }
+      }
+    },
+    {
+      "id": "private_article_private_link",
+      "title": "private_article_private_link",
+      "description": "List private links",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "article_id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Article unique identifier",
+            "minimum": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "article_id"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/PrivateLink"
+        },
+        "type": "array"
+      },
+      "security": {
+        "figshare": {
+          "integration": "figshare"
+        }
+      }
+    },
+    {
+      "id": "private_article_private_link_create",
+      "title": "private_article_private_link_create",
+      "description": "Create new private link for this article",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "private_link": {
+            "$ref": "#/definitions/PrivateLinkCreator"
+          },
+          "article_id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Article unique identifier",
+            "minimum": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "article_id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Location"
+      },
+      "security": {
+        "figshare": {
+          "integration": "figshare"
+        }
+      }
+    },
+    {
+      "id": "private_article_private_link_delete",
+      "title": "private_article_private_link_delete",
+      "description": "Disable/delete private link for this article",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "article_id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Article unique identifier",
+            "minimum": 1
+          },
+          "link_id": {
+            "type": "string",
+            "description": "Private link token"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "article_id",
+          "link_id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "figshare": {
+          "integration": "figshare"
+        }
+      }
+    },
+    {
+      "id": "private_article_private_link_update",
+      "title": "private_article_private_link_update",
+      "description": "Update existing private link for this article",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "private_link": {
+            "$ref": "#/definitions/PrivateLinkCreator"
+          },
+          "article_id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Article unique identifier",
+            "minimum": 1
+          },
+          "link_id": {
+            "type": "string",
+            "description": "Private link token"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "article_id",
+          "link_id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "figshare": {
+          "integration": "figshare"
+        }
+      }
+    },
+    {
+      "id": "private_article_publish",
+      "title": "private_article_publish",
+      "description": "- If the whole article is under embargo, it will not be published immediatly, but when the embargo expires or is lifted.\n- When an article is published, a new public version will be generated. Any further updates to the article will affect the private article data. In order to make these changes publicly visible, an explicit publish operation is needed.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "article_id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Article unique identifier",
+            "minimum": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "article_id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Location"
+      },
+      "security": {
+        "figshare": {
+          "integration": "figshare"
+        }
+      }
+    },
+    {
+      "id": "private_article_reserve_doi",
+      "title": "private_article_reserve_doi",
+      "description": "Reserve DOI for article",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "article_id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Article unique identifier",
+            "minimum": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "article_id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ArticleDOI"
+      },
+      "security": {
+        "figshare": {
+          "integration": "figshare"
+        }
+      }
+    },
+    {
+      "id": "private_authors_search",
+      "title": "private_authors_search",
+      "description": "Search for authors",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "search": {
+            "$ref": "#/definitions/PrivateAuthorsSearch"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Author"
+        },
+        "type": "array"
+      },
+      "security": {
+        "figshare": {
+          "integration": "figshare"
+        }
+      }
+    },
+    {
+      "id": "private_author_details",
+      "title": "private_author_details",
+      "description": "View author details",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "author_id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Author unique identifier",
+            "minimum": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "author_id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/AuthorComplete"
+      },
+      "security": {
+        "figshare": {
+          "integration": "figshare"
+        }
+      }
+    },
+    {
+      "id": "private_categories_list",
+      "title": "private_categories_list",
+      "description": "List institution categories (including parent Categories)",
+      "inputSchema": {},
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Category"
+        },
+        "type": "array"
+      },
+      "security": {
+        "figshare": {
+          "integration": "figshare"
+        }
+      }
+    },
+    {
+      "id": "private_collections_list",
+      "title": "private_collections_list",
+      "description": "List private collections",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "page": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Page number. Used for pagination with page_size",
+            "maximum": 5000,
+            "minimum": 1
+          },
+          "page_size": {
+            "type": "integer",
+            "format": "int64",
+            "description": "The number of results included on a page. Used for pagination with page",
+            "maximum": 100,
+            "minimum": 1
+          },
+          "limit": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Number of results included on a page. Used for pagination with query",
+            "maximum": 100,
+            "minimum": 1
+          },
+          "offset": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Where to start the listing(the offset of the first result). Used for pagination with limit",
+            "maximum": 5000,
+            "minimum": 1
+          },
+          "order": {
+            "type": "string",
+            "description": "The field by which to order. Default varies by endpoint/resource.",
+            "enum": [
+              "published_date",
+              "modified_date",
+              "views",
+              "shares",
+              "downloads",
+              "cites"
+            ]
+          },
+          "order_direction": {
+            "type": "string",
+            "enum": [
+              "asc",
+              "desc"
+            ]
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Collection"
+        },
+        "type": "array"
+      },
+      "security": {
+        "figshare": {
+          "integration": "figshare"
+        }
+      }
+    },
+    {
+      "id": "private_collection_create",
+      "title": "private_collection_create",
+      "description": "Create a new Collection by sending collection information",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Collection": {
+            "$ref": "#/definitions/CollectionCreate"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Collection"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CollectionComplete"
+      },
+      "security": {
+        "figshare": {
+          "integration": "figshare"
+        }
+      }
+    },
+    {
+      "id": "private_collections_search",
+      "title": "private_collections_search",
+      "description": "Returns a list of private Collections",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "search": {
+            "$ref": "#/definitions/PrivateCollectionSearch"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "search"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Collection"
+        },
+        "type": "array"
+      },
+      "security": {
+        "figshare": {
+          "integration": "figshare"
+        }
+      }
+    },
+    {
+      "id": "private_collection_delete",
+      "title": "private_collection_delete",
+      "description": "Delete n collection",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "collection_id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Collection Unique identifier",
+            "minimum": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "collection_id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "figshare": {
+          "integration": "figshare"
+        }
+      }
+    },
+    {
+      "id": "private_collection_details",
+      "title": "private_collection_details",
+      "description": "View a collection",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "collection_id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Collection Unique identifier",
+            "minimum": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "collection_id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CollectionComplete"
+      },
+      "security": {
+        "figshare": {
+          "integration": "figshare"
+        }
+      }
+    },
+    {
+      "id": "private_collection_update",
+      "title": "private_collection_update",
+      "description": "Update collection details",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Collection": {
+            "$ref": "#/definitions/CollectionUpdate"
+          },
+          "collection_id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Collection Unique identifier",
+            "minimum": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Collection",
+          "collection_id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "figshare": {
+          "integration": "figshare"
+        }
+      }
+    },
+    {
+      "id": "private_collection_articles_list",
+      "title": "private_collection_articles_list",
+      "description": "List collection articles",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "collection_id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Collection unique identifier",
+            "minimum": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "collection_id"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Article"
+        },
+        "type": "array"
+      },
+      "security": {
+        "figshare": {
+          "integration": "figshare"
+        }
+      }
+    },
+    {
+      "id": "private_collection_articles_add",
+      "title": "private_collection_articles_add",
+      "description": "Associate new articles with the collection. This will add new articles to the list of already associated articles",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "articles": {
+            "$ref": "#/definitions/ArticlesCreator"
+          },
+          "collection_id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Collection unique identifier",
+            "minimum": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "articles",
+          "collection_id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Location"
+      },
+      "security": {
+        "figshare": {
+          "integration": "figshare"
+        }
+      }
+    },
+    {
+      "id": "private_collection_articles_replace",
+      "title": "private_collection_articles_replace",
+      "description": "Associate new articles with the collection. This will remove all already associated articles and add these new ones",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "articles": {
+            "$ref": "#/definitions/ArticlesCreator"
+          },
+          "collection_id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Collection unique identifier",
+            "minimum": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "articles",
+          "collection_id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "figshare": {
+          "integration": "figshare"
+        }
+      }
+    },
+    {
+      "id": "private_collection_article_delete",
+      "title": "private_collection_article_delete",
+      "description": "De-associate article from collection",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "collection_id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Collection unique identifier",
+            "minimum": 1
+          },
+          "article_id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Collection article unique identifier",
+            "minimum": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "collection_id",
+          "article_id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "figshare": {
+          "integration": "figshare"
+        }
+      }
+    },
+    {
+      "id": "private_collection_authors_list",
+      "title": "private_collection_authors_list",
+      "description": "List collection authors",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "collection_id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Collection unique identifier",
+            "minimum": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "collection_id"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Author"
+        },
+        "type": "array"
+      },
+      "security": {
+        "figshare": {
+          "integration": "figshare"
+        }
+      }
+    },
+    {
+      "id": "private_collection_authors_add",
+      "title": "private_collection_authors_add",
+      "description": "Associate new authors with the collection. This will add new authors to the list of already associated authors",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Authors": {
+            "$ref": "#/definitions/AuthorsCreator"
+          },
+          "collection_id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Collection unique identifier",
+            "minimum": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Authors",
+          "collection_id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Location"
+      },
+      "security": {
+        "figshare": {
+          "integration": "figshare"
+        }
+      }
+    },
+    {
+      "id": "private_collection_authors_replace",
+      "title": "private_collection_authors_replace",
+      "description": "Associate new authors with the collection. This will remove all already associated authors and add these new ones",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Authors": {
+            "$ref": "#/definitions/AuthorsCreator"
+          },
+          "collection_id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Collection unique identifier",
+            "minimum": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Authors",
+          "collection_id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "figshare": {
+          "integration": "figshare"
+        }
+      }
+    },
+    {
+      "id": "private_collection_author_delete",
+      "title": "private_collection_author_delete",
+      "description": "Delete collection author",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "collection_id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Collection unique identifier",
+            "minimum": 1
+          },
+          "author_id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Collection Author unique identifier",
+            "minimum": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "collection_id",
+          "author_id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "figshare": {
+          "integration": "figshare"
+        }
+      }
+    },
+    {
+      "id": "private_collection_categories_list",
+      "title": "private_collection_categories_list",
+      "description": "List collection categories",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "collection_id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Collection unique identifier",
+            "minimum": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "collection_id"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Category"
+        },
+        "type": "array"
+      },
+      "security": {
+        "figshare": {
+          "integration": "figshare"
+        }
+      }
+    },
+    {
+      "id": "private_collection_categories_add",
+      "title": "private_collection_categories_add",
+      "description": "Associate new categories with the collection. This will add new categories to the list of already associated categories",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "categories": {
+            "$ref": "#/definitions/CategoriesCreator"
+          },
+          "collection_id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Collection unique identifier",
+            "minimum": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "categories",
+          "collection_id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Location"
+      },
+      "security": {
+        "figshare": {
+          "integration": "figshare"
+        }
+      }
+    },
+    {
+      "id": "private_collection_categories_replace",
+      "title": "private_collection_categories_replace",
+      "description": "Associate new categories with the collection. This will remove all already associated categories and add these new ones",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "categories": {
+            "$ref": "#/definitions/CategoriesCreator"
+          },
+          "collection_id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Collection unique identifier",
+            "minimum": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "categories",
+          "collection_id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "figshare": {
+          "integration": "figshare"
+        }
+      }
+    },
+    {
+      "id": "private_collection_category_delete",
+      "title": "private_collection_category_delete",
+      "description": "De-associate category from collection",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "collection_id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Collection unique identifier",
+            "minimum": 1
+          },
+          "category_id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Collection category unique identifier",
+            "minimum": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "collection_id",
+          "category_id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "figshare": {
+          "integration": "figshare"
+        }
+      }
+    },
+    {
+      "id": "private_collection_private_links_list",
+      "title": "private_collection_private_links_list",
+      "description": "List article private links",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "collection_id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Collection unique identifier",
+            "minimum": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "collection_id"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/PrivateLink"
+        },
+        "type": "array"
+      },
+      "security": {
+        "figshare": {
+          "integration": "figshare"
+        }
+      }
+    },
+    {
+      "id": "private_collection_private_link_create",
+      "title": "private_collection_private_link_create",
+      "description": "Create new private link",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "private_link": {
+            "$ref": "#/definitions/CollectionPrivateLinkCreator"
+          },
+          "collection_id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Collection unique identifier",
+            "minimum": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "collection_id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Location"
+      },
+      "security": {
+        "figshare": {
+          "integration": "figshare"
+        }
+      }
+    },
+    {
+      "id": "private_collection_private_link_delete",
+      "title": "private_collection_private_link_delete",
+      "description": "Disable/delete private link for this collection",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "collection_id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Collection unique identifier",
+            "minimum": 1
+          },
+          "link_id": {
+            "type": "string",
+            "description": "Private link token"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "collection_id",
+          "link_id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "figshare": {
+          "integration": "figshare"
+        }
+      }
+    },
+    {
+      "id": "private_collection_private_link_update",
+      "title": "private_collection_private_link_update",
+      "description": "Update existing private link for this collection",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "private_link": {
+            "$ref": "#/definitions/CollectionPrivateLinkCreator"
+          },
+          "collection_id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Collection unique identifier",
+            "minimum": 1
+          },
+          "link_id": {
+            "type": "string",
+            "description": "Private link token"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "collection_id",
+          "link_id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "figshare": {
+          "integration": "figshare"
+        }
+      }
+    },
+    {
+      "id": "private_collection_publish",
+      "title": "private_collection_publish",
+      "description": "When a collection is published, a new public version will be generated. Any further updates to the collection will affect the private collection data. In order to make these changes publicly visible, an explicit publish operation is needed.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "collection_id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Collection Unique identifier",
+            "minimum": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "collection_id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Location"
+      },
+      "security": {
+        "figshare": {
+          "integration": "figshare"
+        }
+      }
+    },
+    {
+      "id": "private_collection_reserve_doi",
+      "title": "private_collection_reserve_doi",
+      "description": "Reserve DOI for collection",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "collection_id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Collection Unique identifier",
+            "minimum": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "collection_id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ArticleDOI"
+      },
+      "security": {
+        "figshare": {
+          "integration": "figshare"
+        }
+      }
+    },
+    {
+      "id": "private_institution_details",
+      "title": "private_institution_details",
+      "description": "Account institution details",
+      "inputSchema": {},
+      "outputSchema": {
+        "$ref": "#/definitions/Institution"
+      },
+      "security": {
+        "figshare": {
+          "integration": "figshare"
+        }
+      }
+    },
+    {
+      "id": "private_institution_articles",
+      "title": "private_institution_articles",
+      "description": "Get Articles from own institution. User must be administrator of the institution",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "page": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Page number. Used for pagination with page_size",
+            "maximum": 5000,
+            "minimum": 1
+          },
+          "page_size": {
+            "type": "integer",
+            "format": "int64",
+            "description": "The number of results included on a page. Used for pagination with page",
+            "maximum": 100,
+            "minimum": 1
+          },
+          "limit": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Number of results included on a page. Used for pagination with query",
+            "maximum": 100,
+            "minimum": 1
+          },
+          "offset": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Where to start the listing(the offset of the first result). Used for pagination with limit",
+            "maximum": 5000,
+            "minimum": 1
+          },
+          "order": {
+            "type": "string",
+            "description": "The field by which to order. Default varies by endpoint/resource.",
+            "enum": [
+              "published_date",
+              "modified_date",
+              "views",
+              "shares",
+              "downloads",
+              "cites"
+            ]
+          },
+          "order_direction": {
+            "type": "string",
+            "enum": [
+              "asc",
+              "desc"
+            ]
+          },
+          "published_since": {
+            "type": "string",
+            "description": "Filter by article publishing date. Will only return articles published after the date. date(ISO 8601) YYYY-MM-DD"
+          },
+          "modified_since": {
+            "type": "string",
+            "description": "Filter by article modified date. Will only return articles published after the date. date(ISO 8601) YYYY-MM-DD"
+          },
+          "status": {
+            "type": "integer",
+            "format": "int64",
+            "description": "only return collections with this status"
+          },
+          "resource_doi": {
+            "type": "string",
+            "description": "only return collections with this resource_doi"
+          },
+          "item_type": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Only return collections with the respective type. Mapping for item_type is: 1 - Figure, 2 - Media, 3 - Dataset, 4 - Fileset, 5 - Poster, 6 - Paper, 7 - Presentation, 8 - Thesis, 9 - Code, 12 - Preprint",
+            "maximum": 12,
+            "minimum": 1
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Article"
+        },
+        "type": "array"
+      },
+      "security": {
+        "figshare": {
+          "integration": "figshare"
+        }
+      }
+    },
+    {
+      "id": "private_institution_groups_list",
+      "title": "private_institution_groups_list",
+      "description": "Returns the groups for which the account has administrative privileges (assigned and inherited).",
+      "inputSchema": {},
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Group"
+        },
+        "type": "array"
+      },
+      "security": {
+        "figshare": {
+          "integration": "figshare"
+        }
+      }
+    },
+    {
+      "id": "private_licenses_list",
+      "title": "private_licenses_list",
+      "description": "This is a private endpoint that requires OAuth. It will return a list with figshare public licenses AND licenses defined for account's institution.",
+      "inputSchema": {},
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/License"
+        },
+        "type": "array"
+      },
+      "security": {
+        "figshare": {
+          "integration": "figshare"
+        }
+      }
+    },
+    {
+      "id": "private_projects_list",
+      "title": "private_projects_list",
+      "description": "List private projects",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "page": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Page number. Used for pagination with page_size",
+            "maximum": 5000,
+            "minimum": 1
+          },
+          "page_size": {
+            "type": "integer",
+            "format": "int64",
+            "description": "The number of results included on a page. Used for pagination with page",
+            "maximum": 100,
+            "minimum": 1
+          },
+          "limit": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Number of results included on a page. Used for pagination with query",
+            "maximum": 100,
+            "minimum": 1
+          },
+          "offset": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Where to start the listing(the offset of the first result). Used for pagination with limit",
+            "maximum": 5000,
+            "minimum": 1
+          },
+          "order": {
+            "type": "string",
+            "description": "The field by which to order. Default varies by endpoint/resource.",
+            "enum": [
+              "published_date",
+              "modified_date",
+              "views",
+              "shares",
+              "downloads",
+              "cites"
+            ]
+          },
+          "order_direction": {
+            "type": "string",
+            "enum": [
+              "asc",
+              "desc"
+            ]
+          },
+          "storage": {
+            "type": "string",
+            "description": "only return collections from this institution",
+            "enum": [
+              "group",
+              "individual"
+            ]
+          },
+          "roles": {
+            "type": "string",
+            "description": "Any combination of owner, collaborator, viewer separated by comma. Examples: \"owner\" or \"owner,collaborator\"."
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/ProjectPrivate"
+        },
+        "type": "array"
+      },
+      "security": {
+        "figshare": {
+          "integration": "figshare"
+        }
+      }
+    },
+    {
+      "id": "private_project_create",
+      "title": "private_project_create",
+      "description": "Create a new project",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Project": {
+            "$ref": "#/definitions/ProjectCreate"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Project"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Location"
+      },
+      "security": {
+        "figshare": {
+          "integration": "figshare"
+        }
+      }
+    },
+    {
+      "id": "private_projects_search",
+      "title": "private_projects_search",
+      "description": "Search inside the private projects",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "search": {
+            "$ref": "#/definitions/CommonSearch"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/ProjectPrivate"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "private_project_delete",
+      "title": "private_project_delete",
+      "description": "A project can be deleted only if: - it is not public - it does not have public articles.\n\nWhen an individual project is deleted, all the articles are moved to my data of each owner.\n\nWhen a group project is deleted, all the articles and files are deleted as well. Only project owner, group admin and above can delete a project.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "project_id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Project unique identifier",
+            "minimum": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "project_id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "figshare": {
+          "integration": "figshare"
+        }
+      }
+    },
+    {
+      "id": "private_project_details",
+      "title": "private_project_details",
+      "description": "View a private project",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "project_id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Project unique identifier",
+            "minimum": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "project_id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ProjectCompletePrivate"
+      },
+      "security": {
+        "figshare": {
+          "integration": "figshare"
+        }
+      }
+    },
+    {
+      "id": "private_project_update",
+      "title": "private_project_update",
+      "description": "Updating an project by passing body parameters",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Project": {
+            "$ref": "#/definitions/ProjectUpdate"
+          },
+          "project_id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Project unique identifier",
+            "minimum": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Project",
+          "project_id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "figshare": {
+          "integration": "figshare"
+        }
+      }
+    },
+    {
+      "id": "private_project_articles_list",
+      "title": "private_project_articles_list",
+      "description": "List project articles",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "project_id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Proejct unique identifier",
+            "minimum": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "project_id"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Article"
+        },
+        "type": "array"
+      },
+      "security": {
+        "figshare": {
+          "integration": "figshare"
+        }
+      }
+    },
+    {
+      "id": "private_project_articles_create",
+      "title": "private_project_articles_create",
+      "description": "Create a new Article and associate it with this project",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Article": {
+            "$ref": "#/definitions/ArticleCreate"
+          },
+          "project_id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Proejct unique identifier",
+            "minimum": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Article",
+          "project_id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Location"
+      },
+      "security": {
+        "figshare": {
+          "integration": "figshare"
+        }
+      }
+    },
+    {
+      "id": "private_project_article_delete",
+      "title": "private_project_article_delete",
+      "description": "Delete project article",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "project_id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Project unique identifier",
+            "minimum": 1
+          },
+          "article_id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Project Article unique identifier",
+            "minimum": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "project_id",
+          "article_id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "figshare": {
+          "integration": "figshare"
+        }
+      }
+    },
+    {
+      "id": "private_project_article_details",
+      "title": "private_project_article_details",
+      "description": "Project article details",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "project_id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Project unique identifier",
+            "minimum": 1
+          },
+          "article_id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Project Article unique identifier",
+            "minimum": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "project_id",
+          "article_id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ProjectArticle"
+      },
+      "security": {
+        "figshare": {
+          "integration": "figshare"
+        }
+      }
+    },
+    {
+      "id": "private_project_article_files",
+      "title": "private_project_article_files",
+      "description": "List article files",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "project_id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Project unique identifier",
+            "minimum": 1
+          },
+          "article_id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Project Article unique identifier",
+            "minimum": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "project_id",
+          "article_id"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/PrivateFile"
+        },
+        "type": "array"
+      },
+      "security": {
+        "figshare": {
+          "integration": "figshare"
+        }
+      }
+    },
+    {
+      "id": "private_project_article_file",
+      "title": "private_project_article_file",
+      "description": "Project article file details",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "project_id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Project unique identifier",
+            "minimum": 1
+          },
+          "article_id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Project Article unique identifier",
+            "minimum": 1
+          },
+          "file_id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "File unique identifier",
+            "minimum": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "project_id",
+          "article_id",
+          "file_id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/PrivateFile"
+      },
+      "security": {
+        "figshare": {
+          "integration": "figshare"
+        }
+      }
+    },
+    {
+      "id": "private_project_collaborators_list",
+      "title": "private_project_collaborators_list",
+      "description": "List Project collaborators and invited users",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "project_id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Project unique identifier",
+            "minimum": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "project_id"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/ProjectCollaborator"
+        },
+        "type": "array"
+      },
+      "security": {
+        "figshare": {
+          "integration": "figshare"
+        }
+      }
+    },
+    {
+      "id": "private_project_collaborators_invite",
+      "title": "private_project_collaborators_invite",
+      "description": "Invite users to collaborate on project or view the project",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Collaborator": {
+            "$ref": "#/definitions/ProjectCollaboratorInvite"
+          },
+          "project_id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Project unique identifier",
+            "minimum": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Collaborator",
+          "project_id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ResponseMessage"
+      },
+      "security": {
+        "figshare": {
+          "integration": "figshare"
+        }
+      }
+    },
+    {
+      "id": "private_project_collaborator__Delete",
+      "title": "private_project_collaborator__Delete",
+      "description": "Remove project collaborator",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "project_id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Project unique identifier",
+            "minimum": 1
+          },
+          "user_id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "User unique identifier",
+            "minimum": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "project_id",
+          "user_id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "figshare": {
+          "integration": "figshare"
+        }
+      }
+    },
+    {
+      "id": "private_project_leave",
+      "title": "private_project_leave",
+      "description": "Please note: project's owner cannot leave the project.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "project_id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Project unique identifier",
+            "minimum": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "project_id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "figshare": {
+          "integration": "figshare"
+        }
+      }
+    },
+    {
+      "id": "private_project_notes_list",
+      "title": "private_project_notes_list",
+      "description": "List project notes",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "page": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Page number. Used for pagination with page_size",
+            "maximum": 5000,
+            "minimum": 1
+          },
+          "page_size": {
+            "type": "integer",
+            "format": "int64",
+            "description": "The number of results included on a page. Used for pagination with page",
+            "maximum": 100,
+            "minimum": 1
+          },
+          "limit": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Number of results included on a page. Used for pagination with query",
+            "maximum": 100,
+            "minimum": 1
+          },
+          "offset": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Where to start the listing(the offset of the first result). Used for pagination with limit",
+            "maximum": 5000,
+            "minimum": 1
+          },
+          "project_id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Project unique identifier",
+            "minimum": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "project_id"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/ProjectNote"
+        },
+        "type": "array"
+      },
+      "security": {
+        "figshare": {
+          "integration": "figshare"
+        }
+      }
+    },
+    {
+      "id": "private_project_notes_create",
+      "title": "private_project_notes_create",
+      "description": "Create a new project note",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Note": {
+            "$ref": "#/definitions/ProjectNoteCreate"
+          },
+          "project_id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Project unique identifier",
+            "minimum": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Note",
+          "project_id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Location"
+      },
+      "security": {
+        "figshare": {
+          "integration": "figshare"
+        }
+      }
+    },
+    {
+      "id": "private_project_note_delete",
+      "title": "private_project_note_delete",
+      "description": "Delete project note",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "project_id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Project unique identifier",
+            "minimum": 1
+          },
+          "note_id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Note unique identifier",
+            "minimum": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "project_id",
+          "note_id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "figshare": {
+          "integration": "figshare"
+        }
+      }
+    },
+    {
+      "id": "private_project_note",
+      "title": "private_project_note",
+      "description": "Project note details",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "project_id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Project unique identifier",
+            "minimum": 1
+          },
+          "note_id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Note unique identifier",
+            "minimum": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "project_id",
+          "note_id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ProjectNotePrivate"
+      },
+      "security": {
+        "figshare": {
+          "integration": "figshare"
+        }
+      }
+    },
+    {
+      "id": "private_project_note_update",
+      "title": "private_project_note_update",
+      "description": "Update project note",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Note": {
+            "$ref": "#/definitions/ProjectNoteCreate"
+          },
+          "project_id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Project unique identifier",
+            "minimum": 1
+          },
+          "note_id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Note unique identifier",
+            "minimum": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Note",
+          "project_id",
+          "note_id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "figshare": {
+          "integration": "figshare"
+        }
+      }
+    },
+    {
+      "id": "private_project_publish",
+      "title": "private_project_publish",
+      "description": "Publish a project. Possible after all items inside it are public",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "project_id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Project unique identifier",
+            "minimum": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "project_id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ResponseMessage"
+      },
+      "security": {
+        "figshare": {
+          "integration": "figshare"
+        }
+      }
+    },
+    {
+      "id": "articles_list",
+      "title": "articles_list",
+      "description": "Returns a list of public articles",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "page": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Page number. Used for pagination with page_size",
+            "maximum": 5000,
+            "minimum": 1
+          },
+          "page_size": {
+            "type": "integer",
+            "format": "int64",
+            "description": "The number of results included on a page. Used for pagination with page",
+            "maximum": 100,
+            "minimum": 1
+          },
+          "limit": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Number of results included on a page. Used for pagination with query",
+            "maximum": 100,
+            "minimum": 1
+          },
+          "offset": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Where to start the listing(the offset of the first result). Used for pagination with limit",
+            "maximum": 5000,
+            "minimum": 1
+          },
+          "order": {
+            "type": "string",
+            "description": "The field by which to order. Default varies by endpoint/resource.",
+            "enum": [
+              "published_date",
+              "modified_date",
+              "views",
+              "shares",
+              "downloads",
+              "cites"
+            ]
+          },
+          "order_direction": {
+            "type": "string",
+            "enum": [
+              "asc",
+              "desc"
+            ]
+          },
+          "institution": {
+            "type": "integer",
+            "format": "int64",
+            "description": "only return collections from this institution"
+          },
+          "published_since": {
+            "type": "string",
+            "description": "Filter by article publishing date. Will only return articles published after the date. date(ISO 8601) YYYY-MM-DD"
+          },
+          "modified_since": {
+            "type": "string",
+            "description": "Filter by article modified date. Will only return articles published after the date. date(ISO 8601) YYYY-MM-DD"
+          },
+          "group": {
+            "type": "integer",
+            "format": "int64",
+            "description": "only return collections from this group"
+          },
+          "resource_doi": {
+            "type": "string",
+            "description": "only return collections with this resource_doi"
+          },
+          "item_type": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Only return collections with the respective type. Mapping for item_type is: 1 - Figure, 2 - Media, 3 - Dataset, 4 - Fileset, 5 - Poster, 6 - Paper, 7 - Presentation, 8 - Thesis, 9 - Code, 12 - Preprint",
+            "maximum": 12,
+            "minimum": 1
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Article"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "articles_search",
+      "title": "articles_search",
+      "description": "Returns a list of public articles, filtered by the search parameters",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "search": {
+            "$ref": "#/definitions/ArticleSearch"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Article"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "article_details",
+      "title": "article_details",
+      "description": "View an article",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "article_id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Article Unique identifier",
+            "minimum": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "article_id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ArticleComplete"
+      }
+    },
+    {
+      "id": "article_files",
+      "title": "article_files",
+      "description": "Files list for article",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "article_id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Article Unique identifier",
+            "minimum": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "article_id"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/PublicFile"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "article_file_details",
+      "title": "article_file_details",
+      "description": "File by id",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "article_id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Article Unique identifier",
+            "minimum": 1
+          },
+          "file_id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "File Unique identifier",
+            "minimum": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "article_id",
+          "file_id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/PublicFile"
+      }
+    },
+    {
+      "id": "article_versions",
+      "title": "article_versions",
+      "description": "List public article versions",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "article_id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Article Unique identifier",
+            "minimum": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "article_id"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Version"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "article_version_details",
+      "title": "article_version_details",
+      "description": "Article with specified version",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "article_id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Article Unique identifier",
+            "minimum": 1
+          },
+          "v_number": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Article Version Number",
+            "minimum": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "article_id",
+          "v_number"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ArticleComplete"
+      }
+    },
+    {
+      "id": "article_version_confidentiality",
+      "title": "article_version_confidentiality",
+      "description": "Confidentiality for article version",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "article_id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Article Unique identifier",
+            "minimum": 1
+          },
+          "v_number": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Version Number",
+            "minimum": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "article_id",
+          "v_number"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ArticleConfidentiality"
+      }
+    },
+    {
+      "id": "article_version_embargo",
+      "title": "article_version_embargo",
+      "description": "Embargo for article version",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "article_id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Article Unique identifier",
+            "minimum": 1
+          },
+          "v_number": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Version Number",
+            "minimum": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "article_id",
+          "v_number"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ArticleEmbargo"
+      }
+    },
+    {
+      "id": "categories_list",
+      "title": "categories_list",
+      "description": "Returns a list of public categories",
+      "inputSchema": {},
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Category"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "collections_list",
+      "title": "collections_list",
+      "description": "Returns a list of public collections",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "page": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Page number. Used for pagination with page_size",
+            "maximum": 5000,
+            "minimum": 1
+          },
+          "page_size": {
+            "type": "integer",
+            "format": "int64",
+            "description": "The number of results included on a page. Used for pagination with page",
+            "maximum": 100,
+            "minimum": 1
+          },
+          "limit": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Number of results included on a page. Used for pagination with query",
+            "maximum": 100,
+            "minimum": 1
+          },
+          "offset": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Where to start the listing(the offset of the first result). Used for pagination with limit",
+            "maximum": 5000,
+            "minimum": 1
+          },
+          "order": {
+            "type": "string",
+            "description": "The field by which to order. Default varies by endpoint/resource.",
+            "enum": [
+              "published_date",
+              "modified_date",
+              "views",
+              "shares",
+              "downloads",
+              "cites"
+            ]
+          },
+          "order_direction": {
+            "type": "string",
+            "enum": [
+              "asc",
+              "desc"
+            ]
+          },
+          "institution": {
+            "type": "integer",
+            "format": "int64",
+            "description": "only return collections from this institution"
+          },
+          "published_since": {
+            "type": "string",
+            "description": "Filter by collection publishing date. Will only return collections published after the date. date(ISO 8601) YYYY-MM-DD"
+          },
+          "modified_since": {
+            "type": "string",
+            "description": "Filter by collection modified date. Will only return collections published after the date. date(ISO 8601) YYYY-MM-DD"
+          },
+          "group": {
+            "type": "integer",
+            "format": "int64",
+            "description": "only return collections from this group"
+          },
+          "resource_doi": {
+            "type": "string",
+            "description": "only return collections with this resource_doi"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Collection"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "collections_search",
+      "title": "collections_search",
+      "description": "Returns a list of public collections",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "search": {
+            "$ref": "#/definitions/CollectionSearch"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Collection"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "collection_details",
+      "title": "collection_details",
+      "description": "View a collection",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "collection_id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Collection Unique identifier",
+            "minimum": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "collection_id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CollectionComplete"
+      }
+    },
+    {
+      "id": "collection_articles",
+      "title": "collection_articles",
+      "description": "Returns a list of public collection articles",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "collection_id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Collection Unique identifier",
+            "minimum": 1
+          },
+          "page": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Page number. Used for pagination with page_size",
+            "maximum": 5000,
+            "minimum": 1
+          },
+          "page_size": {
+            "type": "integer",
+            "format": "int64",
+            "description": "The number of results included on a page. Used for pagination with page",
+            "maximum": 100,
+            "minimum": 1
+          },
+          "limit": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Number of results included on a page. Used for pagination with query",
+            "maximum": 100,
+            "minimum": 1
+          },
+          "offset": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Where to start the listing(the offset of the first result). Used for pagination with limit",
+            "maximum": 5000,
+            "minimum": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "collection_id"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Article"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "collection_versions",
+      "title": "collection_versions",
+      "description": "Returns a list of public collection Versions",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "collection_id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Collection Unique identifier",
+            "minimum": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "collection_id"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Version"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "collection_version_details",
+      "title": "collection_version_details",
+      "description": "View details for a certain version of a collection",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "collection_id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Collection Unique identifier",
+            "minimum": 1
+          },
+          "version_id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Version Number",
+            "minimum": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "collection_id",
+          "version_id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CollectionComplete"
+      }
+    },
+    {
+      "id": "file_download",
+      "title": "file_download",
+      "description": "Starts the download of a file",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "file_id": {
+            "type": "integer",
+            "format": "int64",
+            "minimum": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "file_id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "institution_hrfeed_upload",
+      "title": "institution_hrfeed_upload",
+      "description": "More info in the [HR Feed section](#hr_feed)",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "hrfeed": {
+            "type": "string",
+            "description": "You can find an example in the Hr Feed section"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ResponseMessage"
+      },
+      "security": {
+        "figshare": {
+          "integration": "figshare"
+        }
+      }
+    },
+    {
+      "id": "institution_articles",
+      "title": "institution_articles",
+      "description": "Returns a list of articles belonging to the institution",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "institution_string_id": {
+            "type": "string"
+          },
+          "resource_id": {
+            "type": "string"
+          },
+          "filename": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "institution_string_id",
+          "resource_id",
+          "filename"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Article"
+        },
+        "type": "array"
+      },
+      "security": {
+        "figshare": {
+          "integration": "figshare"
+        }
+      }
+    },
+    {
+      "id": "licenses_list",
+      "title": "licenses_list",
+      "description": "Returns a list of public licenses",
+      "inputSchema": {},
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/License"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "projects_list",
+      "title": "projects_list",
+      "description": "Returns a list of public projects",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "page": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Page number. Used for pagination with page_size",
+            "maximum": 5000,
+            "minimum": 1
+          },
+          "page_size": {
+            "type": "integer",
+            "format": "int64",
+            "description": "The number of results included on a page. Used for pagination with page",
+            "maximum": 100,
+            "minimum": 1
+          },
+          "limit": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Number of results included on a page. Used for pagination with query",
+            "maximum": 100,
+            "minimum": 1
+          },
+          "offset": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Where to start the listing(the offset of the first result). Used for pagination with limit",
+            "maximum": 5000,
+            "minimum": 1
+          },
+          "order": {
+            "type": "string",
+            "description": "The field by which to order. Default varies by endpoint/resource.",
+            "enum": [
+              "published_date",
+              "modified_date",
+              "views",
+              "shares",
+              "downloads",
+              "cites"
+            ]
+          },
+          "order_direction": {
+            "type": "string",
+            "enum": [
+              "asc",
+              "desc"
+            ]
+          },
+          "institution": {
+            "type": "integer",
+            "format": "int64",
+            "description": "only return collections from this institution"
+          },
+          "published_since": {
+            "type": "string",
+            "description": "Filter by article publishing date. Will only return articles published after the date. date(ISO 8601) YYYY-MM-DD"
+          },
+          "group": {
+            "type": "integer",
+            "format": "int64",
+            "description": "only return collections from this group"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Project"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "projects_search",
+      "title": "projects_search",
+      "description": "Returns a list of public articles",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "search": {
+            "$ref": "#/definitions/CommonSearch"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Project"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "project_details",
+      "title": "project_details",
+      "description": "View a project",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "project_id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Project Unique identifier",
+            "minimum": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "project_id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ProjectComplete"
+      }
+    },
+    {
+      "id": "project_articles",
+      "title": "project_articles",
+      "description": "List articles in project",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "project_id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Project Unique identifier",
+            "minimum": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "project_id"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Article"
+        },
+        "type": "array"
+      }
+    }
+  ],
+  "tags": [
+    "open data"
+  ]
+}

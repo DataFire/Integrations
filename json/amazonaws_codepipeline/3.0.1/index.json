@@ -1,0 +1,3642 @@
+{
+  "id": "amazonaws_codepipeline",
+  "title": "AWS CodePipeline",
+  "description": "AWS CodePipeline\n\n**Overview**\n\nThis is the AWS CodePipeline API Reference. This guide provides descriptions of the actions and data types for AWS CodePipeline. Some functionality for your pipeline is only configurable through the API. For additional information, see the [AWS CodePipeline User Guide](http://docs.aws.amazon.com/codepipeline/latest/userguide/welcome.html).\n\nYou can use the AWS CodePipeline API to work with pipelines, stages, actions, gates, and transitions, as described below.\n\n_Pipelines_ are models of automated release processes. Each pipeline is uniquely named, and consists of actions, gates, and stages.\n\nYou can work with pipelines by calling:\n\n*   CreatePipeline, which creates a uniquely-named pipeline.\n\n*   DeletePipeline, which deletes the specified pipeline.\n\n*   GetPipeline, which returns information about a pipeline structure.\n\n*   GetPipelineExecution, which returns information about a specific execution of a pipeline.\n\n*   GetPipelineState, which returns information about the current state of the stages and actions of a pipeline.\n\n*   ListPipelines, which gets a summary of all of the pipelines associated with your account.\n\n*   StartPipelineExecution, which runs the the most recent revision of an artifact through the pipeline.\n\n*   UpdatePipeline, which updates a pipeline with edits or changes to the structure of the pipeline.\n\nPipelines include _stages_, which are logical groupings of gates and actions. Each stage contains one or more actions that must complete before the next stage begins. A stage will result in success or failure. If a stage fails, then the pipeline stops at that stage and will remain stopped until either a new version of an artifact appears in the source location, or a user takes action to re-run the most recent artifact through the pipeline. You can call GetPipelineState, which displays the status of a pipeline, including the status of stages in the pipeline, or GetPipeline, which returns the entire structure of the pipeline, including the stages of that pipeline. For more information about the structure of stages and actions, also refer to the [AWS CodePipeline Pipeline Structure Reference](http://docs.aws.amazon.com/codepipeline/latest/userguide/pipeline-structure.html).\n\nPipeline stages include _actions_, which are categorized into categories such as source or build actions performed within a stage of a pipeline. For example, you can use a source action to import artifacts into a pipeline from a source such as Amazon S3\\. Like stages, you do not work with actions directly in most cases, but you do define and interact with actions when working with pipeline operations such as CreatePipeline and GetPipelineState.\n\nPipelines also include _transitions_, which allow the transition of artifacts from one stage to the next in a pipeline after the actions in one stage complete.\n\nYou can work with transitions by calling:\n\n*   DisableStageTransition, which prevents artifacts from transitioning to the next stage in a pipeline.\n\n*   EnableStageTransition, which enables transition of artifacts between stages in a pipeline.\n\n**Using the API to integrate with AWS CodePipeline**\n\nFor third-party integrators or developers who want to create their own integrations with AWS CodePipeline, the expected sequence varies from the standard API user. In order to integrate with AWS CodePipeline, developers will need to work with the following items:\n\n**Jobs**, which are instances of an action. For example, a job for a source action might import a revision of an artifact from a source.\n\nYou can work with jobs by calling:\n\n*   AcknowledgeJob, which confirms whether a job worker has received the specified job,\n\n*   GetJobDetails, which returns the details of a job,\n\n*   PollForJobs, which determines whether there are any jobs to act upon,\n\n*   PutJobFailureResult, which provides details of a job failure, and\n\n*   PutJobSuccessResult, which provides details of a job success.\n\n**Third party jobs**, which are instances of an action created by a partner action and integrated into AWS CodePipeline. Partner actions are created by members of the AWS Partner Network.\n\nYou can work with third party jobs by calling:\n\n*   AcknowledgeThirdPartyJob, which confirms whether a job worker has received the specified job,\n\n*   GetThirdPartyJobDetails, which requests the details of a job for a partner action,\n\n*   PollForThirdPartyJobs, which determines whether there are any jobs to act upon,\n\n*   PutThirdPartyJobFailureResult, which provides details of a job failure, and\n\n*   PutThirdPartyJobSuccessResult, which provides details of a job success.",
+  "security": {
+    "amazonaws_codepipeline": {
+      "integration": "amazonaws_codepipeline",
+      "accessKeyId": "",
+      "secretAccessKey": "",
+      "region": "AWS region (if applicable)"
+    }
+  },
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_codepipeline.svg"
+  },
+  "actionCount": 26,
+  "definitions": {
+    "AWSSessionCredentials": {
+      "description": "Represents an AWS session credentials object. These credentials are temporary credentials that are issued by AWS Secure Token Service (STS). They can be used to access input and output artifacts in the Amazon S3 bucket used to store artifact for the pipeline in AWS CodePipeline.",
+      "properties": {
+        "accessKeyId": {
+          "$ref": "#/definitions/AccessKeyId",
+          "description": "The access key for the session."
+        },
+        "secretAccessKey": {
+          "$ref": "#/definitions/SecretAccessKey",
+          "description": "The secret access key for the session."
+        },
+        "sessionToken": {
+          "$ref": "#/definitions/SessionToken",
+          "description": "The token for the session."
+        }
+      },
+      "required": [
+        "accessKeyId",
+        "secretAccessKey",
+        "sessionToken"
+      ],
+      "type": "object",
+      "title": "AWSSessionCredentials"
+    },
+    "AccessKeyId": {
+      "type": "string",
+      "title": "AccessKeyId"
+    },
+    "AccountId": {
+      "pattern": "[0-9]{12}",
+      "type": "string",
+      "title": "AccountId"
+    },
+    "AcknowledgeJobInput": {
+      "description": "Represents the input of an acknowledge job action.",
+      "example": {
+        "jobId": "11111111-abcd-1111-abcd-111111abcdef",
+        "nonce": "3"
+      },
+      "properties": {
+        "jobId": {
+          "$ref": "#/definitions/JobId",
+          "description": "The unique system-generated ID of the job for which you want to confirm receipt."
+        },
+        "nonce": {
+          "$ref": "#/definitions/Nonce",
+          "description": "A system-generated random number that AWS CodePipeline uses to ensure that the job is being worked on by only one job worker. Get this number from the response of the <a>PollForJobs</a> request that returned this job."
+        }
+      },
+      "required": [
+        "jobId",
+        "nonce"
+      ],
+      "type": "object",
+      "title": "AcknowledgeJobInput"
+    },
+    "AcknowledgeJobOutput": {
+      "description": "Represents the output of an acknowledge job action.",
+      "example": {
+        "status": "InProgress"
+      },
+      "properties": {
+        "status": {
+          "$ref": "#/definitions/JobStatus",
+          "description": "Whether the job worker has received the specified job."
+        }
+      },
+      "type": "object",
+      "title": "AcknowledgeJobOutput"
+    },
+    "AcknowledgeThirdPartyJobInput": {
+      "description": "Represents the input of an acknowledge third party job action.",
+      "properties": {
+        "clientToken": {
+          "$ref": "#/definitions/ClientToken",
+          "description": "The clientToken portion of the clientId and clientToken pair used to verify that the calling entity is allowed access to the job and its details."
+        },
+        "jobId": {
+          "$ref": "#/definitions/ThirdPartyJobId",
+          "description": "The unique system-generated ID of the job."
+        },
+        "nonce": {
+          "$ref": "#/definitions/Nonce",
+          "description": "A system-generated random number that AWS CodePipeline uses to ensure that the job is being worked on by only one job worker. Get this number from the response to a <a>GetThirdPartyJobDetails</a> request."
+        }
+      },
+      "required": [
+        "jobId",
+        "nonce",
+        "clientToken"
+      ],
+      "type": "object",
+      "title": "AcknowledgeThirdPartyJobInput"
+    },
+    "AcknowledgeThirdPartyJobOutput": {
+      "description": "Represents the output of an acknowledge third party job action.",
+      "properties": {
+        "status": {
+          "$ref": "#/definitions/JobStatus",
+          "description": "The status information for the third party job, if any."
+        }
+      },
+      "type": "object",
+      "title": "AcknowledgeThirdPartyJobOutput"
+    },
+    "ActionCategory": {
+      "enum": [
+        "Source",
+        "Build",
+        "Deploy",
+        "Test",
+        "Invoke",
+        "Approval"
+      ],
+      "type": "string",
+      "title": "ActionCategory"
+    },
+    "ActionConfiguration": {
+      "description": "Represents information about an action configuration.",
+      "properties": {
+        "configuration": {
+          "$ref": "#/definitions/ActionConfigurationMap",
+          "description": "The configuration data for the action."
+        }
+      },
+      "type": "object",
+      "title": "ActionConfiguration"
+    },
+    "ActionConfigurationKey": {
+      "maxLength": 50,
+      "minLength": 1,
+      "type": "string",
+      "title": "ActionConfigurationKey"
+    },
+    "ActionConfigurationMap": {
+      "items": {
+        "properties": {
+          "key": {
+            "$ref": "#/definitions/ActionConfigurationKey"
+          },
+          "value": {
+            "$ref": "#/definitions/ActionConfigurationValue"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array",
+      "title": "ActionConfigurationMap"
+    },
+    "ActionConfigurationProperty": {
+      "description": "Represents information about an action configuration property.",
+      "properties": {
+        "description": {
+          "$ref": "#/definitions/Description",
+          "description": "The description of the action configuration property that will be displayed to users."
+        },
+        "key": {
+          "$ref": "#/definitions/Boolean",
+          "description": "Whether the configuration property is a key."
+        },
+        "name": {
+          "$ref": "#/definitions/ActionConfigurationKey",
+          "description": "The name of the action configuration property."
+        },
+        "queryable": {
+          "$ref": "#/definitions/Boolean",
+          "description": "<p>Indicates that the proprety will be used in conjunction with PollForJobs. When creating a custom action, an action can have up to one queryable property. If it has one, that property must be both required and not secret.</p> <p>If you create a pipeline with a custom action type, and that custom action contains a queryable property, the value for that configuration property is subject to additional restrictions. The value must be less than or equal to twenty (20) characters. The value can contain only alphanumeric characters, underscores, and hyphens.</p>"
+        },
+        "required": {
+          "$ref": "#/definitions/Boolean",
+          "description": "Whether the configuration property is a required value."
+        },
+        "secret": {
+          "$ref": "#/definitions/Boolean",
+          "description": "<p>Whether the configuration property is secret. Secrets are hidden from all calls except for GetJobDetails, GetThirdPartyJobDetails, PollForJobs, and PollForThirdPartyJobs.</p> <p>When updating a pipeline, passing * * * * * without changing any other values of the action will preserve the prior value of the secret.</p>"
+        },
+        "type": {
+          "$ref": "#/definitions/ActionConfigurationPropertyType",
+          "description": "The type of the configuration property."
+        }
+      },
+      "required": [
+        "name",
+        "required",
+        "key",
+        "secret"
+      ],
+      "type": "object",
+      "title": "ActionConfigurationProperty"
+    },
+    "ActionConfigurationPropertyList": {
+      "items": {
+        "$ref": "#/definitions/ActionConfigurationProperty"
+      },
+      "maxItems": 10,
+      "type": "array",
+      "title": "ActionConfigurationPropertyList"
+    },
+    "ActionConfigurationPropertyType": {
+      "enum": [
+        "String",
+        "Number",
+        "Boolean"
+      ],
+      "type": "string",
+      "title": "ActionConfigurationPropertyType"
+    },
+    "ActionConfigurationQueryableValue": {
+      "maxLength": 20,
+      "minLength": 1,
+      "pattern": "[a-zA-Z0-9_-]+",
+      "type": "string",
+      "title": "ActionConfigurationQueryableValue"
+    },
+    "ActionConfigurationValue": {
+      "maxLength": 1000,
+      "minLength": 1,
+      "type": "string",
+      "title": "ActionConfigurationValue"
+    },
+    "ActionContext": {
+      "description": "Represents the context of an action within the stage of a pipeline to a job worker.",
+      "properties": {
+        "name": {
+          "$ref": "#/definitions/ActionName",
+          "description": "The name of the action within the context of a job."
+        }
+      },
+      "type": "object",
+      "title": "ActionContext"
+    },
+    "ActionDeclaration": {
+      "description": "Represents information about an action declaration.",
+      "properties": {
+        "actionTypeId": {
+          "$ref": "#/definitions/ActionTypeId",
+          "description": "The configuration information for the action type."
+        },
+        "configuration": {
+          "$ref": "#/definitions/ActionConfigurationMap",
+          "description": "The action declaration's configuration."
+        },
+        "inputArtifacts": {
+          "$ref": "#/definitions/InputArtifactList",
+          "description": "The name or ID of the artifact consumed by the action, such as a test or build artifact."
+        },
+        "name": {
+          "$ref": "#/definitions/ActionName",
+          "description": "The action declaration's name."
+        },
+        "outputArtifacts": {
+          "$ref": "#/definitions/OutputArtifactList",
+          "description": "The name or ID of the result of the action declaration, such as a test or build artifact."
+        },
+        "roleArn": {
+          "$ref": "#/definitions/RoleArn",
+          "description": "The ARN of the IAM service role that will perform the declared action. This is assumed through the roleArn for the pipeline."
+        },
+        "runOrder": {
+          "$ref": "#/definitions/ActionRunOrder",
+          "description": "The order in which actions are run."
+        }
+      },
+      "required": [
+        "name",
+        "actionTypeId"
+      ],
+      "type": "object",
+      "title": "ActionDeclaration"
+    },
+    "ActionExecution": {
+      "description": "Represents information about the run of an action.",
+      "properties": {
+        "errorDetails": {
+          "$ref": "#/definitions/ErrorDetails",
+          "description": "The details of an error returned by a URL external to AWS."
+        },
+        "externalExecutionId": {
+          "$ref": "#/definitions/ExecutionId",
+          "description": "The external ID of the run of the action."
+        },
+        "externalExecutionUrl": {
+          "$ref": "#/definitions/Url",
+          "description": "The URL of a resource external to AWS that will be used when running the action, for example an external repository URL."
+        },
+        "lastStatusChange": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The last status change of the action."
+        },
+        "lastUpdatedBy": {
+          "$ref": "#/definitions/LastUpdatedBy",
+          "description": "The ARN of the user who last changed the pipeline."
+        },
+        "percentComplete": {
+          "$ref": "#/definitions/Percentage",
+          "description": "A percentage of completeness of the action as it runs."
+        },
+        "status": {
+          "$ref": "#/definitions/ActionExecutionStatus",
+          "description": "The status of the action, or for a completed action, the last status of the action."
+        },
+        "summary": {
+          "$ref": "#/definitions/ExecutionSummary",
+          "description": "A summary of the run of the action."
+        },
+        "token": {
+          "$ref": "#/definitions/ActionExecutionToken",
+          "description": "The system-generated token used to identify a unique approval request. The token for each open approval request can be obtained using the GetPipelineState command and is used to validate that the approval request corresponding to this token is still valid."
+        }
+      },
+      "type": "object",
+      "title": "ActionExecution"
+    },
+    "ActionExecutionStatus": {
+      "enum": [
+        "InProgress",
+        "Succeeded",
+        "Failed"
+      ],
+      "type": "string",
+      "title": "ActionExecutionStatus"
+    },
+    "ActionExecutionToken": {
+      "type": "string",
+      "title": "ActionExecutionToken"
+    },
+    "ActionName": {
+      "maxLength": 100,
+      "minLength": 1,
+      "pattern": "[A-Za-z0-9.@\\-_]+",
+      "type": "string",
+      "title": "ActionName"
+    },
+    "ActionNotFoundException": {
+      "description": "The specified action cannot be found.",
+      "properties": {},
+      "type": "object",
+      "title": "ActionNotFoundException"
+    },
+    "ActionOwner": {
+      "enum": [
+        "AWS",
+        "ThirdParty",
+        "Custom"
+      ],
+      "type": "string",
+      "title": "ActionOwner"
+    },
+    "ActionProvider": {
+      "maxLength": 25,
+      "minLength": 1,
+      "pattern": "[0-9A-Za-z_-]+",
+      "type": "string",
+      "title": "ActionProvider"
+    },
+    "ActionRevision": {
+      "description": "Represents information about the version (or revision) of an action.",
+      "properties": {
+        "created": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The date and time when the most recent version of the action was created, in timestamp format."
+        },
+        "revisionChangeId": {
+          "$ref": "#/definitions/RevisionChangeIdentifier",
+          "description": "The unique identifier of the change that set the state to this revision, for example a deployment ID or timestamp."
+        },
+        "revisionId": {
+          "$ref": "#/definitions/Revision",
+          "description": "The system-generated unique ID that identifies the revision number of the action."
+        }
+      },
+      "required": [
+        "revisionId",
+        "revisionChangeId",
+        "created"
+      ],
+      "type": "object",
+      "title": "ActionRevision"
+    },
+    "ActionRunOrder": {
+      "maximum": 999,
+      "minimum": 1,
+      "type": "integer",
+      "title": "ActionRunOrder"
+    },
+    "ActionState": {
+      "description": "Represents information about the state of an action.",
+      "properties": {
+        "actionName": {
+          "$ref": "#/definitions/ActionName",
+          "description": "The name of the action."
+        },
+        "currentRevision": {
+          "$ref": "#/definitions/ActionRevision"
+        },
+        "entityUrl": {
+          "$ref": "#/definitions/Url",
+          "description": "A URL link for more information about the state of the action, such as a deployment group details page."
+        },
+        "latestExecution": {
+          "$ref": "#/definitions/ActionExecution"
+        },
+        "revisionUrl": {
+          "$ref": "#/definitions/Url",
+          "description": "A URL link for more information about the revision, such as a commit details page."
+        }
+      },
+      "type": "object",
+      "title": "ActionState"
+    },
+    "ActionStateList": {
+      "items": {
+        "$ref": "#/definitions/ActionState"
+      },
+      "type": "array",
+      "title": "ActionStateList"
+    },
+    "ActionType": {
+      "description": "Returns information about the details of an action type.",
+      "properties": {
+        "actionConfigurationProperties": {
+          "$ref": "#/definitions/ActionConfigurationPropertyList",
+          "description": "The configuration properties for the action type."
+        },
+        "id": {
+          "$ref": "#/definitions/ActionTypeId"
+        },
+        "inputArtifactDetails": {
+          "$ref": "#/definitions/ArtifactDetails",
+          "description": "The details of the input artifact for the action, such as its commit ID."
+        },
+        "outputArtifactDetails": {
+          "$ref": "#/definitions/ArtifactDetails",
+          "description": "The details of the output artifact of the action, such as its commit ID."
+        },
+        "settings": {
+          "$ref": "#/definitions/ActionTypeSettings",
+          "description": "The settings for the action type."
+        }
+      },
+      "required": [
+        "id",
+        "inputArtifactDetails",
+        "outputArtifactDetails"
+      ],
+      "type": "object",
+      "title": "ActionType"
+    },
+    "ActionTypeId": {
+      "description": "Represents information about an action type.",
+      "properties": {
+        "category": {
+          "$ref": "#/definitions/ActionCategory",
+          "description": "A category defines what kind of action can be taken in the stage, and constrains the provider type for the action. Valid categories are limited to one of the values below."
+        },
+        "owner": {
+          "$ref": "#/definitions/ActionOwner",
+          "description": "The creator of the action being called."
+        },
+        "provider": {
+          "$ref": "#/definitions/ActionProvider",
+          "description": "The provider of the service being called by the action. Valid providers are determined by the action category. For example, an action in the Deploy category type might have a provider of AWS CodeDeploy, which would be specified as CodeDeploy."
+        },
+        "version": {
+          "$ref": "#/definitions/Version",
+          "description": "A string that identifies the action type."
+        }
+      },
+      "required": [
+        "category",
+        "owner",
+        "provider",
+        "version"
+      ],
+      "type": "object",
+      "title": "ActionTypeId"
+    },
+    "ActionTypeList": {
+      "items": {
+        "$ref": "#/definitions/ActionType"
+      },
+      "type": "array",
+      "title": "ActionTypeList"
+    },
+    "ActionTypeNotFoundException": {
+      "description": "The specified action type cannot be found.",
+      "properties": {},
+      "type": "object",
+      "title": "ActionTypeNotFoundException"
+    },
+    "ActionTypeSettings": {
+      "description": "Returns information about the settings for an action type.",
+      "properties": {
+        "entityUrlTemplate": {
+          "$ref": "#/definitions/UrlTemplate",
+          "description": "The URL returned to the AWS CodePipeline console that provides a deep link to the resources of the external system, such as the configuration page for an AWS CodeDeploy deployment group. This link is provided as part of the action display within the pipeline."
+        },
+        "executionUrlTemplate": {
+          "$ref": "#/definitions/UrlTemplate",
+          "description": "The URL returned to the AWS CodePipeline console that contains a link to the top-level landing page for the external system, such as console page for AWS CodeDeploy. This link is shown on the pipeline view page in the AWS CodePipeline console and provides a link to the execution entity of the external action."
+        },
+        "revisionUrlTemplate": {
+          "$ref": "#/definitions/UrlTemplate",
+          "description": "The URL returned to the AWS CodePipeline console that contains a link to the page where customers can update or change the configuration of the external action."
+        },
+        "thirdPartyConfigurationUrl": {
+          "$ref": "#/definitions/Url",
+          "description": "The URL of a sign-up page where users can sign up for an external service and perform initial configuration of the action provided by that service."
+        }
+      },
+      "type": "object",
+      "title": "ActionTypeSettings"
+    },
+    "ApprovalAlreadyCompletedException": {
+      "description": "The approval action has already been approved or rejected.",
+      "properties": {},
+      "type": "object",
+      "title": "ApprovalAlreadyCompletedException"
+    },
+    "ApprovalResult": {
+      "description": "Represents information about the result of an approval request.",
+      "properties": {
+        "status": {
+          "$ref": "#/definitions/ApprovalStatus",
+          "description": "The response submitted by a reviewer assigned to an approval action request."
+        },
+        "summary": {
+          "$ref": "#/definitions/ApprovalSummary",
+          "description": "The summary of the current status of the approval request."
+        }
+      },
+      "required": [
+        "summary",
+        "status"
+      ],
+      "type": "object",
+      "title": "ApprovalResult"
+    },
+    "ApprovalStatus": {
+      "enum": [
+        "Approved",
+        "Rejected"
+      ],
+      "type": "string",
+      "title": "ApprovalStatus"
+    },
+    "ApprovalSummary": {
+      "maxLength": 512,
+      "minLength": 0,
+      "type": "string",
+      "title": "ApprovalSummary"
+    },
+    "ApprovalToken": {
+      "pattern": "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}",
+      "type": "string",
+      "title": "ApprovalToken"
+    },
+    "Artifact": {
+      "description": "Represents information about an artifact that will be worked upon by actions in the pipeline.",
+      "properties": {
+        "location": {
+          "$ref": "#/definitions/ArtifactLocation",
+          "description": "The location of an artifact."
+        },
+        "name": {
+          "$ref": "#/definitions/ArtifactName",
+          "description": "The artifact's name."
+        },
+        "revision": {
+          "$ref": "#/definitions/Revision",
+          "description": "The artifact's revision ID. Depending on the type of object, this could be a commit ID (GitHub) or a revision ID (Amazon S3)."
+        }
+      },
+      "type": "object",
+      "title": "Artifact"
+    },
+    "ArtifactDetails": {
+      "description": "Returns information about the details of an artifact.",
+      "properties": {
+        "maximumCount": {
+          "$ref": "#/definitions/MaximumArtifactCount",
+          "description": "The maximum number of artifacts allowed for the action type."
+        },
+        "minimumCount": {
+          "$ref": "#/definitions/MinimumArtifactCount",
+          "description": "The minimum number of artifacts allowed for the action type."
+        }
+      },
+      "required": [
+        "minimumCount",
+        "maximumCount"
+      ],
+      "type": "object",
+      "title": "ArtifactDetails"
+    },
+    "ArtifactList": {
+      "items": {
+        "$ref": "#/definitions/Artifact"
+      },
+      "type": "array",
+      "title": "ArtifactList"
+    },
+    "ArtifactLocation": {
+      "description": "Represents information about the location of an artifact.",
+      "properties": {
+        "s3Location": {
+          "$ref": "#/definitions/S3ArtifactLocation",
+          "description": "The Amazon S3 bucket that contains the artifact."
+        },
+        "type": {
+          "$ref": "#/definitions/ArtifactLocationType",
+          "description": "The type of artifact in the location."
+        }
+      },
+      "type": "object",
+      "title": "ArtifactLocation"
+    },
+    "ArtifactLocationType": {
+      "enum": [
+        "S3"
+      ],
+      "type": "string",
+      "title": "ArtifactLocationType"
+    },
+    "ArtifactName": {
+      "maxLength": 100,
+      "minLength": 1,
+      "pattern": "[a-zA-Z0-9_\\-]+",
+      "type": "string",
+      "title": "ArtifactName"
+    },
+    "ArtifactRevision": {
+      "description": "Represents revision details of an artifact. ",
+      "properties": {
+        "created": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The date and time when the most recent revision of the artifact was created, in timestamp format."
+        },
+        "name": {
+          "$ref": "#/definitions/ArtifactName",
+          "description": "The name of an artifact. This name might be system-generated, such as \"MyApp\", or might be defined by the user when an action is created."
+        },
+        "revisionChangeIdentifier": {
+          "$ref": "#/definitions/RevisionChangeIdentifier",
+          "description": "An additional identifier for a revision, such as a commit date or, for artifacts stored in Amazon S3 buckets, the ETag value."
+        },
+        "revisionId": {
+          "$ref": "#/definitions/Revision",
+          "description": "The revision ID of the artifact."
+        },
+        "revisionSummary": {
+          "$ref": "#/definitions/RevisionSummary",
+          "description": "Summary information about the most recent revision of the artifact. For GitHub and AWS CodeCommit repositories, the commit message. For Amazon S3 buckets or actions, the user-provided content of a <code>codepipeline-artifact-revision-summary</code> key specified in the object metadata."
+        },
+        "revisionUrl": {
+          "$ref": "#/definitions/Url",
+          "description": "The commit ID for the artifact revision. For artifacts stored in GitHub or AWS CodeCommit repositories, the commit ID is linked to a commit details page."
+        }
+      },
+      "type": "object",
+      "title": "ArtifactRevision"
+    },
+    "ArtifactRevisionList": {
+      "items": {
+        "$ref": "#/definitions/ArtifactRevision"
+      },
+      "type": "array",
+      "title": "ArtifactRevisionList"
+    },
+    "ArtifactStore": {
+      "description": "The Amazon S3 location where artifacts are stored for the pipeline. If this Amazon S3 bucket is created manually, it must meet the requirements for AWS CodePipeline. For more information, see the <a href=\"http://docs.aws.amazon.com/codepipeline/latest/userguide/concepts.html#CPS3Bucket\">Concepts</a>.",
+      "properties": {
+        "encryptionKey": {
+          "$ref": "#/definitions/EncryptionKey",
+          "description": "The encryption key used to encrypt the data in the artifact store, such as an AWS Key Management Service (AWS KMS) key. If this is undefined, the default key for Amazon S3 is used."
+        },
+        "location": {
+          "$ref": "#/definitions/ArtifactStoreLocation",
+          "description": "The location for storing the artifacts for a pipeline, such as an S3 bucket or folder."
+        },
+        "type": {
+          "$ref": "#/definitions/ArtifactStoreType",
+          "description": "The type of the artifact store, such as S3."
+        }
+      },
+      "required": [
+        "type",
+        "location"
+      ],
+      "type": "object",
+      "title": "ArtifactStore"
+    },
+    "ArtifactStoreLocation": {
+      "maxLength": 63,
+      "minLength": 3,
+      "pattern": "[a-zA-Z0-9\\-\\.]+",
+      "type": "string",
+      "title": "ArtifactStoreLocation"
+    },
+    "ArtifactStoreType": {
+      "enum": [
+        "S3"
+      ],
+      "type": "string",
+      "title": "ArtifactStoreType"
+    },
+    "BlockerDeclaration": {
+      "description": "Reserved for future use.",
+      "properties": {
+        "name": {
+          "$ref": "#/definitions/BlockerName",
+          "description": "Reserved for future use."
+        },
+        "type": {
+          "$ref": "#/definitions/BlockerType",
+          "description": "Reserved for future use."
+        }
+      },
+      "required": [
+        "name",
+        "type"
+      ],
+      "type": "object",
+      "title": "BlockerDeclaration"
+    },
+    "BlockerName": {
+      "maxLength": 100,
+      "minLength": 1,
+      "type": "string",
+      "title": "BlockerName"
+    },
+    "BlockerType": {
+      "enum": [
+        "Schedule"
+      ],
+      "type": "string",
+      "title": "BlockerType"
+    },
+    "Boolean": {
+      "type": "boolean",
+      "title": "Boolean"
+    },
+    "ClientId": {
+      "pattern": "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}",
+      "type": "string",
+      "title": "ClientId"
+    },
+    "ClientToken": {
+      "type": "string",
+      "title": "ClientToken"
+    },
+    "Code": {
+      "type": "string",
+      "title": "Code"
+    },
+    "ContinuationToken": {
+      "type": "string",
+      "title": "ContinuationToken"
+    },
+    "CreateCustomActionTypeInput": {
+      "description": "Represents the input of a create custom action operation.",
+      "example": {
+        "category": "Build",
+        "configurationProperties": [
+          {
+            "description": "The name of the build project must be provided when this action is added to the pipeline.",
+            "key": true,
+            "name": "MyJenkinsExampleBuildProject",
+            "queryable": false,
+            "required": true,
+            "secret": false,
+            "type": "String"
+          }
+        ],
+        "inputArtifactDetails": {
+          "maximumCount": 1,
+          "minimumCount": 0
+        },
+        "outputArtifactDetails": {
+          "maximumCount": 1,
+          "minimumCount": 0
+        },
+        "provider": "MyBuild-ProviderName",
+        "settings": {
+          "entityUrlTemplate": "https://192.0.2.4/job/{Config:ProjectName}/",
+          "executionUrlTemplate": "https://192.0.2.4/job/{Config:ProjectName}/lastSuccessfulBuild/{ExternalExecutionId}/",
+          "revisionUrlTemplate": "none"
+        },
+        "version": "1"
+      },
+      "properties": {
+        "category": {
+          "$ref": "#/definitions/ActionCategory",
+          "description": "<p>The category of the custom action, such as a build action or a test action.</p> <note> <p>Although Source and Approval are listed as valid values, they are not currently functional. These values are reserved for future use.</p> </note>"
+        },
+        "configurationProperties": {
+          "$ref": "#/definitions/ActionConfigurationPropertyList",
+          "description": "<p>The configuration properties for the custom action.</p> <note> <p>You can refer to a name in the configuration properties of the custom action within the URL templates by following the format of {Config:name}, as long as the configuration property is both required and not secret. For more information, see <a href=\"http://docs.aws.amazon.com/codepipeline/latest/userguide/how-to-create-custom-action.html\">Create a Custom Action for a Pipeline</a>.</p> </note>"
+        },
+        "inputArtifactDetails": {
+          "$ref": "#/definitions/ArtifactDetails"
+        },
+        "outputArtifactDetails": {
+          "$ref": "#/definitions/ArtifactDetails"
+        },
+        "provider": {
+          "$ref": "#/definitions/ActionProvider",
+          "description": "The provider of the service used in the custom action, such as AWS CodeDeploy."
+        },
+        "settings": {
+          "$ref": "#/definitions/ActionTypeSettings"
+        },
+        "version": {
+          "$ref": "#/definitions/Version",
+          "description": "The version identifier of the custom action."
+        }
+      },
+      "required": [
+        "category",
+        "provider",
+        "version",
+        "inputArtifactDetails",
+        "outputArtifactDetails"
+      ],
+      "type": "object",
+      "title": "CreateCustomActionTypeInput"
+    },
+    "CreateCustomActionTypeOutput": {
+      "description": "Represents the output of a create custom action operation.",
+      "example": {
+        "actionType": {
+          "actionConfigurationProperties": [
+            {
+              "description": "The name of the build project must be provided when this action is added to the pipeline.",
+              "key": true,
+              "name": "MyJenkinsExampleBuildProject",
+              "queryable": false,
+              "required": true,
+              "secret": false
+            }
+          ],
+          "id": {
+            "category": "Build",
+            "owner": "Custom",
+            "provider": "MyBuild-ProviderName",
+            "version": "1"
+          },
+          "inputArtifactDetails": {
+            "maximumCount": 1,
+            "minimumCount": 0
+          },
+          "outputArtifactDetails": {
+            "maximumCount": 1,
+            "minimumCount": 0
+          },
+          "settings": {
+            "entityUrlTemplate": "https://192.0.2.4/job/{Config:ProjectName}/",
+            "executionUrlTemplate": "https://192.0.2.4/job/{Config:ProjectName}/lastSuccessfulBuild/{ExternalExecutionId}/",
+            "revisionUrlTemplate": "none"
+          }
+        }
+      },
+      "properties": {
+        "actionType": {
+          "$ref": "#/definitions/ActionType"
+        }
+      },
+      "required": [
+        "actionType"
+      ],
+      "type": "object",
+      "title": "CreateCustomActionTypeOutput"
+    },
+    "CreatePipelineInput": {
+      "description": "Represents the input of a create pipeline action.",
+      "example": {
+        "pipeline": {
+          "artifactStore": {
+            "location": "codepipeline-us-east-1-11EXAMPLE11",
+            "type": "S3"
+          },
+          "name": "MySecondPipeline",
+          "roleArn": "arn:aws:iam::111111111111:role/AWS-CodePipeline-Service",
+          "stages": [
+            {
+              "actions": [
+                {
+                  "actionTypeId": {
+                    "category": "Source",
+                    "owner": "AWS",
+                    "provider": "S3",
+                    "version": "1"
+                  },
+                  "configuration": {
+                    "S3Bucket": "awscodepipeline-demo-bucket",
+                    "S3ObjectKey": "aws-codepipeline-s3-aws-codedeploy_linux.zip"
+                  },
+                  "inputArtifacts": [],
+                  "name": "Source",
+                  "outputArtifacts": [
+                    {
+                      "name": "MyApp"
+                    }
+                  ],
+                  "runOrder": 1
+                }
+              ],
+              "name": "Source"
+            },
+            {
+              "actions": [
+                {
+                  "actionTypeId": {
+                    "category": "Deploy",
+                    "owner": "AWS",
+                    "provider": "CodeDeploy",
+                    "version": "1"
+                  },
+                  "configuration": {
+                    "ApplicationName": "CodePipelineDemoApplication",
+                    "DeploymentGroupName": "CodePipelineDemoFleet"
+                  },
+                  "inputArtifacts": [
+                    {
+                      "name": "MyApp"
+                    }
+                  ],
+                  "name": "CodePipelineDemoFleet",
+                  "outputArtifacts": [],
+                  "runOrder": 1
+                }
+              ],
+              "name": "Beta"
+            }
+          ],
+          "version": 1
+        }
+      },
+      "properties": {
+        "pipeline": {
+          "$ref": "#/definitions/PipelineDeclaration"
+        }
+      },
+      "required": [
+        "pipeline"
+      ],
+      "type": "object",
+      "title": "CreatePipelineInput"
+    },
+    "CreatePipelineOutput": {
+      "description": "Represents the output of a create pipeline action.",
+      "example": {
+        "pipeline": {
+          "artifactStore": {
+            "location": "codepipeline-us-east-1-11EXAMPLE11",
+            "type": "S3"
+          },
+          "name": "MySecondPipeline",
+          "roleArn": "arn:aws:iam::111111111111:role/AWS-CodePipeline-Service",
+          "stages": [
+            {
+              "actions": [
+                {
+                  "actionTypeId": {
+                    "category": "Source",
+                    "owner": "AWS",
+                    "provider": "S3",
+                    "version": "1"
+                  },
+                  "configuration": {
+                    "S3Bucket": "awscodepipeline-demo-bucket",
+                    "S3ObjectKey": "aws-codepipeline-s3-aws-codedeploy_linux.zip"
+                  },
+                  "inputArtifacts": [],
+                  "name": "Source",
+                  "outputArtifacts": [
+                    {
+                      "name": "MyApp"
+                    }
+                  ],
+                  "runOrder": 1
+                }
+              ],
+              "name": "Source"
+            },
+            {
+              "actions": [
+                {
+                  "actionTypeId": {
+                    "category": "Deploy",
+                    "owner": "AWS",
+                    "provider": "CodeDeploy",
+                    "version": "1"
+                  },
+                  "configuration": {
+                    "ApplicationName": "CodePipelineDemoApplication",
+                    "DeploymentGroupName": "CodePipelineDemoFleet"
+                  },
+                  "inputArtifacts": [
+                    {
+                      "name": "MyApp"
+                    }
+                  ],
+                  "name": "CodePipelineDemoFleet",
+                  "outputArtifacts": [],
+                  "runOrder": 1
+                }
+              ],
+              "name": "Beta"
+            }
+          ],
+          "version": 1
+        }
+      },
+      "properties": {
+        "pipeline": {
+          "$ref": "#/definitions/PipelineDeclaration"
+        }
+      },
+      "type": "object",
+      "title": "CreatePipelineOutput"
+    },
+    "CurrentRevision": {
+      "description": "Represents information about a current revision.",
+      "properties": {
+        "changeIdentifier": {
+          "$ref": "#/definitions/RevisionChangeIdentifier",
+          "description": "The change identifier for the current revision."
+        },
+        "created": {
+          "$ref": "#/definitions/Time",
+          "description": "The date and time when the most recent revision of the artifact was created, in timestamp format."
+        },
+        "revision": {
+          "$ref": "#/definitions/Revision",
+          "description": "The revision ID of the current version of an artifact."
+        },
+        "revisionSummary": {
+          "$ref": "#/definitions/RevisionSummary",
+          "description": "The summary of the most recent revision of the artifact."
+        }
+      },
+      "required": [
+        "revision",
+        "changeIdentifier"
+      ],
+      "type": "object",
+      "title": "CurrentRevision"
+    },
+    "DeleteCustomActionTypeInput": {
+      "description": "Represents the input of a delete custom action operation. The custom action will be marked as deleted.",
+      "example": {
+        "category": "Build",
+        "provider": "MyJenkinsProviderName",
+        "version": "1"
+      },
+      "properties": {
+        "category": {
+          "$ref": "#/definitions/ActionCategory",
+          "description": "The category of the custom action that you want to delete, such as source or deploy."
+        },
+        "provider": {
+          "$ref": "#/definitions/ActionProvider",
+          "description": "The provider of the service used in the custom action, such as AWS CodeDeploy."
+        },
+        "version": {
+          "$ref": "#/definitions/Version",
+          "description": "The version of the custom action to delete."
+        }
+      },
+      "required": [
+        "category",
+        "provider",
+        "version"
+      ],
+      "type": "object",
+      "title": "DeleteCustomActionTypeInput"
+    },
+    "DeletePipelineInput": {
+      "description": "Represents the input of a delete pipeline action.",
+      "example": {
+        "name": "MySecondPipeline"
+      },
+      "properties": {
+        "name": {
+          "$ref": "#/definitions/PipelineName",
+          "description": "The name of the pipeline to be deleted."
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "type": "object",
+      "title": "DeletePipelineInput"
+    },
+    "Description": {
+      "maxLength": 2048,
+      "minLength": 1,
+      "type": "string",
+      "title": "Description"
+    },
+    "DisableStageTransitionInput": {
+      "description": "Represents the input of a disable stage transition input action.",
+      "example": {
+        "pipelineName": "MyFirstPipeline",
+        "reason": "An example reason",
+        "stageName": "Beta",
+        "transitionType": "Inbound"
+      },
+      "properties": {
+        "pipelineName": {
+          "$ref": "#/definitions/PipelineName",
+          "description": "The name of the pipeline in which you want to disable the flow of artifacts from one stage to another."
+        },
+        "reason": {
+          "$ref": "#/definitions/DisabledReason",
+          "description": "The reason given to the user why a stage is disabled, such as waiting for manual approval or manual tests. This message is displayed in the pipeline console UI."
+        },
+        "stageName": {
+          "$ref": "#/definitions/StageName",
+          "description": "The name of the stage where you want to disable the inbound or outbound transition of artifacts."
+        },
+        "transitionType": {
+          "$ref": "#/definitions/StageTransitionType",
+          "description": "Specifies whether artifacts will be prevented from transitioning into the stage and being processed by the actions in that stage (inbound), or prevented from transitioning from the stage after they have been processed by the actions in that stage (outbound)."
+        }
+      },
+      "required": [
+        "pipelineName",
+        "stageName",
+        "transitionType",
+        "reason"
+      ],
+      "type": "object",
+      "title": "DisableStageTransitionInput"
+    },
+    "DisabledReason": {
+      "maxLength": 300,
+      "minLength": 1,
+      "pattern": "[a-zA-Z0-9!@ \\(\\)\\.\\*\\?\\-]+",
+      "type": "string",
+      "title": "DisabledReason"
+    },
+    "EnableStageTransitionInput": {
+      "description": "Represents the input of an enable stage transition action.",
+      "example": {
+        "pipelineName": "MyFirstPipeline",
+        "stageName": "Beta",
+        "transitionType": "Inbound"
+      },
+      "properties": {
+        "pipelineName": {
+          "$ref": "#/definitions/PipelineName",
+          "description": "The name of the pipeline in which you want to enable the flow of artifacts from one stage to another."
+        },
+        "stageName": {
+          "$ref": "#/definitions/StageName",
+          "description": "The name of the stage where you want to enable the transition of artifacts, either into the stage (inbound) or from that stage to the next stage (outbound)."
+        },
+        "transitionType": {
+          "$ref": "#/definitions/StageTransitionType",
+          "description": "Specifies whether artifacts will be allowed to enter the stage and be processed by the actions in that stage (inbound) or whether already-processed artifacts will be allowed to transition to the next stage (outbound)."
+        }
+      },
+      "required": [
+        "pipelineName",
+        "stageName",
+        "transitionType"
+      ],
+      "type": "object",
+      "title": "EnableStageTransitionInput"
+    },
+    "Enabled": {
+      "type": "boolean",
+      "title": "Enabled"
+    },
+    "EncryptionKey": {
+      "description": "Represents information about the key used to encrypt data in the artifact store, such as an AWS Key Management Service (AWS KMS) key.",
+      "properties": {
+        "id": {
+          "$ref": "#/definitions/EncryptionKeyId",
+          "description": "The ID used to identify the key. For an AWS KMS key, this is the key ID or key ARN."
+        },
+        "type": {
+          "$ref": "#/definitions/EncryptionKeyType",
+          "description": "The type of encryption key, such as an AWS Key Management Service (AWS KMS) key. When creating or updating a pipeline, the value must be set to 'KMS'."
+        }
+      },
+      "required": [
+        "id",
+        "type"
+      ],
+      "type": "object",
+      "title": "EncryptionKey"
+    },
+    "EncryptionKeyId": {
+      "maxLength": 100,
+      "minLength": 1,
+      "type": "string",
+      "title": "EncryptionKeyId"
+    },
+    "EncryptionKeyType": {
+      "enum": [
+        "KMS"
+      ],
+      "type": "string",
+      "title": "EncryptionKeyType"
+    },
+    "ErrorDetails": {
+      "description": "Represents information about an error in AWS CodePipeline.",
+      "properties": {
+        "code": {
+          "$ref": "#/definitions/Code",
+          "description": "The system ID or error number code of the error."
+        },
+        "message": {
+          "$ref": "#/definitions/Message",
+          "description": "The text of the error message."
+        }
+      },
+      "type": "object",
+      "title": "ErrorDetails"
+    },
+    "ExecutionDetails": {
+      "description": "The details of the actions taken and results produced on an artifact as it passes through stages in the pipeline.",
+      "properties": {
+        "externalExecutionId": {
+          "$ref": "#/definitions/ExecutionId",
+          "description": "The system-generated unique ID of this action used to identify this job worker in any external systems, such as AWS CodeDeploy."
+        },
+        "percentComplete": {
+          "$ref": "#/definitions/Percentage",
+          "description": "The percentage of work completed on the action, represented on a scale of zero to one hundred percent."
+        },
+        "summary": {
+          "$ref": "#/definitions/ExecutionSummary",
+          "description": "The summary of the current status of the actions."
+        }
+      },
+      "type": "object",
+      "title": "ExecutionDetails"
+    },
+    "ExecutionId": {
+      "maxLength": 1500,
+      "minLength": 1,
+      "type": "string",
+      "title": "ExecutionId"
+    },
+    "ExecutionSummary": {
+      "type": "string",
+      "title": "ExecutionSummary"
+    },
+    "FailureDetails": {
+      "description": "Represents information about failure details.",
+      "properties": {
+        "externalExecutionId": {
+          "$ref": "#/definitions/ExecutionId",
+          "description": "The external ID of the run of the action that failed."
+        },
+        "message": {
+          "$ref": "#/definitions/Message",
+          "description": "The message about the failure."
+        },
+        "type": {
+          "$ref": "#/definitions/FailureType",
+          "description": "The type of the failure."
+        }
+      },
+      "required": [
+        "type",
+        "message"
+      ],
+      "type": "object",
+      "title": "FailureDetails"
+    },
+    "FailureType": {
+      "enum": [
+        "JobFailed",
+        "ConfigurationError",
+        "PermissionError",
+        "RevisionOutOfSync",
+        "RevisionUnavailable",
+        "SystemUnavailable"
+      ],
+      "type": "string",
+      "title": "FailureType"
+    },
+    "GetJobDetailsInput": {
+      "description": "Represents the input of a get job details action.",
+      "example": {
+        "jobId": "11111111-abcd-1111-abcd-111111abcdef"
+      },
+      "properties": {
+        "jobId": {
+          "$ref": "#/definitions/JobId",
+          "description": "The unique system-generated ID for the job."
+        }
+      },
+      "required": [
+        "jobId"
+      ],
+      "type": "object",
+      "title": "GetJobDetailsInput"
+    },
+    "GetJobDetailsOutput": {
+      "description": "Represents the output of a get job details action.",
+      "example": {
+        "jobDetails": {
+          "accountId": "111111111111",
+          "data": {
+            "actionConfiguration": {
+              "configuration": {
+                "ProjectName": "MyJenkinsExampleTestProject"
+              }
+            },
+            "actionTypeId": {
+              "category": "Test",
+              "owner": "Custom",
+              "provider": "MyJenkinsProviderName",
+              "version": "1"
+            },
+            "artifactCredentials": {
+              "accessKeyId": "AKIAIOSFODNN7EXAMPLE",
+              "secretAccessKey": "wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY",
+              "sessionToken": "fICCQD6m7oRw0uXOjANBgkqhkiG9w0BAQUFADCBiDELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAldBMRAwDgYDVQQHEwdTZWF0dGxlMQ8wDQYDVQQKEwZBbWF6b24xFDASBgNVBAsTC0lBTSBDb25zb2xlMRIwEAYDVQQDEwlUZXN0Q2lsYWMxHzAdBgkqhkiG9w0BCQEWEG5vb25lQGFtYXpvbi5jb20wHhcNMTEwNDI1MjA0NTIxWhcNMTIwNDI0MjA0NTIxWjCBiDELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAldBMRAwDgYDVQQHEwdTZWF0dGxlMQ8wDQYDVQQKEwZBbWF6b24xFDASBgNVBAsTC0lBTSBDb25zb2xlMRIwEAYDVQQDEwlUZXN0Q2lsYWMxHzAdBgkqhkiG9w0BCQEWEG5vb25lQGFtYXpvbi5jb20wgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGBAMaK0dn+a4GmWIWJ21uUSfwfEvySWtC2XADZ4nB+BLYgVIk60CpiwsZ3G93vUEIO3IyNoH/f0wYK8m9TrDHudUZg3qX4waLG5M43q7Wgc/MbQITxOUSQv7c7ugFFDzQGBzZswY6786m86gpEIbb3OhjZnzcvQAaRHhdlQWIMm2nrAgMBAAEwDQYJKoZIhvcNAQEFBQADgYEAtCu4nUhVVxYUntneD9+h8Mg9q6q+auNKyExzyLwaxlAoo7TJHidbtS4J5iNmZgXL0FkbFFBjvSfpJIlJ00zbhNYS5f6GuoEDmFJl0ZxBHjJnyp378OD8uTs7fLvjx79LjSTbNYiytVbZPQUQ5Yaxu2jXnimvw3rrszlaEXAMPLE="
+            },
+            "inputArtifacts": [
+              {
+                "location": {
+                  "s3Location": {
+                    "bucketName": "codepipeline-us-east-1-11EXAMPLE11",
+                    "objectKey": "MySecondPipeline/MyAppBuild/EXAMPLE"
+                  },
+                  "type": "S3"
+                },
+                "name": "MyAppBuild"
+              }
+            ],
+            "outputArtifacts": [],
+            "pipelineContext": {
+              "action": {
+                "name": "MyJenkinsTest-Action"
+              },
+              "pipelineName": "MySecondPipeline",
+              "stage": {
+                "name": "Testing"
+              }
+            }
+          },
+          "id": "11111111-abcd-1111-abcd-111111abcdef"
+        }
+      },
+      "properties": {
+        "jobDetails": {
+          "$ref": "#/definitions/JobDetails",
+          "description": "<p>The details of the job.</p> <note> <p>If AWSSessionCredentials is used, a long-running job can call GetJobDetails again to obtain new credentials.</p> </note>"
+        }
+      },
+      "type": "object",
+      "title": "GetJobDetailsOutput"
+    },
+    "GetPipelineExecutionInput": {
+      "description": "Represents the input of a get pipeline execution action.",
+      "properties": {
+        "pipelineExecutionId": {
+          "$ref": "#/definitions/PipelineExecutionId",
+          "description": "The ID of the pipeline execution about which you want to get execution details."
+        },
+        "pipelineName": {
+          "$ref": "#/definitions/PipelineName",
+          "description": "The name of the pipeline about which you want to get execution details."
+        }
+      },
+      "required": [
+        "pipelineName",
+        "pipelineExecutionId"
+      ],
+      "type": "object",
+      "title": "GetPipelineExecutionInput"
+    },
+    "GetPipelineExecutionOutput": {
+      "description": "Represents the output of a get pipeline execution action.",
+      "properties": {
+        "pipelineExecution": {
+          "$ref": "#/definitions/PipelineExecution",
+          "description": "Represents information about the execution of a pipeline."
+        }
+      },
+      "type": "object",
+      "title": "GetPipelineExecutionOutput"
+    },
+    "GetPipelineInput": {
+      "description": "Represents the input of a get pipeline action.",
+      "example": {
+        "name": "MyFirstPipeline",
+        "version": 123
+      },
+      "properties": {
+        "name": {
+          "$ref": "#/definitions/PipelineName",
+          "description": "The name of the pipeline for which you want to get information. Pipeline names must be unique under an Amazon Web Services (AWS) user account."
+        },
+        "version": {
+          "$ref": "#/definitions/PipelineVersion",
+          "description": "The version number of the pipeline. If you do not specify a version, defaults to the most current version."
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "type": "object",
+      "title": "GetPipelineInput"
+    },
+    "GetPipelineOutput": {
+      "description": "Represents the output of a get pipeline action.",
+      "example": {
+        "pipeline": {
+          "artifactStore": {
+            "location": "codepipeline-us-east-1-11EXAMPLE11",
+            "type": "S3"
+          },
+          "name": "MyFirstPipeline",
+          "roleArn": "arn:aws:iam::111111111111:role/AWS-CodePipeline-Service",
+          "stages": [
+            {
+              "actions": [
+                {
+                  "actionTypeId": {
+                    "category": "Source",
+                    "owner": "AWS",
+                    "provider": "S3",
+                    "version": "1"
+                  },
+                  "configuration": {
+                    "S3Bucket": "awscodepipeline-demo-bucket",
+                    "S3ObjectKey": "aws-codepipeline-s3-aws-codedeploy_linux.zip"
+                  },
+                  "inputArtifacts": [],
+                  "name": "Source",
+                  "outputArtifacts": [
+                    {
+                      "name": "MyApp"
+                    }
+                  ],
+                  "runOrder": 1
+                }
+              ],
+              "name": "Source"
+            },
+            {
+              "actions": [
+                {
+                  "actionTypeId": {
+                    "category": "Deploy",
+                    "owner": "AWS",
+                    "provider": "CodeDeploy",
+                    "version": "1"
+                  },
+                  "configuration": {
+                    "ApplicationName": "CodePipelineDemoApplication",
+                    "DeploymentGroupName": "CodePipelineDemoFleet"
+                  },
+                  "inputArtifacts": [
+                    {
+                      "name": "MyApp"
+                    }
+                  ],
+                  "name": "CodePipelineDemoFleet",
+                  "outputArtifacts": [],
+                  "runOrder": 1
+                }
+              ],
+              "name": "Beta"
+            }
+          ],
+          "version": 1
+        }
+      },
+      "properties": {
+        "pipeline": {
+          "$ref": "#/definitions/PipelineDeclaration"
+        }
+      },
+      "type": "object",
+      "title": "GetPipelineOutput"
+    },
+    "GetPipelineStateInput": {
+      "description": "Represents the input of a get pipeline state action.",
+      "example": {
+        "name": "MyFirstPipeline"
+      },
+      "properties": {
+        "name": {
+          "$ref": "#/definitions/PipelineName",
+          "description": "The name of the pipeline about which you want to get information."
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "type": "object",
+      "title": "GetPipelineStateInput"
+    },
+    "GetPipelineStateOutput": {
+      "description": "Represents the output of a get pipeline state action.",
+      "example": {
+        "created": "1446137312.204",
+        "pipelineName": "MyFirstPipeline",
+        "pipelineVersion": 1,
+        "stageStates": [
+          {
+            "actionStates": [
+              {
+                "actionName": "Source",
+                "entityUrl": "https://console.aws.amazon.com/s3/home?#",
+                "latestExecution": {
+                  "lastStatusChange": "1446137358.328",
+                  "status": "Succeeded"
+                }
+              }
+            ],
+            "stageName": "Source"
+          },
+          {
+            "actionStates": [
+              {
+                "actionName": "CodePipelineDemoFleet",
+                "entityUrl": "https://console.aws.amazon.com/codedeploy/home?#/applications/CodePipelineDemoApplication/deployment-groups/CodePipelineDemoFleet",
+                "latestExecution": {
+                  "externalExecutionId": "d-EXAMPLE",
+                  "externalExecutionUrl": "https://console.aws.amazon.com/codedeploy/home?#/deployments/d-EXAMPLE",
+                  "lastStatusChange": "1446137493.131",
+                  "status": "Succeeded",
+                  "summary": "Deployment Succeeded"
+                }
+              }
+            ],
+            "inboundTransitionState": {
+              "enabled": true
+            },
+            "stageName": "Beta"
+          }
+        ],
+        "updated": "1446137312.204"
+      },
+      "properties": {
+        "created": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The date and time the pipeline was created, in timestamp format."
+        },
+        "pipelineName": {
+          "$ref": "#/definitions/PipelineName",
+          "description": "The name of the pipeline for which you want to get the state."
+        },
+        "pipelineVersion": {
+          "$ref": "#/definitions/PipelineVersion",
+          "description": "<p>The version number of the pipeline.</p> <note> <p>A newly-created pipeline is always assigned a version number of <code>1</code>.</p> </note>"
+        },
+        "stageStates": {
+          "$ref": "#/definitions/StageStateList",
+          "description": "A list of the pipeline stage output information, including stage name, state, most recent run details, whether the stage is disabled, and other data."
+        },
+        "updated": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The date and time the pipeline was last updated, in timestamp format."
+        }
+      },
+      "type": "object",
+      "title": "GetPipelineStateOutput"
+    },
+    "GetThirdPartyJobDetailsInput": {
+      "description": "Represents the input of a get third party job details action.",
+      "properties": {
+        "clientToken": {
+          "$ref": "#/definitions/ClientToken",
+          "description": "The clientToken portion of the clientId and clientToken pair used to verify that the calling entity is allowed access to the job and its details."
+        },
+        "jobId": {
+          "$ref": "#/definitions/ThirdPartyJobId",
+          "description": "The unique system-generated ID used for identifying the job."
+        }
+      },
+      "required": [
+        "jobId",
+        "clientToken"
+      ],
+      "type": "object",
+      "title": "GetThirdPartyJobDetailsInput"
+    },
+    "GetThirdPartyJobDetailsOutput": {
+      "description": "Represents the output of a get third party job details action.",
+      "properties": {
+        "jobDetails": {
+          "$ref": "#/definitions/ThirdPartyJobDetails",
+          "description": "The details of the job, including any protected values defined for the job."
+        }
+      },
+      "type": "object",
+      "title": "GetThirdPartyJobDetailsOutput"
+    },
+    "InputArtifact": {
+      "description": "Represents information about an artifact to be worked on, such as a test or build artifact.",
+      "properties": {
+        "name": {
+          "$ref": "#/definitions/ArtifactName",
+          "description": "<p>The name of the artifact to be worked on, for example, \"My App\".</p> <p>The input artifact of an action must exactly match the output artifact declared in a preceding action, but the input artifact does not have to be the next action in strict sequence from the action that provided the output artifact. Actions in parallel can declare different output artifacts, which are in turn consumed by different following actions.</p>"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "type": "object",
+      "title": "InputArtifact"
+    },
+    "InputArtifactList": {
+      "items": {
+        "$ref": "#/definitions/InputArtifact"
+      },
+      "type": "array",
+      "title": "InputArtifactList"
+    },
+    "InvalidActionDeclarationException": {
+      "description": "The specified action declaration was specified in an invalid format.",
+      "properties": {},
+      "type": "object",
+      "title": "InvalidActionDeclarationException"
+    },
+    "InvalidApprovalTokenException": {
+      "description": "The approval request already received a response or has expired.",
+      "properties": {},
+      "type": "object",
+      "title": "InvalidApprovalTokenException"
+    },
+    "InvalidBlockerDeclarationException": {
+      "description": "Reserved for future use.",
+      "properties": {},
+      "type": "object",
+      "title": "InvalidBlockerDeclarationException"
+    },
+    "InvalidClientTokenException": {
+      "description": "The client token was specified in an invalid format",
+      "properties": {},
+      "type": "object",
+      "title": "InvalidClientTokenException"
+    },
+    "InvalidJobException": {
+      "description": "The specified job was specified in an invalid format or cannot be found.",
+      "properties": {},
+      "type": "object",
+      "title": "InvalidJobException"
+    },
+    "InvalidJobStateException": {
+      "description": "The specified job state was specified in an invalid format.",
+      "properties": {},
+      "type": "object",
+      "title": "InvalidJobStateException"
+    },
+    "InvalidNextTokenException": {
+      "description": "The next token was specified in an invalid format. Make sure that the next token you provided is the token returned by a previous call.",
+      "properties": {},
+      "type": "object",
+      "title": "InvalidNextTokenException"
+    },
+    "InvalidNonceException": {
+      "description": "The specified nonce was specified in an invalid format.",
+      "properties": {},
+      "type": "object",
+      "title": "InvalidNonceException"
+    },
+    "InvalidStageDeclarationException": {
+      "description": "The specified stage declaration was specified in an invalid format.",
+      "properties": {},
+      "type": "object",
+      "title": "InvalidStageDeclarationException"
+    },
+    "InvalidStructureException": {
+      "description": "The specified structure was specified in an invalid format.",
+      "properties": {},
+      "type": "object",
+      "title": "InvalidStructureException"
+    },
+    "Job": {
+      "description": "Represents information about a job.",
+      "properties": {
+        "accountId": {
+          "$ref": "#/definitions/AccountId",
+          "description": "The ID of the AWS account to use when performing the job."
+        },
+        "data": {
+          "$ref": "#/definitions/JobData",
+          "description": "Additional data about a job."
+        },
+        "id": {
+          "$ref": "#/definitions/JobId",
+          "description": "The unique system-generated ID of the job."
+        },
+        "nonce": {
+          "$ref": "#/definitions/Nonce",
+          "description": "A system-generated random number that AWS CodePipeline uses to ensure that the job is being worked on by only one job worker. Use this number in an <a>AcknowledgeJob</a> request."
+        }
+      },
+      "type": "object",
+      "title": "Job"
+    },
+    "JobData": {
+      "description": "Represents additional information about a job required for a job worker to complete the job.",
+      "properties": {
+        "actionConfiguration": {
+          "$ref": "#/definitions/ActionConfiguration"
+        },
+        "actionTypeId": {
+          "$ref": "#/definitions/ActionTypeId"
+        },
+        "artifactCredentials": {
+          "$ref": "#/definitions/AWSSessionCredentials"
+        },
+        "continuationToken": {
+          "$ref": "#/definitions/ContinuationToken",
+          "description": "A system-generated token, such as a AWS CodeDeploy deployment ID, that a job requires in order to continue the job asynchronously."
+        },
+        "encryptionKey": {
+          "$ref": "#/definitions/EncryptionKey"
+        },
+        "inputArtifacts": {
+          "$ref": "#/definitions/ArtifactList",
+          "description": "The artifact supplied to the job."
+        },
+        "outputArtifacts": {
+          "$ref": "#/definitions/ArtifactList",
+          "description": "The output of the job."
+        },
+        "pipelineContext": {
+          "$ref": "#/definitions/PipelineContext"
+        }
+      },
+      "type": "object",
+      "title": "JobData"
+    },
+    "JobDetails": {
+      "description": "Represents information about the details of a job.",
+      "properties": {
+        "accountId": {
+          "$ref": "#/definitions/AccountId",
+          "description": "The AWS account ID associated with the job."
+        },
+        "data": {
+          "$ref": "#/definitions/JobData"
+        },
+        "id": {
+          "$ref": "#/definitions/JobId",
+          "description": "The unique system-generated ID of the job."
+        }
+      },
+      "type": "object",
+      "title": "JobDetails"
+    },
+    "JobId": {
+      "pattern": "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}",
+      "type": "string",
+      "title": "JobId"
+    },
+    "JobList": {
+      "items": {
+        "$ref": "#/definitions/Job"
+      },
+      "type": "array",
+      "title": "JobList"
+    },
+    "JobNotFoundException": {
+      "description": "The specified job was specified in an invalid format or cannot be found.",
+      "properties": {},
+      "type": "object",
+      "title": "JobNotFoundException"
+    },
+    "JobStatus": {
+      "enum": [
+        "Created",
+        "Queued",
+        "Dispatched",
+        "InProgress",
+        "TimedOut",
+        "Succeeded",
+        "Failed"
+      ],
+      "type": "string",
+      "title": "JobStatus"
+    },
+    "LastChangedAt": {
+      "format": "date-time",
+      "type": "string",
+      "title": "LastChangedAt"
+    },
+    "LastChangedBy": {
+      "type": "string",
+      "title": "LastChangedBy"
+    },
+    "LastUpdatedBy": {
+      "type": "string",
+      "title": "LastUpdatedBy"
+    },
+    "LimitExceededException": {
+      "description": "The number of pipelines associated with the AWS account has exceeded the limit allowed for the account.",
+      "properties": {},
+      "type": "object",
+      "title": "LimitExceededException"
+    },
+    "ListActionTypesInput": {
+      "description": "Represents the input of a list action types action.",
+      "example": {
+        "actionOwnerFilter": "Custom",
+        "nextToken": ""
+      },
+      "properties": {
+        "actionOwnerFilter": {
+          "$ref": "#/definitions/ActionOwner",
+          "description": "Filters the list of action types to those created by a specified entity."
+        },
+        "nextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "An identifier that was returned from the previous list action types call, which can be used to return the next set of action types in the list."
+        }
+      },
+      "type": "object",
+      "title": "ListActionTypesInput"
+    },
+    "ListActionTypesOutput": {
+      "description": "Represents the output of a list action types action.",
+      "example": {
+        "actionTypes": [
+          {
+            "actionConfigurationProperties": [
+              {
+                "key": true,
+                "name": "MyJenkinsExampleBuildProject",
+                "queryable": true,
+                "required": true,
+                "secret": false
+              }
+            ],
+            "id": {
+              "category": "Build",
+              "owner": "Custom",
+              "provider": "MyJenkinsProviderName",
+              "version": "1"
+            },
+            "inputArtifactDetails": {
+              "maximumCount": 5,
+              "minimumCount": 0
+            },
+            "outputArtifactDetails": {
+              "maximumCount": 5,
+              "minimumCount": 0
+            },
+            "settings": {
+              "entityUrlTemplate": "http://54.174.131.118/job/{Config:ProjectName}",
+              "executionUrlTemplate": "http://54.174.131.118/job/{Config:ProjectName}/{ExternalExecutionId}"
+            }
+          },
+          {
+            "actionConfigurationProperties": [
+              {
+                "key": true,
+                "name": "MyJenkinsExampleTestProject",
+                "queryable": true,
+                "required": true,
+                "secret": false
+              }
+            ],
+            "id": {
+              "category": "Build",
+              "owner": "Custom",
+              "provider": "MyJenkinsProviderName",
+              "version": "1"
+            },
+            "inputArtifactDetails": {
+              "maximumCount": 5,
+              "minimumCount": 0
+            },
+            "outputArtifactDetails": {
+              "maximumCount": 5,
+              "minimumCount": 0
+            },
+            "settings": {
+              "entityUrlTemplate": "http://54.210.140.46/job/{Config:ProjectName}",
+              "executionUrlTemplate": "http://54.210.140.46/job/{Config:ProjectName}/{ExternalExecutionId}"
+            }
+          }
+        ],
+        "nextToken": ""
+      },
+      "properties": {
+        "actionTypes": {
+          "$ref": "#/definitions/ActionTypeList",
+          "description": "Provides details of the action types."
+        },
+        "nextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "If the amount of returned information is significantly large, an identifier is also returned which can be used in a subsequent list action types call to return the next set of action types in the list."
+        }
+      },
+      "required": [
+        "actionTypes"
+      ],
+      "type": "object",
+      "title": "ListActionTypesOutput"
+    },
+    "ListPipelinesInput": {
+      "description": "Represents the input of a list pipelines action.",
+      "example": {},
+      "properties": {
+        "nextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "An identifier that was returned from the previous list pipelines call, which can be used to return the next set of pipelines in the list."
+        }
+      },
+      "type": "object",
+      "title": "ListPipelinesInput"
+    },
+    "ListPipelinesOutput": {
+      "description": "Represents the output of a list pipelines action.",
+      "example": {
+        "nextToken": "",
+        "pipelines": [
+          {
+            "created": "1444681408.094",
+            "name": "MyFirstPipeline",
+            "updated": "1444681408.094",
+            "version": 1
+          },
+          {
+            "created": "1443046290.003",
+            "name": "MySecondPipeline",
+            "updated": "1443048299.639",
+            "version": 3
+          }
+        ]
+      },
+      "properties": {
+        "nextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "If the amount of returned information is significantly large, an identifier is also returned which can be used in a subsequent list pipelines call to return the next set of pipelines in the list."
+        },
+        "pipelines": {
+          "$ref": "#/definitions/PipelineList",
+          "description": "The list of pipelines."
+        }
+      },
+      "type": "object",
+      "title": "ListPipelinesOutput"
+    },
+    "MaxBatchSize": {
+      "minimum": 1,
+      "type": "integer",
+      "title": "MaxBatchSize"
+    },
+    "MaximumArtifactCount": {
+      "maximum": 5,
+      "minimum": 0,
+      "type": "integer",
+      "title": "MaximumArtifactCount"
+    },
+    "Message": {
+      "type": "string",
+      "title": "Message"
+    },
+    "MinimumArtifactCount": {
+      "maximum": 5,
+      "minimum": 0,
+      "type": "integer",
+      "title": "MinimumArtifactCount"
+    },
+    "NextToken": {
+      "type": "string",
+      "title": "NextToken"
+    },
+    "Nonce": {
+      "type": "string",
+      "title": "Nonce"
+    },
+    "NotLatestPipelineExecutionException": {
+      "description": "The stage has failed in a later run of the pipeline and the pipelineExecutionId associated with the request is out of date.",
+      "properties": {},
+      "type": "object",
+      "title": "NotLatestPipelineExecutionException"
+    },
+    "OutputArtifact": {
+      "description": "Represents information about the output of an action.",
+      "properties": {
+        "name": {
+          "$ref": "#/definitions/ArtifactName",
+          "description": "<p>The name of the output of an artifact, such as \"My App\".</p> <p>The input artifact of an action must exactly match the output artifact declared in a preceding action, but the input artifact does not have to be the next action in strict sequence from the action that provided the output artifact. Actions in parallel can declare different output artifacts, which are in turn consumed by different following actions.</p> <p>Output artifact names must be unique within a pipeline.</p>"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "type": "object",
+      "title": "OutputArtifact"
+    },
+    "OutputArtifactList": {
+      "items": {
+        "$ref": "#/definitions/OutputArtifact"
+      },
+      "type": "array",
+      "title": "OutputArtifactList"
+    },
+    "Percentage": {
+      "maximum": 100,
+      "minimum": 0,
+      "type": "integer",
+      "title": "Percentage"
+    },
+    "PipelineContext": {
+      "description": "Represents information about a pipeline to a job worker.",
+      "properties": {
+        "action": {
+          "$ref": "#/definitions/ActionContext"
+        },
+        "pipelineName": {
+          "$ref": "#/definitions/PipelineName",
+          "description": "The name of the pipeline. This is a user-specified value. Pipeline names must be unique across all pipeline names under an Amazon Web Services account."
+        },
+        "stage": {
+          "$ref": "#/definitions/StageContext",
+          "description": "The stage of the pipeline."
+        }
+      },
+      "type": "object",
+      "title": "PipelineContext"
+    },
+    "PipelineDeclaration": {
+      "description": "Represents the structure of actions and stages to be performed in the pipeline.",
+      "properties": {
+        "artifactStore": {
+          "$ref": "#/definitions/ArtifactStore"
+        },
+        "name": {
+          "$ref": "#/definitions/PipelineName",
+          "description": "The name of the action to be performed."
+        },
+        "roleArn": {
+          "$ref": "#/definitions/RoleArn",
+          "description": "The Amazon Resource Name (ARN) for AWS CodePipeline to use to either perform actions with no actionRoleArn, or to use to assume roles for actions with an actionRoleArn."
+        },
+        "stages": {
+          "$ref": "#/definitions/PipelineStageDeclarationList",
+          "description": "The stage in which to perform the action."
+        },
+        "version": {
+          "$ref": "#/definitions/PipelineVersion",
+          "description": "The version number of the pipeline. A new pipeline always has a version number of 1. This number is automatically incremented when a pipeline is updated."
+        }
+      },
+      "required": [
+        "name",
+        "roleArn",
+        "artifactStore",
+        "stages"
+      ],
+      "type": "object",
+      "title": "PipelineDeclaration"
+    },
+    "PipelineExecution": {
+      "description": "Represents information about an execution of a pipeline.",
+      "properties": {
+        "artifactRevisions": {
+          "$ref": "#/definitions/ArtifactRevisionList",
+          "description": "A list of ArtifactRevision objects included in a pipeline execution."
+        },
+        "pipelineExecutionId": {
+          "$ref": "#/definitions/PipelineExecutionId",
+          "description": "The ID of the pipeline execution."
+        },
+        "pipelineName": {
+          "$ref": "#/definitions/PipelineName",
+          "description": "The name of the pipeline that was executed."
+        },
+        "pipelineVersion": {
+          "$ref": "#/definitions/PipelineVersion",
+          "description": "The version number of the pipeline that was executed."
+        },
+        "status": {
+          "$ref": "#/definitions/PipelineExecutionStatus",
+          "description": "<p>The status of the pipeline execution.</p> <ul> <li> <p>InProgress: The pipeline execution is currently running.</p> </li> <li> <p>Succeeded: The pipeline execution completed successfully. </p> </li> <li> <p>Superseded: While this pipeline execution was waiting for the next stage to be completed, a newer pipeline execution caught up and continued through the pipeline instead. </p> </li> <li> <p>Failed: The pipeline did not complete successfully.</p> </li> </ul>"
+        }
+      },
+      "type": "object",
+      "title": "PipelineExecution"
+    },
+    "PipelineExecutionId": {
+      "pattern": "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}",
+      "type": "string",
+      "title": "PipelineExecutionId"
+    },
+    "PipelineExecutionNotFoundException": {
+      "description": "The pipeline execution was specified in an invalid format or cannot be found, or an execution ID does not belong to the specified pipeline. ",
+      "properties": {},
+      "type": "object",
+      "title": "PipelineExecutionNotFoundException"
+    },
+    "PipelineExecutionStatus": {
+      "enum": [
+        "InProgress",
+        "Succeeded",
+        "Superseded",
+        "Failed"
+      ],
+      "type": "string",
+      "title": "PipelineExecutionStatus"
+    },
+    "PipelineList": {
+      "items": {
+        "$ref": "#/definitions/PipelineSummary"
+      },
+      "type": "array",
+      "title": "PipelineList"
+    },
+    "PipelineName": {
+      "maxLength": 100,
+      "minLength": 1,
+      "pattern": "[A-Za-z0-9.@\\-_]+",
+      "type": "string",
+      "title": "PipelineName"
+    },
+    "PipelineNameInUseException": {
+      "description": "The specified pipeline name is already in use.",
+      "properties": {},
+      "type": "object",
+      "title": "PipelineNameInUseException"
+    },
+    "PipelineNotFoundException": {
+      "description": "The specified pipeline was specified in an invalid format or cannot be found.",
+      "properties": {},
+      "type": "object",
+      "title": "PipelineNotFoundException"
+    },
+    "PipelineStageDeclarationList": {
+      "items": {
+        "$ref": "#/definitions/StageDeclaration"
+      },
+      "type": "array",
+      "title": "PipelineStageDeclarationList"
+    },
+    "PipelineSummary": {
+      "description": "Returns a summary of a pipeline.",
+      "properties": {
+        "created": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The date and time the pipeline was created, in timestamp format."
+        },
+        "name": {
+          "$ref": "#/definitions/PipelineName",
+          "description": "The name of the pipeline."
+        },
+        "updated": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The date and time of the last update to the pipeline, in timestamp format."
+        },
+        "version": {
+          "$ref": "#/definitions/PipelineVersion",
+          "description": "The version number of the pipeline."
+        }
+      },
+      "type": "object",
+      "title": "PipelineSummary"
+    },
+    "PipelineVersion": {
+      "minimum": 1,
+      "type": "integer",
+      "title": "PipelineVersion"
+    },
+    "PipelineVersionNotFoundException": {
+      "description": "The specified pipeline version was specified in an invalid format or cannot be found.",
+      "properties": {},
+      "type": "object",
+      "title": "PipelineVersionNotFoundException"
+    },
+    "PollForJobsInput": {
+      "description": "Represents the input of a poll for jobs action.",
+      "example": {
+        "actionTypeId": {
+          "category": "Test",
+          "owner": "Custom",
+          "provider": "MyJenkinsProviderName",
+          "version": "1"
+        },
+        "maxBatchSize": 5,
+        "queryParam": {
+          "ProjectName": "MyJenkinsTestProj"
+        }
+      },
+      "properties": {
+        "actionTypeId": {
+          "$ref": "#/definitions/ActionTypeId"
+        },
+        "maxBatchSize": {
+          "$ref": "#/definitions/MaxBatchSize",
+          "description": "The maximum number of jobs to return in a poll for jobs call."
+        },
+        "queryParam": {
+          "$ref": "#/definitions/QueryParamMap",
+          "description": "A map of property names and values. For an action type with no queryable properties, this value must be null or an empty map. For an action type with a queryable property, you must supply that property as a key in the map. Only jobs whose action configuration matches the mapped value will be returned."
+        }
+      },
+      "required": [
+        "actionTypeId"
+      ],
+      "type": "object",
+      "title": "PollForJobsInput"
+    },
+    "PollForJobsOutput": {
+      "description": "Represents the output of a poll for jobs action.",
+      "example": {
+        "jobs": [
+          {
+            "accountId": "111111111111",
+            "data": {
+              "actionConfiguration": {
+                "configuration": {
+                  "ProjectName": "MyJenkinsTestProj"
+                }
+              },
+              "actionTypeId": {
+                "category": "Test",
+                "owner": "Custom",
+                "provider": "MyJenkinsProviderName",
+                "version": "1"
+              },
+              "artifactCredentials": {
+                "accessKeyId": "AKIAIOSFODNN7EXAMPLE",
+                "secretAccessKey": "wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY",
+                "sessionToken": "fICCQD6m7oRw0uXOjANBgkqhkiG9w0BAQUFADCBiDELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAldBMRAwDgYDVQQHEwdTZWF0dGxlMQ8wDQYDVQQKEwZBbWF6b24xFDASBgNVBAsTC0lBTSBDb25zb2xlMRIwEAYDVQQDEwlUZXN0Q2lsYWMxHzAdBgkqhkiG9w0BCQEWEG5vb25lQGFtYXpvbi5jb20wHhcNMTEwNDI1MjA0NTIxWhcNMTIwNDI0MjA0NTIxWjCBiDELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAldBMRAwDgYDVQQHEwdTZWF0dGxlMQ8wDQYDVQQKEwZBbWF6b24xFDASBgNVBAsTC0lBTSBDb25zb2xlMRIwEAYDVQQDEwlUZXN0Q2lsYWMxHzAdBgkqhkiG9w0BCQEWEG5vb25lQGFtYXpvbi5jb20wgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGBAMaK0dn+a4GmWIWJ21uUSfwfEvySWtC2XADZ4nB+BLYgVIk60CpiwsZ3G93vUEIO3IyNoH/f0wYK8m9TrDHudUZg3qX4waLG5M43q7Wgc/MbQITxOUSQv7c7ugFFDzQGBzZswY6786m86gpEIbb3OhjZnzcvQAaRHhdlQWIMm2nrAgMBAAEwDQYJKoZIhvcNAQEFBQADgYEAtCu4nUhVVxYUntneD9+h8Mg9q6q+auNKyExzyLwaxlAoo7TJHidbtS4J5iNmZgXL0FkbFFBjvSfpJIlJ00zbhNYS5f6GuoEDmFJl0ZxBHjJnyp378OD8uTs7fLvjx79LjSTbNYiytVbZPQUQ5Yaxu2jXnimvw3rrszlaEXAMPLE="
+              },
+              "inputArtifacts": [
+                {
+                  "location": {
+                    "s3Location": {
+                      "bucketName": "codepipeline-us-east-1-11EXAMPLE11",
+                      "objectKey": "MySecondPipeline/MyAppBuild/EXAMPLE"
+                    },
+                    "type": "S3"
+                  },
+                  "name": "MyAppBuild"
+                }
+              ],
+              "outputArtifacts": [],
+              "pipelineContext": {
+                "action": {
+                  "name": "MyJenkinsTest-Action"
+                },
+                "pipelineName": "MySecondPipeline",
+                "stage": {
+                  "name": "Testing"
+                }
+              }
+            },
+            "id": "11111111-abcd-1111-abcd-111111abcdef",
+            "nonce": "3"
+          }
+        ]
+      },
+      "properties": {
+        "jobs": {
+          "$ref": "#/definitions/JobList",
+          "description": "Information about the jobs to take action on."
+        }
+      },
+      "type": "object",
+      "title": "PollForJobsOutput"
+    },
+    "PollForThirdPartyJobsInput": {
+      "description": "Represents the input of a poll for third party jobs action.",
+      "properties": {
+        "actionTypeId": {
+          "$ref": "#/definitions/ActionTypeId"
+        },
+        "maxBatchSize": {
+          "$ref": "#/definitions/MaxBatchSize",
+          "description": "The maximum number of jobs to return in a poll for jobs call."
+        }
+      },
+      "required": [
+        "actionTypeId"
+      ],
+      "type": "object",
+      "title": "PollForThirdPartyJobsInput"
+    },
+    "PollForThirdPartyJobsOutput": {
+      "description": "Represents the output of a poll for third party jobs action.",
+      "properties": {
+        "jobs": {
+          "$ref": "#/definitions/ThirdPartyJobList",
+          "description": "Information about the jobs to take action on."
+        }
+      },
+      "type": "object",
+      "title": "PollForThirdPartyJobsOutput"
+    },
+    "PutActionRevisionInput": {
+      "description": "Represents the input of a put action revision action.",
+      "properties": {
+        "actionName": {
+          "$ref": "#/definitions/ActionName",
+          "description": "The name of the action that will process the revision."
+        },
+        "actionRevision": {
+          "$ref": "#/definitions/ActionRevision"
+        },
+        "pipelineName": {
+          "$ref": "#/definitions/PipelineName",
+          "description": "The name of the pipeline that will start processing the revision to the source."
+        },
+        "stageName": {
+          "$ref": "#/definitions/StageName",
+          "description": "The name of the stage that contains the action that will act upon the revision."
+        }
+      },
+      "required": [
+        "pipelineName",
+        "stageName",
+        "actionName",
+        "actionRevision"
+      ],
+      "type": "object",
+      "title": "PutActionRevisionInput"
+    },
+    "PutActionRevisionOutput": {
+      "description": "Represents the output of a put action revision action.",
+      "properties": {
+        "newRevision": {
+          "$ref": "#/definitions/Boolean",
+          "description": "Indicates whether the artifact revision was previously used in an execution of the specified pipeline."
+        },
+        "pipelineExecutionId": {
+          "$ref": "#/definitions/PipelineExecutionId",
+          "description": "The ID of the current workflow state of the pipeline."
+        }
+      },
+      "type": "object",
+      "title": "PutActionRevisionOutput"
+    },
+    "PutApprovalResultInput": {
+      "description": "Represents the input of a put approval result action.",
+      "properties": {
+        "actionName": {
+          "$ref": "#/definitions/ActionName",
+          "description": "The name of the action for which approval is requested."
+        },
+        "pipelineName": {
+          "$ref": "#/definitions/PipelineName",
+          "description": "The name of the pipeline that contains the action. "
+        },
+        "result": {
+          "$ref": "#/definitions/ApprovalResult",
+          "description": "Represents information about the result of the approval request."
+        },
+        "stageName": {
+          "$ref": "#/definitions/StageName",
+          "description": "The name of the stage that contains the action."
+        },
+        "token": {
+          "$ref": "#/definitions/ApprovalToken",
+          "description": "The system-generated token used to identify a unique approval request. The token for each open approval request can be obtained using the <a>GetPipelineState</a> action and is used to validate that the approval request corresponding to this token is still valid."
+        }
+      },
+      "required": [
+        "pipelineName",
+        "stageName",
+        "actionName",
+        "result",
+        "token"
+      ],
+      "type": "object",
+      "title": "PutApprovalResultInput"
+    },
+    "PutApprovalResultOutput": {
+      "description": "Represents the output of a put approval result action.",
+      "properties": {
+        "approvedAt": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The timestamp showing when the approval or rejection was submitted."
+        }
+      },
+      "type": "object",
+      "title": "PutApprovalResultOutput"
+    },
+    "PutJobFailureResultInput": {
+      "description": "Represents the input of a put job failure result action.",
+      "properties": {
+        "failureDetails": {
+          "$ref": "#/definitions/FailureDetails",
+          "description": "The details about the failure of a job."
+        },
+        "jobId": {
+          "$ref": "#/definitions/JobId",
+          "description": "The unique system-generated ID of the job that failed. This is the same ID returned from PollForJobs."
+        }
+      },
+      "required": [
+        "jobId",
+        "failureDetails"
+      ],
+      "type": "object",
+      "title": "PutJobFailureResultInput"
+    },
+    "PutJobSuccessResultInput": {
+      "description": "Represents the input of a put job success result action.",
+      "properties": {
+        "continuationToken": {
+          "$ref": "#/definitions/ContinuationToken",
+          "description": "A token generated by a job worker, such as an AWS CodeDeploy deployment ID, that a successful job provides to identify a custom action in progress. Future jobs will use this token in order to identify the running instance of the action. It can be reused to return additional information about the progress of the custom action. When the action is complete, no continuation token should be supplied."
+        },
+        "currentRevision": {
+          "$ref": "#/definitions/CurrentRevision",
+          "description": "The ID of the current revision of the artifact successfully worked upon by the job."
+        },
+        "executionDetails": {
+          "$ref": "#/definitions/ExecutionDetails",
+          "description": "The execution details of the successful job, such as the actions taken by the job worker."
+        },
+        "jobId": {
+          "$ref": "#/definitions/JobId",
+          "description": "The unique system-generated ID of the job that succeeded. This is the same ID returned from PollForJobs."
+        }
+      },
+      "required": [
+        "jobId"
+      ],
+      "type": "object",
+      "title": "PutJobSuccessResultInput"
+    },
+    "PutThirdPartyJobFailureResultInput": {
+      "description": "Represents the input of a third party job failure result action.",
+      "properties": {
+        "clientToken": {
+          "$ref": "#/definitions/ClientToken",
+          "description": "The clientToken portion of the clientId and clientToken pair used to verify that the calling entity is allowed access to the job and its details."
+        },
+        "failureDetails": {
+          "$ref": "#/definitions/FailureDetails"
+        },
+        "jobId": {
+          "$ref": "#/definitions/ThirdPartyJobId",
+          "description": "The ID of the job that failed. This is the same ID returned from PollForThirdPartyJobs."
+        }
+      },
+      "required": [
+        "jobId",
+        "clientToken",
+        "failureDetails"
+      ],
+      "type": "object",
+      "title": "PutThirdPartyJobFailureResultInput"
+    },
+    "PutThirdPartyJobSuccessResultInput": {
+      "description": "Represents the input of a put third party job success result action.",
+      "properties": {
+        "clientToken": {
+          "$ref": "#/definitions/ClientToken",
+          "description": "The clientToken portion of the clientId and clientToken pair used to verify that the calling entity is allowed access to the job and its details."
+        },
+        "continuationToken": {
+          "$ref": "#/definitions/ContinuationToken",
+          "description": "A token generated by a job worker, such as an AWS CodeDeploy deployment ID, that a successful job provides to identify a partner action in progress. Future jobs will use this token in order to identify the running instance of the action. It can be reused to return additional information about the progress of the partner action. When the action is complete, no continuation token should be supplied."
+        },
+        "currentRevision": {
+          "$ref": "#/definitions/CurrentRevision"
+        },
+        "executionDetails": {
+          "$ref": "#/definitions/ExecutionDetails"
+        },
+        "jobId": {
+          "$ref": "#/definitions/ThirdPartyJobId",
+          "description": "The ID of the job that successfully completed. This is the same ID returned from PollForThirdPartyJobs."
+        }
+      },
+      "required": [
+        "jobId",
+        "clientToken"
+      ],
+      "type": "object",
+      "title": "PutThirdPartyJobSuccessResultInput"
+    },
+    "QueryParamMap": {
+      "items": {
+        "properties": {
+          "key": {
+            "$ref": "#/definitions/ActionConfigurationKey"
+          },
+          "value": {
+            "$ref": "#/definitions/ActionConfigurationQueryableValue"
+          }
+        },
+        "type": "object"
+      },
+      "maxItems": 1,
+      "minItems": 0,
+      "type": "array",
+      "title": "QueryParamMap"
+    },
+    "RetryStageExecutionInput": {
+      "description": "Represents the input of a retry stage execution action.",
+      "properties": {
+        "pipelineExecutionId": {
+          "$ref": "#/definitions/PipelineExecutionId",
+          "description": "The ID of the pipeline execution in the failed stage to be retried. Use the <a>GetPipelineState</a> action to retrieve the current pipelineExecutionId of the failed stage"
+        },
+        "pipelineName": {
+          "$ref": "#/definitions/PipelineName",
+          "description": "The name of the pipeline that contains the failed stage."
+        },
+        "retryMode": {
+          "$ref": "#/definitions/StageRetryMode",
+          "description": "The scope of the retry attempt. Currently, the only supported value is FAILED_ACTIONS."
+        },
+        "stageName": {
+          "$ref": "#/definitions/StageName",
+          "description": "The name of the failed stage to be retried."
+        }
+      },
+      "required": [
+        "pipelineName",
+        "stageName",
+        "pipelineExecutionId",
+        "retryMode"
+      ],
+      "type": "object",
+      "title": "RetryStageExecutionInput"
+    },
+    "RetryStageExecutionOutput": {
+      "description": "Represents the output of a retry stage execution action.",
+      "properties": {
+        "pipelineExecutionId": {
+          "$ref": "#/definitions/PipelineExecutionId",
+          "description": "The ID of the current workflow execution in the failed stage."
+        }
+      },
+      "type": "object",
+      "title": "RetryStageExecutionOutput"
+    },
+    "Revision": {
+      "maxLength": 1500,
+      "minLength": 1,
+      "type": "string",
+      "title": "Revision"
+    },
+    "RevisionChangeIdentifier": {
+      "maxLength": 100,
+      "minLength": 1,
+      "type": "string",
+      "title": "RevisionChangeIdentifier"
+    },
+    "RevisionSummary": {
+      "maxLength": 2048,
+      "minLength": 1,
+      "type": "string",
+      "title": "RevisionSummary"
+    },
+    "RoleArn": {
+      "maxLength": 1024,
+      "pattern": "arn:aws(-[\\w]+)*:iam::[0-9]{12}:role/.*",
+      "type": "string",
+      "title": "RoleArn"
+    },
+    "S3ArtifactLocation": {
+      "description": "The location of the Amazon S3 bucket that contains a revision.",
+      "properties": {
+        "bucketName": {
+          "$ref": "#/definitions/S3BucketName",
+          "description": "The name of the Amazon S3 bucket."
+        },
+        "objectKey": {
+          "$ref": "#/definitions/S3ObjectKey",
+          "description": "The key of the object in the Amazon S3 bucket, which uniquely identifies the object in the bucket."
+        }
+      },
+      "required": [
+        "bucketName",
+        "objectKey"
+      ],
+      "type": "object",
+      "title": "S3ArtifactLocation"
+    },
+    "S3BucketName": {
+      "type": "string",
+      "title": "S3BucketName"
+    },
+    "S3ObjectKey": {
+      "type": "string",
+      "title": "S3ObjectKey"
+    },
+    "SecretAccessKey": {
+      "type": "string",
+      "title": "SecretAccessKey"
+    },
+    "SessionToken": {
+      "type": "string",
+      "title": "SessionToken"
+    },
+    "StageActionDeclarationList": {
+      "items": {
+        "$ref": "#/definitions/ActionDeclaration"
+      },
+      "type": "array",
+      "title": "StageActionDeclarationList"
+    },
+    "StageBlockerDeclarationList": {
+      "items": {
+        "$ref": "#/definitions/BlockerDeclaration"
+      },
+      "type": "array",
+      "title": "StageBlockerDeclarationList"
+    },
+    "StageContext": {
+      "description": "Represents information about a stage to a job worker.",
+      "properties": {
+        "name": {
+          "$ref": "#/definitions/StageName",
+          "description": "The name of the stage."
+        }
+      },
+      "type": "object",
+      "title": "StageContext"
+    },
+    "StageDeclaration": {
+      "description": "Represents information about a stage and its definition.",
+      "properties": {
+        "actions": {
+          "$ref": "#/definitions/StageActionDeclarationList",
+          "description": "The actions included in a stage."
+        },
+        "blockers": {
+          "$ref": "#/definitions/StageBlockerDeclarationList",
+          "description": "Reserved for future use."
+        },
+        "name": {
+          "$ref": "#/definitions/StageName",
+          "description": "The name of the stage."
+        }
+      },
+      "required": [
+        "name",
+        "actions"
+      ],
+      "type": "object",
+      "title": "StageDeclaration"
+    },
+    "StageExecution": {
+      "description": "Represents information about the run of a stage.",
+      "properties": {
+        "pipelineExecutionId": {
+          "$ref": "#/definitions/PipelineExecutionId",
+          "description": "The ID of the pipeline execution associated with the stage."
+        },
+        "status": {
+          "$ref": "#/definitions/StageExecutionStatus",
+          "description": "The status of the stage, or for a completed stage, the last status of the stage."
+        }
+      },
+      "required": [
+        "pipelineExecutionId",
+        "status"
+      ],
+      "type": "object",
+      "title": "StageExecution"
+    },
+    "StageExecutionStatus": {
+      "enum": [
+        "InProgress",
+        "Failed",
+        "Succeeded"
+      ],
+      "type": "string",
+      "title": "StageExecutionStatus"
+    },
+    "StageName": {
+      "maxLength": 100,
+      "minLength": 1,
+      "pattern": "[A-Za-z0-9.@\\-_]+",
+      "type": "string",
+      "title": "StageName"
+    },
+    "StageNotFoundException": {
+      "description": "The specified stage was specified in an invalid format or cannot be found.",
+      "properties": {},
+      "type": "object",
+      "title": "StageNotFoundException"
+    },
+    "StageNotRetryableException": {
+      "description": "The specified stage can't be retried because the pipeline structure or stage state changed after the stage was not completed; the stage contains no failed actions; one or more actions are still in progress; or another retry attempt is already in progress. ",
+      "properties": {},
+      "type": "object",
+      "title": "StageNotRetryableException"
+    },
+    "StageRetryMode": {
+      "enum": [
+        "FAILED_ACTIONS"
+      ],
+      "type": "string",
+      "title": "StageRetryMode"
+    },
+    "StageState": {
+      "description": "Represents information about the state of the stage.",
+      "properties": {
+        "actionStates": {
+          "$ref": "#/definitions/ActionStateList",
+          "description": "The state of the stage."
+        },
+        "inboundTransitionState": {
+          "$ref": "#/definitions/TransitionState",
+          "description": "The state of the inbound transition, which is either enabled or disabled."
+        },
+        "latestExecution": {
+          "$ref": "#/definitions/StageExecution",
+          "description": "Information about the latest execution in the stage, including its ID and status."
+        },
+        "stageName": {
+          "$ref": "#/definitions/StageName",
+          "description": "The name of the stage."
+        }
+      },
+      "type": "object",
+      "title": "StageState"
+    },
+    "StageStateList": {
+      "items": {
+        "$ref": "#/definitions/StageState"
+      },
+      "type": "array",
+      "title": "StageStateList"
+    },
+    "StageTransitionType": {
+      "enum": [
+        "Inbound",
+        "Outbound"
+      ],
+      "type": "string",
+      "title": "StageTransitionType"
+    },
+    "StartPipelineExecutionInput": {
+      "description": "Represents the input of a start pipeline execution action.",
+      "example": {
+        "name": "MyFirstPipeline"
+      },
+      "properties": {
+        "name": {
+          "$ref": "#/definitions/PipelineName",
+          "description": "The name of the pipeline to start."
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "type": "object",
+      "title": "StartPipelineExecutionInput"
+    },
+    "StartPipelineExecutionOutput": {
+      "description": "Represents the output of a start pipeline execution action.",
+      "example": {
+        "pipelineExecutionId": "11111111-abcd-1111-abcd-111111abcdef"
+      },
+      "properties": {
+        "pipelineExecutionId": {
+          "$ref": "#/definitions/PipelineExecutionId",
+          "description": "The unique system-generated ID of the pipeline execution that was started."
+        }
+      },
+      "type": "object",
+      "title": "StartPipelineExecutionOutput"
+    },
+    "ThirdPartyJob": {
+      "description": "A response to a PollForThirdPartyJobs request returned by AWS CodePipeline when there is a job to be worked upon by a partner action.",
+      "properties": {
+        "clientId": {
+          "$ref": "#/definitions/ClientId",
+          "description": "The clientToken portion of the clientId and clientToken pair used to verify that the calling entity is allowed access to the job and its details."
+        },
+        "jobId": {
+          "$ref": "#/definitions/JobId",
+          "description": "The identifier used to identify the job in AWS CodePipeline."
+        }
+      },
+      "type": "object",
+      "title": "ThirdPartyJob"
+    },
+    "ThirdPartyJobData": {
+      "description": "Represents information about the job data for a partner action.",
+      "properties": {
+        "actionConfiguration": {
+          "$ref": "#/definitions/ActionConfiguration"
+        },
+        "actionTypeId": {
+          "$ref": "#/definitions/ActionTypeId"
+        },
+        "artifactCredentials": {
+          "$ref": "#/definitions/AWSSessionCredentials"
+        },
+        "continuationToken": {
+          "$ref": "#/definitions/ContinuationToken",
+          "description": "A system-generated token, such as a AWS CodeDeploy deployment ID, that a job requires in order to continue the job asynchronously."
+        },
+        "encryptionKey": {
+          "$ref": "#/definitions/EncryptionKey",
+          "description": "The encryption key used to encrypt and decrypt data in the artifact store for the pipeline, such as an AWS Key Management Service (AWS KMS) key. This is optional and might not be present."
+        },
+        "inputArtifacts": {
+          "$ref": "#/definitions/ArtifactList",
+          "description": "The name of the artifact that will be worked upon by the action, if any. This name might be system-generated, such as \"MyApp\", or might be defined by the user when the action is created. The input artifact name must match the name of an output artifact generated by an action in an earlier action or stage of the pipeline."
+        },
+        "outputArtifacts": {
+          "$ref": "#/definitions/ArtifactList",
+          "description": "The name of the artifact that will be the result of the action, if any. This name might be system-generated, such as \"MyBuiltApp\", or might be defined by the user when the action is created."
+        },
+        "pipelineContext": {
+          "$ref": "#/definitions/PipelineContext"
+        }
+      },
+      "type": "object",
+      "title": "ThirdPartyJobData"
+    },
+    "ThirdPartyJobDetails": {
+      "description": "The details of a job sent in response to a GetThirdPartyJobDetails request.",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/ThirdPartyJobData",
+          "description": "The data to be returned by the third party job worker."
+        },
+        "id": {
+          "$ref": "#/definitions/ThirdPartyJobId",
+          "description": "The identifier used to identify the job details in AWS CodePipeline."
+        },
+        "nonce": {
+          "$ref": "#/definitions/Nonce",
+          "description": "A system-generated random number that AWS CodePipeline uses to ensure that the job is being worked on by only one job worker. Use this number in an <a>AcknowledgeThirdPartyJob</a> request."
+        }
+      },
+      "type": "object",
+      "title": "ThirdPartyJobDetails"
+    },
+    "ThirdPartyJobId": {
+      "maxLength": 512,
+      "minLength": 1,
+      "type": "string",
+      "title": "ThirdPartyJobId"
+    },
+    "ThirdPartyJobList": {
+      "items": {
+        "$ref": "#/definitions/ThirdPartyJob"
+      },
+      "type": "array",
+      "title": "ThirdPartyJobList"
+    },
+    "Time": {
+      "format": "date-time",
+      "type": "string",
+      "title": "Time"
+    },
+    "Timestamp": {
+      "format": "date-time",
+      "type": "string",
+      "title": "Timestamp"
+    },
+    "TransitionState": {
+      "description": "Represents information about the state of transitions between one stage and another stage.",
+      "properties": {
+        "disabledReason": {
+          "$ref": "#/definitions/DisabledReason",
+          "description": "The user-specified reason why the transition between two stages of a pipeline was disabled."
+        },
+        "enabled": {
+          "$ref": "#/definitions/Enabled",
+          "description": "Whether the transition between stages is enabled (true) or disabled (false)."
+        },
+        "lastChangedAt": {
+          "$ref": "#/definitions/LastChangedAt",
+          "description": "The timestamp when the transition state was last changed."
+        },
+        "lastChangedBy": {
+          "$ref": "#/definitions/LastChangedBy",
+          "description": "The ID of the user who last changed the transition state."
+        }
+      },
+      "type": "object",
+      "title": "TransitionState"
+    },
+    "UpdatePipelineInput": {
+      "description": "Represents the input of an update pipeline action.",
+      "example": {
+        "pipeline": {
+          "artifactStore": {
+            "location": "codepipeline-us-east-1-11EXAMPLE11",
+            "type": "S3"
+          },
+          "name": "MyFirstPipeline",
+          "roleArn": "arn:aws:iam::111111111111:role/AWS-CodePipeline-Service",
+          "stages": [
+            {
+              "actions": [
+                {
+                  "actionTypeId": {
+                    "category": "Source",
+                    "owner": "AWS",
+                    "provider": "S3",
+                    "version": "1"
+                  },
+                  "configuration": {
+                    "S3Bucket": "awscodepipeline-demo-bucket2",
+                    "S3ObjectKey": "aws-codepipeline-s3-aws-codedeploy_linux.zip"
+                  },
+                  "inputArtifacts": [],
+                  "name": "Source",
+                  "outputArtifacts": [
+                    {
+                      "name": "MyApp"
+                    }
+                  ],
+                  "runOrder": 1
+                }
+              ],
+              "name": "Source"
+            },
+            {
+              "actions": [
+                {
+                  "actionTypeId": {
+                    "category": "Deploy",
+                    "owner": "AWS",
+                    "provider": "CodeDeploy",
+                    "version": "1"
+                  },
+                  "configuration": {
+                    "ApplicationName": "CodePipelineDemoApplication",
+                    "DeploymentGroupName": "CodePipelineDemoFleet"
+                  },
+                  "inputArtifacts": [
+                    {
+                      "name": "MyApp"
+                    }
+                  ],
+                  "name": "CodePipelineDemoFleet",
+                  "outputArtifacts": [],
+                  "runOrder": 1
+                }
+              ],
+              "name": "Beta"
+            }
+          ],
+          "version": 2
+        }
+      },
+      "properties": {
+        "pipeline": {
+          "$ref": "#/definitions/PipelineDeclaration",
+          "description": "The name of the pipeline to be updated."
+        }
+      },
+      "required": [
+        "pipeline"
+      ],
+      "type": "object",
+      "title": "UpdatePipelineInput"
+    },
+    "UpdatePipelineOutput": {
+      "description": "Represents the output of an update pipeline action.",
+      "example": {
+        "pipeline": {
+          "artifactStore": {
+            "location": "codepipeline-us-east-1-11EXAMPLE11",
+            "type": "S3"
+          },
+          "name": "MyFirstPipeline",
+          "roleArn": "arn:aws:iam::111111111111:role/AWS-CodePipeline-Service",
+          "stages": [
+            {
+              "actions": [
+                {
+                  "actionTypeId": {
+                    "category": "Source",
+                    "owner": "AWS",
+                    "provider": "S3",
+                    "version": "1"
+                  },
+                  "configuration": {
+                    "S3Bucket": "awscodepipeline-demo-bucket2",
+                    "S3ObjectKey": "aws-codepipeline-s3-aws-codedeploy_linux.zip"
+                  },
+                  "inputArtifacts": [],
+                  "name": "Source",
+                  "outputArtifacts": [
+                    {
+                      "name": "MyApp"
+                    }
+                  ],
+                  "runOrder": 1
+                }
+              ],
+              "name": "Source"
+            },
+            {
+              "actions": [
+                {
+                  "actionTypeId": {
+                    "category": "Deploy",
+                    "owner": "AWS",
+                    "provider": "CodeDeploy",
+                    "version": "1"
+                  },
+                  "configuration": {
+                    "ApplicationName": "CodePipelineDemoApplication",
+                    "DeploymentGroupName": "CodePipelineDemoFleet"
+                  },
+                  "inputArtifacts": [
+                    {
+                      "name": "MyApp"
+                    }
+                  ],
+                  "name": "CodePipelineDemoFleet",
+                  "outputArtifacts": [],
+                  "runOrder": 1
+                }
+              ],
+              "name": "Beta"
+            }
+          ],
+          "version": 3
+        }
+      },
+      "properties": {
+        "pipeline": {
+          "$ref": "#/definitions/PipelineDeclaration",
+          "description": "The structure of the updated pipeline."
+        }
+      },
+      "type": "object",
+      "title": "UpdatePipelineOutput"
+    },
+    "Url": {
+      "maxLength": 2048,
+      "minLength": 1,
+      "type": "string",
+      "title": "Url"
+    },
+    "UrlTemplate": {
+      "maxLength": 2048,
+      "minLength": 1,
+      "type": "string",
+      "title": "UrlTemplate"
+    },
+    "ValidationException": {
+      "description": "The validation was specified in an invalid format.",
+      "properties": {},
+      "type": "object",
+      "title": "ValidationException"
+    },
+    "Version": {
+      "maxLength": 9,
+      "minLength": 1,
+      "pattern": "[0-9A-Za-z_-]+",
+      "type": "string",
+      "title": "Version"
+    }
+  },
+  "actions": [
+    {
+      "id": "AcknowledgeJob",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/AcknowledgeJobInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/AcknowledgeJobOutput"
+      },
+      "security": {
+        "amazonaws_codepipeline": {
+          "integration": "amazonaws_codepipeline"
+        }
+      }
+    },
+    {
+      "id": "AcknowledgeThirdPartyJob",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/AcknowledgeThirdPartyJobInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/AcknowledgeThirdPartyJobOutput"
+      },
+      "security": {
+        "amazonaws_codepipeline": {
+          "integration": "amazonaws_codepipeline"
+        }
+      }
+    },
+    {
+      "id": "CreateCustomActionType",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/CreateCustomActionTypeInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CreateCustomActionTypeOutput"
+      },
+      "security": {
+        "amazonaws_codepipeline": {
+          "integration": "amazonaws_codepipeline"
+        }
+      }
+    },
+    {
+      "id": "CreatePipeline",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/CreatePipelineInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CreatePipelineOutput"
+      },
+      "security": {
+        "amazonaws_codepipeline": {
+          "integration": "amazonaws_codepipeline"
+        }
+      }
+    },
+    {
+      "id": "DeleteCustomActionType",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DeleteCustomActionTypeInput"
+          }
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_codepipeline": {
+          "integration": "amazonaws_codepipeline"
+        }
+      }
+    },
+    {
+      "id": "DeletePipeline",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DeletePipelineInput"
+          }
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_codepipeline": {
+          "integration": "amazonaws_codepipeline"
+        }
+      }
+    },
+    {
+      "id": "DisableStageTransition",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DisableStageTransitionInput"
+          }
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_codepipeline": {
+          "integration": "amazonaws_codepipeline"
+        }
+      }
+    },
+    {
+      "id": "EnableStageTransition",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/EnableStageTransitionInput"
+          }
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_codepipeline": {
+          "integration": "amazonaws_codepipeline"
+        }
+      }
+    },
+    {
+      "id": "GetJobDetails",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetJobDetailsInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetJobDetailsOutput"
+      },
+      "security": {
+        "amazonaws_codepipeline": {
+          "integration": "amazonaws_codepipeline"
+        }
+      }
+    },
+    {
+      "id": "GetPipeline",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetPipelineInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetPipelineOutput"
+      },
+      "security": {
+        "amazonaws_codepipeline": {
+          "integration": "amazonaws_codepipeline"
+        }
+      }
+    },
+    {
+      "id": "GetPipelineExecution",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetPipelineExecutionInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetPipelineExecutionOutput"
+      },
+      "security": {
+        "amazonaws_codepipeline": {
+          "integration": "amazonaws_codepipeline"
+        }
+      }
+    },
+    {
+      "id": "GetPipelineState",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetPipelineStateInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetPipelineStateOutput"
+      },
+      "security": {
+        "amazonaws_codepipeline": {
+          "integration": "amazonaws_codepipeline"
+        }
+      }
+    },
+    {
+      "id": "GetThirdPartyJobDetails",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetThirdPartyJobDetailsInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetThirdPartyJobDetailsOutput"
+      },
+      "security": {
+        "amazonaws_codepipeline": {
+          "integration": "amazonaws_codepipeline"
+        }
+      }
+    },
+    {
+      "id": "ListActionTypes",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListActionTypesInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListActionTypesOutput"
+      },
+      "security": {
+        "amazonaws_codepipeline": {
+          "integration": "amazonaws_codepipeline"
+        }
+      }
+    },
+    {
+      "id": "ListPipelines",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListPipelinesInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListPipelinesOutput"
+      },
+      "security": {
+        "amazonaws_codepipeline": {
+          "integration": "amazonaws_codepipeline"
+        }
+      }
+    },
+    {
+      "id": "PollForJobs",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/PollForJobsInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/PollForJobsOutput"
+      },
+      "security": {
+        "amazonaws_codepipeline": {
+          "integration": "amazonaws_codepipeline"
+        }
+      }
+    },
+    {
+      "id": "PollForThirdPartyJobs",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/PollForThirdPartyJobsInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/PollForThirdPartyJobsOutput"
+      },
+      "security": {
+        "amazonaws_codepipeline": {
+          "integration": "amazonaws_codepipeline"
+        }
+      }
+    },
+    {
+      "id": "PutActionRevision",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/PutActionRevisionInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/PutActionRevisionOutput"
+      },
+      "security": {
+        "amazonaws_codepipeline": {
+          "integration": "amazonaws_codepipeline"
+        }
+      }
+    },
+    {
+      "id": "PutApprovalResult",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/PutApprovalResultInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/PutApprovalResultOutput"
+      },
+      "security": {
+        "amazonaws_codepipeline": {
+          "integration": "amazonaws_codepipeline"
+        }
+      }
+    },
+    {
+      "id": "PutJobFailureResult",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/PutJobFailureResultInput"
+          }
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_codepipeline": {
+          "integration": "amazonaws_codepipeline"
+        }
+      }
+    },
+    {
+      "id": "PutJobSuccessResult",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/PutJobSuccessResultInput"
+          }
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_codepipeline": {
+          "integration": "amazonaws_codepipeline"
+        }
+      }
+    },
+    {
+      "id": "PutThirdPartyJobFailureResult",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/PutThirdPartyJobFailureResultInput"
+          }
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_codepipeline": {
+          "integration": "amazonaws_codepipeline"
+        }
+      }
+    },
+    {
+      "id": "PutThirdPartyJobSuccessResult",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/PutThirdPartyJobSuccessResultInput"
+          }
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_codepipeline": {
+          "integration": "amazonaws_codepipeline"
+        }
+      }
+    },
+    {
+      "id": "RetryStageExecution",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/RetryStageExecutionInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/RetryStageExecutionOutput"
+      },
+      "security": {
+        "amazonaws_codepipeline": {
+          "integration": "amazonaws_codepipeline"
+        }
+      }
+    },
+    {
+      "id": "StartPipelineExecution",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/StartPipelineExecutionInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/StartPipelineExecutionOutput"
+      },
+      "security": {
+        "amazonaws_codepipeline": {
+          "integration": "amazonaws_codepipeline"
+        }
+      }
+    },
+    {
+      "id": "UpdatePipeline",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/UpdatePipelineInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UpdatePipelineOutput"
+      },
+      "security": {
+        "amazonaws_codepipeline": {
+          "integration": "amazonaws_codepipeline"
+        }
+      }
+    }
+  ],
+  "tags": [
+    "cloud",
+    "aws"
+  ]
+}

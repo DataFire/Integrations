@@ -1,0 +1,530 @@
+{
+  "id": "inboxroute",
+  "title": "Mailsquad",
+  "description": "MailSquad offers an affordable and super easy way to create, send and track delightful emails.",
+  "security": {
+    "inboxroute": {
+      "integration": "inboxroute",
+      "fields": {
+        "mqApiKey": "API key"
+      }
+    }
+  },
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/inboxroute.png"
+  },
+  "actionCount": 8,
+  "definitions": {
+    "Contact": {
+      "properties": {
+        "_id": {
+          "description": "Unique 16 characters ID",
+          "type": "string"
+        },
+        "clientid": {
+          "description": "Unique 16 characters ID of the client owner",
+          "type": "string"
+        },
+        "confirmed": {
+          "description": "Date+time subscriber confirmed his/her list opt-in",
+          "format": "date-time",
+          "type": "string"
+        },
+        "customfields": {
+          "description": "Dictionnary of field key to value"
+        },
+        "email": {
+          "description": "Email address",
+          "type": "string"
+        },
+        "fullname": {
+          "description": "Full name (Last name, First Name) of the subscriber\n",
+          "type": "string"
+        },
+        "ip": {
+          "description": "Subscriber's IP address when he/she confirmed list opt-in",
+          "type": "string"
+        },
+        "lang": {
+          "description": "ISO 639-1 language code of the subscriber. When lang is one the supported system language, all communication\nwill be in this language. \n",
+          "type": "string"
+        },
+        "listid": {
+          "description": "Unique 16 characters ID of the list owner",
+          "type": "string"
+        },
+        "status": {
+          "description": "Status (\n  1- Active,\n  2- Unconfirmed,\n  3- Unsubscribed,\n  4- Deleted,\n  5- Cleaned because of hard bounce or spam complaint)\n",
+          "type": "integer"
+        }
+      },
+      "title": "Contact"
+    },
+    "ContactAdd": {
+      "properties": {
+        "confirmed": {
+          "description": "Date+time subscriber confirmed his/her list opt-in",
+          "format": "date-time",
+          "type": "string"
+        },
+        "customfields": {
+          "description": "Dictionnary of field key to value"
+        },
+        "email": {
+          "description": "Email address",
+          "type": "string"
+        },
+        "ip": {
+          "description": "Subscriber's IP address when he/she confirmed list opt-in",
+          "type": "string"
+        },
+        "listid": {
+          "description": "Unique 16 characters ID of the list owner",
+          "type": "string"
+        },
+        "status": {
+          "description": "Status (\n  1- Active,\n  2- Unconfirmed,\n  3- Unsubscribed,\n  4- Deleted,\n  5- Cleaned because of hard bounce or spam complaint)\n",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "listid",
+        "email"
+      ],
+      "title": "ContactAdd"
+    },
+    "ContactCustomFieldSchema": {
+      "properties": {
+        "key": {
+          "description": "equivalent to html form input name attribute",
+          "type": "string"
+        },
+        "label": {
+          "description": "User friendly label describing the field",
+          "type": "string"
+        },
+        "required": {
+          "description": "Is field required",
+          "type": "boolean"
+        },
+        "type": {
+          "description": "Type (\n  1- String / text free form\n  2- Numeric / integer or decimal\n  3- Date / ISO 8601 format (YYYY/MM/DD)\n)\n",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "label",
+        "key",
+        "type"
+      ],
+      "title": "ContactCustomFieldSchema"
+    },
+    "ContactList": {
+      "properties": {
+        "_id": {
+          "description": "Unique 16 characters ID",
+          "type": "string"
+        },
+        "clientid": {
+          "description": "Unique 16 characters ID of the client owner",
+          "type": "string"
+        },
+        "created": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "customfields": {
+          "description": "Array of ContactCustomFieldSchema",
+          "items": {
+            "$ref": "#/definitions/ContactCustomFieldSchema"
+          },
+          "type": "array"
+        },
+        "eventcustomizations": {
+          "description": "Array of ContactListEventCustomization",
+          "items": {
+            "$ref": "#/definitions/ContactListEventCustomization"
+          },
+          "type": "array"
+        },
+        "name": {
+          "description": "Name of the contact list",
+          "type": "string"
+        }
+      },
+      "title": "ContactList"
+    },
+    "ContactListEventCustomization": {
+      "properties": {
+        "redirecturl": {
+          "description": "full url of the destination landing page",
+          "type": "string"
+        },
+        "type": {
+          "description": "Type (\n  1- Subscribe confirmation request landing page\n  2- Subscribe opt-in landing page\n  3- Unsubscribe confirmation landing page\n)\n",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "type"
+      ],
+      "title": "ContactListEventCustomization"
+    },
+    "ContactListPage": {
+      "properties": {
+        "page": {
+          "description": "Array of ContactList for that page",
+          "items": {
+            "$ref": "#/definitions/ContactList"
+          },
+          "type": "array"
+        },
+        "total": {
+          "description": "Total number of items in query",
+          "type": "integer"
+        }
+      },
+      "title": "ContactListPage"
+    },
+    "ContactListUpdate": {
+      "properties": {
+        "customfields": {
+          "description": "Array of ContactCustomFieldSchema",
+          "items": {
+            "$ref": "#/definitions/ContactCustomFieldSchema"
+          },
+          "type": "array"
+        },
+        "eventcustomizations": {
+          "description": "Array of ContactListEventCustomization",
+          "items": {
+            "$ref": "#/definitions/ContactListEventCustomization"
+          },
+          "type": "array"
+        },
+        "name": {
+          "description": "Name of the contact list",
+          "type": "string"
+        }
+      },
+      "title": "ContactListUpdate"
+    },
+    "ContactPage": {
+      "properties": {
+        "page": {
+          "description": "Array of Contact for that page",
+          "items": {
+            "$ref": "#/definitions/Contact"
+          },
+          "type": "array"
+        },
+        "total": {
+          "description": "Total number of items in query",
+          "type": "integer"
+        }
+      },
+      "title": "ContactPage"
+    },
+    "ContactUpdate": {
+      "properties": {
+        "confirmed": {
+          "description": "Date+time subscriber confirmed his/her list opt-in",
+          "format": "date-time",
+          "type": "string"
+        },
+        "customfields": {
+          "description": "Dictionnary of field key to value"
+        },
+        "email": {
+          "description": "Email address",
+          "type": "string"
+        },
+        "ip": {
+          "description": "Subscriber's IP address when he/she confirmed list opt-in",
+          "type": "string"
+        },
+        "status": {
+          "description": "Status (\n  1- Active,\n  2- Unconfirmed,\n  3- Unsubscribed,\n  4- Deleted,\n  5- Cleaned because of hard bounce or spam complaint)\n",
+          "type": "integer"
+        }
+      },
+      "title": "ContactUpdate"
+    },
+    "NewId": {
+      "properties": {
+        "_id": {
+          "description": "The created ressource id",
+          "type": "string"
+        }
+      },
+      "title": "NewId"
+    },
+    "SubscriptionRequest": {
+      "properties": {
+        "confirmed": {
+          "description": "Date-time when subscriber opted-in. Required if singleoptin is true.",
+          "format": "date-time",
+          "type": "string"
+        },
+        "email": {
+          "description": "Email address of the subscriber",
+          "type": "string"
+        },
+        "fullname": {
+          "description": "Full name (Last name, First Name) of the subscriber\n",
+          "type": "string"
+        },
+        "ip": {
+          "description": "Origin Ip of the subscriber when he/she opted-in. Required if singleoptin is true.",
+          "type": "string"
+        },
+        "lang": {
+          "description": "ISO 639-1 language code of the subscriber. When lang is one the supported system language, all communication\nwill be in this language.\n",
+          "type": "string"
+        },
+        "singleoptin": {
+          "description": "If true, no email will be sent asking user subscription confirmation. In that case, you must provide\nthe confirmation date (confirmed) and origin ip (ip) manually.\n",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "email"
+      ],
+      "title": "SubscriptionRequest"
+    }
+  },
+  "actions": [
+    {
+      "id": "contacts.get",
+      "title": "contacts.get",
+      "description": "Get a paged result of contacts from a list",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "listid": {
+            "type": "string",
+            "description": "Unique 16 characters ID of the contact list to get contacts of"
+          },
+          "offset": {
+            "type": "integer",
+            "description": "Skip that many records"
+          },
+          "limit": {
+            "type": "integer",
+            "description": "Maximum number of items in page"
+          },
+          "sort": {
+            "type": "string",
+            "description": "Property to sort by. Append '-' for descending order."
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ContactPage"
+      },
+      "security": {
+        "inboxroute": {
+          "integration": "inboxroute"
+        }
+      }
+    },
+    {
+      "id": "contacts.lists.get",
+      "title": "contacts.lists.get",
+      "description": "Get a paged result of contact lists.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "description": "Skip that many records"
+          },
+          "limit": {
+            "type": "integer",
+            "description": "Maximum number of items in page"
+          },
+          "sort": {
+            "type": "string",
+            "description": "Property to sort by. Append '-' for descending order."
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ContactListPage"
+      },
+      "security": {
+        "inboxroute": {
+          "integration": "inboxroute"
+        }
+      }
+    },
+    {
+      "id": "contacts.lists.post",
+      "title": "contacts.lists.post",
+      "description": "Add a new contact list",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "contactlist": {
+            "$ref": "#/definitions/ContactListUpdate"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/NewId"
+      },
+      "security": {
+        "inboxroute": {
+          "integration": "inboxroute"
+        }
+      }
+    },
+    {
+      "id": "contacts.lists.listid.delete",
+      "title": "contacts.lists.listid.delete",
+      "description": "Delete an existing contact list",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "listid": {
+            "type": "string",
+            "description": "Unique 16 characters ID of the contact list"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "listid"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "inboxroute": {
+          "integration": "inboxroute"
+        }
+      }
+    },
+    {
+      "id": "contacts.lists.listid.put",
+      "title": "contacts.lists.listid.put",
+      "description": "Update an existing contact list",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "listid": {
+            "type": "string",
+            "description": "Unique 16 characters ID of the contact list"
+          },
+          "contactlist": {
+            "$ref": "#/definitions/ContactListUpdate"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "listid"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "inboxroute": {
+          "integration": "inboxroute"
+        }
+      }
+    },
+    {
+      "id": "contacts.contactid.delete",
+      "title": "contacts.contactid.delete",
+      "description": "Delete an existing contact",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "contactid": {
+            "type": "string",
+            "description": "Unique 16 characters ID of the contact"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "contactid"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "inboxroute": {
+          "integration": "inboxroute"
+        }
+      }
+    },
+    {
+      "id": "contacts.contactid.put",
+      "title": "contacts.contactid.put",
+      "description": "Update an existing contact",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "contactid": {
+            "type": "string",
+            "description": "Unique 16 characters ID of the contact"
+          },
+          "contact": {
+            "$ref": "#/definitions/ContactUpdate"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "contactid",
+          "contact"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "inboxroute": {
+          "integration": "inboxroute"
+        }
+      }
+    },
+    {
+      "id": "subscription.listid.post",
+      "title": "subscription.listid.post",
+      "description": "Subscribe an email address to a list. This api call has the same behavior as\na regular subscribe form. However, single opt-in is allowed for system integration\npurposes.\n\n- If email address does not exist, a new contact will be added to the list.\n- If email address exists custom fields will be updated and status will be put\n  to unconfirmed or active depending of singleoptin value.\n- If current status if Active, this operation will only update the custom fields.\n- If singleoptin is true, no email confirmation will be sent. In that case,\n  you must provide the subscribe's origin ip and confirmation date-time.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "listid": {
+            "type": "string",
+            "description": "Unique 16 characters ID of the contact list"
+          },
+          "subscription": {
+            "$ref": "#/definitions/SubscriptionRequest"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "listid",
+          "subscription"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "inboxroute": {
+          "integration": "inboxroute"
+        }
+      }
+    }
+  ],
+  "tags": [
+    "email",
+    "marketing"
+  ]
+}

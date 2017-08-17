@@ -1,0 +1,697 @@
+{
+  "id": "pivotaltracker",
+  "title": "Pivotal Tracker",
+  "description": "Access and manipulate agile project management data including projects, stories and tasks.",
+  "security": {},
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/pivotaltracker.png"
+  },
+  "actionCount": 31,
+  "actions": [
+    {
+      "id": "tokens.active.get",
+      "title": "tokens.active.get",
+      "description": "Returns an API token associated with the user. This method requires HTTP Basic authentication.",
+      "inputSchema": {},
+      "outputSchema": {}
+    },
+    {
+      "id": "tokens.active.post",
+      "title": "tokens.active.post",
+      "description": "Returns an API token associated with the user.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string",
+            "description": "The user's name."
+          },
+          "password": {
+            "type": "string",
+            "description": "The user's password."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "password"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "activities.get",
+      "title": "activities.get",
+      "description": "Retrieves the recent activity of all your projects.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "limit": {
+            "type": "integer",
+            "description": "Limits the number of activity feed items. Note the default value is 10, and there is a upper cap of 100",
+            "minimum": 1
+          },
+          "occurred_since_date": {
+            "type": "string",
+            "description": "Restricts the activity feed to only those items that occurred after a supplied date (example format: 2009/12/18 21:00:00 UTC)"
+          },
+          "newer_than_version": {
+            "type": "string",
+            "description": "Restricts the activity feed to only those items that have a greater than supplied version"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "projects.PROJECT_ID.activities.get",
+      "title": "projects.PROJECT_ID.activities.get",
+      "description": "Retrieves the recent activity of a specific project.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "limit": {
+            "type": "integer",
+            "description": "Limits the number of activity feed items. Note the default value is 10, and there is a upper cap of 100",
+            "minimum": 1
+          },
+          "occurred_since_date": {
+            "type": "string",
+            "description": "Restricts the activity feed to only those items that occurred after a supplied date (example format: 2009/12/18 21:00:00 UTC)"
+          },
+          "PROJECT_ID": {
+            "type": "string",
+            "description": "The ID of the project to retrieve the activity for"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "PROJECT_ID"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "projects.PROJECT_ID.get",
+      "title": "projects.PROJECT_ID.get",
+      "description": "Retrieves information about a project.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "PROJECT_ID": {
+            "type": "string",
+            "description": "The ID of the project to retrieve"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "PROJECT_ID"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "projects.get",
+      "title": "projects.get",
+      "description": "Retrieves all of the user's projects.",
+      "inputSchema": {},
+      "outputSchema": {}
+    },
+    {
+      "id": "projects.post",
+      "title": "projects.post",
+      "description": "Adds a new project.",
+      "inputSchema": {},
+      "outputSchema": {}
+    },
+    {
+      "id": "projects.PROJECT_ID.memberships.get",
+      "title": "projects.PROJECT_ID.memberships.get",
+      "description": "Retrieves all memberships for a project.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "PROJECT_ID": {
+            "type": "string",
+            "description": "The ID of the project"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "PROJECT_ID"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "projects.PROJECT_ID.memberships.post",
+      "title": "projects.PROJECT_ID.memberships.post",
+      "description": "Adds a new membership to a project.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "PROJECT_ID": {
+            "type": "string",
+            "description": "The ID of the project"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "PROJECT_ID"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "projects.PROJECT_ID.memberships.MEMBERSHIP_ID.get",
+      "title": "projects.PROJECT_ID.memberships.MEMBERSHIP_ID.get",
+      "description": "Retrieves information about a single membership.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "PROJECT_ID": {
+            "type": "string",
+            "description": "The ID of the project"
+          },
+          "MEMBERSHIP_ID": {
+            "type": "string",
+            "description": "The ID of the membership"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "PROJECT_ID",
+          "MEMBERSHIP_ID"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "projects.PROJECT_ID.memberships.MEMBERSHIP_ID.delete",
+      "title": "projects.PROJECT_ID.memberships.MEMBERSHIP_ID.delete",
+      "description": "Removes a membership from a project",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "PROJECT_ID": {
+            "type": "string",
+            "description": "The ID of the project"
+          },
+          "MEMBERSHIP_ID": {
+            "type": "string",
+            "description": "The ID of the membership"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "PROJECT_ID",
+          "MEMBERSHIP_ID"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "projects.PROJECT_ID.iterations.get",
+      "title": "projects.PROJECT_ID.iterations.get",
+      "description": "Retrieves all iterations, with stories.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "PROJECT_ID": {
+            "type": "string",
+            "description": "The ID of the project"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "PROJECT_ID"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "projects.PROJECT_ID.iterations.done.get",
+      "title": "projects.PROJECT_ID.iterations.done.get",
+      "description": "Retrieves iterations from the \"done\" group, with stories.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "description": "Controls the number of iterations to skip from the beginning of the result."
+          },
+          "limit": {
+            "type": "integer",
+            "description": "Controls the maximum number of iterations returned.",
+            "minimum": 1
+          },
+          "PROJECT_ID": {
+            "type": "string",
+            "description": "The ID of the project"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "PROJECT_ID"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "projects.PROJECT_ID.iterations.current.get",
+      "title": "projects.PROJECT_ID.iterations.current.get",
+      "description": "Retrieves iterations from the \"current\" group, with stories.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "PROJECT_ID": {
+            "type": "string",
+            "description": "The ID of the project"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "PROJECT_ID"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "projects.PROJECT_ID.iterations.backlog.get",
+      "title": "projects.PROJECT_ID.iterations.backlog.get",
+      "description": "Retrieves iterations from the \"backlog\" group, with stories.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "description": "Controls the number of iterations to skip from the beginning of the result."
+          },
+          "limit": {
+            "type": "integer",
+            "description": "Controls the maximum number of iterations returned.",
+            "minimum": 1
+          },
+          "PROJECT_ID": {
+            "type": "string",
+            "description": "The ID of the project"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "PROJECT_ID"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "projects.PROJECT_ID.iterations.current_backlog.get",
+      "title": "projects.PROJECT_ID.iterations.current_backlog.get",
+      "description": "Retrieves iterations from the \"current\" and \"backlog\" groups, with stories.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "description": "Controls the number of iterations to skip from the beginning of the result."
+          },
+          "limit": {
+            "type": "integer",
+            "description": "Controls the maximum number of iterations returned.",
+            "minimum": 1
+          },
+          "PROJECT_ID": {
+            "type": "string",
+            "description": "The ID of the project"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "PROJECT_ID"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "projects.PROJECT_ID.stories.STORY_ID.get",
+      "title": "projects.PROJECT_ID.stories.STORY_ID.get",
+      "description": "Retrieves information about a single story.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "PROJECT_ID": {
+            "type": "string",
+            "description": "The ID of the project"
+          },
+          "STORY_ID": {
+            "type": "string",
+            "description": "The ID of the story"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "PROJECT_ID",
+          "STORY_ID"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "projects.PROJECT_ID.stories.STORY_ID.put",
+      "title": "projects.PROJECT_ID.stories.STORY_ID.put",
+      "description": "Updates a story",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "PROJECT_ID": {
+            "type": "string",
+            "description": "The ID of the project"
+          },
+          "STORY_ID": {
+            "type": "string",
+            "description": "The ID of the story"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "PROJECT_ID",
+          "STORY_ID"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "projects.PROJECT_ID.stories.STORY_ID.delete",
+      "title": "projects.PROJECT_ID.stories.STORY_ID.delete",
+      "description": "Deletes a story",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "PROJECT_ID": {
+            "type": "string",
+            "description": "The ID of the project"
+          },
+          "STORY_ID": {
+            "type": "string",
+            "description": "The ID of the story"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "PROJECT_ID",
+          "STORY_ID"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "projects.PROJECT_ID.stories.get",
+      "title": "projects.PROJECT_ID.stories.get",
+      "description": "Retrieves all stories for a project, or those matching filter(s)",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "filter": {
+            "type": "string",
+            "description": "A filter for the returned stories to match. See the API documentation for more details."
+          },
+          "offset": {
+            "type": "integer",
+            "description": "Controls the number of stories to skip from the beginning of the result."
+          },
+          "limit": {
+            "type": "integer",
+            "description": "Controls the maximum number of stories returned.",
+            "minimum": 1
+          },
+          "PROJECT_ID": {
+            "type": "string",
+            "description": "The ID of the project"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "PROJECT_ID"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "projects.PROJECT_ID.stories.post",
+      "title": "projects.PROJECT_ID.stories.post",
+      "description": "Adds a new story",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "PROJECT_ID": {
+            "type": "string",
+            "description": "The ID of the project"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "PROJECT_ID"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "projects.PROJECT_ID.stories.STORY_ID.notes.put",
+      "title": "projects.PROJECT_ID.stories.STORY_ID.notes.put",
+      "description": "Adds a note (comment)",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "PROJECT_ID": {
+            "type": "string",
+            "description": "The ID of the project"
+          },
+          "STORY_ID": {
+            "type": "string",
+            "description": "The ID of the story"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "PROJECT_ID",
+          "STORY_ID"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "projects.PROJECT_ID.stories.deliver_all_finished.post",
+      "title": "projects.PROJECT_ID.stories.deliver_all_finished.post",
+      "description": "Takes all finished stories and marks them as delivered. This could be used to automate a demo deploy process. The updated stories are returned as the result.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "PROJECT_ID": {
+            "type": "string",
+            "description": "The ID of the project"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "PROJECT_ID"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "projects.PROJECT_ID.stories.STORY_ID.moves.post",
+      "title": "projects.PROJECT_ID.stories.STORY_ID.moves.post",
+      "description": "Moves a story before or after another story. The moved story is returned in the response.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "PROJECT_ID": {
+            "type": "string",
+            "description": "The ID of the project"
+          },
+          "STORY_ID": {
+            "type": "string",
+            "description": "The ID of the story"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "PROJECT_ID",
+          "STORY_ID"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "projects.PROJECT_ID.stories.STORY_ID.tasks.TASK_ID.get",
+      "title": "projects.PROJECT_ID.stories.STORY_ID.tasks.TASK_ID.get",
+      "description": "Returns information about a single task",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "PROJECT_ID": {
+            "type": "string",
+            "description": "The ID of the project"
+          },
+          "STORY_ID": {
+            "type": "string",
+            "description": "The ID of the story"
+          },
+          "TASK_ID": {
+            "type": "string",
+            "description": "The ID of the task"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "PROJECT_ID",
+          "STORY_ID",
+          "TASK_ID"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "projects.PROJECT_ID.stories.STORY_ID.tasks.TASK_ID.put",
+      "title": "projects.PROJECT_ID.stories.STORY_ID.tasks.TASK_ID.put",
+      "description": "Updates a task",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "PROJECT_ID": {
+            "type": "string",
+            "description": "The ID of the project"
+          },
+          "STORY_ID": {
+            "type": "string",
+            "description": "The ID of the story"
+          },
+          "TASK_ID": {
+            "type": "string",
+            "description": "The ID of the task"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "PROJECT_ID",
+          "STORY_ID",
+          "TASK_ID"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "projects.PROJECT_ID.stories.STORY_ID.tasks.TASK_ID.delete",
+      "title": "projects.PROJECT_ID.stories.STORY_ID.tasks.TASK_ID.delete",
+      "description": "Deletes a task",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "PROJECT_ID": {
+            "type": "string",
+            "description": "The ID of the project"
+          },
+          "STORY_ID": {
+            "type": "string",
+            "description": "The ID of the story"
+          },
+          "TASK_ID": {
+            "type": "string",
+            "description": "The ID of the task"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "PROJECT_ID",
+          "STORY_ID",
+          "TASK_ID"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "projects.PROJECT_ID.stories.STORY_ID.tasks.get",
+      "title": "projects.PROJECT_ID.stories.STORY_ID.tasks.get",
+      "description": "Returns all tasks for a story",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "PROJECT_ID": {
+            "type": "string",
+            "description": "The ID of the project"
+          },
+          "STORY_ID": {
+            "type": "string",
+            "description": "The ID of the story"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "PROJECT_ID",
+          "STORY_ID"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "projects.PROJECT_ID.stories.STORY_ID.tasks.post",
+      "title": "projects.PROJECT_ID.stories.STORY_ID.tasks.post",
+      "description": "Adds a task to a story",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "PROJECT_ID": {
+            "type": "string",
+            "description": "The ID of the project"
+          },
+          "STORY_ID": {
+            "type": "string",
+            "description": "The ID of the story"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "PROJECT_ID",
+          "STORY_ID"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "projects.PROJECT_ID.stories.STORY_ID.attachments.post",
+      "title": "projects.PROJECT_ID.stories.STORY_ID.attachments.post",
+      "description": "Uploads an attachment to a story.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "PROJECT_ID": {
+            "type": "string",
+            "description": "The ID of the project"
+          },
+          "STORY_ID": {
+            "type": "string",
+            "description": "The ID of the story"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "PROJECT_ID",
+          "STORY_ID"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "source_commits.post",
+      "title": "source_commits.post",
+      "description": "Allows integration with post-commit hooks of Source Control Management (SCM) systems such as Subversion, Git, etc.",
+      "inputSchema": {},
+      "outputSchema": {}
+    }
+  ],
+  "tags": []
+}

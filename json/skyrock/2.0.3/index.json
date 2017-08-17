@@ -1,0 +1,1975 @@
+{
+  "id": "skyrock",
+  "title": "Skyrock",
+  "description": "Interact with Skyrock.com features: blogs, profiles, messaging, 'what's new', friends & activities!",
+  "security": {},
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/skyrock.png"
+  },
+  "actionCount": 70,
+  "actions": [
+    {
+      "id": "message.reply_thread.format.post",
+      "title": "message.reply_thread.format.post",
+      "description": "Replies to a thread.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "description": "Response format.",
+            "enum": [
+              "json",
+              "xml"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "message.create_thread.format.post",
+      "title": "message.create_thread.format.post",
+      "description": "Creates a multi-recipient thread.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "description": "Response format.",
+            "enum": [
+              "json",
+              "xml"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "message.send_message.format.post",
+      "title": "message.send_message.format.post",
+      "description": "Sends a message to a single recipient.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "description": "Response format.",
+            "enum": [
+              "json",
+              "xml"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "message.delete_message.format.post",
+      "title": "message.delete_message.format.post",
+      "description": "Deletes a message.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "description": "Response format.",
+            "enum": [
+              "json",
+              "xml"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "message.delete_thread.format.post",
+      "title": "message.delete_thread.format.post",
+      "description": "Deletes a message thread.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "description": "Response format.",
+            "enum": [
+              "json",
+              "xml"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "message.set_thread_as_read.format.post",
+      "title": "message.set_thread_as_read.format.post",
+      "description": "Marks a message thread as read.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "description": "Response format.",
+            "enum": [
+              "json",
+              "xml"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "message.get_thread.format.get",
+      "title": "message.get_thread.format.get",
+      "description": "Returns a message thread (15 messages per page).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "description": "Response format.",
+            "enum": [
+              "json",
+              "xml"
+            ]
+          },
+          "id_thread": {
+            "type": "integer",
+            "description": "Message thread ID."
+          },
+          "page": {
+            "type": "integer",
+            "description": "Page number (optional)."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format",
+          "id_thread"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "message.list_threads.format.get",
+      "title": "message.list_threads.format.get",
+      "description": "Returns the authenticated user's message threads (15 threads per page).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "description": "Response format.",
+            "enum": [
+              "json",
+              "xml"
+            ]
+          },
+          "filter": {
+            "type": "string",
+            "description": "Thread selection filter (all/unread).",
+            "enum": [
+              "all",
+              "unread"
+            ]
+          },
+          "page": {
+            "type": "integer",
+            "description": "Page number (optional)."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format",
+          "filter"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "newsfeed.list_alerts_types.format.get",
+      "title": "newsfeed.list_alerts_types.format.get",
+      "description": "Returns descriptions of alerts types, for developer information.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "description": "Response format.",
+            "enum": [
+              "json",
+              "xml"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "newsfeed.list_alerts.format.get",
+      "title": "newsfeed.list_alerts.format.get",
+      "description": "Lists user's alerts (notifications).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "description": "Response format.",
+            "enum": [
+              "json",
+              "xml"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "newsfeed.list_events_types.format.get",
+      "title": "newsfeed.list_events_types.format.get",
+      "description": "Returns descriptions of events types, for developer information.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "description": "Response format.",
+            "enum": [
+              "json",
+              "xml"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "newsfeed.list_events.format.get",
+      "title": "newsfeed.list_events.format.get",
+      "description": "Lists events in the user's dash-board (eg. newsfeed).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "description": "Response format.",
+            "enum": [
+              "json",
+              "xml"
+            ]
+          },
+          "events_category": {
+            "type": "string",
+            "description": "Events category. Possible values: own (display own events), friends (display friends' events).",
+            "enum": [
+              "own",
+              "friends"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format",
+          "events_category"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "newsfeed.send_alert.format.post",
+      "title": "newsfeed.send_alert.format.post",
+      "description": "Sends a free text as alert to the authenticated user's alerts (notifications). The message is not localized and should be send in the user language. Unlike events, alerts are personal.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "description": "Response format.",
+            "enum": [
+              "json",
+              "xml"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "newsfeed.send_event.format.post",
+      "title": "newsfeed.send_event.format.post",
+      "description": "Sends a free text as event to the authenticated user's dash-board (eg. newsfeed). Events also appear in the dash-board of the user's friends. The message is not localized and should be send in the user language.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "description": "Response format.",
+            "enum": [
+              "json",
+              "xml"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "mood.delete_mood.format.post",
+      "title": "mood.delete_mood.format.post",
+      "description": "Deletes an user's mood.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "description": "Response format.",
+            "enum": [
+              "json",
+              "xml"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "mood.set_mood.format.post",
+      "title": "mood.set_mood.format.post",
+      "description": "Sets an user's mood.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "description": "Response format.",
+            "enum": [
+              "json",
+              "xml"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "mood.get_mood.format.get",
+      "title": "mood.get_mood.format.get",
+      "description": "Returns an user last mood.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "description": "Response format.",
+            "enum": [
+              "json",
+              "xml"
+            ]
+          },
+          "id_user": {
+            "type": "integer",
+            "description": "User ID (optional if OAuthenticated)."
+          },
+          "username": {
+            "type": "string",
+            "description": "Username (optional if OAuthenticated)."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "mood.list_moods.format.get",
+      "title": "mood.list_moods.format.get",
+      "description": "Returns an user's mood list.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "description": "Response format.",
+            "enum": [
+              "json",
+              "xml"
+            ]
+          },
+          "id_user": {
+            "type": "integer",
+            "description": "User ID (optional if OAuthenticated)."
+          },
+          "username": {
+            "type": "string",
+            "description": "Username (optional if OAuthenticated)."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "profile.get_tags_types.format.get",
+      "title": "profile.get_tags_types.format.get",
+      "description": "Returns user profile's tags types.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "description": "Response format.",
+            "enum": [
+              "json",
+              "xml"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "profile.get_tags.format.get",
+      "title": "profile.get_tags.format.get",
+      "description": "Returns an user profile's tags.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "description": "Response format.",
+            "enum": [
+              "json",
+              "xml"
+            ]
+          },
+          "id_user": {
+            "type": "integer",
+            "description": "User ID (optional if OAuthenticated)."
+          },
+          "username": {
+            "type": "string",
+            "description": "Username (optional if OAuthenticated)."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "profile.set_tags.format.post",
+      "title": "profile.set_tags.format.post",
+      "description": "Sets an user profile's tags.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "description": "Response format.",
+            "enum": [
+              "json",
+              "xml"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "profile.get_property_values.format.get",
+      "title": "profile.get_property_values.format.get",
+      "description": "Returns possible values for a given property. These properties can be set using set or set_config.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "description": "Response format.",
+            "enum": [
+              "json",
+              "xml"
+            ]
+          },
+          "property": {
+            "type": "string",
+            "description": "Property name. Possible values: gender, gender_preference, looks_for, status, town, country, department, occupation, place, personality, smoker, hair_color, eye_color, height, weight, block_friends, block_honors, block_groups, block_gifts, show_visits_counter, show_comments_counter, show_kiffs_counter, show_my_websites, show_mood, display_policy, allow_share, allow_facebook_like, allow_votes, allow_kiffs, default_page, show_me_page, show_news_page, show_photos_page, show_videos_page, allow_comments.",
+            "enum": [
+              "gender",
+              "gender_preference",
+              "looks_for",
+              "status",
+              "town",
+              "country",
+              "department",
+              "occupation",
+              "place",
+              "personality",
+              "smoker",
+              "hair_color",
+              "eye_color",
+              "height",
+              "weight",
+              "block_friends",
+              "block_honors",
+              "block_groups",
+              "block_gifts",
+              "show_visits_counter",
+              "show_comments_counter",
+              "show_kiffs_counter",
+              "show_my_websites",
+              "show_mood",
+              "display_policy",
+              "allow_share",
+              "allow_facebook_like",
+              "allow_votes",
+              "allow_kiffs",
+              "default_page",
+              "show_me_page",
+              "show_news_page",
+              "show_photos_page",
+              "show_videos_page",
+              "allow_comments"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format",
+          "property"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "profile.set_config.format.post",
+      "title": "profile.set_config.format.post",
+      "description": "Sets informations about a profile's (see get_property_values for possible values to set).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "description": "Response format.",
+            "enum": [
+              "json",
+              "xml"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "profile.get_config.format.get",
+      "title": "profile.get_config.format.get",
+      "description": "Returns settings about current user's profile.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "description": "Response format.",
+            "enum": [
+              "json",
+              "xml"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "profile.delete_picture.format.post",
+      "title": "profile.delete_picture.format.post",
+      "description": "Deletes a picture.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "description": "Response format.",
+            "enum": [
+              "json",
+              "xml"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "profile.set_picture.format.post",
+      "title": "profile.set_picture.format.post",
+      "description": "Sets a picture's properties.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "description": "Response format.",
+            "enum": [
+              "json",
+              "xml"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "profile.get_picture.format.get",
+      "title": "profile.get_picture.format.get",
+      "description": "Returns a specified picture.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "description": "Response format.",
+            "enum": [
+              "json",
+              "xml"
+            ]
+          },
+          "id_album": {
+            "type": "integer",
+            "description": "Album ID."
+          },
+          "id_picture": {
+            "type": "integer",
+            "description": "Picture ID."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format",
+          "id_album",
+          "id_picture"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "profile.list_pictures.format.get",
+      "title": "profile.list_pictures.format.get",
+      "description": "Returns the list of pictures associated with a profile.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "description": "Response format.",
+            "enum": [
+              "json",
+              "xml"
+            ]
+          },
+          "id_user": {
+            "type": "integer",
+            "description": "User ID (optional if OAuthenticated)."
+          },
+          "username": {
+            "type": "string",
+            "description": "Username (optional if OAuthenticated)."
+          },
+          "id_album": {
+            "type": "integer",
+            "description": "Album ID."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format",
+          "id_album"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "profile.add_picture.format.post",
+      "title": "profile.add_picture.format.post",
+      "description": "Adds a picture to the profile.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "description": "Response format.",
+            "enum": [
+              "json",
+              "xml"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "profile.delete_album.format.post",
+      "title": "profile.delete_album.format.post",
+      "description": "Deletes an empty album. Main album (id_album = 1) cannot be deleted.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "description": "Response format.",
+            "enum": [
+              "json",
+              "xml"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "profile.set_album.format.post",
+      "title": "profile.set_album.format.post",
+      "description": "Sets an album's title.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "description": "Response format.",
+            "enum": [
+              "json",
+              "xml"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "profile.list_albums.format.get",
+      "title": "profile.list_albums.format.get",
+      "description": "Returns the list of albums associated with a profile. Main album has id_album = 1.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "description": "Response format.",
+            "enum": [
+              "json",
+              "xml"
+            ]
+          },
+          "id_user": {
+            "type": "integer",
+            "description": "User ID (optional if OAuthenticated)."
+          },
+          "username": {
+            "type": "string",
+            "description": "Username (optional if OAuthenticated)."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "profile.add_album.format.post",
+      "title": "profile.add_album.format.post",
+      "description": "Adds an album to the profile.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "description": "Response format.",
+            "enum": [
+              "json",
+              "xml"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "profile.set.format.post",
+      "title": "profile.set.format.post",
+      "description": "Sets an user's profile public data.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "description": "Response format.",
+            "enum": [
+              "json",
+              "xml"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "profile.get.format.get",
+      "title": "profile.get.format.get",
+      "description": "Returns an user's profile public data.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "description": "Response format.",
+            "enum": [
+              "json",
+              "xml"
+            ]
+          },
+          "id_user": {
+            "type": "integer",
+            "description": "User ID (optional if OAuthenticated)."
+          },
+          "username": {
+            "type": "string",
+            "description": "Username (optional if OAuthenticated)."
+          },
+          "output_format": {
+            "type": "string",
+            "description": "Defines which format to output, for specific rich text fields. Possible values: 'html' (default), 'bbcode'.",
+            "enum": [
+              "html",
+              "bbcode"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "blog.list_pictures.format.get",
+      "title": "blog.list_pictures.format.get",
+      "description": "Returns the list of pictures from all blog's articles, paginated (35 pictures per page).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "description": "Response format.",
+            "enum": [
+              "json",
+              "xml"
+            ]
+          },
+          "id_user": {
+            "type": "integer",
+            "description": "User ID (optional if OAuthenticated)."
+          },
+          "username": {
+            "type": "string",
+            "description": "Username (optional if OAuthenticated)."
+          },
+          "page": {
+            "type": "integer",
+            "description": "Page number."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "blog.list_skins.format.get",
+      "title": "blog.list_skins.format.get",
+      "description": "Returns available skins.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "description": "Response format.",
+            "enum": [
+              "json",
+              "xml"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "blog.get_post_comment.format.get",
+      "title": "blog.get_post_comment.format.get",
+      "description": "Returns a post's comment.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "description": "Response format.",
+            "enum": [
+              "json",
+              "xml"
+            ]
+          },
+          "id_user": {
+            "type": "integer",
+            "description": "User ID (optional if OAuthenticated)."
+          },
+          "username": {
+            "type": "string",
+            "description": "Username (optional if OAuthenticated)."
+          },
+          "id_post": {
+            "type": "integer",
+            "description": "Post ID."
+          },
+          "id_comment": {
+            "type": "integer",
+            "description": "Post comment ID."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format",
+          "id_post",
+          "id_comment"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "blog.list_post_comments.format.get",
+      "title": "blog.list_post_comments.format.get",
+      "description": "Lists a post's comments.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "description": "Response format.",
+            "enum": [
+              "json",
+              "xml"
+            ]
+          },
+          "id_user": {
+            "type": "integer",
+            "description": "User ID (optional if OAuthenticated)."
+          },
+          "username": {
+            "type": "string",
+            "description": "Username (optional if OAuthenticated)."
+          },
+          "id_post": {
+            "type": "integer",
+            "description": "Post ID."
+          },
+          "page": {
+            "type": "integer",
+            "description": "Page number."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format",
+          "id_post"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "blog.delete_post_media.format.post",
+      "title": "blog.delete_post_media.format.post",
+      "description": "Deletes a post's media.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "description": "Response format.",
+            "enum": [
+              "json",
+              "xml"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "blog.new_post_media.format.post",
+      "title": "blog.new_post_media.format.post",
+      "description": "Associates media with a blog post.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "description": "Response format.",
+            "enum": [
+              "json",
+              "xml"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "blog.list_post_medias.format.get",
+      "title": "blog.list_post_medias.format.get",
+      "description": "Returns a post's medias list.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "description": "Response format.",
+            "enum": [
+              "json",
+              "xml"
+            ]
+          },
+          "id_user": {
+            "type": "integer",
+            "description": "User ID (optional if OAuthenticated)."
+          },
+          "username": {
+            "type": "string",
+            "description": "Username (optional if OAuthenticated)."
+          },
+          "id_post": {
+            "type": "integer",
+            "description": "Post ID."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format",
+          "id_post"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "blog.delete_post.format.post",
+      "title": "blog.delete_post.format.post",
+      "description": "Deletes a blog post.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "description": "Response format.",
+            "enum": [
+              "json",
+              "xml"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "blog.set_post.format.post",
+      "title": "blog.set_post.format.post",
+      "description": "Edits a blog post.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "description": "Response format.",
+            "enum": [
+              "json",
+              "xml"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "blog.get_post.format.get",
+      "title": "blog.get_post.format.get",
+      "description": "Returns an user's blog post. Only online posts will be returned, unless authenticated user is its creator.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "description": "Response format.",
+            "enum": [
+              "json",
+              "xml"
+            ]
+          },
+          "id_user": {
+            "type": "integer",
+            "description": "User ID (optional if OAuthenticated)."
+          },
+          "username": {
+            "type": "string",
+            "description": "Username (optional if OAuthenticated)."
+          },
+          "id_post": {
+            "type": "integer",
+            "description": "Post ID."
+          },
+          "output_format": {
+            "type": "string",
+            "description": "Defines which format to output, for specific rich text fields. Possible values: 'html' (default), 'bbcode'.",
+            "enum": [
+              "html",
+              "bbcode"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format",
+          "id_post"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "blog.new_post.format.post",
+      "title": "blog.new_post.format.post",
+      "description": "Creates a new blog post.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "description": "Response format.",
+            "enum": [
+              "json",
+              "xml"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "blog.list_offline_posts.format.get",
+      "title": "blog.list_offline_posts.format.get",
+      "description": "Returns current user's blog posts list (offline only), paginated.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "description": "Response format.",
+            "enum": [
+              "json",
+              "xml"
+            ]
+          },
+          "page": {
+            "type": "integer",
+            "description": "Page number."
+          },
+          "with_secret": {
+            "type": "boolean",
+            "description": "Allow authenticated blog owner to show secret posts (false by default)."
+          },
+          "output_format": {
+            "type": "string",
+            "description": "Defines which format to output, for specific rich text fields. Possible values: 'html' (default), 'bbcode'.",
+            "enum": [
+              "html",
+              "bbcode"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "blog.list_posts.format.get",
+      "title": "blog.list_posts.format.get",
+      "description": "Returns an user's blog posts list (online only), paginated (10 articles per page).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "description": "Response format.",
+            "enum": [
+              "json",
+              "xml"
+            ]
+          },
+          "id_user": {
+            "type": "integer",
+            "description": "User ID (optional if OAuthenticated)."
+          },
+          "username": {
+            "type": "string",
+            "description": "Username (optional if OAuthenticated)."
+          },
+          "page": {
+            "type": "integer",
+            "description": "Page number."
+          },
+          "with_secret": {
+            "type": "boolean",
+            "description": "Allow authenticated blog owner to show secret posts (false by default)."
+          },
+          "output_format": {
+            "type": "string",
+            "description": "Defines which format to output, for specific rich text fields. Possible values: 'html' (default), 'bbcode'.",
+            "enum": [
+              "html",
+              "bbcode"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "blog.change_avatar.format.post",
+      "title": "blog.change_avatar.format.post",
+      "description": "Changes authenticated user's blog avatar.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "description": "Response format.",
+            "enum": [
+              "json",
+              "xml"
+            ]
+          },
+          "Content-Type": {
+            "type": "string",
+            "description": "Content type."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format",
+          "Content-Type"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "blog.set.format.post",
+      "title": "blog.set.format.post",
+      "description": "Sets authenticated user's blog data. Each parameter is optional, you can either set one or many at once.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "description": "Response format.",
+            "enum": [
+              "json",
+              "xml"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "blog.get.format.get",
+      "title": "blog.get.format.get",
+      "description": "Returns a blog public data. If the call is authenticated and username is not provided, the method returns data about the current user's Skyrock blog.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "description": "Response format.",
+            "enum": [
+              "json",
+              "xml"
+            ]
+          },
+          "id_user": {
+            "type": "integer",
+            "description": "User ID (optional if OAuthenticated)."
+          },
+          "username": {
+            "type": "string",
+            "description": "Username (optional if OAuthenticated)."
+          },
+          "output_format": {
+            "type": "string",
+            "description": "Defines which format to output, for specific rich text fields. Possible values: 'html' (default), 'bbcode'.",
+            "enum": [
+              "html",
+              "bbcode"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "user.list_groups.format.get",
+      "title": "user.list_groups.format.get",
+      "description": "List of user's groups.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "description": "Response format.",
+            "enum": [
+              "json",
+              "xml"
+            ]
+          },
+          "id_user": {
+            "type": "integer",
+            "description": "User ID (optional if OAuthenticated)."
+          },
+          "username": {
+            "type": "string",
+            "description": "Username (optional if OAuthenticated)."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "user.remove_user_from_blacklist.format.post",
+      "title": "user.remove_user_from_blacklist.format.post",
+      "description": "Removes a user from the blacklist.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "description": "Response format.",
+            "enum": [
+              "json",
+              "xml"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "user.add_user_to_blacklist.format.post",
+      "title": "user.add_user_to_blacklist.format.post",
+      "description": "Adds a user to the blacklist.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "description": "Response format.",
+            "enum": [
+              "json",
+              "xml"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "user.list_blacklist.format.get",
+      "title": "user.list_blacklist.format.get",
+      "description": "List of users in blacklist.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "description": "Response format.",
+            "enum": [
+              "json",
+              "xml"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "user.get_counters.format.get",
+      "title": "user.get_counters.format.get",
+      "description": "Returns current user counters.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "description": "Response format.",
+            "enum": [
+              "json",
+              "xml"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "user.is_friend.format.get",
+      "title": "user.is_friend.format.get",
+      "description": "Checks friend relation between two users.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "description": "Response format.",
+            "enum": [
+              "json",
+              "xml"
+            ]
+          },
+          "id_user_1": {
+            "type": "integer",
+            "description": "First user ID."
+          },
+          "id_user_2": {
+            "type": "integer",
+            "description": "Second user ID."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format",
+          "id_user_1",
+          "id_user_2"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "user.deny_friend_request.format.post",
+      "title": "user.deny_friend_request.format.post",
+      "description": "Denies a friend request.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "description": "Response format.",
+            "enum": [
+              "json",
+              "xml"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "user.accept_friend_request.format.post",
+      "title": "user.accept_friend_request.format.post",
+      "description": "Accepts a friend request.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "description": "Response format.",
+            "enum": [
+              "json",
+              "xml"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "user.list_friend_requests.format.get",
+      "title": "user.list_friend_requests.format.get",
+      "description": "List of friend requests.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "description": "Response format.",
+            "enum": [
+              "json",
+              "xml"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "user.remove_from_friends.format.post",
+      "title": "user.remove_from_friends.format.post",
+      "description": "Removes a friend from the friend list.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "description": "Response format.",
+            "enum": [
+              "json",
+              "xml"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "user.remove_from_best_friends.format.post",
+      "title": "user.remove_from_best_friends.format.post",
+      "description": "Removes a friend from the best friend list. The friend user should be a best friend of current user.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "description": "Response format.",
+            "enum": [
+              "json",
+              "xml"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "user.add_to_best_friends.format.post",
+      "title": "user.add_to_best_friends.format.post",
+      "description": "Adds a friend to the best friend list. The friend user should be a friend of current user.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "description": "Response format.",
+            "enum": [
+              "json",
+              "xml"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "user.send_friend_request.format.post",
+      "title": "user.send_friend_request.format.post",
+      "description": "Sends a friend request.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "description": "Response format.",
+            "enum": [
+              "json",
+              "xml"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "user.list_online_friends.format.get",
+      "title": "user.list_online_friends.format.get",
+      "description": "List of online friends.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "description": "Response format.",
+            "enum": [
+              "json",
+              "xml"
+            ]
+          },
+          "id_user": {
+            "type": "integer",
+            "description": "User ID (optional if OAuthenticated)."
+          },
+          "username": {
+            "type": "string",
+            "description": "Username (optional if OAuthenticated)."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "user.list_best_friends.format.get",
+      "title": "user.list_best_friends.format.get",
+      "description": "List of best friends (paginated).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "description": "Response format.",
+            "enum": [
+              "json",
+              "xml"
+            ]
+          },
+          "page": {
+            "type": "integer",
+            "description": "Page number."
+          },
+          "order": {
+            "type": "string",
+            "description": "Results order. Possible values:\n- DEFAULT: default order.\n- ALPHA: sort alphabetically.\n- OLDEST_TO_NEWEST: sort by oldest to newest friends (by date of friendship).\n- NEWEST_TO_OLDEST: sort by newest to oldest friends (by date of friendship).\n- BEST_FIRST: default order, with best friends first.\n- BEST_LAST: default order, with best friends last."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "user.list_friends_ids.format.get",
+      "title": "user.list_friends_ids.format.get",
+      "description": "List of friends ids (paginated).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "description": "Response format.",
+            "enum": [
+              "json",
+              "xml"
+            ]
+          },
+          "page": {
+            "type": "integer",
+            "description": "Page number."
+          },
+          "order": {
+            "type": "string",
+            "description": "Results order. Possible values:\n- DEFAULT: default order.\n- ALPHA: sort alphabetically.\n- OLDEST_TO_NEWEST: sort by oldest to newest friends (by date of friendship).\n- NEWEST_TO_OLDEST: sort by newest to oldest friends (by date of friendship).\n- BEST_FIRST: default order, with best friends first.\n- BEST_LAST: default order, with best friends last."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "user.list_friends.format.get",
+      "title": "user.list_friends.format.get",
+      "description": "List of friends (paginated).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "description": "Response format.",
+            "enum": [
+              "json",
+              "xml"
+            ]
+          },
+          "id_user": {
+            "type": "integer",
+            "description": "User ID (optional if OAuthenticated)."
+          },
+          "username": {
+            "type": "string",
+            "description": "Username (optional if OAuthenticated)."
+          },
+          "page": {
+            "type": "integer",
+            "description": "Page number."
+          },
+          "order": {
+            "type": "string",
+            "description": "Results order. Possible values:\n- DEFAULT: default order.\n- ALPHA: sort alphabetically.\n- OLDEST_TO_NEWEST: sort by oldest to newest friends (by date of friendship).\n- NEWEST_TO_OLDEST: sort by newest to oldest friends (by date of friendship).\n- BEST_FIRST: default order, with best friends first.\n- BEST_LAST: default order, with best friends last."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "user.get.format.get",
+      "title": "user.get.format.get",
+      "description": "Returns an user's public data. If the call is authenticated and username is not provided, the method returns data about the current user's Skyrock account.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "description": "Response format.",
+            "enum": [
+              "json",
+              "xml"
+            ]
+          },
+          "id_user": {
+            "type": "integer",
+            "description": "User ID (optional if OAuthenticated)."
+          },
+          "username": {
+            "type": "string",
+            "description": "Username (optional if OAuthenticated)."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "check_rate_limit.format.get",
+      "title": "check_rate_limit.format.get",
+      "description": "Returns the number of remaining queries (see http://en.skyrock.com/developer/documentation/api/#request-rate-limits). Calls to this method are not counted against the limits.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "description": "Response format.",
+            "enum": [
+              "json",
+              "xml"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format"
+        ]
+      },
+      "outputSchema": {}
+    }
+  ],
+  "tags": []
+}

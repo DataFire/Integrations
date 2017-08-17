@@ -1,0 +1,505 @@
+{
+  "id": "azure_arm_resourcehealth",
+  "title": "Microsoft.ResourceHealth",
+  "description": "The Resource Health Client.",
+  "security": {
+    "azure_arm_resourcehealth": {
+      "integration": "azure_arm_resourcehealth",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)",
+        "redirect_uri": "The callback URL for your application"
+      },
+      "oauth": {
+        "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/authorize",
+        "description": "Azure Active Directory OAuth2 Flow",
+        "flow": "implicit",
+        "scopes": {
+          "user_impersonation": "impersonate your user account"
+        },
+        "type": "oauth2"
+      }
+    }
+  },
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_resourcehealth.png"
+  },
+  "actionCount": 5,
+  "definitions": {
+    "ErrorResponse": {
+      "description": "Error details.",
+      "properties": {
+        "code": {
+          "description": "The error code.",
+          "readOnly": true,
+          "type": "string"
+        },
+        "details": {
+          "description": "The error details.",
+          "readOnly": true,
+          "type": "string"
+        },
+        "message": {
+          "description": "The error message.",
+          "readOnly": true,
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "ErrorResponse"
+    },
+    "availabilityStatus": {
+      "description": "availabilityStatus of a resource.",
+      "properties": {
+        "id": {
+          "description": "Azure Resource Manager Identity for the availabilityStatuses resource.",
+          "type": "string"
+        },
+        "location": {
+          "description": "Azure Resource Manager geo location of the resource.",
+          "type": "string"
+        },
+        "name": {
+          "description": "current.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Properties of availability state.",
+          "properties": {
+            "availabilityState": {
+              "description": "Availability status of the resource.",
+              "enum": [
+                "Available",
+                "Unavailable",
+                "Unknown"
+              ],
+              "type": "string",
+              "x-ms-enum": {
+                "modelAsString": false,
+                "name": "AvailabilityStateValues"
+              }
+            },
+            "detailedStatus": {
+              "description": "Details of the availability status.",
+              "type": "string"
+            },
+            "occuredTime": {
+              "description": "Timestamp for when last change in health status occurred.",
+              "format": "date-time",
+              "type": "string"
+            },
+            "reasonChronicity": {
+              "description": "Chronicity of the availability transition.",
+              "enum": [
+                "Transient",
+                "Persistent"
+              ],
+              "type": "string",
+              "x-ms-enum": {
+                "modelAsString": false,
+                "name": "reasonChronicityTypes"
+              }
+            },
+            "reasonType": {
+              "description": "When the resource's availabilityState is Unavailable, it describes where the health impacting event was originated. Examples are planned, unplanned, user initiated or an outage etc.",
+              "type": "string"
+            },
+            "recentlyResolvedState": {
+              "description": "An annotation describing a change in the availabilityState to Available from Unavailable with a reasonType of type Unplanned",
+              "properties": {
+                "resolvedTime": {
+                  "description": "Timestamp when the availabilityState changes to Available.",
+                  "format": "date-time",
+                  "type": "string"
+                },
+                "unavailabilitySummary": {
+                  "description": "Brief description of cause of the resource becoming unavailable.",
+                  "type": "string"
+                },
+                "unavailableOccurredTime": {
+                  "description": "Timestamp for when the availabilityState changed to Unavailable",
+                  "format": "date-time",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "recommendedActions": {
+              "description": "Lists actions the user can take based on the current availabilityState of the resource.",
+              "items": {
+                "$ref": "#/definitions/recommendedAction"
+              },
+              "type": "array"
+            },
+            "reportedTime": {
+              "description": "Timestamp for when the health was last checked. ",
+              "format": "date-time",
+              "type": "string"
+            },
+            "resolutionETA": {
+              "description": "When the resource's availabilityState is Unavailable and the reasonType is not User Initiated, it provides the date and time for when the issue is expected to be resolved.",
+              "format": "date-time",
+              "type": "string"
+            },
+            "rootCauseAttributionTime": {
+              "description": "When the resource's availabilityState is Unavailable, it provides the Timestamp for when the health impacting event was received.",
+              "format": "date-time",
+              "type": "string"
+            },
+            "serviceImpactingEvents": {
+              "description": "Lists the service impacting events that may be affecting the health of the resource.",
+              "items": {
+                "$ref": "#/definitions/serviceImpactingEvent"
+              },
+              "type": "array"
+            },
+            "summary": {
+              "description": "Summary description of the availability state.",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "type": {
+          "description": "Microsoft.ResourceHealth/AvailabilityStatuses.",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "availabilityStatus"
+    },
+    "availabilityStatusListResult": {
+      "description": "The List availabilityStatus operation response.",
+      "properties": {
+        "nextLink": {
+          "description": "The URI to fetch the next page of availabilityStatuses. Call ListNext() with this URI to fetch the next page of availabilityStatuses.",
+          "type": "string"
+        },
+        "value": {
+          "description": "The list of availabilityStatuses.",
+          "items": {
+            "$ref": "#/definitions/availabilityStatus"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "value"
+      ],
+      "title": "availabilityStatusListResult"
+    },
+    "operation": {
+      "description": "Operation available in the resourcehealth resource provider.",
+      "properties": {
+        "display": {
+          "description": "Properties of the operation.",
+          "properties": {
+            "description": {
+              "description": "Description of the operation.",
+              "type": "string"
+            },
+            "operation": {
+              "description": "Operation.",
+              "type": "string"
+            },
+            "provider": {
+              "description": "Provider name.",
+              "type": "string"
+            },
+            "resource": {
+              "description": "Resource name.",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "name": {
+          "description": "Name of the operation.",
+          "type": "string"
+        }
+      },
+      "title": "operation"
+    },
+    "operationListResult": {
+      "description": "Lists the operations response.",
+      "properties": {
+        "value": {
+          "description": "List of operations available in the resourcehealth resource provider.",
+          "items": {
+            "$ref": "#/definitions/operation"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "value"
+      ],
+      "title": "operationListResult"
+    },
+    "recommendedAction": {
+      "description": "Lists actions the user can take based on the current availabilityState of the resource.",
+      "properties": {
+        "action": {
+          "description": "Recommended action.",
+          "type": "string"
+        },
+        "actionUrl": {
+          "description": "Link to the action",
+          "type": "string"
+        },
+        "actionUrlText": {
+          "description": "Substring of action, it describes which text should host the action url.",
+          "type": "string"
+        }
+      },
+      "title": "recommendedAction"
+    },
+    "serviceImpactingEvent": {
+      "description": "Lists the service impacting events that may be affecting the health of the resource.",
+      "properties": {
+        "correlationId": {
+          "description": "Correlation id for the event",
+          "type": "string"
+        },
+        "eventStartTime": {
+          "description": "Timestamp for when the event started.",
+          "format": "date-time",
+          "type": "string"
+        },
+        "eventStatusLastModifiedTime": {
+          "description": "Timestamp for when event was submitted/detected.",
+          "format": "date-time",
+          "type": "string"
+        },
+        "incidentProperties": {
+          "description": "Properties of the service impacting event.",
+          "properties": {
+            "incidentType": {
+              "description": "Type of Event.",
+              "type": "string"
+            },
+            "region": {
+              "description": "Region impacted by the event.",
+              "type": "string"
+            },
+            "service": {
+              "description": "Service impacted by the event.",
+              "type": "string"
+            },
+            "title": {
+              "description": "Title of the incident.",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "status": {
+          "description": "Status of the service impacting event.",
+          "properties": {
+            "value": {
+              "description": "Current status of the event",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "title": "serviceImpactingEvent"
+    }
+  },
+  "actions": [
+    {
+      "id": "Operations_List",
+      "title": "Operations_List",
+      "description": "Lists available operations for the resourcehealth resource provider",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "api-version": {
+            "type": "string",
+            "description": "Client Api Version."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "api-version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/operationListResult"
+      },
+      "security": {
+        "azure_arm_resourcehealth": {
+          "integration": "azure_arm_resourcehealth"
+        }
+      }
+    },
+    {
+      "id": "AvailabilityStatuses_ListBySubscriptionId",
+      "title": "AvailabilityStatuses_ListBySubscriptionId",
+      "description": "Lists the current availability status for all the resources in the subscription. Use the nextLink property in the response to get the next page of availability statuses.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "api-version": {
+            "type": "string",
+            "description": "Client Api Version."
+          },
+          "$filter": {
+            "type": "string",
+            "description": "The filter to apply on the operation. For more information please see https://docs.microsoft.com/en-us/rest/api/apimanagement/apis?redirectedfrom=MSDN"
+          },
+          "subscriptionId": {
+            "type": "string",
+            "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
+          },
+          "$expand": {
+            "type": "string",
+            "description": "Setting $expand=recommendedactions in url query expands the recommendedactions in the response."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "api-version",
+          "subscriptionId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/availabilityStatusListResult"
+      },
+      "security": {
+        "azure_arm_resourcehealth": {
+          "integration": "azure_arm_resourcehealth"
+        }
+      }
+    },
+    {
+      "id": "AvailabilityStatuses_ListByResourceGroup",
+      "title": "AvailabilityStatuses_ListByResourceGroup",
+      "description": "Lists the current availability status for all the resources in the resource group. Use the nextLink property in the response to get the next page of availability statuses.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "subscriptionId": {
+            "type": "string",
+            "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
+          },
+          "resourceGroupName": {
+            "type": "string",
+            "description": "The name of the resource group."
+          },
+          "api-version": {
+            "type": "string",
+            "description": "Client Api Version."
+          },
+          "$filter": {
+            "type": "string",
+            "description": "The filter to apply on the operation. For more information please see https://docs.microsoft.com/en-us/rest/api/apimanagement/apis?redirectedfrom=MSDN"
+          },
+          "$expand": {
+            "type": "string",
+            "description": "Setting $expand=recommendedactions in url query expands the recommendedactions in the response."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "api-version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/availabilityStatusListResult"
+      },
+      "security": {
+        "azure_arm_resourcehealth": {
+          "integration": "azure_arm_resourcehealth"
+        }
+      }
+    },
+    {
+      "id": "Availabilitystatuses_List",
+      "title": "Availabilitystatuses_List",
+      "description": "Lists the historical availability statuses for a single resource. Use the nextLink property in the response to get the next page of availability status",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "resourceUri": {
+            "type": "string",
+            "description": "The fully qualified ID of the resource, including the resource name and resource type. Currently the API support not nested and one nesting level resource types : /subscriptions/{subscriptionId}/resourceGroups/{resource-group-name}/providers/{resource-provider-name}/{resource-type}/{resource-name} and /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resource-provider-name}/{parentResourceType}/{parentResourceName}/{resourceType}/{resourceName}"
+          },
+          "api-version": {
+            "type": "string",
+            "description": "Client Api Version."
+          },
+          "$filter": {
+            "type": "string",
+            "description": "The filter to apply on the operation. For more information please see https://docs.microsoft.com/en-us/rest/api/apimanagement/apis?redirectedfrom=MSDN"
+          },
+          "$expand": {
+            "type": "string",
+            "description": "Setting $expand=recommendedactions in url query expands the recommendedactions in the response."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "resourceUri",
+          "api-version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/availabilityStatusListResult"
+      },
+      "security": {
+        "azure_arm_resourcehealth": {
+          "integration": "azure_arm_resourcehealth"
+        }
+      }
+    },
+    {
+      "id": "AvailabilityStatus_GetByResource",
+      "title": "AvailabilityStatus_GetByResource",
+      "description": "Gets current availability status for a single resource",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "resourceUri": {
+            "type": "string",
+            "description": "The fully qualified ID of the resource, including the resource name and resource type. Currently the API support not nested and one nesting level resource types : /subscriptions/{subscriptionId}/resourceGroups/{resource-group-name}/providers/{resource-provider-name}/{resource-type}/{resource-name} and /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resource-provider-name}/{parentResourceType}/{parentResourceName}/{resourceType}/{resourceName}"
+          },
+          "api-version": {
+            "type": "string",
+            "description": "Client Api Version."
+          },
+          "$filter": {
+            "type": "string",
+            "description": "The filter to apply on the operation. For more information please see https://docs.microsoft.com/en-us/rest/api/apimanagement/apis?redirectedfrom=MSDN"
+          },
+          "$expand": {
+            "type": "string",
+            "description": "Setting $expand=recommendedactions in url query expands the recommendedactions in the response."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "resourceUri",
+          "api-version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/availabilityStatus"
+      },
+      "security": {
+        "azure_arm_resourcehealth": {
+          "integration": "azure_arm_resourcehealth"
+        }
+      }
+    }
+  ],
+  "tags": [
+    "cloud",
+    "azure"
+  ]
+}

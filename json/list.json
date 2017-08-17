@@ -12,7 +12,7 @@
     "tags": [
       "financial"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "6_dot_authentiqio_appspot": {
     "id": "6_dot_authentiqio_appspot",
@@ -24,7 +24,7 @@
     },
     "actionCount": 14,
     "tags": [],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "amadeus": {
     "id": "amadeus",
@@ -42,7 +42,7 @@
     },
     "actionCount": 23,
     "tags": [],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "amazonaws_acm": {
     "id": "amazonaws_acm",
@@ -65,7 +65,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.0"
+    "latestVersion": "3.0.1"
   },
   "amazonaws_apigateway": {
     "id": "amazonaws_apigateway",
@@ -87,7 +87,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.0"
+    "latestVersion": "3.0.1"
   },
   "amazonaws_appstream2": {
     "id": "amazonaws_appstream2",
@@ -110,7 +110,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.0"
+    "latestVersion": "3.0.1"
   },
   "amazonaws_athena": {
     "id": "amazonaws_athena",
@@ -132,7 +132,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.0"
+    "latestVersion": "3.0.1"
   },
   "amazonaws_autoscaling": {
     "id": "amazonaws_autoscaling",
@@ -154,7 +154,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.0"
+    "latestVersion": "3.0.1"
   },
   "amazonaws_batch": {
     "id": "amazonaws_batch",
@@ -176,7 +176,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.0"
+    "latestVersion": "3.0.1"
   },
   "amazonaws_budgets": {
     "id": "amazonaws_budgets",
@@ -199,7 +199,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.0"
+    "latestVersion": "3.0.1"
   },
   "amazonaws_clouddirectory": {
     "id": "amazonaws_clouddirectory",
@@ -222,7 +222,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.0"
+    "latestVersion": "3.0.1"
   },
   "amazonaws_cloudformation": {
     "id": "amazonaws_cloudformation",
@@ -244,7 +244,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.0"
+    "latestVersion": "3.0.1"
   },
   "amazonaws_cloudfront": {
     "id": "amazonaws_cloudfront",
@@ -266,7 +266,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.0"
+    "latestVersion": "3.0.1"
   },
   "amazonaws_cloudhsm": {
     "id": "amazonaws_cloudhsm",
@@ -288,7 +288,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.0"
+    "latestVersion": "3.0.1"
   },
   "amazonaws_cloudsearch": {
     "id": "amazonaws_cloudsearch",
@@ -310,7 +310,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.0"
+    "latestVersion": "3.0.1"
   },
   "amazonaws_cloudsearchdomain": {
     "id": "amazonaws_cloudsearchdomain",
@@ -333,7 +333,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.0"
+    "latestVersion": "3.0.1"
   },
   "amazonaws_cloudtrail": {
     "id": "amazonaws_cloudtrail",
@@ -355,7 +355,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.0"
+    "latestVersion": "3.0.1"
   },
   "amazonaws_codebuild": {
     "id": "amazonaws_codebuild",
@@ -377,7 +377,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.0"
+    "latestVersion": "3.0.1"
   },
   "amazonaws_codecommit": {
     "id": "amazonaws_codecommit",
@@ -399,7 +399,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.0"
+    "latestVersion": "3.0.1"
   },
   "amazonaws_codedeploy": {
     "id": "amazonaws_codedeploy",
@@ -421,7 +421,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.0"
+    "latestVersion": "3.0.1"
   },
   "amazonaws_codepipeline": {
     "id": "amazonaws_codepipeline",
@@ -443,7 +443,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.0"
+    "latestVersion": "3.0.1"
   },
   "amazonaws_codestar": {
     "id": "amazonaws_codestar",
@@ -466,7 +466,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.0"
+    "latestVersion": "3.0.1"
   },
   "amazonaws_cognito_identity": {
     "id": "amazonaws_cognito_identity",
@@ -489,7 +489,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.0"
+    "latestVersion": "3.0.1"
   },
   "amazonaws_cognito_idp": {
     "id": "amazonaws_cognito_idp",
@@ -512,7 +512,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.0"
+    "latestVersion": "3.0.1"
   },
   "amazonaws_cognito_sync": {
     "id": "amazonaws_cognito_sync",
@@ -535,7 +535,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.0"
+    "latestVersion": "3.0.1"
   },
   "amazonaws_config": {
     "id": "amazonaws_config",
@@ -557,7 +557,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.0"
+    "latestVersion": "3.0.1"
   },
   "amazonaws_cur": {
     "id": "amazonaws_cur",
@@ -580,7 +580,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.0"
+    "latestVersion": "3.0.1"
   },
   "amazonaws_data_iot": {
     "id": "amazonaws_data_iot",
@@ -603,7 +603,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.0"
+    "latestVersion": "3.0.1"
   },
   "amazonaws_datapipeline": {
     "id": "amazonaws_datapipeline",
@@ -625,7 +625,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.0"
+    "latestVersion": "3.0.1"
   },
   "amazonaws_dax": {
     "id": "amazonaws_dax",
@@ -648,7 +648,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.0"
+    "latestVersion": "3.0.1"
   },
   "amazonaws_devicefarm": {
     "id": "amazonaws_devicefarm",
@@ -670,7 +670,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.0"
+    "latestVersion": "3.0.1"
   },
   "amazonaws_directconnect": {
     "id": "amazonaws_directconnect",
@@ -692,7 +692,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.0"
+    "latestVersion": "3.0.1"
   },
   "amazonaws_discovery": {
     "id": "amazonaws_discovery",
@@ -715,7 +715,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.0"
+    "latestVersion": "3.0.1"
   },
   "amazonaws_dms": {
     "id": "amazonaws_dms",
@@ -737,7 +737,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.0"
+    "latestVersion": "3.0.1"
   },
   "amazonaws_ds": {
     "id": "amazonaws_ds",
@@ -759,7 +759,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.0"
+    "latestVersion": "3.0.1"
   },
   "amazonaws_dynamodb": {
     "id": "amazonaws_dynamodb",
@@ -781,7 +781,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.0"
+    "latestVersion": "3.0.1"
   },
   "amazonaws_ec2": {
     "id": "amazonaws_ec2",
@@ -803,7 +803,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.0"
+    "latestVersion": "3.0.1"
   },
   "amazonaws_ecr": {
     "id": "amazonaws_ecr",
@@ -825,7 +825,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.0"
+    "latestVersion": "3.0.1"
   },
   "amazonaws_ecs": {
     "id": "amazonaws_ecs",
@@ -847,7 +847,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.0"
+    "latestVersion": "3.0.1"
   },
   "amazonaws_elasticache": {
     "id": "amazonaws_elasticache",
@@ -869,7 +869,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.0"
+    "latestVersion": "3.0.1"
   },
   "amazonaws_elasticbeanstalk": {
     "id": "amazonaws_elasticbeanstalk",
@@ -891,7 +891,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.0"
+    "latestVersion": "3.0.1"
   },
   "amazonaws_elasticfilesystem": {
     "id": "amazonaws_elasticfilesystem",
@@ -914,7 +914,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.0"
+    "latestVersion": "3.0.1"
   },
   "amazonaws_elasticloadbalancing": {
     "id": "amazonaws_elasticloadbalancing",
@@ -936,7 +936,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.0"
+    "latestVersion": "3.0.1"
   },
   "amazonaws_elasticmapreduce": {
     "id": "amazonaws_elasticmapreduce",
@@ -959,7 +959,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.0"
+    "latestVersion": "3.0.1"
   },
   "amazonaws_elastictranscoder": {
     "id": "amazonaws_elastictranscoder",
@@ -981,7 +981,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.0"
+    "latestVersion": "3.0.1"
   },
   "amazonaws_email": {
     "id": "amazonaws_email",
@@ -1003,7 +1003,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.0"
+    "latestVersion": "3.0.1"
   },
   "amazonaws_entitlement_marketplace": {
     "id": "amazonaws_entitlement_marketplace",
@@ -1026,7 +1026,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.0"
+    "latestVersion": "3.0.1"
   },
   "amazonaws_es": {
     "id": "amazonaws_es",
@@ -1049,7 +1049,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.0"
+    "latestVersion": "3.0.1"
   },
   "amazonaws_events": {
     "id": "amazonaws_events",
@@ -1072,7 +1072,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.0"
+    "latestVersion": "3.0.1"
   },
   "amazonaws_firehose": {
     "id": "amazonaws_firehose",
@@ -1094,7 +1094,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.0"
+    "latestVersion": "3.0.1"
   },
   "amazonaws_gamelift": {
     "id": "amazonaws_gamelift",
@@ -1116,7 +1116,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.0"
+    "latestVersion": "3.0.1"
   },
   "amazonaws_glacier": {
     "id": "amazonaws_glacier",
@@ -1138,7 +1138,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.0"
+    "latestVersion": "3.0.1"
   },
   "amazonaws_greengrass": {
     "id": "amazonaws_greengrass",
@@ -1160,7 +1160,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.0"
+    "latestVersion": "3.0.1"
   },
   "amazonaws_health": {
     "id": "amazonaws_health",
@@ -1183,7 +1183,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.0"
+    "latestVersion": "3.0.1"
   },
   "amazonaws_iam": {
     "id": "amazonaws_iam",
@@ -1205,7 +1205,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.0"
+    "latestVersion": "3.0.1"
   },
   "amazonaws_importexport": {
     "id": "amazonaws_importexport",
@@ -1227,7 +1227,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.0"
+    "latestVersion": "3.0.1"
   },
   "amazonaws_inspector": {
     "id": "amazonaws_inspector",
@@ -1249,7 +1249,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.0"
+    "latestVersion": "3.0.1"
   },
   "amazonaws_iot": {
     "id": "amazonaws_iot",
@@ -1271,7 +1271,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.0"
+    "latestVersion": "3.0.1"
   },
   "amazonaws_kinesis": {
     "id": "amazonaws_kinesis",
@@ -1293,7 +1293,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.0"
+    "latestVersion": "3.0.1"
   },
   "amazonaws_kinesisanalytics": {
     "id": "amazonaws_kinesisanalytics",
@@ -1314,7 +1314,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.0"
+    "latestVersion": "3.0.1"
   },
   "amazonaws_kms": {
     "id": "amazonaws_kms",
@@ -1336,7 +1336,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.0"
+    "latestVersion": "3.0.1"
   },
   "amazonaws_lambda": {
     "id": "amazonaws_lambda",
@@ -1358,7 +1358,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.0"
+    "latestVersion": "3.0.1"
   },
   "amazonaws_lightsail": {
     "id": "amazonaws_lightsail",
@@ -1380,7 +1380,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.0"
+    "latestVersion": "3.0.1"
   },
   "amazonaws_machinelearning": {
     "id": "amazonaws_machinelearning",
@@ -1402,7 +1402,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.0"
+    "latestVersion": "3.0.1"
   },
   "amazonaws_marketplacecommerceanalytics": {
     "id": "amazonaws_marketplacecommerceanalytics",
@@ -1425,7 +1425,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.0"
+    "latestVersion": "3.0.1"
   },
   "amazonaws_metering_marketplace": {
     "id": "amazonaws_metering_marketplace",
@@ -1448,7 +1448,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.0"
+    "latestVersion": "3.0.1"
   },
   "amazonaws_mobileanalytics": {
     "id": "amazonaws_mobileanalytics",
@@ -1470,7 +1470,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.0"
+    "latestVersion": "3.0.1"
   },
   "amazonaws_models_lex": {
     "id": "amazonaws_models_lex",
@@ -1493,7 +1493,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.0"
+    "latestVersion": "3.0.1"
   },
   "amazonaws_monitoring": {
     "id": "amazonaws_monitoring",
@@ -1515,7 +1515,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.0"
+    "latestVersion": "3.0.1"
   },
   "amazonaws_mturk_requester": {
     "id": "amazonaws_mturk_requester",
@@ -1538,7 +1538,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.0"
+    "latestVersion": "3.0.1"
   },
   "amazonaws_opsworks": {
     "id": "amazonaws_opsworks",
@@ -1560,7 +1560,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.0"
+    "latestVersion": "3.0.1"
   },
   "amazonaws_opsworks_cm": {
     "id": "amazonaws_opsworks_cm",
@@ -1583,7 +1583,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.0"
+    "latestVersion": "3.0.1"
   },
   "amazonaws_organizations": {
     "id": "amazonaws_organizations",
@@ -1605,7 +1605,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.0"
+    "latestVersion": "3.0.1"
   },
   "amazonaws_pinpoint": {
     "id": "amazonaws_pinpoint",
@@ -1626,7 +1626,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.0"
+    "latestVersion": "3.0.1"
   },
   "amazonaws_polly": {
     "id": "amazonaws_polly",
@@ -1648,7 +1648,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.0"
+    "latestVersion": "3.0.1"
   },
   "amazonaws_rds": {
     "id": "amazonaws_rds",
@@ -1670,7 +1670,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.0"
+    "latestVersion": "3.0.1"
   },
   "amazonaws_redshift": {
     "id": "amazonaws_redshift",
@@ -1692,7 +1692,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.0"
+    "latestVersion": "3.0.1"
   },
   "amazonaws_rekognition": {
     "id": "amazonaws_rekognition",
@@ -1714,7 +1714,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.0"
+    "latestVersion": "3.0.1"
   },
   "amazonaws_route53": {
     "id": "amazonaws_route53",
@@ -1735,7 +1735,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.0"
+    "latestVersion": "3.0.1"
   },
   "amazonaws_route53domains": {
     "id": "amazonaws_route53domains",
@@ -1758,7 +1758,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.0"
+    "latestVersion": "3.0.1"
   },
   "amazonaws_runtime_lex": {
     "id": "amazonaws_runtime_lex",
@@ -1781,7 +1781,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.0"
+    "latestVersion": "3.0.1"
   },
   "amazonaws_s3": {
     "id": "amazonaws_s3",
@@ -1802,7 +1802,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.0"
+    "latestVersion": "3.0.1"
   },
   "amazonaws_sdb": {
     "id": "amazonaws_sdb",
@@ -1825,7 +1825,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.0"
+    "latestVersion": "3.0.1"
   },
   "amazonaws_servicecatalog": {
     "id": "amazonaws_servicecatalog",
@@ -1847,7 +1847,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.0"
+    "latestVersion": "3.0.1"
   },
   "amazonaws_shield": {
     "id": "amazonaws_shield",
@@ -1869,7 +1869,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.0"
+    "latestVersion": "3.0.1"
   },
   "amazonaws_sms": {
     "id": "amazonaws_sms",
@@ -1891,7 +1891,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.0"
+    "latestVersion": "3.0.1"
   },
   "amazonaws_snowball": {
     "id": "amazonaws_snowball",
@@ -1913,7 +1913,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.0"
+    "latestVersion": "3.0.1"
   },
   "amazonaws_sns": {
     "id": "amazonaws_sns",
@@ -1935,7 +1935,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.0"
+    "latestVersion": "3.0.1"
   },
   "amazonaws_sqs": {
     "id": "amazonaws_sqs",
@@ -1957,7 +1957,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.0"
+    "latestVersion": "3.0.1"
   },
   "amazonaws_ssm": {
     "id": "amazonaws_ssm",
@@ -1980,7 +1980,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.0"
+    "latestVersion": "3.0.1"
   },
   "amazonaws_states": {
     "id": "amazonaws_states",
@@ -2003,7 +2003,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.0"
+    "latestVersion": "3.0.1"
   },
   "amazonaws_storagegateway": {
     "id": "amazonaws_storagegateway",
@@ -2025,7 +2025,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.0"
+    "latestVersion": "3.0.1"
   },
   "amazonaws_streams_dynamodb": {
     "id": "amazonaws_streams_dynamodb",
@@ -2048,7 +2048,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.0"
+    "latestVersion": "3.0.1"
   },
   "amazonaws_sts": {
     "id": "amazonaws_sts",
@@ -2070,7 +2070,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.0"
+    "latestVersion": "3.0.1"
   },
   "amazonaws_support": {
     "id": "amazonaws_support",
@@ -2093,7 +2093,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.0"
+    "latestVersion": "3.0.1"
   },
   "amazonaws_swf": {
     "id": "amazonaws_swf",
@@ -2115,7 +2115,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.0"
+    "latestVersion": "3.0.1"
   },
   "amazonaws_tagging": {
     "id": "amazonaws_tagging",
@@ -2138,7 +2138,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.0"
+    "latestVersion": "3.0.1"
   },
   "amazonaws_waf": {
     "id": "amazonaws_waf",
@@ -2160,7 +2160,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.0"
+    "latestVersion": "3.0.1"
   },
   "amazonaws_waf_regional": {
     "id": "amazonaws_waf_regional",
@@ -2183,7 +2183,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.0"
+    "latestVersion": "3.0.1"
   },
   "amazonaws_workdocs": {
     "id": "amazonaws_workdocs",
@@ -2205,7 +2205,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.0"
+    "latestVersion": "3.0.1"
   },
   "amazonaws_workspaces": {
     "id": "amazonaws_workspaces",
@@ -2227,7 +2227,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.0"
+    "latestVersion": "3.0.1"
   },
   "amazonaws_xray": {
     "id": "amazonaws_xray",
@@ -2250,7 +2250,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.0"
+    "latestVersion": "3.0.1"
   },
   "apacta": {
     "id": "apacta",
@@ -2271,7 +2271,7 @@
     },
     "actionCount": 123,
     "tags": [],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "apimatic": {
     "id": "apimatic",
@@ -2296,7 +2296,7 @@
       "developer tools",
       "tools"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "apis_guru": {
     "id": "apis_guru",
@@ -2311,7 +2311,7 @@
       "open data",
       "developer tools"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "apitore_2chmatomefeedsapis": {
     "id": "apitore_2chmatomefeedsapis",
@@ -2323,7 +2323,7 @@
     },
     "actionCount": 1,
     "tags": [],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "apitore_certificatefeedsapis": {
     "id": "apitore_certificatefeedsapis",
@@ -2335,7 +2335,7 @@
     },
     "actionCount": 1,
     "tags": [],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "apitore_designfeedsapis": {
     "id": "apitore_designfeedsapis",
@@ -2347,7 +2347,7 @@
     },
     "actionCount": 1,
     "tags": [],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "apitore_documentfrequencyapis": {
     "id": "apitore_documentfrequencyapis",
@@ -2359,7 +2359,7 @@
     },
     "actionCount": 1,
     "tags": [],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "apitore_gamefeedsapis": {
     "id": "apitore_gamefeedsapis",
@@ -2371,7 +2371,7 @@
     },
     "actionCount": 1,
     "tags": [],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "apitore_kuromojiapis": {
     "id": "apitore_kuromojiapis",
@@ -2383,7 +2383,7 @@
     },
     "actionCount": 2,
     "tags": [],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "apitore_languagedetectionapis": {
     "id": "apitore_languagedetectionapis",
@@ -2395,7 +2395,7 @@
     },
     "actionCount": 2,
     "tags": [],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "apitore_newsfeedsapis": {
     "id": "apitore_newsfeedsapis",
@@ -2407,7 +2407,7 @@
     },
     "actionCount": 1,
     "tags": [],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "apitore_pioneerblogfeedsapis": {
     "id": "apitore_pioneerblogfeedsapis",
@@ -2419,7 +2419,7 @@
     },
     "actionCount": 1,
     "tags": [],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "apitore_rss2jsonapis": {
     "id": "apitore_rss2jsonapis",
@@ -2431,7 +2431,7 @@
     },
     "actionCount": 1,
     "tags": [],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "apitore_sentencepieceapis_wikipedia_": {
     "id": "apitore_sentencepieceapis_wikipedia_",
@@ -2443,7 +2443,7 @@
     },
     "actionCount": 2,
     "tags": [],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "apitore_sentenceseparatorapis": {
     "id": "apitore_sentenceseparatorapis",
@@ -2455,7 +2455,7 @@
     },
     "actionCount": 1,
     "tags": [],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "apitore_sentimentapis": {
     "id": "apitore_sentimentapis",
@@ -2469,7 +2469,7 @@
     "tags": [
       "developer tools"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "apitore_synonymapis": {
     "id": "apitore_synonymapis",
@@ -2481,7 +2481,7 @@
     },
     "actionCount": 1,
     "tags": [],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "apitore_techfeedsapis": {
     "id": "apitore_techfeedsapis",
@@ -2493,7 +2493,7 @@
     },
     "actionCount": 1,
     "tags": [],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "apitore_text2labelbytfidfapis": {
     "id": "apitore_text2labelbytfidfapis",
@@ -2505,7 +2505,7 @@
     },
     "actionCount": 1,
     "tags": [],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "apitore_text2labelbywordvectorapis": {
     "id": "apitore_text2labelbywordvectorapis",
@@ -2517,7 +2517,7 @@
     },
     "actionCount": 1,
     "tags": [],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "apitore_travelfeedsapis": {
     "id": "apitore_travelfeedsapis",
@@ -2529,7 +2529,7 @@
     },
     "actionCount": 1,
     "tags": [],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "apitore_tweetsummarizationapis": {
     "id": "apitore_tweetsummarizationapis",
@@ -2541,7 +2541,7 @@
     },
     "actionCount": 1,
     "tags": [],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "apitore_twitterapis": {
     "id": "apitore_twitterapis",
@@ -2553,7 +2553,7 @@
     },
     "actionCount": 3,
     "tags": [],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "apitore_twitterapiswithword2vecqueryexpansion": {
     "id": "apitore_twitterapiswithword2vecqueryexpansion",
@@ -2565,7 +2565,7 @@
     },
     "actionCount": 1,
     "tags": [],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "apitore_url2hrefapis": {
     "id": "apitore_url2hrefapis",
@@ -2577,7 +2577,7 @@
     },
     "actionCount": 1,
     "tags": [],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "apitore_url2htmlapis": {
     "id": "apitore_url2htmlapis",
@@ -2589,7 +2589,7 @@
     },
     "actionCount": 1,
     "tags": [],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "apitore_url2labelbytfidfapis": {
     "id": "apitore_url2labelbytfidfapis",
@@ -2601,7 +2601,7 @@
     },
     "actionCount": 1,
     "tags": [],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "apitore_url2labelbywordvectorapis": {
     "id": "apitore_url2labelbywordvectorapis",
@@ -2613,7 +2613,7 @@
     },
     "actionCount": 1,
     "tags": [],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "apitore_url2srcapis": {
     "id": "apitore_url2srcapis",
@@ -2625,7 +2625,7 @@
     },
     "actionCount": 1,
     "tags": [],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "apitore_url2textapis": {
     "id": "apitore_url2textapis",
@@ -2637,7 +2637,7 @@
     },
     "actionCount": 1,
     "tags": [],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "apitore_word2vecapis": {
     "id": "apitore_word2vecapis",
@@ -2649,7 +2649,7 @@
     },
     "actionCount": 5,
     "tags": [],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "apitore_wordstovectorsapis": {
     "id": "apitore_wordstovectorsapis",
@@ -2661,7 +2661,7 @@
     },
     "actionCount": 1,
     "tags": [],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "appveyor": {
     "id": "appveyor",
@@ -2680,7 +2680,7 @@
     },
     "actionCount": 45,
     "tags": [],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "authentiq": {
     "id": "authentiq",
@@ -2721,7 +2721,7 @@
     },
     "actionCount": 11,
     "tags": [],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "azure_arm_advisor": {
     "id": "azure_arm_advisor",
@@ -2756,7 +2756,7 @@
       "cloud",
       "azure"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "azure_arm_analysisservices": {
     "id": "azure_arm_analysisservices",
@@ -2791,7 +2791,7 @@
       "cloud",
       "azure"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "azure_arm_apimanagement": {
     "id": "azure_arm_apimanagement",
@@ -2826,7 +2826,7 @@
       "cloud",
       "azure"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "azure_arm_appinsights": {
     "id": "azure_arm_appinsights",
@@ -2861,7 +2861,7 @@
       "cloud",
       "azure"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "azure_arm_authorization": {
     "id": "azure_arm_authorization",
@@ -2896,7 +2896,7 @@
       "cloud",
       "azure"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "azure_arm_batch": {
     "id": "azure_arm_batch",
@@ -2930,7 +2930,7 @@
       "cloud",
       "azure"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "azure_arm_billing": {
     "id": "azure_arm_billing",
@@ -2965,7 +2965,7 @@
       "cloud",
       "azure"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "azure_arm_cdn": {
     "id": "azure_arm_cdn",
@@ -3001,7 +3001,7 @@
       "hosting",
       "azure"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "azure_arm_cognitiveservices": {
     "id": "azure_arm_cognitiveservices",
@@ -3017,7 +3017,7 @@
       "cloud",
       "azure"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "azure_arm_commerce": {
     "id": "azure_arm_commerce",
@@ -3032,7 +3032,7 @@
       "cloud",
       "azure"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "azure_arm_compute": {
     "id": "azure_arm_compute",
@@ -3067,7 +3067,7 @@
       "cloud",
       "azure"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "azure_arm_compute_containerservice": {
     "id": "azure_arm_compute_containerservice",
@@ -3082,7 +3082,7 @@
       "cloud",
       "azure"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "azure_arm_compute_disk": {
     "id": "azure_arm_compute_disk",
@@ -3097,7 +3097,7 @@
       "cloud",
       "azure"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "azure_arm_consumption": {
     "id": "azure_arm_consumption",
@@ -3132,7 +3132,7 @@
       "cloud",
       "azure"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "azure_arm_containerregistry": {
     "id": "azure_arm_containerregistry",
@@ -3146,7 +3146,7 @@
       "cloud",
       "azure"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "azure_arm_devtestlabs": {
     "id": "azure_arm_devtestlabs",
@@ -3182,7 +3182,7 @@
       "cloud",
       "azure"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "azure_arm_dns": {
     "id": "azure_arm_dns",
@@ -3198,7 +3198,7 @@
       "cloud",
       "azure"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "azure_arm_documentdb": {
     "id": "azure_arm_documentdb",
@@ -3233,7 +3233,7 @@
       "cloud",
       "azure"
     ],
-    "latestVersion": "2.0.1"
+    "latestVersion": "2.0.2"
   },
   "azure_arm_eventhub": {
     "id": "azure_arm_eventhub",
@@ -3268,7 +3268,7 @@
       "cloud",
       "azure"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "azure_arm_insights": {
     "id": "azure_arm_insights",
@@ -3282,7 +3282,7 @@
       "cloud",
       "azure"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "azure_arm_intune": {
     "id": "azure_arm_intune",
@@ -3299,7 +3299,7 @@
       "collaboration",
       "azure"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "azure_arm_iothub": {
     "id": "azure_arm_iothub",
@@ -3315,7 +3315,7 @@
       "cloud",
       "azure"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "azure_arm_keyvault": {
     "id": "azure_arm_keyvault",
@@ -3332,7 +3332,7 @@
       "security",
       "azure"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "azure_arm_logic": {
     "id": "azure_arm_logic",
@@ -3368,7 +3368,7 @@
       "cloud",
       "azure"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "azure_arm_machinelearning_commitmentplans": {
     "id": "azure_arm_machinelearning_commitmentplans",
@@ -3383,7 +3383,7 @@
       "machine learning",
       "azure"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "azure_arm_machinelearning_webservices": {
     "id": "azure_arm_machinelearning_webservices",
@@ -3398,7 +3398,7 @@
       "machine learning",
       "azure"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "azure_arm_mediaservices": {
     "id": "azure_arm_mediaservices",
@@ -3434,7 +3434,7 @@
       "cloud",
       "azure"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "azure_arm_mobileengagement": {
     "id": "azure_arm_mobileengagement",
@@ -3471,7 +3471,7 @@
       "cloud",
       "azure"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "azure_arm_monitor": {
     "id": "azure_arm_monitor",
@@ -3505,7 +3505,7 @@
       "cloud",
       "azure"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "azure_arm_network": {
     "id": "azure_arm_network",
@@ -3540,7 +3540,7 @@
       "cloud",
       "azure"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "azure_arm_notificationhubs": {
     "id": "azure_arm_notificationhubs",
@@ -3575,7 +3575,7 @@
       "cloud",
       "azure"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "azure_arm_operationalinsights": {
     "id": "azure_arm_operationalinsights",
@@ -3610,7 +3610,7 @@
       "analytics",
       "azure"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "azure_arm_powerbiembedded": {
     "id": "azure_arm_powerbiembedded",
@@ -3625,7 +3625,7 @@
       "cloud",
       "azure"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "azure_arm_recoveryservicesbackup": {
     "id": "azure_arm_recoveryservicesbackup",
@@ -3659,7 +3659,7 @@
       "storage",
       "azure"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "azure_arm_redis": {
     "id": "azure_arm_redis",
@@ -3694,7 +3694,7 @@
       "cloud",
       "azure"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "azure_arm_relay": {
     "id": "azure_arm_relay",
@@ -3729,7 +3729,7 @@
       "cloud",
       "azure"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "azure_arm_resourcehealth": {
     "id": "azure_arm_resourcehealth",
@@ -3764,7 +3764,7 @@
       "cloud",
       "azure"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "azure_arm_scheduler": {
     "id": "azure_arm_scheduler",
@@ -3778,7 +3778,7 @@
       "time management",
       "azure"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "azure_arm_search": {
     "id": "azure_arm_search",
@@ -3813,7 +3813,7 @@
       "search",
       "azure"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "azure_arm_servermanagement": {
     "id": "azure_arm_servermanagement",
@@ -3848,7 +3848,7 @@
       "developer tools",
       "azure"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "azure_arm_service_map": {
     "id": "azure_arm_service_map",
@@ -3883,7 +3883,7 @@
       "cloud",
       "azure"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "azure_arm_servicebus": {
     "id": "azure_arm_servicebus",
@@ -3918,7 +3918,7 @@
       "cloud",
       "azure"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "azure_arm_servicefabric": {
     "id": "azure_arm_servicefabric",
@@ -3952,7 +3952,7 @@
       "cloud",
       "azure"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "azure_arm_sql": {
     "id": "azure_arm_sql",
@@ -3967,7 +3967,7 @@
       "enterprise",
       "azure"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "azure_arm_storage": {
     "id": "azure_arm_storage",
@@ -3982,7 +3982,7 @@
       "storage",
       "azure"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "azure_arm_storageimportexport": {
     "id": "azure_arm_storageimportexport",
@@ -4017,7 +4017,7 @@
       "storage",
       "azure"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "azure_arm_storsimple8000series": {
     "id": "azure_arm_storsimple8000series",
@@ -4051,7 +4051,7 @@
       "cloud",
       "azure"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "azure_arm_trafficmanager": {
     "id": "azure_arm_trafficmanager",
@@ -4065,7 +4065,7 @@
       "cloud",
       "azure"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "azure_arm_web": {
     "id": "azure_arm_web",
@@ -4100,7 +4100,7 @@
       "cloud",
       "azure"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "azure_insights": {
     "id": "azure_insights",
@@ -4114,7 +4114,7 @@
       "cloud",
       "azure"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "azure_monitor": {
     "id": "azure_monitor",
@@ -4148,7 +4148,7 @@
       "cloud",
       "azure"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "bbc": {
     "id": "bbc",
@@ -4170,7 +4170,7 @@
       "media",
       "open data"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "bbc_rss": {
     "id": "bbc_rss",
@@ -4181,7 +4181,7 @@
     },
     "actionCount": 4,
     "tags": [],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "bbci": {
     "id": "bbci",
@@ -4205,7 +4205,7 @@
     "tags": [
       "media"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "bclaws_ca_bclaws": {
     "id": "bclaws_ca_bclaws",
@@ -4219,7 +4219,7 @@
     "tags": [
       "open data"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "beanstream": {
     "id": "beanstream",
@@ -4235,7 +4235,7 @@
       "financial",
       "ecommerce"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "beezup": {
     "id": "beezup",
@@ -4257,7 +4257,7 @@
     "tags": [
       "ecommerce"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "bigoven": {
     "id": "bigoven",
@@ -4278,7 +4278,7 @@
     },
     "actionCount": 47,
     "tags": [],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "bikewise": {
     "id": "bikewise",
@@ -4292,7 +4292,7 @@
     "tags": [
       "open data"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "bitbucket": {
     "id": "bitbucket",
@@ -4352,7 +4352,7 @@
       "developer tools",
       "collaboration"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "bluemix_containers": {
     "id": "bluemix_containers",
@@ -4364,7 +4364,7 @@
     },
     "actionCount": 47,
     "tags": [],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "botify": {
     "id": "botify",
@@ -4387,7 +4387,7 @@
       "analytics",
       "tools"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "box_authorization": {
     "id": "box_authorization",
@@ -4401,7 +4401,7 @@
     "tags": [
       "cloud"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "box_content": {
     "id": "box_content",
@@ -4432,7 +4432,7 @@
     "tags": [
       "cloud"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "box_token": {
     "id": "box_token",
@@ -4446,7 +4446,7 @@
     "tags": [
       "cloud"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "box_upload": {
     "id": "box_upload",
@@ -4477,7 +4477,7 @@
     "tags": [
       "cloud"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "brandlovers": {
     "id": "brandlovers",
@@ -4499,7 +4499,7 @@
     "tags": [
       "ecommerce"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "browshot": {
     "id": "browshot",
@@ -4520,7 +4520,7 @@
     "tags": [
       "tools"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "bufferapp": {
     "id": "bufferapp",
@@ -4554,7 +4554,7 @@
       "social",
       "marketing"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "cambase": {
     "id": "cambase",
@@ -4566,7 +4566,7 @@
     },
     "actionCount": 17,
     "tags": [],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "cenit": {
     "id": "cenit",
@@ -4586,7 +4586,7 @@
     },
     "actionCount": 40,
     "tags": [],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "channel4": {
     "id": "channel4",
@@ -4608,7 +4608,7 @@
     "tags": [
       "media"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "circleci": {
     "id": "circleci",
@@ -4629,7 +4629,7 @@
     "tags": [
       "developer tools"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "cisco": {
     "id": "cisco",
@@ -4660,7 +4660,7 @@
     "tags": [
       "security"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "citrix_gotoassistseeit": {
     "id": "citrix_gotoassistseeit",
@@ -4675,7 +4675,7 @@
     "tags": [
       "support"
     ],
-    "latestVersion": "2.0.1"
+    "latestVersion": "2.0.2"
   },
   "citrix_gotomeeting": {
     "id": "citrix_gotomeeting",
@@ -4690,7 +4690,7 @@
     "tags": [
       "collaboration"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "citrix_gototraining": {
     "id": "citrix_gototraining",
@@ -4703,7 +4703,7 @@
     },
     "actionCount": 22,
     "tags": [],
-    "latestVersion": "2.0.1"
+    "latestVersion": "2.0.2"
   },
   "citrix_gotowebinar": {
     "id": "citrix_gotowebinar",
@@ -4718,7 +4718,7 @@
     "tags": [
       "marketing"
     ],
-    "latestVersion": "2.0.1"
+    "latestVersion": "2.0.2"
   },
   "citrix_scim": {
     "id": "citrix_scim",
@@ -4731,7 +4731,7 @@
     },
     "actionCount": 17,
     "tags": [],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "citycontext": {
     "id": "citycontext",
@@ -4749,7 +4749,7 @@
     "tags": [
       "open data"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "clarify": {
     "id": "clarify",
@@ -4764,7 +4764,7 @@
     "tags": [
       "search"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "clickmeter": {
     "id": "clickmeter",
@@ -4785,7 +4785,7 @@
     "tags": [
       "marketing"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "cloud_gov": {
     "id": "cloud_gov",
@@ -4799,7 +4799,7 @@
     "tags": [
       "open data"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "cnab_online_herokuapp": {
     "id": "cnab_online_herokuapp",
@@ -4813,7 +4813,7 @@
     "tags": [
       "financial"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "cnn_rss": {
     "id": "cnn_rss",
@@ -4824,7 +4824,7 @@
     },
     "actionCount": 4,
     "tags": [],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "consumerfinance_gov": {
     "id": "consumerfinance_gov",
@@ -4836,7 +4836,7 @@
     },
     "actionCount": 6,
     "tags": [],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "core_ac_uk": {
     "id": "core_ac_uk",
@@ -4857,7 +4857,7 @@
     "tags": [
       "open data"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "cybertaxonomy_eu": {
     "id": "cybertaxonomy_eu",
@@ -4871,7 +4871,7 @@
     "tags": [
       "open data"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "data2crm": {
     "id": "data2crm",
@@ -4884,7 +4884,7 @@
     },
     "actionCount": 95,
     "tags": [],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "data_gov": {
     "id": "data_gov",
@@ -4903,7 +4903,7 @@
     },
     "actionCount": 3,
     "tags": [],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "datumbox": {
     "id": "datumbox",
@@ -4925,7 +4925,7 @@
       "machine learning",
       "text"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "deutschebahn_betriebsstellen": {
     "id": "deutschebahn_betriebsstellen",
@@ -4940,7 +4940,7 @@
     "tags": [
       "open data"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "deutschebahn_fahrplan": {
     "id": "deutschebahn_fahrplan",
@@ -4955,7 +4955,7 @@
     "tags": [
       "open data"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "deutschebahn_fasta": {
     "id": "deutschebahn_fasta",
@@ -4977,7 +4977,7 @@
     "tags": [
       "open data"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "deutschebahn_flinkster": {
     "id": "deutschebahn_flinkster",
@@ -4992,7 +4992,7 @@
     "tags": [
       "open data"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "deutschebahn_reisezentren": {
     "id": "deutschebahn_reisezentren",
@@ -5007,7 +5007,7 @@
     "tags": [
       "open data"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "deutschebahn_stada": {
     "id": "deutschebahn_stada",
@@ -5022,7 +5022,7 @@
     "tags": [
       "open data"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "dweet": {
     "id": "dweet",
@@ -5036,7 +5036,7 @@
     "tags": [
       "iot"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "ebay_buy_browse": {
     "id": "ebay_buy_browse",
@@ -5071,7 +5071,7 @@
     "tags": [
       "ecommerce"
     ],
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "ebay_buy_marketing": {
     "id": "ebay_buy_marketing",
@@ -5106,7 +5106,7 @@
     "tags": [
       "ecommerce"
     ],
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "ebay_commerce_taxonomy": {
     "id": "ebay_commerce_taxonomy",
@@ -5141,7 +5141,7 @@
     "tags": [
       "ecommerce"
     ],
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "epa_gov_air": {
     "id": "epa_gov_air",
@@ -5156,7 +5156,7 @@
     "tags": [
       "open data"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "epa_gov_case": {
     "id": "epa_gov_case",
@@ -5171,7 +5171,7 @@
     "tags": [
       "open data"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "epa_gov_cwa": {
     "id": "epa_gov_cwa",
@@ -5186,7 +5186,7 @@
     "tags": [
       "open data"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "epa_gov_dfr": {
     "id": "epa_gov_dfr",
@@ -5201,7 +5201,7 @@
     "tags": [
       "open data"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "epa_gov_echo": {
     "id": "epa_gov_echo",
@@ -5216,7 +5216,7 @@
     "tags": [
       "open data"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "epa_gov_eff": {
     "id": "epa_gov_eff",
@@ -5231,7 +5231,7 @@
     "tags": [
       "open data"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "epa_gov_rcra": {
     "id": "epa_gov_rcra",
@@ -5246,7 +5246,7 @@
     "tags": [
       "open data"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "epa_gov_sdw": {
     "id": "epa_gov_sdw",
@@ -5261,7 +5261,7 @@
     "tags": [
       "open data"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "etsy": {
     "id": "etsy",
@@ -5273,7 +5273,7 @@
     },
     "actionCount": 115,
     "tags": [],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "europeana_eu": {
     "id": "europeana_eu",
@@ -5287,7 +5287,7 @@
     "tags": [
       "open data"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "exavault": {
     "id": "exavault",
@@ -5302,7 +5302,7 @@
     "tags": [
       "storage"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "facebook": {
     "id": "facebook",
@@ -5373,7 +5373,7 @@
     },
     "actionCount": 195,
     "tags": [],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "figshare": {
     "id": "figshare",
@@ -5408,7 +5408,7 @@
     "tags": [
       "open data"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "firebrowse": {
     "id": "firebrowse",
@@ -5422,7 +5422,7 @@
     "tags": [
       "open data"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "fitbit": {
     "id": "fitbit",
@@ -5462,7 +5462,7 @@
     },
     "actionCount": 69,
     "tags": [],
-    "latestVersion": "2.0.4"
+    "latestVersion": "2.0.5"
   },
   "flat": {
     "id": "flat",
@@ -5502,7 +5502,7 @@
       "media",
       "collaboration"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "furkot": {
     "id": "furkot",
@@ -5536,7 +5536,7 @@
     "tags": [
       "location"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "geneea": {
     "id": "geneea",
@@ -5557,7 +5557,7 @@
     "tags": [
       "text"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "geodesystems": {
     "id": "geodesystems",
@@ -5577,7 +5577,7 @@
     },
     "actionCount": 228,
     "tags": [],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "getgo_gototraining": {
     "id": "getgo_gototraining",
@@ -5586,7 +5586,7 @@
     "security": {},
     "actionCount": 22,
     "tags": [],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "getgo_gotowebinar": {
     "id": "getgo_gotowebinar",
@@ -5595,7 +5595,7 @@
     "security": {},
     "actionCount": 38,
     "tags": [],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "getsandbox": {
     "id": "getsandbox",
@@ -5617,7 +5617,7 @@
     "tags": [
       "developer tools"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "gettyimages": {
     "id": "gettyimages",
@@ -5638,7 +5638,7 @@
     "tags": [
       "media"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "github": {
     "id": "github",
@@ -5693,7 +5693,7 @@
       "collaboration",
       "developer tools"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "gitlab": {
     "id": "gitlab",
@@ -5715,7 +5715,7 @@
     "tags": [
       "developer tools"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "google_acceleratedmobilepageurl": {
     "id": "google_acceleratedmobilepageurl",
@@ -5729,7 +5729,7 @@
     "tags": [
       "google"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "google_adexchangebuyer": {
     "id": "google_adexchangebuyer",
@@ -5764,7 +5764,7 @@
     "tags": [
       "google"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "google_adexchangebuyer2": {
     "id": "google_adexchangebuyer2",
@@ -5799,7 +5799,7 @@
     "tags": [
       "google"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "google_adexchangeseller": {
     "id": "google_adexchangeseller",
@@ -5835,7 +5835,7 @@
     "tags": [
       "google"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "google_adexperiencereport": {
     "id": "google_adexperiencereport",
@@ -5870,7 +5870,7 @@
     "tags": [
       "google"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "google_admin": {
     "id": "google_admin",
@@ -5907,7 +5907,7 @@
       "analytics",
       "google"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "google_adsense": {
     "id": "google_adsense",
@@ -5943,7 +5943,7 @@
     "tags": [
       "google"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "google_adsensehost": {
     "id": "google_adsensehost",
@@ -5978,7 +5978,7 @@
     "tags": [
       "google"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "google_analytics": {
     "id": "google_analytics",
@@ -6019,7 +6019,7 @@
       "analytics",
       "google"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "google_analyticsreporting": {
     "id": "google_analyticsreporting",
@@ -6055,7 +6055,7 @@
     "tags": [
       "google"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "google_androiddeviceprovisioning": {
     "id": "google_androiddeviceprovisioning",
@@ -6069,7 +6069,7 @@
     "tags": [
       "google"
     ],
-    "latestVersion": "2.0.1"
+    "latestVersion": "2.0.2"
   },
   "google_androidenterprise": {
     "id": "google_androidenterprise",
@@ -6104,7 +6104,7 @@
     "tags": [
       "google"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "google_androidpublisher": {
     "id": "google_androidpublisher",
@@ -6140,7 +6140,7 @@
       "developer tools",
       "google"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "google_appengine": {
     "id": "google_appengine",
@@ -6177,7 +6177,7 @@
     "tags": [
       "google"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "google_appsactivity": {
     "id": "google_appsactivity",
@@ -6216,7 +6216,7 @@
     "tags": [
       "google"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "google_appstate": {
     "id": "google_appstate",
@@ -6251,7 +6251,7 @@
     "tags": [
       "google"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "google_bigquery": {
     "id": "google_bigquery",
@@ -6293,7 +6293,7 @@
       "search",
       "google"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "google_bigquerydatatransfer": {
     "id": "google_bigquerydatatransfer",
@@ -6328,7 +6328,7 @@
     "tags": [
       "google"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "google_blogger": {
     "id": "google_blogger",
@@ -6365,7 +6365,7 @@
       "social",
       "google"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "google_books": {
     "id": "google_books",
@@ -6400,7 +6400,7 @@
     "tags": [
       "google"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "google_calendar": {
     "id": "google_calendar",
@@ -6437,7 +6437,7 @@
       "time management",
       "google"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "google_civicinfo": {
     "id": "google_civicinfo",
@@ -6451,7 +6451,7 @@
     "tags": [
       "google"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "google_classroom": {
     "id": "google_classroom",
@@ -6498,7 +6498,7 @@
       "education",
       "google"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "google_cloudbilling": {
     "id": "google_cloudbilling",
@@ -6533,7 +6533,7 @@
     "tags": [
       "google"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "google_cloudbuild": {
     "id": "google_cloudbuild",
@@ -6568,7 +6568,7 @@
     "tags": [
       "google"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "google_clouddebugger": {
     "id": "google_clouddebugger",
@@ -6604,7 +6604,7 @@
     "tags": [
       "google"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "google_clouderrorreporting": {
     "id": "google_clouderrorreporting",
@@ -6639,7 +6639,7 @@
     "tags": [
       "google"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "google_cloudfunctions": {
     "id": "google_cloudfunctions",
@@ -6674,7 +6674,7 @@
     "tags": [
       "google"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "google_cloudkms": {
     "id": "google_cloudkms",
@@ -6710,7 +6710,7 @@
       "security",
       "google"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "google_cloudmonitoring": {
     "id": "google_cloudmonitoring",
@@ -6746,7 +6746,7 @@
     "tags": [
       "google"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "google_cloudresourcemanager": {
     "id": "google_cloudresourcemanager",
@@ -6782,7 +6782,7 @@
     "tags": [
       "google"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "google_cloudtrace": {
     "id": "google_cloudtrace",
@@ -6819,7 +6819,7 @@
     "tags": [
       "google"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "google_clouduseraccounts": {
     "id": "google_clouduseraccounts",
@@ -6857,7 +6857,7 @@
     "tags": [
       "google"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "google_compute": {
     "id": "google_compute",
@@ -6897,7 +6897,7 @@
     "tags": [
       "google"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "google_consumersurveys": {
     "id": "google_consumersurveys",
@@ -6934,7 +6934,7 @@
     "tags": [
       "google"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "google_container": {
     "id": "google_container",
@@ -6969,7 +6969,7 @@
     "tags": [
       "google"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "google_content": {
     "id": "google_content",
@@ -7005,7 +7005,7 @@
       "ecommerce",
       "google"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "google_customsearch": {
     "id": "google_customsearch",
@@ -7020,7 +7020,7 @@
       "search",
       "google"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "google_dataflow": {
     "id": "google_dataflow",
@@ -7057,7 +7057,7 @@
     "tags": [
       "google"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "google_dataproc": {
     "id": "google_dataproc",
@@ -7092,7 +7092,7 @@
     "tags": [
       "google"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "google_datastore": {
     "id": "google_datastore",
@@ -7129,7 +7129,7 @@
       "storage",
       "google"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "google_deploymentmanager": {
     "id": "google_deploymentmanager",
@@ -7167,7 +7167,7 @@
     "tags": [
       "google"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "google_dfareporting": {
     "id": "google_dfareporting",
@@ -7204,7 +7204,7 @@
     "tags": [
       "google"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "google_discovery": {
     "id": "google_discovery",
@@ -7218,7 +7218,7 @@
     "tags": [
       "google"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "google_dlp": {
     "id": "google_dlp",
@@ -7253,7 +7253,7 @@
     "tags": [
       "google"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "google_dns": {
     "id": "google_dns",
@@ -7291,7 +7291,7 @@
     "tags": [
       "google"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "google_doubleclickbidmanager": {
     "id": "google_doubleclickbidmanager",
@@ -7305,7 +7305,7 @@
     "tags": [
       "google"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "google_doubleclicksearch": {
     "id": "google_doubleclicksearch",
@@ -7340,7 +7340,7 @@
     "tags": [
       "google"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "google_drive": {
     "id": "google_drive",
@@ -7383,7 +7383,7 @@
       "storage",
       "google"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "google_firebasedynamiclinks": {
     "id": "google_firebasedynamiclinks",
@@ -7418,7 +7418,7 @@
     "tags": [
       "google"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "google_firebaserules": {
     "id": "google_firebaserules",
@@ -7455,7 +7455,7 @@
     "tags": [
       "google"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "google_fitness": {
     "id": "google_fitness",
@@ -7507,7 +7507,7 @@
     "tags": [
       "google"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "google_fusiontables": {
     "id": "google_fusiontables",
@@ -7543,7 +7543,7 @@
     "tags": [
       "google"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "google_games": {
     "id": "google_games",
@@ -7580,7 +7580,7 @@
     "tags": [
       "google"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "google_gamesconfiguration": {
     "id": "google_gamesconfiguration",
@@ -7615,7 +7615,7 @@
     "tags": [
       "google"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "google_gamesmanagement": {
     "id": "google_gamesmanagement",
@@ -7651,7 +7651,7 @@
     "tags": [
       "google"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "google_genomics": {
     "id": "google_genomics",
@@ -7690,7 +7690,7 @@
     "tags": [
       "google"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "google_gmail": {
     "id": "google_gmail",
@@ -7735,7 +7735,7 @@
       "email",
       "google"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "google_groupsmigration": {
     "id": "google_groupsmigration",
@@ -7770,7 +7770,7 @@
     "tags": [
       "google"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "google_groupssettings": {
     "id": "google_groupssettings",
@@ -7805,7 +7805,7 @@
     "tags": [
       "google"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "google_iam": {
     "id": "google_iam",
@@ -7840,7 +7840,7 @@
     "tags": [
       "google"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "google_identitytoolkit": {
     "id": "google_identitytoolkit",
@@ -7876,7 +7876,7 @@
     "tags": [
       "google"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "google_kgsearch": {
     "id": "google_kgsearch",
@@ -7890,7 +7890,7 @@
     "tags": [
       "google"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "google_language": {
     "id": "google_language",
@@ -7926,7 +7926,7 @@
       "text",
       "google"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "google_licensing": {
     "id": "google_licensing",
@@ -7962,7 +7962,7 @@
       "enterprise",
       "google"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "google_logging": {
     "id": "google_logging",
@@ -8001,7 +8001,7 @@
     "tags": [
       "google"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "google_manufacturers": {
     "id": "google_manufacturers",
@@ -8036,7 +8036,7 @@
     "tags": [
       "google"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "google_mirror": {
     "id": "google_mirror",
@@ -8072,7 +8072,7 @@
     "tags": [
       "google"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "google_ml": {
     "id": "google_ml",
@@ -8108,7 +8108,7 @@
       "machine learning",
       "google"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "google_monitoring": {
     "id": "google_monitoring",
@@ -8146,7 +8146,7 @@
     "tags": [
       "google"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "google_oauth2": {
     "id": "google_oauth2",
@@ -8184,7 +8184,7 @@
     "tags": [
       "google"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "google_pagespeedonline": {
     "id": "google_pagespeedonline",
@@ -8199,7 +8199,7 @@
       "tools",
       "google"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "google_partners": {
     "id": "google_partners",
@@ -8213,7 +8213,7 @@
     "tags": [
       "google"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "google_people": {
     "id": "google_people",
@@ -8256,7 +8256,7 @@
     "tags": [
       "google"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "google_playmoviespartner": {
     "id": "google_playmoviespartner",
@@ -8291,7 +8291,7 @@
     "tags": [
       "google"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "google_plus": {
     "id": "google_plus",
@@ -8330,7 +8330,7 @@
       "social",
       "google"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "google_plusdomains": {
     "id": "google_plusdomains",
@@ -8374,7 +8374,7 @@
     "tags": [
       "google"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "google_prediction": {
     "id": "google_prediction",
@@ -8414,7 +8414,7 @@
       "prediction",
       "google"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "google_proximitybeacon": {
     "id": "google_proximitybeacon",
@@ -8449,7 +8449,7 @@
     "tags": [
       "google"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "google_pubsub": {
     "id": "google_pubsub",
@@ -8486,7 +8486,7 @@
       "messaging",
       "google"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "google_qpxexpress": {
     "id": "google_qpxexpress",
@@ -8500,7 +8500,7 @@
     "tags": [
       "google"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "google_replicapool": {
     "id": "google_replicapool",
@@ -8538,7 +8538,7 @@
     "tags": [
       "google"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "google_replicapoolupdater": {
     "id": "google_replicapoolupdater",
@@ -8576,7 +8576,7 @@
     "tags": [
       "google"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "google_reseller": {
     "id": "google_reseller",
@@ -8613,7 +8613,7 @@
       "enterprise",
       "google"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "google_resourceviews": {
     "id": "google_resourceviews",
@@ -8653,7 +8653,7 @@
     "tags": [
       "google"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "google_runtimeconfig": {
     "id": "google_runtimeconfig",
@@ -8689,7 +8689,7 @@
     "tags": [
       "google"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "google_safebrowsing": {
     "id": "google_safebrowsing",
@@ -8704,7 +8704,7 @@
       "security",
       "google"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "google_script": {
     "id": "google_script",
@@ -8749,7 +8749,7 @@
     "tags": [
       "google"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "google_searchconsole": {
     "id": "google_searchconsole",
@@ -8764,7 +8764,7 @@
       "search",
       "google"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "google_servicecontrol": {
     "id": "google_servicecontrol",
@@ -8800,7 +8800,7 @@
     "tags": [
       "google"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "google_servicemanagement": {
     "id": "google_servicemanagement",
@@ -8838,7 +8838,7 @@
     "tags": [
       "google"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "google_serviceuser": {
     "id": "google_serviceuser",
@@ -8875,7 +8875,7 @@
     "tags": [
       "google"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "google_sheets": {
     "id": "google_sheets",
@@ -8913,7 +8913,7 @@
     "tags": [
       "google"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "google_siteverification": {
     "id": "google_siteverification",
@@ -8949,7 +8949,7 @@
     "tags": [
       "google"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "google_slides": {
     "id": "google_slides",
@@ -8989,7 +8989,7 @@
     "tags": [
       "google"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "google_sourcerepo": {
     "id": "google_sourcerepo",
@@ -9024,7 +9024,7 @@
     "tags": [
       "google"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "google_spanner": {
     "id": "google_spanner",
@@ -9059,7 +9059,7 @@
     "tags": [
       "google"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "google_spectrum": {
     "id": "google_spectrum",
@@ -9073,7 +9073,7 @@
     "tags": [
       "google"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "google_speech": {
     "id": "google_speech",
@@ -9108,7 +9108,7 @@
     "tags": [
       "google"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "google_sqladmin": {
     "id": "google_sqladmin",
@@ -9144,7 +9144,7 @@
     "tags": [
       "google"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "google_storage": {
     "id": "google_storage",
@@ -9184,7 +9184,7 @@
       "storage",
       "google"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "google_storagetransfer": {
     "id": "google_storagetransfer",
@@ -9220,7 +9220,7 @@
       "storage",
       "google"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "google_supportcases": {
     "id": "google_supportcases",
@@ -9257,7 +9257,7 @@
     "tags": [
       "google"
     ],
-    "latestVersion": "2.0.1"
+    "latestVersion": "2.0.2"
   },
   "google_surveys": {
     "id": "google_surveys",
@@ -9294,7 +9294,7 @@
     "tags": [
       "google"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "google_tagmanager": {
     "id": "google_tagmanager",
@@ -9335,7 +9335,7 @@
     "tags": [
       "google"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "google_taskqueue": {
     "id": "google_taskqueue",
@@ -9371,7 +9371,7 @@
     "tags": [
       "google"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "google_tasks": {
     "id": "google_tasks",
@@ -9408,7 +9408,7 @@
       "time management",
       "google"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "google_toolresults": {
     "id": "google_toolresults",
@@ -9443,7 +9443,7 @@
     "tags": [
       "google"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "google_tracing": {
     "id": "google_tracing",
@@ -9480,7 +9480,7 @@
     "tags": [
       "google"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "google_translate": {
     "id": "google_translate",
@@ -9495,7 +9495,7 @@
       "text",
       "google"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "google_urlshortener": {
     "id": "google_urlshortener",
@@ -9531,7 +9531,7 @@
       "tools",
       "google"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "google_videointelligence": {
     "id": "google_videointelligence",
@@ -9566,7 +9566,7 @@
     "tags": [
       "google"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "google_vision": {
     "id": "google_vision",
@@ -9601,7 +9601,7 @@
     "tags": [
       "google"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "google_webfonts": {
     "id": "google_webfonts",
@@ -9615,7 +9615,7 @@
     "tags": [
       "google"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "google_webmasters": {
     "id": "google_webmasters",
@@ -9651,7 +9651,7 @@
     "tags": [
       "google"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "google_youtube": {
     "id": "google_youtube",
@@ -9691,7 +9691,7 @@
     "tags": [
       "google"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "google_youtubeanalytics": {
     "id": "google_youtubeanalytics",
@@ -9731,7 +9731,7 @@
       "analytics",
       "google"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "google_youtubereporting": {
     "id": "google_youtubereporting",
@@ -9768,7 +9768,7 @@
       "analytics",
       "google"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "gov_bc_ca_bcdc": {
     "id": "gov_bc_ca_bcdc",
@@ -9821,7 +9821,7 @@
     "tags": [
       "open data"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "gov_bc_ca_bcgnws": {
     "id": "gov_bc_ca_bcgnws",
@@ -9835,7 +9835,7 @@
     "tags": [
       "open data"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "gov_bc_ca_geocoder": {
     "id": "gov_bc_ca_geocoder",
@@ -9856,7 +9856,7 @@
     "tags": [
       "open data"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "gov_bc_ca_geomark": {
     "id": "gov_bc_ca_geomark",
@@ -9870,7 +9870,7 @@
     "tags": [
       "open data"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "gov_bc_ca_jobposting": {
     "id": "gov_bc_ca_jobposting",
@@ -9884,7 +9884,7 @@
     "tags": [
       "open data"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "gov_bc_ca_open511": {
     "id": "gov_bc_ca_open511",
@@ -9898,7 +9898,7 @@
     "tags": [
       "open data"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "gov_bc_ca_router": {
     "id": "gov_bc_ca_router",
@@ -9919,7 +9919,7 @@
     "tags": [
       "open data"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "graphhopper": {
     "id": "graphhopper",
@@ -9940,7 +9940,7 @@
     "tags": [
       "location"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "groupon": {
     "id": "groupon",
@@ -9952,7 +9952,7 @@
     },
     "actionCount": 6,
     "tags": [],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "hacker_news": {
     "id": "hacker_news",
@@ -9964,7 +9964,7 @@
     },
     "actionCount": 3,
     "tags": [],
-    "latestVersion": "2.0.1"
+    "latestVersion": "2.0.2"
   },
   "healthcare_gov": {
     "id": "healthcare_gov",
@@ -9977,7 +9977,7 @@
     "tags": [
       "open data"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "heroku": {
     "id": "heroku",
@@ -10014,7 +10014,7 @@
     },
     "actionCount": 32,
     "tags": [],
-    "latestVersion": "2.0.3"
+    "latestVersion": "2.0.4"
   },
   "hetras_certification_booking": {
     "id": "hetras_certification_booking",
@@ -10025,7 +10025,7 @@
     },
     "actionCount": 15,
     "tags": [],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "hetras_certification_hotel": {
     "id": "hetras_certification_hotel",
@@ -10036,7 +10036,7 @@
     },
     "actionCount": 19,
     "tags": [],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "hhs_gov": {
     "id": "hhs_gov",
@@ -10051,7 +10051,7 @@
     "tags": [
       "open data"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "idtbeyond": {
     "id": "idtbeyond",
@@ -10066,7 +10066,7 @@
     "tags": [
       "telecom"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "ijenko": {
     "id": "ijenko",
@@ -10088,7 +10088,7 @@
     "tags": [
       "iot"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "import_data": {
     "id": "import_data",
@@ -10109,7 +10109,7 @@
     "tags": [
       "tools"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "import_extraction": {
     "id": "import_extraction",
@@ -10130,7 +10130,7 @@
     "tags": [
       "tools"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "import_rss": {
     "id": "import_rss",
@@ -10151,7 +10151,7 @@
     "tags": [
       "tools"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "import_run": {
     "id": "import_run",
@@ -10172,7 +10172,7 @@
     "tags": [
       "tools"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "import_schedule": {
     "id": "import_schedule",
@@ -10193,7 +10193,7 @@
     "tags": [
       "tools"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "inboxroute": {
     "id": "inboxroute",
@@ -10215,7 +10215,7 @@
       "email",
       "marketing"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "infermedica": {
     "id": "infermedica",
@@ -10227,7 +10227,7 @@
     },
     "actionCount": 9,
     "tags": [],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "infoconnect": {
     "id": "infoconnect",
@@ -10239,7 +10239,7 @@
     },
     "actionCount": 12,
     "tags": [],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "instagram": {
     "id": "instagram",
@@ -10281,7 +10281,7 @@
       "social",
       "media"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "2.0.4"
   },
   "kaltura": {
     "id": "kaltura",
@@ -10300,7 +10300,7 @@
     },
     "actionCount": 746,
     "tags": [],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "learnifier": {
     "id": "learnifier",
@@ -10314,7 +10314,7 @@
     "tags": [
       "education"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "linkedin": {
     "id": "linkedin",
@@ -10349,7 +10349,7 @@
     },
     "actionCount": 20,
     "tags": [],
-    "latestVersion": "2.0.4"
+    "latestVersion": "2.0.5"
   },
   "lyft": {
     "id": "lyft",
@@ -10387,7 +10387,7 @@
     "tags": [
       "location"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "magento": {
     "id": "magento",
@@ -10401,7 +10401,7 @@
     "tags": [
       "ecommerce"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "magick_nu": {
     "id": "magick_nu",
@@ -10415,7 +10415,7 @@
     "tags": [
       "financial"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "mailchimp": {
     "id": "mailchimp",
@@ -10434,7 +10434,7 @@
     },
     "actionCount": 96,
     "tags": [],
-    "latestVersion": "2.0.2"
+    "latestVersion": "3.0.1"
   },
   "mandrillapp": {
     "id": "mandrillapp",
@@ -10449,7 +10449,7 @@
       "email",
       "marketing"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "medium": {
     "id": "medium",
@@ -10489,7 +10489,7 @@
       "media",
       "social"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "microsoft_security_updates": {
     "id": "microsoft_security_updates",
@@ -10510,7 +10510,7 @@
     "tags": [
       "security"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "moonmoonmoonmoon": {
     "id": "moonmoonmoonmoon",
@@ -10523,7 +10523,7 @@
     },
     "actionCount": 2,
     "tags": [],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "motaword": {
     "id": "motaword",
@@ -10552,7 +10552,7 @@
     },
     "actionCount": 45,
     "tags": [],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "mozilla_kinto": {
     "id": "mozilla_kinto",
@@ -10574,7 +10574,7 @@
     "tags": [
       "cloud"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "myspace": {
     "id": "myspace",
@@ -10586,7 +10586,7 @@
     },
     "actionCount": 52,
     "tags": [],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "nativeads": {
     "id": "nativeads",
@@ -10598,7 +10598,7 @@
     },
     "actionCount": 4,
     "tags": [],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "nba": {
     "id": "nba",
@@ -10613,7 +10613,7 @@
       "media",
       "open data"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "neowsapp": {
     "id": "neowsapp",
@@ -10624,7 +10624,7 @@
     "tags": [
       "open data"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "netatmo": {
     "id": "netatmo",
@@ -10663,7 +10663,7 @@
     "tags": [
       "iot"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "netlicensing": {
     "id": "netlicensing",
@@ -10684,7 +10684,7 @@
     },
     "actionCount": 39,
     "tags": [],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "neutrinoapi": {
     "id": "neutrinoapi",
@@ -10711,7 +10711,7 @@
       "location",
       "text"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "nextcaller": {
     "id": "nextcaller",
@@ -10723,7 +10723,7 @@
     },
     "actionCount": 2,
     "tags": [],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "npr_rss": {
     "id": "npr_rss",
@@ -10734,7 +10734,7 @@
     },
     "actionCount": 1,
     "tags": [],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "nrel_building_case_studies": {
     "id": "nrel_building_case_studies",
@@ -10756,7 +10756,7 @@
     "tags": [
       "open data"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "nrel_transportation_incentives_laws": {
     "id": "nrel_transportation_incentives_laws",
@@ -10778,7 +10778,7 @@
     "tags": [
       "open data"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "nsidc": {
     "id": "nsidc",
@@ -10792,7 +10792,7 @@
     "tags": [
       "open data"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "nytimes_article_search": {
     "id": "nytimes_article_search",
@@ -10814,7 +10814,7 @@
       "media",
       "search"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "nytimes_books_api": {
     "id": "nytimes_books_api",
@@ -10836,7 +10836,7 @@
       "media",
       "open data"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "nytimes_community": {
     "id": "nytimes_community",
@@ -10858,7 +10858,7 @@
       "media",
       "open data"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "nytimes_geo_api": {
     "id": "nytimes_geo_api",
@@ -10880,7 +10880,7 @@
       "media",
       "open data"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "nytimes_most_popular_api": {
     "id": "nytimes_most_popular_api",
@@ -10902,7 +10902,7 @@
       "media",
       "open data"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "nytimes_movie_reviews": {
     "id": "nytimes_movie_reviews",
@@ -10924,7 +10924,7 @@
       "media",
       "open data"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "nytimes_rss": {
     "id": "nytimes_rss",
@@ -10935,7 +10935,7 @@
     },
     "actionCount": 5,
     "tags": [],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "nytimes_semantic_api": {
     "id": "nytimes_semantic_api",
@@ -10957,7 +10957,7 @@
       "media",
       "open data"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "nytimes_times_tags": {
     "id": "nytimes_times_tags",
@@ -10979,7 +10979,7 @@
       "media",
       "open data"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "nytimes_timeswire": {
     "id": "nytimes_timeswire",
@@ -11001,7 +11001,7 @@
       "media",
       "open data"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "nytimes_top_stories": {
     "id": "nytimes_top_stories",
@@ -11023,7 +11023,7 @@
       "media",
       "open data"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "oceandrivers": {
     "id": "oceandrivers",
@@ -11037,7 +11037,7 @@
     "tags": [
       "open data"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "omdbapi": {
     "id": "omdbapi",
@@ -11053,7 +11053,7 @@
       "media",
       "open data"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "onenote": {
     "id": "onenote",
@@ -11065,7 +11065,7 @@
     },
     "actionCount": 19,
     "tags": [],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "openapi_converter_herokuapp": {
     "id": "openapi_converter_herokuapp",
@@ -11080,7 +11080,7 @@
     "tags": [
       "developer tools"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "openbanking_org_uk": {
     "id": "openbanking_org_uk",
@@ -11095,7 +11095,7 @@
     "tags": [
       "finance"
     ],
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "opencagedata": {
     "id": "opencagedata",
@@ -11109,7 +11109,7 @@
     "tags": [
       "location"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "orghunter": {
     "id": "orghunter",
@@ -11128,7 +11128,7 @@
     },
     "actionCount": 6,
     "tags": [],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "owler": {
     "id": "owler",
@@ -11149,7 +11149,7 @@
     "tags": [
       "search"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "oxforddictionaries": {
     "id": "oxforddictionaries",
@@ -11162,7 +11162,7 @@
     "tags": [
       "text"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "pandorabots": {
     "id": "pandorabots",
@@ -11178,7 +11178,7 @@
     },
     "actionCount": 13,
     "tags": [],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "passwordutility": {
     "id": "passwordutility",
@@ -11190,7 +11190,7 @@
       "security",
       "tools"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "patientview": {
     "id": "patientview",
@@ -11202,7 +11202,7 @@
     },
     "actionCount": 15,
     "tags": [],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "paypal": {
     "id": "paypal",
@@ -11214,7 +11214,7 @@
     },
     "actionCount": 32,
     "tags": [],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "peel_ci": {
     "id": "peel_ci",
@@ -11228,7 +11228,7 @@
     "tags": [
       "media"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "picasa": {
     "id": "picasa",
@@ -11240,7 +11240,7 @@
     },
     "actionCount": 14,
     "tags": [],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "pinboard": {
     "id": "pinboard",
@@ -11252,7 +11252,7 @@
     },
     "actionCount": 12,
     "tags": [],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "pivotaltracker": {
     "id": "pivotaltracker",
@@ -11264,7 +11264,7 @@
     },
     "actionCount": 31,
     "tags": [],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "postmark": {
     "id": "postmark",
@@ -11276,7 +11276,7 @@
     },
     "actionCount": 10,
     "tags": [],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "posty": {
     "id": "posty",
@@ -11287,7 +11287,7 @@
     "tags": [
       "email"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "producthunt": {
     "id": "producthunt",
@@ -11319,7 +11319,7 @@
     },
     "actionCount": 4,
     "tags": [],
-    "latestVersion": "2.0.3"
+    "latestVersion": "2.0.4"
   },
   "quandl": {
     "id": "quandl",
@@ -11338,7 +11338,7 @@
     },
     "actionCount": 8,
     "tags": [],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "rbaskets_in": {
     "id": "rbaskets_in",
@@ -11357,7 +11357,7 @@
     },
     "actionCount": 9,
     "tags": [],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "rebilly": {
     "id": "rebilly",
@@ -11383,7 +11383,7 @@
       "payment",
       "ecommerce"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "reddit": {
     "id": "reddit",
@@ -11440,7 +11440,7 @@
     },
     "actionCount": 199,
     "tags": [],
-    "latestVersion": "2.0.3"
+    "latestVersion": "2.0.4"
   },
   "reddit_rss": {
     "id": "reddit_rss",
@@ -11451,7 +11451,7 @@
     },
     "actionCount": 2,
     "tags": [],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "refugerestrooms": {
     "id": "refugerestrooms",
@@ -11466,7 +11466,7 @@
     "tags": [
       "open data"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "reverb": {
     "id": "reverb",
@@ -11514,7 +11514,7 @@
     "tags": [
       "ecommerce"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "rhapsody": {
     "id": "rhapsody",
@@ -11526,7 +11526,7 @@
     },
     "actionCount": 20,
     "tags": [],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "ritc": {
     "id": "ritc",
@@ -11547,7 +11547,7 @@
     "tags": [
       "cloud"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "rottentomatoes": {
     "id": "rottentomatoes",
@@ -11568,7 +11568,7 @@
     "tags": [
       "media"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "rubygems": {
     "id": "rubygems",
@@ -11580,7 +11580,7 @@
     },
     "actionCount": 24,
     "tags": [],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "rummblelabs": {
     "id": "rummblelabs",
@@ -11594,7 +11594,7 @@
     "tags": [
       "machine learning"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "runscope": {
     "id": "runscope",
@@ -11636,7 +11636,7 @@
     "tags": [
       "developer tools"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "salesforce": {
     "id": "salesforce",
@@ -11674,7 +11674,7 @@
     },
     "actionCount": 17,
     "tags": [],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "salesforcechatter": {
     "id": "salesforcechatter",
@@ -11686,7 +11686,7 @@
     },
     "actionCount": 58,
     "tags": [],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "schooldigger": {
     "id": "schooldigger",
@@ -11698,7 +11698,7 @@
       "open data",
       "education"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "scrapewebsite_email": {
     "id": "scrapewebsite_email",
@@ -11710,7 +11710,7 @@
       "email",
       "tools"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "semantria": {
     "id": "semantria",
@@ -11725,7 +11725,7 @@
       "social",
       "text"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "sendgrid": {
     "id": "sendgrid",
@@ -11747,7 +11747,7 @@
       "email",
       "marketing"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "shopping_com": {
     "id": "shopping_com",
@@ -11759,7 +11759,7 @@
     },
     "actionCount": 2,
     "tags": [],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "simplyrets": {
     "id": "simplyrets",
@@ -11776,7 +11776,7 @@
     },
     "actionCount": 4,
     "tags": [],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "skyrock": {
     "id": "skyrock",
@@ -11788,7 +11788,7 @@
     },
     "actionCount": 70,
     "tags": [],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "slack": {
     "id": "slack",
@@ -11864,7 +11864,7 @@
       "collaboration",
       "messaging"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "2.0.4"
   },
   "slideroom": {
     "id": "slideroom",
@@ -11877,7 +11877,7 @@
     },
     "actionCount": 11,
     "tags": [],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "smart_me": {
     "id": "smart_me",
@@ -11897,7 +11897,7 @@
     },
     "actionCount": 23,
     "tags": [],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "solarvps": {
     "id": "solarvps",
@@ -11916,7 +11916,7 @@
     },
     "actionCount": 20,
     "tags": [],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "soundcloud": {
     "id": "soundcloud",
@@ -11944,7 +11944,7 @@
     },
     "actionCount": 52,
     "tags": [],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "spectrocoin": {
     "id": "spectrocoin",
@@ -11961,7 +11961,7 @@
       "financial",
       "payment"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "spotify": {
     "id": "spotify",
@@ -12005,7 +12005,7 @@
     "tags": [
       "media"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "squareup": {
     "id": "squareup",
@@ -12053,7 +12053,7 @@
     "tags": [
       "payment"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "2.0.4"
   },
   "stackexchange": {
     "id": "stackexchange",
@@ -12087,7 +12087,7 @@
       "developer tools",
       "support"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "statsocial": {
     "id": "statsocial",
@@ -12109,7 +12109,7 @@
       "social",
       "marketing"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "swagger_generator": {
     "id": "swagger_generator",
@@ -12125,7 +12125,7 @@
       "developer tools",
       "tools"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "swaggerhub": {
     "id": "swaggerhub",
@@ -12146,7 +12146,7 @@
     "tags": [
       "developer tools"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "synq_fm": {
     "id": "synq_fm",
@@ -12160,7 +12160,7 @@
     "tags": [
       "media"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "t213_vg": {
     "id": "t213_vg",
@@ -12174,7 +12174,7 @@
     "tags": [
       "ecommerce"
     ],
-    "latestVersion": "2.0.1"
+    "latestVersion": "2.0.2"
   },
   "taxamo": {
     "id": "taxamo",
@@ -12195,7 +12195,7 @@
     "tags": [
       "payment"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "tfl_gov_uk": {
     "id": "tfl_gov_uk",
@@ -12218,7 +12218,7 @@
       "location",
       "open data"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "thenounproject": {
     "id": "thenounproject",
@@ -12230,7 +12230,7 @@
     },
     "actionCount": 13,
     "tags": [],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "thetvdb": {
     "id": "thetvdb",
@@ -12252,7 +12252,7 @@
       "media",
       "open data"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "traccar": {
     "id": "traccar",
@@ -12274,7 +12274,7 @@
     "tags": [
       "location"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "trello": {
     "id": "trello",
@@ -12296,7 +12296,7 @@
     "tags": [
       "collaboration"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "tumblr": {
     "id": "tumblr",
@@ -12324,7 +12324,7 @@
     },
     "actionCount": 18,
     "tags": [],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "twilio": {
     "id": "twilio",
@@ -12347,7 +12347,7 @@
       "telecom",
       "messaging"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "uebermaps": {
     "id": "uebermaps",
@@ -12361,7 +12361,7 @@
     "tags": [
       "location"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "urbanairship": {
     "id": "urbanairship",
@@ -12373,7 +12373,7 @@
     },
     "actionCount": 59,
     "tags": [],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "vatapi": {
     "id": "vatapi",
@@ -12392,7 +12392,7 @@
     },
     "actionCount": 10,
     "tags": [],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "versioneye": {
     "id": "versioneye",
@@ -12407,7 +12407,7 @@
       "open data",
       "search"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "vestorly": {
     "id": "vestorly",
@@ -12422,7 +12422,7 @@
     "tags": [
       "marketing"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "victorops": {
     "id": "victorops",
@@ -12436,7 +12436,7 @@
     "tags": [
       "developer tools"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "visagecloud": {
     "id": "visagecloud",
@@ -12457,7 +12457,7 @@
     "tags": [
       "search"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "waag": {
     "id": "waag",
@@ -12471,7 +12471,7 @@
     "tags": [
       "open data"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "watchful_li": {
     "id": "watchful_li",
@@ -12483,7 +12483,7 @@
     },
     "actionCount": 61,
     "tags": [],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "wavecell": {
     "id": "wavecell",
@@ -12506,7 +12506,7 @@
     "tags": [
       "messaging"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "wealthport": {
     "id": "wealthport",
@@ -12530,7 +12530,7 @@
       "analytics",
       "machine learning"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "wikimedia": {
     "id": "wikimedia",
@@ -12551,7 +12551,7 @@
     "tags": [
       "media"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "windows_arm_graphrbac": {
     "id": "windows_arm_graphrbac",
@@ -12583,7 +12583,7 @@
     },
     "actionCount": 34,
     "tags": [],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "windows_batch": {
     "id": "windows_batch",
@@ -12595,7 +12595,7 @@
     },
     "actionCount": 74,
     "tags": [],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "winning_email": {
     "id": "winning_email",
@@ -12617,7 +12617,7 @@
       "email",
       "marketing"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "wordnik": {
     "id": "wordnik",
@@ -12638,7 +12638,7 @@
     "tags": [
       "text"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "xkcd": {
     "id": "xkcd",
@@ -12652,7 +12652,7 @@
     "tags": [
       "media"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "yellowpages": {
     "id": "yellowpages",
@@ -12664,7 +12664,7 @@
     },
     "actionCount": 4,
     "tags": [],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "youphoric": {
     "id": "youphoric",
@@ -12676,7 +12676,7 @@
     },
     "actionCount": 2,
     "tags": [],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "yunbi": {
     "id": "yunbi",
@@ -12690,7 +12690,7 @@
     "tags": [
       "financial"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "zappiti": {
     "id": "zappiti",
@@ -12705,7 +12705,7 @@
     "tags": [
       "entertainment"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "zoomconnect": {
     "id": "zoomconnect",
@@ -12728,7 +12728,7 @@
       "messaging",
       "marketing"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "2.0.3"
   },
   "fileserver": {
     "id": "fileserver",
@@ -12760,7 +12760,7 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/lucybot_docs.svg"
     },
     "actionCount": 1,
-    "latestVersion": "1.0.3"
+    "latestVersion": "1.0.4"
   },
   "mongodb": {
     "id": "mongodb",

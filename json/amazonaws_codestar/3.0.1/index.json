@@ -1,0 +1,1250 @@
+{
+  "id": "amazonaws_codestar",
+  "title": "AWS CodeStar",
+  "description": "AWS CodeStar\n\nThis is the API reference for AWS CodeStar. This reference provides descriptions of the operations and data types for the AWS CodeStar API along with usage examples.\n\nYou can use the AWS CodeStar API to work with:\n\nProjects and their resources, by calling the following:\n\n*   DeleteProject, which deletes a project in AWS CodeStar.\n\n*   DescribeProject, which lists the attributes of a project.\n\n*   ListProjects, which lists all AWS CodeStar projects associated with your AWS account.\n\n*   ListResources, which lists the resources associated with an AWS CodeStar project.\n\n*   UpdateProject, which updates the attributes of an AWS CodeStar project.\n\nTeams and team members, by calling the following:\n\n*   AssociateTeamMember, which adds an IAM user to the team for an AWS CodeStar project.\n\n*   DisassociateTeamMember, which removes an IAM user from the team for an AWS CodeStar project.\n\n*   ListTeamMembers, which lists all the IAM users in the team for an AWS CodeStar project, including their roles and attributes.\n\nUsers, by calling the following:\n\n*   CreateUserProfile, which creates a user profile that contains data associated with the user across all AWS CodeStar projects.\n\n*   DeleteUserProfile, which deletes all user profile information across all AWS CodeStar projects.\n\n*   DescribeUserProfile, which describes the profile of a user.\n\n*   ListUserProfiles, which lists all AWS CodeStar user profiles.\n\n*   UpdateUserProfile, which updates the profile for an AWS CodeStar user.",
+  "security": {
+    "amazonaws_codestar": {
+      "integration": "amazonaws_codestar",
+      "accessKeyId": "",
+      "secretAccessKey": "",
+      "region": "AWS region (if applicable)"
+    }
+  },
+  "logo": {
+    "backgroundColor": "#FFFFFF",
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_codestar.jpg"
+  },
+  "actionCount": 15,
+  "definitions": {
+    "AssociateTeamMemberRequest": {
+      "properties": {
+        "clientRequestToken": {
+          "$ref": "#/definitions/ClientRequestToken",
+          "description": "A user- or system-generated token that identifies the entity that requested the team member association to the project. This token can be used to repeat the request. "
+        },
+        "projectId": {
+          "$ref": "#/definitions/ProjectId",
+          "description": "The ID of the project to which you will add the IAM user."
+        },
+        "projectRole": {
+          "$ref": "#/definitions/Role",
+          "description": "The AWS CodeStar project role that will apply to this user. This role determines what actions a user can take in an AWS CodeStar project."
+        },
+        "remoteAccessAllowed": {
+          "$ref": "#/definitions/RemoteAccessAllowed",
+          "description": "Whether the team member is allowed to use an SSH public/private key pair to remotely access project resources, for example Amazon EC2 instances."
+        },
+        "userArn": {
+          "$ref": "#/definitions/UserArn",
+          "description": "The Amazon Resource Name (ARN) for the IAM user you want to add to the DevHub project."
+        }
+      },
+      "required": [
+        "projectId",
+        "userArn",
+        "projectRole"
+      ],
+      "type": "object",
+      "title": "AssociateTeamMemberRequest"
+    },
+    "AssociateTeamMemberResult": {
+      "properties": {
+        "clientRequestToken": {
+          "$ref": "#/definitions/ClientRequestToken",
+          "description": "The user- or system-generated token from the initial request that can be used to repeat the request. "
+        }
+      },
+      "type": "object",
+      "title": "AssociateTeamMemberResult"
+    },
+    "ClientRequestToken": {
+      "maxLength": 256,
+      "minLength": 1,
+      "pattern": "^[\\w:/-]+$",
+      "type": "string",
+      "title": "ClientRequestToken"
+    },
+    "ConcurrentModificationException": {
+      "description": "Another modification is being made. That modification must complete before you can make your change.",
+      "properties": {},
+      "type": "object",
+      "title": "ConcurrentModificationException"
+    },
+    "CreateProjectRequest": {
+      "properties": {
+        "clientRequestToken": {
+          "$ref": "#/definitions/ClientRequestToken",
+          "description": "Reserved for future use."
+        },
+        "description": {
+          "$ref": "#/definitions/ProjectDescription",
+          "description": "Reserved for future use."
+        },
+        "id": {
+          "$ref": "#/definitions/ProjectId",
+          "description": "Reserved for future use."
+        },
+        "name": {
+          "$ref": "#/definitions/ProjectName",
+          "description": "Reserved for future use."
+        }
+      },
+      "required": [
+        "name",
+        "id"
+      ],
+      "type": "object",
+      "title": "CreateProjectRequest"
+    },
+    "CreateProjectResult": {
+      "properties": {
+        "arn": {
+          "$ref": "#/definitions/ProjectArn",
+          "description": "Reserved for future use."
+        },
+        "clientRequestToken": {
+          "$ref": "#/definitions/ClientRequestToken",
+          "description": "Reserved for future use."
+        },
+        "id": {
+          "$ref": "#/definitions/ProjectId",
+          "description": "Reserved for future use."
+        },
+        "projectTemplateId": {
+          "$ref": "#/definitions/ProjectTemplateId",
+          "description": "Reserved for future use."
+        }
+      },
+      "required": [
+        "id",
+        "arn"
+      ],
+      "type": "object",
+      "title": "CreateProjectResult"
+    },
+    "CreateUserProfileRequest": {
+      "properties": {
+        "displayName": {
+          "$ref": "#/definitions/UserProfileDisplayName",
+          "description": "The name that will be displayed as the friendly name for the user in AWS CodeStar. "
+        },
+        "emailAddress": {
+          "$ref": "#/definitions/Email",
+          "description": "The email address that will be displayed as part of the user's profile in AWS CodeStar."
+        },
+        "sshPublicKey": {
+          "$ref": "#/definitions/SshPublicKey",
+          "description": "The SSH public key associated with the user in AWS CodeStar. If a project owner allows the user remote access to project resources, this public key will be used along with the user's private key for SSH access."
+        },
+        "userArn": {
+          "$ref": "#/definitions/UserArn",
+          "description": "The Amazon Resource Name (ARN) of the user in IAM."
+        }
+      },
+      "required": [
+        "userArn",
+        "displayName",
+        "emailAddress"
+      ],
+      "type": "object",
+      "title": "CreateUserProfileRequest"
+    },
+    "CreateUserProfileResult": {
+      "properties": {
+        "createdTimestamp": {
+          "$ref": "#/definitions/CreatedTimestamp",
+          "description": "The date the user profile was created, in timestamp format."
+        },
+        "displayName": {
+          "$ref": "#/definitions/UserProfileDisplayName",
+          "description": "The name that is displayed as the friendly name for the user in AWS CodeStar."
+        },
+        "emailAddress": {
+          "$ref": "#/definitions/Email",
+          "description": "The email address that is displayed as part of the user's profile in AWS CodeStar."
+        },
+        "lastModifiedTimestamp": {
+          "$ref": "#/definitions/LastModifiedTimestamp",
+          "description": "The date the user profile was last modified, in timestamp format."
+        },
+        "sshPublicKey": {
+          "$ref": "#/definitions/SshPublicKey",
+          "description": "The SSH public key associated with the user in AWS CodeStar. This is the public portion of the public/private keypair the user can use to access project resources if a project owner allows the user remote access to those resources."
+        },
+        "userArn": {
+          "$ref": "#/definitions/UserArn",
+          "description": "The Amazon Resource Name (ARN) of the user in IAM."
+        }
+      },
+      "required": [
+        "userArn"
+      ],
+      "type": "object",
+      "title": "CreateUserProfileResult"
+    },
+    "CreatedTimestamp": {
+      "format": "date-time",
+      "type": "string",
+      "title": "CreatedTimestamp"
+    },
+    "DeleteProjectRequest": {
+      "properties": {
+        "clientRequestToken": {
+          "$ref": "#/definitions/ClientRequestToken",
+          "description": "A user- or system-generated token that identifies the entity that requested project deletion. This token can be used to repeat the request. "
+        },
+        "deleteStack": {
+          "$ref": "#/definitions/DeleteStack",
+          "description": "Whether to send a delete request for the primary stack in AWS CloudFormation originally used to generate the project and its resources. This option will delete all AWS resources for the project (except for any buckets in Amazon S3) as well as deleting the project itself. Recommended for most use cases."
+        },
+        "id": {
+          "$ref": "#/definitions/ProjectId",
+          "description": "The ID of the project to be deleted in AWS CodeStar."
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "type": "object",
+      "title": "DeleteProjectRequest"
+    },
+    "DeleteProjectResult": {
+      "properties": {
+        "projectArn": {
+          "$ref": "#/definitions/ProjectArn",
+          "description": "The Amazon Resource Name (ARN) of the deleted project."
+        },
+        "stackId": {
+          "$ref": "#/definitions/StackId",
+          "description": "The ID of the primary stack in AWS CloudFormation that will be deleted as part of deleting the project and its resources."
+        }
+      },
+      "type": "object",
+      "title": "DeleteProjectResult"
+    },
+    "DeleteStack": {
+      "type": "boolean",
+      "title": "DeleteStack"
+    },
+    "DeleteUserProfileRequest": {
+      "properties": {
+        "userArn": {
+          "$ref": "#/definitions/UserArn",
+          "description": "The Amazon Resource Name (ARN) of the user to delete from AWS CodeStar."
+        }
+      },
+      "required": [
+        "userArn"
+      ],
+      "type": "object",
+      "title": "DeleteUserProfileRequest"
+    },
+    "DeleteUserProfileResult": {
+      "properties": {
+        "userArn": {
+          "$ref": "#/definitions/UserArn",
+          "description": "The Amazon Resource Name (ARN) of the user deleted from AWS CodeStar."
+        }
+      },
+      "required": [
+        "userArn"
+      ],
+      "type": "object",
+      "title": "DeleteUserProfileResult"
+    },
+    "DescribeProjectRequest": {
+      "properties": {
+        "id": {
+          "$ref": "#/definitions/ProjectId",
+          "description": "The ID of the project."
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "type": "object",
+      "title": "DescribeProjectRequest"
+    },
+    "DescribeProjectResult": {
+      "properties": {
+        "arn": {
+          "$ref": "#/definitions/ProjectArn",
+          "description": "The Amazon Resource Name (ARN) for the project."
+        },
+        "clientRequestToken": {
+          "$ref": "#/definitions/ClientRequestToken",
+          "description": "A user- or system-generated token that identifies the entity that requested project creation. "
+        },
+        "createdTimeStamp": {
+          "$ref": "#/definitions/CreatedTimestamp",
+          "description": "The date and time the project was created, in timestamp format."
+        },
+        "description": {
+          "$ref": "#/definitions/ProjectDescription",
+          "description": "The description of the project, if any."
+        },
+        "id": {
+          "$ref": "#/definitions/ProjectId",
+          "description": "The ID of the project."
+        },
+        "name": {
+          "$ref": "#/definitions/ProjectName",
+          "description": "The display name for the project."
+        },
+        "projectTemplateId": {
+          "$ref": "#/definitions/ProjectTemplateId",
+          "description": "The ID for the AWS CodeStar project template used to create the project."
+        },
+        "stackId": {
+          "$ref": "#/definitions/StackId",
+          "description": "The ID of the primary stack in AWS CloudFormation used to generate resources for the project."
+        }
+      },
+      "type": "object",
+      "title": "DescribeProjectResult"
+    },
+    "DescribeUserProfileRequest": {
+      "properties": {
+        "userArn": {
+          "$ref": "#/definitions/UserArn",
+          "description": "The Amazon Resource Name (ARN) of the user."
+        }
+      },
+      "required": [
+        "userArn"
+      ],
+      "type": "object",
+      "title": "DescribeUserProfileRequest"
+    },
+    "DescribeUserProfileResult": {
+      "properties": {
+        "createdTimestamp": {
+          "$ref": "#/definitions/CreatedTimestamp",
+          "description": "The date and time when the user profile was created in AWS CodeStar, in timestamp format."
+        },
+        "displayName": {
+          "$ref": "#/definitions/UserProfileDisplayName",
+          "description": "The display name shown for the user in AWS CodeStar projects. For example, this could be set to both first and last name (\"Mary Major\") or a single name (\"Mary\"). The display name is also used to generate the initial icon associated with the user in AWS CodeStar projects. If spaces are included in the display name, the first character that appears after the space will be used as the second character in the user initial icon. The initial icon displays a maximum of two characters, so a display name with more than one space (for example \"Mary Jane Major\") would generate an initial icon using the first character and the first character after the space (\"MJ\", not \"MM\")."
+        },
+        "emailAddress": {
+          "$ref": "#/definitions/Email",
+          "description": "The email address for the user. Optional."
+        },
+        "lastModifiedTimestamp": {
+          "$ref": "#/definitions/LastModifiedTimestamp",
+          "description": "The date and time when the user profile was last modified, in timestamp format."
+        },
+        "sshPublicKey": {
+          "$ref": "#/definitions/SshPublicKey",
+          "description": "The SSH public key associated with the user. This SSH public key is associated with the user profile, and can be used in conjunction with the associated private key for access to project resources, such as Amazon EC2 instances, if a project owner grants remote access to those resources."
+        },
+        "userArn": {
+          "$ref": "#/definitions/UserArn",
+          "description": "The Amazon Resource Name (ARN) of the user."
+        }
+      },
+      "required": [
+        "userArn",
+        "createdTimestamp",
+        "lastModifiedTimestamp"
+      ],
+      "type": "object",
+      "title": "DescribeUserProfileResult"
+    },
+    "DisassociateTeamMemberRequest": {
+      "properties": {
+        "projectId": {
+          "$ref": "#/definitions/ProjectId",
+          "description": "The ID of the AWS CodeStar project from which you want to remove a team member."
+        },
+        "userArn": {
+          "$ref": "#/definitions/UserArn",
+          "description": "The Amazon Resource Name (ARN) of the IAM user or group whom you want to remove from the project."
+        }
+      },
+      "required": [
+        "projectId",
+        "userArn"
+      ],
+      "type": "object",
+      "title": "DisassociateTeamMemberRequest"
+    },
+    "DisassociateTeamMemberResult": {
+      "properties": {},
+      "type": "object",
+      "title": "DisassociateTeamMemberResult"
+    },
+    "Email": {
+      "maxLength": 128,
+      "minLength": 3,
+      "pattern": "^[\\w-.+]+@[\\w-.+]+$",
+      "type": "string",
+      "title": "Email"
+    },
+    "InvalidNextTokenException": {
+      "description": "The next token is not valid.",
+      "properties": {},
+      "type": "object",
+      "title": "InvalidNextTokenException"
+    },
+    "InvalidServiceRoleException": {
+      "description": "The service role is not valid.",
+      "properties": {},
+      "type": "object",
+      "title": "InvalidServiceRoleException"
+    },
+    "LastModifiedTimestamp": {
+      "format": "date-time",
+      "type": "string",
+      "title": "LastModifiedTimestamp"
+    },
+    "LimitExceededException": {
+      "description": "A resource limit has been exceeded.",
+      "properties": {},
+      "type": "object",
+      "title": "LimitExceededException"
+    },
+    "ListProjectsRequest": {
+      "properties": {
+        "maxResults": {
+          "$ref": "#/definitions/MaxResults",
+          "description": "The maximum amount of data that can be contained in a single set of results."
+        },
+        "nextToken": {
+          "$ref": "#/definitions/PaginationToken",
+          "description": "The continuation token to be used to return the next set of results, if the results cannot be returned in one response."
+        }
+      },
+      "type": "object",
+      "title": "ListProjectsRequest"
+    },
+    "ListProjectsResult": {
+      "properties": {
+        "nextToken": {
+          "$ref": "#/definitions/PaginationToken",
+          "description": "The continuation token to use when requesting the next set of results, if there are more results to be returned."
+        },
+        "projects": {
+          "$ref": "#/definitions/ProjectsList",
+          "description": "A list of projects."
+        }
+      },
+      "required": [
+        "projects"
+      ],
+      "type": "object",
+      "title": "ListProjectsResult"
+    },
+    "ListResourcesRequest": {
+      "properties": {
+        "maxResults": {
+          "$ref": "#/definitions/MaxResults",
+          "description": "he maximum amount of data that can be contained in a single set of results."
+        },
+        "nextToken": {
+          "$ref": "#/definitions/PaginationToken",
+          "description": "The continuation token for the next set of results, if the results cannot be returned in one response."
+        },
+        "projectId": {
+          "$ref": "#/definitions/ProjectId",
+          "description": "The ID of the project."
+        }
+      },
+      "required": [
+        "projectId"
+      ],
+      "type": "object",
+      "title": "ListResourcesRequest"
+    },
+    "ListResourcesResult": {
+      "properties": {
+        "nextToken": {
+          "$ref": "#/definitions/PaginationToken",
+          "description": "The continuation token to use when requesting the next set of results, if there are more results to be returned."
+        },
+        "resources": {
+          "$ref": "#/definitions/ResourcesResult",
+          "description": "An array of resources associated with the project. "
+        }
+      },
+      "type": "object",
+      "title": "ListResourcesResult"
+    },
+    "ListTeamMembersRequest": {
+      "properties": {
+        "maxResults": {
+          "$ref": "#/definitions/MaxResults",
+          "description": "The maximum number of team members you want returned in a response."
+        },
+        "nextToken": {
+          "$ref": "#/definitions/PaginationToken",
+          "description": "The continuation token for the next set of results, if the results cannot be returned in one response."
+        },
+        "projectId": {
+          "$ref": "#/definitions/ProjectId",
+          "description": "The ID of the project for which you want to list team members."
+        }
+      },
+      "required": [
+        "projectId"
+      ],
+      "type": "object",
+      "title": "ListTeamMembersRequest"
+    },
+    "ListTeamMembersResult": {
+      "properties": {
+        "nextToken": {
+          "$ref": "#/definitions/PaginationToken",
+          "description": "The continuation token to use when requesting the next set of results, if there are more results to be returned."
+        },
+        "teamMembers": {
+          "$ref": "#/definitions/TeamMemberResult",
+          "description": "A list of team member objects for the project."
+        }
+      },
+      "required": [
+        "teamMembers"
+      ],
+      "type": "object",
+      "title": "ListTeamMembersResult"
+    },
+    "ListUserProfilesRequest": {
+      "properties": {
+        "maxResults": {
+          "$ref": "#/definitions/MaxResults",
+          "description": "The maximum number of results to return in a response."
+        },
+        "nextToken": {
+          "$ref": "#/definitions/PaginationToken",
+          "description": "The continuation token for the next set of results, if the results cannot be returned in one response."
+        }
+      },
+      "type": "object",
+      "title": "ListUserProfilesRequest"
+    },
+    "ListUserProfilesResult": {
+      "properties": {
+        "nextToken": {
+          "$ref": "#/definitions/PaginationToken",
+          "description": "The continuation token to use when requesting the next set of results, if there are more results to be returned."
+        },
+        "userProfiles": {
+          "$ref": "#/definitions/UserProfilesList",
+          "description": "All the user profiles configured in AWS CodeStar for an AWS account."
+        }
+      },
+      "required": [
+        "userProfiles"
+      ],
+      "type": "object",
+      "title": "ListUserProfilesResult"
+    },
+    "MaxResults": {
+      "maximum": 100,
+      "minimum": 1,
+      "type": "integer",
+      "title": "MaxResults"
+    },
+    "PaginationToken": {
+      "maxLength": 256,
+      "minLength": 1,
+      "pattern": "^[\\w/+=]+$",
+      "type": "string",
+      "title": "PaginationToken"
+    },
+    "ProjectAlreadyExistsException": {
+      "description": "An AWS CodeStar project with the same ID already exists in this region for the AWS account. AWS CodeStar project IDs must be unique within a region for the AWS account.",
+      "properties": {},
+      "type": "object",
+      "title": "ProjectAlreadyExistsException"
+    },
+    "ProjectArn": {
+      "pattern": "^arn:aws[^:\\s]*:codestar:[^:\\s]+:[0-9]{12}:project\\/[a-z]([a-z0-9|-])+$",
+      "type": "string",
+      "title": "ProjectArn"
+    },
+    "ProjectConfigurationException": {
+      "description": "Project configuration information is required but not specified.",
+      "properties": {},
+      "type": "object",
+      "title": "ProjectConfigurationException"
+    },
+    "ProjectCreationFailedException": {
+      "description": "The project creation request was valid, but a nonspecific exception or error occurred during project creation. The project could not be created in AWS CodeStar.",
+      "properties": {},
+      "type": "object",
+      "title": "ProjectCreationFailedException"
+    },
+    "ProjectDescription": {
+      "format": "password",
+      "maxLength": 1024,
+      "pattern": "^$|^\\S(.*\\S)?$",
+      "type": "string",
+      "title": "ProjectDescription"
+    },
+    "ProjectId": {
+      "maxLength": 15,
+      "minLength": 2,
+      "pattern": "^[a-z][a-z0-9-]+$",
+      "type": "string",
+      "title": "ProjectId"
+    },
+    "ProjectName": {
+      "format": "password",
+      "maxLength": 100,
+      "minLength": 1,
+      "pattern": "^\\S(.*\\S)?$",
+      "type": "string",
+      "title": "ProjectName"
+    },
+    "ProjectNotFoundException": {
+      "description": "The specified AWS CodeStar project was not found.",
+      "properties": {},
+      "type": "object",
+      "title": "ProjectNotFoundException"
+    },
+    "ProjectSummary": {
+      "description": "Information about the metadata for a project.",
+      "properties": {
+        "projectArn": {
+          "$ref": "#/definitions/ProjectArn",
+          "description": "The Amazon Resource Name (ARN) of the project."
+        },
+        "projectId": {
+          "$ref": "#/definitions/ProjectId",
+          "description": "The ID of the project."
+        }
+      },
+      "type": "object",
+      "title": "ProjectSummary"
+    },
+    "ProjectTemplateId": {
+      "minLength": 1,
+      "pattern": "^arn:aws[^:\\s]{0,5}:codestar:[^:\\s]+::project-template\\/[a-z0-9-]+$",
+      "type": "string",
+      "title": "ProjectTemplateId"
+    },
+    "ProjectsList": {
+      "items": {
+        "$ref": "#/definitions/ProjectSummary"
+      },
+      "type": "array",
+      "title": "ProjectsList"
+    },
+    "RemoteAccessAllowed": {
+      "type": "boolean",
+      "title": "RemoteAccessAllowed"
+    },
+    "Resource": {
+      "description": "Information about a resource for a project.",
+      "properties": {
+        "id": {
+          "$ref": "#/definitions/ResourceId",
+          "description": "The Amazon Resource Name (ARN) of the resource."
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "type": "object",
+      "title": "Resource"
+    },
+    "ResourceId": {
+      "minLength": 11,
+      "pattern": "^arn\\:aws\\:\\S.*\\:.*",
+      "type": "string",
+      "title": "ResourceId"
+    },
+    "ResourcesResult": {
+      "items": {
+        "$ref": "#/definitions/Resource"
+      },
+      "type": "array",
+      "title": "ResourcesResult"
+    },
+    "Role": {
+      "pattern": "^(Owner|Viewer|Contributor)$",
+      "type": "string",
+      "title": "Role"
+    },
+    "SshPublicKey": {
+      "maxLength": 16384,
+      "pattern": "^[\\t\\r\\n\\u0020-\\u00FF]*$",
+      "type": "string",
+      "title": "SshPublicKey"
+    },
+    "StackId": {
+      "pattern": "^arn:aws[^:\\s]*:cloudformation:[^:\\s]+:[0-9]{12}:stack\\/[^:\\s]+\\/[^:\\s]+$",
+      "type": "string",
+      "title": "StackId"
+    },
+    "TeamMember": {
+      "description": "Information about a team member in a project.",
+      "properties": {
+        "projectRole": {
+          "$ref": "#/definitions/Role",
+          "description": "The role assigned to the user in the project. Project roles have different levels of access. For more information, see <a href=\"http://docs.aws.amazon.com/codestar/latest/userguide/working-with-teams.html\">Working with Teams</a> in the AWS CodeStar User Guide. "
+        },
+        "remoteAccessAllowed": {
+          "$ref": "#/definitions/RemoteAccessAllowed",
+          "description": "Whether the user is allowed to remotely access project resources using an SSH public/private key pair."
+        },
+        "userArn": {
+          "$ref": "#/definitions/UserArn",
+          "description": "The Amazon Resource Name (ARN) of the user in IAM."
+        }
+      },
+      "required": [
+        "userArn",
+        "projectRole"
+      ],
+      "type": "object",
+      "title": "TeamMember"
+    },
+    "TeamMemberAlreadyAssociatedException": {
+      "description": "The team member is already associated with a role in this project.",
+      "properties": {},
+      "type": "object",
+      "title": "TeamMemberAlreadyAssociatedException"
+    },
+    "TeamMemberNotFoundException": {
+      "description": "The specified team member was not found.",
+      "properties": {},
+      "type": "object",
+      "title": "TeamMemberNotFoundException"
+    },
+    "TeamMemberResult": {
+      "items": {
+        "$ref": "#/definitions/TeamMember"
+      },
+      "type": "array",
+      "title": "TeamMemberResult"
+    },
+    "UpdateProjectRequest": {
+      "properties": {
+        "description": {
+          "$ref": "#/definitions/ProjectDescription",
+          "description": "The description of the project, if any."
+        },
+        "id": {
+          "$ref": "#/definitions/ProjectId",
+          "description": "The ID of the project you want to update."
+        },
+        "name": {
+          "$ref": "#/definitions/ProjectName",
+          "description": "The name of the project you want to update."
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "type": "object",
+      "title": "UpdateProjectRequest"
+    },
+    "UpdateProjectResult": {
+      "properties": {},
+      "type": "object",
+      "title": "UpdateProjectResult"
+    },
+    "UpdateTeamMemberRequest": {
+      "properties": {
+        "projectId": {
+          "$ref": "#/definitions/ProjectId",
+          "description": "The ID of the project."
+        },
+        "projectRole": {
+          "$ref": "#/definitions/Role",
+          "description": "The role assigned to the user in the project. Project roles have different levels of access. For more information, see <a href=\"http://docs.aws.amazon.com/codestar/latest/userguide/working-with-teams.html\">Working with Teams</a> in the AWS CodeStar User Guide."
+        },
+        "remoteAccessAllowed": {
+          "$ref": "#/definitions/RemoteAccessAllowed",
+          "description": "Whether a team member is allowed to remotely access project resources using the SSH public key associated with the user's profile. Even if this is set to True, the user must associate a public key with their profile before the user can access resources."
+        },
+        "userArn": {
+          "$ref": "#/definitions/UserArn",
+          "description": "The Amazon Resource Name (ARN) of the user for whom you want to change team membership attributes."
+        }
+      },
+      "required": [
+        "projectId",
+        "userArn"
+      ],
+      "type": "object",
+      "title": "UpdateTeamMemberRequest"
+    },
+    "UpdateTeamMemberResult": {
+      "properties": {
+        "projectRole": {
+          "$ref": "#/definitions/Role",
+          "description": "The project role granted to the user."
+        },
+        "remoteAccessAllowed": {
+          "$ref": "#/definitions/RemoteAccessAllowed",
+          "description": "Whether a team member is allowed to remotely access project resources using the SSH public key associated with the user's profile."
+        },
+        "userArn": {
+          "$ref": "#/definitions/UserArn",
+          "description": "The Amazon Resource Name (ARN) of the user whose team membership attributes were updated."
+        }
+      },
+      "type": "object",
+      "title": "UpdateTeamMemberResult"
+    },
+    "UpdateUserProfileRequest": {
+      "properties": {
+        "displayName": {
+          "$ref": "#/definitions/UserProfileDisplayName",
+          "description": "The name that is displayed as the friendly name for the user in AWS CodeStar."
+        },
+        "emailAddress": {
+          "$ref": "#/definitions/Email",
+          "description": "The email address that is displayed as part of the user's profile in AWS CodeStar."
+        },
+        "sshPublicKey": {
+          "$ref": "#/definitions/SshPublicKey",
+          "description": "The SSH public key associated with the user in AWS CodeStar. If a project owner allows the user remote access to project resources, this public key will be used along with the user's private key for SSH access."
+        },
+        "userArn": {
+          "$ref": "#/definitions/UserArn",
+          "description": "The name that will be displayed as the friendly name for the user in AWS CodeStar."
+        }
+      },
+      "required": [
+        "userArn"
+      ],
+      "type": "object",
+      "title": "UpdateUserProfileRequest"
+    },
+    "UpdateUserProfileResult": {
+      "properties": {
+        "createdTimestamp": {
+          "$ref": "#/definitions/CreatedTimestamp",
+          "description": "The date the user profile was created, in timestamp format."
+        },
+        "displayName": {
+          "$ref": "#/definitions/UserProfileDisplayName",
+          "description": "The name that is displayed as the friendly name for the user in AWS CodeStar."
+        },
+        "emailAddress": {
+          "$ref": "#/definitions/Email",
+          "description": "The email address that is displayed as part of the user's profile in AWS CodeStar."
+        },
+        "lastModifiedTimestamp": {
+          "$ref": "#/definitions/LastModifiedTimestamp",
+          "description": "The date the user profile was last modified, in timestamp format."
+        },
+        "sshPublicKey": {
+          "$ref": "#/definitions/SshPublicKey",
+          "description": "The SSH public key associated with the user in AWS CodeStar. This is the public portion of the public/private keypair the user can use to access project resources if a project owner allows the user remote access to those resources."
+        },
+        "userArn": {
+          "$ref": "#/definitions/UserArn",
+          "description": "The Amazon Resource Name (ARN) of the user in IAM."
+        }
+      },
+      "required": [
+        "userArn"
+      ],
+      "type": "object",
+      "title": "UpdateUserProfileResult"
+    },
+    "UserArn": {
+      "maxLength": 95,
+      "minLength": 32,
+      "pattern": "arn:aws:iam::\\d{12}:user\\/[\\w-]+",
+      "type": "string",
+      "title": "UserArn"
+    },
+    "UserProfileAlreadyExistsException": {
+      "description": "A user profile with that name already exists in this region for the AWS account. AWS CodeStar user profile names must be unique within a region for the AWS account. ",
+      "properties": {},
+      "type": "object",
+      "title": "UserProfileAlreadyExistsException"
+    },
+    "UserProfileDisplayName": {
+      "maxLength": 64,
+      "minLength": 1,
+      "pattern": "^\\S(.*\\S)?$",
+      "type": "string",
+      "title": "UserProfileDisplayName"
+    },
+    "UserProfileNotFoundException": {
+      "description": "The user profile was not found.",
+      "properties": {},
+      "type": "object",
+      "title": "UserProfileNotFoundException"
+    },
+    "UserProfileSummary": {
+      "description": "Information about a user's profile in AWS CodeStar.",
+      "properties": {
+        "displayName": {
+          "$ref": "#/definitions/UserProfileDisplayName",
+          "description": "The display name of a user in AWS CodeStar. For example, this could be set to both first and last name (\"Mary Major\") or a single name (\"Mary\"). The display name is also used to generate the initial icon associated with the user in AWS CodeStar projects. If spaces are included in the display name, the first character that appears after the space will be used as the second character in the user initial icon. The initial icon displays a maximum of two characters, so a display name with more than one space (for example \"Mary Jane Major\") would generate an initial icon using the first character and the first character after the space (\"MJ\", not \"MM\")."
+        },
+        "emailAddress": {
+          "$ref": "#/definitions/Email",
+          "description": "The email address associated with the user."
+        },
+        "sshPublicKey": {
+          "$ref": "#/definitions/SshPublicKey",
+          "description": "The SSH public key associated with the user in AWS CodeStar. If a project owner allows the user remote access to project resources, this public key will be used along with the user's private key for SSH access."
+        },
+        "userArn": {
+          "$ref": "#/definitions/UserArn",
+          "description": "The Amazon Resource Name (ARN) of the user in IAM."
+        }
+      },
+      "type": "object",
+      "title": "UserProfileSummary"
+    },
+    "UserProfilesList": {
+      "items": {
+        "$ref": "#/definitions/UserProfileSummary"
+      },
+      "type": "array",
+      "title": "UserProfilesList"
+    },
+    "ValidationException": {
+      "description": "The specified input is either not valid, or it could not be validated.",
+      "properties": {},
+      "type": "object",
+      "title": "ValidationException"
+    }
+  },
+  "actions": [
+    {
+      "id": "AssociateTeamMember",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/AssociateTeamMemberRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/AssociateTeamMemberResult"
+      },
+      "security": {
+        "amazonaws_codestar": {
+          "integration": "amazonaws_codestar"
+        }
+      }
+    },
+    {
+      "id": "CreateProject",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/CreateProjectRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CreateProjectResult"
+      },
+      "security": {
+        "amazonaws_codestar": {
+          "integration": "amazonaws_codestar"
+        }
+      }
+    },
+    {
+      "id": "CreateUserProfile",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/CreateUserProfileRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CreateUserProfileResult"
+      },
+      "security": {
+        "amazonaws_codestar": {
+          "integration": "amazonaws_codestar"
+        }
+      }
+    },
+    {
+      "id": "DeleteProject",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DeleteProjectRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DeleteProjectResult"
+      },
+      "security": {
+        "amazonaws_codestar": {
+          "integration": "amazonaws_codestar"
+        }
+      }
+    },
+    {
+      "id": "DeleteUserProfile",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DeleteUserProfileRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DeleteUserProfileResult"
+      },
+      "security": {
+        "amazonaws_codestar": {
+          "integration": "amazonaws_codestar"
+        }
+      }
+    },
+    {
+      "id": "DescribeProject",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DescribeProjectRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeProjectResult"
+      },
+      "security": {
+        "amazonaws_codestar": {
+          "integration": "amazonaws_codestar"
+        }
+      }
+    },
+    {
+      "id": "DescribeUserProfile",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DescribeUserProfileRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeUserProfileResult"
+      },
+      "security": {
+        "amazonaws_codestar": {
+          "integration": "amazonaws_codestar"
+        }
+      }
+    },
+    {
+      "id": "DisassociateTeamMember",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DisassociateTeamMemberRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DisassociateTeamMemberResult"
+      },
+      "security": {
+        "amazonaws_codestar": {
+          "integration": "amazonaws_codestar"
+        }
+      }
+    },
+    {
+      "id": "ListProjects",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListProjectsRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListProjectsResult"
+      },
+      "security": {
+        "amazonaws_codestar": {
+          "integration": "amazonaws_codestar"
+        }
+      }
+    },
+    {
+      "id": "ListResources",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListResourcesRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListResourcesResult"
+      },
+      "security": {
+        "amazonaws_codestar": {
+          "integration": "amazonaws_codestar"
+        }
+      }
+    },
+    {
+      "id": "ListTeamMembers",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListTeamMembersRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListTeamMembersResult"
+      },
+      "security": {
+        "amazonaws_codestar": {
+          "integration": "amazonaws_codestar"
+        }
+      }
+    },
+    {
+      "id": "ListUserProfiles",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListUserProfilesRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListUserProfilesResult"
+      },
+      "security": {
+        "amazonaws_codestar": {
+          "integration": "amazonaws_codestar"
+        }
+      }
+    },
+    {
+      "id": "UpdateProject",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/UpdateProjectRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UpdateProjectResult"
+      },
+      "security": {
+        "amazonaws_codestar": {
+          "integration": "amazonaws_codestar"
+        }
+      }
+    },
+    {
+      "id": "UpdateTeamMember",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/UpdateTeamMemberRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UpdateTeamMemberResult"
+      },
+      "security": {
+        "amazonaws_codestar": {
+          "integration": "amazonaws_codestar"
+        }
+      }
+    },
+    {
+      "id": "UpdateUserProfile",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/UpdateUserProfileRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UpdateUserProfileResult"
+      },
+      "security": {
+        "amazonaws_codestar": {
+          "integration": "amazonaws_codestar"
+        }
+      }
+    }
+  ],
+  "tags": [
+    "cloud",
+    "aws"
+  ]
+}

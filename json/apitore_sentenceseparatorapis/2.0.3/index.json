@@ -1,0 +1,82 @@
+{
+  "id": "apitore_sentenceseparatorapis",
+  "title": "Sentence separator APIs",
+  "description": "Simple sentence separator.<BR />[Endpoint] https://api.apitore.com/api/17",
+  "security": {},
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apitore_sentenceseparatorapis.jpg"
+  },
+  "actionCount": 1,
+  "definitions": {
+    "SentenceResponseEntity": {
+      "properties": {
+        "endTime": {
+          "description": "End date",
+          "type": "string"
+        },
+        "log": {
+          "description": "Log message",
+          "type": "string"
+        },
+        "processTime": {
+          "description": "Process time [millisecond]",
+          "type": "string"
+        },
+        "sentences": {
+          "description": "Output: sentences",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "startTime": {
+          "description": "Start date",
+          "type": "string"
+        },
+        "text": {
+          "description": "Input: text",
+          "type": "string"
+        }
+      },
+      "required": [
+        "endTime",
+        "log",
+        "processTime",
+        "sentences",
+        "startTime",
+        "text"
+      ],
+      "type": "object",
+      "title": "SentenceResponseEntity"
+    }
+  },
+  "actions": [
+    {
+      "id": "heuristicsUsingGET",
+      "title": "heuristicsUsingGET",
+      "description": "Sentence separator.  \nResponse  \n  Github: [summarize-response](https://github.com/keigohtr/apitore-response-parent/tree/master/summarize-response)  \n  Class: com.apitore.banana.response.summarize.SentenceResponseEntity",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "access_token": {
+            "type": "string",
+            "description": "Access Token"
+          },
+          "text": {
+            "type": "string",
+            "description": "text"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "access_token",
+          "text"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/SentenceResponseEntity"
+      }
+    }
+  ],
+  "tags": []
+}

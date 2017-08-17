@@ -1,0 +1,69 @@
+{
+  "id": "nytimes_times_tags",
+  "title": "TimesTags",
+  "description": "With the TimesTags API, you can mine the riches of the New York Times tag set. The TimesTags service matches your query to the controlled vocabularies that fuel NYTimes.com metadata. You supply a string of characters, and the service returns a ranked list of suggested terms.",
+  "security": {
+    "nytimes_times_tags": {
+      "integration": "nytimes_times_tags",
+      "fields": {
+        "apikey": "API key"
+      }
+    }
+  },
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/nytimes_times_tags.png"
+  },
+  "actionCount": 1,
+  "actions": [
+    {
+      "id": "timestags.json.get",
+      "title": "timestags.json.get",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string",
+            "description": "Your search query"
+          },
+          "filter": {
+            "type": "string",
+            "description": "If you do not specify a value for filter (see the Optional Parameters), your query will be matched to tags in all four Times dictionaries: subject, geographic location, organization and person. To use more than one, separate with commas.\n",
+            "enum": [
+              "Des",
+              "Geo",
+              "Org",
+              "Per"
+            ]
+          },
+          "max": {
+            "type": "integer",
+            "description": "Sets the maximum number of results"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "query"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "type": "array"
+      },
+      "security": {
+        "nytimes_times_tags": {
+          "integration": "nytimes_times_tags"
+        }
+      }
+    }
+  ],
+  "tags": [
+    "media",
+    "open data"
+  ]
+}

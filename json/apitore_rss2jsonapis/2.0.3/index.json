@@ -1,0 +1,144 @@
+{
+  "id": "apitore_rss2jsonapis",
+  "title": "RSS2JSON APIs",
+  "description": "Rss to Json.<BR />[Endpoint] https://api.apitore.com/api/28",
+  "security": {},
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apitore_rss2jsonapis.jpg"
+  },
+  "actionCount": 1,
+  "definitions": {
+    "SyndEntryEntity": {
+      "properties": {
+        "author": {
+          "description": "Author",
+          "type": "string"
+        },
+        "description": {
+          "description": "Description",
+          "type": "string"
+        },
+        "link": {
+          "description": "Link",
+          "type": "string"
+        },
+        "pubDate": {
+          "description": "Published Date",
+          "format": "int64",
+          "type": "integer"
+        },
+        "title": {
+          "description": "Title",
+          "type": "string"
+        }
+      },
+      "required": [
+        "link",
+        "pubDate",
+        "title"
+      ],
+      "type": "object",
+      "title": "SyndEntryEntity"
+    },
+    "SyndFeedResponseEntity": {
+      "properties": {
+        "author": {
+          "description": "Author",
+          "type": "string"
+        },
+        "description": {
+          "description": "Description",
+          "type": "string"
+        },
+        "endTime": {
+          "description": "End date",
+          "type": "string"
+        },
+        "entries": {
+          "description": "Entries",
+          "items": {
+            "$ref": "#/definitions/SyndEntryEntity"
+          },
+          "type": "array"
+        },
+        "link": {
+          "description": "Link",
+          "type": "string"
+        },
+        "log": {
+          "description": "Log message",
+          "type": "string"
+        },
+        "num": {
+          "description": "Num",
+          "format": "int32",
+          "type": "integer"
+        },
+        "processTime": {
+          "description": "Process time [millisecond]",
+          "type": "string"
+        },
+        "pubDate": {
+          "description": "Published Date",
+          "format": "int64",
+          "type": "integer"
+        },
+        "rss": {
+          "description": "Input RSS",
+          "type": "string"
+        },
+        "startTime": {
+          "description": "Start date",
+          "type": "string"
+        },
+        "title": {
+          "description": "Title",
+          "type": "string"
+        }
+      },
+      "required": [
+        "endTime",
+        "entries",
+        "link",
+        "log",
+        "num",
+        "processTime",
+        "pubDate",
+        "rss",
+        "startTime",
+        "title"
+      ],
+      "type": "object",
+      "title": "SyndFeedResponseEntity"
+    }
+  },
+  "actions": [
+    {
+      "id": "rss2jsonUsingGET",
+      "title": "rss2jsonUsingGET",
+      "description": "RSS to Json.  \nResponse  \n  Github: [rome-response](https://github.com/keigohtr/apitore-response-parent/tree/master/rome-response)  \n  Class: com.apitore.banana.response.org.rome.SyndFeedResponseEntity",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "access_token": {
+            "type": "string",
+            "description": "Access Token"
+          },
+          "rss": {
+            "type": "string",
+            "description": "RSS"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "access_token",
+          "rss"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/SyndFeedResponseEntity"
+      }
+    }
+  ],
+  "tags": []
+}
