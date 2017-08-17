@@ -7735,7 +7735,7 @@
       "email",
       "google"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "2.1.0"
   },
   "google_groupsmigration": {
     "id": "google_groupsmigration",
