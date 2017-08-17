@@ -13,6 +13,11 @@ module.exports.addAction('buildMessage', new datafire.Action({
       body: {type: 'string', default: ''},
     }
   },
+  outputSchema: {
+    title: 'encodedMessage',
+    type: 'string',
+    description: "RFC 2822 formatted and base64url encoded message"
+  },
   handler: (input, context) => {
     let message = `
 
