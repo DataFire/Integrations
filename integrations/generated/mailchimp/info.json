@@ -1,5 +1,6 @@
 {
   "title": "MailChimp",
+  "description": "Create plugins that connect MailChimp to your CMS, your blog, your e-commerce shopping cart, and more.",
   "logo": {
     "url": "http://static.mailchimp.com/web/brand-assets/Freddie_OG.jpg"
   }
