@@ -1,0 +1,611 @@
+{
+  "id": "redmine",
+  "title": "Redmine API",
+  "description": "Redmine exposes some of its data through a REST API. This API provides \naccess and basic CRUD operations (create, update, delete) for the resources \ndescribed below. The API supports both XML and JSON formats.\n",
+  "security": {
+    "redmine": {
+      "integration": "redmine",
+      "fields": {
+        "api_key": "API key",
+        "host": "The host for your Redmine server, e.g. https://redmine.acme.com"
+      }
+    }
+  },
+  "actionCount": 12,
+  "definitions": {
+    "Issue": {
+      "type": "object",
+      "required": [
+        "id",
+        "project",
+        "tracker",
+        "status",
+        "priority",
+        "author",
+        "subject",
+        "description",
+        "start_date",
+        "done_ratio",
+        "created_on",
+        "updated_on"
+      ],
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "project": {
+          "$ref": "#/definitions/IdName"
+        },
+        "tracker": {
+          "$ref": "#/definitions/IdName"
+        },
+        "status": {
+          "$ref": "#/definitions/IdName"
+        },
+        "priority": {
+          "$ref": "#/definitions/IdName"
+        },
+        "author": {
+          "$ref": "#/definitions/IdName"
+        },
+        "subject": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "start_date": {
+          "type": "string"
+        },
+        "done_ratio": {
+          "type": "string"
+        },
+        "created_on": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updated_on": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "title": "Issue"
+    },
+    "IdName": {
+      "type": "object",
+      "required": [
+        "id",
+        "name"
+      ],
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "title": "IdName"
+    },
+    "Project": {
+      "type": "object",
+      "required": [
+        "id",
+        "name",
+        "identifier",
+        "description",
+        "status",
+        "created_on",
+        "updated_on"
+      ],
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "integer"
+        },
+        "identifier": {
+          "type": "integer"
+        },
+        "description": {
+          "type": "integer"
+        },
+        "status": {
+          "type": "integer"
+        },
+        "is_public": {
+          "type": "boolean"
+        },
+        "trackers": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "issue_categories": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "created_on": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updated_on": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "title": "Project"
+    }
+  },
+  "actions": [
+    {
+      "id": "issues.json.get",
+      "title": "GET /issues.json",
+      "description": "Returns a paginated list of issues. By default, it returns open issues only.  \nNB: operators containing \">\", \"<\" or \"=\" should be hex-encoded so they're parsed correctly. Most evolved API clients will do that for you by default, but for the sake of clarity the following examples have been written with no such magic feature in mind.\n",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "description": "skip this number of issues in response (optional)\n"
+          },
+          "limit": {
+            "type": "integer",
+            "description": "number of issues per page (optional)"
+          },
+          "sort": {
+            "type": "string",
+            "description": "column to sort with. Append :desc to invert the order."
+          },
+          "project_id": {
+            "type": "integer",
+            "description": "get issues from the project with the given id (a numeric value, not a project identifier)."
+          },
+          "subproject_id": {
+            "type": "string",
+            "description": "get issues from the subproject with the given id. You can use project_id=XXX&subproject_id=!* to get only the issues of a given project and none of its subprojects."
+          },
+          "tracker_id": {
+            "type": "integer",
+            "description": "get issues from the tracker with the given id"
+          },
+          "status_id": {
+            "type": "string",
+            "description": "get issues with the given status id only. Possible values: open, closed, * to get open and closed issues, status id"
+          },
+          "assigned_to_id": {
+            "type": "string",
+            "description": "get issues which are assigned to the given user id. me can be used instead an ID to fetch all issues from the logged in user (via API key or HTTP auth)"
+          },
+          "cf_x": {
+            "type": "string",
+            "description": "get issues with the given value for custom field with an ID of x. (Custom field must have 'used as a filter' checked.)"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object",
+        "required": [
+          "issues",
+          "total_count",
+          "offset",
+          "limit"
+        ],
+        "properties": {
+          "issues": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/Issue"
+            }
+          },
+          "total_count": {
+            "type": "integer"
+          },
+          "offset": {
+            "type": "integer"
+          },
+          "limit": {
+            "type": "integer"
+          }
+        }
+      },
+      "security": {
+        "redmine": {
+          "integration": "redmine"
+        }
+      }
+    },
+    {
+      "id": "issues.json.post",
+      "title": "POST /issues.json",
+      "description": "|aa|bb|\n|--|--|\n|aa|bb|\n\nCreating an issue\n",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "BodyJson": {
+            "title": "schematitle",
+            "description": "\nschemadescription\n\n|aa|bb|\n|--|--|\n|aa|bb|\n",
+            "externalDocs": {
+              "description": "aaaa",
+              "url": "http://www.google.com"
+            },
+            "type": "object",
+            "required": [
+              "issue"
+            ],
+            "properties": {
+              "issue": {
+                "title": "titleissue",
+                "description": "\nissuedescription\n\n|aa|bb|cc|\n|--|--|--|\n|aa|bb|cc|\n",
+                "externalDocs": {
+                  "description": "issueextention",
+                  "url": "http://www.google.com"
+                },
+                "type": "object",
+                "required": [
+                  "project_id",
+                  "tracker_id",
+                  "status_id"
+                ],
+                "properties": {
+                  "project_id": {
+                    "type": "integer",
+                    "default": 2
+                  },
+                  "tracker_id": {
+                    "type": "integer"
+                  },
+                  "status_id": {
+                    "type": "string"
+                  },
+                  "priority_id": {
+                    "type": "integer"
+                  },
+                  "subject": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "category_id": {
+                    "type": "integer"
+                  },
+                  "fixed_version_id": {
+                    "type": "string",
+                    "description": "'ID of the Target Versions (previously called 'Fixed Version' and still referred to as such in the API)'\n"
+                  },
+                  "assigned_to_id": {
+                    "type": "string",
+                    "description": "'ID of the user to assign the issue to (currently no mechanism to assign by name)'\n"
+                  },
+                  "parent_issue_id": {
+                    "type": "string",
+                    "description": "'ID of the parent issue'\n"
+                  },
+                  "custom_fields": {
+                    "type": "string",
+                    "description": "'See Custom fields'\n"
+                  },
+                  "watcher_user_ids": {
+                    "type": "string",
+                    "description": "'Array of user ids to add as watchers (since 2.3.0)'\n"
+                  },
+                  "is_private": {
+                    "type": "boolean",
+                    "enum": [
+                      false,
+                      true
+                    ],
+                    "description": "'Use true or false to indicate whether the issue is private or not'\n"
+                  },
+                  "estimated_hours": {
+                    "type": "string",
+                    "description": "'Number of hours estimated for issue'\n"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {},
+      "security": {
+        "redmine": {
+          "integration": "redmine"
+        }
+      }
+    },
+    {
+      "id": "issues.issue_id.json.get",
+      "title": "GET /issues/{issue_id}.json",
+      "description": "Showing an issue",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "issue_id": {
+            "type": "number",
+            "description": "The user identifier number"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "issue_id"
+        ]
+      },
+      "outputSchema": {
+        "type": "object",
+        "required": [
+          "issue"
+        ],
+        "properties": {
+          "issue": {
+            "$ref": "#/definitions/Issue"
+          }
+        }
+      },
+      "security": {
+        "redmine": {
+          "integration": "redmine"
+        }
+      }
+    },
+    {
+      "id": "issues.issue_id.json.put",
+      "title": "PUT /issues/{issue_id}.json",
+      "description": "Updating an issue",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "issue_id": {
+            "type": "number",
+            "description": "The user identifier number"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "issue_id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "redmine": {
+          "integration": "redmine"
+        }
+      }
+    },
+    {
+      "id": "issues.issue_id.json.delete",
+      "title": "DELETE /issues/{issue_id}.json",
+      "description": "Deleting an issue",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "issue_id": {
+            "type": "number",
+            "description": "The user identifier number"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "issue_id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "redmine": {
+          "integration": "redmine"
+        }
+      }
+    },
+    {
+      "id": "issues.issue_id.watchers.json.post",
+      "title": "POST /issues/{issue_id}/watchers.json",
+      "description": "Adding a watcher",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "BodyJson": {
+            "type": "object",
+            "required": [
+              "user_id"
+            ],
+            "properties": {
+              "user_id": {
+                "type": "string",
+                "description": "id of the user to add as a watcher"
+              }
+            }
+          },
+          "issue_id": {
+            "type": "number",
+            "description": "The user identifier number"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "issue_id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "redmine": {
+          "integration": "redmine"
+        }
+      }
+    },
+    {
+      "id": "issues.issue_id.watchers.user_id.json.delete",
+      "title": "DELETE /issues/{issue_id}/watchers/{user_id}.json",
+      "description": "Removing a watcher",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "issue_id": {
+            "type": "number",
+            "description": "The user identifier number"
+          },
+          "user_id": {
+            "type": "number",
+            "description": "The user identifier number"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "issue_id",
+          "user_id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "redmine": {
+          "integration": "redmine"
+        }
+      }
+    },
+    {
+      "id": "projects.json.get",
+      "title": "GET /projects.json",
+      "description": "Returns all projects (all public projects and private projects where user have access to)",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "include": {
+            "type": "string",
+            "description": "fetch associated data (optional). Possible values: trackers, issue_categories, enabled_modules (since 2.6.0).\nValues should be separated by a comma \",\".\n"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object",
+        "required": [
+          "projects",
+          "offset",
+          "limit"
+        ],
+        "properties": {
+          "projects": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/Project"
+            }
+          },
+          "total_count": {
+            "type": "integer"
+          },
+          "offset": {
+            "type": "integer"
+          },
+          "limit": {
+            "type": "integer"
+          }
+        }
+      },
+      "security": {
+        "redmine": {
+          "integration": "redmine"
+        }
+      }
+    },
+    {
+      "id": "projects.json.post",
+      "title": "POST /projects.json",
+      "description": "Creates a the project.",
+      "inputSchema": {},
+      "outputSchema": {},
+      "security": {
+        "redmine": {
+          "integration": "redmine"
+        }
+      }
+    },
+    {
+      "id": "projects.project_id.json.get",
+      "title": "GET /projects/{project_id}.json",
+      "description": "Returns the project of given id or identifier.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "project_id": {
+            "type": "string",
+            "description": "The user identifier number"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "project_id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "redmine": {
+          "integration": "redmine"
+        }
+      }
+    },
+    {
+      "id": "projects.project_id.json.put",
+      "title": "PUT /projects/{project_id}.json",
+      "description": "Updates the project of given id or identifier.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "project_id": {
+            "type": "string",
+            "description": "The user identifier number"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "project_id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "redmine": {
+          "integration": "redmine"
+        }
+      }
+    },
+    {
+      "id": "projects.project_id.json.delete",
+      "title": "DELETE /projects/{project_id}.json",
+      "description": "Deletes the project of given id or identifier.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "project_id": {
+            "type": "string",
+            "description": "The user identifier number"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "project_id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "redmine": {
+          "integration": "redmine"
+        }
+      }
+    }
+  ],
+  "tags": []
+}

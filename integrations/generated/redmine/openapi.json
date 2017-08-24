@@ -1,0 +1,707 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "3.3",
+    "title": "Redmine API",
+    "description": "Redmine exposes some of its data through a REST API. This API provides \naccess and basic CRUD operations (create, update, delete) for the resources \ndescribed below. The API supports both XML and JSON formats.\n"
+  },
+  "basePath": "/",
+  "schemes": [
+    "http"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "externalDocs": {
+    "description": "Redmine Rest API Reference",
+    "url": "http://www.redmine.org/projects/redmine/wiki/Rest_api"
+  },
+  "tags": [
+    {
+      "name": "Issues",
+      "description": "Status : Stable, Note : , Availlability : 1.0"
+    },
+    {
+      "name": "Projects",
+      "description": "Status : Stable, Note : , Availlability : 1.0"
+    }
+  ],
+  "securityDefinitions": {
+    "api_key": {
+      "type": "apiKey",
+      "in": "header",
+      "name": "X-Redmine-API-Key"
+    }
+  },
+  "security": [
+    {
+      "api_key": []
+    }
+  ],
+  "paths": {
+    "/issues.json": {
+      "parameters": [
+      ],
+      "get": {
+        "tags": [
+          "Issues"
+        ],
+        "summary": "Listing issues",
+        "description": "Returns a paginated list of issues. By default, it returns open issues only.  \nNB: operators containing \">\", \"<\" or \"=\" should be hex-encoded so they're parsed correctly. Most evolved API clients will do that for you by default, but for the sake of clarity the following examples have been written with no such magic feature in mind.\n",
+        "parameters": [
+          {
+            "name": "offset",
+            "in": "query",
+            "description": "skip this number of issues in response (optional)\n",
+            "type": "integer",
+            "allowEmptyValue": true
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "number of issues per page (optional)",
+            "type": "integer"
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "description": "column to sort with. Append :desc to invert the order.",
+            "type": "string",
+            "collectionFormat": "csv"
+          },
+          {
+            "name": "project_id",
+            "in": "query",
+            "description": "get issues from the project with the given id (a numeric value, not a project identifier).",
+            "type": "integer"
+          },
+          {
+            "name": "subproject_id",
+            "in": "query",
+            "description": "get issues from the subproject with the given id. You can use project_id=XXX&subproject_id=!* to get only the issues of a given project and none of its subprojects.",
+            "type": "string"
+          },
+          {
+            "name": "tracker_id",
+            "in": "query",
+            "description": "get issues from the tracker with the given id",
+            "type": "integer"
+          },
+          {
+            "name": "status_id",
+            "in": "query",
+            "description": "get issues with the given status id only. Possible values: open, closed, * to get open and closed issues, status id",
+            "type": "string"
+          },
+          {
+            "name": "assigned_to_id",
+            "in": "query",
+            "description": "get issues which are assigned to the given user id. me can be used instead an ID to fetch all issues from the logged in user (via API key or HTTP auth)",
+            "type": "string"
+          },
+          {
+            "name": "cf_x",
+            "in": "query",
+            "description": "get issues with the given value for custom field with an ID of x. (Custom field must have 'used as a filter' checked.)",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success\n",
+            "schema": {
+              "type": "object",
+              "required": [
+                "issues",
+                "total_count",
+                "offset",
+                "limit"
+              ],
+              "properties": {
+                "issues": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/Issue"
+                  }
+                },
+                "total_count": {
+                  "type": "integer"
+                },
+                "offset": {
+                  "type": "integer"
+                },
+                "limit": {
+                  "type": "integer"
+                }
+              }
+            },
+            "examples": {
+              "application/json": {
+                "issues": [
+                  {
+                    "id": 23359,
+                    "project": {
+                      "id": 1,
+                      "name": "Redmine"
+                    },
+                    "tracker": {
+                      "id": 3,
+                      "name": "Patch"
+                    },
+                    "status": {
+                      "id": 1,
+                      "name": "New"
+                    },
+                    "priority": {
+                      "id": 4,
+                      "name": "Normal"
+                    },
+                    "author": {
+                      "id": 332,
+                      "name": "Go MAEDA"
+                    },
+                    "category": {
+                      "id": 12,
+                      "name": "Translations"
+                    },
+                    "subject": "Change Japanese translation for label_commits_per_author",
+                    "description": "I suggest changing the translation for label_commits_per_author from \"起票者別のコミット\" to \"作成者別のコミット\".\r\n\r\nJapanese translation for field_author has been changed from \"起票者\" to \"作成者\" by #2798. But the word \"起票者\" is still used in label_commits_per_author. I think it should be changed to \"作成者\" for consistency.",
+                    "done_ratio": 0,
+                    "created_on": "2016-07-18T12:13:59Z",
+                    "updated_on": "2016-07-18T12:13:59Z"
+                  },
+                  {
+                    "id": 23357,
+                    "project": {
+                      "id": 1,
+                      "name": "Redmine"
+                    },
+                    "tracker": {
+                      "id": 1,
+                      "name": "Defect"
+                    },
+                    "status": {
+                      "id": 10,
+                      "name": "Needs feedback"
+                    },
+                    "priority": {
+                      "id": 5,
+                      "name": "High"
+                    },
+                    "author": {
+                      "id": 115781,
+                      "name": "Sebastian Paluch"
+                    },
+                    "category": {
+                      "id": 9,
+                      "name": "Email notifications"
+                    },
+                    "subject": "Broken links in email notification",
+                    "description": "It seems that Redmine version 3.3.0 has broken links generation in email notifications for news (at least), with 3.2.0 noone was reporting such problem.\r\n\r\nI have a news publish that includes following description:\r\n\r\n<pre>\r\nNew software version#1267 has been released. It is ...\r\n\r\n{{include(myproject:100-0_Alpha_2_(rev_93029))}}\r\n\r\nh3. Feel free to report new issues\r\n\r\n* \"myproject\":/redmine/projects/myproject/issues/new\r\n</pre>\r\n\r\nIn email notification \r\n* the first link to version#1267 has been generated correctly, \r\n* the last one is missing server name that should be added automatically: \r\nhttp://redmine/projects/myproject/issues/new but should be http://host/redmine/projects/myproject/issues/new\r\n\r\nIncluded wiki (myproject:100-0_Alpha_2_(rev_93029)) is in different project then the news and includes:\r\n\r\n<pre>\r\nh3. Requirements\r\n\r\n* Service Pack version#1272 or newer\r\n\r\n{{include(myproject:Update_Instruction)}}\r\n\r\n...\r\n\r\n</pre>\r\n\r\nIn email notification \r\n* the link to version#1272 has been generated wrong, it is missing server name: \r\nhttp://redmine/versions/1272 but should be http://host/redmine/versions/1272\r\n\r\n\r\nIncluded wiki (myproject:Update_Instruction) is in different project then the news and includes:\r\n\r\n<pre>\r\nh3. Download\r\n\r\nAll pre-production software releases are available on the \"shared network location\":file://host\\full\\path\\to\\directory. \r\n\r\n...\r\n\r\n</pre>\r\n\r\nIn email notification \r\n* the link to \"shared network location\" has been generated wrong, all \"\\\" has been replaced with a code %5: \r\nfile://\\\\host%5full%5path%5to%5directory\r\nthe link does not work and for some reason, it is not even possible to copy it from Outlook into clipboard\r\n\r\n<pre>\r\nEnvironment:\r\n  Redmine version                3.3.0.stable\r\n  Ruby version                   2.1.8-p440 (2015-12-16) [i386-mingw32]\r\n  Rails version                  4.2.6\r\n  Environment                    production\r\n  Database adapter               Mysql2\r\nSCM:\r\n  Subversion                     1.8.11\r\n  Git                            2.7.4\r\n  Filesystem                     \r\nRedmine plugins:\r\n  computed_custom_field          0.0.2\r\n  inside_avatar                  1.0.2\r\n  issue_filters                  1.0.1\r\n  redmine_agile                  1.4.1-3\r\n  redmine_checklists             3.1.1-1\r\n  redmine_custom_columns         1.1.0\r\n  redmine_favorite_projects      2.0.2-2\r\n  redmine_version_fixed_issues   1.0.1\r\n  sidebar_hide                   0.0.7\r\n</pre>",
+                    "done_ratio": 0,
+                    "custom_fields": [
+                      {
+                        "id": 2,
+                        "name": "Resolution",
+                        "value": ""
+                      },
+                      {
+                        "id": 4,
+                        "name": "Affected version",
+                        "value": "110"
+                      }
+                    ],
+                    "created_on": "2016-07-18T10:53:45Z",
+                    "updated_on": "2016-07-18T12:14:17Z"
+                  }
+                ],
+                "total_count": 4579,
+                "offset": 0,
+                "limit": 2
+              },
+              "application/xml": "<issues total_count=\"4579\" offset=\"0\" limit=\"2\" type=\"array\">\n  <issue>\n    <id>23359</id>\n    <project id=\"1\" name=\"Redmine\"/>\n    <tracker id=\"3\" name=\"Patch\"/>\n    <status id=\"1\" name=\"New\"/>\n    <priority id=\"4\" name=\"Normal\"/>\n    <author id=\"332\" name=\"Go MAEDA\"/>\n    <category id=\"12\" name=\"Translations\"/>\n    <subject>\n    Change Japanese translation for label_commits_per_author\n    </subject>\n    <description>\n    </description>\n    <start_date/>\n    <due_date/>\n    <done_ratio>0</done_ratio>\n    <estimated_hours/>\n    <created_on>2016-07-18T12:13:59Z</created_on>\n    <updated_on>2016-07-18T12:13:59Z</updated_on>\n    <closed_on/>\n  </issue>\n  <issue>\n    <id>23357</id>\n    <project id=\"1\" name=\"Redmine\"/>\n    <tracker id=\"1\" name=\"Defect\"/>\n    <status id=\"10\" name=\"Needs feedback\"/>\n    <priority id=\"5\" name=\"High\"/>\n    <author id=\"115781\" name=\"Sebastian Paluch\"/>\n    <category id=\"9\" name=\"Email notifications\"/>\n    <subject>Broken links in email notification</subject>\n    <description>\n    </description>\n    <start_date/>\n    <due_date/>\n    <done_ratio>0</done_ratio>\n    <estimated_hours/>\n    <custom_fields type=\"array\">\n    <custom_field id=\"2\" name=\"Resolution\">\n    <value/>\n    </custom_field>\n    <custom_field id=\"4\" name=\"Affected version\">\n    <value>110</value>\n    </custom_field>\n    </custom_fields>\n    <created_on>2016-07-18T10:53:45Z</created_on>\n    <updated_on>2016-07-18T12:14:17Z</updated_on>\n    <closed_on/>\n  </issue>\n</issues>\n"
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Issues"
+        ],
+        "summary": "Creating an issue",
+        "description": "|aa|bb|\n|--|--|\n|aa|bb|\n\nCreating an issue\n",
+        "externalDocs": {
+          "description": "aaaa",
+          "url": "http://www.google.com"
+        },
+        "parameters": [
+          {
+            "in": "body",
+            "name": "BodyJson",
+            "description": "bodyJsondescription\n\n|aa|bb|\n|--|--|\n|aa|bb|\n",
+            "schema": {
+              "title": "schematitle",
+              "description": "\nschemadescription\n\n|aa|bb|\n|--|--|\n|aa|bb|\n",
+              "externalDocs": {
+                "description": "aaaa",
+                "url": "http://www.google.com"
+              },
+              "type": "object",
+              "required": [
+                "issue"
+              ],
+              "properties": {
+                "issue": {
+                  "title": "titleissue",
+                  "description": "\nissuedescription\n\n|aa|bb|cc|\n|--|--|--|\n|aa|bb|cc|\n",
+                  "externalDocs": {
+                    "description": "issueextention",
+                    "url": "http://www.google.com"
+                  },
+                  "type": "object",
+                  "required": [
+                    "project_id",
+                    "tracker_id",
+                    "status_id"
+                  ],
+                  "properties": {
+                    "project_id": {
+                      "type": "integer",
+                      "default": 2
+                    },
+                    "tracker_id": {
+                      "type": "integer"
+                    },
+                    "status_id": {
+                      "type": "string"
+                    },
+                    "priority_id": {
+                      "type": "integer"
+                    },
+                    "subject": {
+                      "type": "string"
+                    },
+                    "description": {
+                      "type": "string"
+                    },
+                    "category_id": {
+                      "type": "integer"
+                    },
+                    "fixed_version_id": {
+                      "type": "string",
+                      "description": "'ID of the Target Versions (previously called 'Fixed Version' and still referred to as such in the API)'\n"
+                    },
+                    "assigned_to_id": {
+                      "type": "string",
+                      "description": "'ID of the user to assign the issue to (currently no mechanism to assign by name)'\n"
+                    },
+                    "parent_issue_id": {
+                      "type": "string",
+                      "description": "'ID of the parent issue'\n"
+                    },
+                    "custom_fields": {
+                      "type": "string",
+                      "description": "'See Custom fields'\n"
+                    },
+                    "watcher_user_ids": {
+                      "type": "string",
+                      "description": "'Array of user ids to add as watchers (since 2.3.0)'\n"
+                    },
+                    "is_private": {
+                      "type": "boolean",
+                      "enum": [
+                        false,
+                        true
+                      ],
+                      "description": "'Use true or false to indicate whether the issue is private or not'\n"
+                    },
+                    "estimated_hours": {
+                      "type": "string",
+                      "description": "'Number of hours estimated for issue'\n"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/issues/{issue_id}.json": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/issue_id"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Issues"
+        ],
+        "summary": "Showing an issue",
+        "responses": {
+          "200": {
+            "schema": {
+              "type": "object",
+              "required": [
+                "issue"
+              ],
+              "properties": {
+                "issue": {
+                  "$ref": "#/definitions/Issue"
+                }
+              }
+            },
+            "description": "Success"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Issues"
+        ],
+        "summary": "Updating an issue",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Issues"
+        ],
+        "summary": "Deleting an issue",
+        "responses": {
+          "200": {
+            "headers": {
+              "X-dummy": {
+                "type": "string"
+              }
+            },
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/issues/{issue_id}/watchers.json": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/issue_id"
+        }
+      ],
+      "post": {
+        "tags": [
+          "Issues"
+        ],
+        "summary": "Adding a watcher",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "BodyJson",
+            "description": "user_id",
+            "schema": {
+              "type": "object",
+              "required": [
+                "user_id"
+              ],
+              "properties": {
+                "user_id": {
+                  "type": "string",
+                  "description": "id of the user to add as a watcher"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/issues/{issue_id}/watchers/{user_id}.json": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/issue_id"
+        },
+        {
+          "$ref": "#/parameters/user_id"
+        }
+      ],
+      "delete": {
+        "tags": [
+          "Issues"
+        ],
+        "summary": "Removing a watcher",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/projects.json": {
+      "parameters": [
+      ],
+      "get": {
+        "tags": [
+          "Projects"
+        ],
+        "summary": "Listing projects",
+        "description": "Returns all projects (all public projects and private projects where user have access to)",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "include",
+            "required": false,
+            "description": "fetch associated data (optional). Possible values: trackers, issue_categories, enabled_modules (since 2.6.0).\nValues should be separated by a comma \",\".\n",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "object",
+              "required": [
+                "projects",
+                "offset",
+                "limit"
+              ],
+              "properties": {
+                "projects": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/Project"
+                  }
+                },
+                "total_count": {
+                  "type": "integer"
+                },
+                "offset": {
+                  "type": "integer"
+                },
+                "limit": {
+                  "type": "integer"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Projects"
+        ],
+        "summary": "Creating a project",
+        "description": "Creates a the project.",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/projects/{project_id}.json": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/project_id"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Projects"
+        ],
+        "summary": "Showing a project",
+        "description": "Returns the project of given id or identifier.",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Projects"
+        ],
+        "summary": "Updating a project",
+        "description": "Updates the project of given id or identifier.",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Projects"
+        ],
+        "summary": "Deleting a project",
+        "description": "Deletes the project of given id or identifier.",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    }
+  },
+  "parameters": {
+    "issue_id": {
+      "name": "issue_id",
+      "in": "path",
+      "description": "The user identifier number",
+      "type": "number",
+      "required": true
+    },
+    "user_id": {
+      "name": "user_id",
+      "in": "path",
+      "description": "The user identifier number",
+      "type": "number",
+      "required": true
+    },
+    "project_id": {
+      "name": "project_id",
+      "in": "path",
+      "description": "The user identifier number",
+      "type": "string",
+      "required": true
+    }
+  },
+  "definitions": {
+    "Issue": {
+      "type": "object",
+      "required": [
+        "id",
+        "project",
+        "tracker",
+        "status",
+        "priority",
+        "author",
+        "subject",
+        "description",
+        "start_date",
+        "done_ratio",
+        "created_on",
+        "updated_on"
+      ],
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "project": {
+          "$ref": "#/definitions/IdName"
+        },
+        "tracker": {
+          "$ref": "#/definitions/IdName"
+        },
+        "status": {
+          "$ref": "#/definitions/IdName"
+        },
+        "priority": {
+          "$ref": "#/definitions/IdName"
+        },
+        "author": {
+          "$ref": "#/definitions/IdName"
+        },
+        "subject": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "start_date": {
+          "type": "string"
+        },
+        "done_ratio": {
+          "type": "string"
+        },
+        "created_on": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updated_on": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "IdName": {
+      "type": "object",
+      "required": [
+        "id",
+        "name"
+      ],
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        }
+      }
+    },
+    "Project": {
+      "type": "object",
+      "required": [
+        "id",
+        "name",
+        "identifier",
+        "description",
+        "status",
+        "created_on",
+        "updated_on"
+      ],
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "integer"
+        },
+        "identifier": {
+          "type": "integer"
+        },
+        "description": {
+          "type": "integer"
+        },
+        "status": {
+          "type": "integer"
+        },
+        "is_public": {
+          "type": "boolean"
+        },
+        "trackers": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "issue_categories": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "created_on": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updated_on": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    }
+  }
+}
