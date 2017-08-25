@@ -1,0 +1,22 @@
+{
+  "name": "@datafire/redmine",
+  "version": "2.0.0",
+  "main": "index.js",
+  "description": "DataFire integration for Redmine",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DataFire/integrations.git"
+  },
+  "author": "DataFire",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DataFire/integrations/issues"
+  },
+  "homepage": "https://github.com/DataFire/integrations#readme",
+  "datafire": {
+    "type": "openapi"
+  },
+  "dependencies": {
+    "datafire": "^2.14.0"
+  }
+}

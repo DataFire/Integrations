@@ -12790,5 +12790,22 @@
     },
     "actionCount": 1,
     "latestVersion": "1.0.0"
+  },
+  "redmine": {
+    "id": "redmine",
+    "title": "Redmine API",
+    "description": "Redmine exposes some of its data through a REST API. This API provides ",
+    "security": {
+      "redmine": {
+        "integration": "redmine",
+        "fields": {
+          "api_key": "API key",
+          "host": "The host for your Redmine server, e.g. https://redmine.acme.com"
+        }
+      }
+    },
+    "actionCount": 12,
+    "tags": [],
+    "latestVersion": "2.0.0"
   }
 }
