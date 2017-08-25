@@ -19,13 +19,15 @@
             "type": "string"
           },
           "query": {
-            "type": "object"
+            "type": "object",
+            "additionalProperties": true
           },
           "body": {
             "type": "string"
           },
           "headers": {
-            "type": "object"
+            "type": "object",
+            "additionalProperties": true
           },
           "method": {
             "type": "string",
@@ -58,13 +60,15 @@
             "type": "string"
           },
           "query": {
-            "type": "object"
+            "type": "object",
+            "additionalProperties": true
           },
           "body": {
             "type": "string"
           },
           "headers": {
-            "type": "object"
+            "type": "object",
+            "additionalProperties": true
           }
         }
       },
@@ -81,13 +85,15 @@
             "type": "string"
           },
           "query": {
-            "type": "object"
+            "type": "object",
+            "additionalProperties": true
           },
           "body": {
             "type": "string"
           },
           "headers": {
-            "type": "object"
+            "type": "object",
+            "additionalProperties": true
           }
         }
       },
@@ -104,13 +110,15 @@
             "type": "string"
           },
           "query": {
-            "type": "object"
+            "type": "object",
+            "additionalProperties": true
           },
           "body": {
             "type": "string"
           },
           "headers": {
-            "type": "object"
+            "type": "object",
+            "additionalProperties": true
           }
         }
       },
@@ -127,13 +135,15 @@
             "type": "string"
           },
           "query": {
-            "type": "object"
+            "type": "object",
+            "additionalProperties": true
           },
           "body": {
             "type": "string"
           },
           "headers": {
-            "type": "object"
+            "type": "object",
+            "additionalProperties": true
           }
         }
       },
@@ -150,13 +160,15 @@
             "type": "string"
           },
           "query": {
-            "type": "object"
+            "type": "object",
+            "additionalProperties": true
           },
           "body": {
             "type": "string"
           },
           "headers": {
-            "type": "object"
+            "type": "object",
+            "additionalProperties": true
           }
         }
       },
@@ -173,13 +185,15 @@
             "type": "string"
           },
           "query": {
-            "type": "object"
+            "type": "object",
+            "additionalProperties": true
           },
           "body": {
             "type": "string"
           },
           "headers": {
-            "type": "object"
+            "type": "object",
+            "additionalProperties": true
           }
         }
       },
@@ -196,13 +210,15 @@
             "type": "string"
           },
           "query": {
-            "type": "object"
+            "type": "object",
+            "additionalProperties": true
           },
           "body": {
             "type": "string"
           },
           "headers": {
-            "type": "object"
+            "type": "object",
+            "additionalProperties": true
           }
         }
       },

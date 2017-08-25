@@ -12,9 +12,9 @@ const METHODS = ['get', 'put', 'post', 'patch', 'delete', 'options', 'head'];
 
 const schemaProps = {
   url: {type: 'string'},
-  query: {type: 'object'},
+  query: {type: 'object', additionalProperties: true},
   body: {type: 'string'},
-  headers: {type: 'object'},
+  headers: {type: 'object', additionalProperties: true},
 }
 const reqSchemaProps = Object.assign({}, schemaProps);
 reqSchemaProps.method = {
