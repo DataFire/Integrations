@@ -3,34 +3,61 @@
 let datafire = require('datafire');
 let request = require('request');
 
+const METHODS = ['get', 'put', 'post', 'patch', 'delete', 'options', 'head'];
+const BODY_METHODS = ['put', 'post', 'patch'];
+
+let definitions = {
+  Response: {
+    type: 'object',
+    properties: {
+      statusCode: {type: 'integer'},
+      headers: {
+        type: 'object',
+        additionalProperties: true,
+      },
+      body: {type: 'string'},
+    }
+  },
+  Request: {
+    type: 'object',
+    required: ['url'],
+    properties: {
+      url: {type: 'string'},
+      query: {type: 'object', additionalProperties: true},
+      headers: {type: 'object', additionalProperties: true},
+    }
+  },
+  BodyRequest: {
+    allOf: [{$ref: '#/definitions/Request'}],
+    properties: {
+      body: {type: 'string'},
+    }
+  },
+  MethodRequest: {
+    allOf: [{$ref: '#/definitions/BodyRequest'}],
+    required: ['method'],
+    properties: {
+      method: {type: 'string'},
+    }
+  }
+}
+
 let http = module.exports = new datafire.Integration({
   title: "HTTP",
   description: "Make HTTP calls",
 });
-
-const METHODS = ['get', 'put', 'post', 'patch', 'delete', 'options', 'head'];
-
-const schemaProps = {
-  url: {type: 'string'},
-  query: {type: 'object', additionalProperties: true},
-  body: {type: 'string'},
-  headers: {type: 'object', additionalProperties: true},
-}
-const reqSchemaProps = Object.assign({}, schemaProps);
-reqSchemaProps.method = {
-  type: 'string',
-  default: 'get',
-  enum: METHODS,
-}
 
 http.addAction('request', new datafire.Action({
   title: 'request',
   description: 'Make an HTTP request',
 
   inputSchema: {
-    type: 'object',
-    properties: reqSchemaProps,
-    required: ['url'],
+    definitions,
+    $ref: '#/definitions/MethodRequest',
+  },
+  outputSchema: {
+    definitions,
+    $ref: '#/definitions/Response'
   },
 
   handler: (input, ctx) => {
@@ -57,8 +84,12 @@ http.addAction('request', new datafire.Action({
 METHODS.forEach(method => {
   http.addAction(method, new datafire.Action({
     inputSchema: {
-      type: 'object',
-      properties: schemaProps,
+      definitions,
+      $ref: '#/definitions/' + (BODY_METHODS.indexOf(method) === -1 ? 'Request' : 'BodyRequest'),
+    },
+    outputSchema: {
+      definitions,
+      $ref: '#/definitions/Response'
     },
     handler: (input, ctx) => {
       input.method = method;
