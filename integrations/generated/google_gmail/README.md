@@ -1451,3 +1451,17 @@ google_gmail.buildMessage({}, context)
 * subject (string)
 * body (string)
 
+### sendMessage
+
+
+
+```js
+google_gmail.sendMessage({}, context)
+```
+
+#### Parameters
+* to (string)
+* from (string)
+* subject (string)
+* body (string)
+

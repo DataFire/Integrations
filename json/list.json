@@ -7730,12 +7730,12 @@
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_gmail.png"
     },
-    "actionCount": 65,
+    "actionCount": 66,
     "tags": [
       "email",
       "google"
     ],
-    "latestVersion": "2.1.0"
+    "latestVersion": "2.2.0"
   },
   "google_groupsmigration": {
     "id": "google_groupsmigration",

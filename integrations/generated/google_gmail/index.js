@@ -3,16 +3,18 @@ let datafire = require('datafire');
 let openapi = require('./openapi.json');
 module.exports = datafire.Integration.fromOpenAPI(openapi, "google_gmail");
 
+const MESSAGE_SCHEMA = {
+  type: 'object',
+  properties: {
+    to: {type: 'string'},
+    from: {type: 'string'},
+    subject: {type: 'string', default: ''},
+    body: {type: 'string', default: ''},
+  }
+}
+
 module.exports.addAction('buildMessage', new datafire.Action({
-  inputSchema: {
-    type: 'object',
-    properties: {
-      to: {type: 'string'},
-      from: {type: 'string'},
-      subject: {type: 'string', default: ''},
-      body: {type: 'string', default: ''},
-    }
-  },
+  inputSchema: MESSAGE_SCHEMA,
   outputSchema: {
     title: 'encodedMessage',
     type: 'string',
@@ -39,5 +41,19 @@ ${input.body}
     encoded = encoded.replace(/\//g,'_').replace(/\+/g,'-').replace(/=+$/, '');
     return encoded;
   }
+}))
 
+module.exports.addAction('sendMessage', new datafire.Action({
+  inputSchema: MESSAGE_SCHEMA,
+  handler: (input, context) => {
+    return module.exports.actions.buildMessage(input, context)
+      .then(encoded => {
+        return module.exports.actions.users.messages.send({
+          userId: 'me',
+          body: {
+            raw: encoded,
+          },
+        }, context)
+      })
+  }
 }))
